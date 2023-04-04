@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "0b7e167bde9c02bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "9c660792c2316631",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b40feeabb8cca772",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Git/github.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bd4c3e163d3bb527",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Git/git入门.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "498e13a863436561",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a67566f3d324d3f8",
+    "type": "split",
+    "children": [
+      {
+        "id": "253c969ce5fb6548",
+        "type": "tabs",
+        "dimension": 63.84892086330935,
+        "children": [
+          {
+            "id": "86b0a46618d8ba0a",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "644549f2ea441a29",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "21a03d7ff7e78358",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Tools/Git/git入门.md"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "b49fb9eff2f6ac76",
+        "type": "tabs",
+        "dimension": 36.15107913669065,
+        "children": [
+          {
+            "id": "638af3f7231b161a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b718d4b7b66dbfbd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Tools/Git/git入门.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9d395a5bb522340c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Tools/Git/git入门.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "bd3717a50a592ecf",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "canvas:新建白板": false,
+      "switcher:打开快速切换": true,
+      "command-palette:打开命令面板": true,
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "darlal-switcher-plus:Open in Headings Mode": false,
+      "darlal-switcher-plus:Open Symbols for the active editor": false,
+      "remotely-save:Remotely Save": false
+    }
+  },
+  "active": "bd4c3e163d3bb527",
+  "lastOpenFiles": [
+    "Tools/Git/github.md",
+    "Tech-Artist-and-Graphics",
+    "Tools/Git/git入门.md",
+    "编程/设计模式/工厂模式.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "Zstore/1680608390362.png",
+    "Zstore/1680608374180.png",
+    "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
+    "图形学/图形学奇点/图形学奇点.md",
+    "编程/设计模式/未命名",
+    "编程/设计模式",
+    "图形学/软渲染器/软光栅/透视矫正插值.md",
+    "Unity/C#/C#基础.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog.md",
+    "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
+    "Tools/Obsidian/插件流.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog.md",
+    "Zstore/1680601113347.png",
+    "Zstore/1680601213571.png",
+    "Zstore/1680601212717.png",
+    "Zstore/1680601211912.png",
+    "Zstore/1680601211052.png",
+    "Zstore/1680601210210.png",
+    "Zstore/1680601209374.png",
+    "Zbuffer/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog/assets",
+    "Zbuffer/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog",
+    "Zbuffer/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog/assets",
+    "Zbuffer/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md",
+    "Zbuffer/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog/assets",
+    "Zbuffer/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md",
+    "Zbuffer/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog/assets",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 17-Advanced Artificial Intelligence - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 16-Basic Artificial Intelligence - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/6 工具链/GAMES104 课程笔记 14-Applications & Advanced Topic - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/6 工具链/GAMES104 课程笔记 13-Foundation of Tool Chains - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/5 粒子和音效系统/GAMES104 课程笔记 12-Effects - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 11-Applications in Physics System - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 10-Basics Concepts in Physics System - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md",
+    "Software/未命名.canvas",
+    "Tools/系统安全/未命名.canvas",
+    "虚幻UE/4 特效/月神3/未命名.canvas",
+    "啊.canvas"
+  ]
+}

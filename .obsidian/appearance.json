@@ -1,0 +1,16 @@
+{
+  "theme": "moonstone",
+  "translucency": false,
+  "monospaceFontFamily": "Fira Code",
+  "textFontFamily": "Microsoft YaHei",
+  "interfaceFontFamily": "Microsoft YaHei",
+  "cssTheme": "Minimal",
+  "baseFontSize": 19,
+  "enabledCssSnippets": [
+    "Font",
+    "自定义格式"
+  ],
+  "accentColor": "",
+  "nativeMenus": false,
+  "showViewHeader": false
+}

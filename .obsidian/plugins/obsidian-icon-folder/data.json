@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "migrated": true,
+    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "fontSize": 15,
+    "emojiStyle": "none",
+    "iconColor": "#c4c4c4",
+    "recentlyUsedIcons": [
+      "RiInboxArchiveFill",
+      "RiStackFill",
+      "FabAppStore",
+      "SiAppstore",
+      "FabAppStoreIos"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 10,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  "DCC": "SiAdobe",
+  "编程": "SiVisualstudio",
+  "图形学": "SiTaichigraphics",
+  "技术美术": "SiArtstation",
+  "Unity": "SiUnity",
+  "Tools/Git": "SiGithub",
+  "Tools/Obsidian": "SiObsidian",
+  "README.md": "FabReadme",
+  "DCC/Blender": "SiBlender",
+  "DCC/Maya": "SiMonster",
+  "Math": "IbNumbers",
+  "Tools": "RiToolsFill",
+  "Tools/System": "SiMicrosoft",
+  "虚幻引擎": "SiUnrealengine",
+  "Zbuffer": "RiStackFill",
+  "Tools/Software": "FabAppStore",
+  "Zstore": "RiInboxArchiveFill"
+}
