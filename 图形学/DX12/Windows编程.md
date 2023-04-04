@@ -205,8 +205,8 @@ bool InitWindowsApp(HINSTANCE instanceHandle, int show)
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 	wc.lpfnWndProc = WndProc;
 	wc.cbClsExtra = 0;
-| | | | | 	wc.cbWndExtra = 0; | | | | |
-| | | | | 	wc.hInstance = instanceHandle; | | | | |
+	wc.cbWndExtra = 0; 
+	wc.hInstance = instanceHandle; 
 	wc.hIcon = LoadIcon(0, IDI_APPLICATION);
 	wc.hCursor = LoadCursor(0, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
