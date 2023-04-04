@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "图形学/DX12/Windows编程.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "图形学/DX12/Windows编程.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "图形学/DX12/Windows编程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "图形学/DX12/Windows编程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,11 +164,15 @@
   },
   "active": "bd4c3e163d3bb527",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer 5th》.md",
+    "图形学/DX12/Windows编程.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/自研引擎文档.md",
+    "README.md",
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
     "Tech-Artist-and-Graphics",
     "编程/设计模式/工厂模式.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Zstore/1680608390362.png",
     "Zstore/1680608374180.png",
     "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
@@ -206,10 +210,6 @@
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/5 粒子和音效系统/GAMES104 课程笔记 12-Effects - Bo's Blog.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 11-Applications in Physics System - Bo's Blog.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 10-Basics Concepts in Physics System - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
