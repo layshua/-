@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/Windows编程.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,8 +164,8 @@
   },
   "active": "bd4c3e163d3bb527",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/Windows编程.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎文档.md",
     "README.md",
