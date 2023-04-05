@@ -315,6 +315,7 @@ int Run()
 	return (int)msg.wParam;
 }
 ```
+
 `Run` 函数要做的第一件事就是为表示 Windows 消息的 MSG 类型创建一个名为 msg 的变量实例。该结构体的定义如下。
 
 ```c++ nums

@@ -20,6 +20,18 @@
             }
           },
           {
+            "id": "0ad5fa68f85a82a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/BUG记录.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2de26aaf4ad88a17",
             "type": "leaf",
             "state": {
@@ -152,6 +164,7 @@
   "active": "9e1969b353b6588c",
   "lastOpenFiles": [
     "编程/C++/Google C++风格.md",
+    "图形学/DX12/BUG记录.md",
     "图形学/DX12/Windows编程.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎文档.md",
@@ -178,7 +191,6 @@
     "Zbuffer/2_ 作用域 — Google 开源项目风格指南",
     "Zbuffer/1_ 头文件 — Google 开源项目风格指南",
     "编程/设计模式/工厂模式.md",
-    "图形学/DX12/BUG记录.md",
     "README.md",
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
