@@ -78,7 +78,6 @@ LRESULT CALLBACK
 WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 ```
 ## WinMain 函数  
-
 Windous 编程中所用的 `WinMain` 函数，它相当于 C++中的 `main` 函数：  
 
 ```c++
