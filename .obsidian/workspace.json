@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b40feeabb8cca772",
+            "id": "9e1969b353b6588c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/github.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bd4c3e163d3bb527",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/DX12/BUG记录.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "498e13a863436561",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "编程/C++/Google C++风格.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -56,7 +31,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 63.84892086330935,
+        "dimension": 63.03956834532374,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -87,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "编程/C++/Google C++风格.md"
               }
             }
           }
@@ -96,7 +71,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 36.15107913669065,
+        "dimension": 36.960431654676256,
         "children": [
           {
             "id": "638af3f7231b161a",
@@ -114,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "编程/C++/Google C++风格.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "编程/C++/Google C++风格.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,30 +137,47 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "bd4c3e163d3bb527",
+  "active": "9e1969b353b6588c",
   "lastOpenFiles": [
+    "Zbuffer/1_ 头文件 — Google 开源项目风格指南/1_ 头文件 — Google 开源项目风格指南.md",
+    "Zbuffer/2_ 作用域 — Google 开源项目风格指南/2_ 作用域 — Google 开源项目风格指南.md",
+    "Zbuffer/10_ 规则特例 — Google 开源项目风格指南/10_ 规则特例 — Google 开源项目风格指南.md",
+    "Zbuffer/10_ 规则特例 — Google 开源项目风格指南",
+    "Zbuffer/9_ 格式 — Google 开源项目风格指南/9_ 格式 — Google 开源项目风格指南.md",
+    "Zbuffer/9_ 格式 — Google 开源项目风格指南",
+    "Zbuffer/8_ 注释 — Google 开源项目风格指南/8_ 注释 — Google 开源项目风格指南.md",
+    "Zbuffer/8_ 注释 — Google 开源项目风格指南",
+    "Zbuffer/7_ 命名约定 — Google 开源项目风格指南/7_ 命名约定 — Google 开源项目风格指南.md",
+    "Zbuffer/7_ 命名约定 — Google 开源项目风格指南",
+    "Zbuffer/6_ 其他 C++ 特性 — Google 开源项目风格指南/6_ 其他 C++ 特性 — Google 开源项目风格指南.md",
+    "Zbuffer/6_ 其他 C++ 特性 — Google 开源项目风格指南",
+    "Zbuffer/5_ 来自 Google 的奇技 — Google 开源项目风格指南/5_ 来自 Google 的奇技 — Google 开源项目风格指南.md",
+    "Zbuffer/5_ 来自 Google 的奇技 — Google 开源项目风格指南",
+    "Zbuffer/4_ 函数 — Google 开源项目风格指南/4_ 函数 — Google 开源项目风格指南.md",
+    "Zbuffer/4_ 函数 — Google 开源项目风格指南",
+    "Zbuffer/3_ 类 — Google 开源项目风格指南/3_ 类 — Google 开源项目风格指南.md",
+    "Zbuffer/3_ 类 — Google 开源项目风格指南",
+    "编程/C++/Google C++风格.md",
     "图形学/DX12/Windows编程.md",
+    "Zbuffer/2_ 作用域 — Google 开源项目风格指南",
+    "Zbuffer/1_ 头文件 — Google 开源项目风格指南",
+    "编程/设计模式/工厂模式.md",
+    "图形学/DX12/BUG记录.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎文档.md",
     "README.md",
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
-    "Tech-Artist-and-Graphics",
-    "编程/设计模式/工厂模式.md",
     "Zstore/1680608390362.png",
     "Zstore/1680608374180.png",
     "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
     "图形学/图形学奇点/图形学奇点.md",
-    "编程/设计模式/未命名",
-    "编程/设计模式",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Unity/C#/C#基础.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
-    "Tools/Obsidian/插件流.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog.md",
     "Zstore/1680601113347.png",
     "Zstore/1680601213571.png",
     "Zstore/1680601212717.png",
@@ -193,23 +185,6 @@
     "Zstore/1680601211052.png",
     "Zstore/1680601210210.png",
     "Zstore/1680601209374.png",
-    "Zbuffer/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog/assets",
-    "Zbuffer/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog",
-    "Zbuffer/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog/assets",
-    "Zbuffer/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md",
-    "Zbuffer/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog/assets",
-    "Zbuffer/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md",
-    "Zbuffer/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog/assets",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 17-Advanced Artificial Intelligence - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 16-Basic Artificial Intelligence - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/6 工具链/GAMES104 课程笔记 14-Applications & Advanced Topic - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/6 工具链/GAMES104 课程笔记 13-Foundation of Tool Chains - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/5 粒子和音效系统/GAMES104 课程笔记 12-Effects - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 11-Applications in Physics System - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/4 物理系统/GAMES104 课程笔记 10-Basics Concepts in Physics System - Bo's Blog.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
