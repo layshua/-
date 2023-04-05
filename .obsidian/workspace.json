@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/自研引擎文档.md",
+                "file": "图形学/DX12/SBL库.md",
                 "mode": "source",
                 "source": false
               }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/自研引擎文档.md"
+                "file": "图形学/DX12/SBL库.md"
               }
             }
           }
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/自研引擎文档.md",
+                "file": "图形学/DX12/SBL库.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/自研引擎文档.md",
+                "file": "图形学/DX12/SBL库.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -198,11 +198,13 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "558e12df84e006c7",
   "lastOpenFiles": [
+    "新建文件夹",
+    "图形学/DX12/自研引擎文档.md",
+    "图形学/DX12/龙书.md",
     "人工智能",
     "图形学/DX12/BUG记录.md",
-    "图形学/DX12/自研引擎文档.md",
     "图形学/DX12/SBL库.md",
     "图形学/DX12/未命名",
     "Zstore/Pasted image 20230405121938.png",
@@ -234,7 +236,6 @@
     "Zbuffer/4_ 函数 — Google 开源项目风格指南",
     "Zbuffer/3_ 类 — Google 开源项目风格指南/3_ 类 — Google 开源项目风格指南.md",
     "Zbuffer/3_ 类 — Google 开源项目风格指南",
-    "Zbuffer/2_ 作用域 — Google 开源项目风格指南",
     "编程/设计模式/工厂模式.md",
     "README.md",
     "Tools/Git/git入门.md",
@@ -243,7 +244,6 @@
     "Zstore/1680608374180.png",
     "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
     "图形学/图形学奇点/图形学奇点.md",
-    "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
     "Zstore/1680601113347.png",
     "Software/未命名.canvas",

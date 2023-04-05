@@ -1,4 +1,5 @@
-# 0 API
+# 1 simple_file_helper
+## API
 ```c++ nums
 #include "simple_library/public/simple_library.h"
 ```
@@ -103,7 +104,7 @@ bool open_explore_w(const wchar_t* url);
 
 unsigned int get_file_size_by_filename_w(const wchar_t* filename);
 ```
-# 1 打开文件操作
+##  打开文件操作
 `_open_url`地址可以是网站，也可以是本地文件
 ```c++ nums
 open_url("http://renzhai.net/");
@@ -111,7 +112,7 @@ open_url("C:/Test/hello.bmp");
 //open_url_w(L"http://renzhai.net/"); //宽字符
 ```
 
-# 2 读取磁盘二进制文件
+## 读取磁盘二进制文件
 
 ```c++ nums
 char path[] = "C:/Test/hello.bmp";
@@ -119,12 +120,12 @@ char bmp[1024] = { 0 };
 load_data_from_disk(path, bmp);
 ```
 
-# 3 获取文件大小
+##  获取文件大小
 ```c++ nums
 int size = get_file_size_by_filename("C:/Test/hello.bmp");
 ```
 
-# 4 存储数据到磁盘
+## 存储数据到磁盘
 ```c++ nums
 char path[] = "../test.txt";
 char buf[1024] = { 0 };
@@ -132,7 +133,7 @@ save_data_to_disk(path, buf, strlen(buf));
 ```
 
 C 库函数 `size_t strlen(const char *str)` 计算字符串 **str** 的长度，直到空结束字符，但不包括空结束字符。
-# 5 窄字符宽字符抓换
+## 窄字符宽字符抓换
 ```c++ nums
 // 宽字符转窄字符
 wchar_t path_w[] =L"../test.txt";
@@ -147,7 +148,7 @@ char_to_wchar_t(path_w, 1024,path);
 cout << path_w << endl;
 ```
 
-# 6 创建文件和文件夹
+## 创建文件和文件夹
 **创建文件**
 ```c++ nums
 char path[] = "C:/Users/22625/Desktop/LearnSBL/test.txt";
@@ -161,7 +162,7 @@ char path[] = "C:/Users/22625/Desktop/LearnSBL/LearnSBL/TestCreatFiles/FileA";
 create_file_directory(path);
 ```
 
-# 7 递归查找文件
+## 递归查找文件
 ```c++ nums
 char path[] = "C:/Users/22625/Desktop/LearnSBL/LearnSBL";
 def_c_paths c_paths;
@@ -169,4 +170,30 @@ memset(&c_paths, 0, sizeof(def_c_paths)); //初始化
 find_files(path, &c_paths, true);
 ```
 
-# 8 获取不包含头部的路径
+
+# 2 simple_path
+## API
+```c++ nums
+// 获取不包含头部的路径
+void get_path_directory_inline(char *path_buf);
+void get_path_directory(char *buf, const char *path_buf);
+// 文件路径中的"\\"转换成"/"
+void normalization_path(char *path_buf);
+void get_path_clean_filename(char *buf, const char *path_buf);
+void normalization_directory(char *buf, const char *path_buf);
+
+char* get_full_path(char* in_path_buf, int in_buff_len,const char *in_path);
+
+void get_path_clean_filename_w(wchar_t* buf, const wchar_t* path_buf);
+```
+
+## 获取不包含头部的路径
+
+```c++ nums
+char path[] = "C:/Users/22625/Desktop/LearnSBL/test";
+get_path_directory_inline(path);
+cout << path << endl;
+
+//输出结果是test的上层路径：C:/Users/22625/Desktop/LearnSBL/
+```
+
