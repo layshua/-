@@ -12,8 +12,12 @@
 int WINAPI
 WinMain(_In_ HINSTANCE  hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ PSTR pCmdLine, _In_ int nCmdShow)
 ```
-## 日志的堆栈保留设置
-由于使用日志系统导致内存不足
+
+## 堆栈保留设置
+由于使用日志系统或 SBL 库文件操作导致内存不足：`0xC00000FD Stack overflow`
 ![[Pasted image 20230405103536.png]]
-解决方法：将堆栈保留大小调高：
+![[Pasted image 20230405121938.png]]
+解决方法一：将堆栈保留大小调高：
 ![[Pasted image 20230405103842.png]]
+解决方法二：减小定义的结构体成员大小（这里展示的是 SBL 库中的配置）
+![[Pasted image 20230405120940.png]]

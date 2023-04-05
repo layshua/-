@@ -4,6 +4,20 @@
 ```
 
 ```c++ nums
+void init_def_c_paths(def_c_paths *c_paths);
+void init_def_c_paths_w(def_c_paths_w* c_paths);
+
+// 拷贝文件
+int copy_file(char *Src, char *Dest);
+
+// 查找文件（第3个参数确定是否递归查找）
+void find_files(char const *in_path, def_c_paths *str,bool b_recursion);
+
+bool is_file_exists(char const* filename);
+
+// 创建文件夹
+bool create_file(char const *filename);
+
 // 创建路径
 bool create_file_directory(char const *in_path);
 
@@ -127,5 +141,26 @@ wchar_t_to_char(path, sizeof(path), path_w);
 cout << path << endl;
 
 // 窄字符转宽字符
-
+char path[] = "../test.txt";
+wchar_t path_w[1024] = { 0 };
+char_to_wchar_t(path_w, 1024,path);
+cout << path_w << endl;
 ```
+
+# 6 创建文件和文件夹
+**创建文件**
+```c++ nums
+char path[] = "C:/Users/22625/Desktop/LearnSBL/test.txt";
+create_file(path);
+```
+
+**创建文件夹**
+在地址 `C:/Users/22625/Desktop/LearnSBL/LearnSBL` 后创建文件夹 `TestCreatFiles` 及其子文件夹 ` FileA `
+```c++ nums
+char path[] = "C:/Users/22625/Desktop/LearnSBL/LearnSBL/TestCreatFiles/FileA";
+create_file_directory(path);
+```
+
+# 7 递归查找文件
+
+

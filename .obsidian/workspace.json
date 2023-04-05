@@ -44,6 +44,18 @@
             }
           },
           {
+            "id": "558e12df84e006c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/BUG记录.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "0ad5fa68f85a82a2",
             "type": "leaf",
             "state": {
@@ -68,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -111,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -138,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,14 +198,16 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "7d34fa22326f8219",
+  "active": "558e12df84e006c7",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230405121938.png",
+    "Zstore/Pasted image 20230405120940.png",
     "图形学/DX12/SBL库.md",
+    "图形学/DX12/Windows编程.md",
+    "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎文档.md",
     "图形学/DX12/未命名",
     "图形学/DX12/BUG记录.md",
-    "图形学/DX12/Windows编程.md",
-    "图形学/DX12/DirectXMath.md",
     "Zstore/Pasted image 20230405105832.png",
     "Zstore/Pasted image 20230405105636.png",
     "Zstore/Pasted image 20230405103842.png",
@@ -229,11 +243,9 @@
     "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
     "图形学/图形学奇点/图形学奇点.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
-    "Unity/C#/C#基础.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
     "Zstore/1680601113347.png",
     "Zstore/1680601213571.png",
-    "Zstore/1680601212717.png",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
