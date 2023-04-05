@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "SiOpenai",
       "RiInboxArchiveFill",
       "RiStackFill",
       "FabAppStore",
-      "SiAppstore",
-      "FabAppStoreIos"
+      "SiAppstore"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -37,5 +37,6 @@
   "虚幻引擎": "SiUnrealengine",
   "Zbuffer": "RiStackFill",
   "Tools/Software": "FabAppStore",
-  "Zstore": "RiInboxArchiveFill"
+  "Zstore": "RiInboxArchiveFill",
+  "人工智能": "SiOpenai"
 }
