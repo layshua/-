@@ -1,6 +1,5 @@
+[C++ 风格指南 — Google 开源项目风格指南 (zh-google-styleguide.readthedocs.io)](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/)
 # 1 头文件
-
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 通常每一个 `.cc` 文件都有一个对应的 `.h` 文件. 也有一些常见例外, 如单元测试代码和只包含 `main()` 函数的 `.cc` 文件.
 
@@ -190,8 +189,6 @@ Tip
 5.  在 `#include` 中插入空行以分割相关头文件, C 库, C++ 库, 其他库的 `.h` 和本项目内的 `.h` 是个好习惯。
 
 # 2 作用域
-
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ## 2.1. 命名空间
 
@@ -484,7 +481,6 @@ Yang.Y 译注:
 
 # 3 类
 
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 类是 C++ 中代码的基本单元. 显然, 它们被广泛使用. 本节列举了在写一个类时的主要注意事项.
 
@@ -805,8 +801,6 @@ C++ 允许用户通过使用 `operator` 关键字 [对内建运算符进行重�
 
 # 4 函数
 
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-
 ## 4.1. 输入和输出
 
 **总述**
@@ -972,8 +966,6 @@ template <class T, class U> decltype(declval<T&>() + declval<U&>()) add(T t, U u
 
 # 5 来自 Google 的奇技
 
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-
 Google 用了很多自己实现的技巧 / 工具使 C++ 代码更加健壮, 我们使用 C++ 的方式可能和你在其它地方见到的有所不同.
 
 ## 5.1. 所有权与智能指针
@@ -1044,7 +1036,6 @@ void FooConsumer(std::unique_ptr<Foo> ptr);
 
 # 6 其他 C++特性
 
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ## 6.1. 引用参数
 
@@ -1856,8 +1847,6 @@ C++11 特性除了个别情况下，可以用一用。除了本指南会有不�
 # 7 命名约定
 
 
-[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-
 最重要的一致性规则是命名管理. 命名的风格能让我们在不需要去查找类型声明的条件下快速地了解某个名字代表的含义: 类型, 变量, 函数, 常量, 宏, 等等, 甚至. 我们大脑中的模式匹配引擎非常依赖这些命名规则.
 
 命名规则具有一定随意性, 但相比按个人喜好命名, 一致性更重要, 所以无论你认为它们是否重要, 规则总归是规则.
@@ -1872,13 +1861,13 @@ C++11 特性除了个别情况下，可以用一用。除了本指南会有不�
 
 尽可能使用描述性的命名, 别心疼空间, 毕竟相比之下让代码易于新读者理解更重要. 不要用只有项目开发者能理解的缩写, 也不要通过砍掉几个字母来缩写单词.
 
-```
+```c++
 int price_count_reader;    // 无缩写
 int num_errors;            // "num" 是一个常见的写法
 int num_dns_connections;   // 人人都知道 "DNS" 是什么
 ```
 
-```
+```c++
 int n;                     // 毫无意义.
 int nerr;                  // 含糊不清的缩写.
 int n_comp_conns;          // 含糊不清的缩写.
@@ -2184,7 +2173,7 @@ class GargantuanTableIterator {
 
 举例如下:
 
-```
+```c++
 // Returns an iterator for this table.  It is the client's
 // responsibility to delete the iterator when it is done with it,
 // and it must not use the iterator once the GargantuanTable object
@@ -2204,7 +2193,7 @@ Iterator* GetIterator() const;
 
 但也要避免罗罗嗦嗦, 或者对显而易见的内容进行说明. 下面的注释就没有必要加上 “否则返回 false”, 因为已经暗含其中了:
 
-```
+```c++
 // Returns true if the table cannot hold any more entries.
 bool IsTableFull();
 ```
@@ -2233,7 +2222,7 @@ _不要_ 从 `.h` 文件或其他地方的函数声明处直接复制注释. 简
 
 特别地, 如果变量可以接受 `NULL` 或 `-1` 等警戒值, 须加以说明. 比如:
 
-```
+```c++
 private:
  // Used to bounds-check table accesses. -1 means
  // that we don't yet know how many entries the table has.
@@ -2244,7 +2233,7 @@ private:
 
 和数据成员一样, 所有全局变量也要注释说明含义及用途, 以及作为全局变量的原因. 比如:
 
-```
+```c++
 // The total number of tests cases that we run through in this regression test.
 const int kNumTestCases = 6;
 ```
@@ -2261,7 +2250,7 @@ const int kNumTestCases = 6;
 
 巧妙或复杂的代码段前要加注释. 比如:
 
-```
+```c++
 // Divide result by two, taking into account that x
 // contains the carry from the add.
 for (int i = 0; i < result->size(); i++) {
@@ -2275,7 +2264,7 @@ for (int i = 0; i < result->size(); i++) {
 
 比较隐晦的地方要在行尾加入注释. 在行尾空两格进行注释. 比如:
 
-```
+```c++
 // If we have enough memory, mmap the data portion too.
 mmap_budget = max<int64>(0, mmap_budget - index_->length());
 if (mmap_budget >= data_size_ && !MmapData(mmap_chunk_bytes, mlock))
@@ -2286,7 +2275,7 @@ if (mmap_budget >= data_size_ && !MmapData(mmap_chunk_bytes, mlock))
 
 如果你需要连续进行多行注释, 可以使之对齐获得更好的可读性:
 
-```
+```c++
 DoSomething();                  // Comment here so the comments line up.
 DoSomethingElseThatIsLonger();  // Two spaces between the code and the comment.
 { // One space before comment when opening a new scope is allowed,
@@ -2313,14 +2302,14 @@ DoSomething(); /* For trailing block comments, one space is fine. */
 
 比如下面的示例的对比:
 
-```
+```c++
 // What are these arguments?
 const DecimalNumber product = CalculateProduct(values, 7, false, nullptr);
 ```
 
 和
 
-```
+```c++
 ProductOptions options;
 options.set_precision_decimals(7);
 options.set_use_cache(ProductOptions::kDontUseCache);
@@ -2338,7 +2327,7 @@ const DecimalNumber product =
 
 比较这样的注释:
 
-```
+```c++
 // Find the element in the vector.  <-- 差: 这太明显了!
 auto iter = std::find(v.begin(), v.end(), element);
 if (iter != v.end()) {
@@ -2348,7 +2337,7 @@ if (iter != v.end()) {
 
 和这样的注释:
 
-```
+```c++
 // Process "element" unless it was already processed.
 auto iter = std::find(v.begin(), v.end(), element);
 if (iter != v.end()) {
@@ -2358,7 +2347,7 @@ if (iter != v.end()) {
 
 自文档化的代码根本就不需要注释. 上面例子中的注释对下面的代码来说就是毫无必要的:
 
-```
+```c++
 if (!IsAlreadyProcessed(element)) {
   Process(element);
 }
@@ -2384,7 +2373,7 @@ if (!IsAlreadyProcessed(element)) {
 
 `TODO` 注释要使用全大写的字符串 `TODO`, 在随后的圆括号里写上你的名字, 邮件地址, bug ID, 或其它身份标识和与这一 `TODO` 相关的 issue. 主要目的是让添加注释的人 (也是可以请求提供更多细节的人) 可根据规范的 `TODO` 格式进行查找. 添加 `TODO` 注释并不意味着你要自己来修正, 因此当你加上带有姓名的 `TODO` 时, 一般都是写上自己的名字.
 
-```
+```c++
 // TODO(kl@gmail.com): Use a "*" here for concatenation operator.
 // TODO(Zeke) change this to use relations.
 // TODO(bug 12345): remove the "Last visitors" feature
@@ -2489,7 +2478,7 @@ if (!IsAlreadyProcessed(element)) {
 
 函数看上去像这样:
 
-```
+```c++
 ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
   DoSomething();
   ...
@@ -2498,7 +2487,7 @@ ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
 
 如果同一行文本太多, 放不下所有参数:
 
-```
+```c++
 ReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2,
                                              Type par_name3) {
   DoSomething();
@@ -2508,7 +2497,7 @@ ReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2,
 
 甚至连第一个参数都放不下:
 
-```
+```c++
 ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
     Type par_name1,  // 4 space indent
     Type par_name2,
@@ -2536,7 +2525,7 @@ ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
 
 未被使用的参数, 或者根据上下文很容易看出其用途的参数, 可以省略参数名:
 
-```
+```c++
 class Foo {
  public:
   Foo(Foo&&);
@@ -2548,7 +2537,7 @@ class Foo {
 
 未被使用的参数如果其用途不明显的话, 在函数定义处将参数名注释起来:
 
-```
+```c++
 class Shape {
  public:
   virtual void Rotate(double radians) = 0;
@@ -2562,14 +2551,14 @@ class Circle : public Shape {
 void Circle::Rotate(double /*radians*/) {}
 ```
 
-```
+```c++
 // 差 - 如果将来有人要实现, 很难猜出变量的作用.
 void Circle::Rotate(double) {}
 ```
 
 属性, 和展开为属性的宏, 写在函数声明或定义的最前面, 即返回类型之前:
 
-```
+```c++
 MUST_USE_RESULT bool IsOK();
 ```
 

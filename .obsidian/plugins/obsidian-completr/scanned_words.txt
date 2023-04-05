@@ -3185,6 +3185,7 @@ odM
 oQsG
 oVam
 oZs
+other
 OneDrive
 Obsidian
 Office
@@ -7262,6 +7263,8 @@ OwK
 OTg
 OhirH
 OQYQ
+Ownership
+Opens
 codeup
 clash
 ctrl
@@ -11057,6 +11060,13 @@ cbp
 ccQ
 contained
 conditional
+copyable
+cpplint
+containers
+clients
+comments
+callsites
+coders
 github
 grey
 green
@@ -17777,6 +17787,7 @@ teSl
 tWf
 tmGqN
 templateFactory
+trailing
 markdown
 matter
 mod
@@ -21500,6 +21511,8 @@ mKEg
 mffF
 methodFactory
 mYs
+methods
+movable
 windows
 win
 width
@@ -24838,6 +24851,8 @@ wVD
 wYuG
 wDlo
 wTSF
+warning
+warnings
 utools
 url
 unresolved
@@ -28315,6 +28330,8 @@ uwM
 uniqloFactory
 uniqlo
 unspecified
+uint
+undef
 everything
 ea
 ede
@@ -31756,6 +31773,7 @@ eRD
 eXTm
 egO
 excute
+errors
 VPN
 Verge
 VS
@@ -41944,6 +41962,10 @@ AbstractProduct
 ACIk
 Aaaa
 AbstractFactory
+Avoid
+Arch
+AUR
+Assist
 URL
 Utools
 Users
@@ -45360,6 +45382,7 @@ UoWk
 UUt
 UQA
 UNIX
+ULL
 api
 ac
 app
@@ -48825,6 +48848,10 @@ aod
 aEOo
 adidas
 acgtyrant
+affect
+alloca
+aggregate
+algorithms
 Roaming
 RegWorkshop
 Release
@@ -52774,6 +52801,8 @@ RamX
 RwQ
 RQjv
 RegisterProduct
+Rust
+Refactor
 Microsoft
 Menu
 MicaForEveryone
@@ -57060,6 +57089,7 @@ MJQu
 MMR
 MJWJ
 MOBl
+MSVC
 Windows
 Win
 World
@@ -64921,6 +64951,9 @@ Shoes
 ShoesFactory
 SHOES
 Sctl
+Stroustrup
+Spirit
+SFINAE
 Programs
 POP
 PC
@@ -68623,6 +68656,13 @@ ProductRegistrar
 ProductImpl
 ProductRegistry
 Plain
+PRId
+PRIu
+PRIx
+PRIuS
+PRIxS
+PRIdS
+Polygon
 ContextMenuManager
 ClashVerge
 Clash
@@ -72382,6 +72422,8 @@ CSOo
 ConcreteFactory
 ConcreteProduct
 CreateProduct
+Cpplint
+Constructer
 ImTip
 IMAP
 ID
@@ -75975,6 +76017,8 @@ Impossible
 IczCD
 IProductRegistrar
 IEWnuE
+Init
+Initializer
 qq
 qyi
 quad
@@ -83432,6 +83476,9 @@ pQC
 plQL
 pNiKeShoes
 pUniqloClothe
+promotions
+ptrdiff
+polymorphic
 nodesCatch
 nobr
 navy
@@ -86816,6 +86863,8 @@ nVrD
 nikeFactory
 nike
 namespaces
+normally
+naming
 bf
 bc
 black
@@ -90130,6 +90179,8 @@ bll
 bnW
 bOn
 bqEj
+bugs
+boost
 fe
 front
 fill
@@ -93359,6 +93410,8 @@ fiER
 fBE
 fOY
 fzwv
+failures
+factory
 dd
 dcc
 data
@@ -97071,6 +97124,10 @@ dkqR
 dln
 declarations
 directive
+deals
+defining
+doesn
+depend
 TFvYZOKeHL
 TAB
 TeX
@@ -104813,6 +104870,8 @@ imSt
 iLwY
 imWz
 incomplete
+invisible
+iterators
 shift
 svg
 sf
@@ -108840,6 +108899,8 @@ sEEY
 singleFactory
 symbols
 specific
+states
+structures
 local
 list
 left
@@ -112156,6 +112217,9 @@ ljjRV
 lmEy
 lbAEm
 leN
+llu
+lambd
+leveldb
 YAML
 You
 YEBAYGhURFRofHx
@@ -122675,6 +122739,9 @@ rmae
 rCpc
 rsDU
 registrar
+rtti
+rules
+responses
 XXXXXX
 XXX
 XML
@@ -154214,6 +154281,11 @@ LJXo
 LVIq
 LiNingShoes
 LiNingProducer
+Lambdas
+LGPL
+LINUX
+Locale
+List
 Getx
 GetX
 GetName
@@ -158394,6 +158466,8 @@ GYZM
 GtOM
 GSEk
 GetProduct
+GiB
+GPL
 NULL
 Native
 NormalMap
@@ -162016,6 +162090,7 @@ NiKeClothe
 Nur
 NikeShoes
 NiKe
+November
 ZooAnima
 ZooAnimal
 ZTest
@@ -170023,6 +170098,7 @@ QSN
 QWQ
 QVWAW
 QUST
+QueryResult
 Java
 JPEG
 JlAGTAAAAAAf

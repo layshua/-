@@ -13,6 +13,18 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "图形学/DX12/Windows编程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2de26aaf4ad88a17",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "编程/C++/Google C++风格.md",
                 "mode": "source",
                 "source": false
@@ -62,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/Google C++风格.md"
+                "file": "图形学/DX12/Windows编程.md"
               }
             }
           }
@@ -89,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/Google C++风格.md",
+                "file": "图形学/DX12/Windows编程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/Google C++风格.md",
+                "file": "图形学/DX12/Windows编程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,6 +151,12 @@
   },
   "active": "9e1969b353b6588c",
   "lastOpenFiles": [
+    "编程/C++/Google C++风格.md",
+    "图形学/DX12/Windows编程.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/自研引擎文档.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "编程/C++/Cherno剩余.md",
     "Zbuffer/1_ 头文件 — Google 开源项目风格指南/1_ 头文件 — Google 开源项目风格指南.md",
     "Zbuffer/2_ 作用域 — Google 开源项目风格指南/2_ 作用域 — Google 开源项目风格指南.md",
     "Zbuffer/10_ 规则特例 — Google 开源项目风格指南/10_ 规则特例 — Google 开源项目风格指南.md",
@@ -157,15 +175,10 @@
     "Zbuffer/4_ 函数 — Google 开源项目风格指南",
     "Zbuffer/3_ 类 — Google 开源项目风格指南/3_ 类 — Google 开源项目风格指南.md",
     "Zbuffer/3_ 类 — Google 开源项目风格指南",
-    "编程/C++/Google C++风格.md",
-    "图形学/DX12/Windows编程.md",
     "Zbuffer/2_ 作用域 — Google 开源项目风格指南",
     "Zbuffer/1_ 头文件 — Google 开源项目风格指南",
     "编程/设计模式/工厂模式.md",
     "图形学/DX12/BUG记录.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "图形学/DX12/DirectXMath.md",
-    "图形学/DX12/自研引擎文档.md",
     "README.md",
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
@@ -176,7 +189,6 @@
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Unity/C#/C#基础.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 22-GPU-Driven Geometry Pipeline-Nanite - Bo's Blog.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
     "Zstore/1680601113347.png",
     "Zstore/1680601213571.png",
