@@ -223,9 +223,52 @@ cout << path << endl;
 //输出：C:/LearnSBL/test
 ```
 # 3 simple_guid. h
-## 创建全局唯一 ID
-miao
+guid：全局唯一标识符（Globally Unique Identifier）
+作用：描述程序和对象的唯一性，防止重复，可用于加密。
+**引擎会实现类似于 UE 中的 Uobject 的对象，标志对象本身的身份，防止身份重复**
+
+
+本库产生的字符串格式的guid 为随机值，格式如下：
 ```c++ nums
-simple_c_guid c_guid;
-create_guid(& c_guid);
+6EDEF5244933469C10753AB40C944268
 ```
+
+API：
+```c++ nums
+// guid数据结构，变量类型为simple_c_guid
+typedef struct
+{
+    unsigned int a;
+    unsigned int b;
+    unsigned int c;
+    unsigned int d;
+}simple_c_guid;
+
+// 创建guid
+void create_guid(simple_c_guid* c_guid);
+
+// 创建字符串格式的guid
+void create_guid_str(char* c_guid);
+
+// 判断guid是否有意义：guid全部为0时无意义
+bool is_guid_valid(simple_c_guid* c_guid);
+
+// 判断字符串guid是否有意义
+bool is_guid_valid_str(const char* c_guid);
+
+// 归一化guid：将guid清零
+void normalization_guid(simple_c_guid* c_guid);
+
+// guid转字符串
+void guid_to_string(char *buf, const simple_c_guid * c_guid);
+
+// 字符串转guid
+void string_to_guid(const char* buf, simple_c_guid* c_guid);
+
+// guid相等判定
+bool guid_equal(const simple_c_guid * c_guid_a, const simple_c_guid * c_guid_b);
+
+// 字符串格式的guid相等判定 
+bool guid_equal_str(const char *guid_string, const simple_c_guid * c_guid);
+```
+
