@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/Windows编程.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/Windows编程.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,9 +163,11 @@
   },
   "active": "9e1969b353b6588c",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230405103842.png",
+    "Zstore/Pasted image 20230405103536.png",
+    "图形学/DX12/Windows编程.md",
     "编程/C++/Google C++风格.md",
     "图形学/DX12/BUG记录.md",
-    "图形学/DX12/Windows编程.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎文档.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -200,7 +202,6 @@
     "图形学/图形学奇点/图形学奇点.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Unity/C#/C#基础.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 21-Dynamic Global Illumination and Lumen - Bo's Blog.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
     "Zstore/1680601113347.png",
     "Zstore/1680601213571.png",
@@ -208,7 +209,6 @@
     "Zstore/1680601211912.png",
     "Zstore/1680601211052.png",
     "Zstore/1680601210210.png",
-    "Zstore/1680601209374.png",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
