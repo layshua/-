@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/自研引擎文档.md",
                 "mode": "source",
                 "source": false
               }
@@ -92,7 +92,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 63.03956834532374,
+        "dimension": 63.039568345323744,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "图形学/DX12/自研引擎文档.md"
               }
             }
           }
@@ -132,7 +132,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 36.960431654676256,
+        "dimension": 36.96043165467626,
         "children": [
           {
             "id": "638af3f7231b161a",
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/自研引擎文档.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/自研引擎文档.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -200,14 +200,14 @@
   },
   "active": "558e12df84e006c7",
   "lastOpenFiles": [
+    "图形学/DX12/BUG记录.md",
+    "图形学/DX12/自研引擎文档.md",
+    "图形学/DX12/SBL库.md",
+    "图形学/DX12/未命名",
     "Zstore/Pasted image 20230405121938.png",
     "Zstore/Pasted image 20230405120940.png",
-    "图形学/DX12/SBL库.md",
     "图形学/DX12/Windows编程.md",
     "图形学/DX12/DirectXMath.md",
-    "图形学/DX12/自研引擎文档.md",
-    "图形学/DX12/未命名",
-    "图形学/DX12/BUG记录.md",
     "Zstore/Pasted image 20230405105832.png",
     "Zstore/Pasted image 20230405105636.png",
     "Zstore/Pasted image 20230405103842.png",
@@ -245,7 +245,6 @@
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Zstore/--xJ4PwufQqlzSthwBjlpg.gif",
     "Zstore/1680601113347.png",
-    "Zstore/1680601213571.png",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",

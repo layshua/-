@@ -162,5 +162,11 @@ create_file_directory(path);
 ```
 
 # 7 递归查找文件
+```c++ nums
+char path[] = "C:/Users/22625/Desktop/LearnSBL/LearnSBL";
+def_c_paths c_paths;
+memset(&c_paths, 0, sizeof(def_c_paths)); //初始化
+find_files(path, &c_paths, true);
+```
 
-
+# 8 获取不包含头部的路径
