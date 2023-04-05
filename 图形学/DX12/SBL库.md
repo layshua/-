@@ -1,4 +1,4 @@
-# 1 simple_file_helper
+# 1 simple_file_helper. h
 ## API
 ```c++ nums
 #include "simple_library/public/simple_library.h"
@@ -171,15 +171,18 @@ find_files(path, &c_paths, true);
 ```
 
 
-# 2 simple_path
+# 2 simple_path. h
 ## API
 ```c++ nums
-// 获取不包含头部的路径
+// 获取path_buf路径的身体
 void get_path_directory_inline(char *path_buf);
+// 获取path_buf路径的身体并拷贝到buf
 void get_path_directory(char *buf, const char *path_buf);
-// 文件路径中的"\\"转换成"/"
+// 归一化路径：文件路径中的"\\"转换成"/"
 void normalization_path(char *path_buf);
+// 获取path_buf路径的头部并拷贝到buf
 void get_path_clean_filename(char *buf, const char *path_buf);
+// 归一化路径：path_buf路径中的"/"转换成"\\",并拷贝到buf,并只获取身体
 void normalization_directory(char *buf, const char *path_buf);
 
 char* get_full_path(char* in_path_buf, int in_buff_len,const char *in_path);
@@ -187,13 +190,42 @@ char* get_full_path(char* in_path_buf, int in_buff_len,const char *in_path);
 void get_path_clean_filename_w(wchar_t* buf, const wchar_t* path_buf);
 ```
 
-## 获取不包含头部的路径
+##  获取路径的身体
 
 ```c++ nums
-char path[] = "C:/Users/22625/Desktop/LearnSBL/test";
+char path[] = "C:/LearnSBL/test";
 get_path_directory_inline(path);
 cout << path << endl;
+// 输出：test的上层路径：C:/LearnSBL/
 
-//输出结果是test的上层路径：C:/Users/22625/Desktop/LearnSBL/
+char path1[1024] = "C:/LearnSBL/test";
+char path2[1024] = { 0 };
+get_path_directory(path2, path1);
+cout << path2 << endl;
+// 输出：test的上层路径：C:/LearnSBL/
 ```
+## 获取路径的头部
+```c++ nums
+char path1[1024] = "C:/LearnSBL/test";
+char path2[1024] = { 0 };
+get_path_clean_filename(path2, path1);
+cout << path2 << endl;
 
+//输出：test
+```
+## 归一化路径
+将文件路径中的`\\`转换成`/`
+```c++ nums
+char path[1024] = "C:\\LearnSBL\\test";
+normalization_path(path);
+cout << path << endl;
+
+//输出：C:/LearnSBL/test
+```
+# 3 simple_guid. h
+## 创建全局唯一 ID
+miao
+```c++ nums
+simple_c_guid c_guid;
+create_guid(& c_guid);
+```
