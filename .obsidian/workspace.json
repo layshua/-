@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e4ea95c93e8aea9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "人工智能/Python/基础.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "64791f1a91d6d036",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/IDE/Pycharm.md",
+                "file": "人工智能/Python/基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -150,12 +138,14 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "3e4ea95c93e8aea9",
+  "active": "64791f1a91d6d036",
   "lastOpenFiles": [
     "编程/IDE/Pycharm.md",
-    "Zstore/Pasted image 20230406202829.png",
-    "人工智能/Python/基础.md",
     "编程/IDE/Reshaper快捷键.md",
+    "assets/1680774386314.png.md",
+    "人工智能/Python/基础.md",
+    "assets",
+    "Zstore/Pasted image 20230406202829.png",
     "Zstore/1680783205849.png",
     "未命名.canvas",
     "Zstore/1680783206236.png",
@@ -188,7 +178,6 @@
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/assets",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客.md",
     "编程/C++/Cherno剩余.md",
     "图形学/DX12/SBL库.md",
