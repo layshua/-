@@ -1,10 +1,14 @@
-simple_library
-# 1 simple_file_helper
-## API
-```c++ nums
+
+```c++
+//文件地址
+simple_librar/public/simple_core_minimal/
+
+//头文件
 #include "simple_library/public/simple_library.h"
 ```
 
+# 1 simple_file_helper
+## API
 ```c++ nums
 void init_def_c_paths(def_c_paths *c_paths);
 void init_def_c_paths_w(def_c_paths_w* c_paths);
@@ -274,3 +278,14 @@ bool guid_equal_str(const char *guid_string, const simple_c_guid * c_guid);
 ```
 
 # 4 simple_c_time
+实践操作，用到再讲
+# 5 simple_c_windows
+## 
+Windows 控制台字体着色
+```c++
+// （字体颜色，背景颜色）
+set_console_w_color(simple_console_w_color::SIMPLE_LIGHT_BLUE, simple_console_w_color::SIMPLE_BRIGHT_WHITE);
+cout << "hello" << endl;
+```
+
+![[Pasted image 20230406110626.png]]
