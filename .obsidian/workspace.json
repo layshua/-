@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
               "type": "search",
               "state": {
                 "query": "tag:#include",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
                 "extraContext": false,
@@ -62,12 +62,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书.md"
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -90,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,21 +138,22 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "644549f2ea441a29",
+  "active": "638af3f7231b161a",
   "lastOpenFiles": [
+    "图形学/DX12/龙书",
+    "Zstore/Pasted image 20230406150703.png",
     "编程/C++/Cherno剩余.md",
     "图形学/DX12/SBL库.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/Windows编程.md",
     "Zstore/Pasted image 20230406112443.png",
     "Zstore/Pasted image 20230406110626.png",
-    "图形学/DX12/龙书.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Tools/Obsidian/插件流.md",
     "新建文件夹",
     "图形学/DX12/自研引擎文档.md",
     "人工智能",
     "图形学/DX12/BUG记录.md",
-    "图形学/DX12/未命名",
     "Zstore/Pasted image 20230405121938.png",
     "Zstore/Pasted image 20230405120940.png",
     "图形学/DX12/DirectXMath.md",
@@ -184,7 +184,6 @@
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
     "Zstore/1680608390362.png",
-    "Zstore/1680608374180.png",
     "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",

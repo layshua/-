@@ -3,8 +3,6 @@
     text-indent : 2em;   
 } 
 
-
-
 /* 搜索选中框 */
 .cm-s-obsidian span.obsidian-search-match-highlight {
     box-shadow: 0 0 0px 3px rgb(255, 0, 0);
@@ -24,13 +22,12 @@
     /*--------文字距边缘的距离--*/
     padding: 2px 4px;
 }
-
 /* 标注中的代码块 */
 .markdown-rendered code {
     background-color: #e4e4e4;
     /* 边框 */
     box-shadow: 0 0 0px 1px rgb(172, 172, 148);
-    border-radius: 1;
+    border-radius: 0;
     padding: 2px 4px;
 }
 
