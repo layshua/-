@@ -295,4 +295,23 @@ cout << "hello" << endl;
 
 ![[Pasted image 20230406112443.png]]
 # 6 simple_delegate
-单播和多播
+代理：单播和多播, 网络相关的暂时不学
+# 7 simple_c_string_algorithm
+字符串算法
+```c++ nums
+// 获取合体字符串（多个字符串存入buf）
+int SIMPLE_LIBRARY_API wget_printf(wchar_t *buf, const wchar_t *format, ...);
+
+// 获取合体字符串（宽字符）
+int SIMPLE_LIBRARY_API wget_printf_s(wchar_t *out_buf, const wchar_t *format, ...);
+```
+
+## 移除连续的子串
+```c++ nums
+//将"HelloCCCC"中的"Hello"移除
+char str[] = "HelloCCCC";
+char substr[] = "Hello";
+remove_string_start(str, substr);
+cout << str << endl;
+//输出CCCC
+```
