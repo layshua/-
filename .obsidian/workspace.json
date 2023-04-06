@@ -25,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Python/基础.md",
+                "file": "编程/IDE/Pycharm.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -151,9 +150,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "64791f1a91d6d036",
+  "active": "3e4ea95c93e8aea9",
   "lastOpenFiles": [
     "编程/IDE/Pycharm.md",
+    "Zstore/Pasted image 20230406202829.png",
+    "人工智能/Python/基础.md",
     "编程/IDE/Reshaper快捷键.md",
     "Zstore/1680783205849.png",
     "未命名.canvas",
@@ -167,7 +168,6 @@
     "Zstore/1680783205920.png",
     "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客",
-    "人工智能/Python/基础.md",
     "Math/线性代数/《李永乐线代》.md",
     "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
@@ -176,7 +176,6 @@
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客.md",
     "DCC/Zbush/基本操作.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客.md",
-    "Zstore/1680774432595.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客.md",
@@ -199,7 +198,6 @@
     "图形学/DX12/自研引擎文档.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/DirectXMath.md",
-    "编程/C++/Google C++风格.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",

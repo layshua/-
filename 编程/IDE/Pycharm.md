@@ -1,4 +1,4 @@
-### 代码格式化插件 autopep8
+# 代码格式化插件 autopep8
 1. 安装 autopep8
 ```c++ nums
 // cmd输入
@@ -45,3 +45,6 @@ Output filters: $FILE_PATH$\:$LINE$\:$COLUMN$\:.*
 ![](1680783206236.png)
 
 输入自己想设置的快捷键，但注意不能与其他快捷键重复。设置完毕后，在敲代码时，便可通过快捷键优化代码格式。
+
+# 自动换行
+![[Pasted image 20230406202829.png]]
