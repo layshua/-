@@ -291,6 +291,8 @@ cout << "hello" << endl;
 ![[Pasted image 20230406110626.png]]
 
 ## simple_c_windows_register. h
-修改注册表，可以实现类似 ue 右键菜单选项的功能
+修改注册表 (需要管理员权限)，可以实现类似 ue 右键菜单选项的功能
 
 ![[Pasted image 20230406112443.png]]
+# 6 simple_delegate
+单播和多播
