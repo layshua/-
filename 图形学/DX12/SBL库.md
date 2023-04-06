@@ -280,7 +280,7 @@ bool guid_equal_str(const char *guid_string, const simple_c_guid * c_guid);
 # 4 simple_c_time
 实践操作，用到再讲
 # 5 simple_c_windows
-## 
+## simple_c_windows_setting.h
 Windows 控制台字体着色
 ```c++
 // （字体颜色，背景颜色）
@@ -289,3 +289,8 @@ cout << "hello" << endl;
 ```
 
 ![[Pasted image 20230406110626.png]]
+
+## simple_c_windows_register. h
+修改注册表，可以实现类似 ue 右键菜单选项的功能
+
+![[Pasted image 20230406112443.png]]
