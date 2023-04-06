@@ -138,7 +138,7 @@ save_data_to_disk(path, buf, strlen(buf));
 ```
 
 C 库函数 `size_t strlen(const char *str)` 计算字符串 **str** 的长度，直到空结束字符，但不包括空结束字符。
-## 窄字符宽字符抓换
+## 窄字符宽字符转换
 ```c++ nums
 // 宽字符转窄字符
 wchar_t path_w[] =L"../test.txt";
@@ -278,7 +278,7 @@ bool guid_equal_str(const char *guid_string, const simple_c_guid * c_guid);
 ```
 
 # 4 simple_c_time
-实践操作，用到再讲
+时间操作，用到再讲
 # 5 simple_c_windows
 ## simple_c_windows_setting.h
 Windows 控制台字体着色
@@ -297,21 +297,79 @@ cout << "hello" << endl;
 # 6 simple_delegate
 代理：单播和多播, 网络相关的暂时不学
 # 7 simple_c_string_algorithm
-字符串算法
 ```c++ nums
+
+// 移除子字符串""
+void SIMPLE_LIBRARY_API remove_string_start(char *str, char const* sub_str);
+// 从前往后移除字符''
+void SIMPLE_LIBRARY_API remove_char_start(char* str, char sub_str);
+// 从后往前移除字符''
+void SIMPLE_LIBRARY_API remove_char_end(char* str, char sub_str);
+// 从后往前移除所有字符''
+void SIMPLE_LIBRARY_API remove_all_char_end(char* str, char sub_str);
+
+//从后往前找子字符串，返回索引
+int SIMPLE_LIBRARY_API find_string_from_end(const char* str, char const* sub_str, int start_pos);
+
+//从前往后找子字符串，返回索引
+int SIMPLE_LIBRARY_API find_string(const char *str, char const* sub_str,int start_pos);
+
+//判定字符串是否包含
+bool SIMPLE_LIBRARY_API c_str_contain(const char* buff_str,const char *sub_str);
+
+//前后空格都修掉
+void SIMPLE_LIBRARY_API trim_start_and_end_inline(char* buff);
+
+//去除前面的空格
+void SIMPLE_LIBRARY_API trim_start_inline(char *buff);
+//去除后面的空格
+void SIMPLE_LIBRARY_API trim_end_inline(char *buff);
+
+//拆分
+bool SIMPLE_LIBRARY_API split(const char *buf,const char* str_split,char *l,char *r, bool bcontain_str_split);
+
+
+// 在内部替换字符串，将子字符串a替换为子字符串b
+void SIMPLE_LIBRARY_API replace_string_inline(char* str,const char* sub_char_a,const char* sub_char_b);
+// 在内部替换字符，将子字符a替换为子字符b
+void SIMPLE_LIBRARY_API replace_char_inline(char *str, const char sub_char_a, const char sub_char_b);
+
+int SIMPLE_LIBRARY_API get_printf(char *buf, const char *format, ...);
+
+int SIMPLE_LIBRARY_API get_printf_s(char *out_buf, const char *format, ...);
+
+int SIMPLE_LIBRARY_API get_printf_s_s(int buffer_size,char *out_buf, const char *format, ...);
+// 切割指定的字符串
+char SIMPLE_LIBRARY_API*string_mid(const char *int_buf ,char *out_buf,int start,int count);
+
+// 窄字符串转宽字符串
+int SIMPLE_LIBRARY_API char_to_tchar(const char *str, wchar_t *tc);
+// 宽字符串转窄字符串
+int SIMPLE_LIBRARY_API tchar_to_char(const wchar_t *tc, char *str);
+
+//注意 ：str 必须是足够大的空间 不要传一个自动匹配内存的指针
+void SIMPLE_LIBRARY_API wremove_string_start(wchar_t *str, wchar_t const* sub_str);
+
+int SIMPLE_LIBRARY_API wfind_string(wchar_t *str, wchar_t const* sub_str);
+
+void SIMPLE_LIBRARY_API wremove_wchar_start(wchar_t *str, wchar_t sub_str);
+
+void SIMPLE_LIBRARY_API wremove_wchar_end(wchar_t *str, wchar_t sub_str);
+
+void SIMPLE_LIBRARY_API wremove_all_wchar_end(wchar_t *str, wchar_t sub_str);
+
+void SIMPLE_LIBRARY_API wreplace_wchar_inline(wchar_t *str, const wchar_t sub_char_a, const wchar_t sub_char_b);
+void SIMPLE_LIBRARY_API wreplace_string_inline(wchar_t* str, const wchar_t* sub_char_a, const wchar_t* sub_char_b);
+
 // 获取合体字符串（多个字符串存入buf）
 int SIMPLE_LIBRARY_API wget_printf(wchar_t *buf, const wchar_t *format, ...);
 
 // 获取合体字符串（宽字符）
 int SIMPLE_LIBRARY_API wget_printf_s(wchar_t *out_buf, const wchar_t *format, ...);
+
+int SIMPLE_LIBRARY_API wget_printf_s_s(int buffer_size, wchar_t *out_buf,const wchar_t *format, ...);
+
+wchar_t SIMPLE_LIBRARY_API*wstring_mid(const wchar_t *int_buf, wchar_t *out_buf, int start, int count);
+
 ```
 
-## 移除连续的子串
-```c++ nums
-//将"HelloCCCC"中的"Hello"移除
-char str[] = "HelloCCCC";
-char substr[] = "Hello";
-remove_string_start(str, substr);
-cout << str << endl;
-//输出CCCC
-```
