@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "人工智能/Python/基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
+                "file": "人工智能/Python/基础.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "人工智能/Python/基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "人工智能/Python/基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,7 +116,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 499.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -140,52 +140,51 @@
   },
   "active": "3e4ea95c93e8aea9",
   "lastOpenFiles": [
-    "Zstore/Pasted image 20230406170406.png",
-    "Zstore/Pasted image 20230406165901.png",
-    "Zstore/Pasted image 20230406165711.png",
-    "Zstore/Pasted image 20230406164529.png",
-    "Zstore/Pasted image 20230406162815.png",
-    "Zstore/Pasted image 20230406160534.png",
-    "Zstore/Pasted image 20230406155909.png",
-    "Zstore/Pasted image 20230406155546.png",
-    "图形学/DX12/龙书",
-    "Zstore/Pasted image 20230406150703.png",
+    "Zstore/1680774447290.png",
+    "人工智能/Python/基础.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客.md",
+    "DCC/Zbush/基本操作.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客.md",
+    "Zstore/1680774432595.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客.md",
+    "Zstore/1680774411405.png",
+    "Zstore/1680774386396.png",
+    "Zstore/1680774386314.png",
+    "Zstore/1680774386163.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客",
+    "Zstore/1680774447393.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/assets",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/assets",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客",
+    "Zstore/1680774411489.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/assets",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets/1680774386396.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客.md",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets/1680774386314.png",
+    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets",
     "编程/C++/Cherno剩余.md",
     "图形学/DX12/SBL库.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/Windows编程.md",
-    "Zstore/Pasted image 20230406112443.png",
-    "Zstore/Pasted image 20230406110626.png",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Tools/Obsidian/插件流.md",
-    "新建文件夹",
     "图形学/DX12/自研引擎文档.md",
-    "人工智能",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/DirectXMath.md",
     "编程/C++/Google C++风格.md",
     "Zbuffer/1_ 头文件 — Google 开源项目风格指南/1_ 头文件 — Google 开源项目风格指南.md",
     "Zbuffer/2_ 作用域 — Google 开源项目风格指南/2_ 作用域 — Google 开源项目风格指南.md",
     "Zbuffer/10_ 规则特例 — Google 开源项目风格指南/10_ 规则特例 — Google 开源项目风格指南.md",
-    "Zbuffer/10_ 规则特例 — Google 开源项目风格指南",
     "Zbuffer/9_ 格式 — Google 开源项目风格指南/9_ 格式 — Google 开源项目风格指南.md",
-    "Zbuffer/9_ 格式 — Google 开源项目风格指南",
     "Zbuffer/8_ 注释 — Google 开源项目风格指南/8_ 注释 — Google 开源项目风格指南.md",
-    "Zbuffer/8_ 注释 — Google 开源项目风格指南",
     "Zbuffer/7_ 命名约定 — Google 开源项目风格指南/7_ 命名约定 — Google 开源项目风格指南.md",
-    "Zbuffer/7_ 命名约定 — Google 开源项目风格指南",
-    "Zbuffer/6_ 其他 C++ 特性 — Google 开源项目风格指南/6_ 其他 C++ 特性 — Google 开源项目风格指南.md",
-    "Zbuffer/6_ 其他 C++ 特性 — Google 开源项目风格指南",
-    "Zbuffer/5_ 来自 Google 的奇技 — Google 开源项目风格指南/5_ 来自 Google 的奇技 — Google 开源项目风格指南.md",
-    "Zbuffer/5_ 来自 Google 的奇技 — Google 开源项目风格指南",
-    "Zbuffer/4_ 函数 — Google 开源项目风格指南/4_ 函数 — Google 开源项目风格指南.md",
-    "Zbuffer/4_ 函数 — Google 开源项目风格指南",
-    "Zbuffer/3_ 类 — Google 开源项目风格指南/3_ 类 — Google 开源项目风格指南.md",
-    "编程/设计模式/工厂模式.md",
-    "README.md",
-    "Tools/Git/git入门.md",
-    "Tools/Git/github.md",
-    "Zbuffer/C++ 深入浅出工厂模式（初识篇）/C++ 深入浅出工厂模式（初识篇）.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
