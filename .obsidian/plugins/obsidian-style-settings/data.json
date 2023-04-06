@@ -41,5 +41,6 @@
   "CodeMirror Options@@cm-def@@light": "#FFD27E",
   "CodeMirror Options@@cm-number@@light": "#E8AE71",
   "CodeMirror Options@@cm-meta@@light": "#B1F081",
-  "CodeMirror Options@@cm-string@@light": "#C0F178"
+  "CodeMirror Options@@cm-string@@light": "#C0F178",
+  "minimal-style@@file-header-visibility": "minimal-tab-title-hover"
 }
