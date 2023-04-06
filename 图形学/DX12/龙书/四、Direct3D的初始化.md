@@ -189,7 +189,7 @@ UINT Numobjects,
 这两种方法的第二个参数都是 `ID3D12Pageable` 资源数组，第一个参数则表示该数组中资源的数量。
 为了简单起见，我们会把本书冲演示程序的规模控制得比游戏小得多，所以也就不必对资源的驻留进行管理。
 
-#  CPU 与 GPU 间的交互
+#  2 CPU 与 GPU 间的交互
 在进行图形编程的时候，我们一定要了解有两种处理器在参与处理工作，即 CPU 和 GPU，两者并行工作，但时而也需同步。为了获得最佳性能，最好的情况是让两者尽量同时工作，少同步。同步是一种我们不乐于执行的操作，因为这意味着一种处理器要以空闲状态等待另一种处理器完成某些任务，话句话说, 它破坏了两者并行工作的机制。
 
 ### 命令队列和命令列表
@@ -280,8 +280,125 @@ nullptr，另外，此法同样适用于执行命令列表中不含有任何绘�
 > [!NOTE] 
 > 我们可以通过 `ID3D12Device :: GetNodeCount` 方法来查询系统中 GPU 适配器节点（物理 GPU)的数量。
 
-我们可以创建出多个关联于同一命令分配器的命令列表，但是不能同时用它们来记录命令。因此，当其中的一个命令列表在记录命令时，必须关闭同一命令分配器的其他命令列表。换句话说，要保证命令列表中的所有命令都会按顺序连续地添加到命令分配器内。还要注意的一点是，当创建或重置一个命令列表的时候，它会处于一种“打开”的状态。所以，当尝试为同一个命令分配器连续创建两个命令列表时，我们会得到这样的一个错误消息：
+我们可以创建出多个关联于同一命令分配器的命令列表，但是不能同时用它们来记录命令。因此，当其中的一个命令列表在记录命令时，必须关闭同一命令分配器的其他命令列表。换句话说，要保证命令列表中的所有命令都会按顺序连续地添加到命令分配器内。
+还要注意的一点是，当创建或重置一个命令列表的时候，它会处于一种“打开”的状态。所以，当尝试为同一个命令分配器连续创建两个命令列表时，我们会得到这样的一个错误消息：
 ```
 D3D12ERROR: ID3D12CommandList::{Create,Reset }CommandList: The command allocator iscurrently in-use by another command list.
 (D3D12错误:ID3D12CommandList::{(Create,Reset }CommandList:此命令分配器正在被另一个命令列表占用)
 ```
+
+在调用 `ID3D12CommandQueue::ExecuteCommandList (C)` 方法之后，我们就可以通过 `ID3D12GraphicsCommandList :: Reset` 方法，安全地复用命令列表 c 占用的相关底层内存来记录新的命令集。`Reset` 方法中的参数对应于以 `ID3D12Device::createCommandList` 方法创建命令列时所用到的参数。
+```c++ nums
+HRESULT ID3D12GraphicsCommandList::Reset (
+工D3D12CommandAllocator *pAllocator,
+ID3D12Pipelinestate *pInitialstate);
+```
+
+此方法将命令列表恢复为刚创建时的初始状态，我们可以借此继续复用其低层内存，也可以避免释放旧列表再创建新列表这一系列的烦琐操作。注意，重置命令列表并不会影响命令队列中的命令，因为相关的命令分配器仍在维护着其内存中被命令队列引用的系列命令。
+向 GPU 提交了一整帧的渲染命令后，我们可能还要为了绘制下一帧而复用命令分配器中的内存。`ID3D12CommandAllocator::Reset` 方法由此应运而生:
+```c++ nums
+HRESULT ID3D12CommandAllocator : : Reset (void) ;
+```
+这种方法的功能类似于向量类中的 `std::vector::clear` 方法，后者使向量的大小 ( size )归零，但是仍保持其当前的容量 ( capacity )。然而，**由于命令队列可能会引用命令分配器中的数据，所以在没有确定 GPU 执行完命令分配器中的所有命令之前，千万不要重置命令分配器!** 下一节将介绍相关内容。
+
+### CPU 与 GPU 的同步
+当两种处理器并行工作时，自然而然地就会产生一系列的同步问题。
+![[Pasted image 20230406165901.png]]
+假设有一资源 $R$，里面存有待绘制几何体的位置信息。现在，令 CPU 对 $R$ 中的数据进行更新, 先把 $R$ 中的几何体位置信息改为 $p$，再向命令队列里添加绘制资源 R 的命令 c，以此将几何体绘制到位置 $p$。由于向命令队列添加命令并不会阻塞 CPU，所以 CPU 会继续执行后序指令。在 GPU 执行绘制命令 $C$ 之前，如果 CPU 率先覆写了数据 $R$, 提前把其中的位置信息修改为 $p_1$，那么这个行为就会造成一个严重的错误。
+解决此问题的一种办法是: 强制 CPU 等待, 直到 GPU 完成所有命令的处理,达到某个指定的围栏点 ( fence point)为止。我们将这种方法称为**刷新命令队列 ( flushing the command queue )**，可以通过**围栏（fence)** 来实现这一点。围栏用 `ID3D12Fence` 接口来表示,
+**此技术能用于实现 GPU 和 CPU 间的同步**。创建一个围栏对象的方法如下:
+```c++ nums
+HRESULT ID3D12Device::CreateFence(
+		UINT64 Initialvalue,
+		D3D12_FENCE_FLAGS Flags,
+		REFIID riid,
+		void **ppFence);
+		
+//示例
+ThrowIfFailed (md3dDevice->CreateFence(
+0,
+D3D12 FENCE FLAG_NONE,
+IID PPV ARGS (&mFence)));
+
+```
+
+每个围栏对象都维护着一个 `UINT64` 类型的值，此为用来标识围栏点的整数。起初，我们将此值设为 0，每当需要标记一个新的围栏点时就将它加 1。现在，我们用代码和注释进行展示，看看如何用一个围栏来刷新命令队列。
+```c++ nums
+UINT64 mCurrentFence = 0;
+void D3DApp::FlushCommandQueue ()
+{
+		//增加围栏值,接下来将命令标记到此围栏点
+		mCurrentFence++;
+
+		//向命令队列中添加一条用来设置新围栏点的命令
+		//由于这条命令要交由GPU处理(即由GPU端来修改围栏值)，所以在GPU处理完命令队列中此Signal()//的所有命令之前，它并不会设置新的围栏点"
+		ThrowIfFailed (mCommandQueue->Signal(mFence.Get ( ), mCurrentFence) ) ;
+		//在CPU端等待GPU，直到后者执行完这个围栏点之前的所有命令
+		if(mFence->GetCompletedvalue () < mCurrentFence)
+		{
+			HANDLE eventHandle = CreateEventEx (nullptr, false, false，EVENT_ALL_ACCESS)
+			//若GPU命中当前的围栏（即执行到Signal()指令，修改了围栏值)，则激发预定事件
+			ThrowIfFailed (mFence->SetEventOnCompletion(mCurrentFence,eventHandle) ) ;
+			//等待GPU命中围栏，激发事件
+			waitForSingle0bject (eventHandle,INFINITE);
+			CloseHandle(eventHandle) ;
+		}
+}
+```
+
+![[Pasted image 20230406170406.png]]
+这样一来，在本节开始给出的情景中，当 CPU 发出绘制命令 $C$ 后，在将 $R$ 内的位置信息改写为 $p2$ 之前，应率先刷新命令队列。**这种解决方案其实并不完美，因为这意味着在等待 GPU 处理命令的时候, CPU 会处于空闲状态，但在第 7 章以前也只能暂时使用这个简单的办法了。** 我们几乎可以在任何时间点上刷新命令队列 (当然，不一定仅在渲染每一帧时才刷新一次)。例如，若有一些 GPU 初始化命令有待执行，我们便可以在进入渲染主循环之前刷新命令队列，从而进行这些初始化操作。
+其实，用刷新命令队列的办法也可以解决上一小节末尾遇到的问题，即在重置命令分配器之前先刷新命令队列来确定 GPU 的命令都已执行完毕。
+
+## 资源转换
+为了实现常见的渲染效果，我们经常会通过 GPU 对某个资源 R 按顺序进行先写后读这两种操作。然而，当 GPU 的写操作还没有完成抑或甚至还没有开始，却开始读取资源，便会导致**资源冒险 ( resource hazard )**。
+为此，Direct3D 专门针对资源设计了一组相关状态。资源在创建伊始会处于默认状态，该状态将一直持续到应用程序通过 Direct3D 将其转换 ( transition)为另一种状态为止。这就使 GPU 能够针对资源状态转换与防止资源冒险作出适当的行为。
+例如，如果要对某个资源（比如纹理）执行写操作时，需要将它的状态转换为渲染目标状态; 而要对该纹理进行读操作时，再把它的状态变为着色器资源状态。根据 Direct3D 给出的转换信息，GPU 就可以采取适当的措施避免资源冒险的发生。
+譬如，在读取某个资源之前，它会等待所有与之相关的写操作执行完毕。应用程序开发者应当知道，资源转换所带来的负荷会造成程序性能的下降。除此之外，一个自动跟踪状态转换的系统也在强行增加程序的额外开销。
+**通过命令列表设置<mark style="background: #FF5582A6;">转换资源屏障 ( transition resource barrier )数组</mark>，即可指定资源的转换;** 当我们希望以一次 API 调用来转换多个资源的时候，这种数组就派上了用场。在代码中，资源屏障用 `D3D12 RESOURCE BARRIER` 结构体来表示 R。下列辅助函数 (定义于 `d3dx12. h` 头文件之中）将根据用户给出的资源和指定的前后转换状态，返回对应的转换资源屏障描述:
+```c++ nums
+struct CD3DX12_RESOURCE_BARRIER : public D3D12_RESOURCE_BARRIER{
+{ 
+		// [ ...]辅助方法
+		static inline CD3DX12_RESOURCE_BARRIER Transition (
+			In ID3D12Resource*pResource,
+			D3D12_RESOURCE_STATES stateBefore,
+			D3D12 RESOURCE STATES stateAfter,
+			UINT subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES,
+			D3D12 RESOURCE BARRIER_FLAGS flags = D3D12_RESOURCE_BARRIER_FLAG_NONE)
+		{
+			CD3DX12_RESOURCE_BARRIER result;
+			zeroMemory ( &result, sizeof (result)) ;
+			D3D12_RESOURCE_BARRIER &barrier = result;
+			result.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+			result.Flags = flags;
+			barrier.Transition.pResource = pResource;
+			barrier.Transition.stateBefore = stateBefore;
+			barrier.Transition.stateAfter = stateAfter;
+			barrier. Transition . subresource = subresource;
+			return result;
+}
+//[...]其他辅助方法};
+```
+
+可以看到，`CD3DX12_RESOURCE_BARRIER` 继承自` D3D12_RESOURCE_BARRIER` 结构体，并添加了一些辅助方法。Direct3D 12 中的许多结构体都有其对应的扩展辅助结构变体 ( variation )，考虑到使用上的方便性，我们更偏爱于运用那些变体。以 `CD3DX12` 作为前缀的变体全都定义在 `d3dx12. h` 头文件当中，这个文件并不属于 DirectX 12 SDK 的核心部分，但是可以通过微软的官方网站下载获得。为了方便起见，本书源代码的 Common 目录里附有一份 d3dx12.h 头文件。
+在本章的示例程序中，此辅助函数的用法如下: 
+```c++ nums
+mCommandList->ResourceBarrier(1,
+		&CD3Dx12_RESOURCE_BARRIER::Transition (
+		CurrentBackBuffer (),
+		D3D12RESOURCESTATE PRESENT,
+		D3D12 RESOURCE STATE_ RENDER_TARGET)) ;
+```
+这段代码将以图片形式显示在屏幕中的纹理，从呈现状态转换为渲染目标状态。那么，这个添加到命令列表中的资源屏障究竟是何物呢? 事实上, 我们可以将此资源屏障转换看作是一条告知 GPU 某资源状态正在进行转换的命令。所以在执行后续的命令时，GPU 便会采取必要措施以防资源冒险。
+
+> [!NOTE]
+> Direct3D 12 提供的转换类型不止文中提到寥寥几种。但是，我们暂时只会用到上述转换屏障。至于其他类型的屏障，我们将随用随讲。
+
+## 命令与多线程
+Direct3D 12 的设计目标是为用户提供一个高效的多线程环境, 命令列表也是一种发挥 Direct3D 多线程优势的途径。对于内含许多物体的庞大场景而言，仅通过一个构建命令列表来绘制整个场景会占用不少的 CPU 时间。因此，可以采取一种**并行创建命令列表的思路**。例如，我们可以创建 4 条线程，每条分别负责构建一个命令列表来绘制 25%的场景物体。
+以下是一些在多线程环境中使用命令列表要注意的问题。
+1. 命令列表并非自由线程 ( not free-threaded)对象。也就是说，多线程既不能同时共享相同的命令列表，也不能同时调用同一命令列表的方法。所以，每个线程通常都只使用各自的命令列表。
+2. 命令分配器亦不是线程自由的对象。这就是说，多线程既不能同时共享同一个命令分配器也不能同时调用同一命令分配器的方法。所以，每个线程一般都仅使用属于自己的命令分配器。
+3. 命令队列是线程自由对象，所以多线程可以同时访问同一命令队列，也能够同时调用它的方法。特别是每个线程都能同时向命令队列提交它们自己所生成的命令列表。
+4. 出于性能的原因，应用程序必须在初始化期间，指出用于并行记录命令的命令列表最大数量。**为了简单起见，本书不会使用多线程技术。**。
