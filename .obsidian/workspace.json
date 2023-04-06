@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "64791f1a91d6d036",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "人工智能/Python/基础.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -116,7 +129,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 499.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -138,10 +151,28 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "3e4ea95c93e8aea9",
+  "active": "64791f1a91d6d036",
   "lastOpenFiles": [
-    "Zstore/1680774447290.png",
+    "编程/IDE/Pycharm.md",
+    "编程/IDE/Reshaper快捷键.md",
+    "Zstore/1680783205849.png",
+    "未命名.canvas",
+    "Zstore/1680783206236.png",
+    "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客.md",
+    "Zstore/1680783206197.png",
+    "Zstore/1680783206149.png",
+    "Zstore/1680783206100.png",
+    "Zstore/1680783206017.png",
+    "Zstore/1680783205961.png",
+    "Zstore/1680783205920.png",
+    "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客/assets",
+    "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客",
     "人工智能/Python/基础.md",
+    "Math/线性代数/《李永乐线代》.md",
+    "Math/线性代数/3D数学.md",
+    "Math/LaTeX/语法大全.md",
+    "Math/LaTeX/常用语法.md",
+    "Zstore/1680774447290.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客.md",
     "DCC/Zbush/基本操作.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客.md",
@@ -149,27 +180,17 @@
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客.md",
-    "Zstore/1680774411405.png",
-    "Zstore/1680774386396.png",
-    "Zstore/1680774386314.png",
-    "Zstore/1680774386163.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客.md",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客",
-    "Zstore/1680774447393.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客",
-    "Zstore/1680774411489.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets/1680774386396.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客.md",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets/1680774386314.png",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/assets",
     "编程/C++/Cherno剩余.md",
     "图形学/DX12/SBL库.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -179,12 +200,6 @@
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/DirectXMath.md",
     "编程/C++/Google C++风格.md",
-    "Zbuffer/1_ 头文件 — Google 开源项目风格指南/1_ 头文件 — Google 开源项目风格指南.md",
-    "Zbuffer/2_ 作用域 — Google 开源项目风格指南/2_ 作用域 — Google 开源项目风格指南.md",
-    "Zbuffer/10_ 规则特例 — Google 开源项目风格指南/10_ 规则特例 — Google 开源项目风格指南.md",
-    "Zbuffer/9_ 格式 — Google 开源项目风格指南/9_ 格式 — Google 开源项目风格指南.md",
-    "Zbuffer/8_ 注释 — Google 开源项目风格指南/8_ 注释 — Google 开源项目风格指南.md",
-    "Zbuffer/7_ 命名约定 — Google 开源项目风格指南/7_ 命名约定 — Google 开源项目风格指南.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
