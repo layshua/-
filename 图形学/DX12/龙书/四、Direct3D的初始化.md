@@ -172,5 +172,116 @@ UINT FeaturesupportDatasize); //检测对给定纹理格式的支持情况
 
 ## 资源驻留
 复杂的游戏会运用大量纹理和 3D mesh 等资源，但是其中的大多数并不需要总是置于显存中供 GPU 使用。例如，让我们来构想这样一个游戏场景: 在野外的森林中，有一个巨大的洞穴。在玩家进入洞穴之前，绘制画面并不会用到与洞穴相关的资源; 当玩家进入洞穴之后，又不再需要森林数据资源。
-**在 Direct3D 12 中, 应用程序通过控制资源在显存中的去留，主动管理资源的驻留情况 (即 residency 。无论资源是否本已位于显存中，都可对其进行管理。在 Direct3D 11 中则由系统自动管理)。** 该技术的基
+**在 Direct3D 12 中, 应用程序通过控制资源在显存中的去留，主动管理资源的驻留情况 (即 residency 。无论资源是否本已位于显存中，都可对其进行管理。在 Direct3D 11 中则由系统自动管理)。** 该技术的基本思路为使应用程序占用最小的显存空间。这是因为显存的空间有限，很可能不足以容下整个游戏的所有资源，或者用户还有运行中的程序也在同时使用显存。**这里给出一条与性能相关的提示: 程序应当避免在短时间内于显存中交换进出相同的资源，这会引起过高的开销。最理想的情况是，所清出的资源在短时间内不会再次使用。** 游戏关卡或游戏场景的切换是关于常驻资源的好例子。
+**一般来说，资源在创建时就会驻留在显存中，而当它被销毁时则清出。但是通过下面的方法，我们就可以自己来控制资源的驻留:**
 
+```c++ nums
+HRESULT ID3D12Device::MakeResident (
+UINT Numobjects,
+ID3D12Pageable *const *pp0bjects);
+
+HRESULT ID3D12Device::Evict(
+UINT Numobjects,
+工D3D12Pageable *const *ppobjects);
+
+```
+
+这两种方法的第二个参数都是 `ID3D12Pageable` 资源数组，第一个参数则表示该数组中资源的数量。
+为了简单起见，我们会把本书冲演示程序的规模控制得比游戏小得多，所以也就不必对资源的驻留进行管理。
+
+#  CPU 与 GPU 间的交互
+在进行图形编程的时候，我们一定要了解有两种处理器在参与处理工作，即 CPU 和 GPU，两者并行工作，但时而也需同步。为了获得最佳性能，最好的情况是让两者尽量同时工作，少同步。同步是一种我们不乐于执行的操作，因为这意味着一种处理器要以空闲状态等待另一种处理器完成某些任务，话句话说, 它破坏了两者并行工作的机制。
+
+### 命令队列和命令列表
+每个 GPU 都至少维护着一个**命令队列 ( command queue，本质上是环形缓冲区，即 ring buffer )**。借助 Direct3D API，CPU 可利用**命令列表 ( command list)** 将命令提交到这个队列中去  (见图 4.6 )。
+
+![[Pasted image 20230406162815.png|250]]
+
+> [!NOTE] 
+>  Direct3D 11 支持两种绘制方式:即立即渲染 ( immediate rendering, 利用 immediate context 实现)以及延迟渲染（ deferred rendering，利用 deferred context 实现)。前者将缓冲区中的命令直接借驱动层发往 GPU 执行，后者则与本文中介绍的命令列表模型相似（但执行命令列表时仍然要依赖 immediate context)。前者延续了 Direct3D11 之前一贯的绘制方式，而后者则为 Direct3D 11 中新添加的绘制方式。
+> 
+> **Direct3D 12 取消了立即渲染方式，完全采用“命令列表->命令队列”模型，使多个命令列表同时记录命令，借此充分发挥多核心处理器的性能。** 可见，Direct3D 11 在绘制方面乃承上启下之势，而 Direct3D 12则进行了彻底的革新。
+
+**当一系列命令被提交至命令队列之时，它们并不会被 GPU 立即执行**，理解这一点至关重要。由于 GPU 可能正在处理先前插入命令队列内的命令，因此，后来新到的命令会一直在这个队列之中等待执行。
+假如命令队列中变得空空如也，那么没有任务可执行的 GPU 只能空闲下来; 相反地，如果命令队列被填满，那么 CPU 必将随着 GPU 的工作步伐在某些时刻保持空闲。这两种情况都是我们不希望碰到的。对于像游戏这样的高性能应用程序来说，它们的目标是充分利用硬件资源，保持 CPU 和 GPU 同时忙碌。
+在 Direct3D 12 中，命令队列被抽象为 `ID3D12CommandQueue` 接口来表示。要通过填写 `D3D12_COMMAND_QUEUE_DESC` 结构体来描述队列，再调用 `ID3D12Device::CreateCommandQueue` 方法创建队列。我们在本书中将实际采用以下流程:
+```c++ nums
+Microsoft::WRL::ComPtr<ID3D12CommandQueue> mCommandQueue;
+
+D3D12_COMMAND QUEUEDESC queueDesc = { };
+queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
+queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+
+ThrowIfFailed (md3dDevice->CreateCommandQueue(&queueDesc, IID_PPV_ARGS( &mCommandQueue)));
+```
+
+```c++ nums
+//IIIDPPV ARGS 辅助宏的定义如下:
+#define IID_ PPV_ARGs(ppType)_uuidof(**(ppType) ),IID_PPV_ARGS_Helper(ppType)
+```
+
+其中，`_uuidof (**(ppType))` 将获取 `(**(ppType))` 的 COM 接口 **ID ( globally unique identifier，全局唯一标识符，GUID)**，在上述代码段中得到的即为 `ID3D12CommandQueue` 接口的 COM ID。
+`IID_PPV_ARGS` 辅助函数的本质是将 `ppType` 强制转换为 `void**` 类型。我们在全书中都会见到此宏的身影，这是因为在调用 Direct3D 12 中创建接口实例的 API 时，大多都有一个参数是类型为 void 的待创接口 COMID,
+`ExecuteCommandLists` 是一种常用的 `ID3D12CommandQueue` 接口方法，利用它可将命令列表里的命令添加到命令队列之中:
+```c++ nums
+void ID3D12CommandQueue::ExecuteCommandLists (
+UINT Count, //第二个参数里命令列表数组中命令列表的数量
+ID3D12CommandList *const *ppCommandLists //待执行的命令列表数组，指向命令列表数组中第一个元素的指针
+) ;
+
+```
+
+GPU 将从数组里的第一个命令列表开始顺序执行。
+`ID3D12GraphicsCormandList` 接口封装了一系列图形渲染命令, 它实际上继承于 `ID3D12CommandList` 接口。`ID3D12GraphicsCommandList` 接口有数种方法向命令列表添加命令。例如，下面的代码依次就向命令列表中添加了设置视口、清除渲染目标视图和发起绘制调用的命令:
+```c++ nums
+//mCommandList为一个指向IID3D12CommandList接口的指针
+mCommandList->RSSetviewports(1,&mScreenviewport); //设置视口
+mCommandList->ClearRenderTargetView (mBackBufferView, Colors::LightSteelBlue,0, nullptr); //清除渲染目标视图
+mCommandList->DrawIndexedInstanced (36,1，0，0，0); //发起绘制调用
+
+```
+虽然这些方法的名字看起来像是会使对应的命令立即执行，但事实却并非如此，上面的代码仅仅是将命令加入命令列表而已。调用 `ExecuteCommandLists` 方法才会将命令真正地送入命令队列, 供 GPU 在合适的时机处理。
+当命令都被加入命令列表之后，我们必须调用 `ID3D12GraphicsCommandList::Close` 方法来结束命令的记录:
+```c++ nums
+//结束记录命令
+mCommandList->Close ( );
+```
+在调用 `ID3D12CommandQueue::ExecuteCommandLists` 方法提交命令列表之前，一定要将其关闭。
+
+还有一种与命令列表有关的名为 `ID3D12CommandAllocator` 的内存管理类接口。记录在命令列表内的命令，实际上是存储在与之关联的**命令分配器 ( command allocator )** 上。当通过 `ID3D12CommandQueue:: ExecuteCommandLists` 方法执行命令列表的时候，命令队列就会引用分配器里的命令。而**命令分配器则由 `ID3D12Device` 接口来创建:**
+```c++ nums
+HRESULT ID3D12Device::CreateCommandAllocator (
+D3D12_COMMAND LIST_TYPE type,
+REFIID riid,
+void **ppCommandAllocator) ;
+```
+
+1. **`type`: 指定与此命令分配器相关联的命令列表类型。以下是本书常用的两种命令列表类型：**
+- `D3D12_COMMAND_LIST_TYPE_DIRECT`。存储的是一系列可供 GPU 直接执行的命令（这种类型的命令列表我们之前曾提到过)。
+- `D3D12_COMMAND_LIST_TYPE_BUNDLE`。将命令列表**打包 ( bundle，也有译作集合)**。构建命令列表时会产生一定的 CPU 开销，为此，Direct3D 12 提供了一种优化的方法，允许我们将一系列命令打成所谓的包。当打包完成 (命令记录完毕)之后，驱动就会对其中的命令进行预处理, 以使它们在渲染期间的执行过程中得到优化。因此，我们应当在初始化期间就用包记录命令。如果经过分析，发现构造某些命令列表会花费大量的时间, 就可以考虑使用打包技术对其进行优化。**Direct3D 12 中的绘制 API 的效率很高，所以一般不会用到打包技术。因此，也许在证明其确实可以带来性能的显著提升时才会用到它。这就是说，在大多数情况下，我们往往将其束之高阁。本书中不会使用打包技术**，关于它的详情可参见 DirectX 12文档。
+2. **`riid`: 待创建 ID3D12CommandAllocator 接口的 COM ID。**
+3. **`ppCommandAllocator`: 输出指向所建命令分配器的指针。** 命令列表同样由 `ID3D12Device` 接口创建:
+```c++ nums
+HRESULT ID3D12Device::CreateCommandList (
+UINT nodeMask,
+D3D12_COMMAND_LIST_TYPE type,
+ID3D12CommandAllocator *pCommandAllocator, ID3D12Pipelinestate *pInitialstate,
+REFIID riid,
+void **ppCommandList) ;
+```
+1. `nodeMask`: 对于仅有一个 GPU 的系统而言，要将此值设为 0; 对于具有多 GPU 的系统而
+言，此节点掩码 ( node mask)指定的是与所建命令列表相关联的物理 GPU。本书中假设我们使用的是单 GPU 系统。
+2.`type`: 命令列表的类型，常用的选项为 `D3D12_COMMAND_LIST_TYPE_DIRECT` 和 `D3D12COMMAND_LIST_TYPE_BUNDLE`。
+3. `pCommandAllocator`: 与所建命令列表相关联的命令分配器。它的类型必须与所创命令列表的类型相匹配。
+4. `pInitialstate`: 指定命令列表的渲染流水线初始状态。对于打包技术来说可将此值设为
+nullptr，另外，此法同样适用于执行命令列表中不含有任何绘制命令，即执行命令列表是了达到初始化的目的的特殊情况。我们将在第 6 章中详细讨论 ID3D12Pipelinestate 接口 5. riid: 待创建 ID3D12CommandList 接口的 COM ID。
+6. `ppCommandList`: 输出指向所建命令列表的指针。
+
+> [!NOTE] 
+> 我们可以通过 `ID3D12Device :: GetNodeCount` 方法来查询系统中 GPU 适配器节点（物理 GPU)的数量。
+
+我们可以创建出多个关联于同一命令分配器的命令列表，但是不能同时用它们来记录命令。因此，当其中的一个命令列表在记录命令时，必须关闭同一命令分配器的其他命令列表。换句话说，要保证命令列表中的所有命令都会按顺序连续地添加到命令分配器内。还要注意的一点是，当创建或重置一个命令列表的时候，它会处于一种“打开”的状态。所以，当尝试为同一个命令分配器连续创建两个命令列表时，我们会得到这样的一个错误消息：
+```
+D3D12ERROR: ID3D12CommandList::{Create,Reset }CommandList: The command allocator iscurrently in-use by another command list.
+(D3D12错误:ID3D12CommandList::{(Create,Reset }CommandList:此命令分配器正在被另一个命令列表占用)
+```
