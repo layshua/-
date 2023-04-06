@@ -14,13 +14,23 @@
 }
 
 
-/* ``代码块 */
+/* 代码块 */
+/* 行内代码块 */
 .cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
-    background-color: #e4e4e4;
+    background-color: #e4e4e4; 
     /* 边框 */
     box-shadow: 0 0 0px 1px rgb(172, 172, 148);
     vertical-align: baseline;
     /*--------文字距边缘的距离--*/
+    padding: 2px 4px;
+}
+
+/* 标注中的代码块 */
+.markdown-rendered code {
+    background-color: #e4e4e4;
+    /* 边框 */
+    box-shadow: 0 0 0px 1px rgb(172, 172, 148);
+    border-radius: 1;
     padding: 2px 4px;
 }
 
