@@ -52906,6 +52906,7 @@ RBj
 Rtu
 RJz
 REDDDd
+ResourceDesc
 Microsoft
 Menu
 MicaForEveryone
@@ -60978,6 +60979,7 @@ Wvoj
 WBA
 WUw
 WRL
+WaitGPUCommandQueueComplete
 Start
 StartAllBack
 Shadowrocket
@@ -65074,6 +65076,7 @@ SLa
 STZ
 SSST
 SwVW
+SwapChainBuffer
 Programs
 POP
 PC
