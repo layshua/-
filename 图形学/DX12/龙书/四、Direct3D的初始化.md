@@ -221,7 +221,7 @@ ThrowIfFailed (md3dDevice->CreateCommandQueue(&queueDesc, IID_PPV_ARGS( &mComman
 ```
 
 其中，`_uuidof (**(ppType))` 将获取 `(**(ppType))` 的 COM 接口 **ID ( globally unique identifier，全局唯一标识符，GUID)**，在上述代码段中得到的即为 `ID3D12CommandQueue` 接口的 COM ID。
-`IID_PPV_ARGS` 辅助函数的本质是将 `ppType` 强制转换为 `void**` 类型。我们在全书中都会见到此宏的身影，这是因为在调用 Direct3D 12 中创建接口实例的 API 时，大多都有一个参数是类型为 void 的待创接口 COMID,
+`IID_PPV_ARGS` 辅助函数的本质是将 `ppType` 强制转换为 `void**` 类型。我们在全书中都会见到此宏的身影，这是因为在调用 Direct3D 12 中创建接口实例的 API 时，大多都有一个参数是类型为 void 的待创接口 COM ID,
 `ExecuteCommandLists` 是一种常用的 `ID3D12CommandQueue` 接口方法，利用它可将命令列表里的命令添加到命令队列之中:
 ```c++ nums
 void ID3D12CommandQueue::ExecuteCommandLists (
