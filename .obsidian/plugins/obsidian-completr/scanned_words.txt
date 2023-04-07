@@ -42043,6 +42043,7 @@ AkMW
 Arguments
 ADT
 AssertionError
+Archive
 URL
 Utools
 Users
@@ -60980,6 +60981,7 @@ WBA
 WUw
 WRL
 WaitGPUCommandQueueComplete
+WIN
 Start
 StartAllBack
 Shadowrocket
@@ -76177,6 +76179,7 @@ Infrastructure
 IDXGIOutput
 IgN
 IYyi
+Import
 qq
 qyi
 quad
@@ -97312,6 +97315,7 @@ dict
 directory
 depthbuffering
 dDevice
+dllFunc
 TFvYZOKeHL
 TAB
 TeX
@@ -100906,6 +100910,7 @@ TBwc
 TrimDynamic
 Twcq
 TTVxl
+TestDLL
 io
 ipad
 it
@@ -112426,6 +112431,8 @@ leveldb
 lxm
 lGqBJa
 lpha
+loadlibary
+loadlibrary
 YAML
 You
 YEBAYGhURFRofHx
@@ -119253,6 +119260,7 @@ helper
 hJPJ
 hHT
 hazard
+hInstLibrary
 rgb
 right
 rm
@@ -130106,6 +130114,7 @@ HBvnrs
 HBx
 HKKc
 HDDDDD
+HINSTANCE
 Bbb
 Bear
 Base
@@ -137282,6 +137291,7 @@ FishC
 FQYU
 FZMTAEsK
 Focus
+FreeLibrary
 Element
 Entity
 Enity
@@ -150914,6 +150924,9 @@ DXGIFactory
 DDDDDDDZ
 DDDDBM
 DDDnT
+DLLSample
+DllSample
+DLLFunc
 LNK
 Log
 Linux
@@ -154590,6 +154603,10 @@ LNCW
 Lkh
 LRJ
 Lmmm
+LoadLibrary
+Lib
+Libary
+LoadLibary
 Getx
 GetX
 GetName
@@ -158780,6 +158797,7 @@ GHHH
 Giqy
 GEszU
 Gti
+GetProcAddress
 NULL
 Native
 NormalMap

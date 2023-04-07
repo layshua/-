@@ -20,7 +20,7 @@
 		{"type":"text","text":"D3dDevice","id":"8cdc6c040a5e35af","x":-760,"y":320,"width":176,"height":50,"color":"3"},
 		{"type":"text","text":"Fence","id":"0193ba829505f34a","x":-760,"y":460,"width":176,"height":50,"color":"3"},
 		{"type":"text","text":"多重采样","id":"29a9c799ddde2ebc","x":-760,"y":560,"width":140,"height":50,"color":"3"},
-		{"type":"text","text":"交换链\n\n","id":"021d5f7ff540cd63","x":-760,"y":640,"width":104,"height":50,"color":"3"},
+		{"type":"text","text":"交换链\n\n","id":"021d5f7ff540cd63","x":-760,"y":640,"width":140,"height":50,"color":"3"},
 		{"type":"text","text":"CreateCommandQueue","id":"45d430acf795c984","x":-240,"y":235,"width":244,"height":50,"color":"4"},
 		{"type":"text","text":"CreateCommandAllocator\n\n","id":"75cf07c7d2bcb93a","x":-240,"y":305,"width":284,"height":50,"color":"4"},
 		{"type":"text","text":"CheckFeatureSupport","id":"36127e48f0c63e2a","x":-240,"y":375,"width":244,"height":50,"color":"4"},
