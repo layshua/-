@@ -4,9 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "9c660792c2316631",
+        "id": "e00493c01d857cc8",
         "type": "tabs",
         "children": [
+          {
+            "id": "66b739f401f3b70e",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
+                "viewState": {
+                  "x": -168.20001220703125,
+                  "y": 118.80001831054688,
+                  "zoom": 0
+                }
+              }
+            }
+          },
           {
             "id": "bb3d6de94ec9c685",
             "type": "leaf",
@@ -18,61 +33,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "2dcc5adbc4b7bd6f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "63f195ae2f305707",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
-                "viewState": {
-                  "x": 128,
-                  "y": 251,
-                  "zoom": 0
-                }
-              }
-            }
-          },
-          {
-            "id": "e6e5e9385e2da186",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "e881dcf3085310ee",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
-                "viewState": {
-                  "x": 235,
-                  "y": 209.09999084472656,
-                  "zoom": 0
-                }
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -115,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md"
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas"
               }
             }
           }
@@ -142,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -188,17 +150,22 @@
       "remotely-save:Remotely Save": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "darlal-switcher-plus:Open in Headings Mode": true,
-      "darlal-switcher-plus:Open Symbols for the active editor": true,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
+      "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "e6e5e9385e2da186",
+  "active": "66b739f401f3b70e",
   "lastOpenFiles": [
-    "图形学/DX12/自研引擎/DX12初始化.canvas",
+    "未命名.canvas",
     "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
-    "Zbuffer/Excalidraw",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "Zstore/00a9e47a23510e177acd02e925538dc1_MD5.webp",
+    "Zstore/Pasted Image 20230407154811_682.png",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/DX12初始化.canvas",
+    "虚幻引擎/4 特效/月神3/【月神3】杂项.md",
+    "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "Zbuffer/Excalidraw",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎",
@@ -210,7 +177,6 @@
     "assets",
     "Zstore/Pasted image 20230406202829.png",
     "Zstore/1680783205849.png",
-    "未命名.canvas",
     "Zstore/1680783206236.png",
     "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客.md",
     "Zstore/1680783206197.png",
@@ -218,14 +184,12 @@
     "Zstore/1680783206100.png",
     "Zstore/1680783206017.png",
     "Zstore/1680783205961.png",
-    "Zstore/1680783205920.png",
     "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) PyCharm 代码格式化插件_pycharm 格式化插件_Lee 森的博客 - CSDN 博客",
     "Math/线性代数/《李永乐线代》.md",
     "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
     "Math/LaTeX/常用语法.md",
-    "Zstore/1680774447290.png",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客.md",
     "DCC/Zbush/基本操作.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客.md",
@@ -237,10 +201,7 @@
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/assets",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客.md",
-    "编程/C++/Cherno剩余.md",
-    "图形学/DX12/SBL库.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",

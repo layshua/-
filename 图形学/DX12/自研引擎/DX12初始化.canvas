@@ -1,12 +1,9 @@
 {
 	"nodes":[
-		{"type":"text","text":"","id":"37abad0015b668fe","x":-180,"y":320,"width":250,"height":71},
-		{"type":"text","text":"","id":"63adb0e566e39c03","x":-180,"y":100,"width":250,"height":60},
-		{"type":"text","text":"","id":"b74d8abcc4e987c5","x":400,"y":144,"width":250,"height":176},
-		{"type":"text","text":"阿松大","id":"b07ccb53e17291e9","x":-180,"y":-60,"width":250,"height":60}
+		{"type":"text","text":"DX12 初始化","id":"2e06b3fb960f9ae6","x":-476,"y":80,"width":176,"height":59,"color":"1"},
+		{"type":"text","text":"","id":"b492269c04fd9c48","x":-200,"y":-60,"width":250,"height":60}
 	],
 	"edges":[
-		{"id":"142758132cbeb5d4","fromNode":"37abad0015b668fe","fromSide":"right","toNode":"b74d8abcc4e987c5","toSide":"left"},
-		{"id":"df61b99860d80f48","fromNode":"63adb0e566e39c03","fromSide":"right","toNode":"b74d8abcc4e987c5","toSide":"left"}
+		{"id":"9dd2d36b4c8d028b","fromNode":"2e06b3fb960f9ae6","fromSide":"right","toNode":"b492269c04fd9c48","toSide":"left"}
 	]
 }
