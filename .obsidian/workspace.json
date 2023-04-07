@@ -8,30 +8,71 @@
         "type": "tabs",
         "children": [
           {
-            "id": "64791f1a91d6d036",
+            "id": "bb3d6de94ec9c685",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Python/基础.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "6916c4d7ed030d45",
+            "id": "2dcc5adbc4b7bd6f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "63f195ae2f305707",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
+                "viewState": {
+                  "x": 128,
+                  "y": 251,
+                  "zoom": 0
+                }
+              }
+            }
+          },
+          {
+            "id": "e6e5e9385e2da186",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "e881dcf3085310ee",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "图形学/DX12/自研引擎/DX12初始化.canvas",
+                "viewState": {
+                  "x": 235,
+                  "y": 209.09999084472656,
+                  "zoom": 0
+                }
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -74,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Python/基础.md"
+                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md"
               }
             }
           }
@@ -101,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Python/基础.md",
+                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Python/基础.md",
+                "file": "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,14 +188,23 @@
       "remotely-save:Remotely Save": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "darlal-switcher-plus:Open in Headings Mode": true,
-      "darlal-switcher-plus:Open Symbols for the active editor": true
+      "darlal-switcher-plus:Open Symbols for the active editor": true,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "64791f1a91d6d036",
+  "active": "e6e5e9385e2da186",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer 5th》.md",
-    "人工智能/Python/基础.md",
+    "图形学/DX12/自研引擎/DX12初始化.canvas",
+    "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
+    "Zbuffer/Excalidraw",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
+    "图形学/DX12/BUG记录.md",
+    "图形学/DX12/自研引擎",
     "assets/1680774386314.png.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "NERF/Python/基础.md",
     "编程/IDE/Pycharm.md",
     "编程/IDE/Reshaper快捷键.md",
     "assets",
@@ -183,22 +233,14 @@
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（二）—— 函数部分_Percy 的博客 - CSDN 博客.md",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（七）—— 模块_小甲鱼零基础入门学习 python 第 7_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（六）—— 魔法方法_Percy 的博客 - CSDN 博客",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（五）—— 类和对象_Percy 的博客 - CSDN 博客",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（四）—— 异常_Percy 的博客 - CSDN 博客",
-    "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（三）—— 字典、集合、文件部分_python percy_Percy 的博客 - CSDN 博客/assets",
     "Zbuffer/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客/(13 条消息) 《小甲鱼零基础入门学习 Python》自学笔记（一）—— 基础部分_Percy 的博客 - CSDN 博客.md",
     "编程/C++/Cherno剩余.md",
     "图形学/DX12/SBL库.md",
-    "图形学/DX12/Windows编程.md",
-    "Tools/Obsidian/插件流.md",
-    "图形学/DX12/自研引擎文档.md",
-    "图形学/DX12/BUG记录.md",
-    "图形学/DX12/DirectXMath.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",

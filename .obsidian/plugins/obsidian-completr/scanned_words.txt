@@ -7273,6 +7273,7 @@ ONF
 OanP
 OgX
 ODDDDDDd
+ODD
 codeup
 clash
 ctrl
@@ -11080,6 +11081,8 @@ cJb
 cBUQ
 clipCurve
 cccT
+context
+capacity
 github
 grey
 green
@@ -14382,6 +14385,7 @@ gGJt
 grSF
 gAMA
 gfh
+globally
 typora
 todo
 tooltip
@@ -17810,6 +17814,9 @@ ttER
 tMC
 tuua
 tbl
+typeless
+triple
+threaded
 markdown
 matter
 mod
@@ -21538,6 +21545,10 @@ movable
 mEr
 mqT
 mXgD
+multisample
+multisampling
+mwe
+mFV
 windows
 win
 width
@@ -31808,6 +31819,8 @@ errors
 efr
 eQq
 eUUU
+eFC
+eeT
 VPN
 Verge
 VS
@@ -38202,6 +38215,7 @@ vSm
 valve
 vQZQE
 vfC
+variation
 AA
 AppData
 AIRDyuVH
@@ -45443,6 +45457,7 @@ UUQU
 UEUY
 Uevv
 UhX
+UOy
 api
 ac
 app
@@ -48921,6 +48936,7 @@ aotupep
 aggressive
 ahoK
 assert
+antialiasing
 Roaming
 RegWorkshop
 Release
@@ -60950,6 +60966,7 @@ WiZe
 Wvoj
 WBA
 WUw
+WRL
 Start
 StartAllBack
 Shadowrocket
@@ -68762,6 +68779,9 @@ PAU
 PyCharm
 ProjectFileDir
 PATH
+PCIe
+Pipelinestate
+PDDDDD
 ContextMenuManager
 ClashVerge
 Clash
@@ -72531,6 +72551,10 @@ ClR
 CCCt
 CYIOi
 COLUMN
+ComPtr
+COMID
+CyNC
+CDDD
 ImTip
 IMAP
 ID
@@ -76132,6 +76156,11 @@ IeEe
 IDATEj
 IsN
 IDATe
+IUnknown
+Infrastructure
+IDXGIOutput
+IgN
+IYyi
 qq
 qyi
 quad
@@ -79856,6 +79885,7 @@ qIQ
 qSGd
 qTIm
 qtK
+qrL
 png
 position
 presentation
@@ -83594,6 +83624,8 @@ promotions
 ptrdiff
 polymorphic
 pickling
+pixl
+presenting
 nodesCatch
 nobr
 navy
@@ -86982,6 +87014,7 @@ normally
 naming
 nKfg
 nej
+nVSk
 bf
 bc
 black
@@ -90300,6 +90333,8 @@ bugs
 boost
 bKO
 bwQa
+bundle
+barrier
 fe
 front
 fill
@@ -93535,6 +93570,7 @@ fjkk
 fÜ
 fOzN
 filters
+flushing
 dd
 dcc
 data
@@ -97255,6 +97291,8 @@ delegate
 deepcopy
 dict
 directory
+depthbuffering
+dDevice
 TFvYZOKeHL
 TAB
 TeX
@@ -100848,6 +100886,7 @@ TaKUP
 TBwc
 TrimDynamic
 Twcq
+TTVxl
 io
 ipad
 it
@@ -105007,6 +105046,7 @@ iterators
 iterable
 iterables
 ikkkkk
+iJqO
 shift
 svg
 sf
@@ -112365,6 +112405,7 @@ lambd
 leveldb
 lxm
 lGqBJa
+lpha
 YAML
 You
 YEBAYGhURFRofHx
@@ -119190,6 +119231,7 @@ handlers
 helper
 hJPJ
 hHT
+hazard
 rgb
 right
 rm
@@ -122891,6 +122933,9 @@ rtti
 rules
 responses
 rLJ
+residency
+rhHMk
+rssX
 XXXXXX
 XXX
 XML
@@ -126217,6 +126262,7 @@ XXXp
 XIuO
 XkE
 XdN
+XDDDD
 HTML
 HasPtr
 Hello
@@ -130035,6 +130081,7 @@ HPT
 HBvnrs
 HBx
 HKKc
+HDDDDD
 Bbb
 Bear
 Base
@@ -133257,6 +133304,7 @@ BasicMaterial
 Bse
 BFt
 BDl
+BCNO
 Fraktur
 Frame
 Foo
@@ -137207,6 +137255,7 @@ FILEP
 Fßu
 FDDD
 FishC
+FQYU
 Element
 Entity
 Enity
@@ -141298,6 +141347,8 @@ EpbV
 EAU
 External
 EgLZ
+EDDDDDD
+EDDDDD
 xmlns
 xyz
 xy
@@ -144496,6 +144547,7 @@ xAnaV
 xPTR
 xkv
 xtia
+xzl
 yellow
 your
 you
@@ -147502,6 +147554,7 @@ yZkYk
 yUD
 ycIq
 yed
+ykGN
 Debug
 DEBUG
 Dd
@@ -150828,6 +150881,10 @@ DGi
 DZkx
 DDDDDDDf
 DDDDD
+DXGIFactory
+DDDDDDDZ
+DDDDBM
+DDDnT
 LNK
 Log
 Linux
@@ -154503,6 +154560,7 @@ LkT
 LNCW
 Lkh
 LRJ
+Lmmm
 Getx
 GetX
 GetName
@@ -158690,6 +158748,8 @@ GHIk
 GyuC
 GylK
 GHHH
+Giqy
+GEszU
 NULL
 Native
 NormalMap
@@ -166317,6 +166377,7 @@ ZRemsher
 ZXCr
 ZDk
 Zrw
+ZDDDD
 Quote
 Quiet
 Quick
@@ -170340,6 +170401,8 @@ Qoz
 QoC
 QUTUUQ
 QZRF
+QOUa
+QnE
 Java
 JPEG
 JlAGTAAAAAAf
@@ -174029,6 +174092,7 @@ JOG
 JKA
 JJilo
 JexZ
+JADDDDBI
 Ke
 KjpKWmp
 KYW
@@ -177616,6 +177680,7 @@ Kfh
 KRU
 KkEX
 Keymap
+KWmy
 key
 kSC
 keaXj
@@ -184930,6 +184995,7 @@ zaBg
 zaIH
 zyZ
 zbursh
+zWrrc
 jpg
 just
 juLeSXlIAVEiJIzRbMP
