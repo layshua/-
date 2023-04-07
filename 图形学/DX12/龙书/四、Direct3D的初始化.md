@@ -155,7 +155,7 @@ enum D3D_FEATURE_LEVEL
 **DirectX 图形基础结构 (DirectX Graphics Infrastructure，DXGI，也有译作 DirectX 图形基础设施）**，是一种与 Direct3D 配合使用的 API。设计 DXGI 的基本理念是使多种图形 API 中所共有的底层任务能借助一组通用 API 来进行处理。例如，为了保证动画的流畅性，2D 渲染与 3D 渲染两组 API 都要用到交换链和页面翻转功能，这里所用的交换链接口 `IDXGISwapChain` (详见 4.1.4 节）实际上就属于 DXGI API。
 DXGI 还用于处理一些其他常用的图形功能，如切换全屏模式 ( full-screen mode。另一种是窗口模式，windowed mode )，枚举显示适配器、显示设备及其支持的显示模式 (分辨率、刷新率等）等这类图形系统信息。除此之外，它还定义了 Direct3D 支持的各种表面格式信息( `DXGI_FORMAT` )。
 我们刚刚简单地叙述了 DXGI 的概念，下面来介绍一些在 Direct3D 初始化时会用到的相关接口。`IDXGIFactory` 是 DXGI 中的关键接口之一, 主要用于创建 `IDXGISwapChain` 接口以及枚举显示适配器。而显示适配器则真正实现了图形处理能力。通常来说，**显示适配器（ display adapter )** 是一种硬件设备 (例如独立显卡), 然而系统也可以用软件显示适配器来模拟硬件的图形处理功能。一个系统中可能会存在数个适配器（比如装有数块显卡)。适配器用接口 `IDXGIAdapter` 来表示。
-另外，一个系统也可能装有数个显示设备。**我们称每一台显示设备都是一个<mark style="background: #FF5582A6;">显示输出 ( display output</mark> 有的文档也作 adapter output，适配器输出)实例**，用 IDXGIOutput 接口来表示。每个适配器都与一组显示输出相关联。
+另外，一个系统也可能装有数个显示设备。**我们称每一台显示设备都是一个<mark style="background: #FF5582A6;">显示输出 ( display output</mark> 有的文档也作 adapter output，适配器输出)实例**，用 `IDXGIOutput` 接口来表示。每个适配器都与一组显示输出相关联。
 
 **设置代码见 P89**
 
