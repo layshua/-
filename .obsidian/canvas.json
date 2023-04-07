@@ -1,5 +1,5 @@
 {
-  "snapToObjects": true,
+  "snapToObjects": false,
   "snapToGrid": true,
   "newFileLocation": "current",
   "defaultWheelBehavior": "pan"
