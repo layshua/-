@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
+                "file": "图形学/DX12/自研引擎/2 DX12初始化.md"
               }
             }
           }
@@ -129,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,13 +180,16 @@
   },
   "active": "a20c239d33b19ab7",
   "lastOpenFiles": [
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
-    "Tools/工具流.md",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "图形学/DX12/BUG记录.md",
+    "Zstore/Pasted image 20230408163225.png",
+    "Zstore/Pasted image 20230408162858.png",
+    "Zstore/Pasted image 20230408162557.png",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
+    "图形学/DX12/BUG记录.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "Tools/工具流.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/C++原理.md",
     "编程/C++/Cherno剩余.md",
@@ -200,8 +203,6 @@
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940421.png",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940362.png",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940304.png",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940240.png",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940136.png",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",
@@ -228,7 +229,6 @@
     "Math/线性代数/《李永乐线代》.md",
     "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
-    "Math/LaTeX/常用语法.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
