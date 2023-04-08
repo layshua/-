@@ -57200,6 +57200,7 @@ MyProperty
 Magnift
 MicroMesh
 MSFGG
+MACHINE
 Windows
 Win
 World
@@ -65080,6 +65081,7 @@ SSST
 SwVW
 SwapChainBuffer
 SAMPLER
+SOFTWARE
 Programs
 POP
 PC
@@ -72574,6 +72576,7 @@ COMID
 CyNC
 CDDD
 CmW
+Classes
 ImTip
 IMAP
 ID
@@ -130116,6 +130119,7 @@ HBx
 HKKc
 HDDDDD
 HINSTANCE
+HKEY
 Bbb
 Bear
 Base
@@ -154608,6 +154612,7 @@ LoadLibrary
 Lib
 Libary
 LoadLibary
+LOCAL
 Getx
 GetX
 GetName
