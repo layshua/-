@@ -65079,6 +65079,7 @@ STZ
 SSST
 SwVW
 SwapChainBuffer
+SAMPLER
 Programs
 POP
 PC
