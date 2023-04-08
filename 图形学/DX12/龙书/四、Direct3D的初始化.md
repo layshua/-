@@ -107,10 +107,10 @@ ThrowIfFailed(md3dDevice->CreateCommandAllocator (
 > **“视图”虽是 Direct3D 先前版本里的常用术语，但它仍然沿用在 Direct3D 12 的部分 API 中。**在本书里，两者交替使用**，例如，“常量缓冲区视图 ( constant buffer view)”与“常量缓冲区描述符 ( constant buffer descriptor )"表达的是同一事物。
 
 **每个描述符都有一种具体类型，此类型指明了资源的具体作用。** 本书常用的描述符如下：
-1. CBV/SRV/UAV 描述符分别表示的是常量缓冲区视图（ constant buffer view)、着色器资源视图( shader resource view)和无序访问视图 ( unordered access view )这 3 种资源。
-2. 采样器（ sampler，亦有译为取样器）描述符表示的是采样器资源（用于纹理贴图)。
-3. RTV 描述符表示的是渲染目标视图资源 ( render target view )。
-4. DSV 描述符表示的是深度/模板视图资源 ( depth/stencil view )。
+1. **CBV/SRV/UAV** 描述符分别表示的是常量缓冲区视图（ constant buffer view)、着色器资源视图( shader resource view)和无序访问视图 ( unordered access view )这 3 种资源。
+2. **SAMPLER**采样器（亦有译为取样器）描述符表示的是采样器资源（用于纹理贴图)。
+3. **RTV** 描述符表示的是渲染目标视图资源 ( render target view )。
+4. **DSV** 描述符表示的是深度/模板视图资源 ( depth/stencil view )。
 
 **描述符堆 ( descriptor heap )** 中存有一系列描述符（可将其看作是描述符数组)，本质上是存放用户程序中某种特定类型描述符的一块内存。**我们需要为每一种类型的描述符都创建出单独的描述符堆。另外，也可以为同一种描述符类型创建出多个描述符堆**。
 **我们能用多个描述符来引用同一个资源**。例如，可以通过多个描述符来引用同一个资源中不同的局部数据。而且，前文曾提到过，一种资源可以绑定到渲染流水线的不同阶段。因此，**对于每个阶段都需要设置独立的描述符**。例如，当一个纹理需要被用作渲染目标与着色器资源时，我们就要为它分别创建两个描述符: 一个 RTV 描述符和一个 SRV 描述符。类似地，如果以无类型格式创建了一个资源，又希望该纹理中的元素可以根据需求当作浮点值或整数值来使用，那么就需要为它分别创建两个描述符: 一个指定为浮点格式，另一个指定为整数格式。
