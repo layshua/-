@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md"
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
               }
             }
           }
@@ -129,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,13 +180,13 @@
   },
   "active": "a20c239d33b19ab7",
   "lastOpenFiles": [
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Zstore/Pasted image 20230408165544.png",
     "Zstore/Pasted image 20230408163225.png",
     "Zstore/Pasted image 20230408162858.png",
     "Zstore/Pasted image 20230408162557.png",
-    "图形学/DX12/自研引擎/DX12初始化.canvas",
     "图形学/DX12/BUG记录.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Tools/工具流.md",
@@ -202,7 +202,6 @@
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/C++：LIB 和 DLL 的区别与使用.md",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940475.png",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940421.png",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets/1680873940362.png",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",
