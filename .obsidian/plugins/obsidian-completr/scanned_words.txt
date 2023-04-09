@@ -7280,6 +7280,7 @@ OgX
 ODDDDDDd
 ODD
 OSError
+OrV
 codeup
 clash
 ctrl
@@ -11092,6 +11093,12 @@ capacity
 cUELi
 countcount
 classinfo
+colspan
+ctrmap
+cosa
+cnxn
+cosx
+cotx
 github
 grey
 green
@@ -17838,6 +17845,29 @@ threaded
 temp
 turtle
 timeit
+trigonometric
+toljkf
+toljqp
+tolikh
+toliux
+tolj
+tolhsz
+toli
+tolidp
+tolh
+tolhcx
+tolhna
+tolgav
+tolgl
+tolgvs
+tolfjc
+tolftu
+tolg
+tolet
+tolf
+tolfdz
+tana
+tanx
 markdown
 matter
 mod
@@ -31853,6 +31883,7 @@ efba
 enumerate
 eat
 eachKey
+eZU
 VPN
 Verge
 VS
@@ -38251,6 +38282,8 @@ vQZQE
 vfC
 variation
 vAxV
+viewBox
+vTF
 AA
 AppData
 AIRDyuVH
@@ -42069,6 +42102,7 @@ ADT
 AssertionError
 Archive
 AttributeError
+ACsinC
 URL
 Utools
 Users
@@ -48974,6 +49008,15 @@ aggressive
 ahoK
 assert
 antialiasing
+acosa
+asina
+absinC
+acsinB
+arcsinx
+arccosx
+arctanx
+arccotx
+arctany
 Roaming
 RegWorkshop
 Release
@@ -57227,6 +57270,7 @@ MicroMesh
 MSFGG
 MACHINE
 MyDecriptor
+Mcf
 Windows
 Win
 World
@@ -61009,6 +61053,7 @@ WUw
 WRL
 WaitGPUCommandQueueComplete
 WIN
+Wilfred
 Start
 StartAllBack
 Shadowrocket
@@ -83690,6 +83735,7 @@ popitem
 pickle
 param
 printXY
+para
 nodesCatch
 nobr
 navy
@@ -87083,6 +87129,8 @@ npM
 nkh
 nonlocal
 noting
+nslog
+nfz
 bf
 bc
 black
@@ -90404,6 +90452,8 @@ bwQa
 bundle
 barrier
 balabala
+blank
+bcsinA
 fe
 front
 fill
@@ -97383,6 +97433,7 @@ delSize
 deleting
 delS
 delitem
+defs
 TFvYZOKeHL
 TAB
 TeX
@@ -109189,6 +109240,12 @@ setattr
 setSize
 setS
 setitem
+sortDisabled
+szX
+sina
+stroke
+sinarcsin
+sinx
 local
 list
 left
@@ -112514,6 +112571,7 @@ lpha
 loadlibary
 loadlibrary
 len
+lemmaid
 YAML
 You
 YEBAYGhURFRofHx
@@ -126385,6 +126443,7 @@ XdN
 XDDDD
 XszR
 XPvITZPq
+XYcR
 HTML
 HasPtr
 Hello
@@ -133431,6 +133490,7 @@ BFt
 BDl
 BCNO
 Ball
+BRaq
 Fraktur
 Frame
 Foo
@@ -137388,6 +137448,7 @@ FreeLibrary
 Five
 Fish
 Fibs
+Formulas
 Element
 Entity
 Enity
@@ -141485,6 +141546,7 @@ EonNHK
 Excal
 EEwWlBL
 Exception
+EhHT
 xmlns
 xyz
 xy
@@ -144684,6 +144746,7 @@ xPTR
 xkv
 xtia
 xzl
+xlink
 yellow
 your
 you
@@ -166533,6 +166596,7 @@ ZDk
 Zrw
 ZDDDD
 ZeroDivisionError
+ZBBP
 Quote
 Quiet
 Quick
@@ -177838,6 +177902,7 @@ KkEX
 Keymap
 KWmy
 KeyError
+Kaplan
 key
 kSC
 keaXj
@@ -181612,6 +181677,7 @@ kVofzfZ
 kREQ
 kwPkI
 keys
+kOu
 zoom
 zw
 zaG
@@ -189099,6 +189165,7 @@ jdHb
 jkkkk
 jOb
 jJJM
+jaHBT
 ÄjZU
 ÄJ
 Ät
