@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/三角函数.md",
+                "file": "Math/《3D数学基础 2rd》.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/三角函数.md"
+                "file": "Math/《3D数学基础 2rd》.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/三角函数.md",
+                "file": "Math/《3D数学基础 2rd》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/三角函数.md",
+                "file": "Math/《3D数学基础 2rd》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,11 +165,15 @@
   },
   "active": "b3da73eef55b79fe",
   "lastOpenFiles": [
-    "Zstore/1681006751851.png",
+    "Zstore/Pasted image 20230409111210.png",
     "Math/三角函数.md",
+    "Zstore/i 1.webp",
+    "Zstore/i.webp",
+    "Math/线性代数/3D数学.md",
+    "Math/LaTeX/常用语法.md",
+    "Zstore/1681006751851.png",
     "Math/《3D数学基础 2rd》.md",
     "Math/LaTeX/语法大全.md",
-    "Math/LaTeX/常用语法.md",
     "Zstore/1681006752956.png",
     "Zstore/1681006752935.png",
     "Zstore/1681006752900.png",
@@ -177,15 +181,11 @@
     "Zstore/1681006752844.png",
     "Zstore/1681006752812.png",
     "Zstore/1681006752789.png",
-    "Zstore/1681006752752.png",
-    "Zstore/1681006752713.png",
-    "Zstore/1681006752693.png",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/三角函数公式_百度百科.md",
     "Zbuffer/三角函数公式_百度百科/assets",
     "Zbuffer/三角函数公式_百度百科",
-    "Math/线性代数/3D数学.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "编程/C++/《C++ Primer 5th》.md",

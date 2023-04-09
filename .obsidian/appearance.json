@@ -5,7 +5,7 @@
   "textFontFamily": "Microsoft YaHei",
   "interfaceFontFamily": "Microsoft YaHei",
   "cssTheme": "Minimal",
-  "baseFontSize": 18,
+  "baseFontSize": 19,
   "enabledCssSnippets": [
     "Font",
     "自定义格式"

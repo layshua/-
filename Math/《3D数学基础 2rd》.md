@@ -5,8 +5,9 @@ banner: "![[2019061650899329.gif]]"
 > [!tip] 本书约定
 > 左手坐标系
 > 行向量
-# 三角函数
+> 
 
+![[Pasted image 20230409111210.png]]
 # 向量 
 向量最基本的定义就是一个方向。或者更正式的说，向量有一个方向 (Direction)和大小 (Magnitude，也叫做强度或长度)。由于**向量表示的是方向，起始于何处并不会改变它的值**。下图我们可以看到向量 v 和 w 是相等的，尽管他们的起始点不同：
 
@@ -32,6 +33,8 @@ banner: "![[2019061650899329.gif]]"
 > [!NOTE] 点积公式
 >1.  代数定义： $$\mathbf{a}\cdot\mathbf{b}=\sum_{i=1}^n a_i b_i=a_1b_1+a_2b_2+\cdots+a_n b_n$$
 > 2. 几何定义： $$\mathbf{a}\cdot\mathbf{b}=\|\mathbf{a}\|\ \|\mathbf{b}\|\cos\theta$$
+> $$\theta=\operatorname{arccos}\left(\dfrac{\mathbf{a}\cdot\mathbf{b}}{\|\mathbf{a}\|\|\mathbf{b}\|}\right)$$
+> 
 > 点积为 0，向量正交
 > 
 > 3. 正交投影 (向量 a 落在向量 b 上的正交投影)
