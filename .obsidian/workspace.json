@@ -66,8 +66,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -139,8 +138,10 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "21a03d7ff7e78358",
+  "active": "c536e920cc3a3c52",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230409204914.jpg",
+    "Zstore/Pasted image 20230409204531.jpg",
     "编程/C++/《C++ Primer 5th》.md",
     "NERF/Python/基础.md",
     "Math/线性代数/3D数学.md",
@@ -173,10 +174,8 @@
     "Math/公式推导/反射和折射.md",
     "Zstore/Pasted image 20230409134706.png",
     "Zstore/Pasted image 20230409133744.png",
-    "Zstore/Pasted image 20230409133736.png",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
-    "Math/三角函数.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
