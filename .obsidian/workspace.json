@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "Math/公式推导/变换矩阵.md",
                 "mode": "source",
                 "source": false
               }
@@ -67,8 +67,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -187,12 +186,13 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "f71083b55897e341",
+  "active": "fa8f0bda7dc16d58",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230409130953.png",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/线性代数/3D数学.md",
+    "Math/公式推导/变换矩阵.md",
     "Math/LaTeX/常用语法.md",
-    "Math/公式推导/旋转矩阵.md",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
@@ -234,7 +234,6 @@
     "Zbuffer/C++：LIB 和 DLL 的区别与使用",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客",
-    "图形学/DX12/SBL库.md",
     "Tools/Excalidraw/未命名.canvas",
     "Tools/Excalidraw",
     "未命名.canvas",
