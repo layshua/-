@@ -44,6 +44,18 @@
             }
           },
           {
+            "id": "97261f5fe2c3d2ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/线性代数/线性代数的本质.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "10d26a2769ef7263",
             "type": "leaf",
             "state": {
@@ -189,9 +201,12 @@
   },
   "active": "15b3cc896730904c",
   "lastOpenFiles": [
+    "Math/线性代数/线性代数的本质.md",
+    "Math/线性代数/3D数学.md",
+    "Zstore/Pasted image 20230409173944.png",
+    "Zstore/Pasted image 20230409173551.png",
     "Math/线性代数/《李永乐线代》.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
-    "Math/线性代数/3D数学.md",
     "Math/公式推导/变换矩阵.md",
     "Tools/工具流.md",
     "Tools/Obsidian/插件流.md",
@@ -211,13 +226,10 @@
     "Zstore/Pasted image 20230409142339.png",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Math/公式推导/反射和折射.md",
-    "Math/线性代数/线性代数的本质.md",
     "Math/线性代数/矩阵论.md",
     "Zstore/Pasted image 20230409134706.png",
     "Zstore/Pasted image 20230409133744.png",
     "Zstore/Pasted image 20230409133736.png",
-    "Zstore/Pasted image 20230409133316.png",
-    "Zstore/Pasted image 20230409132017.png",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Math/三角函数.md",
@@ -228,7 +240,6 @@
     "Zbuffer/三角函数公式_百度百科/三角函数公式_百度百科.md",
     "Zbuffer/三角函数公式_百度百科/assets",
     "Zbuffer/三角函数公式_百度百科",
-    "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Math/3Dsh",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets",
