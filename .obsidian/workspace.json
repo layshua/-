@@ -55,8 +55,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/线性代数/《李永乐线代》.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
@@ -126,7 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/线性代数/《李永乐线代》.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +142,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/线性代数/《李永乐线代》.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,11 +174,12 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "f660d21ce841683e",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/线性代数/3D数学.md",
     "Math/线性代数/《李永乐线代》.md",
+    "Zstore/Pasted image 20230409142339.png",
     "Math/LaTeX/常用语法.md",
     "Math/公式推导/变换矩阵.md",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
@@ -199,7 +199,6 @@
     "Zstore/Pasted image 20230409111210.png",
     "Zstore/i 1.webp",
     "Zstore/i.webp",
-    "Zstore/1681006751851.png",
     "Math/LaTeX/语法大全.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
@@ -218,7 +217,6 @@
     "编程/C++/C++原理.md",
     "编程/C++/Cherno剩余.md",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客.md",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用/C++：LIB 和 DLL 的区别与使用.md",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",

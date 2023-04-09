@@ -1,4 +1,7 @@
-本课使用**右手坐标系**，Opengl是右手系，DX是左手系
+> [!NOTE] 约定
+> 行向量
+> 右手坐标系
+
 # GAMES101投影矩阵相关坐标系的约定
 GAMES101使用右手坐标系，包括View space和NDC space(Clip space)。
 
