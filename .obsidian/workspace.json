@@ -20,12 +20,36 @@
             }
           },
           {
+            "id": "0dd94c30ae30b92d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "f71083b55897e341",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Math/线性代数/3D数学.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "15b3cc896730904c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
@@ -44,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -165,12 +189,18 @@
   },
   "active": "f71083b55897e341",
   "lastOpenFiles": [
-    "Math/线性代数/线性代数的本质.md",
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/线性代数/3D数学.md",
     "Math/LaTeX/常用语法.md",
+    "Math/公式推导/旋转矩阵.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "Math/线性代数/矩阵论.md",
+    "Math/线性代数/《李永乐线代》.md",
+    "Math/线性代数/线性代数的本质.md",
     "Math/三角函数.md",
     "Math/《3D数学基础 2rd》.md",
-    "Math/线性代数/《李永乐线代》.md",
     "Zstore/Pasted image 20230409111210.png",
     "Zstore/i 1.webp",
     "Zstore/i.webp",
@@ -193,10 +223,7 @@
     "Math/3Dsh",
     "图形学/DX12/DirectXMath.md",
     "NERF/Python/基础.md",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "编程/IDE/VS2022.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Tools/工具流.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/C++原理.md",
@@ -208,12 +235,9 @@
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客",
     "图形学/DX12/SBL库.md",
-    "Tools/Excalidraw/Drawing 2023-04-07 19.56.11.excalidraw.md",
     "Tools/Excalidraw/未命名.canvas",
     "Tools/Excalidraw",
     "未命名.canvas",
-    "Zbuffer/Excalidraw/Drawing 2023-04-07 15.16.16.excalidraw.md",
-    "虚幻引擎/4 特效/月神3/【月神3】杂项.md",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
     "虚幻UE/4 特效/月神3/未命名.canvas",
