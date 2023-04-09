@@ -1,7 +1,7 @@
 {
   "theme": "moonstone",
   "translucency": false,
-  "monospaceFontFamily": "Fira Code",
+  "monospaceFontFamily": "Fira Code,Fira Code Retina",
   "textFontFamily": "Microsoft YaHei",
   "interfaceFontFamily": "Microsoft YaHei",
   "cssTheme": "Minimal",
