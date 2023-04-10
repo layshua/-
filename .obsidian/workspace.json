@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/Python/基础.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,13 +140,13 @@
   },
   "active": "c536e920cc3a3c52",
   "lastOpenFiles": [
+    "NERF/Python/基础.md",
     "Zstore/Pasted image 20230409212745.jpg",
     "Zstore/Pasted image 20230409211600.jpg",
     "Zstore/Pasted image 20230409210058.jpg",
     "Zstore/Pasted image 20230409204914.jpg",
     "Zstore/Pasted image 20230409204531.jpg",
     "编程/C++/《C++ Primer 5th》.md",
-    "NERF/Python/基础.md",
     "Math/线性代数/3D数学.md",
     "Math/线性代数/矩阵论.md",
     "Math/线性代数/线性代数的本质.md",
@@ -170,7 +170,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
     "Zstore/Pasted image 20230409161047.png",
     "Zstore/Pasted image 20230409153637.png",
-    "Zstore/Pasted image 20230409153634.png",
     "Math/LaTeX/常用语法.md",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Math/公式推导/反射和折射.md",
