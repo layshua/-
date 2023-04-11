@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/语法大全.md",
+                "file": "Math/微积分/微积分基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,11 +62,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/LaTeX/语法大全.md"
+                "file": "Math/微积分/微积分基础.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -89,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/LaTeX/语法大全.md",
+                "file": "Math/微积分/微积分基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/LaTeX/语法大全.md",
+                "file": "Math/微积分/微积分基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,8 +141,10 @@
   },
   "active": "c536e920cc3a3c52",
   "lastOpenFiles": [
-    "NERF/Python/基础.md",
+    "Math/线性代数/《李永乐线代》.md",
     "编程/C++/《C++ Primer 5th》.md",
+    "NERF/Python/基础.md",
+    "Math/LaTeX/语法大全.md",
     "Zstore/Pasted image 20230409212745.jpg",
     "Zstore/Pasted image 20230409211600.jpg",
     "Zstore/Pasted image 20230409210058.jpg",
@@ -153,7 +156,6 @@
     "图形学/软渲染器/软光栅/总结.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/线性代数/《李永乐线代》.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
     "Zstore/Pasted image 20230409173944.png",
     "Zstore/Pasted image 20230409173551.png",
