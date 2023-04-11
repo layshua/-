@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Math/LaTeX/语法大全.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/Python/基础.md"
+                "file": "Math/LaTeX/语法大全.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Math/LaTeX/语法大全.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Math/LaTeX/语法大全.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,8 +140,8 @@
   },
   "active": "c536e920cc3a3c52",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer 5th》.md",
     "NERF/Python/基础.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "Zstore/Pasted image 20230409212745.jpg",
     "Zstore/Pasted image 20230409211600.jpg",
     "Zstore/Pasted image 20230409210058.jpg",
