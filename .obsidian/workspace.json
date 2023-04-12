@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/线性代数/3D数学.md"
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,8 +138,10 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "c536e920cc3a3c52",
   "lastOpenFiles": [
+    "Math/线性代数/线性代数的本质.md",
+    "Math/线性代数/3D数学.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/《李永乐线代》.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -150,9 +152,7 @@
     "Zstore/Pasted image 20230409210058.jpg",
     "Zstore/Pasted image 20230409204914.jpg",
     "Zstore/Pasted image 20230409204531.jpg",
-    "Math/线性代数/3D数学.md",
     "Math/线性代数/矩阵论.md",
-    "Math/线性代数/线性代数的本质.md",
     "图形学/软渲染器/软光栅/总结.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
