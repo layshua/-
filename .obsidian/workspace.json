@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/微积分/微积分基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,12 +62,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/微积分/微积分基础.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -90,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/微积分/微积分基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/微积分/微积分基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,8 +138,9 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "c536e920cc3a3c52",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "Math/微积分/微积分基础.md",
     "Math/线性代数/《李永乐线代》.md",
     "编程/C++/《C++ Primer 5th》.md",
     "NERF/Python/基础.md",
@@ -176,7 +176,6 @@
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Math/公式推导/反射和折射.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
