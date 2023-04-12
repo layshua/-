@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/公式推导/视图变换矩阵.md",
+                "file": "Math/公式推导/视图变换.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,24 +74,12 @@
             }
           },
           {
-            "id": "9ffbe259d021cfec",
+            "id": "fdd654149b6be93c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/软渲染器/软光栅/总结.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c536e920cc3a3c52",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/OpenGL/LearnOpenGL.md",
+                "file": "Math/公式推导/视图变换.md",
                 "mode": "source",
                 "source": false
               }
@@ -140,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md"
+                "file": "图形学/OpenGL/LearnOpenGL.md"
               }
             }
           }
@@ -167,7 +155,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +172,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,17 +206,18 @@
   },
   "active": "3c00de15237b1fb3",
   "lastOpenFiles": [
-    "Math/公式推导/视图变换矩阵.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Zstore/v2-30da233abacca39a4cf87c28ed8e3e75_1440w.webp",
-    "图形学/OpenGL/LearnOpenGL.md",
-    "图形学/软渲染器/软光栅/总结.md",
+    "Math/公式推导/视图变换.md",
+    "Math/公式推导/变换矩阵.md",
+    "Math/公式推导/反射和折射.md",
     "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
+    "图形学/软渲染器/软光栅/总结.md",
+    "图形学/OpenGL/LearnOpenGL.md",
     "Math/LaTeX/常用语法.md",
+    "Zstore/v2-30da233abacca39a4cf87c28ed8e3e75_1440w.webp",
     "Zstore/Pasted image 20230412222358.png",
     "Zstore/Pasted image 20230412222343.png",
-    "Math/公式推导/变换矩阵.md",
     "Zstore/Pasted image 20230412214456.png",
     "Zstore/Pasted image 20230412214450.png",
     "Zstore/Pasted image 20230412214140.png",
