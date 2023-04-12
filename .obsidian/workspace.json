@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
+                "file": "Math/公式推导/视图变换矩阵.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md"
+                "file": "Math/公式推导/视图变换矩阵.md"
               }
             }
           }
@@ -143,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
+                "file": "Math/公式推导/视图变换矩阵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
+                "file": "Math/公式推导/视图变换矩阵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -195,8 +195,14 @@
   "active": "47552d1342feefe2",
   "lastOpenFiles": [
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
+    "Math/公式推导/视图变换矩阵.md",
+    "Zstore/Pasted image 20230412214456.png",
+    "Zstore/Pasted image 20230412214450.png",
+    "Zstore/Pasted image 20230412214140.png",
     "图形学/OpenGL/LearnOpenGL.md",
+    "Zstore/Pasted image 20230412213953.png",
+    "Zstore/Pasted image 20230412212245.png",
+    "Zstore/Pasted image 20230412212225.png",
     "Math/线性代数/3D数学.md",
     "图形学/软渲染器/软光栅/总结.md",
     "Zstore/1681302676873.png",
@@ -208,12 +214,6 @@
     "Zstore/1681302677610.png",
     "Zstore/1681302677554.png",
     "Zstore/1681302677477.png",
-    "Zstore/1681302677445.png",
-    "Zstore/1681302677398.png",
-    "Zstore/1681302677361.png",
-    "Zstore/1681302677320.png",
-    "Zstore/1681302677285.png",
-    "Zstore/1681302677229.png",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Math/线性代数/线性代数的本质.md",
@@ -232,7 +232,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章续 · 延迟渲染的前生今世/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
