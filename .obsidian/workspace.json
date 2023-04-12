@@ -13,13 +13,69 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "47552d1342feefe2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "ecc9adf07cc4ef3b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3c00de15237b1fb3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9ffbe259d021cfec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/软渲染器/软光栅/总结.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1bb4efce9a9d86be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/OpenGL/LearnOpenGL.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -62,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md"
+                "file": "图形学/OpenGL/LearnOpenGL.md"
               }
             }
           }
@@ -89,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/OpenGL/LearnOpenGL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,44 +194,47 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "c536e920cc3a3c52",
+  "active": "1bb4efce9a9d86be",
   "lastOpenFiles": [
+    "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
+    "图形学/OpenGL/LearnOpenGL.md",
+    "图形学/软渲染器/软光栅/总结.md",
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "Zstore/1681302676873.png",
+    "Math/LaTeX/语法大全.md",
+    "Math/LaTeX/常用语法.md",
+    "Math/Others/三角函数.md",
+    "Math/Others",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "Zstore/1681302677610.png",
+    "Zstore/1681302677554.png",
+    "Zstore/1681302677477.png",
+    "Zstore/1681302677445.png",
+    "Zstore/1681302677398.png",
+    "Zstore/1681302677361.png",
+    "Zstore/1681302677320.png",
+    "Zstore/1681302677285.png",
+    "Zstore/1681302677229.png",
+    "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
+    "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Math/线性代数/线性代数的本质.md",
     "Math/线性代数/3D数学.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/《李永乐线代》.md",
     "编程/C++/《C++ Primer 5th》.md",
     "NERF/Python/基础.md",
-    "Math/LaTeX/语法大全.md",
-    "Zstore/Pasted image 20230409212745.jpg",
-    "Zstore/Pasted image 20230409211600.jpg",
-    "Zstore/Pasted image 20230409210058.jpg",
-    "Zstore/Pasted image 20230409204914.jpg",
-    "Zstore/Pasted image 20230409204531.jpg",
     "Math/线性代数/矩阵论.md",
-    "图形学/软渲染器/软光栅/总结.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
-    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
-    "Zstore/Pasted image 20230409173944.png",
-    "Zstore/Pasted image 20230409173551.png",
     "Math/公式推导/变换矩阵.md",
     "Tools/工具流.md",
     "Tools/Obsidian/插件流.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
-    "Zstore/1064722.jpg",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第三章 · GPU渲染管线与可编程着色器/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章续 · 延迟渲染的前生今世/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
-    "Zstore/Pasted image 20230409161047.png",
-    "Zstore/Pasted image 20230409153637.png",
-    "Math/LaTeX/常用语法.md",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
-    "Math/公式推导/反射和折射.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
@@ -184,10 +243,7 @@
     "Math/3Dsh",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用/assets",
     "Zbuffer/C++：LIB 和 DLL 的区别与使用",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客/assets",
-    "Zbuffer/C++：LIB 和 DLL 的区别与使用 - 逛奔的蜗牛 - C++ 博客",
     "Tools/Excalidraw/未命名.canvas",
-    "Tools/Excalidraw",
     "未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",

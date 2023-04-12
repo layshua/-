@@ -7,7 +7,7 @@ GAMES101使用右手坐标系，包括View space和NDC space(Clip space)。
 
 - 对于View space，camera的位置为原点，看向负Z轴，这和OpenGL一致。GAMES101推导投影矩阵时，近裁面坐标n和远裁面坐标f都是使用的是坐标值，因此有 f < n < 0。
 
-- 对于NDC space, GAMES101的NDC中，x,y,z的坐标范围都是[-1,1]。虽然OpenGL也是[-1,1]，但是需要注意的是，**GAMES101中，由于View space和NDC space都是右手系**，所以变换后z轴方向并没有变化，因此n被映射到了1，而f被映射到了-1，仍然符合 f < n，且。GAMES101讲义上也说了，near and far not intuitive (n>f) ，而**OpenGL使用左手系的NDC**更加直觉一些。
+- 对于NDC space, GAMES101的NDC中，x,y,z的坐标范围都是$[-1,1]$。虽然OpenGL也是$[-1,1]$，但是需要注意的是，**GAMES101中，由于View space和NDC space都是右手系**，所以变换后z轴方向并没有变化，因此$n$被映射到了$1$，而f被映射到了$-1$，仍然符合 $f < n$，且。GAMES101讲义上也说了，near and far not intuitive (n>f) ，而**OpenGL使用左手系的NDC**更加直觉一些。
 
 - 下图是右手系的view space（以正交投影视景体为例），由于camera从原点看向负Z轴，因此n更靠近正Z，f更靠近负Z。
 ![[Pasted image 20230106161733.png]]

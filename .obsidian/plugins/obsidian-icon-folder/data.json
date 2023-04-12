@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "SiMatrix",
+      "IbTriangle",
       "SiOpenai",
       "RiInboxArchiveFill",
-      "RiStackFill",
-      "FabAppStore",
-      "SiAppstore"
+      "RiStackFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
