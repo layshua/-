@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c536e920cc3a3c52",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/OpenGL/LearnOpenGL.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "47552d1342feefe2",
             "type": "leaf",
             "state": {
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "ecc9adf07cc4ef3b",
@@ -51,6 +38,18 @@
             }
           },
           {
+            "id": "159475316dee6ea8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/线性代数/3D数学.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "9ffbe259d021cfec",
             "type": "leaf",
             "state": {
@@ -63,7 +62,7 @@
             }
           },
           {
-            "id": "1bb4efce9a9d86be",
+            "id": "c536e920cc3a3c52",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -74,8 +73,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -118,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/OpenGL/LearnOpenGL.md"
+                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md"
               }
             }
           }
@@ -145,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/OpenGL/LearnOpenGL.md",
+                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/OpenGL/LearnOpenGL.md",
+                "file": "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -194,12 +192,13 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "1bb4efce9a9d86be",
+  "active": "47552d1342feefe2",
   "lastOpenFiles": [
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/公式推导/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵.md",
     "图形学/OpenGL/LearnOpenGL.md",
+    "Math/线性代数/3D数学.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Zstore/1681302676873.png",
     "Math/LaTeX/语法大全.md",
     "Math/LaTeX/常用语法.md",
@@ -218,7 +217,6 @@
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Math/线性代数/线性代数的本质.md",
-    "Math/线性代数/3D数学.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/《李永乐线代》.md",
     "编程/C++/《C++ Primer 5th》.md",
