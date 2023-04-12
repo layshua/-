@@ -97,8 +97,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -141,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/公式推导/视图变换矩阵.md"
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md"
               }
             }
           }
@@ -168,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/公式推导/视图变换矩阵.md",
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/公式推导/视图变换矩阵.md",
+                "file": "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -217,15 +216,16 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "47552d1342feefe2",
+  "active": "3c00de15237b1fb3",
   "lastOpenFiles": [
+    "Math/公式推导/视图变换矩阵.md",
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "Zstore/v2-30da233abacca39a4cf87c28ed8e3e75_1440w.webp",
+    "图形学/OpenGL/LearnOpenGL.md",
+    "图形学/软渲染器/软光栅/总结.md",
+    "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
     "Math/LaTeX/常用语法.md",
-    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/公式推导/视图变换矩阵.md",
-    "图形学/软渲染器/软光栅/总结.md",
-    "图形学/OpenGL/LearnOpenGL.md",
-    "Math/线性代数/3D数学.md",
     "Zstore/Pasted image 20230412222358.png",
     "Zstore/Pasted image 20230412222343.png",
     "Math/公式推导/变换矩阵.md",
@@ -239,7 +239,6 @@
     "Math/Others/三角函数.md",
     "Math/Others",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-    "Zstore/1681302677610.png",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Math/线性代数/线性代数的本质.md",
