@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "NERF/Python/基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
+                "file": "NERF/Python/基础.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "NERF/Python/基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "NERF/Python/基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,9 +140,9 @@
   },
   "active": "47552d1342feefe2",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Math/公式推导/视图变换.md",
     "图形学/OpenGL/LearnOpenGL.md",
     "Math/线性代数/3D数学.md",
