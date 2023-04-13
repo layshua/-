@@ -85,7 +85,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -128,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/公式推导/视图变换.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
@@ -155,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +173,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -204,11 +205,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "47552d1342feefe2",
+  "active": "159475316dee6ea8",
   "lastOpenFiles": [
+    "Math/公式推导/视图变换.md",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/公式推导/视图变换.md",
     "Math/公式推导/变换矩阵.md",
     "Math/公式推导/反射和折射.md",
     "Math/线性代数/3D数学.md",
