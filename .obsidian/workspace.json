@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,6 +140,8 @@
   },
   "active": "47552d1342feefe2",
   "lastOpenFiles": [
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Math/公式推导/视图变换.md",
     "图形学/OpenGL/LearnOpenGL.md",
     "Math/线性代数/3D数学.md",
@@ -177,8 +179,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第三章 · GPU渲染管线与可编程着色器/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章续 · 延迟渲染的前生今世/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
