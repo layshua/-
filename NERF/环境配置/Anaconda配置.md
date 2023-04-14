@@ -1,6 +1,6 @@
 **anaconda 包管理器和环境管理器，强烈建议食用**
 
-**1. 下载**
+# 1. 下载
 
 官网下载太慢可选用镜像下载
 
@@ -8,41 +8,41 @@
 
 [Anaconda | Individual Edition](https://www.anaconda.com/products/individual)
 
-![](<assets/1681482602970.png>)
+![](1681482602970.png)
 
 镜像下载：
 
 [Index of /anaconda/archive/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
 
-![](<assets/1681482603037.png>)
+![](1681482603037.png)
 
-**2. 安装**
+# 2. 安装
 
 傻瓜式安装，一直下一步即可安装完成
 
-![](<assets/1681482603076.png>)
+![](1681482603076.png)
 
-![](<assets/1681482603163.png>)
+![](1681482603163.png)
 
 可以选择 All users
 
-![](<assets/1681482603198.png>)
+![](1681482603198.png)
 
 可自定义路径
 
-![](<assets/1681482603232.png>)
+![](1681482603232.png)
 
 不选择添加环境变量
 
-![](<assets/1681482603276.png>)
+![](1681482603276.png)
 
-![](<assets/1681482603323.png>)
+![](1681482603323.png)
 
-![](<assets/1681482603358.png>)
+![](1681482603358.png)
 
-![](<assets/1681482603418.png>)
+![](1681482603418.png)
 
-**3. 配置环境变量**
+# 3. 配置环境变量
 
 ```
 D:\Anaconda
@@ -53,23 +53,23 @@ D:\Anaconda\Scripts
 
 电脑右键选择属性，选择高级系统设置
 
-![](<assets/1681482603458.png>)
+![](1681482603458.png)
 
 点击环境变量
 
-![](<assets/1681482603495.png>)
+![](1681482603495.png)
 
 选择系统变量 path，点击编辑
 
-![](<assets/1681482603560.png>)
+![](1681482603560.png)
 
 点击新建
 
-![](<assets/1681482603672.png>)
+![](1681482603672.png)
 
 **提醒以下，环境变量真的不能忘记了**
 
-**4. 检验**
+# 4. 检验
 
 检查是否安装成功
 
@@ -78,19 +78,19 @@ conda --version
 conda info
 ```
 
-![](<assets/1681482603722.png>)
+![](1681482603722.png)
 
-**5. 增加国内下载源**
+# 5. 增加国内下载源
 
 [anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
 
 Anaconda 镜像使用帮助可供了解
 
-用户目录下没有. condarc 文件，先执行 conda config --set show_channel_urls yes 生成该文件之后再修改，选择方式二可以不进行此操作
+用户目录下没有. condarc 文件，先执行 `conda config --set show_channel_urls yes` 生成该文件之后再修改，选择方式二可以不进行此操作
 
 方式一 、修改用户目录下的. condarc 文件
 
-.condarc 文件路径如：C:\Users\10264\.condarc，自己的路径对号入座
+.condarc 文件路径如：`C:\Users\10264\.condarc`，自己的路径对号入座
 
 用如下内容替换. condarc 文件内容
 
@@ -102,11 +102,11 @@ channels:
 show_channel_urls: true
 ```
 
-![](<assets/1681482603756.png>)
+![](1681482603756.png)
 
 方式二、命令修改
 
-# 添加国内源，https 大概率用不了
+添加国内源，https 大概率用不了
 
 ```
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -114,37 +114,37 @@ conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/ma
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 ```
 
-# 设置搜索时显示通道地址
+设置搜索时显示通道地址
 
 ```
 conda config --set show_channel_urls yes
 ```
 
-# 删除默认源
+删除默认源
 
 ```
 conda config --remove channels defaults
 ```
 
-# 查看通道地址
+查看通道地址
 
 ```
 conda config --show channels
 ```
 
-![](<assets/1681482603795.png>)
+![](1681482603795.png)
 
 建议参考上图执行
 
-**6. 查看所有虚拟环境**
+# 6. 查看所有虚拟环境
 
 ```
 conda env list
 ```
 
-![](<assets/1681482603836.png>)
+![](1681482603836.png)
 
-**7. 创建虚拟环境**
+# 7. 创建虚拟环境
 
 jupyter notebook 是好用的交互式编辑器
 
@@ -158,7 +158,7 @@ conda create -n noti jupyter notebook
 
 noti 是虚拟环境的名字，jupyter notebook 是第三方库
 
-**8. 切换虚拟环境**
+# 8. 切换虚拟环境
 
 ```
 activate noti
@@ -166,9 +166,9 @@ activate noti
 
 切换到名为 noti 的虚拟环境中
 
-![](<assets/1681482603907.png>)
+![](1681482603907.png)
 
-**9. 其他命令**
+# 9. 其他命令
 
 如下命令自行按需索取吧
 

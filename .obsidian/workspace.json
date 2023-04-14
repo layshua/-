@@ -25,7 +25,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
+                "file": "NERF/环境配置/Anaconda配置.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bc491fe3634585bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NERF/深度学习/pytorch.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md"
+                "file": "NERF/深度学习/pytorch.md"
               }
             }
           }
@@ -127,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
+                "file": "NERF/深度学习/pytorch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
+                "file": "NERF/深度学习/pytorch.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -176,33 +188,36 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "263ab045fc433083",
+  "active": "bc491fe3634585bb",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230414225103.png",
+    "Zstore/Pasted image 20230414224629.png",
+    "图形学/DX12/DirectXMath.md",
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
+    "编程/IDE/Reshaper快捷键.md",
+    "NERF/环境配置/Anaconda配置.md",
+    "NERF/深度学习/pytorch.md",
+    "Zstore/Pasted image 20230414224539.png",
+    "NERF/环境配置/未命名",
+    "Zstore/1681482602970.png",
+    "NERF/环境配置",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
-    "NERF/深度学习/未命名.md",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603907.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603836.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603795.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603756.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603722.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603672.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603560.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603495.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603458.png",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603418.png",
+    "Zstore/1681482603907.png",
+    "Zstore/1681482603836.png",
+    "Zstore/1681482603795.png",
+    "Zstore/1681482603756.png",
+    "Zstore/1681482603722.png",
+    "Zstore/1681482603672.png",
+    "Zstore/1681482603560.png",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)",
     "NERF/Python/基础.md",
     "NERF/深度学习",
     "图形学/DX12/龙书/DX12理论.md",
-    "图形学/DX12/DirectXMath.md",
-    "编程/IDE/Reshaper快捷键.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/Google C++风格.md",
     "图形学/软渲染器/软光栅/总结.md",
     "Math/公式推导/视图变换.md",
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "技术美术/TA101/技术美术101.md",
     "技术美术/庄懂/AP01.md",
     "技术美术/百人计划/T渲染向/第三章 进阶应用.md",
@@ -221,8 +236,6 @@
     "Math/Others",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
-    "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
-    "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",

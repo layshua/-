@@ -3,3 +3,9 @@ Pytorch 环境创建：
 ```python nums
 conda create -n pytorch Python=3.11.3
 ```
+
+![[Pasted image 20230414224539.png]]
+
+![[Pasted image 20230414224629.png]]
+
+![[Pasted image 20230414225103.png]]
