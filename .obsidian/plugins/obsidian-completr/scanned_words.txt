@@ -17908,6 +17908,7 @@ tell
 transformation
 truediv
 traceback
+topology
 markdown
 matter
 mod
@@ -21648,6 +21649,7 @@ micropolygon
 maximumdepth
 matches
 mengtao
+merger
 windows
 win
 width
@@ -24998,6 +25000,7 @@ whose
 wtf
 wJGAC
 whl
+winding
 utools
 url
 unresolved
@@ -35230,6 +35233,7 @@ Valient
 Visible
 Vienna
 Visualization
+VertexShader
 verge
 vPdIt
 vertical
@@ -42184,6 +42188,7 @@ Airey
 Aliaga
 Aspect
 ATUVt
+ARGB
 URL
 Utools
 Users
@@ -49112,6 +49117,8 @@ affected
 abdd
 affd
 annual
+assembler
+adjacenttriangle
 Roaming
 RegWorkshop
 Release
@@ -83924,6 +83931,7 @@ preprocessing
 pets
 performed
 pjNo
+poly
 nodesCatch
 nobr
 navy
@@ -105441,6 +105449,7 @@ ilshift
 irshift
 iand
 ixor
+indedx
 shift
 svg
 sf
@@ -109506,6 +109515,9 @@ symposium
 splats
 seq
 starhqy
+shaderstage
+stages
+subdivide
 local
 list
 left
@@ -126739,6 +126751,7 @@ XDDDD
 XszR
 XPvITZPq
 XYcR
+XMCOLOR
 HTML
 HasPtr
 Hello
@@ -151435,6 +151448,7 @@ During
 Durant
 Divide
 DDDDk
+DIrect
 LNK
 Log
 Linux
