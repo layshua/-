@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,6 +178,7 @@
   },
   "active": "263ab045fc433083",
   "lastOpenFiles": [
+    "图形学/DX12/DirectXMath.md",
     "编程/IDE/Reshaper快捷键.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/Google C++风格.md",
@@ -191,7 +192,6 @@
     "技术美术/百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/百人计划/T渲染向/第二章 光照基础.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
-    "图形学/DX12/DirectXMath.md",
     "Math/线性代数/3D数学.md",
     "Zstore/Pasted image 20230414145605.png",
     "Zstore/Pasted image 20230414145558.png",
