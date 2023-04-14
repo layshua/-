@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "NERF/Python/基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "NERF/Python/基础.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "NERF/Python/基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "NERF/Python/基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,12 +178,12 @@
   },
   "active": "263ab045fc433083",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/DirectXMath.md",
     "编程/IDE/Reshaper快捷键.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/Google C++风格.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "Zstore/Pasted image 20230414163515.png",
     "Math/公式推导/视图变换.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
