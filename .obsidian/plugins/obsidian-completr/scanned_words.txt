@@ -11122,6 +11122,7 @@ climb
 cancel
 convention
 cellspacing
+componentwise
 github
 grey
 green
@@ -57379,6 +57380,7 @@ MultiSampling
 Miller
 Manocha
 MichaelYan
+Modulation
 Windows
 Win
 World

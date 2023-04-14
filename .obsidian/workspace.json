@@ -30,9 +30,20 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2c4af0f594a2f271",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/DirectXMath.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,11 +86,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/线性代数/3D数学.md"
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -102,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "图形学/DX12/龙书/四、Direct3D的初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,8 +163,14 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "c60d1dba44403fb7",
+  "active": "47552d1342feefe2",
   "lastOpenFiles": [
+    "Zstore/e481b284-4998-4e68-a2af-c04fbedc2de0.bmp",
+    "Zstore/eee34726-a86b-40e6-b495-56c3e605ae2d.bmp",
+    "Zstore/Pasted image 20230414143727.png",
+    "Math/线性代数/3D数学.md",
+    "图形学/DX12/DirectXMath.md",
+    "Zstore/Pasted image 20230414143444.png",
     "图形学/DX12/龙书/四、Direct3D的初始化.md",
     "Zstore/Pasted image 20230414135838.png",
     "NERF/Python/基础.md",
@@ -163,16 +181,12 @@
     "Zstore/Pasted image 20230413212506.jpg",
     "Zstore/Pasted image 20230413211900.jpg",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets/1681390418621.png",
-    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets/1681390418382.png",
-    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets/1681390418137.png",
-    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets/1681390417922.png",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "Math/公式推导/视图变换.md",
     "图形学/OpenGL/LearnOpenGL.md",
-    "Math/线性代数/3D数学.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/公式推导/变换矩阵.md",
     "Math/公式推导/反射和折射.md",
@@ -192,7 +206,6 @@
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
     "Tools/工具流.md",
-    "Tools/Obsidian/插件流.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",

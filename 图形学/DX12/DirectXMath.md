@@ -274,6 +274,10 @@ XMVECTOR XM_CALLCONV XMVector3Cross(       // 返回v1×v2
   FXMVECTOR V1,                            // 输入向量v1
   FXMVECTOR V2);                           // 输入向量v2
 
+XMVECTOR XM_CALLCONV XMColorModulate(      // 返回c1⊗c2 颜色分量式乘法 
+  FXMVECTOR c1,                             
+  FXMVECTOR c2);        
+
 XMVECTOR XM_CALLCONV XMVector3Normalize(   // 返回v/||v||
   FXMVECTOR V);                            // 输入向量v
 
@@ -627,3 +631,37 @@ FXMVECTOR V,       // 输入向量v
 CXMMATRIX M);      // 输入矩阵M
 ```
 
+# 4 颜色运算
+## 分量式乘法
+```c++ nums
+XMVECTOR XM_CALLCONV XMColorModulate(      // 返回c1⊗c2 颜色分量式乘法 
+  FXMVECTOR c1,                             
+  FXMVECTOR c2);  
+```
+
+## 格式转换
+32 位颜色转换 128 位颜色: 通过将整数范围 $[0,255]$ 映射到实数区间 $[0,1]$
+
+$$
+(80,140,200,255)\to\left(\dfrac{80}{255},\dfrac{140}{255},\dfrac{200}{255},\dfrac{255}{255}\right)\approx(0.31,\:0.55,\:0.78,1.0)
+$$
+相反的 128 位颜色转换 32 位颜色：
+$$
+(0.3,0.6,0.9,1.0)\to(0.3\times255,0.6\times255,0.9\times255,1.0\times255)=(77,153,230,255)\quad\text{}
+$$
+
+由于在 `XMCOLOR` 中通常将 4 个 8 位颜色分量封装为一个 32 位整数值（例如，一个 unsigned int 类型的值)，因此在 32 位颜色与 128 位颜色互相转换的过程中常常需要进行一些额外的位运算（提取出每个量)。对此，DirectXMath 库中定义了一个获取 `XMCOLOR` 类型实例并返回其相应 `XMVECTOR` 类型值的函数:
+```c++ nums
+XMVECTOR XM_ CALLCONV PackedVector::XMLoadColor(const XMCOLOR*psource) ;
+```
+
+XMCOLOR 类中使用的格式位 ARGB
+![[Pasted image 20230414143444.png]]
+ `XMVECTOR` 转换至 `XMCOLOR`：
+ ```c++ nums
+ void XM_ CALLCONV PackedVector::XMStorecolor
+(XMCOLOR* pDestination, FXMVECTOR V);
+```
+
+一般来说，128 位颜色值常用于高精度的颜色运算（例如位于像素着色器中的各种运算)。在这种情况下，由于运算所用的精度较高，因此可有效降低计算过程中所产生的误差。
+但是，最终存储在后台缓冲区中的像素颜色数据，却往往都是以 32 位颜色值来表示。而目前的物理显示设备仍不足以充分发挥出更高色彩分辨率的优势。
