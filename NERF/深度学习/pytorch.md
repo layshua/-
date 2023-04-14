@@ -4,8 +4,5 @@ Pytorch 环境创建：
 conda create -n pytorch Python=3.11.3
 ```
 
-![[Pasted image 20230414224539.png]]
-
-![[Pasted image 20230414224629.png]]
-
 ![[Pasted image 20230414225103.png]]
+输入图中的命令行即可
