@@ -176,8 +176,9 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "263ab045fc433083",
+  "active": "638af3f7231b161a",
   "lastOpenFiles": [
+    "NERF/深度学习",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/DirectXMath.md",
     "编程/IDE/Reshaper快捷键.md",
@@ -216,7 +217,6 @@
     "Math/LaTeX/常用语法.md",
     "Math/Others/三角函数.md",
     "Math/Others",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
