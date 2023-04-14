@@ -8,36 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "47552d1342feefe2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/公式推导/视图变换.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2e3b65bb220c6b37",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/软渲染器/软光栅/总结.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "8a08efddfcb5c64d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "编程/IDE/Reshaper快捷键.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "263ab045fc433083",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/DirectXMath.md",
                 "mode": "source",
                 "source": false
               }
@@ -68,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md"
+                "file": "图形学/DX12/DirectXMath.md"
               }
             }
           }
@@ -139,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -188,8 +176,12 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "8a08efddfcb5c64d",
+  "active": "263ab045fc433083",
   "lastOpenFiles": [
+    "编程/IDE/Reshaper快捷键.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "编程/C++/Google C++风格.md",
+    "图形学/软渲染器/软光栅/总结.md",
     "图形学/DX12/龙书/DX12理论.md",
     "Zstore/Pasted image 20230414163515.png",
     "Math/公式推导/视图变换.md",
@@ -197,7 +189,6 @@
     "技术美术/TA101/技术美术101.md",
     "技术美术/庄懂/AP01.md",
     "技术美术/百人计划/T渲染向/第三章 进阶应用.md",
-    "图形学/软渲染器/软光栅/总结.md",
     "技术美术/百人计划/T渲染向/第二章 光照基础.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "图形学/DX12/DirectXMath.md",
@@ -228,8 +219,6 @@
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
-    "Math/线性代数/线性代数的本质.md",
-    "Math/微积分/微积分基础.md",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
     "Zbuffer/三角函数公式_百度百科/assets",
