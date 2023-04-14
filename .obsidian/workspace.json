@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/IDE/Reshaper快捷键.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "编程/IDE/Reshaper快捷键.md"
               }
             }
           }
@@ -139,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/IDE/Reshaper快捷键.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/IDE/Reshaper快捷键.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,6 +190,7 @@
   },
   "active": "8a08efddfcb5c64d",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "Zstore/Pasted image 20230414163515.png",
     "Math/公式推导/视图变换.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
@@ -197,7 +198,6 @@
     "技术美术/庄懂/AP01.md",
     "技术美术/百人计划/T渲染向/第三章 进阶应用.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "技术美术/百人计划/T渲染向/第二章 光照基础.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "图形学/DX12/DirectXMath.md",
@@ -211,7 +211,6 @@
     "Zstore/Pasted image 20230414145500.png",
     "Zstore/e481b284-4998-4e68-a2af-c04fbedc2de0.bmp",
     "Zstore/eee34726-a86b-40e6-b495-56c3e605ae2d.bmp",
-    "Zstore/Pasted image 20230414143727.png",
     "NERF/Python/基础.md",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets",
