@@ -11123,6 +11123,10 @@ cancel
 convention
 cellspacing
 componentwise
+condarc
+conda
+cudnn
+channels
 github
 grey
 green
@@ -28488,6 +28492,8 @@ uARS
 useful
 urban
 ucLO
+users
+urls
 everything
 ea
 ede
@@ -42189,6 +42195,7 @@ Aliaga
 Aspect
 ATUVt
 ARGB
+Anaconda
 URL
 Utools
 Users
@@ -49119,6 +49126,7 @@ affd
 annual
 assembler
 adjacenttriangle
+anaconda
 Roaming
 RegWorkshop
 Release
@@ -87334,6 +87342,8 @@ nQdR
 neg
 noroot
 negtive
+notebook
+noti
 bf
 bc
 black
@@ -97663,6 +97673,7 @@ datasets
 dqZI
 divmod
 dothink
+deactivate
 TFvYZOKeHL
 TAB
 TeX
@@ -162979,6 +162990,7 @@ NameError
 Nint
 Nguyen
 NEAR
+Notebook
 ZooAnima
 ZooAnimal
 ZTest
@@ -174701,6 +174713,7 @@ JYuxnytH
 Jimmikaelkael
 Johan
 Jermoluk
+Jupyter
 Ke
 KjpKWmp
 KYW
@@ -189561,6 +189574,7 @@ jOb
 jJJM
 jaHBT
 jimmikaelkael
+jupyter
 ÄjZU
 ÄJ
 Ät

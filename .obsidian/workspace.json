@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/Python/基础.md"
+                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/Python/基础.md",
+                "file": "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -176,8 +176,24 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "263ab045fc433083",
   "lastOpenFiles": [
+    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
+    "NERF/深度学习/未命名.md",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603907.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/anaconda 下载及安装 (保姆级教程).md",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603836.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603795.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603756.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603722.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603672.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603560.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603495.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603458.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets/1681482603418.png",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
+    "Zbuffer/anaconda 下载及安装 (保姆级教程)",
+    "NERF/Python/基础.md",
     "NERF/深度学习",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/DirectXMath.md",
@@ -185,7 +201,6 @@
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/Google C++风格.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "Zstore/Pasted image 20230414163515.png",
     "Math/公式推导/视图变换.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "技术美术/TA101/技术美术101.md",
@@ -194,17 +209,6 @@
     "技术美术/百人计划/T渲染向/第二章 光照基础.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Math/线性代数/3D数学.md",
-    "Zstore/Pasted image 20230414145605.png",
-    "Zstore/Pasted image 20230414145558.png",
-    "Zstore/Pasted image 20230414145545.png",
-    "Zstore/Pasted image 20230414145535.png",
-    "Zstore/Pasted image 20230414145527.png",
-    "Zstore/Pasted image 20230414145512.png",
-    "Zstore/Pasted image 20230414145500.png",
-    "Zstore/e481b284-4998-4e68-a2af-c04fbedc2de0.bmp",
-    "Zstore/eee34726-a86b-40e6-b495-56c3e605ae2d.bmp",
-    "NERF/Python/基础.md",
-    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
@@ -214,17 +218,12 @@
     "Math/公式推导/变换矩阵.md",
     "Math/公式推导/反射和折射.md",
     "Math/LaTeX/语法大全.md",
-    "Math/LaTeX/常用语法.md",
-    "Math/Others/三角函数.md",
     "Math/Others",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵/assets",
     "Zbuffer/视图变换和投影变换矩阵的原理及推导，以及 OpenGL，DirectX 和 Unity 的对应矩阵",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）/assets",
     "Zbuffer/考生必记：三角函数公式汇总 + 记忆（没有比这更全）",
-    "Zbuffer/三角函数公式_百度百科/assets",
-    "Zbuffer/三角函数公式_百度百科",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
-    "Math/3Dsh",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
