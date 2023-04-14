@@ -93,16 +93,7 @@ Anaconda 镜像使用帮助可供了解
 .condarc 文件路径如：`C:\Users\10264\.condarc`，自己的路径对号入座
 
 用如下内容替换. condarc 文件内容
-
-```
-channels:
- - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
- - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
- - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-show_channel_urls: true
-```
-
-![](1681482603756.png)
+![[Pasted image 20230414231057.png]]
 
 方式二、命令修改
 
@@ -132,9 +123,6 @@ conda config --remove channels defaults
 conda config --show channels
 ```
 
-![](1681482603795.png)
-
-建议参考上图执行
 
 # 6. 查看所有虚拟环境
 

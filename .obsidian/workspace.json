@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/深度学习/pytorch.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/深度学习/pytorch.md"
+                "file": "NERF/环境配置/Anaconda配置.md"
               }
             }
           }
@@ -139,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/深度学习/pytorch.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/深度学习/pytorch.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,13 +190,14 @@
   },
   "active": "bc491fe3634585bb",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230414231057.png",
+    "NERF/深度学习/pytorch.md",
     "Zstore/Pasted image 20230414225103.png",
     "Zstore/Pasted image 20230414224629.png",
     "图形学/DX12/DirectXMath.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "编程/IDE/Reshaper快捷键.md",
     "NERF/环境配置/Anaconda配置.md",
-    "NERF/深度学习/pytorch.md",
     "Zstore/Pasted image 20230414224539.png",
     "NERF/环境配置/未命名",
     "Zstore/1681482602970.png",
@@ -208,7 +209,6 @@
     "Zstore/1681482603756.png",
     "Zstore/1681482603722.png",
     "Zstore/1681482603672.png",
-    "Zstore/1681482603560.png",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)",
     "NERF/Python/基础.md",
