@@ -17934,6 +17934,12 @@ transformers
 tkG
 tpxv
 tNy
+torchutilsdataDataset
+torchutilsdataDataLoader
+transforms
+transformsCompose
+transformsToTensor
+torchvision
 markdown
 matter
 mod
@@ -28530,6 +28536,7 @@ udHC
 unwS
 uoNS
 uFk
+utils
 everything
 ea
 ede
@@ -65395,6 +65402,7 @@ SymF
 SVwK
 SPPt
 STR
+Sequential
 Programs
 POP
 PC
@@ -72943,6 +72951,7 @@ CcbSs
 Conda
 Cython
 CIFAR
+Compose
 ImTip
 IMAP
 ID
@@ -76562,6 +76571,7 @@ IjJy
 IiFV
 IYWG
 IEqK
+ImageFolder
 qq
 qyi
 quad
@@ -84065,6 +84075,7 @@ pSN
 pvp
 ptb
 pujS
+pytorchAPI
 nodesCatch
 nobr
 navy
@@ -87478,6 +87489,7 @@ ndarrays
 nVVWK
 nvZ
 nqf
+ndarray
 bf
 bc
 black
@@ -97824,6 +97836,7 @@ ddfF
 dCoF
 dCnxm
 dMOg
+dataset
 TFvYZOKeHL
 TAB
 TeX
@@ -101445,6 +101458,7 @@ TmZ
 Tbr
 TibjV
 TQQi
+ToTensor
 io
 ipad
 it
@@ -151703,6 +151717,8 @@ DfFC
 DOYe
 DdKQ
 DtVK
+DataLoader
+Dataset
 LNK
 Log
 Linux
