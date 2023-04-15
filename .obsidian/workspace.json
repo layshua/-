@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/Python/Python基础.md"
+                "file": "NERF/深度学习/快速入门.md"
               }
             }
           }
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/Python/Python基础.md",
+                "file": "NERF/深度学习/快速入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/Python/Python基础.md",
+                "file": "NERF/深度学习/快速入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,10 +150,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "d5f5dfcdda891acb",
+  "active": "72ab916c9f076a00",
   "lastOpenFiles": [
-    "NERF/深度学习/快速入门.md",
+    "Zstore/Pasted image 20230415233140.png",
     "NERF/Python/Python基础.md",
+    "NERF/深度学习/快速入门.md",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客.md",
     "Zstore/1681570515128.png",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客/assets",
@@ -198,7 +198,6 @@
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/OpenGL/LearnOpenGL.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
