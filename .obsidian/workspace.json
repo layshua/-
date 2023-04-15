@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/深度学习/PyTorch入门.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/深度学习/PyTorch入门.md"
+                "file": "NERF/环境配置/Anaconda配置.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/深度学习/PyTorch入门.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/深度学习/PyTorch入门.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,9 +165,9 @@
   },
   "active": "72ab916c9f076a00",
   "lastOpenFiles": [
-    "NERF/Python/Python基础.md",
-    "NERF/深度学习/PyTorch入门.md",
     "NERF/深度学习/pytorch.md",
+    "NERF/深度学习/PyTorch入门.md",
+    "NERF/Python/Python基础.md",
     "NERF/环境配置/Anaconda配置.md",
     "Zstore/1681487155482.png",
     "图形学/DX12/龙书/DX12理论.md",
