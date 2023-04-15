@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "NERF/环境配置/Anaconda配置.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "NERF/环境配置/Anaconda配置.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,14 +165,16 @@
   },
   "active": "72ab916c9f076a00",
   "lastOpenFiles": [
+    "NERF/深度学习/pytorch.md",
+    "NERF/环境配置/Anaconda配置.md",
+    "NERF/Python/基础.md",
+    "Zbuffer/60 分钟快速入门 PyTorch/60 分钟快速入门 PyTorch.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/BUG记录.md",
     "Zstore/Pasted image 20230415152452.png",
-    "NERF/环境配置/Anaconda配置.md",
-    "NERF/深度学习/pytorch.md",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487156067.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487156026.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155987.png",
@@ -180,7 +182,6 @@
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155913.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155822.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155789.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/60 分钟快速入门 PyTorch.md",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155756.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155719.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets",
@@ -193,7 +194,6 @@
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)",
-    "NERF/Python/基础.md",
     "NERF/深度学习",
     "编程/C++/Google C++风格.md",
     "Math/公式推导/视图变换.md",

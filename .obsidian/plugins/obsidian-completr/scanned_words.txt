@@ -3203,6 +3203,7 @@ opener
 owoO
 otm
 octopus
+ones
 OneDrive
 Obsidian
 Office
@@ -17919,6 +17920,10 @@ truediv
 traceback
 topology
 txw
+torch
+tensor
+tensors
+transformers
 markdown
 matter
 mod
@@ -21663,6 +21668,7 @@ merger
 mhBQ
 miRID
 mie
+mini
 windows
 win
 width
@@ -31968,6 +31974,8 @@ ebdd
 environments
 embeds
 eDCF
+epoch
+everyone
 VPN
 Verge
 VS
@@ -49149,6 +49157,7 @@ assembler
 adjacenttriangle
 anaconda
 aLfo
+autograd
 Roaming
 RegWorkshop
 Release
@@ -65342,6 +65351,7 @@ SimpleTex
 Svt
 SnZv
 SAK
+Stochastic
 Programs
 POP
 PC
@@ -69084,6 +69094,7 @@ PqQnM
 PzPK
 PJj
 Pytorch
+PyTorch
 ContextMenuManager
 ClashVerge
 Clash
@@ -72881,6 +72892,9 @@ CDJs
 Ckby
 CBöICh
 CcbSs
+Conda
+Cython
+CIFAR
 ImTip
 IMAP
 ID
@@ -83994,6 +84008,7 @@ poly
 pjjS
 pgb
 pBQd
+pytorch
 nodesCatch
 nobr
 navy
@@ -87403,6 +87418,7 @@ nkfVK
 nXl
 nEO
 nlo
+ndarrays
 bf
 bc
 black
@@ -90734,6 +90750,7 @@ behind
 builtin
 bTF
 bhaa
+batches
 fe
 front
 fill
@@ -101355,6 +101372,9 @@ THM
 Tiv
 TBb
 TfdiB
+Torch
+TensorFlow
+Tensors
 io
 ipad
 it
@@ -112940,6 +112960,7 @@ lmg
 lshift
 langzijinge
 leOX
+loader
 YAML
 You
 YEBAYGhURFRofHx
@@ -123516,6 +123537,7 @@ rlshift
 rrshift
 rxor
 rmTV
+randn
 XXXXXX
 XXX
 XML
@@ -137898,6 +137920,7 @@ FfdW
 FEbb
 FkqO
 Fgo
+Facebook
 Element
 Entity
 Enity
@@ -155273,6 +155296,8 @@ Levoy
 LearnPython
 LiuKe
 LDJ
+LibTorch
+LeNet
 Getx
 GetX
 GetName
@@ -159476,6 +159501,8 @@ GetGPUProjectionMatrix
 Gprj
 GQD
 GUM
+GPUs
+Gradient
 NULL
 Native
 NormalMap
@@ -163117,6 +163144,7 @@ Notebook
 NRM
 Ndhyv
 NdS
+Numpy
 ZooAnima
 ZooAnimal
 ZTest
@@ -185774,6 +185802,7 @@ zhangyuge
 zdhmeng
 zdkC
 zRhI
+zeros
 jpg
 just
 juLeSXlIAVEiJIzRbMP
