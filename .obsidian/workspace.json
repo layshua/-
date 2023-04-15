@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,8 +152,8 @@
   },
   "active": "e81cb05fa3673c75",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "NERF/环境配置/Anaconda配置.md",
     "NERF/深度学习/pytorch.md",
     "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487156067.png",
