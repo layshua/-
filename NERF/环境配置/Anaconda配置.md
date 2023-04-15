@@ -173,3 +173,12 @@ activate noti
 *   conda config --remove-key channels ：换回默认源
 
 最后祝大家都能安装成功
+
+
+删除虚拟环境
+假设你的环境名字叫: octopus
+```
+conda remove -n octopus --all
+```
+
+复制：[(16条消息) 复制Anaconda虚拟环境_conda 复制环境_马大哈先生的博客-CSDN博客](https://blog.csdn.net/qq_37764129/article/details/102496746)
