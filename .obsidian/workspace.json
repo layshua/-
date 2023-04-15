@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/环境配置/Anaconda配置.md",
+                "file": "NERF/深度学习/PyTorch入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/环境配置/Anaconda配置.md"
+                "file": "NERF/深度学习/PyTorch入门.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/环境配置/Anaconda配置.md",
+                "file": "NERF/深度学习/PyTorch入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/环境配置/Anaconda配置.md",
+                "file": "NERF/深度学习/PyTorch入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,25 +165,25 @@
   },
   "active": "72ab916c9f076a00",
   "lastOpenFiles": [
+    "NERF/Python/Python基础.md",
+    "NERF/深度学习/PyTorch入门.md",
     "NERF/深度学习/pytorch.md",
     "NERF/环境配置/Anaconda配置.md",
-    "NERF/Python/基础.md",
-    "Zbuffer/60 分钟快速入门 PyTorch/60 分钟快速入门 PyTorch.md",
-    "编程/C++/《C++ Primer 5th》.md",
+    "Zstore/1681487155482.png",
     "图形学/DX12/龙书/DX12理论.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
     "图形学/DX12/BUG记录.md",
     "Zstore/Pasted image 20230415152452.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487156067.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487156026.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155987.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155950.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155913.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155822.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155789.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155756.png",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets/1681487155719.png",
+    "Zstore/1681487156067.png",
+    "Zstore/1681487156026.png",
+    "Zstore/1681487155987.png",
+    "Zstore/1681487155950.png",
+    "Zstore/1681487155913.png",
+    "Zstore/1681487155822.png",
+    "Zstore/1681487155789.png",
+    "Zstore/1681487155756.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets",
     "Zbuffer/60 分钟快速入门 PyTorch",
     "图形学/DX12/DirectXMath.md",
@@ -209,7 +209,6 @@
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/公式推导/变换矩阵.md",
     "Math/Others",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",

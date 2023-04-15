@@ -183,3 +183,14 @@ conda remove -n octopus --all
 
 
 **复制环境**: [(16条消息) 复制Anaconda虚拟环境_conda 复制环境_马大哈先生的博客-CSDN博客](https://blog.csdn.net/qq_37764129/article/details/102496746)
+
+# 10 Pytorch
+
+安装 Anaconda：[Index of /anaconda/archive/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D)
+Pytorch 环境创建：
+```python nums
+conda create -n pytorch Python=3.11.3
+```
+
+![[Pasted image 20230414225103.png]]
+输入图中的命令行即可
