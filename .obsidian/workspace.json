@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,8 +150,9 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "0befd225de36600f",
+  "active": "e81cb05fa3673c75",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "NERF/环境配置/Anaconda配置.md",
     "NERF/深度学习/pytorch.md",
@@ -179,7 +179,6 @@
     "Zbuffer/anaconda 下载及安装 (保姆级教程)",
     "NERF/Python/基础.md",
     "NERF/深度学习",
-    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/Google C++风格.md",
     "图形学/软渲染器/软光栅/总结.md",
     "Math/公式推导/视图变换.md",
