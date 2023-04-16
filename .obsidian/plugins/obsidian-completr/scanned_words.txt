@@ -11138,6 +11138,7 @@ channels
 cKF
 cChfL
 crop
+cumsum
 github
 grey
 green
@@ -14461,6 +14462,7 @@ gIWU
 gIqQ
 gate
 gradient
+gnIB
 typora
 todo
 tooltip
@@ -25048,6 +25050,7 @@ winding
 wvi
 wTg
 wBu
+wIG
 utools
 url
 unresolved
@@ -28545,6 +28548,7 @@ uoNS
 uFk
 utils
 uvbv
+uvFOt
 everything
 ea
 ede
@@ -45702,6 +45706,7 @@ UmHU
 UYqNXj
 UHRcH
 UsZu
+UUAM
 api
 ac
 app
@@ -49210,6 +49215,7 @@ activation
 astype
 ascent
 adaptive
+arange
 Roaming
 RegWorkshop
 Release
@@ -53190,6 +53196,8 @@ ReLU
 RMSprop
 ReLUHe
 RMSProp
+Ravikiran
+RQl
 Microsoft
 Menu
 MicaForEveryone
@@ -57499,6 +57507,7 @@ MQx
 MjMx
 MNIST
 Matplotlib
+MATLAB
 Windows
 Win
 World
@@ -61291,6 +61300,7 @@ Wfb
 WFf
 WgW
 WIIKkY
+Windsor
 Start
 StartAllBack
 Shadowrocket
@@ -65432,6 +65442,7 @@ SoftwithLoss
 Softmax
 SNqWx
 SRp
+Srinivasulu
 Programs
 POP
 PC
@@ -69181,6 +69192,7 @@ PcZ
 PwG
 PVhf
 Pooling
+PTds
 ContextMenuManager
 ClashVerge
 Clash
@@ -90859,6 +90871,7 @@ bhaa
 batches
 beP
 bdyX
+bGbh
 fe
 front
 fill
@@ -101498,6 +101511,8 @@ TibjV
 TQQi
 ToTensor
 TkJ
+TensorBoard
+Twitter
 io
 ipad
 it
@@ -105682,6 +105697,7 @@ iMY
 iRok
 iVc
 iBka
+ifV
 shift
 svg
 sf
@@ -109760,6 +109776,7 @@ simplenet
 stochastic
 sbTi
 sKGx
+seX
 local
 list
 left
@@ -116467,6 +116484,7 @@ YKsj
 YFZhY
 YFb
 YYbqR
+Yß
 header
 hidden
 height
@@ -123684,6 +123702,7 @@ rmTV
 randn
 rOiF
 rQR
+reshape
 XXXXXX
 XXX
 XML
@@ -127021,6 +127040,9 @@ XSO
 XEOvPOAf
 Xuve
 Xavier
+XZzx
+XTF
+Xmfb
 HTML
 HasPtr
 Hello
@@ -130862,6 +130884,7 @@ HPfq
 HMi
 HQje
 HjeSC
+Hackr
 Bbb
 Bear
 Base
@@ -134106,6 +134129,7 @@ Bvar
 BVhY
 BRTrst
 BFGS
+BxwBHR
 Fraktur
 Frame
 Foo
@@ -138076,6 +138100,7 @@ FkqO
 Fgo
 Facebook
 FdBU
+Fortran
 Element
 Entity
 Enity
@@ -142188,6 +142213,7 @@ ETL
 Ewgw
 EGb
 EwDzC
+Exif
 xmlns
 xyz
 xy
@@ -171369,6 +171395,7 @@ QTy
 QFS
 QuX
 Qxp
+QCF
 Java
 JPEG
 JlAGTAAAAAAf

@@ -8,7 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "72ab916c9f076a00",
+            "id": "0ccacc945e39650d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "人工智能/Python/Numpy.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4907c891b9065f71",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,20 +30,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "0ccacc945e39650d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -150,23 +151,34 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "72ab916c9f076a00",
+  "active": "4907c891b9065f71",
   "lastOpenFiles": [
-    "人工智能/深度学习/《鱼书》.md",
-    "人工智能/Python/Python基础.md",
-    "人工智能/深度学习/PyTorch入门.md",
-    "人工智能/深度学习/《鱼书》-MSI.md",
-    "Zstore/1681573991593.png",
-    "Zstore/深度学习入门：基于Python的理论与实现_page0_image.png",
+    "人工智能/Python/Numpy.md",
+    "Zstore/1681625990415.png",
+    "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
+    "Zstore/1681625874767.png",
+    "Zbuffer/理解 NumPy _ NumPy/理解 NumPy _ NumPy.md",
+    "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy/创建 Numpy 数组的不同方式 _ NumPy.md",
+    "Zbuffer/NumPy 简单入门教程 _ NumPy/NumPy 简单入门教程 _ NumPy.md",
+    "Zstore/1681625991093.png",
+    "Zstore/1681625991007.png",
+    "Zstore/1681625990923.png",
+    "Zstore/1681625990838.png",
+    "Zstore/1681625990753.png",
+    "Zstore/1681625990669.png",
+    "Zstore/1681625990585.png",
+    "Zstore/1681625990499.png",
+    "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
+    "Zbuffer/NumPy 中的矩阵和向量 _ NumPy",
+    "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy",
+    "Zbuffer/NumPy 简单入门教程 _ NumPy/assets",
+    "Zbuffer/NumPy 简单入门教程 _ NumPy",
+    "Zbuffer/理解 NumPy _ NumPy",
+    "人工智能/Python/PyTorch入门.md",
     "人工智能/深度学习/快速入门.md",
-    "Zstore/1681573995291.png",
-    "Zstore/1681573995238.png",
-    "Zstore/1681573995199.png",
-    "Zstore/1681573995165.png",
-    "Zstore/1681573995134.png",
-    "Zstore/1681573995095.png",
-    "Zstore/1681573995039.png",
-    "Zstore/1681573994990.png",
+    "人工智能/Python/Python基础.md",
+    "人工智能/深度学习/《鱼书》.md",
+    "人工智能/深度学习/《鱼书》-MSI.md",
     "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客/assets",
     "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客.md",
@@ -179,25 +191,13 @@
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
     "图形学/DX12/BUG记录.md",
-    "Zbuffer/60 分钟快速入门 PyTorch/assets",
-    "Zbuffer/60 分钟快速入门 PyTorch",
     "图形学/DX12/DirectXMath.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "编程/IDE/Reshaper快捷键.md",
-    "NERF/环境配置/未命名",
-    "人工智能/环境配置",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
-    "Zbuffer/anaconda 下载及安装 (保姆级教程)",
     "编程/C++/Google C++风格.md",
     "Math/公式推导/视图变换.md",
     "技术美术/TA101/技术美术101.md",
-    "技术美术/庄懂/AP01.md",
-    "技术美术/百人计划/T渲染向/第三章 进阶应用.md",
-    "技术美术/百人计划/T渲染向/第二章 光照基础.md",
-    "图形学/软渲染器/软光栅/透视矫正插值.md",
-    "Math/线性代数/3D数学.md",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
