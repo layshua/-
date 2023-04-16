@@ -7300,6 +7300,7 @@ Ortho
 OOjz
 ONt
 OeA
+OFF
 codeup
 clash
 ctrl
@@ -11136,6 +11137,7 @@ cudnn
 channels
 cKF
 cChfL
+crop
 github
 grey
 green
@@ -14457,6 +14459,8 @@ gbCe
 gsql
 gIWU
 gIqQ
+gate
+gradient
 typora
 todo
 tooltip
@@ -17940,6 +17944,7 @@ transforms
 transformsCompose
 transformsToTensor
 torchvision
+tanh
 markdown
 matter
 mod
@@ -21687,6 +21692,8 @@ mie
 mini
 mxy
 mji
+minibatch
+mnist
 windows
 win
 width
@@ -28537,6 +28544,7 @@ unwS
 uoNS
 uFk
 utils
+uvbv
 everything
 ea
 ede
@@ -42254,6 +42262,12 @@ ARGB
 Anaconda
 ABL
 AUB
+AffineSoftmax
+AdaGrad
+AdaDelta
+Augmentation
+Adagrad
+Adadelta
 URL
 Utools
 Users
@@ -49192,6 +49206,10 @@ anaconda
 aLfo
 autograd
 ahO
+activation
+astype
+ascent
+adaptive
 Roaming
 RegWorkshop
 Release
@@ -53168,6 +53186,10 @@ RwZ
 RWt
 RxxN
 REVT
+ReLU
+RMSprop
+ReLUHe
+RMSProp
 Microsoft
 Menu
 MicaForEveryone
@@ -57475,6 +57497,7 @@ MAh
 MCRR
 MQx
 MjMx
+MNIST
 Windows
 Win
 World
@@ -65403,6 +65426,11 @@ SVwK
 SPPt
 STR
 Sequential
+Sigmoid
+SoftwithLoss
+Softmax
+SNqWx
+SRp
 Programs
 POP
 PC
@@ -69151,6 +69179,7 @@ PKZ
 PcZ
 PwG
 PVhf
+Pooling
 ContextMenuManager
 ClashVerge
 Clash
@@ -72952,6 +72981,8 @@ Conda
 Cython
 CIFAR
 Compose
+Caffe
+Chainer
 ImTip
 IMAP
 ID
@@ -84076,6 +84107,7 @@ pvp
 ptb
 pujS
 pytorchAPI
+passl
 nodesCatch
 nobr
 navy
@@ -87490,6 +87522,8 @@ nVVWK
 nvZ
 nqf
 ndarray
+neuralnet
+numerical
 bf
 bc
 black
@@ -90823,6 +90857,7 @@ bTF
 bhaa
 batches
 beP
+bdyX
 fe
 front
 fill
@@ -97837,6 +97872,8 @@ dCoF
 dCnxm
 dMOg
 dataset
+descent
+decay
 TFvYZOKeHL
 TAB
 TeX
@@ -101459,6 +101496,7 @@ Tbr
 TibjV
 TQQi
 ToTensor
+TkJ
 io
 ipad
 it
@@ -109715,6 +109753,12 @@ sez
 swVg
 shb
 sbxh
+sigmoid
+softmax
+simplenet
+stochastic
+sbTi
+sKGx
 local
 list
 left
@@ -113053,6 +113097,9 @@ loader
 lUlCN
 lEVQ
 lvIV
+loge
+learning
+loss
 YAML
 You
 YEBAYGhURFRofHx
@@ -126972,6 +127019,7 @@ XlO
 XSO
 XEOvPOAf
 Xuve
+Xavier
 HTML
 HasPtr
 Hello
@@ -134056,6 +134104,7 @@ BFCx
 Bvar
 BVhY
 BRTrst
+BFGS
 Fraktur
 Frame
 Foo
@@ -142137,6 +142186,7 @@ ENhkQ
 ETL
 Ewgw
 EGb
+EwDzC
 xmlns
 xyz
 xy
@@ -145345,6 +145395,8 @@ xMSb
 xiRh
 xXja
 xwa
+xavier
+xuk
 yellow
 your
 you
@@ -148359,6 +148411,7 @@ ylC
 yBX
 ynN
 ypXg
+ynk
 Debug
 DEBUG
 Dd
@@ -151719,6 +151772,7 @@ DdKQ
 DtVK
 DataLoader
 Dataset
+Dropout
 LNK
 Log
 Linux
@@ -159625,6 +159679,7 @@ GXf
 GwGb
 GFy
 GVTq
+GGQ
 NULL
 Native
 NormalMap
@@ -163273,6 +163328,11 @@ NeYNX
 NqJMY
 NRvW
 Nrb
+Nesterov
+NAND
+NumPy
+Norm
+Ndp
 ZooAnima
 ZooAnimal
 ZTest
@@ -175010,6 +175070,7 @@ JQpI
 Jsmh
 JRt
 JBn
+JACh
 Ke
 KjpKWmp
 KYW
@@ -182389,6 +182450,7 @@ kqKQ
 kDnL
 kGe
 kknN
+knHv
 zoom
 zw
 zaG

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/深度学习/快速入门.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NERF/Python/Python基础.md",
+                "file": "人工智能/Python/Python基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NERF/深度学习/快速入门.md"
+                "file": "人工智能/深度学习/《鱼书》.md"
               }
             }
           }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NERF/深度学习/快速入门.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NERF/深度学习/快速入门.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,41 +152,43 @@
   },
   "active": "72ab916c9f076a00",
   "lastOpenFiles": [
-    "Zstore/Pasted image 20230415233140.png",
-    "NERF/Python/Python基础.md",
-    "NERF/深度学习/快速入门.md",
+    "人工智能/深度学习/《鱼书》-MSI.md",
+    "人工智能/深度学习/《鱼书》.md",
+    "Zstore/1681573991593.png",
+    "Zstore/深度学习入门：基于Python的理论与实现_page0_image.png",
+    "人工智能/深度学习/快速入门.md",
+    "Zstore/1681573995291.png",
+    "Zstore/1681573995238.png",
+    "Zstore/1681573995199.png",
+    "Zstore/1681573995165.png",
+    "Zstore/1681573995134.png",
+    "Zstore/1681573995095.png",
+    "Zstore/1681573995039.png",
+    "Zstore/1681573994990.png",
+    "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客/assets",
+    "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客",
+    "人工智能/Python/Python基础.md",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客.md",
-    "Zstore/1681570515128.png",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客/assets",
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客",
-    "Zstore/Pasted image 20230415224924.png",
     "NERF/深度学习/pytorch.md",
-    "NERF/深度学习/PyTorch入门.md",
-    "NERF/环境配置/Anaconda配置.md",
-    "Zstore/1681487155482.png",
+    "人工智能/深度学习/PyTorch入门.md",
+    "人工智能/环境配置/Anaconda配置.md",
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
     "图形学/DX12/BUG记录.md",
-    "Zstore/Pasted image 20230415152452.png",
-    "Zstore/1681487156067.png",
-    "Zstore/1681487156026.png",
-    "Zstore/1681487155987.png",
-    "Zstore/1681487155950.png",
-    "Zstore/1681487155913.png",
-    "Zstore/1681487155822.png",
     "Zbuffer/60 分钟快速入门 PyTorch/assets",
     "Zbuffer/60 分钟快速入门 PyTorch",
     "图形学/DX12/DirectXMath.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "编程/IDE/Reshaper快捷键.md",
     "NERF/环境配置/未命名",
-    "NERF/环境配置",
+    "人工智能/环境配置",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)/assets",
     "Zbuffer/anaconda 下载及安装 (保姆级教程)",
-    "NERF/深度学习",
     "编程/C++/Google C++风格.md",
     "Math/公式推导/视图变换.md",
     "技术美术/TA101/技术美术101.md",
@@ -195,9 +197,7 @@
     "技术美术/百人计划/T渲染向/第二章 光照基础.md",
     "图形学/软渲染器/软光栅/透视矫正插值.md",
     "Math/线性代数/3D数学.md",
-    "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/assets",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
