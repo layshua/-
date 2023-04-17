@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Python/Python基础.md"
+                "file": "人工智能/Python/Numpy.md"
               }
             }
           }
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "人工智能/Python/Numpy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "人工智能/Python/Numpy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,8 +150,9 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "4907c891b9065f71",
+  "active": "0ccacc945e39650d",
   "lastOpenFiles": [
+    "人工智能/Python/Python基础.md",
     "人工智能/Python/Numpy.md",
     "Zstore/1681625990415.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
@@ -176,7 +176,6 @@
     "Zbuffer/理解 NumPy _ NumPy",
     "人工智能/Python/PyTorch入门.md",
     "人工智能/深度学习/快速入门.md",
-    "人工智能/Python/Python基础.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/《鱼书》-MSI.md",
     "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客/assets",
