@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -74,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -101,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,12 +151,13 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "0ccacc945e39650d",
+  "active": "4907c891b9065f71",
   "lastOpenFiles": [
+    "人工智能/Python/Python基础.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/龙书/DX12理论.md",
     "人工智能/Python/Numpy.md",
-    "人工智能/Python/Python基础.md",
     "Zstore/1681625990415.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
     "Zstore/1681625874767.png",
@@ -197,7 +199,6 @@
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
     "编程/C++/Google C++风格.md",
     "Math/公式推导/视图变换.md",
-    "技术美术/TA101/技术美术101.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
