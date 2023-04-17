@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Python/Numpy.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Python/Numpy.md"
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md"
               }
             }
           }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Python/Numpy.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Python/Numpy.md",
+                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,8 +152,10 @@
   },
   "active": "0ccacc945e39650d",
   "lastOpenFiles": [
-    "人工智能/Python/Python基础.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "人工智能/Python/Numpy.md",
+    "人工智能/Python/Python基础.md",
     "Zstore/1681625990415.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
     "Zstore/1681625874767.png",
@@ -185,7 +187,6 @@
     "Zbuffer/(16 条消息) Pytorch 构建数据集——torch_utils_data_Dataset() 和 torch_utils_data_DataLoader()_dekiang 的博客 - CSDN 博客",
     "NERF/深度学习/pytorch.md",
     "人工智能/环境配置/Anaconda配置.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
