@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/HLSL.md",
+                "file": "Unity/URP/URPShader.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/HLSL.md"
+                "file": "Unity/URP/URPShader.md"
               }
             }
           }
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/HLSL.md",
+                "file": "Unity/URP/URPShader.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/HLSL.md",
+                "file": "Unity/URP/URPShader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,11 +153,12 @@
   },
   "active": "9b61130caed9e261",
   "lastOpenFiles": [
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
+    "图形学/DX12/HLSL.md",
     "Zstore/Pasted image 20230418160317.png",
     "Zstore/Pasted image 20230418160249.png",
     "Zstore/Pasted image 20230418160234.png",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客.md",
-    "图形学/DX12/HLSL.md",
     "Zbuffer/HLSL 语言基础/HLSL 语言基础.md",
     "Math/线性代数/3D数学.md",
     "Zbuffer/HLSL 语言基础",
@@ -187,7 +188,6 @@
     "Zstore/1681625991093.png",
     "Zstore/1681625991007.png",
     "Zstore/1681625990923.png",
-    "Zstore/1681625990838.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy",
     "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy",
