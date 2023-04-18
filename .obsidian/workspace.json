@@ -32,6 +32,18 @@
             }
           },
           {
+            "id": "6060b3bad2e634f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "876366d1ea99324e",
             "type": "leaf",
             "state": {
@@ -44,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -114,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,12 +175,12 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "9b61130caed9e261",
+  "active": "6060b3bad2e634f8",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "Zstore/Pasted image 20230418202154.png",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/HLSL.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "Zstore/Pasted image 20230418201214.png",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
@@ -201,7 +213,6 @@
     "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy/创建 Numpy 数组的不同方式 _ NumPy.md",
     "Zbuffer/NumPy 简单入门教程 _ NumPy/NumPy 简单入门教程 _ NumPy.md",
     "Zstore/1681625991093.png",
-    "Zstore/1681625991007.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy",
     "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy",
