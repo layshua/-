@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "人工智能/Python/Numpy.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "人工智能/Python/Numpy.md"
               }
             }
           }
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "人工智能/Python/Numpy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "人工智能/Python/Numpy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,12 +175,14 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "6060b3bad2e634f8",
+  "active": "9b61130caed9e261",
   "lastOpenFiles": [
+    "人工智能/Python/Python基础.md",
     "图形学/DX12/龙书/DX12理论.md",
-    "Zstore/Pasted image 20230418202154.png",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/HLSL.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "Zstore/Pasted image 20230418202154.png",
     "Zstore/Pasted image 20230418201214.png",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
@@ -196,7 +198,6 @@
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "虚幻引擎/3 材质 & 渲染/Shader HLSL.md",
     "编程/IDE/Reshaper快捷键.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/C++补充.md",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客",
     "编程/C++/C++原理.md",
@@ -204,7 +205,6 @@
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "Zstore/H]Z2WJOWTHO2M9$6X9`X71G.png",
     "Zstore/%XWTQPPLD%3G)QR8@BK)_PI.png",
-    "人工智能/Python/Python基础.md",
     "人工智能/Python/Numpy.md",
     "Zstore/1681625990415.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
