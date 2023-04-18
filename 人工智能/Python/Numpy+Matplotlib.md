@@ -1,4 +1,4 @@
-# 介绍
+# Numpy
 NumPy 是使用 Python 进行科学计算的基础包。它包含如下的内容：
 
 -   一个强大的N维数组对象。
@@ -76,7 +76,45 @@ print(a[:, 1]) # >>>[12 17 22 27 32]
 下面的图表说明了给定的示例切片是如何进行工作的。
 
 ![](1681625876015.png)
+## 访问元素
+元素的索引从 0 开始。对各个元素的访问可按如下方式进行。
+```python nums
+>>> X = np.array([[51, 55], [14, 19], [0, 4]]) 
+>>> print(X)
+[[51 55]
+ [14 19]
+ [ 0  4]]
+>>> X[0]    # 第 0行 
+array([51, 55])
+>>> X[0][1] # (0,1)的元素 
+55
+```
 
+也可以使用 for 语句访问各个元素。
+```python nums
+>>> for row in X:
+print(row)
+...
+[51 55] 
+[14 19] 
+[0 4]
+```
+
+除了前面介绍的索引操作，NumPy 还可以使用数组访问各个元素。
+```python nums
+>>> X = X.flatten()         # 将 X转换为一维数组 
+>>> print(X)
+[51 55 14 19  0  4]
+>>> X[np.array([0, 2, 4])] # 获取索引为 0、2、4的元素 
+array([51, 14,  0])
+```
+运用这个标记法，可以获取满足一定条件的元素。例如，要从 X 中抽出大于 15 的元素，可以写成如下形式。
+```python nums
+>>> X > 15
+array([ True,  True, False,  True, False, False], dtype=bool) 
+>>> X[X>15]
+array([51, 55, 19])
+```
 ##  数组属性
 
 在使用 NumPy 时，你会想知道数组的某些信息。很幸运，在这个包里边包含了很多便捷的方法，可以给你想要的信息。
@@ -132,7 +170,7 @@ print(a < b) print(a > b)
 print(a.dot(b))
 ```
 
-除了 dot() 之外，这些操作符都是对数组进行逐元素运算。比如 (a, b, c) + (d, e, f) 的结果就是 (a+d, b+e, c+f)。它将分别对每一个元素进行配对，然后对它们进行运算。它返回的结果是一个数组。
+除了 dot()点乘 之外，这些操作符都是对数组进行逐元素运算。比如 (a, b, c) + (d, e, f) 的结果就是 (a+d, b+e, c+f)。它将分别对每一个元素进行配对，然后对它们进行运算。它返回的结果是一个数组。
 逻辑运算符 “<” 和 “>”，返回的是一个布尔型数组
 
 dot() 函数计算两个数组的点积。它返回的是一个标量（只有大小没有方向的一个值）而不是数组。
@@ -148,7 +186,16 @@ array([ 0.5,  1. ,  1.5])
 ```
 
 ### 广播
-
+NumPy 中，**形状不同的数组之间也可以进行运算**。之前的例子中，在 2×2 的矩阵 A 和标量 10 之间进行了乘法运算。在这个过程中，如图 1-1 所示，标量 10 被扩展成了 2 × 2 的形状，然后再与矩阵 A 进行乘法运算。这个巧妙的功能称为**广播（broadcast）**。
+![[Pasted image 20230418224226.png]]
+```python nums
+>>> A = np.array([[1, 2], [3, 4]]) 
+>>> B = np.array([10, 20])
+>>> A * B
+array([[ 10, 40], 
+       [ 30, 80]])
+```
+在这个运算中，如图 1-2 所示，一维数组 B 被“巧妙地”变成了和二维数 组 A 相同的形状，然后再以对应元素的方式进行运算。综上，因为 NumPy 有广播功能，所以不同形状的数组之间也可以顺利地进行运算。
 ### 数组特殊运算符
 
 ```python nums
@@ -237,3 +284,38 @@ print(c) # >>>[5 6 7 8 9]
 
 
 
+# Matpoltlib
+在深度学习的实验中，图形的绘制和数据的可视化非常重要。Matplotlib 是用于绘制图形的库，使用 Matplotlib 可以轻松地绘制图形和实现数据的可视化。这里，我们来介绍一下图形的绘制方法和图像的显示方法。
+
+## 绘制简单图形
+可以使用 matplotlib 的 pyplot 模块绘制图形。话不多说，我们来看一个绘制 sin 函数曲线的例子。
+```python nums
+import numpy as np  
+import matplotlib.pyplot as plt  
+  
+# 生成数据  
+x = np.arange(0, 6, 0.1) # 以 0.1为单位，生成 0到 6的数据  
+y1 = np.sin(x)  
+y2 = np.cos(x)  
+  
+# 绘制图形  
+plt.plot(x, y1, label="sin")  
+plt.plot(x, y2, linestyle="--", label="cos") # 用虚线绘制  
+plt.xlabel("x") # x轴标签  
+plt.ylabel("y") # y轴标签  
+plt.title('sin & cos') # 标题  
+plt.legend()  
+plt.show()
+```
+![[Pasted image 20230418225800.png]]
+## 显示图像
+pyplot 中还提供了用于显示图像的方法 `imshow ()`。
+可以使用 matplotlib. image 模块的 `imread ()` 方法读入图像。
+```python nums
+import matplotlib.pyplot as plt  
+from matplotlib.image import imread  
+  
+img = imread('lena.png') # 读入图像（设定合适的路径！）  
+plt.imshow(img)  
+plt.show()
+```
