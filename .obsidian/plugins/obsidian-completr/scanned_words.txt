@@ -17947,6 +17947,7 @@ transformsCompose
 transformsToTensor
 torchvision
 tanh
+tangentW
 markdown
 matter
 mod
@@ -25051,6 +25052,8 @@ wvi
 wTg
 wBu
 wIG
+wyyx
+wzyx
 utools
 url
 unresolved
@@ -38430,6 +38433,7 @@ vBn
 vjv
 vpt
 vJOH
+volatile
 AA
 AppData
 AIRDyuVH
@@ -69193,6 +69197,8 @@ PwG
 PVhf
 Pooling
 PTds
+POSITIONn
+PSIZEn
 ContextMenuManager
 ClashVerge
 Clash
@@ -72996,6 +73002,8 @@ CIFAR
 Compose
 Caffe
 Chainer
+CFLOAT
+COLORn
 ImTip
 IMAP
 ID
@@ -84121,6 +84129,7 @@ ptb
 pujS
 pytorchAPI
 passl
+postion
 nodesCatch
 nobr
 navy
@@ -87537,6 +87546,7 @@ nqf
 ndarray
 neuralnet
 numerical
+normalW
 bf
 bc
 black
@@ -101513,6 +101523,12 @@ ToTensor
 TkJ
 TensorBoard
 Twitter
+TypeN
+Typexn
+TastShader
+TEXCOORDn
+TANGENTn
+TESSFACTORn
 io
 ipad
 it
@@ -109777,6 +109793,7 @@ stochastic
 sbTi
 sKGx
 seX
+specPower
 local
 list
 left
@@ -113118,6 +113135,8 @@ lvIV
 loge
 learning
 loss
+litColor
+lightVec
 YAML
 You
 YEBAYGhURFRofHx
@@ -134130,6 +134149,9 @@ BVhY
 BRTrst
 BFGS
 BxwBHR
+BLENDWEIGHTn
+BLENDINDICESn
+BINORMALn
 Fraktur
 Frame
 Foo
@@ -151800,6 +151822,7 @@ DtVK
 DataLoader
 Dataset
 Dropout
+Dbool
 LNK
 Log
 Linux
@@ -163360,6 +163383,8 @@ NAND
 NumPy
 Norm
 Ndp
+Nor
+NORMALn
 ZooAnima
 ZooAnimal
 ZTest
