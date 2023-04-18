@@ -42,9 +42,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e3f70637ee45a332",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/C++补充.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -114,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/C++补充.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/C++补充.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,10 +175,10 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "9b61130caed9e261",
+  "active": "e3f70637ee45a332",
   "lastOpenFiles": [
-    "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客.md",
     "编程/C++/C++补充.md",
+    "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/龙书/DX12理论.md",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客",
