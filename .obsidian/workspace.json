@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/自研引擎/2 DX12初始化.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,14 +153,16 @@
   },
   "active": "4907c891b9065f71",
   "lastOpenFiles": [
+    "编程/C++/C++原理.md",
+    "编程/C++/Cherno剩余.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "图形学/DX12/BUG记录.md",
     "Zstore/H]Z2WJOWTHO2M9$6X9`X71G.png",
     "Zstore/%XWTQPPLD%3G)QR8@BK)_PI.png",
-    "编程/C++/《C++ Primer 5th》.md",
     "人工智能/Python/Python基础.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
-    "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/龙书/DX12理论.md",
     "人工智能/Python/Numpy.md",
     "Zstore/1681625990415.png",
@@ -198,7 +200,6 @@
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "编程/IDE/Reshaper快捷键.md",
     "Zbuffer/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!/Python 魔法方法详解_《零基础入门学习 Python》（第一版）_Python 交流_ 鱼 C 论坛 -  Powered by Discuz!.md",
-    "编程/C++/Google C++风格.md",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
