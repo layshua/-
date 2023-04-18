@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8da80b466556339d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/HLSL.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md"
+                "file": "图形学/DX12/HLSL.md"
               }
             }
           }
@@ -126,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md",
+                "file": "图形学/DX12/HLSL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/IDE/Reshaper快捷键.md",
+                "file": "图形学/DX12/HLSL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,8 +187,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "e3f70637ee45a332",
+  "active": "8da80b466556339d",
   "lastOpenFiles": [
+    "虚幻引擎/3 材质 & 渲染/Shader HLSL.md",
+    "图形学/DX12/HLSL.md",
+    "编程/IDE/Reshaper快捷键.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -221,9 +236,6 @@
     "NERF/深度学习/pytorch.md",
     "人工智能/环境配置/Anaconda配置.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
-    "图形学/软渲染器/软光栅/总结.md",
-    "图形学/DX12/DirectXMath.md",
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
