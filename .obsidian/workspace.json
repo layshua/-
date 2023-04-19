@@ -8,30 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0ccacc945e39650d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9b61130caed9e261",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "e7bbcb80799bb7cc",
             "type": "leaf",
             "state": {
@@ -44,7 +20,31 @@
             }
           },
           {
-            "id": "43add3be743a2ddb",
+            "id": "aab1dc8dd6502df4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/线性代数/3D数学.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1a86a53d4dc284f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/公式推导/视图变换.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8e05f046cf10d117",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -54,21 +54,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "6060b3bad2e634f8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md"
+                "file": "Math/公式推导/视图变换.md"
               }
             }
           }
@@ -138,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "Math/公式推导/视图变换.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "Math/公式推导/视图变换.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -187,12 +175,17 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "43add3be743a2ddb",
+  "active": "1a86a53d4dc284f8",
   "lastOpenFiles": [
+    "Math/线性代数/3D数学.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "图形学/DX12/HLSL.md",
-    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/龙书/DX12理论.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/软渲染器/软光栅/TinyRenderer.md",
+    "图形学/软渲染器/软光栅/总结.md",
+    "Math/公式推导/视图变换.md",
+    "图形学/DX12/HLSL.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/快速入门.md",
     "人工智能/Python/Numpy+Matplotlib.md",
@@ -201,7 +194,6 @@
     "Zstore/Pasted image 20230418224226.png",
     "Zstore/Pasted image 20230418224139.png",
     "人工智能/Python/Python基础.md",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Zstore/Pasted image 20230418202154.png",
     "Zstore/Pasted image 20230418201214.png",
     "图形学/DX12/BUG记录.md",
@@ -213,7 +205,6 @@
     "Zstore/Pasted image 20230418160234.png",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客.md",
     "Zbuffer/HLSL 语言基础/HLSL 语言基础.md",
-    "Math/线性代数/3D数学.md",
     "Zbuffer/HLSL 语言基础",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "虚幻引擎/3 材质 & 渲染/Shader HLSL.md",
@@ -225,9 +216,6 @@
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "Zstore/H]Z2WJOWTHO2M9$6X9`X71G.png",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/NumPy 中的矩阵和向量 _ NumPy.md",
-    "Zbuffer/理解 NumPy _ NumPy/理解 NumPy _ NumPy.md",
-    "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy/创建 Numpy 数组的不同方式 _ NumPy.md",
-    "Zbuffer/NumPy 简单入门教程 _ NumPy/NumPy 简单入门教程 _ NumPy.md",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy",
     "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy",
