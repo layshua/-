@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/公式推导/视图变换.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,11 +175,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "1a86a53d4dc284f8",
+  "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
+    "图形学/DX12/DirectXMath.md",
     "Math/线性代数/3D数学.md",
     "Math/公式推导/视图变换.md",
-    "图形学/DX12/DirectXMath.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/龙书/DX12理论.md",
