@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Numpy+Matplotlib.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md"
+                "file": "人工智能/Python/Numpy+Matplotlib.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Numpy+Matplotlib.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Numpy+Matplotlib.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,11 +163,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "5c0cc74483e39ce4",
+  "active": "638af3f7231b161a",
   "lastOpenFiles": [
     "人工智能/Python/Python基础.md",
-    "人工智能/Python/Numpy+Matplotlib.md",
     "人工智能/深度学习/《鱼书》.md",
+    "人工智能/Python/Numpy+Matplotlib.md",
     "Math/线性代数/3D数学.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/HLSL语法.md",
