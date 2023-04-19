@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "mode": "source",
                 "source": false
               }
@@ -57,24 +57,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "4691469a0ff82678",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "749510503add8bb3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/DX12/HLSL语法.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -117,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/HLSL语法.md"
+                "file": "人工智能/深度学习/《鱼书》.md"
               }
             }
           }
@@ -144,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/HLSL语法.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/HLSL语法.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -193,12 +175,14 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "749510503add8bb3",
+  "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
+    "人工智能/Python/Numpy+Matplotlib.md",
+    "Math/线性代数/3D数学.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "图形学/DX12/HLSL语法.md",
     "Zstore/Pasted image 20230419181410.png",
     "Zstore/Pasted image 20230419181351.png",
-    "Math/线性代数/3D数学.md",
-    "图形学/DX12/HLSL语法.md",
     "Zstore/1681897511961.png",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨.md",
     "Zstore/1681897512342.png",
@@ -208,7 +192,6 @@
     "Zstore/1681897512168.png",
     "Zstore/1681897512098.png",
     "Zstore/1681897512052.png",
-    "Zstore/1681897511991.png",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨/assets",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨",
     "图形学/DX12/HLSL.md",
@@ -216,14 +199,12 @@
     "Zbuffer/DirectX11--HLSL 语法入门/assets",
     "Zbuffer/DirectX11--HLSL 语法入门",
     "Math/公式推导/视图变换.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/快速入门.md",
-    "人工智能/Python/Numpy+Matplotlib.md",
     "人工智能/Python/Python基础.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",

@@ -57531,6 +57531,7 @@ MNIST
 Matplotlib
 MATLAB
 MVVe
+Matpoltlib
 Windows
 Win
 World
@@ -84158,6 +84159,7 @@ pytorchAPI
 passl
 postion
 predication
+pyplot
 nodesCatch
 nobr
 navy

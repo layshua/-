@@ -5912,7 +5912,8 @@ cout<<endl;
 ```
 
 
-### 【C++11】参数绑定bind函数
+### 【C++11】参数绑定 bind 函数
+#bind
 接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
 ```c++ nums
 //调用bind的一般形式：
@@ -5965,7 +5966,8 @@ sort (words.begin(), words.end(), bind(isShorter,2,1));
 在第一个调用中，当sort需要比较两个元素A和B时，它会调用isShorter(A,B)。
 在第二个对sort的调用中，传递给isShorter的参数被交换过来了。因此，当sort比较两个元素时，就好像调用isShorter(B,A)一样。
 
-#### ref函数：绑定引用参数
+#### ref 函数：绑定引用参数
+#ref
 默认情况下，bind的那些不是占位符的参数被拷贝到bind返回的可调用对象中。但是，与lambda类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
 例如，为了替换一个引用方式捕获ostream的lambda:
 ```c++ nums
