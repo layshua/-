@@ -11139,6 +11139,9 @@ cKF
 cChfL
 crop
 cumsum
+cosh
+countbits
+cbuffers
 github
 grey
 green
@@ -17948,6 +17951,9 @@ transformsToTensor
 torchvision
 tanh
 tangentW
+trunc
+tbuffers
+tjE
 markdown
 matter
 mod
@@ -21697,6 +21703,9 @@ mxy
 mji
 minibatch
 mnist
+mathbf
+mvalue
+modf
 windows
 win
 width
@@ -38434,6 +38443,7 @@ vjv
 vpt
 vJOH
 volatile
+vSG
 AA
 AppData
 AIRDyuVH
@@ -45711,6 +45721,7 @@ UYqNXj
 UHRcH
 UsZu
 UUAM
+UOagE
 api
 ac
 app
@@ -49220,6 +49231,13 @@ astype
 ascent
 adaptive
 arange
+acos
+asdouble
+asfloat
+asin
+asint
+asuint
+avalue
 Roaming
 RegWorkshop
 Release
@@ -57512,6 +57530,7 @@ MjMx
 MNIST
 Matplotlib
 MATLAB
+MVVe
 Windows
 Win
 World
@@ -65448,6 +65467,8 @@ Softmax
 SNqWx
 SRp
 Srinivasulu
+StencilRef
+Samplers
 Programs
 POP
 PC
@@ -69200,6 +69221,9 @@ Pooling
 PTds
 POSITIONn
 PSIZEn
+POSITIONT
+PSIZE
+PrimitiveID
 ContextMenuManager
 ClashVerge
 Clash
@@ -73005,6 +73029,7 @@ Caffe
 Chainer
 CFLOAT
 COLORn
+Constant
 ImTip
 IMAP
 ID
@@ -76625,6 +76650,7 @@ IiFV
 IYWG
 IEqK
 ImageFolder
+IsFrontFace
 qq
 qyi
 quad
@@ -84131,6 +84157,7 @@ pujS
 pytorchAPI
 passl
 postion
+predication
 nodesCatch
 nobr
 navy
@@ -87548,6 +87575,7 @@ ndarray
 neuralnet
 numerical
 normalW
+nTT
 bf
 bc
 black
@@ -90883,6 +90911,8 @@ batches
 beP
 bdyX
 bGbh
+branching
+bvalue
 fe
 front
 fill
@@ -97899,6 +97929,7 @@ dMOg
 dataset
 descent
 decay
+dst
 TFvYZOKeHL
 TAB
 TeX
@@ -105715,6 +105746,9 @@ iRok
 iVc
 iBka
 ifV
+isfinite
+isinf
+isnan
 shift
 svg
 sf
@@ -109795,6 +109829,8 @@ sbTi
 sKGx
 seX
 specPower
+sincos
+sinh
 local
 list
 left
@@ -113138,6 +113174,8 @@ learning
 loss
 litColor
 lightVec
+lab
+labelTop
 YAML
 You
 YEBAYGhURFRofHx
@@ -123723,6 +123761,8 @@ randn
 rOiF
 rQR
 reshape
+reversebits
+rsqrt
 XXXXXX
 XXX
 XML
@@ -130905,6 +130945,7 @@ HMi
 HQje
 HjeSC
 Hackr
+HCb
 Bbb
 Bear
 Base
@@ -134153,6 +134194,12 @@ BxwBHR
 BLENDWEIGHTn
 BLENDINDICESn
 BINORMALn
+BINORMAL
+BLENDINDICES
+BLENDWEIGHT
+Buffers
+Bzv
+BEJX
 Fraktur
 Frame
 Foo
@@ -138124,6 +138171,7 @@ Fgo
 Facebook
 FdBU
 Fortran
+FOG
 Element
 Entity
 Enity
@@ -151825,6 +151873,7 @@ DataLoader
 Dataset
 Dropout
 Dbool
+DfA
 LNK
 Log
 Linux
@@ -163387,6 +163436,7 @@ Norm
 Ndp
 Nor
 NORMALn
+NJUS
 ZooAnima
 ZooAnimal
 ZTest
@@ -167388,6 +167438,7 @@ ZBBP
 Zhang
 ZVFF
 ZXl
+ZsQln
 Quote
 Quiet
 Quick
