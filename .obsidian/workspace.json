@@ -32,7 +32,7 @@
             }
           },
           {
-            "id": "6060b3bad2e634f8",
+            "id": "e7bbcb80799bb7cc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -44,19 +44,31 @@
             }
           },
           {
-            "id": "876366d1ea99324e",
+            "id": "43add3be743a2ddb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/HLSL.md",
+                "file": "图形学/DX12/DirectXMath.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6060b3bad2e634f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "图形学/DX12/DirectXMath.md"
               }
             }
           }
@@ -126,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,8 +187,12 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "9b61130caed9e261",
+  "active": "43add3be743a2ddb",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer 5th》.md",
+    "图形学/DX12/HLSL.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/快速入门.md",
     "人工智能/Python/Numpy+Matplotlib.md",
@@ -185,9 +201,6 @@
     "Zstore/Pasted image 20230418224226.png",
     "Zstore/Pasted image 20230418224139.png",
     "人工智能/Python/Python基础.md",
-    "图形学/DX12/龙书/DX12理论.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "图形学/DX12/HLSL.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "Zstore/Pasted image 20230418202154.png",
     "Zstore/Pasted image 20230418201214.png",
@@ -221,7 +234,6 @@
     "Zbuffer/NumPy 简单入门教程 _ NumPy/assets",
     "Zbuffer/NumPy 简单入门教程 _ NumPy",
     "Zbuffer/理解 NumPy _ NumPy",
-    "人工智能/Python/PyTorch入门.md",
     "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客/assets",
     "Zbuffer/(16 条消息) 《深度学习入门——基于 Python 的理论与实现》笔记_boss-dog 的博客 - CSDN 博客",
     "Tools/Excalidraw/未命名.canvas",
