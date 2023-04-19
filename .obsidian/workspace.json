@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e7bbcb80799bb7cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "aab1dc8dd6502df4",
             "type": "leaf",
             "state": {
@@ -32,31 +20,31 @@
             }
           },
           {
-            "id": "1a86a53d4dc284f8",
+            "id": "db8a9f2e4bd34992",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "人工智能/Python/Numpy+Matplotlib.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f81d258eb1fbae67",
+            "id": "5c0cc74483e39ce4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/公式推导/视图变换.md",
+                "file": "人工智能/深度学习/《鱼书》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -175,9 +163,11 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "aab1dc8dd6502df4",
+  "active": "5c0cc74483e39ce4",
   "lastOpenFiles": [
+    "人工智能/Python/Python基础.md",
     "人工智能/Python/Numpy+Matplotlib.md",
+    "人工智能/深度学习/《鱼书》.md",
     "Math/线性代数/3D数学.md",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/HLSL语法.md",
@@ -203,9 +193,7 @@
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
-    "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/快速入门.md",
-    "人工智能/Python/Python基础.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Unity/URP/URPShader.md",
