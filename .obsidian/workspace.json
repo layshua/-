@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -177,13 +177,13 @@
   },
   "active": "9b61130caed9e261",
   "lastOpenFiles": [
+    "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/快速入门.md",
     "人工智能/Python/Numpy+Matplotlib.md",
     "Zstore/Pasted image 20230418225800.png",
     "Zstore/Pasted image 20230418225239.png",
     "Zstore/Pasted image 20230418224226.png",
     "Zstore/Pasted image 20230418224139.png",
-    "人工智能/深度学习/《鱼书》.md",
     "人工智能/Python/Python基础.md",
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
