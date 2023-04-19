@@ -1,7 +1,8 @@
-
-
-
-#1  数据类型
+---
+banner: "![[Pasted image 20230419181410.png]]"
+banner_y: 0.4
+---
+# 1  数据类型
 
 ## 标量
 
@@ -279,7 +280,7 @@ while (times--)
 若没有添加属性，默认使用的则为`[loop]`。
 
 
-# 函数
+# 4  函数
 HLSL 中的函数具有以下属性。
 1. 函数采用类 C++语法。
 2. 参数只能按值传递，没有引用和指针。
@@ -322,7 +323,7 @@ HLSL 提供了一些内置全局函数，它通常直接映射到指定的着色
 <table><thead><tr><th>函数名</th><th>描述</th><th>最小支持着色器模型</th></tr></thead><tbody><tr><td>abs</td><td>每个分量求绝对值</td><td>1.1</td></tr><tr><td>acos</td><td>求 x 分量的反余弦值</td><td>1.1</td></tr><tr><td>all</td><td>测试 x 分量是否按位全为 1</td><td>1.1</td></tr><tr><td>any</td><td>测试 x 分量是否按位存在 1</td><td>1.1</td></tr><tr><td>asdouble</td><td>将值按位重新解释成 double 类型</td><td>5.0</td></tr><tr><td>asfloat</td><td>将值按位重新解释成 float 类型</td><td>4.0</td></tr><tr><td>asin</td><td>求 x 分量的反正弦值</td><td>1.1</td></tr><tr><td>asint</td><td>将值按位重新解释成 int 类型</td><td>4.0</td></tr><tr><td>asuint</td><td>将值按位重新解释成 uint 类型</td><td>4.0</td></tr><tr><td>atan</td><td>求 x 分量的反正切值值</td><td>1.1</td></tr><tr><td>atan2</td><td>求 (x,y) 分量的反正切值</td><td>1.1</td></tr><tr><td>ceil</td><td>求不小于 x 分量的最小整数</td><td>1.1</td></tr><tr><td>clamp</td><td>将 x 分量的值限定在 [min, max]</td><td>1.1</td></tr><tr><td>clip</td><td>丢弃当前像素，如果 x 分量的值小于 0</td><td>1.1</td></tr><tr><td>cos</td><td>求 x 分量的余弦值</td><td>1.1</td></tr><tr><td>cosh</td><td>求 x 分量的双曲余弦值</td><td>1.1</td></tr><tr><td>countbits</td><td>计算输入整数的位 1 个数 (对每个分量)</td><td>5.0</td></tr><tr><td>cross</td><td>计算两个 3D 向量的叉乘</td><td>1.1</td></tr><tr><td>ddx</td><td>估算屏幕空间中的偏导数<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x2202;</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>p</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><mi mathvariant=&quot;normal&quot;>&amp;#x2202;</mi><mi>x</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 3.66em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.917em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.374em, 1002.86em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Main;">∂<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="texatom" id="MathJax-Span-4"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Main-bold;">p</span></span></span><span class="texatom" id="MathJax-Span-7"><span class="mrow" id="MathJax-Span-8"><span class="mo" id="MathJax-Span-9" style="font-family: MathJax_Main;">/</span></span></span><span class="mi" id="MathJax-Span-10" style="font-family: MathJax_Main;">∂<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math-italic;">x</span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.432em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">∂</mi><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">p</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mi mathvariant="normal">∂</mi><mi>x</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">\partial \mathbf{p} / \partial x</script></span>。这使我们可以确定在屏幕空间的 x 轴方向上，相邻像素间某属性值<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>p</mi></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-12" style="width: 0.803em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.631em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.66em, 1000.57em, 2.631em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-13"><span class="texatom" id="MathJax-Span-14"><span class="mrow" id="MathJax-Span-15"><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Main-bold;"> p</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">p</mi></mrow></math></span></span><script type="math/tex" id="MathJax-Element-2">\mathbf{p}</script></span>的变化量</td><td>2.1</td></tr><tr><td>ddy</td><td>估算屏幕空间中的偏导数<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x2202;</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>p</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><mi mathvariant=&quot;normal&quot;>&amp;#x2202;</mi><mi>y</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" style="width: 3.546em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.803em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.374em, 1002.8em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-18"><span class="mi" id="MathJax-Span-19" style="font-family: MathJax_Main;">∂<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="texatom" id="MathJax-Span-20"><span class="mrow" id="MathJax-Span-21"><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Main-bold;">p</span></span></span><span class="texatom" id="MathJax-Span-23"><span class="mrow" id="MathJax-Span-24"><span class="mo" id="MathJax-Span-25" style="font-family: MathJax_Main;">/</span></span></span><span class="mi" id="MathJax-Span-26" style="font-family: MathJax_Main;">∂<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math-italic;">y<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.432em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">∂</mi><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">p</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mi mathvariant="normal">∂</mi><mi>y</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">\partial \mathbf{p} / \partial y</script></span>。这使我们可以确定在屏幕空间的 y 轴方向上，相邻像素间某属性值<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>p</mi></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-28" style="width: 0.803em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.631em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.66em, 1000.57em, 2.631em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-29"><span class="texatom" id="MathJax-Span-30"><span class="mrow" id="MathJax-Span-31"><span class="mi" id="MathJax-Span-32" style="font-family: MathJax_Main-bold;"> p</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">p</mi></mrow></math></span></span><script type="math/tex" id="MathJax-Element-4">\mathbf{p}</script></span>的变化量</td><td>2.1</td></tr><tr><td>degrees</td><td>将 x 分量从弧度转换为角度制</td><td>1.1</td></tr><tr><td>determinant</td><td>返回方阵的行列式</td><td>1.1</td></tr><tr><td>distance</td><td>返回两个点的距离值</td><td>1.1</td></tr><tr><td>dot</td><td>返回两个向量的点乘</td><td>1.1</td></tr><tr><td>dst</td><td>计算距离向量</td><td>5.0</td></tr><tr><td>exp</td><td>计算 e^x</td><td>1.1</td></tr><tr><td>exp2</td><td>计算 2^x</td><td>1.1</td></tr><tr><td>floor</td><td>求不大于 x 分量的最大整数</td><td>1.1</td></tr><tr><td>fmod</td><td>求 x/y 的余数</td><td>1.1</td></tr><tr><td>frac</td><td>返回 x 分量的小数部分</td><td>1.1</td></tr><tr><td>isfinite</td><td>返回 x 分量是否为有限的布尔值</td><td>1.1</td></tr><tr><td>isinf</td><td>返回 x 分量是否为无穷大的布尔值</td><td>1.1</td></tr><tr><td>isnan</td><td>返回 x 分量是否为 nan 的布尔值</td><td>1.1</td></tr><tr><td>length</td><td>计算向量的长度</td><td>1.1</td></tr><tr><td>lerp</td><td>求 x + s(y - x)</td><td>1.1</td></tr><tr><td>lit</td><td>返回一个光照系数向量 (环境光亮度, 漫反射光亮度, 镜面光亮度, 1.0f)</td><td>1.1</td></tr><tr><td>log</td><td>返回以 e 为底，x 分量的对数</td><td>1.1</td></tr><tr><td>log10</td><td>返回以 10 为底，x 分量的对数</td><td>1.1</td></tr><tr><td>log2</td><td>返回以 2 为底，x 分量的自然对数</td><td>1.1</td></tr><tr><td>mad</td><td>返回 mvalue * avalue + bvalue</td><td>1.1</td></tr><tr><td>max</td><td>返回 x 分量和 y 分量的最大值</td><td>1.1</td></tr><tr><td>min</td><td>返回 x 分量和 y 分量的最小值</td><td>1.1</td></tr><tr><td>modf</td><td>将值 x 分开成整数部分和小数部分</td><td>1.1</td></tr><tr><td>mul</td><td>矩阵乘法运算</td><td>1</td></tr><tr><td>normalize</td><td>计算规格化的向量</td><td>1.1</td></tr><tr><td>pow</td><td>返回 x^y</td><td>1.1</td></tr><tr><td>radians</td><td>将 x 分量从角度值转换成弧度值</td><td>1</td></tr><tr><td>rcp</td><td>对每个分量求倒数</td><td>5</td></tr><tr><td>reflect</td><td>返回反射向量</td><td>1</td></tr><tr><td>refract</td><td>返回折射向量</td><td>1.1</td></tr><tr><td>reversebits</td><td>对每个分量进行位的倒置</td><td>5</td></tr><tr><td>round</td><td>x 分量进行四舍五入</td><td>1.1</td></tr><tr><td>rsqrt</td><td>返回 1/sqrt(x)</td><td>1.1</td></tr><tr><td>saturate</td><td>对 x 分量限制在 [0,1] 范围</td><td>1</td></tr><tr><td>sign</td><td>计算符号函数的值，x 大于 0 为 1，x 小于 0 为 - 1，x 等于 0 则为 0</td><td>1.1</td></tr><tr><td>sin</td><td>计算 x 的正弦</td><td>1.1</td></tr><tr><td>sincos</td><td>返回 x 的正弦和余弦</td><td>1.1</td></tr><tr><td>sinh</td><td>返回 x 的双曲正弦</td><td>1.1</td></tr><tr><td>smoothstep</td><td>给定范围 [min, max]，映射到值 [0, 1]。小于 min 的值取 0，大于 max 的值取 1</td><td>1.1</td></tr><tr><td>step</td><td>返回 (x&gt;= a) ? 1 : 0</td><td>1.1</td></tr><tr><td>tan</td><td>返回 x 的正切值</td><td>1.1</td></tr><tr><td>tanh</td><td>返回 x 的双曲正切值</td><td>1.1</td></tr><tr><td>transpose</td><td>返回矩阵 m 的转置</td><td>1</td></tr><tr><td>trunc</td><td>去掉 x 的小数部分并返回</td><td>1</td></tr></tbody></table>
 
 
-# 语义
+# 5 语义
 
 语义通常是附加在着色器输入 / 输出参数上的字符串。它在着色器程序的用途如下：
 
@@ -347,7 +348,7 @@ n 是一个可选的整数，从 0 开始。比如 POSITION0, TEXCOORD1 等等�
 <table><thead><tr><th>系统值</th><th>描述</th><th>类型</th></tr></thead><tbody><tr><td>SV_Depth</td><td>深度缓冲区数据，可以被任何着色器写入 / 读取</td><td>float</td></tr><tr><td>SV_InstanceID</td><td>每个实例都会在运行期间自动生成一个 ID。在任何着色器阶段都能读取</td><td>uint</td></tr><tr><td>SV_IsFrontFace</td><td>指定该三角形是否为正面。可以被几何着色器写入，以及可以被像素着色器读取</td><td>bool</td></tr><tr><td>SV_Position</td><td>若被声明用于输入到着色器，它描述的是像素位置，在所有着色器中都可用，可能会有 0.5 的偏移值</td><td>float4</td></tr><tr><td>SV_PrimitiveID</td><td>每个原始拓扑都会在运行期间自动生成一个 ID。可用在几何 / 像素着色器中写入，也可以在像素 / 几何 / 外壳 / 域着色器中读取</td><td>uint</td></tr><tr><td>SV_StencilRef</td><td>代表当前像素着色器的模板引用值。只可以被像素着色器写入</td><td>uint</td></tr><tr><td>SV_VertexID</td><td>每个实例都会在运行期间自动生成一个 ID。仅允许作为顶点着色器的输入</td><td>uint</td></tr></tbody></table>
 
 
-# 通用着色器的核心
+# 6 通用着色器的核心
 
 所有的可编程着色器阶段使用通用着色器核心来实现相同的基础功能。此外，顶点着色阶段、几何着色阶段和像素着色阶段则提供了独特的功能，例如几何着色阶段可以生成新的图元或删减图元，像素着色阶段可以决定当前像素是否被抛弃等。下图展示了数据是怎么流向一个着色阶段，以及通用着色器核心与着色器内存资源之间的关系：
 
@@ -368,7 +369,7 @@ n 是一个可选的整数，从 0 开始。比如 POSITION0, TEXCOORD1 等等�
 **Constant Buffers**：常量缓冲区对常量值的读取有所优化。他们被设计用于 CPU 对这些数据的频繁更新，因此他们有额外的大小、布局和访问限制。
 
 
-# 着色器常量
+# 7 着色器常量
 
 着色器常量存在内存中的一个或多个缓冲区资源当中。他们可以被组织成两种类型的缓冲区：常量缓冲区（cbuffers）和纹理缓冲区（tbuffers）。关于纹理缓冲区，我们不在这讨论。
 
@@ -442,4 +443,199 @@ float4 VS_Main(VertexIn vIn) : SV_Position
     return mul(vIn.inPos, g_WorldViewProj);
 }
 ```
+
+
+
+# 8 矩阵的内存布局和 mul 函数
+
+说实话，我感觉这是一个大坑，不知道为什么要设计成这样混乱的形式。
+
+在我用的时候，以`row_major`矩阵，并且 mul 函数以向量左乘矩阵的形式来绘制时的确能够正常显示，并不会有什么感觉。但是也有人会遇到明明传的矩阵没有问题，却怎么样都绘制不出的情况；或者使用一遍矩阵，在 mul 函数用向量左乘的形式却又可以绘制出来的疑问。因此本文目的就是要扫清这些障碍。
+
+## 行主序矩阵与列主序矩阵
+
+首先要了解的是，对于连续内存数据：
+
+$$m_{11} \; m_{12} \; m_{13} \; m_{14} \; m_{21} \; m_{22} \; m_{23} \; m_{24} \; m_{31} \; m_{32} \; m_{33} \; m_{34} \; m_{41} \; m_{42} \; m_{43} \; m_{44}$$
+
+**行主序矩阵**是这样解释数据的：
+
+$$\mathbf{M}=\begin{bmatrix} m_{11} & m_{12} & m_{13} & m_{14} \\m_{21} & m_{22} & m_{23} & m_{24} \\m_{31} & m_{32} & m_{33} & m_{34}\\m_{41} & m_{42} & m_{43} & m_{44}\end{bmatrix}$$
+
+而**列主序矩阵**是这样解释数据的：
+
+$$\mathbf{M}=\begin{bmatrix} m_{11} & m_{21} & m_{31} & m_{41} \\m_{12} & m_{22} & m_{32} & m_{42} \\m_{13} & m_{23} & m_{33} & m_{43}\\m_{14} & m_{24} & m_{34} & m_{44} \end{bmatrix}$$
+
+显然，**行主序矩阵**经过一次**转置**后就会变成**列主序矩阵**
+
+## C++ 和 HLSL 中矩阵的内存布局
+
+在 C++ 的 DirectXMath 中，无论是`XMFLOAT4X4`，还是使用函数生成的`XMMATRIX`，都是采用**行主序矩阵**的解释方式。它的数据流如下：
+
+$$m_{11} \; m_{12} \; m_{13} \; m_{14} \; m_{21} \; m_{22} \; m_{23} \; m_{24} \; m_{31} \; m_{32} \; m_{33} \; m_{34} \; m_{41} \; m_{42} \; m_{43} \; m_{44}$$
+
+上述数据流传递到 HLSL 后，若是传递给 cb0 的寄存器的前 4 个向量，那么它内存布局一定如下：
+
+```c++ nums
+cb0[0].xyzw = (m11, m12, m13, m14);
+cb0[1].xyzw = (m21, m22, m23, m24);
+cb0[2].xyzw = (m31, m32, m33, m34);
+cb0[3].xyzw = (m41, m42, m43, m44);
+```
+
+而在 HLSL 中，默认的`matrix`或`float4x4`采用的是**列主序矩阵**的解释形式。
+
+假设在 HLSL 的`cbuffer`为：
+
+```c++ nums
+cbuffer cb : register(b0)
+{
+    (row_major) matrix g_World;
+}
+```
+
+如果`g_World`是`matrix`或`float4x4`类型，由于是**列主序矩阵**，上面的 4 个寄存器存储的数据会被看作：
+
+$$\begin{bmatrix} m_{11} & m_{21} & m_{31} & m_{41} \\ m_{12} & m_{22} & m_{32} & m_{42} \\ m_{13} & m_{23} & m_{33} & m_{43} \\ m_{14} & m_{24} & m_{34} & m_{44} \\ \end{bmatrix}$$
+
+而如果`g_World`是`row_major matrix`或`row_major float4x4`类型，则为**行主序矩阵**，上面的 4 个寄存器存储的数据则依然被视作：
+
+$$\begin{bmatrix}m_{11} & m_{12} & m_{13} & m_{14} \\m_{21} & m_{22} & m_{23} & m_{24} \\m_{31} & m_{32} & m_{33} & m_{34} \\m_{41} & m_{42} & m_{43} & m_{44} \\\end{bmatrix}$$
+
+
+## HLSL 中的 mul 函数
+
+微软的官方文档是这么描述 mul 函数的 ([微软官方文档链接](https://docs.microsoft.com/zh-cn/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul))，这里进行个人翻译：
+
+使用矩阵数学来进行矩阵 x 乘矩阵 y 的运算，要求矩阵 x 的列数与矩阵 y 的行数相等。
+
+如果 x 是一个向量，那么它将被解释为行向量。
+
+如果 y 是一个向量，那么它将被解释为列向量。
+
+表面上看起来很美满，很智能，但稍有不慎就要在这里踩大坑了。
+
+## dp4 指令
+
+dp4 是一个汇编指令 ([微软官方文档链接](https://docs.microsoft.com/zh-cn/windows/desktop/direct3dhlsl/dp4---vs))，使用方法如下：
+
+dp4 dst, src0, src1
+
+其中 src0 和 src1 是一个向量，计算它们的点乘并将结果传给 dst。
+
+当然这里并不是要教大家怎么写汇编，而是怎么看。
+
+为了了解`mul`函数是如何进行向量与矩阵的乘法运算，我们需要探讨一下它的汇编实现。这里我所使用的是`row_major`矩阵。首先是向量作为第一个参数的情况：
+
+![](1681897511961.png)
+
+可以看到这种运算方式实际上却是按照向量左乘矩阵的形式进行的运算。
+
+然后是将向量作为第二个参数的情况（仅单纯的参数交换）:
+
+![](1681897511991.png)
+
+无论是行向量左乘矩阵，还是列向量左乘矩阵，在汇编层面上都是用`dp4`的形式进行计算，这是因为对矩阵来说在内存上是以 4 个行向量的形式存储的，传递一行的寄存器向量比传递一列更简单，适合进行与列向量的运算，并且效率会更高。
+
+然后眼尖的同学会发现，同一条指令，只是改变了顺序，指令执行的起始地址就产生了差别 (16 条指令数目差)。
+
+但是交换两个参数又会导致运算结果 / 显示结果的不同，这时候就要看看矩阵所存的值了。
+
+先看一段 HLSL 代码：
+
+```c++ nums
+cbuffer cb : register(b0)
+{
+    row_major matrix gWorld;
+    row_major matrix gView;
+    row_major matrix gProj;
+}
+
+struct VertexPosNormalTex
+{
+    float3 PosL : POSITION;
+    float3 NormalL : NORMAL;
+    float2 Tex : TEXCOORD;
+};
+
+struct VertexPosHWNormalTex
+{
+    float4 PosH : SV_POSITION;
+    float3 PosW : POSITION; // 在世界中的位置
+    float3 NormalW : NORMAL; // 法向量在世界中的方向
+    float2 Tex : TEXCOORD;
+};
+
+// 顶点着色器
+VertexPosHWNormalTex VS(VertexPosNormalTex pIn)
+{
+    VertexPosHWNormalTex pOut;
+    
+    row_major matrix viewProj = mul(gView, gProj);
+
+    pOut.PosW = mul(float4(pIn.PosL, 1.0f), gWorld).xyz;
+    pOut.PosH = mul(float4(pOut.PosW, 1.0f), viewProj);
+    pOut.NormalW = mul(pIn.NormalL, (float3x3) gWorldInvTranspose);
+    pOut.Tex = pIn.Tex;
+    return pOut;
+}
+```
+
+我们只考虑`viewProj`的初始化和`pOut.PosH`的赋值操作。
+
+首先是`viewProj`经过计算后应该得到的值：
+
+![](1681897512052.png)
+
+这是向量左乘矩阵开始前四个向量寄存器的值 (默认 HLSL)：
+
+![](1681897512098.png)
+
+这是向量左乘矩阵开始前时四个向量寄存器的值 (将`float4(pOut.PosW, 1.0f)`和`viewProj`交换)：
+
+![](1681897512168.png)
+
+也许有人会奇怪，怎么在开始运算前两边寄存器存储的内容会不一样。我们需要往前观察上一个语句产生的汇编 (默认 HLSL)：
+
+![](1681897512210.png)
+
+而将`float4(pOut.PosW, 1.0f)`和`viewProj`交换后，则汇编代码没有了转置操作:
+
+![](1681897512269.png)
+
+严格意义上说，00000000 到 0000001B 的指令才是上图语句的实际执行内容，而 0000001C 到 0000002B 的代码则应是在计算`pOut.PosH = mul(float4(pOut.PosW, 1.0f), viewProj);`之前所进行的一系列额外操作。
+
+因此无论是行向量还是列向量，在执行完 0000001B 指令后，行主序矩阵`viewProj`的内存布局一定为：
+
+![](1681897512316.png)
+
+如果用行向量左乘该行主序矩阵，由于 dp4 运算需要按列取出这些寄存器的值，为此需要额外 16 条指令进行转置（0000001C 到 0000002B）。
+
+而如果用列向量左乘该行主序矩阵，则不需要进行转置，直接取寄存器行向量就可以直接进行 dp4 运算。
+
+因此，我们可以知道一个**行向量**左乘**行主序矩阵**时，为了满足`mul`函数使用`dp4`指令优化运算，需要会预先对原来的矩阵进行转置。其中 r4 r5 r6 r3 为`viewProj`转置后的矩阵，即将会左乘向量`float4(pOut.PosW, 1.0f)`。而**列向量**左乘**行主序矩阵**则可以避免转置操作。
+
+同理，如果采用**列主序矩阵**，**行向量**左乘**列主序矩阵**可以避免转置操作；而**列向量**左乘**列主序矩阵**又会产生转置操作。
+
+故对于`dp4`来说，最好是能够对一个**行向量**和**列主序矩阵** (取列主序矩阵的行，也就是取一行寄存器向量与行向量做点乘) 操作，又或者是对一个**行主序矩阵** (取行主序矩阵的行与列向量做点乘) 和**列矩阵**操作，这样都能有效避免转置。
+
+![](1681897512342.png)
+
+
+## 总结
+
+综上所述，有三处地方可能会发生转置：
+
+1.  C++ 代码端的转置
+2.  HLSL 中 matrix(float4x4) 是列主矩阵时会发生转置
+3.  mul 乘法内部是以列向量左乘矩阵的形式实现的，对于行向量左乘矩阵的情况会发生转置
+
+经过组合，就一共有四种能够正常绘制的情况：
+
+1.  **C++ 代码端不进行转置，HLSL 中使用`row_major matrix`(行主序矩阵)，mul 函数让向量放在左边 (行向量)，这样实际运算就是 (行向量 X 行主序矩阵)** 。这种方法易于理解，但是这样做 dp4 运算取矩阵的列很不方便，在 HLSL 中会产生用于转置矩阵的大量指令，性能上有损失。
+2.  **C++ 代码端进行转置，HLSL 中使用`matrix`(列主序矩阵) ，mul 函数让向量放在左边 (行向量)，这样就是 (行向量 X 列主序矩阵)，但 C++ 这边需要进行一次矩阵转置，HLSL 内部不产生转置** 。这是官方例程所使用的方式，这样可以使得 dp4 运算可以直接取列主序矩阵的行，从而避免内部产生大量的转置指令。后续我会将教程的项目也使用这种方式。
+3.  **C++ 代码端不进行转置，HLSL 中使用`matrix`(列主序矩阵)，mul 函数让向量放在右边 (列向量)，实际运算是 (列主序矩阵 X 列向量)**。这种方法的确可行，取列矩阵的行也比较方便，效率上又和 2 等同，就是 HLSL 那边的矩阵乘法都要反过来写，然而 DX 本身就是崇尚行主矩阵的，把 OpenGL 的习惯带来这边有点。。。
+4.  **C++ 代码端进行转置，HLSL 中使用`row_major matrix`(行主序矩阵)，mul 函数让向量放在右边 (列向量)，实际运算是 (行主序矩阵 X 列向量)。** 就算这种方法也可以绘制出来，但还是很让人难受，比第 2 点还难受，我甚至不想去说它。
+
+也就是说，以组合 1 为基准，任意改变其中两个状态都不会影响最终结果。
 
