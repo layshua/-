@@ -7578,7 +7578,8 @@ int main()
 - **unsigned表示非类型参数，非类型模板参数的模板实参必须是常量表达式。**
 
 ```c++ nums
-template<typename T> void Print(const T &temp) 
+template<typename T> 
+void Print(const T &temp) 
 {
     //把类型改成模板类型的名字如T就可以了
     cout << temp;
@@ -7611,7 +7612,7 @@ template <typename T> inline T min (const T&,const T&);
 > [!NOTE] Title
 > - 一个类模板的每个实例都形成一个单独的类
 > - 默认情况下，对于一个实例化的类模板，成员只有在使用时才被实例化
-> - 在一个类模板的作用域内，我们可以直接使用模板名而不必指定模板实参（简化书写：Array等价于Array< N >）
+> - 在一个类模板的作用域内，我们可以直接使用模板名而不必指定模板实参（简化书写：`Array`等价于`Array<N>`）
 
 与函数模板不同，**编译器不能为类模板推断模板参数类型**。我们必须在模板名后的尖括号中提供额外信息，用来代替模板参数的模板实参列表。
 
@@ -7677,7 +7678,7 @@ template<typename T> class Bar
 		...
 };
 ```
-将用来实例化Bar的类型声明为友元，因此对于每个类型名Foo，Foo将成为Bar< Foo >的友元，Sales_data将成为Bar<Sales_data>的友元，以此类推。
+将用来实例化Bar的类型声明为友元，因此对于每个类型名`Foo`，`Foo`将成为`Bar<Foo>`的友元，`Sales_data`将成为`Bar<Sales_data>`的友元，以此类推。
 
 #### 【C++11】模板类型别名
 不能使用typedef为模板类型设置别名
