@@ -1722,7 +1722,31 @@ bool b = lengthCompare("hello","world"); //等价，常规调用方法
 auto b = pf("hello","world")
 ```
 
-为什么要首先使用函数指针
+### 函数指针作为参数
+函数指针可以作为一个参数传递给另一个函数。这时函数指针的使用就像普通的常量和变量一样。
+当函数指针作为参数传递的时候，这时接收参数传递的函数通常需要根据这个指针调用这个函数。作为参数传递的函数指针通常表示 **回调函数（Callback Functions）**。
+
+> [!NOTE] 回调函数
+> 回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。
+
+```c++ nums
+typedef int (*FuncPtr)(int, int);
+using FuncPtr = int(*)(int, int);
+```
+
+```c++ nums
+typedef int (*FuncPtr)(int, int);
+using FuncPtr = int(*)(int, int);  //等价
+
+int calculate(int a, int b, FuncPtr operation)
+{
+ int result;
+ result = operation(a, b); // 运算
+ return result;
+}
+
+```
+### 为什么要首先使用函数指针
 
 和数组类似，不能定义函数类型的形参，但是形参可以是指向函数的指针，这样就能**将一个函数作为另一个函数的形参**。
 
