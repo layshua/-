@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/语法大全.md",
+                "file": "Math/线性代数/3D数学.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/LaTeX/符号大全.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/LaTeX/符号大全.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/LaTeX/符号大全.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,12 +150,12 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "916efd664d0b1304",
+  "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
-    "Math/LaTeX/常用语法.md",
-    "Math/LaTeX/符号大全.md",
-    "Zstore/Pasted image 20230420174107.png",
     "Math/LaTeX/语法大全.md",
+    "Math/LaTeX/符号大全.md",
+    "Math/LaTeX/常用语法.md",
+    "Zstore/Pasted image 20230420174107.png",
     "Math/线性代数/3D数学.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/Python/Numpy+Matplotlib.md",
