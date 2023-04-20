@@ -1644,6 +1644,7 @@ P197
 2. 如果实参类型不同，可以编写可变参数模板P618
 
 ## 【C++11】尾置返回类型
+#尾置返回类型
 任何函数的定义都能使用尾置返回，但是这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。
 
 下面的例子是返回一个指向维度为10的数组指针的函数定义方法：
@@ -1687,12 +1688,15 @@ string screen(int height = 24, int width = 80, char background = ' ');
 ```
 
 ## 函数指针
+#函数指针
 
 ```c++ nums
 bool lengthCompare(const string &, const string &);
 
 // 声明一个指向该函数的指针，只需要用指针替换掉函数即可
 bool (*pf)(const string &, const string &);
+
+pf = lengthCompare 
 ```
 
 > [!NOTE] Title
@@ -1781,7 +1785,7 @@ lambada 即 λ 的读音
 3. 当我们需要为一个lamba定义返回类型时，必须使用尾置返回类型。
 4. 不能有默认参数
 
-`[捕获列表](参数列表)->retrun 类型 {函数体}`
+`[捕获列表](参数列表)->返回类型 {函数体}`
 `[capture list](parameter list)->return type { function body }`
 
 ```c++ nums

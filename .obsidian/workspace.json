@@ -42,9 +42,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6497478e11974087",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "40e38a6a7d092c00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer 5th》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -87,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Python/Numpy+Matplotlib.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -114,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Python/Numpy+Matplotlib.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Python/Numpy+Matplotlib.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,13 +187,14 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "40e38a6a7d092c00",
   "lastOpenFiles": [
-    "人工智能/Python/Python基础.md",
+    "编程/C++/Google C++风格.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "人工智能/深度学习/《鱼书》.md",
+    "人工智能/Python/Python基础.md",
     "人工智能/Python/Numpy+Matplotlib.md",
     "Math/线性代数/3D数学.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "图形学/DX12/HLSL语法.md",
     "Zstore/Pasted image 20230419181410.png",
     "Zstore/Pasted image 20230419181351.png",
