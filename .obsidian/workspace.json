@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Python基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md"
+                "file": "人工智能/Python/Python基础.md"
               }
             }
           }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Python基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/深度学习/《鱼书》.md",
+                "file": "人工智能/Python/Python基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,6 +152,7 @@
   },
   "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
+    "人工智能/深度学习/《鱼书》.md",
     "人工智能/Python/Python基础.md",
     "人工智能/深度学习/PyTorch入门.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -160,7 +161,6 @@
     "Math/LaTeX/符号大全.md",
     "Math/LaTeX/常用语法.md",
     "Zstore/Pasted image 20230420174107.png",
-    "人工智能/深度学习/《鱼书》.md",
     "人工智能/Python/Numpy+Matplotlib.md",
     "图形学/软渲染器/软光栅/总结.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
