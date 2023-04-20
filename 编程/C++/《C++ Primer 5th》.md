@@ -7105,7 +7105,11 @@ class StrBlobptr
 	}
 ```
 
-## 7 函数调用运算符()与函数对象
+## 7 函数对象（仿函数）与函数调用运算符()
+#函数对象 #仿函数
+[ C++中的仿函数有点难，这篇文章却讲的通俗易懂！_cpp 仿函数](https://blog.csdn.net/toby54king/article/details/105103111)
+
+仿函数（Functor）又称为函数对象（Function Object）是一个**能行使函数功能的类**。
 
 > [!NOTE] Title
 > 函数调用运算符必须是成员函数。一个类可以定义多个不同版本的调用运算符，相互之间应该在参数数量或类型上有所区别。
@@ -7126,7 +7130,7 @@ int j = absnum(i);  //将i传给absnum.operator()
 
 ```
 
-即使absObj只是一个对象而非函数，我们也能“调用”该对象。调用对象实际上是在运行重载的调用运算符。在此例中，该运算符接受一个it值并返回其绝对值。
+即使`absnum`只是一个对象而非函数，我们也能“调用”该对象。调用对象实际上是在运行重载的调用运算符。在此例中，该运算符接受一个int值并返回其绝对值。
 
 **如果类定义了调用运算符**，则该类的对象称作**函数对象(function object)**。因为可以调用这种对象，所以我们说这些对象的“行为像函数一样”。
 
@@ -7140,9 +7144,9 @@ for_each(vs.begin(),vs.end(),absInt()); //第三个实参是类型absInt的一�
 **标准库定义的函数对象**
 ![[Pasted image 20230221223643.png]]
 ```c++ nums
-plus<int> intAdd;  //可执行int加法的函数对
+plus<int> intAdd;       //可执行int加法的函数对
 negate<int> intNegate;  //可对int值取反的函数对象
-//使用intAdd::operator(int,int)求l0和20的和
+//使用intAdd::operator(int,int)求10和20的和
 int sum =  intAdd (10,20);  //等价于sum=30
 sum = intNegate(intAdd(10,20));  //等价于sum=30
 //使用intNegate::operator(int)生成-l0
@@ -7156,6 +7160,23 @@ sum = intAdd(10,intNegate(10));  //sum 0
 //传入greater可以执行降序排列
 sort (svec.begin(),svec.end(),greater<string>());
 ```
+
+### 仿函数的优缺点
+优点：
+1）仿函数比函数指针的执行速度快，函数指针时通过地址调用，而仿函数是对运算符 operator 进行自定义来提高调用的效率。
+2）仿函数比一般函数灵活，可以同时拥有两个不同的状态实体，一般函数不具备此种功能。
+3）仿函数可以作为模板参数使用，因为每个仿函数都拥有自己的类型。
+缺点：
+1）需要单独实现一个类。
+2）定义形式比较复杂。
+
+### 仿函数作用
+仿函数通常有下面四个作用：  
+1）作为排序规则，在一些特殊情况下排序是不能直接使用运算符<或者>时，可以使用仿函数。  
+2）作为判别式使用，即返回值为bool类型。  
+3）同时拥有多种内部状态，比如返回一个值得同时并累加。  
+4）作为算法 for_each 的返回值使用。
+
 
 ## 8 函数表与function类型
 ### 函数表
@@ -7193,9 +7214,9 @@ struct divide
 //在这里我们声明了一个function类型，它可以表示接受两个int、返回一个int的可调用对象。因此，我们可以用这个新声明的类型表示任意一种桌面计算器用到的类型；
 function<int (int,int)>
 
-function<int(int,int)>f1 add;  //函数指针
-function<int (int,int)>f2 divide();  //函数对象类的对象
-function<int (int,int)>f3 [](int i,int j){return i*j}; //lambda
+function<int(int,int)>f1 = add;  //函数指针
+function<int (int,int)>f2 = divide();  //函数对象类的对象
+function<int (int,int)>f3 = [](int i,int j){ return i*j; }; //lambda
 
 cout<<f1(4,2)<<end1:  //打印6
 cout<<f2(4,2)<<end1:  //打印2
