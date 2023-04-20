@@ -17954,6 +17954,7 @@ tangentW
 trunc
 tbuffers
 tjE
+templt
 markdown
 matter
 mod
@@ -21706,6 +21707,7 @@ mnist
 mathbf
 mvalue
 modf
+myprintf
 windows
 win
 width
@@ -42286,6 +42288,7 @@ AdaDelta
 Augmentation
 Adagrad
 Adadelta
+ARGS
 URL
 Utools
 Users
@@ -94179,6 +94182,7 @@ fka
 fyH
 fpXJ
 fts
+fprintf
 dd
 dcc
 data
@@ -109833,6 +109837,7 @@ seX
 specPower
 sincos
 sinh
+stderr
 local
 list
 left
@@ -138174,6 +138179,7 @@ Facebook
 FdBU
 Fortran
 FOG
+Functor
 Element
 Entity
 Enity
