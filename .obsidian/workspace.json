@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -138,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -187,8 +187,9 @@
       "darlal-switcher-plus:Open Symbols for the active editor": true
     }
   },
-  "active": "40e38a6a7d092c00",
+  "active": "6497478e11974087",
   "lastOpenFiles": [
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/IDE/Reshaper快捷键.md",
     "Zbuffer/(18 条消息) C++ 中 #(一个 #号) 和 ##(两个 #号) 的用法和作用_c++ #_奋斗 Andy 的博客 - CSDN 博客/(18 条消息) C++ 中 #(一个 #号) 和 ##(两个 #号) 的用法和作用_c++ #_奋斗 Andy 的博客 - CSDN 博客.md",
@@ -230,7 +231,6 @@
     "Unity/URP/URPShader.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客.md",
-    "Zbuffer/HLSL 语言基础/HLSL 语言基础.md",
     "Zbuffer/HLSL 语言基础",
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
