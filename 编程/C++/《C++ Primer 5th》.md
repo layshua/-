@@ -1695,8 +1695,6 @@ bool lengthCompare(const string &, const string &);
 
 // 声明一个指向该函数的指针，只需要用指针替换掉函数即可
 bool (*pf)(const string &, const string &);
-
-pf = lengthCompare 
 ```
 
 > [!NOTE] Title
@@ -5975,7 +5973,7 @@ sort (words.begin(), words.end(), bind(isShorter,2,1));
 默认情况下，bind的那些不是占位符的参数被拷贝到bind返回的可调用对象中。但是，与lambda类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
 例如，为了替换一个引用方式捕获ostream的lambda:
 ```c++ nums
-//0s是一个局部变量，引用一个输出流
+//os是一个局部变量，引用一个输出流
 //c是一个局部变量，类型为char
 for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
 
@@ -7792,6 +7790,7 @@ template <typename T> string debug rep(T *p)
 
 如果一个非函数模板与一个函数模板提供同样好的匹配，则选择非模板版本
 ## 9 【C++11】可变参数模板
+#可变参数模板
 可变参数模板**接受可变数目的参数**
 
 可变数目的参数被称为**参数包**，存在两种参数包：
