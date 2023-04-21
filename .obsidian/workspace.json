@@ -20,6 +20,16 @@
             }
           },
           {
+            "id": "65a8936db69499fe",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md"
+              }
+            }
+          },
+          {
             "id": "916efd664d0b1304",
             "type": "leaf",
             "state": {
@@ -147,16 +157,21 @@
       "remotely-save:Remotely Save": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "darlal-switcher-plus:Open in Headings Mode": true,
-      "darlal-switcher-plus:Open Symbols for the active editor": true
+      "darlal-switcher-plus:Open Symbols for the active editor": true,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
   "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
+    "Zstore/Pasted image 20230421100037.png",
+    "Zstore/Pasted image 20230421100014.png",
+    "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
+    "Math/线性代数/3D数学.md",
+    "Math/LaTeX/常用语法.md",
+    "Zbuffer/Excalidraw",
     "Zstore/Pasted image 20230421093615.png",
     "Zstore/Pasted image 20230421093434.png",
-    "Math/LaTeX/常用语法.md",
     "Math/LaTeX/符号大全.md",
-    "Math/线性代数/3D数学.md",
     "人工智能/Python/Python基础.md",
     "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/PyTorch入门.md",
@@ -186,11 +201,8 @@
     "Zstore/1681897512342.png",
     "Zstore/1681897512316.png",
     "Zstore/1681897512269.png",
-    "Zstore/1681897512210.png",
-    "Zstore/1681897512168.png",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨/assets",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨",
-    "图形学/DX12/HLSL.md",
     "Zbuffer/DirectX11--HLSL 语法入门/assets",
     "Zbuffer/DirectX11--HLSL 语法入门",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
@@ -198,7 +210,6 @@
     "Zbuffer/(17 条消息) C++11 中 enable_shared_from_this 的用法解析_std：：enable_shared_from_this_飞狼说的博客 - CSDN 博客",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy/assets",
     "Zbuffer/NumPy 中的矩阵和向量 _ NumPy",
-    "Zbuffer/创建 Numpy 数组的不同方式 _ NumPy",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
