@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/线性代数/3D数学.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5cadcbf6a0c8d9ad",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/软渲染器/软光栅/总结.md",
+                "file": "编程/IDE/VS2022.md",
                 "mode": "source",
                 "source": false
               }
@@ -53,8 +41,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,7 +84,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md"
+                "file": "编程/IDE/VS2022.md"
               }
             }
           }
@@ -124,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
+                "file": "编程/IDE/VS2022.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
+                "file": "编程/IDE/VS2022.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,13 +161,13 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "65a8936db69499fe",
+  "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
     "Math/线性代数/3D数学.md",
+    "图形学/软渲染器/软光栅/总结.md",
     "Zbuffer/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "Math/LaTeX/符号大全.md",
     "Math/LaTeX/常用语法.md",
-    "图形学/软渲染器/软光栅/总结.md",
     "Zstore/Pasted image 20230421102628.png",
     "Zstore/Pasted image 20230421102550.png",
     "Zstore/Pasted image 20230421102511.png",
