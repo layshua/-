@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/符号大全.md",
+                "file": "Math/LaTeX/常用语法.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Python/Python基础.md"
+                "file": "Math/线性代数/3D数学.md"
               }
             }
           }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Python/Python基础.md",
+                "file": "Math/线性代数/3D数学.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,14 +152,16 @@
   },
   "active": "aab1dc8dd6502df4",
   "lastOpenFiles": [
-    "人工智能/深度学习/《鱼书》.md",
+    "Zstore/Pasted image 20230421093615.png",
+    "Zstore/Pasted image 20230421093434.png",
+    "Math/LaTeX/常用语法.md",
+    "Math/LaTeX/符号大全.md",
+    "Math/线性代数/3D数学.md",
     "人工智能/Python/Python基础.md",
+    "人工智能/深度学习/《鱼书》.md",
     "人工智能/深度学习/PyTorch入门.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "Math/线性代数/3D数学.md",
     "Math/LaTeX/语法大全.md",
-    "Math/LaTeX/符号大全.md",
-    "Math/LaTeX/常用语法.md",
     "Zstore/Pasted image 20230420174107.png",
     "人工智能/Python/Numpy+Matplotlib.md",
     "图形学/软渲染器/软光栅/总结.md",
@@ -186,11 +188,9 @@
     "Zstore/1681897512269.png",
     "Zstore/1681897512210.png",
     "Zstore/1681897512168.png",
-    "Zstore/1681897512098.png",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨/assets",
     "Zbuffer/DirectX11--HLSL 中矩阵的内存布局和 mul 函数探讨",
     "图形学/DX12/HLSL.md",
-    "图形学/DX12/DirectXMath.md",
     "Zbuffer/DirectX11--HLSL 语法入门/assets",
     "Zbuffer/DirectX11--HLSL 语法入门",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
