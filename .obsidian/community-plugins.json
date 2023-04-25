@@ -4,7 +4,6 @@
   "obsidian-style-settings",
   "obsidian-minimal-settings",
   "obsidian-image-toolkit",
-  "darlal-switcher-plus",
   "obsidian-hider",
   "obsidian-hover-editor",
   "obsidian-quiet-outline",
@@ -27,5 +26,10 @@
   "obsidian-latex-suite",
   "obsidian-git",
   "obsidian-focus-mode",
-  "obsidian-excalidraw-plugin"
+  "obsidian-excalidraw-plugin",
+  "obsidian-plugin-update-tracker",
+  "mysnippets-plugin",
+  "darlal-switcher-plus",
+  "dataview",
+  "templater-obsidian"
 ]

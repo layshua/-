@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
-      "SiMatrix",
-      "IbTriangle",
-      "SiOpenai",
-      "RiInboxArchiveFill",
-      "RiStackFill"
+      "FarImage",
+      "RiFolderZipLine",
+      "RiFolderZipFill",
+      "RiMindMap",
+      "SiMatrix"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -37,6 +37,7 @@
   "虚幻引擎": "SiUnrealengine",
   "Zbuffer": "RiStackFill",
   "Tools/Software": "FabAppStore",
-  "Zstore": "RiInboxArchiveFill",
-  "人工智能": "SiOpenai"
+  "AI": "SiOpenai",
+  "zip": "RiFolderZipLine",
+  "zip/images": "FarImage"
 }

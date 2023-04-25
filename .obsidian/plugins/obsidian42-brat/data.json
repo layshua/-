@@ -1,7 +1,6 @@
 {
   "pluginList": [
-    "Stardusten/ob-table-enhancer",
-    "cumany/obsidian-editing-toolbar"
+    "Stardusten/ob-table-enhancer"
   ],
   "pluginSubListFrozenVersion": [],
   "themesList": [],

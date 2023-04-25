@@ -1,15 +1,22 @@
 {
+  "processCreated": false,
+  "intClip": false,
   "useCaptions": true,
-  "useRelativePath": true,
-  "mediaFolderSuff": "|_res",
+  "pathInTags": "fullDirPath",
   "downUnknown": false,
-  "saveAtt": "obsFolder",
+  "saveAttE": "obsFolder",
   "realTimeUpdate": false,
   "filesizeLimit": 0,
+  "tryCount": 2,
   "realTimeUpdateInterval": 5,
   "addNameOfFile": true,
   "showNotifications": true,
   "include": ".*\\.md",
-  "mediaRootDirectory": "_resources",
-  "useWikilinks": true
+  "mediaRootDir": "_resources/${notename}",
+  "useWikilinks": true,
+  "disAddCom": false,
+  "useRelativePath": true,
+  "mediaFolderSuff": "|_res",
+  "saveAtt": "obsFolder",
+  "mediaRootDirectory": "_resources"
 }

@@ -44,12 +44,37 @@ git config --global user.email "123456@163.com(新的邮箱)"
 git config --global user.password "123456(新的密码)"
 
 ```
+# 分支操作
+**分支覆盖 master**
+比如有一个 dev 分支进行了多次迭代，但是 master 没有及时更新，需要使用 dev 分支来取代 master。
+```c++ nums
+//切换到 dev 分支: 
+git checkout dev
 
-# IOS端
-[效率工具 - 使用 working copy 同步笔记到obsidian](https://segmentfault.com/a/1190000041888141)
+//删除 master 分支: 
+git branch -D master
 
-woriking copy
+//将 dev 分支复制并创建为 master: 
+git checkout -b master
 
+//推送到远程: 
+git push -u origin master --force
+```
+
+**把远程分支拉到本地**
+```c++ nums
+git fetch origin xxx（xxx为远程仓库的分支名）
+```
+
+**在本地创建分支 dev 并切换到该分支**
+```c++ nums
+git checkout -b xxx(本地分支名称) origin/xxx(远程分支名称)
+```
+
+**远程分支上的内容都拉取到本地**
+```c++ nums
+git pull origin xxx(远程分支名称)
+```
 # Git环境配置
 
 ## 软件下载

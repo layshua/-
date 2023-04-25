@@ -110,5 +110,13 @@
   "obsidian-completr:completr-insert-selected-suggestion": [],
   "obsidian-completr:completr-jump-to-next-snippet-placeholder": [],
   "obsidian-completr:completr-select-previous-suggestion": [],
-  "obsidian-completr:completr-select-next-suggestion": []
+  "obsidian-completr:completr-select-next-suggestion": [],
+  "darlal-switcher-plus:switcher-plus:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "O"
+    }
+  ]
 }

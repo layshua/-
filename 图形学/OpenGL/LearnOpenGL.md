@@ -3556,8 +3556,6 @@ for(unsigned int i = 0; i < 10; i++)
 
 这段代码将会在每次新立方体绘制出来的时候更新模型矩阵，如此总共重复10次。然后我们应该就能看到一个拥有10个正在奇葩地旋转着的立方体的世界。
 
-
-
 ![coordinate_systems_multiple_objects](coordinate_systems_multiple_objects.png)
 
 #### 代码（十个3D立方体）

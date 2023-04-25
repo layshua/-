@@ -12,6 +12,7 @@
   "relatedItemsListCommand": "~",
   "strictHeadingsOnly": false,
   "searchAllHeadings": true,
+  "headingsSearchDebounceMilli": 250,
   "excludeViewTypes": [
     "empty"
   ],
@@ -53,9 +54,9 @@
   ],
   "showOptionalIndicatorIcons": true,
   "overrideStandardModeBehaviors": true,
-  "enabledRibbonCommands": [
-    "HeadingsList",
-    "SymbolList"
+  "enabledRibbonCommands": [],
+  "fileExtAllowList": [
+    "canvas"
   ],
   "enableMatchPriorityAdjustments": false,
   "matchPriorityAdjustments": {
@@ -65,5 +66,7 @@
     "file": 0,
     "alias": 0,
     "h1": 0
-  }
+  },
+  "preserveCommandPaletteLastInput": false,
+  "preserveQuickSwitcherLastInput": false
 }
