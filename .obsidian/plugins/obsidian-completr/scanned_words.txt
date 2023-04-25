@@ -11279,6 +11279,7 @@ ctime
 cday
 completed
 completion
+creation
 github
 grey
 green
@@ -14641,6 +14642,7 @@ gkmg
 ggW
 gQDDD
 gpqq
+getTitleSnippet
 typora
 todo
 tooltip
@@ -18157,6 +18159,7 @@ tttX
 tYRR
 tLLL
 tasks
+templater
 markdown
 matter
 mod
@@ -62120,6 +62123,7 @@ WDGGk
 Wyyy
 WXXHvv
 Wtt
+Wang
 Start
 StartAllBack
 Shadowrocket
@@ -70089,6 +70093,7 @@ PJTR
 Psss
 Plk
 PZv
+Pamela
 ContextMenuManager
 ClashVerge
 Clash
@@ -102857,6 +102862,7 @@ TextureLoader
 TUTThLE
 TOnn
 TDEE
+Templater
 io
 ipad
 it
@@ -118014,6 +118020,7 @@ YYYX
 YZZb
 YLIIa
 YMAL
+YYYY
 header
 hidden
 height
@@ -139888,6 +139895,7 @@ Fhh
 FFFbjj
 FWsrr
 Frontmatter
+Folder
 Element
 Entity
 Enity
