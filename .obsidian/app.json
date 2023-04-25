@@ -10,7 +10,7 @@
   "autoConvertHtml": true,
   "livePreview": true,
   "readableLineLength": true,
-  "showIndentGuide": true,
+  "showIndentGuide": false,
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,
   "showInlineTitle": true,

@@ -1,7 +1,13 @@
+
 ---
+title: Windows编程
+aliases: []
+tags: []
+create_time: 2023-04-25 23:41
+uid: 202304252341
 banner: "![[Pasted image 20230101204819.png]]"
-banner_y: 0.33
 ---
+
 > [!NOTE] 龙书规定
 > 为避免混淆，我们将使用大写字母“W”开头的 Windows 来表示视窗操作系统，而以小写字母“w”作为开头的 window 来代表 Windows 系统中的特定窗口。
 # 0 概述
