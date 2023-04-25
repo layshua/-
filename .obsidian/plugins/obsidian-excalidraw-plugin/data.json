@@ -1,6 +1,6 @@
 {
-  "folder": "Zbuffer/Excalidraw",
-  "embedUseExcalidrawFolder": false,
+  "folder": "zip/Excalidraw",
+  "embedUseExcalidrawFolder": true,
   "templateFilePath": "Zbuffer/Excalidraw/Template.excalidraw",
   "scriptFolderPath": "Zbuffer/Excalidraw/Scripts",
   "compress": false,
