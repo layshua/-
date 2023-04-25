@@ -3244,6 +3244,7 @@ owwn
 oqssC
 oggg
 ooov
+outlinks
 OneDrive
 Obsidian
 Office
@@ -11271,6 +11272,12 @@ cbbr
 cccrss
 cQRR
 cbbx
+cssclass
+category
+ctime
+cday
+completed
+completion
 github
 grey
 green
@@ -21987,6 +21994,9 @@ mDGGS
 mqvv
 mKxx
 mXuvvf
+mtime
+mday
+metadata
 windows
 win
 width
@@ -32397,6 +32407,7 @@ earth
 effectFilm
 eccCZZZ
 eeeTVVbii
+etags
 VPN
 Verge
 VS
@@ -49884,6 +49895,8 @@ adgg
 aaadeeiL
 ajjJPP
 apvv
+aliases
+annotated
 Roaming
 RegWorkshop
 Release
@@ -58281,6 +58294,7 @@ MHII
 MRRR
 MDDDDD
 MRoo
+Meatainfo
 Windows
 Win
 World
@@ -95323,6 +95337,7 @@ fQZZ
 fMn
 fyrr
 fMbcco
+fullyCompleted
 dd
 dcc
 data
@@ -99125,6 +99140,7 @@ dix
 deeq
 dUDDDDDD
 dffZ
+datetime
 TFvYZOKeHL
 TAB
 TeX
@@ -107051,6 +107067,7 @@ iyC
 iiiL
 idPa
 innnT
+inlinks
 shift
 svg
 sf
@@ -111187,6 +111204,7 @@ sssdee
 srrx
 sssxxx
 swwg
+subtasks
 local
 list
 left
@@ -117983,6 +118001,7 @@ YYYZ
 YYYX
 YZZb
 YLIIa
+YMAL
 header
 hidden
 height
@@ -125270,6 +125289,7 @@ rUTT
 rssedU
 rGy
 rssK
+rating
 XXXXXX
 XXX
 XML
@@ -150335,6 +150355,7 @@ yKn
 yoyo
 yRDyk
 yyyX
+yyyy
 Debug
 DEBUG
 Dd

@@ -1,7 +1,6 @@
 ---
 banner: "![[Pasted image 20230109001000.jpg]]"
 ---
-test
 # Tech-Artist-and-Graphics
 TA之路！
 

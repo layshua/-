@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "FabDelicious",
+      "FasChessKnight",
       "FarImage",
       "RiFolderZipLine",
-      "RiFolderZipFill",
-      "RiMindMap",
-      "SiMatrix"
+      "RiFolderZipFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -39,5 +39,6 @@
   "Tools/Software": "FabAppStore",
   "AI": "SiOpenai",
   "zip": "RiFolderZipLine",
-  "zip/images": "FarImage"
+  "zip/images": "FarImage",
+  "zip/templates": "FabDelicious"
 }
