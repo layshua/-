@@ -23,5 +23,6 @@
   },
   "defaultViewMode": "source",
   "trashOption": "local",
-  "useTab": false
+  "useTab": false,
+  "showUnsupportedFiles": true
 }

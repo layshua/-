@@ -8,7 +8,8 @@
   "baseFontSize": 22,
   "enabledCssSnippets": [
     "Font",
-    "自定义格式"
+    "自定义格式",
+    "banner格式"
   ],
   "accentColor": "",
   "nativeMenus": false,
