@@ -1,7 +1,6 @@
 ---
-title: <% tp.file.title %>
+title: {{title}}
 aliases: 
 tags: []
-time: {{time}}
-create_time: <% tp.file.creation_date() %>
+create_time: {{date:YYYY-MM-DD HH:mm}}
 ---

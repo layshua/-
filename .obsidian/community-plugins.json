@@ -21,7 +21,6 @@
   "remotely-save",
   "obsidian-advanced-codeblock",
   "quick-latex",
-  "obsidian-completr",
   "easy-typing-obsidian",
   "obsidian-latex-suite",
   "obsidian-git",
@@ -30,5 +29,6 @@
   "obsidian-plugin-update-tracker",
   "mysnippets-plugin",
   "darlal-switcher-plus",
-  "templater-obsidian"
+  "various-complements",
+  "obsidian-completr"
 ]
