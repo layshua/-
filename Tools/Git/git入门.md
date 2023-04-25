@@ -1,3 +1,11 @@
+---
+title: git入门
+aliases: 
+tags: []
+create_time: 2023-04-25 22:55
+banner: "![[]]"
+---
+
 # 基本操作
 查看git版本
 ```c++
