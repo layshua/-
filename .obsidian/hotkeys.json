@@ -102,7 +102,6 @@
   "editor:open-link-in-new-split": [],
   "file-explorer:new-file-in-new-pane": [],
   "workspace:undo-close-pane": [],
-  "obsidian-completr:completr-blacklist-current-word": [],
   "obsidian-completr:completr-close-suggestion-popup": [],
   "obsidian-completr:completr-bypass-enter-key": [],
   "obsidian-completr:completr-open-suggestion-popup": [],
@@ -118,5 +117,7 @@
       ],
       "key": "O"
     }
-  ]
+  ],
+  "obsidian-completr:completr-blacklist-current-word": [],
+  "obsidian-excalidraw-plugin:insert-link": []
 }

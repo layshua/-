@@ -19,16 +19,15 @@
   "mousewheel-image-zoom",
   "obsidian-local-images-plus",
   "remotely-save",
-  "obsidian-advanced-codeblock",
-  "quick-latex",
   "easy-typing-obsidian",
-  "obsidian-latex-suite",
   "obsidian-git",
   "obsidian-focus-mode",
   "obsidian-excalidraw-plugin",
   "obsidian-plugin-update-tracker",
   "mysnippets-plugin",
   "darlal-switcher-plus",
-  "various-complements",
-  "obsidian-completr"
+  "obsidian-latex-suite",
+  "quick-latex",
+  "obsidian-completr",
+  "obsidian-advanced-codeblock"
 ]
