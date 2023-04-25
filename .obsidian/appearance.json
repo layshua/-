@@ -9,7 +9,14 @@
   "enabledCssSnippets": [
     "Font",
     "自定义格式",
-    "banner格式"
+    "banner格式",
+    "Front-matter",
+    "字体格式",
+    "右下角状态栏淡出",
+    "Latex Suite插件配置",
+    "各种block块",
+    "Front-matter格式",
+    "tag标签格式"
   ],
   "accentColor": "",
   "nativeMenus": false,

@@ -1,14 +1,15 @@
 
+
 ---
 title: CSS 样式
-aliases: 
+aliases: []
 tags: []
-create_time: 2023-04-25 22:57
+create_time: 2023-04-25 23:17
+uid: 202304252317
 banner: "![[1678031998694.png]]"
 banner_y: 0.4625
 banner_x: 0.51302
 ---
-
 ## 001：url 对应的地址
 
 ```
@@ -201,7 +202,7 @@ span.cm-string.cm-url:hover {
 ![](1678031999007.png)
 
 ## 011. 标签的样式
-
+#test
 ```
 .tag:not(.token) {   /*正常状态下*/
  background-color: rgba(0, 242, 255, 0.8);  /*背景颜色*/
@@ -249,46 +250,6 @@ span.cm-string.cm-url:hover {
 
 ![](1678031999081.png)
 
-## 013. 右下角状态栏，增加淡出效果，转载于 ----> [社区大佬的回复](https://link.zhihu.com/?target=https%3A//forum.obsidian.md/t/meta-post-common-css-hacks/1978/10)
-
-```
-/* 右下状态栏淡出 */
-/* auto fades status bar items */
-.status-bar:not(:hover) .status-bar-item {
-  opacity: 0.25;
-  transition: opacity .25s ease-in-out;
-}
-```
-
-## 014. 左边功能栏的图标的颜色
-
-```
-.side-dock-ribbon-action {
-  color: rgb(156, 246, 0);
-  transition: color .25s ease-in-out;
-}
-
-.side-dock-ribbon-action:hover {
-  color: rgb(255, 166, 0);
-}
-```
-
-![](1678031999119.png)
-
-## 015. 滚动条的颜色
-
-```
-body:not(.native-scrollbars) ::-webkit-scrollbar {
-  background-color: rgb(0, 255, 128);
-}
-/* 滚动条 */
-
-body:not(.native-scrollbars) ::-webkit-scrollbar-thumb {
-  background-color: rgb(156, 246, 0);
-  border: 2px solid rgb(0, 0, 0);
-}
-/* 滚动条，动的那部分 */
-```
 
 ## 2022-07-09 补充【被选中文件底色 & 鼠标置于文件名上时的信息】
 

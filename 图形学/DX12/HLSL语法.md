@@ -1,4 +1,10 @@
+
 ---
+title: HLSL语法
+aliases: []
+tags: []
+create_time: 2023-04-25 23:15
+uid: 202304252315
 banner: "![[Pasted image 20230419181410.png]]"
 banner_y: 0.4
 ---

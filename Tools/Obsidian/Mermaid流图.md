@@ -1,7 +1,12 @@
+
 ---
+title: Mermaid流图
+aliases: []
+tags: []
+create_time: 2023-04-25 23:29
+uid: 202304252329
 banner: "![[Pasted image 20230425143440.png]]"
-banner_y: 0.45333
-banner_x: 0.17555
+banner_x: 0.03206
 ---
 [Flowcharts Syntax | Mermaid](https://mermaid.js.org/syntax/flowchart.html)
 # 关键字与方向

@@ -1,7 +1,14 @@
+
 ---
+title: DirectXMath
+aliases: 
+tags: []
+create_time: 2023-04-25 23:07
+uid: 202304252307
 banner: "![[Pasted image 20230101204819.png]]"
 banner_y: 0.33
 ---
+
 > [!NOTE] D3D规定
 > 使用左手坐标系，遵循左手法则
 > 
