@@ -11284,6 +11284,11 @@ completed
 completion
 creation
 checkimg
+connect
+collapsible
+childLayout
+connectable
+curved
 github
 grey
 green
@@ -14648,6 +14653,8 @@ gQDDD
 gpqq
 getTitleSnippet
 glDrawArray
+gridSize
+guides
 typora
 todo
 tooltip
@@ -18167,6 +18174,10 @@ tasks
 templater
 ttf
 tagent
+tooltips
+tableLayout
+treeFolding
+treeMoving
 markdown
 matter
 mod
@@ -22009,6 +22020,12 @@ mXuvvf
 mtime
 mday
 metadata
+mxGraphModel
+mxCell
+mxGeometry
+miterlimit
+middle
+mxPoint
 windows
 win
 width
@@ -25398,6 +25415,7 @@ wCmkMHH
 wjbkk
 wPVV
 wtXutt
+whiteSpace
 utools
 url
 unresolved
@@ -28929,6 +28947,7 @@ updateMatrix
 upvv
 uuupttT
 ussc
+unsafe
 everything
 ea
 ede
@@ -32422,6 +32441,15 @@ eeeTVVbii
 etags
 expand
 extra
+edgeStyle
+entityRelationEdgeStyle
+ellipse
+eastwest
+endArrow
+exitX
+exitY
+exitDx
+exitDy
 VPN
 Verge
 VS
@@ -38945,6 +38973,7 @@ vagg
 vMMM
 vabb
 vertexNormal
+verticalAlign
 AA
 AppData
 AIRDyuVH
@@ -49918,6 +49947,9 @@ aliases
 annotated
 alias
 approxNumberOfResults
+arrows
+arcSize
+autosize
 Roaming
 RegWorkshop
 Release
@@ -70125,6 +70157,7 @@ PVRTrace
 PerfHud
 Portail
 PlayerSettings
+PUBLIC
 ContextMenuManager
 ClashVerge
 Clash
@@ -81427,6 +81460,7 @@ qrIA
 qttd
 qcrssIJJ
 qrrb
+qsjg
 png
 position
 presentation
@@ -85239,6 +85273,12 @@ pvvns
 pvvf
 pvvFqq
 pwwWj
+parent
+pageScale
+pageWidth
+pageHeight
+partialRectangle
+portConstraint
 nodesCatch
 nobr
 navy
@@ -88690,6 +88730,7 @@ niiI
 njjBfff
 nWWW
 nyff
+newEdgeStyle
 bf
 bc
 black
@@ -95387,6 +95428,11 @@ fMbcco
 fullyCompleted
 fields
 features
+fold
+ffffff
+fillColor
+foreignObject
+flex
 dd
 dcc
 data
@@ -99192,6 +99238,7 @@ dffZ
 datetime
 defer
 doDate
+dropTarget
 TFvYZOKeHL
 TAB
 TeX
@@ -102902,6 +102949,7 @@ Tips
 TexturePacker
 Tested
 Targe
+Topic
 io
 ipad
 it
@@ -111263,6 +111311,13 @@ sssxxx
 swwg
 subtasks
 slower
+strokeColor
+startSize
+sizing
+strokeWidth
+startArrow
+segment
+sourcePoint
 local
 list
 left
@@ -125355,6 +125410,7 @@ rssK
 rating
 recur
 reads
+rounded
 XXXXXX
 XXX
 XML

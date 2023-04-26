@@ -9,6 +9,7 @@ banner: "![[Pasted image 20230317143626.jpg]]"
 banner_y: 0.58084
 ---
 # 零、导读
+
 ##  术语
 ###  声明式declaration
 声明式：告诉编译器某个东西的名称和类型。
