@@ -4,33 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "05e5a3c6b43f3a00",
+        "id": "b94cecc6fdea6d43",
         "type": "tabs",
         "children": [
           {
-            "id": "1dae581a4799e2ec",
+            "id": "c9226c01802493e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/公式推导/旋转矩阵.md",
+                "file": "Math/3D数学/公式推导/视图变换.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "249abab49f90add7",
-            "type": "leaf",
-            "state": {
-              "type": "diagram-edit",
-              "state": {
-                "file": "Math/3D数学/公式推导/Untitled Diagram.svg"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -73,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/Untitled Diagram.svg"
+                "file": "Math/3D数学/公式推导/视图变换.md"
               }
             }
           }
@@ -108,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/Untitled Diagram.svg",
+                "file": "Math/3D数学/公式推导/视图变换.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/Untitled Diagram.svg",
+                "file": "Math/3D数学/公式推导/视图变换.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,13 +144,22 @@
       "templates:插入模板": false
     }
   },
-  "active": "249abab49f90add7",
+  "active": "c9226c01802493e3",
   "lastOpenFiles": [
     "Math/3D数学/公式推导/旋转矩阵.md",
+    "zip/images/Diagram 1.svg.xml",
+    "zip/images/Diagram 1.svg",
+    "zip/drawio/rotate1.drawio.png",
+    "zip/drawio",
+    "zip/新建文件夹",
+    "Math/3D数学/公式推导/视图变换.md",
+    "zip/images/Diagram.svg.xml",
+    "zip/images/Diagram.svg",
     "Math/3D数学/公式推导/Untitled Diagram.svg",
     "Math/3D数学/公式推导/反射和折射.md",
+    "Math/线性代数/《线性代数的本质》.md",
+    "Math/微积分/微积分基础.md",
     "Math/3D数学/3D数学.md",
-    "Math/3D数学/公式推导/视图变换.md",
     "zip/images/1682481030052.png",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/旋转的数学表达：欧拉角、轴向角、四元数与矩阵.md",
     "zip/images/1682481031656.png",
@@ -169,9 +167,6 @@
     "zip/images/1682481031558.png",
     "zip/images/1682481031532.png",
     "zip/images/1682481031496.png",
-    "zip/images/1682481031448.png",
-    "zip/images/1682481031406.png",
-    "zip/images/1682481031238.png",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/assets",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵",
     "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换.md",
@@ -195,14 +190,8 @@
     "Tools/Git/git入门.md",
     "Tools/Obsidian/操作指南.md",
     "Tools/Git/UE4源码管理.md",
-    "编程/C++/Google C++风格.md",
-    "编程/C++/Cherno剩余.md",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记",
-    "Zbuffer/Obsidian 的 YAML Front matter 介绍/assets",
-    "Zbuffer/Obsidian 的 YAML Front matter 介绍",
-    "Zbuffer/obsidian 如何使用 YAML 语言制作模板做标签，并且使用 dateview 实现结果输出？/assets",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
