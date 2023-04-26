@@ -1,4 +1,4 @@
-# github桌面端
+# github 桌面端
 ## 新建仓库
 File->New repository
 ![[Pasted image 20230108234658.png]]

@@ -11289,6 +11289,7 @@ collapsible
 childLayout
 connectable
 curved
+colorFreezeLevel
 github
 grey
 green
@@ -14655,6 +14656,7 @@ getTitleSnippet
 glDrawArray
 gridSize
 guides
+gist
 typora
 todo
 tooltip
@@ -22027,6 +22029,8 @@ miterlimit
 middle
 mxPoint
 maxWidth
+markmap
+multiline
 windows
 win
 width
@@ -114715,6 +114719,7 @@ llLnn
 lmmU
 logn
 lowp
+links
 YAML
 You
 YEBAYGhURFRofHx
@@ -121630,6 +121635,7 @@ hJKK
 hmUF
 hotbox
 highp
+highlight
 rgb
 right
 rm
@@ -140003,6 +140009,7 @@ Folder
 Fiipbook
 FontSubsetGUI
 FontPruner
+Features
 Element
 Entity
 Enity
@@ -157664,6 +157671,7 @@ Lightmaps
 Legacy
 Llight
 LODGroup
+Links
 Getx
 GetX
 GetName
@@ -181090,6 +181098,7 @@ KKKXXXhMuP
 KKKc
 KKKa
 Kaaa
+Katex
 key
 kSC
 keaXj
@@ -184898,6 +184907,7 @@ kWrrrtf
 kMLL
 kPZZ
 kWRR
+katex
 zoom
 zw
 zaG

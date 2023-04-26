@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,9 +48,9 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": true,
+                "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -62,12 +62,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "Tools/工具流.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -90,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,30 +130,29 @@
     "hiddenItems": {
       "canvas:新建白板": false,
       "command-palette:打开命令面板": true,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "remotely-save:Remotely Save": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "templates:插入模板": false
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "Tools/Obsidian/操作指南.md",
-    "Tools/Git/UE4源码管理.md",
-    "Tools/Git/github.md",
-    "Tools/Git/git入门.md",
+    "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
+    "Tools/工具流.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "编程/C++/《Effective C++ 3th》.md",
     "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/Mermaid流图.md",
+    "Tools/Git/github.md",
+    "Tools/Git/git入门.md",
+    "Tools/Obsidian/操作指南.md",
+    "Tools/Git/UE4源码管理.md",
     "编程/C++/Google C++风格.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Tools/System/控制面板.md",
-    "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
-    "Tools/工具流.md",
     "Tools/Obsidian/未命名.md",
     "Tools/Obsidian/Untitled Diagram.svg",
     "README.md",
