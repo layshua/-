@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/公式推导/变换矩阵.md",
+                "file": "Math/3D数学/公式推导/旋转矩阵.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/变换矩阵.md"
+                "file": "Math/3D数学/公式推导/旋转矩阵.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/变换矩阵.md",
+                "file": "Math/3D数学/公式推导/旋转矩阵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/变换矩阵.md",
+                "file": "Math/3D数学/公式推导/旋转矩阵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,18 +146,28 @@
   },
   "active": "1dae581a4799e2ec",
   "lastOpenFiles": [
-    "zip/images/1682480296032.png",
-    "Math/3D数学/公式推导/变换矩阵.md",
+    "Math/3D数学/公式推导/反射和折射.md",
+    "Math/3D数学/3D数学.md",
+    "Math/3D数学/公式推导/旋转矩阵.md",
+    "Math/3D数学/公式推导/视图变换.md",
+    "zip/images/1682481030052.png",
+    "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/旋转的数学表达：欧拉角、轴向角、四元数与矩阵.md",
+    "zip/images/1682481031656.png",
+    "zip/images/1682481031609.png",
+    "zip/images/1682481031558.png",
+    "zip/images/1682481031532.png",
+    "zip/images/1682481031496.png",
+    "zip/images/1682481031448.png",
+    "zip/images/1682481031406.png",
+    "zip/images/1682481031238.png",
+    "zip/images/1682481031050.png",
+    "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/assets",
+    "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵",
     "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换.md",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/Obsidian 自动化套用模板与存放笔记.md",
-    "zip/images/1682480296265.png",
-    "zip/images/1682480296139.png",
-    "zip/images/1682480296105.png",
     "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/assets",
     "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换",
-    "Math/3D数学/公式推导/视图变换.md",
     "图形学/OpenGL/LearnOpenGL.md",
-    "Math/3D数学/3D数学.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/HLSL语法.md",
@@ -177,21 +187,12 @@
     "编程/C++/Google C++风格.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/C++原理.md",
-    "编程/C++/C++补充.md",
-    "Tools/Obsidian/Untitled Diagram.svg",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885565.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885490.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885392.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885315.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885249.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记",
     "Zbuffer/Obsidian 的 YAML Front matter 介绍/assets",
     "Zbuffer/Obsidian 的 YAML Front matter 介绍",
     "Zbuffer/obsidian 如何使用 YAML 语言制作模板做标签，并且使用 dateview 实现结果输出？/assets",
-    "Zbuffer/obsidian 如何使用 YAML 语言制作模板做标签，并且使用 dateview 实现结果输出？",
-    "zip/images/OgreMagi_FresnelWarp.tga",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
