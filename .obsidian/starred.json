@@ -14,6 +14,11 @@
       "type": "file",
       "title": "DX12理论",
       "path": "图形学/DX12/龙书/DX12理论.md"
+    },
+    {
+      "type": "file",
+      "title": "3D数学",
+      "path": "Math/3D数学/3D数学.md"
     }
   ]
 }

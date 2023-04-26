@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "638af3f7231b161a",
+            "id": "1dae581a4799e2ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "Math/3D数学/公式推导/变换矩阵.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,12 +62,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md"
+                "file": "Math/3D数学/公式推导/变换矩阵.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "Math/3D数学/公式推导/变换矩阵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,14 +114,13 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/DirectXMath.md",
+                "file": "Math/3D数学/公式推导/变换矩阵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -146,11 +144,23 @@
       "templates:插入模板": false
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "1dae581a4799e2ec",
   "lastOpenFiles": [
+    "zip/images/1682480296032.png",
+    "Math/3D数学/公式推导/变换矩阵.md",
+    "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换.md",
+    "Zbuffer/Obsidian 自动化套用模板与存放笔记/Obsidian 自动化套用模板与存放笔记.md",
+    "zip/images/1682480296265.png",
+    "zip/images/1682480296139.png",
+    "zip/images/1682480296105.png",
+    "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/assets",
+    "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换",
+    "Math/3D数学/公式推导/视图变换.md",
+    "图形学/OpenGL/LearnOpenGL.md",
+    "Math/3D数学/3D数学.md",
+    "图形学/DX12/DirectXMath.md",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/HLSL语法.md",
-    "图形学/DX12/DirectXMath.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
@@ -168,24 +178,13 @@
     "编程/C++/Cherno剩余.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",
-    "Tools/System/控制面板.md",
-    "Tools/Obsidian/未命名.md",
     "Tools/Obsidian/Untitled Diagram.svg",
-    "README.md",
-    "Math/Others/三角函数.md",
-    "Math/LaTeX/常用语法.md",
-    "Math/LaTeX/语法大全.md",
-    "DCC/PBR全流程.md",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885565.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885490.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885392.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885315.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885249.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885138.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426884761.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426884679.png",
-    "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426884555.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记",
     "Zbuffer/Obsidian 的 YAML Front matter 介绍/assets",
@@ -193,8 +192,6 @@
     "Zbuffer/obsidian 如何使用 YAML 语言制作模板做标签，并且使用 dateview 实现结果输出？/assets",
     "Zbuffer/obsidian 如何使用 YAML 语言制作模板做标签，并且使用 dateview 实现结果输出？",
     "zip/images/OgreMagi_FresnelWarp.tga",
-    "zip/images/L10_MainTex_01.tga",
-    "zip/templates",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
