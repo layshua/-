@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "title": "DirectXMath",
+      "path": "图形学/DX12/DirectXMath.md"
+    },
+    {
+      "type": "file",
+      "title": "HLSL语法",
+      "path": "图形学/DX12/HLSL语法.md"
+    },
+    {
+      "type": "file",
+      "title": "DX12理论",
+      "path": "图形学/DX12/龙书/DX12理论.md"
+    }
+  ]
+}

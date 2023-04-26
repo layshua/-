@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,11 +62,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "图形学/DX12/DirectXMath.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -84,12 +85,20 @@
             }
           },
           {
+            "id": "5461356f6f632385",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
             "id": "b718d4b7b66dbfbd",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,13 +115,14 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -136,10 +146,16 @@
       "templates:插入模板": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "638af3f7231b161a",
   "lastOpenFiles": [
-    "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
+    "图形学/DX12/龙书/DX12理论.md",
+    "图形学/DX12/HLSL语法.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/工具流.md",
+    "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "Tools/Obsidian/插件流.md",
@@ -160,12 +176,6 @@
     "Math/LaTeX/常用语法.md",
     "Math/LaTeX/语法大全.md",
     "DCC/PBR全流程.md",
-    "DCC/Blender/1 操作指南.md",
-    "AI/Python/Python基础.md",
-    "AI/Python/Numpy+Matplotlib.md",
-    "AI/深度学习/PyTorch入门.md",
-    "AI/深度学习/快速入门.md",
-    "图形学/DX12/自研引擎/DX12初始化.canvas",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885565.png",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885490.png",
