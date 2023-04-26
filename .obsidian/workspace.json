@@ -4,24 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "517e61b6424be38d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "c068b02bc9a2ee0c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "05e5a3c6b43f3a00",
         "type": "tabs",
         "children": [
@@ -80,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "编程/C++/《Effective C++ 3th》.md"
               }
             }
           }
@@ -107,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,10 +137,14 @@
       "templates:插入模板": false
     }
   },
-  "active": "c068b02bc9a2ee0c",
+  "active": "0fe00386f8b9a871",
   "lastOpenFiles": [
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/C++原理.md",
+    "编程/C++/Cherno剩余.md",
+    "README.md",
     "Math/Others/三角函数.md",
     "Math/LaTeX/常用语法.md",
     "Math/LaTeX/语法大全.md",
@@ -179,10 +165,6 @@
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/9 高级主题/GAMES104 课程笔记 20-Data-Oriented Programming and Job System - Bo's Blog.md",
     "图形学/OpenGL/LearnOpenGL.md",
     "编程/C++/Google C++风格.md",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/C++原理.md",
-    "编程/C++/C++补充.md",
-    "编程/设计模式/工厂模式.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/assets/1682426885565.png",
