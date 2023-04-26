@@ -19,7 +19,6 @@
   "mousewheel-image-zoom",
   "obsidian-local-images-plus",
   "remotely-save",
-  "easy-typing-obsidian",
   "obsidian-git",
   "obsidian-focus-mode",
   "obsidian-excalidraw-plugin",
@@ -31,5 +30,6 @@
   "obsidian-completr",
   "obsidian-advanced-codeblock",
   "obsidian-copy-block-link",
-  "drawio-obsidian"
+  "easy-typing-obsidian",
+  "obsidian-mindmap-nextgen"
 ]
