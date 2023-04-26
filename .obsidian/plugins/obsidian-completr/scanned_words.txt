@@ -66487,6 +66487,7 @@ SrP
 SLJk
 ShiiA
 SSSp
+Slerp
 Programs
 POP
 PC
@@ -77862,6 +77863,7 @@ IwQ
 Illl
 IAm
 IaNd
+Integrate
 qq
 qyi
 quad
@@ -165964,6 +165966,7 @@ Ncdd
 Ntvvbcc
 Ndkoo
 Nttt
+Nlerp
 ZooAnima
 ZooAnimal
 ZTest
@@ -174096,6 +174099,7 @@ QCv
 QMaDc
 Qdxi
 QJJJ
+Quaternions
 Java
 JPEG
 JlAGTAAAAAAf

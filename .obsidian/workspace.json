@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c9226c01802493e3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "df309ffbefd5fd16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/常用语法.md",
+                "file": "Math/3D数学/公式推导/三维旋转.md",
                 "mode": "source",
                 "source": false
               }
@@ -156,10 +144,20 @@
       "templates:插入模板": false
     }
   },
-  "active": "c9226c01802493e3",
+  "active": "df309ffbefd5fd16",
   "lastOpenFiles": [
-    "Math/LaTeX/常用语法.md",
+    "Zbuffer/对游戏开发中的四元数的一些理解/对游戏开发中的四元数的一些理解.md",
     "Math/3D数学/公式推导/三维旋转.md",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105577.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105510.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105432.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105371.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105243.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505105176.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets/1682505103969.png",
+    "Zbuffer/对游戏开发中的四元数的一些理解/assets",
+    "Zbuffer/对游戏开发中的四元数的一些理解",
+    "Math/LaTeX/常用语法.md",
     "Math/LaTeX/语法大全.md",
     "zip/images/Pasted image 20230426165535.png",
     "zip/images/Pasted image 20230426164529.png",
@@ -167,15 +165,8 @@
     "Tools/Obsidian/插件流.md",
     "zip/images/TEST - Unreal Editor 2022-12-22 12-32-46.mp4",
     "zip/images/Pasted image 20230426141332.png",
-    "zip/images/Pasted image 20230426141259.png",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "zip/images/1682487352311.png",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客.md",
-    "zip/images/1682487353854.png",
-    "zip/images/1682487353773.png",
-    "zip/images/1682487353721.png",
-    "zip/images/1682487353529.png",
-    "zip/images/1682487353471.png",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客/assets",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客",
     "Math/3D数学/公式推导/视图变换.md",
@@ -188,10 +179,8 @@
     "Math/微积分/微积分基础.md",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/旋转的数学表达：欧拉角、轴向角、四元数与矩阵.md",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/assets",
-    "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵",
     "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换.md",
     "Zbuffer/Obsidian 自动化套用模板与存放笔记/Obsidian 自动化套用模板与存放笔记.md",
-    "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/assets",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/龙书/DX12理论.md",
@@ -203,7 +192,6 @@
     "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "Tools/Obsidian/Mermaid流图.md",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
