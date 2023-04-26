@@ -144,10 +144,12 @@
       "templates:插入模板": false
     }
   },
-  "active": "c9226c01802493e3",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "Math/3D数学/3D数学.md",
+    "Math/LaTeX/常用语法.md",
     "Math/3D数学/公式推导/三维旋转.md",
+    "Math/LaTeX/语法大全.md",
+    "Math/3D数学/3D数学.md",
     "Tools/Obsidian/插件流.md",
     "zip/images/TEST - Unreal Editor 2022-12-22 12-32-46.mp4",
     "zip/images/Pasted image 20230426141332.png",
@@ -191,7 +193,6 @@
     "编程/C++/《Effective C++ 3th》.md",
     "Tools/Obsidian/Mermaid流图.md",
     "Tools/Git/github.md",
-    "Tools/Git/git入门.md",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
