@@ -103,13 +103,6 @@
   "file-explorer:new-file-in-new-pane": [],
   "workspace:undo-close-pane": [],
   "obsidian-completr:completr-close-suggestion-popup": [],
-  "obsidian-completr:completr-bypass-enter-key": [],
-  "obsidian-completr:completr-open-suggestion-popup": [],
-  "obsidian-completr:completr-bypass-tab-key": [],
-  "obsidian-completr:completr-insert-selected-suggestion": [],
-  "obsidian-completr:completr-jump-to-next-snippet-placeholder": [],
-  "obsidian-completr:completr-select-previous-suggestion": [],
-  "obsidian-completr:completr-select-next-suggestion": [],
   "darlal-switcher-plus:switcher-plus:open": [
     {
       "modifiers": [
@@ -119,5 +112,8 @@
     }
   ],
   "obsidian-completr:completr-blacklist-current-word": [],
-  "obsidian-excalidraw-plugin:insert-link": []
+  "obsidian-excalidraw-plugin:insert-link": [],
+  "obsidian-completr:completr-open-suggestion-popup": [],
+  "obsidian-completr:completr-bypass-tab-key": [],
+  "obsidian-completr:completr-bypass-enter-key": []
 }
