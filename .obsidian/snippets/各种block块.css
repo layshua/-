@@ -35,7 +35,8 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
 }
 
 
-/* advanced codeblock插件 codeblock行号格式 */
+/* advanced codeblock插件*/ 
+/* codeblock行号格式  */
 span.live-preview-codeblock-line-nums {
     display: inline-block;
     width: 1em;
@@ -48,4 +49,9 @@ span.live-preview-codeblock-line-nums {
     user-select: none;  /* 禁止选择行号 */
 }
 
+/* callout */
+/* 首行缩进 */
+p {
+    text-indent: 2em;
+}
 

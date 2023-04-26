@@ -10,7 +10,7 @@
   "autoConvertHtml": true,
   "livePreview": true,
   "readableLineLength": true,
-  "showIndentGuide": false,
+  "showIndentGuide": true,
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,
   "showInlineTitle": true,
@@ -24,5 +24,5 @@
   "defaultViewMode": "source",
   "trashOption": "local",
   "useTab": false,
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": false
 }
