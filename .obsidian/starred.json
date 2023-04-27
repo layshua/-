@@ -19,6 +19,11 @@
       "type": "file",
       "title": "3D数学",
       "path": "Math/3D数学/3D数学.md"
+    },
+    {
+      "type": "file",
+      "title": "《C++ Primer 5th》",
+      "path": "编程/C++/《C++ Primer 5th》.md"
     }
   ]
 }
