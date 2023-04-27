@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/3D数学.md"
+                "file": "图形学/DX12/DirectXMath.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/3D数学.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/3D数学.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -193,10 +193,10 @@
       "templates:插入模板": false
     }
   },
-  "active": "9777c35b9f6fa3b5",
+  "active": "6da81b40a0de4811",
   "lastOpenFiles": [
-    "Math/3D数学/公式推导/三维旋转.md",
     "Math/3D数学/3D数学.md",
+    "Math/3D数学/公式推导/三维旋转.md",
     "图形学/DX12/DirectXMath.md",
     "Math/3D数学/公式推导/反射和折射.md",
     "图形学/DX12/HLSL语法.md",
