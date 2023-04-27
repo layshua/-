@@ -35,11 +35,11 @@
   "Tools": "RiToolsFill",
   "Tools/System": "SiMicrosoft",
   "虚幻引擎": "SiUnrealengine",
-  "Zbuffer": "RiStackFill",
   "Tools/Software": "FabAppStore",
   "AI": "SiOpenai",
   "zip": "RiFolderZipLine",
   "zip/images": "FarImage",
   "zip/templates": "FabDelicious",
-  "zip/Excalidraw": "RiQuillPenLine"
+  "zip/Excalidraw": "RiQuillPenLine",
+  "zBuffer": "RiStackFill"
 }
