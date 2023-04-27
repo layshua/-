@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "Tools/Obsidian/Mermaid流图.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "Math/3D数学/公式推导/三维旋转.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "Math/3D数学/公式推导/三维旋转.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "Math/3D数学/公式推导/三维旋转.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -181,11 +181,13 @@
       "templates:插入模板": false
     }
   },
-  "active": "9777c35b9f6fa3b5",
+  "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12理论.md",
-    "图形学/DX12/BUG记录.md",
+    "Tools/Obsidian/Mermaid流图.md",
+    "Math/3D数学/公式推导/三维旋转.md",
     "Tools/Obsidian/插件流.md",
+    "图形学/DX12/BUG记录.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Zbuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？.md",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps/DirectXMath 库标量函数 - Win32 apps.md",
@@ -200,7 +202,6 @@
     "图形学/DX12/DirectXMath.md",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
     "Math/3D数学/3D数学.md",
-    "Math/3D数学/公式推导/三维旋转.md",
     "Math/3D数学/公式推导/反射和折射.md",
     "图形学/DX12/HLSL语法.md",
     "zip/images/1682505103969.png",
@@ -229,7 +230,6 @@
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
-    "Tools/工具流.md",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
