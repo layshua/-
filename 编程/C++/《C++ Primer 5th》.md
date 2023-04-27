@@ -1430,7 +1430,6 @@ double dPi = 3.1415926;
 int num = static_cast<int>(dPi);  //num的值为3
 ```
 
-
 ### reinterpret_cast
 
 reinterpret_cast 用于进行各种**不同类型的指针**之间强制转换。
