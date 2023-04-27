@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,13 +151,14 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -183,8 +184,11 @@
   },
   "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
-    "Tools/Obsidian/Mermaid流图.md",
+    "图形学/DX12/DirectXMath.md",
+    "图形学/DX12/HLSL语法.md",
+    "Math/3D数学/3D数学.md",
     "Math/3D数学/公式推导/三维旋转.md",
+    "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/插件流.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/龙书/DX12理论.md",
@@ -199,11 +203,8 @@
     "Zbuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets/1682565504974.png",
     "Zbuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "Zbuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
-    "图形学/DX12/DirectXMath.md",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
-    "Math/3D数学/3D数学.md",
     "Math/3D数学/公式推导/反射和折射.md",
-    "图形学/DX12/HLSL语法.md",
     "zip/images/1682505103969.png",
     "Math/3D数学/公式推导/视图变换.md",
     "zip/images/Pasted image 20230426194751.png",
