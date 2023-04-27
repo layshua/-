@@ -7400,6 +7400,7 @@ OSTX
 Oyx
 ONNbmm
 OpGcW
+OLED
 codeup
 clash
 ctrl
@@ -11312,6 +11313,7 @@ conjugate
 cAy
 cqqQT
 cggG
+comfort
 github
 grey
 green
@@ -18207,6 +18209,7 @@ trace
 tvgc
 tXZZ
 tYkK
+topics
 markdown
 matter
 mod
@@ -99466,6 +99469,7 @@ dLrK
 dNE
 daZyM
 dqKA
+directxmath
 TFvYZOKeHL
 TAB
 TeX
@@ -125708,6 +125712,7 @@ rbb
 rrrp
 rfzz
 rlnn
+related
 XXXXXX
 XXX
 XML
@@ -129084,6 +129089,18 @@ XTZaC
 Xxvlb
 XYYAnn
 XPZZ
+XMScalarACos
+XMScalarACosEst
+XMScalarASin
+XMScalarASinEst
+XMScalarCos
+XMScalarCosEst
+XMScalarModAngle
+XMScalarNearEqual
+XMScalarSin
+XMScalarSinCos
+XMScalarSinCosEst
+XMScalarSinEst
 HTML
 HasPtr
 Hello
@@ -147792,6 +147809,19 @@ xyi
 xzJM
 xEa
 xal
+xmscalaracos
+xmscalaracosest
+xmscalarasin
+xmscalarasinest
+xmscalarcos
+xmscalarcosest
+xmscalarmodangle
+xmscalarnearequal
+xmscalarsin
+xmscalarsincos
+xmscalarsincosest
+xmscalarsinest
+xnamath
 yellow
 your
 you
@@ -165978,6 +166008,7 @@ Ntvvbcc
 Ndkoo
 Nttt
 Nlerp
+Nreal
 ZooAnima
 ZooAnimal
 ZTest
