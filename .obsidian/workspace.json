@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md"
+                "file": "编程/C++/《Effective C++ 3th》.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,14 +150,13 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -183,14 +182,14 @@
   },
   "active": "df309ffbefd5fd16",
   "lastOpenFiles": [
-    "Tools/Obsidian/Mermaid流图.md",
     "编程/C++/《C++ Primer 5th》.md",
+    "Math/3D数学/公式推导/三维旋转.md",
+    "图形学/DX12/DirectXMath.md",
+    "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/插件流.md",
     "图形学/DX12/龙书/DX12理论.md",
-    "图形学/DX12/DirectXMath.md",
     "图形学/DX12/HLSL语法.md",
     "Math/3D数学/3D数学.md",
-    "Math/3D数学/公式推导/三维旋转.md",
     "图形学/DX12/BUG记录.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Zbuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？.md",
