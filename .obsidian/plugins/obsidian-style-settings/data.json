@@ -42,7 +42,7 @@
   "minimal-style@@file-header-visibility": "minimal-tab-title-hover",
   "minimal-style@@callouts-style": "callouts-default",
   "minimal-style@@callout-blend-mode": "var(--highlight-mix-blend-mode)",
-  "minimal-style@@minimal-code-scroll": false,
+  "minimal-style@@minimal-code-scroll": true,
   "minimal-style@@code-background@@light": "#FFFFFF",
   "minimal-style@@code-size": "13px",
   "minimal-style@@icon-muted": 0.5,

@@ -40,7 +40,7 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
 span.live-preview-codeblock-line-nums {
     display: inline-block;
     width: 1em;
-    margin-right: 0.5em;
+    margin-right: 1em;
     color: #7a7a7a;
     border-right: 1px solid #7a7a7a;
     padding-right: 1.5em;
@@ -49,12 +49,3 @@ span.live-preview-codeblock-line-nums {
     user-select: none;  /* 禁止选择行号 */
 }
 
-/* callout */
-/* callout首行缩进 */
-p {
-    text-indent: 2em;
-}
-/* 修改p块的缩进导致quiet-outline插件文本也发生了缩进，这里让其归0 */
-.quiet-outline .n-tree-node-content__text p {
-    text-indent: 0em;
-}
