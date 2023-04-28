@@ -44,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -87,12 +87,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -123,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -206,7 +205,8 @@
                   }
                 }
               }
-            ]
+            ],
+            "currentTab": 1
           }
         ],
         "direction": "vertical",
@@ -219,17 +219,18 @@
       }
     ]
   },
-  "active": "859daf37132094c6",
+  "active": "abfadc8e906a91c1",
   "lastOpenFiles": [
+    "README.md",
+    "Tools/Obsidian/插件流.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Math/3D数学/3D数学.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/线性代数基础.md",
     "Math/线性代数/矩阵论.md",
     "Math/线性代数/《线性代数的本质》.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
-    "Tools/Obsidian/插件流.md",
     "zip/images/image-20220702145045963.png",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
@@ -239,7 +240,6 @@
     "Tools/Git/git入门.md",
     "Tools/Git/UE4源码管理.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "README.md",
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/templates/template_yaml_metadata.md",
     "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",

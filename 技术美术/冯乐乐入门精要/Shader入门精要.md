@@ -630,10 +630,10 @@ Shader "Unlit/MyForwardRenderingMat"
             CGPROGRAM
             #pragma multi_compile_fwdbase
             //保证我们在Shader中使用光照衰减等变量可以被正常赋值
-
+            
             #pragma vertex vert
             #pragma fragment frag
-
+            
             #include "Lighting.cginc"
 
             fixed4 _Diffuse;
@@ -967,9 +967,6 @@ Shader "Unlit/MyShadowMat"
 }
 
 ~~~
-
-
-
 
 
 # 纹理

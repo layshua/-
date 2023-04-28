@@ -20,8 +20,6 @@
   "CodeMirror Options@@cm-comment@@light": "#A1A4AF",
   "minimal-style@@window-title-off": false,
   "minimal-style@@tag-radius": "14px",
-  "minimal-style@@ig-adjust-reading": -0.65,
-  "minimal-style@@ig-adjust-edit": -1,
   "minimal-advanced@@styled-scrollbars": true,
   "minimal-advanced@@cursor": "pointer",
   "minimal-style@@sidebar-tabs-style": "sidebar-tabs-index",
@@ -75,5 +73,8 @@
   "minimal-style@@header-height": "40px",
   "minimal-style@@tab-stacked-pane-width": 700,
   "minimal-style@@tag-border-width": "1px",
-  "CodeMirror Options@@cm-line-height": 1.5
+  "CodeMirror Options@@cm-line-height": 1.5,
+  "minimal-style@@ig-adjust-reading": -0.65,
+  "minimal-style@@ig-adjust-edit": 0,
+  "minimal-style@@indentation-guide-color@@light": "#A3A3A326"
 }

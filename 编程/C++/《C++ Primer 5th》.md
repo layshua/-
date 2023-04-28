@@ -60,9 +60,6 @@ int main() {
 > [!NOTE] Title
 > test
 
-- as
-    - 
-
 > [!bug] 标题
 > Contents
 
@@ -262,7 +259,7 @@ delete entity； //清除
 ```c++ nums
 Entity* e = new Entity();//1.分配内存 2.调用构造函数
 Entity* e = (Entity*)malloc(sizeof(Entity);//仅仅只是分配内存**然后给我们一个指向那个内存的指针
-							
+
 //这两行代码之间仅有的区别就是第一行代码new调用了Entity的构造函数
 delete e;//new了，必须要手动清除
 ```

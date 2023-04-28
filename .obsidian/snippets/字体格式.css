@@ -3,6 +3,17 @@
     text-indent: 2em;
 }
 
+.mod-cm6 .cm-editor .HyperMD-header-1,
+.mod-cm6 .cm-editor .HyperMD-header-2,
+.mod-cm6 .cm-editor .HyperMD-header-3,
+.mod-cm6 .cm-editor .HyperMD-header-4,
+.mod-cm6 .cm-editor .HyperMD-header-5,
+.mod-cm6 .cm-editor .HyperMD-header-6 {
+    padding-top: 0.5em;
+    padding-left: 0em;
+}
+
+
 /* 标题行高 */
 .cm-header-1 {
     line-height: 2em;
