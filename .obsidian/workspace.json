@@ -86,11 +86,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md"
+                "file": "Tools/Obsidian/插件流.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -121,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -217,12 +218,12 @@
       }
     ]
   },
-  "active": "36430f8403fc95b7",
+  "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
-    "Tools/Obsidian/插件流.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
-    "zip/images/image-20220702145045963.png",
+    "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer 5th》.md",
+    "zip/images/image-20220702145045963.png",
     "Math/线性代数/线性代数基础.md",
     "Math/线性代数/矩阵论.md",
     "图形学/OpenGL/LearnOpenGL.md",
