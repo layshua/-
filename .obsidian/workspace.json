@@ -40,7 +40,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
+                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
                 "mode": "source",
                 "source": false
               }
@@ -59,7 +59,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -184,10 +184,11 @@
       "templates:插入模板": false
     }
   },
-  "active": "9ef88c15d4f0b027",
+  "active": "859daf37132094c6",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12理论.md",
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "图形学/DX12/龙书/脑图.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
@@ -201,7 +202,6 @@
     "README.md",
     "编程/C++/C++原理.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "Math/3D数学/3D数学.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/线性代数基础.md",
