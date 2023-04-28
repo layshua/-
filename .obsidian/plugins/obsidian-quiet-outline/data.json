@@ -17,5 +17,5 @@
   "regex_search": false,
   "ellipsis": true,
   "label_direction": "right",
-  "drag_modify": false
+  "drag_modify": true
 }

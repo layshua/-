@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/快速入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -122,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -169,15 +168,17 @@
       "templates:插入模板": false
     }
   },
-  "active": "859daf37132094c6",
+  "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer 5th》.md",
+    "Tools/Obsidian/插件流.md",
+    "AI/深度学习/快速入门.md",
+    "AI/深度学习/《鱼书》.md",
     "AI/Python/Numpy+Matplotlib.md",
     "AI/Python/Python基础.md",
     "README.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/C++原理.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-    "Tools/Obsidian/插件流.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "Math/3D数学/3D数学.md",
     "Math/微积分/微积分基础.md",
@@ -196,7 +197,6 @@
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/templates/template_yaml_metadata.md",
     "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
-    "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？.md",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
     "zip/images/1682613248749.png",
@@ -207,7 +207,6 @@
     "zip/images/1682613248567.png",
     "zip/images/1682613248523.png",
     "zip/images/1682613248484.png",
-    "Math/3D数学/公式推导/三维旋转.md",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
