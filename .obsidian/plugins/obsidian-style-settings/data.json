@@ -33,7 +33,7 @@
   "minimal-style@@h5-weight": 600,
   "minimal-style@@h6-weight": 600,
   "minimal-style@@h3-weight": 600,
-  "minimal-style@@active-line-on": false,
+  "minimal-style@@active-line-on": true,
   "floating-toc-styles@@enable-outline-style": "float-outline-style",
   "floating-toc-styles@@enable-background-blur-dept": true,
   "minimal-style@@tabs-style": "tabs-default",
@@ -42,5 +42,9 @@
   "CodeMirror Options@@cm-number@@light": "#E8AE71",
   "CodeMirror Options@@cm-meta@@light": "#B1F081",
   "CodeMirror Options@@cm-string@@light": "#C0F178",
-  "minimal-style@@file-header-visibility": "minimal-tab-title-hover"
+  "minimal-style@@file-header-visibility": "minimal-tab-title-hover",
+  "minimal-style@@callouts-style": "callouts-default",
+  "minimal-style@@callout-blend-mode": "var(--highlight-mix-blend-mode)",
+  "minimal-style@@minimal-code-scroll": true,
+  "minimal-style@@code-background@@light": "#FFFFFF"
 }

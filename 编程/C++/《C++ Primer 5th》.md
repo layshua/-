@@ -57,6 +57,13 @@ int main() {
 }
 ```
 
+> [!NOTE] Title
+> test
+
+
+> [!bug] 标题
+> Contents
+
 4. 宏的用法之一：**宏是可以发送参数的**
 
 ```c++ nums

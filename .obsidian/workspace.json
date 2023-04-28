@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md"
+                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md"
               }
             }
           }
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
+                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
+                "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,14 +168,70 @@
       "templates:插入模板": false
     }
   },
-  "active": "4c7bca08cd3c2e63",
+  "floating": {
+    "id": "11a79e11fdd58608",
+    "type": "floating",
+    "children": [
+      {
+        "id": "e2ed64a384ba5cb8",
+        "type": "window",
+        "children": [
+          {
+            "id": "837a9d9ed9722b61",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "36430f8403fc95b7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "技术美术/冯乐乐入门精要/Shader入门精要.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "30a0d82a32d6d004",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Tools/Obsidian/插件流.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1112,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "36430f8403fc95b7",
   "lastOpenFiles": [
+    "Tools/Obsidian/插件流.md",
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
+    "zip/images/image-20220702145045963.png",
+    "编程/C++/《C++ Primer 5th》.md",
+    "Math/线性代数/线性代数基础.md",
+    "Math/线性代数/矩阵论.md",
+    "图形学/OpenGL/LearnOpenGL.md",
+    "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
     "图形学/面经/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享.md",
     "图形学/图形学奇点/图形学奇点.md",
     "Tools/Git/github.md",
     "Tools/Git/git入门.md",
     "Tools/Git/UE4源码管理.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "README.md",
@@ -193,25 +249,17 @@
     "zip/images/1682613248567.png",
     "zip/images/1682613248523.png",
     "zip/images/1682613248484.png",
-    "zip/images/1682613248444.png",
     "Math/3D数学/公式推导/三维旋转.md",
     "图形学/DX12/DirectXMath.md",
     "Tools/Obsidian/Mermaid流图.md",
-    "Tools/Obsidian/插件流.md",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/HLSL语法.md",
     "Math/3D数学/3D数学.md",
-    "图形学/DX12/BUG记录.md",
-    "Zbuffer/DirectXMath 库标量函数 - Win32 apps/DirectXMath 库标量函数 - Win32 apps.md",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
-    "Math/3D数学/公式推导/反射和折射.md",
-    "Math/3D数学/公式推导/视图变换.md",
-    "Zbuffer/对游戏开发中的四元数的一些理解/对游戏开发中的四元数的一些理解.md",
     "Zbuffer/对游戏开发中的四元数的一些理解/assets",
     "Zbuffer/对游戏开发中的四元数的一些理解",
-    "Math/LaTeX/常用语法.md",
     "zip/images/TEST - Unreal Editor 2022-12-22 12-32-46.mp4",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客/assets",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客",
