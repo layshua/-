@@ -1247,9 +1247,8 @@ flowchart LR
 
 找 `c`聚合节点
 
--   `孰大优先取`
+-   `孰大优先取
 
-**源码：**
 
 ```mermaid
 flowchart LR
