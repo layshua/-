@@ -1,0 +1,8 @@
+.quiet-outline {
+    height: 100%;
+    padding-bottom: 0px;
+}
+
+.quiet-outline .n-tree.ellipsis {
+    overflow-x: hiden;
+}
