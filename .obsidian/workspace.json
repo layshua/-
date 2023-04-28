@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,9 +186,9 @@
   },
   "active": "859daf37132094c6",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "图形学/DX12/龙书/脑图.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
