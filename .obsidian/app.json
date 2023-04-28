@@ -13,7 +13,7 @@
   "showIndentGuide": true,
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,
-  "showInlineTitle": true,
+  "showInlineTitle": false,
   "pdfExportSettings": {
     "includeName": true,
     "pageSize": "A4",

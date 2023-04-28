@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "README.md"
               }
             }
           }
@@ -122,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,14 +219,18 @@
       }
     ]
   },
-  "active": "4c7bca08cd3c2e63",
+  "active": "859daf37132094c6",
   "lastOpenFiles": [
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
-    "Tools/Obsidian/插件流.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "zip/images/image-20220702145045963.png",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "Math/3D数学/3D数学.md",
+    "Math/微积分/微积分基础.md",
     "Math/线性代数/线性代数基础.md",
     "Math/线性代数/矩阵论.md",
+    "Math/线性代数/《线性代数的本质》.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "技术美术/冯乐乐入门精要/Shader入门精要.md",
+    "Tools/Obsidian/插件流.md",
+    "zip/images/image-20220702145045963.png",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
     "图形学/面经/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享.md",
@@ -234,7 +239,6 @@
     "Tools/Git/git入门.md",
     "Tools/Git/UE4源码管理.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "README.md",
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/templates/template_yaml_metadata.md",
@@ -254,8 +258,6 @@
     "图形学/DX12/DirectXMath.md",
     "Tools/Obsidian/Mermaid流图.md",
     "图形学/DX12/龙书/DX12理论.md",
-    "图形学/DX12/HLSL语法.md",
-    "Math/3D数学/3D数学.md",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",

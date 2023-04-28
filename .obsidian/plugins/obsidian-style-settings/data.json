@@ -23,7 +23,7 @@
   "minimal-style@@ig-adjust-reading": -0.65,
   "minimal-style@@ig-adjust-edit": -1,
   "minimal-advanced@@styled-scrollbars": true,
-  "minimal-advanced@@cursor": "default",
+  "minimal-advanced@@cursor": "pointer",
   "minimal-style@@sidebar-tabs-style": "sidebar-tabs-index",
   "minimal-cards-style@@cards-min-width": "180px",
   "CodeMirror Options@@cm5-minimal-embeds": false,
@@ -74,5 +74,6 @@
   "minimal-style@@h1-weight": 900,
   "minimal-style@@header-height": "40px",
   "minimal-style@@tab-stacked-pane-width": 700,
-  "minimal-style@@tag-border-width": "1px"
+  "minimal-style@@tag-border-width": "1px",
+  "CodeMirror Options@@cm-line-height": 1.5
 }

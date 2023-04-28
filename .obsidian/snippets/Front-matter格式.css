@@ -2,7 +2,7 @@
 /* ---符号颜色 */
 body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-hmd-frontmatter.cm-def
 {
-    color:#b5b5b5
+    color:black
 }
 
 /* 键颜色 */
@@ -19,5 +19,5 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-hmd-frontmatter
 
 /* 开启Banner的情况下, Front-matter上移 */
 .markdown-source-view.mod-cm6 .cm-line.has-banner:not(.has-banner-icon) .obsidian-banner-spacer {
-    margin-bottom: -6rem;
+    margin-bottom: -2rem;
 }
