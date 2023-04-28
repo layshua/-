@@ -1,5 +1,10 @@
 
 ---
+title: README
+aliases: []
+tags: []
+create_time: 2023-04-28 15:28
+uid: 202304281528
 banner: "![[Pasted image 20230109001000.jpg]]"
 ---
 # Computer-Graphics-and-Tech-Art
@@ -11,6 +16,7 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 - [ ] 虚拟纹理
 - [x] 距离场
 # TODO
+
 ## 数学
 - [ ] 线性代数的本质[3Blue1Brown](https://space.bilibili.com/88461692)
 - [ ] 3D数学

@@ -1019,7 +1019,8 @@ public:
 };
 
 int main() {
-    Entity e; //实例化一个对象。如果我们查看Entity e的内存地址，可以看到Entity的内存上实际就是一行，包含了数组中所有的2，所有的数据都在这儿
+    Entity e; 
+    //实例化一个对象。如果我们查看Entity e的内存地址，可以看到Entity的内存上实际就是一行，包含了数组中所有的2，所有的数据都在这儿
 
     std::cin.get();
 }
@@ -1093,14 +1094,15 @@ FILE *fp = fopen(path.c_str(), "rt");
 
 ```c++ nums
 char* name = "cherno";//Error!
-  name[2] = 'a'; //ERROR! 未定义行为；是因为你实际上是在用一个指针指向那个字符串字面量的内存位置，
-                 //但字符串字面量是存储在内存的只读部分的，而你正在试图对只读内存进行写操作
-  --------------------------------------
-  const char* name = "cherno"; //Ok!
-  name[2] = 'a'; //ERROR!const不可修改
-  //如果你真的想要修改这个字符串，你只需要把类型定义为一个数组而不是指针
-  char name[] = "cherno"; //Ok!
-  name[2] = 'a'; //ok
+name[2] = 'a'; 
+//ERROR! 未定义行为；是因为你实际上是在用一个指针指向那个字符串字面量的内存位置，
+//但字符串字面量是存储在内存的只读部分的，而你正在试图对只读内存进行写操作
+--------------------------------------
+const char* name = "cherno"; //Ok!
+name[2] = 'a'; //ERROR!const不可修改
+//如果你真的想要修改这个字符串，你只需要把类型定义为一个数组而不是指针
+char name[] = "cherno"; //Ok!
+name[2] = 'a'; //ok
 ```
 
 *   从 C++11 开始，有些编译器比如 Clang，实际上只允许你编译`const char*`, 如果你想从一个字符串字面量编译 char, 你必须手动将他转换成`char*`
@@ -1116,10 +1118,10 @@ name[2] = 'a'; //OK
 
 ```c++ nums
 const char* name = "lk";
-   const wchar_t* name2 = L"lk";
-   const char16_t* name3 = u"lk";
-   const char32_t* name4 = U"lk";
-   const char* name5 = u8"lk";
+const wchar_t* name2 = L"lk";
+const char16_t* name3 = u"lk";
+const char32_t* name4 = U"lk";
+const char* name5 = u8"lk";
 ```
 
 **string_literals**
@@ -1305,12 +1307,12 @@ class Entity
 
 int main()
 {
-		Entity e;
-		Entity* ptr = &e;
-
-		//两种方式等价
-		(*ptr).x=2;
-		ptr->x = 2;
+	Entity e;
+	Entity* ptr = &e;
+    
+	//两种方式等价
+	(*ptr).x=2;
+	ptr->x = 2;
 }
 ```
 
@@ -1428,7 +1430,7 @@ sizeof expr; //返回表达式结果类型的大小
 ## 5 强制类型转换
 
 ### c 风格强制类型转换
-直接用括号进行转换，可以实现cast相同功能，缺点是表现形式不清晰，不容易debug。
+直接用括号进行转换，可以实现 cast 相同功能，缺点是表现形式不清晰，不容易 debug。
 
 ### static_cast
 

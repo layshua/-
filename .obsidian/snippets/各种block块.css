@@ -41,8 +41,8 @@ span.live-preview-codeblock-line-nums {
     display: inline-block;
     width: 1em;
     margin-right: 1em;
-    color: #7a7a7a;
-    border-right: 1px solid #7a7a7a;
+    color: #7a7a7a99;
+    border-right: 1px solid #7a7a7a99;
     padding-right: 1.5em;
     text-align: right;
     white-space: nowrap; 
