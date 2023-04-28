@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "df309ffbefd5fd16",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "4c7bca08cd3c2e63",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
+                "file": "README.md"
               }
             }
           }
@@ -133,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,12 +168,16 @@
       "templates:插入模板": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
+    "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
+    "zip/templates/template_yaml_metadata.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
+    "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？.md",
     "虚幻引擎/6 动画",
     "编程/C++/《Effective C++ 3th》.md",
     "zip/images/1682613248787.png",
-    "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "zip/images/1682613248749.png",
     "zip/images/1682613248708.png",
     "zip/images/1682613248675.png",
@@ -195,7 +187,6 @@
     "zip/images/1682613248523.png",
     "zip/images/1682613248484.png",
     "zip/images/1682613248444.png",
-    "编程/C++/《C++ Primer 5th》.md",
     "Math/3D数学/公式推导/三维旋转.md",
     "图形学/DX12/DirectXMath.md",
     "Tools/Obsidian/Mermaid流图.md",
@@ -205,7 +196,6 @@
     "Math/3D数学/3D数学.md",
     "图形学/DX12/BUG记录.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-    "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？.md",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps/DirectXMath 库标量函数 - Win32 apps.md",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
@@ -223,11 +213,9 @@
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客/assets",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客",
     "zip/images/Diagram 1.svg.xml",
-    "zip/drawio",
     "Math/线性代数/《线性代数的本质》.md",
     "Math/微积分/微积分基础.md",
     "Zbuffer/旋转的数学表达：欧拉角、轴向角、四元数与矩阵/旋转的数学表达：欧拉角、轴向角、四元数与矩阵.md",
-    "Zbuffer/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换/三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换.md",
     "图形学/DX12/自研引擎/DX12初始化.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
