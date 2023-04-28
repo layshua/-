@@ -16,6 +16,8 @@
 # error C2236: 意外的标记“class”。是否忘记了“;”?
 原因：某个头文件中的类后面忘记添加分号。
 
-| 严重性 | 代码    | 说明                                                                                                      | 项目             | 文件                                                        | 行 | 禁止显示状态 |
-|-----|-------|---------------------------------------------------------------------------------------------------------|----------------|-----------------------------------------------------------|---|--------|
-| 错误  | C1083 |无法打开源文件: “Engine\Rendering\Core\DirectX\RenderingPipeline\RenderingData.cpp”: No such file or directory | WandererEngine | C:\Users\22625\Desktop\WandererEngine\WandererEngine\c1xx | 1 |
+
+# bbug
+bufferlocation 报错 
+
+看下执行顺序 draw 之前应该先build
