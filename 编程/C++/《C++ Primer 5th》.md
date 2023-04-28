@@ -472,7 +472,7 @@ a = (int*)&Age  //error
 **指针和被指对象都是常量**
 
 既不可以改变指针指向的内容, 也不能再去修改指针指向的地址
-#### 顶层const、<span style="background:rgba(163, 67, 31, 0.2)">底层const</span>
+#### 顶层const、底层const
 顶层const：对象本身是个常量
 底层const：指针所指的对象或引用绑定的对象是一个常量
 

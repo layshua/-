@@ -1,12 +1,10 @@
 /* quiet-outline */
-
-/* 高度 */
 .quiet-outline {
     height: 100%;
     padding-bottom: 0px;
 }
 
-/* 宽度 */
 .quiet-outline .n-tree {
+    font-size: var(--nav-item-size);
     width: 109%;
 }

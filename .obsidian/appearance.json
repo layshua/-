@@ -17,7 +17,8 @@
     "各种block块",
     "Front-matter格式",
     "tag标签格式",
-    "outline"
+    "outline",
+    "quiet-outline插件配置"
   ],
   "accentColor": "",
   "nativeMenus": false,
