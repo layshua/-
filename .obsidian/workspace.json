@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12理论.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,6 +170,7 @@
   },
   "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/插件流.md",
     "AI/深度学习/快速入门.md",
@@ -196,7 +197,6 @@
     "编程/C++/《Effective C++ 3th》.md",
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/templates/template_yaml_metadata.md",
-    "虚幻引擎/6 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
     "zip/images/1682613248749.png",
