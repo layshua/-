@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "Tools/工具流.md"
               }
             }
           }
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "Tools/工具流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -184,8 +184,9 @@
       "templates:插入模板": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "859daf37132094c6",
   "lastOpenFiles": [
+    "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/Mermaid流图.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
@@ -202,7 +203,6 @@
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "AI/深度学习/快速入门.md",
-    "Tools/Obsidian/插件流.md",
     "AI/深度学习/《鱼书》.md",
     "README.md",
     "编程/C++/C++原理.md",
