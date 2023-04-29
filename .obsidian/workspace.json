@@ -11,14 +11,11 @@
             "id": "111f80f765215a33",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12初始化.canvas",
-                "viewState": {
-                  "x": -468,
-                  "y": 275,
-                  "zoom": -0.5930147730158895
-                }
+                "file": "图形学/DX12/BUG记录.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -65,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/DX12初始化.canvas"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -100,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/DX12初始化.canvas",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/DX12初始化.canvas",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +146,9 @@
   },
   "active": "111f80f765215a33",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
-    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/图形学奇点/图形学奇点.md",
     "zip/templates/callout分栏.md",
     "zip/templates/markmap脑图.md",
