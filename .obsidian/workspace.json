@@ -11,11 +11,14 @@
             "id": "111f80f765215a33",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
-                "mode": "source",
-                "source": false
+                "file": "图形学/DX12/龙书/DX12初始化.canvas",
+                "viewState": {
+                  "x": -468,
+                  "y": 275,
+                  "zoom": -0.5930147730158895
+                }
               }
             }
           }
@@ -62,7 +65,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md"
+                "file": "图形学/DX12/龙书/DX12初始化.canvas"
               }
             }
           }
@@ -97,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
+                "file": "图形学/DX12/龙书/DX12初始化.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/脑图.md",
+                "file": "图形学/DX12/龙书/DX12初始化.canvas",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -146,8 +149,9 @@
   },
   "active": "111f80f765215a33",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12初始化.canvas",
+    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
+    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/图形学奇点/图形学奇点.md",
     "zip/templates/callout分栏.md",
     "zip/templates/markmap脑图.md",
@@ -161,7 +165,6 @@
     "图形学/DX12/BUG记录.md",
     "Math/3D数学/3D数学.md",
     "Math/3D数学/公式推导/三维旋转.md",
-    "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "Tools/工具流.md",
     "编程/C++/《Effective C++ 3th》.md",
