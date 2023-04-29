@@ -18,7 +18,9 @@
     "Front-matter格式",
     "tag标签格式",
     "outline",
-    "quiet-outline插件配置"
+    "quiet-outline插件配置",
+    "callout",
+    "callout分栏"
   ],
   "accentColor": "",
   "nativeMenus": false,

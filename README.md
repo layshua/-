@@ -10,6 +10,25 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 # Computer-Graphics-and-Tech-Art
 图形之路！
 
+> [!multi-column] 
+>
+> >[!NOTE] 
+>  列表 1
+>
+> >[!NOTE] 
+> 列表 2
+
+
+> [!multi-column]
+>
+>> [!note]+ Work
+>> your notes or lists here. using markdown formatting
+>
+>> [!warning]+ Personal
+>> your notes or lists here. using markdown formatting
+>
+>> [!summary]+ Charity
+>> your notes or lists here. using markdown formatting
 # 近期
 - [x] 后处理
 - [ ] 地形材质

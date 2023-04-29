@@ -100,7 +100,7 @@ graph LR
     5.  线条长度
 
 ```mermaid
-graph TD
+flowchart LR
 	Mermaid-->节点;
 	节点-->id1["容器(名)"]; %% 这里有个特殊写法，后面讲节点会解释
 	节点-->节点形状;
