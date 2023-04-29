@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "虚幻引擎/1 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "虚幻引擎/1 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md"
               }
             }
           }
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "虚幻引擎/1 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "虚幻引擎/1 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -184,17 +184,21 @@
       "templates:插入模板": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "859daf37132094c6",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12理论.md",
+    "编程/设计模式/工厂模式.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
+    "图形学/DX12/BUG记录.md",
+    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "Tools/Obsidian/Mermaid流图.md",
     "AI/深度学习/快速入门.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/插件流.md",
     "AI/深度学习/《鱼书》.md",
     "AI/Python/Numpy+Matplotlib.md",
@@ -210,9 +214,6 @@
     "zip/images/image-20220702145045963.png",
     "图形学/OpenGL/LearnOpenGL.md",
     "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客.md",
-    "图形学/面经/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享.md",
-    "图形学/图形学奇点/图形学奇点.md",
-    "Tools/Git/github.md",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
     "zip/images/1682613248749.png",
