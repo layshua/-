@@ -11,14 +11,11 @@
             "id": "4c7bca08cd3c2e63",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/DX12初始化.canvas",
-                "viewState": {
-                  "x": -468,
-                  "y": 305,
-                  "zoom": -0.8403433340115148
-                }
+                "file": "图形学/DX12/BUG记录.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -28,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "Math/3D数学/3D数学.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,8 +67,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +110,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -149,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,14 +162,13 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -197,11 +192,12 @@
       "templates:插入模板": false
     }
   },
-  "active": "859daf37132094c6",
+  "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
+    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/DirectXMath.md",
-    "Math/3D数学/公式推导/三维旋转.md",
     "Math/3D数学/3D数学.md",
+    "Math/3D数学/公式推导/三维旋转.md",
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《C++ Primer 5th》.md",
     "Tools/工具流.md",
@@ -216,7 +212,6 @@
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
     "图形学/DX12/BUG记录.md",
     "图形学/DX12/龙书/脑图.md",
-    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
     "AI/深度学习/快速入门.md",
@@ -225,7 +220,6 @@
     "编程/C++/C++原理.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "Math/微积分/微积分基础.md",
-    "Math/线性代数/线性代数基础.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
