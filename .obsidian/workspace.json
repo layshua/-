@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "图形学/DX12/DirectXMath.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,13 +162,14 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "图形学/DX12/DirectXMath.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -194,6 +195,8 @@
   },
   "active": "4c7bca08cd3c2e63",
   "lastOpenFiles": [
+    "图形学/DX12/HLSL语法.md",
+    "图形学/DX12/BUG记录.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/DirectXMath.md",
     "Math/3D数学/3D数学.md",
@@ -210,7 +213,6 @@
     "编程/设计模式/工厂模式.md",
     "编程/C++/C++补充.md",
     "技术美术/冯乐乐入门精要/Shader入门精要.md",
-    "图形学/DX12/BUG记录.md",
     "图形学/DX12/龙书/脑图.md",
     "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/DX12/自研引擎/2 DX12初始化.md",
