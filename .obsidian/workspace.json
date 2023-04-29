@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "图形学/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,13 +154,14 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/DX12/龙书/DX12理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -186,6 +187,8 @@
   },
   "active": "859daf37132094c6",
   "lastOpenFiles": [
+    "Tools/工具流.md",
+    "图形学/DX12/DirectXMath.md",
     "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/Mermaid流图.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -211,9 +214,7 @@
     "Math/微积分/微积分基础.md",
     "Math/线性代数/线性代数基础.md",
     "Math/线性代数/矩阵论.md",
-    "Math/线性代数/《线性代数的本质》.md",
     "zip/images/image-20220702145045963.png",
-    "图形学/OpenGL/LearnOpenGL.md",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
     "zip/images/1682613248749.png",
