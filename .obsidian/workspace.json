@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -193,11 +193,11 @@
       "templates:插入模板": false
     }
   },
-  "active": "db1b06c99b423fff",
+  "active": "5d134345081c2add",
   "lastOpenFiles": [
+    "Math/3D数学/公式推导/三维旋转.md",
     "Math/3D数学/3D数学.md",
     "图形学/DX12/BUG记录.md",
-    "Math/3D数学/公式推导/三维旋转.md",
     "技术美术/UnityShader/ASE.md",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
