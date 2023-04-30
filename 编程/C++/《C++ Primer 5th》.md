@@ -96,7 +96,7 @@ int main() {
 
 利用 `#if 0` 和 `#endif` 删除一段宏.
 
-```c++ nums
+```c++
 #include <iostream>
 
 #if 0   //从这里到最后的endif的宏都被无视掉了，某种意义上的删除

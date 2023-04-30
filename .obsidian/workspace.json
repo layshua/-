@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/3D数学/3D数学.md",
+                "file": "test.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/3D数学.md"
+                "file": "test.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/3D数学.md",
+                "file": "test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,14 +163,13 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/3D数学.md",
+                "file": "test.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -194,14 +193,53 @@
       "templates:插入模板": false
     }
   },
+  "floating": {
+    "id": "a8904eca24067f02",
+    "type": "floating",
+    "children": [
+      {
+        "id": "aabef6336ad72fd5",
+        "type": "window",
+        "children": [
+          {
+            "id": "bd0849f4ac0cbf44",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9b301786028f1173",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "test.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1112,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "ab346b0c661c5d1a",
   "lastOpenFiles": [
-    "图形学/DX12/BUG记录.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "test.md",
+    "技术美术/UnityShader/ASE.md",
     "Math/3D数学/公式推导/三维旋转.md",
     "Math/3D数学/3D数学.md",
+    "图形学/DX12/BUG记录.md",
     "zip/images/Pasted image 20230430163919.png",
     "图形学/DX12/龙书/DX12理论.md",
-    "技术美术/UnityShader/ASE.md",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
     "技术美术/UnityShader/TA101.md",
@@ -225,7 +263,6 @@
     "README.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/HLSL语法.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Tools/工具流.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
