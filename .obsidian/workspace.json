@@ -169,7 +169,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -195,9 +196,11 @@
   },
   "active": "5d134345081c2add",
   "lastOpenFiles": [
-    "Math/3D数学/公式推导/三维旋转.md",
+    "zip/images/Pasted image 20230430163919.png",
+    "图形学/DX12/龙书/DX12理论.md",
     "Math/3D数学/3D数学.md",
     "图形学/DX12/BUG记录.md",
+    "Math/3D数学/公式推导/三维旋转.md",
     "技术美术/UnityShader/ASE.md",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
@@ -211,7 +214,6 @@
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "Untitled.table",
     "图形学/DX12/龙书/DX12初始化.canvas",
-    "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
     "图形学/图形学奇点/图形学奇点.md",
     "zip/templates/callout分栏.md",
