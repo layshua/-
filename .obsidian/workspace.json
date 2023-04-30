@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "Math/3D数学/3D数学.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "Math/3D数学/3D数学.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "Math/3D数学/3D数学.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,13 +194,13 @@
       "templates:插入模板": false
     }
   },
-  "active": "5d134345081c2add",
+  "active": "ab346b0c661c5d1a",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230430163919.png",
-    "图形学/DX12/龙书/DX12理论.md",
-    "Math/3D数学/3D数学.md",
     "图形学/DX12/BUG记录.md",
     "Math/3D数学/公式推导/三维旋转.md",
+    "Math/3D数学/3D数学.md",
+    "zip/images/Pasted image 20230430163919.png",
+    "图形学/DX12/龙书/DX12理论.md",
     "技术美术/UnityShader/ASE.md",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
@@ -235,7 +235,6 @@
     "zip/images/1682613248675.png",
     "zip/images/1682613248636.png",
     "zip/images/1682613248602.png",
-    "zip/images/1682613248567.png",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",

@@ -26,11 +26,11 @@ windousmessage 那里委托名没有一一对应
 ![[Pasted image 20230430134726.png]]
 
 
-1. 为什么人宅没改所有的 Gmesh
+# 1. 为什么人宅没改所有的 Gmesh
 
 
 
-1. IAsetVertexbuffers 放在 index 后面？
-![[Pasted image 20230430163919.png]]
 
 
+
+# 模型向上 90 度会发生错误
