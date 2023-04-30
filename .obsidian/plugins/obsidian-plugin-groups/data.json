@@ -1,0 +1,53 @@
+{
+  "groups": [
+    {
+      "loadAtStartup": true,
+      "disableOnStartup": true,
+      "delay": 25,
+      "id": "pg",
+      "name": "延迟加载",
+      "plugins": [
+        {
+          "id": "obsidian-excalidraw-plugin",
+          "name": "Excalidraw"
+        },
+        {
+          "id": "editing-toolbar",
+          "name": "Editing Toolbar"
+        },
+        {
+          "id": "obsidian-local-images-plus",
+          "name": "Local Images Plus"
+        },
+        {
+          "id": "oz-clear-unused-images",
+          "name": "Clear Unused Images"
+        },
+        {
+          "id": "obsidian-copy-block-link",
+          "name": "Copy Block Link"
+        },
+        {
+          "id": "obsidian-diagrams-net",
+          "name": "Diagrams.net"
+        },
+        {
+          "id": "obsidian-focus-mode",
+          "name": "Focus Mode"
+        },
+        {
+          "id": "obsidian-excel-to-markdown-table",
+          "name": "Excel to Markdown Table"
+        }
+      ],
+      "groupIds": [],
+      "generateCommands": false
+    }
+  ],
+  "generateCommands": true,
+  "showNoticeOnGroupLoad": "none",
+  "devLogs": false,
+  "devices": [],
+  "doLoadSynchronously": true,
+  "showStatusbarIcon": "None"
+}

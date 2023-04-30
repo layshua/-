@@ -228,10 +228,6 @@ delete entity； //清除
 * 当我们调用 new Entity 时，实际发生的就是我们在堆上分配了内存，我们调用了构造函数，然后这个 **new Entity 实际上会返回一个 Entity 指针，它返回了这个 entity 在堆上被分配的内存地址**，这就是为什么我们要声明成 Entity * 类型。
 * 如果你使用了 new 关键字，那你就要用 delete 来进行清理。  
 
-
-> [!NOTE] Title
-> Contents
-
 ### new操作符
 
 *   new 的主要目的是分配内存，具体来说就是在堆上分配内存。

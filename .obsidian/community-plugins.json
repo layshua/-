@@ -30,7 +30,9 @@
   "obsidian-mindmap-nextgen",
   "obsidian-diagrams-net",
   "obsidian-outliner",
-  "codeblock-customizer",
   "obsidian-codemirror-options",
-  "cm-editor-syntax-highlight-obsidian"
+  "cm-editor-syntax-highlight-obsidian",
+  "codeblock-customizer",
+  "obsidian-plugin-groups",
+  "obsidian-excalidraw-plugin"
 ]
