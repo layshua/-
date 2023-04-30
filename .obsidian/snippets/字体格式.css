@@ -96,3 +96,12 @@ p {
     padding: 5px 5px;
     /*--------文字距边缘的距离--*/
 }
+
+/* .list-bullet {
+    color: transparent;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+} */

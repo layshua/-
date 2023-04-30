@@ -14,7 +14,7 @@ banner_y: 0.58084
 ###  声明式declaration
 声明式：告诉编译器某个东西的名称和类型。
 
-```c++ nums
+```c++
 //对象声明式
 	extern int x;
 	
@@ -38,7 +38,7 @@ banner_y: 0.58084
 一个函数的签名等同于该函数的类型。
 C++ 对于签名的官方定义中并不包含函数的返回类型，这意味着**函数的重载不能根据返回值判断**。<font color="#ff0000">（本书把返回类型视为签名的一部分）</font>
 
-```c++ nums
+```c++
 void Fun() 
 {
 	    
@@ -71,7 +71,7 @@ void Fun()
 
 - `copy构造函数和copy赋值运算符`
 - 比较好的方式是传`常引用`（const T&）
-```c++ nums
+```c++
 //重载赋值运算符(=)
 class Foo
 {
@@ -124,6 +124,9 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 
 4. STL：是个 template 的程序库。
 
+> [!danger] Title
+> Contents
+
 
 > [!NOTE] C++高效编程守则视情况变化，取决于你使用C++的哪一部分
 > - 对于来自 C 的内置数据类型，使用值传递比引用传递高效。
@@ -140,7 +143,7 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 
 ### 以编译器替换预处理器
  **宁可以编译器替换预处理器：**
-```c++ nums
+```c++
 //宏定义是预处理器指令，在编译之前执行。记号名称ASPECT_PATIO可能未进入记号表，导致后续难以追踪。
 #define ASPECT_PATIO 1.653   
 
@@ -152,7 +155,7 @@ const double AspectRatio = 1.653
 1. 定义常量指针  
     由于常量定义时通常放在头文件内（以便被不同的源码含入），有必要将指针（而不止是所指之物）声明为 const，即int* const形式。  
     
-```c++ nums
+```c++
 //定义一个常量的 char* 的字符串，必须 const 两次：
 const char*  const authorName = "Scott Meyers";
 
@@ -163,7 +166,7 @@ const std::string authorName("Scott Meyers")
 2. class专属常量：static成员
 为了将常量的作用域限制在 class 内，你得让它成为 class 的一个成员，而**为了确保常量至多只有一份实体。你必须让它成为一个 static 成员。**
     
-```c++ nums
+```c++
 class GamePlayer
 {
 public:
@@ -174,8 +177,8 @@ public:
 但是你所看到的只是常量声明式，而非定义式。**如果它是个 class 专属常量又是 static 且为整数类型（例如 ints，chars，bools），只要不取它们的地址，可以直接声明并使用它们。**
 
 通常情况下 C++ 会要求对你所使用到的任何东西提供一个定义式。
-    
-```c++ nums
+
+```c++
 // NumTurns的定义式应该放进一个实现文件（.cpp）而不是头文件(.h)
 // 由于常量已在声明时获得初值，因此定义时不可以再获得初值
 const int GamePlayer::NumTurns = 9;  //错误
@@ -189,7 +192,7 @@ const int GamePlayer::NumTurns;  //正确
 ### enum hack 
 当你再class编译期间需要一个class常量值，而编译器（错误的）不允许static整数型class变量类内提供初始值时（存在于某些旧式编译器中的问题），则可以使用“enum hack”补偿做法
     
- ```c++ nums
+ ```c++
 class GamePlayer
 {
 public:
@@ -214,12 +217,12 @@ enum hack 的行为某方面来说比较像 `#define` 而不是 const，有时�
 
 ### template inline函数
  使用`#define` 实现宏时，规定必须为宏中的所有实参加上小括号，即便如此可读性也不好。
-```c++ nums
+```c++
 #define CALL_WITH_MAX(a,b) f((a) > (b) ? (a) : (b))
 ```
 
 并且这种方式在某些情况下不安全：
-```c++ nums
+```c++
 //在这里，调用f之前，a的递增次数竟然取决于“它被拿来和谁比较”！
 int a = 5,b = 0;
 CALL WITH MAX(++a, b);  //a被累加二次
@@ -227,7 +230,7 @@ CALL WITH MAX (++a, b+10);  //a被累加一次
 ```
 
  **使用template inline函数：更安全，更具可读性**
- ```c++ nums
+ ```c++
 template <typename T>
 inline T callWithMax(const T& a,const T& b) 
 {
@@ -260,7 +263,7 @@ inline T callWithMax(const T& a,const T& b)
     
     如果 const 函数调用 non-const 函数的实现，那是一件糟糕的事情，因为 const 函数承诺不修改其对象的逻辑状态，但如果去调用 non-const 函数，就可能冒着修改对象的风险，这是`坏代码的前兆`。而且，如果这样的代码通过编译，意味着得先将 this 指针的 const 性质先去掉，这存在很大风险。
  
-```c++ nums
+```c++
 //   non-const 转 const 测试代码
 class TextBlock
 {
@@ -299,7 +302,7 @@ public:
     
 3.  **最佳处理方法**就是：**永远在使用对象之前先将它初始化**。
 - **对于无任何成员的内置类型，必须手动完成初始化。**
-```c++ nums
+```c++
 int x O;  //对int进行手工初始化
 const char*text ="A C-style string";  //对指针进行手工初始化
 
@@ -332,7 +335,7 @@ std:cin >d;  //以读取input stream的方式完成初始化.
 ### 条款 05：了解 C++ 默默编写并调用了哪些函数
 
 当 C++ 处理过 empty class(空类) 之后，如果你没有声明，则编译器会主动为**声明**一个**拷贝构造函数、拷贝复制操作符**和一个**析构函数**，同时如果你没有声明任何构造函数，编译器也会为你声明一个 **default 版本的拷贝构造函数**，这些函数都是`public`且`inline`的。
-```c++ nums
+```c++
 //空类
 class Empty {};
 
