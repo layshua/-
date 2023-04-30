@@ -32,3 +32,5 @@ windousmessage 那里委托名没有一一对应
 
 1. IAsetVertexbuffers 放在 index 后面？
 ![[Pasted image 20230430163919.png]]
+
+
