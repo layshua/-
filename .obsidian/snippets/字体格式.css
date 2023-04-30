@@ -23,6 +23,11 @@ p {
     text-indent: 0em;
 }
 
+/*  list稍微后移以对齐正文*/
+ .markdown-source-view.mod-cm6.is-readable-line-width .HyperMD-list-line {
+    margin-left: 4.2em !important;
+} 
+
 
 /* 标题行高 */
 .cm-header-1 {
@@ -97,11 +102,3 @@ p {
     /*--------文字距边缘的距离--*/
 }
 
-/* .list-bullet {
-    color: transparent;
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-} */

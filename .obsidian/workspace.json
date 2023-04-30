@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "test.md",
+                "file": "zip/templates/callout分栏.md",
                 "mode": "source",
                 "source": false
               }
@@ -44,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -170,14 +170,15 @@
       "templates:插入模板": false
     }
   },
-  "active": "7bfc02bc6fb5a025",
+  "active": "a30da1032008e360",
   "lastOpenFiles": [
+    "zip/templates/callout分栏.md",
+    "test.md",
     "编程/设计模式/工厂模式.md",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
     "编程/C++/《C++ Primer 5th》.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
-    "test.md",
     "Tools/Obsidian/插件流.md",
     "README.md",
     "Math/3D数学/公式推导/三维旋转.md",
@@ -201,7 +202,6 @@
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/脑图.md",
     "图形学/图形学奇点/图形学奇点.md",
-    "zip/templates/callout分栏.md",
     "zip/templates/markmap脑图.md",
     "zip/templates/yaml_metadata.md",
     "zip/images/image-20220702145045963.png",
