@@ -4,15 +4,15 @@
   "bActiveLineHighlight": false,
   "bGutterHighlight": true,
   "ExcludeLangs": "",
-  "activeCodeBlockLineColor": "#59647D",
-  "activeLineColor": "#468EEB33",
-  "backgroundColor": "#313641",
-  "highlightColor": "#054B5C",
+  "activeCodeBlockLineColor": "#073642",
+  "activeLineColor": "#468eeb33",
+  "backgroundColor": "#002B36",
+  "highlightColor": "#054b5c",
   "bDisplayCodeBlockLanguage": true,
   "bDisplayCodeBlockIcon": false,
-  "gutterTextColor": "#6C6C6C",
-  "gutterBackgroundColor": "#252931",
-  "SelectedTheme": "OneDarkPro",
+  "gutterTextColor": "#6c6c6c",
+  "gutterBackgroundColor": "#073642",
+  "SelectedTheme": "Dark Theme",
   "header": {
     "bHeaderBold": true,
     "bHeaderItalic": false,
@@ -22,11 +22,11 @@
     "bAlwaysDisplayCodeblockIcon": false,
     "bDefaultDarkTheme": false,
     "bDefaultLightTheme": false,
-    "color": "#313641",
+    "color": "#0a4554",
     "textColor": "#DADADA",
-    "lineColor": "#313641",
-    "codeBlockLangColor": "#6C6C6C",
-    "codeBlockLangBackgroundColor": "#252931"
+    "lineColor": "#46cced",
+    "codeBlockLangColor": "#000000",
+    "codeBlockLangBackgroundColor": "#008080"
   },
   "colorThemes": [
     {
@@ -107,7 +107,7 @@
       "name": "error",
       "darkColor": "#62284F",
       "lightColor": "#53232A",
-      "currentColor": "#53232A"
+      "currentColor": "#62284F"
     },
     {
       "name": "h",
