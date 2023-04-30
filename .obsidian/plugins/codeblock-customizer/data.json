@@ -11,10 +11,10 @@
   "bDisplayCodeBlockLanguage": true,
   "bDisplayCodeBlockIcon": false,
   "gutterTextColor": "#6C6C6C",
-  "gutterBackgroundColor": "#073642",
+  "gutterBackgroundColor": "#252931",
   "SelectedTheme": "OneDarkPro",
   "header": {
-    "bHeaderBold": false,
+    "bHeaderBold": true,
     "bHeaderItalic": false,
     "bCodeblockLangBold": true,
     "bCodeblockLangItalic": false,
@@ -22,11 +22,11 @@
     "bAlwaysDisplayCodeblockIcon": false,
     "bDefaultDarkTheme": false,
     "bDefaultLightTheme": false,
-    "color": "#0A4554",
+    "color": "#313641",
     "textColor": "#DADADA",
-    "lineColor": "#46CCED",
-    "codeBlockLangColor": "#000000",
-    "codeBlockLangBackgroundColor": "#008080"
+    "lineColor": "#313641",
+    "codeBlockLangColor": "#6C6C6C",
+    "codeBlockLangBackgroundColor": "#252931"
   },
   "colorThemes": [
     {

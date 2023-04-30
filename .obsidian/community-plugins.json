@@ -9,8 +9,6 @@
   "obsidian-quiet-outline",
   "obsidian-local-rest-api",
   "obsidian-banners",
-  "cm-editor-syntax-highlight-obsidian",
-  "obsidian-codemirror-options",
   "obsidian42-brat",
   "ob-table-enhancer",
   "obsidian-excel-to-markdown-table",
@@ -27,11 +25,12 @@
   "obsidian-latex-suite",
   "quick-latex",
   "obsidian-completr",
-  "obsidian-advanced-codeblock",
   "obsidian-copy-block-link",
   "easy-typing-obsidian",
   "obsidian-mindmap-nextgen",
   "obsidian-diagrams-net",
   "obsidian-outliner",
-  "codeblock-customizer"
+  "codeblock-customizer",
+  "obsidian-codemirror-options",
+  "cm-editor-syntax-highlight-obsidian"
 ]

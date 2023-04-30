@@ -35,9 +35,9 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
 }
 
 
-/* advanced codeblock插件*/ 
+/* advanced codeblock插件（已删除）*/ 
 /* codeblock行号格式  */
-span.live-preview-codeblock-line-nums {
+/*  span.live-preview-codeblock-line-nums {
     display: inline-block;
     width: 1em;
     margin-right: 1em;
@@ -46,6 +46,9 @@ span.live-preview-codeblock-line-nums {
     padding-right: 1.5em;
     text-align: right;
     white-space: nowrap; 
-    user-select: none;  /* 禁止选择行号 */
-}
+    user-select: none;}  /* 禁止选择行号 */ 
 
+.codeblock-customizer-header-container {
+    border-bottom: 2px groove var(--header-line-color);
+    margin-top: 16px;
+}

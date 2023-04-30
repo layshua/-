@@ -37,19 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ab346b0c661c5d1a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "test.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -66,33 +54,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "c1098359fc091c55",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "db1b06c99b423fff",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -218,52 +182,16 @@
       "templates:插入模板": false
     }
   },
-  "floating": {
-    "id": "a8904eca24067f02",
-    "type": "floating",
-    "children": [
-      {
-        "id": "aabef6336ad72fd5",
-        "type": "window",
-        "children": [
-          {
-            "id": "bd0849f4ac0cbf44",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "9b301786028f1173",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "test.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 74,
-        "y": 95,
-        "width": 1025,
-        "height": 1113,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "c1098359fc091c55",
+  "active": "5d134345081c2add",
   "lastOpenFiles": [
+    "图形学/DX12/BUG记录.md",
+    "技术美术/UnityShader/ASE.md",
+    "Tools/Obsidian/插件流.md",
+    "Math/3D数学/公式推导/三维旋转.md",
+    "图形学/DX12/HLSL语法.md",
     "test.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "技术美术/UnityShader/ASE.md",
-    "Math/3D数学/公式推导/三维旋转.md",
-    "Tools/Obsidian/插件流.md",
     "Math/3D数学/3D数学.md",
-    "图形学/DX12/BUG记录.md",
     "zip/images/Pasted image 20230430163919.png",
     "图形学/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230430134758.png",
@@ -287,7 +215,6 @@
     "Tools/Obsidian/Mermaid流图.md",
     "README.md",
     "图形学/DX12/DirectXMath.md",
-    "图形学/DX12/HLSL语法.md",
     "Tools/工具流.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
