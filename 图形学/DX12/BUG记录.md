@@ -20,3 +20,9 @@
 
 # 无法响应右键抬起事件
 windousmessage 那里委托名没有一一对应
+
+
+鼠标方向错误：
+![[Pasted image 20230430134726.png]]
+
+![[Pasted image 20230430134758.png]]

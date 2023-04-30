@@ -32,6 +32,18 @@
             }
           },
           {
+            "id": "5d134345081c2add",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/DX12/BUG记录.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "ab346b0c661c5d1a",
             "type": "leaf",
             "state": {
@@ -44,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md"
+                "file": "图形学/DX12/BUG记录.md"
               }
             }
           }
@@ -122,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/3D数学/公式推导/三维旋转.md",
+                "file": "图形学/DX12/BUG记录.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -169,10 +181,12 @@
       "templates:插入模板": false
     }
   },
-  "active": "d4c266ad3d8dc565",
+  "active": "5d134345081c2add",
   "lastOpenFiles": [
-    "Math/3D数学/3D数学.md",
+    "zip/images/Pasted image 20230430134758.png",
+    "zip/images/Pasted image 20230430134726.png",
     "Math/3D数学/公式推导/三维旋转.md",
+    "Math/3D数学/3D数学.md",
     "技术美术/UnityShader/ASE.md",
     "技术美术/UnityShader/TA101.md",
     "技术美术/水体渲染/真实感水体渲染.md",
@@ -199,7 +213,6 @@
     "图形学/DX12/HLSL语法.md",
     "编程/C++/《C++ Primer 5th》.md",
     "Tools/工具流.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
@@ -210,7 +223,6 @@
     "zip/images/1682613248602.png",
     "zip/images/1682613248567.png",
     "zip/images/1682613248523.png",
-    "zip/images/1682613248484.png",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
     "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
