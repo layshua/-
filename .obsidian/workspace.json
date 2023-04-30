@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "技术美术/UnityShader/ASE.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/BUG记录.md"
+                "file": "技术美术/UnityShader/ASE.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "技术美术/UnityShader/ASE.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/BUG记录.md",
+                "file": "技术美术/UnityShader/ASE.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -146,6 +146,17 @@
   },
   "active": "111f80f765215a33",
   "lastOpenFiles": [
+    "技术美术/UnityShader/TA101.md",
+    "技术美术/UnityShader/ASE.md",
+    "技术美术/水体渲染/真实感水体渲染.md",
+    "技术美术/水体渲染/README.md",
+    "技术美术/UnityShader/庄懂AP01.md",
+    "技术美术/UnityShader/冯乐乐入门精要.md",
+    "Unity/C#/C#基础.md",
+    "技术美术/UnityShader",
+    "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
+    "Untitled.table",
+    "图形学/DX12/BUG记录.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
@@ -159,19 +170,11 @@
     "README.md",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/HLSL语法.md",
-    "图形学/DX12/BUG记录.md",
     "Math/3D数学/3D数学.md",
     "Math/3D数学/公式推导/三维旋转.md",
     "编程/C++/《C++ Primer 5th》.md",
     "Tools/工具流.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "AI/Python/Python基础.md",
-    "AI/Python/Numpy+Matplotlib.md",
-    "虚幻引擎/1 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
-    "编程/设计模式/工厂模式.md",
-    "编程/C++/C++补充.md",
-    "技术美术/冯乐乐入门精要/Shader入门精要.md",
-    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
@@ -190,8 +193,6 @@
     "Zbuffer/对游戏开发中的四元数的一些理解",
     "zip/images/TEST - Unreal Editor 2022-12-22 12-32-46.mp4",
     "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客/assets",
-    "Zbuffer/(19 条消息) 【Unity 编程】欧拉角与万向节死锁（图文版）_AndrewFan 的博客 - CSDN 博客",
-    "zip/images/Diagram 1.svg.xml",
     "Tools/Excalidraw/未命名.canvas",
     "未命名.canvas",
     "Software/未命名.canvas",
