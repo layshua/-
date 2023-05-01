@@ -15,7 +15,7 @@
     "animationDuration": 500,
     "maxWidth": 0,
     "highlight": true,
-    "coloring": "depth",
+    "coloring": "branch",
     "depth1Color": "#cb4b16",
     "depth1Thickness": "3",
     "depth2Color": "#6c71c4",
@@ -25,10 +25,10 @@
     "defaultColor": "#b58900",
     "defaultThickness": "1",
     "screenshotBgColor": "#002b36",
-    "screenshotBgStyle": "color",
-    "screenshotTextColor": "#fdf6e3",
+    "screenshotBgStyle": "theme",
+    "screenshotTextColor": "#ffffff",
     "screenshotTextColorEnabled": false,
     "titleAsRootNode": true,
-    "useThemeFont": false
+    "useThemeFont": true
   }
 }
