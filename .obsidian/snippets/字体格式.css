@@ -24,14 +24,6 @@ p {
     text-indent: 0em;
 }
 
-/*  list稍微后移以对齐*/
- .markdown-source-view.mod-cm6.is-readable-line-width .HyperMD-list-line {
-    margin-left: 6.2em !important;
-} 
-.markdown-source-view.mod-cm6 .cm-indent {
-    text-indent: 0.8em;
-}
-
 
 /* 标题行高 */
 .cm-header-1 {
