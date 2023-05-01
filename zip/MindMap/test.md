@@ -1,33 +1,3 @@
-# 5DX12 初始化
-test
-```markmap
----
-markmap:
-  height: 603
----
-
-# DX12 初始化
-
-## Debug
-
-## DXGIFactory
-
-## CommandAllocator
-- Reset
-## GraphicsCommandList
-
-
-```
-
-
-# DX12 管线梳理
-
-```markmap
----
-markmap:
-  colorFreezeLevel: 2
-  height: 930
----
 
 # DX12管线梳理
 
@@ -201,9 +171,9 @@ markmap:
     -   s0-sN
         
 
-# DX12 基础结构
+## DX12 基础结构
 
-## 初始化
+### 初始化
 
 -   DXAPI初始化
     
@@ -212,7 +182,7 @@ markmap:
     -   PSO
         
 
-## 渲染
+### 渲染
 
 -   模型和视口世界空间状态更新
     
@@ -221,10 +191,6 @@ markmap:
     -   提交
         
 
-# SLB
+## SLB
 
-#InitWindows
-
-```
-
-
+## InitWindows

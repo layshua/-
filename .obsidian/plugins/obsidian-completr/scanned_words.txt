@@ -35946,6 +35946,7 @@ VJuvv
 VvE
 VALVE
 Vlachos
+ViewprotInfo
 verge
 vPdIt
 vertical
@@ -46591,6 +46592,8 @@ UDK
 Underwater
 UnrealEngine
 Uncharted
+UpdateCalculations
+UnorderedAccessViews
 api
 ac
 app
@@ -54249,6 +54252,9 @@ Rjii
 README
 Ranine
 Realistic
+RTVHeap
+ResizeBuffers
+RootSignature
 Microsoft
 Menu
 MicaForEveryone
@@ -58642,6 +58648,7 @@ MzAFK
 MtFV
 MXQr
 Meshing
+MeshDraw
 Windows
 Win
 World
@@ -66681,6 +66688,9 @@ Stokes
 Smoothed
 Shoestring
 Shore
+SetDescriptorHeaps
+SetGraphicsRootSignature
+ShaderResourceViews
 Programs
 POP
 PC
@@ -70507,6 +70517,7 @@ PJmll
 Packets
 Phillips
 Personal
+PostInitDirect
 ContextMenuManager
 ClashVerge
 Clash
@@ -74377,6 +74388,11 @@ CryEngine
 Ceto
 Creating
 Charity
+CreateDXGIFactory
+CreateDevice
+CreateFence
+CBVHeap
+CaptureKeyboardKeys
 ImTip
 IMAP
 ID
@@ -78105,6 +78121,7 @@ IObo
 IHT
 IpEn
 IAsetVertexbuffers
+InitDirect
 qq
 qyi
 quad
@@ -92612,6 +92629,7 @@ baab
 bdfcf
 bacc
 beneath
+basic
 fe
 front
 fill
@@ -126103,6 +126121,7 @@ rTX
 rJI
 realistic
 rapids
+rich
 XXXXXX
 XXX
 XML
@@ -154812,6 +154831,11 @@ DQY
 Dbtt
 DLqH
 DdiiiqqQ
+DSVHeap
+DrawViewport
+DrawMesh
+DirectXPipelineState
+DXAPI
 LNK
 Log
 Linux
@@ -162814,6 +162838,7 @@ GZEL
 Gwd
 Gerstner
 Gmesh
+GetDebugInterface
 NULL
 Native
 NormalMap
