@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/软渲染器/软光栅/TinyRenderer.md",
+                "file": "图形学/DX12/龙书/脑图.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/软渲染器/软光栅/TinyRenderer.md"
+                "file": "图形学/DX12/龙书/脑图.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/软渲染器/软光栅/TinyRenderer.md",
+                "file": "图形学/DX12/龙书/脑图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/软渲染器/软光栅/TinyRenderer.md",
+                "file": "图形学/DX12/龙书/脑图.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,6 +147,9 @@
   },
   "active": "925345c1059bf2a5",
   "lastOpenFiles": [
+    "zip/images/DX12管线梳理.png",
+    "图形学/DX12/龙书/DX12理论.md",
+    "图形学/软渲染器/软光栅/TinyRenderer.md",
     "图形学/软渲染器/软光栅/总结.md",
     "test.md",
     "技术美术/学习大纲.md",
@@ -166,7 +169,6 @@
     "Math/3D数学/3D数学.md",
     "图形学/DX12/BUG记录.md",
     "zip/images/Pasted image 20230430163919.png",
-    "图形学/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
     "技术美术/UnityShader/TA101.md",
@@ -178,8 +180,6 @@
     "技术美术/UnityShader",
     "Untitled.table",
     "图形学/DX12/龙书/DX12初始化.canvas",
-    "图形学/DX12/龙书/脑图.md",
-    "图形学/图形学奇点/图形学奇点.md",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
     "zip/images/1682613248787.png",
