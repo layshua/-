@@ -4,16 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "b94cecc6fdea6d43",
+        "id": "c91f88d3979c198b",
         "type": "tabs",
         "children": [
           {
-            "id": "925345c1059bf2a5",
+            "id": "24bf45c75ee6d188",
             "type": "leaf",
             "state": {
-              "type": "kity-mind",
+              "type": "markdown",
               "state": {
-                "file": "zip/MindMap/20230501172508.km.md"
+                "file": "test.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -60,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/MindMap/20230501172508.km.md"
+                "file": "test.md"
               }
             }
           }
@@ -95,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/MindMap/20230501172508.km.md",
+                "file": "test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/MindMap/20230501172508.km.md",
+                "file": "test.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -143,11 +145,12 @@
       "templates:插入模板": false
     }
   },
-  "active": "925345c1059bf2a5",
+  "active": "24bf45c75ee6d188",
   "lastOpenFiles": [
-    "test.md",
-    "zip/MindMap/test.md",
     "zip/MindMap/20230501172508.km.md",
+    "test.md",
+    "README.md",
+    "zip/MindMap/test.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/龙书/脑图.md",
@@ -155,7 +158,6 @@
     "未命名思维导图-rich.md",
     "未命名思维导图.md",
     "未命名思维导图.html",
-    "README.md",
     "zip/MindMap",
     "图形学/软渲染器/软光栅/TinyRenderer.md",
     "zip/images/DX12管线梳理.png",
