@@ -33,5 +33,6 @@
   "obsidian-codemirror-options",
   "cm-editor-syntax-highlight-obsidian",
   "codeblock-customizer",
-  "obsidian-excalidraw-plugin"
+  "obsidian-excalidraw-plugin",
+  "obsidian-list-callouts"
 ]
