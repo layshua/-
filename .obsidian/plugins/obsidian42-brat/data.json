@@ -1,5 +1,6 @@
 {
   "pluginList": [
+    "eightHundreds/obsidian-kity-mind",
     "Stardusten/ob-table-enhancer"
   ],
   "pluginSubListFrozenVersion": [],
