@@ -14,13 +14,13 @@
     "字体格式",
     "右下角状态栏淡出",
     "Latex Suite插件配置",
-    "各种block块",
     "Front-matter格式",
     "tag标签格式",
     "outline",
     "quiet-outline插件配置",
     "callout",
-    "callout分栏"
+    "callout分栏",
+    "各种block块"
   ],
   "accentColor": "",
   "nativeMenus": false,

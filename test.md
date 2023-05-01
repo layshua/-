@@ -53,3 +53,30 @@ test
 > - 啊啊啊啊啊啊啊啊啊啊
 
 
+```c++
+/1屏幕深度
+float scenez max(0,
+LinearEyeDepth(
+UNITY_SAMPLE_DEPTH(tex2Dproj(_CameraDepthTexture,UNITY_PROJ
+-_ProjectionParams.g);
+float partz max(0,i.projPos.z -_ProjectionParams.g);
+/深度差
+float depthGap scenez partz;
+float shore smoothstep(0.1,0.5,saturate(1 depthGap *ShoreRange))>0.25
+?1
+0 *_ShoreTransparency;
+```
+
+```c++
+fixed foam shore;
+fixed4 foamCol foam FoamColor;
+foamCol.a *=ShoreTransparency;
+```
+
+```c++
+//近岸泡沫
+fixed foam = shore;
+fixed4 foamcol = foam * _Foamcolor;
+foamCo1.a *= _ShoreTransparency;
+
+```
