@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,6 +148,14 @@
   },
   "active": "94d9c3088a2ddee5",
   "lastOpenFiles": [
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "Math/3D数学/3D数学.md",
+    "Math/微积分/微积分基础.md",
+    "README.md",
+    "Math/LaTeX/常用语法.md",
+    "Math/线性代数/线性代数基础.md",
+    "Math/线性代数/矩阵论.md",
+    "Math/线性代数/《线性代数的本质》.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "zip/MindMap/DX12管线梳理.km.md",
@@ -168,20 +176,12 @@
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/Excalidraw/Drawing 2023-05-01 18.07.01.excalidraw.md",
     "testt.canvas",
-    "README.md",
     "zip/1.html",
     "zip/images/1.html",
     "zip/MindMap/test.md",
-    "图形学/DX12/龙书/脑图.md",
-    "图形学/软渲染器/软光栅/总结.md",
-    "未命名思维导图-rich.md",
-    "未命名思维导图.md",
     "未命名思维导图.html",
     "zip/MindMap",
-    "图形学/软渲染器/软光栅/TinyRenderer.md",
     "zip/images/DX12管线梳理.png",
-    "技术美术/学习大纲.md",
-    "zip/templates/callout分栏.md",
     "zip/images/Pasted image 20230501100651.png",
     "zip/images/Pasted image 20230430163919.png",
     "zip/images/Pasted image 20230430134758.png",
