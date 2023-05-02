@@ -146,44 +146,7 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "floating": {
-    "id": "fc030de99b990512",
-    "type": "floating",
-    "children": [
-      {
-        "id": "d1e750b38a2098da",
-        "type": "window",
-        "children": [
-          {
-            "id": "5f9e4fd45407e1ff",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "c3b27a9c43e1e574",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "编程/C++/《C++ Primer 5th》.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 0,
-        "y": 0,
-        "width": 854,
-        "height": 920,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "c3b27a9c43e1e574",
+  "active": "94d9c3088a2ddee5",
   "lastOpenFiles": [
     "编程/C++/《C++ Primer 5th》.md",
     "编程/C++/《Effective C++ 3th》.md",
