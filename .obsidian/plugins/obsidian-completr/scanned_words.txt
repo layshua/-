@@ -7421,6 +7421,7 @@ OGFF
 OOOWWW
 Outliner
 Oceans
+OMSetRenderTargets
 codeup
 clash
 ctrl
@@ -14726,6 +14727,8 @@ gggw
 ghyD
 gfffpp
 gameplay
+getMarkmap
+getOptions
 typora
 todo
 tooltip
@@ -18265,6 +18268,7 @@ theoretical
 topic
 theme
 tianpan
+toolbar
 markdown
 matter
 mod
@@ -25539,6 +25543,7 @@ wAoPD
 windousmessage
 waves
 wire
+whut
 utools
 url
 unresolved
@@ -35958,6 +35963,7 @@ VvE
 VALVE
 Vlachos
 ViewprotInfo
+ViewprotRect
 verge
 vPdIt
 vertical
@@ -50197,6 +50203,7 @@ acaf
 amplitude
 aabeecb
 aaccef
+attach
 Roaming
 RegWorkshop
 Release
@@ -54266,6 +54273,8 @@ Realistic
 RTVHeap
 ResizeBuffers
 RootSignature
+RSSetViewports
+RSSetScissorRects
 Microsoft
 Menu
 MicaForEveryone
@@ -58661,6 +58670,7 @@ MXQr
 Meshing
 MeshDraw
 MainTopic
+Markmap
 Windows
 Win
 World
@@ -66703,6 +66713,7 @@ Shore
 SetDescriptorHeaps
 SetGraphicsRootSignature
 ShaderResourceViews
+SwapChain
 Programs
 POP
 PC
@@ -70530,6 +70541,7 @@ Packets
 Phillips
 Personal
 PostInitDirect
+PostInit
 ContextMenuManager
 ClashVerge
 Clash
@@ -74405,6 +74417,8 @@ CreateDevice
 CreateFence
 CBVHeap
 CaptureKeyboardKeys
+Close
+CurrentSwapBuff
 ImTip
 IMAP
 ID
@@ -78134,6 +78148,7 @@ IHT
 IpEn
 IAsetVertexbuffers
 InitDirect
+InputElementDesc
 qq
 qyi
 quad
@@ -99821,6 +99836,7 @@ dasharray
 daba
 dccc
 dadff
+deriveOptions
 TFvYZOKeHL
 TAB
 TeX
@@ -111965,6 +111981,7 @@ sngg
 sVUal
 srJR
 sssIndensity
+setTimeout
 local
 list
 left
@@ -115382,6 +115399,7 @@ liiM
 laaatt
 looOOO
 listCallout
+lines
 YAML
 You
 YEBAYGhURFRofHx
@@ -122334,6 +122352,7 @@ hwgg
 headerRows
 headerCells
 here
+heading
 rgb
 right
 rm
@@ -136788,6 +136807,10 @@ Brownian
 Bones
 BoatAttack
 Bootcamp
+BUFF
+BackBufferFormat
+BuildMesh
+BuildRootSignature
 Fraktur
 Frame
 Foo
@@ -154853,6 +154876,13 @@ DrawViewport
 DrawMesh
 DirectXPipelineState
 DXAPI
+DepthStencilBuffer
+DepthStencilFormat
+Deap
+DescriptorRangeObjCBV
+DescriptorRangeViewportCBV
+DescriptorRangeMaterialCBV
+DescriptorRangeLightCBV
 LNK
 Log
 Linux
@@ -162857,6 +162887,8 @@ Gwd
 Gerstner
 Gmesh
 GetDebugInterface
+GetCurrentSwapBufferView
+GetCurrentDepthStencilView
 NULL
 Native
 NormalMap
@@ -166562,6 +166594,7 @@ NoX
 Nooo
 NSE
 Navier
+NhOHL
 ZooAnima
 ZooAnimal
 ZTest
@@ -174703,6 +174736,7 @@ QCCC
 QJyi
 QrU
 QLZ
+QueueDesc
 Java
 JPEG
 JlAGTAAAAAAf
@@ -193535,6 +193569,7 @@ jwx
 jumm
 jmoow
 jujj
+jsonOptions
 ÄjZU
 ÄJ
 Ät
