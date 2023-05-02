@@ -2,8 +2,8 @@
   "theme": "moonstone",
   "translucency": false,
   "monospaceFontFamily": "Fira Code,Fira Code Retina",
-  "textFontFamily": "Microsoft YaHei",
-  "interfaceFontFamily": "Microsoft YaHei",
+  "textFontFamily": "Calibri,Microsoft YaHei",
+  "interfaceFontFamily": "Microsoft YaHei UI",
   "cssTheme": "Minimal",
   "baseFontSize": 23,
   "enabledCssSnippets": [
