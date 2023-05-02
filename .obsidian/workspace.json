@@ -11,12 +11,8 @@
             "id": "24bf45c75ee6d188",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Obsidian/插件流.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -61,9 +57,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Tools/Obsidian/插件流.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -97,7 +91,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +107,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -146,11 +138,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "24bf45c75ee6d188",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "Tools/工具流.md",
-    "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer 5th》.md",
+    "仿射变换.md",
+    "Tools/Obsidian/插件流.md",
+    "Tools/工具流.md",
     "AI/深度学习/快速入门.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
@@ -182,7 +175,6 @@
     "编程/C++/《Effective C++ 3th》.md",
     "编程/设计模式/工厂模式.md",
     "编程/C++/C++补充.md",
-    "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "zip/images/Pasted image 20230430163919.png",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
