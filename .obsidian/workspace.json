@@ -4,15 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c91f88d3979c198b",
+        "id": "821c230a24510b72",
         "type": "tabs",
         "children": [
           {
-            "id": "24bf45c75ee6d188",
+            "id": "cfc38fc80f8c18b6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "kity-mind",
+              "state": {
+                "file": "zip/MindMap/20230501172508.km.md"
+              }
             }
           }
         ]
@@ -57,7 +59,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "zip/MindMap/20230501172508.km.md"
+              }
             }
           }
         ]
@@ -91,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zip/MindMap/20230501172508.km.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,6 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zip/MindMap/20230501172508.km.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -138,10 +144,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "cfc38fc80f8c18b6",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer 5th》.md",
+    "zip/MindMap/20230502173914.km.md",
+    "zip/MindMap/20230501172508.km.md",
+    "zip/MindMap/20230502173542.km.md",
     "仿射变换.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/插件流.md",
     "Tools/工具流.md",
     "AI/深度学习/快速入门.md",
@@ -150,7 +159,6 @@
     "图形学/DX12/龙书/DX12理论.md",
     "图形学/DX12/BUG记录.md",
     "AI/深度学习/《鱼书》.md",
-    "zip/MindMap/20230501172508.km.md",
     "AI/深度学习/123.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "test.md",
@@ -173,8 +181,6 @@
     "zip/templates/callout分栏.md",
     "zip/images/Pasted image 20230501100651.png",
     "编程/C++/《Effective C++ 3th》.md",
-    "编程/设计模式/工厂模式.md",
-    "编程/C++/C++补充.md",
     "zip/images/Pasted image 20230430163919.png",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
