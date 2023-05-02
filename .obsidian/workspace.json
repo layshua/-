@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "test.md",
+                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7cda2a9a088c6570",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AI/深度学习/123.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -62,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "test.md"
+                "file": "AI/深度学习/123.md"
               }
             }
           }
@@ -97,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test.md",
+                "file": "AI/深度学习/123.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "test.md",
+                "file": "AI/深度学习/123.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -145,11 +158,13 @@
       "templates:插入模板": false
     }
   },
-  "active": "24bf45c75ee6d188",
+  "active": "7cda2a9a088c6570",
   "lastOpenFiles": [
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "AI/深度学习/123.md",
+    "test.md",
     "图形学/DX12/龙书/未命名.canvas",
     "zip/MindMap/20230501172508.km.md",
-    "test.md",
     "zip/Excalidraw/Drawing 2023-04-21 09.51.42.excalidraw.md",
     "zip/Excalidraw/Drawing 2023-05-01 18.07.01.excalidraw.md",
     "testt.canvas",
@@ -180,7 +195,6 @@
     "图形学/DX12/HLSL语法.md",
     "技术美术/UnityShader/ASE.md",
     "Math/3D数学/3D数学.md",
-    "图形学/DX12/BUG记录.md",
     "zip/images/Pasted image 20230430163919.png",
     "zip/images/Pasted image 20230430134758.png",
     "zip/images/Pasted image 20230430134726.png",
