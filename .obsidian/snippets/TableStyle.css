@@ -242,7 +242,7 @@ Eg. cssclass: purpleRed, wideTable
 
 .academia th,
 .academia td {
-	border: 0 none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 0.51rem;
 	line-height: 1.1;
 }
@@ -255,6 +255,7 @@ Eg. cssclass: purpleRed, wideTable
 .academia table>tbody>tr:last-child>td,
 .academia table>tbody>tr:last-child>th {
 	border-bottom: 1.36px solid black;
+	
 }
 
 .academia thead th {
@@ -265,7 +266,8 @@ Eg. cssclass: purpleRed, wideTable
 }
 
 .academia tr:nth-child(even) {
-	background-color: #ebecf1;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: #fcfcfc;
 }
 
 .academia tbody tr:hover td {
@@ -282,6 +284,7 @@ Eg. cssclass: purpleRed, wideTable
 
 .academia-rounded table>tbody>tr>td {
 	border-bottom: 1px solid #ccccccbb;
+	background-color: #ffffff;
 }
 
 .academia-rounded table>tbody>tr:last-child>td {
@@ -305,8 +308,6 @@ Eg. cssclass: purpleRed, wideTable
 }
 
 /* --------------------------------------------   */
-
-
 /* --------------------------------------------   */
 /* White red table.                               */
 /* --------------------------------------------   */

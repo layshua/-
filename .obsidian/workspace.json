@@ -4,47 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "7aca17f76e201212",
+        "id": "61ce3863cdb196c4",
         "type": "tabs",
         "children": [
           {
-            "id": "94d9c3088a2ddee5",
+            "id": "96c2ec46df27ec4c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "14a4a51a1e7dceb7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6d12b8643d425d57",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -86,9 +57,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -122,7 +91,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +107,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -171,15 +138,17 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "6d12b8643d425d57",
+  "active": "96c2ec46df27ec4c",
   "lastOpenFiles": [
-    "Tools/Obsidian/TableStyle/03 - FlatBlue.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "zip/templates/yaml_metadata.md",
+    "未命名.md",
     "Tools/Obsidian/TableStyle/04 - Latex like.md",
+    "Tools/Obsidian/TableStyle/01 - Default Table.md",
     "Tools/Obsidian/TableStyle/05 - White red.md",
+    "Tools/Obsidian/TableStyle/03 - FlatBlue.md",
     "Tools/Obsidian/TableStyle/05 - White red rounded.md",
     "Tools/Obsidian/TableStyle/06 - Yellow cab.md",
-    "Tools/Obsidian/TableStyle/01 - Default Table.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/TableStyle/02 - PurpleRed.md",
     "test.md",
@@ -198,8 +167,6 @@
     "Math/线性代数/矩阵论.md",
     "Math/线性代数/《线性代数的本质》.md",
     "zip/MindMap/DX12管线梳理.km.md",
-    "zip/MindMap/20230502173914.km.md",
-    "zip/MindMap/20230502173542.km.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
