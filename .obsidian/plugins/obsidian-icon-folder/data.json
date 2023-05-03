@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "SiUnrealengine",
       "RiQuillPenLine",
       "FabDelicious",
       "FasChessKnight",
-      "FarImage",
-      "RiFolderZipLine"
+      "FarImage"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -40,5 +40,6 @@
   "zip/images": "FarImage",
   "zip/templates": "FabDelicious",
   "zip/Excalidraw": "RiQuillPenLine",
-  "zBuffer": "RiStackFill"
+  "zBuffer": "RiStackFill",
+  "虚幻引擎": "SiUnrealengine"
 }

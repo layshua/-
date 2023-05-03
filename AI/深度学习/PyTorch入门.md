@@ -327,11 +327,11 @@ tensor([1.4549], dtype=torch.float64)
 
 ### 2.1 张量
 
-`torch.Tensor` 是 Pytorch 最主要的库，当设置它的属性 `.requires_grad=True`，那么就会开始追踪在该变量上的所有操作，而完成计算后，可以调用 `.backward()` 并自动计算所有的梯度，得到的梯度都保存在属性 `.grad` 中。
-
-调用 `.detach()` 方法分离出计算的历史，可以停止一个 tensor 变量继续追踪其历史信息 ，同时也防止未来的计算会被追踪。
-
-而如果是希望防止跟踪历史（以及使用内存），可以将代码块放在 `with torch.no_grad():` 内，这个做法在使用一个模型进行评估的时候非常有用，因为模型会包含一些带有 `requires_grad=True` 的训练参数，但实际上并不需要它们的梯度信息。
+`torch.Tensor` 是 Pytorch 最主要的库。
+- 当设置它的属性 `.requires_grad=True`，那么就会开始追踪在该变量上的所有操作。
+- 完成计算后，可以调用 `.backward()` 并**自动计算所有的梯度**，得到的梯度都保存在属性 `.grad` 中。
+- 调用 `.detach()` 方法分离出计算的历史，可以停止一个 tensor 变量继续追踪其历史信息 ，同时也防止未来的计算会被追踪。
+- 而如果是希望防止跟踪历史（以及使用内存），可以将代码块放在 `with torch.no_grad():` 内，这个做法在使用一个模型进行评估的时候非常有用，因为模型会包含一些带有 `requires_grad=True` 的训练参数，但实际上并不需要它们的梯度信息。
 
 对于 `autograd` 的实现，还有一个类也是非常重要 -- `Function` 。
 
@@ -343,53 +343,53 @@ tensor([1.4549], dtype=torch.float64)
 
 首先导入必须的库：
 
-```
+```python
 import torch
 ```
 
 开始创建一个 tensor， 并让 `requires_grad=True` 来追踪该变量相关的计算操作：
 
-```
+```python
 x = torch.ones(2, 2, requires_grad=True)
 print(x)
 ```
 
 输出结果：
 
-```
+```python
 tensor([[1., 1.],
         [1., 1.]], requires_grad=True)
 ```
 
 执行任意计算操作，这里进行简单的加法运算：
 
-```
+```python
 y = x + 2
 print(y)
 ```
 
 输出结果：
 
-```
+```python
 tensor([[3., 3.],
-        [3., 3.]], grad_fn=<AddBackward>)
+       [3., 3.]], grad_fn=<AddBackward>)
 ```
 
 `y` 是一个操作的结果，所以它带有属性 `grad_fn`：
 
-```
+```python
 print(y.grad_fn)
 ```
 
 输出结果：
 
-```
+```python
 <AddBackward object at 0x00000216D25DCC88>
 ```
 
 继续对变量 `y` 进行操作：
 
-```
+```python
 z = y * y * 3
 out = z.mean()
 
@@ -399,7 +399,7 @@ print('out=', out)
 
 输出结果：
 
-```
+```python
 z= tensor([[27., 27.],
         [27., 27.]], grad_fn=<MulBackward>)
 
@@ -408,7 +408,7 @@ out= tensor(27., grad_fn=<MeanBackward1>)
 
 实际上，一个 `Tensor` 变量的默认 `requires_grad` 是 `False` ，可以像上述定义一个变量时候指定该属性是 `True`，当然也可以定义变量后，调用 `.requires_grad_(True)` 设置为 `True` ，这里带有后缀 `_` 是会改变变量本身的属性，在上一节介绍加法操作 `add_()` 说明过，下面是一个代码例子：
 
-```
+```python
 a = torch.randn(2, 2)
 a = ((a * 3) / (a - 1))
 print(a.requires_grad)
@@ -420,7 +420,7 @@ print(b.grad_fn)
 
 输出结果如下，第一行是为设置 `requires_grad` 的结果，接着显示调用 `.requires_grad_(True)`，输出结果就是 `True` 。
 
-```
+```python
 False
 
 True
@@ -428,11 +428,11 @@ True
 <SumBackward0 object at 0x00000216D25ED710>
 ```
 
-### **2.2 梯度**
+### 2.2 梯度
 
 接下来就是开始计算梯度，进行反向传播的操作。`out` 变量是上一小节中定义的，它是一个标量，因此 `out.backward()` 相当于 `out.backward(torch.tensor(1.))` ，代码如下：
 
-```
+```python
 out.backward()
 # 输出梯度 d(out)/dx
 print(x.grad)
@@ -440,7 +440,7 @@ print(x.grad)
 
 输出结果：
 
-```
+```python
 tensor([[4.5000, 4.5000],
         [4.5000, 4.5000]])
 ```
@@ -459,12 +459,13 @@ $\frac{\partial o}{\partial x_i} = \frac{3}{2}(x_i+2),\\ \frac{\partial o}{\part
 $\vec{y}=f(\vec{x})$
 
   
-那么对应的梯度是一个雅克比矩阵 (Jacobian matrix)：  
+那么对应的梯度是一个**雅克比矩阵** (Jacobian matrix)：  
 
 $\begin{split}J=\left(\begin{array}{ccc} \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}}\\ \vdots & \ddots & \vdots\\ \frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}} \end{array}\right)\end{split}$  
+
 一般来说，`torch.autograd` 就是用于计算雅克比向量 (vector-Jacobian) 乘积的工具。这里略过数学公式，直接上代码例子介绍：
 
-```
+```python
 x = torch.randn(3, requires_grad=True)
 
 y = x * 2
@@ -476,13 +477,13 @@ print(y)
 
 输出结果：
 
-```
+```python
 tensor([ 237.5009, 1774.2396,  274.0625], grad_fn=<MulBackward>)
 ```
 
 这里得到的变量 `y` 不再是一个标量，`torch.autograd` 不能直接计算完整的雅克比行列式，但我们可以通过简单的传递向量给 `backward()` 方法作为参数得到雅克比向量的乘积，例子如下所示：
 
-```
+```python
 v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float)
 y.backward(v)
 
@@ -491,13 +492,13 @@ print(x.grad)
 
 输出结果：
 
-```
+```python
 tensor([ 102.4000, 1024.0000,    0.1024])
 ```
 
 最后，加上 `with torch.no_grad()` 就可以停止追踪变量历史进行自动梯度计算：
 
-```
+```python
 print(x.requires_grad)
 print((x ** 2).requires_grad)
 
@@ -518,14 +519,6 @@ False
 更多有关 `autograd` 和 `Function` 的介绍：
 
 [https://pytorch.org/docs/autograd](https://pytorch.org/docs/autograd)
-
-本小节教程：
-
-[https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
-
-本小节的代码：
-
-[https://github.com/ccc013/DeepLearning_Notes/blob/master/Pytorch/practise/autograd.ipynb](https://github.com/ccc013/DeepLearning_Notes/blob/master/Pytorch/practise/autograd.ipynb)
 
 # **3. 神经网络**
 
