@@ -107834,6 +107834,7 @@ itUG
 iiIk
 iQb
 infographic
+iframe
 shift
 svg
 sf

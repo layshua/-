@@ -4,7 +4,7 @@
   "monospaceFontFamily": "Fira Code,Fira Code Retina",
   "textFontFamily": "Calibri,Microsoft YaHei",
   "interfaceFontFamily": "Microsoft YaHei UI",
-  "cssTheme": "",
+  "cssTheme": "Minimal",
   "baseFontSize": 23,
   "enabledCssSnippets": [
     "Font",
