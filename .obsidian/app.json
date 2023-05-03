@@ -9,7 +9,7 @@
   "strictLineBreaks": false,
   "autoConvertHtml": true,
   "livePreview": true,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "showIndentGuide": true,
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,

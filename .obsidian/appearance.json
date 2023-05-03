@@ -4,7 +4,7 @@
   "monospaceFontFamily": "Fira Code,Fira Code Retina",
   "textFontFamily": "Calibri,Microsoft YaHei",
   "interfaceFontFamily": "Microsoft YaHei UI",
-  "cssTheme": "Minimal",
+  "cssTheme": "",
   "baseFontSize": 23,
   "enabledCssSnippets": [
     "Font",
@@ -17,12 +17,12 @@
     "markmap",
     "各种block块",
     "右下角状态栏淡出",
-    "字体格式",
     "callout分栏",
     "Front-matter格式",
     "Latex Suite插件配置",
     "quiet-outline插件配置",
-    "TableStyle"
+    "TableStyle",
+    "字体格式"
   ],
   "accentColor": "",
   "nativeMenus": false,

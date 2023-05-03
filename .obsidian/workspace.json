@@ -11,8 +11,12 @@
             "id": "96c2ec46df27ec4c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Obsidian/插件流.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -57,7 +61,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Tools/Obsidian/插件流.md"
+              }
             }
           }
         ]
@@ -91,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Tools/Obsidian/插件流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Tools/Obsidian/插件流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -140,16 +148,19 @@
   },
   "active": "96c2ec46df27ec4c",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer 5th》.md",
-    "zip/templates/yaml_metadata.md",
-    "未命名.md",
+    "Math/3D数学/公式推导/三维旋转.md",
+    "Tools/Obsidian/插件流.md",
+    "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/TableStyle/04 - Latex like.md",
-    "Tools/Obsidian/TableStyle/01 - Default Table.md",
     "Tools/Obsidian/TableStyle/05 - White red.md",
     "Tools/Obsidian/TableStyle/03 - FlatBlue.md",
+    "Tools/Obsidian/TableStyle/01 - Default Table.md",
     "Tools/Obsidian/TableStyle/05 - White red rounded.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "Tools/工具流.md",
+    "zip/templates/yaml_metadata.md",
+    "未命名.md",
     "Tools/Obsidian/TableStyle/06 - Yellow cab.md",
-    "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/TableStyle/02 - PurpleRed.md",
     "test.md",
     "Tools/Obsidian/TableStyle",
@@ -164,9 +175,6 @@
     "README.md",
     "Math/LaTeX/常用语法.md",
     "Math/线性代数/线性代数基础.md",
-    "Math/线性代数/矩阵论.md",
-    "Math/线性代数/《线性代数的本质》.md",
-    "zip/MindMap/DX12管线梳理.km.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",

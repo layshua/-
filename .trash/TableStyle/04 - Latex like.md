@@ -6,9 +6,9 @@ cssclass: academia, academia-rounded
 
 <caption><b>Table 1.1</b> - A sample table with a descriptive caption.</caption>
 
-| Planet  |Distance from the Sun |1 Planetary day|Moons |
+|Planet |Distance from the Sun |1 Planetary day|Moons |
 |---------|-----------------------|------------------|-------|
-| Mercury |57.9 million km | 58.7 Earth days  |0|
+|Mercury|57.9 million km| 58.7 Earth days  |0|
 | Venus   | 108.2 million km      | 243 Earth days   |0 |
 | Earth   | 149.6 million km      | 24 hours         | 1     |
 | Mars    |227.9 million km |24.6 Earth hours|2|
