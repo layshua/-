@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -146,8 +146,9 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "94d9c3088a2ddee5",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/3D数学/3D数学.md",
     "Math/微积分/微积分基础.md",
@@ -178,7 +179,6 @@
     "testt.canvas",
     "zip/1.html",
     "zip/images/1.html",
-    "zip/MindMap/test.md",
     "未命名思维导图.html",
     "zip/MindMap",
     "zip/images/DX12管线梳理.png",
