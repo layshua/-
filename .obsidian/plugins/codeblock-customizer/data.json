@@ -1,6 +1,6 @@
 {
   "bEnableLineNumbers": true,
-  "bActiveCodeblockLineHighlight": true,
+  "bActiveCodeblockLineHighlight": false,
   "bActiveLineHighlight": false,
   "bGutterHighlight": true,
   "ExcludeLangs": "dataview, markmap, mermaid",
@@ -12,7 +12,7 @@
   "bDisplayCodeBlockIcon": false,
   "gutterTextColor": "#4A4D55",
   "gutterBackgroundColor": "#252931",
-  "SelectedTheme": "oneDarkPro for light",
+  "SelectedTheme": "light pro",
   "header": {
     "bHeaderBold": true,
     "bHeaderItalic": false,
@@ -83,6 +83,26 @@
     },
     {
       "name": "oneDarkPro for light",
+      "colors": {
+        "activeCodeBlockLineColor": "#586071",
+        "activeLineColor": "#468EEB33",
+        "backgroundColor": "#313641",
+        "highlightColor": "#485163",
+        "gutterTextColor": "#4A4D55",
+        "gutterBackgroundColor": "#252931",
+        "header": {
+          "bDefaultDarkTheme": false,
+          "bDefaultLightTheme": false,
+          "color": "#313641",
+          "textColor": "#464E5F",
+          "lineColor": "#252931",
+          "codeBlockLangColor": "#4A4D55",
+          "codeBlockLangBackgroundColor": "#252931"
+        }
+      }
+    },
+    {
+      "name": "light pro",
       "colors": {
         "activeCodeBlockLineColor": "#586071",
         "activeLineColor": "#468EEB33",

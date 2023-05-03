@@ -594,12 +594,12 @@ import torch.nn.functional as F
 ```
 这三行代码导入了 PyTorch 中的相关模块，包括张量操作和神经网络模块。
 
-```
+```python
 class Net(nn.Module):
 ```
 这一行定义了一个名为 Net 的类，它继承了 nn. Module 类，这意味着它是一个 PyTorch 中的神经网络模型。
 
-```
+```python
     def __init__(self):
         super(Net, self).__init__()
         # 输入图像是单通道，conv1 kenrnel size=5*5，输出通道 6
@@ -613,7 +613,7 @@ class Net(nn.Module):
 ```
 这一段代码定义了 Net 类的初始化函数，也就是创建网络模型时需要执行的操作。在这里，我们定义了两个卷积层和三个全连接层。第一个卷积层使用 5x5 的卷积核，输入通道为 1，输出通道为 6，第二个卷积层使用 5x5 的卷积核，输入通道为 6，输出通道为 16。全连接层依次为 120、84 和 10 个神经元。
 
-```
+```python
     def forward(self, x):
         # max-pooling 采用一个 (2,2) 的滑动窗口
         x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
@@ -627,7 +627,7 @@ class Net(nn.Module):
 ```
 这段代码定义了 Net 类的前向传播函数，也就是输入数据通过网络后的输出。在这里，我们定义了两个卷积层和三个全连接层之间的运算。在卷积层后使用了最大池化操作。最后返回输出结果。
 
-```
+```python
     def num_flat_features(self, x):
         # 除了 batch 维度外的所有维度
         size = x.size()[1:]
@@ -638,7 +638,7 @@ class Net(nn.Module):
 ```
 这段代码定义了一个辅助函数 num_flat_features，用于计算卷积层输出的特征数量。这个函数可以根据输入数据的形状计算出除了 batch 维度外的所有维度的乘积。
 
-```
+```python
 net = Net()
 print(net)
 ```
@@ -767,7 +767,7 @@ print(loss.grad_fn.next_functions[0][0].next_functions[0][0])
 
 下面是一个简单的例子，以 `conv1` 层的偏置参数 `bias` 在反向传播前后的结果为例：
 
-```
+```python
 # 清空所有参数的梯度缓存
 net.zero_grad()
 print('conv1.bias.grad before backward')
@@ -781,7 +781,7 @@ print(net.conv1.bias.grad)
 
 输出结果：
 
-```
+```python
 conv1.bias.grad before backward
 tensor([0., 0., 0., 0., 0., 0.])
 
@@ -801,7 +801,7 @@ tensor([ 0.0069,  0.0021,  0.0090, -0.0060, -0.0008, -0.0073])
 
 按照这个规则，代码实现如下所示：
 
-```
+```python
 # 简单实现权重的更新例子
 learning_rate = 0.01
 for f in net.parameters():
@@ -810,7 +810,7 @@ for f in net.parameters():
 
 但是这只是最简单的规则，深度学习有很多的优化算法，不仅仅是 `SGD`，还有 `Nesterov-SGD, Adam, RMSProp` 等等，为了采用这些不同的方法，这里采用 `torch.optim` 库，使用例子如下所示：
 
-```
+```python
 import torch.optim as optim
 # 创建优化器
 optimizer = optim.SGD(net.parameters(), lr=0.01)
