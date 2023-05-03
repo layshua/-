@@ -5,10 +5,6 @@ Github 地址： [https://github.com/pytorch/pytorch](https://github.com/pytorch
 
 本文是翻译自官方版教程 --[DEEP LEARNING WITH PYTORCH: A 60 MINUTE BLITZ](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)，一份 60 分钟带你快速入门 PyTorch 的官方教程。
 
-(ps. 文末有最新的更新，介绍了深度学习的入门资料推荐、PyTorch 的教程推荐，如果阅读本文后还是有些困难的，可以看看文末推荐的深度学习书籍和教程，先入门深度学习，有一定基础再学习 PyTorch，效果会更好！)
-
-本文目录如下：
-
 ![](1681487155789.png)
 
 # 1. Pytorch 是什么
@@ -44,7 +40,7 @@ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
 
 安装后，输入下列命令：
 
-```python nums
+```python
 from __future__ import print_function
 import torch
 x = torch.rand(5, 3)
@@ -53,7 +49,7 @@ print(x)
 
 输出结果类似下面的结果即安装成功：
 
-```python nums
+```python
 tensor([[0.3380, 0.3845, 0.3217],
         [0.8337, 0.9050, 0.2650],
         [0.2979, 0.7141, 0.9069],
@@ -63,7 +59,7 @@ tensor([[0.3380, 0.3845, 0.3217],
 
 然后是验证能否正确运行在 GPU 上，输入下列代码，这份代码中 `cuda.is_available()` 主要是用于检测是否可以使用当前的 GPU 显卡，如果返回 True，当然就可以运行，否则就不能。
 
-```python nums
+```python
 import torch
 torch.cuda.is_available()
 ```
@@ -74,7 +70,7 @@ Pytorch 的一大作用就是可以代替 Numpy 库，所以首先介绍 Tensors
 
 首先导入必须的库，主要是 torch
 
-```python nums
+```python
 from __future__ import print_function
 import torch
 ```
@@ -83,81 +79,26 @@ import torch
 
 首先是对 Tensors 的声明和定义方法，分别有以下几种：
 
-*   **`torch.empty()`**: 声明一个未初始化的矩阵。
+*   `torch.empty(x,y)`: 声明一个未初始化的矩阵。
+*   `torch.rand(x,y)`：随机初始化一个矩阵
+*   `torch.zeros(x,y)`：创建数值皆为 0 的矩阵
+*   `torch.ones`：创建数值都是 1 的矩阵
+*   `torch.tensor()`：直接传递 tensor 数值来创建
 
-```python nums
-# 创建一个 5*3 的矩阵
-x = torch.empty(5, 3)
-print(x)
-```
-
-输出结果如下：
-
-```python nums
-tensor([[9.2737e-41, 8.9074e-01, 1.9286e-37],
-        [1.7228e-34, 5.7064e+01, 9.2737e-41],
-        [2.2803e+02, 1.9288e-37, 1.7228e-34],
-        [1.4609e+04, 9.2737e-41, 5.8375e+04],
-        [1.9290e-37, 1.7228e-34, 3.7402e+06]])
-```
-
-*   **`torch.rand()`**：随机初始化一个矩阵
-
-```python nums
-# 创建一个随机初始化的 5*3 矩阵
-rand_x = torch.rand(5, 3)
-print(rand_x)
-```
-
-输出结果：
-
-```python nums
-tensor([[0.4311, 0.2798, 0.8444],
-        [0.0829, 0.9029, 0.8463],
-        [0.7139, 0.4225, 0.5623],
-        [0.7642, 0.0329, 0.8816],
-        [1.0000, 0.9830, 0.9256]])
-```
-
-*   **`torch.zeros()`**：创建数值皆为 0 的矩阵
-
-```python nums
-# 创建一个数值皆是 0，类型为 long 的矩阵
-zero_x = torch.zeros(5, 3, dtype=torch.long)
-print(zero_x)
-```
-
-输出结果如下：
-
-```python nums
-tensor([[0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]])
-```
-
-类似的也可以创建数值都是 1 的矩阵，调用 `torch.ones`
-
-*   **`torch.tensor()`**：直接传递 tensor 数值来创建
-
-```python nums
+```python
 # tensor 数值是 [5.5, 3]
 tensor1 = torch.tensor([5.5, 3])
 print(tensor1)
-```
 
-输出结果：
-
-```python nums
+# 输出
 tensor([5.5000, 3.0000])
 ```
 
 除了上述几种方法，还可以根据已有的 tensor 变量创建新的 tensor 变量，这种做法的好处就是可以保留已有 tensor 的一些属性，包括尺寸大小、数值属性，除非是重新定义这些属性。相应的实现方法如下：
 
-*   **`tensor.new_ones()`**：new_*() 方法需要输入尺寸大小
+*   `tensor.new_ones()`：new_() 方法需要输入尺寸大小
 
-```python nums
+```python
 # 显示定义新的尺寸是 5*3，数值类型是 torch.double
 tensor2 = tensor1.new_ones(5, 3, dtype=torch.double)  # new_* 方法需要输入 tensor 大小
 print(tensor2)
@@ -165,7 +106,7 @@ print(tensor2)
 
 输出结果：
 
-```python nums
+```python
 tensor([[1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.],
@@ -173,9 +114,9 @@ tensor([[1., 1., 1.],
         [1., 1., 1.]], dtype=torch.float64)
 ```
 
-*   **`torch.randn_like(old_tensor)`**：保留相同的尺寸大小
+*   `torch.randn_like(old_tensor)`：保留相同的尺寸大小
 
-```python nums
+```python
 # 修改数值类型
 tensor3 = torch.randn_like(tensor2, dtype=torch.float)
 print('tensor3: ', tensor3)
@@ -183,7 +124,7 @@ print('tensor3: ', tensor3)
 
 输出结果，这里是根据上个方法声明的 `tensor2` 变量来声明新的变量，可以看出尺寸大小都是 5*3，但是数值类型是改变了的。
 
-```python nums
+```python
 tensor3:  tensor([[-0.4491, -0.2634, -0.0040],
         [-0.1624,  0.4475, -0.8407],
         [-0.6539, -1.2772,  0.6060],
@@ -191,9 +132,9 @@ tensor3:  tensor([[-0.4491, -0.2634, -0.0040],
         [ 1.2900, -0.7475, -1.8212]])
 ```
 
-最后，对 tensors 的尺寸大小获取可以采用 `tensor.size()` 方法：
+ `tensor.size()` ：tensors 的尺寸大小获取
 
-```python nums
+```python
 print(tensor3.size())  
 # 输出: torch.Size([5, 3])
 ```
@@ -208,11 +149,11 @@ print(tensor3.size())
 
 对于加法的操作，有几种实现方式：
 
-*   **`+`** 运算符
-*   **`torch.add(tensor1, tensor2, [out=tensor3])`**
-*   **`tensor1.add_(tensor2)`**：直接修改 tensor 变量
+*   `+` 运算符
+*   `torch.add(tensor1, tensor2, [out=tensor3])`
+*   `tensor1.add_(tensor2)`：直接修改 tensor 变量
 
-```python nums
+```python
 tensor4 = torch.rand(5, 3)
 print('tensor3 + tensor4= ', tensor3 + tensor4)
 print('tensor3 + tensor4= ', torch.add(tensor3, tensor4))
@@ -227,7 +168,7 @@ print('tensor3= ', tensor3)
 
 输出结果
 
-```python nums
+```python
 tensor3 + tensor4=  tensor([[ 0.1000,  0.1325,  0.0461],
         [ 0.4731,  0.4523, -0.7517],
         [ 0.2995, -0.9576,  1.4906],
@@ -253,24 +194,21 @@ tensor3=  tensor([[ 0.1000,  0.1325,  0.0461],
         [ 2.2446, -0.3473, -1.0873]])
 ```
 
-**注意**：可以改变 tensor 变量的操作都带有一个后缀 `_`, 例如 `x.copy_(y), x.t_()` 都可以改变 x 变量
+**注意**：<mark style="background: #FF5582A6;">可以改变 tensor 变量的操作都带有一个后缀</mark> `_`, 例如 `x.copy_(y), x.t_()` 都可以改变 x 变量
 
 除了加法运算操作，对于 Tensor 的访问，和 Numpy 对数组类似，可以使用索引来访问某一维的数据，如下所示：
 
-```python nums
+```python
 # 访问 tensor3 第一列数据
 print(tensor3[:, 0])
-```
 
-输出结果：
-
-```python nums
+# 输出
 tensor([0.1000, 0.4731, 0.2995, 1.0461, 2.2446])
 ```
 
 对 Tensor 的尺寸修改，可以采用 `torch.view()` ，如下所示：
 
-```python nums
+```python
 x = torch.randn(4, 4)
 y = x.view(16)
 # -1 表示除给定维度外的其余维度的乘积
@@ -280,13 +218,13 @@ print(x.size(), y.size(), z.size())
 
 输出结果：
 
-```python nums
+```python
 torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])
 ```
 
 如果 tensor 仅有一个元素，可以采用 `.item()` 来获取类似 Python 中整数类型的数值：
 
-```python nums
+```python
 x = torch.randn(1)
 print(x)
 print(x.item())
@@ -294,7 +232,7 @@ print(x.item())
 
 输出结果:
 
-```python nums
+```python
 tensor([0.4549])
 0.4549027979373932
 ```
@@ -305,13 +243,13 @@ tensor([0.4549])
 
 ## 和 Numpy 数组的转换
 
-Tensor 和 Numpy 的数组可以相互转换，并且两者转换后共享在 CPU 下的内存空间，即改变其中一个的数值，另一个变量也会随之改变。
+Tensor 和 Numpy 的数组可以相互转换，并且**两者转换后共享在 CPU 下的内存空间，即改变其中一个的数值，另一个变量也会随之改变**。
 
-### **1.3.1 Tensor 转换为 Numpy 数组**
+### Tensor 转换为 Numpy 数组
 
 实现 Tensor 转换为 Numpy 数组的例子如下所示，调用 `tensor.numpy()` 可以实现这个转换操作。
 
-```python nums
+```python
 a = torch.ones(5)
 print(a)
 b = a.numpy()
@@ -320,14 +258,14 @@ print(b)
 
 输出结果：
 
-```python nums
+```python
 tensor([1., 1., 1., 1., 1.])
 [1. 1. 1. 1. 1.]
 ```
 
 此外，刚刚说了两者是共享同个内存空间的，例子如下所示，修改 `tensor` 变量 `a`，看看从 `a` 转换得到的 Numpy 数组变量 `b` 是否发生变化。
 
-```python nums
+```python
 a.add_(1)
 print(a)
 print(b)
@@ -335,28 +273,25 @@ print(b)
 
 输出结果如下，很明显，`b` 也随着 `a` 的改变而改变。
 
-```python nums
+```python
 tensor([2., 2., 2., 2., 2.])
 [2. 2. 2. 2. 2.]
 ```
 
-### 1.3.2 Numpy 数组转换为 Tensor
+### Numpy 数组转换为 Tensor
 
 转换的操作是调用 `torch.from_numpy(numpy_array)` 方法。例子如下所示：
 
-```python nums
+```python
 import numpy as np
 a = np.ones(5)
 b = torch.from_numpy(a)
 np.add(a, 1, out=a)
 print(a)
 print(b)
-```
 
-输出结果：
-
-```python nums
-[2. 2. 2. 2. 2.]
+ # 输出
+ [2. 2. 2. 2. 2.]
 tensor([2., 2., 2., 2., 2.], dtype=torch.float64)
 ```
 
@@ -366,7 +301,7 @@ tensor([2., 2., 2., 2., 2.], dtype=torch.float64)
 
 `Tensors` 可以通过 `.to` 方法转换到不同的设备上，即 CPU 或者 GPU 上。例子如下所示：
 
-```python nums
+```python
 # 当 CUDA 可用的时候，可用运行下方这段代码，采用 torch.device() 方法来改变 tensors 是否在 GPU 上进行计算操作
 if torch.cuda.is_available():
     device = torch.device("cuda")          # 定义一个 CUDA 设备对象
@@ -379,18 +314,10 @@ if torch.cuda.is_available():
 
 输出结果，第一个结果就是在 GPU 上的结果，打印变量的时候会带有 `device='cuda:0'`，而第二个是在 CPU 上的变量。
 
-```python nums
+```python
 tensor([1.4549], device='cuda:0')
 tensor([1.4549], dtype=torch.float64)
 ```
-
-本小节教程：
-
-[https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html)
-
-本小节的代码：
-
-[https://github.com/ccc013/DeepLearning_Notes/blob/master/Pytorch/practise/basic_practise.ipynb](https://github.com/ccc013/DeepLearning_Notes/blob/master/Pytorch/practise/basic_practise.ipynb)
 
 # 2. autograd
 
