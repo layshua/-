@@ -6,6 +6,7 @@
       {
         "id": "61ce3863cdb196c4",
         "type": "tabs",
+        "dimension": 50.033178500331786,
         "children": [
           {
             "id": "96c2ec46df27ec4c",
@@ -24,6 +25,7 @@
       {
         "id": "74a66d09929e46da",
         "type": "tabs",
+        "dimension": 49.966821499668214,
         "children": [
           {
             "id": "6bbb246aa135b3c7",
@@ -176,7 +178,7 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "6bbb246aa135b3c7",
+  "active": "96c2ec46df27ec4c",
   "lastOpenFiles": [
     "AI/Python/Python基础.md",
     "AI/深度学习/PyTorch入门.md",

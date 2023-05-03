@@ -541,7 +541,7 @@ False
 
 首先定义一个神经网络，下面是一个 5 层的卷积神经网络，包含两层卷积层和三层全连接层：
 
-```
+```python
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -582,9 +582,73 @@ net = Net()
 print(net)
 ```
 
-打印网络结构：
+---
+
+解析：
+好的，让我逐行解析这段代码。
+
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+```
+这三行代码导入了 PyTorch 中的相关模块，包括张量操作和神经网络模块。
 
 ```
+class Net(nn.Module):
+```
+这一行定义了一个名为 Net 的类，它继承了 nn. Module 类，这意味着它是一个 PyTorch 中的神经网络模型。
+
+```
+    def __init__(self):
+        super(Net, self).__init__()
+        # 输入图像是单通道，conv1 kenrnel size=5*5，输出通道 6
+        self.conv1 = nn.Conv2d(1, 6, 5)
+        # conv2 kernel size=5*5, 输出通道 16
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        # 全连接层
+        self.fc1 = nn.Linear(16*5*5, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+```
+这一段代码定义了 Net 类的初始化函数，也就是创建网络模型时需要执行的操作。在这里，我们定义了两个卷积层和三个全连接层。第一个卷积层使用 5x5 的卷积核，输入通道为 1，输出通道为 6，第二个卷积层使用 5x5 的卷积核，输入通道为 6，输出通道为 16。全连接层依次为 120、84 和 10 个神经元。
+
+```
+    def forward(self, x):
+        # max-pooling 采用一个 (2,2) 的滑动窗口
+        x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
+        # 核(kernel)大小是方形的话，可仅定义一个数字，如 (2,2) 用 2 即可
+        x = F.max_pool2d(F.relu(self.conv2(x)), 2)
+        x = x.view(-1, self.num_flat_features(x))
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+```
+这段代码定义了 Net 类的前向传播函数，也就是输入数据通过网络后的输出。在这里，我们定义了两个卷积层和三个全连接层之间的运算。在卷积层后使用了最大池化操作。最后返回输出结果。
+
+```
+    def num_flat_features(self, x):
+        # 除了 batch 维度外的所有维度
+        size = x.size()[1:]
+        num_features = 1
+        for s in size:
+            num_features *= s
+        return num_features
+```
+这段代码定义了一个辅助函数 num_flat_features，用于计算卷积层输出的特征数量。这个函数可以根据输入数据的形状计算出除了 batch 维度外的所有维度的乘积。
+
+```
+net = Net()
+print(net)
+```
+这段代码创建了一个 Net 类的实例 net，并打印输出该模型的结构信息。
+
+---
+
+打印网络结构：
+
+```python
 Net(
   (conv1): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))
   (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
@@ -598,7 +662,7 @@ Net(
 
 `net.parameters()` 可以返回网络的训练参数，使用例子如下：
 
-```
+```python
 params = list(net.parameters())
 print('参数数量: ', len(params))
 # conv1.weight
@@ -607,14 +671,14 @@ print('第一个参数大小: ', params[0].size())
 
 输出：
 
-```
+```python
 参数数量:  10
 第一个参数大小:  torch.Size([6, 1, 5, 5])
 ```
 
 然后简单测试下这个网络，随机生成一个 32*32 的输入：
 
-```
+```python
 # 随机定义一个变量输入网络
 input = torch.randn(1, 1, 32, 32)
 out = net(input)
@@ -623,14 +687,14 @@ print(out)
 
 输出结果：
 
-```
+```python
 tensor([[ 0.1005,  0.0263,  0.0013, -0.1157, -0.1197, -0.0141,  0.1425, -0.0521,
           0.0689,  0.0220]], grad_fn=<ThAddmmBackward>)
 ```
 
-接着反向传播需要先清空梯度缓存，并反向传播随机梯度：
+接着反向传播需要**先清空梯度缓存，并反向传播随机梯度**：
 
-```
+```python
 # 清空所有参数的梯度缓存，然后计算随机梯度进行反向传播
 net.zero_grad()
 out.backward(torch.randn(1, 10))
@@ -647,7 +711,7 @@ out.backward(torch.randn(1, 10))
 
 PyTorch 中其实已经定义了不少的[损失函数](https://pytorch.org/docs/nn.html#loss-functions)，这里仅采用简单的均方误差：`nn.MSELoss` ，例子如下：
 
-```
+```python
 output = net(input)
 # 定义伪标签
 target = torch.randn(10)
@@ -661,13 +725,13 @@ print(loss)
 
 输出如下：
 
-```
+```python
 tensor(0.6524, grad_fn=<MseLossBackward>)
 ```
 
 这里，整个网络的数据输入到输出经历的计算图如下所示，其实也就是数据从输入层到输出层，计算 `loss` 的过程。
 
-```
+```python
 input -> conv2d -> relu -> maxpool2d -> conv2d -> relu -> maxpool2d
       -> view -> linear -> relu -> linear -> relu -> linear
       -> MSELoss
@@ -678,7 +742,7 @@ input -> conv2d -> relu -> maxpool2d -> conv2d -> relu -> maxpool2d
 
 用代码来说明：
 
-```
+```python
 # MSELoss
 print(loss.grad_fn)
 # Linear layer
@@ -689,7 +753,7 @@ print(loss.grad_fn.next_functions[0][0].next_functions[0][0])
 
 输出：
 
-```
+```python
 <MseLossBackward object at 0x0000019C0C349908>
 
 <ThAddmmBackward object at 0x0000019C0C365A58>
