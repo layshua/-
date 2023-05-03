@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6d12b8643d425d57",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -75,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md"
               }
             }
           }
@@ -110,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "Tools/Obsidian/TableStyle/04 - Latex like.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -159,11 +171,21 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "6d12b8643d425d57",
   "lastOpenFiles": [
+    "Tools/Obsidian/TableStyle/03 - FlatBlue.md",
+    "Tools/Obsidian/TableStyle/04 - Latex like.md",
+    "Tools/Obsidian/TableStyle/05 - White red.md",
+    "Tools/Obsidian/TableStyle/05 - White red rounded.md",
+    "Tools/Obsidian/TableStyle/06 - Yellow cab.md",
+    "Tools/Obsidian/TableStyle/01 - Default Table.md",
+    "编程/C++/《C++ Primer 5th》.md",
+    "Tools/Obsidian/插件流.md",
+    "Tools/Obsidian/TableStyle/02 - PurpleRed.md",
+    "test.md",
+    "Tools/Obsidian/TableStyle",
     "图形学/DX12/DirectXMath.md",
     "图形学/DX12/HLSL语法.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Math/3D数学/3D数学.md",
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《Effective C++ 3th》.md",
@@ -176,19 +198,10 @@
     "Math/线性代数/矩阵论.md",
     "Math/线性代数/《线性代数的本质》.md",
     "zip/MindMap/DX12管线梳理.km.md",
-    "test.md",
     "zip/MindMap/20230502173914.km.md",
     "zip/MindMap/20230502173542.km.md",
-    "仿射变换.md",
-    "Tools/Obsidian/插件流.md",
-    "Tools/工具流.md",
-    "AI/深度学习/快速入门.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
-    "图形学/DX12/BUG记录.md",
-    "AI/深度学习/《鱼书》.md",
-    "AI/深度学习/123.md",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "testt.canvas",
     "zip/1.html",
     "zip/images/1.html",
@@ -209,7 +222,6 @@
     "zip/images/1682613248675.png",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？/assets",
     "zBuffer/最近种草了 AR 眼镜，想买来旅游露营追剧，推荐吗？爆火的 Nreal Air 是不是智商税？真实体验如何？",
-    "Zbuffer/DirectXMath 库标量函数 - Win32 apps",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
