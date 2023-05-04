@@ -13,10 +13,18 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/PyTorch入门.md",
+                "file": "AI/深度学习/《鱼书》.md",
                 "mode": "source",
                 "source": false
               }
+            }
+          },
+          {
+            "id": "3a27ae7d73befea9",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
             }
           }
         ]
@@ -62,7 +70,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/PyTorch入门.md"
+                "file": "AI/深度学习/《鱼书》.md"
               }
             }
           }
@@ -97,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/PyTorch入门.md",
+                "file": "AI/深度学习/《鱼书》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/PyTorch入门.md",
+                "file": "AI/深度学习/《鱼书》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,8 +156,13 @@
   },
   "active": "96c2ec46df27ec4c",
   "lastOpenFiles": [
-    "AI/深度学习/《鱼书》.md",
+    "zip/images/Pasted image 20230504100625.png",
+    "zip/images/Pasted image 20230504100422.png",
+    "zip/images/Pasted image 20230504100315.png",
+    "zip/images/Pasted image 20230504100254.png",
+    "zip/images/Pasted image 20230504100248.png",
     "AI/深度学习/PyTorch入门.md",
+    "AI/深度学习/《鱼书》.md",
     "AI/深度学习/快速入门.md",
     "AI/Python/Python基础.md",
     "Tools/Obsidian/插件流.md",
@@ -176,7 +189,6 @@
     "图形学/DX12/龙书/DX12理论.md",
     "编程/C++/《Effective C++ 3th》.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
-    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
@@ -193,10 +205,6 @@
     "Untitled.table",
     "zip/images/image-20220702145045963.png",
     "虚幻引擎/6 动画",
-    "zip/images/1682613248787.png",
-    "zip/images/1682613248749.png",
-    "zip/images/1682613248708.png",
-    "zip/images/1682613248675.png",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
