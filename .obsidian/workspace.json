@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/PyTorch入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md"
+                "file": "AI/深度学习/PyTorch入门.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/PyTorch入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/PyTorch入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,9 +148,9 @@
   },
   "active": "96c2ec46df27ec4c",
   "lastOpenFiles": [
+    "AI/深度学习/《鱼书》.md",
     "AI/深度学习/PyTorch入门.md",
     "AI/深度学习/快速入门.md",
-    "AI/深度学习/《鱼书》.md",
     "AI/Python/Python基础.md",
     "Tools/Obsidian/插件流.md",
     "AI/Zotero",
