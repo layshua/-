@@ -20,18 +20,6 @@
             }
           },
           {
-            "id": "1ec6e6cfafd0ca46",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zip/templates/others/Zotero_Integration.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "31f44865e0111dd3",
             "type": "leaf",
             "state": {
@@ -45,20 +33,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "4d37a6fd91caa37e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2a3509e70bb6ed90",
-            "type": "leaf",
-            "state": {
-              "type": "zdc-debug",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/templates/others/Zotero_Integration.md"
+                "file": "AI/深度学习/《鱼书》.md"
               }
             }
           }
@@ -136,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/templates/others/Zotero_Integration.md",
+                "file": "AI/深度学习/《鱼书》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/templates/others/Zotero_Integration.md",
+                "file": "AI/深度学习/《鱼书》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,11 +159,11 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "1ec6e6cfafd0ca46",
+  "active": "31f44865e0111dd3",
   "lastOpenFiles": [
+    "zip/templates/others/Zotero_Integration.md",
     "zip/templates/others",
     "Tools/工具流.md",
-    "zip/templates/others/Zotero_Integration.md",
     "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
     "AI/深度学习/《鱼书》.md",
     "zip/images/Pasted image 20230505211236.png",
@@ -235,7 +209,6 @@
     "未命名思维导图.html",
     "zip/MindMap",
     "技术美术/UnityShader",
-    "Untitled.table",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
