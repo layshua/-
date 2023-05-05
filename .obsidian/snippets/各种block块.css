@@ -34,21 +34,8 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
     padding: 5px 5px;
 }
 
-
-/* advanced codeblock插件（已删除）*/ 
-/* codeblock行号格式  */
-/*  span.live-preview-codeblock-line-nums {
-    display: inline-block;
-    width: 1em;
-    margin-right: 1em;
-    color: #7a7a7a99;
-    border-right: 1px solid #7a7a7a99;
-    padding-right: 1.5em;
-    text-align: right;
-    white-space: nowrap; 
-    user-select: none;}  /* 禁止选择行号 */ 
-
-.codeblock-customizer-header-container {
-    border-bottom: 2px groove var(--header-line-color);
-    margin-top: 16px;
+/* codeblock 去除圆角 */
+body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblock-bg
+{
+    border-radius: 0;
 }
