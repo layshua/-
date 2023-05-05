@@ -42,21 +42,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "37a61cf8157f9b99",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI/Python/Python基础.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -99,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md"
+                "file": "AI/深度学习/大白话讲解卷积神经网络工作原理.md"
               }
             }
           }
@@ -134,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,11 +171,16 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "1ec6e6cfafd0ca46",
   "lastOpenFiles": [
-    "AI/Nerf",
-    "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
     "AI/深度学习/《鱼书》.md",
+    "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
+    "zip/images/Pasted image 20230505211236.png",
+    "zip/images/Pasted image 20230505211218.png",
+    "Tools/工具流.md",
+    "zip/images/Pasted image 20230505210002.png",
+    "AI/Python/Python基础.md",
+    "AI/Nerf",
     "zip/images/Pasted image 20230505184232.png",
     "zip/images/Pasted image 20230505184036.png",
     "zip/images/Pasted image 20230505183918.png",
@@ -195,15 +188,10 @@
     "zip/images/Pasted image 20230505183825.png",
     "zip/images/Pasted image 20230505183615.png",
     "zip/images/Pasted image 20230505183329.png",
-    "zip/images/Pasted image 20230505183309.png",
-    "zip/images/Pasted image 20230505183151.png",
-    "zip/images/Pasted image 20230505181531.png",
     "AI/深度学习/PyTorch入门.md",
     "AI/深度学习/快速入门.md",
     "AI/Python/axis轴.md",
-    "AI/Python/Python基础.md",
     "AI/Python/Numpy+Matplotlib.md",
-    "Tools/工具流.md",
     "Tools/Obsidian/插件流.md",
     "AI/Zotero",
     "科研",
@@ -233,7 +221,6 @@
     "zip/MindMap",
     "技术美术/UnityShader",
     "Untitled.table",
-    "虚幻引擎/6 动画",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
