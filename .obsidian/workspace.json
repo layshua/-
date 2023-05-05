@@ -13,18 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "Tools/工具流.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "3a27ae7d73befea9",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
             }
           }
         ]
@@ -70,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md"
+                "file": "Tools/工具流.md"
               }
             }
           }
@@ -105,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "Tools/工具流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "Tools/工具流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
