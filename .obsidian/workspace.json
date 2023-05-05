@@ -30,6 +30,18 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "37a61cf8157f9b99",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AI/Python/Python基础.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -161,6 +173,8 @@
   },
   "active": "1ec6e6cfafd0ca46",
   "lastOpenFiles": [
+    "AI/Python/Python基础.md",
+    "AI/深度学习/《鱼书》.md",
     "Tools/工具流.md",
     "zip/images/Pasted image 20230504141658.png",
     "zip/images/Pasted image 20230504135520.png",
@@ -173,9 +187,7 @@
     "zip/images/Pasted image 20230504102346.png",
     "zip/images/Pasted image 20230504100625.png",
     "AI/深度学习/PyTorch入门.md",
-    "AI/深度学习/《鱼书》.md",
     "AI/深度学习/快速入门.md",
-    "AI/Python/Python基础.md",
     "Tools/Obsidian/插件流.md",
     "AI/Zotero",
     "科研",
