@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/Nerf/翻译.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md"
+                "file": "AI/Nerf/翻译.md"
               }
             }
           }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/Nerf/翻译.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "AI/Nerf/翻译.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -161,23 +161,25 @@
   },
   "active": "31f44865e0111dd3",
   "lastOpenFiles": [
+    "AI/深度学习/《鱼书》.md",
+    "AI/Nerf/翻译.md",
+    "zip/images/1683303647816.png",
+    "zBuffer/新种草英文文献阅读——小绿鲸 SCI 阅读器，好用之处在哪呢？.md",
+    "zip/images/1683303647732.png",
+    "zip/images/1683303647696.png",
+    "zip/images/1683303647639.png",
+    "zip/images/1683303647600.png",
+    "zip/images/1683303647525.png",
+    "zip/images/1683303647487.png",
+    "zip/images/1683303647407.png",
     "zip/templates/others/Zotero_Integration.md",
     "zip/templates/others",
     "Tools/工具流.md",
     "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
-    "AI/深度学习/《鱼书》.md",
     "zip/images/Pasted image 20230505211236.png",
     "zip/images/Pasted image 20230505211218.png",
-    "zip/images/Pasted image 20230505210002.png",
     "AI/Python/Python基础.md",
     "AI/Nerf",
-    "zip/images/Pasted image 20230505184232.png",
-    "zip/images/Pasted image 20230505184036.png",
-    "zip/images/Pasted image 20230505183918.png",
-    "zip/images/Pasted image 20230505183836.png",
-    "zip/images/Pasted image 20230505183825.png",
-    "zip/images/Pasted image 20230505183615.png",
-    "zip/images/Pasted image 20230505183329.png",
     "AI/深度学习/PyTorch入门.md",
     "AI/深度学习/快速入门.md",
     "AI/Python/axis轴.md",
@@ -200,7 +202,6 @@
     "test.md",
     "Tools/Obsidian/TableStyle",
     "图形学/DX12/DirectXMath.md",
-    "图形学/DX12/HLSL语法.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
