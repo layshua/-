@@ -8,55 +8,11 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4bbd07cae83a8afd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e6201e8844a1b925",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
-            }
-          },
-          {
-            "id": "4aeb16328a4be738",
+            "id": "8125d2d10c4b6655",
             "type": "leaf",
             "state": {
               "type": "empty",
               "state": {}
-            }
-          },
-          {
-            "id": "4e205a021117919b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8125d2d10c4b6655",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Obsidian/插件流.md",
-                "mode": "source",
-                "source": false
-              }
             }
           }
         ]
@@ -71,7 +27,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 53.41726618705036,
+        "dimension": 53.41726618705035,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -102,7 +58,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
+                "file": "图形学/01 3D数学/公式推导/03 光照向量-MSI.md"
               }
             }
           }
@@ -111,7 +67,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 46.58273381294964,
+        "dimension": 46.58273381294965,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -137,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量-MSI.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量-MSI.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,17 +141,26 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "8125d2d10c4b6655",
   "lastOpenFiles": [
+    "图形学/01 3D数学/公式推导/03 光照向量.md",
+    "图形学/01 3D数学/公式推导/03 光照向量-MSI.md",
     "Tools/Obsidian/插件流.md",
+    "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
+    "技术美术/学习大纲.md",
     "README.md",
+    "Tools/Obsidian/Mermaid流图.md",
+    "虚幻引擎/01 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
+    "虚幻引擎/01 指南/光照设置.md",
+    "虚幻引擎/01 指南/ue操作指南.md",
+    "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
+    "Tools/工具流.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "zip/Legacy/Unity/C",
     "技术美术/03 NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/05 UnityShader/疑问.md",
-    "技术美术/学习大纲.md",
     "图形学/07 图形学奇点/图形学奇点.md",
     "图形学/02 图形系统/图形渲染管线详细梳理.md",
     "zip/images/Pasted image 20230506174824.png",
@@ -216,15 +181,6 @@
     "图形学/03 图形API/OpenGL/LearnOpenGL.md",
     "图形学/03 图形API/DX12/DirectXMath.md",
     "图形学/03 图形API/DX12/HLSL语法.md",
-    "图形学/03 图形API/DX12/Windows编程.md",
-    "图形学/03 图形API/DX12/自研引擎/SBL库.md",
-    "图形学/03 图形API/DX12/自研引擎/BUG记录.md",
-    "图形学/03 图形API/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/03 图形API/DX12/自研引擎/1 引擎开发环境部署.md",
-    "图形学/01 3D数学/3D数学.md",
-    "图形学/01 3D数学/公式推导/03 光照向量.md",
-    "图形学/01 3D数学/公式推导/01 三维旋转.md",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
     "zip/icons/lucide-icons",
