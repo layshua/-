@@ -1,11 +1,22 @@
 
+
+---
+title: NeRF:将场景表示为用于视图合成的神经辐射场
+aliases: []
+tags: []
+create_time: 2023-05-06 21:54
+uid: 202305062154
+cssclass: academia, academia-rounded
+banner: "![[ca177eecd11fb6fd36c5538ca5534611_MD5.png]]"
+---
+
 **NeRF: 将场景表示为用于视图合成的神经辐射场**
 NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis
 
 # 摘要
 摘要：我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
 
-> [!question] 自然可微
+> [!question] 自然可微?
 > 
 
 Keywords: scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
@@ -26,7 +37,7 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 
 > [!example] 
 > 
-![[zip/images/f2310459741bfc15287288399fc1a55b_MD5.png|700]] 
+![[zip/images/f2310459741bfc15287288399fc1a55b_MD5.png|750]] 
 > 
 图 1：我们提出了一种方法，优化了一组输入图像中的场景的连续 5D 神经辐射场表示（任何连续位置的体积密度和视图相关（view-dependent）的颜色）。我们使用体渲染（volume rendering）技术，沿着光线积累这个场景表示的采样样本，以从任何视角渲染场景。在这里，我们可视化了在周围半球上随机捕获的合成鼓场景的 100 个输入视图集，并展示了从优化的 NeRF 表示中渲染的两个新视图。
 
@@ -35,8 +46,9 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 图 2 可视化了整个管线：
 
 > [!example] 
-> ![[zip/images/ca177eecd11fb6fd36c5538ca5534611_MD5.png|700]] 
-> 图 2：我们的神经辐射场场景表示（neural radiance field scene representation）和可微分渲染（differentiable rendering）过程概述。我们通过沿摄影机光线（a）采样 5D 坐标（位置和观察方向），将这些位置输入 MLP 以生成颜色和体积密度（b），并使用体渲染技术将这些值合成为图像（c），从而合成图像。该渲染函数（rendering function）是可微的，因此我们可以通过最小化合成图像和真实观测图像（d）之间的残差来优化场景表示。
+> ![[ca177eecd11fb6fd36c5538ca5534611_MD5.png|700]] 
+> 图 2：我们的神经辐射场场景表示（neural radiance field scene representation）和可微分渲染（differentiable rendering）过程概述。
+> 我们通过沿相机光线（a）采样 5D 坐标（位置和观察方向），将这些位置输入 MLP 以生成颜色和体积密度（b），并使用体渲染技术将这些值合成为图像（c）。该渲染函数是可微的，因此我们可以通过最小化合成图像和真实观测图像（d）之间的残差来优化场景表示。
 
        我们发现，优化复杂场景的神经辐射场表示法的基本实现并没有收敛到足够高的分辨率表示（a sufficiently high-resolution representation），并且在每个摄影机光线所需的采样数方面效率低下。我们通过将输入 5D 坐标转换为位置编码来解决这些问题，位置编码使 MLP 能够表示更高频率的函数，并且我们提出了一种分层采样程序，以减少对这种高频场景表示进行充分采样所需的查询数。
 

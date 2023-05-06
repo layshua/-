@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/Nerf/【论文】Nerf.md",
+                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/Nerf/【论文】Nerf.md"
+                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/Nerf/【论文】Nerf.md",
+                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/Nerf/【论文】Nerf.md",
+                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,9 +147,11 @@
   },
   "active": "8125d2d10c4b6655",
   "lastOpenFiles": [
+    "AI/论文/翻译.md",
+    "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "AI/未命名",
+    "zip/images/Pasted image 20230506215201.png",
     "AI/Nerf/Nerf.md",
-    "AI/Nerf/【论文】Nerf.md",
-    "AI/Nerf/翻译.md",
     "图形学/01 3D数学/公式推导/03 光照向量-MSI.md",
     "图形学/01 3D数学/公式推导/03 光照向量.md",
     "Tools/Obsidian/插件流.md",
@@ -182,9 +184,7 @@
     "zip/images/1683366278896.png",
     "zip/images/1683366278828.png",
     "zip/images/1683366278749.png",
-    "zip/images/1683366278671.png",
     "图形学/04 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md",
-    "图形学/04 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
     "zip/icons/lucide-icons",
@@ -192,7 +192,6 @@
     "zip/icons/font-awesome-solid",
     "zip/icons/font-awesome-regular",
     "zip/icons/font-awesome-brands",
-    "zip/icons",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
