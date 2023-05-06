@@ -1,16 +1,16 @@
 {
   "settings": {
     "migrated": true,
-    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "iconPacksPath": "zip/icon",
     "fontSize": 15,
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "FasIcons",
       "SiUnrealengine",
       "RiQuillPenLine",
       "FabDelicious",
-      "FasChessKnight",
-      "FarImage"
+      "FasChessKnight"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -41,5 +41,6 @@
   "zip/templates": "FabDelicious",
   "zip/Excalidraw": "RiQuillPenLine",
   "zBuffer": "RiStackFill",
-  "虚幻引擎": "SiUnrealengine"
+  "虚幻引擎": "SiUnrealengine",
+  "zip/icons": "FasIcons"
 }
