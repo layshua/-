@@ -31,9 +31,12 @@
     "06 Latex Suite插件配置",
     "08 callout分栏",
     "07 Front-matter格式",
-    "[ui] Floating Tab Header mini"
+    "[ui] Floating Tab Header mini",
+    "10 悬浮标签页标题栏",
+    "[ui] Collapsible Right Headers",
+    "11 可折叠的左面板标题"
   ],
   "accentColor": "",
   "nativeMenus": false,
-  "showViewHeader": false
+  "showViewHeader": true
 }

@@ -1,11 +1,11 @@
 /*
-    Collapsible Right Headers
-    Save some space in the right headers
+    Collapsible left Headers
+    Save some space in the left headers
     https://github.com/replete/obsidian-minimal-theme-css-snippets
 */
 
-/* header container on right */
-.mod-right-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container {
+/* header container on left */
+.mod-left-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container {
     background:
         repeating-linear-gradient(
             135deg, 
@@ -15,11 +15,11 @@
             var(--background-modifier-border) 11px, 
             transparent 11px
         ) !important;
-    height:8px;
+    height:5px;
     transition:.2s all ease-in;
     border-bottom-color:transparent;
 }
-.mod-right-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container::before {
+.mod-left-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container::before {
     content:'';
     background:linear-gradient(to top, var(--background-primary), transparent);
     display:block;
@@ -32,9 +32,9 @@
 }
 
 
-.mod-right-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container:hover,
-.mod-right-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container:focus-within,
-body.is-grabbing .mod-right-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container {
+.mod-left-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container:hover,
+.mod-left-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container:focus-within,
+body.is-grabbing .mod-left-split .workspace-tabs + .workspace-tabs .workspace-tab-header-container {
     /* is-grabbing visibility is to make dragging panels around usable */
     height:var(--header-height);
     background:var(--background-primary) !important;

@@ -1,5 +1,5 @@
 /*
-    Floating Tab Header
+    Floating Tab Header Mini
     With inline title enabled, it seems a waste to take up vertical space of the 'view header'
     especially if you don't use the back/forward buttons or the breadcrumb, so this minifies
     that interface into a float right toolbar.
@@ -12,9 +12,9 @@
     background:transparent !important;
     border:none;
     position:fixed;
-    top:8px;
-    right:10px;
-    right: calc(var(--scrollbar-size) + 8px);
+    top:0px;
+    right:0px;   /* 设置位置 */
+    /* right: calc(var(--scrollbar-size) + 8px); */
     padding: 5px 5px;
     justify-content:end;
     border-radius: 8px;
@@ -34,12 +34,14 @@
 /* Show/hide nav + breadcrumb interaction */
 .view-header-nav-buttons,
 .view-header-title-container,
-.view-header .cmdr-adder {
+.view-header .cmdr-adder,
+.view-header .clickable-icon:not(:last-child) {
     opacity:0;
     display:none;
 }
 .view-header:hover :is(.view-header-nav-buttons, .view-header-title-container),
-.view-header:focus-within :is(.view-header-nav-buttons, .view-header-title-container){
+.view-header:focus-within :is(.view-header-nav-buttons, .view-header-title-container),
+.view-header:is(:hover) .clickable-icon:not(.view-header-icon){
     opacity:1;
     display:flex
 }

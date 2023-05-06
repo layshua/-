@@ -20,6 +20,14 @@
             }
           },
           {
+            "id": "e6201e8844a1b925",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
             "id": "4aeb16328a4be738",
             "type": "leaf",
             "state": {
@@ -51,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -64,7 +71,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 63.57913669064748,
+        "dimension": 53.41726618705036,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -104,7 +111,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 36.42086330935252,
+        "dimension": 46.58273381294964,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -178,11 +185,12 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "zip/Legacy/Unity/C",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "Tools/Obsidian/插件流.md",
     "README.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "zip/Legacy/Unity/C",
     "技术美术/03 NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
@@ -225,7 +233,6 @@
     "zip/icons/font-awesome-regular",
     "zip/icons/font-awesome-brands",
     "zip/icons",
-    "zip/Legacy",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
