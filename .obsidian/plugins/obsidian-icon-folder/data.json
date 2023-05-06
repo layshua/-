@@ -3,14 +3,14 @@
     "migrated": true,
     "iconPacksPath": "zip/icons",
     "fontSize": 15,
-    "emojiStyle": "none",
+    "emojiStyle": "native",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "💰",
+      "🤐",
       "RiMindMap",
       "RiMoneyCnyBoxLine",
-      "RiMoneyCnyCircleLine",
-      "FasIcons",
-      "SiUnrealengine"
+      "RiMoneyCnyCircleLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -29,7 +29,7 @@
   "Math": "IbNumbers",
   "Tools": "RiToolsFill",
   "AI": "SiOpenai",
-  "zip": "RiFolderZipLine",
+  "zip": "💰",
   "zip/images": "FarImage",
   "zip/templates": "FabDelicious",
   "zip/Excalidraw": "RiQuillPenLine",

@@ -18323,6 +18323,7 @@ tokens
 tradeoffs
 tablefilesfiles
 tablem
+tesslation
 markdown
 matter
 mod
@@ -66860,6 +66861,7 @@ Ship
 Sets
 Similarity
 SQLite
+Scheduler
 Programs
 POP
 PC
@@ -70700,6 +70702,7 @@ Perceptual
 Previewfilespreview
 Previewfiles
 Pasted
+PCle
 ContextMenuManager
 ClashVerge
 Clash
@@ -74591,6 +74594,7 @@ CVPR
 CREATE
 CreatedfilesfilepropFile
 Createdfiles
+Conversion
 ImTip
 IMAP
 ID
@@ -92885,6 +92889,7 @@ baseline
 bhds
 bntk
 buzk
+bottleneck
 fe
 front
 fill
@@ -112281,6 +112286,7 @@ schemaIdm
 schemaId
 schemam
 sticker
+starved
 local
 list
 left
@@ -141218,6 +141224,7 @@ Fusion
 Fern
 Filefilesfiletrue
 Filefiles
+Fermi
 Element
 Entity
 Enity
@@ -155255,6 +155262,8 @@ Discussion
 Differentiable
 DeepSDF
 DeepVoxels
+Dispatch
+DrawCube
 LNK
 Log
 Linux
