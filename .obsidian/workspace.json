@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "61ce3863cdb196c4",
+        "id": "ccfef41a18d39ae6",
         "type": "tabs",
         "children": [
           {
-            "id": "96c2ec46df27ec4c",
+            "id": "388a2c991d120a7c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -47,7 +47,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#file",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -62,16 +62,18 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           },
           {
-            "id": "6711ec808180dc9a",
+            "id": "8beef7971b90e92b",
             "type": "leaf",
             "state": {
-              "type": "mk-file-view",
-              "state": {}
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
             }
           }
         ]
@@ -105,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,13 +124,22 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "e464dbb7c1495e0d",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -156,12 +167,23 @@
   },
   "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer 5th》.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/C++补充.md",
+    "Tools/工具流.md",
+    "zip/templates/callout分栏.md",
+    "zip/templates/yaml_metadata.md",
+    "zip/templates/mermaid流图.md",
+    "Math/LaTeX/常用语法.md",
     "Tools/Obsidian/插件流.md",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "编程/C++/Google C++风格.md",
+    "编程/C++/Cherno剩余.md",
+    "编程/C++/C++原理.md",
     "DCC/DCC.md",
     "DCC/context.mdb",
     "DCC/PBR全流程.md",
     "README.md",
-    "Tools/工具流.md",
     "Context/spacesLastSync.log",
     "Context",
     "未命名.md",
@@ -186,18 +208,8 @@
     "AI/Nerf",
     "AI/深度学习/PyTorch入门.md",
     "AI/深度学习/快速入门.md",
-    "AI/Python/axis轴.md",
-    "AI/Python/Numpy+Matplotlib.md",
     "AI/Zotero",
     "科研",
-    "Tools/Obsidian/Mermaid流图.md",
-    "Math/3D数学/公式推导/三维旋转.md",
-    "Tools/Obsidian/TableStyle/04 - Latex like.md",
-    "Tools/Obsidian/TableStyle/05 - White red.md",
-    "Tools/Obsidian/TableStyle/03 - FlatBlue.md",
-    "Tools/Obsidian/TableStyle/01 - Default Table.md",
-    "Tools/Obsidian/TableStyle/05 - White red rounded.md",
-    "编程/C++/《C++ Primer 5th》.md",
     "Tools/Obsidian/TableStyle",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",

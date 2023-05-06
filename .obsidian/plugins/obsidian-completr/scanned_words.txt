@@ -70686,6 +70686,7 @@ PSNR
 Perceptual
 Previewfilespreview
 Previewfiles
+Pasted
 ContextMenuManager
 ClashVerge
 Clash
