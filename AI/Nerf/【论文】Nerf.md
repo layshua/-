@@ -1,73 +1,20 @@
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [blog.csdn.net](https://blog.csdn.net/BIT_HXZ/article/details/128055763)
-
-**目录**
-
-[1 Introduction](#1%20Introduction)
-
-[2 Related Work](#2%20Related%20Work)
-
-[3 Neural Radiance Field Scene Representation](#3%20Neural%20Radiance%20Field%20Scene%20Representation)
-
-[4 Volume Rendering with Radiance Fields](#4%20Volume%20Rendering%20with%20Radiance%20Fields)
-
-[5 Optimizing a Neural Radiance Field](#5%20Optimizing%20a%20Neural%20Radiance%20Field)
-
-[5.1 Positional encoding](#5.1%20Positional%20encoding)
-
-[5.2 Hierarchical volume sampling](#5.2%20Hierarchical%20volume%20sampling)
-
-[5.3 Implementation details](#5.3%20Implementation%20details)
-
-[6 Results](#6%20Results)
-
-[6.1 Datasets](#6.1%20Datasets)
-
-[6.2 Comparisons](#6.2%20Comparisons)
-
-[6.3 Discussion](#6.3%20Discussion)
-
-[7 Conclusion](#7%20Conclusion)
-
-[A Additional Implementation Details](#A%20Additional%20Implementation%20Details)
-
-[B Additional Baseline Method Details](#B%20Additional%20Baseline%20Method%20Details)
-
-[C NDC ray space derivation](#C%20NDC%20ray%20space%20derivation)
-
-[D Additional Results](#D%20Additional%20Results)
-
-[参考：](#%E5%8F%82%E8%80%83%EF%BC%9A)
-
-[（1）朗伯体：](#%EF%BC%881%EF%BC%89%E6%9C%97%E4%BC%AF%E4%BD%93%EF%BC%9A)
-
-[（2）level sets](#%EF%BC%882%EF%BC%89level%20sets)
-
-[（3）alpha 合成](#%EF%BC%883%EF%BC%89alpha%E5%90%88%E6%88%90)
-
-[（4）PDF](#%EF%BC%884%EF%BC%89PDF)
-
-[（5）逆变换采样](#%EF%BC%885%EF%BC%89%E9%80%86%E5%8F%98%E6%8D%A2%E9%87%87%E6%A0%B7)
-
-[（6）PSNR、SSIM、LPIPS](#%EF%BC%885%EF%BC%89PSNR%E3%80%81SSIM%E3%80%81LPIPS)
-
-**注：红色字体、？？？、注等处为自己进行的学习与标注**
 
 **NeRF: 将场景表示为用于视图合成的神经辐射场**
-
 NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis
 
-摘要：我们提出了一种方法，通过使用稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 (θ，∅))，其输出是该空间位置的体积密度和与视点相关的发射辐射（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体积渲染技术（volume rendering techniques）将输出的颜色和密度投影到图像中。由于体积渲染是自然可微分的（differentiable），优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效优化神经辐射场（neural radiance fields），以渲染具有复杂几何体和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染（neural rendering）和视图合成（view synthesis）工作的结果。视图合成结果最好作为视频观看，因此我们敦促读者观看我们的补充视频，以便进行令人信服的比较。
+# 摘要
+摘要：我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体积渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体积渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
 
 Keywords: scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
-
 关键词：场景表示、视图合成、基于图像的渲染、体渲染、3D 深度学习
 
-**1 Introduction**
-==================
+# 1 Introduction
 
-       在这项工作中，我们通过直接优化连续 5D 场景表示（a continuous 5D scene representation）的参数以最小化渲染一组捕获图像的误差，以新的方式解决了视图合成中的长期问题。
+在这项工作中，我们**通过直接优化连续 5D 场景表示（continuous 5D scene representation）的参数以最小化渲染一组捕获图像的误差**，以一种新的方式解决了视图合成中长期存在的问题。
 
-       我们将静态场景表示为一个连续的 5D 函数，该函数输出空间中每一点（x，y，z）的每个方向（θ，∅）的辐射度，以及每一点的密度，其作用类似于一个微分不透明度（a differential opacity），控制通过（x，y，z）的光线积累多少辐射度。我们的方法通过从单个 5D 坐标（x，y，z，θ，∅）回归到单个体积密度和视角相关 RGB 颜色（a single volume density and view-dependent RGB color），优化了没有任何卷积层的深度全连接神经网络（通常称为多层感知器或 MLP）来表示此函数。为了从一个特定的视角渲染这个神经辐射场（NeRF），我们：1）将相机光线穿过场景，产生一组采样的三维点，2）将这些点和它们相应的二维观察方向作为神经网络的输入，产生一组颜色和密度的输出，3）使用经典的体积渲染技术，将这些颜色和密度累积成二维图像。因为这个过程是自然可微的（naturally differentiable），我们可以使用梯度下降来优化这个模型，通过最小化每个观测图像和从我们的表示中呈现的相应视图之间的误差（和真值进行对比）。在多个视图中最小化这一误差，鼓励（encourages）网络通过为包含真正的基本场景内容（the true underlying scene content）的位置分配高体积密度和准确的颜色来预测一个连贯的场景模型（a coherent model of the scene）。图 2 显示了整个流程。
+我们将静态场景表示为一个连续的 5D 函数，该函数输出空间中每一点（x，y，z）在每个方向（θ，∅）的辐射度，以及每一点的密度，其作用类似于一个微分不透明度（differential opacity）控制通过（x，y，z）的光线积累多少辐射度。
+
+**我们的方法通过从单个 5D 坐标（x，y，z，θ，∅）回归到单个体积密度和视角相关 RGB 颜色（a single volume density and view-dependent RGB color），优化了一个没有任何卷积层的深度全连接神经网络（通常称为多层感知器或 MLP）。** 为了从一个特定的视角渲染这个神经辐射场（NeRF），我们：1）将相机光线穿过场景，产生一组采样的三维点，2）将这些点和它们相应的二维观察方向作为神经网络的输入，产生一组颜色和密度的输出，3）使用经典的体积渲染技术，将这些颜色和密度累积成二维图像。因为这个过程是自然可微的（naturally differentiable），我们可以使用梯度下降来优化这个模型，通过最小化每个观测图像和从我们的表示中呈现的相应视图之间的误差（和真值进行对比）。在多个视图中最小化这一误差，鼓励（encourages）网络通过为包含真正的基本场景内容（the true underlying scene content）的位置分配高体积密度和准确的颜色来预测一个连贯的场景模型（a coherent model of the scene）。图 2 显示了整个流程。
 
        我们发现，优化复杂场景的神经辐射场表示法的基本实现并没有收敛到足够高的分辨率表示（a sufficiently high-resolution representation），并且在每个摄影机光线所需的采样数方面效率低下。我们通过将输入 5D 坐标转换为位置编码来解决这些问题，位置编码使 MLP 能够表示更高频率的函数，并且我们提出了一种分层采样程序，以减少对这种高频场景表示进行充分采样所需的查询数。
 
