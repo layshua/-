@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/Nerf/翻译.md",
+                "file": "Tools/工具流.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,11 +75,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/Nerf/翻译.md"
+                "file": "Tools/工具流.md"
               }
             }
+          },
+          {
+            "id": "6ac42647fd110e31",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -110,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/Nerf/翻译.md",
+                "file": "Tools/工具流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/Nerf/翻译.md",
+                "file": "Tools/工具流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -161,23 +170,27 @@
   },
   "active": "31f44865e0111dd3",
   "lastOpenFiles": [
-    "AI/深度学习/《鱼书》.md",
+    "Context/spacesLastSync.log",
+    "Context",
+    "未命名.md",
+    "AI/Nerf/simpread-深度学习 (20)_nerf 论文翻译与学习_deepvoxel 数据集_biter0088 的博客 - CSDN 博客.md",
+    "Tools/工具流.md",
+    "zip/images/c63b5bd865d10a7f0fb2fabc3e4ecabc_MD5.png",
+    "zip/images/9113a128922c1057515b049757e0a878_MD5.png",
+    "zip/images/2afcca71e6fc1e627f07eca7f40bfb1b_MD5.png",
+    "zip/images/c35c005833847a6e948b2730e82816db_MD5.png",
+    "zip/images/b1225f67776be154ff455901bf67bb16_MD5.png",
+    "zip/images/733f74122d553c58cc6570d8475a17d6_MD5.png",
+    "zip/images/0133c59104c5360c8bf5d4f0a4d4813c_MD5.png",
+    "zip/images/f82ffe8db5ffa05673325ae754112d82_MD5.png",
+    "zip/images/6606a94f69f166cd9f71ef5035fe66fb_MD5.png",
+    "zip/images/9a349cb2e53e6b67e80e8e4df05dcffc_MD5.png",
     "AI/Nerf/翻译.md",
-    "zip/images/1683303647816.png",
+    "AI/深度学习/《鱼书》.md",
     "zBuffer/新种草英文文献阅读——小绿鲸 SCI 阅读器，好用之处在哪呢？.md",
-    "zip/images/1683303647732.png",
-    "zip/images/1683303647696.png",
-    "zip/images/1683303647639.png",
-    "zip/images/1683303647600.png",
-    "zip/images/1683303647525.png",
-    "zip/images/1683303647487.png",
-    "zip/images/1683303647407.png",
     "zip/templates/others/Zotero_Integration.md",
     "zip/templates/others",
-    "Tools/工具流.md",
     "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
-    "zip/images/Pasted image 20230505211236.png",
-    "zip/images/Pasted image 20230505211218.png",
     "AI/Python/Python基础.md",
     "AI/Nerf",
     "AI/深度学习/PyTorch入门.md",
@@ -196,12 +209,9 @@
     "Tools/Obsidian/TableStyle/05 - White red rounded.md",
     "编程/C++/《C++ Primer 5th》.md",
     "zip/templates/yaml_metadata.md",
-    "未命名.md",
     "Tools/Obsidian/TableStyle/06 - Yellow cab.md",
     "Tools/Obsidian/TableStyle/02 - PurpleRed.md",
-    "test.md",
     "Tools/Obsidian/TableStyle",
-    "图形学/DX12/DirectXMath.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
@@ -209,7 +219,6 @@
     "zip/images/1.html",
     "未命名思维导图.html",
     "zip/MindMap",
-    "技术美术/UnityShader",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
