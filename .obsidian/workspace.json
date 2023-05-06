@@ -18,6 +18,18 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b5c615f0215fc297",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/LaTeX/常用语法.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -147,8 +159,10 @@
   },
   "active": "8125d2d10c4b6655",
   "lastOpenFiles": [
-    "AI/论文/知识库/位置编码 Positional Encoding.md",
+    "Math/LaTeX/常用语法.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "zip/images/Pasted image 20230506233504.png",
+    "AI/论文/知识库/位置编码 Positional Encoding.md",
     "AI/论文/知识库",
     "zBuffer/一文教你彻底理解 Transformer 中 Positional Encoding.md",
     "zip/images/1683383583460.png",
@@ -165,7 +179,6 @@
     "zip/images/1683383292668.png",
     "zip/images/1683383292628.png",
     "zip/images/1683383292591.png",
-    "zip/images/1683383292566.png",
     "AI/论文/翻译.md",
     "AI/未命名",
     "AI/Nerf/Nerf.md",
