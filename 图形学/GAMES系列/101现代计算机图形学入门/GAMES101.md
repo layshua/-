@@ -1,6 +1,14 @@
-> [!NOTE] 约定
-> 行向量
-> 右手坐标系
+
+
+---
+title: GAMES101
+aliases: []
+tags: []
+create_time: 2023-05-06 15:41
+uid: 202305061541
+cssclass: academia, academia-rounded
+banner: "![[Pasted image 20230506154153.png]]"
+---
 # 光栅化
 
 ### 三角形-基本形状单元

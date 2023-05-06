@@ -11,11 +11,14 @@
             "id": "4bbd07cae83a8afd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-                "mode": "source",
-                "source": false
+                "file": "图形学/DX12/龙书/未命名.canvas",
+                "viewState": {
+                  "x": 1256.9742588334102,
+                  "y": -1442.0188614034455,
+                  "zoom": -1.053491358563689
+                }
               }
             }
           }
@@ -62,7 +65,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md"
+                "file": "图形学/DX12/龙书/未命名.canvas"
               }
             }
           },
@@ -107,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+                "file": "图形学/DX12/龙书/未命名.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+                "file": "图形学/DX12/龙书/未命名.canvas",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,36 +160,38 @@
   },
   "active": "4bbd07cae83a8afd",
   "lastOpenFiles": [
-    "虚幻引擎/3 材质 & 渲染/303 实时渲染.md",
+    "图形学/DX12/龙书/DX12初始化.canvas",
+    "zip/MindMap/DX12渲染流程.km.md",
+    "图形学/DX12/龙书/未命名.canvas",
+    "zip/MindMap/DX12管线梳理.km.md",
+    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "zip/images/Pasted image 20230506154153.png",
+    "模板.md",
+    "图形学/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/DX12/自研引擎/1 引擎开发环境部署.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "虚幻引擎/3 材质 & 渲染/202 材质教程.md",
     "虚幻引擎/3 材质 & 渲染/101 材质大师.md",
+    "虚幻引擎/2 蓝图 & U++/U++.md",
+    "编程/C++/Cherno剩余.md",
+    "编程/C++/C++原理.md",
+    "编程/设计模式/工厂模式.md",
+    "README.md",
+    "虚幻引擎/4 Niagara/101 Niagara.md",
+    "虚幻引擎/2 蓝图 & U++/蓝图开发最佳实践.md",
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
-    "编程/C++/《C++ Primer 5th》.md",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "虚幻引擎/3 材质 & 渲染/303 实时渲染.md",
     "Tools/工具流.md",
     "zip/templates/yaml_metadata.md",
     "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/插件流.md",
-    "DCC/PBR全流程.md",
-    "AI/AI.md",
-    "AI/Nerf/simpread-深度学习 (20)_nerf 论文翻译与学习_deepvoxel 数据集_biter0088 的博客 - CSDN 博客.md",
-    "AI/Nerf/Nerf.md",
-    "AI/Nerf/翻译.md",
-    "虚幻引擎/2 蓝图 & U++/蓝图开发最佳实践.md",
-    "虚幻引擎/2 蓝图 & U++/U++.md",
-    "编程/C++/C++补充.md",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/设计模式/工厂模式.md",
     "zip/images/Pasted image 20230506151238.png",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/C++原理.md",
     "AI/context.mdb",
     "Context/Computer-Graphics-and-Tech-Art.mdb",
-    "zip/templates/callout分栏.md",
-    "zip/templates/mermaid流图.md",
-    "Math/LaTeX/常用语法.md",
-    "编程/C++/Google C++风格.md",
-    "DCC/DCC.md",
     "DCC/context.mdb",
     "Context/spacesLastSync.log",
     "Context",
@@ -198,13 +203,10 @@
     "zip/images/733f74122d553c58cc6570d8475a17d6_MD5.png",
     "zip/images/0133c59104c5360c8bf5d4f0a4d4813c_MD5.png",
     "zip/images/f82ffe8db5ffa05673325ae754112d82_MD5.png",
-    "zip/images/6606a94f69f166cd9f71ef5035fe66fb_MD5.png",
     "zip/templates/others",
     "AI/Nerf",
     "AI/Zotero",
     "科研",
-    "图形学/DX12/龙书/DX12初始化.canvas",
-    "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
