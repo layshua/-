@@ -3,7 +3,10 @@
 NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis
 
 # 摘要
-摘要：我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体积渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体积渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
+摘要：我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
+
+> [!question] 自然可微
+> 
 
 Keywords: scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
 关键词：场景表示、视图合成、基于图像的渲染、体渲染、3D 深度学习
@@ -14,19 +17,37 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 
 我们将静态场景表示为一个连续的 5D 函数，该函数输出空间中每一点（x，y，z）在每个方向（θ，∅）的辐射度，以及每一点的密度，其作用类似于一个微分不透明度（differential opacity）控制通过（x，y，z）的光线积累多少辐射度。
 
-**我们的方法通过从单个 5D 坐标（x，y，z，θ，∅）回归到单个体积密度和视角相关 RGB 颜色（a single volume density and view-dependent RGB color），优化了一个没有任何卷积层的深度全连接神经网络（通常称为多层感知器或 MLP）。** 为了从一个特定的视角渲染这个神经辐射场（NeRF），我们：1）将相机光线穿过场景，产生一组采样的三维点，2）将这些点和它们相应的二维观察方向作为神经网络的输入，产生一组颜色和密度的输出，3）使用经典的体积渲染技术，将这些颜色和密度累积成二维图像。因为这个过程是自然可微的（naturally differentiable），我们可以使用梯度下降来优化这个模型，通过最小化每个观测图像和从我们的表示中呈现的相应视图之间的误差（和真值进行对比）。在多个视图中最小化这一误差，鼓励（encourages）网络通过为包含真正的基本场景内容（the true underlying scene content）的位置分配高体积密度和准确的颜色来预测一个连贯的场景模型（a coherent model of the scene）。图 2 显示了整个流程。
+**我们的方法通过从单个 5D 坐标（x，y，z，θ，∅）回归到单个体积密度和视角相关 RGB 颜色（a single volume density and view-dependent RGB color），优化了一个没有任何卷积层的深度全连接神经网络（通常称为多层感知器或 MLP）。** 
+
+**为了从一个特定的视角渲染这个神经辐射场（NeRF），我们：**
+1. 相机光线步进穿过场景，生成一组采样的三维点。
+2. 将这些点和它们相应的 2D 观察方向作为神经网络的输入，产生一组颜色和密度的输出。
+3. 使用经典的体渲染技术，将这些颜色和密度累积到一个 2D 图像中。
+
+> [!example] 
+> 
+![[zip/images/f2310459741bfc15287288399fc1a55b_MD5.png|700]] 
+> 
+图 1：我们提出了一种方法，优化了一组输入图像中的场景的连续 5D 神经辐射场表示（任何连续位置的体积密度和视图相关（view-dependent）的颜色）。我们使用体渲染（volume rendering）技术，沿着光线积累这个场景表示的采样样本，以从任何视角渲染场景。在这里，我们可视化了在周围半球上随机捕获的合成鼓场景的 100 个输入视图集，并展示了从优化的 NeRF 表示中渲染的两个新视图。
+
+因为这个过程是自然可微的，我们可以使用梯度下降来优化这个模型，通过最小化每个观察图像和从我们的表示中呈现的相应视图之间的误差（和真值进行对比）。
+通过将高体积密度和准确的颜色分配给包含真实底层场景内容的位置，最大限度地减少多个视图之间的误差，鼓励网络预测一个连贯的场景模型。
+图 2 可视化了整个管线：
+
+> [!example] 
+> ![[zip/images/ca177eecd11fb6fd36c5538ca5534611_MD5.png|700]] 
+> 图 2：我们的神经辐射场场景表示（neural radiance field scene representation）和可微分渲染（differentiable rendering）过程概述。我们通过沿摄影机光线（a）采样 5D 坐标（位置和观察方向），将这些位置输入 MLP 以生成颜色和体积密度（b），并使用体渲染技术将这些值合成为图像（c），从而合成图像。该渲染函数（rendering function）是可微的，因此我们可以通过最小化合成图像和真实观测图像（d）之间的残差来优化场景表示。
 
        我们发现，优化复杂场景的神经辐射场表示法的基本实现并没有收敛到足够高的分辨率表示（a sufficiently high-resolution representation），并且在每个摄影机光线所需的采样数方面效率低下。我们通过将输入 5D 坐标转换为位置编码来解决这些问题，位置编码使 MLP 能够表示更高频率的函数，并且我们提出了一种分层采样程序，以减少对这种高频场景表示进行充分采样所需的查询数。
 
-![[zip/images/f2310459741bfc15287288399fc1a55b_MD5.png]]图 1：我们提出了一种方法，从一组输入图像中优化场景的连续 5D 神经辐射场表示（任何连续位置的体积密度和视线相关的颜色）。我们使用来自体积渲染（volume rendering）的技术，沿着射线积累这个场景表示的采样样本，从任何视角渲染场景。在这里，我们将在周围半球上随机捕获的合成鼓场景的 100 个输入视图的集合可视化，并展示了从优化的 NeRF 表示中渲染的两个新视图。
 
-![[zip/images/ca177eecd11fb6fd36c5538ca5534611_MD5.png]]图 2：我们的神经辐射场场景表示（neural radiance field scene representation）和可微分渲染（differentiable rendering）过程概述。我们通过沿摄影机光线（a）采样 5D 坐标（位置和观察方向），将这些位置输入 MLP 以生成颜色和体积密度（b），并使用体积渲染技术将这些值合成为图像（c），从而合成图像。该渲染函数（rendering function）是可微的，因此我们可以通过最小化合成图像和真实观测图像（d）之间的残差来优化场景表示。
+
 
        我们的方法继承了体积表示（volumetric representations）的优点：两者都可以表示复杂的真实世界几何体和外观，并且非常适合使用投影图像进行基于梯度的优化。重要的是，我们的方法克服了在高分辨率建模复杂场景时离散化体素网格（discretized voxel grids）的高昂存储成本。总之，我们的技术贡献是：
 
        · 一种将具有复杂几何和材料的连续场景表示为 5D 神经辐射场的方法，参数化为基本 MLP 网络。
 
-       · 一种基于经典体积渲染（volume rendering）技术的可微分渲染过程，我们使用它从标准 RGB 图像中优化这些表示。这包括分层采样策略，以向具有可见场景内容（visible scene content）的空间分配 MLP 的容量。
+       · 一种基于经典体渲染（volume rendering）技术的可微分渲染过程，我们使用它从标准 RGB 图像中优化这些表示。这包括分层采样策略，以向具有可见场景内容（visible scene content）的空间分配 MLP 的容量。
 
        · 将每个输入 5D 坐标映射到更高维空间的位置编码，使我们能够成功优化神经辐射场以表示高频场景内容（high-frequency scene content）。
 
@@ -69,7 +90,7 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 **4 Volume Rendering with Radiance Fields**
 ===========================================
 
-       我们的 5D 神经辐射场将场景表示为空间任意点的体积密度和定向发射辐射（directional emitted radiance）。我们使用经典体积渲染（classical volume rendering）的原理渲染穿过场景的任何光线的颜色 [16]。体积密度σ(_x)_ 可以解释为射线在 x 处终止于无穷小粒子（an infinitesimal particle）的微分概率 (the differential probability)。相机光线 r_t_=o+td 的预期颜色 C_r_（具有近边界和远边界 _t__n_ 和 _t__f_）为：
+       我们的 5D 神经辐射场将场景表示为空间任意点的体积密度和定向发射辐射（directional emitted radiance）。我们使用经典体渲染（classical volume rendering）的原理渲染穿过场景的任何光线的颜色 [16]。体积密度σ(_x)_ 可以解释为射线在 x 处终止于无穷小粒子（an infinitesimal particle）的微分概率 (the differential probability)。相机光线 r_t_=o+td 的预期颜色 C_r_（具有近边界和远边界 _t__n_ 和 _t__f_）为：
 
 ![[zip/images/38dd31f4276a5ac64d77f4af1af57eac_MD5.png]]
 
@@ -77,7 +98,7 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 
        我们用求积法（quadrature）数值估计（numerically estimate）这个连续积分。确定性求积通常用于渲染离散化体素网格（discretized voxel grids），它将有效地限制表示的分辨率，因为 MLP 只能在固定的离散位置集查询。相反，我们使用分层抽样方法，将 [_t__n_,_t__f_] 划分为 N 个均匀间隔的箱子，然后从每个箱子内均匀随机抽取一个样本：
 
-![[zip/images/f9d60f62a80911b9dc7a6c08cf4600bf_MD5.png]]尽管我们使用离散样本集来估计积分，但分层采样使我们能够表示连续的场景表示，因为它导致在优化过程中在连续的位置对 MLP 进行评估。我们使用这些样本通过 Max[26] 在体积渲染审查中讨论的求积规则来估计 C(_r)_：
+![[zip/images/f9d60f62a80911b9dc7a6c08cf4600bf_MD5.png]]尽管我们使用离散样本集来估计积分，但分层采样使我们能够表示连续的场景表示，因为它导致在优化过程中在连续的位置对 MLP 进行评估。我们使用这些样本通过 Max[26] 在体渲染审查中讨论的求积规则来估计 C(_r)_：
 
 ![[zip/images/0b1ed9ccac897db6e845151f89fb4560_MD5.png]]
 
@@ -106,7 +127,7 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 **5.2 Hierarchical volume sampling**
 ------------------------------------
 
-       我们的渲染策略是在沿着每个相机光线的 N 个查询点处密集评估神经辐射场网络，这种策略效率低下：对渲染图像没有贡献的自由空间和遮挡区域（free space and occluded regions）仍会重复采样。我们从早期的体积渲染工作中获得灵感 [20]，并提出了一种分层表示法，通过按样本对最终渲染的预期效果按比例分配样本来提高渲染效率。
+       我们的渲染策略是在沿着每个相机光线的 N 个查询点处密集评估神经辐射场网络，这种策略效率低下：对渲染图像没有贡献的自由空间和遮挡区域（free space and occluded regions）仍会重复采样。我们从早期的体渲染工作中获得灵感 [20]，并提出了一种分层表示法，通过按样本对最终渲染的预期效果按比例分配样本来提高渲染效率。
 
        我们不只是使用单个网络来表示场景，而是同时优化两个网络：一个 “coarse” 网络和一个 “fine” 网络。我们首先使用分层抽样对一组 _N__c_ 地点进行抽样，并在这些地点评估 "coarse" 网络，如公式 2 和 3 所述。给定这个 “coarse” 网络的输出，然后我们沿着每条射线对点进行更细致的采样（more informed sampling），其中采样偏向于体积的相关部分。为了做到这一点，我们首先将公式 3 中 coarse 网络的 alpha 合成颜色 C_c__r_ 重写为沿射线的所有采样颜色 _c__i_ 的加权和。（就是更为细致的 alpha 合成）
 
@@ -115,7 +136,7 @@ Keywords: scene representation, view synthesis, image-based rendering, volume re
 **5.3 Implementation details**
 ------------------------------
 
-       我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要一个捕捉到的场景的 RGB 图像的数据集，相应的相机姿势和内在参数，以及场景的边界（scene bounds）(我们使用真实摄像机的姿势、内在参数和合成数据的界限。并使用 COLMAP 结构 - 运动软件包 [39] 来估计真实数据的这些参数）。在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 _N__c_ 个样本，从 fine 网络中查询 _N__c_+_N__f_ 个样本。然后，我们使用第 4 节中描述的体积渲染过程来渲染两组样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染和真实像素颜色之间的总平方误差：
+       我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要一个捕捉到的场景的 RGB 图像的数据集，相应的相机姿势和内在参数，以及场景的边界（scene bounds）(我们使用真实摄像机的姿势、内在参数和合成数据的界限。并使用 COLMAP 结构 - 运动软件包 [39] 来估计真实数据的这些参数）。在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 _N__c_ 个样本，从 fine 网络中查询 _N__c_+_N__f_ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染和真实像素颜色之间的总平方误差：
 
 ![[zip/images/021787f6ad29d34212d596e09f3a0323_MD5.png]]
 

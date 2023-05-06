@@ -23,7 +23,6 @@
     "TableStyle",
     "字体格式",
     "Front-matter格式",
-    "01 字体格式",
     "02 各种block块",
     "03 表格样式",
     "04 状态栏淡出",
@@ -34,7 +33,8 @@
     "[ui] Floating Tab Header mini",
     "10 悬浮标签页标题栏",
     "[ui] Collapsible Right Headers",
-    "11 可折叠的左面板标题"
+    "11 可折叠的左面板标题",
+    "01 字体格式"
   ],
   "accentColor": "",
   "nativeMenus": false,
