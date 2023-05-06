@@ -75,8 +75,17 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "9591f5f315ab20a6",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -129,17 +138,8 @@
                 "unlinkedCollapsed": true
               }
             }
-          },
-          {
-            "id": "e464dbb7c1495e0d",
-            "type": "leaf",
-            "state": {
-              "type": "mk-file-view",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -157,17 +157,23 @@
     "hiddenItems": {
       "oz-clear-unused-images:Clear Unused Images": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "canvas:新建白板": false,
       "command-palette:打开命令面板": true,
-      "remotely-save:Remotely Save": false,
       "templates:插入模板": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "388a2c991d120a7c",
   "lastOpenFiles": [
+    "AI/Nerf/simpread-深度学习 (20)_nerf 论文翻译与学习_deepvoxel 数据集_biter0088 的博客 - CSDN 博客.md",
+    "AI/Nerf/Nerf.md",
+    "AI/context.mdb",
+    "AI/AI.md",
+    "Context/Computer-Graphics-and-Tech-Art.mdb",
     "编程/C++/《C++ Primer 5th》.md",
+    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
+    "虚幻引擎/2 蓝图 & U++/蓝图开发最佳实践.md",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
     "Tools/工具流.md",
@@ -176,7 +182,6 @@
     "zip/templates/mermaid流图.md",
     "Math/LaTeX/常用语法.md",
     "Tools/Obsidian/插件流.md",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "编程/C++/Google C++风格.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/C++原理.md",
@@ -187,7 +192,6 @@
     "Context/spacesLastSync.log",
     "Context",
     "未命名.md",
-    "AI/Nerf/simpread-深度学习 (20)_nerf 论文翻译与学习_deepvoxel 数据集_biter0088 的博客 - CSDN 博客.md",
     "zip/images/c63b5bd865d10a7f0fb2fabc3e4ecabc_MD5.png",
     "zip/images/9113a128922c1057515b049757e0a878_MD5.png",
     "zip/images/2afcca71e6fc1e627f07eca7f40bfb1b_MD5.png",
@@ -204,18 +208,12 @@
     "zip/templates/others/Zotero_Integration.md",
     "zip/templates/others",
     "AI/深度学习/大白话讲解卷积神经网络工作原理.md",
-    "AI/Python/Python基础.md",
     "AI/Nerf",
-    "AI/深度学习/PyTorch入门.md",
-    "AI/深度学习/快速入门.md",
     "AI/Zotero",
     "科研",
-    "Tools/Obsidian/TableStyle",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
-    "zip/1.html",
-    "zip/images/1.html",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",

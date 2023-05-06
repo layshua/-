@@ -8,7 +8,6 @@
   "obsidian-hover-editor",
   "obsidian-quiet-outline",
   "obsidian-local-rest-api",
-  "obsidian-banners",
   "obsidian42-brat",
   "ob-table-enhancer",
   "obsidian-excel-to-markdown-table",
@@ -30,12 +29,10 @@
   "obsidian-diagrams-net",
   "obsidian-outliner",
   "obsidian-codemirror-options",
-  "cm-editor-syntax-highlight-obsidian",
   "codeblock-customizer",
-  "obsidian-excalidraw-plugin",
   "obsidian-list-callouts",
   "obsidian-mindmap-nextgen",
   "kity-mindmap",
   "pdf-to-markdown-plugin",
-  "make-md"
+  "obsidian-banners"
 ]
