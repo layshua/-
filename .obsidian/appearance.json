@@ -22,7 +22,16 @@
     "quiet-outline插件配置",
     "TableStyle",
     "字体格式",
-    "Front-matter格式"
+    "Front-matter格式",
+    "01 字体格式",
+    "02 各种block块",
+    "03 表格样式",
+    "04 状态栏淡出",
+    "05 quiet-outline插件配置",
+    "06 Latex Suite插件配置",
+    "08 callout分栏",
+    "07 Front-matter格式",
+    "[ui] Floating Tab Header mini"
   ],
   "accentColor": "",
   "nativeMenus": false,

@@ -22,7 +22,6 @@
     }
   },
   "DCC": "SiAdobe",
-  "编程": "SiVisualstudio",
   "图形学": "SiTaichigraphics",
   "技术美术": "SiArtstation",
   "README.md": "FabReadme",
@@ -44,5 +43,6 @@
   "Tools/Git": "SiGithub",
   "Tools/Obsidian": "SiObsidian",
   "Tools/Software": "FabAppStore",
-  "Tools/System": "SiMicrosoft"
+  "Tools/System": "SiMicrosoft",
+  "编程": "SiVisualstudio"
 }
