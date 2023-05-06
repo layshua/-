@@ -1,16 +1,16 @@
 {
   "settings": {
     "migrated": true,
-    "iconPacksPath": "zip/icon",
+    "iconPacksPath": "zip/icons",
     "fontSize": 15,
     "emojiStyle": "none",
     "iconColor": "#c4c4c4",
     "recentlyUsedIcons": [
+      "RiMindMap",
+      "RiMoneyCnyBoxLine",
+      "RiMoneyCnyCircleLine",
       "FasIcons",
-      "SiUnrealengine",
-      "RiQuillPenLine",
-      "FabDelicious",
-      "FasChessKnight"
+      "SiUnrealengine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -25,16 +25,9 @@
   "编程": "SiVisualstudio",
   "图形学": "SiTaichigraphics",
   "技术美术": "SiArtstation",
-  "Unity": "SiUnity",
-  "Tools/Git": "SiGithub",
-  "Tools/Obsidian": "SiObsidian",
   "README.md": "FabReadme",
-  "DCC/Blender": "SiBlender",
-  "DCC/Maya": "SiMonster",
   "Math": "IbNumbers",
   "Tools": "RiToolsFill",
-  "Tools/System": "SiMicrosoft",
-  "Tools/Software": "FabAppStore",
   "AI": "SiOpenai",
   "zip": "RiFolderZipLine",
   "zip/images": "FarImage",
@@ -42,5 +35,14 @@
   "zip/Excalidraw": "RiQuillPenLine",
   "zBuffer": "RiStackFill",
   "虚幻引擎": "SiUnrealengine",
-  "zip/icons": "FasIcons"
+  "zip/icons": "FasIcons",
+  "zip/Legacy": "RiMoneyCnyBoxLine",
+  "zip/MindMap": "RiMindMap",
+  "zip/Legacy/Unity": "SiUnity",
+  "DCC/01 Blender": "SiBlender",
+  "DCC/02 Maya": "SiMonster",
+  "Tools/Git": "SiGithub",
+  "Tools/Obsidian": "SiObsidian",
+  "Tools/Software": "FabAppStore",
+  "Tools/System": "SiMicrosoft"
 }

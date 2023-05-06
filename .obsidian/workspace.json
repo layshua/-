@@ -13,38 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/百人计划/T渲染向/第二章 光照基础.md",
+                "file": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "7e780aa9371b2e71",
+            "id": "4aeb16328a4be738",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/图形学奇点/图形学奇点.md",
+                "file": "图形学/01 3D数学/3D数学.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "686980046f410d02",
+            "id": "7b2854d48e53dbe7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/UnityShader/冯乐乐入门精要.md",
+                "file": "图形学/01 3D数学/公式推导/04 法线&切线空间&TBN矩阵.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e69a7047ba4c135a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/04 软渲染器/软光栅/总结.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/图形学奇点/图形学奇点.md"
+                "file": "图形学/04 软渲染器/软光栅/总结.md"
               }
             }
           },
@@ -132,7 +144,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/图形学奇点/图形学奇点.md",
+                "file": "图形学/04 软渲染器/软光栅/总结.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/图形学奇点/图形学奇点.md",
+                "file": "图形学/04 软渲染器/软光栅/总结.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +171,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 321.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -180,8 +192,19 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "e69a7047ba4c135a",
   "lastOpenFiles": [
+    "图形学/01 3D数学/公式推导/04 法线&切线空间&TBN矩阵.md",
+    "图形学/06 图形学奇点/图形学奇点.md",
+    "图形学/01 3D数学/3D数学.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "图形学/01 3D数学/公式推导/01 三维旋转.md",
+    "Tools/Obsidian/插件流.md",
+    "图形学/01 3D数学/公式推导/03 反射和折射.md",
+    "Math/微积分/微积分基础.md",
+    "虚幻引擎/01 指南/光照设置.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "模板.md",
     "zip/icons/simple-icons/Zyte.svg",
     "zip/icons/simple-icons/Zoom.svg",
     "zip/icons/simple-icons/Zorin.svg",
@@ -192,7 +215,6 @@
     "zip/icons/simple-icons/Zoiper.svg",
     "zip/icons/simple-icons/Zig.svg",
     "zip/icons/simple-icons/Zhihu.svg",
-    "zip/icons/simple-icons/Zoho.svg",
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
     "zip/icons/lucide-icons",
@@ -202,34 +224,24 @@
     "zip/icons/font-awesome-brands",
     "zip/icons",
     "zip/Legacy",
-    "技术美术/UnityShader/TA101.md",
-    "图形学/图像API",
-    "技术美术/百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/UnityShader/冯乐乐入门精要.md",
-    "技术美术/UnityShader/庄懂AP01.md",
-    "图形学/图像API/DX12/龙书/DX12脑图.canvas",
-    "图形学/图像API/DX12/龙书/DX12理论.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "图形学/02 图像API",
+    "技术美术/05 UnityShader/庄懂AP01.md",
+    "图形学/02 图像API/DX12/龙书/DX12脑图.canvas",
+    "图形学/02 图像API/DX12/龙书/DX12理论.md",
     "zip/MindMap/DX12渲染流程.km.md",
     "zip/MindMap/DX12管线梳理.km.md",
     "图形学/DX12/龙书/脑图.md",
     "图形学/DX12/龙书/DX12初始化.canvas",
-    "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "模板.md",
-    "图形学/图像API/DX12/自研引擎/2 DX12初始化.md",
-    "图形学/图像API/DX12/自研引擎/1 引擎开发环境部署.md",
+    "图形学/03 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/02 图像API/DX12/自研引擎/2 DX12初始化.md",
+    "图形学/02 图像API/DX12/自研引擎/1 引擎开发环境部署.md",
     "编程/C++/C++补充.md",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "虚幻引擎/3 材质 & 渲染/202 材质教程.md",
-    "虚幻引擎/3 材质 & 渲染/101 材质大师.md",
-    "虚幻引擎/2 蓝图 & U++/U++.md",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/C++原理.md",
-    "编程/设计模式/工厂模式.md",
-    "README.md",
-    "虚幻引擎/4 Niagara/101 Niagara.md",
-    "虚幻引擎/2 蓝图 & U++/蓝图开发最佳实践.md",
-    "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
+    "虚幻引擎/03 材质 & 渲染/202 材质教程.md",
+    "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
+    "虚幻引擎/02 蓝图 & U++/U++.md",
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",

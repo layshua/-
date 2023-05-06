@@ -2,22 +2,22 @@
   "items": [
     {
       "type": "file",
-      "path": "图形学/图像API/DX12/DirectXMath.md",
+      "path": "图形学/02 图像API/DX12/DirectXMath.md",
       "ctime": 1683095722135
     },
     {
       "type": "file",
-      "path": "图形学/图像API/DX12/HLSL语法.md",
+      "path": "图形学/02 图像API/DX12/HLSL语法.md",
       "ctime": 1683095722135
     },
     {
       "type": "file",
-      "path": "图形学/图像API/DX12/龙书/DX12理论.md",
+      "path": "图形学/02 图像API/DX12/龙书/DX12理论.md",
       "ctime": 1683095722135
     },
     {
       "type": "file",
-      "path": "图形学/3D数学/3D数学.md",
+      "path": "图形学/01 3D数学/3D数学.md",
       "ctime": 1683095722135
     },
     {
