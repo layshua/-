@@ -18,7 +18,7 @@
   "activeView": "root",
   "hideFrontmatter": true,
   "activeSpace": "",
-  "spacesCompactMode": false,
+  "spacesCompactMode": true,
   "defaultDateFormat": "MMM dd yyyy",
   "spacesEnabled": true,
   "spacesPerformance": false,
@@ -34,10 +34,13 @@
   "sidebarTabs": true,
   "showRibbon": true,
   "deleteFileOption": "trash",
-  "expandedFolders": {},
+  "expandedFolders": {
+    "Computer-Graphics-and-Tech-Art": []
+  },
   "expandedSpaces": [
     "/",
-    null
+    null,
+    "Computer-Graphics-and-Tech-Art"
   ],
   "openFolders": [],
   "fileIcons": [],
@@ -67,7 +70,7 @@
   "spacesSyncTimeoutSeconds": 10,
   "spacesAutoBackup": true,
   "spacesAutoBackupInterval": 10,
-  "spacesAutoBackupLast": 1683344082262,
+  "spacesAutoBackupLast": 1683344884029,
   "spacesUseAlias": false,
   "precreateVaultSpace": true
 }

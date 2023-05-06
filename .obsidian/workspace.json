@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/工具流.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "31f44865e0111dd3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/工具流.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,20 +62,19 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "Tools/Obsidian/插件流.md"
               }
             }
           },
           {
-            "id": "6ac42647fd110e31",
+            "id": "6711ec808180dc9a",
             "type": "leaf",
             "state": {
               "type": "mk-file-view",
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -119,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -168,13 +154,18 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "31f44865e0111dd3",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "Tools/Obsidian/插件流.md",
+    "DCC/DCC.md",
+    "DCC/context.mdb",
+    "DCC/PBR全流程.md",
+    "README.md",
+    "Tools/工具流.md",
     "Context/spacesLastSync.log",
     "Context",
     "未命名.md",
     "AI/Nerf/simpread-深度学习 (20)_nerf 论文翻译与学习_deepvoxel 数据集_biter0088 的博客 - CSDN 博客.md",
-    "Tools/工具流.md",
     "zip/images/c63b5bd865d10a7f0fb2fabc3e4ecabc_MD5.png",
     "zip/images/9113a128922c1057515b049757e0a878_MD5.png",
     "zip/images/2afcca71e6fc1e627f07eca7f40bfb1b_MD5.png",
@@ -197,7 +188,6 @@
     "AI/深度学习/快速入门.md",
     "AI/Python/axis轴.md",
     "AI/Python/Numpy+Matplotlib.md",
-    "Tools/Obsidian/插件流.md",
     "AI/Zotero",
     "科研",
     "Tools/Obsidian/Mermaid流图.md",
@@ -208,17 +198,12 @@
     "Tools/Obsidian/TableStyle/01 - Default Table.md",
     "Tools/Obsidian/TableStyle/05 - White red rounded.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "zip/templates/yaml_metadata.md",
-    "Tools/Obsidian/TableStyle/06 - Yellow cab.md",
-    "Tools/Obsidian/TableStyle/02 - PurpleRed.md",
     "Tools/Obsidian/TableStyle",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/DX12/龙书/未命名.canvas",
     "testt.canvas",
     "zip/1.html",
     "zip/images/1.html",
-    "未命名思维导图.html",
-    "zip/MindMap",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
     "Tools/系统安全/未命名.canvas",
