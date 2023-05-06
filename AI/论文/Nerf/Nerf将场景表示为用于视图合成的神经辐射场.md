@@ -2,7 +2,7 @@
 
 ---
 title: NeRF:将场景表示为用于视图合成的神经辐射场
-aliases: []
+aliases: [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis]
 tags: []
 create_time: 2023-05-06 21:54
 uid: 202305062154
@@ -10,17 +10,14 @@ cssclass: academia, academia-rounded
 banner: "![[ca177eecd11fb6fd36c5538ca5534611_MD5.png]]"
 ---
 
-**NeRF: 将场景表示为用于视图合成的神经辐射场**
-NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis
-
-# 摘要
-摘要：我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
+> [!abstract] 摘要
+> 我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图（novel views）的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
+>
+>**Keywords:** scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
+**关键词：**场景表示、视图合成、基于图像的渲染、体渲染、3D 深度学习
 
 > [!question] 自然可微 naturally differentiable
 > 自然可微是指一个函数在其定义域内处处可微分，即函数在其定义域内连续且导数存在。如果一个函数在某些点处不可导，则该函数在该点处不是自然可微的。
-
-Keywords: scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
-关键词：场景表示、视图合成、基于图像的渲染、体渲染、3D 深度学习
 
 # 1 Introduction
 
@@ -73,7 +70,7 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 
 # 2 Related Work
 
-**计算机视觉最近的一个很有前途的方向是以 MLP 的权重对对象和场景进行编码**，该权重直接从 3D 空间位置映射到形状的隐式表示，例如该位置的符号距离（the signed distance）[6]。然而，这些方法到目前为止还无法再现具有复杂几何形状的真实场景，其逼真度与使用离散表示（如三角形网格或体素网格）表示场景的技术相同（好像这几年已经解决了 hxz）。在本节中，我们将回顾这两条工作线，并将其与我们的方法进行对比，我们的方法增强了神经场景表示的能力，以产生用于渲染复杂逼真场景的最优结果。
+**计算机视觉最近的一个很有前途的方向是以 MLP 的权重对对象和场景进行编码**，该权重直接从 3D 空间位置映射到形状的隐式表示，例如该位置的符号距离（the signed distance）[6]。然而，这些方法到目前为止还无法再现具有复杂几何形状的真实场景，其照片级真实感度与使用离散表示（如三角形网格或体素网格）表示场景的技术相同（好像这几年已经解决了 hxz）。在本节中，我们将回顾这两条工作线，并将其与我们的方法进行对比，我们的方法增强了神经场景表示的能力，以产生用于渲染复杂照片级真实感场景的最优结果。
 
 使用 MLP 从低维坐标映射到颜色的类似方法也用于表示其他图形功能，如图像 [44]、纹理材质（textured materials）[12,31,36,37] 和间接照明值[38]。
 
@@ -81,20 +78,18 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 
 尽管这些技术可能潜在地表示复杂和高分辨率的几何体，但迄今为止，它们仅限于几何复杂度较低的简单形状，导致渲染过度平滑。我们展示了优化网络以编码 5D 辐射场（optimizing networks to encode 5D radiance fields）（具有 2D 视角相关的外观的 3D 体积）的替代策略可以代表更高分辨率的几何形状和外观，以渲染复杂场景的照片级真实感新视图。
 
-**View synthesis and image-based rendering（视图合成和基于图像的渲染）**：给定稠密的视图采样，可以通过简单的光场采样插值（light field sample interpolation）技术重建逼真的新视图 [21,5,7]。对于具有稀疏视图采样的新视图合成，计算机视觉和图形社区通过从观察到的图像中预测传统的几何和外观表示而取得了重大进展。一类流行的方法使用基于网格（mesh-based）的场景表示，具有漫反射 [48] 或依赖于视图 [2,8,49] 的外观。可差分光栅化器（Differentiable rasterizers）[4,10,23,25]或路径跟踪器（pathtracers）[22,30]可以直接优化网格表示，以使用梯度下降再现一组输入图像。然而，基于图像重投影的梯度网格优化（gradient-based mesh optimization）通常很困难，可能是因为局部极小值或损失情况（loss landscape）的条件较差。此外，该策略要求在优化之前提供具有固定拓扑的模板网格（a template mesh）作为初始化 [22]，这通常不适用于无约束的真实场景（unconstrained real-world scenes）。
+**View synthesis and image-based rendering（视图合成和基于图像的渲染）**：给定稠密的视图采样，可以通过简单的光场采样插值（light field sample interpolation）技术重建照片级真实感的新视图 [21,5,7]。对于具有稀疏视图采样 (sparser view sampling) 的新视图合成，计算机视觉和图形社区通过从观察到的图像中预测传统的几何和外观表示而取得了重大进展。一类流行的方法使用基于网格（mesh-based）的场景表示，具有漫反射 [48] 或视图相关（view-dependent） [2,8,49] 外观。可微光栅化器（Differentiable rasterizers）[4,10,23,25]或路径跟踪器（pathtracers）[22,30]可以直接优化网格表示，以使用梯度下降再现一组输入图像。然而，基于图像重投影（image reprojection）的梯度网格优化（gradient-based mesh optimization）通常很困难，可能是因为局部极小值或损失情况（loss landscape）的条件较差。此外，该策略要求在优化之前提供具有固定拓扑的模板网格（a template mesh）作为初始化 [22]，这通常不适用于无约束的真实场景（unconstrained real-world scenes）。
 
-另一类方法使用体积表示（volumetric representations）来解决从一组输入 RGB 图像进行高质量真实感视图合成（photorealistic view synthesis）的任务。体积方法能够真实地表示复杂的形状和材质，非常适合基于梯度的优化，并且与基于网格的方法相比，倾向于产生较少的视觉干扰伪影（visually distracting artifacts）。早期的体积方法使用观察到的图像直接为体素网格着色 [19,40,45]。最近，有几种方法[9,13,17,28,33,43,46,52] 使用多个场景的大型数据集来训练深层网络，这些深层网络根据一组输入图像预测采样的体积表示，然后使用 alpha-compositing [34] 或沿射线学习合成，在测试时渲染新视图。其他工作针对每个特定场景优化了卷积网络（CNN）和采样体素网格的组合，使得 CNN 可以补偿低分辨率体素网格中的离散化伪影 [41]，或者允许预测的体素网格根据输入时间或动画控制而变化 [24]。尽管这些体积技术在新的视图合成方面取得了令人印象深刻的成果，但由于离散采样（discrete sampling），它们缩放到更高分辨率图像的能力基本上受到了时间和空间复杂性的限制 - 渲染更高分辨率的图像需要对 3D 空间进行更精细的采样。我们通过在深度全连接神经网络的参数内编码连续体积来绕过这个问题，这不仅比以前的体积方法产生了更高质量的渲染，而且只需要这些采样体积表示的存储成本的一小部分。
+另一类方法使用体积表示（volumetric representations）来解决从一组输入 RGB 图像进行照片级真实感视图合成（photorealistic view synthesis）的任务。**体积方法能够真实地表示复杂的形状和材质，非常适合基于梯度的优化，并且与基于网格的方法相比，倾向于产生较少的视觉干扰伪影（visually distracting artifacts）**。早期的体积方法使用观察到的图像直接为体素网格着色 [19,40,45]。最近，有几种方法[9,13,17,28,33,43,46,52] 使用多个场景的大型数据集来训练深层网络，这些深层网络根据一组输入图像预测采样的体积表示，然后使用 alpha-compositing [34] 或沿射线学习合成，在测试时渲染新视图。其他工作针对每个特定场景优化了卷积网络（CNN）和采样体素网格的组合，使得 CNN 可以补偿低分辨率体素网格中的离散化伪影 [41]，或者允许预测的体素网格根据输入时间或动画控制而变化 [24]。**尽管这些体积技术在新的视图合成方面取得了令人印象深刻的成果，但由于离散采样（discrete sampling），它们缩放到更高分辨率图像的能力基本上受到了时间和空间复杂性的限制 - 渲染更高分辨率的图像需要对 3D 空间进行更精细的采样。我们通过在深度全连接神经网络的参数内编码连续体积来绕过这个问题，这不仅比以前的体积方法产生了更高质量的渲染，而且只需要这些采样体积表示的存储成本的一小部分。**
 
-**3 Neural Radiance Field Scene Representation**
-================================================
+# 3 Neural Radiance Field Scene Representation
+我们将连续场景表示为 5D 向量值函数，其输入为 3D 位置 $x=（x，y，z）$ 和 2D 观看方向 $(θ，∅)$，其输出为发出的颜色 $c=（r，g，b）$和体积密度$σ$。在实践中，我们把方向表示为三维笛卡尔单位矢量 $d$。我们用 MLP 网络 $F_Θ:(x, d)→(c, σ)$ 近似这个连续的 5D 场景表示并优化其权重 $Θ$，以从每个输入 5D 坐标映射到其相应的体积密度和定向发射颜色。
 
-我们将连续场景表示为 5D 向量值函数，其输入为 3D 位置 x=（x，y，z）和 2D 观看方向（θ，∅），其输出为发出的颜色 c=（r，g，b）和体积密度σ。在实践中，我们把方向表示为三维笛卡尔单位矢量 **d**。我们用 MLP 网络 _F_**Ф**:(x, d)→(c, σ) 近似这个连续的 5D 场景表示并优化其权重**Ф**，以从每个输入 5D 坐标映射到其相应的体积密度和方向发出颜色。
+我们通过限制网络将体积密度 $σ$ 预测为位置 $x$ 的函数，同时将 RGB 颜色 $c$ 预测为位置和观看方向的函数，从而鼓励表示具有多视图一致性（multiview consistent）。为了实现这一点，MLP $FΘ$ 首先用 8 个全连接层处理输入 3D 坐标 $x$（使用 ReLU 激活和每层 256 个通道），并输出 $σ$ 和 256 维特征向量。然后，该特征向量与相机光线的观察方向（the camera ray’s viewing direction）连接，并传递到额外的全连接层（使用 ReLU 激活和 128 通道），该层输出与视图相关的 RGB 颜色。、
 
-       我们通过限制网络来预测体积密度σ（仅作为位置 x 的函数），同时允许 RGB 颜色 c（作为位置和观看方向的函数）来预测，从而鼓励表示具有多视图一致性。为了实现这一点，MLP F**Ф**首先用 8 个全连接层处理输入 3D 坐标 x（使用 ReLU 激活和每层 256 个通道），并输出σ和 256 维特征向量。然后，该特征向量与相机光线的查看方向（the camera ray’s viewing direction）连接，并传递到另一个完全连接的层（使用 ReLU 激活和 128 通道），该层输出与视图相关的 RGB 颜色。
+关于我们的方法如何使用输入观察方向来表示非朗伯效应（non-Lambertian effects）的示例，请参见图 3。如图 4 所示，在不依赖视图的情况下训练的模型（只有 _x_ 作为输入）很难表示镜面反射度（specularities）。![[zip/images/7d11dba835cabfb7b599a5a457de2382_MD5.png]]图 7：我们全连接的网络架构的可视化。输入向量以绿色显示，中间隐藏层以蓝色显示，输出向量以红色显示，每个块内的数字表示向量的维度。所有层都是标准的完全连接层，黑色箭头表示具有 ReLU 激活的层，橙色箭头表示没有激活的层、黑色虚线箭头表示具有 sigmoid 形激活的层以及 “+” 表示矢量连接。输入位置（γ(_x)_）的位置编码通过 8 个完全连接的 ReLU 层，每个层有 256 个通道。我们遵循 DeepSDF[32] 架构，并包含一个跳过连接，将此输入连接到第五层的激活。附加层输出体积密度σ（使用 ReLU 进行校正，以确保输出体积密度为非负）和 256 维特征向量。这个特征向量与输入观察方向的位置编码（γ(_d)_）相连接，并由一个具有 128 个通道的额外全连接 ReLU 层处理。最后一层（有一个 sigmoid 激活）输出位置 x 的 RGB 辐射度，由方向为 d 的射线观察。
 
-![[zip/images/7d11dba835cabfb7b599a5a457de2382_MD5.png]]图 7：我们全连接的网络架构的可视化。输入向量以绿色显示，中间隐藏层以蓝色显示，输出向量以红色显示，每个块内的数字表示向量的维度。所有层都是标准的完全连接层，黑色箭头表示具有 ReLU 激活的层，橙色箭头表示没有激活的层、黑色虚线箭头表示具有 sigmoid 形激活的层以及 “+” 表示矢量连接。输入位置（γ(_x)_）的位置编码通过 8 个完全连接的 ReLU 层，每个层有 256 个通道。我们遵循 DeepSDF[32] 架构，并包含一个跳过连接，将此输入连接到第五层的激活。附加层输出体积密度σ（使用 ReLU 进行校正，以确保输出体积密度为非负）和 256 维特征向量。这个特征向量与输入观察方向的位置编码（γ(_d)_）相连接，并由一个具有 128 个通道的额外全连接 ReLU 层处理。最后一层（有一个 sigmoid 激活）输出位置 x 的 RGB 辐射度，由方向为 d 的射线观察。
-
-       关于我们的方法如何使用输入观察方向来表示非朗伯效应（non-Lambertian effects）的示例，请参见图 3。如图 4 所示，在不依赖视图的情况下训练的模型（只有 _x_ 作为输入）很难表示镜面反射度（specularities）。
+关于我们的方法如何使用输入观察方向来表示非朗伯效应（non-Lambertian effects）的示例，请参见图 3。如图 4 所示，在不依赖视图的情况下训练的模型（只有 _x_ 作为输入）很难表示镜面反射度（specularities）。
 
 ![[zip/images/56558518c2018c3efa7d509a29e384bb_MD5.png]]
 
@@ -169,7 +164,7 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 **6.1 Datasets**
 ----------------
 
-**Synthetic renderings of objects**（物体的合成渲染）我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。DeepVoxels[41] 数据集包含四个具有简单几何结构的朗伯对象（Lambertian objects）。每个对象以 512×512 像素从上半球（the upper hemisphere）采样的视点渲染（479 个作为输入，1000 用于测试）。此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何结构和逼真的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视点渲染，两个从整个球体上采样的点渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
+**Synthetic renderings of objects**（物体的合成渲染）我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。DeepVoxels[41] 数据集包含四个具有简单几何结构的朗伯对象（Lambertian objects）。每个对象以 512×512 像素从上半球（the upper hemisphere）采样的视点渲染（479 个作为输入，1000 用于测试）。此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何结构和照片级真实感的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视点渲染，两个从整个球体上采样的点渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
 
 ![[zip/images/1140200c02540551a1667df6a2c410f0_MD5.png]]表 1：我们的方法在合成图像和真实图像的数据集上的定量表现优于先前的工作。我们报告 PSNR/SSIM（越高越好）和 LPIPS[50]（越低越好）。DeepVoxels[41] 数据集由 4 个具有简单几何结构的漫反射对象（diffuse objects）组成。我们的真实合成数据集由具有复杂非朗伯材料的 8 个几何复杂对象的路径跟踪渲染组成。真实数据集由 8 个真实世界场景的手持式前向捕捉（handheld forward-facing captures）组成（NV 无法基于此数据进行评估，因为它仅重建有界体积内的对象）。虽然 LLFF 的 LPIPS 稍好一些，但我们敦促读者观看我们的补充视频，因为我们的方法实现了更好的多视图一致性，并且比所有对照（baselines）产生的工件（artifacts）更少。
 
@@ -184,7 +179,7 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 
        **Scene Representation Networks** (SRN) [42]（场景表示网络）将一个连续的场景表示为一个不透明的表面，由一个 MLP 隐式定义，将每个（x，y，z）坐标映射为一个特征向量。他们训练一个递归神经网络，通过使用任何三维坐标的特征向量来预测沿射线的下一步大小，从而沿着射线行进。最后一步的特征向量被解码为表面上该点的单一颜色。请注意，SRN 是同一作者的 DeepVoxels[41] 的后续产品（followup），性能更好，这就是为什么我们不包括与 DeepVoxels 的比较。
 
-       **Local Light Field Fusion** (LLFF) [28]（局部光场融合） LLFF 被设计用于为采样良好的前向场景产生逼真的新视图（photorealistic novel views）。它使用一个训练有素的三维卷积网络来直接预测每个输入视图的离散地壳采样（a discretized frustum-sampled）RGBα网格（多平面图像或 MPI[52]），然后通过 alpha 合成和混合（alpha compositing and blending）附近的 MPI 到新的观点来渲染新的视图。
+       **Local Light Field Fusion** (LLFF) [28]（局部光场融合） LLFF 被设计用于为采样良好的前向场景产生照片级真实感的新视图（photorealistic novel views）。它使用一个训练有素的三维卷积网络来直接预测每个输入视图的离散地壳采样（a discretized frustum-sampled）RGBα网格（多平面图像或 MPI[52]），然后通过 alpha 合成和混合（alpha compositing and blending）附近的 MPI 到新的观点来渲染新的视图。
 
 **6.3 Discussion**
 ------------------
