@@ -1,6 +1,6 @@
 
 ---
-banner: "zip/images/Pasted image 20221223234905.png"
+banner: "![[Pasted image 20221223234905.png]]"
 title: 《C++ Primer 5th》
 aliases: []
 create_time: 2023-05-06 13:57

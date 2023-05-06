@@ -21,7 +21,8 @@
     "Latex Suite插件配置",
     "quiet-outline插件配置",
     "TableStyle",
-    "字体格式"
+    "字体格式",
+    "Front-matter格式"
   ],
   "accentColor": "",
   "nativeMenus": false,
