@@ -11389,6 +11389,7 @@ cojc
 ceqw
 cnvs
 cyeg
+converge
 github
 grey
 green
@@ -18324,6 +18325,7 @@ tradeoffs
 tablefilesfiles
 tablem
 tesslation
+theano
 markdown
 matter
 mod
@@ -54395,6 +54397,7 @@ REE
 RuU
 Representing
 Rahaman
+Regularization
 Microsoft
 Menu
 MicaForEveryone
@@ -58800,6 +58803,7 @@ MLaXUDiJuzwngn
 MCHf
 MLPs
 Metric
+Multilayer
 Windows
 Win
 World
@@ -70703,6 +70707,7 @@ Previewfilespreview
 Previewfiles
 Pasted
 PCle
+Perceptron
 ContextMenuManager
 ClashVerge
 Clash
@@ -103849,6 +103854,8 @@ Training
 TABLE
 TableTabledb
 Tabletext
+Tanh
+Tutorials
 io
 ipad
 it
@@ -112287,6 +112294,7 @@ schemaId
 schemam
 sticker
 starved
+sigmod
 local
 list
 left
@@ -115712,6 +115720,7 @@ lUJ
 lying
 landscape
 largest
+logisticRegression
 YAML
 You
 YEBAYGhURFRofHx
@@ -133818,6 +133827,7 @@ HLJ
 Hjlth
 HIHHH
 Hinton
+HiddenLayer
 Bbb
 Bear
 Base
@@ -159035,6 +159045,7 @@ LPIPS
 LLFF
 Lego
 Learned
+LogisticRegression
 Getx
 GetX
 GetName

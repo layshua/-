@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md"
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,8 +147,20 @@
   },
   "active": "8125d2d10c4b6655",
   "lastOpenFiles": [
+    "AI/论文/Nerf/疑问.md",
+    "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "AI/深度学习/PyTorch入门.md",
+    "AI/深度学习/快速入门.md",
+    "AI/深度学习/《鱼书》.md",
+    "AI/论文/Nerf",
+    "zBuffer/(22 条消息) 多层感知机（MLP）简介_北漂奋斗者的博客 - CSDN 博客.md",
+    "zip/images/1683383292698.png",
+    "zip/images/1683383292668.png",
+    "zip/images/1683383292628.png",
+    "zip/images/1683383292591.png",
+    "zip/images/1683383292566.png",
+    "zip/images/1683383292478.png",
     "AI/论文/翻译.md",
-    "AI/论文/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "AI/未命名",
     "zip/images/Pasted image 20230506215201.png",
     "AI/Nerf/Nerf.md",
@@ -171,27 +183,16 @@
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/05 UnityShader/疑问.md",
     "图形学/07 图形学奇点/图形学奇点.md",
-    "图形学/02 图形系统/图形渲染管线详细梳理.md",
     "zip/images/Pasted image 20230506174824.png",
-    "图形学/03 图形API/DX12/龙书/DX12理论.md",
     "图形学/02 图形系统",
-    "图形学/04 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md",
     "zip/images/1683366279173.png",
     "zip/images/1683366279126.png",
-    "zip/images/1683366279070.png",
-    "zip/images/1683366279011.png",
-    "zip/images/1683366278951.png",
-    "zip/images/1683366278896.png",
-    "zip/images/1683366278828.png",
-    "zip/images/1683366278749.png",
-    "图形学/04 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md",
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
     "zip/icons/lucide-icons",
     "zip/icons/icon-brew",
     "zip/icons/font-awesome-solid",
     "zip/icons/font-awesome-regular",
-    "zip/icons/font-awesome-brands",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
