@@ -39,9 +39,4 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblo
 {
     border-radius: 0;
 }
-/* codeblock-customizer 左上角语言标签大小 */
-.codeblock-customizer-header-language-tag {
-    padding-left: 8.5px;
-    padding-right: 8.5px;
-    border-radius: 0px 0px 0px 0px;
-}
+

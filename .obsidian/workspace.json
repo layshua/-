@@ -11,18 +11,52 @@
             "id": "4bbd07cae83a8afd",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "图形学/DX12/龙书/未命名.canvas",
-                "viewState": {
-                  "x": 1256.9742588334102,
-                  "y": -1442.0188614034455,
-                  "zoom": -1.053491358563689
-                }
+                "file": "技术美术/百人计划/T渲染向/第二章 光照基础.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7e780aa9371b2e71",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/UnityShader/TA101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0a1ed21585bc9f84",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/百人计划/T渲染向/第二章 光照基础.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ed2d06002111a5f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/UnityShader/庄懂AP01.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -65,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/DX12/龙书/未命名.canvas"
+                "file": "技术美术/UnityShader/庄懂AP01.md"
               }
             }
           },
@@ -110,7 +144,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/DX12/龙书/未命名.canvas",
+                "file": "技术美术/UnityShader/庄懂AP01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/DX12/龙书/未命名.canvas",
+                "file": "技术美术/UnityShader/庄懂AP01.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,12 +192,16 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "4bbd07cae83a8afd",
+  "active": "ed2d06002111a5f2",
   "lastOpenFiles": [
-    "图形学/DX12/龙书/DX12初始化.canvas",
+    "技术美术/百人计划/T渲染向/第二章 光照基础.md",
+    "技术美术/UnityShader/TA101.md",
+    "图形学/DX12/龙书/DX12脑图.canvas",
+    "图形学/DX12/龙书/DX12理论.md",
     "zip/MindMap/DX12渲染流程.km.md",
-    "图形学/DX12/龙书/未命名.canvas",
     "zip/MindMap/DX12管线梳理.km.md",
+    "图形学/DX12/龙书/脑图.md",
+    "图形学/DX12/龙书/DX12初始化.canvas",
     "图形学/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "zip/images/Pasted image 20230506154153.png",
     "模板.md",
@@ -185,9 +223,6 @@
     "虚幻引擎/2 蓝图 & U++/101 蓝图.md",
     "虚幻引擎/3 材质 & 渲染/303 实时渲染.md",
     "Tools/工具流.md",
-    "zip/templates/yaml_metadata.md",
-    "Tools/Obsidian/Mermaid流图.md",
-    "Tools/Obsidian/插件流.md",
     "zip/images/Pasted image 20230506151238.png",
     "虚幻引擎/2 蓝图 & U++/蓝图管线.pdf",
     "AI/context.mdb",
