@@ -178,7 +178,7 @@ $$
 
 我们的渲染策略是在沿每个相机光线的 N 个查询点处密集评估神经辐射场网络，这种**策略效率低下**：对渲染图像没有贡献的自由空间和遮挡区域（free space and occluded regions）仍会重复采样。我们从早期的体渲染工作中汲取灵感 [20]，并**提出了一种分层表示法，通过把样本按比例分配给期望的最终渲染效果，以提高渲染效率。**
 
-**我们不只是使用单个网络来表示场景，而是同时优化两个网络：一个 “coarse（粗粒度）” 网络和一个 “fine（细粒度）” 网络。** 我们首先使用分层采样（stratified sampling）采样一组 $N_c$ 位置，并按照等式 2，3 中的描述评估在这些位置 "coarse" 网络，如公式 2 和 3 所述。给定这个 “coarse” 网络的输出，然后我们沿着每条光线对点进行更 informed 的采样（more informed sampling），其中样本偏向于体积的相关部分。
+**我们不只是使用单个网络来表示场景，而是同时优化两个网络：一个 “coarse（粗略）” 网络和一个 “fine（精细）” 网络（粗网络和细网络）。** 我们首先使用分层采样（stratified sampling）采样一组 $N_c$ 位置，并按照等式 2，3 中的描述评估在这些位置 "coarse" 网络，如公式 2 和 3 所述。给定这个 “coarse” 网络的输出，然后我们沿着每条光线对点进行更 informed 的采样（more informed sampling），其中样本偏向于体积的相关部分。
 为了做到这一点，我们首先将公式 3 中 coarse 网络的 alpha 合成颜色 $\hat{C}_{c}\left({r}\right)$ 重写为沿射线的所有采样颜色 $c_i$ 的加权和。（就是更为细致的 alpha 合成）
 $$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\delta_i)).\tag{5}$$
 
@@ -190,23 +190,23 @@ $$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\de
 ## **5.3 Implementation details**
 
 我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要**一个捕捉的场景的 RGB 图像的数据集，相应的相机位姿（camera poses）和内在（intrinsic）参数，以及场景的边界（scene bounds）(我们对合成数据使用真实（ground truth）相机位姿、内在参数和边界。并使用 COLMAP 运动结构包（COLMAP structure-from-motion package） [39] 来估计真实数据的这些参数）**。
-在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 _N__c_ 个样本，从 fine 网络中查询 _N__c_+_N__f_ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染和真实像素颜色之间的总平方误差：
+在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批（batch）相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 $N_c$ 样本，从细网洛中查询 $N_c+N_f$ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组 (both sets of 是两组的意思) 样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染像素颜色和真实像素颜色之间的总平方误差： 
+$$
+\mathcal L=\sum_{\mathbf{r}\in\mathcal{R}}\left[\left\lVert\hat{C}_{c}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}+\left\lVert\hat{C}_{f}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}\right]/\tag{6}
+$$
 
-![[zip/images/021787f6ad29d34212d596e09f3a0323_MD5.png]]
+其中 $R$ 是每个 batch 中的光线集，$C(\mathbf{r}), \hat{C}_c(\mathbf{r})$ 和 $\hat{C}_f(\mathbf{r})$ 分别是光线 $r$ 的真实值、coarse 体积预测和 fine 体积预测 RGB 颜色。请注意，即使最终渲染来自 $\hat{C}_f(\mathbf{r})$ ，我们也将 $\hat{C}_c(\mathbf{r})$ 的损失最小化，以便 coarse 网络的权重分布可以用于在 fine 网络中分配样本。   
 
-其中 R 是每个批次中的光线集，![[zip/images/cfe5a858df10729262a7a34539dbed7e_MD5.png]]分别是光线 r 的真值、coarse 体积预测和 fine 体积预测 RGB 颜色。请注意，即使最终渲染来自 C_f__r_，我们也将 C_c__r_ 的损失最小化，以便 coarse 网络的权重分布可以用于在 fine 网络中分配样本。
+在我们的实验中，我们使用了 4096 条光线的批量大小，每个射线在 coarse 体积中的 $N_c=64$ 个坐标和 fine 体积中 $N_f=128$ 个附加坐标（additional coordinates）处采样。我们使用 Adam 优化器（Adam optimizer） [18]，学习速率从 $5\times10^{-4}$ 开始，并在优化过程中呈指数衰减到 $5\times10^{-5}$ （其他 Adam 超参数（hyperparameters）保留为默认值： $\beta1=0.9;\beta2=0.999$ 和 $ϵ=10^{-7}$)。
+在单个 NVIDIA V100 GPU 上，单个场景的优化通常需要大约 100—300k 次迭代才能收敛（大约 1-2 天）。
 
-       在我们的实验中，我们使用了 4096 条射线的批量大小，每个射线在 coarse 体积中的 _N__c_＝64 坐标处采样，在 fine 体积中的额外坐标为 _N__f_＝128。我们使用 Adam 优化器 [18]，学习速率从![[zip/images/5831fe1f6b746294b8e6dc89385b4841_MD5.png]]并指数衰减到![[zip/images/08b79c684f8e648ee0e90f32e5a11b10_MD5.png]]（其他 Adam 超参数的默认值为![[zip/images/d9a17f12bc519d342cf982370eee2bbe_MD5.png]]和ϵ=10−7)。在单个 NVIDIA V100 GPU 上，单个场景的优化通常需要大约 10-30 万次迭代才能收敛（大约 1-2 天）。
+# 6 Results
 
-**6 Results**
-=============
+我们定量地 (quantitatively)（表 1）和定性地（qualitatively）（图 8 和 6）表明，我们的方法优于先前的工作，并提供了广泛的消融研究（ablation studies）来验证我们的设计选择（表 2）。我们敦促读者观看我们的补充视频，以更好地理解我们的方法在渲染新视图的平滑路径时相对于对照方法（baseline methods）的显著改进。 
+- ? 消融研究（ablation studies）?
+## 6.1 Datasets
 
-       我们定量（表 1）和定性（图 8 和 6）表明，我们的方法优于先前的工作，并提供了广泛的消融研究（ablation studies）来验证我们的设计选择（表 2）。我们敦促读者观看我们的补充视频，以更好地理解我们的方法在渲染新视图的平滑路径时相对于对照方法的显著改进。
-
-**6.1 Datasets**
-----------------
-
-**Synthetic renderings of objects**（物体的合成渲染）我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。DeepVoxels[41] 数据集包含四个具有简单几何结构的朗伯对象（Lambertian objects）。每个对象以 512×512 像素从上半球（the upper hemisphere）采样的视点渲染（479 个作为输入，1000 用于测试）。此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何结构和照片级真实感的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视点渲染，两个从整个球体上采样的点渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
+**Synthetic renderings of objects（物体的合成渲染）** 我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。DeepVoxels[41] 数据集包含四个具有简单几何结构的朗伯对象（Lambertian objects）。每个对象以 512×512 像素从上半球（the upper hemisphere）采样的视点渲染（479 个作为输入，1000 用于测试）。此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何结构和照片级真实感的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视点渲染，两个从整个球体上采样的点渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
 
 ![[zip/images/1140200c02540551a1667df6a2c410f0_MD5.png]]表 1：我们的方法在合成图像和真实图像的数据集上的定量表现优于先前的工作。我们报告 PSNR/SSIM（越高越好）和 LPIPS[50]（越低越好）。DeepVoxels[41] 数据集由 4 个具有简单几何结构的漫反射对象（diffuse objects）组成。我们的真实合成数据集由具有复杂非朗伯材料的 8 个几何复杂对象的路径跟踪渲染组成。真实数据集由 8 个真实世界场景的手持式前向捕捉（handheld forward-facing captures）组成（NV 无法基于此数据进行评估，因为它仅重建有界体积内的对象）。虽然 LLFF 的 LPIPS 稍好一些，但我们敦促读者观看我们的补充视频，因为我们的方法实现了更好的多视图一致性，并且比所有对照（baselines）产生的工件（artifacts）更少。
 
@@ -258,7 +258,7 @@ $$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\de
 
 **Training Details** 对于真实的场景数据，我们通过在优化过程中向输出的σ值（在通过 ReLU 之前）添加随机的高斯噪声来规范我们的网络，发现这略微提高了渲染新观点的视觉性能。
 
-**Rendering Details** 为了在测试时渲染新的视图，我们通过 coarse 网络对每条射线采样 64 个点，通过 fine 网络对每条射线采样 64+128=192 个点，每条射线总共有 256 次网络查询。我们的真实合成数据集每幅图像需要 640k 射线，而我们的真实场景每幅图像需要 762k 射线，因此每幅渲染的图像需要 1.5 亿到 2 亿的网络查询。在 NVIDIA V100 上，每帧大约需要 30 秒。
+**Rendering Details** 为了在测试时渲染新的视图，我们通过 coarse 网络对每条射线采样 64 个点，通过 细网洛对每条射线采样 64+128=192 个点，每条射线总共有 256 次网络查询。我们的真实合成数据集每幅图像需要 640k 射线，而我们的真实场景每幅图像需要 762k 射线，因此每幅渲染的图像需要 1.5 亿到 2 亿的网络查询。在 NVIDIA V100 上，每帧大约需要 30 秒。
 
 **B Additional Baseline Method Details**
 ========================================
