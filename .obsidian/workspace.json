@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "chapter2.md",
+                "file": "前往斯旺西.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "chapter2.md"
+                "file": "前往斯旺西.md"
               }
             }
           }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "chapter2.md",
+                "file": "前往斯旺西.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "chapter2.md",
+                "file": "前往斯旺西.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,6 +148,8 @@
   },
   "active": "b5c615f0215fc297",
   "lastOpenFiles": [
+    "README.md",
+    "前往斯旺西.md",
     "zip/images/Pasted image 20230507133746.png",
     "zip/images/40554393BF59EB13321A4665A090A4E9.jpg",
     "zip/images/Pasted image 20230507122049.png",
@@ -155,7 +157,6 @@
     "第一节.md",
     "Math/LaTeX/常用语法.md",
     "test/book.md",
-    "chapter2.md",
     "test/第一节.md",
     "DCC/PBR全流程.md",
     "test",
@@ -165,7 +166,6 @@
     "test/chapter3.md",
     "图形学/02 图形系统/图形渲染管线详细梳理.md",
     "未命名.canvas",
-    "README.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "zip/templates/论文_metadata.md",
     "zip/templates/yaml_metadata.md",
@@ -183,7 +183,6 @@
     "AI/深度学习/《鱼书》.md",
     "AI/论文/Nerf",
     "zBuffer/(22 条消息) 多层感知机（MLP）简介_北漂奋斗者的博客 - CSDN 博客.md",
-    "zip/images/1683383292698.png",
     "AI/论文/翻译.md",
     "AI/未命名",
     "AI/Nerf/Nerf.md",
