@@ -13,6 +13,7 @@ create_time: 2023-05-06 21:54
 uid: 202305062154
 cssclass: academia, academia-rounded
 banner: "![[ca177eecd11fb6fd36c5538ca5534611_MD5.png]]"
+banner_y: 0.5
 ---
 
 > [!abstract] 摘要

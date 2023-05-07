@@ -70,7 +70,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
+                "file": "zip/templates/论文_metadata.md"
               }
             }
           }
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "zip/templates/论文_metadata.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "zip/templates/论文_metadata.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -155,10 +155,11 @@
   },
   "active": "8125d2d10c4b6655",
   "lastOpenFiles": [
-    "zip/templates/论文_metadata.md",
+    "README.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "zip/templates/yaml_metadata.md",
     "Math/LaTeX/常用语法.md",
+    "zip/templates/论文_metadata.md",
+    "zip/templates/yaml_metadata.md",
     "zip/images/Pasted image 20230506233504.png",
     "AI/论文/知识库/位置编码 Positional Encoding.md",
     "AI/论文/知识库",
@@ -185,7 +186,6 @@
     "Tools/Obsidian/插件流.md",
     "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
     "技术美术/学习大纲.md",
-    "README.md",
     "Tools/Obsidian/Mermaid流图.md",
     "虚幻引擎/01 指南/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客/(31 条消息) 虚幻引擎 问题汇总_Codelk 的博客 - CSDN 博客.md",
     "虚幻引擎/01 指南/光照设置.md",
