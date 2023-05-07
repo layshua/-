@@ -6,6 +6,8 @@
 
 9.21 香港 T1 14:55 ——> 9.22 伦敦希思罗 T4 5:55
 
+行李：[Baggage - 中国 (flyroyalbrunei.cn)](https://flyroyalbrunei.cn/peoples-republic-china/zh/help-support/frequently-asked-questions/baggage/)
+![[Pasted image 20230507133746.png]]
 # 大巴 20~30 磅
 大巴票：[National Express](https://book.nationalexpress.com/coach/#/choose-journey?journeyType=single&departureStopId=57217&destinationStopId=14225&departureDate=22%2F09%2F2023&departArrive=DepartAfter&outboundTime=00:00&returnDate=22%2F09%2F2023&departArriveReturn=DepartAfter&returnTime=00:00&adults=1&children=0&infants=0&euroAdults=0&euroChildren=0&euroSixtyPlus=0&euroInfants=0&ouiAdults=1&ouiChildren=0&usingCoachCard=false&youngPersonCards=0&seniorCards=0&disabledCards=0&partnerId=NX&campaignId=DEFAULT&request_locale=en&numResults=4)
 
