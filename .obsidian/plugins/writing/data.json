@@ -1,0 +1,51 @@
+{
+  "todaysWordCount": {
+    "chapter 1.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "chapter 2.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "Chapter 3.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "null.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "c.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "chapt.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "chapter1.md": {
+      "initial": 1,
+      "current": 1
+    },
+    "chapter2.md": {
+      "initial": 1,
+      "current": 1
+    },
+    "chapter3.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "d.md": {
+      "initial": 0,
+      "current": 0
+    },
+    "第一节.md": {
+      "initial": 0,
+      "current": 0
+    }
+  },
+  "today": "2023/4/7",
+  "kindleImage": false,
+  "bookPreviewer": true
+}
