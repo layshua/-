@@ -3267,6 +3267,8 @@ oooH
 oGvV
 occupancy
 occluded
+optimizer
+outperform
 OneDrive
 Obsidian
 Office
@@ -14776,6 +14778,7 @@ gXTg
 gQXT
 guideline
 grade
+ghosting
 typora
 todo
 tooltip
@@ -43193,6 +43196,7 @@ AlexNet
 Alex
 AlphaGo
 Ablation
+Additonal
 URL
 Utools
 Users
@@ -50326,6 +50330,7 @@ ablation
 attrs
 attention
 arXiv
+approximators
 Roaming
 RegWorkshop
 Release
@@ -66875,6 +66880,7 @@ Sets
 Similarity
 SQLite
 Scheduler
+SOTA
 Programs
 POP
 PC
@@ -74609,6 +74615,7 @@ CREATE
 CreatedfilesfilepropFile
 Createdfiles
 Conversion
+Cartesian
 ImTip
 IMAP
 ID
@@ -82138,6 +82145,8 @@ qvvf
 qrvb
 quadrature
 quantitative
+quantitatively
+qualitatively
 png
 position
 presentation
@@ -86008,6 +86017,7 @@ planes
 projected
 pathtracer
 perceptual
+poses
 nodesCatch
 nobr
 navy
@@ -89489,6 +89499,7 @@ naturally
 networks
 notion
 nerf
+nonuniform
 bf
 bc
 black
@@ -92904,6 +92915,8 @@ bhds
 bntk
 buzk
 bottleneck
+both
+banding
 fe
 front
 fill
@@ -100112,6 +100125,7 @@ degree
 disparity
 drand
 dfec
+discretization
 TFvYZOKeHL
 TAB
 TeX
@@ -108111,6 +108125,7 @@ infinitesimal
 informed
 interpretability
 indexidx
+interest
 shift
 svg
 sf
@@ -112307,6 +112322,7 @@ sigmod
 sines
 sparser
 stratified
+skip
 local
 list
 left
@@ -122703,6 +122719,7 @@ hdeT
 hemisphere
 handheld
 homogeneous
+hyperparameters
 rgb
 right
 rm
