@@ -17,13 +17,20 @@ banner_y: 0.5
 ---
 
 > [!abstract] 摘要
-> 我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图（novel views）的最优结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
+> 我们提出了一种方法，通过使用一组稀疏的输入视图集优化底层连续体积场景函数（an under-lying continuous volumetric scene function），实现了合成复杂场景新视图（novel views）的最好（state-of-the-art）结果。我们的算法使用全连接 (非卷积) 深度网络表示场景，其输入是单个连续的 5D 坐标 (空间位置 (x, y, z) 和观看方向 （θ，∅）)，其输出是体积密度以及在该空间位置依赖于视图的发射辐射。（view-dependent emitted radiance）。我们通过沿相机光线查询 5D 坐标来合成视图（synthesize views），并使用经典的体渲染（volume rendering）技术将输出的颜色和密度投影到图像中。因为体渲染是自然可微的（naturally differentiable），所以优化我们的表示方法所需的唯一输入是一组具有已知摄像机姿势的图像。我们描述了如何有效地优化神经辐射场（neural radiance fields），以渲染具有复杂几何形状和外观的场景的照片级真实感新视图（photorealistic novel views），并展示了优于先前神经渲染和视图合成（view synthesis）工作的结果。查看合成结果最好以视频形式观看，因此我们敦促读者观看我们的补充视频以获得令人信服的比较。
 >
 >**Keywords:** scene representation, view synthesis, image-based rendering, volume rendering, 3D deep learning
 **关键词：**场景表示、视图合成、基于图像的渲染、体渲染、3D 深度学习
 
 > [!question] 自然可微 naturally differentiable
 > 自然可微是指一个函数在其定义域内处处可微分，即函数在其定义域内连续且导数存在。如果一个函数在某些点处不可导，则该函数在该点处不是自然可微的。
+>
+
+> [!question] state-of-the-art
+> - State of the art（没有"-" ）指的是“技术现状；技术发展水平 ”；
+> - state-of-the-art 指的是“最前沿技术的；技术最先进的 ”。直译最好，最先进
+> - SOTA model：state-of-the-art model，并不是特指某个具体的模型，而是指在该项研究任务中，目前最好/最先进的模型。
+> - SOTA result：state-of-the-art result，指的是在该项研究任务中，目前最好的模型的结果/性能/表现。
 
 # 1 Introduction
 
@@ -145,7 +152,10 @@ $$
 
 # **5 Optimizing a Neural Radiance Field**
 
-在上一节中，我们描述了将场景建模为神经辐射场 (a neural radiance field) 和从该表示中渲染新视图所需的核心组件。然而，我们注意到，这些组件不足以达到第 6.4 节所示的最优 (state-of-the-art) 质量。我们引入了两个改进，以实现高分辨率复杂场景的表示。第一种是输入坐标的位置编码，有助于 MLP 表示高频函数，第二种是分层采样过程，允许我们有效地对该高频表示进行采样。
+在上一节中，我们描述了将场景建模为神经辐射场 (a neural radiance field) 和从该表示中渲染新视图所需的核心组件。然而，我们注意到，这些组件不足以达到第 6.4 节所示的最优 (state-of-the-art) 质量。
+我们引入了两个改进，以实现高分辨率复杂场景的表示。
+第一种是输入坐标的位置编码，有助于 MLP 表示高频函数，
+第二种是分层采样过程，允许我们有效地对该高频表示进行采样。
 
 ## 5.1 Positional encoding
 
