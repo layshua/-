@@ -178,14 +178,19 @@ $$
 
 我们的渲染策略是在沿每个相机光线的 N 个查询点处密集评估神经辐射场网络，这种**策略效率低下**：对渲染图像没有贡献的自由空间和遮挡区域（free space and occluded regions）仍会重复采样。我们从早期的体渲染工作中汲取灵感 [20]，并**提出了一种分层表示法，通过把样本按比例分配给期望的最终渲染效果，以提高渲染效率。**
 
-**我们不只是使用单个网络来表示场景，而是同时优化两个网络：一个 “coarse（粗粒度）” 网络和一个 “fine（细粒度）” 网络。** 我们首先使用分层抽样对一组 $N_c$ 地点进行抽样，并在这些地点评估 "coarse" 网络，如公式 2 和 3 所述。给定这个 “coarse” 网络的输出，然后我们沿着每条射线对点进行更细致的采样（more informed sampling），其中采样偏向于体积的相关部分。为了做到这一点，我们首先将公式 3 中 coarse 网络的 alpha 合成颜色 C_c__r_ 重写为沿射线的所有采样颜色 _c__i_ 的加权和。（就是更为细致的 alpha 合成）
+**我们不只是使用单个网络来表示场景，而是同时优化两个网络：一个 “coarse（粗粒度）” 网络和一个 “fine（细粒度）” 网络。** 我们首先使用分层采样（stratified sampling）采样一组 $N_c$ 位置，并按照等式 2，3 中的描述评估在这些位置 "coarse" 网络，如公式 2 和 3 所述。给定这个 “coarse” 网络的输出，然后我们沿着每条光线对点进行更 informed 的采样（more informed sampling），其中样本偏向于体积的相关部分。
+为了做到这一点，我们首先将公式 3 中 coarse 网络的 alpha 合成颜色 $\hat{C}_{c}\left({r}\right)$ 重写为沿射线的所有采样颜色 $c_i$ 的加权和。（就是更为细致的 alpha 合成）
+$$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\delta_i)).\tag{5}$$
 
-将这些权重归一化为![[zip/images/247375b6b2de5427645b9b614d2fc68c_MD5.png]]，可产生沿射线的片状恒定 (piecewise-constant) 的 PDF(PDF 是啥，是 “偏微分方程吗”，评论区有伙伴理解为 “概率密度函数”，感觉更靠谱)。我们使用逆变换抽样（inverse transform sampling）从这个分布中抽取第二组 _N__f_ 位置，在第一组和第二组样本的结合处评估我们的 "fine" 网络，并使用公式 3 但使用所有 _N__c_+_N__f_ 样本计算射线的最终渲染颜色![[zip/images/2c850534a6a24f6e2de9a2a7d1c8b8f1_MD5.png]]。此过程将更多样本分配给我们希望包含可见内容的区域。这解决了与重要性采样 (importance sampling) 类似的目标，但我们将采样值用作整个积分域的非均匀离散化，而不是将每个采样作为整个积分的独立概率估计 (an independent probabilistic estimate of the entire integral)。
+将这些权重归一化为 $\displaystyle\hat{w}_i = \frac{w_i}{\sum_{j=1}^{N_c}{w_j}}$，可产生沿光线的分段常数 (piecewise-constant) **PDF** 。
+- ? PDF? 逆变换采样？
+我们使用**逆变换采样**（inverse transform sampling）从这个分布中采样第二组 $N_f$ 位置，在第一组和第二组样本的联合处评估我们的 "fine" 网络，并使用公式 3 但使用所有 $N_c+N_f$ 样本计算光线的最终渲染颜色 $\hat{C}_{c}\left({r}\right)$ 。
+此过程将更多样本分配给我们期望包含可见内容的区域。这解决了与重要性采样 (importance sampling) 类似的目标，但我们使用采样值作为整个积分域（integration domain）的非均匀离散化（nonuniform discretization），而不是将每个采样作为整个积分的独立概率估计 (an independent probabilistic estimate of the entire integral)。
 
-**5.3 Implementation details**
-------------------------------
+## **5.3 Implementation details**
 
-       我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要一个捕捉到的场景的 RGB 图像的数据集，相应的相机姿势和内在参数，以及场景的边界（scene bounds）(我们使用真实摄像机的姿势、内在参数和合成数据的界限。并使用 COLMAP 结构 - 运动软件包 [39] 来估计真实数据的这些参数）。在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 _N__c_ 个样本，从 fine 网络中查询 _N__c_+_N__f_ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染和真实像素颜色之间的总平方误差：
+我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要**一个捕捉的场景的 RGB 图像的数据集，相应的相机位姿（camera poses）和内在（intrinsic）参数，以及场景的边界（scene bounds）(我们对合成数据使用真实（ground truth）相机位姿、内在参数和边界。并使用 COLMAP 运动结构包（COLMAP structure-from-motion package） [39] 来估计真实数据的这些参数）**。
+在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 _N__c_ 个样本，从 fine 网络中查询 _N__c_+_N__f_ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染和真实像素颜色之间的总平方误差：
 
 ![[zip/images/021787f6ad29d34212d596e09f3a0323_MD5.png]]
 
