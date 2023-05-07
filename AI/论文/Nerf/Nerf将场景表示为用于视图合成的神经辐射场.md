@@ -93,8 +93,8 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 
 **View synthesis and image-based rendering（视图合成和基于图像的渲染）**：给定稠密的视图采样，可以通过简单的光场采样插值（light field sample interpolation）技术重建照片级真实感的新视图 [21,5,7]。对于具有稀疏视图采样 (sparser view sampling) 的新视图合成，计算机视觉和图形社区通过从观察到的图像中预测传统的几何和外观表示而取得了重大进展。一类流行的方法使用基于网格（mesh-based）的场景表示，具有漫反射 [48] 或视图相关（view-dependent） [2,8,49] 外观。可微光栅化器（Differentiable rasterizers）[4,10,23,25]或路径跟踪器（pathtracers）[22,30]可以直接优化网格表示，以使用梯度下降再现一组输入图像。然而，基于图像重投影（image reprojection）的梯度网格优化（gradient-based mesh optimization）通常很困难，可能是因为局部极小值或损失情况（loss landscape）的条件较差。此外，该策略要求在优化之前提供具有固定拓扑的模板网格（a template mesh）作为初始化 [22]，这通常不适用于无约束的真实场景（unconstrained real-world scenes）。
 
-另一类方法使用体积表示（volumetric representations）来解决从一组输入 RGB 图像进行照片级真实感视图合成（photorealistic view synthesis）的任务。**体积方法能够真实地表示复杂的形状和材质，非常适合基于梯度的优化，并且与基于网格的方法相比，倾向于产生较少的视觉干扰伪影（visually distracting artifacts）**。早期的体积方法使用观察到的图像直接为体素网格着色 [19,40,45]。最近，有几种方法[9,13,17,28,33,43,46,52] 使用多个场景的大型数据集来训练深层网络，这些深层网络根据一组输入图像预测采样的体积表示，然后使用 alpha-compositing [34] 或沿射线学习合成，在测试时渲染新视图。其他工作针对每个特定场景优化了卷积网络（CNN）和采样体素网格的组合，使得 CNN 可以补偿低分辨率体素网格中的离散化伪影 [41]，或者允许预测的体素网格根据输入时间或动画控制而变化 [24]。**尽管这些体积技术在新的视图合成方面取得了令人印象深刻的成果，但由于离散采样（discrete sampling），它们缩放到更高分辨率图像的能力基本上受到了时间和空间复杂性的限制 - 渲染更高分辨率的图像需要对 3D 空间进行更精细的采样。我们通过在深度全连接神经网络的参数内编码连续体积来绕过这个问题，这不仅比以前的体积方法产生了更高质量的渲染，而且只需要这些采样体积表示的存储成本的一小部分。**
-
+另一类方法使用体积表示（volumetric representations）来解决从一组输入 RGB 图像进行照片级真实感视图合成（photorealistic view synthesis）的任务。**体积方法能够真实地表示复杂的形状和材质，非常适合基于梯度的优化，并且与基于网格的方法相比，倾向于产生较少的视觉干扰伪影（visually distracting artifacts）**。早期的体积方法使用观察到的图像直接为体素网格着色 [19,40,45]。最近，有几种方法[9,13,17,28,33,43,46,52] 使用多个场景的大型数据集来训练深层网络，这些深层网络根据一组输入图像预测采样的体积表示，然后使用 alpha-compositing [34] 或沿射线学习合成，在测试时渲染新视图。其他工作针对每个特定场景优化了卷积网络（CNN）和采样体素网格的组合，使得 CNN 可以补偿低分辨率体素网格中的离散化伪影（discretization artifacts） [41]，或者允许预测的体素网格根据输入时间或动画控制而变化 [24]。**尽管这些体积技术在新的视图合成方面取得了令人印象深刻的成果，但由于离散采样（discrete sampling），它们缩放到更高分辨率图像的能力基本上受到了时间和空间复杂性的限制 - 渲染更高分辨率的图像需要对 3D 空间进行更精细的采样。我们通过在深度全连接神经网络的参数内编码连续体积来绕过这个问题，这不仅比以前的体积方法产生了更高质量的渲染，而且只需要这些采样体积表示的存储成本的一小部分。**
+- ? 伪影artifacts？
 # 3 Neural Radiance Field Scene Representation
 我们将连续场景表示为 5D 向量值函数，其输入为 3D 位置 $x=（x，y，z）$ 和 2D 观看方向 $(θ，∅)$，其输出为发出的颜色 $c=（r，g，b）$和体积密度$σ$。在实践中，我们把方向表示为三维笛卡尔单位矢量 $d$。我们用 MLP 网络 $F_Θ:(x, d)→(c, σ)$ 近似这个连续的 5D 场景表示并优化其权重 $Θ$，以从每个输入 5D 坐标映射到其相应的体积密度和定向发射颜色。
 
@@ -150,7 +150,7 @@ $$
 其中 $δ_i = t_{i+1} − t_i$ 是相邻采样点之间的距离。
 从一组 $(c_i,\sigma_{i})$ 值计算 $\hat{C}(\mathbf{r})$ 的函数是平凡可微的 (trivially differentiable)，并简化为具有 $alpha$ 值 $α_i = 1 − exp(−σ_iδ_i)$的传统 $alpha$ 合成。
 
-# **5 Optimizing a Neural Radiance Field**
+# 5 Optimizing a Neural Radiance Field
 
 在上一节中，我们描述了将场景建模为神经辐射场 (a neural radiance field) 和从该表示中渲染新视图所需的核心组件。然而，我们注意到，这些组件不足以达到第 6.4 节所示的最优 (state-of-the-art) 质量。
 
@@ -187,7 +187,7 @@ $$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\de
 我们使用**逆变换采样**（inverse transform sampling）从这个分布中采样第二组 $N_f$ 位置，在第一组和第二组样本的联合处评估我们的 "fine" 网络，并使用公式 3 但使用所有 $N_c+N_f$ 样本计算光线的最终渲染颜色 $\hat{C}_{c}\left({r}\right)$ 。
 此过程将更多样本分配给我们期望包含可见内容的区域。这解决了与重要性采样 (importance sampling) 类似的目标，但我们使用采样值作为整个积分域（integration domain）的非均匀离散化（nonuniform discretization），而不是将每个采样作为整个积分的独立概率估计 (an independent probabilistic estimate of the entire integral)。
 
-## **5.3 Implementation details**
+## 5.3 Implementation details
 
 我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要**一个捕捉的场景的 RGB 图像的数据集，相应的相机位姿（camera poses）和内在（intrinsic）参数，以及场景的边界（scene bounds）(我们对合成数据使用真实（ground truth）相机位姿、内在参数和边界。并使用 COLMAP 运动结构包（COLMAP structure-from-motion package） [39] 来估计真实数据的这些参数）**。
 在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批（batch）相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 $N_c$ 样本，从细网洛中查询 $N_c+N_f$ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组 (both sets of 是两组的意思) 样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染像素颜色和真实像素颜色之间的总平方误差： 
@@ -205,23 +205,32 @@ $$
 我们定量地 (quantitatively)（表 1）和定性地（qualitatively）（图 8 和 6）表明，我们的方法优于先前的工作，并提供了广泛的消融研究（ablation studies）来验证我们的设计选择（表 2）。我们敦促读者观看我们的补充视频，以更好地理解我们的方法在渲染新视图的平滑路径时相对于对照方法（baseline methods）的显著改进。 
 - ? 消融研究（ablation studies）?
 ## 6.1 Datasets
+**Synthetic renderings of objects（物体的合成渲染）** 
+我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。
 
-**Synthetic renderings of objects（物体的合成渲染）** 我们首先展示了物体合成渲染的两个数据集的实验结果（表 1，“漫反射合成（Diffuse Synthetic）360°”和 “真实合成（Realistic Synthetic）360°”)。DeepVoxels[41] 数据集包含四个具有简单几何结构的朗伯对象（Lambertian objects）。每个对象以 512×512 像素从上半球（the upper hemisphere）采样的视点渲染（479 个作为输入，1000 用于测试）。此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何结构和照片级真实感的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视点渲染，两个从整个球体上采样的点渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
+DeepVoxels[41] 数据集包含四个具有简单几何形状的朗伯对象（Lambertian objects）。从上半球采样的视角（479 作为输入，1000 用于测试）以 512 × 512 像素渲染每个对象。。
 
-![[zip/images/1140200c02540551a1667df6a2c410f0_MD5.png]]表 1：我们的方法在合成图像和真实图像的数据集上的定量表现优于先前的工作。我们报告 PSNR/SSIM（越高越好）和 LPIPS[50]（越低越好）。DeepVoxels[41] 数据集由 4 个具有简单几何结构的漫反射对象（diffuse objects）组成。我们的真实合成数据集由具有复杂非朗伯材料的 8 个几何复杂对象的路径跟踪渲染组成。真实数据集由 8 个真实世界场景的手持式前向捕捉（handheld forward-facing captures）组成（NV 无法基于此数据进行评估，因为它仅重建有界体积内的对象）。虽然 LLFF 的 LPIPS 稍好一些，但我们敦促读者观看我们的补充视频，因为我们的方法实现了更好的多视图一致性，并且比所有对照（baselines）产生的工件（artifacts）更少。
+此外，我们还生成了自己的数据集，其中包含八个对象的路径跟踪图像（pathtraced images），这些对象具有复杂的几何形状和照片级真实感的非朗伯材质（non-Lambertian materials）。六个从上半球上采样的视角渲染，两个从整个球体上采样的视角渲染。我们渲染每个场景的 100 个视图作为输入，200 个视图用于测试，所有视图均为 800×800 像素。
 
-**Real images of complex scenes**（复杂场景的真实图像）我们展示了用大致面向前方的图像（roughly forward-facing images）拍摄的复杂真实世界场景的结果（表 1，“真实面向前方（Real Forward-Facing）”）。这个数据集由 8 个场景组成，这些场景是用手持手机拍摄的（5 个取自 LLFF 文章，3 个是我们拍摄的），用 20 到 62 张图像拍摄的，并为测试集保留其中的 1/8。所有图片都是 1008×756 像素。
+> [!example] 
+> 
+> ![[Pasted image 20230507220351.png]]
+> 
+> 表 1：我们的方法在合成图像和真实图像的数据集上的定量表现优于先前的工作。我们报告 PSNR/SSIM（越高越好）和 LPIPS[50]（越低越好）。DeepVoxels[41] 数据集由 4 个具有简单几何结构的漫反射对象（diffuse objects）组成。我们的真实合成数据集由 8 个具有复杂非朗伯材质的几何复杂对象的路径跟踪渲染组成。真实数据集由 8 个真实世界场景的手持式前向捕捉（handheld forward-facing captures）组成（NV 无法基于此数据进行评估，因为它仅重建有界体积内的对象）。虽然 LLFF 的 LPIPS 稍好一些，但我们敦促读者观看我们的补充视频，我们的方法实现了更好的多视图一致性，并且产生的伪影比所有对照组 (baselines，又称基准线)都少。
 
-**6.2 Comparisons**
--------------------
+**Real images of complex scenes（复杂场景的真实图像）**
+我们展示了用大致前向图像（roughly forward-facing images）捕获的复杂真实世界场景的结果（表 1，“Real Forward-Facing”）。这个数据集由 8 个用手持手机捕获的场景组成，（5 个取自 LLFF 论文，3 个是我们捕获的），捕获了 20 到 62 张图像，并保留其中的 1/8 用于测试集。所有图像都是 1008×756 像素。
 
-       为了评估我们的模型，我们将其与当前表现最好（top-performing）的视图合成技术进行比较，详情如下。所有方法都使用相同的一组输入视图来为每个场景训练单独的网络；但局部光场融合（Local Light Field Fusion）[28] 除外，该方法在大型数据集上训练单个 3D 卷积网络，然后使用相同的训练网络在测试时处理新场景的输入图像。
+## 6.2 Comparisons
 
-       **Neural Volumes** (NV) [24]（神经体积）合成对象的新颖视图，这些对象完全位于不同背景前面的有界体积内（必须在没有感兴趣对象的情况下单独捕捉）。它优化了一个深度三维卷积网络，以预测具有 128^_3_ 个样本的离散化 RGBα体素网格（voxel grid）以及具有 32^_3_ 个样本的三维翘曲网格（3D warp grid）。该算法通过使摄像机光线穿过扭曲的（warped）体素网格来渲染新的视图。
+为了评估我们的模型，我们将其与当前表现最好（top-performing）的视图合成技术进行比较，详情如下。
+所有方法都使用相同的一组输入视图来为每个场景训练单独的网络，局部光场融合（Local Light Field Fusion）[28] 除外，该方法在大型数据集上训练单个 3D 卷积网络，然后使用相同的训练网络在测试时处理新场景的输入图像。
 
-       **Scene Representation Networks** (SRN) [42]（场景表示网络）将一个连续的场景表示为一个不透明的表面，由一个 MLP 隐式定义，将每个（x，y，z）坐标映射为一个特征向量。他们训练一个递归神经网络，通过使用任何三维坐标的特征向量来预测沿射线的下一步大小，从而沿着射线行进。最后一步的特征向量被解码为表面上该点的单一颜色。请注意，SRN 是同一作者的 DeepVoxels[41] 的后续产品（followup），性能更好，这就是为什么我们不包括与 DeepVoxels 的比较。
+**Neural Volumes (NV) [24]（神经体积）** 合成对象的新视图，这些对象完全位于不同背景之前的有界体积内（必须在没有感兴趣对象（the object of interest）的情况下单独捕捉）。它优化了一个深度 3D 卷积网络，以预测具有 $128^3$ 个样本的离散化 $RGBα$ 体素网格（voxel grid）以及具有 $32^3$ 个样本的三维翘曲网格（3D warp grid）。该算法通过使摄像机光线穿过扭曲的（warped）体素网格来渲染新的视图。  
 
-       **Local Light Field Fusion** (LLFF) [28]（局部光场融合） LLFF 被设计用于为采样良好的前向场景产生照片级真实感的新视图（photorealistic novel views）。它使用一个训练有素的三维卷积网络来直接预测每个输入视图的离散地壳采样（a discretized frustum-sampled）RGBα网格（多平面图像或 MPI[52]），然后通过 alpha 合成和混合（alpha compositing and blending）附近的 MPI 到新的观点来渲染新的视图。
+**Scene Representation Networks (SRN) [42]（场景表示网络）** 将一个连续的场景表示为一个不透明的表面，由一个 MLP 隐式定义，将每个（x，y，z）坐标映射为一个特征向量。他们训练一个循环神经网络通过使用任何三维坐标的特征向量来预测沿射线的下一步大小。，通过使用任何三维坐标的特征向量来预测沿射线的下一步大小，从而。最后一步的特征向量被解码为表面上该点的单一颜色。请注意，SRN 是同一作者的 DeepVoxels[41] 的后续产品（followup），性能更好，这就是为什么我们不包括与 DeepVoxels 的比较。
+
+**Local Light Field Fusion** (LLFF) [28]（局部光场融合） LLFF 被设计用于为采样良好的前向场景产生照片级真实感的新视图（photorealistic novel views）。它使用一个训练有素的三维卷积网络来直接预测每个输入视图的离散地壳采样（a discretized frustum-sampled）RGBα网格（多平面图像或 MPI[52]），然后通过 alpha 合成和混合（alpha compositing and blending）附近的 MPI 到新的观点来渲染新的视图。
 
 **6.3 Discussion**
 ------------------
@@ -323,7 +332,7 @@ $$
 
 ![[zip/images/6606a94f69f166cd9f71ef5035fe66fb_MD5.png]]
 
- 表 5：来自真实图像数据集的每场景定量结果。这个数据集中的场景都是用面向前方的手持（forward-facing handheld）手机拍摄的。
+ 表 5：来自真实图像数据集的每场景定量结果。这个数据集中的场景都是用面向前方的手持（forward-facing handheld）手机捕获的。
 
 ![[zip/images/733f74122d553c58cc6570d8475a17d6_MD5.png]]
 
