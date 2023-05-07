@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "前往斯旺西.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 53.41726618705035,
+        "dimension": 59.44444444444444,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "前往斯旺西.md"
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
               }
             }
           }
@@ -72,7 +72,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 46.58273381294965,
+        "dimension": 40.55555555555556,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "前往斯旺西.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "前往斯旺西.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 566
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -148,9 +148,10 @@
   },
   "active": "b5c615f0215fc297",
   "lastOpenFiles": [
+    "zip/dailynote/前往斯旺西.md",
+    "zip/dailynote",
     "zip/images/Pasted image 20230507162133.png",
     "README.md",
-    "前往斯旺西.md",
     "zip/images/Pasted image 20230507133746.png",
     "zip/images/40554393BF59EB13321A4665A090A4E9.jpg",
     "zip/images/Pasted image 20230507122049.png",
@@ -178,7 +179,6 @@
     "zip/images/1683383583393.png",
     "zip/images/1683383583323.png",
     "zip/images/1683383583245.png",
-    "zip/images/1683383583186.png",
     "AI/深度学习/PyTorch入门.md",
     "AI/深度学习/快速入门.md",
     "AI/深度学习/《鱼书》.md",
@@ -194,7 +194,6 @@
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
     "zip/icons/lucide-icons",
-    "zip/icons/icon-brew",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
