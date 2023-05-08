@@ -6,26 +6,39 @@
       {
         "id": "242f73a6389a8781",
         "type": "tabs",
+        "dimension": 48.50696748506967,
         "children": [
-          {
-            "id": "b5c615f0215fc297",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
           {
             "id": "a963d57eaa25c52f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/论文/Nerf/学习论.md",
+                "file": "图形学/01 3D数学/公式推导/02 视图变换.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "250cfdde129e4a1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/01 3D数学/3D数学.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ddcd3583c02e6aa4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/01 3D数学/3D数学.md",
                 "mode": "source",
                 "source": false
               }
@@ -33,6 +46,25 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "b81f9b8ff88c8207",
+        "type": "tabs",
+        "dimension": 51.49303251493033,
+        "children": [
+          {
+            "id": "4caddb15e7c2c5c1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,12 +107,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/论文/Nerf/学习论.md"
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -111,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/论文/Nerf/学习论.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/论文/Nerf/学习论.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -159,8 +190,14 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "a963d57eaa25c52f",
+  "active": "4caddb15e7c2c5c1",
   "lastOpenFiles": [
+    "图形学/01 3D数学/3D数学.md",
+    "图形学/01 3D数学/公式推导/03 光照向量.md",
+    "图形学/01 3D数学/公式推导/02 视图变换.md",
+    "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
+    "图形学/01 3D数学/公式推导/01 三维旋转.md",
+    "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "AI/论文/Nerf/学习论.md",
     "zip/images/Pasted image 20230508150944.png",
@@ -171,8 +208,6 @@
     "zip/images/Pasted image 20230508141754.png",
     "zip/images/Pasted image 20230508141742.png",
     "zip/images/Pasted image 20230508141324.png",
-    "图形学/01 3D数学/3D数学.md",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
     "zip/images/Pasted image 20230507234429.png",
     "zip/images/Pasted image 20230507232312.png",
     "Tools/Obsidian/插件流.md",
@@ -197,10 +232,7 @@
     "AI/论文/知识库",
     "zBuffer/一文教你彻底理解 Transformer 中 Positional Encoding.md",
     "AI/深度学习/PyTorch入门.md",
-    "AI/深度学习/快速入门.md",
-    "AI/深度学习/《鱼书》.md",
     "AI/论文/Nerf",
-    "zBuffer/(22 条消息) 多层感知机（MLP）简介_北漂奋斗者的博客 - CSDN 博客.md",
     "AI/未命名",
     "zip/Legacy/Unity/C",
     "图形学/02 图形系统",
