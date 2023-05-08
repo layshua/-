@@ -6,42 +6,30 @@
       {
         "id": "242f73a6389a8781",
         "type": "tabs",
-        "dimension": 26.343729263437293,
+        "dimension": 26.34372926343729,
         "children": [
           {
             "id": "a963d57eaa25c52f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/公式推导/02 视图变换.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
             "id": "250cfdde129e4a1b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/3D数学.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
             "id": "ddcd3583c02e6aa4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/3D数学.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -50,18 +38,14 @@
       {
         "id": "b81f9b8ff88c8207",
         "type": "tabs",
-        "dimension": 73.65627073656272,
+        "dimension": 73.6562707365627,
         "children": [
           {
             "id": "4caddb15e7c2c5c1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -76,7 +60,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 58.152173913043484,
+        "dimension": 58.15217391304348,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -192,9 +176,9 @@
   },
   "active": "4caddb15e7c2c5c1",
   "lastOpenFiles": [
+    "图形学/01 3D数学/公式推导/02 视图变换.md",
     "图形学/01 3D数学/3D数学.md",
     "图形学/01 3D数学/公式推导/03 光照向量.md",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
     "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
     "图形学/01 3D数学/公式推导/01 三维旋转.md",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
