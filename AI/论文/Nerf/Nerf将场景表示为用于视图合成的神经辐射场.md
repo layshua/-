@@ -282,8 +282,8 @@ LLFF 特别提供了一个 " 采样准则（sampling guideline）"，即输入�
 # 8 Additonal
 ## Additional Implementation Details
 
-**Volume Bounds** 我们的方法通过查询沿着相机光线的连续 5D 坐标处的神经辐射场表示来渲染视图。在合成图像的实验中，我们对场景进行缩放，使其位于以原点为中心的边长为 2 的立方体中，并且仅查询这个边界体积内的表示。我们的真实图像数据集包含的内容可以存在于最近点和无穷大之间的任何位置，所以我们使用归一化的设备坐标（NDC）将这些点的深度范围映射到 [-1, 1]。这将所有的光线原点转移到场景的近平面 (the near plane of the scene)，将摄像机的透视光线映射到转换后的体积中的平行光线，并使用差距（你深度）（disparity (inverse depth)）而不是度量深度，所以现在所有的坐标都是有界的。
-
+**Volume Bounds** 我们的方法通过查询沿着相机光线的连续 5D 坐标处的神经辐射场表示来渲染视图。在合成图像的实验中，我们对场景进行缩放，使其位于以原点为中心的边长为 2 的立方体中，并且仅查询这个边界体积内的表示。我们的真实图像数据集包含的内容可以存在于最近点和无穷大之间的任何位置，所以我们使用归一化的设备坐标（NDC）将这些点的深度范围映射到 [-1, 1]。这将所有的光线原点转移到场景的近平面 (the near plane of the scene)，将摄像机的透视光线映射到转换后的体积中的平行光线，并使用视差（逆深度）（disparity (inverse depth)）而不是度量深度，所以现在所有的坐标都是有界的。
+- ? 视差（逆深度）（disparity (inverse depth)）?
 **Training Details** 对于真实的场景数据，我们通过在优化过程中向输出的 $σ$ 值（在通过 ReLU 之前）添加具有零均值和单位方差的随机高斯噪声（random Gaussian noise with zero mean and unit variance）来规范我们的网络，发现这略微提高了渲染新视图的视觉性能。 
 
 **Rendering Details** 为了在测试时渲染新的视图，我们通过 coarse 网络对每条射线采样 64 个点，通过 细网洛对每条射线采样 64+128=192 个点，每条射线总共有 256 次网络查询。我们的真实合成数据集每幅图像需要 640k 射线，而我们的真实场景每幅图像需要 762k 射线，因此每幅渲染的图像需要 1.5 亿到 2 亿的网络查询。在 NVIDIA V100 上，每帧大约需要 30 秒。
@@ -303,36 +303,67 @@ LLFF 特别提供了一个 " 采样准则（sampling guideline）"，即输入�
 这个空间很方便，因为它保留了平行线，同时将 z 轴（相机轴）转换为线性的差距。
 
 在这里，我们推导出应用于光线的变换，将它们从观察空间映射到 NDC 空间。齐次坐标的标准三维透视投影矩阵是：
+$$
+M=\begin{pmatrix}\frac{n}{r}0&0&0\\ 0&\frac{n}{t}&0&0\\ 0&0&\frac{-(f+n)}{f-n}&\frac{-2fn}{f-n}\\ 0&0&-1&0\end{pmatrix} \tag{7}
+$$
+- ? -1 怎么回事？和之前算的不一样
 
-![[zip/images/91147e1fb953bf9ace83dcf027587acf_MD5.png]]
+其中，n、f 是近剪平面（clipping planes）和远剪平面，r 和 t 是近剪平面处场景的右边界和上边界。(请注意，这是基于摄像机朝 - z 方向看的惯例。) 
 
-其中，n、f 是近剪平面（clipping planes）和远剪平面，r 和 t 是近剪平面处场景的右界和上界。(请注意，这是基于摄像机朝 - z 方向看的惯例。) 为了投影一个同质点（a homogeneous point，注：是相同点，还是一个点在不同坐标系中的称呼吗）![[zip/images/c9369750609ae1422d5a887be97780a0_MD5.png]]，我们用 M 进行左乘，然后除以第四坐标。
+左乘投影矩阵，变换到裁剪空间，进行透视除法，变换到 NDC 空间，得到投影点：
+$$
+\begin{pmatrix}\frac{n}{r}&0&0&0\\ 0&\frac{n}{t}&0&0\\ 0&0&\frac{-(f+n)}{f-n}&\frac{-2fn}{f-n}\\0&0&-1&0 \end{pmatrix}\begin{pmatrix}x\\ y\\ z\\ 1\end{pmatrix}=\begin{pmatrix}\frac{n}{r}x\\ \frac{n}{t}y\\ \frac{-(f+n)}{f-n}z-\frac{-2fn}{f-n}\\ -z\end{pmatrix}\tag{8}
+$$
 
- ![[zip/images/5c16c658066058ad0534c793d021be73_MD5.png]]
+$$
+\text{project}\to\begin{pmatrix}\frac{n}{r}\frac{x}{-z}\\ \frac{n}{t}\frac{y}{-z}\\ \frac{(f+n)}{f-n}-\frac{2fn}{f-n}\frac{1}{-z}\end{pmatrix}\tag{9}
+$$
+投影点（ projected point）现在是在归一化设备坐标（NDC）空间中，原来的视锥体（the original viewing frustum）已经被映射到立方体 $[-1,1]^3$
 
-投影点（The projected point）现在是在归一化设备坐标（NDC）空间中，原来的视域（the original viewing frustum）已经被映射到立方体![[zip/images/b9c712bf9dc1a19f5431e1ada7483705_MD5.png]]。
+---
 
+我们的目标是取一条射线 $o+td$，并计算出 NDC 空间中的射线原点 $o'$ 和方向 $d'$，这样对于每一个 $t$，都存在一个新的 $t'$，对于这个 $t'$，$π(o+td)=o'+t'd'$（其中$π$是使用上述矩阵的投影）。换句话说，原始光线的投影和 NDC 空间光线追踪出相同的点（但速度不一定相同）。
+让我们把公式 9 中的投影点改写为 $(a_xx/z,a_yy/z,a_z+b_z/z)^\top$。
+新原点 $o'$ 和方向 $d'$ 的分量必须满足：
+$$
+\begin{pmatrix}a_x\frac{o_x+td_x}{o_z+td_z}\\ a_y\frac{o_y+td_y}{o_z+td_z}\\ a_z+\frac{b_z}{o_z+td_z}\end{pmatrix}=\begin{pmatrix}o_x'+t'd_x'\\ o_y'+t'd_y'\\ o_z'+t'd_z'\end{pmatrix}\tag{10}
+$$
 
-我们的目标是取一条射线 o+td，并计算出 NDC 空间中的射线原点 o_'_和方向 d_'_，这样对于每一个 t，都存在一个新的 _t__'_，对于这个 _t__'_，π_o+td__=_πo_'__+__t__'_d_'_（其中π是使用上述矩阵进行投影）。换句话说，原始射线的投影和 NDC 空间射线追踪出相同的点（但速度不一定相同）。
-让我们把公式 9 中的投影点改写为![[zip/images/7eb5872291772d2793f53fd062a81d89_MD5.png]]（对照式 17-20 进行理解 hxz）。新原点 o_'_和方向 d_'_的分量必须满足：
+为了消除自由度 (a degree of freedom)，我们决定 $t'=0$ 和  $t=0$ 应该映射到同一点。将 $t'=0$ 和  $t=0$ 代入公式 10，直接得到我们的 NDC **空间原点** $o'$ 。![[zip/images/4451558aa9da3873919a193a13674923_MD5.png]] 
+这正是原光线原点的投影 $π(o)$。通过将其代入（substituting
+）公式 10 ，对于任意 $t$，我们可以确定  $t'$ 和 $d_{}'$ 的值。![[zip/images/a986275ddd34b1afc004b53411c401cc_MD5.png]]
 
- ![[zip/images/8655002d7a612c16d8d97ee9d1de4d27_MD5.png]]
+ 分解出一个仅依赖于 $t$ 的通用表达式（$t$ 是步长），我们可以得到：
+ $$
+t'=\frac{td_z}{o_z+td_z}=1-\frac{o_z}{o_z+td_z}\tag{9}
+$$
+$$
+\mathbf{d}'=\begin{pmatrix}a_x\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ a_y\left(\frac{d_y}{d_z}-\frac{o_y}{o_z}\right)\\ -b_z\frac{1}{o_z}\end{pmatrix} \tag{10}
+$$
 
- 为了消除自由度 (a degree of freedom)，我们决定 _t__'_=0 和 _t_=0 应该映射到同一点。将 _t_=0 和 _t__'_=0 代入公式 10，直接得到我们的 NDC 空间原点 o_'_。![[zip/images/4451558aa9da3873919a193a13674923_MD5.png]] 
+注意，根据需要，当 $t=0$ 时，$t'=0$。此外，我们看到，当 $t→∞$ 时，$t'→1$。回到最初的投影矩阵，我们的常数是:
+$$
+\begin{aligned}a_x&=-\frac{n}{r}&\quad&(17)\\ a_y&=-\frac{n}{t}&\quad&(18)\\ a_z&=\frac{f+n}{f-n}&\quad&(19)\\ b_z&=\frac{2fn}{f-n}&\quad&(20)\end{aligned}
+$$
+使用标准针孔相机模型，我们可以重新参数化为：
+$$
+\begin{aligned}a_x&=-\frac{f_{cam}}{W/2}&\quad\text{(21)}\\ a_y&=-\frac{f_{cam}}{H/2}&\quad\text{(22)}\end{aligned}
+$$
+其中 W 和 H 是以像素为单位的图像的宽度和高度，$f_{cam}$ 是相机的焦距。
 
-这正是原射线原点的投影π(_o)_。通过将其代入公式 10 的任意 _t_，我们可以确定 _t__'_和 d_'_的值。![[zip/images/a986275ddd34b1afc004b53411c401cc_MD5.png]]
+在我们真正的前向捕捉中，我们假设远处的场景边界 ( far scene bound) 是无穷大（即 f 很大）（这对我们来说成本很小，因为 NDC 使用 _z_ 维度来表示逆深度 (inverse depth)，即视差 (disparity)）。在此限制下，_z_ 常数简化为：
+$$
+\begin{aligned}a_z&=1&\quad(23)\\ b_z&=2n.&\quad(24)\end{aligned}
+$$
+将所有内容结合在一起：
+$$
+\mathbf{o}'=\begin{pmatrix}-\frac{f_{cam}}{W/2}\frac{o_x}{o_z}\\ -\frac{f_{can}}{H/2}\frac{o_y}{o_z}\\ 1+\frac{2n}{o_z}\end{pmatrix}\tag{25}
+$$
+$$
+\mathbf{d}'=\begin{pmatrix}-\frac{f_{cam}}{W/2}\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ -\frac{f_{cam}}{H/2}\left(\frac{dy}{d_z}-\frac{o_y}{o_z}\right)\\ -2n\frac{1}{o_z}\end{pmatrix}\tag{26}
+$$
 
- 分解出一个仅依赖于 _t_ 的通用表达式（t 是步长，所以可以这样分 hxz），我们可以得到：![[zip/images/7b982d273027be9ae506ca05ac87ac3d_MD5.png]]
-
-注意，根据需要，当 _t_ =0 时，_t__'_=0。此外，我们看到，当 _t_→∞时，_t__'_→1。回到最初的投影矩阵，我们的常数是:
-
-![[zip/images/4942e837b62720be4e8a3aca54d6089c_MD5.png]]
-
-使用标准针孔相机模型，我们可以重新参数化为：![[zip/images/1a430ae47d7046d6909f43e3d96e6300_MD5.png]]
-
-其中 W 和 H 是以像素为单位的图像的宽度和高度，![[zip/images/5553e70807aa287faaa1e24b26fe5c89_MD5.png]]是相机的焦距。
-
-       在我们真正的前向捕捉中，我们假设远处的场景边界 (the far scene bound) 是无穷大（即 f 很大 hxz）（这对我们的损失很小，因为 NDC 使用 _z_ 维度来表示反深度 (inverse depth)，即差距 (disparity)）。在此极限下，_z_ 常数简化为：![[zip/images/b3ed9b8d3e61388f60c4a0d663749392_MD5.png]]将所有内容结合在一起：![[zip/images/6941cac464af149822a4eede5c6193a1_MD5.png]]在我们的实现中还有一个细节：我们将 _o_ 移到射线与近平面的交点 _z=__-__n_ 处（在这个 NDC 转换之前），为![[zip/images/45a7f4a93315e0905a36fabbdb6609ea_MD5.png]]取![[zip/images/ed46a643e0add153a1c09387d60b99a8_MD5.png]]。一旦我们转换为 NDC 射线，这就允许我们简单地从 0 到 1 线性采样 _t__'_，以便在原始空间中得到从 n 到∞的线性差异采样。
+在我们的实现中最后的一个细节：我们将 $\textbf{o}$ 移到射线与近平面的交点 $z=-n$ 处（在这个 NDC 转换之前），通过对 $t_n=-(n+o_z)/d_z$ 取 $\textbf{o}_n=\textbf{o}+t_n\textbf{d}$ 。一旦我们转换为 NDC 光线，这就允许我们简单地从 0 到 1 线性采样 $t'$，以便在原始空间中得到从 $n$ 到$∞$的线性视差（disparity）采样。
 
 ## Additional Results
 
@@ -352,8 +383,7 @@ LLFF 特别提供了一个 " 采样准则（sampling guideline）"，即输入�
 
  表 6：我们消融研究的每场景定量结果。这里使用的场景与表 4 中的场景相同。
 
-
-![[zip/images/c63b5bd865d10a7f0fb2fabc3e4ecabc_MD5.png]]图 8：对来自 DeepVoxels[41] 合成数据集的场景进行测试集视图（test-set views）的比较。该数据集中的对象具有简单的几何结构和完美的漫反射。由于大量的输入图像（479 个视图）和渲染对象的简单性，我们的方法和 LLFF[28] 在这一数据上几乎表现完美。LLFF 在其三维体积之间插值时仍偶尔会出现伪影（artifacts），如每个对象的顶部插图。SRN[42] 和 NV[24] 不具有呈现精细细节的表现力。
+![[Pasted image 20230508141324.png]] 图 8：对来自 DeepVoxels[41] 合成数据集的场景进行测试集视图（test-set views）的比较。该数据集中的对象具有简单的几何形状和完美的漫反射率（diffuse reflectance）。由于大量的输入图像（479 个视图）和渲染对象的简单性，我们的方法和 LLFF[28] 在这一数据上几乎表现完美。LLFF 在其 3D 体积之间插值时仍偶尔会出现伪影（artifacts），如每个对象的顶部插图所示。SRN[42] 和 NV[24] 不具有呈现精细细节的表现力。
 
 **参考：**
 =======
