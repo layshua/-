@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4caddb15e7c2c5c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/设计模式/工厂模式.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cd16b4b6814fc4f5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "9688a5ea247ac555",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md"
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
               }
             }
           }
@@ -122,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -170,31 +145,34 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "cd16b4b6814fc4f5",
+  "active": "9688a5ea247ac555",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230508221932.png",
-    "编程/设计模式/工厂模式.md",
-    "图形学/01 3D数学/公式推导/03 光照向量.md",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
+    "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "zip/Export",
+    "图形学/01 3D数学/公式推导/03 光照向量.md",
+    "图形学/01 3D数学/公式推导/未命名.md",
+    "图形学/01 3D数学/3D数学.md",
+    "图形学/06 书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
+    "图形学/06 书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
+    "zip/images/photomode_13062022_185433.png",
+    "图形学/01 3D数学/公式推导/01 三维旋转.md",
+    "图形学/01 3D数学/公式推导/02 视图变换.md",
+    "编程/设计模式/工厂模式.md",
+    "AI/论文/Nerf/学习论.md",
+    "zip/images/Pasted image 20230508221932.png",
     "技术美术/05 UnityShader/TA101.md",
     "图形学/05 软渲染器/软光栅/总结.md",
     "zip/images/Pasted image 20230508214912.png",
     "zip/images/Pasted image 20230508211144.png",
-    "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "AI/论文/Nerf/学习论.md",
     "zip/dailynote/前往斯旺西.md",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
-    "图形学/01 3D数学/3D数学.md",
     "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
-    "图形学/01 3D数学/公式推导/01 三维旋转.md",
     "zip/images/Pasted image 20230508150944.png",
     "zip/images/Pasted image 20230508150914.png",
     "zip/images/Pasted image 20230508150755.png",
     "zip/images/Pasted image 20230508141821.png",
     "zip/images/Pasted image 20230508141805.png",
     "zip/images/Pasted image 20230508141754.png",
-    "zip/images/Pasted image 20230508141742.png",
-    "zip/images/Pasted image 20230508141324.png",
     "Tools/Obsidian/插件流.md",
     "zip/dailynote",
     "README.md",
@@ -207,10 +185,7 @@
     "d.md",
     "test/chapter1.md",
     "test/chapter2.md",
-    "test/chapter3.md",
-    "图形学/02 图形系统/图形渲染管线详细梳理.md",
     "未命名.canvas",
-    "zip/templates/论文_metadata.md",
     "AI/论文/知识库",
     "AI/论文/Nerf",
     "AI/未命名",
@@ -218,7 +193,6 @@
     "图形学/02 图形系统",
     "zip/icons/simple-icons",
     "zip/icons/remix-icons",
-    "zip/icons/lucide-icons",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
