@@ -88,7 +88,7 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 使用 MLP 从低维坐标映射到颜色的类似方法也用于表示其他图形功能，如图像 [44]、纹理材质（textured materials）[12,31,36,37] 和间接照明值[38]。
 
 **Neural 3D shape representations（神经 3D 形状表示）** 最近的工作通过优化将 xyz 坐标映射到有符号距离函数（signed distance functions）[15,32] 或占用域（occupancy fields）[11,27] 的深度网络，研究了连续 3D 形状作为水平集（level sets）的隐式表示。然而，这些模型受限于其对真实（ground truth）3D 几何结构的获取要求，通常从合成 3D 形状数据集（如 ShapeNet[3]）获得。随后的工作通过制定可差分渲染函数来放宽 ground truth 3D 形状的这一要求，该函数允许仅使用 2D 图像来优化神经隐式形状表示 (neural implicit shape representations)。Niemeyer 等人 [29] 将表面表示为 3D 占用场（3D occupancy fields），并使用数值方法找到每条射线的表面交点，然后使用隐式微分计算精确导数。每个光线相交位置（ray intersection location）都作为神经 3D 纹理场（a neural 3D texture field）的输入提供，该纹理场预测该点的漫反射颜色。Sitzmann 等人 [42] 使用了一种不太直接的神经 3D 表示法，简单地在每个连续的 3D 坐标处输出一个特征向量和 RGB 颜色，并提出了一种可微分的渲染函数，该函数由沿每条光线步进的循环神经网络（RNN）组成，以确定表面的位置。
-
+- ? 水平集 level sets？
 尽管这些技术可能潜在地表示复杂和高分辨率的几何体，但迄今为止，它们仅限于几何复杂度较低的简单形状，导致渲染过度平滑。我们展示了优化网络以编码 5D 辐射场（optimizing networks to encode 5D radiance fields）（具有 2D 视角相关的外观的 3D 体积）的替代策略可以代表更高分辨率的几何形状和外观，以渲染复杂场景的照片级真实感新视图。
 
 **View synthesis and image-based rendering（视图合成和基于图像的渲染）**：给定稠密的视图采样，可以通过简单的光场采样插值（light field sample interpolation）技术重建照片级真实感的新视图 [21,5,7]。对于具有稀疏视图采样 (sparser view sampling) 的新视图合成，计算机视觉和图形社区通过从观察到的图像中预测传统的几何和外观表示而取得了重大进展。一类流行的方法使用基于网格（mesh-based）的场景表示，具有漫反射 [48] 或视图相关（view-dependent） [2,8,49] 外观。可微光栅化器（Differentiable rasterizers）[4,10,23,25]或路径跟踪器（pathtracers）[22,30]可以直接优化网格表示，以使用梯度下降再现一组输入图像。然而，基于图像重投影（image reprojection）的梯度网格优化（gradient-based mesh optimization）通常很困难，可能是因为局部极小值或损失情况（loss landscape）的条件较差。此外，该策略要求在优化之前提供具有固定拓扑的模板网格（a template mesh）作为初始化 [22]，这通常不适用于无约束的真实场景（unconstrained real-world scenes）。
@@ -223,6 +223,11 @@ DeepVoxels[41] 数据集包含四个具有简单几何形状的朗伯对象（La
 > 
 > 表 1：我们的方法在合成图像和真实图像的数据集上的定量表现优于先前的工作。我们报告 PSNR/SSIM（越高越好）和 LPIPS[50]（越低越好）。DeepVoxels[41] 数据集由 4 个具有简单几何结构的漫反射对象（diffuse objects）组成。我们的真实合成数据集由 8 个具有复杂非朗伯材质的几何复杂对象的路径跟踪渲染组成。真实数据集由 8 个真实世界场景的手持式前向捕捉（handheld forward-facing captures）组成（NV 无法基于此数据进行评估，因为它仅重建有界体积内的对象）。虽然 LLFF 的 LPIPS 稍好一些，但我们敦促读者观看我们的补充视频，我们的方法实现了更好的多视图一致性，并且产生的伪影比所有对照组 (baselines，又称基准线)都少。
 
+> [!NOTE] PSNR/SSIM/LPIPS
+>  - PSNR：峰值信噪比。通常用来评价一幅图像压缩后和原图像相比质量的好坏，当然，压缩后图像一定会比原图像质量差的，所以就用这样一个评价指标来规定标准了。PSNR 越高，压缩后失真越小。
+>-  SSIM：结构相似性。是一种全参考的图像质量评价指标，它分别从亮度、对比度、结构三方面度量图像相似性。
+>- LPIPS：学习感知图像块相似度 (Learned Perceptual Image Patch Similarity, LPIPS) 也称为 “感知损失”(perceptual loss)，用于度量两张图像之间的差别。来源于 CVPR2018《The Unreasonable Effectiveness of Deep Features as a Perceptual Metric》
+
 **Real images of complex scenes（复杂场景的真实图像）**
 我们展示了用大致前向图像（roughly forward-facing images）捕获的复杂真实世界场景的结果（表 1，“Real Forward-Facing”）。这个数据集由 8 个用手持手机捕获的场景组成，（5 个取自 LLFF 论文，3 个是我们捕获的），捕获了 20 到 62 张图像，并保留其中的 1/8 用于测试集。所有图像都是 1008×756 像素。
 
@@ -235,6 +240,11 @@ DeepVoxels[41] 数据集包含四个具有简单几何形状的朗伯对象（La
 > ![[Pasted image 20230507224408.png]]
 > 
  图 6：真实世界场景的测试集视图比较。LLFF 是专门为这个用例设计的（真实场景的前向捕捉）。与 LLFF 相比，我们的方法能够在渲染视图中更一致地表示精细几何体，如 Fern 的叶子和 T-rex 中的骨架肋骨和栏杆所示。我们的方法还正确地重建了 LLFF 难以清晰渲染的部分遮挡区域，例如底部蕨类（Fern）作物叶子后面的黄色架子和底部兰花（Orchid）作物背景中的绿色叶子。多次渲染之间的混合也会导致 LLFF 的重复边缘，如在顶部的兰花（Orchid）作物中看到的那样。SRN 捕捉到每个场景中的低频几何形状和色彩变化，但无法再现任何精细的细节。
+
+
+> [!example] 图 8
+> 
+![[Pasted image 20230508141324.png]] 图 8：对来自 DeepVoxels[41] 合成数据集的场景进行测试集视图（test-set views）的比较。该数据集中的对象具有简单的几何形状和完美的漫反射率（diffuse reflectance）。由于大量的输入图像（479 个视图）和渲染对象的简单性，我们的方法和 LLFF[28] 在这一数据上几乎表现完美。LLFF 在其 3D 体积之间插值时仍偶尔会出现伪影（artifacts），如每个对象的顶部插图所示。SRN[42] 和 NV[24] 不具有呈现精细细节的表现能力。
 
 ## 6.2 Comparisons
 
@@ -306,6 +316,7 @@ LLFF 特别提供了一个 " 采样准则（sampling guideline）"，即输入�
 $$
 M=\begin{pmatrix}\frac{n}{r}0&0&0\\ 0&\frac{n}{t}&0&0\\ 0&0&\frac{-(f+n)}{f-n}&\frac{-2fn}{f-n}\\ 0&0&-1&0\end{pmatrix} \tag{7}
 $$
+
 - ? -1 怎么回事？和之前算的不一样
 
 其中，n、f 是近剪平面（clipping planes）和远剪平面，r 和 t 是近剪平面处场景的右边界和上边界。(请注意，这是基于摄像机朝 - z 方向看的惯例。) 
@@ -329,16 +340,29 @@ $$
 \begin{pmatrix}a_x\frac{o_x+td_x}{o_z+td_z}\\ a_y\frac{o_y+td_y}{o_z+td_z}\\ a_z+\frac{b_z}{o_z+td_z}\end{pmatrix}=\begin{pmatrix}o_x'+t'd_x'\\ o_y'+t'd_y'\\ o_z'+t'd_z'\end{pmatrix}\tag{10}
 $$
 
-为了消除自由度 (a degree of freedom)，我们决定 $t'=0$ 和  $t=0$ 应该映射到同一点。将 $t'=0$ 和  $t=0$ 代入公式 10，直接得到我们的 NDC **空间原点** $o'$ 。![[zip/images/4451558aa9da3873919a193a13674923_MD5.png]] 
+为了消除自由度 (a degree of freedom)，我们决定 $t'=0$ 和  $t=0$ 应该映射到同一点。将 $t'=0$ 和  $t=0$ 代入公式 10，直接得到我们的 NDC **空间原点** $o'$ 。
+$$
+\textbf{o}'=\begin{pmatrix}o'_x\\o'_y\\o'_z\end{pmatrix}=\begin{pmatrix}a_x\frac{o_x}{o_z}\\a_y\frac{o_y}{o_z}\\a_z+\frac{b_z}{o_z}\end{pmatrix}=\pi(\textbf{o})\tag{11}
+$$
+
 这正是原光线原点的投影 $π(o)$。通过将其代入（substituting
-）公式 10 ，对于任意 $t$，我们可以确定  $t'$ 和 $d_{}'$ 的值。![[zip/images/a986275ddd34b1afc004b53411c401cc_MD5.png]]
+）公式 10 ，对于任意 $t$，我们可以确定  $t'$ 和 $d_{}'$ 的值。
+$$
+\begin{pmatrix}t'd_x'\\ t'd_y'\\ t'd_z'\end{pmatrix}=\begin{pmatrix}a_x\frac{a_x+td_x}{\partial_z+td_z}-a_x\frac{o_x}{o_z}\\ a_y\frac{o_y+td_y}{o_z+d_z}-a_y\frac{o_y}{o_z}\\ a_z+\frac{b_z}{o_z+td_z}-a_z-\frac{b_z}{o_z}\end{pmatrix}\tag{12}
+$$
+$$
+=\left(\begin{matrix}{a_{x}\frac{o_{z}(o_{x}+t d_{x})-o_{x}(o_{z}+t d_{z})}{(o_{z}+t d_{z})o_{z}}}\\ {a_{y}\frac{o_{z}(o_{y}+t d_{y})-o_{y}(o_{z}+t d_{z})}{(o_{z}+t d_{z})o_{z}}}\\ {b_{z}\frac{o_{z}-(o_{z}+t d_{z})}{(o_{z}+t d_{z})o_{z}}}\end{matrix}\right)\tag{13}
+$$
+$$
+=\begin{pmatrix}a_x\frac{td_z}{o_z+td_z}\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ a_y\frac{td_z}{o_z+td_z}\left(\frac{d_y}{d_z}-\frac{o_y}{o_z}\right)\\ -b_z\frac{td_z}{o_z+td_z}\frac{1}{o_z}\end{pmatrix}\tag{14}
+$$
 
  分解出一个仅依赖于 $t$ 的通用表达式（$t$ 是步长），我们可以得到：
  $$
-t'=\frac{td_z}{o_z+td_z}=1-\frac{o_z}{o_z+td_z}\tag{9}
+t'=\frac{td_z}{o_z+td_z}=1-\frac{o_z}{o_z+td_z}\tag{15}
 $$
 $$
-\mathbf{d}'=\begin{pmatrix}a_x\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ a_y\left(\frac{d_y}{d_z}-\frac{o_y}{o_z}\right)\\ -b_z\frac{1}{o_z}\end{pmatrix} \tag{10}
+\mathbf{d}'=\begin{pmatrix}a_x\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ a_y\left(\frac{d_y}{d_z}-\frac{o_y}{o_z}\right)\\ -b_z\frac{1}{o_z}\end{pmatrix} \tag{16}
 $$
 
 注意，根据需要，当 $t=0$ 时，$t'=0$。此外，我们看到，当 $t→∞$ 时，$t'→1$。回到最初的投影矩阵，我们的常数是:
@@ -363,106 +387,23 @@ $$
 \mathbf{d}'=\begin{pmatrix}-\frac{f_{cam}}{W/2}\left(\frac{d_x}{d_z}-\frac{o_x}{o_z}\right)\\ -\frac{f_{cam}}{H/2}\left(\frac{dy}{d_z}-\frac{o_y}{o_z}\right)\\ -2n\frac{1}{o_z}\end{pmatrix}\tag{26}
 $$
 
-在我们的实现中最后的一个细节：我们将 $\textbf{o}$ 移到射线与近平面的交点 $z=-n$ 处（在这个 NDC 转换之前），通过对 $t_n=-(n+o_z)/d_z$ 取 $\textbf{o}_n=\textbf{o}+t_n\textbf{d}$ 。一旦我们转换为 NDC 光线，这就允许我们简单地从 0 到 1 线性采样 $t'$，以便在原始空间中得到从 $n$ 到$∞$的线性视差（disparity）采样。
+在我们的实现中最后的一个细节：我们将 $\textbf{o}$ 移到射线与近平面的交点 $z=-n$ 处（在这个 NDC 转换之前），通过对 $t_n=-(n+o_z)/d_z$ 取 $\textbf{o}_n=\textbf{o}+t_n\textbf{d}$ 。一旦我们转换为 NDC 光线，这就允许我们简单地从 0 到 1 线性采样 $t'$，以便在原始空间中得到从 $n$ 到 $∞$ 的线性视差（disparity）采样。
 
 ## Additional Results
 
 **Per-scene breakdown**(按场景分类) 表 3、表 4、表 5 和表 6 包括了主文中提出的定量结果在每个场景中的细分指标。每个场景的细分与本文提出的总体定量指标一致，我们的方法在定量上优于所有对照 (baseline)。尽管 LLFF 取得了略好的 LPIPS 指标，但我们敦促读者观看我们的补充视频，我们的方法取得了更好的多视图一致性，并且比所有对照产生更少的伪影。
 
-![[zip/images/5c04ff95b8712dec718052ae12f3ecaa_MD5.png]] 表 3：DeepVoxels[41]数据集的每场景定量结果。此数据集中的 “场景（scenes）” 都是具有简单几何结构的漫反射对象，由 3D 扫描仪捕获的纹理映射网格（texture-mapped meshes）渲染。DeepVoxels 方法的指标直接取自他们的论文，其中没有报告 LPIPS，只报告了 SSIM 的两个有效数字。
+![[Pasted image 20230508141821.png]] 表 3：DeepVoxels[41]数据集的每场景定量结果。此数据集中的 “场景（scenes）” 都是具有简单几何结构的漫反射对象，由 3D 扫描仪捕获的纹理映射网格（texture-mapped meshes）渲染。DeepVoxels 方法的指标直接取自他们的论文，其中没有报告 LPIPS，只报告了 SSIM 的两个有效数字。
 
-![[zip/images/9a349cb2e53e6b67e80e8e4df05dcffc_MD5.png]]
-
+![[Pasted image 20230508141805.png]]
  表 4：我们真实合成数据集的每场景定量结果。此数据集中的 “场景（scenes）” 都是具有更复杂的几何和非朗伯材质的对象，使用 Blender 的 Cycles 路径跟踪器（pathtracer）进行渲染。
 
-![[zip/images/6606a94f69f166cd9f71ef5035fe66fb_MD5.png]]
-
+![[Pasted image 20230508141754.png]]
  表 5：来自真实图像数据集的每场景定量结果。这个数据集中的场景都是用面向前方的手持（forward-facing handheld）手机捕获的。
-
-![[zip/images/733f74122d553c58cc6570d8475a17d6_MD5.png]]
-
+![[Pasted image 20230508141742.png]]
  表 6：我们消融研究的每场景定量结果。这里使用的场景与表 4 中的场景相同。
 
-![[Pasted image 20230508141324.png]] 图 8：对来自 DeepVoxels[41] 合成数据集的场景进行测试集视图（test-set views）的比较。该数据集中的对象具有简单的几何形状和完美的漫反射率（diffuse reflectance）。由于大量的输入图像（479 个视图）和渲染对象的简单性，我们的方法和 LLFF[28] 在这一数据上几乎表现完美。LLFF 在其 3D 体积之间插值时仍偶尔会出现伪影（artifacts），如每个对象的顶部插图所示。SRN[42] 和 NV[24] 不具有呈现精细细节的表现力。
 
-**参考：**
-=======
 
-**（1）朗伯体：**
------------
 
-       是指当入射能量在所有方向均匀反射，即入射能量以入射点为中心，在整个半球空间内向四周各向同性的反射能量的现象，称为漫反射，也称各向同性反射，一个完全的漫射体称为朗伯体。理想的漫反射应遵循这个规律。例如积雪和白墙。
-
-**（2）level sets**
------------------
-
-       水平集，下面参考：[Level Sets](https://imagej.net/plugins/level-sets "Level Sets")、https://www.zhihu.com/question/22608763，
-
-       水平集算法是一种隐式的表示曲线的方法。就是把低维目标用比他高一维的水平集函数的零水平集来表示（增加一个维度，并强行把该维度赋值为 0 吗？？？）。
-
-**（3）alpha 合成**
----------------
-
-       在 RGB 图像中，每个像素是由四个部分组成：一个 Alpha 通道和三个颜色分量 (R、G 和 B)。当 Alpha 值为 0 时，该像素是完全透明的，而当 Alpha 值为 255 时，则该像素是完全不透明。
-
-       Alpha 混色是将源图像像素和背景像素 / 或其他图像的颜色进行混合，最终显示的颜色取决于其 RGB 颜色分量和 Alpha 值。它们之间的关系可用下列公式来表示：
-
-       显示颜色 = 源图像素颜色 ×alpha/255 + 背景颜色 ×(255-alpha)/255。
-
-       文中将不同 t 处的像素颜色进行合成。
-
-**（4）PDF**
-----------
-
-         partial differential equations 偏微分方程
-
-         probability density function 概率密度函数 -- 来自评论区的伙伴的建议
-
-（5）逆变换采样
---------
-
-### 知乎文章
-
-这一篇（[逆变换采样](https://zhuanlan.zhihu.com/p/80726483 "逆变换采样")）是最近刚理解的逆变换采样的文章，讲解的很清楚，大家可以看看。
-
-第一次看的时候可以只看到 “正态分布” 之前的。
-
-![[zip/images/f82ffe8db5ffa05673325ae754112d82_MD5.png]]
-
-下面这部分是逆变换采样的原理推导，理解后面的案例后就不难理解了，第一次读的时候可以先忽略
-
-![[zip/images/0133c59104c5360c8bf5d4f0a4d4813c_MD5.png]]
-
- 作者的案例中，用简单的均匀分布 “drand48()” 来生成其他不同的 / 复杂的分布的概率密度函数，说明了逆变换采样的可靠性。
-
-而在 nerf 的分层采样中使用 coarse 分布去逆变换采样 fine 分布的概率密度分布。
-
-### chatGPT 解释如下:
-
-逆变换抽样（Inverse Transform Sampling），也称为反函数法，是一种生成服从任意概率分布的随机数的方法。
-
-逆变换抽样的基本思想是，根据给定的概率密度函数（Probability Density Function, PDF），求出其累积分布函数（Cumulative Distribution Function, CDF），然后将一个均匀分布的随机数 $u$ 代入 CDF 中，得到一个服从所求概率分布的随机数 $x$。
-
-具体来说，设随机变量 $X$ 的概率密度函数为 $f(x)$，累积分布函数为 $F(x)$，则逆变换抽样的步骤如下：
-
-1. 求出概率密度函数 $f(x)$ 的累积分布函数 $F(x)$；  
-2. 生成一个均匀分布的随机数 $u \in [0, 1]$；  
-3. 计算 $F(x)$ 的反函数 $F^{-1}(u)$；  
-4. $F^{-1}(u)$ 即为服从 $f(x)$ 的随机数。
-
-其中，步骤 3 中的反函数 $F^{-1}(u)$ 可以通过求解以下方程来得到：
-
-$$  
-F(x) = u  
-$$
-
-逆变换抽样的优点在于可以生成任意分布的随机数，并且相对于其他生成随机数的方法，它的计算效率比较高。但是它的缺点在于，在某些情况下，求解 $F^{-1}(u)$ 的过程可能比较困难。此外，在实际应用中，需要保证概率密度函数 $f(x)$ 可以被计算机高效地求解和逆变换，否则可能会影响生成随机数的效率。
-
-**（6）PSNR、SSIM、LPIPS**
-----------------------
-
-       PSNR：峰值信噪比。通常用来评价一幅图像压缩后和原图像相比质量的好坏，当然，压缩后图像一定会比原图像质量差的，所以就用这样一个评价指标来规定标准了。PSNR 越高，压缩后失真越小。
-
-       SSIM：结构相似性。是一种全参考的图像质量评价指标，它分别从亮度、对比度、结构三方面度量图像相似性。
-
-       LPIPS：学习感知图像块相似度 (Learned Perceptual Image Patch Similarity, LPIPS) 也称为 “感知损失”(perceptual loss)，用于度量两张图像之间的差别。来源于 CVPR2018《The Unreasonable Effectiveness of Deep Features as a Perceptual Metric》
+      
