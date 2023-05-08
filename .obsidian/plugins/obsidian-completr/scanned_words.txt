@@ -11394,6 +11394,9 @@ cyeg
 converge
 cosines
 chapters
+cutting
+chatPDF
+chat
 github
 grey
 green
@@ -32704,6 +32707,7 @@ entire
 expected
 etableTableTable
 expandState
+evaluate
 VPN
 Verge
 VS
@@ -36058,6 +36062,7 @@ ViewprotRect
 Venus
 VGGNet
 VnNs
+Visualizers
 verge
 vPdIt
 vertical
@@ -43197,6 +43202,7 @@ Alex
 AlphaGo
 Ablation
 Additonal
+Academic
 URL
 Utools
 Users
@@ -54411,6 +54417,7 @@ RuU
 Representing
 Rahaman
 Regularization
+REMODE
 Microsoft
 Menu
 MicaForEveryone
@@ -58818,6 +58825,7 @@ MLPs
 Metric
 Multilayer
 Mildenhall
+Metrics
 Windows
 Win
 World
@@ -74616,6 +74624,9 @@ CreatedfilesfilepropFile
 Createdfiles
 Conversion
 Cartesian
+Cutting
+Chat
+Colmap
 ImTip
 IMAP
 ID
@@ -78358,6 +78369,7 @@ ILSVRC
 Indexer
 Izz
 Iptr
+InstantNGP
 qq
 qyi
 quad
@@ -86018,6 +86030,7 @@ projected
 pathtracer
 perceptual
 poses
+ptimizations
 nodesCatch
 nobr
 navy
@@ -92917,6 +92930,7 @@ buzk
 bottleneck
 both
 banding
+backbone
 fe
 front
 fill
@@ -96281,6 +96295,7 @@ failure
 fieldsm
 filesViewFileslistfiles
 filesFilesdbtrue
+ffmpeg
 dd
 dcc
 data
@@ -100126,6 +100141,7 @@ disparity
 drand
 dfec
 discretization
+deepvoxels
 TFvYZOKeHL
 TAB
 TeX
@@ -103879,6 +103895,9 @@ TableTabledb
 Tabletext
 Tanh
 Tutorials
+TOF
+Taichi
+Trainers
 io
 ipad
 it
@@ -115750,6 +115769,7 @@ lying
 landscape
 largest
 logisticRegression
+llff
 YAML
 You
 YEBAYGhURFRofHx
@@ -137207,6 +137227,8 @@ BHWr
 BCCq
 Baseline
 BERT
+Benchmarks
+Bing
 Fraktur
 Frame
 Foo
@@ -145491,6 +145513,9 @@ ESwV
 Effectiveness
 Enconding
 ECCV
+Experiments
+Evaluators
+Eval
 xmlns
 xyz
 xy
@@ -159081,6 +159106,7 @@ LLFF
 Lego
 Learned
 LogisticRegression
+LINEMOD
 Getx
 GetX
 GetName
@@ -167053,6 +167079,7 @@ Niemeyer
 Networks
 NameTabletext
 NameTable
+Nerf
 ZooAnima
 ZooAnimal
 ZTest

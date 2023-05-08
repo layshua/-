@@ -23,11 +23,16 @@
             "id": "a963d57eaa25c52f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "AI/论文/Nerf/学习论.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -70,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
+                "file": "AI/论文/Nerf/学习论.md"
               }
             }
           }
@@ -106,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "AI/论文/Nerf/学习论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+                "file": "AI/论文/Nerf/学习论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -154,10 +159,13 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "b5c615f0215fc297",
+  "active": "a963d57eaa25c52f",
   "lastOpenFiles": [
-    "AI/论文/Nerf/学习论.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "AI/论文/Nerf/学习论.md",
+    "zip/images/Pasted image 20230508150944.png",
+    "zip/images/Pasted image 20230508150914.png",
+    "zip/images/Pasted image 20230508150755.png",
     "zip/images/Pasted image 20230508141821.png",
     "zip/images/Pasted image 20230508141805.png",
     "zip/images/Pasted image 20230508141754.png",
@@ -167,9 +175,6 @@
     "图形学/01 3D数学/公式推导/02 视图变换.md",
     "zip/images/Pasted image 20230507234429.png",
     "zip/images/Pasted image 20230507232312.png",
-    "zip/images/Pasted image 20230507230314.png",
-    "zip/images/Pasted image 20230507224444.png",
-    "zip/images/Pasted image 20230507224408.png",
     "Tools/Obsidian/插件流.md",
     "zip/dailynote/前往斯旺西.md",
     "zip/dailynote",
@@ -196,7 +201,6 @@
     "AI/深度学习/《鱼书》.md",
     "AI/论文/Nerf",
     "zBuffer/(22 条消息) 多层感知机（MLP）简介_北漂奋斗者的博客 - CSDN 博客.md",
-    "AI/论文/翻译.md",
     "AI/未命名",
     "zip/Legacy/Unity/C",
     "图形学/02 图形系统",
