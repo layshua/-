@@ -113,7 +113,6 @@ Ground Truth： 就是指正确打标签的训练数据或简单来说就是有�
 > [!example] 图 7
 > ![[Pasted image 20230507232312.png]] 图 7：我们全连接的网络架构的可视化。输入向量以绿色显示，中间隐藏层以蓝色显示，输出向量以红色显示，每个块内的数字表示向量的维度。所有层都是标准的全连接层，黑色箭头表示有 ReLU 激活的层，橙色箭头表示没有激活的层、黑色虚线箭头表示具有 sigmoid 激活的层， “+” 表示向量连接。输入位置 $γ(x)$ 的位置编码通过 8 个完全连接的 ReLU 层，每个层有 256 个通道。我们遵循 DeepSDF[32] 架构，并包含一个跳跃连接 （skip connection），将此输入连接到第五层的激活 (activation)。附加层输出体积密度 $σ$（使用 ReLU 进行校正，以确保输出体积密度为非负）和 256 维特征向量。这个特征向量与输入观察方向的位置编码 $γ(d)$ 相连接，并由一个具有 128 个通道的附加全连接 ReLU 层处理。最后一层（有一个 sigmoid 激活）输出位置 $x$ 的 RGB 辐射度，作为通过方向为 $d$ 的光线所看到的颜色。  
 
-
 关于我们的方法如何使用输入观察方向来表示非朗伯效应（non-Lambertian effects）的示例，请参见图 3。如图 4 所示，在不依赖视图的情况下训练的模型（只有 _x_ 作为输入）很难表示镜面反射。
 
 > [!example] 图 3/图 4
@@ -205,7 +204,7 @@ $$\hat{C}_c(\mathbf{r})=\sum_{i=1}^{N_c}w_ic_i,\quad w_i=T_i(1-\exp(-\sigma_i\de
 我们为每个场景优化了一个单独的神经连续体积表示网络。这只需要**一个捕捉的场景的 RGB 图像的数据集，相应的相机位姿（camera poses）和内在（intrinsic）参数，以及场景的边界（scene bounds）(我们对合成数据使用真实（ground truth）相机位姿、内在参数和边界。并使用 COLMAP 运动结构包（COLMAP structure-from-motion package） [39] 来估计真实数据的这些参数）**。
 在每次优化迭代中，我们从数据集中所有像素的集合中随机采样一批（batch）相机光线，然后按照第 5.2 节中描述的分层采样，从 coarse 网络中查询 $N_c$ 样本，从细网洛中查询 $N_c+N_f$ 个样本。然后，我们使用第 4 节中描述的体渲染过程来渲染两组 (both sets of 是两组的意思) 样本中每条光线的颜色。我们的损失只是 coarse 渲染和 fine 渲染的渲染像素颜色和真实像素颜色之间的总平方误差： 
 $$
-\mathcal L=\sum_{\mathbf{r}\in\mathcal{R}}\left[\left\lVert\hat{C}_{c}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}+\left\lVert\hat{C}_{f}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}\right]/\tag{6}
+\mathcal L=\sum_{\mathbf{r}\in\mathcal{R}}\left[\left\lVert\hat{C}_{c}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}+\left\lVert\hat{C}_{f}(\mathbf{r})-C(\mathbf{r})\right\rVert_{2}^{2}\right]\tag{6}
 $$
 
 其中 $R$ 是每个 batch 中的光线集，$C(\mathbf{r}), \hat{C}_c(\mathbf{r})$ 和 $\hat{C}_f(\mathbf{r})$ 分别是光线 $r$ 的真实值、coarse 体积预测和 fine 体积预测 RGB 颜色。请注意，即使最终渲染来自 $\hat{C}_f(\mathbf{r})$ ，我们也将 $\hat{C}_c(\mathbf{r})$ 的损失最小化，以便 coarse 网络的权重分布可以用于在 fine 网络中分配样本。   
