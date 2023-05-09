@@ -74628,6 +74628,7 @@ Cartesian
 Cutting
 Chat
 Colmap
+Cosine
 ImTip
 IMAP
 ID
