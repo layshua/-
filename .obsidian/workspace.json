@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9688a5ea247ac555",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Obsidian/插件流.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "dc7eb5ccb7db4694",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "编程/SpringBoot/概述 - 01.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "编程/SpringBoot/概述 - 01.md"
               }
             }
           }
@@ -133,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "编程/SpringBoot/概述 - 01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "编程/SpringBoot/概述 - 01.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,46 +169,30 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "floating": {
-    "id": "8468503d4ce41ac2",
-    "type": "floating",
-    "children": [
-      {
-        "id": "e94d31c180118b2c",
-        "type": "window",
-        "children": [
-          {
-            "id": "21a3356231d1e05f",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "e59b1ca1d553f27a",
-                "type": "leaf",
-                "state": {
-                  "type": "empty",
-                  "state": {}
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 0,
-        "y": 0,
-        "width": 1024,
-        "height": 1112,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "9688a5ea247ac555",
+  "active": "dc7eb5ccb7db4694",
   "lastOpenFiles": [
+    "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
+    "编程/SpringBoot/概述 - 01.md",
+    "编程/SpringBoot/快速入门 - 02.md",
+    "编程/SpringBoot",
+    "zip/dailynote/前往斯旺西.md",
+    "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
+    "Tools/Obsidian/插件流.md",
+    "zip/images/1683635604031.png",
+    "zip/images/1683635603970.png",
+    "zip/images/1683635584651.png",
+    "编程/SpringBoot/配置 - 03.md",
+    "zip/images/1683635584604.png",
+    "zip/images/1683635584555.png",
+    "zip/images/1683635584506.png",
+    "zip/images/1683635584450.png",
+    "zip/images/1683635584405.png",
+    "zip/images/1683635584303.png",
+    "zip/images/1683635584245.png",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/01 3D数学/公式推导/03 光照向量.md",
     "图形学/01 3D数学/公式推导/01 三维旋转.md",
     "技术美术/05 UnityShader/TA101.md",
-    "zip/dailynote/前往斯旺西.md",
     "图形学/01 3D数学/公式推导/04 着色模型.md",
     "图形学/05 软渲染器/软光追/未命名.md",
     "图形学/06 书籍/PBRT/未命名.md",
@@ -228,18 +200,7 @@
     "图形学/06 书籍/RTR/未命名.md",
     "图形学/06 书籍/RTR",
     "图形学/06 书籍/PBRT",
-    "zip/images/Pasted image 20230509112225.png",
-    "zip/images/Pasted image 20230509112121.png",
-    "zip/images/Pasted image 20230509112057.png",
-    "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
     "图形学/01 3D数学/3D数学.md",
-    "zip/images/52d8e697cac4e888da910201f343b92f_MD5.jpg",
-    "zip/images/5f51e5ecc0c308b8b4d58c351f8d9807_MD5.jpg",
-    "zip/images/9267fb507b68fe8f7f25bc9548902ced_MD5.jpg",
-    "zip/images/021c6a631aad71fa57904c06acc7b364_MD5.jpg",
-    "zip/images/c404f0cfb630ff9ac5fc30909c269875_MD5.jpg",
-    "zip/images/1683601666421.png",
-    "zip/images/1683601666297.png",
     "图形学/06 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
     "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/01 3D数学/公式推导/02 视图变换.md",
@@ -250,19 +211,12 @@
     "图形学/06 书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
     "图形学/06 书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
     "编程/设计模式/工厂模式.md",
-    "AI/论文/Nerf/学习论.md",
-    "图形学/05 软渲染器/软光栅/总结.md",
-    "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
-    "Tools/Obsidian/插件流.md",
     "zip/dailynote",
-    "README.md",
-    "第一节.md",
     "test",
     "未命名.canvas",
     "AI/论文/知识库",
     "AI/论文/Nerf",
     "AI/未命名",
-    "zip/Legacy/Unity/C",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
