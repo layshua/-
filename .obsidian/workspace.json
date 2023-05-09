@@ -67,8 +67,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +110,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md"
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -146,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,8 +193,11 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "dc7eb5ccb7db4694",
+  "active": "9688a5ea247ac555",
   "lastOpenFiles": [
+    "图形学/01 3D数学/公式推导/01 三维旋转.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "zip/dailynote/前往斯旺西.md",
     "图形学/01 3D数学/公式推导/04 着色模型.md",
     "图形学/05 软渲染器/软光追/未命名.md",
     "图形学/06 书籍/PBRT/未命名.md",
@@ -208,8 +210,6 @@
     "zip/images/Pasted image 20230509112225.png",
     "zip/images/Pasted image 20230509112121.png",
     "zip/images/Pasted image 20230509112057.png",
-    "技术美术/05 UnityShader/TA101.md",
-    "图形学/01 3D数学/公式推导/01 三维旋转.md",
     "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
     "图形学/01 3D数学/3D数学.md",
     "zip/images/52d8e697cac4e888da910201f343b92f_MD5.jpg",
@@ -231,7 +231,6 @@
     "编程/设计模式/工厂模式.md",
     "AI/论文/Nerf/学习论.md",
     "图形学/05 软渲染器/软光栅/总结.md",
-    "zip/dailynote/前往斯旺西.md",
     "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
     "Tools/Obsidian/插件流.md",
     "zip/dailynote",
