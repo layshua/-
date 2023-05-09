@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -26,18 +26,6 @@
               "type": "markdown",
               "state": {
                 "file": "zip/dailynote/前往斯旺西.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e59b1ca1d553f27a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/01 3D数学/公式推导/01 三维旋转.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -145,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -172,7 +160,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -193,8 +182,46 @@
       "remotely-save:Remotely Save": false
     }
   },
+  "floating": {
+    "id": "8468503d4ce41ac2",
+    "type": "floating",
+    "children": [
+      {
+        "id": "e94d31c180118b2c",
+        "type": "window",
+        "children": [
+          {
+            "id": "21a3356231d1e05f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e59b1ca1d553f27a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "图形学/01 3D数学/公式推导/01 三维旋转.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 1112,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "9688a5ea247ac555",
   "lastOpenFiles": [
+    "图形学/01 3D数学/公式推导/03 光照向量.md",
     "图形学/01 3D数学/公式推导/01 三维旋转.md",
     "技术美术/05 UnityShader/TA101.md",
     "zip/dailynote/前往斯旺西.md",
@@ -206,7 +233,6 @@
     "图形学/06 书籍/RTR",
     "编程/C++/《C++ Primer 5th》.md",
     "图形学/06 书籍/PBRT",
-    "图形学/01 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230509112225.png",
     "zip/images/Pasted image 20230509112121.png",
     "zip/images/Pasted image 20230509112057.png",
