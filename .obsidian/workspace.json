@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/04 着色模型.md",
+                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,26 +25,37 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/01 3D数学/公式推导/03 光照向量.md",
+                "file": "图形学/01 3D数学/公式推导/01 三维旋转.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "910738b5d53f6b26",
+            "id": "67dfc3213f7b8cba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/01 3D数学/3D数学.md",
+                "file": "技术美术/05 UnityShader/TA101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a87ca0234398f8c4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/01 3D数学/公式推导/04 着色模型.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -170,37 +181,39 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "e59b1ca1d553f27a",
+  "active": "9688a5ea247ac555",
   "lastOpenFiles": [
-    "图形学/01 3D数学/公式推导/04 着色模型.md",
-    "图形学/01 3D数学/公式推导/03 光照向量.md",
-    "图形学/06 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
-    "zip/images/Pasted image 20230509104204.png",
-    "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/01 3D数学/3D数学.md",
-    "zip/images/BVYU%}N~BY3~OQ}_T$B~[X1_tmb.jpg",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
+    "zip/images/Pasted image 20230509112225.png",
+    "zip/images/Pasted image 20230509112121.png",
+    "zip/images/Pasted image 20230509112057.png",
+    "技术美术/05 UnityShader/TA101.md",
     "图形学/01 3D数学/公式推导/01 三维旋转.md",
+    "图形学/01 3D数学/公式推导/04 着色模型.md",
+    "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
+    "图形学/01 3D数学/公式推导/03 光照向量.md",
+    "图形学/01 3D数学/3D数学.md",
+    "zip/images/52d8e697cac4e888da910201f343b92f_MD5.jpg",
+    "zip/images/5f51e5ecc0c308b8b4d58c351f8d9807_MD5.jpg",
+    "zip/images/9267fb507b68fe8f7f25bc9548902ced_MD5.jpg",
+    "zip/images/021c6a631aad71fa57904c06acc7b364_MD5.jpg",
+    "zip/images/c404f0cfb630ff9ac5fc30909c269875_MD5.jpg",
+    "zip/images/1683601666421.png",
+    "zip/images/1683601666297.png",
+    "zip/images/1683601666239.png",
+    "图形学/06 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
+    "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/01 3D数学/公式推导/02 视图变换.md",
     "Math/线性代数/矩阵论.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "zip/Export",
     "图形学/06 书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
     "图形学/06 书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
-    "zip/images/photomode_13062022_185433.png",
     "编程/设计模式/工厂模式.md",
     "AI/论文/Nerf/学习论.md",
-    "zip/images/Pasted image 20230508221932.png",
-    "技术美术/05 UnityShader/TA101.md",
     "图形学/05 软渲染器/软光栅/总结.md",
-    "zip/images/Pasted image 20230508214912.png",
-    "zip/images/Pasted image 20230508211144.png",
     "zip/dailynote/前往斯旺西.md",
     "图形学/01 3D数学/公式推导/01 三维旋转-MSI.md",
-    "zip/images/Pasted image 20230508150944.png",
-    "zip/images/Pasted image 20230508150914.png",
-    "zip/images/Pasted image 20230508150755.png",
-    "zip/images/Pasted image 20230508141821.png",
     "Tools/Obsidian/插件流.md",
     "zip/dailynote",
     "README.md",
@@ -208,9 +221,7 @@
     "Math/LaTeX/常用语法.md",
     "test/book.md",
     "test/第一节.md",
-    "DCC/PBR全流程.md",
     "test",
-    "d.md",
     "未命名.canvas",
     "AI/论文/知识库",
     "AI/论文/Nerf",

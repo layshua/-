@@ -3269,6 +3269,7 @@ occupancy
 occluded
 optimizer
 outperform
+oneMinusReflectivity
 OneDrive
 Obsidian
 Office
@@ -74629,6 +74630,7 @@ Cutting
 Chat
 Colmap
 Cosine
+ColorSpaceDielectricSpec
 ImTip
 IMAP
 ID
@@ -92933,6 +92935,7 @@ bottleneck
 both
 banding
 backbone
+burley
 fe
 front
 fill
@@ -159109,6 +159112,8 @@ Lego
 Learned
 LogisticRegression
 LINEMOD
+Liner
+LdotH
 Getx
 GetX
 GetName

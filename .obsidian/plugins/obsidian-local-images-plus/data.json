@@ -2,7 +2,7 @@
   "processCreated": false,
   "intClip": false,
   "useCaptions": true,
-  "pathInTags": "fullDirPath",
+  "pathInTags": "baseFileName",
   "downUnknown": false,
   "saveAttE": "obsFolder",
   "realTimeUpdate": false,
