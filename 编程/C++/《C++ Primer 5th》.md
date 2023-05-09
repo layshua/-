@@ -6569,6 +6569,7 @@ while (map_it != word count.cend())
 ### insert添加元素
 insert向容器中添加一个元素或一个元素范围（begin，end）
 ![[Pasted image 20230213180409.png]]
+
 ```c++
 //map添加
 //向word_count插入word的4种方法
