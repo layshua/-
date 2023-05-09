@@ -11398,6 +11398,7 @@ chapters
 cutting
 chatPDF
 chat
+classpath
 github
 grey
 green
@@ -54425,6 +54426,7 @@ Rahaman
 Regularization
 REMODE
 Redis
+Ruby
 Microsoft
 Menu
 MicaForEveryone
@@ -58835,6 +58837,7 @@ Mildenhall
 Metrics
 MyBatis
 Maven
+Markup
 Windows
 Win
 World
@@ -66902,6 +66905,7 @@ SpringBoot
 SpringBootJunit
 SpringBootRedis
 SpringBootMyBatis
+Springboot
 Programs
 POP
 PC
@@ -70744,6 +70748,7 @@ Previewfiles
 Pasted
 PCle
 Perceptron
+Perl
 ContextMenuManager
 ClashVerge
 Clash
@@ -74642,6 +74647,7 @@ Chat
 Colmap
 Cosine
 ColorSpaceDielectricSpec
+ConfigurationProperties
 ImTip
 IMAP
 ID
@@ -151876,6 +151882,7 @@ ycL
 ygg
 yellowCab
 yHH
+ymal
 Debug
 DEBUG
 Dd
