@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/01 3D数学/公式推导/04 着色模型.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md"
+                "file": "图形学/01 3D数学/公式推导/04 着色模型.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/01 3D数学/公式推导/04 着色模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "图形学/01 3D数学/公式推导/04 着色模型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,6 +196,13 @@
   },
   "active": "dc7eb5ccb7db4694",
   "lastOpenFiles": [
+    "图形学/05 软渲染器/软光追/未命名.md",
+    "图形学/06 书籍/PBRT/未命名.md",
+    "图形学/05 软渲染器/软光追",
+    "图形学/06 书籍/RTR/未命名.md",
+    "图形学/06 书籍/RTR",
+    "编程/C++/《C++ Primer 5th》.md",
+    "图形学/06 书籍/PBRT",
     "图形学/01 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230509112225.png",
     "zip/images/Pasted image 20230509112121.png",
@@ -230,18 +237,12 @@
     "zip/dailynote",
     "README.md",
     "第一节.md",
-    "Math/LaTeX/常用语法.md",
-    "test/book.md",
-    "test/第一节.md",
     "test",
     "未命名.canvas",
     "AI/论文/知识库",
     "AI/论文/Nerf",
     "AI/未命名",
     "zip/Legacy/Unity/C",
-    "图形学/02 图形系统",
-    "zip/icons/simple-icons",
-    "zip/icons/remix-icons",
     "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
