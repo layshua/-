@@ -23,24 +23,16 @@
             "id": "9ab981ba2dcae6e8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
             "id": "2d491e93ca3bc8cf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -195,11 +187,12 @@
   },
   "active": "67dfc3213f7b8cba",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230510123058.png",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/1 图形系统/02 着色模型.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "zip/images/Pasted image 20230510123058.png",
     "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/0 3D数学/3D数学.md",
-    "图形学/1 图形系统/02 着色模型.md",
     "zip/images/Pasted image 20230510113851.png",
     "zip/images/Pasted image 20230510113231.png",
     "zip/images/Pasted image 20230510113052.png",
@@ -209,7 +202,6 @@
     "图形学/3 软渲染器/软光栅/总结.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "图形学/4 GAMES系列",
-    "图形学/1 图形系统/01 图形渲染管线.md",
     "zip/images/GOR5BZY(PA8(Z`0_}PE4[$U.jpg",
     "zip/images/Pasted image 20230510101634.png",
     "zip/images/Pasted image 20230510101329.png",
@@ -225,7 +217,6 @@
     "zip/dailynote/前往斯旺西.md",
     "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
     "Tools/Obsidian/插件流.md",
-    "zip/images/1683635604031.png",
     "技术美术/05 UnityShader/TA101.md",
     "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/5 书籍/PBRT/未命名.md",
