@@ -8,44 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "aad4baa99e2e7402",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Git/git入门.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "82425556acb74aee",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 软渲染器/软光栅/总结.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1e8a0e7cb81ea5c9",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "8e0f4ee1824217dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "图形学/1 图形系统/02 着色模型.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0f2fc23bd8b5218c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/05 UnityShader/TA101.md",
                 "mode": "source",
                 "source": false
               }
@@ -118,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Git/git入门.md"
+                "file": "图形学/1 图形系统/02 着色模型.md"
               }
             }
           }
@@ -153,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "图形学/1 图形系统/02 着色模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "图形学/1 图形系统/02 着色模型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,12 +181,14 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "aad4baa99e2e7402",
+  "active": "8e0f4ee1824217dc",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230510221454.jpg",
     "技术美术/05 UnityShader/TA101.md",
     "图形学/1 图形系统/02 着色模型.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/3 软渲染器/软光栅/总结.md",
+    "Tools/Git/git入门.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230510162436.png",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
@@ -244,7 +226,6 @@
     "图形学/5 书籍/RTR/未命名.md",
     "图形学/5 书籍/RTR",
     "图形学/5 书籍/PBRT",
-    "图形学/5 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
     "zip/Export",
     "zip/dailynote",
     "test",
