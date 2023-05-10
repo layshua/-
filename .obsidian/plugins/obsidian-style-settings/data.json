@@ -96,6 +96,9 @@
   "floating-toc-styles@@floating-toc-line-height": 1.5,
   "floating-toc-styles@@indicator-bar-position": 0,
   "floating-toc-styles@@floating-toc-header-background-color@@light": "#2F2727AB",
-  "minimal-style@@blockquote-border-color@@light": "#0800FF",
-  "minimal-style@@blockquote-background-color@@light": "#1E3588"
+  "minimal-style@@blockquote-border-color@@light": "#7C45E8",
+  "minimal-style@@blockquote-background-color@@light": "#F5F3F9",
+  "minimal-style@@blockquote-border-thickness": 3,
+  "minimal-style@@blockquote-color@@light": "#000000",
+  "minimal-style@@blockquote-size": "16"
 }
