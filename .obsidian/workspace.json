@@ -20,6 +20,30 @@
             }
           },
           {
+            "id": "9ab981ba2dcae6e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/3D数学.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2d491e93ca3bc8cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "82425556acb74aee",
             "type": "leaf",
             "state": {
@@ -171,13 +195,17 @@
   },
   "active": "67dfc3213f7b8cba",
   "lastOpenFiles": [
-    "图形学/3 软渲染器/软光栅/总结.md",
-    "图形学/1 图形系统/02 着色模型.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "zip/images/Pasted image 20230510113052.png",
     "图形学/0 3D数学/3D数学.md",
+    "图形学/1 图形系统/02 着色模型.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "zip/images/Pasted image 20230510111300.png",
+    "zip/images/Pasted image 20230510111136.png",
+    "zip/images/Pasted image 20230510110956.png",
+    "图形学/3 软渲染器/软光栅/总结.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
     "zip/images/GOR5BZY(PA8(Z`0_}PE4[$U.jpg",
     "zip/images/Pasted image 20230510101634.png",
@@ -198,9 +226,6 @@
     "zip/images/1683635603970.png",
     "zip/images/1683635584651.png",
     "zip/images/1683635584604.png",
-    "zip/images/1683635584555.png",
-    "zip/images/1683635584506.png",
-    "zip/images/1683635584450.png",
     "技术美术/05 UnityShader/TA101.md",
     "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/5 书籍/PBRT/未命名.md",
