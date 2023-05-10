@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,10 +203,10 @@
   },
   "active": "aad4baa99e2e7402",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/TA101.md",
     "图形学/1 图形系统/02 着色模型.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/3 软渲染器/软光栅/总结.md",
-    "技术美术/05 UnityShader/TA101.md",
     "zip/images/Pasted image 20230510162436.png",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
