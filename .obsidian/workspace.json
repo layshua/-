@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/02 图形系统/02 着色模型.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5157c77188f2da04",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/03 图形API/OpenGL/LearnOpenGL.md",
+                "file": "图形学/1 图形系统/02 着色模型.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,26 +25,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/05 软渲染器/软光栅/总结.md",
+                "file": "图形学/3 软渲染器/软光栅/总结.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "a87ca0234398f8c4",
+            "id": "f16b653d3c8690be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/02 图形系统/02 着色模型.md",
+                "file": "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/02 图形系统/02 着色模型.md"
+                "file": "图形学/1 图形系统/02 着色模型.md"
               }
             }
           }
@@ -134,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/02 图形系统/02 着色模型.md",
+                "file": "图形学/1 图形系统/02 着色模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/02 图形系统/02 着色模型.md",
+                "file": "图形学/1 图形系统/02 着色模型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,15 +169,21 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "a87ca0234398f8c4",
+  "active": "67dfc3213f7b8cba",
   "lastOpenFiles": [
-    "图形学/05 软渲染器/软光栅/总结.md",
-    "图形学/02 图形系统/02 着色模型.md",
-    "图形学/03 图形API/OpenGL/LearnOpenGL.md",
-    "图形学/02 图形系统/01 图形渲染管线.md",
-    "图形学/01 3D数学/公式推导/03 光照向量.md",
-    "图形学/01 3D数学/公式推导/01 三维旋转.md",
-    "图形学/01 3D数学/公式推导/02 视图变换.md",
+    "图形学/3 软渲染器/软光栅/总结.md",
+    "图形学/1 图形系统/02 着色模型.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "图形学/0 3D数学/3D数学.md",
+    "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/4 GAMES系列",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "zip/images/GOR5BZY(PA8(Z`0_}PE4[$U.jpg",
+    "zip/images/Pasted image 20230510101634.png",
+    "zip/images/Pasted image 20230510101329.png",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "README.md",
     "编程/C++/《C++ Primer 5th》.md",
     "编程/SpringBoot/快速入门 - 02.md",
@@ -208,30 +201,23 @@
     "zip/images/1683635584555.png",
     "zip/images/1683635584506.png",
     "zip/images/1683635584450.png",
-    "zip/images/1683635584405.png",
-    "zip/images/1683635584303.png",
-    "zip/images/1683635584245.png",
     "技术美术/05 UnityShader/TA101.md",
-    "图形学/05 软渲染器/软光追/未命名.md",
-    "图形学/06 书籍/PBRT/未命名.md",
-    "图形学/05 软渲染器/软光追",
-    "图形学/06 书籍/RTR/未命名.md",
-    "图形学/06 书籍/RTR",
-    "图形学/06 书籍/PBRT",
-    "图形学/01 3D数学/3D数学.md",
-    "图形学/06 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
-    "图形学/04 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/3 软渲染器/软光追/未命名.md",
+    "图形学/5 书籍/PBRT/未命名.md",
+    "图形学/3 软渲染器/软光追",
+    "图形学/5 书籍/RTR/未命名.md",
+    "图形学/5 书籍/RTR",
+    "图形学/5 书籍/PBRT",
+    "图形学/5 书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
     "Math/线性代数/矩阵论.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "zip/Export",
     "zip/dailynote",
     "test",
     "未命名.canvas",
     "AI/论文/知识库",
     "AI/论文/Nerf",
-    "AI/未命名",
-    "图形学/03 图形API/DX12/龙书/DX12脑图.canvas",
+    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
