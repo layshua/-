@@ -1,18 +1,3 @@
-作者：吕一明
-
-关注公众号：MarkerHub，回复【vueblog】，获取项目源码！
-
-项目视频：[www.bilibili.com/video/BV1PQ…](https://link.juejin.cn?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1PQ4y1P7hZ%2F "https://www.bilibili.com/video/BV1PQ4y1P7hZ/")
-
-项目演示：[www.markerhub.com:8084/blogs](https://link.juejin.cn?target=http%3A%2F%2Fwww.markerhub.com%3A8084%2Fblogs "http://www.markerhub.com:8084/blogs")
-
-转载请保留此引用，感谢！
-
-## 关注公众号：MarkerHub，回复【vueblog】，获取项目源码！
-
-## 关注公众号：MarkerHub，回复【vueblog】，获取项目源码！
-
-![](<images/1683768142713.png>)
 
 ## 前后端分离项目
 

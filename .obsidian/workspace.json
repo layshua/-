@@ -8,36 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "25865a87061c6857",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/02 着色.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0f2fc23bd8b5218c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bcb5689d060a0a66",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "file": "编程/SpringBoot/MarkerHub教程.md",
                 "mode": "source",
                 "source": false
               }
@@ -50,24 +26,6 @@
               "type": "markdown",
               "state": {
                 "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "443e8e9ffc8be477",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "68021eb0b08f68ca",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/光照模型 PBR.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 着色.md"
+                "file": "编程/SpringBoot/MarkerHub教程.md"
               }
             }
           }
@@ -151,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 着色.md",
+                "file": "编程/SpringBoot/MarkerHub教程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -168,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 着色.md",
+                "file": "编程/SpringBoot/MarkerHub教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,11 +157,17 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "25865a87061c6857",
+  "active": "bcb5689d060a0a66",
   "lastOpenFiles": [
-    "图形学/1 图形系统/光照模型 PBR.md",
-    "图形学/1 图形系统/02 着色.md",
+    "编程/SpringBoot/MarkerHub笔记.md",
+    "编程/SpringBoot/MarkerHub教程.md",
+    "zip/MindMap/20230511092754.km.md",
+    "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
+    "编程/SpringBoot/配置 - 03.md",
+    "编程/SpringBoot/快速入门 - 02.md",
     "技术美术/05 UnityShader/TA101.md",
+    "图形学/1 图形系统/02 着色.md",
+    "图形学/1 图形系统/光照模型 PBR.md",
     "技术美术/05 UnityShader/教程剪藏",
     "技术美术/教程剪藏",
     "zip/images/1683732888463.png",
@@ -236,11 +200,6 @@
     "图形学/4 GAMES系列",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "README.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "编程/SpringBoot/快速入门 - 02.md",
-    "编程/SpringBoot/配置 - 03.md",
-    "编程/SpringBoot/概述 - 01.md",
-    "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
     "编程/SpringBoot",
     "图形学/3 软渲染器/软光追",
     "图形学/5 书籍/RTR",

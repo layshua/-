@@ -1,4 +1,4 @@
-**根据 B 站 up 主 MarkerHub 视频制作的一个笔记**
+ MarkerHub笔记**
 
 [**我的博客**](http://linbookz.com/blogView/blog/6)
 
