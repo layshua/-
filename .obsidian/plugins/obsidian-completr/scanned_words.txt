@@ -74786,6 +74786,8 @@ CRUD
 CodeGenerator
 ControllerAdvice
 CorsConfig
+ColorA
+ColorB
 ImTip
 IMAP
 ID

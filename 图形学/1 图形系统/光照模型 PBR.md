@@ -32,55 +32,6 @@ H 半角向量
 
 这些向量 为世界空间下的向量 且是 单位向量
 
-
-**Banded Lighting**
-
-这个方法更像一个 Trick 而不是一个光照模型。基本原理就是对 NdotL 做条状化处理，卡通渲染效果的二分卡边原理与此类似。
-
-```
-//Banded Lighting
-float NL = saturate(dot(N,L));
-float BandedStep = 6;
-float BandedNL = floor(NL*BandedStep)/BandedStep;
-float4 Diffuse = BandedNL;
-FinalColor = Diffuse;
-```
-
-![](<images/1683732877586.png>)
-
-整点颜色渐变
-
-```
-//Banded Lighting
-float NL = (dot(N,L))*0.5+0.5;//[-1,1] => [0,1]
-// float _BandedStep = 6;
-float BandedNL = floor(NL*_BandedStep)/_BandedStep;
-float4 Diffuse = lerp(_ColorA,_ColorB,BandedNL);
-// float4 Diffuse = smoothstep(_ColorA,_ColorB,BandedNL);
-FinalColor = Diffuse;
-```
-
-![](<images/1683732877909.png>)
-
-三个颜色渐变
-
-```
-//Banded Lighting
-float NL = (dot(N,L))*0.5+0.5;
-// float _BandedStep = 6;
-float BandedNL = floor(NL*_BandedStep)/_BandedStep;
-float4 C1 = lerp(_ColorA,_ColorB,BandedNL);
-float4 C2 = lerp(_ColorB,_ColorC,BandedNL);
-float4 Diffuse = lerp(C1,C2,BandedNL);
-// float4 Diffuse = smoothstep(_ColorA,_ColorB,BandedNL);
-FinalColor = Diffuse;
-```
-
-![](<images/1683732877955.png>)
-
-![](<images/1683732878012.png>)
-
-
 **Oren-Nayar Lighting**
 
 此模型用来描述光在粗糙表面的反射情况，相比于 Lambert 模型，它考虑了 粗糙度参数，常用来模拟比较粗糙的表面。比如游戏风之旅人的沙漠就是在 Oren-Nayar 的模型上做的改进。([https://www.gdcvault.com/play/1017742/Sand-Rendering-in](https://www.gdcvault.com/play/1017742/Sand-Rendering-in))
