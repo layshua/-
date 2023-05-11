@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -145,8 +145,21 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "bcb5689d060a0a66",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
+    "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
+    "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
+    "Tools/Git/git入门.md",
+    "zip/images/1683810912627.png",
+    "zip/images/1683810912595.png",
+    "zip/images/1683810912550.png",
+    "zip/images/1683810435789.png",
+    "zip/images/1683810435699.png",
+    "zip/images/1683810435660.png",
+    "zip/images/1683810435617.png",
+    "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+    "zip/images/1683810396258.png",
     "图形学/1 图形系统/02 光照模型.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
     "技术美术/着色器/各向异性.md",
@@ -162,14 +175,6 @@
     "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速亚表面散射（上）-Alan ZucconiUnity中的快速地下散射（上）——Alan Zucconi——Unity中的快速亚表面散射（上）-艾伦·祖科尼.md",
     "zip/images/1683794268351.png",
     "zip/images/1683794268200.png",
-    "zip/images/1683794268049.png",
-    "zip/images/1683794267859.png",
-    "zip/images/1683794225514.png",
-    "zip/images/1683794224046.png",
-    "zip/images/1683794222614.png",
-    "zip/images/1683794221814.png",
-    "zip/images/1683794220097.png",
-    "zip/images/1683794218612.png",
     "图形学/Shader",
     "编程/SpringBoot/MarkerHub笔记.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
@@ -182,11 +187,6 @@
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "AI/论文/Nerf/学习论.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "AI/深度学习/《鱼书》.md",
-    "Math/微积分/微积分基础.md",
-    "图形学/3 软渲染器/软光栅/总结.md",
-    "Tools/Git/git入门.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/04 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "图形学/5 书籍/虎书",
     "图形学/4 GAMES系列",
