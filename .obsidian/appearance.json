@@ -35,9 +35,10 @@
     "10 悬浮标签页标题栏",
     "11 可折叠的左面板标题",
     "04 状态栏淡出",
-    "09 图片自动居中"
+    "09 图片自动居中",
+    "09 图片居中"
   ],
-  "accentColor": "",
+  "accentColor": "#7c45e8",
   "nativeMenus": false,
   "showViewHeader": true
 }
