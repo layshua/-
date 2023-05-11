@@ -6,7 +6,6 @@
       {
         "id": "b81f9b8ff88c8207",
         "type": "tabs",
-        "dimension": 49.35064935064935,
         "children": [
           {
             "id": "bcb5689d060a0a66",
@@ -14,33 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/着色器/各向异性.md",
+                "file": "图形学/1 图形系统/02 光照模型.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "627495c766437118",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
-      },
-      {
-        "id": "01c1e58ebec15a7f",
-        "type": "tabs",
-        "dimension": 50.649350649350644,
-        "children": [
-          {
-            "id": "2fb078470ba28bba",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ]
@@ -86,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/着色器/各向异性.md"
+                "file": "图形学/1 图形系统/02 光照模型.md"
               }
             }
           }
@@ -121,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/着色器/各向异性.md",
+                "file": "图形学/1 图形系统/02 光照模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/着色器/各向异性.md",
+                "file": "图形学/1 图形系统/02 光照模型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -171,16 +147,16 @@
   },
   "active": "bcb5689d060a0a66",
   "lastOpenFiles": [
-    "技术美术/着色器/光照模型猴子.md",
-    "技术美术/着色器/光照模型.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "图形学/1 图形系统/02 光照模型.md",
     "技术美术/着色器/各向异性.md",
+    "技术美术/着色器/光照模型猴子.md",
     "技术美术/着色器/布料.md",
     "技术美术/着色器/ClearCoat清漆.md",
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/学习大纲.md",
     "技术美术/着色器/次表面散射.md",
     "技术美术/着色器",
-    "图形学/1 图形系统/01 图形渲染管线.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "编程/SpringBoot/MarkerHub教程.md",
     "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速亚表面散射（上）-Alan ZucconiUnity中的快速地下散射（上）——Alan Zucconi——Unity中的快速亚表面散射（上）-艾伦·祖科尼.md",
