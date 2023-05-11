@@ -6,6 +6,7 @@
       {
         "id": "b81f9b8ff88c8207",
         "type": "tabs",
+        "dimension": 49.35064935064935,
         "children": [
           {
             "id": "bcb5689d060a0a66",
@@ -14,18 +15,6 @@
               "type": "markdown",
               "state": {
                 "file": "编程/SpringBoot/MarkerHub教程.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d9780d11f3ac68a1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/02 着色.md",
                 "mode": "source",
                 "source": false
               }
@@ -49,18 +38,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "技术美术/着色器/光照模型猴子.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fe417a903fddbd7f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/着色器/光照模型.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       },
       {
         "id": "01c1e58ebec15a7f",
         "type": "tabs",
+        "dimension": 50.649350649350644,
         "children": [
           {
             "id": "2fb078470ba28bba",
@@ -68,7 +70,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/光照模型 PBR.md",
+                "file": "技术美术/着色器/光照模型猴子.md",
                 "mode": "source",
                 "source": false
               }
@@ -80,13 +82,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "技术美术/着色器/各向异性.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -129,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/光照模型 PBR.md"
+                "file": "技术美术/着色器/光照模型.md"
               }
             }
           }
@@ -164,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/光照模型 PBR.md",
+                "file": "技术美术/着色器/光照模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -181,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/光照模型 PBR.md",
+                "file": "技术美术/着色器/光照模型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -212,10 +215,20 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "2fb078470ba28bba",
+  "active": "fe417a903fddbd7f",
   "lastOpenFiles": [
-    "图形学/1 图形系统/02 着色.md",
-    "图形学/1 图形系统/光照模型 PBR.md",
+    "技术美术/着色器/光照模型猴子.md",
+    "技术美术/着色器/布料.md",
+    "技术美术/着色器/ClearCoat清漆.md",
+    "技术美术/着色器/各向异性.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "技术美术/学习大纲.md",
+    "技术美术/着色器/光照模型.md",
+    "技术美术/着色器/次表面散射.md",
+    "技术美术/着色器",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "编程/SpringBoot/MarkerHub教程.md",
     "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速亚表面散射（上）-Alan ZucconiUnity中的快速地下散射（上）——Alan Zucconi——Unity中的快速亚表面散射（上）-艾伦·祖科尼.md",
     "zip/images/1683794268351.png",
     "zip/images/1683794268200.png",
@@ -227,13 +240,8 @@
     "zip/images/1683794221814.png",
     "zip/images/1683794220097.png",
     "zip/images/1683794218612.png",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "图形学/Shader/shader.md",
-    "技术美术/05 UnityShader/TA101.md",
     "图形学/Shader",
-    "图形学/1 图形系统/01 图形渲染管线.md",
     "编程/SpringBoot/MarkerHub笔记.md",
-    "编程/SpringBoot/MarkerHub教程.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "zip/MindMap/20230511092754.km.md",
     "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
@@ -249,17 +257,12 @@
     "图形学/3 软渲染器/软光栅/总结.md",
     "Tools/Git/git入门.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/04 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "图形学/5 书籍/虎书",
-    "图形学/0 3D数学/3D数学.md",
     "图形学/4 GAMES系列",
     "编程/SpringBoot",
     "图形学/3 软渲染器/软光追",
     "图形学/5 书籍/RTR",
-    "图形学/5 书籍/PBRT",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
