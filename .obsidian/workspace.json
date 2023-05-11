@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/02 光照模型.md",
+                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 光照模型.md"
+                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 光照模型.md",
+                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 光照模型.md",
+                "file": "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,8 +147,8 @@
   },
   "active": "bcb5689d060a0a66",
   "lastOpenFiles": [
-    "图形学/1 图形系统/01 图形渲染管线.md",
     "图形学/1 图形系统/02 光照模型.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
     "技术美术/着色器/各向异性.md",
     "技术美术/着色器/光照模型猴子.md",
     "技术美术/着色器/布料.md",
