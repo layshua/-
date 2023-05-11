@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/02 着色模型.md",
+                "file": "图形学/1 图形系统/02 着色.md",
                 "mode": "source",
                 "source": false
               }
@@ -50,6 +50,24 @@
               "type": "markdown",
               "state": {
                 "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "443e8e9ffc8be477",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68021eb0b08f68ca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/光照模型 PBR.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 着色模型.md"
+                "file": "图形学/1 图形系统/02 着色.md"
               }
             }
           }
@@ -133,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 着色模型.md",
+                "file": "图形学/1 图形系统/02 着色.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +168,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 着色模型.md",
+                "file": "图形学/1 图形系统/02 着色.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,17 +201,29 @@
   },
   "active": "25865a87061c6857",
   "lastOpenFiles": [
+    "图形学/1 图形系统/光照模型 PBR.md",
+    "图形学/1 图形系统/02 着色.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "技术美术/05 UnityShader/教程剪藏",
+    "技术美术/教程剪藏",
+    "zip/images/1683732888463.png",
+    "zip/images/1683732888408.png",
+    "zip/images/1683732888430.png",
+    "zip/images/1683732888397.png",
+    "zip/images/1683732888347.png",
+    "zip/images/1683732888364.png",
+    "zip/images/1683732888104.png",
+    "zip/images/1683732888268.png",
+    "zip/images/1683732888106.png",
+    "zip/images/1683732888003.png",
+    "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "AI/论文/Nerf/学习论.md",
     "AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "AI/深度学习/《鱼书》.md",
     "Math/微积分/微积分基础.md",
-    "图形学/1 图形系统/02 着色模型.md",
-    "zip/images/Pasted image 20230510221454.jpg",
-    "技术美术/05 UnityShader/TA101.md",
     "图形学/3 软渲染器/软光栅/总结.md",
     "Tools/Git/git入门.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zip/images/Pasted image 20230510162436.png",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/04 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
@@ -201,17 +231,9 @@
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "图形学/5 书籍/虎书",
     "图形学/1 图形系统/01 图形渲染管线.md",
-    "zip/images/Pasted image 20230510123058.png",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/0 3D数学/3D数学.md",
-    "zip/images/Pasted image 20230510113851.png",
-    "zip/images/Pasted image 20230510113231.png",
-    "zip/images/Pasted image 20230510113052.png",
-    "zip/images/Pasted image 20230510111300.png",
-    "zip/images/Pasted image 20230510111136.png",
-    "zip/images/Pasted image 20230510110956.png",
     "图形学/4 GAMES系列",
-    "zip/images/GOR5BZY(PA8(Z`0_}PE4[$U.jpg",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "README.md",
     "编程/C++/《C++ Primer 5th》.md",
@@ -220,15 +242,10 @@
     "编程/SpringBoot/概述 - 01.md",
     "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
     "编程/SpringBoot",
-    "zip/dailynote/前往斯旺西.md",
-    "zBuffer/从 Lambert 模型到 PBR 模型 6：推导镜面反射和漫反射的菲涅尔部分.md",
-    "Tools/Obsidian/插件流.md",
     "图形学/3 软渲染器/软光追",
     "图形学/5 书籍/RTR",
     "图形学/5 书籍/PBRT",
     "zip/Export",
-    "zip/dailynote",
-    "test",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",

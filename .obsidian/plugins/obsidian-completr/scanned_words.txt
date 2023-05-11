@@ -43210,6 +43210,10 @@ AlphaGo
 Ablation
 Additonal
 Academic
+Anistropy
+AWBC
+AnisotropicPowerValue
+AnisotropicPowerScale
 URL
 Utools
 Users
@@ -62677,6 +62681,8 @@ WLL
 WULwnb
 WHLH
 WrapLight
+WrapValue
+Wraplight
 Start
 StartAllBack
 Shadowrocket
@@ -66909,6 +66915,13 @@ SpringBootJunit
 SpringBootRedis
 SpringBootMyBatis
 Springboot
+SpecularPowerValue
+SpecularScaleValue
+StretchedNoise
+StretchedNoiseTex
+ShadeSH
+SplitSum
+SpecCube
 Programs
 POP
 PC
@@ -70752,6 +70765,9 @@ Pasted
 PCle
 Perceptron
 Perl
+Pong
+PowerValue
+PowerScale
 ContextMenuManager
 ClashVerge
 Clash
@@ -74651,6 +74667,9 @@ Colmap
 Cosine
 ColorSpaceDielectricSpec
 ConfigurationProperties
+ClearCoatLayer
+ClearCoatRoughness
+ClearCoatIntensity
 ImTip
 IMAP
 ID
@@ -137264,6 +137283,12 @@ BERT
 Benchmarks
 Bing
 Boot
+Blin
+Banded
+BackLight
+Bake
+BrdfLut
+BaseLayer
 Fraktur
 Frame
 Foo
@@ -141324,6 +141349,8 @@ Fern
 Filefilesfiletrue
 Filefiles
 Fermi
+FragmentShader
+Frenel
 Element
 Entity
 Enity
@@ -145551,6 +145578,7 @@ ECCV
 Experiments
 Evaluators
 Eval
+EpicGames
 xmlns
 xyz
 xy
@@ -155371,6 +155399,7 @@ Dispatch
 DrawCube
 Davids
 DataSource
+DiffuseWrap
 LNK
 Log
 Linux
@@ -159146,6 +159175,7 @@ LogisticRegression
 LINEMOD
 Liner
 LdotH
+Lamber
 Getx
 GetX
 GetName
@@ -179056,6 +179086,7 @@ JNNRUU
 JHLTdd
 JrFz
 JhpKhWT
+JoeyTA
 Ke
 KjpKWmp
 KYW
