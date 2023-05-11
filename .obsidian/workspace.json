@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/SpringBoot/MarkerHub教程.md",
+                "file": "技术美术/着色器/各向异性.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,33 +31,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "b3deb3afa2600401",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/着色器/光照模型猴子.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "fe417a903fddbd7f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/着色器/光照模型.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "01c1e58ebec15a7f",
@@ -68,28 +43,11 @@
             "id": "2fb078470ba28bba",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/着色器/光照模型猴子.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1af94014f8928c2e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/着色器/各向异性.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -132,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/着色器/光照模型.md"
+                "file": "技术美术/着色器/各向异性.md"
               }
             }
           }
@@ -167,7 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/着色器/光照模型.md",
+                "file": "技术美术/着色器/各向异性.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +142,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/着色器/光照模型.md",
+                "file": "技术美术/着色器/各向异性.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,15 +173,15 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "fe417a903fddbd7f",
+  "active": "bcb5689d060a0a66",
   "lastOpenFiles": [
     "技术美术/着色器/光照模型猴子.md",
+    "技术美术/着色器/光照模型.md",
+    "技术美术/着色器/各向异性.md",
     "技术美术/着色器/布料.md",
     "技术美术/着色器/ClearCoat清漆.md",
-    "技术美术/着色器/各向异性.md",
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/学习大纲.md",
-    "技术美术/着色器/光照模型.md",
     "技术美术/着色器/次表面散射.md",
     "技术美术/着色器",
     "图形学/1 图形系统/01 图形渲染管线.md",
