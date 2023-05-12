@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Git/git入门.md"
+                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md"
               }
             }
           }
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,10 +157,16 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "13339c8ff4185587",
+  "active": "d8844418d855be60",
   "lastOpenFiles": [
-    "zip/Legacy/Unity/Threejs/前端.md",
     "Tools/Git/git入门.md",
+    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+    "Tools/图形工具",
+    "Tools/工具流.md",
+    "zip/MindMap/20230511092754.km.md",
+    "zip/MindMap/DX12管线梳理.km.md",
+    "zip/images/1683892053716.png",
+    "zip/Legacy/Unity/Threejs/前端.md",
     "Tools/Git/github.md",
     "图形学/5 书籍/书单.md",
     "图形学/1 图形系统/02 光照模型.md",
@@ -174,7 +179,6 @@
     "zip/images/5011f3a11f7b9550399a797af4e15d09_MD5.jpg",
     "zip/images/f1293bb4c99206709359863c1e63a7c6_MD5.jpg",
     "zip/images/b56f8d4b30ed27b05345a97fd4f5c78b_MD5.jpg",
-    "zip/images/ebcbfc8853b22d88c1b9aba027a7fa5d_MD5.jpg",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/00 名词概念.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
@@ -192,11 +196,6 @@
     "图形学/1 图形系统/01 图形渲染管线.md",
     "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
-    "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
-    "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
-    "技术美术/着色器/各向异性.md",
-    "技术美术/着色器/光照模型猴子.md",
-    "技术美术/着色器/布料.md",
     "技术美术/着色器",
     "图形学/Shader",
     "技术美术/05 UnityShader/教程剪藏",
@@ -206,7 +205,6 @@
     "图形学/4 GAMES系列",
     "编程/SpringBoot",
     "图形学/3 软渲染器/软光追",
-    "图形学/5 书籍/RTR",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
