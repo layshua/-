@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/Legacy/Unity/Threejs/前端.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/Legacy/Unity/Threejs/前端.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/Legacy/Unity/Threejs/前端.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/Legacy/Unity/Threejs/前端.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -160,6 +160,7 @@
   },
   "active": "13339c8ff4185587",
   "lastOpenFiles": [
+    "zip/Legacy/Unity/Threejs/前端.md",
     "Tools/Git/git入门.md",
     "Tools/Git/github.md",
     "图形学/5 书籍/书单.md",
@@ -196,7 +197,6 @@
     "技术美术/着色器/各向异性.md",
     "技术美术/着色器/光照模型猴子.md",
     "技术美术/着色器/布料.md",
-    "技术美术/着色器/ClearCoat清漆.md",
     "技术美术/着色器",
     "图形学/Shader",
     "技术美术/05 UnityShader/教程剪藏",
