@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/虎书/未命名.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/5 书籍/虎书/未命名.md"
+                "file": "图形学/2 图形API/DX12/HLSL语法.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/5 书籍/虎书/未命名.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/5 书籍/虎书/未命名.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +147,15 @@
   },
   "active": "bcb5689d060a0a66",
   "lastOpenFiles": [
+    "图形学/2 图形API/DX12/Windows编程.md",
+    "图形学/2 图形API/DX12/DirectXMath.md",
+    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "zip/images/Pasted image 20230512121530.png",
+    "zip/images/longshu.jpg",
+    "zip/images/100021.jpg",
     "图形学/5 书籍/虎书/未命名.md",
+    "zip/images/【虎书】Fundamentals of Computer Graphics 5th_1.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
@@ -164,9 +172,7 @@
     "zip/images/1683810435789.png",
     "zip/images/1683810435699.png",
     "zip/images/1683810435660.png",
-    "zip/images/1683810435617.png",
     "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
-    "zip/images/1683810396258.png",
     "技术美术/着色器/各向异性.md",
     "技术美术/着色器/光照模型猴子.md",
     "技术美术/着色器/布料.md",
@@ -177,14 +183,9 @@
     "技术美术/着色器",
     "编程/SpringBoot/MarkerHub教程.md",
     "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速亚表面散射（上）-Alan ZucconiUnity中的快速地下散射（上）——Alan Zucconi——Unity中的快速亚表面散射（上）-艾伦·祖科尼.md",
-    "zip/images/1683794268351.png",
-    "zip/images/1683794268200.png",
     "图形学/Shader",
     "编程/SpringBoot/MarkerHub笔记.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "zip/MindMap/20230511092754.km.md",
-    "编程/SpringBoot/SpringBoot 初级部分 - 整合其他框架 - 04.md",
-    "编程/SpringBoot/配置 - 03.md",
     "技术美术/05 UnityShader/教程剪藏",
     "技术美术/教程剪藏",
     "技术美术/04 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
@@ -194,7 +195,6 @@
     "图形学/3 软渲染器/软光追",
     "图形学/5 书籍/RTR",
     "未命名.canvas",
-    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",

@@ -5,7 +5,7 @@ aliases: []
 tags: []
 create_time: 2023-04-25 23:41
 uid: 202304252341
-banner: "![[Pasted image 20230101204819.png]]"
+banner: "![[Pasted image 20230512121530.png]]"
 ---
 
 > [!NOTE] 龙书规定
