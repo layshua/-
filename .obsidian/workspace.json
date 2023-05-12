@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/书单.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/5 书籍/书单.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/5 书籍/书单.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/5 书籍/书单.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -147,8 +147,9 @@
   },
   "active": "d8844418d855be60",
   "lastOpenFiles": [
-    "图形学/1 图形系统/02 光照模型.md",
+    "Tools/Git/github.md",
     "图形学/5 书籍/书单.md",
+    "图形学/1 图形系统/02 光照模型.md",
     "zip/images/c79611da729c42cf6d90f9490610f5e3_MD5.jpg",
     "zip/images/a090aac62787fa6eca2891abdf214ba7_MD5.jpg",
     "zip/images/772745f121385bb163167ffeb4e5ecf6_MD5.jpg",
