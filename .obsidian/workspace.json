@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bcb5689d060a0a66",
+            "id": "d8844418d855be60",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/RTR/未命名.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,9 +61,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "图形学/5 书籍/RTR/未命名.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -97,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/5 书籍/RTR/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +111,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/5 书籍/RTR/未命名.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -145,15 +141,18 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "bcb5689d060a0a66",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "图形学/1 图形系统/00 名词概念.md",
+    "图形学/5 书籍/RTR/未命名.md",
     "图形学/5 书籍/PBRT/未命名.md",
     "图形学/5 书籍/虎书/《虎书》.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "图形学/2 图形API/DX12/Windows编程.md",
     "图形学/2 图形API/DX12/DirectXMath.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230512121530.png",
     "zip/images/longshu.jpg",
     "zip/images/100021.jpg",
@@ -181,10 +180,7 @@
     "技术美术/着色器/ClearCoat清漆.md",
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/学习大纲.md",
-    "技术美术/着色器/次表面散射.md",
     "技术美术/着色器",
-    "编程/SpringBoot/MarkerHub教程.md",
-    "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速亚表面散射（上）-Alan ZucconiUnity中的快速地下散射（上）——Alan Zucconi——Unity中的快速亚表面散射（上）-艾伦·祖科尼.md",
     "图形学/Shader",
     "技术美术/05 UnityShader/教程剪藏",
     "技术美术/教程剪藏",
