@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/5 书籍/书单.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "图形学/5 书籍/书单.md"
+              }
             }
           }
         ]
@@ -95,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "图形学/5 书籍/书单.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "图形学/5 书籍/书单.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -141,11 +145,23 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "d8844418d855be60",
   "lastOpenFiles": [
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "图形学/1 图形系统/02 光照模型.md",
+    "图形学/5 书籍/书单.md",
+    "zip/images/c79611da729c42cf6d90f9490610f5e3_MD5.jpg",
+    "zip/images/a090aac62787fa6eca2891abdf214ba7_MD5.jpg",
+    "zip/images/772745f121385bb163167ffeb4e5ecf6_MD5.jpg",
+    "zip/images/15d597fc1e162764a062230adc6d3fa7_MD5.jpg",
+    "zip/images/9431e44d469b9d86edb1ca1ccea7cb02_MD5.jpg",
+    "zip/images/6a8d5188212375014981551561843475_MD5.jpg",
+    "zip/images/5011f3a11f7b9550399a797af4e15d09_MD5.jpg",
+    "zip/images/f1293bb4c99206709359863c1e63a7c6_MD5.jpg",
+    "zip/images/b56f8d4b30ed27b05345a97fd4f5c78b_MD5.jpg",
+    "zip/images/ebcbfc8853b22d88c1b9aba027a7fa5d_MD5.jpg",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/00 名词概念.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "图形学/5 书籍/RTR/未命名.md",
     "图形学/5 书籍/PBRT/未命名.md",
     "图形学/5 书籍/虎书/《虎书》.md",
@@ -153,33 +169,20 @@
     "图形学/2 图形API/DX12/Windows编程.md",
     "图形学/2 图形API/DX12/DirectXMath.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "zip/images/Pasted image 20230512121530.png",
-    "zip/images/longshu.jpg",
-    "zip/images/100021.jpg",
-    "zip/images/【虎书】Fundamentals of Computer Graphics 5th_1.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/1 图形系统/02 光照模型.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
     "Tools/Git/git入门.md",
     "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
-    "zip/images/1683810912627.png",
-    "zip/images/1683810912595.png",
-    "zip/images/1683810912550.png",
-    "zip/images/1683810435789.png",
-    "zip/images/1683810435699.png",
-    "zip/images/1683810435660.png",
     "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "技术美术/着色器/各向异性.md",
     "技术美术/着色器/光照模型猴子.md",
     "技术美术/着色器/布料.md",
     "技术美术/着色器/ClearCoat清漆.md",
-    "技术美术/05 UnityShader/TA101.md",
-    "技术美术/学习大纲.md",
     "技术美术/着色器",
     "图形学/Shader",
     "技术美术/05 UnityShader/教程剪藏",
