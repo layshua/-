@@ -115,5 +115,15 @@
   "obsidian-excalidraw-plugin:insert-link": [],
   "obsidian-completr:completr-open-suggestion-popup": [],
   "obsidian-completr:completr-bypass-tab-key": [],
-  "obsidian-completr:completr-bypass-enter-key": []
+  "obsidian-completr:completr-bypass-enter-key": [],
+  "editor:toggle-italics": [],
+  "omnisearch:show-modal-infile": [],
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "I"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-![](图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第三章%20·%20GPU渲染管线与可编程着色器/media/title.jpg)
+![](技术美术/图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第三章%20·%20GPU渲染管线与可编程着色器/media/title.jpg)
 # 【《Real-Time Rendering 3rd》 提炼总结】(三) 第三章 · GPU渲染管线与可编程着色器 #
 
 
@@ -19,7 +19,7 @@ Unit 图形处理器”的总结、概括与提炼。
 
 ## 1.章节框架图示
 
-![](图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第三章%20·%20GPU渲染管线与可编程着色器/media/1.jpg)
+![](技术美术/图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第三章%20·%20GPU渲染管线与可编程着色器/media/1.jpg)
 
 
 ## 2. GPU渲染管线流程图

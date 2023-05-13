@@ -1,4 +1,4 @@
-![](图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第六章%20·%20纹理贴图及相关技术/media/title.jpg)
+![](技术美术/图形学/5%20书籍/《Real-Time%20Rendering%203rd》/第六章%20·%20纹理贴图及相关技术/media/title.jpg)
 
 
 # 【《Real-Time Rendering 3rd》 提炼总结】(五) 第六章 · 纹理贴图及相关技术
