@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -122,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -170,18 +169,18 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "13339c8ff4185587",
+  "active": "d8844418d855be60",
   "lastOpenFiles": [
     "Tools/Git/git入门.md",
+    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230513094316.png",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/0 3D数学/3D数学.md",
     "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "Tools/图形工具",
     "Tools/工具流.md",
     "zip/MindMap/20230511092754.km.md",
