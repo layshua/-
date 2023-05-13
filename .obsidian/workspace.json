@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,7 +158,7 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "d8844418d855be60",
+  "active": "13339c8ff4185587",
   "lastOpenFiles": [
     "Tools/Git/git入门.md",
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
