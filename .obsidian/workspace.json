@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "Tools/Obsidian/Mermaid流图.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md"
+                "file": "Tools/Obsidian/Mermaid流图.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "Tools/Obsidian/Mermaid流图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "Tools/Obsidian/Mermaid流图.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,15 +185,16 @@
   },
   "active": "a63f2e0792d2ffe4",
   "lastOpenFiles": [
+    "Tools/Obsidian/插件流.md",
+    "Tools/Obsidian/Mermaid流图.md",
+    "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230513215912.png",
     "zip/images/Pasted image 20230513215821.png",
-    "Tools/Obsidian/插件流.md",
     "Tools/工具流.md",
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "Tools/Git/github.md",
     "Tools/Git/git入门.md",
     "技术美术/图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230513094316.png",
     "技术美术/图形学/0 3D数学/3D数学.md",
     "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
@@ -213,7 +214,6 @@
     "zip/images/15d597fc1e162764a062230adc6d3fa7_MD5.jpg",
     "zip/images/9431e44d469b9d86edb1ca1ccea7cb02_MD5.jpg",
     "zip/images/6a8d5188212375014981551561843475_MD5.jpg",
-    "zip/images/5011f3a11f7b9550399a797af4e15d09_MD5.jpg",
     "技术美术/图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/00 名词概念.md",
     "技术美术/图形学/2 图形API/OpenGL/LearnOpenGL.md",
