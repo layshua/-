@@ -4,13 +4,13 @@
     "iconPacksPath": "zip/icons",
     "fontSize": 16,
     "emojiStyle": "native",
-    "iconColor": null,
+    "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "SiTaichigraphics",
       "LiFolderUp",
       "RiFolderZipFill",
       "📁",
-      "SiBuffer",
-      "RiNumbersFill"
+      "SiBuffer"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -30,5 +30,6 @@
   "DCC": "SiAdobe",
   "Math": "RiNumbersFill",
   "zBuffer": "SiBuffer",
-  "zip": "LiFolderUp"
+  "zip": "LiFolderUp",
+  "图形学": "SiTaichigraphics"
 }

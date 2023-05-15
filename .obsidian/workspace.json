@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "source": false
               }
@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,8 +185,10 @@
   },
   "active": "a63f2e0792d2ffe4",
   "lastOpenFiles": [
-    "Tools/Obsidian/Mermaid流图.md",
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+    "Math/微积分/微积分基础.md",
+    "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
+    "Tools/Obsidian/Mermaid流图.md",
     "zip/icons/simple-icons/Zyte.svg",
     "zip/icons/simple-icons/Zwave.svg",
     "zip/icons/simple-icons/Zulip.svg",
@@ -205,12 +207,12 @@
     "zip/icons/font-awesome-solid",
     "zip/icons/font-awesome-brands",
     "Tools/Obsidian/插件流.md",
-    "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "Tools/工具流.md",
     "Tools/Git/github.md",
     "Tools/Git/git入门.md",
-    "技术美术/图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "技术美术/图形学/0 3D数学/3D数学.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/0 3D数学/3D数学.md",
     "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
     "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
@@ -219,16 +221,15 @@
     "zip/MindMap/20230511092754.km.md",
     "zip/MindMap/DX12管线梳理.km.md",
     "zip/Legacy/Unity/Threejs/前端.md",
-    "技术美术/图形学/5 书籍/书单.md",
-    "技术美术/图形学/1 图形系统/02 光照模型.md",
-    "技术美术/图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "图形学/5 书籍/书单.md",
+    "图形学/1 图形系统/02 光照模型.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/00 名词概念.md",
-    "技术美术/图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "技术美术/图形学/5 书籍/RTR/未命名.md",
-    "技术美术/图形学/5 书籍/PBRT/未命名.md",
-    "技术美术/图形学/5 书籍/虎书/《虎书》.md",
-    "技术美术/图形学/2 图形API/DX12/HLSL语法.md",
-    "技术美术/图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "图形学/5 书籍/RTR/未命名.md",
+    "图形学/5 书籍/PBRT/未命名.md",
+    "图形学/5 书籍/虎书/《虎书》.md",
+    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "技术美术/着色器",
     "图形学/Shader",
     "未命名.canvas",
