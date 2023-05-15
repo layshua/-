@@ -3279,6 +3279,7 @@ often
 obstacles
 occurred
 obtained
+openglES
 OneDrive
 Obsidian
 Office
@@ -7449,6 +7450,7 @@ Orchid
 Official
 OptiX
 Omnisearch
+Occlsion
 codeup
 clash
 ctrl
@@ -11441,6 +11443,7 @@ commitid
 computational
 computer
 comprehensive
+curDepth
 github
 grey
 green
@@ -14838,6 +14841,9 @@ glow
 gives
 gained
 generation
+glBegin
+glEnd
+glVertex
 typora
 todo
 tooltip
@@ -36203,6 +36209,7 @@ VueHelper
 Vertices
 Visualizing
 Versions
+Variance
 verge
 vPdIt
 vertical
@@ -43369,6 +43376,7 @@ Algebra
 Aided
 Artists
 Apress
+AvgDepth
 URL
 Utools
 Users
@@ -67159,6 +67167,8 @@ Seventh
 SPIR
 Sixth
 Schneider
+SSSM
+SoftWare
 Programs
 POP
 PC
@@ -74945,6 +74955,7 @@ Consistency
 Computers
 Comprehensive
 Clothing
+Closer
 ImTip
 IMAP
 ID
@@ -93316,6 +93327,7 @@ blurring
 bouncing
 backlight
 becomes
+billin
 fe
 front
 fill
@@ -96695,6 +96707,7 @@ familiar
 forces
 followed
 fashion
+flatten
 dd
 dcc
 data
@@ -112835,6 +112848,7 @@ sophisticated
 supporting
 significant
 stash
+srgb
 local
 list
 left
@@ -155945,6 +155959,7 @@ Designers
 Deformation
 Devices
 Down
+Disatance
 LNK
 Log
 Linux
@@ -163990,6 +164005,7 @@ Globes
 Gurus
 Grad
 GPGPU
+GimbalLock
 NULL
 Native
 NormalMap

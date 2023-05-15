@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/Mermaid流图.md",
+                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md"
+                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,8 +183,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "a63f2e0792d2ffe4",
   "lastOpenFiles": [
+    "Tools/Obsidian/Mermaid流图.md",
+    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "zip/icons/simple-icons/Zyte.svg",
     "zip/icons/simple-icons/Zwave.svg",
     "zip/icons/simple-icons/Zulip.svg",
@@ -195,7 +197,6 @@
     "zip/icons/simple-icons/Zoiper.svg",
     "zip/icons/simple-icons/Zoho.svg",
     "zip/icons/simple-icons/Zingat.svg",
-    "zip/icons/simple-icons/Zincsearch.svg",
     "zip/icons/font-awesome-regular",
     "zip/icons/remix-icons",
     "zip/icons/simple-icons",
@@ -204,10 +205,8 @@
     "zip/icons/font-awesome-solid",
     "zip/icons/font-awesome-brands",
     "Tools/Obsidian/插件流.md",
-    "Tools/Obsidian/Mermaid流图.md",
     "技术美术/图形学/0 3D数学/公式推导/03 光照向量.md",
     "Tools/工具流.md",
-    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "Tools/Git/github.md",
     "Tools/Git/git入门.md",
     "技术美术/图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
