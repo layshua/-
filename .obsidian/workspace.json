@@ -8,36 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d8844418d855be60",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a63f2e0792d2ffe4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "13339c8ff4185587",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "mode": "source",
                 "source": false
               }
@@ -55,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md"
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
               }
             }
           }
@@ -134,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,15 +158,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "a63f2e0792d2ffe4",
+  "active": "13339c8ff4185587",
   "lastOpenFiles": [
+    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/0 3D数学/公式推导/04 纹理贴图.md",
     "zip/images/Pasted image 20230517230046.png",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "图形学/0 3D数学/公式推导/04 纹理贴图.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "zip/images/Pasted image 20230517225255.png",
     "zip/images/Pasted image 20230517224837.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -208,7 +185,6 @@
     "图形学/1 图形系统/02 光照模型.md",
     "zip/images/Pasted image 20230516114937.png",
     "图形学/2 图形API/DX12/HLSL语法.md",
-    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "Math/微积分/微积分基础.md",
     "zip/Legacy/面经/游戏开发面试题答案篇（三） -- 图形学篇.md",
     "Tools/Obsidian/Mermaid流图.md",
@@ -216,7 +192,6 @@
     "zip/icons/simple-icons/Zwave.svg",
     "zip/icons/simple-icons/Zulip.svg",
     "zip/icons/simple-icons/Zotero.svg",
-    "zip/icons/simple-icons/Zorin.svg",
     "zip/icons/font-awesome-regular",
     "zip/icons/remix-icons",
     "zip/icons/simple-icons",
@@ -227,7 +202,6 @@
     "Tools/Obsidian/插件流.md",
     "Tools/工具流.md",
     "Tools/Git/github.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Tools/图形工具",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "技术美术/着色器",
