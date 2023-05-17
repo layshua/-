@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,6 +185,8 @@
   },
   "active": "a63f2e0792d2ffe4",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230517212438.png",
+    "图形学/2 图形API/DX12/DirectXMath.md",
     "图形学/2 图形API/DX12/Windows编程.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/2 图形API/DX12/自研引擎/1 引擎开发环境部署.md",
@@ -227,8 +229,6 @@
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "Tools/图形工具",
     "zip/MindMap/20230511092754.km.md",
-    "zip/MindMap/DX12管线梳理.km.md",
-    "zip/Legacy/Unity/Threejs/前端.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "技术美术/着色器",
     "图形学/Shader",
