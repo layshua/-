@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
+                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "图形学/0 3D数学/公式推导/04 纹理贴图.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,15 +185,25 @@
   },
   "active": "a63f2e0792d2ffe4",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230517230046.png",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/04 纹理贴图.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
+    "zip/images/Pasted image 20230517225255.png",
+    "zip/images/Pasted image 20230517224837.png",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "zip/images/Pasted image 20230517224516.png",
     "zip/images/Pasted image 20230517212438.png",
     "图形学/2 图形API/DX12/DirectXMath.md",
     "图形学/2 图形API/DX12/Windows编程.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/2 图形API/DX12/自研引擎/1 引擎开发环境部署.md",
     "图形学/2 图形API/DX12/自研引擎/2 DX12初始化.md",
     "Tools/Git/git入门.md",
     "zBuffer/(26 条消息) git 删除误上传的_ idea 文件、如何清除 git 仓库的所有提交记录，成为一个新的干净仓库_git 删除提交_西京刀客的博客 - CSDN 博客.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/1 图形系统/02 光照模型.md",
     "zip/images/Pasted image 20230516114937.png",
@@ -207,10 +217,6 @@
     "zip/icons/simple-icons/Zulip.svg",
     "zip/icons/simple-icons/Zotero.svg",
     "zip/icons/simple-icons/Zorin.svg",
-    "zip/icons/simple-icons/Zoom.svg",
-    "zip/icons/simple-icons/Zomato.svg",
-    "zip/icons/simple-icons/Zoiper.svg",
-    "zip/icons/simple-icons/Zoho.svg",
     "zip/icons/font-awesome-regular",
     "zip/icons/remix-icons",
     "zip/icons/simple-icons",
@@ -222,13 +228,7 @@
     "Tools/工具流.md",
     "Tools/Git/github.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/0 3D数学/3D数学.md",
-    "zBuffer/(25 条消息) git 删除某一条提交记录_git 删除 commit 记录_不写 bug 的程序媛的博客 - CSDN 博客.md",
-    "zBuffer/(25 条消息) git 删除 commit 方法和误删 commit 后的恢复方法_git 恢复误删未 commit_SailorCai 的博客 - CSDN 博客.md",
-    "zBuffer/(25 条消息) git 删除某次提交（某个 commit）的方法_faithmy509 的博客 - CSDN 博客.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "Tools/图形工具",
-    "zip/MindMap/20230511092754.km.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "技术美术/着色器",
     "图形学/Shader",
