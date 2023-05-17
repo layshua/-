@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/DirectXMath.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
