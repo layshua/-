@@ -158,46 +158,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "floating": {
-    "id": "708a37bee0fe52ad",
-    "type": "floating",
-    "children": [
-      {
-        "id": "149f0f468f5b1eb4",
-        "type": "window",
-        "children": [
-          {
-            "id": "e7a37f58fcefa499",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "0673a4e40eb9b1be",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "编程/C++/《C++ Primer 5th》.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": -1134,
-        "y": 340,
-        "width": 1025,
-        "height": 800,
-        "maximize": true,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "0673a4e40eb9b1be",
+  "active": "13339c8ff4185587",
   "lastOpenFiles": [
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "编程/C++/《C++ Primer 5th》.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets/1678959162202.png",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/介词分类及常用搭配-MSI.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",

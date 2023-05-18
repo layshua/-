@@ -1,10 +1,10 @@
 {
-  "theme": "obsidian",
+  "theme": "moonstone",
   "translucency": false,
   "monospaceFontFamily": "Fira Code,Fira Code Retina",
   "textFontFamily": "Calibri,Microsoft YaHei",
   "interfaceFontFamily": "Microsoft YaHei UI",
-  "cssTheme": "Blue Topaz",
+  "cssTheme": "Minimal",
   "baseFontSize": 19,
   "enabledCssSnippets": [
     "Font",
@@ -25,7 +25,18 @@
     "Front-matter格式",
     "[ui] Floating Tab Header mini",
     "[ui] Collapsible Right Headers",
-    "09 图片自动居中"
+    "09 图片自动居中",
+    "01 字体格式",
+    "02 各种block块",
+    "03 表格样式",
+    "04 状态栏淡出",
+    "05 quiet-outline插件配置",
+    "06 Latex Suite插件配置",
+    "07 Front-matter格式",
+    "08 callout分栏",
+    "09 图片居中",
+    "10 悬浮标签页标题栏",
+    "11 可折叠的左面板标题"
   ],
   "accentColor": "#7c45e8",
   "nativeMenus": false,
