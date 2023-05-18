@@ -100,5 +100,7 @@
   "minimal-style@@blockquote-background-color@@light": "#F5F3F9",
   "minimal-style@@blockquote-border-thickness": 3,
   "minimal-style@@blockquote-color@@light": "#000000",
-  "minimal-style@@blockquote-size": "16"
+  "minimal-style@@blockquote-size": "16",
+  "blue-topaz-theme@@transparent-setting-panel": false,
+  "blue-topaz-theme@@color-scheme-options": "color-scheme-options-default"
 }
