@@ -18415,6 +18415,8 @@ tendency
 tutorials
 thanks
 temprial
+tips
+texels
 markdown
 matter
 mod
@@ -22314,6 +22316,7 @@ meaning
 mathematical
 mention
 multiplication
+maxAniso
 windows
 win
 width
@@ -59072,6 +59075,7 @@ Must
 Maintaining
 Modelling
 Moir
+MipmapLevel
 Windows
 Win
 World
@@ -62919,6 +62923,7 @@ Worlds
 Weekend
 Wagon
 Wheel
+Waller
 Start
 StartAllBack
 Shadowrocket
@@ -96725,6 +96730,8 @@ forces
 followed
 fashion
 flatten
+fancy
+footprint
 dd
 dcc
 data
@@ -100592,6 +100599,9 @@ deflects
 directions
 diffuses
 dramatically
+dFdx
+dFdy
+diagonal
 TFvYZOKeHL
 TAB
 TeX
@@ -104359,6 +104369,7 @@ Torus
 Tutorial
 Tactics
 Timed
+TextureMapping
 io
 ipad
 it
@@ -127132,6 +127143,7 @@ redistribute
 rebase
 reflog
 recipes
+reslution
 XXXXXX
 XXX
 XML
@@ -146150,6 +146162,7 @@ Experience
 Eighth
 Emerald
 Eberly
+Ewins
 xmlns
 xyz
 xy
@@ -159765,6 +159778,7 @@ Long
 LocalDateTime
 Licensing
 Landmarks
+Lister
 Getx
 GetX
 GetName
