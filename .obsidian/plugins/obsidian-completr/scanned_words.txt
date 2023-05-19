@@ -22313,6 +22313,7 @@ mathematically
 meaning
 mathematical
 mention
+multiplication
 windows
 win
 width
@@ -39432,6 +39433,8 @@ validate
 vscodeJQueryVue
 vuet
 validation
+vice
+versa
 AA
 AppData
 AIRDyuVH
@@ -43380,6 +43383,7 @@ Aided
 Artists
 Apress
 AvgDepth
+Artifacts
 URL
 Utools
 Users
@@ -50543,6 +50547,7 @@ available
 appreciated
 annote
 alasing
+ampling
 Roaming
 RegWorkshop
 Release
@@ -54641,6 +54646,7 @@ Reality
 Research
 Randomized
 Rest
+Repeating
 Microsoft
 Menu
 MicaForEveryone
@@ -155976,6 +155982,7 @@ Down
 Disatance
 DirectDraw
 DLAA
+Dense
 LNK
 Log
 Linux
