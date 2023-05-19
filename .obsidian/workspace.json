@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/SpringBoot/MarkerHub笔记.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f7e630edd2907f43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -74,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/SpringBoot/MarkerHub笔记.md"
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
               }
             }
           }
@@ -109,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/SpringBoot/MarkerHub笔记.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/SpringBoot/MarkerHub笔记.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,15 +171,29 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "13339c8ff4185587",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "编程/SpringBoot/MarkerHub教程.md",
+    "图形学/1 图形系统/未命名",
+    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
+    "zip/images/1684499683255.png",
+    "zip/images/1684499683197.png",
+    "zip/images/1684499683132.png",
+    "zip/images/1684499683083.png",
+    "zip/images/1684499683031.png",
+    "zip/images/1684499682994.png",
+    "zip/images/1684499682872.png",
+    "zip/images/1684499682835.png",
+    "zip/images/1684499682800.png",
+    "zip/images/1684499682764.png",
+    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "编程/SpringBoot/MarkerHub笔记.md",
+    "编程/SpringBoot/MarkerHub教程.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "Tools/Git/git入门.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "zip/Legacy/English/语法/介词介词分类及常用搭配/assets/1678959162202.png",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/介词分类及常用搭配-MSI.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/语法疑问.md",
@@ -180,27 +207,13 @@
     "图形学/5 书籍/《Real-Time Rendering 3rd》/第十五章 · 渲染管线优化方法论/README.md",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "图形学/3 软渲染器/软光栅/总结.md",
-    "zip/images/Pasted image 20230517235722.png",
     "图形学/0 3D数学/3D数学.md",
-    "zip/images/Pasted image 20230517235519.png",
-    "zip/images/Pasted image 20230517235501.png",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "图形学/5 书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "图形学/0 3D数学/公式推导/04 纹理贴图.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
-    "zip/images/Pasted image 20230517230046.png",
-    "zip/images/Pasted image 20230517225255.png",
-    "zip/images/Pasted image 20230517224837.png",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "zip/images/Pasted image 20230517224516.png",
-    "zip/images/Pasted image 20230517212438.png",
-    "图形学/2 图形API/DX12/DirectXMath.md",
-    "zip/images/Pasted image 20230516114937.png",
     "zip/icons/font-awesome-regular",
     "zip/icons/remix-icons",
     "zip/icons/simple-icons",
