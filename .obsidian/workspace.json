@@ -8,72 +8,54 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9250d647fd276e33",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c62e3f3854f16f28",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "f067c607967897b4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "ab715d86884f2f9e",
+            "id": "f81e5d2d4b5f00a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/常用语法.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "7599112341b8de0a",
+            "id": "dc520a2f722d7d53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ea79fb9efa35e9da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b1817202d56d97d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5bd1b058478ff59f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
@@ -206,17 +188,19 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "9250d647fd276e33",
+  "active": "f067c607967897b4",
   "lastOpenFiles": [
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
+    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/LaTeX/常用语法.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
     "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
-    "图形学/3 软渲染器/软光栅/总结.md",
     "图形学/1 图形系统/02 光栅化.md",
-    "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+    "Math/LaTeX/常用语法.md",
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/3 软渲染器/软光栅/总结.md",
     "zip/images/Pasted image 20230520112852.png",
     "zip/images/Pasted image 20230520112744.png",
     "zip/images/Pasted image 20230520112104.png",
@@ -228,10 +212,8 @@
     "zip/images/Pasted image 20230520103718.png",
     "zip/images/Pasted image 20230520103127.png",
     "图形学/3 软渲染器/软光栅/TinyRenderer.md",
-    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
