@@ -18,6 +18,18 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "9dd64b6b2b3228a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -146,13 +158,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "c2be16b26a6c703b",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230520151724.png",
     "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "zip/images/Pasted image 20230520144131.png",
     "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
-    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
     "图形学/1 图形系统/02 光栅化.md",
