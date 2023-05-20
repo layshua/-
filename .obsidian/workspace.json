@@ -4,35 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "b81f9b8ff88c8207",
+        "id": "0b0f3587e2cf616a",
         "type": "tabs",
         "children": [
           {
-            "id": "13339c8ff4185587",
+            "id": "9250d647fd276e33",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/深度学习/《鱼书》.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f7e630edd2907f43",
+            "id": "c62e3f3854f16f28",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "图形学/3 软渲染器/软光栅/总结.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1a6cc0079c80825e",
+            "id": "f067c607967897b4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -44,12 +44,12 @@
             }
           },
           {
-            "id": "e79fee1aeb483dde",
+            "id": "5bd1b058478ff59f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
+                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,12 +99,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md"
+                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -135,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
+                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
+                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +161,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 209.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -184,49 +183,48 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e79fee1aeb483dde",
+  "active": "5bd1b058478ff59f",
   "lastOpenFiles": [
+    "图形学/3 软渲染器/软光栅/总结.md",
+    "zip/images/Pasted image 20230520101036.png",
+    "图形学/3 软渲染器/软光栅/TinyRenderer.md",
     "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
+    "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+    "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
+    "zip/images/1684548489970.png",
+    "zip/images/1684548489933.png",
+    "zip/images/1684548489874.png",
+    "zip/images/1684548489838.png",
+    "zip/images/1684548489797.png",
+    "zip/images/1684548489757.png",
+    "zip/images/1684548489675.png",
+    "zip/images/1684548489636.png",
+    "zip/images/1684548489601.png",
+    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
-    "zip/images/Pasted image 20230519231332.png",
-    "zip/images/Pasted image 20230519230142.png",
-    "zip/images/Pasted image 20230519225709.png",
     "AI/深度学习/《鱼书》.md",
-    "zip/images/Pasted image 20230519224739.png",
-    "zip/images/Pasted image 20230519222221.png",
-    "zip/images/v2-809c336fd3cbe446a57e0cf09afa593b_b.gif",
-    "zip/images/Pasted image 20230519220827.png",
-    "zip/images/b68d5a0ffa5b00f2a4df5cbd71f330ea_MD5.webp",
-    "zip/images/fd7db76ae5d7461416fc4a3c881e2647_MD5.webp",
-    "zip/images/a037e68b15cffc29cf52d6105936229a_MD5.webp",
-    "图形学/3 软渲染器/软光栅/总结.md",
     "图形学/1 图形系统/未命名",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "编程/SpringBoot/MarkerHub笔记.md",
     "编程/SpringBoot/MarkerHub教程.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "Tools/Git/git入门.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "zip/Legacy/English/语法/介词介词分类及常用搭配/介词分类及常用搭配-MSI.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
-    "zip/Legacy/English/语法/语法疑问.md",
-    "zip/Legacy/English/语法/语法.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",
     "zip/Legacy/English/语法",
-    "zip/Legacy/English/English.md",
     "zip/Legacy/English",
-    "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "zip/icons/font-awesome-regular",
     "zip/icons/remix-icons",

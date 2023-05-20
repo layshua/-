@@ -18417,6 +18417,7 @@ thanks
 temprial
 tips
 texels
+tent
 markdown
 matter
 mod
@@ -50551,6 +50552,7 @@ appreciated
 annote
 alasing
 ampling
+adj
 Roaming
 RegWorkshop
 Release
@@ -59076,6 +59078,10 @@ Maintaining
 Modelling
 Moir
 MipmapLevel
+Mirror
+Magnification
+Minification
+Meso
 Windows
 Win
 World
@@ -67187,6 +67193,8 @@ Sixth
 Schneider
 SSSM
 SoftWare
+Summed
+ShaderToy
 Programs
 POP
 PC
@@ -74974,6 +74982,7 @@ Computers
 Comprehensive
 Clothing
 Closer
+Castano
 ImTip
 IMAP
 ID
@@ -82519,6 +82528,7 @@ quantitative
 quantitatively
 qualitatively
 quantity
+quintic
 png
 position
 presentation
@@ -100602,6 +100612,7 @@ dramatically
 dFdx
 dFdy
 diagonal
+decal
 TFvYZOKeHL
 TAB
 TeX
@@ -104370,6 +104381,7 @@ Tutorial
 Tactics
 Timed
 TextureMapping
+Texram
 io
 ipad
 it
@@ -108632,6 +108644,7 @@ intensities
 interpolating
 inspired
 impact
+ideal
 shift
 svg
 sf
@@ -112878,6 +112891,7 @@ supporting
 significant
 stash
 srgb
+sinc
 local
 list
 left
@@ -137850,6 +137864,7 @@ Beginning
 Browsers
 Behavioral
 Books
+Bound
 Fraktur
 Frame
 Foo
@@ -141923,6 +141938,8 @@ Fifth
 Forth
 FalloffEnd
 FalloffStart
+Feline
+Forza
 Element
 Entity
 Enity
@@ -146163,6 +146180,7 @@ Eighth
 Emerald
 Eberly
 Ewins
+Elliptical
 xmlns
 xyz
 xy
@@ -159779,6 +159797,8 @@ LocalDateTime
 Licensing
 Landmarks
 Lister
+Latitude
+Longitude
 Getx
 GetX
 GetName
@@ -183351,6 +183371,7 @@ KPTT
 KQYY
 Kjj
 KRPano
+Kalos
 key
 kSC
 keaXj
