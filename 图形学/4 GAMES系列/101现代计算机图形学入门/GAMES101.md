@@ -316,7 +316,8 @@ for(int x = 0; x < xmax; ++x)
 
 那么另外一种想法，如果不去超采样，仅仅是求出每个屏幕像素所对应的覆盖面积（footprint） 里所有 texels 的颜色均值呢？这也就是接下来所要介绍的著名的 Mipmap 技术了！
 
-### 2.3 Mipmap
+### 2.3 多级渐远纹理 Mipmap 
+“MIP”来自于拉丁语 multum in parvo 的首字母，意思是“放置很多东西的小空间”
 
 回顾一下屏幕像素在 Texture 空间里的覆盖面积（footprint） 的这张图:
 
