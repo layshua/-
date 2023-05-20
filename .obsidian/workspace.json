@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md"
+                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md"
               }
             }
           }
@@ -122,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
+                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
+                "file": "图形学/0 3D数学/公式推导/04 纹理映射.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -171,8 +170,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d0caff9d03679b6c",
+  "active": "c2be16b26a6c703b",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/庄懂AP01.md",
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -209,7 +209,6 @@
     "图形学/1 图形系统/未命名",
     "编程/SpringBoot/MarkerHub笔记.md",
     "编程/SpringBoot/MarkerHub教程.md",
-    "虚幻引擎/01 指南/ue操作指南.md",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",
     "zip/Legacy/English/语法",
