@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md"
+                "file": "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+                "file": "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+                "file": "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,25 +183,26 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "5bd1b058478ff59f",
+  "active": "f067c607967897b4",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230520103718.png",
+    "zip/images/Pasted image 20230520103127.png",
+    "zip/images/Pasted image 20230520103059.png",
+    "zip/images/Pasted image 20230520102841.png",
+    "zip/images/Pasted image 20230520102619.png",
+    "zip/images/Pasted image 20230520102532.png",
+    "zip/images/Pasted image 20230520102531.png",
+    "zip/images/Pasted image 20230520102515.png",
+    "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
+    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/3 软渲染器/软光栅/总结.md",
     "zip/images/Pasted image 20230520101036.png",
     "图形学/3 软渲染器/软光栅/TinyRenderer.md",
-    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
-    "zBuffer/图形学基础 - 纹理 - 纹理映射流程.md",
     "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
     "zip/images/1684548489970.png",
     "zip/images/1684548489933.png",
-    "zip/images/1684548489874.png",
-    "zip/images/1684548489838.png",
-    "zip/images/1684548489797.png",
-    "zip/images/1684548489757.png",
-    "zip/images/1684548489675.png",
-    "zip/images/1684548489636.png",
-    "zip/images/1684548489601.png",
     "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
