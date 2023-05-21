@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -161,18 +161,18 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "canvas:新建白板": false,
       "command-palette:打开命令面板": true,
       "templates:插入模板": false,
-      "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "remotely-save:Remotely Save": false,
-      "omnisearch:Omnisearch": false
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
+      "remotely-save:Remotely Save": false
     }
   },
   "active": "75ff94df0abd1f61",
   "lastOpenFiles": [
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/1 图形系统/03 光照模型.md",
     "编程/C++/《C++ Primer 5th》.md",
     "zip/Legacy/Unity/教程.md",
     "图形学/3 软渲染器/软光追/未命名.md",
@@ -181,7 +181,6 @@
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
@@ -207,7 +206,6 @@
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
-    "图形学/1 图形系统/03 光照模型.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/1 图形系统/未命名",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
