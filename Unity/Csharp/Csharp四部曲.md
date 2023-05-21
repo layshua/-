@@ -9,8 +9,6 @@ uid: 202305212150
 cssclass: academia, academia-rounded
 banner: "![[Pasted image 20230521215136.png]]"
 ---
-
-
 # 入门
 ## 打印输入输出
 ```C#
@@ -19,6 +17,15 @@ Console.WriteLine("xxx"); // 打印，自动空行
 string text = Console.ReadLine(); //接收输入，按回车结束
 Console.ReadKey();  // 检测是否按键，只要按了就结束
 ```
+## 预处理指令
+### 折叠代码
+```c#
+#region 折叠块名字
+... //代码
+#endregion
+```
+
+
 ## 3. 转义符
 
 2.1 转义符
