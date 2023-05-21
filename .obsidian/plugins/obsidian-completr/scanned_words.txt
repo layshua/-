@@ -46926,6 +46926,7 @@ USERNAME
 UserController
 UsernamePasswordToken
 USERINFO
+Uninstall
 api
 ac
 app
@@ -54656,6 +54657,8 @@ Research
 Randomized
 Rest
 Repeating
+Rider
+Resharper
 Microsoft
 Menu
 MicaForEveryone
@@ -78742,6 +78745,7 @@ Informal
 Isosurfaces
 Introductions
 Illusion
+IntelliJ
 qq
 qyi
 quad
@@ -127162,6 +127166,7 @@ rebase
 reflog
 recipes
 reslution
+rider
 XXXXXX
 XXX
 XML
