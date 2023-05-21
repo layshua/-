@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/C#/C#入门.md",
+                "file": "Unity/C#/C#基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/C#/C#入门.md"
+                "file": "Unity/C#/C#基础.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/C#/C#入门.md",
+                "file": "Unity/C#/C#基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/C#/C#入门.md",
+                "file": "Unity/C#/C#基础.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,8 +148,9 @@
   },
   "active": "d0caff9d03679b6c",
   "lastOpenFiles": [
-    "Unity/C#/C#基础.md",
+    "zip/images/Pasted image 20230521215136.png",
     "Unity/C#/C#入门.md",
+    "Unity/C#/C#基础.md",
     "Unity/教程.md",
     "Unity/URP/URPShader.md",
     "Unity/URP/URP渲染管线.md",
@@ -183,7 +184,6 @@
     "zip/images/Pasted image 20230520152004.png",
     "zip/images/Pasted image 20230520151813.png",
     "zip/images/Pasted image 20230520151724.png",
-    "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
     "图形学/1 图形系统/未命名",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",
