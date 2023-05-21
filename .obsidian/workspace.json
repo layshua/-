@@ -43,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -86,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/Legacy/Unity/教程.md"
+                "file": "编程/C++/《C++ Primer 5th》.md"
               }
             }
           }
@@ -121,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/Legacy/Unity/教程.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/Legacy/Unity/教程.md",
+                "file": "编程/C++/《C++ Primer 5th》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -170,10 +171,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c2be16b26a6c703b",
+  "active": "75ff94df0abd1f61",
   "lastOpenFiles": [
-    "图形学/3 软渲染器/软光追/未命名.md",
     "zip/Legacy/Unity/教程.md",
+    "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/1 图形系统/02 光栅化.md",
     "README.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
