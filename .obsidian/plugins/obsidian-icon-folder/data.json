@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "LiGamepad2",
       "SiTaichigraphics",
       "LiFolderUp",
       "RiFolderZipFill",
-      "📁",
-      "SiBuffer"
+      "📁"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -31,5 +31,6 @@
   "Math": "RiNumbersFill",
   "zBuffer": "SiBuffer",
   "zip": "LiFolderUp",
-  "图形学": "SiTaichigraphics"
+  "图形学": "SiTaichigraphics",
+  "README.md": "LiGamepad2"
 }
