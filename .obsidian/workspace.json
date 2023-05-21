@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md",
+                "file": "Unity/C#/C#入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md"
+                "file": "Unity/C#/C#入门.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md",
+                "file": "Unity/C#/C#入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md",
+                "file": "Unity/C#/C#入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,9 +148,17 @@
   },
   "active": "d0caff9d03679b6c",
   "lastOpenFiles": [
+    "Unity/C#/C#基础.md",
+    "Unity/C#/C#入门.md",
+    "Unity/教程.md",
+    "Unity/URP/URPShader.md",
+    "Unity/URP/URP渲染管线.md",
+    "Unity/URP/URP屏幕后处理.md",
+    "Unity/URP/DrawCall，Batches，SetPass calls.md",
+    "Unity/2022minigame/2022minigame.md",
+    "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md",
     "zBuffer/图形学底层探秘 - 纹理采样、环绕、过滤与 Mipmap 的那些事.md",
     "zip/images/1684670742230.png",
-    "zBuffer/Rider 与 Visual Studio 2019 的优劣对比_rider 和 vs 哪个好用_euphorias 的博客 - CSDN 博客.md",
     "zip/images/1684670742198.png",
     "zip/images/1684670742179.png",
     "zip/images/1684670742146.png",
@@ -163,7 +171,6 @@
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "图形学/1 图形系统/03 光照模型.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "zip/Legacy/Unity/教程.md",
     "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/1 图形系统/02 光栅化.md",
     "README.md",
@@ -177,12 +184,6 @@
     "zip/images/Pasted image 20230520151813.png",
     "zip/images/Pasted image 20230520151724.png",
     "zBuffer/图形学基础 - 纹理 - 纹理映射盘点.md",
-    "zBuffer/计算机图形学七：纹理映射 (Texture Mapping) 及 Mipmap 技术.md",
-    "Math/LaTeX/常用语法.md",
-    "图形学/3 软渲染器/软光栅/总结.md",
-    "图形学/3 软渲染器/软光栅/TinyRenderer.md",
-    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "图形学/1 图形系统/未命名",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",

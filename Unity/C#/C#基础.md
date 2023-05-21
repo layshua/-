@@ -1,8 +1,3 @@
-# :book: 学习网站
-
-[C# 教程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/csharp/csharp-tutorial.html)
-
-[C# 教程：C#入门经典教程(biancheng.net)](http://c.biancheng.net/csharp/)
 
 # :vs: VS 常用操作
 
