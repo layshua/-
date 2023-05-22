@@ -43392,6 +43392,7 @@ Artists
 Apress
 AvgDepth
 Artifacts
+ArrowRoom
 URL
 Utools
 Users
@@ -54660,6 +54661,7 @@ Rest
 Repeating
 Rider
 Resharper
+RotationCam
 Microsoft
 Menu
 MicaForEveryone
@@ -71068,6 +71070,7 @@ Proofs
 Photographers
 Pathfinding
 Philip
+Pointer
 ContextMenuManager
 ClashVerge
 Clash
@@ -74991,6 +74994,8 @@ Comprehensive
 Clothing
 Closer
 Castano
+ChangeText
+ChangeRoom
 ImTip
 IMAP
 ID
@@ -171845,6 +171850,7 @@ ZubUUU
 ZXgAg
 Zdfd
 Zbush
+ZoomCam
 Quote
 Quiet
 Quick
