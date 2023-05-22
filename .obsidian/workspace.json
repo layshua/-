@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+                "file": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,6 +148,7 @@
   },
   "active": "d0caff9d03679b6c",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Unity/Csharp/Csharp四部曲.md",
     "Unity/Csharp/C#入门.md",
     "Unity/Csharp/C.md",
@@ -179,7 +180,6 @@
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/images/Pasted image 20230520152030.png",
     "zip/images/Pasted image 20230520152004.png",
