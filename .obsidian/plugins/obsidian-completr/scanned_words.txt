@@ -74996,6 +74996,8 @@ Closer
 Castano
 ChangeText
 ChangeRoom
+ChangePointer
+ControlMusic
 ImTip
 IMAP
 ID
@@ -86449,6 +86451,7 @@ pick
 pycharm
 port
 parvo
+playbutton
 nodesCatch
 nobr
 navy
@@ -141956,6 +141959,7 @@ FalloffEnd
 FalloffStart
 Feline
 Forza
+FlashFXP
 Element
 Entity
 Enity
@@ -167803,6 +167807,7 @@ Natural
 Nonlinear
 Notation
 Ninth
+NewSite
 ZooAnima
 ZooAnimal
 ZTest
@@ -171851,6 +171856,7 @@ ZXgAg
 Zdfd
 Zbush
 ZoomCam
+ZoomTouchCam
 Quote
 Quiet
 Quick
