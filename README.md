@@ -30,7 +30,11 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 - [ ] 体积雾气（进阶）
 		 [UE4之制作高端霸气的干冰体积雾 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/107016039)
 - [ ] 体积云
-		[[UE4]教程 风格化体积云材质_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1cZ4y1m7Jj/?spm_id_from=333.999.0.0&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
+		[[UE4]教程风格化体积云材质_哔哩哔哩_bilibili]( https://www.bilibili.com/video/BV1cZ4y1m7Jj/?spm_id_from=333.999.0.0&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a )[置顶]
+		教程：![]( file:///C:\Users\22625\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF (TYDYECOKVDYB.png) https://zhuanlan.zhihu.com/p/622654876  
+                源文件：  
+                Github：![]( file:///C:\Users\22625\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF (TYDYECOKVDYB.png) https://link.zhihu.com/?​targe​t=https%3A//! []( file:///C:\Users\22625\AppData\Roaming\Tencent\QQTempSys\ [5UQ[BL(6~BS2JV6W}N6[%S.png)github.com/MagicStones23/Unity-Volumetric-Clouds  
+                百度网盘：![]( file:///C:\Users\22625\AppData\Roaming\Tencent\QQ\Temp\%W@GJ$ACOF (TYDYECOKVDYB.png) https://pan.baidu.com/s/1K80SwgoKHfSbr7qDFmI0uw?pwd=1111 提取码：1111 ​
 - [ ] 交互雪
 		[[UE5] 交互雪入门01 先做个画板_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1PR4y1Z74e/?spm_id_from=333.999.0.0)
 - [ ] 交互草
