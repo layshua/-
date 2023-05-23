@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "虚幻引擎/01 指南/ue操作指南.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "虚幻引擎/01 指南/ue操作指南.md"
+                "file": "README.md"
               }
             }
           }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "虚幻引擎/01 指南/ue操作指南.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "虚幻引擎/01 指南/ue操作指南.md",
+                "file": "README.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -148,6 +148,11 @@
   },
   "active": "d0caff9d03679b6c",
   "lastOpenFiles": [
+    "AI/深度学习/动手学pytorch.md",
+    "AI/深度学习/PyTorch入门.md",
+    "AI/Python/axis轴.md",
+    "AI/Python/Python基础.md",
+    "虚幻引擎/01 指南/ue操作指南.md",
     "README.md",
     "编程/大作业/360全景看房.md",
     "编程/未命名",
@@ -182,10 +187,6 @@
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "编程/C++/《C++ Primer 5th》.md",
-    "图形学/3 软渲染器/软光追/未命名.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/1 图形系统/未命名",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",
