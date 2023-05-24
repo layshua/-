@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d0caff9d03679b6c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/URP/入门精要urp重写.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "89443c91a32d1bf2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer 5th》.md",
+                "file": "编程/大作业/360全景看房.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/URP/入门精要urp重写.md"
+                "file": "编程/大作业/360全景看房.md"
               }
             }
           }
@@ -109,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/URP/入门精要urp重写.md",
+                "file": "编程/大作业/360全景看房.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/URP/入门精要urp重写.md",
+                "file": "编程/大作业/360全景看房.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,8 +146,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d0caff9d03679b6c",
+  "active": "89443c91a32d1bf2",
   "lastOpenFiles": [
+    "AI/论文/Nerf/学习论.md",
+    "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
+    "未命名.md",
     "编程/大作业/360全景看房.md",
     "Unity/URP/入门精要urp重写.md",
     "Unity/教程.md",
@@ -167,7 +158,6 @@
     "Unity/2022minigame/2022minigame.md",
     "Unity/Csharp/Csharp四部曲.md",
     "AI/论文/Nerf/转mesh工作.md",
-    "未命名.md",
     "Unity/Csharp/唐老狮 C 进阶.md",
     "Unity/Csharp/唐老狮 C 基础.md",
     "Unity/Csharp/唐老狮 C 核心.md",
@@ -197,8 +187,6 @@
     "Unity/Csharp/C.md",
     "Unity/URP/URPShader.md",
     "Unity/URP/URP渲染管线.md",
-    "Unity/URP/URP屏幕后处理.md",
-    "Unity/URP/DrawCall，Batches，SetPass calls.md",
     "图形学/1 图形系统/未命名",
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",

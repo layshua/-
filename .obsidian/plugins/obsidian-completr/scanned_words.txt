@@ -7454,6 +7454,7 @@ OptiX
 Omnisearch
 Occlsion
 Overblur
+OpenDR
 codeup
 clash
 ctrl
@@ -22322,6 +22323,7 @@ multiplication
 maxAniso
 mirror
 multum
+mitsuba
 windows
 win
 width
@@ -43403,6 +43405,7 @@ AddFirst
 AddAfter
 AddBefore
 Activator
+AIGC
 URL
 Utools
 Users
@@ -59106,6 +59109,7 @@ Magnification
 Minification
 Meso
 MemberwiseClone
+Mythal
 Windows
 Win
 World
@@ -67220,6 +67224,7 @@ SoftWare
 Summed
 ShaderToy
 Stack
+SoftRas
 Programs
 POP
 PC
@@ -159855,6 +159860,7 @@ Latitude
 Longitude
 Linkedlist
 LoadFrom
+LLVM
 Getx
 GetX
 GetName
@@ -167848,6 +167854,7 @@ Ninth
 NewSite
 Navicat
 NameSpace
+Nvdiffrast
 ZooAnima
 ZooAnimal
 ZTest
