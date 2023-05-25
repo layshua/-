@@ -31,7 +31,7 @@ banner: "![[Pasted image 20230521215136.png]]"
 |----|----|----|-----|
 | float | 32 位单精度浮点型 | -3.4 x 1038 到 + 3.4 x 1038 | 0.0F |
 | double | 64 位双精度浮点型 | (+/-) 5.0 x 10-324 到 (+/-) 1.7 x 10308 | 0.0D |
-| decimal | 128 位精确的十进制值，28-29 有效位数 | (-7.9 x 1028 到 7.9 x 1028) / 100 到 28 | 0.0M |
+|decimal| 128 位精确的十进制值，28-29 有效位数 | (-7.9 x 1028 到 7.9 x 1028) / 100 到 28 | 0.0M |
 
 |其他类型| 描述 | 范围 | 默认值 |
 |----|----|----|-----|
@@ -46,6 +46,18 @@ float a = 0.1654646f;
 
 `sizeof() ` 返回**值类型**变量的大小（字节）
 
+
+**保留指定小数位数**
+
+```c#
+//语法：
+//{变量：0.00}  保留两位
+double n1 = 3.33333;
+Console.WriteLine($"{n1:0.00}");
+
+输出：3.33
+```
+
 ### 引用类型
 
 |C# 类型关键字|. NET 类型|
@@ -58,6 +70,14 @@ float a = 0.1654646f;
 ```c#
 int a = 123;
 System.Int32 b = 123;
+```
+
+string 字符串类型拼接方式
+1. "+" "+="号，不能用其他运算符
+2. `string. Format ("待拼接的内容",内容 1,内容 2，......)`
+   使用占位符 `{数字}` 控制拼接顺序
+```c#
+string.Format("我是{0}.我今年{1}岁,","小明","16");
 ```
 ## 2 打印输入输出
 ```C#
@@ -99,14 +119,14 @@ string a = @"C：\mycode\a\文件.txt";
 
 ### **隐式类型转换**
 - 低精度可以转换成高精度
-- double->flaot->整数（有符号、无符号）->char
-- decimal->整数（有符号、无符号）->char 
+- char→整数（有符号、无符号）→float→double $\nrightarrow$ decimal
+- char→整数（有符号、无符号）→decimal
 - string 和 bool 不参与隐式转换规则
-### **显式类型转换**
-
-1. 两种类型兼容
-
-2. 大的转成小的
+- 有符号 $\nrightarrow$ 无符号
+- 无符号→有符号（精度低到高）
+### **显式（强制）类型转换**
+#### 括号强转
+用于将高精度转换位低精度
 
 ```C#
 //double->int 强制类型转换（显式类型转换）
@@ -123,53 +143,35 @@ Console.WriteLine(d);
 double d = n1*1.0 / n2;  //n1*1.0将n1转换为double类型
 Console.WriteLine(d);
 ```
+#### Convert类型转换
 
-### **保留指定小数位数**
+- 如果两个变量类型不兼容，比如 string 与 int 或 string 与 double，可以使用 Convert 函数进行转换。
+-  string 字符串的内容必须为要转换的类型。
 
-```c#
-//语法：
-//{变量：0.00}  保留两位
-double n1 = 3.33333;
-Console.WriteLine($"{n1:0.00}");
-
-输出：3.33
-```
-
-### Convert类型转换
-
-如果两个变量类型不兼容，比如string与int或string与double，可以使用Convert函数进行转换。
-
-Convert.ToInt32()
-
-Convert.ToDouble()
-
-![image-20220622124705460](image-20220622124705460.png)
-
+`Convert.ToInt32()`
+`Convert.ToDouble()`
+...
 ```C# string a = "123";
-string a = "123";  //但是只能转换数字，如果a=”123abc“则会异常
+string a = "123";  //但是只能转换int，如果a=”123abc“或“6.5”则会异常
 int b = Convert.ToInt32(a);
-//double b = Convert.ToDouble(a);
-//Convert.ToDouble(b);
 Console.WriteLine(b);
 ```
 
-### .Parse类型转换
+#### .Parse类型转换
 
 效果同Convert:
 
-int.Parse()
-
-double.Parse()
-
+`int.Parse()`
+`double.Parse()`
 ```C#
 string a = "123"; 
 int b = int.Parse(a);
 //double b = double.Parse(a)
 ```
 
-### .TryParse类型转换
+#### .TryParse类型转换
 
-int.TryParse()
+`int.TryParse()`
 
 ```C#
 int a = 0;
@@ -178,8 +180,6 @@ bool b = int.TryParse("123", out a);
 Console.WriteLine(b);
 Console.WriteLine(a);
 ```
-
-
 
 ## 5. 异常捕获
 
@@ -190,28 +190,21 @@ Console.WriteLine(a);
 ```C#
 try
 {
-    可能出现异常的代码；
+    //可能出现异常的代码；
 }
 catch
 {
-    出现异常后要执行的代码；
+    //出现异常后要执行的代码；
+    //catch(Exception e)具体报错跟踪，通过e得到具体的错误信息
 }
-如果无异常，则catch内代码不会执行。如果出现异常，则后续代码不再执行，而是跳到catch的代码。（try-catch中间不能有其他代码）
+finally
+{
+    // （可选）最后执行的代码，不管有没有出错都会执行
+}
+//如果无异常，则catch内代码不会执行。如果出现异常，则后续代码不再执行，而是跳到catch的代码。（try-catch中间不能有其他代码）
+// 注意三个语句后面不需要加;
 ```
 
-## 6. 断点调试
-
- 1)、写完一段程序后，想看一下这段程序的执行过程。
-2)、当你写完这段程序后，发现，程序并没有按照你想象的样子去执行。
-
-调试方法：
-1)F11逐语句调试(单步调试)
-2)F10逐过程调试
-3)断点调试：
-
-程序运行到断点处，就不再向下执行了。
-
-设置断点后，先F5执行，然后再从断点处F11逐句调试
 
 ## 7. 特殊类型
 
