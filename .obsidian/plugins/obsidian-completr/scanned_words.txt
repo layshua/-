@@ -67235,6 +67235,7 @@ ShaderToy
 Stack
 SoftRas
 Send
+SceneView
 Programs
 POP
 PC
@@ -75033,6 +75034,8 @@ ChangeRoom
 ChangePointer
 ControlMusic
 CreateInstance
+ComputeShader
+CameraFade
 ImTip
 IMAP
 ID
@@ -104449,6 +104452,7 @@ Temp
 TYDYECOKVDYB
 Tostring
 Threading
+TerrainData
 io
 ipad
 it
@@ -156091,6 +156095,9 @@ Dense
 Defender
 Dictionary
 Dll
+DrawMeshInstancedIndirect
+DisneyDiffuse
+DistanceFade
 LNK
 Log
 Linux
@@ -164146,6 +164153,9 @@ GimbalLock
 GetType
 GetHashCode
 GlobalCorsConfig
+GPUInstance
+GrassWater
+GameView
 NULL
 Native
 NormalMap
