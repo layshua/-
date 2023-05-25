@@ -29314,6 +29314,8 @@ unlock
 unset
 uname
 useSSL
+ushort
+ulong
 everything
 ea
 ede
@@ -112964,6 +112966,7 @@ significant
 stash
 srgb
 sinc
+sbyte
 local
 list
 left
