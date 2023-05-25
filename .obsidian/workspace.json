@@ -18,8 +18,27 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "de8eca6d07292440",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
+            "id": "73f5b9f303e4eaef",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.3.4"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -146,7 +165,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "89443c91a32d1bf2",
+  "active": "73f5b9f303e4eaef",
   "lastOpenFiles": [
     "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
     "编程/大作业/360全景看房.md",
