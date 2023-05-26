@@ -88,10 +88,12 @@ Console.WriteLine(string.Format("我是{0},我今年{1}岁,我喜欢{2}","小明
 ```C# file:打印输入输出
 Console.Write("xxx"); // 打印，不自动空行
 Console.WriteLine("xxx"); // 打印，自动空行
-string text = Console.ReadLine(); //接收输入，按回车结束
-Console.ReadKey();  // 检测是否按键，只要按了就结束
+Console.ReadLine(); //等待直到用户按下回车，一次读入一行。
+Console.ReadKey();  // 等待用户按下任意键，一次读入一个字符。
 
-char c = Console.ReadKey(true).KeyChar; //ReadKey(true)不会把输入的内容显示在控制台上
+Console.ReadKey(true).KeyChar; 
+//Console 类的一个静态方法，它读取当前控制台上的任意键盘输入。参数 true 表示在读取输入后不显示读入的字符，如果是 false 则会显示读入的字符。
+//返回值是 ConsoleKeyInfo 类型，包含了该字符的 KeyChar 属性（即按下的按键字符），以及关于按键是否有控制字符等其他信息。
 ```
 
 ```c# file:其他方法
