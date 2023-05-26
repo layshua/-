@@ -103,8 +103,8 @@ Console.Clear();
 //1.先设置窗口大小，在设置缓冲区大小
 //2.缓冲区大小不能小于窗口大小
 //3.窗口大小不能大于控制台的最大尺寸
-Console.SetWindows(100, 50);  // 设置窗口大小
-Console.SetBufferSize(1000, 1000) // 设置缓冲区大小（可打印内容区域的宽高）
+Console.SetWindowSize(50,40);  // 设置窗口大小
+Console.SetBufferSize(1000, 1000); // 设置缓冲区大小（可打印内容区域的宽高）
 
 //3.设置光标的位置
 //控制台左上角为原点，右侧是x轴正方向，下方是Y轴正方向，它是一个平面二维坐标系
@@ -117,7 +117,7 @@ Console.SetCursorPosition(10,5);
 //文字颜色设置
 Console.ForegroundColor = ConsoleColor.Red;
 //背景颜色设置
-Console.BackgroundColor = console.White;
+Console.BackgroundColor = ConsoleColor.White;
 
 //5.光标显隐
 Console.cursorVisible = false;
