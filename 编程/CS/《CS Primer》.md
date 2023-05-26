@@ -376,20 +376,6 @@ pubilc static 返回值类型 函数名（参数列表）
 }
 ```
 
-## 访问修饰符
-`public`：公开的
-
-`private`：私有的，只能在当前类的内部访问
-
-`protected`：受保护的，只能在当前类的内部以及该类的子类中访问
-
-`internal`：只能在当前项目中访问，在本项目中和 public 权限一样
-
-`protected internal`：protected+internal
-
-1. 能够修饰类的访问修饰符：public，internal
-
-2. 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
 ## ref 和 out 参数  
 他们使用的方式和效果都是一样，解决值类型和引用类型在函数内部改值或者重新声明能够影响外部传入的变量让其也被修改（使传入的参数在函数外也修改 ）
 
@@ -481,21 +467,23 @@ public static void Test (string name, params int[] score)
 }
 ```
 ## 可选参数
-//有参数默认值的参数一般称为可选参数
-//作用是当调用函数时可以不传入参数，不传就会使用默认值作为参数的值 2 个引用
+有参数默认值的参数一般称为可选参数
+作用是当调用函数时可以不传入参数，不传就会使用默认值作为参数的值
 ```c#
-static void Speak (string str =“我没什么话可说"){
-Console.WriteLine (str);
-)
+static void Speak (string str == "hello")
+{
+    Console.WriteLine (str);
+}
 ```
-
+- 支持多个参数默认值
+- 可选参数必须写在普通参数后面
 ## 重载
 
 概念：方法的重载指的就是**方法的名称相同，但是参数不同**。
-**参数不同，分为两种情况**
-**1)、如果参数的个数相同，那么参数的类型就不能相同。**
-**2)、如果参数的类型相同，那么参数的个数就不能相同。**
-方法的重载跟返回值没有关系。
+**参数不同，分为三种情况**
+1. 如果参数的个数相同，那么参数的类型就不能相同。
+2. 果参数的类型相同，那么参数的个数就不能相同。
+3. 参数顺序不同
 
 ```C#
 public static void M (int n1,int n2)
@@ -520,6 +508,16 @@ public static string M(string s1,string s2)
 ```
 
 # 四、面向对象 OOP
+## 结构体
+
+```C#
+ public struct Person
+{
+    public string _name;  //字段前要加_，用来区分变量
+    public int _age;
+    public char _gender;
+}
+```
 
 ## 类
 
@@ -580,11 +578,24 @@ public sealed calss Person : Test
 { }
 ```
 
+## 访问修饰符
+1. 不显式声明访问修饰符，则默认为 private
+2. 分类：
+`public`：公开的
 
+`private`：私有的，只能在当前类的内部访问
 
+`protected`：受保护的，只能在当前类的内部以及该类的子类中访问
+
+`internal`：只能在当前项目中访问，在本项目中和 public 权限一样
+
+`protected internal`：protected+internal
+
+- 能够修饰类的访问修饰符：public，internal
+
+- 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
 ## 2. 属性
 
-3、属性
 属性的作用就是**保护字段、对字段的赋值和取值进行限定**。
 属性的本质就是两个方法，一个叫 get ()一个叫 set ()。
 
@@ -648,8 +659,6 @@ public int Age { get => _age; set => _age = value; }
 既有 get ()也有 set ()我们诚之为可读可写属性。
 只有 get ()没有 set ()我们称之为只读属性
 没有 get ()只有 set ()我们称之为只写属性
-
-
 
 ## 3. 静态和非静态
 
@@ -1273,17 +1282,6 @@ class Program
 
 
 从上面的执行效果可以看出，在使用 foreach 语句时可以免去使用下标的麻烦，这也给遍历数组中的元素带来很多方便。
-
-# 七、结构体
-
-```C#
- public struct Person
-{
-    public string _name;  //字段前要加_，用来区分变量
-    public int _age;
-    public char _gender;
-}
-```
 
 # 委托
 # 事件
