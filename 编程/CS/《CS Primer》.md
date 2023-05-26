@@ -635,7 +635,7 @@ class Program
 从上面的执行效果可以看出，在使用 foreach 语句时可以免去使用下标的麻烦，这也给遍历数组中的元素带来很多方便。
 
 # 四、面向对象 OOP
-## 结构体
+## 结构体 struct
 
 ```C#
  public struct Person
@@ -650,8 +650,8 @@ class Program
     }
 }
 ```
-
-## 类
+- ? 结构体和类的区别
+## 类 class
 
 ```C#
 语法：
@@ -692,14 +692,26 @@ static void Main(string[] args)
 
     // 以下都是空对象，没有申请堆空间，不可以访问成员变量和成员函数
     Person p1;  
-    Person p2 = null;
+    Person p2 = null; //等价
 }
 ```
 
+- 可以在类中声明一个和自己相同类型的成员变量，但不能对它进行初始化
+```c#
+class person
+{
+    Person girlfriend;
+    Person[] boyfriend;
+}
+```
+- 成员变量的默认初始值
+    - 值类型，数字类型默认为 0，bool 类型默认为 false
+    - 引用类型，默认为 null
+    - `default（类型）`得到该类型的默认值
 ### 部分类（partial）
 
 ```C#
-可以理解为将Person类分开，两部分共同组成Person类，数据共享
+//可以理解为将Person类分开，两部分共同组成Person类，数据共享
 public partial class  Person
 { }
 public partial class  Person
@@ -709,8 +721,8 @@ public partial class  Person
 ### 密封类（sealed）
 
 ```C#
-密封类不能被继承，但可以继承其他父类
-public sealed calss Person : Test
+//密封类不能被继承，但可以继承其他父类
+public sealed class Person : Test
 { }
 ```
 
