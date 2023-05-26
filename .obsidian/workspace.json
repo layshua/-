@@ -80,7 +80,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "编程/CS/唐老狮 C 核心.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/唐老狮 C 核心.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/唐老狮 C 核心.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -164,10 +164,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4bac43a81a379666",
+  "active": "89443c91a32d1bf2",
   "lastOpenFiles": [
-    "编程/CS/唐老狮 C 核心.md",
     "编程/CS/《CS Primer》.md",
+    "编程/CS/唐老狮 C 核心.md",
     "编程/CS/唐老狮 C 进阶.md",
     "编程/CS/唐老狮 C 基础.md",
     "Tools/工具流.md",
