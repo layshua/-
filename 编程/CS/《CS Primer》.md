@@ -272,6 +272,34 @@ int[] nums = {1,2,3,4,5};
 ```c# file:一维数组方法
 int len = nums.Lenght()  //数组长度
 ```
+
+```c# file:增加和减少数组中的元素
+//增加数组中的元素
+int[] array = { 1, 2, 3, 4, 5 };
+int[] array1 = new int[10];
+for (int i = 0; i < array.Length; i++)
+{
+    array1[i] = array[i];
+}
+array = array1;  //最后将新数组赋值给旧数组
+
+//遍历打印array结果为
+//1，2，3，4，5，0，0，0，0，0
+
+//j减少数组中的元素
+int[] array = {1,2,3,4,5,6,7,8,9,10};
+int[] array2 = new int[5];
+for (int i = 0; i < array2.Length; i++)
+{
+    array2[i] = array[i];
+}
+array = array2;
+
+//遍历打印array结果为
+//1，2，3，4，5
+
+``` 
+
 #### 二维数组
 ```C# file:二维数组的声明
 int[,] nums;  //只声明不初始化
@@ -348,79 +376,60 @@ pubilc static 返回值类型 函数名（参数列表）
 }
 ```
 
-### 访问修饰符
-public：公开的
+## 访问修饰符
+`public`：公开的
 
-private：私有的，只能在当前类的内部访问
+`private`：私有的，只能在当前类的内部访问
 
-protected：受保护的，只能在当前类的内部以及该类的子类中访问
+`protected`：受保护的，只能在当前类的内部以及该类的子类中访问
 
-internal：只能在当前项目中访问，在本项目中和 public 权限一样
+`internal`：只能在当前项目中访问，在本项目中和 public 权限一样
 
-protected internal：protected+internal
+`protected internal`：protected+internal
 
-（1）能够修饰类的访问修饰符：public，internal
+1. 能够修饰类的访问修饰符：public，internal
 
-（2）子类的访问权限不能高于父类的访问权限，会暴露父类的成员
-### 调用
+2. 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
+## ref 和 out 参数  
 
-```C#
-namespcae 调用问题
+他们使用的方式和效果都是一样，在参数前添加  
+
+使传入的参数在函数外也修改  
+
+相当于直接使用这个传入参数，而不是声明一个参数取替代  
+
+在函数中 new 传入数组的时候，真正的 new 了  
+
+**ref 和 out 的区别：**  
+1. ref 传入的变量 (参数) 必须初始化，out 不用。  
+2. out 传入的变量必须在内部赋值，ref 不用。  
+
+```c# file:ref参数
+static void ChangeValue (int a)
 {
-    class Program
-    {
-        //使用静态字段来模拟全局变量
-        public static int _number = 10;
-     
-        ___________________________________  
-        //报错
-        static void Main(string[] args)
-        {
-            int a = 3;//不是全局变量，所有Test（）中的a不是这个a
-            Test();
-            Console.WriteLine(a);
-        }
-
-        public static int Test()
-        {
-            a = a + 5;  
-        }
-
-        //正确写法：
-        static void Main(string[] args)
-        {
-            int a = 3;
-            Test(a);
-            Console.WriteLine(a);
-        }
-
-        public static int Test(int n)
-        {
-            a = a + 5;
-            return a
-        }
-    }
+    a = 20;
 }
-```
 
-我们在 Main ()函数中，调用 Test ()函数，我们管 Main ()函数称之为调用者，管 Test ()函数称之为被调用者。
-**如果被调用者想要得到调用者的值：**
-**1)、传递参数。**
-**2)、使用静态字段来模拟全局变量。**
-如果调用者想要得到被调用者的值：
-1)、返回值
+int b = 10
+ChangeValue(b); 
+//因为值传递的原因，b的值没有改变，我们想让b被改成20可以使用ref：
 
-2）、不管是实参还是形参，都是在内存中开辟了空间的。
+//参数前添加 ref 修饰符 
+static void ChangeValue ( ref int a)
+{
+    a=20;
+}
+int b = 10
+ChangeValue(b);
+//打印b为20 在函数内修改传入参数 传入的参数在外部也会修改
 
-
-
-### out 参数
+``` 
 
 如果你在一个方法中，返回多个相同类型的值的时候，可以考虑返回一个数组。
 但是，如果返回多个不同类型的值的时候，返回数组就不行了，那么这个时候，
 我们可以考虑使用 out 参数。**out 参数就侧重于在一个方法中可以返回多个不同类型的值。**
 
-```C#
+```C# file:out参数
 public static void Test(int[]nums,out int max.out int min,out int sum,out float avr)
 //out int max写到形参列表中
 {
@@ -430,32 +439,13 @@ public static void Test(int[]nums,out int max.out int min,out int sum,out float 
     avr = sum / nums.Length;
 }
 
-外部调用：
+//外部调用：
 Test（nums,out max,out min,out sun,out avr）;
 ```
 
 
 
-### ref 参数（引用 Reference）
-
-```C#
- static void Main(string[] args)
-{
-    double salary = 5000;
-    JiangJin(ref salary);
-    Console.WriteLine(salary);
-}
-
-public static void JiangJin(ref double s)
-{
-    s += 500;  //即使不返回值也能改变salary
-}
-```
-
-能够将一个变量带入一个方法中进行改变，改变完成后，再讲改变后的值带出方法。
-ref 参数要求在方法外必须为其赋值，而方法内可以不赋值。
-
-### params 可变参数
+## params 可变参数
 
 **将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。**
 params 可变参数**必须是形参列表中的最后一个元素。**
@@ -497,9 +487,7 @@ public static void Test (string name, params int[] score)
 }
 ```
 
-
-
-### 重载
+## 重载
 
 概念：方法的重载指的就是**方法的名称相同，但是参数不同**。
 **参数不同，分为两种情况**

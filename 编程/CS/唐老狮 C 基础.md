@@ -571,7 +571,7 @@ ref和out的区别：
 
 2.out传入的变量必须在内部赋值，ref不用。  
 
-```
+```c#
 static void ChangeValue (int a)
 {
     a=20;

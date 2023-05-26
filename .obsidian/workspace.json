@@ -80,7 +80,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/唐老狮 C 基础.md"
+                "file": "编程/CS/《CS Primer》.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/唐老狮 C 基础.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/唐老狮 C 基础.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -164,10 +164,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "89443c91a32d1bf2",
+  "active": "4bac43a81a379666",
   "lastOpenFiles": [
-    "编程/CS/《CS Primer》.md",
     "编程/CS/唐老狮 C 基础.md",
+    "编程/CS/《CS Primer》.md",
+    "Tools/工具流.md",
     "编程/CS/唐老狮 C 进阶.md",
     "zip/images/Pasted image 20230526153510.png",
     "编程/C++/《Effective C++ 3th》.md",
