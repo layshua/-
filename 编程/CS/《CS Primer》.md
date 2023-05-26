@@ -516,6 +516,11 @@ public static string M(string s1,string s2)
     public string _name;  //字段前要加_，用来区分变量
     public int _age;
     public char _gender;
+    
+    void Speak()
+    {
+    ...
+    }
 }
 ```
 
@@ -713,7 +718,6 @@ static void Main(string[] args)
 构造函数是一个特殊的方法：
 1)、构造函数没有返回值，连 void 也不能写。
 2)、构造函数的名称必须跟类名一样。
-
 3)、访问修饰符必须是 public
 
 **创建对象的时候会执行构造函数**
