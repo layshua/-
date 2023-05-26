@@ -140,7 +140,7 @@ int a = 123;
 System.Int32 b = 123;
 ```
 
-string 字符串类型拼接方式
+**string 字符串类型拼接方式**
 1. "+" "+="号，不能用其他运算符
 2. `string. Format ("待拼接的内容",内容 1,内容 2，......)`
    使用占位符 `{数字}` 控制拼接顺序
@@ -173,7 +173,7 @@ r.Next(5,100); //生成[5,99)的随机数
 ```
 
 ### 枚举
-枚举是一个被命名的整型常量的集合
+
 ```C# file:声明枚举
 // 声明枚举
 public enum 枚举名
@@ -223,32 +223,91 @@ namespace ConsoleApp1
 }
 ```
 
-枚举就是一个变量类型，int--double  string  decimal.
-只是枚举声明、赋值、使用的方式跟那些普通的变量类型不一样。
-
-我们可以将一个枚举类型的变量跟 int 类型和 string 类型互相转换。
-枚举类型默认是跟 int 类型相互兼容的，所以可以通过强制类型转换的语法互相转换。
-当转换一个枚举中没有的值的时候，不会抛异常，而是直接将数字显示出来。
-
-枚举同样也可以跟 string 类型互相转换，如果将枚举类型转换成 string 类型，则直接调用 ToString().
-如果将字符串转换成枚举类型则需要下面这样一行代码：
-(要转换的枚举类型) Enum.Parse (typeof (要转换的枚举类型),"要转换的字符串");
-如果转换的字符串是数字，则就算枚举中没有，也会不会抛异常。
-如果转换的字符串是文本，如果枚举中没有，则会抛出异常。
-
-### 数组
-
-```C#
-//数组的声明方式（主要掌握这两种）
-//数组类型[] 数组名 = new 数组类型[长度]
-int[] nums = new int[10];
-int[] nums = {1,2,3,4,5};
-
-//其他：
-//int[] nums = new int[3]{1,2,3};
-//int[] nums = new int[]{1,2,3,4,5};
+```c# file:枚举类型转换
+EPlayer Player = EPlayer.singer;  
+// 枚举转int  
+int i = (int)Player;  
+// int转枚举  
+Player = 0;  
+// 枚举转string  
+string str = Player.ToString();  
+// string转枚举  
+Player = (EPlayer)Enum.Parse(typeof(EPlayer), "teacher"); // 注意第二个变量值必须是枚举声明中的成员
 ```
 
+### 数组
+数组声明后不可以改变长度，若想在原数组的基础上进行收缩，需要新建一个数组，将值复制到新数组。
+#### 一维数组
+```C# file:一维数组的声明
+int[] nums;  //只声明不初始化
+int[] nums = new int[5]; //全部为默认值0
+
+// 以下方式等价
+int[] nums = new int[]{1,2,3,4,5};
+int[] nums = new int[5]{1,2,3,4,5};
+int[] nums = {1,2,3,4,5};
+```
+
+```c# file:一维数组方法
+int len = nums.Lenght()  //数组长度
+```
+#### 二维数组
+```C# file:二维数组的声明
+int[,] nums;  //只声明不初始化
+int[,] nums = new int[3,3]; //全部为默认值0
+
+// 以下方式等价
+int[,] nums = new int[,]{{1,1,1},
+                           {2,2,2},
+                           {3,3,3}};
+                           
+int[,] nums = new int[3,3]{{1,1,1},
+                           {2,2,2},
+                           {3,3,3}};
+                           
+int[,] nums = {{1,1,1},
+               {2,2,2},
+               {3,3,3}};
+```
+
+```c# file:二维数组方法
+nums.GetLength(0) //获取行数
+nums.GetLength(1) //获取列数
+```
+#### 交错数组
+和二维数组的区别在于，每行的列数可以不同
+```c#   file:交错数组的声明
+int[][] arr1;
+int[][] arr2 = new int[3][];
+
+
+int[][] arr3 = new int[][]
+            {
+                new int[] { 1 },
+                new int[] { 1, 2 },
+                new int[] { 1, 2, 3 }
+            };
+            
+int[][] arr4 = new int[3][]
+            {
+                new int[] { 1 },
+                new int[] { 1, 2 },
+                new int[] { 1, 2, 3 }
+            };
+            
+int[][] arr5 = 
+            {
+                new int[] { 1 },
+                new int[] { 1, 2 },
+                new int[] { 1, 2, 3 }
+            };
+```
+
+
+```c++ file:交错数组方法
+nums.GetLength(0) //获取行数
+nums.GetLength(1) //获取某一行列数
+```
 # 二、方法（函数）
 
 ```C#
