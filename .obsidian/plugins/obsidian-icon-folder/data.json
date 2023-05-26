@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "SiCplusplus",
       "SiCsharp",
       "SiUnity",
       "LiGamepad2",
-      "SiTaichigraphics",
-      "LiFolderUp"
+      "SiTaichigraphics"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -33,5 +33,7 @@
   "zip": "LiFolderUp",
   "图形学": "SiTaichigraphics",
   "README.md": "LiGamepad2",
-  "Unity": "SiUnity"
+  "Unity": "SiUnity",
+  "编程/C++": "SiCplusplus",
+  "编程/CS": "SiCsharp"
 }
