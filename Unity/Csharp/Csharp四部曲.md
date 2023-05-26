@@ -115,15 +115,15 @@ Console.SetCursorPosition(10,5);
 
 //4.设置颜色相关
 //文字颜色设置
-Console.ForegroundColor = ConsoleColor.Red;Console.writeLine( "123123123");
-Console.ForegroundColor = ConsoleColor.Green;
-
+Console.ForegroundColor = ConsoleColor.Red;
 //背景颜色设置
 Console.BackgroundColor = console.White;
 
+//5.光标显隐
+Console.cursorVisible = false;
 
-
-
+//6.关闭控制台
+Environment.Exit(0);
 ```
 ## 3 预处理指令
 ### 折叠代码

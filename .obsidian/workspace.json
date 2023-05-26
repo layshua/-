@@ -11,12 +11,8 @@
             "id": "89443c91a32d1bf2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/Csharp/Csharp四部曲.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -148,10 +144,11 @@
   },
   "active": "89443c91a32d1bf2",
   "lastOpenFiles": [
+    "Unity/Csharp/唐老狮 C 基础.md",
+    "Unity/Csharp/唐老狮 C 核心.md",
     "Unity/Csharp/唐老狮 C 进阶.md",
     "Unity/Csharp/Csharp四部曲.md",
     "编程/C++/《C++ Primer 5th》.md",
-    "Unity/Csharp/唐老狮 C 核心.md",
     "编程/大作业/360全景看房.md",
     "README.md",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
@@ -177,7 +174,6 @@
     "Unity/教程.md",
     "Unity/2022minigame/2022minigame.md",
     "AI/论文/Nerf/转mesh工作.md",
-    "Unity/Csharp/唐老狮 C 基础.md",
     "zBuffer/Navicat Premium 16 下载与安装破解教程（详细教程）.md",
     "AI/深度学习/动手学pytorch.md",
     "AI/深度学习/PyTorch入门.md",
