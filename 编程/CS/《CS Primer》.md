@@ -391,14 +391,8 @@ pubilc static 返回值类型 函数名（参数列表）
 
 2. 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
 ## ref 和 out 参数  
+他们使用的方式和效果都是一样，解决值类型和引用类型在函数内部改值或者重新声明能够影响外部传入的变量让其也被修改（使传入的参数在函数外也修改 ）
 
-他们使用的方式和效果都是一样，在参数前添加  
-
-使传入的参数在函数外也修改  
-
-相当于直接使用这个传入参数，而不是声明一个参数取替代  
-
-在函数中 new 传入数组的时候，真正的 new 了  
 
 **ref 和 out 的区别：**  
 1. ref 传入的变量 (参数) 必须初始化，out 不用。  
@@ -421,7 +415,7 @@ static void ChangeValue ( ref int a)
 }
 int b = 10
 ChangeValue(b);
-//打印b为20 在函数内修改传入参数 传入的参数在外部也会修改
+//b改变为20 在函数内修改传入参数 传入的参数在外部也会修改
 
 ``` 
 
@@ -443,14 +437,14 @@ public static void Test(int[]nums,out int max.out int min,out int sum,out float 
 Test（nums,out max,out min,out sun,out avr）;
 ```
 
-
-
 ## params 可变参数
 
-**将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。**
-params 可变参数**必须是形参列表中的最后一个元素。**
+- 可以输入不定的多个参数，并把这些参数存入数组。将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。
+
+- 在函数参数中只能最多出现一个 params 关键字且一定在形参列表最后  
 
 ```C#
+// 未使用可变参数：
  static void Main(string[] args)
 {
     int[] s = { 100, 80, 95 };
@@ -485,6 +479,14 @@ public static void Test (string name, params int[] score)
     }
     Console.WriteLine($"{name}这次考试总成绩是{sum}");
 }
+```
+## 可选参数
+//有参数默认值的参数一般称为可选参数
+//作用是当调用函数时可以不传入参数，不传就会使用默认值作为参数的值 2 个引用
+```c#
+static void Speak (string str =“我没什么话可说"){
+Console.WriteLine (str);
+)
 ```
 
 ## 重载

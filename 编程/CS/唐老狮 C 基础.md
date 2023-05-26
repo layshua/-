@@ -590,7 +590,6 @@ static void ChangeValue ( ref int a)
 int b = 10
 ChangeValue(b);
 //打印b为20 在函数内修改传入参数 传入的参数在外部也会修改
-
 ``` 
 
 ## params 变长参数  
