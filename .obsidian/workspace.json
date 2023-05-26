@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Csharp四部曲.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/cs.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/cs.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "mode": "source",
                 "source": false
               }
@@ -92,7 +92,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/cs.md"
+                "file": "编程/CS/《CS Primer》.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/cs.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/cs.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -176,11 +176,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21647b866ad08639",
+  "active": "89443c91a32d1bf2",
   "lastOpenFiles": [
     "编程/CS/Csharp四部曲.md",
-    "编程/CS/cs.md",
-    "编程/C++/《C++ Primer 5th》.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/《C++ Primer》.md",
+    "编程/CS/《CS Primer》.md",
+    "zip/images/Pasted image 20230526124440.png",
+    "zip/images/Pasted image 20230526124152.png",
     "编程/CS/唐老狮 C 基础.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/Google C++风格.md",
@@ -199,8 +202,6 @@
     "zip/images/1684935988984.png",
     "zip/images/1684935988517.png",
     "zip/images/1684935988128.png",
-    "zip/images/1684935987704.png",
-    "zip/images/1684935987282.png",
     "虚幻引擎/01 指南/光照设置.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "虚幻引擎/02 蓝图 & U++/101 蓝图.md",
@@ -213,7 +214,6 @@
     "AI/论文/Nerf/转mesh工作.md",
     "zBuffer/Navicat Premium 16 下载与安装破解教程（详细教程）.md",
     "AI/深度学习/动手学pytorch.md",
-    "AI/深度学习/PyTorch入门.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",

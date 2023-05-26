@@ -1,7 +1,7 @@
 
 ---
 banner: "![[Pasted image 20221223234905.png]]"
-title: 《C++ Primer 5th》
+title: 《C++ Primer》
 aliases: []
 create_time: 2023-05-06 13:57
 uid: 202305061357

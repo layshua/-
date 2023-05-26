@@ -247,11 +247,11 @@ inline T callWithMax(const T& a,const T& b)
 
 
 **用法：**
-1. const指针和引用：[[《C++ Primer 5th》#const限定符]]
+1. const指针和引用：[[《C++ Primer》#const限定符]]
 
-2. const_iterator：[[《C++ Primer 5th》#顺序容器迭代器]]
+2. const_iterator：[[《C++ Primer》#顺序容器迭代器]]
 
-3. const成员函数：[[《C++ Primer 5th》#const成员函数]]
+3. const成员函数：[[《C++ Primer》#const成员函数]]
 
     
 4. 当 const 和 non-const 成员函数有着实质等价的实现时，**令 non-const 版本调用 const 版本可避免代码重复。**
