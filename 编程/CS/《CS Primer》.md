@@ -110,15 +110,12 @@ Environment.Exit(0);
 | bool |8 位布尔值| True 或 False | False |
 
 
-c# 中的小数默认为 double 类型，所以声明 float 时末尾加 f (或大写 F)显示表示 ：
+1. c# 中的小数默认为 double 类型，所以声明 float 时末尾加 f (或大写 F)显示表示 ：
 ```c#
 float a = 0.1654646f;
 ```
-
-`sizeof() ` 返回**值类型**变量的大小（字节）
-
-
-**保留指定小数位数**
+2.  `sizeof() ` 返回**值类型**变量的大小（字节）
+3. **保留指定小数位数**
 
 ```c#
 //语法：
@@ -157,6 +154,12 @@ Console.WriteLine(string.Format("我是{0},我今年{1}岁,我喜欢{2}","小明
 ```
 
 ## 特殊类型
+### 常量
+
+```C#
+const 变量类型 变量名 = 值
+const int a = 1；
+```
 
 ### 随机数
 
@@ -169,35 +172,56 @@ r.Next(100); //生成[0,99)的随机数
 r.Next(5,100); //生成[5,99)的随机数
 ```
 
-### 常量
-
-```C#
-const 变量类型 变量名 = 值
-const int a = 1；
-```
-
 ### 枚举
-
-用于规范开发流程
-
-```C#
+枚举是一个被命名的整型常量的集合
+```C# file:声明枚举
+// 声明枚举
 public enum 枚举名
 {
-    值1，
-    值2，
-    值3，
+    值1, //默认值为0，后面依次递增
+    值2,
+    值3,
     ......
     值n  //最后一个逗号可加可不加
 }
 
-public：访问修饰符
-enum：声明枚举的关键字
-枚举名：要符合Pascal命名规范 首字母大写
 ```
 
-将枚举声明到命名空间的下面，类的外面，表示这个命名空间下，所有的类都可以使用这个枚举。
+- 枚举通常声明到 namespace 的下面，class 的外面，表示这个命名空间下，所有的类都可以使用这个枚举。
+- 不可以在函数中声明
 
-[枚举类型的数据类型转换](https://www.bilibili.com/video/BV1FJ411W7e5?p=66&spm_id_from=pageDriver&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
+```c# file:枚举搭配switch使用：
+namespace ConsoleApp1
+{
+    enum EPlayer
+    {
+        singer,
+        writer,
+        teacher,
+        student
+    }
+    
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            EPlayer Player1 = EPlayer.singer; //定义枚举变量
+            
+            switch (Player1)
+            {
+                case EPlayer.singer:
+                    ...
+                    break;
+                case EPlayer.student:
+                    ...
+                    break;
+                default:
+                    break;
+            }
+        }
+    } 
+}
+```
 
 枚举就是一个变量类型，int--double  string  decimal.
 只是枚举声明、赋值、使用的方式跟那些普通的变量类型不一样。
