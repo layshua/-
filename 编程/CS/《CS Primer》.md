@@ -233,8 +233,18 @@ Console.WriteLine(s);
 Console.WriteLine(string.Format("我是{0},我今年{1}岁,我喜欢{2}","小明","16","玩游戏"));
 
 ```
-
-
+3. `$` 替代 `string.format()` 
+   原先赋值需要占位符和变量，当需要拼接多个变量会造成语句过长等不易理解问题，`$` 可以把字符串中的变量 `{}` 包含起来达到识别变量的目的 `$"{id}"`；也支持表达式，使用 `$"{(你的表达式)}"`
+```cs
+var k = "a";  
+var a0 = "User";  
+var a1 = "Id";  
+var a2 = 5;  
+  
+var ccb = $"select * from {a0} where {a1}={a2}";
+//等价
+var ccc = string.Format("select * from {0} where {1} = {2}", a0, a1, a2);
+```
 ## 特殊类型
 ### 常量
 
@@ -779,7 +789,7 @@ public sealed class Person : Test
 ## 2 访问修饰符
 1. 不显式声明访问修饰符，则默认为 private
 2. 分类：
-`public`：公开的，可别类的内部外部访问（**可访问**可以理解为**可获取+可修改**）
+`public`：公开的，可别类的内部外部访问（**可访问**可以理解为**可读写**）
 
 `private`：私有的，只能在当前类的内部访问
 
@@ -794,13 +804,15 @@ public sealed class Person : Test
 - 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
 ## 3 成员属性
 
-- 用于保护成员变量  
-- 为成员属性的获取和赋值添加逻辑处理  
-- 解决访问修饰符的局限性
-    - 访问修饰符只能同时控制修改和获取，不能单独控制
-    - 属性可以让成员变量**在外部只能获取不能修改**或**只能修改不能获取**
-- 属性的本质就是两个方法，一个叫 get ()一个叫 set ()。
-
+1. **用于保护成员变量**  
+2. **为成员属性的获取和赋值添加逻辑处理**  
+3. **解决访问修饰符的局限性**
+    - 访问修饰符只能同时控制读写，不能单独控制
+    - 通过令属性的 get 或 set 为 private，可以让成员变量**在外部只能读不能写**或**只能写不能读**
+4. **get 和 set 可以只有一个**
+    - 既有 get ()也有 set ()我们诚之为可读可写属性。
+    - 只有 get ()没有 set ()我们称之为只读属性
+    - 没有 get ()只有 set ()我们称之为只写属性
 ```cs
 //set（）源码：
 public void set_Name(string value)
@@ -815,8 +827,7 @@ public string get_Name
 }
 ```
 
-```cs
-//用法：
+```cs file:用法
 public class Person
 {
     private int _age; //字段在类中必须是私有的，如果想访问只能通过属性！
@@ -826,7 +837,9 @@ public class Person
     {
         //输出属性的值的时候，会执行get方法
         get { return _age; }
+        
         //给属性赋值的时候，首先会执行set方法
+        //value关键字用于表示外部传入的值
         set 
         { 
             //添加额外条件起到限定作用
@@ -841,30 +854,49 @@ public class Person
     
      public void CHLSS()
     {
-       	//调用属性this.Age
+       	//调用属性this.Age，执行get方法
         Console.WriteLine($"我今年{this.Age}岁了");
     }
 }
 
-对类调用：
+//对类调用：
 static void Main(string[] args)
 {
     Person sunQuan = new Person();
-    sunQuan.Age = "10";   //调用属性sunQuan.Age
+    sunQuan.Age = "10";   //调用属性sunQuan.Age，执行Set（）方法
     sunQuan.CHLSS();
 }
 ```
 
-```cs
-新写法：
+```cs file:新写法
 public int Age { get => _age; set => _age = value; }
 ```
 
-既有 get ()也有 set ()我们诚之为可读可写属性。
-只有 get ()没有 set ()我们称之为只读属性
-没有 get ()只有 set ()我们称之为只写属性
+5. **get 和 set 可以加访问修饰符**
+- 默认不加，会使用属性声明时的访问权限
+- 加的访问修饰符要低于属性的访问权限
+- 不能让 get 和 set 的访问权限都低于属性的权限
+```cs
+public int age
+{
+    get { return _age }
 
-## 3. 静态和非静态
+    private set { _age = value }  // 给set加private，那么该属性只能读不能写
+}
+```
+
+6. **自动属性**
+```cs
+public int age
+{
+    get;
+    private set;
+}
+```
+- 没有在 get 和 set 中写逻辑的需求时，可以使用自动属性。
+- get set 仍可以添加 private。一般用于外部能读不能写的情况
+
+## 4. 静态和非静态
 
 1)、在非静态类中，既可以有实例成员（非静态），也可以有静态成员。
 2)、在调用实例成员的时候，需要使用**对象名. 实例成员**;
@@ -911,11 +943,11 @@ static void Main(string[] args)
 
 
 
-## 4. 构造函数
+## 5.构造函数
 
-作用：在实例化对象时（new 时），会调用用于初始化的函数，如果不写默认存在一个无参构造函数。
+**作用**：在实例化对象时（new 时），会调用用于初始化的函数，如果不写默认存在一个无参构造函数。
 
-构造函数是一个特殊的方法：
+**构造函数是一个特殊的方法：**
 1)、构造函数没有返回值，连 void 也不能写。
 2)、构造函数的名称必须跟类名一样。
 3)、没有特殊需求时，修饰符一般是 public
@@ -1028,6 +1060,22 @@ public Person(string name,int age)：this（name,age,""）
 }
 ```
 
+
+## 6 索引器
+**作用：** 让对象可以像数组一样通过索引访问其中元素，使程序看起来更直观，更容易编写。
+**语法：** 
+```cs
+访问修饰符 返回值 this(参数类型 参数名, 参数类型 参数名, ......)
+{
+    //内部的写法和规则和索引器相同
+    get{}
+    set{}
+}
+```
+
+```cs
+c
+```
 ## 7. 继承
 
 ```cs
@@ -1267,7 +1315,7 @@ static void Main(string[] args)
 }
 ```
 
-## :shamrock: 12. 多态
+##  多态
 
 ### 虚方法（virtual）
 
