@@ -323,13 +323,12 @@ class Person
 
 ![](<images/1684809112302.png>)  
 
-![](<images/1684809112351.png>)  
+
 
 手动垃圾回收  
 
 ```
 CG.Collect();
-
 ``` 
 
 ## 成员属性  
