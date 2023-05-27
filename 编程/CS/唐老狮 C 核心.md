@@ -303,9 +303,9 @@ public Person(string name, int age,bool sex,float high):this()
 
 对于需要手动管理内存的语言（比如c++），需要在析构函数中做一些内存回收处理  
 
-c#中有自动垃圾回收机制gs，所以几乎不使用析构函数  
-
-```
+c#中有自动垃圾回收机制GC  ，所以几乎不使用析构函数   
+ 
+```cs
 class Person
 {
      ~Person()
