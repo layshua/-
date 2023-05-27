@@ -698,7 +698,7 @@ class Program
 # 四、面向对象 OOP
 
 封装
-## 类 class
+## 1 类 class
 
 ```cs
 语法：
@@ -776,10 +776,10 @@ public sealed class Person : Test
 { }
 ```
 
-## 访问修饰符
+## 2 访问修饰符
 1. 不显式声明访问修饰符，则默认为 private
 2. 分类：
-`public`：公开的
+`public`：公开的，可别类的内部外部访问（**可访问**可以理解为**可获取+可修改**）
 
 `private`：私有的，只能在当前类的内部访问
 
@@ -792,19 +792,23 @@ public sealed class Person : Test
 - 能够修饰类的访问修饰符：public，internal
 
 - 子类的访问权限不能高于父类的访问权限，会暴露父类的成员
-## 2. 属性
+## 3 成员属性
 
-属性的作用就是**保护字段、对字段的赋值和取值进行限定**。
-属性的本质就是两个方法，一个叫 get ()一个叫 set ()。
+- 用于保护成员变量  
+- 为成员属性的获取和赋值添加逻辑处理  
+- 解决访问修饰符的局限性
+    - 访问修饰符只能同时控制修改和获取，不能单独控制
+    - 属性可以让成员变量**在外部只能获取不能修改**或**只能修改不能获取**
+- 属性的本质就是两个方法，一个叫 get ()一个叫 set ()。
 
 ```cs
-set（）源码：
+//set（）源码：
 public void set_Name(string value)
 {
     this._name = value;
 }
 
-get（）源码：
+//get（）源码：
 public string get_Name
 {
     return this._name;
@@ -812,11 +816,13 @@ public string get_Name
 ```
 
 ```cs
-用法：
+//用法：
 public class Person
 {
-    private int _age;//字段在类中必须是私有的，如果想访问只能通过属性！
-    public int Age  //属性必须是公有的，可以外部访问 
+    private int _age; //字段在类中必须是私有的，如果想访问只能通过属性！
+    
+    //属性必须是公有的，可以外部访问 
+    public int Age   
     {
         //输出属性的值的时候，会执行get方法
         get { return _age; }
