@@ -1299,13 +1299,11 @@ public class Student : Person
 
 ### 特性
 
-（1）子类继承了父类的属性和方法，不能继承父类私有字段和构造函数。
+1. 子类继承了父类的属性和方法，不能继承父类 private 字段和构造函数。
 
-（2）**单根性**（子类只能有一个父类）和**传递性** (子类可以间接继承父类的父类))
+2. **单根性**（子类只能有一个父类）和**传递性** (子类可以间接继承父类的父类))
 
-（3）子类与父类构造函数的关系
-
-（4）子类成员函数和父类的**同名**时，会把父类的隐藏掉。
+3. 子类成员函数和父类的**同名**时，会把父类的隐藏掉。（不建议写同名成员）
 
 ![image-20220623161508887](image-20220623161508887.png)
 
@@ -1316,12 +1314,12 @@ public new void SayHello()
 {}
 ```
 
-（5）子类对象可以调用父类中的成员，但是父类对象永远都只能调用自己的成员。
+4. 子类对象可以调用父类中的成员，但是父类对象永远都只能调用自己的成员。
 
 
-### base ()函数
+### base 关键字
 
-由继承特性（4）子类写的成员函数和父类的**同名**时，会把父类的隐藏掉。
+子类写的成员函数和父类的**同名**时，会把父类的隐藏掉。
 
 **base 关键字用于从派生类中访问基类的成员：
 调用基类上已被其他方法重写的方法。
@@ -1378,30 +1376,44 @@ public class DerivedClass : BaseClass
 
 ```
 
+### 继承中的构造函数
+**特点：**
+当申明一个子类对象时，先执行父类的构造函数，再执行子类的构造函数
+
+**注意：**
+1. 父类的无参构造很重要
+2. 子类可以通过 base 关键字代表父类调用父类构造
 
 
-### 里氏转换
+### 里氏替换原则
 
-[里氏转换练习](https://www.bilibili.com/video/BV1FJ411W7e5?p=120&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
+
+**概念：**
+任何父类出现的地方，子类都可以替代
+
+**重点：**
+语法表现—父类容器装子类对象, 因为子类对象包含了父类的所有内容
+
+**作用：**
+方便进行对象存储和管理
 
 ```cs
+//假定：Student类是Person类的子类
  static void Main(string[] args)
 {
-    //里氏转换
-    //（1）子类可以赋值给父类:如果有一个地方需要一个父类作为参数，我们可以给一个子类代替
+    //里氏替换，父类容器装子类对象
     Person p = new Student();
 
-    //（2）如果父类中装的是子类对象，那么可以讲这个父类强转为子类对象
+    //如果父类中装的是子类对象，那么可以将这个父类强转为子类对象
     Student ss = (Student)p;
     ss.StudentSayHello();
 }
 ```
 
+**is**：判断一个对象是否是指定的类对象，如果能够转换成功，则返回一个 true，否则返回一个 false
+**as**：将一个对象转换为指定的类对象，如果能够转换则转换为指定的类对象，否则返回一个 null
 
-**is**：表示类型转换，如果能够转换成功，则返回一个 true，否则返回一个 false
-**as**：表示类型转换，如果能够转换则返回对应的对象，否则返回一个 null
-
-```cs
+```cs file:is和as的用法
 static void Main(string[] args)
 {
     Person p = new Student();
@@ -1419,9 +1431,41 @@ static void Main(string[] args)
     
     //as的用法
     Student ss = ss as Student;  
+    ss.StudentSayHello();
+    
+    (ss as Student).StudentSayHello(); //等价
 }
 ```
 
+```cs file:游戏中的应用
+//假定Gameobject是其他游戏类的基类，里氏替换如下：
+Gameobject player = new Player();  
+Gameobject monster = new Monster();  
+Gameobject boss = new Boss();  
+
+//使用父类数组来管理子类
+Gameobject[] objects = new Gameobject[] { new Player(), new Monster(), new Boss() };
+
+//判断各自使用的逻辑
+for (int i = 0; i < objects.Length; i++)
+{
+    if( objects[i] is Player )
+    {
+        (objects[i] as Player) . PlayerAtk();
+    }
+    
+    else if( objects[i] is Monster )
+    {
+        (objects[i] as Monster). MonsterAtk() ;
+    }
+    
+    else if (objects[i] is Boss)
+    {
+    ...
+    }
+    
+}
+```
 
 ## 8. 集合（Collection）
 
