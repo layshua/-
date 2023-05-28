@@ -1759,6 +1759,7 @@ list.Reverse(); //反转
 # 委托
 # 事件
 # 接口
+
 接口是行为的抽象规范
 
 **关键字**：`interface`
@@ -1787,25 +1788,72 @@ public interface 接口名称（通常以I开头，如ICompute）
 }
 ```
 
-【实例】创建一个接口计算学生成绩的接口 ICompute, 并在接口中分别定义计算总成绩、平均成绩的方法。
 
-根据题目要求，在该接口中定义学生的学号、姓名的属性，并定义计算成绩的总分和平均分的方法。
-
-定义接口的代码如下。
-
+### 接口的使用
+类可以继承 1 个类，多个接口
+继承了接口后，必须实现其中的内容，并且必须是 public 的
 ```cs
-interface ICompute
+//接口
+interface IFly
 {
-    int Id { get; set; }
-    string Name { get; set; }
-    void Total();
-    void Avg();
+    string name { get; set; }
+
+    int this[int index] { get; set; }
+
+    event Action doSomthing;
+
+    void Fly();
 }
+
+
+// 父类
+public class Animal { }
+
+//继承父类和接口
+public class Person : Animal, IFly
+{
+    public string name { get; set; }
+
+    public int this[int index]
+    {
+        get
+        {
+            return 0;
+        }
+        set
+        {
+        }
+    }
+
+    public event Action doSomthing;
+
+    //实现的接口函数，可以作为虚函数继承
+    public virtual void Fly()
+    {
+
+    }
+
+//接口存储子类
+static void Main(string[] args)
+{
+    //IFly f = new IFly();  //error
+    IFly f = new Person();  // 里氏替换原则
+}
+
 ```
 
-通过上面的代码即可完成一个接口的定义，但是由于接口中的方法并没有具体的内容，直接调用接口中的方法没有任何意义。
+![[f52e612d29b16288c18c4f4639d55bc5_MD5.svg]]
 
-#### 隐式方式
+- 并不是所有动物都会飞，所以 Fly 放在动物父类中不合适，可以单独作为一个接口。
+- 接口可以作为容器存储所以继承 Fly 的子类
+
+### 接口可以继承接口
+相当于将接口行为合并  
+
+- 接口继承接口时，不需要实现
+- 待类继承接口后，类自己去实现所有内容
+
+### 隐式实现接口
 
 **隐式实现接口成员是将接口的所有成员以 public 访问修饰符修饰。**
 
@@ -1859,11 +1907,14 @@ class Program
 
 ![使用隐式方式实现接口成员](4-1Z3221P219338.gif)
 
-#### 显式接口
+### 显式实现接口
 
 **显式实现接口是指在实现接口时所实现的成员名称前含有接口名称作为前缀。**
 
-需要注意的是使用显式实现接口的成员不能再使用修饰符修饰，即 public、abstract、virtual、 override 等。
+主要用于实现不同接口中的同名函数的不同表现
+
+
+**使用显式实现接口的成员不能再使用修饰符修饰**，即 public、abstract、virtual、 override 等。
 
 ```cs
 class ComputerMajor : ICompute
@@ -1913,7 +1964,7 @@ class Program
 
 执行上面的代码，效果与上图一致。从调用的代码可以看出，在调用显式方式实现接口的成员时，必须使用接口的实例来调用，而不能使用实现类的实例来调用。
 
-#### 接口中多态的实现
+### 接口中多态的实现
 
 使用接口实现多态需要满足以下两个条件。
 

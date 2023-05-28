@@ -18,15 +18,9 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "a6f5234fcb7067a6",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "4bac43a81a379666",
+            "id": "2ffd96a0bc8c2945",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -38,12 +32,31 @@
             }
           },
           {
-            "id": "f453ea163ad944c5",
+            "id": "ed3948abd7606c9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "编程/CS/唐老狮 C 核心.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "d3a0ea5d62c5b95a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "614a6ab2603b258c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/CS/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -177,10 +190,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.4\r\nDownload media files": false
     }
   },
-  "active": "4bac43a81a379666",
+  "active": "614a6ab2603b258c",
   "lastOpenFiles": [
     "编程/CS/唐老狮 C 核心.md",
     "编程/CS/《CS Primer》.md",
+    "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg",
+    "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/C++/《C++ Primer》.md",
     "编程/CS/唐老狮 C 进阶.md",
     "编程/CS/唐老狮 C 基础.md",
@@ -203,7 +218,6 @@
     "zip/images/1684935989930.png",
     "zip/images/1684935989407.png",
     "zip/images/1684935988984.png",
-    "zip/images/1684935988517.png",
     "虚幻引擎/01 指南/光照设置.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "虚幻引擎/02 蓝图 & U++/101 蓝图.md",
@@ -214,7 +228,6 @@
     "Unity/教程.md",
     "Unity/2022minigame/2022minigame.md",
     "AI/论文/Nerf/转mesh工作.md",
-    "zBuffer/Navicat Premium 16 下载与安装破解教程（详细教程）.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",
@@ -225,7 +238,6 @@
     "zip/Legacy/English",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "zip/icons/font-awesome-regular",
-    "zip/icons/remix-icons",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
