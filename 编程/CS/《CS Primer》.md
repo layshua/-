@@ -61,6 +61,29 @@ Console.cursorVisible = false;
 Environment.Exit(0);
 ```
 
+## Path 类
+
+用于操作路径
+
+```cs
+static void Main(string[] args)
+{
+    string str = @"C:\Users\22625\Desktop\1.txt";
+    //快速获得文件名，输出：1.txt
+    Console.WriteLine(Path.GetFileName(str));
+    //只获得扩展名，输出：.txt
+    Path.GetExtension(str);
+    //不包含扩展名，输出：1
+    Path.GetFileNameWithoutExtension(str)
+   	//文件目录，输出：C:\Users\22625\Desktop
+   	Path.GetDirectoryName(str);
+    //文件全路径
+    Path.GetFullPath(str);
+    //链接两个字符串作为路径
+    Path.Combine(@"C:\Users\22625\Desktop\","1.txt")
+    ......
+}
+```
 
 ## 垃圾回收 GC
 垃圾回收, 英文简写 GC (Garbage Collector)
@@ -1535,6 +1558,126 @@ public class Son : Father
 **好处:** 不确定类型时可以方便参数的存储和传递
 **坏处:** 存在内存迁移，增加性能消耗
 
+##  10 多态
+多态按字面的意思就是“多种状态”
+让继承同一父类的子类们在执行相同方法时有不同的表现 (状态)
+
+**主要目的**
+同一父类的对象执行相同行为 (方法)有不同的表现
+
+**解决的问题**
+让同一个对象有唯一行为的特征
+
+
+多态有两种：
+- 编译时多态（函数重载，开始就写好的）
+- 运行时多态（重写父类虚函数、抽象函数、接口）
+### 虚函数 virtual
+
+**当父类中的方法需要实现, 将父类的方法标记为虚方法，使用关键字 `virtual`**，这个函数可以被子类重写。
+**子类的方法使用关键字 `override`**。
+
+```cs
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            //真的鸭子嘎嘎叫，木头鸭子吱吱叫，橡皮鸭子唧唧叫
+            ReadDuck rd = new ReadDuck();
+            WoodDuck wd = new WoodDuck();
+            XPDuck xd = new XPDuck();
+
+            ReadDuck[] ducks = { rd, wd, xd };
+            for (int i = 0;i < ducks.Length;i++)
+            {
+                ducks[i].jiao();
+            }
+
+        }
+    }
+    
+    //父类
+    public class ReadDuck
+    {
+        public virtual void jiao()
+        {
+            Console.WriteLine("真的鸭子嘎嘎叫");
+        }
+    }
+
+    //子类
+    public class WoodDuck : ReadDuck
+    {
+        public override void jiao()
+        {
+            Console.WriteLine("木头鸭子吱吱叫");
+        }
+    }
+    public class XPDuck : ReadDuck
+    {
+        public override void jiao()
+        {
+            Console.WriteLine("橡皮鸭子唧唧叫");
+        }
+    }
+```
+
+### 抽象类 abstract 
+被抽象关键字 `abstract` 修饰的类
+**当父类中的方法不知道如何去实现的时候，可以考虑将父类写成抽象类，将方法写成抽象方法。**
+
+特点:
+1. 不能被实例化，其他封装特性都有
+2. 可以包含抽象方法（即纯虚函数）
+3. 继承抽象类必须重写其抽象方法
+
+```cs
+static void Main(string[] args)
+{
+    //狗会叫，猫也会叫
+    //Animal a = new Animal();  抽象类或接口无法创建对象
+    Animal dog = new Dog();
+    dog.jiao();
+    Animal cat = new Cat();
+    cat.jiao();
+}
+
+//加abstract
+public abstract class Animal
+{
+	public abstract void jiao();  //抽象方法不写方法体
+}
+
+public class Dog: Animal
+{
+	public override void jiao()
+	{
+    	Console.WriteLine("狗会叫");
+	}
+}
+public class Cat : Animal
+{
+	public override void jiao()
+	{
+   	 	Console.WriteLine("猫也会叫");
+	}
+}
+```
+
+1. 抽象成员必须标记为 abstract, 并且不能有任何实现。
+2. 抽象成员必须在抽象类中。
+3. 抽象类不能被实例化
+4. 子类继承抽象类后，必须把父类中的所有抽象成员都重写。（除非子类也是一个抽象类，则可以不重写）
+5. 抽象成员的访问修饰符不能是 private
+6. 在抽象类中可以包含实例成员。并且抽象类的实例成员可以不被子类实现
+7. 抽象类是有构造函数的。虽然不能被实例化。
+8. 如果父类的抽象方法中有参数，那么。继承这个抽象父类的子类在重写父类的方法的时候必须传入对应的参数。
+9. 如果抽象父类的抽象方法中有返回值，那么子类在重写这个抽象方法的时候也必须要传入返回值。
+
+**使用时机：**
+1. 如果父类中的方法有默认的实现，并且父类需要被实例化，这时可以考虑将父类定义成一个普通类，用虚方法来实现多态。
+2. 如果父类中的方法没有默认实现，父类也不需要被实例化，则可以将该类定义为抽象类。
+
 ## 8. 集合（Collection）
 
 集合（Collection）类是专门用于数据存储和检索的类。这些类提供了对栈（stack）、队列（queue）、列表（list）和哈希表（hash table）的支持。大多数集合类实现了相同的接口。
@@ -1613,148 +1756,15 @@ list.Reverse(); //反转
 ......
 ```
 
-## 9. Path 类
-
-用于操作路径
-
-```cs
-static void Main(string[] args)
-{
-    string str = @"C:\Users\22625\Desktop\1.txt";
-    //快速获得文件名，输出：1.txt
-    Console.WriteLine(Path.GetFileName(str));
-    //只获得扩展名，输出：.txt
-    Path.GetExtension(str);
-    //不包含扩展名，输出：1
-    Path.GetFileNameWithoutExtension(str)
-   	//文件目录，输出：C:\Users\22625\Desktop
-   	Path.GetDirectoryName(str);
-    //文件全路径
-    Path.GetFullPath(str);
-    //链接两个字符串作为路径
-    Path.Combine(@"C:\Users\22625\Desktop\","1.txt")
-    ......
-}
-```
-
-##  多态
-
-### 虚函数
-
-**当父类中的方法需要实现, 将父类的方法标记为虚方法，使用关键字 virtual**，这个函数可以被子类重写。
-**子类的方法使用关键字 override**。
-
-```cs
- class Program
-    {
-        static void Main(string[] args)
-        {
-            //真的鸭子嘎嘎叫，木头鸭子吱吱叫，橡皮鸭子唧唧叫
-            ReadDuck rd = new ReadDuck();
-            WoodDuck wd = new WoodDuck();
-            XPDuck xd = new XPDuck();
-
-            ReadDuck[] ducks = { rd, wd, xd };
-            for (int i = 0;i < ducks.Length;i++)
-            {
-                ducks[i].jiao();
-            }
-
-        }
-    }
-
-    public class ReadDuck
-    {
-        public virtual void jiao()
-        {
-            Console.WriteLine("真的鸭子嘎嘎叫");
-        }
-    }
-
-    public class WoodDuck : ReadDuck
-    {
-        public override void jiao()
-        {
-            Console.WriteLine("木头鸭子吱吱叫");
-        }
-    }
-    public class XPDuck : ReadDuck
-    {
-        public override void jiao()
-        {
-            Console.WriteLine("橡皮鸭子唧唧叫");
-        }
-    }
-```
-
-### 抽象类（abstract）
-
-**当父类中的方法不知道如何去实现的时候，可以考虑将父类写成抽象类，将方法写成抽象方法。**
-
-```cs
-static void Main(string[] args)
-{
-    //狗会叫，猫也会叫
-    //Animal a = new Animal();  抽象类或接口无法创建对象
-    Animal dog = new Dog();
-    dog.jiao();
-    Animal cat = new Cat();
-    cat.jiao();
-}
-
-//加abstract
-public abstract class Animal
-{
-	public abstract void jiao();  //抽象方法不写方法体
-}
-
-public class Dog: Animal
-{
-	public override void jiao()
-	{
-    	Console.WriteLine("狗会叫");
-	}
-}
-public class Cat : Animal
-{
-	public override void jiao()
-	{
-   	 	Console.WriteLine("猫也会叫");
-	}
-}
-```
-
-1. 抽象成员必须标记为 abstract, 并且不能有任何实现。
-2. 抽象成员必须在抽象类中。
-3. 抽象类不能被实例化
-
-4. 子类继承抽象类后，必须把父类中的所有抽象成员都重写。
-
-（除非子类也是一个抽象类，则可以不重写）
-5. 抽象成员的访问修饰符不能是 private
-6. 在抽象类中可以包含实例成员。
-并且抽象类的实例成员可以不被子类实现
-
-7. 抽象类是有构造函数的。虽然不能被实例化。
-
-8、如果父类的抽象方法中有参数，那么。继承这个抽象父类的子类在重写父类的方法的时候必须传入对应的参数。
-
-如果抽象父类的抽象方法中有返回值，那么子类在重写这个抽象方法的时候也必须要传入返回值。
-
-======
-如果父类中的方法有默认的实现，并且父类需要被实例化，这时可以考虑将父类定义成一个普通类，用虚方法来实现多态。
-
-如果父类中的方法没有默认实现，父类也不需要被实例化，则可以将该类定义为抽象类。
-
 # 委托
 # 事件
 # 接口
 
-### 接口（interface）
+### 接口 interface 
 
-在 C #语言中 ，接口也会定义一种标准，如果需要使用接口，必须满足接口中所定义的内容。
+接口也会定义一种标准，如果需要使用接口，必须满足接口中所定义的内容。
 
-在 C #语言中 ，类之间的继承关系仅支持单重继承，而接口是为了实现多重继承关系设计的。
+类之间的继承关系仅支持单重继承，而接口是为了实现多重继承关系设计的。
 
 一个类能同时实现多个接口，还能在实现接口的同时再继承其他类，并且接口之间也可以继承。
 
