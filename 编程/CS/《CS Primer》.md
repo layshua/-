@@ -2312,6 +2312,8 @@ finally
 # 反射和特性
 
 # 面向对象七大原则  
+![[6be61eb7b87ada15753dc35768da4317_MD5.png]]
+
 
 七大原则总体要实现的目标是: **高内聚、低耦合**，使程序模块的可重用性、移植性增强
 
@@ -2335,8 +2337,8 @@ finally
 
 4. **依赖倒转原则 DIP (Dependence Inversion Principle)**
 要依赖于抽象，不要依赖于具体的实现
-[[756ed87732dfe143814d6c3bc38a8766_MD5.png|Open: Pasted image 20230528183743.png]]
-![[756ed87732dfe143814d6c3bc38a8766_MD5.png]]
+ ![[756ed87732dfe143814d6c3bc38a8766_MD5.png]]
+
 >玩家对象的开枪不依赖于具体种类的开枪，而是依赖于抽象的接口
 
 5. **迪米特法则 LoP (Law of Demeter)又称最少知识原则**
