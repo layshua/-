@@ -270,6 +270,110 @@ var ccc = string.Format("select * from {0} where {1} = {2}", a0, a1, a2);
 ```
 
 
+###  万物之父 Object 类
+关键字：`object`
+
+**概念：**
+object 是**所有类型的基类**，它是一个类 (引用类型)
+
+**作用：**
+1. 可以利用里氏替换原则，用 object 容器装所有对象
+2. 可以用来表示不确定类型，作为函数参数类型
+
+#### 用法
+```cs file:object类
+// 上文讲过的里氏替换
+Father f = new Son();
+if (f is Son)
+{
+    (f as Son).Speak();
+}
+
+//使用object类
+//引用类型
+object o = new Son();
+if (o is Son)
+{
+    (o as Son).Speak();
+}
+
+//值类型
+object o2 = 10.0f;     //装箱
+float f2 = (float)o2;  //拆箱，强转
+
+//string
+object ostr = "123123";
+string str1 = ostr.ToString();
+string str2 = ostr as string; //建议引用类型都用as的方式
+
+//数组
+object oarr = new int[10];
+int[] arr1 = (int[])oarr;
+int[] arr2 = oarr as int[];
+
+
+public class Father
+{
+    
+}
+
+public class Son : Father
+{
+    public void Speak()
+    {
+        Console.WriteLine("Hello world!");
+    }
+}
+```
+
+#### 装箱拆箱
+**发生条件**
+1. 用 object 存值类型（装箱)
+2. 再把 object 转为值类型 (拆箱)
+
+**装箱**
+- 把值类型用引用类型存储，如 `object o = 10.0f;`
+- 栈内存会迁移到堆内存中
+
+**拆箱**
+- 把引用类型存储的值类型取出来，如 `float f = (float)o;`
+- 堆内存会迁移到栈内存中
+
+**好处:** 不确定类型时可以方便参数的存储和传递
+**坏处:** 存在内存迁移，增加性能消耗
+#### object 的方法
+![](<images/1684809113607.png>)  
+
+##### 静态方法
+1.  `Equals`： 判断两个对象是否相等
+最终的判断权，交给左侧对象的 Equals 方法，
+不管值类型引用类型都会按照左侧对象 Equals 方法的规则来进行比较
+
+2.  `ReferenceEquals`：比较两个对象是否是相同的引用，主要是用来比较引用类型的对象。值类型对象返回值始终是 false。
+##### 成员方法
+1. 普通方法 `GetType`
+- 该方法在反射相关知识点中是非常重要的方法，之后我们会具体的讲解这里返回的 Type 类型。
+- 该方法的主要作用就是获取对象运行时的类型 Type,
+- 通过 Type 结合反射相关知识点可以做很多关于对象的操作。
+
+2. 普通方法 `Memberwiseclone`
+- 该方法用于获取对象的浅拷贝对象，口语化的意思就是会返回一个新的对象, 但是新对象中的引用变量会和老对象中一致。
+
+##### 虚方法
+1.  `Equals`
+- 默认实现还是比较两者是否为同一个引用，即相当于 `ReferenceEquals`。
+- 但是微软在所有值类型的基类 `system. ValueType` 中重写了该方法, 用来比较值相等。
+- 我们也可以重写该方法，定义自己的比较相等的规则
+ 
+2.  `GetHashcode`
+- 该方法是获取对象的哈希码
+- 一种通过算法算出的，表示对象的唯一编码，不同对象哈希码有可能一样，具体值根据
+- 我们可以通过重写该函数来自己定义对象的哈希码算法，正常情况下，我们使用的极少
+
+3.  `ToString`
+- 该方法用于返回当前对象代表的字符串，我们可以重写它定义我们自己的对象转字符串规则，
+- 该方法非常常用。当我们调用打印方法时，默认使用的就是对象的 Tostring 方法后打印出来的内容。
+
 ## 特殊类型
 ### 常量
 
@@ -1497,110 +1601,6 @@ for (int i = 0; i < objects.Length; i++)
     
 }
 ```
-
-###  万物之父 Object 类
-关键字：`object`
-
-**概念：**
-object 是**所有类型的基类**，它是一个类 (引用类型)
-
-**作用：**
-1. 可以利用里氏替换原则，用 object 容器装所有对象
-2. 可以用来表示不确定类型，作为函数参数类型
-
-#### 用法
-```cs file:object类
-// 上文讲过的里氏替换
-Father f = new Son();
-if (f is Son)
-{
-    (f as Son).Speak();
-}
-
-//使用object类
-//引用类型
-object o = new Son();
-if (o is Son)
-{
-    (o as Son).Speak();
-}
-
-//值类型
-object o2 = 10.0f;     //装箱
-float f2 = (float)o2;  //拆箱，强转
-
-//string
-object ostr = "123123";
-string str1 = ostr.ToString();
-string str2 = ostr as string; //建议引用类型都用as的方式
-
-//数组
-object oarr = new int[10];
-int[] arr1 = (int[])oarr;
-int[] arr2 = oarr as int[];
-
-
-public class Father
-{
-    
-}
-
-public class Son : Father
-{
-    public void Speak()
-    {
-        Console.WriteLine("Hello world!");
-    }
-}
-```
-
-#### 装箱拆箱
-**发生条件**
-1. 用 object 存值类型（装箱)
-2. 再把 object 转为值类型 (拆箱)
-
-**装箱**
-- 把值类型用引用类型存储，如 `object o = 10.0f;`
-- 栈内存会迁移到堆内存中
-
-**拆箱**
-- 把引用类型存储的值类型取出来，如 `float f = (float)o;`
-- 堆内存会迁移到栈内存中
-
-**好处:** 不确定类型时可以方便参数的存储和传递
-**坏处:** 存在内存迁移，增加性能消耗
-#### object 的方法
-![](<images/1684809113607.png>)  
-
-##### 静态方法
-1.  `Equals`： 判断两个对象是否相等
-最终的判断权，交给左侧对象的 Equals 方法，
-不管值类型引用类型都会按照左侧对象 Equals 方法的规则来进行比较
-
-2.  `ReferenceEquals`：比较两个对象是否是相同的引用，主要是用来比较引用类型的对象。值类型对象返回值始终是 false。
-##### 成员方法
-1. 普通方法 `GetType`
-- 该方法在反射相关知识点中是非常重要的方法，之后我们会具体的讲解这里返回的 Type 类型。
-- 该方法的主要作用就是获取对象运行时的类型 Type,
-- 通过 Type 结合反射相关知识点可以做很多关于对象的操作。
-
-2. 普通方法 `Memberwiseclone`
-- 该方法用于获取对象的浅拷贝对象，口语化的意思就是会返回一个新的对象, 但是新对象中的引用变量会和老对象中一致。
-
-##### 虚方法
-1.  `Equals`
-- 默认实现还是比较两者是否为同一个引用，即相当于 `ReferenceEquals`。
-- 但是微软在所有值类型的基类 `system. ValueType` 中重写了该方法, 用来比较值相等。
-- 我们也可以重写该方法，定义自己的比较相等的规则
- 
-2.  `GetHashcode`
-- 该方法是获取对象的哈希码
-- 一种通过算法算出的，表示对象的唯一编码，不同对象哈希码有可能一样，具体值根据
-- 我们可以通过重写该函数来自己定义对象的哈希码算法，正常情况下，我们使用的极少
-
-3.  `ToString`
-- 该方法用于返回当前对象代表的字符串，我们可以重写它定义我们自己的对象转字符串规则，
-- 该方法非常常用。当我们调用打印方法时，默认使用的就是对象的 Tostring 方法后打印出来的内容。
 
 ##  10 多态
 多态按字面的意思就是“多种状态”
