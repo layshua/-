@@ -224,15 +224,24 @@ Console.WriteLine($"{n1:0.00}");
 |---|---|
 |object| [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
 |string| [System.String](https://learn.microsoft.com/zh-cn/dotnet/api/system.string) |
-|dynamic| [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
+|dynamic | [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
 
 在上表中，左侧列中的每个 C# 类型关键字（[dynamic](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量：
 ```cs
 int a = 123;
 System.Int32 b = 123;
 ```
-#### string
-##### 独特的值类型特征
+### string
+```cs
+// 字符串本质是char数组
+string str = "test";
+Console.WriteLine(str[0]);
+
+// 转为char数组
+char[] chars = str.ToCharArray();
+Console.WriteLine(chars[0]);
+```
+#### 独特的值类型特征
 string 虽然是引用类型，但他有值类型的特征
 ```c++
 string str1 = "123"
@@ -244,7 +253,7 @@ str2 = "321";
 ```
 ![[Pasted image 20230526153510.png|350]]
 
-##### 字符串类型拼接方式
+#### 字符串类型拼接方式
 1. "+" "+="号，不能用其他运算符
 2. `string. Format ("待拼接的内容",内容 1,内容 2，......)`
    使用占位符 `{数字}` 控制拼接顺序
@@ -254,7 +263,6 @@ Console.WriteLine(s);
 
 // 等价
 Console.WriteLine(string.Format("我是{0},我今年{1}岁,我喜欢{2}","小明","16","玩游戏"));
-
 ```
 3. `$` 替代 `string.format()` 
    原先赋值需要占位符和变量，当需要拼接多个变量会造成语句过长等不易理解问题，`$` 可以把字符串中的变量 `{}` 包含起来达到识别变量的目的 `$"{id}"`；也支持表达式，使用 `$"{(你的表达式)}"`
@@ -268,7 +276,32 @@ var ccb = $"select * from {a0} where {a1}={a2}";
 //等价
 var ccc = string.Format("select * from {0} where {1} = {2}", a0, a1, a2);
 ```
+### 方法
 
+```cs file:查找字符位置
+// 尽管搜索方向不一样，但是字符下标依然从左向右加1，从0开始。
+
+// 正向查找字符位置 从左到右
+string str = "这是一句话";
+int index1 = str.IndexOf("是");  //返回字符"e"在字符串中的索引，若查不到则返回-1
+
+// 反向查找字符位置 从右到左
+int index2 = str.LastIndexOf("是");
+
+```
+
+
+```cs file:移除指定位置后的字符
+// 尽管搜索方向不一样，但是字符下标依然从左向右加1，从0开始。
+
+// 正向查找字符位置 从左到右
+string str = "这是一句话";
+int index1 = str.IndexOf("是");  //返回字符"e"在字符串中的索引，若查不到则返回-1
+
+// 反向查找字符位置 从右到左
+int index2 = str.LastIndexOf("是");
+
+```
 
 ###  万物之父 Object 类
 关键字：`object`
