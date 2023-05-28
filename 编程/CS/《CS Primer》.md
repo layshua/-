@@ -241,8 +241,8 @@ Console.WriteLine(str[0]);
 char[] chars = str.ToCharArray();
 Console.WriteLine(chars[0]);
 ```
-#### 独特的值类型特征
-string 虽然是引用类型，但他有值类型的特征
+#### 具有值类型特征
+string 虽然是引用类型，但他有值类型的特征，每次重新赋值或拼接时会分配新的内存空间。
 ```c++
 string str1 = "123"
 string str2 = str1;
@@ -334,6 +334,31 @@ str = str.Substring(1,3);
 //输出bcd
 ```
 ##### 字符串切割
+```cs file:Split切割字符串
+string str = "a|b|c|d|e|f|g";
+
+string[] strs = str.Split(new char[] { '|' }); //指定切割符号
+for(int i = 0; i < strs.Length; i++) 
+{
+    Console.WriteLine(strs[i]);
+}
+
+
+//输出：
+a
+b
+c
+d
+e
+f
+g
+```
+
+#### StringBuilder
+**用于处理字符串的公共类**
+
+**主要解决的问题**：**修改字符串而不创建新的对象,** 需要频繁修改和拼接的字符串可以使用它，可以提升性能
+使用前需要引用命名空间 `using System.Text;`
 
 ###  万物之父 Object 类
 关键字：`object`
