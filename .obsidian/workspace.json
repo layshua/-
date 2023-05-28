@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "编程/CS/唐老狮 C 核心.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/唐老狮 C 核心.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/唐老狮 C 核心.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,11 +203,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.4\r\nDownload media files": false
     }
   },
-  "active": "f51f2e0d548dce33",
+  "active": "ed3948abd7606c9c",
   "lastOpenFiles": [
-    "zip/images/756ed87732dfe143814d6c3bc38a8766_MD5.png",
-    "编程/CS/唐老狮 C 核心.md",
     "编程/CS/《CS Primer》.md",
+    "编程/CS/唐老狮 C 核心.md",
+    "编程/设计模式/面向对象的七大原则.md",
+    "zip/images/756ed87732dfe143814d6c3bc38a8766_MD5.png",
     "编程/C++/《C++ Primer》.md",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
@@ -231,7 +232,6 @@
     "zip/images/1684935990357.png",
     "zip/images/1684935989930.png",
     "zip/images/1684935989407.png",
-    "zip/images/1684935988984.png",
     "虚幻引擎/01 指南/光照设置.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "虚幻引擎/02 蓝图 & U++/101 蓝图.md",

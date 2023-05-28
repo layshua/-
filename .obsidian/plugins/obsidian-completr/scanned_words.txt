@@ -54689,6 +54689,8 @@ ReferenceEquals
 RemoveFirst
 RemoveLast
 RequestMapping
+Responsibility
+Reuse
 Microsoft
 Menu
 MicaForEveryone
@@ -67243,6 +67245,8 @@ SoftRas
 Send
 SceneView
 Speak
+Substitution
+Segregation
 Programs
 POP
 PC
@@ -75045,6 +75049,8 @@ ComputeShader
 CameraFade
 Counting
 Compact
+Closed
+Composite
 ImTip
 IMAP
 ID
@@ -156111,6 +156117,8 @@ Dll
 DrawMeshInstancedIndirect
 DisneyDiffuse
 DistanceFade
+Dependence
+Demeter
 LNK
 Log
 Linux
@@ -159900,6 +159908,7 @@ Linkedlist
 LoadFrom
 LLVM
 LINQ
+Liskov
 Getx
 GetX
 GetName
