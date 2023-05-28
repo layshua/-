@@ -882,8 +882,7 @@ class Person
 ### 分部类 partial 
 把一个类分成几部分申明
 
-关键字
-partial
+**关键字**：`partial`
  
 **作用**
 1. 分部描述一个类
@@ -928,13 +927,24 @@ public partial class Person
 }
 ```
 ### 密封类 sealed 
- 
+**关键字**：`sealed `
+
 密封类不能被继承，但可以继承其他父类
 
 加强面向对象程序设计的规范性、结构性、安全性
 
 ```cs
 public sealed class Person : Test
+{ }
+```
+
+#### 密封方法
+**概念**：用密封关键字 `sealed` 修饰的重写函数
+**作用**：让虚方法或者抽象方法之后不能再被子类重写
+**特点**：和 `override` 一起出现
+
+```cs
+public sealed overide void Eat()
 { }
 ```
 
@@ -1557,6 +1567,23 @@ public class Son : Father
 
 **好处:** 不确定类型时可以方便参数的存储和传递
 **坏处:** 存在内存迁移，增加性能消耗
+#### object 的方法
+![](<images/1684809113607.png>)  
+
+##### 静态方法
+`Equals`： 判断两个对象是否相等
+最终的判断权，交给左侧对象的 Equals 方法，
+不管值类型引用类型都会按照左侧对象 Equals 方法的规则来进行比较
+
+`ReferenceEquals`：比较两个对象是否是相同的引用，主要是用来比较引用类型的对象。值类型对象返回值始终是 false。
+##### 成员方法
+普通方法 `GetType`
+该方法在反射相关知识点中是非常重要的方法，之后我们会具体的讲解这里返回的 Type 类型。
+该方法的主要作用就是获取对象运行时的类型 Type,
+通过 Type 结合反射相关知识点可以做很多关于对象的操作。
+
+普通方法 `Memberwiseclone`
+该方法用于获取对象的浅拷贝对象，口语化的意思就是会返回一个新的对象, 但是新对象中的引用变量会和老对象中一致。
 
 ##  10 多态
 多态按字面的意思就是“多种状态”
@@ -1788,7 +1815,6 @@ public interface 接口名称（通常以I开头，如ICompute）
 }
 ```
 
-
 ### 接口的使用
 类可以继承 1 个类，多个接口
 继承了接口后，必须实现其中的内容，并且必须是 public 的
@@ -1913,7 +1939,6 @@ class Program
 
 主要用于实现不同接口中的同名函数的不同表现
 
-
 **使用显式实现接口的成员不能再使用修饰符修饰**，即 public、abstract、virtual、 override 等。
 
 ```cs
@@ -1963,52 +1988,6 @@ class Program
 ```
 
 执行上面的代码，效果与上图一致。从调用的代码可以看出，在调用显式方式实现接口的成员时，必须使用接口的实例来调用，而不能使用实现类的实例来调用。
-
-### 接口中多态的实现
-
-使用接口实现多态需要满足以下两个条件。
-
-- 定义接口并使用类实现了接口中的成员。
-- 创建接口的实例指向不同的实现类对象。
-
-
-假设接口名称为 ITest，分别定义两个实现类来实现接口的成员，示例代码如下。
-
-```cs
-interface ITest
-{
-    void methodA();
-}
-class Test1 : ITest
-{
-    public void methodA()
-    {
-        Console.WriteLine("Test1 类中的 methodA 方法");
-    }
-}
-class Test2 : ITest
-{
-    public void methodA()
-    {
-        Console.WriteLine("Test2 类中的 methodA 方法");
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        ITest test1 = new Test1();  //创建接口的实例test1指向实现类Test1的对象
-        test1.methodA();
-        ITest test2 = new Test2();  //创建接口的实例test2指向实现类Test2的对象
-        test2.methodA();
-    }
-}
-```
-
-执行上面的代码，效果如下图所示。
-
-![使用多态的方式调用实现类](4-1Z325101133329.gif)
 
 # 类型转换
 
@@ -2084,6 +2063,14 @@ Console.WriteLine(a);
 # LINQ
 # 异步编程
 # 命名空间和程序集
+**概念：** 命名空间是用来组织和重用代码的
+
+**作用：** 就像是一个工具包，类就像是一件一件的工具，都是申明在命名空间中的
+
+
+1. 不同命名空间中相互使用需要引用命名空间（`using namespace;`）或指明出处（`namespace. test ()`）
+2. 不同命名空间中允许有同名类
+3. 命名空间可以嵌套命名
 # 异常
 
 ## 4 异常捕获
