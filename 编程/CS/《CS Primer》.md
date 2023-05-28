@@ -646,18 +646,69 @@ c = a >> 2;
 
 ## 运算符重载
 
-# 五、语句（控制流）
-//概念
-//让自定义类和结构体//能够使用运算符
+> [!success] 可重载运算符
+> 算数运算符： + - * / % ++ --  
+>
+逻辑运算符： ！  
+>
+位运算符： & | ^ ~ << >>  
+>
+条件运算符: < <= > >= == !=  
+
+> [!error] 不可重载运算符
+> 
+逻辑运算符 ： && || [ ] () . = ?:  
+
+**作用**
+让自定义类和结构体，能够使用运算符
 
 使用关键字 `operator`
 
 **特点**
-1. 一定是一个公共的静态方法
-2. 返回值写在 operator 前//3. 逻辑处理自定义
-//作用
-//让自定义类和结构体对象回可以进行运算//注意
-//1. 条件运算符需要成对实现/ /2. 一个符号可以多个重载//3. 不能使用 ref 和 out
+1. 一定是一个公共的静态方法 `public static` 
+2. 返回值写在 `operator` 前
+3. 逻辑处理自定义
+   
+**注意**
+1. 条件运算符需要成对实现
+2. 一个符号可以多个重载
+3. 不能使用 `ref` 和 `out`
+
+```cs file:语法
+public static 返回类型 operator 运算符(参数列表)
+```
+
+```cs file:案例
+Point p1 = new Point();
+p1.x =1;
+p1.y =1;
+Point p2 = new Point();
+p2.x= 2;
+p2.y = 2;
+Point p3 =p1 + p2; //使用重载的+
+Console.WriteLine(p3.x);
+
+class Point
+{
+    public int x;
+    public int y;
+
+    public static Point operator +(Point p1, Point p2)
+    {
+        Point p = new Point();
+        p.x = p1.x + p2.x;
+        p.y = p1.y + p2.y;
+        return p;
+    }
+}
+```
+
+### 可重载的运算符  
+
+
+### 不可重载的运算符  
+
+# 五、语句（控制流）
 
 ## 11. foreach 循环
 
@@ -781,9 +832,46 @@ class person
     - 引用类型，默认为 null
     - `default（类型）` 得到该类型的默认值
 
-### 部分类（partial）
-
+### 嵌套类
+内部类，类中的类
 ```cs
+Person p = new Person();
+Person.Body body = new Person.Body(); // 实例化时指出外部类
+
+class Person
+{
+    //人
+    public int age;
+    public string name;
+    public Body body;
+    
+    public class Body
+    {
+        //身体
+        Arm leftArm;
+        public class Arm
+        {
+            //手臂
+        }
+    }
+}
+```
+### 分部类 partial 
+把一个类分成几部分申明
+
+关键字
+partial
+ 
+**作用**
+1. 分部描述一个类
+2. 增加程序的拓展性
+
+**注意**
+1. 分部类可以写在多个脚本文件中，数据共享
+2. 分部类的访问修饰符要一致
+3. 分部类中不能有重复成员
+
+```cs file:分布类
 //可以理解为将Person类分开，两部分共同组成Person类，数据共享
 public partial class  Person
 { }
@@ -791,7 +879,32 @@ public partial class  Person
 { }
 ```
 
-### 密封类（sealed）
+**分部方法**：将方法的声明和实现分离
+
+**特点**
+1. 不能加访问修饰符，默认private
+2. 只能在分部类中声明
+3. 返回值只能是 void
+4. 可以有参数但不用 out 关键字
+```cs
+public partial class  Person
+{
+    public bool sex;
+    partial void Speak(); // 声明
+}
+
+
+public partial class Person
+{
+    public int number;
+
+    partial void Speak() //实现
+    {
+        // 逻辑
+    }
+}
+```
+### 密封类 sealed 
 
 ```cs
 //密封类不能被继承，但可以继承其他父类
@@ -909,7 +1022,7 @@ public int age
 - 没有在 get 和 set 中写逻辑的需求时，可以使用自动属性。
 - get set 仍可以添加 private。一般用于外部能读不能写的情况
 
-## 4. 静态 static 
+## 4 静态 static 
 1. 在非静态类中，既可以有实例成员（非静态），也可以有静态成员。
 2. 在调用实例成员的时候，需要使用**对象名. 实例成员**;
 3. 在调用静态成员的时候，需要使用**类名. 静态成员名**;
@@ -1177,10 +1290,10 @@ p[1] = new Person();
 ## 7. 继承
 
 ```cs
-父类（基类）：
+//父类（基类)
 public class Person
 
-子类（派生类）：
+//子类（派生类）：
 public class Student : Person
 ```
 
@@ -1188,11 +1301,11 @@ public class Student : Person
 
 （1）子类继承了父类的属性和方法，不能继承父类私有字段和构造函数。
 
-（2）单根性（一个类只能由一个父类）和传递性
+（2）**单根性**（子类只能有一个父类）和**传递性** (子类可以间接继承父类的父类))
 
-（3）[子类与父类构造函数的关系](https://www.bilibili.com/video/BV1FJ411W7e5?p=115&spm_id_from=pageDriver&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
+（3）子类与父类构造函数的关系
 
-（4）子类写的成员函数和父类的**同名**时，会把父类的隐藏掉。
+（4）子类成员函数和父类的**同名**时，会把父类的隐藏掉。
 
 ![image-20220623161508887](image-20220623161508887.png)
 
@@ -1204,7 +1317,6 @@ public new void SayHello()
 ```
 
 （5）子类对象可以调用父类中的成员，但是父类对象永远都只能调用自己的成员。
-
 
 
 ### base ()函数
