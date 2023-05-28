@@ -905,9 +905,12 @@ public partial class Person
 }
 ```
 ### 密封类 sealed 
+ 
+密封类不能被继承，但可以继承其他父类
+
+加强面向对象程序设计的规范性、结构性、安全性
 
 ```cs
-//密封类不能被继承，但可以继承其他父类
 public sealed class Person : Test
 { }
 ```
@@ -1402,7 +1405,7 @@ public class DerivedClass : BaseClass
 }
 ```
 
-#### is as 关键字
+### is as 关键字
 **is**：判断一个对象是否是指定的类对象，如果能够转换成功，则返回一个 true，否则返回一个 false
 **as**：将一个对象转换为指定的类对象，如果能够转换则转换为指定的类对象，否则返回一个 null
 
@@ -1460,7 +1463,7 @@ for (int i = 0; i < objects.Length; i++)
 }
 ```
 
-## 9 万物之父 Object 类
+###  万物之父 Object 类
 关键字：`object`
 
 **概念：**
@@ -1470,7 +1473,7 @@ object 是**所有类型的基类**，它是一个类 (引用类型)
 1. 可以利用里氏替换原则，用 object 容器装所有对象
 2. 可以用来表示不确定类型，作为函数参数类型
 
-### 用法
+#### 用法
 ```cs file:object类
 // 上文讲过的里氏替换
 Father f = new Son();
@@ -1488,8 +1491,8 @@ if (o is Son)
 }
 
 //值类型
-object o2 = 10.0f;
-float f2 = (float)o2;  //强转
+object o2 = 10.0f;     //装箱
+float f2 = (float)o2;  //拆箱，强转
 
 //string
 object ostr = "123123";
@@ -1516,7 +1519,7 @@ public class Son : Father
 }
 ```
 
-### 装箱拆箱
+#### 装箱拆箱
 **发生条件**
 1. 用 object 存值类型（装箱)
 2. 再把 object 转为值类型 (拆箱)
@@ -1636,9 +1639,10 @@ static void Main(string[] args)
 
 ##  多态
 
-### 虚方法（virtual）
+### 虚函数
 
-**当父类中的方法需要实现, 将父类的方法标记为虚方法，使用关键字 virtual**，这个函数可以被子类重新写一个遍。**子类的方法使用关键字 override**。
+**当父类中的方法需要实现, 将父类的方法标记为虚方法，使用关键字 virtual**，这个函数可以被子类重写。
+**子类的方法使用关键字 override**。
 
 ```cs
  class Program

@@ -836,7 +836,7 @@ class Sb
 {
     public Speak()
     {
-        Console.WriteLine("傻逼");
+        Console.WriteLin e("傻逼");
     }
 }
 //**************************
