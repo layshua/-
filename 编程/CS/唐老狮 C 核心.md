@@ -1116,7 +1116,7 @@ class Persom : Animal,IFly
     }
     
     public string Name
-
+}
 ``` 
 
 ### 接口可以继承接口  
