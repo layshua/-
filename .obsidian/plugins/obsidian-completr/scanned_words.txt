@@ -112973,6 +112973,7 @@ stash
 srgb
 sinc
 sbyte
+stringbuilder
 local
 list
 left
