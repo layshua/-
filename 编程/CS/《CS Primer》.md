@@ -216,7 +216,32 @@ Console.WriteLine($"{n1:0.00}");
     }
 }
 ```
-- ? 结构体和类的区别
+
+> [!summary] 结构体和类的区别
+>**概述：**
+> 1. 结构体和类最大的区别是在存储空间上的，因为结构体是值，类是引用，因此他们的存储位置一个在栈上，一个在堆上，
+>2. 结构体和类在使用上很类似，结构体甚至可以用面向对象的思想来形容一类对象。
+>3. 结构体具备着面向对象思想中封装的特性，但是它不具备继承和多态的特性，由于结构体不具备继承的特性，所以它不能够使用 protected 访问修饰符
+>4. 特别的，结构体可以继承接口，因为接口是行为的抽象
+>
+>
+>**细节：**
+>1. 结构体是值类型，类是引用类型
+>6. 结构体存在栈中，类存在堆中
+>7. 结构体成员不能使用 protected 访问修饰符，而类可以
+>8. 结构体成员变量声明不能指定初始值，而类可以
+>9. 结构体不能声明无参的构造函数，而类可以
+>10. 结构体申明有参构造函数后，无参构造不会被顶掉
+>11. 结构体不能申明析构函数，而类可以
+>12. 结构体不能被继承, 而类可以
+>13. 结构体需要在构造函数中初始化所有成员变量，而类随意
+>14. 结构体不能被静态 static 修饰 (不存在静态结构体)，而类可以
+>15. 结构体不能在自己内部申明和自已一样的结构体变量, 而类可以
+
+> [!info] 如何选择结构体和类
+>1. 想要用继承和多态时，使用类，比如玩家、怪物等等
+>2. 对象是数据集合时，优先考虑结构体，比如位置、坐标等等
+>3. 从值类型和引用类型赋值时的区别上去考虑，比如经常被赋值传递的对象，并且改变赋值对象，原对象不想跟着变化时，就用结构体。比如坐标、向量、旋转等等
 
 ### 引用类型
 
@@ -226,7 +251,7 @@ Console.WriteLine($"{n1:0.00}");
 |string| [System.String](https://learn.microsoft.com/zh-cn/dotnet/api/system.string) |
 |dynamic | [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
 
-在上表中，左侧列中的每个 C# 类型关键字（[dynamic](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量：
+在上表中，左侧列中的每个类型关键字（[dynamic](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量：
 ```cs
 int a = 123;
 System.Int32 b = 123;
@@ -355,10 +380,67 @@ g
 ```
 
 #### StringBuilder
-**用于处理字符串的公共类**
+- **用于处理字符串的公共类**
+- **主要解决的问题**：**修改字符串而不创建新的对象,** 需要频繁修改和拼接的字符串可以使用它，可以提升性能
+- 使用前需要引用命名空间 `using System.Text;`
+```cs
+using System.Text;
 
-**主要解决的问题**：**修改字符串而不创建新的对象,** 需要频繁修改和拼接的字符串可以使用它，可以提升性能
-使用前需要引用命名空间 `using System.Text;`
+//初始化，直接指明内容
+StringBuilder str = new StringBuilder("0123456");
+//StringBuilder str = new StringBuilder("0123456",100); 使用第二个参数可以指定初始容量
+Console.WriteLine(str.ToString());
+
+//StringBuilder会自动扩容
+//获得容量
+Console.WriteLine(str.Capacity);
+//获得字符长度
+Console.WriteLine(str.Length);
+
+//增
+str.Append(' ');
+str.AppendFormat("{0}{1}", 7, 8);
+
+//删
+str.Remove(0, 10);
+str.Clear();
+
+//改
+str[0] = 'a';
+
+//查
+Console.WriteLine(str[0]);
+
+//插
+str.Insert(0, "test");
+
+//替换
+str.Replace("1", "A");
+
+// 判断相等
+if(str.Equals("A")) { }
+
+```
+
+**string 和 StringBuilder 的区别**
+1. string 相对 StringBuilder 更容易产生垃圾，每次修改拼接都会产生垃圾
+2. string 相对 StringBuilder 更加灵活因为它提供了更多的方法供使用
+
+**如何选择？**
+1. 需要频繁修改拼接的字符串可以使用 StringBuilder
+2. 需要使用 string 独特的一些方法来处理一些特殊逻辑时可以使用 string
+
+
+> [!NOTE] 如何优化内存
+>内存优化从两个方面去解答
+>1. 如何节约内存
+>2. 如何尽量少的 GC (垃圾回收)？
+>
+>答案：
+   > -   少 new 对象少产生垃圾
+>    -   合理使用 static
+>      - 合理使用 string 和 stringbuilder
+
 
 ###  万物之父 Object 类
 关键字：`object`
@@ -989,8 +1071,6 @@ class Program
 从上面的执行效果可以看出，在使用 foreach 语句时可以免去使用下标的麻烦，这也给遍历数组中的元素带来很多方便。
 
 # 四、面向对象 OOP
-
-封装
 ## 1 类 class
 
 ```cs
@@ -1037,6 +1117,7 @@ static void Main(string[] args)
 ```
 
 - 可以在类中声明一个和自己相同类型的成员变量，但**不能对类内部它进行实例化**
+
 ```cs
 class person
 {
@@ -1811,6 +1892,10 @@ public class Cat : Animal
 **使用时机：**
 1. 如果父类中的方法有默认的实现，并且父类需要被实例化，这时可以考虑将父类定义成一个普通类，用虚方法来实现多态。
 2. 如果父类中的方法没有默认实现，父类也不需要被实例化，则可以将该类定义为抽象类。
+
+
+> [!NOTE] 
+> Contents
 
 ## 8. 集合（Collection）
 
