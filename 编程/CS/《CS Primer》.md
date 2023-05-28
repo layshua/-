@@ -1221,7 +1221,7 @@ new 帮助我们做了 3 件事儿：
 2)、在开辟的空间中创建对象
 3)、调用对象的构造函数进行初始化对象
 
-**this 关键字**
+### this 关键字
 1)、代表当前类的对象
 2)、在类当中显示的调用本类的构造函数  : this （进阶）
 
@@ -1287,7 +1287,7 @@ p[1] = new Person();
 
 
 
-## 7. 继承
+## 8 继承
 
 ```cs
 //父类（基类)
@@ -1315,7 +1315,9 @@ public new void SayHello()
 ```
 
 4. 子类对象可以调用父类中的成员，但是父类对象永远都只能调用自己的成员。
-
+5. 当申明一个子类对象时，**先执行父类的构造函数，再执行子类的构造函数**
+    - 父类的无参构造很重要，子类实例化时默认自动调用的是父类的无参构造，所以如果父类无参构造被顶掉，会报错！
+    - 子类可以通过 base 关键字代表父类调用父类构造
 
 ### base 关键字
 
@@ -1376,17 +1378,7 @@ public class DerivedClass : BaseClass
 
 ```
 
-### 继承中的构造函数
-**特点：**
-当申明一个子类对象时，先执行父类的构造函数，再执行子类的构造函数
-
-**注意：**
-1. 父类的无参构造很重要
-2. 子类可以通过 base 关键字代表父类调用父类构造
-
-
 ### 里氏替换原则
-
 
 **概念：**
 任何父类出现的地方，子类都可以替代
@@ -1410,6 +1402,7 @@ public class DerivedClass : BaseClass
 }
 ```
 
+#### is as 关键字
 **is**：判断一个对象是否是指定的类对象，如果能够转换成功，则返回一个 true，否则返回一个 false
 **as**：将一个对象转换为指定的类对象，如果能够转换则转换为指定的类对象，否则返回一个 null
 
@@ -1466,6 +1459,78 @@ for (int i = 0; i < objects.Length; i++)
     
 }
 ```
+
+## 9 万物之父 Object 类
+关键字：`object`
+
+**概念：**
+object 是**所有类型的基类**，它是一个类 (引用类型)
+
+**作用：**
+1. 可以利用里氏替换原则，用 object 容器装所有对象
+2. 可以用来表示不确定类型，作为函数参数类型
+
+### 用法
+```cs file:object类
+// 上文讲过的里氏替换
+Father f = new Son();
+if (f is Son)
+{
+    (f as Son).Speak();
+}
+
+//使用object类
+//引用类型
+object o = new Son();
+if (o is Son)
+{
+    (o as Son).Speak();
+}
+
+//值类型
+object o2 = 10.0f;
+float f2 = (float)o2;  //强转
+
+//string
+object ostr = "123123";
+string str1 = ostr.ToString();
+string str2 = ostr as string; //建议引用类型都用as的方式
+
+//数组
+object oarr = new int[10];
+int[] arr1 = (int[])oarr;
+int[] arr2 = oarr as int[];
+
+
+public class Father
+{
+    
+}
+
+public class Son : Father
+{
+    public void Speak()
+    {
+        Console.WriteLine("Hello world!");
+    }
+}
+```
+
+### 装箱拆箱
+**发生条件**
+1. 用 object 存值类型（装箱)
+2. 再把 object 转为值类型 (拆箱)
+
+**装箱**
+- 把值类型用引用类型存储，如 `object o = 10.0f;`
+- 栈内存会迁移到堆内存中
+
+**拆箱**
+- 把引用类型存储的值类型取出来，如 `float f = (float)o;`
+- 堆内存会迁移到栈内存中
+
+**好处:** 不确定类型时可以方便参数的存储和传递
+**坏处:** 存在内存迁移，增加性能消耗
 
 ## 8. 集合（Collection）
 
