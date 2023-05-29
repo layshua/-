@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
-      "SiCplusplus",
-      "SiCsharp",
-      "SiUnity",
-      "LiGamepad2",
-      "SiTaichigraphics"
+      "SiAmp",
+      "SiZincsearch",
+      "🎮",
+      "SiGamejolt",
+      "TiBuildingStore"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -28,11 +28,11 @@
   "虚幻引擎": "SiUnrealengine",
   "AI": "SiPython",
   "DCC": "SiAdobe",
-  "Math": "RiNumbersFill",
+  "Math": "SiMatrix",
   "zBuffer": "SiBuffer",
-  "zip": "LiFolderUp",
+  "zip": "SiAmp",
   "图形学": "SiTaichigraphics",
-  "README.md": "LiGamepad2",
+  "README.md": "SiGamejolt",
   "Unity": "SiUnity",
   "编程/C++": "SiCplusplus",
   "编程/CS": "SiCsharp"

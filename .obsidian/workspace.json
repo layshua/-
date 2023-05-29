@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/环境配置/Anaconda配置.md",
+                "file": "Tools/工具流.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/环境配置/Anaconda配置.md"
+                "file": "Tools/工具流.md"
               }
             }
           }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/环境配置/Anaconda配置.md",
+                "file": "Tools/工具流.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/环境配置/Anaconda配置.md",
+                "file": "Tools/工具流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -174,42 +174,45 @@
   },
   "active": "ed3948abd7606c9c",
   "lastOpenFiles": [
+    "编程/CS/唐老狮 C 核心.md",
+    "Tools/System/控制面板.md",
+    "Tools/工具流.md",
+    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
+    "AI/环境配置/Anaconda配置.md",
+    "zip/icons/tabler-icons",
+    "zip/icons/simple-icons/Zyte.svg",
+    "zip/icons/simple-icons/Zwave.svg",
+    "zip/icons/simple-icons/Zulip.svg",
+    "zip/icons/simple-icons/Zotero.svg",
+    "zip/icons/simple-icons/Zorin.svg",
+    "zip/icons/simple-icons/Zoom.svg",
+    "zip/icons/simple-icons/Zomato.svg",
+    "zip/icons/simple-icons/Zoiper.svg",
+    "zip/icons/simple-icons/Zoho.svg",
+    "zip/icons/simple-icons/Zingat.svg",
+    "zip/icons/simple-icons",
+    "zBuffer/(31 条消息) 在 Windows 环境配置多版本 Java（Java8+Java16 为例）_StephenYTT 的博客 - CSDN 博客.md",
+    "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+    "编程/CS/唐老狮 C 基础.md",
+    "技术美术/02 水体渲染/真实感水体渲染.md",
+    "编程/CS/《CS Primer》.md",
+    "编程/CS/唐老狮 C 进阶.md",
+    "编程/CS/Csharp四部曲.md",
+    "README.md",
     "编程/C++/《C++ Primer》.md",
     "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
     "zBuffer/网传库洛游戏大裁员，真实情况如何，游戏行业最近什么情况？.md",
-    "README.md",
-    "zip/images/1685363267576.png",
-    "zip/images/1685363267250.png",
-    "zip/images/1685363267212.png",
-    "zip/images/1685363267151.png",
-    "zip/images/1685363266857.png",
-    "zip/images/1685363266784.png",
-    "zip/images/1685363266678.png",
-    "zip/images/1685363266636.png",
-    "zip/images/1685363266590.png",
-    "zip/images/1685363266542.png",
-    "编程/CS/Csharp四部曲.md",
     "编程/C++/Google C++风格.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/C++补充.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "编程/CS/《CS Primer》.md",
-    "Tools/工具流.md",
-    "编程/CS/唐老狮 C 核心.md",
     "编程/设计模式/面向对象的七大原则.md",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
-    "编程/CS/唐老狮 C 进阶.md",
-    "编程/CS/唐老狮 C 基础.md",
     "编程/大作业/360全景看房.md",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "技术美术/学习大纲.md",
     "虚幻引擎/01 指南/光照设置.md",
     "虚幻引擎/01 指南/ue操作指南.md",
-    "虚幻引擎/02 蓝图 & U++/101 蓝图.md",
-    "AI/论文/Nerf/学习论.md",
-    "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
-    "未命名.md",
-    "Unity/URP/入门精要urp重写.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",
@@ -217,9 +220,7 @@
     "zip/Legacy/English/语法/介词介词分类及常用搭配/assets",
     "zip/Legacy/English/语法/介词介词分类及常用搭配",
     "zip/Legacy/English/语法",
-    "zip/Legacy/English",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "zip/icons/font-awesome-regular",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",

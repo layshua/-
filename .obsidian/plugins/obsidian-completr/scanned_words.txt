@@ -22378,6 +22378,7 @@ mGPCU
 mMK
 mosxtH
 mqxp
+minecraft
 windows
 win
 width
@@ -36322,6 +36323,7 @@ VHK
 VBD
 VLKil
 Veme
+VSCode
 verge
 vPdIt
 vertical
@@ -63139,6 +63141,7 @@ WtNv
 WyvA
 Wauu
 WoK
+WindowsJava
 Start
 StartAllBack
 Shadowrocket
@@ -75244,6 +75247,7 @@ CIL
 CBc
 Cri
 CJP
+CLASSPATH
 ImTip
 IMAP
 ID
@@ -90225,6 +90229,7 @@ nYOHE
 nlp
 nBf
 nnP
+nodejs
 bf
 bc
 black
@@ -134945,6 +134950,7 @@ HrPh
 HAVJ
 Hqyi
 Hes
+HOME
 Bbb
 Bear
 Base
@@ -180324,6 +180330,8 @@ JjMj
 Jys
 JPoS
 JLFL
+JAVA
+JAVAxx
 Ke
 KjpKWmp
 KYW
@@ -195448,6 +195456,10 @@ jAF
 jKI
 jfs
 jwHM
+javapath
+javac
+javaw
+javaws
 ÄjZU
 ÄJ
 Ät

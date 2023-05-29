@@ -14,7 +14,6 @@
   "mousewheel-image-zoom",
   "obsidian-local-images-plus",
   "remotely-save",
-  "obsidian-git",
   "obsidian-focus-mode",
   "obsidian-plugin-update-tracker",
   "mysnippets-plugin",
@@ -36,5 +35,6 @@
   "obsidian-icon-folder",
   "codeblock-customizer",
   "obsidian-hider",
-  "cm-editor-syntax-highlight-obsidian"
+  "cm-editor-syntax-highlight-obsidian",
+  "obsidian-git"
 ]

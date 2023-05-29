@@ -95,34 +95,6 @@ Anaconda 镜像使用帮助可供了解
 用如下内容替换. condarc 文件内容
 ![[Pasted image 20230414231057.png]]
 
-方式二、命令修改
-
-添加国内源，https 大概率用不了
-
-```
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-```
-
-设置搜索时显示通道地址
-
-```
-conda config --set show_channel_urls yes
-```
-
-删除默认源
-
-```
-conda config --remove channels defaults
-```
-
-查看通道地址
-
-```
-conda config --show channels
-```
-
 
 # 6. 查看所有虚拟环境
 
