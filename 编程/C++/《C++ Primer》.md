@@ -194,7 +194,7 @@ typedef struct_record_type name_company_position_salary;
 ```c++
 #define myprintf (templt, ...)  fprintf (stderr, templt, ##__VA_ARGS__)  
 ```
-这是 `##` 这个连接符充当的作用就是当__VA_ARGS__为空的时候，消除前面的那个逗号。
+这是 `##` 这个连接符充当的作用就是当`__VA_ARGS__`为空的时候，消除前面的那个逗号。
 # 一、变量和基本类型
 ## 1 对象
 
@@ -227,7 +227,7 @@ delete entity； //清除
 ### new操作符
 
 *   new 的主要目的是分配内存，具体来说就是在堆上分配内存。
-*   如果你用 new 和 **[]** 来分配数组，那么也用 **delete[]**。
+*   如果你用 new 和 **`[]` 来分配数组，那么也用  `delete[]` 。
 *   new 主要就是找到一个满足我们需求的足够大的内存块，然后**返回一个指向那个内存地址的指针**。
 
 ```c++

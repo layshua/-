@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "AI/环境配置/Anaconda配置.md",
                 "mode": "source",
                 "source": false
               }
@@ -45,24 +45,6 @@
           }
         ],
         "currentTab": 2
-      },
-      {
-        "id": "d3a0ea5d62c5b95a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "614a6ab2603b258c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/CS/《CS Primer》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -105,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "AI/环境配置/Anaconda配置.md"
               }
             }
           }
@@ -140,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "AI/环境配置/Anaconda配置.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "AI/环境配置/Anaconda配置.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,45 +162,47 @@
   "left-ribbon": {
     "hiddenItems": {
       "canvas:新建白板": false,
-      "command-palette:打开命令面板": true,
       "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
+      "obsidian-local-images-plus:Local Images Plus  0.15.4\r\nDownload media files": false,
       "remotely-save:Remotely Save": false,
+      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "omnisearch:Omnisearch": false,
-      "obsidian-local-images-plus:Local Images Plus  0.15.4\r\nDownload media files": false
+      "omnisearch:Omnisearch": false
     }
   },
   "active": "ed3948abd7606c9c",
   "lastOpenFiles": [
-    "编程/CS/唐老狮 C 核心.md",
-    "编程/CS/《CS Primer》.md",
-    "zip/images/6be61eb7b87ada15753dc35768da4317_MD5.png",
-    "编程/设计模式/面向对象的七大原则.md",
-    "zip/images/756ed87732dfe143814d6c3bc38a8766_MD5.png",
     "编程/C++/《C++ Primer》.md",
-    "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg",
+    "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
+    "zBuffer/网传库洛游戏大裁员，真实情况如何，游戏行业最近什么情况？.md",
+    "README.md",
+    "zip/images/1685363267576.png",
+    "zip/images/1685363267250.png",
+    "zip/images/1685363267212.png",
+    "zip/images/1685363267151.png",
+    "zip/images/1685363266857.png",
+    "zip/images/1685363266784.png",
+    "zip/images/1685363266678.png",
+    "zip/images/1685363266636.png",
+    "zip/images/1685363266590.png",
+    "zip/images/1685363266542.png",
+    "编程/CS/Csharp四部曲.md",
+    "编程/C++/Google C++风格.md",
+    "编程/C++/Cherno剩余.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/CS/《CS Primer》.md",
+    "Tools/工具流.md",
+    "编程/CS/唐老狮 C 核心.md",
+    "编程/设计模式/面向对象的七大原则.md",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/CS/唐老狮 C 进阶.md",
     "编程/CS/唐老狮 C 基础.md",
-    "Tools/工具流.md",
-    "zip/images/Pasted image 20230526153510.png",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/CS/Csharp四部曲.md",
-    "zip/images/Pasted image 20230526124440.png",
-    "zip/images/Pasted image 20230526124152.png",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/Google C++风格.md",
     "编程/大作业/360全景看房.md",
-    "README.md",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "技术美术/学习大纲.md",
-    "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
-    "zip/images/1684935991732.png",
-    "zip/images/1684935991261.png",
-    "zip/images/1684935990357.png",
-    "zip/images/1684935989930.png",
     "虚幻引擎/01 指南/光照设置.md",
     "虚幻引擎/01 指南/ue操作指南.md",
     "虚幻引擎/02 蓝图 & U++/101 蓝图.md",
@@ -226,8 +210,6 @@
     "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
     "未命名.md",
     "Unity/URP/入门精要urp重写.md",
-    "Unity/教程.md",
-    "Unity/2022minigame/2022minigame.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",

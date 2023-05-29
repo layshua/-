@@ -71296,6 +71296,7 @@ PFD
 PqZX
 PzdWfi
 Pdhh
+Paranoia
 ContextMenuManager
 ClashVerge
 Clash
