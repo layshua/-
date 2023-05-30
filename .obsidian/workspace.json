@@ -37,14 +37,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "e55f2824459023a4",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -87,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -122,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/工具流.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -172,11 +180,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ed3948abd7606c9c",
+  "active": "e55f2824459023a4",
   "lastOpenFiles": [
-    "编程/CS/唐老狮 C 核心.md",
+    "README.md",
+    "Tools/Git/UE4源码管理.md",
     "Tools/System/控制面板.md",
+    "Tools/Git/git入门.md",
     "Tools/工具流.md",
+    "编程/CS/唐老狮 C 核心.md",
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "AI/环境配置/Anaconda配置.md",
     "zip/icons/tabler-icons",
@@ -198,7 +209,6 @@
     "编程/CS/《CS Primer》.md",
     "编程/CS/唐老狮 C 进阶.md",
     "编程/CS/Csharp四部曲.md",
-    "README.md",
     "编程/C++/《C++ Primer》.md",
     "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
     "zBuffer/网传库洛游戏大裁员，真实情况如何，游戏行业最近什么情况？.md",
@@ -211,8 +221,6 @@
     "编程/大作业/360全景看房.md",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "技术美术/学习大纲.md",
-    "虚幻引擎/01 指南/光照设置.md",
-    "虚幻引擎/01 指南/ue操作指南.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",
