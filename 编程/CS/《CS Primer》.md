@@ -27,6 +27,8 @@ Console.ReadKey();  // 等待用户按下任意键，一次读入一个字符。
 Console.ReadKey(true).KeyChar; 
 //Console 类的一个静态方法，它读取当前控制台上的任意键盘输入。参数 true 表示在读取输入后不显示读入的字符，如果是 false 则会显示读入的字符。
 //返回值是 ConsoleKeyInfo 类型，包含了该字符的 KeyChar 属性（即按下的按键字符），以及关于按键是否有控制字符等其他信息。
+
+Console.KeyAvailable //判断有无键盘输入，如果有则为true
 ```
 
 ```cs file:其他方法
