@@ -47,8 +47,12 @@
             "id": "e55f2824459023a4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "编程/CS/《CS Primer》.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -95,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
+                "file": "编程/CS/《CS Primer》.md"
               }
             }
           }
@@ -130,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }

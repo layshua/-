@@ -10,14 +10,14 @@ banner: "![[Pasted image 20230526124440.png]]"
 ---
 
 # 零、特性
-## 折叠代码
+## 1 折叠代码
 ```cs
 #region 折叠块名字
 ... //代码
 #endregion
 ```
 
-## 控制台方法
+## 2 控制台方法
 ```cs file:打印输入输出
 Console.Write("xxx"); // 打印，不自动空行
 Console.WriteLine("xxx"); // 打印，自动空行
@@ -55,13 +55,13 @@ Console.ForegroundColor = ConsoleColor.Red;
 Console.BackgroundColor = ConsoleColor.White;
 
 //5.光标显隐
-Console.cursorVisible = false;
+Console.CursorVisible = false;
 
 //6.关闭控制台
 Environment.Exit(0);
 ```
 
-## Path 类
+## 3 Path 类
 
 用于操作路径
 
@@ -85,7 +85,7 @@ static void Main(string[] args)
 }
 ```
 
-## 垃圾回收 GC
+## 4 垃圾回收 GC
 垃圾回收, 英文简写 GC (Garbage Collector)
 
 垃圾回收的过程是在遍历堆 (Heap)上动态分配的所有对象，通过识别它们是否被引用来确定哪些对象是垃圾，哪些对象仍要被使用。
@@ -125,8 +125,77 @@ GC 只负责堆 (Heap)内存的垃圾回收，引用类型都是存在堆 (Heap)
 CG.Collect();
 ``` 
 
-## 多脚本文件
+## 5 多脚本文件
 接口、类、结构体一个声明对应一个脚本
+
+
+## 6 类型转换
+
+我们要求等号两边参与运算的操作数必须一致，如果不一致，满足下列条件会发生转换。
+
+### **隐式类型转换**
+- 低精度可以转换成高精度
+- char→整数（有符号、无符号）→float→double $\nrightarrow$ decimal
+- char→整数（有符号、无符号）→decimal
+- string 和 bool 不参与隐式转换规则
+- 有符号 $\nrightarrow$ 无符号
+- 无符号→有符号（精度低到高）
+### **显式（强制）类型转换**
+#### 括号强转
+用于将高精度转换位低精度
+
+```cs
+//double->int 强制类型转换（显式类型转换）
+double a =(int)b;
+
+//如果n1/n2有一个是double类型则整个式子提升为double类型：
+//全int：输出结果d=3
+int n1 = 10;
+int n2 = 3;
+double d = n1 / n2;
+Console.WriteLine(d);
+
+//将n1改为double类型：输出d=3.333...
+double d = n1*1.0 / n2;  //n1*1.0将n1转换为double类型
+Console.WriteLine(d);
+```
+#### Convert 类型转换
+
+- 如果两个变量类型不兼容，比如 string 与 int 或 string 与 double，可以使用 Convert 函数进行转换。
+-  string 字符串的内容必须为要转换的类型。
+
+`Convert.ToInt32()`
+`Convert.ToDouble()`
+...
+```cs string a = "123";
+string a = "123";  //但是只能转换int，如果a=”123abc“或“6.5”则会异常
+int b = Convert.ToInt32(a);
+Console.WriteLine(b);
+```
+
+#### .Parse 类型转换
+
+效果同 Convert:
+
+`int.Parse()`
+`double.Parse()`
+```cs
+string a = "123"; 
+int b = int.Parse(a);
+//double b = double.Parse(a)
+```
+
+#### .TryParse 类型转换
+
+`int.TryParse()`
+
+```cs
+int a = 0;
+bool b = int.TryParse("123", out a);
+//尝试将”123“转换为int类型，如果成功就将转换后的123赋值给a，并返回true给b。如果失败则返回false给b，a赋值为0。
+Console.WriteLine(b);
+Console.WriteLine(a);
+```
 
 
 # 一、变量和基本类型
@@ -1014,7 +1083,7 @@ class Point
 
 ### 不可重载的运算符  
 
-# 五、语句（控制流）
+# 四、语句（控制流）
 
 ## 11. foreach 循环
 
@@ -1075,7 +1144,7 @@ class Program
 
 从上面的执行效果可以看出，在使用 foreach 语句时可以免去使用下标的麻烦，这也给遍历数组中的元素带来很多方便。
 
-# 四、面向对象 OOP
+# 五、面向对象 OOP
 ## 1 类 class
 
 ```cs
@@ -1996,9 +2065,7 @@ list.Reverse(); //反转
 ......
 ```
 
-# 委托
-# 事件
-# 接口
+# 六、接口
 
 接口是行为的抽象规范
 
@@ -2202,75 +2269,8 @@ class Program
 
 执行上面的代码，效果与上图一致。从调用的代码可以看出，在调用显式方式实现接口的成员时，必须使用接口的实例来调用，而不能使用实现类的实例来调用。
 
-# 类型转换
-
-我们要求等号两边参与运算的操作数必须一致，如果不一致，满足下列条件会发生转换。
-
-## **隐式类型转换**
-- 低精度可以转换成高精度
-- char→整数（有符号、无符号）→float→double $\nrightarrow$ decimal
-- char→整数（有符号、无符号）→decimal
-- string 和 bool 不参与隐式转换规则
-- 有符号 $\nrightarrow$ 无符号
-- 无符号→有符号（精度低到高）
-## **显式（强制）类型转换**
-### 括号强转
-用于将高精度转换位低精度
-
-```cs
-//double->int 强制类型转换（显式类型转换）
-double a =(int)b;
-
-//如果n1/n2有一个是double类型则整个式子提升为double类型：
-//全int：输出结果d=3
-int n1 = 10;
-int n2 = 3;
-double d = n1 / n2;
-Console.WriteLine(d);
-
-//将n1改为double类型：输出d=3.333...
-double d = n1*1.0 / n2;  //n1*1.0将n1转换为double类型
-Console.WriteLine(d);
-```
-### Convert 类型转换
-
-- 如果两个变量类型不兼容，比如 string 与 int 或 string 与 double，可以使用 Convert 函数进行转换。
--  string 字符串的内容必须为要转换的类型。
-
-`Convert.ToInt32()`
-`Convert.ToDouble()`
-...
-```cs string a = "123";
-string a = "123";  //但是只能转换int，如果a=”123abc“或“6.5”则会异常
-int b = Convert.ToInt32(a);
-Console.WriteLine(b);
-```
-
-### .Parse 类型转换
-
-效果同 Convert:
-
-`int.Parse()`
-`double.Parse()`
-```cs
-string a = "123"; 
-int b = int.Parse(a);
-//double b = double.Parse(a)
-```
-
-### .TryParse 类型转换
-
-`int.TryParse()`
-
-```cs
-int a = 0;
-bool b = int.TryParse("123", out a);
-//尝试将”123“转换为int类型，如果成功就将转换后的123赋值给a，并返回true给b。如果失败则返回false给b，a赋值为0。
-Console.WriteLine(b);
-Console.WriteLine(a);
-```
-
-
+# 委托
+# 事件
 # 泛型
 # 枚举器和迭代器
 # LINQ

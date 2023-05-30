@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "➕",
+      "#️⃣",
       "SiAmp",
       "SiZincsearch",
-      "🎮",
-      "SiGamejolt",
-      "TiBuildingStore"
+      "🎮"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -33,7 +33,5 @@
   "zip": "SiAmp",
   "图形学": "SiTaichigraphics",
   "README.md": "SiGamejolt",
-  "Unity": "SiUnity",
-  "编程/C++": "SiCplusplus",
-  "编程/CS": "SiCsharp"
+  "Unity": "SiUnity"
 }
