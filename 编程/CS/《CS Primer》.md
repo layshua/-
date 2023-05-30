@@ -5,7 +5,6 @@ aliases: []
 tags: []
 create_time: 2023-05-26 12:41
 uid: 202305261241
-cssclass: academia, academia-rounded
 banner: "![[Pasted image 20230526124440.png]]"
 ---
 
@@ -630,6 +629,13 @@ const int a = 1；
 ```
 
 - ? 常量是特殊的静态 static？
+- **const (常量)可以理解为特殊的 static (静态)**
+- **相同点**
+他们都可以通过类名点出使用
+- **不同点**
+    1. const 必须初始化，不能修改， static 没有这个规则
+    2. const 只能修饰变量、static 可以修饰很多
+    3. const 一定是写在访问修饰符后面的，static 没有这个要求
 ### 随机数
 
 ```cs
@@ -705,7 +711,7 @@ Player = (EPlayer)Enum.Parse(typeof(EPlayer), "teacher"); // 注意第二个变�
 ```
 
 ### 数组
-数组声明后不可以改变长度，若想在原数组的基础上进行收缩，需要新建一个数组，将值复制到新数组。
+数组**声明后不可以改变长度**，若想在原数组的基础上进行收缩，需要新建一个数组，将值复制到新数组。
 #### 一维数组
 ```cs file:一维数组的声明
 int[] nums;  //只声明不初始化
@@ -820,20 +826,22 @@ nums[0].Length(1) //获取某一行的列数
 |哈希表（Hashtable）| 它使用**键**来访问集合中的元素。当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个**键/值**对。键用于访问集合中的项目。 |
 |排序列表（SortedList）| 它可以使用**键**和**索引**来访问列表中的项。排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。 |
 |堆栈（Stack）| 它代表了一个**后进先出**的对象集合。当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为**推入**元素，当您从列表中移除一项时，称为**弹出**元素。 |
-|队列（Queue）| 它代表了一个**先进先出**的对象集合。当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为**入队**，当您从列表中移除一项时，称为**出队**。 |
+|队列（Queue）|1. 它代表了一个**先进先出**的对象集合。 <br> 2. 您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为**入队**，当您从列表中移除一项时，称为**出队**。|
 | [点阵列（BitArray）](https://www.runoob.com/csharp/csharp-bitarray.html) | 它代表了一个使用值 1 和 0 来表示的**二进制**数组。当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用**整型索引**从点阵列集合中访问各项，索引从零开始。 |
 
 ### ArrayList （动态数组）
+**ArrayList 和数组的区别**
+ArrayList：长度可以随意改变，可以存储任意类型的数据
+数组：长度不可变，类型单一
 
 每次集合中实际包含的元素个数 (count)超过了可以包含的元素的个数 (capcity)的时候，集合就会向内存中申请**多开辟一倍**的空间，来保证集合的长度一直够用。
 
 ArrayList 中的元素都存储为 `object` 类型（可以存储任何类型数据），存在装箱拆箱的损耗，所以 ArrayList 尽量少用。
 
 ```cs
-//非静态类，创建集合对象
+using System.Collections;
+
 ArrayList array = new ArrayList();
-//集合：很多数据的一个集合，长度可以随意改变，可以存储任意类型的数据
-//数组：长度不可变，类型单一
 ```
 
 ```cs file:增
@@ -884,6 +892,55 @@ array.Count;   //元素数量
 foreach (var item in array)
 {
     Console.WriteLine(array[item]);
+}
+```
+
+## Queue
+队列，先进先出
+```cs
+using System.Collections;  
+  
+Queue queue = new Queue();
+```
+
+```cs file:入队、出队
+queue.Enqueue("1");
+object v1 = queue.Dequeue();
+```
+
+```cs file:查
+//查看队列头元素但不会移除  
+object v2 = queue.Peek();  
+//查看队列中是否包含某个元素  
+bool v3 = queue.Contains("1");
+
+//队列长度  
+int v4 = queue.Count;
+```
+
+```cs file:改
+//清空队列  
+queue.Clear();  
+```
+
+```cs file:遍历
+foreach (var item in queue)
+{
+    Console.WriteLine(item);
+}
+
+//另一种方式
+//将队列转换为object数组
+object[] array = queue.ToArray();
+for(int i =0;i<array.Length;i++)
+{
+    Console.WriteLine(array[i]);
+}
+
+//循环出队
+while (queue.Count > 0)  
+{  
+object v5 = queue.Dequeue();  
 }
 ```
 # 二、函数（方法）
