@@ -993,7 +993,12 @@ while (queue.Count > 0)
 ```
 
 ### Hashtable
-哈希表，键值对
+哈希表（又称散列表），键值对
+```cs
+using System.Collections;  
+  
+Hashtable hashtable = new Hashtable();
+```
 
 ```cs file:增
 //键不能相同  
@@ -1133,77 +1138,107 @@ Console.WriteLine(list[i]);
 ### Dictionary
 字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
 
+```cs
+using System.Collections.Generic;  
+
+Dictionary<int,string> dictionary = new Dictionary<int, string>();
+```
 
 ```cs file:增
 //键不能相同  
-hashtable.Add(1, "value1");  
-hashtable.Add("key", "value2");  
-hashtable.Add(true, "value3");
+dictionary.Add(1, "one");
 ```
-
 
 ```cs file:删
 //根据键删除  
-hashtable.Remove(1);  
-hashtable.Clear();
+dictionary.Remove(1);
+dictionary.Clear();
 ```
 
-
 ```cs file:查
-//根据键查找值，如果键不存在，返回 null  
-Console.WriteLine(hashtable["2"]);  
-  
+//通过建获取值
+string v1 = dictionary[1];  //如果不存在会抛出异常
+
+//通过TryGetValue获取值
+string v2;
+if (dictionary.TryGetValue(1, out v2))
+{
+    //存在
+}
+
 //判断是否包含某个键  
-Console.WriteLine(hashtable.ContainsKey("key"));  
+dictionary.ContainsValue("one")
   
 //判断是否包含某个值  
-Console.WriteLine(hashtable.ContainsValue("value4"));  
+dictionary.ContainsKey(1)
   
 //获取键值对数量  
-Console.WriteLine(hashtable.Count);
+dictionary.Count
 ```
 
 ```cs file:改
 //根据键修改
-hashtable["key"] = "value4";
+dictionary[1] = "ONE";
 ```
 
 ```cs file:遍历
 //遍历所有键
-ICollection keys = hashtable.Keys;  //获取键的集合
-foreach (var item in keys) 
+foreach (int key in dictionary.Keys)
 {
-    Console.WriteLine(item);
+    Console.WriteLine(key);
 }
 
 //遍历所有值
-ICollection values = hashtable.Values; //获取值的集合
-foreach (var item in values)
+foreach (string value in dictionary.Values)
 {
-    Console.WriteLine(item);
+    Console.WriteLine(value);
 }
 
 //键值对一起遍历
-foreach (DictionaryEntry item in hashtable)
+foreach (KeyValuePair<int, string> item in dictionary)
 {
-    Console.WriteLine(item.Key + ":" + item.Value);
+    int key = item.Key;
+    string value = item.Value;
 }
 
 //迭代器遍历
-IEnumerator enumerator1 = hashtable.GetEnumerator();
-while (enumerator1.MoveNext())
+IEnumerator<KeyValuePair<int, string>> enumerator = dictionary.GetEnumerator();
+while (enumerator.MoveNext())
 {
-    DictionaryEntry item = (DictionaryEntry)enumerator1.Current;
-    Console.WriteLine(item.Key + ":" + item.Value);
-}
-
-IDictionaryEnumerator enumerator2 = hashtable.GetEnumerator();
-while (enumerator2.MoveNext())
-{
-    Console.WriteLine(enumerator2.Key + ":" + enumerator2.Value);
+    KeyValuePair<int, string> item = enumerator.Current;
+    int key = item.Key;
+    string value = item.Value;
 }
 ```
 
+### LinkedList 和 LinkedListNode
+LinkedList 本质是一个**可变类型的泛型双向链表**
+LinkedListNode 是链表节点类
+
+```cs
+//声明
+LinkedList<int> linkedList = new LinkedList<int>();  
+LinkedListNode<int> first = linkedList.First; //获取头节点  
+LinkedListNode<int> last = linkedList.Last; //获取尾节点  
+  
+//增  
+linkedList.AddLast(1); //尾部添加  
+linkedList.AddFirst(2); //头部添加  
+linkedList.AddAfter(first, 3); //指定节点后添加  
+linkedList.AddBefore(first, 4); //指定节点前添加  
+  
+//删  
+linkedList.Remove(1); //删除指定元素  
+linkedList.RemoveFirst(); //删除头部元素  
+linkedList.RemoveLast(); //删除尾部元素  
+linkedList.Remove(first); //删除指定节点  
+linkedList.Clear(); //清空链表  
+  
+//查  
+linkedList.Contains(1); //是否包含指定元素  
+LinkedListNode<int> node1 = linkedList.Find(1); //查找指定元素  
+LinkedListNode<int> node2 = linkedList.FindLast(1); //查找最后一个指定元素
+```
 # 二、函数（方法）
 
 ```cs
