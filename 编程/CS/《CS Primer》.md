@@ -822,11 +822,11 @@ nums[0].Length(1) //获取某一行的列数
 
 | 类                                                           | 描述和用法                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-|动态数组（ArrayList）|1. 它代表了可被单独**索引**的对象的**有序集合。** 它基本上可以替代一个数组。 <br> 2. 与数组不同的是，您可以使用**索引**在指定的位置添加和移除项目，动态数组会自动重新调整它的大小。 <br> 3. 也允许在列表中进行动态内存分配、增加、搜索、排序各项。|
-|哈希表（Hashtable）| 它使用**键**来访问集合中的元素。当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个**键/值**对。键用于访问集合中的项目。 |
+|  |  |
+|哈希表（Hashtable） |它使用**键**来访问集合中的元素。当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个**键/值**对。键用于访问集合中的项目。|
 |排序列表（SortedList）| 它可以使用**键**和**索引**来访问列表中的项。排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。 |
-|堆栈（Stack）| 它代表了一个**后进先出**的对象集合。当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为**推入**元素，当您从列表中移除一项时，称为**弹出**元素。 |
-|队列（Queue）|1. 它代表了一个**先进先出**的对象集合。 <br> 2. 您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为**入队**，当您从列表中移除一项时，称为**出队**。|
+|  |  |
+|  |  |
 | [点阵列（BitArray）](https://www.runoob.com/csharp/csharp-bitarray.html) | 它代表了一个使用值 1 和 0 来表示的**二进制**数组。当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用**整型索引**从点阵列集合中访问各项，索引从零开始。 |
 
 ### ArrayList （动态数组）
@@ -894,8 +894,61 @@ foreach (var item in array)
     Console.WriteLine(array[item]);
 }
 ```
+### Stack
+栈，先进后出
 
-## Queue
+```cs
+using System.Collections;  
+  
+Stack stack = new Stack();
+```
+
+```cs file:压栈、出栈
+//压栈  
+stack.Push("1");  
+  
+//出栈  
+stack.Pop();
+```
+
+```cs file:查
+//栈无法查看指定位置的元素,只能查看栈顶的内容  
+s = stack.Peek(); //注意只是查看，不是出栈  
+  
+//查看元素是否存在于栈中  
+stack.Contains("1");
+
+//栈的长度
+stack.Count;
+```
+
+```cs file:改
+//清空栈  
+stack.Clear();
+```
+
+```cs file:b遍历
+//栈不能使用[]访问，所以无法使用for循环遍历，一般使用foreach
+foreach (var item in stack)
+{
+    Console.WriteLine(item);
+}
+
+//另一种方式
+//将队列转换为object数组
+object[] array = stack.ToArray();
+for(int i =0;i<array.Length;i++)
+{
+    Console.WriteLine(array[i]);
+}
+
+//循环出栈
+while (stack.Count>0)
+{
+    object p = stack.Pop();
+}
+```
+### Queue
 队列，先进先出
 ```cs
 using System.Collections;  
@@ -904,18 +957,20 @@ Queue queue = new Queue();
 ```
 
 ```cs file:入队、出队
-queue.Enqueue("1");
-object v1 = queue.Dequeue();
+//入队
+queue.Enqueue("1");   、
+//出队
+queue.Dequeue();
 ```
 
 ```cs file:查
 //查看队列头元素但不会移除  
-object v2 = queue.Peek();  
+queue.Peek();  
 //查看队列中是否包含某个元素  
-bool v3 = queue.Contains("1");
+queue.Contains("1");
 
 //队列长度  
-int v4 = queue.Count;
+queue.Count;
 ```
 
 ```cs file:改
@@ -924,6 +979,7 @@ queue.Clear();
 ```
 
 ```cs file:遍历
+//队列不能使用[]访问，所以无法使用for循环遍历，一般使用foreach
 foreach (var item in queue)
 {
     Console.WriteLine(item);
@@ -940,7 +996,81 @@ for(int i =0;i<array.Length;i++)
 //循环出队
 while (queue.Count > 0)  
 {  
-object v5 = queue.Dequeue();  
+    object v5 = queue.Dequeue();  
+}
+```
+
+## Hashtable
+哈希表，键值对
+
+```cs file:增
+//键不能相同  
+hashtable.Add(1, "value1");  
+hashtable.Add("key", "value2");  
+hashtable.Add(true, "value3");
+```
+
+
+```cs file:删
+//根据键删除  
+hashtable.Remove(1);  
+hashtable.Clear();
+```
+
+
+```cs file:查
+//根据键查找值，如果键不存在，返回 null  
+Console.WriteLine(hashtable["2"]);  
+  
+//判断是否包含某个键  
+Console.WriteLine(hashtable.ContainsKey("key"));  
+  
+//判断是否包含某个值  
+Console.WriteLine(hashtable.ContainsValue("value4"));  
+  
+//获取键值对数量  
+Console.WriteLine(hashtable.Count);
+```
+
+
+```cs file:改
+//根据键修改
+hashtable["key"] = "value4";
+```
+
+```cs file:遍历
+//遍历所有键
+ICollection keys = hashtable.Keys;  //获取键的集合
+foreach (var item in keys) 
+{
+    Console.WriteLine(item);
+}
+
+//遍历所有值
+ICollection values = hashtable.Values; //获取值的集合
+foreach (var item in values)
+{
+    Console.WriteLine(item);
+}
+
+//键值对一起遍历
+foreach (DictionaryEntry item in hashtable)
+{
+    Console.WriteLine(item.Key + ":" + item.Value);
+}
+
+//迭代器遍历
+IEnumerator enumerator1 = hashtable.GetEnumerator();
+while (enumerator1.MoveNext())
+{
+    DictionaryEntry item = (DictionaryEntry)enumerator1.Current;
+    Console.WriteLine(item.Key + ":" + item.Value);
+}
+
+IDictionaryEnumerator enumerator2 = hashtable.GetEnumerator();
+while (enumerator2.MoveNext())
+{
+    Console.WriteLine(enumerator2.Key + ":" + enumerator2.Value);
 }
 ```
 # 二、函数（方法）
