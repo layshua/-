@@ -322,11 +322,11 @@ Console.WriteLine($"{n1:0.00}");
 
 |C# 类型关键字|. NET 类型|
 |---|---|
-|object| [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
-|string| [System.String](https://learn.microsoft.com/zh-cn/dotnet/api/system.string) |
-|dynamic | [System.Object](https://learn.microsoft.com/zh-cn/dotnet/api/system.object) |
+|object|System.Object|
+|string|System.String|
+|dynamic |System.Object|
 
-在上表中，左侧列中的每个类型关键字（[dynamic](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量：
+在上表中，左侧列中的每个类型关键字（dynamic 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量： 
 ```cs
 int a = 123;
 System.Int32 b = 123;
@@ -811,9 +811,8 @@ nums[0].Length(1) //获取某一行的列数
 
 集合（Collection）类服务于不同的目的，如为元素动态分配内存，基于索引访问列表项等等。**这些类创建 Object 类的对象的集合**。在 C# 中，Object 类是所有数据类型的基类。
 
-各种集合类和它们的用法
 
-下面是各种常用的 **System. Collection** 命名空间的类。点击下面的链接查看细节。
+下面是各种常用的 **System. Collection** 命名空间的类：
 
 | 类                                                           | 描述和用法                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -824,65 +823,69 @@ nums[0].Length(1) //获取某一行的列数
 |队列（Queue）| 它代表了一个**先进先出**的对象集合。当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为**入队**，当您从列表中移除一项时，称为**出队**。 |
 | [点阵列（BitArray）](https://www.runoob.com/csharp/csharp-bitarray.html) | 它代表了一个使用值 1 和 0 来表示的**二进制**数组。当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用**整型索引**从点阵列集合中访问各项，索引从零开始。 |
 
-### ArrayList 集合（动态数组）
+### ArrayList （动态数组）
 
-每次集合中实际包含的元素个数 (count)超过了可以包含的元素的个数 (capcity)的时候，集合就会向内存中申请多开辟一倍的空间，来保证集合的长度一直够用。
+每次集合中实际包含的元素个数 (count)超过了可以包含的元素的个数 (capcity)的时候，集合就会向内存中申请**多开辟一倍**的空间，来保证集合的长度一直够用。
+
+ArrayList 中的元素都存储为 `object` 类型（可以存储任何类型数据），存在装箱拆箱的损耗，所以 ArrayList 尽量少用。
 
 ```cs
-  static void Main(string[] args)
-{
-    //非静态类，创建集合对象
-    ArrayList list = new ArrayList();
-    //集合：很多数据的一个集合，长度可以随意改变，类型不固定
-    //数组：长度不可变，类型单一
-
-    //添加单个元素用list.Add();
-    list.Add(1);
-    list.Add(2.1);
-    list.Add(true);
-    list.Add("张三");
-    //添加集合用list.AddRange();
-    list.AddRange(new int[] { 1, 2, 3, 4, 5 });
-    Person p = new Person();
-    list.AddRange(list);  //自己放自己
-
-    for (int i = 0; i < list.Count; i++)
-    {
-        Console.WriteLine(list[i]);
-    }
-}
-
-输出：
-1
-2.1
-True
-张三
-1
-2
-3
-4
-5
-1
-2.1
-True
-张三
-1
-2
-3
-4
-5
+//非静态类，创建集合对象
+ArrayList array = new ArrayList();
+//集合：很多数据的一个集合，长度可以随意改变，可以存储任意类型的数据
+//数组：长度不可变，类型单一
 ```
 
-```cs
-list.Remove("张三"); //指定删除单个元素
-list.RemoveAt("0); //根据下标删除单个元素
-list.RemoveRange(0，n); //（从下标0开始删除n个）
-list.Clear(); //清空所有元素
-list.Sort(); //升序排列
-list.Reverse(); //反转
+```cs file:增
+//添加单个元素：list.Add();
+array.Add(1);
+array.Add(2.1);
+array.Add(true);
+array.Add("张三");
+
+//添加集合：list.AddRange();
+array.AddRange(new int[] { 1, 2, 3, 4, 5 });
+array.AddRange(list);  //自己放自己
+
+//插入指定位置
+array.insert(1,"李四");
+
+```
+
+```cs file:删
+array.Remove("张三"); //指定删除单个元素
+array.RemoveAt(0); //根据指定位置单个元素
+array.RemoveRange(0，n); //（从下标0开始删除n个）
+array.Clear(); //清空所有元素
+
 ......
 ```
 
+```cs file:查
+array[0];  //按下标查找
+array.Contains("张三"); //查看元素是否存在
+
+// 尽管搜索方向不一样，但是字符下标依然从左向右加1，从0开始。
+array.IndexOf("张三");      //从左往右查找，找到返回下标，找不到返回-1
+array.LastIndexOf("张三");  //从右往左查找，找到返回下标，找不到返回-1
+
+```
+
+```cs file:改
+array[0] = "李四"; //通过下标改
+array.Sort(); //升序排列
+array.Reverse(); //反转
+```
+
+```cs file:遍历
+array.Count;   //元素数量
+
+//使用迭代器遍历
+foreach (var item in array)
+{
+    Console.WriteLine(array[item]);
+}
+```
 # 二、函数（方法）
 
 ```cs
