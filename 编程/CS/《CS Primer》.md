@@ -820,15 +820,6 @@ nums[0].Length(1) //获取某一行的列数
 
 下面是各种常用的 **System. Collection** 命名空间的类：
 
-| 类                                                           | 描述和用法                                                   |
-| :----------------------------------------------------------- | :----------------------------------------------------------- |
-|  |  |
-|哈希表（Hashtable） |它使用**键**来访问集合中的元素。当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个**键/值**对。键用于访问集合中的项目。|
-|排序列表（SortedList）| 它可以使用**键**和**索引**来访问列表中的项。排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。 |
-|  |  |
-|  |  |
-| [点阵列（BitArray）](https://www.runoob.com/csharp/csharp-bitarray.html) | 它代表了一个使用值 1 和 0 来表示的**二进制**数组。当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用**整型索引**从点阵列集合中访问各项，索引从零开始。 |
-
 ### ArrayList （动态数组）
 **ArrayList 和数组的区别**
 ArrayList：长度可以随意改变，可以存储任意类型的数据
@@ -1000,7 +991,7 @@ while (queue.Count > 0)
 }
 ```
 
-## Hashtable
+### Hashtable
 哈希表，键值对
 
 ```cs file:增
@@ -1073,6 +1064,9 @@ while (enumerator2.MoveNext())
     Console.WriteLine(enumerator2.Key + ":" + enumerator2.Value);
 }
 ```
+
+### 排序列表（SortedList）
+### 点阵列（BitArray）
 # 二、函数（方法）
 
 ```cs
@@ -2461,9 +2455,108 @@ class Program
 
 执行上面的代码，效果与上图一致。从调用的代码可以看出，在调用显式方式实现接口的成员时，必须使用接口的实例来调用，而不能使用实现类的实例来调用。
 
+# 七、泛型
+- 泛型实现了类型参数化，达到代码重用目的
+- 通过类型参数化来实现同一份代码上操作多种类型
+- 泛型相当于类型占位符
+- 定义类或方法时使用替代符代表变量类型/当真正使用类或者方法时再具体指定类型
+
+## 泛型类和泛型接口
+
+```cs file:语法
+class 类名<泛型占位字母>
+interface 接口名<泛型占位字母>
+```
+
+```cs file:泛型类
+class TestClass<T>
+{
+    public T value;
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        TestClass<int> t1 = new TestClass<int>();
+        t1.value = 1;
+        TestClass<string> t2 = new TestClass<string>();
+        t2.value = "test";
+    }
+}
+
+
+
+
+//泛型占位字母可以有多个，用逗号分开
+class TestClass2<T1, T2, T3, T4>
+{
+    public T1 valu1;
+    public T2 valu2;
+    public T3 valu3;
+    public T4 valu4;
+}
+```
+
+```cs file:泛型接口
+interface IInterface<T>  
+{  
+    T value { get; set; }  
+}  
+  
+class Test : IInterface<int>  
+{  
+    public int value { get; set; }  
+}
+```
+## 泛型函数
+
+```cs file:语法
+函数名<泛型占位字母>(参数列表)
+```
+
+```cs file:普通类中的泛型方法
+class Test  //注意这是普通类
+{
+    public void Func1<T>(T value)
+    {
+        //传值
+        Console.WriteLine(value);
+    }
+    
+    public void Func2<T>(T value)
+    {
+        //可以使用泛型类型做逻辑处理
+        T t = default(T);
+    }
+    
+    public void Func3<T>(T value)
+    {
+        //可以作为返回值
+        return default(T);
+    }
+    
+    public void Func3<T1,T2,T3>(T1 value1,T2 value2,T3 value3)
+    {
+        //泛型占位字母可以有多个，用逗号分开
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test t = new Test();
+        t.Func1<int>(1);
+    }
+}
+```
+
+```cs 泛型类中的泛型方法
+
+```
 # 委托
 # 事件
-# 泛型
 # 枚举器和迭代器
 # LINQ
 # 异步编程
