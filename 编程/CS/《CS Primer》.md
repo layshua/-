@@ -2461,7 +2461,23 @@ class Program
 - 泛型相当于类型占位符
 - 定义类或方法时使用替代符代表变量类型/当真正使用类或者方法时再具体指定类型
 
-## 泛型类和泛型接口
+1. 不同类型对象的相同逻辑处理就可以选择泛型
+2. 使用泛型可以一定程度避免装箱拆箱
+```cs file:举例:优化ArrayList
+//实现一个可指定类型的ArrayList,这样可以避免使用Object类型的装箱拆箱操作
+class ArrayList<T>
+{
+    private T[] array;
+
+    public void Add(T value)
+    {
+        
+    }
+    //其他方法略...
+}
+```
+
+## 1 泛型类和泛型接口
 
 ```cs file:语法
 class 类名<泛型占位字母>
@@ -2509,12 +2525,13 @@ class Test : IInterface<int>
     public int value { get; set; }  
 }
 ```
-## 泛型函数
+## 2 泛型方法（函数）
 
 ```cs file:语法
 函数名<泛型占位字母>(参数列表)
 ```
 
+### 普通类中的泛型方法
 ```cs file:普通类中的泛型方法
 class Test  //注意这是普通类
 {
@@ -2527,7 +2544,7 @@ class Test  //注意这是普通类
     public void Func2<T>(T value)
     {
         //可以使用泛型类型做逻辑处理
-        T t = default(T);
+        T t = default(T);  //不确定泛型类型时获取默认值可以使用 default(占位字符)
     }
     
     public void Func3<T>(T value)
@@ -2552,9 +2569,75 @@ class Program
 }
 ```
 
-```cs 泛型类中的泛型方法
+### 泛型类中的泛型方法
+```cs file:泛型类中的泛型方法
+class Test<T> //注意这是泛型类
+{
+    public T value;
 
+
+    //注意这里传入的T是Test类指定的,而不是该函数的泛型,所以这个函数不是泛型函数
+    public void Func1(T t)
+    {
+        value = t;
+        Console.WriteLine(value);
+    }
+
+    //这里的K是泛型函数的泛型，所以Func2是泛型函数
+    public void Func2<K>(K k)
+    {
+        Console.WriteLine(k);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test<int> t = new Test<int>();
+        t.Func1(1);  //由于Func1不是泛型,所以这里的形参必须是int类型
+        t.Func2<string>("test"); //Func2是泛型，所以可以指定类型
+    }
+}
 ```
+## 3 泛型约束
+#where
+**让泛型的类型有一定的限制**
+关键字:`where`
+
+**泛型约束一共有 6 种**
+1. 值类型
+`where 泛型占位字母:struct`
+2. 引用类型
+`where 泛型占位字母:class`
+3. 存在无参公共构造函数
+`where 泛型占位字母: new ()`
+4. 某个类本身或者其派生类
+`where 泛型占位字母: 类名`
+5. 某个接口的派生类型
+`where 泛型占位字母: 接口名`
+6. 另一个泛型类型本身或者派生类型
+`where 泛型占位字母: 另一个泛型字母`
+
+![[Pasted image 20230530224846.png|500]]
+>这里泛型约束使用了值类型，当泛型使用 string（引用类型）时报错
+
+```cs file:可以同时指定多个约束，使用逗号
+class Test<T> where T : class, new()
+{
+    ...
+}
+```
+
+```cs file:多个泛型同时指定约束
+class Test<T,K> where T : class where K : struct
+{
+    ...
+}
+```
+
+## 4 泛型数据结构类
+
 # 委托
 # 事件
 # 枚举器和迭代器
