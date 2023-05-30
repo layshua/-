@@ -20,31 +20,20 @@
             }
           },
           {
+            "id": "a65301039c97e1f8",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
             "id": "e55f2824459023a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "编程/CS/唐老狮 C 进阶.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "0fceb07d32cf8b07",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "207838afde83dab1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/CS/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -178,11 +167,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "207838afde83dab1",
+  "active": "2ffd96a0bc8c2945",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230530224846.png",
     "编程/CS/唐老狮 C 进阶.md",
     "编程/CS/《CS Primer》.md",
+    "zip/images/Pasted image 20230530224846.png",
     "zip/templates/yaml_metadata.md",
     "编程/CS/唐老狮 C 基础.md",
     "编程/CS/唐老狮 C 核心.md",
@@ -204,7 +193,6 @@
     "zip/icons/simple-icons/Zomato.svg",
     "zip/icons/simple-icons/Zoiper.svg",
     "zip/icons/simple-icons/Zoho.svg",
-    "zip/icons/simple-icons/Zingat.svg",
     "zip/icons/simple-icons",
     "zBuffer/(31 条消息) 在 Windows 环境配置多版本 Java（Java8+Java16 为例）_StephenYTT 的博客 - CSDN 博客.md",
     "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",

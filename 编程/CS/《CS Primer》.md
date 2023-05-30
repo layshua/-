@@ -199,7 +199,7 @@ Console.WriteLine(a);
 ```
 
 
-# 一、变量和基本类型
+# 一、变量和类型
 ## 内置类型
 
 **值类型：** 无符号整形，有符号整形浮点数 char bool enum 结构体
@@ -275,7 +275,21 @@ Console.WriteLine($"{n1:0.00}");
 输出：3.33
 ```
 
-#### 结构体 struct
+### 引用类型
+
+|C# 类型关键字|. NET 类型|
+|---|---|
+|object|System. Object|
+|string|System. String|
+|dynamic |System. Object|
+
+在上表中，左侧列中的每个类型关键字（dynamic 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量： 
+```cs
+int a = 123;
+System.Int32 b = 123;
+```
+
+### 结构体 struct
 
 ```cs
  public struct Person
@@ -317,19 +331,6 @@ Console.WriteLine($"{n1:0.00}");
 >2. 对象是数据集合时，优先考虑结构体，比如位置、坐标等等
 >3. 从值类型和引用类型赋值时的区别上去考虑，比如经常被赋值传递的对象，并且改变赋值对象，原对象不想跟着变化时，就用结构体。比如坐标、向量、旋转等等
 
-### 引用类型
-
-|C# 类型关键字|. NET 类型|
-|---|---|
-|object|System.Object|
-|string|System.String|
-|dynamic |System.Object|
-
-在上表中，左侧列中的每个类型关键字（dynamic 除外）都是相应 .NET 类型的别名。它们是可互换的。例如，以下声明声明了相同类型的变量： 
-```cs
-int a = 123;
-System.Int32 b = 123;
-```
 ### string
 ```cs
 // 字符串本质是char数组
@@ -827,7 +828,7 @@ ArrayList：长度可以随意改变，可以存储任意类型的数据
 
 每次集合中实际包含的元素个数 (count)超过了可以包含的元素的个数 (capcity)的时候，集合就会向内存中申请**多开辟一倍**的空间，来保证集合的长度一直够用。
 
-ArrayList 中的元素都存储为 `object` 类型（可以存储任何类型数据），存在装箱拆箱的损耗，所以 ArrayList 尽量少用。
+ArrayList 中的元素都存储为 `object` 类型（可以存储任何类型数据），存在装箱拆箱的损耗，所以 ArrayList 尽量少用。**用 List 即可！**
 
 ```cs
 using System.Collections;
@@ -1067,6 +1068,142 @@ while (enumerator2.MoveNext())
 
 ### 排序列表（SortedList）
 ### 点阵列（BitArray）
+
+## 泛型数据结构类
+### List
+
+本质是一个**可变类型的泛型数组**，和 ArrayList 主要区别在于可以指定泛型类型，避免了装箱拆箱的性能损耗
+ 
+```cs
+using System.Collections.Generic;
+
+List<int> list = new List<int>();
+```
+
+```cs file:增
+//添加单个元素
+list.Add(1);
+
+//添加集合
+list.AddRange(new int[] { 2, 3, 4 });
+
+//插入指定位置
+list.Insert(1, 66);
+```
+
+```cs file:删
+list.Remove("张三"); //指定删除单个元素
+list.RemoveAt(0); //根据指定位置单个元素
+list.RemoveRange(0，n); //（从下标0开始删除n个）
+list.Clear(); //清空所有元素
+
+......
+```
+
+```cs file:查
+list[0];  //按下标查找
+list.Contains(1); //查看元素是否存在
+list.Count;   //list长度
+// 尽管搜索方向不一样，但是字符下标依然从左向右加1，从0开始。
+list.IndexOf(1);      //从左往右查找，找到返回下标，找不到返回-1
+list.LastIndexOf(1);  //从右往左查找，找到返回下标，找不到返回-1
+
+```
+
+```cs file:改
+list[0] = 1; //通过下标改
+list.Sort(); //升序排列
+list.Reverse(); //反转
+```
+
+```cs file:遍历
+//使用迭代器遍历
+foreach (var item in list)  
+{  
+Console.WriteLine(item);  
+}  
+  
+//for循环遍历  
+for (int i = 0; i < list.Count; i++)  
+{  
+Console.WriteLine(list[i]);  
+}
+```
+
+### Dictionary
+字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
+
+
+```cs file:增
+//键不能相同  
+hashtable.Add(1, "value1");  
+hashtable.Add("key", "value2");  
+hashtable.Add(true, "value3");
+```
+
+
+```cs file:删
+//根据键删除  
+hashtable.Remove(1);  
+hashtable.Clear();
+```
+
+
+```cs file:查
+//根据键查找值，如果键不存在，返回 null  
+Console.WriteLine(hashtable["2"]);  
+  
+//判断是否包含某个键  
+Console.WriteLine(hashtable.ContainsKey("key"));  
+  
+//判断是否包含某个值  
+Console.WriteLine(hashtable.ContainsValue("value4"));  
+  
+//获取键值对数量  
+Console.WriteLine(hashtable.Count);
+```
+
+```cs file:改
+//根据键修改
+hashtable["key"] = "value4";
+```
+
+```cs file:遍历
+//遍历所有键
+ICollection keys = hashtable.Keys;  //获取键的集合
+foreach (var item in keys) 
+{
+    Console.WriteLine(item);
+}
+
+//遍历所有值
+ICollection values = hashtable.Values; //获取值的集合
+foreach (var item in values)
+{
+    Console.WriteLine(item);
+}
+
+//键值对一起遍历
+foreach (DictionaryEntry item in hashtable)
+{
+    Console.WriteLine(item.Key + ":" + item.Value);
+}
+
+//迭代器遍历
+IEnumerator enumerator1 = hashtable.GetEnumerator();
+while (enumerator1.MoveNext())
+{
+    DictionaryEntry item = (DictionaryEntry)enumerator1.Current;
+    Console.WriteLine(item.Key + ":" + item.Value);
+}
+
+IDictionaryEnumerator enumerator2 = hashtable.GetEnumerator();
+while (enumerator2.MoveNext())
+{
+    Console.WriteLine(enumerator2.Key + ":" + enumerator2.Value);
+}
+```
+
 # 二、函数（方法）
 
 ```cs
@@ -2636,7 +2773,7 @@ class Test<T,K> where T : class where K : struct
 }
 ```
 
-## 4 泛型数据结构类
+
 
 # 委托
 # 事件
