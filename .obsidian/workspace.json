@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "图形学/5 书籍/RTR/资源.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/唐老狮 C 进阶.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -136,7 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 209.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -159,15 +160,34 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "2ffd96a0bc8c2945",
+  "active": "e55f2824459023a4",
   "lastOpenFiles": [
     "编程/CS/唐老狮 C 进阶.md",
+    "图形学/5 书籍/RTR/资源.md",
+    "zip/images/1685519117058.png",
+    "zBuffer/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（中）4_3 ~ 4_4_西河某人的博客 - CSDN 博客.md",
+    "zip/images/1685519116010.png",
+    "zip/images/1685519115252.png",
+    "zip/images/1685519114321.png",
+    "zip/images/1685519113577.png",
+    "zip/images/1685519112837.png",
+    "zip/images/1685519112005.png",
+    "zip/images/1685519111066.png",
+    "zip/images/1685519110237.png",
+    "zip/images/1685519109136.png",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 1 章 引言_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（下）2_4 ~ 2_6（20200720 翻新）_实时渲染第四版中文_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（上）2_1 ~ 2_3（20200720 翻新）_西河某人的博客 - CSDN 博客.md",
+    "zBuffer/(31 条消息) 在 Windows 环境配置多版本 Java（Java8+Java16 为例）_StephenYTT 的博客 - CSDN 博客.md",
     "编程/CS/《CS Primer》.md",
     "编程/C++/《C++ Primer》.md",
     "编程/CS/唐老狮 C 核心.md",
     "README.md",
     "Unity/教程.md",
-    "zip/images/Pasted image 20230530224846.png",
     "zip/templates/yaml_metadata.md",
     "编程/CS/唐老狮 C 基础.md",
     "编程/CS/Csharp四部曲.md",
@@ -178,28 +198,8 @@
     "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
     "AI/环境配置/Anaconda配置.md",
     "zip/icons/tabler-icons",
-    "zip/icons/simple-icons/Zyte.svg",
-    "zip/icons/simple-icons/Zwave.svg",
-    "zip/icons/simple-icons/Zulip.svg",
-    "zip/icons/simple-icons/Zotero.svg",
-    "zip/icons/simple-icons/Zorin.svg",
-    "zip/icons/simple-icons/Zoom.svg",
-    "zip/icons/simple-icons/Zomato.svg",
-    "zip/icons/simple-icons/Zoiper.svg",
-    "zip/icons/simple-icons/Zoho.svg",
     "zip/icons/simple-icons",
-    "zBuffer/(31 条消息) 在 Windows 环境配置多版本 Java（Java8+Java16 为例）_StephenYTT 的博客 - CSDN 博客.md",
-    "技术美术/04 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
-    "技术美术/02 水体渲染/真实感水体渲染.md",
-    "zBuffer/快速上手 SpringBoot 项目（登录注册保姆级教程） _ MakerHu 的博客.md",
-    "zBuffer/网传库洛游戏大裁员，真实情况如何，游戏行业最近什么情况？.md",
-    "编程/C++/Google C++风格.md",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/C++补充.md",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/设计模式/面向对象的七大原则.md",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
-    "编程/大作业/360全景看房.md",
     "编程/未命名",
     "编程/大作业",
     "未命名",
