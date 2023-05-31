@@ -3004,7 +3004,7 @@ class Test<T,K> where T : class where K : struct
 访问修饰符 delegate 返回值 委托名 (参数列表);
 ```
 
-## 委托的使用
+## 1 委托的使用
 ```cs
 //声明了一个委托，用来存储无返回值，函数参数为string类型的函数
 public delegate void MyDelegate(string message);
@@ -3029,7 +3029,7 @@ class Program
 }
 ```
 
-## 委托作为类的成员/函数参数
+## 2 委托作为类的成员/函数参数
 
 ```cs
 public delegate void MyDelegate(string message); //声明一个委托类型
@@ -3069,7 +3069,7 @@ class Program
 }
 ```
 
-## 多播委托
+## 3 多播委托
 多播的意思是**委托变量可以存储多个函数**
 
 `+=` 追加委托
@@ -3111,7 +3111,7 @@ class Program
 //第二个Hello World
 
 ```
-## 内置委托类型
+## 4 内置委托类型
 Action 和 Func 的区别是有无返回值
 ### Action
 `Action`：无参**无返回值。**
@@ -3178,7 +3178,7 @@ class Program
 }
 ```
 
-## 案例
+## 5 案例
 一家三口，妈妈做饭，爸爸妈妈和孩子都要吃饭
 用委托模拟做饭—>开饭—>吃饭的过程
 ```cs
@@ -3251,22 +3251,60 @@ class Program
 //妈妈吃饭
 ```
 
-## 协变逆变
-**协变 `out`:** 和谐的变化，自然的变化
-因为里氏替换原则父类可以装子类，所以子类变父类（比如 string 变成 object），感受是和谐的
-**逆变 `in`**：逆常规的变化，不正常的变化
-因为里氏替换原则父类可以装子类但是子类不能装父类，所以父类变子类（比如 object 变成 string），感受是不和谐的
+## 6 协变逆变（不常用）
+**协变 `out`:** 遵循里氏替换原则，父类的泛型委托可以装子类的泛型委托
+**逆变 `in`**：逆着来，子类的泛型委托可以装父类的泛型委托
 
-**协变和逆变是用来修饰泛型的**
-**用于在泛型中修饰泛型字母的，只能在泛型接口和泛型委托中使用**
+- **协变和逆变是用来修饰泛型的**
+- **用于在泛型中修饰泛型字母的，只能在泛型接口和泛型委托中使用**
 
 ### 作用
 用 `out` 修饰的泛型**只能作为返回值** 
 用 `in` 修饰的泛型**只能作为参数** `
 ```cs
+
 delegate T MyDelegate1<out T>();
 
 delegate void MyDelegate2<in T>(T t);
+    
+class Father
+{
+    public Father()
+    {
+        Console.WriteLine("Father");
+    }
+}
+
+class Son : Father
+{
+    public Son()
+    {
+        Console.WriteLine("Son");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //协变 父类总是能被子类替换
+        //父类的泛型委托可以装子类的泛型委托
+        MyDelegate1<Son> son1 = () => { return new Son(); };
+
+        MyDelegate1<Father> fathrer1 = son1;
+        
+        Father f = fathrer1(); //实际上返回的是son1里面装的函数
+        
+        //逆变 父类总是能被子类替换
+        //子类的泛型委托可以装父类的泛型委托
+        MyDelegate2<Father> fathrer2 = (value) => {  };
+        
+        MyDelegate2<Son> son2 = fathrer2;
+        
+        Son s = new Son(); //实际上返回的是father2里面装的函数
+    }
+}
+
 ```
 
 # 九、事件
@@ -3519,6 +3557,9 @@ finally
 ```
 
 # 反射和特性
+
+
+# 多线程
 
 # 面向对象七大原则  
 ![[6be61eb7b87ada15753dc35768da4317_MD5.png]]
