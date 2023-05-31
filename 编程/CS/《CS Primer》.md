@@ -3184,19 +3184,90 @@ class Program
 - 匿名函数的使用主要是配合委托和事件进行使用
 - 脱离委托和事件是不会使用匿名函数的
 
-基本语法
-delegate参数列表 {
-函数逻辑 1 /};
-```cs
+```cs file:语法
 delegate(参数列表)
 {
     //函数逻辑
 }
+
+//Lambda 表达式
+(参数列表)=>{ 函数逻辑 }
+
 ```
+
 **何时使用?**
 1. 函数中传递委托参数时
-2. 委托或事件赋值时
+2. 作为函数返回值
+3. 委托或事件赋值时
 
+**匿名函数的缺点：**
+添加到委托或事件容器中后不记录，无法使用 `-=` 指定移除
+
+## 使用方法
+```cs 
+//Action无参数无返回值
+Action action1 = delegate() { Console.WriteLine("Hello World!"); };   //这里的匿名函数只是声明
+
+action1(); //这里才是调用
+
+//Action有参数无返回值
+Action<string> action2 = delegate(string name) { Console.WriteLine("Hello " + name); };
+
+action2("World!");
+
+//Func无参数有返回值
+Func<string> func1 = delegate() { return "Hello World!"; };
+
+Console.WriteLine(func1());
+
+//Func有参数有返回值
+Func<string, string> func2 = delegate(string name) { return "Hello " + name; };
+
+Console.WriteLine(func2("World!"));
+
+//输出
+//Hello World!
+//Hello World!
+//Hello World!
+//Hello World!
+
+```
+
+```cs file:作为参数传递\作为函数返回值
+class Test
+{
+    public Action action;
+    
+    //作为参数传递
+    public void Dosomething(int a, Action fun)
+    {
+        Console.WriteLine(a);
+        fun();
+    }
+    
+    //作为函数返回值
+    public Action GetFun()
+    {
+        return delegate { Console.WriteLine("Hello World!"); };
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test t = new Test();
+        
+        //作为参数传递
+        t.Dosomething(100,delegate { Console.WriteLine("Hello World!"); });
+        
+        //作为函数返回值
+        Action ac = t.GetFun();
+        ac();
+        t.GetFun()();  //等价于上面两行代码，一步到位
+    }
+}
+```
 
 
 
