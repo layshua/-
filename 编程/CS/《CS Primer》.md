@@ -3185,6 +3185,9 @@ class Program
 - 脱离委托和事件是不会使用匿名函数的
 
 ```cs file:语法
+//以下两种方法等价：
+
+//delegate 委托匿名方法
 delegate(参数列表)
 {
     //函数逻辑
@@ -3207,22 +3210,22 @@ delegate(参数列表)
 ```cs 
 //Action无参数无返回值
 Action action1 = delegate() { Console.WriteLine("Hello World!"); };   //这里的匿名函数只是声明
-
+Action action1 = () => { Console.WriteLine("Hello World!"); };  //Lambda 表达式
 action1(); //这里才是调用
 
 //Action有参数无返回值
 Action<string> action2 = delegate(string name) { Console.WriteLine("Hello " + name); };
-
+Action<string> action2 = (string name) => { Console.WriteLine("Hello " + name); };  //Lambda 表达式
 action2("World!");
 
 //Func无参数有返回值
 Func<string> func1 = delegate() { return "Hello World!"; };
-
+Func<string> func1 = ()=> { return "Hello World!"; }; //Lambda 表达式
 Console.WriteLine(func1());
 
 //Func有参数有返回值
 Func<string, string> func2 = delegate(string name) { return "Hello " + name; };
-
+Func<string, string> func2 = (string name) => { return "Hello " + name; };//Lambda 表达式
 Console.WriteLine(func2("World!"));
 
 //输出
@@ -3270,7 +3273,50 @@ class Program
 ```
 
 
+## 闭包
+闭包：**内层的函数可以引用包含在它外层的函数的变量，即使外层函数的执行已经终止**
 
+注意：**该变量提供的值并非变量创建时的值，而是在父函数范围内的最终值。**
+
+```cs
+class Test
+{
+    public event Action action;
+
+    public Test()
+    {
+        int value = 10;
+        
+        action = () =>
+        {
+            Console.WriteLine(value);  //形成了闭包，改变了value的生命周期，直到action为null时value才会被释放。
+        };
+        
+        for(int i =0;i<10;i++)
+        {
+            action += () =>
+            {
+                Console.WriteLine(i); //形成了闭包，i最终值为10，所以会打印10个10
+            };
+        }
+    }
+    
+    public void DoSomthing()
+    {
+        action();
+    }
+
+    
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test t = new Test();
+        t.DoSomthing();
+    }
+}
+```
 # 枚举器和迭代器
 # LINQ
 # 异步编程
