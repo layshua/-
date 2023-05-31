@@ -3588,6 +3588,197 @@ class Program
 - 它是访问元数据的主要方式。  
 - 使用 Type 的成员获取有关类型声明的信息  
 - 有关类型的成员（如构造函数、方法、字段、属性和类的事件)
+
+
+> [!info] Title
+> 反射常用于跨文件获取数据，此案例只是为了演示功能，所以将所有代码放在一个文件中
+
+```cs file: 获取Type
+using System.Reflection;
+
+namespace MyNamespace;
+
+class Test
+{
+    private int i = 1;
+    public int j = 0;
+    public string str = "123";
+
+    public Test()
+    {
+        
+    }
+
+    public Test(int i)
+    {
+        this.i = i;
+    }
+
+    public Test(int i, string str) : this(i)
+    {
+        this.str = str;
+    }
+    
+    public void Speak()
+    {
+        Console.WriteLine(i);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int a = 42;
+        //⭐获取Type的三种方法，三种方法都指向堆中的同一个对象
+        //1.Object类中的GetType方法
+        Type t1 = a.GetType();
+        //2.通过typeof关键字
+        Type t2 = typeof(int);
+        //3. 通过类的名字，类名必须包含命名空间
+        Type t3 = Type.GetType("System.Int32");
+        
+        //⭐得到类的程序集信息
+        Console.WriteLine(t1.Assembly);
+        Console.WriteLine(t2.Assembly);
+        Console.WriteLine(t3.Assembly);
+        
+        ...
+    }
+}
+
+```
+
+- @ 以下代码都在 Main 函数中
+#### 获取类中的所有成员
+```cs file:获取类中的所有公共成员
+Type t4 = typeof(Test); //获取Test类的Type对象
+MemberInfo[] members = t4.GetMembers();  //获取Test类中的所有成员,需要引用命名空间using System.Reflection;
+for (int i = 0; i < members.Length; i++)
+{
+    Console.WriteLine(members[i]);
+    //输出如下：
+    //Void Speak()                     //Test类中的方法
+    //System.Type GetType()            //Object类中的方法
+    //System.String ToString()         //Object类中的方法
+    //Boolean Equals(System.Object)    //Object类中的方法
+    //Int32 GetHashCode()              //Object类中的方法
+    //Void .ctor()                     //Test类构造函数
+    //Void .ctor(Int32)                //Test类构造函数
+    //Void .ctor(Int32, System.String) //Test类构造函数
+    //Int32 j                          //Test类中的成员变量
+    //System.String str                //Test类中的成员变量
+}
+```
+#### 获取构造函数
+```cs file:获取类的公共构造函数并调用
+//1.获取所有构造函数
+ConstructorInfo[] ctors = t4.GetConstructors();
+for (int i = 0; i < ctors.Length; i++)
+{
+    Console.WriteLine(ctors[i]);
+}
+
+//2.获取其中一个构造函数并执行
+//得构造函数传入Type数组，数组中内容按顺序是参数类型
+//执行构造函数传入object数组，表示按顺序传入的参数
+//2.1 得到无参构造
+ConstructorInfo info1 = t4.GetConstructor(new Type[0]);
+//执行无参构造函数
+Test obj = info1.Invoke(null) as Test;//获得Test类的对象obj，无参构造函数传null
+Console.WriteLine(obj.j);  //通过obj即可访问到Test类中的成员变量
+//2.2 得到有参构造
+ConstructorInfo info2 = t4.GetConstructor(new Type[] {typeof(int)});
+obj = info2.Invoke(new object[] { 2 }) as Test;
+Console.WriteLine(obj.str);
+
+ConstructorInfo info3 = t4.GetConstructor(new Type[] {typeof(int), typeof(string)});
+obj = info3.Invoke(new object[] { 3, "456" }) as Test;
+```
+
+#### 获取类的公共成员变量
+```cs file:获取类的公共成员变量
+//1.获取所有成员变量
+FieldInfo[] fields = t4.GetFields();
+for (int i = 0; i < fields.Length; i++)
+{
+    Console.WriteLine(fields[i]);
+}
+
+//2.获取指定成员变量
+FieldInfo infoJ = t4.GetField("j");
+Console.WriteLine(infoJ); //返回Int32 J
+
+//3.通过反射获取和设置对象的值
+Test test = new Test();
+test.j = 99;
+test.str = "222";
+//3.1 通过反射 获取对象的某个变量的值
+Console.WriteLine(infoJ.GetValue(test)); //返回99 
+//3.2 通过反射 设置指定对象的某个变量的值
+infoJ.SetValue(test, 100);
+Console.WriteLine(test.j); //返回100
+
+```
+
+#### 获取类的成员方法
+```cs file:获取类的成员方法
+//使用Type类中的GetMethod方法
+//GetMethod方法传入方法名，返回MethodInfo(方法的反射信息)对象
+Type strType = typeof(string);
+//如果存在方法重载，用Type数组表示参数类型
+//1. 获取string类的所有方法
+MethodInfo[] methods = strType.GetMethods();
+for(int i =0; i < methods.Length; i++)
+{
+    Console.WriteLine(methods[i]);
+}
+
+//2. 获取String类的Substring方法，调用该方法
+MethodInfo subStr = strType.GetMethod
+    ("Substring",new Type[] { typeof(int), typeof(int) }); 
+//注意：如果是静态方法，Invoke的第一个参数传null即可
+string str = "Hello World";
+//第一个参数相当于，是哪个对象要执行这个成员方法
+object result = subStr.Invoke(str, new object[] { 0, 5 }); //调用Substring方法
+Console.WriteLine(result); //输出Hello
+```
+
+#### 其他
+得枚举
+`GetEnumName`
+`GetEnumNames`
+
+得事件
+`GetEvent` 
+`GetEvents`
+
+得接口
+`GetInterface`
+`GetInterfaces`
+
+得属性
+`GetProperty`
+`GetPropertys`
+
+## 特性
+1. 特性是一种**允许我们向程序的程序集添加元数据的语言结构，它是用于保存程序结构信息的某种特殊类型的类**
+2. 特性提供功能强大的方法以将声明信息与代码 （类型、方法、属性等）相关联。特性与程序实体关联后，即可在运行时使用反射查询特性信息
+3. 特性的目的是**告诉编译器把程序结构的某组元数据嵌入程序集中**，它可以放置在几乎所有的声明中 (类、变量、函数等等申明)
+
+说人话:
+- 特性本质是个类
+- 我们可以**利用特性类为元数据添加额外信息**，比如一个类、成员变量、成员方法等等为他们添加更多的额外信息之后可以通过反射来获取这些额外信息
+
+**基本语法:**
+```cs
+[特性名(参数列表)]
+```
+本质上就是在调用特性类的构造函数
+
+**写在哪里?**
+类、函数、变量上一行，表示他们具有该特性信息
+
 # 枚举器和迭代器
 # LINQ
 # 异步编程
