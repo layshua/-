@@ -2969,8 +2969,71 @@ class Program
 
 ```
 ## 内置委托类型
-Action：无参无返回值。
-Func<>：有返回值，可以指定返回值类型
+Action 和 Func 的区别是有无返回值
+### Action
+`Action`：无参**无返回值。**
+`Action<>`：有参**无返回值**，支持 0~16 个参数
+
+```cs file:y源码
+public delegate void Action();
+public delegate void Action<in T>(T obj);
+```
+
+```cs file:用法
+class Program
+{
+    static void Main(string[] args)
+    {
+        Action action1 = TestFunc1;
+        Action<string> action2 = TestFunc2;
+    }
+
+    //无参无返回值
+    static void TestFunc1()
+    {
+    }
+    
+    //有参无返回值
+    static void TestFunc2(string s)
+    {
+    }
+}
+```
+### Func
+`Func<>`：无参**有返回值**
+`Func<，>`：有参**有返回值**，支持 0~16 个参数
+
+```cs file:源码
+public delegate TResult Func<out TResult>(); //无参有返回值，TResult为返回值
+
+public delegate TResult Func<in T, out TResult>(T arg); //可以传入多个参数
+```
+
+```cs file:用法
+class Program
+{
+    static void Main(string[] args)
+    {
+        Func<int> func1 = TestFunc1;
+        Func<int, string> func2 = TestFunc2;
+
+        Console.WriteLine(func1());
+        Console.WriteLine(func2(100));  
+    }
+    
+    //无参有返回值
+    static int TestFunc1()
+    {
+        return 1;
+    }
+    
+    //有参有返回值
+    static string TestFunc2(int i)
+    {
+        return i.ToString();
+    }
+}
+```
 # 事件
 # 枚举器和迭代器
 # LINQ
