@@ -2849,6 +2849,7 @@ class Test<T,K> where T : class where K : struct
 - 用来存储、传递函数
 - 委托的本质是一个类，用来定义函数 (方法)的类型 (返回值和参数的类型)
 - 不同的函数必须对应和各自"格式"—致的委托
+- 支持泛型
 
 关键字 `delegate`
 
@@ -2860,6 +2861,7 @@ class Test<T,K> where T : class where K : struct
 访问修饰符 delegate 返回值 委托名 (参数列表);
 ```
 
+## 委托的使用
 ```cs
 //声明了一个委托，用来存储无返回值，函数参数为string类型的函数
 public delegate void MyDelegate(string message);
@@ -2884,14 +2886,91 @@ class Program
 }
 ```
 
-委托常用在:
-1. 作为类的成员
-2. 作为函数的参数
+## 委托作为类的成员/函数参数
+
+```cs
+public delegate void MyDelegate(string message); //声明一个委托类型
 
 
+public class DelegateClass
+{
+    //作为类的成员
+    public MyDelegate del;
 
+    //作为函数的参数
+    public void TestFunc(MyDelegate del)
+    {
+        string str = "Hello World";
+        del(str);
+    }
+}
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        DelegateClass dc = new DelegateClass();  //先实例化DelegateClass
+        dc.del = new MyDelegate(DelegateMethod); //再实例化委托del
+        
+        dc.del.Invoke("Hello World");  //调用委托对象，这里会调用DelegateMethod函数
+        dc.del("Hello World"); //等价的简化写法
+    }
 
+    static void DelegateMethod(string message)
+    {
+        Console.WriteLine(message);
+    }
+    
+    
+    
+}
+```
+
+## 多播委托
+多播的意思是**委托变量可以存储多个函数**
+
+`+=` 追加委托
+`-=` 移除委托
+`= null` 清空委托
+```cs
+public delegate void MyDelegate(string message); //声明一个委托类型
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyDelegate del = null;  //声明一个委托变量
+        del += DelegateMethod1; // += 追加委托
+        del += DelegateMethod2; // += 追加委托
+
+        //del -= DelegateMethod1; // -= 移除委托
+        //del = null;             // = null 清空委托
+
+        if (del != null)
+        {
+            del("Hello World"); //调用委托
+        }
+    }
+
+    static void DelegateMethod1(string message)
+    {
+        Console.WriteLine("第一个"+message);
+    }
+    
+    static void DelegateMethod2(string message)
+    {
+        Console.WriteLine("第二个"+message);
+    }
+}
+
+//结果：
+//第一个Hello World
+//第二个Hello World
+
+```
+## 内置委托类型
+Action：无参无返回值。
+Func<>：有返回值，可以指定返回值类型
 # 事件
 # 枚举器和迭代器
 # LINQ
