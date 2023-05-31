@@ -1050,7 +1050,6 @@ list.LastIndexOf(1);  //从右往左查找，找到返回下标，找不到返�
 
 //改
 list[0] = 1; //通过下标改
-list.Sort(); //升序排列
 list.Reverse(); //反转
 ```
 
@@ -1068,6 +1067,152 @@ Console.WriteLine(list[i]);
 }
 ```
 
+#### List 排序
+内置变量一般通过 Sort 方法进行进行排序，自定义类则需要自己写方法。
+```cs
+list.Sort(); //升序排列
+```
+##### 自定义类的排序
+
+1. 继承 `IComparable<Item>` 接口
+2. 实现接口的方法 `CompareTo(Item other)` 方法
+
+```cs file:自定义类的排序
+class Item : IComparable<Item> //继承IComparable接口
+{
+    public int money;
+    
+    public Item(int money)
+    {
+        this.money = money;
+    }
+
+    public int CompareTo(Item other)  //实现接口的方法
+    {
+        //返回值的含义
+        //<0：放在传入对象的前面
+        //=0：保持当前的位置不变
+        //>0：放在传入对象的后面
+        
+        //可以简单理解传入对象的位置就是0
+        //返回负数就放在它的左边，也就是前面
+        //返回正数就放在它的右边，也就是后面
+        
+        //以下实现类的升序排序
+        if (this.money > other.money) //如果当前对象的money大于传入对象的money
+        {
+            return 1; //返回正数，放在传入对象的后面
+        }
+        else if (this.money == other.money) //如果当前对象的money等于传入对象的money
+        {
+            return 0; //返回0，保持当前位置不变
+        }
+        else //如果当前对象的money小于传入对象的money
+        {
+            return -1; //返回负数，放在传入对象的前面
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //自定义类的排序
+        List<Item> itemList = new List<Item>();
+        
+        itemList.Add(new Item(10));
+        itemList.Add(new Item(25));
+        itemList.Add(new Item(13));
+        itemList.Add(new Item(40));
+        itemList.Sort();
+        
+        for(int i =0;i<itemList.Count;i++)
+        {
+            Console.WriteLine(itemList[i].money);
+        }
+    }
+}
+
+//输出
+//10
+//13
+//25
+//40
+```
+##### 通过委托函数排序
+```cs
+
+class Item
+{
+    public int money;
+    
+    public Item(int money)
+    {
+        this.money = money;
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //自定义类的排序
+        List<Item> itemList = new List<Item>();
+        
+        itemList.Add(new Item(10));
+        itemList.Add(new Item(25));
+        itemList.Add(new Item(13));
+        itemList.Add(new Item(40));
+        itemList.Sort(SortItem);   //传入一个委托,委托的参数为两个对象,返回值为int
+        // 也可以使用匿名函数简化
+        // itemList.Sort((Item a, Item b) => {  if (a.money > b.money)
+        //     {
+        //         return 1;
+        //     }
+        //     else if (a.money == b.money)
+        //     {
+        //         return 0;
+        //     }
+        //     else
+        //     {
+        //         return -1;
+        //     }     });  
+        
+        for(int i =0;i<itemList.Count;i++)
+        {
+            Console.WriteLine(itemList[i].money);
+        }
+        
+        //以下实现类的升序排序
+        static int SortItem(Item a, Item b)
+        {
+            //传入的两个对象为列表中的两个对象
+            //进行两两的比较,用左边的和右边的条件比较
+            //返回值规则和之前一样, 0做标准,负数在左（前),正数在右（后)
+            if (a.money > b.money)
+            {
+                return 1;
+            }
+            else if (a.money == b.money)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }    
+        }
+    }
+}
+
+//输出
+//10
+//13
+//25
+//40
+```
 ### Dictionary<>
 字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
 
