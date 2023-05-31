@@ -2806,7 +2806,6 @@ class Program
 }
 ```
 ## 3 泛型约束
-#where
 **让泛型的类型有一定的限制**
 关键字:`where`
 
@@ -2910,7 +2909,7 @@ class Program
     static void Main(string[] args)
     {
         DelegateClass dc = new DelegateClass();  //先实例化DelegateClass
-        dc.del = new MyDelegate(DelegateMethod); //再实例化委托del
+        dc.del = DelegateMethod; //再实例化委托del
         
         dc.del.Invoke("Hello World");  //调用委托对象，这里会调用DelegateMethod函数
         dc.del("Hello World"); //等价的简化写法
@@ -3034,7 +3033,173 @@ class Program
     }
 }
 ```
-# 事件
+
+## 案例
+一家三口，妈妈做饭，爸爸妈妈和孩子都要吃饭
+用委托模拟做饭—>开饭—>吃饭的过程
+```cs
+namespace MyNamespace;
+
+public abstract class Person
+{
+    public abstract void Eat();
+}
+
+public class Mother : Person
+{
+    public Action beginEat;  //Action委托
+    
+    public override void Eat()
+    {
+        Console.WriteLine("妈妈吃饭");
+    }
+    
+    public void Cook()
+    {
+        Console.WriteLine("妈妈做饭");
+        Console.WriteLine("饭做好了");
+        
+        if (beginEat != null)
+        {
+            beginEat();   //调用委托
+        }
+    } 
+}
+
+public class Father : Person
+{
+    public override void Eat()
+    {
+        Console.WriteLine("爸爸吃饭");
+    }
+}
+
+public class Child : Person
+{
+    public override void Eat()
+    {
+        Console.WriteLine("孩子吃饭");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Mother mother = new Mother();
+        Father father = new Father();
+        Child child = new Child();
+        
+        
+        mother.beginEat += father.Eat;
+        mother.beginEat += child.Eat;
+        mother.beginEat += mother.Eat;
+        
+        mother.Cook();
+    }
+}
+
+//输出：
+//妈妈做饭
+//饭做好了
+//爸爸吃饭
+//孩子吃饭
+//妈妈吃饭
+```
+# 九、事件
+- 事件是基于委托的存在
+- 事件是委托的安全包裹
+- 让委托的使用更具有安全性
+- 事件是一种特殊的变量类型
+
+**语法:**
+```cs
+访问修饰符 event 委托类型 事件名;
+```
+
+**事件的使用:**
+1. 事件是作为成员变量存在于类中
+2. 委托怎么用，事件就怎么用
+
+**事件相对于委托的区别:**
+1. 不能在类外部使用 `=`  赋值，但可以在类外追加减少 `+=`   `-=` 委托
+2. 不能在类外部调用
+3. 事件只能作为成员存在于类和接口以及结构体中，而委托可以作为临时变量在函数中使用。
+
+> [!question] 为什么使用事件？
+> 1. 防止外部随意置空委托
+>2. 防止外部随意调用委托
+>3. 事件相当于对委托进行了一次封装让其更加安全
+
+```cs
+namespace MyNamespace;
+
+class Test
+{
+    public event Action myEvent;  //声明一个事件，事件的类型是委托类型，这里是Action
+
+    public Test()
+    {
+        //事件的使用方法和委托一样
+        myEvent = null;
+        myEvent += TestFunc1;
+        myEvent += TestFunc2;
+        
+        myEvent();
+    }
+
+    public void TestFunc1()
+    {
+        Console.WriteLine("TestFunc1");
+    }
+    
+    public void TestFunc2()
+    {
+        Console.WriteLine("TestFunc2");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test t = new Test();
+        
+        t.myEvent = null; //error！事件不能在类外赋值
+        t.myEvent += t.TestFunc1; //正确, 可以追加减少委托
+        
+        t.myEvent(); //error！事件不能在类外调用
+    }
+}
+//输出
+//TestFunc1
+//TestFunc2
+
+
+
+```
+
+# 十、匿名函数
+- 顾名思义，就是没有名字的函数
+- 匿名函数的使用主要是配合委托和事件进行使用
+- 脱离委托和事件是不会使用匿名函数的
+
+基本语法
+delegate参数列表 {
+函数逻辑 1 /};
+```cs
+delegate(参数列表)
+{
+    //函数逻辑
+}
+```
+**何时使用?**
+1. 函数中传递委托参数时
+2. 委托或事件赋值时
+
+
+
+
 # 枚举器和迭代器
 # LINQ
 # 异步编程
