@@ -813,13 +813,12 @@ int[][] arr5 =
 nums.GetLength(0) //获取行数
 nums[0].Length(1) //获取某一行的列数
 ```
-## 集合（Collection）类
+## 集合类（Collection）
 
 集合（Collection）类是专门用于数据存储和检索的类。这些类提供了对栈（stack）、队列（queue）、列表（list）和哈希表（hash table）的支持。大多数集合类实现了相同的接口。
 
 集合（Collection）类服务于不同的目的，如为元素动态分配内存，基于索引访问列表项等等。**这些类创建 Object 类的对象的集合**。在 C# 中，Object 类是所有数据类型的基类。
-
-
+ 
 下面是各种常用的 **System. Collection** 命名空间的类：
 
 ### ArrayList （动态数组）
@@ -1019,7 +1018,10 @@ while (enumerator2.MoveNext())
 ```
 
 ## 泛型数据结构类
-### List
+泛型数据结构类和集合类区别：
+1. 泛型数据结构类可以指定泛型类型
+2. 集合类数据类型都是 Object 类型，有装箱拆箱的性能损耗
+### List<>
 
 本质是一个**可变类型的泛型数组**，和 ArrayList 主要区别在于可以指定泛型类型，避免了装箱拆箱的性能损耗
  
@@ -1066,7 +1068,7 @@ Console.WriteLine(list[i]);
 }
 ```
 
-### Dictionary
+### Dictionary<>
 字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
 
 ```cs file:增删查改
@@ -1127,7 +1129,7 @@ while (enumerator.MoveNext())
 }
 ```
 
-### LinkedList 和 LinkedListNode
+### LinkedList<> 和 LinkedListNode<>
 LinkedList 本质是一个**可变类型的泛型双向链表**
 LinkedListNode 是链表节点类
 
@@ -1185,8 +1187,7 @@ while (last != null)
 }
 ```
 
-### 泛型栈和队列
-### Stack
+### Stack<>
 栈，先进后出
 
 ```cs
@@ -1229,10 +1230,10 @@ while (stack.Count>0)
     object p = stack.Pop();
 }
 ```
-### Queue
+### Queue<>
 队列，先进先出
 ```cs 
-Queue queue = new Queue();
+Queue<int> queue = new Queue<int>();
 
 //入队
 queue.Enqueue("1");   、
@@ -2842,7 +2843,55 @@ class Test<T,K> where T : class where K : struct
 
 
 
-# 委托
+# 八、委托
+- **委托是函数的容器**
+- 可以理解为表示函数的变量类型
+- 用来存储、传递函数
+- 委托的本质是一个类，用来定义函数 (方法)的类型 (返回值和参数的类型)
+- 不同的函数必须对应和各自"格式"—致的委托
+
+关键字 `delegate`
+
+写在哪里?
+可以申明在 namespace 和 class 语句块中，更多的写在 namespace 中
+
+```cs file:语法:
+//简单记忆委托语法就是函数申明语法前面加一个 delegate 关键字
+访问修饰符 delegate 返回值 委托名 (参数列表);
+```
+
+```cs
+//声明了一个委托，用来存储无返回值，函数参数为string类型的函数
+public delegate void MyDelegate(string message);
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //实例化一个委托对象（只传入函数名）
+        MyDelegate del = new MyDelegate(DelegateMethod);
+        MyDelegate del = DelegateMethod; //等价的简化写法
+        
+        //调用委托对象，这里会调用DelegateMethod函数
+        del.Invoke("Hello World");
+        del("Hello World"); //等价的简化写法
+    }
+
+    static void DelegateMethod(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+```
+
+委托常用在:
+1. 作为类的成员
+2. 作为函数的参数
+
+
+
+
+
 # 事件
 # 枚举器和迭代器
 # LINQ
