@@ -6,6 +6,7 @@ tags: []
 create_time: 2023-05-26 12:41
 uid: 202305261241
 banner: "![[Pasted image 20230526124440.png]]"
+banner_y: 0.5
 ---
 
 # 零、特性
@@ -1017,9 +1018,6 @@ while (enumerator2.MoveNext())
 }
 ```
 
-### 排序列表（SortedList）
-### 点阵列（BitArray）
-
 ## 泛型数据结构类
 ### List
 
@@ -1186,6 +1184,93 @@ while (last != null)
     node4 = node4.Previous;
 }
 ```
+
+### 泛型栈和队列
+### Stack
+栈，先进后出
+
+```cs
+Stack<int> stack = new Stack<int>();
+
+//压栈  
+stack.Push("1");  
+  
+//出栈  
+stack.Pop();
+
+//查
+//栈无法查看指定位置的元素,只能查看栈顶的内容  
+s = stack.Peek(); //注意只是查看，不是出栈  
+stack.Contains("1"); //查看元素是否存在于栈中  
+stack.Count; //栈的长度
+
+//改
+stack.Clear(); //清空栈  
+```
+
+```cs file:遍历
+//栈不能使用[]访问，所以无法使用for循环遍历，一般使用foreach
+foreach (var item in stack)
+{
+    Console.WriteLine(item);
+}
+
+//另一种方式
+//将队列转换为object数组
+object[] array = stack.ToArray();
+for(int i =0;i<array.Length;i++)
+{
+    Console.WriteLine(array[i]);
+}
+
+//循环出栈
+while (stack.Count>0)
+{
+    object p = stack.Pop();
+}
+```
+### Queue
+队列，先进先出
+```cs 
+Queue queue = new Queue();
+
+//入队
+queue.Enqueue("1");   、
+//出队
+queue.Dequeue();
+
+//查
+
+queue.Peek();  //查看队列头元素但不会移除  
+queue.Contains("1"); //查看队列中是否包含某个元素  
+queue.Count;//队列长度  
+
+//改
+queue.Clear();  //清空队列  
+```
+
+```cs file:遍历
+//队列不能使用[]访问，所以无法使用for循环遍历，一般使用foreach
+foreach (var item in queue)
+{
+    Console.WriteLine(item);
+}
+
+//另一种方式
+//将队列转换为object数组
+object[] array = queue.ToArray();
+for(int i =0;i<array.Length;i++)
+{
+    Console.WriteLine(array[i]);
+}
+
+//循环出队
+while (queue.Count > 0)  
+{  
+    object v5 = queue.Dequeue();  
+}
+```
+
 # 二、函数（方法）
 
 ```cs
