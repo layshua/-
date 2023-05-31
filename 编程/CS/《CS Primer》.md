@@ -831,37 +831,24 @@ ArrayList：长度可以随意改变，可以存储任意类型的数据
 ArrayList 中的元素都存储为 `object` 类型（可以存储任何类型数据），存在装箱拆箱的损耗，所以 ArrayList 尽量少用。**用 List 即可！**
 
 ```cs
-using System.Collections;
-
 ArrayList array = new ArrayList();
-```
 
-```cs file:增
-//添加单个元素：list.Add();
-array.Add(1);
+//增
+array.Add(1); //添加单个元素：list.Add();
 array.Add(2.1);
 array.Add(true);
 array.Add("张三");
 
-//添加集合：list.AddRange();
-array.AddRange(new int[] { 1, 2, 3, 4, 5 });
-array.AddRange(list);  //自己放自己
+array.AddRange(new int[] { 1, 2, 3, 4, 5 });  //添加集合：list.AddRange();
+array.insert(1,"李四"); //插入指定位置
 
-//插入指定位置
-array.insert(1,"李四");
-
-```
-
-```cs file:删
+//删
 array.Remove("张三"); //指定删除单个元素
 array.RemoveAt(0); //根据指定位置单个元素
 array.RemoveRange(0，n); //（从下标0开始删除n个）
 array.Clear(); //清空所有元素
 
-......
-```
-
-```cs file:查
+//查
 array[0];  //按下标查找
 array.Contains("张三"); //查看元素是否存在
 
@@ -869,12 +856,11 @@ array.Contains("张三"); //查看元素是否存在
 array.IndexOf("张三");      //从左往右查找，找到返回下标，找不到返回-1
 array.LastIndexOf("张三");  //从右往左查找，找到返回下标，找不到返回-1
 
-```
-
-```cs file:改
+//改
 array[0] = "李四"; //通过下标改
 array.Sort(); //升序排列
 array.Reverse(); //反转
+
 ```
 
 ```cs file:遍历
@@ -890,36 +876,25 @@ foreach (var item in array)
 栈，先进后出
 
 ```cs
-using System.Collections;  
-  
 Stack stack = new Stack();
-```
 
-```cs file:压栈、出栈
 //压栈  
 stack.Push("1");  
   
 //出栈  
 stack.Pop();
-```
 
-```cs file:查
+//查
 //栈无法查看指定位置的元素,只能查看栈顶的内容  
 s = stack.Peek(); //注意只是查看，不是出栈  
-  
-//查看元素是否存在于栈中  
-stack.Contains("1");
+stack.Contains("1"); //查看元素是否存在于栈中  
+stack.Count; //栈的长度
 
-//栈的长度
-stack.Count;
+//改
+stack.Clear(); //清空栈  
 ```
 
-```cs file:改
-//清空栈  
-stack.Clear();
-```
-
-```cs file:b遍历
+```cs file:遍历
 //栈不能使用[]访问，所以无法使用for循环遍历，一般使用foreach
 foreach (var item in stack)
 {
@@ -942,32 +917,22 @@ while (stack.Count>0)
 ```
 ### Queue
 队列，先进先出
-```cs
-using System.Collections;  
-  
+```cs 
 Queue queue = new Queue();
-```
 
-```cs file:入队、出队
 //入队
 queue.Enqueue("1");   、
 //出队
 queue.Dequeue();
-```
 
-```cs file:查
-//查看队列头元素但不会移除  
-queue.Peek();  
-//查看队列中是否包含某个元素  
-queue.Contains("1");
+//查
 
-//队列长度  
-queue.Count;
-```
+queue.Peek();  //查看队列头元素但不会移除  
+queue.Contains("1"); //查看队列中是否包含某个元素  
+queue.Count;//队列长度  
 
-```cs file:改
-//清空队列  
-queue.Clear();  
+//改
+queue.Clear();  //清空队列  
 ```
 
 ```cs file:遍历
@@ -994,45 +959,26 @@ while (queue.Count > 0)
 
 ### Hashtable
 哈希表（又称散列表），键值对
-```cs
-using System.Collections;  
-  
+```cs file:增删查改
 Hashtable hashtable = new Hashtable();
-```
 
-```cs file:增
-//键不能相同  
+//增：键不能相同  
 hashtable.Add(1, "value1");  
 hashtable.Add("key", "value2");  
-hashtable.Add(true, "value3");
-```
+hashtable.Add(true, "value3");、
 
-
-```cs file:删
-//根据键删除  
-hashtable.Remove(1);  
+//删
+hashtable.Remove(1);   //根据键删除  
 hashtable.Clear();
-```
 
+//查
+hashtable["2"];  //根据键查找值，如果键不存在，返回 null  
+hashtable.ContainsKey("key");  //判断是否包含某个键  
+hashtable.ContainsValue("value4");  //判断是否包含某个值  
+hashtable.Count; //获取键值对数量  
 
-```cs file:查
-//根据键查找值，如果键不存在，返回 null  
-Console.WriteLine(hashtable["2"]);  
-  
-//判断是否包含某个键  
-Console.WriteLine(hashtable.ContainsKey("key"));  
-  
-//判断是否包含某个值  
-Console.WriteLine(hashtable.ContainsValue("value4"));  
-  
-//获取键值对数量  
-Console.WriteLine(hashtable.Count);
-```
-
-
-```cs file:改
-//根据键修改
-hashtable["key"] = "value4";
+//改
+hashtable["key"] = "value4";  //根据键修改
 ```
 
 ```cs file:遍历
@@ -1079,33 +1025,22 @@ while (enumerator2.MoveNext())
 
 本质是一个**可变类型的泛型数组**，和 ArrayList 主要区别在于可以指定泛型类型，避免了装箱拆箱的性能损耗
  
-```cs
-using System.Collections.Generic;
-
+```cs file:增删查改
 List<int> list = new List<int>();
-```
 
-```cs file:增
-//添加单个元素
-list.Add(1);
+//增
 
-//添加集合
-list.AddRange(new int[] { 2, 3, 4 });
+list.Add(1);//添加单个元素
+list.AddRange(new int[] { 2, 3, 4 });//添加集合
+list.Insert(1, 66);//插入指定位置
 
-//插入指定位置
-list.Insert(1, 66);
-```
-
-```cs file:删
+//删
 list.Remove("张三"); //指定删除单个元素
 list.RemoveAt(0); //根据指定位置单个元素
 list.RemoveRange(0，n); //（从下标0开始删除n个）
 list.Clear(); //清空所有元素
 
-......
-```
-
-```cs file:查
+//查
 list[0];  //按下标查找
 list.Contains(1); //查看元素是否存在
 list.Count;   //list长度
@@ -1113,9 +1048,7 @@ list.Count;   //list长度
 list.IndexOf(1);      //从左往右查找，找到返回下标，找不到返回-1
 list.LastIndexOf(1);  //从右往左查找，找到返回下标，找不到返回-1
 
-```
-
-```cs file:改
+//改
 list[0] = 1; //通过下标改
 list.Sort(); //升序排列
 list.Reverse(); //反转
@@ -1138,26 +1071,18 @@ Console.WriteLine(list[i]);
 ### Dictionary
 字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
 
-```cs
-using System.Collections.Generic;  
-
+```cs file:增删查改
 Dictionary<int,string> dictionary = new Dictionary<int, string>();
-```
 
-```cs file:增
-//键不能相同  
+//增：键不能相同  
 dictionary.Add(1, "one");
-```
 
-```cs file:删
-//根据键删除  
+//删：根据键删除 
 dictionary.Remove(1);
 dictionary.Clear();
-```
 
-```cs file:查
-//通过建获取值
-string v1 = dictionary[1];  //如果不存在会抛出异常
+//查
+string v1 = dictionary[1];  //通过建获取值如果，不存在会抛出异常
 
 //通过TryGetValue获取值
 string v2;
@@ -1166,19 +1091,12 @@ if (dictionary.TryGetValue(1, out v2))
     //存在
 }
 
-//判断是否包含某个键  
-dictionary.ContainsValue("one")
-  
-//判断是否包含某个值  
-dictionary.ContainsKey(1)
-  
-//获取键值对数量  
-dictionary.Count
-```
+dictionary.ContainsValue("one")  //判断是否包含某个键  
+dictionary.ContainsKey(1)  //判断是否包含某个值  
+dictionary.Count  //获取键值对数量  
 
-```cs file:改
-//根据键修改
-dictionary[1] = "ONE";
+//改
+dictionary[1] = "ONE";  //根据键修改
 ```
 
 ```cs file:遍历
@@ -1215,8 +1133,7 @@ while (enumerator.MoveNext())
 LinkedList 本质是一个**可变类型的泛型双向链表**
 LinkedListNode 是链表节点类
 
-```cs
-//声明
+```cs file:增删查改
 LinkedList<int> linkedList = new LinkedList<int>();  
 LinkedListNode<int> first = linkedList.First; //获取头节点  
 LinkedListNode<int> last = linkedList.Last; //获取尾节点  
@@ -1238,6 +1155,36 @@ linkedList.Clear(); //清空链表
 linkedList.Contains(1); //是否包含指定元素  
 LinkedListNode<int> node1 = linkedList.Find(1); //查找指定元素  
 LinkedListNode<int> node2 = linkedList.FindLast(1); //查找最后一个指定元素
+
+//改  
+//要先得到再改，得到节点，再改变其中的值  
+LinkedListNode<int> node3 = linkedList.Find(1);  
+node3.Value = 2;
+```
+
+```cs file:b遍历
+//通过foreach遍历
+foreach (var item in linkedList)
+{
+    Console.WriteLine(item);
+}
+
+//通过节点遍历 
+//从头到尾
+LinkedListNode<int> first = linkedList.First;
+while (first != null)
+{
+    Console.WriteLine(node.Value);
+    node = node.Next;
+} 
+
+//从尾到头
+LinkedListNode<int> last = linkedList.Last;
+while (last != null)
+{
+    Console.WriteLine(node4.Value);
+    node4 = node4.Previous;
+}
 ```
 # 二、函数（方法）
 
