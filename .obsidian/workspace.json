@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "zip/dailynote/行李.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "zip/dailynote/行李.md"
               }
             }
           }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "zip/dailynote/行李.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "zip/dailynote/行李.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -162,18 +162,21 @@
   },
   "active": "e55f2824459023a4",
   "lastOpenFiles": [
-    "图形学/5 书籍/RTR/资源.md",
+    "zip/images/Pasted image 20230601170011.png",
+    "zip/images/Pasted image 20230601165909.png",
+    "zip/images/Pasted image 20230601165858.png",
+    "zip/images/Pasted image 20230601165711.png",
+    "zip/images/Pasted image 20230601165517.png",
+    "zip/images/Pasted image 20230601165357.png",
+    "zip/images/Pasted image 20230601165354.png",
+    "zip/dailynote/前往斯旺西.md",
+    "zip/dailynote/行李.md",
     "编程/CS/《CS Primer》.md",
+    "图形学/5 书籍/RTR/资源.md",
     "zip/icons/tabler-icons/Superscript.svg",
     "zip/icons/tabler-icons/Sunset.svg",
     "zip/icons/tabler-icons/Sunset2.svg",
     "zip/icons/tabler-icons/Sunrise.svg",
-    "zip/icons/tabler-icons/Sunglasses.svg",
-    "zip/icons/tabler-icons/Sun.svg",
-    "zip/icons/tabler-icons/SunWind.svg",
-    "zip/icons/tabler-icons/SunOff.svg",
-    "zip/icons/tabler-icons/SunMoon.svg",
-    "zip/icons/tabler-icons/SunLow.svg",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
@@ -202,8 +205,6 @@
     "Tools/System/控制面板.md",
     "Tools/Git/git入门.md",
     "Tools/工具流.md",
-    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
-    "AI/环境配置/Anaconda配置.md",
     "zip/icons/simple-icons",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/未命名",
