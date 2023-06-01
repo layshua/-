@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "LiGamepad2",
       "➕",
       "#️⃣",
       "SiAmp",
-      "SiZincsearch",
-      "🎮"
+      "SiZincsearch"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -32,6 +32,6 @@
   "zBuffer": "SiBuffer",
   "zip": "SiAmp",
   "图形学": "SiTaichigraphics",
-  "README.md": "SiGamejolt",
+  "README.md": "LiGamepad2",
   "Unity": "SiUnity"
 }
