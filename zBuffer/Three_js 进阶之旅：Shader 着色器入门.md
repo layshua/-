@@ -1,7 +1,5 @@
 本文为稀土掘金技术社区首发签约文章，14 天内禁止转载，14 天后未获授权禁止转载，侵权必究！
 
-## 摘要
-
 本文内容主要介绍 `Three.js` 中的着色器知识，通过讲解什么是着色器、着色器的分类、`GLSL` 语言的核心语法要点、`Three.js` 中的两种着色器材质的 `RawShaderMaterial` 和 `ShaderMaterial` 的区别和用法等基本知识，深入理解着色器，并使用它创建出有趣的三维图形。
 
 本文篇幅较长，涉及到的知识点也比较广，内容可能相对枯燥，有些地方需要耐心思考。我相信通过纵览全文，掌握全文的核心要点，一定会获益匪浅，着色器**入门者**建议收藏起来定期复习`🤣`。
@@ -21,23 +19,8 @@
 
 `🔗` 代码仓库地址：[git@github.com:dragonir/threejs-ode…](https://link.juejin.cn?target=)
 
-## 码上掘金
-
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAJElEQVRoge3BMQEAAADCoPVP7WkJoAAAAAAAAAAAAAAAAAAAbjh8AAFte11jAAAAAElFTkSuQmCC)
 
 ## 正文
-
-### Shader 着色器简介
-
-着色器是 `WebGL` 的重要组件之一，它是一种使用 `GLSL` 语言编写的运行在 `GPU` 上的程序。顾名思义，着色器用于定位几何体的每个顶点，并为几何体的每个可见像素进行着色 `🎨`。着色器是屏幕上呈现画面之前的最后一步，用它可以实现对先前渲染结果进行修改，如颜色、位置等，也可以对先前渲染的结果做后处理，实现高级的渲染效果。
-
-例如，对于相同场景、相同光照、相同模型等条件下，对这个模型分别使用不同的着色器，就会呈现出完全不同的渲染效果：使用 `plastic shader` 的模型渲染出塑料质感，而使用了 `toon shader` 的模型则看起来是二维卡通效果。
-
-![](<images/1685672274748.png>)
-
-### 为什么要使用着色器
-
-虽然 `Three.js` 已经内置了非常多的材质，但是在实际开发中很难满足我们的需求，比如在数字孪生系统的开发中，我们经常需要添加一些炫酷的**飞线效果**、**雷达效果**等 `✨`，它们是无法直接使用 `Three.js` 来生成，此时就需要我们创建自己的着色器。而且出于性能的考虑，我们也可以使用自己的着色器材质代替像 `MeshStandardMaterial` 这样的材质非常精细涉及大量代码和计算的材质，以便于提升页面性能。
 
 ### 着色器的类型
 
@@ -45,7 +28,9 @@
 
 `Vertex Shader` 用于定位几何体的顶点，它的工作原理是发送顶点位置、网格变换（`position`、旋`rotation`和 `scale` 等）、摄像机信息（`position`、`rotation`、`fov` 等）。`GPU` 将按照 `Vertex Shader` 中的指令处理这些信息，然后将顶点投影到 `2D` 空间中渲染成 `Canvas`。
 
-当使用 `Vertex Shader` 时，它的代码将作用于几何体的每个顶点。在每个顶点之间，有些数据会发生变化，这类数据称为 `attribute`；有些数据在顶点之间永远不会变化，称这种数据为 `uniform`。`Vertex Shader` 会首先触发，当顶点被放置，`GPU` 知道几何体的哪些像素可见，然后执行 `Fragment Shader`。
+当使用 `Vertex Shader` 时，它的代码将作用于几何体的每个顶点。
+- **在每个顶点之间，有些数据会发生变化，这类数据称为 `attribute`；**
+- **有些数据在顶点之间永远不会变化，称这种数据为 `uniform`。**
 
 *   `attribute`：使用顶点数组封装每个顶点的数据，一般用于每个顶点都各不相同的变量，如顶点的位置。
 *   `uniform`：顶点着色器使用的常量数据，不能被修改，一般用于对同一组顶点组成的单个 `3D` 物体中所有顶点都相同的变量，如当前光源的位置。
@@ -56,9 +41,8 @@
 
 `Fragment Shader` 中最直接的指令就是可以使用相同的颜色为所有像素进行着色。如果只设置了颜色属性，就相当于得到了与 `MeshBasicMaterial` 等价的材质。如果我们将光照的位置发送给 `Fragment Shader`，然后根据像素收到光照影响的多少来给像素上色，此时就能得到与 `MeshPhongMaterial` 效果等价的材质。
 
-*   `varying`: 从顶点着色器发送到片元着色器中的插值计算数据
+*   **`varying`: 从顶点着色器发送到片元着色器中的插值计算数据**
 
-`📌` 以下内容示例流程翻译、并整理于[《three.js journey》](https://link.juejin.cn?target=https%3A%2F%2Fthreejs-journey.com%2F "https://threejs-journey.com/") shader 相关课程，如果对英文原版感兴趣可前往查看。
 
 ### 原始着色器材质 RawShaderMaterial
 
@@ -245,29 +229,8 @@ vec4 bar = vec4(foo.zw, vec2(5.0, 6.0));
 
 *   在着色器内，一般命名以 `gl_` 开头的变量是着色器的内置变量。
 *   `webgl_` 和 `_webgl` 是着色器保留字，自定义变量不能以 `webgl_` 或 `_webgl` 开头。
-*   变量声明一般包含 `<存储限定符> <数据类型> <变量名称>`，以 `attribute vec4 a_Position` 为例，`attribute` 表示存储限定符，`vec` 是数据类型，`a_Position` 为变量名。
+*   **变量声明**一般包含 `<存储限定符> <数据类型> <变量名称>`，以 `attribute vec4 a_Position` 为例，`attribute` 表示存储限定符，`vec` 是数据类型，`a_Position` 为变量名。
 
-#### 函数
-
-在 `GLSL` 中定义函数，必须以返回值的类型开头，如果没有返回值，则可以使用 `void`。定义函数的参数时，也必须提供参数类型。
-
-```
-// 有返回值
-float loremIpsum() {
-  float a = 1.0;
-  float b = 2.0;
-  return a + b;
-}
-// 无返回值
-void justDoingStuff() {
-  float a = 1.0;
-  float b = 2.0;
-}
-// 定义参数类型
-float add(float a, float b) {
-  return a + b;
-}
-```
 
 ##### 内置函数
 
@@ -346,7 +309,7 @@ void main() {
 
 #### 位置属性 Position attributes
 
-相同的代码将应用于几何体的每一个顶点，属性变量 `attribute` 是在顶点之间唯一会发生改变的变量。相同的顶点着色器 `Vertex Shader` 将应用于每一个顶点，`position` 属性将包含具体顶点的 `x, y, z` 坐标值。我们可以使用如下代码获取顶点位置：
+相同的代码将应用于几何体的每一个顶点，属性变量 `attribute` 是在顶点之间唯一会发生改变的变量。相同的顶点着色器 `Vertex Shader` 将应用于每一个顶点，`position` 属性将包含具体顶点的 `x, y, z` 坐标值。我们可以使用如下代码**获取顶点位置**：
 
 ```
 attribute vec3 position;
@@ -456,7 +419,7 @@ void main() {}
 precision mediump float;
 ```
 
-我们现在示例使用的是 `RawShaderMaterial` 原始着色器材质才需要设置精度，在着色器材质 `ShaderMaterial`中会自动处理。
+**我们现在示例使用的是 `RawShaderMaterial` 原始着色器材质才需要设置精度，在着色器材质 `ShaderMaterial`中会自动处理。**
 
 在顶点着色器中也可以是指精度，但是这是非必须的。
 
@@ -484,7 +447,8 @@ const material = new THREE.RawShaderMaterial({
 
 ### 属性 Attributes
 
-`Attributes` 是每个顶点之间变化的值，我们之前已经有一个命名为 `position` 的属性变量，它是每个顶点在坐标轴中的 `vec3` 值。我们将为每个顶点添加一个随机值，并根据这个值在 `z` 轴上移动该顶点。在 `JavaScript` 代码中我们可以像下面这个直接给 `BufferGeometry` 添加 `attribute` 属性。然后再创建一个 `32位` 的浮点类型数组 `Float32Array`，为了知道几何体中有多少个顶点，现在可以通过 `attributes` 属性获取。最后在 `BufferAttribute` 中使用该数组，并将它添加到几何体的属性中。
+`Attributes` 是每个顶点之间变化的值，我们之前已经有一个命名为 **`position` 的属性变量，它是每个顶点在模型空间中的 `vec3` 值**。
+我们将为每个顶点添加一个随机值，并根据这个值在 `z` 轴上移动该顶点。在 `JavaScript` 代码中我们可以像下面这个直接给 `BufferGeometry` 添加 `attribute` 属性。然后再创建一个 `32位` 的浮点类型数组 `Float32Array`，为了知道几何体中有多少个顶点，现在可以通过 `attributes` 属性获取。最后在 `BufferAttribute` 中使用该数组，并将它添加到几何体的属性中。
 
 *   `setAttribute`：第一个参数是需要设置的 `attribute` **属性名称**，然后在着色器中可以使用该名字，属性名命名时最好加一个 `a` 前缀方便区分。
 *   `BufferAttribute`：第一个参数是**数据数组**；第二个参数表示组成一个属性的值的数量，如我们要发送一个 `(x, y, z)` 构成位置，则需要使用 `3`，示例中每个顶点的随机数只有 `1个`，因此这个参数使用 `1`。

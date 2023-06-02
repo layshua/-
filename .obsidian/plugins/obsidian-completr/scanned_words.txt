@@ -22407,6 +22407,7 @@ mathworld
 morphing
 myEvent
 members
+modelMatrix
 windows
 win
 width
@@ -29424,6 +29425,7 @@ uvJ
 uZo
 uhbt
 uniforms
+uTime
 everything
 ea
 ede
@@ -36364,6 +36366,7 @@ Violence
 Vast
 Villemin
 Void
+Varyings
 verge
 vPdIt
 vertical
@@ -39603,6 +39606,7 @@ vbH
 vdR
 voxels
 veer
+viewMatrix
 AA
 AppData
 AIRDyuVH
@@ -43577,6 +43581,7 @@ Arvo
 Arbitrary
 Architectures
 Aggregate
+AAFte
 URL
 Utools
 Users
@@ -47123,6 +47128,7 @@ UxF
 Ucgk
 UCD
 Ultimate
+Uniforms
 api
 ac
 app
@@ -50775,6 +50781,7 @@ arctangent
 angry
 associative
 adjoint
+alphaMap
 Roaming
 RegWorkshop
 Release
@@ -54900,6 +54907,7 @@ Ryusuke
 Revisited
 Randy
 Road
+RawShaderMaterial
 Microsoft
 Menu
 MicaForEveryone
@@ -63225,6 +63233,7 @@ Worry
 Without
 Wronski
 Ways
+WkJoAAAAAAAAAAAAAAAAAAAbjh
 Start
 StartAllBack
 Shadowrocket
@@ -67516,6 +67525,7 @@ Still
 Stingray
 Steve
 Substring
+ShaderMaterial
 Programs
 POP
 PC
@@ -71404,6 +71414,7 @@ Penn
 Persson
 Paul
 Patterson
+Precision
 ContextMenuManager
 ClashVerge
 Clash
@@ -75365,6 +75376,7 @@ Christophe
 Carnegie
 Christoph
 ConstructorInfo
+CAYAAAA
 ImTip
 IMAP
 ID
@@ -116897,6 +116909,7 @@ lowercase
 latency
 logical
 languages
+lessThanEqual
 YAML
 You
 YEBAYGhURFRofHx
@@ -138525,6 +138538,7 @@ Blythe
 Bryant
 Bartlomiej
 Bart
+BMQEAAADCoPVP
 Fraktur
 Frame
 Foo
@@ -168607,6 +168621,7 @@ NXgmm
 NOaNL
 Niklas
 Nelson
+NlyAAAAJElEQVRoge
 ZooAnima
 ZooAnimal
 ZTest
@@ -184240,6 +184255,7 @@ Kirk
 Kensler
 Kayvon
 Kubisch
+KGgoAAAANSUhEUgAAADwAAAA
 key
 kSC
 keaXj
@@ -195710,6 +195726,7 @@ javac
 javaw
 javaws
 journal
+jAAAAAElFTkSuQmCC
 ÄjZU
 ÄJ
 Ät

@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/dailynote/行李.md",
+                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/dailynote/行李.md"
+                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md"
               }
             }
           }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/dailynote/行李.md",
+                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/dailynote/行李.md",
+                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -162,6 +162,7 @@
   },
   "active": "e55f2824459023a4",
   "lastOpenFiles": [
+    "zip/dailynote/行李.md",
     "zip/images/Pasted image 20230601170011.png",
     "zip/images/Pasted image 20230601165909.png",
     "zip/images/Pasted image 20230601165858.png",
@@ -170,13 +171,11 @@
     "zip/images/Pasted image 20230601165357.png",
     "zip/images/Pasted image 20230601165354.png",
     "zip/dailynote/前往斯旺西.md",
-    "zip/dailynote/行李.md",
     "编程/CS/《CS Primer》.md",
     "图形学/5 书籍/RTR/资源.md",
     "zip/icons/tabler-icons/Superscript.svg",
     "zip/icons/tabler-icons/Sunset.svg",
     "zip/icons/tabler-icons/Sunset2.svg",
-    "zip/icons/tabler-icons/Sunrise.svg",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
