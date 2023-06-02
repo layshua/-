@@ -30,9 +30,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "0518be14a49d8e42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "eb14e6936f97810a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -75,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -160,8 +184,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e55f2824459023a4",
+  "active": "eb14e6936f97810a",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/05 UnityShader/TA101.md",
     "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
     "zip/dailynote/行李.md",
@@ -204,7 +229,6 @@
     "编程/CS/Csharp四部曲.md",
     "Tools/Git/UE4源码管理.md",
     "Tools/System/控制面板.md",
-    "Tools/Git/git入门.md",
     "zip/icons/simple-icons",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/未命名",
