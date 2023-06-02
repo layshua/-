@@ -3573,7 +3573,7 @@ class Program
 
 **元数据**就是用来描述数据的数据，这个概念不仅仅用于程序上，在别的领域也有元数据。
 **程序中的类，类中的函数、变量等等信息就是程序的元数据**，有关程序以及类型的数据被称为元数据，它们**保存在程序集中**。
-## 反射
+## 反射 Type
 程序正在运行时，可以查看其它程序集或者自身的元数据。**一个运行的程序查看本身或者其它程序的元数据的行为就叫做反射**
 在程序运行时，通过反射可以得到其它程序集或者自己程序集代码的各种信息/类，函数，变量，对象等等，实例化它们，执行它们，操作它们
 
@@ -3583,7 +3583,8 @@ class Program
 2. 程序运行时，实例化对象，操作对象
 3. 程序运行时创建新对象，用这些对象执行任务
 
-### Type （类的信息类）
+ 
+  **Type （类的信息类）**
 - 它是反射功能的基础!  
 - 它是访问元数据的主要方式。  
 - 使用 Type 的成员获取有关类型声明的信息  
@@ -3650,7 +3651,7 @@ class Program
 ```
 
 - @ 以下代码都在 Main 函数中
-#### 获取类中的所有成员
+### 获取类中的所有成员
 ```cs file:获取类中的所有公共成员
 Type t4 = typeof(Test); //获取Test类的Type对象
 MemberInfo[] members = t4.GetMembers();  //获取Test类中的所有成员,需要引用命名空间using System.Reflection;
@@ -3670,7 +3671,7 @@ for (int i = 0; i < members.Length; i++)
     //System.String str                //Test类中的成员变量
 }
 ```
-#### 获取构造函数
+### 获取构造函数
 ```cs file:获取类的公共构造函数并调用
 //1.获取所有构造函数
 ConstructorInfo[] ctors = t4.GetConstructors();
@@ -3696,7 +3697,7 @@ ConstructorInfo info3 = t4.GetConstructor(new Type[] {typeof(int), typeof(string
 obj = info3.Invoke(new object[] { 3, "456" }) as Test;
 ```
 
-#### 获取类的公共成员变量
+### 获取类的公共成员变量
 ```cs file:获取类的公共成员变量
 //1.获取所有成员变量
 FieldInfo[] fields = t4.GetFields();
@@ -3721,7 +3722,7 @@ Console.WriteLine(test.j); //返回100
 
 ```
 
-#### 获取类的成员方法
+### 获取类的成员方法
 ```cs file:获取类的成员方法
 //使用Type类中的GetMethod方法
 //GetMethod方法传入方法名，返回MethodInfo(方法的反射信息)对象
@@ -3744,7 +3745,7 @@ object result = subStr.Invoke(str, new object[] { 0, 5 }); //调用Substring方�
 Console.WriteLine(result); //输出Hello
 ```
 
-#### 其他
+### 其他
 得枚举
 `GetEnumName`
 `GetEnumNames`
@@ -3761,24 +3762,111 @@ Console.WriteLine(result); //输出Hello
 `GetProperty`
 `GetPropertys`
 
-## 特性
+## 特性 Attribute
 1. 特性是一种**允许我们向程序的程序集添加元数据的语言结构，它是用于保存程序结构信息的某种特殊类型的类**
 2. 特性提供功能强大的方法以将声明信息与代码 （类型、方法、属性等）相关联。特性与程序实体关联后，即可在运行时使用反射查询特性信息
 3. 特性的目的是**告诉编译器把程序结构的某组元数据嵌入程序集中**，它可以放置在几乎所有的声明中 (类、变量、函数等等申明)
 
 说人话:
 - 特性本质是个类
-- 我们可以**利用特性类为元数据添加额外信息**，比如一个类、成员变量、成员方法等等为他们添加更多的额外信息之后可以通过反射来获取这些额外信息
+- 我们可以**利用特性类为元数据添加额外信息**，比如一个类、成员变量、成员方法等等为他们添加更多的额外信息
+- 之后可以通过反射来获取这些额外信息
+
+
+```cs file:自定义特性
+//继承特征基类Attribute
+//类名的末尾必须带Attribute
+class MyCustomAttribute : Attribute
+{
+    //特性中的成员，一般根据需求来写，这些作为元数据的额外信息
+    public string info;
+    
+    public MyCustomAttribute(string info)
+    {
+        this.info = info;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
+```
 
 **基本语法:**
 ```cs
 [特性名(参数列表)]
 ```
 本质上就是在调用特性类的构造函数
+可以写在类、函数、变量、函数参数前，表示为他们添加了额外的信息
 
-**写在哪里?**
-类、函数、变量上一行，表示他们具有该特性信息
+### 特性的使用
+```cs
+//1. 自定义特性
+//继承特征基类Attribute
+//类名的末尾必须带Attribute
+class MyCustomAttribute : Attribute
+{
+    //特性中的成员，一般根据需求来写，这些作为元数据的额外信息
+    public string info;
+    
+    public MyCustomAttribute(string info)
+    {
+        this.info = info;
+    }
+    
+    public void TestFun()
+    {
+        Console.WriteLine("特性的方法");
+    }
+}
 
+//2. 使用特性，注意这里去掉了自定义特性末尾的Attribute
+[MyCustom("用于计算的类")]
+class MyClass
+{
+    [MyCustom("成员变量")]
+    public int value;
+    [MyCustom("成员函数")]
+    public void TestFun([MyCustom("函数参数")]int a)
+    {
+        
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyClass mc = new MyClass();
+        Type t = mc.GetType();
+        
+        //判断是否使用了某个特性
+        //参数一：特性的类型
+        //参数二：是否搜索继承链（属性和特性忽略此参数）
+        if(t.IsDefined(typeof(MyCustomAttribute),false))
+        {
+            Console.WriteLine("该类型应用了MyCustom特性"); //输出：该类型应用了MyCustom特性
+        }
+        
+        //3. 通过反射来获取这些额外信息
+        object[] array = t.GetCustomAttributes(true);
+        for(int i=0; i<array.Length; i++)
+        {
+            MyCustomAttribute mca = array[i] as MyCustomAttribute;
+            if(mca!=null)
+            {
+                Console.WriteLine(mca.info);  //输出：用于计算的类
+                mca.TestFun(); //输出：特性的方法
+            }
+        }
+    }
+}
+```
 # 枚举器和迭代器
 # LINQ
 # 异步编程
