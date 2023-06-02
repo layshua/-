@@ -11497,6 +11497,7 @@ concatenation
 cores
 computations
 ctors
+cursor
 github
 grey
 green
@@ -79166,6 +79167,7 @@ Information
 Improved
 IsDefined
 Inherited
+InteropServices
 qq
 qyi
 quad
@@ -156794,6 +156796,7 @@ DXIL
 Dosomething
 DoSomthing
 Diagnostics
+DllImport
 LNK
 Log
 Linux
