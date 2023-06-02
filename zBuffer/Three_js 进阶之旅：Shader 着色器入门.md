@@ -584,7 +584,7 @@ gui.add(material.uniforms.uFrequency.value, 'y').min(0).max(20).step(0.01).name(
 
 ![](<images/1685672276125.png>)
 
-让我们再新加一个 `uniform` 来让平面像在风中飘动的旗帜。我们将使用统一变量 `uTime` 向着色器发送一个时间值，然后在 `sin(...)` 函数中使用它：
+让我们再新加一个 `uniform` 来让平面像在风中飘动的旗帜。我们将使用统一变量 **`uTime` 向着色器发送一个时间值，然后在 `sin(...)` 函数中使用它：**
 
 ```
 const material = new THREE.RawShaderMaterial({
