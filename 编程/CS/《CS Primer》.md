@@ -4175,15 +4175,120 @@ var array = new int[] { 1, 2, 3, 4, 5 };
 var list = new List<int>();
 ```
 
-## 2 设置对象初始值
+## 2 匿名类型
+**匿名类型**：
+var 变量可以声明为自定义的匿名类型
+```cs file:匿名类型
+var v = new{age =10,name="John"};
+Console.WriteLine(v.age);
+Console.WriteLine(v.name);
+```
+## 3 设置对象初始值
 声明对象时，可以通过直接写**大括号 `{}` 的形式初始化公共成员变量和属性
+```cs
+class Person
+{
+    public int money;
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
 
-## 3 设置集合初始值
-## 4  匿名类型
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person p = new Person { money = 100, Age = 10, Name = "Tom" };
+    }
+}
+```
+## 4 设置集合初始值
+申明集合对象时，也可以通过**大括号**直接初始化内部属性
+```cs
+class Person
+{
+    public int money;
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] array2 = new int[3]{1,2,3};
+
+        List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+        
+        List<Person> people = new List<Person>()
+        {
+            new Person{Age = 100},
+            new Person{Age = 200,Name = "Test"},
+            new Person { money = 100, Age = 10, Name = "Tom" }
+        };
+    }
+}
+```
+
+
 ## 5 可空类型
-## 6 空合并操作符
-## 7 内插字符串
-## 8 单句逻辑简略写法
+1. 值类型是不能赋值为空 （null）的
+2. 声明时在值类型后面加 `?` 可以赋值为空
+```
+   int？ c = null
+```
+
+3. 判断是否为空 `.HasValue`
+```cs
+if (c.HasValue)
+{
+    Console.WriteLine(c);
+    Console.WriteLine(c.Value);  
+}
+else
+{
+    Console.WriteLine("null");
+}
+```
+
+4. 安全获取可空类型值
+```cs
+int? d = null;
+//如果为空，默认返回值类型的默认值
+Console.WriteLine(d.GetValueOrDefault());
+//也可以指定一个默认值
+Console.WriteLine(d.GetValueOrDefault(5));
+```
+
+**语法糖：自动判断是否为空**
+```cs
+object o = "hello world";
+if(o!=null)
+{
+    Console.WriteLine(o.ToString());
+}
+
+//语法糖：自动判断是否为空,如果为空则不执行，如果不为空则执行
+Console.WriteLine(o?.ToString()); //等价
+```
+
+## 6 空合并操作符 ?? 
+左边值 ?? 右边值
+- 如果左边值为 null 就返回右边值，否则返回左边值
+- 只要是可以为 null 的类型都能用
+```cs
+int? b = null;
+
+int a = b ?? 100; //空合并操作符
+int a = b == null ? 100 : b.value; //等价
+```
+
+## 7 内插字符串 $
+关键符号: `$`
+用 `$` 来构造字符串，让字符串中可以拼接变量
+```cs
+string name = "Hello world!";
+Console.WriteLine($"好好学习，{name}"); 
+```
 
 # 命名空间和程序集
 ## 命名空间
