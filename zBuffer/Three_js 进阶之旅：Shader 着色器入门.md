@@ -1,8 +1,5 @@
-本文为稀土掘金技术社区首发签约文章，14 天内禁止转载，14 天后未获授权禁止转载，侵权必究！
-
-本文内容主要介绍 `Three.js` 中的着色器知识，通过讲解什么是着色器、着色器的分类、`GLSL` 语言的核心语法要点、`Three.js` 中的两种着色器材质的 `RawShaderMaterial` 和 `ShaderMaterial` 的区别和用法等基本知识，深入理解着色器，并使用它创建出有趣的三维图形。
-
-本文篇幅较长，涉及到的知识点也比较广，内容可能相对枯燥，有些地方需要耐心思考。我相信通过纵览全文，掌握全文的核心要点，一定会获益匪浅，着色器**入门者**建议收藏起来定期复习`🤣`。
+https://juejin.cn/column/7140122697622618119
+# RawShaderMaterial
 
 ## 效果
 
@@ -778,35 +775,10 @@ const material = new THREE.ShaderMaterial({});
 
 `🔗` 源码地址：[github.com/dragonir/th…](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fdragonir%2Fthreejs-odessey "https://github.com/dragonir/threejs-odessey")
 
-## 总结
 
-本文中主要包含的知识点包括：
+## ShaderMaterial
 
-*   了解什么是着色器
-*   了解为什么要使用着色器
-*   `GLSL` 语言的基本语法规则
-*   理解 `Vertex Shader` 顶点着色器
-*   理解 `Fragment Shader` 片元着色器
-*   掌握 `Attributes`、`Varyings`、`Uniforms`的区别和用法
-*   着色器在两种着色器材质 `RawShaderMaterial` 和 `ShanderMaterial` 中的使用方法
-*   使用着色器设置颜色和纹理等
-
-想了解其他前端知识或其他未在本文中详细描述的 **Web 3D** 开发技术相关知识，可阅读我往期的文章。如果有疑问可以在评论中**留言**，如果觉得文章对你有帮助，不要忘了**一键三连哦 👍**。
-
-## 附录
-
-*   [1]. [🌴 Three.js 打造缤纷夏日 3D 梦中情岛](https://juejin.cn/post/7102215670477094925 "https://juejin.cn/post/7102215670477094925")
-*   [2]. [🔥 Three.js 实现炫酷的赛博朋克风格 3D 数字地球大屏](https://juejin.cn/post/7124116814937718797 "https://juejin.cn/post/7124116814937718797")
-*   [3]. [🐼 Three.js 实现 2022 冬奥主题 3D 趣味页面，含冰墩墩](https://juejin.cn/post/7060292943608807460 "https://juejin.cn/post/7060292943608807460")
-*   [4]. [🦊 Three.js 实现 3D 开放世界小游戏：阿狸的多元宇宙](https://juejin.cn/post/7081429595689320478 "https://juejin.cn/post/7081429595689320478")
-*   [5]. [🏆 掘金 1000 粉！使用 Three.js 实现一个创意纪念页面](https://juejin.cn/post/7143039765725020167 "https://juejin.cn/post/7143039765725020167")
-*   `...`
-*   [【Three.js 进阶之旅】系列专栏访问 👈](https://juejin.cn/column/7140122697622618119 "https://juejin.cn/column/7140122697622618119")
-*   [更多往期【3D】专栏访问 👈](https://juejin.cn/column/7049923956257587213 "https://juejin.cn/column/7049923956257587213")
-*   [更多往期【前端】专栏访问 👈](https://juejin.cn/column/7021076460089638926 "https://juejin.cn/column/7021076460089638926")
-
-## 参考
-
-*   [1]. [three.js journey](https://link.juejin.cn?target=https%3A%2F%2Fthreejs-journey.com%2F "https://threejs-journey.com/")
-*   [2]. [threejs.org](https://link.juejin.cn?target=https%3A%2F%2Fthreejs.org "https://threejs.org")
-*   [3]. 《Three.js 开发指南——基于 WebGL 和 HTML5 在网页上渲染 3D 图形和动画》
+文档：
+[ShaderMaterial – three.js docs (threejs.org)](https://threejs.org/docs/#api/zh/materials/ShaderMaterial)
+内置 attributes 和 uniforms:
+[ShaderMaterial – three.js docs (threejs.org)](https://threejs.org/docs/#api/zh/materials/ShaderMaterial)
