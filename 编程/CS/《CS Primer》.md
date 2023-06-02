@@ -2004,7 +2004,7 @@ public string get_Name
 ```cs file:用法
 public class Person
 {
-    private int _age; //字段在类中必须是私有的，如果想访问只能通过属性！
+    private int _age; //字段在类中必须是私有的，如果想访问只能通过成员属性！
     
     //属性必须是公有的，可以外部访问 
     public int Age   
@@ -4009,9 +4009,182 @@ public static extern int Add(int a, int b);  //使用Test.dll包里的方法
 命名空间:` using system. collections;`
 可以通过同时继承 `IEnumerable` 和 `IEnumerator` 实现其中的方法
 
+```cs
+class CustomList : IEnumerable,IEnumerator
+{
+    private int[] list;
 
-# LINQ
-# 异步编程
+    public CustomList()
+    {
+        list = new int[] { 1, 2, 3, 4, 5 };
+    }
+    
+    //从-1开始的光标，用于表示当前遍历到的位置
+    private int position = -1;
+    
+    public IEnumerator GetEnumerator()
+    {
+        Reset();
+        return this; 
+    }
+
+    //移动光标
+    public bool MoveNext()
+    {
+        //先将光标向后移动一位
+        ++position;
+        //如果position的值大于等于数组的长度，说明已经遍历完了
+        return position < list.Length;
+    }
+
+    //reset是重置光标位置一般写在获取1Enumerator对象这个函数中//用于第一次重置光标位置
+    public void Reset()
+    {
+       position = -1;
+    }
+
+    //返回当前光标所在位置的元素
+    public object Current
+    {
+        get
+        {
+            return list[position];
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        CustomList list = new CustomList();
+        //foreach本质
+        //1.先获取in后面list对象的 IEnumerator(通过GetEnumerator方法来获取IEnumerator对象)
+        //2.执行得到这个IEnumerator对象中的 MoveNext方法
+        //3.只要MoveNext方法的返回值时true就会去得到current, 然后赋值给item
+        foreach (int item in list)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
+```
+
+## 用 yield return 语法糖实现迭代器
+` yield return` 是 cs 提供的一个**语法糖**，也称**糖衣语法**
+语法糖主要作用就是将复杂逻辑简单化，可以增加程序的可读性从而减少程序代码出错的机会
+关键接口: `IEnumerable`
+命名空间: `using System. collections;`
+让想要通过 `foreach` 遍历的自定义类实现接口中的方法 `GetEnumerator` 即可
+
+**使用 yield return 实现和上一节相同的功能：**
+```cs
+class CustomList : IEnumerable
+{
+    private int[] list;
+
+    public CustomList()
+    {
+        list = new int[] { 1, 2, 3, 4, 5 };
+    }
+
+
+    public IEnumerator GetEnumerator()
+    {
+        for (int i = 0; i < list.Length; i++)
+        {
+            //yield关键字 配合迭代器使用
+            //可以理解为暂时返回，保留当前的状态，一会还会再回来
+            yield return list[i];
+        }
+
+        //等价于
+        //yield return list[0];
+        //yield return list[1];
+        //yield return list[2];
+        //yield return list[3];
+        //yield return list[4];
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        CustomList list = new CustomList();
+        
+        foreach (int item in list)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
+```
+
+```cs file:泛型
+class CustomList<T> : IEnumerable
+{
+    private T[] list;
+
+    public CustomList(params T[] list)
+    {
+        this.list = list;
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        for (int i = 0; i < list.Length; i++)
+        {
+            //yield关键字 配合迭代器使用
+            //可以理解为暂时返回，保留当前的状态，一会还会再回来
+            yield return list[i];
+        }
+        
+        //等价于
+        //yield return list[0];
+        //yield return list[1];
+        //yield return list[2];
+        //yield return list[3];
+        //yield return list[4];
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        CustomList<int> list = new CustomList<int>(1,2,3,4,5);
+        foreach (int item in list)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
+```
+# 十三、特殊语法
+## 1 var 隐式类型
+var 是一种特殊的变量类型，它可以用**来表示任意类型的变量**
+
+注意:
+1. var 不能作为类的成员，**只能用于临时变量声明**，也就是**一般写在函数语句块**中
+2. var 必须初始化
+
+```cs
+var i = 5;
+var array = new int[] { 1, 2, 3, 4, 5 };
+var list = new List<int>();
+```
+
+## 2 设置对象初始值
+声明对象时，可以通过直接写**大括号 `{}` 的形式初始化公共成员变量和属性
+
+## 3 设置集合初始值
+## 4  匿名类型
+## 5 可空类型
+## 6 空合并操作符
+## 7 内插字符串
+## 8 单句逻辑简略写法
+
 # 命名空间和程序集
 ## 命名空间
 **概念：** 命名空间是用来组织和重用代码的
