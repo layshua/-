@@ -3772,39 +3772,15 @@ Console.WriteLine(result); //输出Hello
 - 我们可以**利用特性类为元数据添加额外信息**，比如一个类、成员变量、成员方法等等为他们添加更多的额外信息
 - 之后可以通过反射来获取这些额外信息
 
-
-```cs file:自定义特性
-//继承特征基类Attribute
-//类名的末尾必须带Attribute
-class MyCustomAttribute : Attribute
-{
-    //特性中的成员，一般根据需求来写，这些作为元数据的额外信息
-    public string info;
-    
-    public MyCustomAttribute(string info)
-    {
-        this.info = info;
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello World!");
-    }
-}
-```
-
 **基本语法:**
-```cs
+```
 [特性名(参数列表)]
 ```
-本质上就是在调用特性类的构造函数
-可以写在类、函数、变量、函数参数前，表示为他们添加了额外的信息
+- 本质上就是在调用特性类的构造函数
+- 可以写在类、函数、变量、函数参数前，表示为他们添加了额外的信息
 
 ### 特性的使用
-```cs
+```cs h:1,20,49
 //1. 自定义特性
 //继承特征基类Attribute
 //类名的末尾必须带Attribute
@@ -3867,6 +3843,122 @@ class Program
     }
 }
 ```
+
+### 限制自定义特性的使用范围
+通过**为特性类加特性**限制其使用范围
+
+参数一: `AttributeTargets` 特性能用在哪些地方
+参数二: `AllowMultiple` 是否允许多个特性实例用在同一个目标上
+参数三: `Inherited` 特性是否能被派生类和重写成员继承
+```cs h:3 e:21,24,26,27
+//第一个参数：指明MyCutom特性类只能用在类和结构体上，故后面用于成员变量，成员函数，函数参数的特性都会报错
+//第二个参数：不允许多个实例用在同一目标
+[AttributeUsage(AttributeTargets.Class|AttributeTargets.Struct,AllowMultiple = true,Inherited = true)]
+class MyCustomAttribute : Attribute
+{
+    //特性中的成员，一般根据需求来写，这些作为元数据的额外信息
+    public string info;
+    
+    public MyCustomAttribute(string info)
+    {
+        this.info = info;
+    }
+    
+    public void TestFun()
+    {
+        Console.WriteLine("特性的方法");
+    }
+}
+
+[MyCustom("用于计算的类1")]
+[MyCustom("用于计算的类2")] //error!不允许多个实例用在同一目标！
+class MyClass
+{
+    [MyCustom("成员变量")] //error！
+    public int value;
+    [MyCustom("成员函数")]  //error！
+    public void TestFun([MyCustom("函数参数")]int a) //error！
+    {
+        
+    }
+}
+```
+
+### 内置特性
+#### 过时特性 
+过时特性： `Obsolete`
+- 用于提示用户使用的方法等成员已经过时，建议使用新方法
+- **一般加在函数前**的特性
+
+```cs
+class TestClass
+{
+    //参数一:调用过时方法时提示的内容
+    //参数二:true-使用该方法时会报错 false-使用该方法时直接警告
+    [Obsolete("该方法已经过时，请使用Speak方法",false)]
+    public void OldSpeak()
+    {
+        Console.WriteLine("OldSpeak");
+    }
+    
+    public void Speak()
+    {
+        Console.WriteLine("Speak");
+    }
+}
+```
+
+使用过时方法会报错或者警告：
+![[Pasted image 20230602202716.png|650]]
+
+#### 调用者信息特性
+**哪个文件调用?**
+`callerFilePath` 特性
+ 
+**哪一行调用?**
+`callerLineNumber` 特性
+
+**哪个函数调用?**
+`callerMemberName` 特性
+
+需要引用命名空间 `using System. Runtime. CompilerServices;`
+**一般作为函数参数的特性**
+
+```cs
+class TestClass
+{
+    public void SpeakCall(
+        string str,
+        [CallerFilePath]string filePath ="",
+        [CallerLineNumber]int linNumber = 0,
+        [CallerMemberName]string memberName = "")
+    {
+        Console.WriteLine(str);
+        Console.WriteLine(filePath);
+        Console.WriteLine(linNumber);
+        Console.WriteLine(memberName);
+    }
+}
+
+class program
+{
+    static void Main(string[] args)
+    {
+        TestClass testClass = new TestClass();
+        testClass.SpeakCall("hello world");
+    }
+}
+
+//输出
+//hello world
+//C:\Users\LiuKe\RiderProjects\ConsoleApp1\ConsoleApp1\Program.cs
+//21
+//Main
+
+```
+
+#### 条件编译特性
+
 # 枚举器和迭代器
 # LINQ
 # 异步编程

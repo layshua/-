@@ -89,7 +89,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#中内存回收机制的大概原理",
+                "query": "tag:#region知识点五系统自带特性",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -189,8 +189,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "2ffd96a0bc8c2945",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230602202716.png",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/02 水体渲染/真实感水体渲染.md",
     "zBuffer/Three_js 进阶之旅：Shader 着色器入门.md",
@@ -233,7 +234,6 @@
     "编程/CS/唐老狮 C 核心.md",
     "README.md",
     "Unity/教程.md",
-    "zip/templates/yaml_metadata.md",
     "zip/icons/simple-icons",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/未命名",

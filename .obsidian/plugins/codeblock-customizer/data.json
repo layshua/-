@@ -144,16 +144,16 @@
   ],
   "alternateColors": [
     {
-      "name": "error",
-      "darkColor": "#62284F",
-      "lightColor": "#53232A",
-      "currentColor": "#53232A"
-    },
-    {
       "name": "h",
       "darkColor": "#485163",
       "lightColor": "#252731",
       "currentColor": "#252731"
+    },
+    {
+      "name": "e",
+      "darkColor": "#53232A",
+      "lightColor": "#53232A",
+      "currentColor": "#53232A"
     }
   ],
   "ThemeName": ""
