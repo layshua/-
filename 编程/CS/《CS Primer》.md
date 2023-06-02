@@ -3779,7 +3779,7 @@ Console.WriteLine(result); //输出Hello
 - 本质上就是在调用特性类的构造函数
 - 可以写在类、函数、变量、函数参数前，表示为他们添加了额外的信息
 
-### 特性的使用
+### 自定义特性和使用
 ```cs h:1,20,49
 //1. 自定义特性
 //继承特征基类Attribute
@@ -3886,7 +3886,7 @@ class MyClass
 
 ### 内置特性
 #### 过时特性 
-过时特性： `Obsolete`
+关键字：  `Obsolete`
 - 用于提示用户使用的方法等成员已经过时，建议使用新方法
 - **一般加在函数前**的特性
 
@@ -3913,13 +3913,13 @@ class TestClass
 
 #### 调用者信息特性
 **哪个文件调用?**
-`callerFilePath` 特性
+`CallerFilePath` 特性
  
 **哪一行调用?**
-`callerLineNumber` 特性
+`CallerLineNumber` 特性
 
 **哪个函数调用?**
-`callerMemberName` 特性
+`CallerMemberName` 特性
 
 需要引用命名空间 `using System. Runtime. CompilerServices;`
 **一般作为函数参数的特性**
@@ -3958,8 +3958,58 @@ class program
 ```
 
 #### 条件编译特性
+关键字： `Conditional`
+它会和预处理指令  `#define` 配合使用
+需要引用命名空同 `using System. Diagnostics`; 
 
-# 枚举器和迭代器
+主要可以用在一些调试代码上
+有时想执行有时不想执行的代码
+
+```cs
+#define Func  //没有这个宏定义，Func()函数不会被编译
+using System.Diagnostics;
+
+namespace MyNamespace;
+
+
+class Program
+{
+    [Conditional("Func")]
+    static void Func()
+    {
+        Console.WriteLine("Hello World!");
+    }
+
+    static void Main(string[] args)
+    {
+        Func(); //若没有宏定义，则不会执行
+    }
+}
+```
+#### 外部 DLL 包函数特性
+关键字： `DllImport`
+用来标话非.Net (C#)的函数，表明该函数在一个外部的 DLL 中定义.
+一般用来调用 c 或者 c++的 DLL 包写好的方法
+需要引用命名空间 `using System. Runtime. InteropServices
+```cs
+[DllImport("Test.dll")]
+public static extern int Add(int a, int b);  //使用Test.dll包里的方法
+```
+
+# 十二、枚举器和迭代器
+- 迭代器 (iterator）有时又称光标（cursor)是程序设计的软件设计模式
+- 迭代器模式提供一个方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的标识
+- 在表现效果上看
+    - 是可以在容器对象 (例如链表或数组)上遍历访问的接口
+    - 设计人员无需关心容器对象的内存分配的实现细节
+    - 可以用 foreach 遍历的类，都是实现了迭代器的
+
+## 标准迭代器的实现方法
+关键接口: `IEnumerator` , `IEnumerable`
+命名空间:` using system. collections;`
+可以通过同时继承 `IEnumerable` 和 `IEnumerator` 实现其中的方法
+
+
 # LINQ
 # 异步编程
 # 命名空间和程序集

@@ -20,6 +20,14 @@
             }
           },
           {
+            "id": "b96d4f272b61f713",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
             "id": "2bcad3346fef6756",
             "type": "leaf",
             "state": {
@@ -89,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#region知识点五系统自带特性",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -189,8 +197,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "2ffd96a0bc8c2945",
   "lastOpenFiles": [
+    "编程/CS/唐老狮 C 核心.md",
+    "编程/CS/《CS Primer》.md",
     "zip/images/Pasted image 20230602202716.png",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/02 水体渲染/真实感水体渲染.md",
@@ -209,10 +219,8 @@
     "zip/images/Pasted image 20230601165357.png",
     "zip/images/Pasted image 20230601165354.png",
     "zip/dailynote/前往斯旺西.md",
-    "编程/CS/《CS Primer》.md",
     "zip/icons/tabler-icons/Superscript.svg",
     "zip/icons/tabler-icons/Sunset.svg",
-    "zip/icons/tabler-icons/Sunset2.svg",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
@@ -231,7 +239,6 @@
     "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（上）2_1 ~ 2_3（20200720 翻新）_西河某人的博客 - CSDN 博客.md",
     "zBuffer/(31 条消息) 在 Windows 环境配置多版本 Java（Java8+Java16 为例）_StephenYTT 的博客 - CSDN 博客.md",
     "编程/C++/《C++ Primer》.md",
-    "编程/CS/唐老狮 C 核心.md",
     "README.md",
     "Unity/教程.md",
     "zip/icons/simple-icons",
