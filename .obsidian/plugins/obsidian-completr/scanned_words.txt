@@ -59380,6 +59380,8 @@ MyCustomAttribute
 MyClass
 MyCustom
 MyCutom
+MonoBehavior
+MonnBehavior
 Windows
 Win
 World
@@ -71428,6 +71430,7 @@ Persson
 Paul
 Patterson
 Precision
+Prefab
 ContextMenuManager
 ClashVerge
 Clash
@@ -156799,6 +156802,7 @@ Dosomething
 DoSomthing
 Diagnostics
 DllImport
+DisallowMultipleComponent
 LNK
 Log
 Linux
