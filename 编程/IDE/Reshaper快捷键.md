@@ -20,10 +20,13 @@ Ctrl + Shift + Alt + 向上 / 向下：上下行代码交换位置
 
 Ctrl + Alt + F：Clean Code
 
-Ctrl + Alt + J：Sorround with Template，快速添加语句块，如 if,for,try catch,using,#region
+**Ctrl + Alt + J：Sorround with Template，快速添加语句块，如 if,for,try catch,using,#region**
 
 Ctrl + Q：快速文档
 
 Alt + F12：显示下一个 Error
 
 Ctrl + E：显示最近编辑的文件
+
+选中多行代码，按住 tab 就会同时向右移动
+选中多行代码，按住shift+tab就会同时向左移动

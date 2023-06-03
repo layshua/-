@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity3D.md",
+                "file": "编程/IDE/Reshaper快捷键.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,33 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "file": "编程/CS/Unity3D.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "0518be14a49d8e42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/CS/《CS Primer》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "eb14e6936f97810a",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -179,14 +160,16 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "2bcad3346fef6756",
+  "active": "e55f2824459023a4",
   "lastOpenFiles": [
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "编程/IDE/Reshaper快捷键.md",
+    "编程/CS/Unity3D.md",
+    "zip/images/Pasted image 20230603134654.png",
     "zip/images/Pasted image 20230603133828.png",
     "编程/CS/《CS Primer》.md",
-    "编程/CS/Unity3D.md",
     "zip/images/Pasted image 20230603132450.png",
     "zip/images/Pasted image 20230603130352.png",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "Tools/Obsidian/插件流.md",
     "zip/images/Pasted image 20230603123624.png",
     "zip/images/Pasted image 20230603122307.png",
@@ -196,8 +179,6 @@
     "zip/images/Pasted image 20230602231416.png",
     "zip/images/Pasted image 20230602225421.png",
     "zip/images/Pasted image 20230602225358.png",
-    "zip/images/Pasted image 20230602223746.png",
-    "zip/images/Pasted image 20230602223502.png",
     "Unity/教程.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",

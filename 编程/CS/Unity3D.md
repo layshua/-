@@ -58,6 +58,16 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 3. **一般是单例模式的类（用于管理模块）或者数据结构类（ 用于存储数据）**
 4. 不用保留默认出现的几个函数
 
+## 打印
+在 Unity 中打印信息的两种方式
+```cs
+//1.没有继承MonoBehaviour的类的时候，可以使用Debug.Log
+Debug.Log("Awake Hello!");
+Debug.LogError("Awake Error");
+Debug.LogWarning("Awake Warning");  
+//2. 继承了MonoBehaviour的类，可以使用线程方法print
+print("Awake Hello!");
+```
 ## 生命周期函数
 游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。
 Unity 底层已红帮助我们做好了死循环，我们需要学习 Unity 的生命周期函数，利用它做好的规则来执行我们的游戏逻辑就行了。
@@ -67,10 +77,48 @@ Unity 底层已红帮助我们做好了死循环，我们需要学习 Unity 的�
 > - 生命周期函数就是该脚本对象依附的 Gameobject 对象从出生到消亡整个生命周期中会**通过反射自动调用的一些特殊函数**
 >- Unity 帮助我们记录了一个 Gameobject 对象依附了哪些脚本，会自动的得到这些对象，通过反射去执行生命周期函数
 
-- 生命周期函数的访问修饰符一般为 private 和 protected
+- 生命周期函数的访问修饰符一般为 private 和 protected（默认为private）
 - 因为不需要再外部自己调用生命周期函数都是 Unity 自己帮助我们调用的
+- 支持继承多态
 
 常用的生命周期函数：
 ![[Pasted image 20230603132450.png]] 
+```cs
+//当对象(自己找个类对象)被创建时，才会调用该生命周期函数
+//类似构造函数，一个对象只会调用一次
+void Awake()
 
-激活：![[Pasted image 20230603133828.png]]
+//依附的GameObject对象每次激活时调用（打勾）
+//想要当一个对象被激活时进行一些逻辑处理,就可以写在这个函数
+void OnEnable()
+
+// 对象Awake后，第一次帧更新之前调用，一个对象只会调用一次
+void Start()
+
+//进行物理帧更新  
+//固定间隔执行，间隔时间可以设置  
+void FixedUpdate()
+
+// 逻辑帧执行，每帧执行
+// 处理游戏核心逻辑更新
+void Update()
+
+// 每帧执行，于Update之后执行（速度相同）
+//一般用来处理摄像机位置更新相关内容的
+//Update和LateUpdate之间，Unity会处理动画相关的更新，如果将摄像机放在Update中更新，可能会造成渲染上的问题
+void LateUpdate()
+
+//依附的GameObject对象每次失活时调用（去掉勾）
+//想要当一个对象失活时进行一些逻辑处理,就可以写在这个函数
+void OnDisable()
+
+//当对象被销毁时调用(衣服的GameObject对象被删除时调用)
+//一般用来做一些资源的释放
+void OnDestroy()
+```
+
+**激活对象**：![[Pasted image 20230603133828.png]]
+`
+**设置固定时间步长：**
+![[Pasted image 20230603134654.png]]
+
