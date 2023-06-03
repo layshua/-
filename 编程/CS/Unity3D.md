@@ -57,13 +57,7 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 2. 想怎么写怎么写，如果要使用需要自己 new
 3. **一般是单例模式的类（用于管理模块）或者数据结构类（ 用于存储数据）**
 4. 不用保留默认出现的几个函数
-
-## 重要成员
-1. 获取依附的 Gameobject
-2. 获取依附的 Gameobject 的位置信息
-3. 获取脚本是否激活
-
-## 打印
+### 打印
 在 Unity 中打印信息的两种方式
 ```cs
 //1.没有继承MonoBehaviour的类的时候，可以使用Debug.Log
@@ -73,6 +67,37 @@ Debug.LogWarning("Awake Warning");
 //2. 继承了MonoBehaviour的类，可以使用线程方法print
 print("Awake Hello!");
 ```
+### 重要成员
+1. 获取依附的 Gameobject
+2. 获取依附的 Gameobject 的位置信息
+3. 获取脚本是否激活
+```cs
+public TestScript testScript;  //其他脚本
+ 
+void Start()
+{
+    //1. 获取依附的GameObject
+    print(this.gameObject.name);
+    
+    //2. 获取依附的GameObject的位置信息
+    //得到对象位置信息
+    print(this.transform.position);  //位置
+    print(this.transform.eulerAngles);  //角度
+    print(this.transform.lossyScale);  //缩放大小
+    //等价写法：this.gameObject.transform
+    
+    //3. 获取脚本是否激活
+    this.enabled = true;   //激活脚本
+    this.enabled = false;  //禁用脚本
+    
+    //获取别的脚本对象依附的gameobject和transfrom位置信息
+    print(testScript.gameObject.name);
+    print(testScript.transform.position);
+}
+```
+
+### 重要方法
+
 ## 生命周期函数
 游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。
 Unity 底层已红帮助我们做好了死循环，我们需要学习 Unity 的生命周期函数，利用它做好的规则来执行我们的游戏逻辑就行了。
