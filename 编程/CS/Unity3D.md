@@ -112,10 +112,18 @@ TestScript t3 = this.GetComponent<TestScript>();
 //只要你能得到场景中对象或者对象依附的脚本，那你就可以获取到它所有信息
 ```
 
-1. 得到自己挂载的多个脚本
+2. 得到自己挂载的多个脚本 (不常用，通常我们不会将同一个脚本挂载两次在同一个 GameObject 上)
+```cs
+//方法一
+NewBehaviourScript[] scripts = this.GetComponents<NewBehaviourScript>();
 
+//方法二
+List<NewBehaviourScript> scriptList = new List<NewBehaviourScript>();
+this.GetComponents<NewBehaviourScript>(scriptList);  //将找到的结果存在List中
 
+```
 
+3. 得到子对象挂载的脚本，它默认会找自己身上是否挂载该脚本
 
 ## 生命周期函数
 游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。
