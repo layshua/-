@@ -98,7 +98,7 @@ void Start()
 
 ### 重要方法
 如何得到依附的 GameObject 对象上挂载的其它脚本?
-1. 得到自己挂载的单个脚本
+1. 得到 GameObject 挂载的单个脚本
 ```cs file:得到自己挂载的单个脚本
 //根据脚本名获取，较少使用
 TestScript t1 = this.GetComponent("TestScript") as TestScript; 
@@ -112,18 +112,56 @@ TestScript t3 = this.GetComponent<TestScript>();
 //只要你能得到场景中对象或者对象依附的脚本，那你就可以获取到它所有信息
 ```
 
-2. 得到自己挂载的多个脚本 (不常用，通常我们不会将同一个脚本挂载两次在同一个 GameObject 上)
+安全的获取脚本，加一个判断：
 ```cs
-//方法一
-NewBehaviourScript[] scripts = this.GetComponents<NewBehaviourScript>();
+//方法一：
+MyScript s1 = this.GetComponent<MyScript>();
+if (s1 != null)
+{
+    //do something
+}
 
-//方法二
-List<NewBehaviourScript> scriptList = new List<NewBehaviourScript>();
-this.GetComponents<NewBehaviourScript>(scriptList);  //将找到的结果存在List中
-
+//方法二：
+MyScript s2;
+if(this.TryGetComponent<MyScript>(out s2))
+{
+    //do something
+}
 ```
 
-3. 得到子对象挂载的脚本，它默认会找自己身上是否挂载该脚本
+2. 得到 GameObject 挂载的多个脚本 (不常用，通常我们不会将同一个脚本挂载两次在同一个 GameObject 上)
+```cs
+//方法一
+MyScript[] scripts = this.GetComponents<MyScript>();
+
+//方法二
+List<MyScript> scriptList = new List<MyScript>(); //定义一个存放MyScript类型的List
+this.GetComponents<MyScript>(scriptList); //将找到的结果存在List中
+```
+
+3. 得到 GameObject 子孙对象挂载的脚本（默认会找本 GameObject 对象是否挂载该脚本）
+```cs
+//得到子孙对象挂载的单个脚本：
+MyScript s1 = this.GetComponentInChildren<MyScript>(); //如果脚本失活，则无法找到
+MyScript s2 = this.GetComponentInChildren<MyScript>(true); //true表示即使脚本失活，也可以找到
+
+//得到子孙对象挂载的多个脚本：
+//方法一：
+MyScript[] ss1 =  this.GetComponentsInChildren<MyScript>(true); 
+//方法二：
+List<MyScript> ss2 = new List<MyScript>();
+this.GetComponentsInChildren<MyScript>(true, ss2);
+```
+
+4. 得到 GameObject 长辈（包括父，爷爷...）对象挂载的脚本（默认会找本 GameObject 对象是否挂载该脚本）
+```cs
+//得到单个脚本
+MyScript s3 = this.GetComponentInParent<MyScript>();
+
+//得到多个脚本
+MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
+```
+
 
 ## 生命周期函数
 游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。
