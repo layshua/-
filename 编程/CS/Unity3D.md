@@ -97,6 +97,25 @@ void Start()
 ```
 
 ### 重要方法
+如何得到依附的 GameObject 对象上挂载的其它脚本?
+1. 得到自己挂载的单个脚本
+```cs file:得到自己挂载的单个脚本
+//根据脚本名获取，较少使用
+TestScript t1 = this.GetComponent("TestScript") as TestScript; 
+
+//根据Type获取
+TestScript t2 = this.GetComponent(typeof(TestScript)) as TestScript;
+
+//⭐根据泛型获取，建议使用，不用as
+TestScript t3 = this.GetComponent<TestScript>();
+
+//只要你能得到场景中对象或者对象依附的脚本，那你就可以获取到它所有信息
+```
+
+1. 得到自己挂载的多个脚本
+
+
+
 
 ## 生命周期函数
 游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。

@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/常见BUg.md",
+                "file": "编程/CS/BUG合集.md",
                 "mode": "source",
                 "source": false
               }
@@ -35,8 +35,12 @@
             "id": "f47180882203d612",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "编程/CS/Unity3D.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -170,11 +174,12 @@
   },
   "active": "f47180882203d612",
   "lastOpenFiles": [
-    "编程/CS/常见BUg.md",
+    "编程/CS/Unity操作指南.md",
+    "编程/CS/BUG合集.md",
+    "编程/CS/Unity3D.md",
     "编程/IDE/Reshaper快捷键.md",
     "zip/images/Pasted image 20230603150906.png",
     "zip/images/Pasted image 20230603150831.png",
-    "编程/CS/Unity3D.md",
     "zip/images/Pasted image 20230603144922.png",
     "zip/images/Pasted image 20230603144613.png",
     "zip/images/Pasted image 20230603144612.png",
@@ -187,7 +192,6 @@
     "zip/images/Pasted image 20230603130352.png",
     "Tools/Obsidian/插件流.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "编程/CS/Unity操作指南.md",
     "Unity/教程.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",
