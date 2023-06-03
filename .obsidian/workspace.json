@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity3D.md",
+                "file": "编程/CS/常见BUg.md",
                 "mode": "source",
                 "source": false
               }
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/Unity3D.md"
+                "file": "编程/CS/常见BUg.md"
               }
             }
           }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity3D.md",
+                "file": "编程/CS/常见BUg.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity3D.md",
+                "file": "编程/CS/常见BUg.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -162,24 +162,24 @@
   },
   "active": "e55f2824459023a4",
   "lastOpenFiles": [
+    "编程/IDE/Reshaper快捷键.md",
+    "编程/CS/常见BUg.md",
+    "zip/images/Pasted image 20230603150906.png",
+    "zip/images/Pasted image 20230603150831.png",
+    "编程/CS/Unity3D.md",
+    "zip/images/Pasted image 20230603144922.png",
+    "zip/images/Pasted image 20230603144613.png",
+    "zip/images/Pasted image 20230603144612.png",
     "zip/images/Pasted image 20230603143748.png",
     "编程/CS/《CS Primer》.md",
-    "编程/CS/Unity3D.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "编程/IDE/Reshaper快捷键.md",
     "zip/images/Pasted image 20230603134654.png",
     "zip/images/Pasted image 20230603133828.png",
     "zip/images/Pasted image 20230603132450.png",
     "zip/images/Pasted image 20230603130352.png",
     "Tools/Obsidian/插件流.md",
-    "zip/images/Pasted image 20230603123624.png",
-    "zip/images/Pasted image 20230603122307.png",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "编程/CS/Unity操作指南.md",
-    "zip/images/Pasted image 20230602232944.png",
-    "zip/images/Pasted image 20230602231416.png",
-    "zip/images/Pasted image 20230602225421.png",
-    "zip/images/Pasted image 20230602225358.png",
     "Unity/教程.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",
@@ -204,7 +204,6 @@
     "zip/icons/tabler-icons",
     "zip/icons/font-awesome-regular",
     "zBuffer/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（中）4_3 ~ 4_4_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md",
     "zip/icons/simple-icons",
     "zip/images/f52e612d29b16288c18c4f4639d55bc5_MD5.svg.xml",
     "编程/未命名",

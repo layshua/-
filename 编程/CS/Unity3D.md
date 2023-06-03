@@ -52,11 +52,16 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
    ![[Pasted image 20230603130352.png]]
 5. 继承 MonoBehavior 的类也可以再次被继承，遵循面向对象继承多态的规则
 
-### 不继承 MonoBehaviour 的类
+**不继承 MonoBehaviour 的类：**
 1. 不能挂载在 GameObject 上
 2. 想怎么写怎么写，如果要使用需要自己 new
 3. **一般是单例模式的类（用于管理模块）或者数据结构类（ 用于存储数据）**
 4. 不用保留默认出现的几个函数
+
+## 重要成员
+1. 获取依附的 Gameobject
+2. 获取依附的 Gameobject 的位置信息
+3. 获取脚本是否激活
 
 ## 打印
 在 Unity 中打印信息的两种方式
@@ -125,7 +130,13 @@ void OnDestroy()
 
 ## Inspector 窗口
 ### 可编辑的变量
-1. Inspector 显示的可编辑内容就是脚本的成员变量
+
+> [!NOTE] 
+> 1. Inspector 窗口中的变量关联的就是对象的成员变量，运行时改变他们就是在改变成员变量 
+>2. 拖拽到 Gameobject 对象后，再改变脚本代码中变量默认值，界面上不会改变 
+>3. 运行中修改的信息不会保存
+
+ 1. Inspector 显示的可编辑内容就是脚本的成员变量
 
 2. **public 成员变量可直接显示编辑**
    加上特性 `[HideInInspector]` 后不可显示编辑
@@ -152,7 +163,7 @@ public class Person
 }
 ```
 
-### 辅助特性
+### 窗口排版
 1. 分组说明特性 Header：为成员分组
 `[Header ("分组说明")]`
 
@@ -170,6 +181,42 @@ public float weight;
 2. 鼠标悬停注释 Tooltip ：为变量添加说明
 `Tooltip (“说明内容")]
 
- 3. 间隔特性 Space ()让两个字段间出现间隔[Space ()]
+ 3. 间隔特性 Space：让两个字段间出现间隔
+`[Space ()]`
 
-## Mono 中的重要内容
+4. 修饰数值的滑条范围 Range
+   `[Range (最小值, 最大值)]`
+
+5. 多行显示字符串，默认不写参数显示 3 行，写参数就是对应行
+`[Multiline (行数)]`
+
+6. 滚动条显示多行 字符串，默认不写参数就是超过 3 行显示滚动条
+`[TextArea (3，4)]`：最少显示 3 行，最多 4 行，超过 4 行就显示滚动条
+
+7. 为变量添加快捷方法 contextMenuItem 
+   - 参数 1 显示按钮名
+   - 参数 2 方法名不能有参数
+   `[contextMenuItem ("显示按钮名"，“方法名")]`
+```cs
+[ContextMenuItem("重置钱","ResetMoney")]
+public int money;
+
+private void ResetMoney()
+{
+    money = 0;
+}
+```
+ 右键可以查看方法：  ![[Pasted image 20230603144613.png]]
+
+8. 为方法添加特性能够在 Inspector 中执行 ContextMenu
+   `[ContextMenu ("测试函数")]`
+```cs
+[ContextMenu("哈哈哈哈")]
+private void TestFun()
+{
+   print("哈哈哈哈");
+}
+```
+在脚本上可以调用该方法：
+![[Pasted image 20230603144922.png]]
+
