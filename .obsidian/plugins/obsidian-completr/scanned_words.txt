@@ -164914,6 +164914,7 @@ GetInterfaces
 GetProperty
 GetPropertys
 GetCustomAttributes
+Gameobject
 NULL
 Native
 NormalMap
