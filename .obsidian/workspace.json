@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "编程/CS/Unity3D.md",
                 "mode": "source",
                 "source": false
               }
@@ -51,7 +51,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/Unity操作指南.md"
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md"
               }
             }
           }
@@ -129,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,14 +180,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "2bcad3346fef6756",
+  "active": "0518be14a49d8e42",
   "lastOpenFiles": [
+    "编程/CS/Unity3D.md",
+    "编程/CS/Unity操作指南.md",
     "zip/images/Pasted image 20230602232944.png",
     "zip/images/Pasted image 20230602231416.png",
     "zip/images/Pasted image 20230602225421.png",
     "zip/images/Pasted image 20230602225358.png",
-    "编程/CS/Unity3D.md",
-    "编程/CS/Unity操作指南.md",
     "zip/images/Pasted image 20230602223746.png",
     "编程/CS/《CS Primer》.md",
     "zip/images/Pasted image 20230602223502.png",
@@ -211,7 +212,6 @@
     "zip/images/Pasted image 20230601170011.png",
     "zip/images/Pasted image 20230601165909.png",
     "zip/images/Pasted image 20230601165858.png",
-    "zip/images/Pasted image 20230601165711.png",
     "zip/dailynote/前往斯旺西.md",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
