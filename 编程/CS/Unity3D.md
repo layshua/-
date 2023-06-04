@@ -833,49 +833,121 @@ print(this.transform.TransformDirection(Vector3.up));
 //鼠标在屏幕上的位置
 //屏幕坐标的原点是在屏幕的左下角，往右是x轴正方向，往上是Y轴正方向
 //返回值是Vector3，但是只有x和y有值，z一直是0是，因为屏幕本来就是2D的不存在z轴
-print(Input.mousePosition);
+Input.mousePosition
 
 //检测鼠标输入
 //0左键 1右键 2中键
 
 //按下Down
-if (Input.GetMouseButtonDown(0)) {}
+Input.GetMouseButtonDown(0)
 
 //抬起Up
-if (Input.GetMouseButtonUp(0)) {}
+Input.GetMouseButtonUp(0)
 
 //按住
-if (Input.GetMouseButton(0)) {}
+Input.GetMouseButton(0)
 
 //中键滚动
 //它的返回值是（0，Y），返回值的Y -1往下滚  0没有滚  1往上滚
-print(Input.mouseScrollDelta);
+Input.mouseScrollDelta
 ```
 
 ```cs file:键盘输入
 //键盘按下
 //方法一(推荐)
-if (Input.GetKeyDown(KeyCode.W))
-{
-    print("W按下");
-}
+Input.GetKeyDown(KeyCode.W)
+
 
 //方法二：传入字符串的重载
 //只能传入小写字符串
-if (Input.GetKeyDown("w"))
-{
-    print("W按下");
-}
+Input.GetKeyDown("w")
+
 
 //键盘抬起
-if(Input.GetKeyUp(KeyCode.W))
+Input.GetKeyUp(KeyCode.W)
     
 //键盘按住
-if(Input.GetKey(KeyCode.W))
+Input.GetKey(KeyCode.W)
 
+```
+
+```cs file:任意键
+//任意键 按下
+Input.anyKeyDown
+
+//任意键 抬起
+Input.anyKeyUp
+
+//任意键 按下
+Input.anyKey
 ```
 
 ### 默认轴输入
 ![[Pasted image 20230604213230.png]]
 我们学习鼠标键盘输入主要是用来控制玩家，比如旋转位移等等，所以 unity 提供了更方便的方法来帮助我们控制对象的位移和旋转。
+```cs file:默认轴输入
+//鼠标AD按下时，返回-1到1之间的浮点值
+//相当于得到这个值，就是我们的左右方向，用于控制左右移、旋转
+Input.GetAxis("Horizontal")
+
+//鼠标WS按下时，返回-1到1之间的浮点值
+//相当于得到这个值，就是我们的上下方向，用于控制上下移、旋转
+Input.GetAxis("Vertical")
+
+//鼠标横向移动时，返回-1到1之间的浮点值
+Input.GetAxis("Mouse X")
+
+//鼠标纵向移动时，返回-1到1之间的浮点值
+Input.GetAxis("Mouse Y")
+
+
+//GetAxisRaw方法和GetAxis使用方式相同
+//只不过它的返回值只会是-1,0,1不会有中间值
+```
+
+### 移动设备
+```cs file:移动设备
+//移动设备触摸相关
+if (Input.touchCount > 0)
+{
+    Touch t1 = Input.touches[0];
+    
+    //位置
+    print(t1.position);
+    
+    //相对上次位置的变化
+    print(t1.deltaPosition);
+}
+//是否启用多点触控
+Input.multiTouchEnabled = false;
+
+//陀螺仪
+//是否启用陀螺仪
+Input.gyro.enabled = true;
+
+//陀螺仪的旋转速度 
+print(Input.gyro.rotationRate);
+
+//陀螺仪的重力加速度向量
+print(Input.gyro.gravity);
+
+//陀螺仪 当前的旋转四元数
+//比如用这个角度信息来控制场景上的一个3D物体受到重力影响
+//手机怎么动它怎么动
+print(Input.gyro.attitude);
+```
+### 手柄输入
+```cs file:手柄输入
+//得到连接的手柄的所有按钮名字
+string[] strs = Input.GetJoystickNames();
+        
+//某一个手柄键按下
+Input. GetButtonDown("Jump")
+  
+//某一个手柄键抬起
+Input.GetButtonup("Jump"))
+
+//某一个手柄键长按
+Input.GetButton("Jump"))
+```
 
