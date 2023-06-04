@@ -766,7 +766,7 @@ void Start()
 ```
 
 2. 请为 Transform 写一个拓展方法，传入一个名字查找子对象，即使是子对象的子对象也能查找到
-```cs
+```cs file:tool.cs
 public static Transform CustomFind(this Transform father, string childName)
 {
     //要找的子对象
@@ -787,4 +787,15 @@ public static Transform CustomFind(this Transform father, string childName)
 
     return target;
 }
+
+//然后在父对象挂载的脚本中调用即可
+print(this.transform.CustomFind("aaa").name);
 ```
+
+### 坐标转换
+以下是从正 Y 轴向下看的视角，中间有一个 Cube 模型
+
+![[zip/images/Diagram.svg]]
+
+世界坐标系的点（0，0，1）转换为局部空间的（x, y, z），显然 x，z 在局部空间为负数。
+世界坐标系的方向（0，0，1）转换为
