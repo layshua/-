@@ -44,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "编程/CS/Unity3D.md"
               }
             }
           }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/Unity3D.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/Unity3D.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -161,6 +161,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "omnisearch:Omnisearch": false,
       "canvas:新建白板": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
@@ -168,15 +169,16 @@
       "remotely-save:Remotely Save": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "obsidian-local-images-plus:Local Images Plus  0.15.5\r\nDownload media files": false,
-      "omnisearch:Omnisearch": false
+      "obsidian-local-images-plus:Local Images Plus  0.15.5\r\nDownload media files": false
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "42b0653682bc92f3",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230604162029.png",
+    "zip/images/Pasted image 20230604162027.png",
+    "编程/CS/《CS Primer》.md",
     "编程/CS/Unity3D.md",
     "编程/IDE/Reshaper快捷键.md",
-    "编程/CS/《CS Primer》.md",
     "编程/CS/BUG合集.md",
     "Tools/System/未命名.md",
     "Tools/工具流.md",
@@ -191,7 +193,6 @@
     "zip/images/Pasted image 20230603143748.png",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/images/Pasted image 20230603134654.png",
-    "zip/images/Pasted image 20230603133828.png",
     "Tools/Obsidian/插件流.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "Unity/教程.md",
@@ -209,7 +210,6 @@
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "技术美术/05 UnityShader/TA101.md",
     "zip/dailynote/行李.md",
-    "zip/dailynote/前往斯旺西.md",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",

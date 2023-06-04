@@ -722,3 +722,69 @@ son.SetAsLastSibling();
 son.SetSiblingIndex(5);
 
 ```
+
+### 自定义拓展方法
+1. 为 Transform 写一个**拓展方法**，可以将它的子对象按名字的长短进行排序改变他们的顺序名字短的在前面，名字长的在后面。
+![[Pasted image 20230604162029.png]]
+```cs file:tool.cs
+//写一个Transfrom类的拓展方法
+public static class Tools
+{
+    //为Transform添加一个拓展方法
+    //可以将它的子对象按名字的长短进行排序改变他们的顺序，名字短的在前面，名字长的在后面
+    public static void Sort(this Transform obj)
+    {
+        List<Transform> list = new List<Transform>();
+        for (int i = 0; i < obj.childCount; i++) 
+        {
+            list.Add(obj.GetChild(i));
+        }
+        //这是根据名字长短进行排序利用的是list的排序
+        list.Sort((a, b) =>
+        {
+            if(a.name.Length < b.name.Length)
+                return -1;
+            else if(a.name.Length > b.name.Length)
+                return 1;
+            else
+                return 0;
+        });
+        
+        //根据list中的排序结果重新设置每一个对象的索引编号
+        for (int i = 0; i < list.Count; i++)
+        {
+            list[i].SetSiblingIndex(i);
+        }
+    }
+}
+
+//然后在父对象挂载的脚本中调用即可
+void Start()
+{
+    this.transform.Sort();
+} 
+```
+
+2. 请为 Transform 写一个拓展方法，传入一个名字查找子对象，即使是子对象的子对象也能查找到
+```cs
+public static Transform CustomFind(this Transform father, string childName)
+{
+    //要找的子对象
+    Transform target = null;
+    //先从自己身上的子对象找
+    target = father.Find(childName);
+    if (target != null) 
+        return target;
+    
+    //如果自己身上没有，就从自己的子对象的子对象找
+    for (int i = 0; i < father.childCount; i++)
+    {
+        //递归
+        target = father.GetChild(i).CustomFind(childName);
+        if (target != null)
+            return target;
+    }
+
+    return target;
+}
+```
