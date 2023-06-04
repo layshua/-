@@ -258,6 +258,7 @@ void Start()
 
 ### 重要方法
 如何得到依附的 GameObject 对象上挂载的其它脚本?
+
 1. 得到 GameObject 挂载的单个脚本
 ```cs file:得到自己挂载的单个脚本
 //根据脚本名获取，较少使用
@@ -502,3 +503,5 @@ void TestFunc1(int i)
     print("Hello World!"+i);
 }
 ```
+
+## Time
