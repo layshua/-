@@ -47,12 +47,8 @@
             "id": "f47180882203d612",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/CS/Unity3D.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -98,9 +94,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "编程/CS/Unity3D.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -134,7 +128,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity3D.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +144,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity3D.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -186,9 +178,9 @@
   },
   "active": "f47180882203d612",
   "lastOpenFiles": [
+    "编程/IDE/Reshaper快捷键.md",
     "编程/CS/《CS Primer》.md",
     "编程/CS/Unity3D.md",
-    "编程/IDE/Reshaper快捷键.md",
     "编程/CS/BUG合集.md",
     "编程/CS/Unity操作指南.md",
     "zip/images/Pasted image 20230603150906.png",
