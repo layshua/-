@@ -997,3 +997,11 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
 Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 ```
 
+## Camera
+![[Pasted image 20230604230509.png|450]]
+**Clear Flags**：清除标志，如何清除背景
+- skybox 天空盒 
+- Solid Color 颜色填充
+- Depth only 只画该层，背景透明
+- Don't Clear 不移除，覆盖渲染（不会有）
+
