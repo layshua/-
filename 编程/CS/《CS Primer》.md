@@ -1143,9 +1143,9 @@ class Item : IComparable<Item> //继承IComparable接口
     public int CompareTo(Item other)  //实现接口的方法
     {
         //返回值的含义
-        //<0：放在传入对象的前面
-        //=0：保持当前的位置不变
-        //>0：放在传入对象的后面
+        // <0：放在传入对象的前面
+        // =0：保持当前的位置不变
+        // >0：放在传入对象的后面
         
         //可以简单理解传入对象的位置就是0
         //返回负数就放在它的左边，也就是前面
@@ -2197,8 +2197,7 @@ i.SpeakValue(); //int类型的拓展方法,i作为value值传入函数
 
 static class Tools
 {
-    // 拓展方法写在
-    静态类中
+    // 拓展方法写在静态类中
     public static void SpeakValue(this int value)
     {
         //拓展的方法的逻辑

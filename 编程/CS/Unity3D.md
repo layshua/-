@@ -664,8 +664,8 @@ this.transform.LookAt(Vector3.zero); //看向点
 this.transform.LookAt(obj); //看向一个对象，参数为对象的Transform
 ```
 
-## 父子关系
-### 获取和设置父对象
+### 父子关系
+#### 获取和设置父对象
 ```cs
 //获取父对象
 print(this.transform.parent.name);
@@ -675,4 +675,50 @@ this.transform.parent = null;
 
 //设置父对象
 this.transform.parent = GameObject.Find("FatherObject").transform;
+
+//通过API设置，差别主要是多了一个参数二
+//参数一:我的父亲
+//参数二:是否保留世界坐标的位置角度缩放信息
+//true会保留世界，坐标下的状态和父对象进行计算得到本地坐标系的信息
+//false不会保留，会直接把世界坐标系下的位置角度缩放直接赋值到本地坐标系下,通常会改变原位置
+this.transform.SetParent(null); //断绝父子关系
+this.transform.SetParent(GameObject.Find("FatherObject").transform,false); //设置父对象
+this.transform.DetachChildren(); //和自己的所有儿子断绝关系，不会影响儿子和孙子的关系
+```
+
+#### 获取子对象
+```cs
+//按名字查找儿子
+//只能找儿子，不能找孙子
+//Find方法效率比GameObject.Find()高，前提要知道父亲是谁
+//Find方法是能够找到失活的对象的! Gameobject相关的查找是不能找到失活对象的
+print(this.transform.Find("Son").name);
+
+//遍历儿子
+for (int i = 0; i < this.transform.childCount; i++) 
+{
+    //通过索引号找到特定的儿子
+    print(this.transform.GetChild(i).name);
+}
+```
+
+#### 儿子的操作
+```cs
+//判断是不是我的儿子
+if (son.IsChildOf(this.transform))
+{
+}
+
+//得到自己作为儿子的编号  sibling:兄弟姐妹
+print(son.GetSiblingIndex());
+
+//把自己设置为第一个儿子
+son.SetAsFirstSibling();
+
+//把自己设置为最后一个儿子
+son.SetAsLastSibling();
+
+//把自己设置为指定索引号的儿子，编号超出范围不会报错，自动设置会最后一个编号
+son.SetSiblingIndex(5);
+
 ```
