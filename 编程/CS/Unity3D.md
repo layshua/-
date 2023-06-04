@@ -587,9 +587,9 @@ print(this.transform.localPosition);
 this.transform.position = new Vector3(1, 1, 1);
 this.transform.position = new Vector3(this.transform.position.x+100, this.transform.position.y, this.transform.position.z);
 
-print(this.transform.forward); //自身局部空间的z轴方向，注意和Vector3.forward区分
-print(this.transform.right);   //自身局部空间的x轴方向
-print(this.transform.up);      //自身局部空间的y轴方向
+print(this.transform.forward); //局部空间的z轴方向，注意和Vector3.forward区分
+print(this.transform.right);   //局部空间的x轴方向
+print(this.transform.up);      //局部空间的y轴方向
 ```
 #### 位移
 ```cs file:位移
@@ -639,11 +639,40 @@ print(this.transform.localRotation);
     //参数三：默认Space.Self
     this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.World);
     this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.Self); 
-    
-    
-    //绕点自转
-    
 
 
+    //绕点转
+    //点，轴，旋转速度
+    this.transform.RotateAround(Vector3.zero, Vector3.up, 10 * Time.deltaTime);
 }
+```
+
+### 缩放和LookAt
+```cs file:缩放
+//相对世界坐标系的缩放大小只能得，不能改
+print(this.transform.lossyScale); 
+
+//相对局部坐标系(父对象)
+this.transform.localScale  = new Vector3(1.0f, 1.0f, 1.0f);
+//和角度设置一样，不能单独设置x,y,z
+
+//Unity没有提供关于缩放的API，只能自己修改localScale
+```
+
+```cs file:LookAt
+this.transform.LookAt(Vector3.zero); //看向点
+this.transform.LookAt(obj); //看向一个对象，参数为对象的Transform
+```
+
+## 父子关系
+### 获取和设置父对象
+```cs
+//获取父对象
+print(this.transform.parent.name);
+
+//断绝父子关系
+this.transform.parent = null;
+
+//设置父对象
+this.transform.parent = GameObject.Find("FatherObject").transform;
 ```
