@@ -505,3 +505,88 @@ void TestFunc1(int i)
 ```
 
 ## Time
+```cs file:游戏时间
+void Update()
+{
+    //时间缩放比例 
+    Time.timeScale = 0; //时间停止
+    Time.timeScale = 1; //时间正常
+    Time.timeScale = 2; //2倍速 
+    
+    //帧间隔时间（最近的两帧之间的时间间隔）主要用于计算位移
+    //路程=速度*时间
+    //受Scale影响的帧间隔时间
+    print(Time.deltaTime);   //如果希望游戏暂停时就不动的，就是用deltaTime
+    //不受Scale影响的帧间隔时间
+    print(Time.unscaledDeltaTime); //如果希望游戏暂停时还能动的，就是用unscaledDeltaTime
+    
+    //游戏开始到现在的时间
+    //受Scale影响
+    print(Time.time);
+    //不受Scale影响
+    print(Time.unscaledTime);
+    
+    //游戏开始到现在跑了多少帧
+    print(Time.frameCount);
+    
+}
+```
+
+```cs file:物理时间
+private void FixedUpdate()
+{
+    //物理帧间隔时间
+    //受Scale影响
+    print(Time.fixedTime);
+    
+    //不受Scale影响
+    print(Time.fixedUnscaledTime);
+}
+```
+
+## Transform
+游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
+```cs file:Vector3
+//Vector3的初始化
+Vector3 v1 = new Vector3();
+v1.x = 10;
+v1.y = 10;
+v1.z = 10;
+
+Vector3 v2 = new Vector3(10, 10, 10);
+
+Vector3 v3 = Vector3.zero; // (0, 0, 0)
+Vector3 v4 = Vector3.one; // (1, 1, 1)
+Vector3 v5 = Vector3.right; // (1, 0, 0)
+Vector3 v6 = Vector3.left; // (-1, 0, 0)
+Vector3 v7 = Vector3.up; // (0, 1, 0)
+Vector3 v8 = Vector3.down; // (0, -1, 0)
+Vector3 v9 = Vector3.forward; // (0, 0, 1)
+Vector3 v10 = Vector3.back; // (0, 0, -1)
+
+//计算点之间的距离
+float distance = Vector3.Distance(v1, v2);
+```
+
+
+> [!NOTE] Inspector 面板上的 Transfrom 信息
+> 对于父对象来说，positon 是世界空间位置
+> 对于子对象来说，position 是相对于父对象的位置，即在父对象为原点的模型空间中位置
+> 
+
+```cs
+ //世界空间位置
+print(this.transform.position);
+
+//模型空间位置
+print(this.transform.localPosition);
+
+//position的赋值不能单独改变x,y,z，只能整体改变
+//this.transform.position.x = 1; error！
+this.transform.position = new Vector3(1, 1, 1);
+this.transform.position = new Vector3(this.transform.position.x+100, this.transform.position.y, this.transform.position.z);
+
+print(this.transform.forward); //局部空间的z轴方向
+print(this.transform.right);   //局部空间的x轴方向
+print(this.transform.up);      //局部空间的y轴方向
+```
