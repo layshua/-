@@ -324,11 +324,11 @@ MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 ```
 
 # 二、重要组件和 API
-## Object
+## Object 类
 **Object 是 Gameobject 的父类** 
 - unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是 system ）
 - unity 里的 Object 命名空间是 UnityEngine ，也是继承万物之父的一个自定义类
-## GameObject
+## GameObject 类
 ### 成员变量
 ```cs
 //名字
@@ -504,7 +504,7 @@ void TestFunc1(int i)
 }
 ```
 
-## Time
+## Time 类
 ```cs file:游戏时间
 void Update()
 {
@@ -544,7 +544,7 @@ private void FixedUpdate()
 }
 ```
 
-## Transform
+## Transform 类
 游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
 #### Vector3
 ```cs file:Vector3
@@ -825,3 +825,57 @@ print(this.transform.TransformDirection(Vector3.up));
 其中**最重要的就是局部坐标系的点转世界坐标系的点**
 比如现在玩家要在自己面前的 n 个单位前放一团火，这个时候我不用关心世界坐标系
 通过相对于本地坐标系的位置转换为世界坐标系的点，进行特效的创建或者攻击范围的判断,
+## Input 类
+输入相关内容都写在 Update 中
+
+### 鼠标键盘输入
+```cs file:鼠标输入
+//鼠标在屏幕上的位置
+//屏幕坐标的原点是在屏幕的左下角，往右是x轴正方向，往上是Y轴正方向
+//返回值是Vector3，但是只有x和y有值，z一直是0是，因为屏幕本来就是2D的不存在z轴
+print(Input.mousePosition);
+
+//检测鼠标输入
+//0左键 1右键 2中键
+
+//按下Down
+if (Input.GetMouseButtonDown(0)) {}
+
+//抬起Up
+if (Input.GetMouseButtonUp(0)) {}
+
+//按住
+if (Input.GetMouseButton(0)) {}
+
+//中键滚动
+//它的返回值是（0，Y），返回值的Y -1往下滚  0没有滚  1往上滚
+print(Input.mouseScrollDelta);
+```
+
+```cs file:键盘输入
+//键盘按下
+//方法一(推荐)
+if (Input.GetKeyDown(KeyCode.W))
+{
+    print("W按下");
+}
+
+//方法二：传入字符串的重载
+//只能传入小写字符串
+if (Input.GetKeyDown("w"))
+{
+    print("W按下");
+}
+
+//键盘抬起
+if(Input.GetKeyUp(KeyCode.W))
+    
+//键盘按住
+if(Input.GetKey(KeyCode.W))
+
+```
+
+### 默认轴输入
+![[Pasted image 20230604213230.png]]
+我们学习鼠标键盘输入主要是用来控制玩家，比如旋转位移等等，所以 unity 提供了更方便的方法来帮助我们控制对象的位移和旋转。
+
