@@ -1030,3 +1030,41 @@ Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 - 在 Project 右键创建 RenderTexture
 
 ## 代码相关
+主摄像机的 Tag 必须设置为 MainCamera，否则 Camera. main 无法得到对象
+![[Pasted image 20230604234018.png]]
+```cs
+//获取tag为MainCamera摄像机
+//获取MainCamera的名字
+print(Camera.main.name);
+
+//Inspector界面上的参数，都可以在Camera中获取
+Camera.main.depth = 10;
+
+//获取摄像机的数量
+print(Camera.allCamerasCount);
+
+//得到所有摄像机
+Camera[] cameras = Camera.allCameras;
+print(cameras.Length);
+```
+
+```cs file:渲染相关委托
+//摄像机 剔除前 处理的委托函数
+Camera.onPreCull += (cam) => { print("onPreCull"); };
+
+//摄像机 渲染前 处理的委托函数
+Camera.onPreRender += (cam) => { print("onPreRender"); };
+
+//摄像机 渲染后 处理的委托函数
+Camera.onPostRender += (cam) => { print("onPostRender"); };
+```
+
+```cs file:坐标转换
+//世界坐标转屏幕坐标
+Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);  //XY是屏幕坐标，Z轴是深度
+print(screenPos);
+
+//屏幕坐标转世界坐标
+Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+print(worldPos);
+```
