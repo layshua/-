@@ -350,7 +350,10 @@ print(this.transform.position);
 ```
 
 ### 静态方法
-如果是继承 Mono Behaviour 的类，可以不加 `.GameObject`
+
+> [!warning] 
+> 如果是继承 MonoBehaviour 的类，可以不加 `.GameObject` 前缀
+
 #### 查找对象
 得到某一个单个对象目前有 2 种方式
 1. 是 public 从外部面板拖进行关联（推荐）
@@ -406,7 +409,8 @@ void Start()
 ```
 
 #### 删除对象
-Destrdy 方法不会马上移除对象，一般情况下它会在下一帧时把这个对象移除并从内存中移除
+`Destrdy` 方法不会马上移除对象，一般情况下它会在下一帧时把这个对象移除并从内存中移除
+
 ```cs
 //删除GameObject对象 
 GameObject.Destroy(obj,5);  //第二个参数可选，表示延迟几秒删除
@@ -417,4 +421,84 @@ GameObject.Destroy(this);
 //立即移除
 //如果没有特殊需求，不用该方法，因为该方法不是异步的，可能会卡顿
 GameObject.DestroyImmediate(obj);
+
+//过场景不移除
+//默认情况在切换场景时场景中对象都会被自动删除掉
+//如果你希望某个对象过场景不被移除就使用该方法
+//一般都是传依附的Gameobject对象
+//比如下面这句代码的意思就是自己依附的Gameobject对象过场景不被删除
+GameObject.DontDestroyOnLoad(this.gameObject);
+```
+
+## 成员方法
+
+#### 创建GameObject
+```cs
+//创建空GameObject
+GameObject obj1 = new GameObject(); //默认名字New Game Object
+GameObject obj2 = new GameObject("物体"); //自定义名字
+GameObject obj3 = new GameObject("物体", typeof(TestScript)); //自定义名字，添加脚本，可以添加多个
+```
+
+#### 添加/获取脚本
+```cs
+//为对象添加脚本
+//继承MonoBehaviour的脚本是无法new的
+//如果给GameObject对象动态添加继承MonoBehaviour的脚本，需要使用AddComponent方法
+TestScript ts1 = obj1.AddComponent(typeof(TestScript)) as TestScript;
+//⭐用泛型更方便，推荐！
+TestScript script = obj1.AddComponent<TestScript>();
+//通过返回值，可以得到脚本的信息，来进行一些处理
+
+//获取脚本
+TestScript ts2 = obj1.GetComponent<TestScript>();
+```
+
+#### 标签比较
+```cs
+ //标签比较
+if (this.gameObject.CompareTag("Player"))
+{
+    
+}
+//显式字符串比较效率低下，建议改用‘CompareTag'
+if (this.gameObject.tag == "Player")
+{
+}
+```
+#### 激活失活
+```cs
+ //设置激活失活
+ obj1.SetActive(false);
+```
+
+#### 发送消息
+以下方法不建议使用，效率比较低
+
+通过广播或者发送消息的形式，让自己或者别人执行某些行为
+```cs
+void Start()
+{
+    //通知自己执行什么行为
+    //命令自己去执行这个Test这个函数 会在自己身上挂载的所有脚本去找这个名字的函数
+    //它会去找到自己身上所有的脚本有这个名字的函数去执行
+    this.gameObject.SendMessage("TestFunc");
+    this.gameObject.SendMessage("TestFunc1",10); //第二个参数可以传参
+    
+    //广播，让自己和自己的子对象执行函数
+    this.gameObject.BroadcastMessage("TestFunc");
+    
+    //向父对象和自己发送消息并执行
+    this.gameObject.SendMessageUpwards("TestFunc");
+}
+
+void TestFunc()
+{
+    print("Hello World!");
+}
+
+void TestFunc1(int i)
+{
+    print("Hello World!"+i);
+}
 ```
