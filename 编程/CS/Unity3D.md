@@ -324,9 +324,9 @@ MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 
 # 二、重要组件和 API
 ## Object
-Object 是 Gameobject 的父类 
-unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是在 system 中的）
-unity 里的 Object 命名空间在 UnityEngine 中的 Object 类，也是继承万物之父的一个自定义类
+**Object 是 Gameobject 的父类** 
+- unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是 system ）
+- unity 里的 Object 命名空间是 UnityEngine ，也是继承万物之父的一个自定义类
 ## GameObject
 ### 成员变量
 ```cs
@@ -349,8 +349,14 @@ print(this.gameObject.tag);
 print(this.transform.position);
 ```
 
-### 查找对象
-以下方法：
+### 静态方法
+如果是继承 Mono Behaviour 的类，可以不加 `.GameObject`
+#### 查找对象
+得到某一个单个对象目前有 2 种方式
+1. 是 public 从外部面板拖进行关联（推荐）
+2.  通过 API 去找
+
+以下方法通过 API 去找：
 - 只能找到被激活的对象
 - 如果场景中存在多个满足条件的对象 (比如同名、同 tag)，无法准确找到是谁
 
@@ -370,13 +376,45 @@ if (obj2 != null)
     print(obj2);
 }
 
-//通过tag查找，效率高，只需要遍历所有tag相同的对象
+//通过tag查找象，需要遍历所有对象
 GameObject obj3 = GameObject.FindWithTag("Player");
 if (obj3 != null)
 {
     print(obj3);
 }
 
+//找到场景中挂载的某一个脚本对象 ，效率太低，需要遍历所有对象，还要便利对象上挂载的脚本 
+TestScript ts = GameObject.FindObjectOfType<TestScript>();
+
 //2.查找多个对象（只能通过tag）
 GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+```
+
+#### 实例化对象（Clone）
+实例化对象 (克隆对象)的方法
+作用：根据一个 Gameobject 对象创建出一个和它一模一样的对象
+```cs
+//准备克隆的GameObject
+public GameObject obj;
+void Start()
+{
+    //准备用来克隆的对象
+    //1.直接是场景上的某个对象
+    //2.可以是一个预设体对象
+    GameObject objClone = GameObject.Instantiate(obj);
+}
+```
+
+#### 删除对象
+Destrdy 方法不会马上移除对象，一般情况下它会在下一帧时把这个对象移除并从内存中移除
+```cs
+//删除GameObject对象 
+GameObject.Destroy(obj,5);  //第二个参数可选，表示延迟几秒删除
+
+//删除脚本对象
+GameObject.Destroy(this);
+
+//立即移除
+//如果没有特殊需求，不用该方法，因为该方法不是异步的，可能会卡顿
+GameObject.DestroyImmediate(obj);
 ```
