@@ -998,6 +998,7 @@ Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 ```
 
 ## Camera
+### 可编辑参数
 ![[Pasted image 20230604230509.png|450]]
 **Clear Flags**：清除标志，如何清除背景
 - skybox 天空盒 
@@ -1005,3 +1006,27 @@ Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 - Depth only 只画该层，背景透明
 - Don't Clear 不移除，覆盖渲染（不会有）
 
+**Culling Mask**：剔除遮罩，指定渲染哪些 Layer 
+
+**Physical Camera**：物理摄像机
+勾选后可以模拟真实世界中的摄像机焦距，传感器尺寸，透镜移位等等
+- Focal Length 焦距
+- Sensor Type  传感器类型
+- Sensor Size 传感器尺寸
+- Lens Shift 透镜移位
+- Gate Fit 闸门配合
+
+
+**Depth**：深度决定渲染顺序
+- 多相机的时候要设置顺序。（比如 UI 一个摄像机，游戏一个摄像机，设置两个 Culling Mask 不同的摄像机绘制不同的 Layer） 
+- 深度较大的绘制在深度较小的上方（覆盖小的），game 中的界面是深度最大相机渲染出来的
+- 深度大的可以将 Clear Flags 设置为 Depth only，这样就可以渲染出多个摄像机拍摄的内容
+
+**Viewport Rect**：视口范围
+可以起到分屏的作用，这样可以放置多个摄像机，实现分屏多人游戏
+
+**Target Texture**：渲染纹理
+- 可以把摄像机画面渲染到一张图上，用于制作小地图
+- 在 Project 右键创建 RenderTexture
+
+## 代码相关
