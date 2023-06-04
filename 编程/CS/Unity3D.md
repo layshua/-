@@ -951,3 +951,49 @@ Input.GetButtonup("Jump"))
 Input.GetButton("Jump"))
 ```
 
+## Screen 类
+
+### 静态属性
+```cs
+//当前设备屏幕分辨率
+Resolution r = Screen.currentResolution;
+print(r.width);
+print(r.height);
+
+//Game窗口宽高
+print(Screen.width);
+print(Screen.height);
+
+//屏幕睡眠模式
+Screen.sleepTimeout = SleepTimeout.NeverSleep;
+Screen.sleepTimeout = SleepTimeout.SystemSetting;
+
+//运行时是否全屏模式
+Screen.fullScreen = true;
+
+//窗口模式
+//独占全屏FullscreenMode.ExclusiveFullscreen
+//全屏窗口FullscreenMode.Fullscreenwindow
+//最大化窗口FullscreenMode. Maximizedwindow
+//窗口模式FullscreenMode.windowed
+Screen.fullScreenMode = FullScreenMode.Windowed;
+
+//移动设备屏幕转向相关
+//允许自动旋转为左横向 Home键在左
+Screen.autorotateToLandscapeLeft = true;
+//允许自动旋转为右横向 Home键在右
+Screen.autorotateToLandscapeRight = true;
+//允许自动旋转到纵向 Home键在下
+Screen.autorotateToPortrait = true;
+//允许自动旋转到纵向倒着看 Home键在上
+Screen.autorotateToPortraitUpsideDown = true;
+
+//指定屏幕显示方向
+Screen.orientation = ScreenOrientation.LandscapeLeft;
+```
+### 静态方法
+```cs
+//设置分辨率
+Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
+```
+
