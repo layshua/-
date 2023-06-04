@@ -75405,6 +75405,7 @@ CompilerServices
 ConsoleApp
 Conditional
 ContextMenu
+Clone
 ImTip
 IMAP
 ID
@@ -86894,6 +86895,7 @@ pJl
 pDt
 pMZO
 poor
+positon
 nodesCatch
 nobr
 navy
@@ -104933,6 +104935,7 @@ TestFunc
 TestFun
 TestClass
 Transtform
+Transfrom
 io
 ipad
 it

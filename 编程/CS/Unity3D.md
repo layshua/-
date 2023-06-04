@@ -603,9 +603,47 @@ this.transform.position += Vector3.forward * (1 * Time.deltaTime);  //朝世界�
 //方式二：API
 //参数一:表示位移多少路程=方向*速度*时间
 //参数二:表示相对坐标系 ,默认该参数是自身局部空间
-this.transform.Translate(Vector3.forward, Space.World);
-this.transform.Translate(Vector3.forward,Space.Self);
-this.transform.Translate(this.transform.forward, Space.Self);
-this.transform.Translate(this.transform.forward, Space.World);
+this.transform.Translate(Vector3.forward, Space.World); //始终朝向世界空间Z轴移动
+this.transform.Translate(Vector3.forward,Space.Self);  //始终朝向局部空间Z轴移动
+this.transform.Translate(this.transform.forward, Space.Self);  //方向错误   
+this.transform.Translate(this.transform.forward, Space.World); //始终朝向局部空间Z轴移动
 
+//实际上我们就是想用始终朝向局部空间Z轴的移动，无非就是两种情况：
+//1. 局部空间的（0，0，1）
+//2. 局部空间的（0，0，1）在世界空间中的坐标，即this.transform.forward
+```
+#### 角度和旋转
+```cs file:角度
+//和角度设置一样，不能单独设置x,y,z
+        
+//是inspector界面上显示的Rotation是欧拉角
+print(this.transform.eulerAngles); //该方法返回欧拉角,
+print(this.transform.localEulerAngles);
+
+print(this.transform.rotation);  //该方法返回四元数
+print(this.transform.localRotation); 
+```
+
+```cs file:旋转
+ void Update()
+{
+    //绕轴自转
+    //方法一：
+    //参数一：每帧旋转的角度
+    //参数二：默认Space.Self
+    this.transform.Rotate(new Vector3(0,10,0) * Time.deltaTime,Space.World);
+    
+    //方法二：
+    //参数一：绕哪个轴旋转
+    //参数二：是每帧转动的角度
+    //参数三：默认Space.Self
+    this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.World);
+    this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.Self); 
+    
+    
+    //绕点自转
+    
+
+
+}
 ```
