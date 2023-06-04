@@ -323,6 +323,10 @@ MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 ```
 
 # 二、重要组件和 API
+## Object
+Object 是 Gameobject 的父类 
+unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是在 system 中的）
+unity 里的 Object 命名空间在 UnityEngine 中的 Object 类，也是继承万物之父的一个自定义类
 ## GameObject
 ### 成员变量
 ```cs
@@ -345,3 +349,34 @@ print(this.gameObject.tag);
 print(this.transform.position);
 ```
 
+### 查找对象
+以下方法：
+- 只能找到被激活的对象
+- 如果场景中存在多个满足条件的对象 (比如同名、同 tag)，无法准确找到是谁
+
+```cs
+//创建几何体
+//只要得到了一个Gameobject 对象我就可以得到它身上挂在的任何脚本信息
+//通过obj.GetComponent来得到脚本信息
+GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+obj.name = "球体";
+obj.tag = "Player";
+
+//1 查找单个对象
+//通过对象名查找，效率低，需要遍历所有对象
+GameObject obj2 = GameObject.Find("球体");
+if (obj2 != null)
+{
+    print(obj2);
+}
+
+//通过tag查找，效率高，只需要遍历所有tag相同的对象
+GameObject obj3 = GameObject.FindWithTag("Player");
+if (obj3 != null)
+{
+    print(obj3);
+}
+
+//2.查找多个对象（只能通过tag）
+GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+```
