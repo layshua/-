@@ -47,8 +47,12 @@
             "id": "f47180882203d612",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "编程/CS/Unity3D.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -94,7 +98,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "编程/CS/Unity3D.md"
+              }
             }
           }
         ]
@@ -128,6 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "编程/CS/Unity3D.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,6 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "编程/CS/Unity3D.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,6 +186,8 @@
   },
   "active": "f47180882203d612",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230604101922.png",
+    "zip/images/Pasted image 20230604101859.png",
     "编程/IDE/Reshaper快捷键.md",
     "编程/CS/《CS Primer》.md",
     "编程/CS/Unity3D.md",
@@ -193,7 +203,6 @@
     "zip/images/Pasted image 20230603134654.png",
     "zip/images/Pasted image 20230603133828.png",
     "zip/images/Pasted image 20230603132450.png",
-    "zip/images/Pasted image 20230603130352.png",
     "Tools/Obsidian/插件流.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "Unity/教程.md",
