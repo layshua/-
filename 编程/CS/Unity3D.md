@@ -546,6 +546,7 @@ private void FixedUpdate()
 
 ## Transform
 游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
+#### Vector3
 ```cs file:Vector3
 //Vector3的初始化
 Vector3 v1 = new Vector3();
@@ -568,17 +569,17 @@ Vector3 v10 = Vector3.back; // (0, 0, -1)
 float distance = Vector3.Distance(v1, v2);
 ```
 
-
+#### 位置
 > [!NOTE] Inspector 面板上的 Transfrom 信息
 > 对于父对象来说，positon 是世界空间位置
-> 对于子对象来说，position 是相对于父对象的位置，即在父对象为原点的模型空间中位置
+> 对于子对象来说，position 是相对于父对象的位置，即在父对象为原点的局部空间中位置
 > 
 
-```cs
+```cs file:position
  //世界空间位置
 print(this.transform.position);
 
-//模型空间位置
+//局部空间位置
 print(this.transform.localPosition);
 
 //position的赋值不能单独改变x,y,z，只能整体改变
@@ -586,7 +587,25 @@ print(this.transform.localPosition);
 this.transform.position = new Vector3(1, 1, 1);
 this.transform.position = new Vector3(this.transform.position.x+100, this.transform.position.y, this.transform.position.z);
 
-print(this.transform.forward); //局部空间的z轴方向
-print(this.transform.right);   //局部空间的x轴方向
-print(this.transform.up);      //局部空间的y轴方向
+print(this.transform.forward); //自身局部空间的z轴方向，注意和Vector3.forward区分
+print(this.transform.right);   //自身局部空间的x轴方向
+print(this.transform.up);      //自身局部空间的y轴方向
+```
+#### 位移
+```cs file:位移
+//理解坐标系下的位移计算公式
+//路程–方向*速度*时间
+//方式一：自己计算
+//想要变化的就是 position
+this.transform.position += this.transform.forward * (1 * Time.deltaTime);  //朝对象局部空间的z轴前进
+this.transform.position += Vector3.forward * (1 * Time.deltaTime);  //朝世界空间Z轴前进
+
+//方式二：API
+//参数一:表示位移多少路程=方向*速度*时间
+//参数二:表示相对坐标系 ,默认该参数是自身局部空间
+this.transform.Translate(Vector3.forward, Space.World);
+this.transform.Translate(Vector3.forward,Space.Self);
+this.transform.Translate(this.transform.forward, Space.Self);
+this.transform.Translate(this.transform.forward, Space.World);
+
 ```
