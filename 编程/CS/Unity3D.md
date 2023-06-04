@@ -797,5 +797,31 @@ print(this.transform.CustomFind("aaa").name);
 
 ![[zip/images/Diagram.svg]]
 
-世界坐标系的点（0，0，1）转换为局部空间的（x, y, z），显然 x，z 在局部空间为负数。
-世界坐标系的方向（0，0，1）转换为
+世界坐标系的点 P(0，0，1)转换到局部空间，则 P 点坐标的 x，z 在局部空间为负数。
+世界坐标系的向量P（0，0，1）转换为局部空间，将左边的向量平移到右边，可以观察到该方向向量的 x 为负数，z 为证书
+```cs file:世界坐标转局部坐标
+//世界坐标系的点转换为局部坐标系点（会受缩放影响）
+//上图中的P即为Vector3.forward
+this.transform.InverseTransformPoint(Vector3.forward);
+
+//世界坐标系的向量转换为本地坐标系的向量
+//不受缩放影响
+this.transform.InverseTransformDirection(Vector3.forward);
+//受缩放影响
+this.transform.InverseTransformVector(Vector3.forward);
+```
+
+
+```cs file:局部坐标转世界坐标
+//⭐点（受缩放影响）
+print(this.transform.TransformPoint(Vector3.forward));  
+
+//向量
+//不受缩放影响
+print(this.transform.TransformDirection(Vector3.forward));
+//受缩放影响
+print(this.transform.TransformDirection(Vector3.up));
+```
+其中**最重要的就是局部坐标系的点转世界坐标系的点**
+比如现在玩家要在自己面前的 n 个单位前放一团火，这个时候我不用关心世界坐标系
+通过相对于本地坐标系的位置转换为世界坐标系的点，进行特效的创建或者攻击范围的判断,
