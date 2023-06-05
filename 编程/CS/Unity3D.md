@@ -603,10 +603,10 @@ this.transform.position += Vector3.forward * (1 * Time.deltaTime);  //朝世界�
 //方式二：API
 //参数一:表示位移多少路程=方向*速度*时间
 //参数二:表示相对坐标系 ,默认该参数是自身局部空间
-this.transform.Translate(Vector3.forward, Space.World); //始终朝向世界空间Z轴移动
-this.transform.Translate(Vector3.forward,Space.Self);  //始终朝向局部空间Z轴移动
-this.transform.Translate(this.transform.forward, Space.Self);  //方向错误   
-this.transform.Translate(this.transform.forward, Space.World); //始终朝向局部空间Z轴移动
+this.transform.Translate(Vector3.forward* (1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
+this.transform.Translate(Vector3.forward(1 * Time.deltaTime),Space.Self);  //始终朝向局部空间Z轴移动
+this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误   
+this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.World); //始终朝向局部空间Z轴移动
 
 //实际上我们就是想用始终朝向局部空间Z轴的移动，无非就是两种情况：
 //1. 局部空间的（0，0，1）
