@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md"
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md"
               }
             }
           }
@@ -142,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,6 +194,10 @@
   },
   "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/疑问.md",
+    "技术美术/05 UnityShader/庄懂AP01.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "技术美术/05 UnityShader/TA101.md",
     "编程/CS/数据持久化.md",
     "编程/CS/Unity101.md",
     "编程/CS/《CS Primer》.md",
@@ -222,16 +226,12 @@
     "Tools/System/未命名.md",
     "Tools/工具流.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "Unity/教程.md",
     "编程/C++/C++原理.md",
     "编程/C++/C++补充.md",
     "编程/C++/Cherno剩余.md",
     "编程/C++/Google C++风格.md",
     "编程/CS/唐老狮 C 进阶.md",
-    "编程/CS/唐老狮 C 核心.md",
-    "编程/CS/唐老狮 C 基础.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
