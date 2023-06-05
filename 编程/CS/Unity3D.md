@@ -592,6 +592,9 @@ print(this.transform.right);   //局部空间的x轴方向
 print(this.transform.up);      //局部空间的y轴方向
 ```
 #### 位移
+实现位移的四种方式：
+![[Pasted image 20230605154644.png]]
+
 ```cs file:位移
 //理解坐标系下的位移计算公式
 //路程–方向*速度*时间
@@ -1239,7 +1242,7 @@ private void OnTriggerExit(Collider other)
 ### 刚体加力
 给刚体加力的目标就是让其有一个速度朝向某一个方向移动
 
-#### 刚体添加力的方法
+#### 刚体添加力
 ```cs file:刚体添加力的方法
 //1.首先应该获取刚体组件
 rigidBody = this.GetComponent<Rigidbody>();
@@ -1284,7 +1287,39 @@ t：时间
 m：质量
 v：速度
 
-四种模式：
+四种模式：第二种模式比较符合真实
 ![[Pasted image 20230605153729.png]]
 ![[Pasted image 20230605153747.png]]
 ![[Pasted image 20230605153852.png]]
+![[Pasted image 20230605153903.png]]
+### 刚体休眠
+比如运行游戏后，Cube 落到平面上发生碰撞停下，此时编辑平面的角度，发现 Cube 并没有下落，因为此时 Cube 的刚体休眠了。再移动一下，才会唤醒
+![[Pasted image 20230605154414.png]]
+
+```cs file:主动唤醒
+if(rigidBody.IsSleeping())
+{
+    rigidBody.WakeUp();
+}
+```
+### 力场脚本
+更方便的添加力
+![[Pasted image 20230605154007.png]]
+
+## 音频系统 
+常用格式：wav，mp3，ogg，aiff
+### 属性设置
+![[Pasted image 20230605155215.png|450]]
+![[Pasted image 20230605155225.png]]
+![[Pasted image 20230605155456.png]]
+## 音频源 Audio Source
+一个 Scene 内 Audio Source 只能有一个
+
+![[Pasted image 20230605155715.png|500]]
+![[Pasted image 20230605155803.png|450]]
+![[Pasted image 20230605160059.png]]
+
+
+**Spatial Blend**：设置 3D 音效，默认为 2D
+**Volume Rolloff**：声音距离衰减
+
