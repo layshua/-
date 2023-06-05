@@ -1145,16 +1145,26 @@ Continuous Dynamic > Continuous Speculativec > Continuous > Discrete
 **约束：**
 ![[Pasted image 20230605125531.png]]
 
-## 碰撞器 Collider
-```mermaid
-flowchart LR
-	共同参数-->IsTrigger</br>是否是触发器-->id[如果启用此属性,则该碰撞体将用于触发事件,并被物理引擎忽略</br>主要用于进行没有物理效果的碰撞检测];
-
-	共同参数-->Material<br>物理材质-->id1[可以确定碰撞体和其它对象碰撞时的交互表现方式]
-
-	共同参数-->节点文本;
-```
-
+### 碰撞器 Collider
 
 ![[Pasted image 20230605125839.png]]
 ![[Pasted image 20230605130129.png]]
+
+异形物体使用多种碰撞器组合，刚体对象的子对象碰撞器信息参与碰撞检测（即我们可以给父对象添加刚体，碰撞器则添加到每个子对象上）
+
+**不常用的碰撞器：**
+Mesh Colider网格碰撞器，根据网格生成碰撞体，消耗较大，较为精确
+![[Pasted image 20230605131446.png]]
+
+Wheel Colider 车轮碰撞器，用于汽车
+Terrain Colider：地形碰撞器
+
+### 物理材质
+让两个物体之间碰撞时表现出不同效果
+右键 Create 
+![[Pasted image 20230605132408.png|500]]
+### 碰撞检测函数
+碰撞和触发响应函数属于特殊的生命周期函数，位于 FixedUpdate 和 Update 之间，也是通过反射调用
+
+![[Pasted image 20230605132917.png|350]]
+
