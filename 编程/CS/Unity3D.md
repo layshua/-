@@ -1000,7 +1000,7 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
 Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 ```
 
-## 7 Camera
+## 7 Camera 类
 ### 可编辑参数
 ![[Pasted image 20230604230509.png|450]]
 **Clear Flags**：清除标志，如何清除背景
@@ -1389,23 +1389,28 @@ for (int i = 0; i < strs.Length; i++)
     print(strs[i]);
 }
 
-//开始录制
+//开始录音
 //参数一:设备名，传null使用默认设备
 //参数二:超过录制长度后是否重头录制
 //参数三:录制时长
 //参数四:采样率
 audioClip = Microphone.Start(null, false, 10, 44100);
 
-//结束录制
+//结束录音
 Microphone.End(null);
 
-//保存录制并播放
+//播放录制音频
 AudioSource s = this.GetComponent<AudioSource>();
 if (s == null)
 {
     s = this.gameObject.AddComponent<AudioSource>();
 }
-
 s.clip = audioClip;
 s.Play();
+
+//获取音频数据用于存储或者传输  
+//用于存储数组数据的长度=声道数*剪辑长度  
+float[] f = new float[audioClip.channels * audioClip.samples];  
+audioClip.GetData(f, 0);  
 ```
+
