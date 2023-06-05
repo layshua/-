@@ -324,11 +324,11 @@ MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 ```
 
 # 二、重要组件和 API
-## Object 类
+## 1 Object 类
 **Object 是 Gameobject 的父类** 
 - unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是 system ）
 - unity 里的 Object 命名空间是 UnityEngine ，也是继承万物之父的一个自定义类
-## GameObject 类
+## 2 GameObject 类
 ### 成员变量
 ```cs
 //名字
@@ -431,7 +431,7 @@ GameObject.DestroyImmediate(obj);
 GameObject.DontDestroyOnLoad(this.gameObject);
 ```
 
-## 成员方法
+### 成员方法
 
 #### 创建GameObject
 ```cs
@@ -504,7 +504,7 @@ void TestFunc1(int i)
 }
 ```
 
-## Time 类
+## 3 Time 类
 ```cs file:游戏时间
 void Update()
 {
@@ -544,7 +544,7 @@ private void FixedUpdate()
 }
 ```
 
-## Transform 类
+## 4 Transform 类
 游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
 #### Vector3
 ```cs file:Vector3
@@ -825,7 +825,7 @@ print(this.transform.TransformDirection(Vector3.up));
 其中**最重要的就是局部坐标系的点转世界坐标系的点**
 比如现在玩家要在自己面前的 n 个单位前放一团火，这个时候我不用关心世界坐标系
 通过相对于本地坐标系的位置转换为世界坐标系的点，进行特效的创建或者攻击范围的判断,
-## Input 类
+## 5 Input 类
 输入相关内容都写在 Update 中
 
 ### 鼠标键盘输入
@@ -951,7 +951,7 @@ Input.GetButtonup("Jump"))
 Input.GetButton("Jump"))
 ```
 
-## Screen 类
+## 6 Screen 类
 
 ### 静态属性
 ```cs
@@ -997,7 +997,7 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
 Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 ```
 
-## Camera
+## 7 Camera
 ### 可编辑参数
 ![[Pasted image 20230604230509.png|450]]
 **Clear Flags**：清除标志，如何清除背景
@@ -1029,8 +1029,8 @@ Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 - 可以把摄像机画面渲染到一张图上，用于制作小地图
 - 在 Project 右键创建 RenderTexture
 
-## 代码相关
-主摄像机的 Tag 必须设置为 MainCamera，否则 Camera. main 无法得到对象
+### 代码相关
+主摄像机的 Tag 必须设置为 MainCamera，否则 `Camera. main` 无法得到对象
 ![[Pasted image 20230604234018.png]]
 ```cs
 //获取tag为MainCamera摄像机
@@ -1068,3 +1068,9 @@ print(screenPos);
 Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
 print(worldPos);
 ```
+
+# 三、核心系统
+准备工作：
+导入StarterAssets
+## 光源系统
+
