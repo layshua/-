@@ -1164,7 +1164,74 @@ Terrain Colider：地形碰撞器
 右键 Create 
 ![[Pasted image 20230605132408.png|500]]
 ### 碰撞检测函数
-碰撞和触发响应函数属于特殊的生命周期函数，位于 FixedUpdate 和 Update 之间，也是通过反射调用
+- 碰撞和触发响应函数属于特殊的生命周期函数，位于 FixedUpdate 和 Update 之间，也是通过反射调用
+- 如果是一个异形物体，刚体在父对象上，如果你想通过子对象上挂脚本检测碰撞是不行的必须挂载到这个刚体父对象上才行。
+- 碰撞和触发器函数都可以写成虚函数，在子类去重写逻辑
 
 ![[Pasted image 20230605132917.png|350]]
 
+#### 物理碰撞检测响应函数
+```cs file:Collision类
+//Collision类型的参数包含了碰到自己的对象的相关信息
+
+//碰撞到的对象的碰撞器信息
+collision.collider;
+
+//碰撞对象的依附对象（GameObject）
+collision.gameObject;
+
+//碰撞对象的依附对象的位置信息
+collision.transform;
+
+//接触点点数量
+collision.contactCount;
+
+//接触点 坐标
+ContactPoint[] pos = collision.contacts;
+
+//只要得到碰撞道德对象的任意一个信息，就可以得到所有信息
+collision.gameObject.GetComponent<>();
+```
+
+```cs file:碰撞相关的生命周期函数(检测响应函数)
+//碰撞触发接触时会自动执行这个函数
+private void OnCollisionEnter(Collision collision)
+{
+    print(this.name + "碰撞到了" + collision.gameObject.name);
+}
+
+//两个物体相互接触摩擦时会不停的调用该函数
+ private void OnCollisionStay(Collision collision)
+{
+    print(this.name+"正在摩擦"+collision.gameObject.name);
+}
+
+ //碰撞结束分离时会自动执行的函数
+private void OnCollisionExit(Collision collision)
+{
+    print("碰撞结束");
+}
+```
+
+
+#### 触发器检测响应函数
+勾选 IS Trigger
+![[Pasted image 20230605134638.png]]
+
+用法类似物理碰撞检测函数：
+```cs
+//第一次接触时
+private void OnTriggerEnter(Collider other)
+{
+}
+
+//接触过程中
+private void OnTriggerStay(Collider other)
+{
+}
+
+//接触结束
+private void OnTriggerExit(Collider other)
+{
+}
+```
