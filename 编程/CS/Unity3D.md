@@ -1235,3 +1235,56 @@ private void OnTriggerExit(Collider other)
 {
 }
 ```
+
+### 刚体加力
+给刚体加力的目标就是让其有一个速度朝向某一个方向移动
+
+#### 刚体添加力的方法
+```cs file:刚体添加力的方法
+//1.首先应该获取刚体组件
+rigidBody = this.GetComponent<Rigidbody>();
+
+//2.添加力
+//加力过后对象是否停止移动是由阻力决定的，没有阻力就不会停
+//相对世界坐标
+rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); //第二个参数时
+//相对本地坐标
+rigidBody.AddRelativeForce(Vector3.forward * 10);
+
+
+//3.添加扭矩力，让其旋转
+//相对世界坐标
+rigidBody.AddTorque(Vector3.up * 10);
+//相对本地坐标
+rigidBody.AddRelativeTorque(Vector3.up * 10);
+
+//4.直接改变速度
+//这个速度方向是相对于世界坐标系的
+rigidBody.velocity = Vector3.forward * 5;
+
+//5.模拟爆炸冲击波，只对该脚本挂载的对象起作用
+//第一个参数是爆炸的中心点
+//第二个参数是爆炸的半径
+//第三个参数是爆炸的力
+//第四个参数是爆炸的作用范围
+rigidBody.AddExplosionForce(100,Vector3.zero,10,10);
+```
+
+#### 力的模式
+上面添加力的方法其实有第二个参数，用来指定计算力的模式 ForceMode
+```cs
+rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); //第二个参数时
+```
+
+动量定理 ： 
+Ft =mv
+V=Ft/m; 
+F：力
+t：时间 
+m：质量
+v：速度
+
+四种模式：
+![[Pasted image 20230605153729.png]]
+![[Pasted image 20230605153747.png]]
+![[Pasted image 20230605153852.png]]
