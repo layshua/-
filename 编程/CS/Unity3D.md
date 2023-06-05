@@ -1070,7 +1070,47 @@ print(worldPos);
 ```
 
 # 三、核心系统
-准备工作：
-导入StarterAssets
 ## 光源系统
+### 光源组件
+![[Pasted image 20230605104842.png|500]]
 
+**Mode**：光源模式
+- Realtime：实时光源。每帧实时计算，效果好，性能消耗大
+- Baked：烘焙光源，事先计算好，无法动态变化
+- Mixed：混合光源，预先计算+实时运算
+
+**lndirect Multiplier**：改变间接光的强度
+低于 1，每次反弹会使光更暗
+大于 1，每次反弹会使光更亮
+
+**Shadow Type** 阴影设置：
+Strength 阴影暗度 0~1 之间，越大越黑
+Resolution 阴影贴图渲染分辨率，越高越逼真，消耗越高
+Bias 阴影推离光源的距离
+Normal Bias 阴影投射面沿法线收缩距离
+Near Panel 渲染阴影的近裁剪面
+
+**Cookie**：投影遮罩
+
+**Draw Halo**：光晕![[Pasted image 20230605105457.png|245]]
+
+
+**Flare**：耀斑，需要给摄像机添加组件：![[Pasted image 20230605105620.png]]
+
+**Render Mode**：渲染模式
+Auto 运行时确定
+lmportanto 以像素为单位进行渲染，效果逼真，消耗大 
+Not lmportant：以快速模式进行渲染
+
+**Culling Mask**：剔除遮罩
+``
+```cs file:代码控制
+public Light light;
+void Start()
+{
+    //Inspector面板上的属性都能获得
+    light.intensity = 1;
+}
+```
+
+### 光相关面板
