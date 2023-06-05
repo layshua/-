@@ -1313,8 +1313,9 @@ if(rigidBody.IsSleeping())
 ![[Pasted image 20230605155225.png]]
 ![[Pasted image 20230605155456.png]]
 ### 音频源 Audio Source
-一个 Scene 内 Audio Source 只能有一个
-
+- 一个 Scene 内 Audio Source 只能有一个
+- 一个 Gameobject 可以挂载多个音效源脚本 AudioSource
+- 使用时要注意如果要挂载多个，那一定要自己管理他们，控制他们的播放停止，不然我们没有办法准确的获取谁是谁
 ![[Pasted image 20230605155715.png|500]]
 ![[Pasted image 20230605155803.png|450]]
 ![[Pasted image 20230605160059.png]]
@@ -1323,8 +1324,7 @@ if(rigidBody.IsSleeping())
 **Spatial Blend**：设置 3D 音效，默认为 2D
 **Volume Rolloff**：声音距离衰减
 
-### 代码控制
-```cs 
+```cs file:代码控制
 AudioSource audioSource;
 void Start()
 {
@@ -1369,5 +1369,43 @@ void Update()
 **如何动态控制音效播放**
 1. 直接在要播放音效的对象上挂载脚本控制播放
 2. 实例化挂载了音效源脚本的对象
-3. 用一个 Audio Source 来控制播放不同的音效
- 
+3. 用一个 Audio Clip 来控制播放不同的音效
+```cs file:动态控制音效播放
+public AudioClip clip;
+void Start()
+{
+    AudioSource audioSource = this.GetComponent<AudioSource>();
+    audioSource.clip = clip;
+    audioSource.Play();
+}
+```
+
+### 麦克风设备
+```cs
+// 获取设备麦克风信息
+string[] strs = Microphone.devices;
+for (int i = 0; i < strs.Length; i++) 
+{
+    print(strs[i]);
+}
+
+//开始录制
+//参数一:设备名，传null使用默认设备
+//参数二:超过录制长度后是否重头录制
+//参数三:录制时长
+//参数四:采样率
+audioClip = Microphone.Start(null, false, 10, 44100);
+
+//结束录制
+Microphone.End(null);
+
+//保存录制并播放
+AudioSource s = this.GetComponent<AudioSource>();
+if (s == null)
+{
+    s = this.gameObject.AddComponent<AudioSource>();
+}
+
+s.clip = audioClip;
+s.Play();
+```
