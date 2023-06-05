@@ -1097,6 +1097,7 @@ Near Panel 渲染阴影的近裁剪面
 
 **Flare**：耀斑，需要给摄像机添加组件：![[Pasted image 20230605105620.png]]
 ![[Pasted image 20230605123853.png|450]]
+
 **Render Mode**：渲染模式
 Auto 运行时确定
 lmportanto 以像素为单位进行渲染，效果逼真，消耗大 
@@ -1120,3 +1121,40 @@ Windous-Rendering-Lighting
 ![[Pasted image 20230605123417.png]]
 
 ![[Pasted image 20230605123701.png]]
+
+## 物理系统之碰撞检测
+物理信息的更新和 FixedTime 相关
+
+ **碰撞产生的必要条件：**
+- 两个物体都有碰撞器 Collider
+- 至少一个物体有刚体 Rigidbody
+![[Pasted image 20230605124248.png]]
+
+### 刚体 Rigidbody
+
+![[Pasted image 20230605124429.png]]
+
+**插值运算：**
+![[Pasted image 20230605125014.png|400]]
+
+**碰撞检测：**
+![[Pasted image 20230605125251.png]]
+性能消耗关系
+Continuous Dynamic > Continuous Speculativec > Continuous > Discrete
+
+**约束：**
+![[Pasted image 20230605125531.png]]
+
+## 碰撞器 Collider
+```mermaid
+flowchart LR
+	共同参数-->IsTrigger</br>是否是触发器-->id[如果启用此属性,则该碰撞体将用于触发事件,并被物理引擎忽略</br>主要用于进行没有物理效果的碰撞检测];
+
+	共同参数-->Material<br>物理材质-->id1[可以确定碰撞体和其它对象碰撞时的交互表现方式]
+
+	共同参数-->节点文本;
+```
+
+
+![[Pasted image 20230605125839.png]]
+![[Pasted image 20230605130129.png]]

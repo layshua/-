@@ -79182,6 +79182,7 @@ Improved
 IsDefined
 Inherited
 InteropServices
+IsTrigger
 qq
 qyi
 quad
