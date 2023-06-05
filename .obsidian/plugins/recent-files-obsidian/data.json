@@ -5,12 +5,12 @@
       "path": "编程/CS/数据持久化.md"
     },
     {
-      "basename": "Unity3D",
-      "path": "编程/CS/Unity3D.md"
+      "basename": "Unity101",
+      "path": "编程/CS/Unity101.md"
     },
     {
-      "basename": "BUG合集",
-      "path": "编程/CS/BUG合集.md"
+      "basename": "《CS Primer》",
+      "path": "编程/CS/《CS Primer》.md"
     },
     {
       "basename": "Mermaid流图",
@@ -19,6 +19,10 @@
     {
       "basename": "Reshaper快捷键",
       "path": "编程/IDE/Reshaper快捷键.md"
+    },
+    {
+      "basename": "BUG合集",
+      "path": "编程/CS/BUG合集.md"
     },
     {
       "basename": "101 材质大师",
