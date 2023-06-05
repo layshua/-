@@ -1312,7 +1312,7 @@ if(rigidBody.IsSleeping())
 ![[Pasted image 20230605155215.png|450]]
 ![[Pasted image 20230605155225.png]]
 ![[Pasted image 20230605155456.png]]
-## 音频源 Audio Source
+### 音频源 Audio Source
 一个 Scene 内 Audio Source 只能有一个
 
 ![[Pasted image 20230605155715.png|500]]
@@ -1323,3 +1323,51 @@ if(rigidBody.IsSleeping())
 **Spatial Blend**：设置 3D 音效，默认为 2D
 **Volume Rolloff**：声音距离衰减
 
+### 代码控制
+```cs 
+AudioSource audioSource;
+void Start()
+{
+    audioSource = this.GetComponent<AudioSource>();
+}
+
+void Update()
+{
+    //控制播放停止
+    if (Input.GetKeyDown(KeyCode.P))
+    {
+        //播放
+        audioSource.Play();
+        //audioSource.PlayDelayed(5); //延迟几秒后播放
+
+    }
+    if(Input.GetKeyDown(KeyCode.S))
+    {
+        //停止
+        audioSource.Stop();
+    }
+
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        //暂停
+        audioSource.Pause();
+        //audioSource.UnPause(); //关闭暂停，实际上再执行一次Pause方法也会关闭暂停
+    }
+
+    //检测音效播放完毕
+    if(audioSource.isPlaying)
+    {
+        print("正在播放");
+    }
+    else
+    {
+        print("播放结束");
+    }
+}
+```
+
+**如何动态控制音效播放**
+1. 直接在要播放音效的对象上挂载脚本控制播放
+2. 实例化挂载了音效源脚本的对象
+3. 用一个 Audio Source 来控制播放不同的音效
+ 
