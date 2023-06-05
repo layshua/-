@@ -1096,7 +1096,7 @@ Near Panel 渲染阴影的近裁剪面
 
 
 **Flare**：耀斑，需要给摄像机添加组件：![[Pasted image 20230605105620.png]]
-
+![[Pasted image 20230605123853.png|450]]
 **Render Mode**：渲染模式
 Auto 运行时确定
 lmportanto 以像素为单位进行渲染，效果逼真，消耗大 
@@ -1113,4 +1113,10 @@ void Start()
 }
 ```
 
-### 光相关面板
+### Lighting面板
+Windous-Rendering-Lighting
+![[Pasted image 20230605123432.png|300]]
+
+![[Pasted image 20230605123417.png]]
+
+![[Pasted image 20230605123701.png]]
