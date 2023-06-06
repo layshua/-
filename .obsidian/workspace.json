@@ -43,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/数据持久化.md"
+                "file": "编程/CS/《CS Primer》.md"
               }
             }
           }
@@ -129,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/数据持久化.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/数据持久化.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,10 +180,10 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "af80cac45af007f8",
   "lastOpenFiles": [
-    "编程/CS/BUG合集.md",
     "编程/CS/数据持久化.md",
+    "编程/CS/BUG合集.md",
     "编程/CS/《CS Primer》.md",
     "编程/CS/Unity101.md",
     "Unity/随笔.md",

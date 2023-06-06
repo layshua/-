@@ -3796,6 +3796,73 @@ Console.WriteLine(result); //输出Hello
 `GetProperty`
 `GetPropertys`
 
+
+### 判断一个类型的对象是否可以让另一个类型为自己分配空间
+```cs
+//父类装子类
+//是否可以从某一个类型的对象为自己分配空间
+Type fatherType = typeof(Father);
+Type sonType = typeof(Son);
+
+if (fatherType.IsAssignableFrom(sonType))
+{
+    print("可以装");
+    Father f = Activator.CreateInstance(sonType) as Father;
+    print(f);  //输出Son
+}
+else
+{
+    Debug.Log("不可以装");
+}
+```
+
+### 通过反射获取泛型类型
+
+
+## Activator 实例化
+
+```cs
+//1.获得要创建实例的类的类名
+var className = " (命名空间 namespace). ClassName";
+
+//2.得到当前类的类型
+var classType = Type.GetType (className);
+//或者
+var classType = typeof (className);
+
+//3.创建实例化类的参数数组
+var args = new object[] { object1, object2, object3...};
+
+//4. 使用 Activator 实例化类
+var classInstance = Activator.CreateInstance (classType, args);
+```
+
+Activator.CreateInstance 方法的第一个参数是要创建的类型，第二个参数是可选的，用于指定构造函数的参数。如果要创建的类型没有默认构造函数，那么必须传递构造函数所需的参数。如果要创建的类型有默认构造函数，那么第二个参数可以为空。此外，Activator.CreateInstance 方法返回的是 object 类型，需要进行强制类型转换。
+
+
+```cs
+//4.使用 Activator 实例化类
+//或者
+var classInstance = classType.InvokeMember ("", BindingFlags. CreateInstance, null, null, null);
+```
+
+InvokeMember 方法的第一个参数是空字符串，因为我们要调用的是构造函数，而不是方法、属性或字段。第二个参数是 BindingFlags. CreateInstance 标志，表示创建对象实例；第三个参数是绑定器，用于指定成员查找的方式；第四个参数是目标对象，因为我们要创建的是对象实例，所以目标对象为 null；第五个参数是构造函数参数，用于传递给构造函数的参数
+
+```cs
+//5.得到要执行的方法
+var method = classType.GetMethod ("MathodName");
+
+//6.执行方法
+return method.Invoke (classInstance, null);
+//或
+return  classType .InvokeMember ("MathodName", BindingFlags. InvokeMethod | BindingFlags. Public | BindingFlags. Instance, null, classInstance , null);
+```
+
+`Invoke` 和 `InvokeMember` 都是反射中用于调用方法的方法，但它们有一些区别：
+- 参数列表不同：Invoke 方法的第二个参数是 object[] 类型的数组，用于传递方法的参数；而 InvokeMember 方法的第三个参数是 BindingFlags 枚举类型，用于指定方法的访问权限、搜索方式等信息。
+- 访问权限不同：Invoke 方法可以调用 public、protected、private 等所有访问权限的方法，而 InvokeMember 方法需要指定对应的 BindingFlags，才能调用对应访问权限的方法。
+- 安全性不同：Invoke 方法可以执行非托管代码，因此需要受到安全性限制；而 InvokeMember 方法只能执行托管代码，因此相对更安全。
+
 ## 特性 Attribute
 1. 特性是一种**允许我们向程序的程序集添加元数据的语言结构，它是用于保存程序结构信息的某种特殊类型的类**
 2. 特性提供功能强大的方法以将声明信息与代码 （类型、方法、属性等）相关联。特性与程序实体关联后，即可在运行时使用反射查询特性信息
