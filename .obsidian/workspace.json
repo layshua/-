@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "编程/CS/Unity101.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/Unity操作指南.md"
+                "file": "编程/CS/Unity101.md"
               }
             }
           }
@@ -129,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "编程/CS/Unity101.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity操作指南.md",
+                "file": "编程/CS/Unity101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,6 +181,8 @@
   },
   "active": "2bcad3346fef6756",
   "lastOpenFiles": [
+    "编程/CS/《CS Primer》.md",
+    "编程/CS/Unity操作指南.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "编程/CS/Unity101.md",
@@ -189,7 +191,6 @@
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "编程/IDE/Reshaper快捷键.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "编程/CS/《CS Primer》.md",
     "技术美术/05 UnityShader/疑问.md",
     "编程/CS/数据持久化.md",
     "Tools/Obsidian/Mermaid流图.md",
@@ -207,7 +208,6 @@
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer》.md",
-    "编程/CS/Unity操作指南.md",
     "zip/images/Diagram.svg.xml",
     "虚幻引擎/02 蓝图 & U++/U++.md",
     "虚幻引擎/02 蓝图 & U++/蓝图开发最佳实践.md",
