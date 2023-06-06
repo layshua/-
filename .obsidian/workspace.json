@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "Unity/随笔.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/Unity101.md"
+                "file": "Unity/随笔.md"
               }
             }
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "Unity/随笔.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "Unity/随笔.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +182,10 @@
   },
   "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230606181653.png",
     "编程/CS/Unity操作指南.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "编程/CS/BUG合集.md",
     "编程/CS/Unity101.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "Unity/随笔.md",
@@ -191,7 +194,6 @@
     "zip/images/Pasted image 20230606172742.png",
     "编程/CS/《CS Primer》.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
@@ -199,7 +201,6 @@
     "技术美术/05 UnityShader/疑问.md",
     "编程/CS/数据持久化.md",
     "Tools/Obsidian/Mermaid流图.md",
-    "编程/CS/BUG合集.md",
     "zip/images/Pasted image 20230605160059.png",
     "zip/images/Pasted image 20230605155803.png",
     "zip/images/Pasted image 20230605155715.png",

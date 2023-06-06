@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity101",
-      "path": "编程/CS/Unity101.md"
+      "basename": "随笔",
+      "path": "Unity/随笔.md"
     },
     {
       "basename": "Unity操作指南",
       "path": "编程/CS/Unity操作指南.md"
     },
     {
-      "basename": "第三章 进阶应用",
-      "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
-      "basename": "随笔",
-      "path": "Unity/随笔.md"
+      "basename": "BUG合集",
+      "path": "编程/CS/BUG合集.md"
+    },
+    {
+      "basename": "Unity101",
+      "path": "编程/CS/Unity101.md"
+    },
+    {
+      "basename": "第三章 进阶应用",
+      "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     },
     {
       "basename": "WebGL踩坑",
@@ -27,10 +35,6 @@
     {
       "basename": "庄懂AP01",
       "path": "技术美术/05 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "第二章 光照基础",
@@ -59,10 +63,6 @@
     {
       "basename": "Mermaid流图",
       "path": "Tools/Obsidian/Mermaid流图.md"
-    },
-    {
-      "basename": "BUG合集",
-      "path": "编程/CS/BUG合集.md"
     },
     {
       "basename": "101 材质大师",
