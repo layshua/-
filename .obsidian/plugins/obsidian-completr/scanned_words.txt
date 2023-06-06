@@ -11509,6 +11509,8 @@ contextMenuItem
 collider
 contactCount
 contacts
+classType
+classInstance
 github
 grey
 green
@@ -59415,6 +59417,7 @@ MonoBehavio
 MainCamera
 Microphone
 MeshCollider
+MathodName
 Windows
 Win
 World
@@ -71471,6 +71474,7 @@ Pause
 Playerprefs
 PlayerPrefs
 PlayerSetting
+Public
 ContextMenuManager
 ClashVerge
 Clash
@@ -79220,6 +79224,9 @@ Inherited
 InteropServices
 IsTrigger
 IsSleeping
+IsAssignableFrom
+InvokeMember
+InvokeMethod
 qq
 qyi
 quad
@@ -97295,6 +97302,7 @@ flflow
 fathrer
 father
 framework
+fatherType
 dd
 dcc
 data
@@ -101181,6 +101189,7 @@ descriptions
 decomposition
 divergence
 devices
+dicType
 TFvYZOKeHL
 TAB
 TeX
@@ -113536,6 +113545,7 @@ strType
 subStr
 strs
 serve
+sonType
 local
 list
 left
@@ -117000,6 +117010,7 @@ lnspector
 lndirect
 lmportanto
 lmportant
+listType
 YAML
 You
 YEBAYGhURFRofHx
@@ -138635,6 +138646,7 @@ Bartlomiej
 Bart
 BMQEAAADCoPVP
 Baked
+BindingFlags
 Fraktur
 Frame
 Foo
@@ -164990,6 +165002,7 @@ Gameobject
 GameObjgct
 GetKeyDown
 GetData
+GetGenericArguments
 NULL
 Native
 NormalMap

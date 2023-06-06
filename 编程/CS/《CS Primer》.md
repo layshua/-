@@ -2682,7 +2682,7 @@ public class Cat : Animal
 > 1. 表示对象的用抽象类，表示行为拓展的用接口
 >2. 不同对象拥有的共同行为，我们往往可以使用接口来实现
 
-# 六、接口
+# 六、接口 interface
 
 接口是行为的抽象规范
 
@@ -2886,7 +2886,7 @@ class Program
 
 执行上面的代码，效果与上图一致。从调用的代码可以看出，在调用显式方式实现接口的成员时，必须使用接口的实例来调用，而不能使用实现类的实例来调用。
 
-# 七、泛型
+# 七、泛型 generic
 - 泛型实现了类型参数化，达到代码重用目的
 - 通过类型参数化来实现同一份代码上操作多种类型
 - 泛型相当于类型占位符
@@ -3068,7 +3068,7 @@ class Test<T,K> where T : class where K : struct
 
 
 
-# 八、委托
+# 八、委托 delegate
 - **委托是函数的容器**
 - 可以理解为表示函数的变量类型
 - 用来存储、传递函数
@@ -3389,7 +3389,7 @@ class Program
 
 ```
 
-# 九、事件
+# 九、事件 event
 - 事件是基于委托的存在
 - 事件是委托的安全包裹
 - 让委托的使用更具有安全性
@@ -3622,7 +3622,10 @@ class Program
 - 它是反射功能的基础!  
 - 它是访问元数据的主要方式。  
 - 使用 Type 的成员获取有关类型声明的信息  
-- 有关类型的成员（如构造函数、方法、字段、属性和类的事件)
+- 有关类型的成员（如构造函数、方法、**字段**、属性和类的事件)
+
+> [!question] 字段
+> 字段 (Field) 就是类的成员变量!
 
 
 > [!info] Title
@@ -3732,6 +3735,7 @@ obj = info3.Invoke(new object[] { 3, "456" }) as Test;
 ```
 
 ### 获取类的公共成员变量
+
 ```cs file:获取类的公共成员变量
 //1.获取所有成员变量
 FieldInfo[] fields = t4.GetFields();
@@ -3817,9 +3821,21 @@ else
 ```
 
 ### 通过反射获取泛型类型
+```cs
+List<string> list = new List<string>();
+Type listType = list.GetType();
 
+Type[] types = listType.GetGenericArguments(); //GetGenericArguments()方法
+print(types[0]);  //返回string 
 
-## Activator 实例化
+Dictionary<string, float> dic = new Dictionary<string, float>();
+Type dicType = dic.GetType();
+types = dicType.GetGenericArguments();
+print(types[0]); //0对应第一个泛型类型，返回string
+print(types[1]); //1对应第二个泛型类型，返回float
+```
+
+## Activator 动态实例化
 
 ```cs
 //1.获得要创建实例的类的类名
