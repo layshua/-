@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2bcad3346fef6756",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Unity/随笔.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "1634ffd0e7a79985",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unity/随笔.md",
+                "file": "编程/CS/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Unity/随笔.md"
+                "file": "编程/CS/Unity操作指南.md"
               }
             }
           }
@@ -130,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unity/随笔.md",
+                "file": "编程/CS/Unity操作指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Unity/随笔.md",
+                "file": "编程/CS/Unity操作指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,13 +169,13 @@
   },
   "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230606181653.png",
-    "编程/CS/Unity操作指南.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "编程/CS/BUG合集.md",
     "编程/CS/Unity101.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "编程/CS/BUG合集.md",
+    "编程/CS/Unity操作指南.md",
     "Unity/随笔.md",
+    "zip/images/Pasted image 20230606181653.png",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "zip/images/Pasted image 20230606173448.png",
     "Unity/WebGL踩坑.md",
     "zip/images/Pasted image 20230606172742.png",
@@ -208,7 +195,6 @@
     "zip/images/Pasted image 20230605155225.png",
     "zip/images/Pasted image 20230605155215.png",
     "zip/images/Pasted image 20230605154644.png",
-    "zip/images/Pasted image 20230605154414.png",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer》.md",
