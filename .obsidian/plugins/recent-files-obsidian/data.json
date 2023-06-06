@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "随笔",
+      "path": "Unity/随笔.md"
+    },
+    {
       "basename": "WebGL踩坑",
       "path": "Unity/WebGL踩坑.md"
     },
     {
       "basename": "教程",
       "path": "Unity/教程.md"
-    },
-    {
-      "basename": "随笔",
-      "path": "Unity/随笔.md"
     },
     {
       "basename": "数据持久化",
