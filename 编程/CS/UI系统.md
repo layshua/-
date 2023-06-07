@@ -127,9 +127,7 @@ void OnGUI()
 ![[2022306071646.gif]]
 ```cs file:基于Toggle实现多选框
 public bool isSelect;  
-  
 public Rect rect;  
-
 private int nowSelIndex = 0;
 
 void OnGUI()  
