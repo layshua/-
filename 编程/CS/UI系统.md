@@ -105,7 +105,7 @@ void OnGUI()
 Toggle 意为（两种状态之间）切换
 
 ```cs
-//设置方法类似上面的按钮，多一个点击选中的判断
+//设置方法类似上面的按钮，多一个点击选中的判断，我们要自己声明一个bool值
 public bool isSelect;  
   
 public Rect rect;  
@@ -117,4 +117,39 @@ void OnGUI()
     isSelect = GUI.Toggle(rect, isSelect, "Toggle");
     isSelect = GUI.Toggle(rect, isSelect, content,style);
 }
+```
+
+排版攻略：
+1. 修改固定宽高 fixedwidth 和 fixedHeight
+2. 修改从 GUIStyle 边缘到内容起始处的空间 padding
+
+
+ ![[动画.gif]]
+```cs file:基于Toggle实现多选框
+public bool isSelect;  
+  
+public Rect rect;  
+
+private int nowSelIndex = 0;
+
+void OnGUI()  
+{
+    //基于Toggle实现多选框
+    if (GUI.Toggle(new Rect(0, 60, 100, 30), nowSelIndex == 1, "选项一"))
+    {
+        nowSelIndex = 1;
+    }
+
+    ;
+    if (GUI.Toggle(new Rect(0, 90, 100, 30), nowSelIndex == 2, "选项二"))
+    {
+        nowSelIndex = 2;
+    }
+
+    if (GUI.Toggle(new Rect(0, 120, 100, 30), nowSelIndex == 3, "选项三"))
+    {
+        nowSelIndex = 3;
+    }
+}
+    
 ```
