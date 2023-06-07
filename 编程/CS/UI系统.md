@@ -153,7 +153,13 @@ void OnGUI()
 ```
 
 ## 6 输入框和拖动条
+![[Pasted image 20230607210356.png]]
+
 ```cs
+private string inputStr = "";
+private string password = "";   
+private float nowValue = 0.5f;
+
 //输入框
 //比较特别是的第三个参数，最大输入长度
 inputStr = GUI.TextField(new Rect(0,0,100,50), inputStr,5); 
@@ -166,3 +172,7 @@ nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
 
 //竖直拖动条GUI.VerticalSlider()
 ```
+
+注意要初始化 string ，不然会报错：
+![[Pasted image 20230607210648.png]]
+## 7 图片绘制和框
