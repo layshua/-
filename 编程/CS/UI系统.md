@@ -151,3 +151,18 @@ void OnGUI()
 }
     
 ```
+
+## 输入框和拖动条
+```cs
+//输入框
+//比较特别是的第三个参数，最大输入长度
+inputStr = GUI.TextField(new Rect(0,0,100,50), inputStr,5); 
+
+//密码输入,输入全被*遮盖
+password = GUI.PasswordField(new Rect(100,0,100,50), password, '*');
+
+//水平拖动条
+nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
+
+//竖直拖动条GUI.VerticalSlider()
+```
