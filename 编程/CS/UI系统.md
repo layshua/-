@@ -124,7 +124,7 @@ void OnGUI()
 2. 修改从 GUIStyle 边缘到内容起始处的空间 padding
 
 
- ![[动画.gif]]
+![[2022306071646.gif]]
 ```cs file:基于Toggle实现多选框
 public bool isSelect;  
   
