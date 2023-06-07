@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/数据持久化.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "编程/CS/数据持久化.md"
               }
             }
           }
@@ -129,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/数据持久化.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/数据持久化.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,6 +181,7 @@
   },
   "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "编程/CS/《CS Primer》.md",
     "Tools/工具流.md",
     "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
     "Tools/环境配置/VSCode 配置 Gist 同步.md",
@@ -198,7 +199,6 @@
     "zip/images/1686098156646.png",
     "zip/images/1686098156613.png",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "编程/CS/《CS Primer》.md",
     "编程/CS/数据持久化.md",
     "编程/CS/BUG合集.md",
     "编程/CS/Unity101.md",
