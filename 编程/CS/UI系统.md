@@ -21,7 +21,7 @@ private void OnGUI()
 3. 该函数**在 OnDisable 之前 LateUpdate 之后执行** 
 4. 只要是继承 Mono 的脚本都可以在 OnGUI 中绘制 GUI
 
-## 2 重要参数及文本和按钮
+## 2 重要参数
 
 > [!warning] 
 > GUI 的屏幕原点是左上角
@@ -37,7 +37,7 @@ private void OnGUI()
 3. **每一种控件都有多种重载，都是各个参数的排列组合必备的参数内容，是位置信息和显示信息**
 
 
-### GUI. Label
+## 3 Label 标签
 ![[Pasted image 20230607151421.png|700]]
 ![[Pasted image 20230607151337.png|450]]
 
@@ -73,7 +73,7 @@ private void OnGUI()
 ```
 
 
-### GUI. Button
+## 4 Button 按钮
 自定义格式：
 ![[Pasted image 20230607151820.png|450]]
 
@@ -83,17 +83,38 @@ public Rect rect;
 public GUIContent content;  
 public GUIStyle style;
 
-//鼠标按下松开为一次点击
-//无style参数时，使用默认style
-if (GUI.Button(rect, content, style))  //判断是否点击
-{  
-    //处理按钮点击逻辑
-    print("Button Clicked");  
+void OnGUI()  
+{
+    //鼠标按下松开为一次点击
+    //无style参数时，使用默认style
+    if (GUI.Button(rect, content, style))  //判断是否点击
+    {  
+        //处理按钮点击逻辑
+        print("Button Clicked");  
+    }
+    
+    //鼠标长按
+    if(GUI.RepeatButton(rect, content, style))  
+    {  
+        print("Button Clicked");  
+    }
 }
+```
 
-//鼠标长按
-if(GUI.RepeatButton(rect, content, style))  
-{  
-    print("Button Clicked");  
+## 5 Toggle 切换
+Toggle 意为（两种状态之间）切换
+
+```cs
+//设置方法类似上面的按钮，多一个点击选中的判断
+public bool isSelect;  
+  
+public Rect rect;  
+public GUIContent content;  
+public GUIStyle style;
+
+void OnGUI()  
+{
+    isSelect = GUI.Toggle(rect, isSelect, "Toggle");
+    isSelect = GUI.Toggle(rect, isSelect, content,style);
 }
 ```
