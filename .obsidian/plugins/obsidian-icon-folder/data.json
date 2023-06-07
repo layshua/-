@@ -25,7 +25,6 @@
   "Tools": "SiObsidian",
   "编程": "SiVisualstudio",
   "技术美术": "SiArtstation",
-  "虚幻引擎": "SiUnrealengine",
   "AI": "SiPython",
   "DCC": "SiAdobe",
   "Math": "SiMatrix",
@@ -33,5 +32,6 @@
   "zip": "SiAmp",
   "图形学": "SiTaichigraphics",
   "README.md": "LiGamepad2",
-  "Unity": "SiUnity"
+  "引擎Unity": "SiUnity",
+  "引擎Unreal": "SiUnrealengine"
 }
