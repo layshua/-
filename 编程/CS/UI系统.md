@@ -7,7 +7,7 @@ IMGUI 在 Unity 中一般简称为 GUI，它是一个代码驱动的 UI 系统
 1. 作为程序员的调试工具，创建游戏内调试工具
 2. 为脚本组件创建自定义检视面板
 3. 创建新的编辑器窗口和工具以拓展 Unity 本身（一般用作内置游戏工具）
-4. **不适合用它为玩家制作 UI 功能**
+4. 用于进行 Unity 内置编辑器，调试工具编辑工具等等相关开发，**不适合用它为玩家制作 UI 功能**
 
 **GUI 的工作原理**：在继承 MonoBehaviour 的脚本中的特殊函数里，调用 GUI 提供的方法，类似生命周期函数。
 ```cs
@@ -20,6 +20,12 @@ private void OnGUI()
 2. 一般只在其中执行 GUI 相关界面绘制和操作逻辑 
 3. 该函数**在 OnDisable 之前 LateUpdate 之后执行** 
 4. 只要是继承 Mono 的脚本都可以在 OnGUI 中绘制 GUI
+
+**缺点**
+- 重复工作量繁多
+- 控件绘制相关代码很多
+- 最大缺点:必须运行时才能去查看结果（不能所见即所得），不支持分辨率自适应
+
 
 ## 2 重要参数
 
@@ -239,7 +245,7 @@ private void OnGUI()
     selGridIndex = GUI.SelectionGrid(new Rect(0, 50, 300, 30), selGridIndex, selGridInfos,3);
 }
 ```
-## 9. 滚动视图和分组
+## 9 滚动视图和分组
 **分组**
 - 用于批量控制控件位置
 - 可以理解为包裹着的控件加了一个父对象
@@ -324,4 +330,67 @@ private void DrawWindow(int id)
 GUI.ModalWindow(2,new Rect(400,100,200,150),DrawWindow,"模态窗口");
 ```
 
-# 11 自定义皮肤
+## 11 颜色和皮肤
+```cs file:设置颜色
+//全局着色，同时影响背景和字体，不常用
+GUI.color = Color.blue;
+      
+GUI.contentColor = Color.green;     //文本颜色
+GUI.backgroundColor = Color.yellow; //背景颜色
+GUI.Button(new Rect(100, 100, 100, 100), "按钮1");
+      
+GUI.contentColor = Color.white;  //设置白色就可以恢复原色
+GUI.backgroundColor = Color.white;
+GUI.Button(new Rect(300, 300, 100, 100), "按钮2");
+```
+
+右键创建 GUI Skin，相当于 GUI style 的集合体，支持修改所有控件样式。
+可以在这里面修改，通过代码传给 UI 控件。
+![[Pasted image 20230607225608.png|400]]
+
+```cs file:设置皮肤
+public GUISkin guiSkin;
+
+private void OnGUI()
+{
+  GUI.skin = guiSkin;
+  GUI.Button(new Rect(100,100,100,100),"按钮1");
+  
+  GUI.skin = null;  //恢复默认皮肤
+  GUI.Button(new Rect(300,300,100,100),"按钮2");
+}
+```
+## 12 布局
+不需要传 Rect 位置参数，自动布局，主要用于编辑器开发（编辑器 UI 排列比较整齐简单）, 不适合作为游戏UI
+
+![[Pasted image 20230607230430.png]]
+```cs
+GUILayout.BeginArea(new Rect(100,100,50,50));   //也可以使用group等统一管理位置
+GUILayout.Button("123");
+GUILayout.Button("123");
+GUILayout.Button("123142");
+GUILayout.Button("阿斯顿123142");
+GUILayout.EndArea();
+```
+
+使用布局选项：
+
+
+```cs file:布局选项
+GUILayout.Button("123",GUILayout.Width(300)); //布局选项作为第二个参数传入
+
+
+//布局选项：
+//控件的固定宽高
+GUILayout.Width(300);
+GUILayout.Height(200);
+//允许控件的最小宽高
+GUILayout.MinWidth(50);
+GUILayout.MinHeight(50);
+//允许控件的最大宽高
+GUILayout.MaxWidth(100);
+GUILayout.MaxHeight(100);
+//允许或禁止水平拓展
+GUILayout.ExpandWidth(true);    //允许
+GUILayout.ExpandHeight(false);  //禁止
+```
