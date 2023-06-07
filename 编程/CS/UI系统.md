@@ -34,6 +34,31 @@ private void OnGUI()
     - 图片信息: Texture 
     - 参数综合信息: GUIContent 
     - 参数自定义样式: GUIStyle 
-3. 每一种控件都有多种重载，都是各个参数的排列组合必备的参数内容，是位置信息和显示信息
+3. **每一种控件都有多种重载，都是各个参数的排列组合必备的参数内容，是位置信息和显示信息**
+
 
 ### 文本控件
+![[Pasted image 20230607151421.png|700]]
+![[Pasted image 20230607151337.png|450]]
+
+```cs
+public Texture texture;  
+
+//骷髅
+public Rect rect1;  
+
+//小黄脸
+public Rect rect2;  
+public GUIContent content2;
+
+private void OnGUI()  
+{
+    //基本使用
+    GUI.Label(new Rect(0,0,100,20),"Hello World"); //text，传位置信息也可以直接声明公共变量Rect，如下：
+    GUI.Label(rect1, texture);  //图片
+    
+    //综合使用：GUIContent可以控制text
+    GUI.Label(rect2,content2);
+    Debug.Log(GUI.tooltip);  //获取当前鼠标或者键盘选中的GUI控件对应的tooltip信息
+}
+```
