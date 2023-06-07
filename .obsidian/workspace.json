@@ -11,8 +11,12 @@
             "id": "1634ffd0e7a79985",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
+                "mode": "source",
+                "source": false
+              }
             }
           },
           {
@@ -81,7 +85,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md"
+              }
             }
           }
         ]
@@ -123,6 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,6 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -173,6 +181,21 @@
   },
   "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "Tools/环境配置/VSCode 配置 Gist 同步.md",
+    "Tools/环境配置",
+    "Tools/System/未命名.md",
+    "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
+    "zBuffer/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（中）4_3 ~ 4_4_西河某人的博客 - CSDN 博客.md",
+    "zip/images/1686098157010.png",
+    "zip/images/1686098156978.png",
+    "zip/images/1686098156930.png",
+    "zip/images/1686098156888.png",
+    "zip/images/1686098156820.png",
+    "zip/images/1686098156764.png",
+    "zip/images/1686098156724.png",
+    "zip/images/1686098156692.png",
+    "zip/images/1686098156646.png",
+    "zip/images/1686098156613.png",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "编程/CS/《CS Primer》.md",
     "编程/CS/数据持久化.md",
@@ -182,10 +205,7 @@
     "Unity/WebGL踩坑.md",
     "Unity/教程.md",
     "编程/CS/Unity操作指南.md",
-    "zip/images/Pasted image 20230606181653.png",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "zip/images/Pasted image 20230606173448.png",
-    "zip/images/Pasted image 20230606172742.png",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "技术美术/05 UnityShader/TA101.md",
@@ -193,24 +213,12 @@
     "编程/IDE/Reshaper快捷键.md",
     "技术美术/05 UnityShader/疑问.md",
     "Tools/Obsidian/Mermaid流图.md",
-    "zip/images/Pasted image 20230605160059.png",
-    "zip/images/Pasted image 20230605155803.png",
-    "zip/images/Pasted image 20230605155715.png",
-    "zip/images/Pasted image 20230605155456.png",
-    "zip/images/Pasted image 20230605155225.png",
-    "zip/images/Pasted image 20230605155215.png",
-    "zip/images/Pasted image 20230605154644.png",
     "虚幻引擎/03 材质 & 渲染/101 材质大师.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer》.md",
     "zip/images/Diagram.svg.xml",
     "虚幻引擎/02 蓝图 & U++/U++.md",
-    "虚幻引擎/02 蓝图 & U++/蓝图开发最佳实践.md",
     "虚幻引擎/02 蓝图 & U++/蓝图管线.pdf",
-    "虚幻引擎/02 蓝图 & U++/101 蓝图.md",
-    "Tools/System/未命名.md",
-    "Tools/工具流.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/icons/font-awesome-brands",
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
@@ -218,7 +226,6 @@
     "zip/icons/lucide-icons",
     "zip/icons/tabler-icons",
     "zip/icons/font-awesome-regular",
-    "zip/icons/simple-icons",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",

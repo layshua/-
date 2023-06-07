@@ -7487,6 +7487,7 @@ OnCollisionExit
 OnTriggerEnter
 OnTriggerStay
 OnTriggerExit
+Optimized
 codeup
 clash
 ctrl
@@ -11511,6 +11512,8 @@ contactCount
 contacts
 classType
 classInstance
+calculations
+candy
 github
 grey
 green
@@ -14921,6 +14924,7 @@ gqDZa
 geu
 gluLookAt
 gzip
+geodesic
 typora
 todo
 tooltip
@@ -18507,6 +18511,7 @@ textbf
 throughput
 threads
 testClass
+twist
 markdown
 matter
 mod
@@ -29446,6 +29451,8 @@ uZo
 uhbt
 uniforms
 uTime
+units
+uler
 everything
 ea
 ede
@@ -33005,6 +33012,7 @@ emery
 ejb
 entities
 elimination
+enveloping
 VPN
 Verge
 VS
@@ -36387,6 +36395,8 @@ Vast
 Villemin
 Void
 Varyings
+Vladimir
+Vscode
 verge
 vPdIt
 vertical
@@ -43612,6 +43622,11 @@ AddRelativeTorque
 AddExplosionForce
 AudioSource
 AudioClip
+Alfred
+Addition
+Another
+Annual
+Animations
 URL
 Utools
 Users
@@ -47162,6 +47177,7 @@ Uniforms
 UnPause
 Unable
 USER
+Unified
 api
 ac
 app
@@ -50817,6 +50833,7 @@ adjoint
 alphaMap
 audioSource
 audioClip
+ara
 Roaming
 RegWorkshop
 Release
@@ -54947,6 +54964,10 @@ RiderProjects
 ResetMoney
 Realtime
 Rigidbody
+Rowan
+Robinson
+River
+Ryan
 Microsoft
 Menu
 MicaForEveryone
@@ -59418,6 +59439,16 @@ MainCamera
 Microphone
 MeshCollider
 MathodName
+Multiplication
+Maillot
+Malyshau
+Martin
+Manfred
+Melax
+Mohr
+Matt
+Magnenat
+Makeev
 Windows
 Win
 World
@@ -63285,6 +63316,8 @@ Wronski
 Ways
 WkJoAAAAAAAAAAAAAAAAAAAbjh
 WakeUp
+Wright
+Woodland
 Start
 StartAllBack
 Shadowrocket
@@ -67579,6 +67612,14 @@ Substring
 ShaderMaterial
 SpeakCall
 Strength
+Stan
+Shortest
+Steed
+Stitching
+Skins
+Sikachev
+Sergey
+Sullivan
 Programs
 POP
 PC
@@ -71475,6 +71516,8 @@ Playerprefs
 PlayerPrefs
 PlayerSetting
 Public
+Patrick
+Prentice
 ContextMenuManager
 ClashVerge
 Clash
@@ -75450,6 +75493,15 @@ ContactPoint
 Collider
 Convex
 CURRENT
+Conjugate
+Copenhagen
+Carmo
+Cordner
+Canadian
+Christopher
+Collins
+Carol
+Centers
 ImTip
 IMAP
 ID
@@ -79227,6 +79279,8 @@ IsSleeping
 IsAssignableFrom
 InvokeMember
 InvokeMethod
+Incremental
+Improve
 qq
 qyi
 quad
@@ -101190,6 +101244,7 @@ decomposition
 divergence
 devices
 dicType
+deformation
 TFvYZOKeHL
 TAB
 TeX
@@ -104990,6 +105045,8 @@ TestFun
 TestClass
 Transtform
 Transfrom
+Twigg
+Thalmann
 io
 ipad
 it
@@ -109270,6 +109327,8 @@ invocations
 inputs
 infoJ
 isPlaying
+incremental
+iSlerp
 shift
 svg
 sf
@@ -113546,6 +113605,10 @@ subStr
 strs
 serve
 sonType
+slerps
+splines
+squad
+sync
 local
 list
 left
@@ -135246,6 +135309,8 @@ Heterogeneous
 Hery
 Hennessy
 Hiding
+Householder
+Hodgins
 Bbb
 Bear
 Base
@@ -138647,6 +138712,8 @@ Bart
 BMQEAAADCoPVP
 Baked
 BindingFlags
+Bill
+Binh
 Fraktur
 Frame
 Foo
@@ -142747,6 +142814,8 @@ FieldInfo
 FixedUpdate
 Focal
 ForceMode
+Fong
+Filling
 Element
 Entity
 Enity
@@ -147004,6 +147073,9 @@ Eyles
 Ellsworth
 Experiences
 Extracting
+Erik
+Efficiently
+Egorov
 xmlns
 xyz
 xy
@@ -156886,6 +156958,14 @@ DllImport
 DisallowMultipleComponent
 Devtools
 DecomPression
+DIKU
+Department
+Differential
+Dzmitry
+DeLoura
+Deformations
+Doug
+Dual
 LNK
 Log
 Linux
@@ -160693,6 +160773,11 @@ Liani
 Logical
 Latency
 LateUpdate
+Laws
+Linearity
+Lillholm
+Ladislav
+Laperri
 Getx
 GetX
 GetName
@@ -165003,6 +165088,11 @@ GameObjgct
 GetKeyDown
 GetData
 GetGenericArguments
+Giles
+Gleicher
+Gaps
+Grasping
+Gist
 NULL
 Native
 NormalMap
@@ -168745,6 +168835,8 @@ NOaNL
 Niklas
 Nelson
 NlyAAAAJElEQVRoge
+Nickson
+Nadia
 ZooAnima
 ZooAnimal
 ZTest
@@ -180715,6 +180807,7 @@ JLFL
 JAVA
 JAVAxx
 Jeppe
+Jessica
 Ke
 KjpKWmp
 KYW
@@ -184380,6 +184473,8 @@ Kayvon
 Kubisch
 KGgoAAAANSUhEUgAAADwAAAA
 KeyCode
+Koch
+Kavan
 key
 kSC
 keaXj
