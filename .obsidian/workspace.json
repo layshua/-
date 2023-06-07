@@ -51,8 +51,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -95,7 +94,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/《CS Primer》.md"
+                "file": "编程/CS/UI系统.md"
               }
             }
           }
@@ -138,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/UI系统.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "编程/CS/UI系统.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,8 +187,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "66310dfc6a3394eb",
+  "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230607222051.png",
+    "zip/images/Pasted image 20230607215722.png",
+    "zip/images/Pasted image 20230607215701.png",
+    "zip/images/Pasted image 20230607215332.png",
+    "编程/CS/《CS Primer》.md",
     "编程/CS/UI系统.md",
     "zip/images/Pasted image 20230607212756.png",
     "zip/images/Pasted image 20230607212445.png",
@@ -205,13 +209,9 @@
     "引擎Unity/教程.md",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
     "编程/CS/Unity操作指南.md",
-    "zip/images/Pasted image 20230607161142.jpg",
-    "zip/images/Pasted image 20230607161139.jpg",
-    "编程/CS/《CS Primer》.md",
     "编程/CS/BUG合集.md",
     "引擎Unreal/01 指南/光照设置.md",
     "引擎Unreal/01 指南/ue操作指南.md",
-    "zip/images/Pasted image 20230607151820.png",
     "引擎Unity/2022minigame/2022minigame.md",
     "编程/CS/数据持久化.md",
     "Tools/工具流.md",

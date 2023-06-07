@@ -177,7 +177,7 @@ nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
 ![[Pasted image 20230607210648.png]]
 ## 7 图片绘制和Box框
 ![[Pasted image 20230607212445.png]]
-```cs
+```cs file:GUI.DrawTexture
 public Rect texPos;
 public Texture texture;
 
@@ -197,8 +197,65 @@ private void OnGUI()
 
 简单的 Box 边框，没特殊功能
 ![[Pasted image 20230607212756.png]]
-```cs
+```cs file:GUI.Box
 GUI.Box(new Rect(0,0,100,100),"123");
 ```
 
 ## 8 工具栏和选择网格
+工具栏特点，多个按钮只能同时选择一个
+![[Pasted image 20230607215332.png]]
+
+```cs file:GUI.Toolbar
+private int toolbarIndex = 0;
+private string[] toolbarInfos = {"选项一", "选项二", "选项三"};
+private void OnGUI()
+{
+    toolbarIndex = GUI.Toolbar(new Rect(0,0,300,30),toolbarIndex,toolbarInfos);
+    switch (toolbarIndex)
+    {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+    }
+}
+```
+
+选择网格和工具栏具有相同的特点，相对 toolbar 多了一个参数 xCount，**代表水平方向最多显示的按钮数量。**
+
+当 xCount 为 3 时，和上面 toolbar 绘制的 ui 一样。
+![[Pasted image 20230607215332.png]]
+当 xCount 为 2 时：
+![[Pasted image 20230607215701.png]]
+当 xCount 为 1 时：
+![[Pasted image 20230607215722.png]]
+```cs file:GUI.SelectionGrid
+private int selGridIndex = 0;
+private string[] selGridInfos = {"选项一", "选项二", "选项三"};
+private void OnGUI()
+{
+    selGridIndex = GUI.SelectionGrid(new Rect(0, 50, 300, 30), selGridIndex, selGridInfos,3);
+}
+```
+## 9. 滚动视图和分组
+**分组**
+- 用于批量控制控件位置
+- 可以理解为包裹着的控件加了一个父对象
+- 可以通过控制分组来控制包裹控件的位置
+```cs file:group
+public Rect groupPos;  
+
+private void OnGUI()  
+{
+    //批量控制控件位置
+    GUI.BeginGroup(groupPos);
+    GUI.Button(new Rect(0,0,100,50),"按钮1");
+    GUI.Button(new Rect(0,50,100,50),"按钮2");
+    GUI.EndGroup();
+}
+```
+
+滚动视图：
+![[Pasted image 20230607222051.png]]
