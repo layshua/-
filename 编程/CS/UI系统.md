@@ -37,7 +37,7 @@ private void OnGUI()
 3. **每一种控件都有多种重载，都是各个参数的排列组合必备的参数内容，是位置信息和显示信息**
 
 
-### 文本控件
+### GUI. Label
 ![[Pasted image 20230607151421.png|700]]
 ![[Pasted image 20230607151337.png|450]]
 
@@ -51,14 +51,49 @@ public Rect rect1;
 public Rect rect2;  
 public GUIContent content2;
 
+public GUIStyle style;
+
 private void OnGUI()  
 {
-    //基本使用
+    //1.文本
     GUI.Label(new Rect(0,0,100,20),"Hello World"); //text，传位置信息也可以直接声明公共变量Rect，如下：
-    GUI.Label(rect1, texture);  //图片
     
-    //综合使用：GUIContent可以控制text
+    //2.图片
+    GUI.Label(rect1, texture);  
+    
+    //3.文本+图片
+    //GUIContent可以控制text,image,tooltip
     GUI.Label(rect2,content2);
     Debug.Log(GUI.tooltip);  //获取当前鼠标或者键盘选中的GUI控件对应的tooltip信息
+
+
+    //4.自定义格式，第三个参数传入GUIStyle
+    GUI.Label(new Rect(0,0,100,20),"Hello World",style);
+}
+```
+
+
+### GUI. Button
+自定义格式：
+![[Pasted image 20230607151820.png|450]]
+
+
+```cs
+public Rect rect;  
+public GUIContent content;  
+public GUIStyle style;
+
+//鼠标按下松开为一次点击
+//无style参数时，使用默认style
+if (GUI.Button(rect, content, style))  //判断是否点击
+{  
+    //处理按钮点击逻辑
+    print("Button Clicked");  
+}
+
+//鼠标长按
+if(GUI.RepeatButton(rect, content, style))  
+{  
+    print("Button Clicked");  
 }
 ```
