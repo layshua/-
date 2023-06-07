@@ -244,7 +244,7 @@ private void OnGUI()
 - 用于批量控制控件位置
 - 可以理解为包裹着的控件加了一个父对象
 - 可以通过控制分组来控制包裹控件的位置
-```cs file:group
+```cs file:GUI.BeginGroup
 public Rect groupPos;  
 
 private void OnGUI()  
@@ -257,5 +257,71 @@ private void OnGUI()
 }
 ```
 
-滚动视图：
+**滚动视图：**
 ![[Pasted image 20230607222051.png]]
+
+```cs file:GUI.BeginScrollView
+public Rect uiPos;
+public Vector2 scrollPos;
+public Rect viewPos;
+
+private void OnGUI()
+{
+    GUI.BeginScrollView(uiPos, scrollPos, viewPos);
+    GUI.Button(new Rect(0,0,100,50),"按钮1");
+    GUI.Button(new Rect(0,50,100,50),"按钮2");
+    GUI.EndScrollView();
+}
+```
+
+## 10 窗口
+就是单独的一个窗口，在绘制窗口的函数中写 UI 代码，以窗口的左上角为原点
+![[202306072241.gif]]
+```cs file:GUI.Window
+public Rect windowPos;
+   
+private void OnGUI()
+{
+   //参数一：窗口唯一ID，
+   //委托参数是用于绘制窗口用的函数，传入即可
+   GUI.Window(1,new Rect(100,100,200,150),DrawWindow,"窗口1");
+   GUI.Window(2,new Rect(400,100,200,150),DrawWindow,"窗口2");
+
+   //可拖动窗口
+   //1.位置赋值
+   //2.绘制函数调用GUI.DragWindow();
+   windowPos = GUI.Window(3,windowPos,DrawWindow,"拖动窗口");
+
+}
+
+private void DrawWindow(int id)
+{
+   switch (id)
+   {
+       case 1:
+           GUI.Button(new Rect(0,0,50,50),"按钮");
+           break;
+       case 2:
+           GUI.Box(new Rect(0,0,100,100),"123");
+           break;
+       case 3:
+           //传入Rect参数的重载作用
+           //决定窗口中哪一部分位置可以被拖动
+           //默认不填,就是无参重载,默认窗口的所有位置都能被拖动
+           GUI.DragWindow();  
+           
+           //传参限制可拖动位置，可以实现只能通过拖动顶栏移动窗口
+           //GUI.DragWindow(new Rect(0,0,100,20));  
+           break;
+   }
+}
+```
+
+**模态窗口**
+- 可以让窗口外的其它控件无法点击
+- 你可以理解该窗口在最上层，其它按钮都点击不到了，只能点击该窗口上控件
+```cs file:GUI.ModalWindow
+GUI.ModalWindow(2,new Rect(400,100,200,150),DrawWindow,"模态窗口");
+```
+
+# 11 自定义皮肤
