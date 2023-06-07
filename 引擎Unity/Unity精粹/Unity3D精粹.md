@@ -48,6 +48,10 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 ![[Pasted image 20230604101859.png|700]]
 
 ![[Pasted image 20230604101922.png]]
+## 特性 
+`[ExecuteAlways]`：令脚本在编辑模式下运行
+
+
 ## Inspector 窗口
 ### 可编辑的变量
 

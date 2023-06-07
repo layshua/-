@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "引擎Unity/Unity精粹/数据持久化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4c460ecc27223766",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity/Unity精粹/Unity3D精粹.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,18 +37,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/CS/《CS Primer》.md",
+                "file": "引擎Unity/Unity精粹/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "2fe3b19c9fd552d6",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           },
           {
@@ -51,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/Unity101.md"
+                "file": "引擎Unity/Unity精粹/Unity3D精粹.md"
               }
             }
           }
@@ -137,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "引擎Unity/Unity精粹/Unity3D精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/Unity101.md",
+                "file": "引擎Unity/Unity精粹/Unity3D精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -187,32 +192,38 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "编程/CS/《CS Primer》.md",
-    "编程/CS/数据持久化.md",
-    "编程/CS/Unity101.md",
+    "引擎Unity/2022minigame/2022minigame.md",
+    "引擎Unity/Unity精粹",
+    "引擎Unity/URP/入门精要urp重写.md",
+    "引擎Unity/教程.md",
+    "引擎Unity/URP/DrawCall，Batches，SetPass calls.md",
+    "编程/CS/Unity操作指南.md",
+    "引擎Unity/WebGL踩坑.md",
+    "编程/CS/BUG合集.md",
+    "引擎Unity/Unity精粹/《CS Primer》.md",
+    "引擎Unity/随笔.md",
+    "引擎Unity/URP/URPShader.md",
+    "引擎Unity/URP/URP渲染管线.md",
+    "引擎Unity/URP/URP屏幕后处理.md",
+    "引擎Unity/Unity精粹/数据持久化.md",
     "编程/CS/UI系统.md",
+    "zip/images/diablo-iv-beta-vendor-3.png",
+    "zip/images/Pasted image 20230607233733.png",
+    "zip/images/Pasted image 20230607233554.png",
+    "引擎Unity/Unity精粹/Unity3D精粹.md",
+    "zip/images/Pasted image 20230607232730.png",
     "zip/images/Pasted image 20230607230430.png",
     "zip/images/Pasted image 20230607225608.png",
     "zip/images/202306072241.gif",
     "zip/images/Pasted image 20230607223007.png",
     "zip/images/Pasted image 20230607222553.png",
     "zip/images/Pasted image 20230607222548.png",
-    "zip/images/Pasted image 20230607222051.png",
-    "zip/images/Pasted image 20230607215722.png",
-    "zip/images/Pasted image 20230607215701.png",
-    "zip/images/Pasted image 20230607215332.png",
     "zip/images/ScreenToGif.lnk",
-    "引擎Unity/WebGL踩坑.md",
-    "引擎Unity/随笔.md",
-    "引擎Unity/教程.md",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
-    "编程/CS/Unity操作指南.md",
-    "编程/CS/BUG合集.md",
     "引擎Unreal/01 指南/光照设置.md",
     "引擎Unreal/01 指南/ue操作指南.md",
-    "引擎Unity/2022minigame/2022minigame.md",
     "Tools/工具流.md",
     "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
     "Tools/环境配置/VSCode 配置 Gist 同步.md",
@@ -221,11 +232,6 @@
     "zBuffer/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（中）4_3 ~ 4_4_西河某人的博客 - CSDN 博客.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/05 UnityShader/TA101.md",
-    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
-    "编程/IDE/Reshaper快捷键.md",
     "zip/images/Diagram.svg.xml",
     "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "zip/icons/font-awesome-brands",
@@ -233,7 +239,6 @@
     "zip/icons/remix-icons",
     "zip/icons/icon-brew",
     "zip/icons/lucide-icons",
-    "zip/icons/tabler-icons",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",

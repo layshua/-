@@ -1,3 +1,15 @@
+
+---
+title: UI系统
+aliases: []
+tags: []
+create_time: 2023-06-07 23:35
+uid: 202306072335
+banner: "![[diablo-iv-beta-vendor-3.png]]"
+---
+[Screenshots | Interface In Game | Video games UI](https://interfaceingame.com/screenshots/)
+# 九宫格 UI
+![[Pasted image 20230607232730.png]]
 # GUI
 ## 1 原理及作用
 **IMGUI**  （Immediate Mode Graphical User Interface）即时模式图形化交互界面
@@ -24,7 +36,7 @@ private void OnGUI()
 **缺点**
 - 重复工作量繁多
 - 控件绘制相关代码很多
-- 最大缺点:必须运行时才能去查看结果（不能所见即所得），不支持分辨率自适应
+- 最大缺点:必须运行时才能去查看结果（不能所见即所得，通过 `[ExecuteAlways]` 特性解决），不支持分辨率自适应
 
 
 ## 2 重要参数
