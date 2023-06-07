@@ -175,4 +175,30 @@ nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
 
 注意要初始化 string ，不然会报错：
 ![[Pasted image 20230607210648.png]]
-## 7 图片绘制和框
+## 7 图片绘制和Box框
+![[Pasted image 20230607212445.png]]
+```cs
+public Rect texPos;
+public Texture texture;
+
+public ScaleMode scaleMode; //可切换三种缩放模式
+//scaleAndCrop:通过宽高比来计算图片，但是会进行裁剪
+//ScaleToFit:会自动根据宽高比进行计算，不会拉变形，会一直保持图片完全显示的状态
+//stretchToFill:始终填充满你传入的 Rect范围
+
+public bool alphaBlend ;    //默认为true使用alpha透明通道
+
+private void OnGUI()
+{
+    GUI.DrawTexture(texPos, texture,scaleMode,alphaBlend);
+}
+```
+
+
+简单的 Box 边框，没特殊功能
+![[Pasted image 20230607212756.png]]
+```cs
+GUI.Box(new Rect(0,0,100,100),"123");
+```
+
+## 8 工具栏和选择网格

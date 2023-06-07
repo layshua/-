@@ -20,6 +20,18 @@
             }
           },
           {
+            "id": "66310dfc6a3394eb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/CS/《CS Primer》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2fe3b19c9fd552d6",
             "type": "leaf",
             "state": {
@@ -39,7 +51,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -82,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/CS/UI系统.md"
+                "file": "编程/CS/《CS Primer》.md"
               }
             }
           }
@@ -125,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/CS/UI系统.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -142,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/CS/UI系统.md",
+                "file": "编程/CS/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -175,13 +188,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "66310dfc6a3394eb",
   "lastOpenFiles": [
+    "编程/CS/UI系统.md",
+    "zip/images/Pasted image 20230607212756.png",
+    "zip/images/Pasted image 20230607212445.png",
     "zip/images/Pasted image 20230607210648.png",
     "zip/images/Pasted image 20230607210637.png",
     "zip/images/Pasted image 20230607210356.png",
     "编程/CS/Unity101.md",
-    "编程/CS/UI系统.md",
     "zip/images/2022306071646.gif",
     "zip/images/ScreenToGif.lnk",
     "zip/images/动画.gif",
@@ -197,8 +212,6 @@
     "引擎Unreal/01 指南/光照设置.md",
     "引擎Unreal/01 指南/ue操作指南.md",
     "zip/images/Pasted image 20230607151820.png",
-    "zip/images/Pasted image 20230607151421.png",
-    "zip/images/Pasted image 20230607151337.png",
     "引擎Unity/2022minigame/2022minigame.md",
     "编程/CS/数据持久化.md",
     "Tools/工具流.md",
@@ -207,7 +220,6 @@
     "Tools/环境配置",
     "Tools/System/未命名.md",
     "zBuffer/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（中）4_3 ~ 4_4_西河某人的博客 - CSDN 博客.md",
-    "zip/images/1686098157010.png",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/05 UnityShader/庄懂AP01.md",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "编程/CS/《CS Primer》.md"
+    },
+    {
       "basename": "UI系统",
       "path": "编程/CS/UI系统.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "Unity操作指南",
       "path": "编程/CS/Unity操作指南.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "编程/CS/《CS Primer》.md"
     },
     {
       "basename": "BUG合集",
