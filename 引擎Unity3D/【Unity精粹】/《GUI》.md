@@ -183,7 +183,7 @@ void OnGUI()
 private string inputStr = "";
 private string password = "";   
 private float nowValue = 0.5f;
-
+public GUIStyle thumbStyle; //滑块样式
 //输入框
 //比较特别是的第三个参数，最大输入长度
 inputStr = GUI.TextField(new Rect(0,0,100,50), inputStr,5); 
@@ -193,6 +193,8 @@ password = GUI.PasswordField(new Rect(100,0,100,50), password, '*');
 
 //水平拖动条
 nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
+//带风格的拖动条，多一个style参数
+nowvalue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100),, nowvalue, minValue, maxValue,style,thumbStyle); //默认的style时滑动条的style，滑块style要自己声明
 
 //竖直拖动条GUI.VerticalSlider()
 ```

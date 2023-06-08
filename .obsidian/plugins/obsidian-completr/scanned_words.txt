@@ -3291,6 +3291,7 @@ oszz
 oBo
 opsc
 oller
+offsetPos
 OneDrive
 Obsidian
 Office
@@ -25866,6 +25867,8 @@ wolfram
 wavefronts
 warps
 watt
+widgetPos
+widgetCenterPos
 utools
 url
 unresolved
@@ -67622,6 +67625,7 @@ Skins
 Sikachev
 Sergey
 Sullivan
+ScreenPos
 Programs
 POP
 PC
