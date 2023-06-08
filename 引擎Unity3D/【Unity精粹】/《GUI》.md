@@ -10,6 +10,11 @@ banner: "![[diablo-iv-beta-vendor-3.png]]"
 [Screenshots | Interface In Game | Video games UI](https://interfaceingame.com/screenshots/)
 # 九宫格 UI
 ![[Pasted image 20230607232730.png]]
+widgetPos.x = ScreenPos + widgetCenterPos + offsetPos;
+
+**控件中心点位置：**
+cw 是控件自身的宽度
+ch 是控件自身的高度
 ![[Pasted image 20230608080527.png]]
 # GUI
 ## 1 原理及作用
