@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "DCC/01 Blender/1 操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+                "file": "DCC/01 Blender/1 操作指南.md"
               }
             }
           }
@@ -138,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "DCC/01 Blender/1 操作指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "DCC/01 Blender/1 操作指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,11 +190,11 @@
   },
   "active": "4c460ecc27223766",
   "lastOpenFiles": [
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "zip/images/Pasted image 20230608080626.png",
     "zip/images/Pasted image 20230608080527.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
@@ -219,7 +219,6 @@
     "zip/images/Pasted image 20230607230430.png",
     "zip/images/Pasted image 20230607225608.png",
     "zip/images/202306072241.gif",
-    "zip/images/Pasted image 20230607223007.png",
     "zip/images/ScreenToGif.lnk",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
     "引擎Unreal/01 指南/光照设置.md",
