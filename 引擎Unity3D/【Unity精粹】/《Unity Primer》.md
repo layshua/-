@@ -737,6 +737,8 @@ this.transform.DetachChildren(); //和自己的所有儿子断绝关系，不会
 //Find方法是能够找到失活的对象的! Gameobject相关的查找是不能找到失活对象的
 print(this.transform.Find("Son").name);
 
+print(this.transform.Find("Son/grandson").name);  //找到子对象的子对象
+
 //遍历儿子
 for (int i = 0; i < this.transform.childCount; i++) 
 {

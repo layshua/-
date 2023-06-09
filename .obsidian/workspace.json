@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
               }
             }
           }
@@ -130,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,13 +179,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "b6663cb000fd271e",
+  "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "引擎Unity3D/Unity操作指南.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/游戏Demo/坦克大战/文档.md",
     "zip/images/Pasted image 20230609153257.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
     "zip/images/Pasted image 20230609140303.png",
     "zip/images/Pasted image 20230609140152.png",
