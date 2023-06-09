@@ -5,16 +5,12 @@
       "path": "临时/计算机系统大作业.md"
     },
     {
-      "basename": "可微渲染、NeRF 相关技术概念急速入门",
-      "path": "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
-      "basename": "转mesh工作",
-      "path": "AI/论文/Nerf/转mesh工作.md"
-    },
-    {
-      "basename": "学习论",
-      "path": "AI/论文/Nerf/学习论.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "《GUI》",
@@ -25,12 +21,32 @@
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+      "basename": "全景图 _ 六面图互相转换工具 – KRPano 技术解密",
+      "path": "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md"
     },
     {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
+      "basename": "Mermaid流图",
+      "path": "Tools/Obsidian/Mermaid流图.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "激活方法",
+      "path": "Tools/Software/Office365/激活方法.md"
+    },
+    {
+      "basename": "可微渲染、NeRF 相关技术概念急速入门",
+      "path": "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
+    },
+    {
+      "basename": "转mesh工作",
+      "path": "AI/论文/Nerf/转mesh工作.md"
+    },
+    {
+      "basename": "学习论",
+      "path": "AI/论文/Nerf/学习论.md"
     },
     {
       "basename": "冯乐乐入门精要",
@@ -119,14 +135,6 @@
     {
       "basename": "疑问",
       "path": "技术美术/05 UnityShader/疑问.md"
-    },
-    {
-      "basename": "Mermaid流图",
-      "path": "Tools/Obsidian/Mermaid流图.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
     }
   ],
   "omittedPaths": [],
