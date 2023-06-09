@@ -9,13 +9,16 @@ banner: "![[diablo-iv-beta-vendor-3.png]]"
 ---
 [Screenshots | Interface In Game | Video games UI](https://interfaceingame.com/screenshots/)
 # 九宫格 UI
+**相对屏幕位置 ScreenPos：**
 ![[Pasted image 20230607232730.png]]
 widgetPos.x = ScreenPos + widgetCenterPos + offsetPos;
 
-**控件中心点位置：**
+**控件中心点位置 widgetCenterPos：**
 cw 是控件自身的宽度
 ch 是控件自身的高度
-![[Pasted image 20230608080527.png]]
+![[Pasted image 20230608080527.png|850]]
+
+最后通过操作偏移位置 offset 来摆放UI
 # GUI
 ## 1 原理及作用
 **IMGUI**  （Immediate Mode Graphical User Interface）即时模式图形化交互界面

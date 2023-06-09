@@ -90,7 +90,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -179,7 +180,7 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
