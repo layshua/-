@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "计算机系统大作业",
+      "path": "临时/计算机系统大作业.md"
+    },
+    {
+      "basename": "可微渲染、NeRF 相关技术概念急速入门",
+      "path": "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
+    },
+    {
+      "basename": "转mesh工作",
+      "path": "AI/论文/Nerf/转mesh工作.md"
+    },
+    {
+      "basename": "学习论",
+      "path": "AI/论文/Nerf/学习论.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },

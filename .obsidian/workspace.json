@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "临时/计算机系统大作业.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+                "file": "临时/计算机系统大作业.md"
               }
             }
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "临时/计算机系统大作业.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "临时/计算机系统大作业.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,8 +180,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
+    "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
+    "临时/计算机系统大作业.md",
+    "临时",
+    "AI/论文/Nerf/转mesh工作.md",
+    "AI/论文/Nerf/学习论.md",
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
@@ -189,7 +195,6 @@
     "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/BUG合集.md",
     "DCC/01 Blender/1 操作指南.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "zip/images/Pasted image 20230608080626.png",
     "zip/images/Pasted image 20230608080527.png",
     "编程/C++/《Effective C++ 3th》.md",
@@ -216,10 +221,6 @@
     "zip/images/ScreenToGif.lnk",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
     "引擎Unreal/01 指南/光照设置.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
-    "Tools/工具流.md",
-    "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md",
-    "Tools/环境配置/VSCode 配置 Gist 同步.md",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
     "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
@@ -227,7 +228,6 @@
     "zip/icons/font-awesome-solid",
     "zip/icons/remix-icons",
     "zip/icons/icon-brew",
-    "zip/icons/lucide-icons",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",

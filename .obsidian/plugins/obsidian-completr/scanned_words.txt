@@ -67626,6 +67626,8 @@ Sikachev
 Sergey
 Sullivan
 ScreenPos
+Survey
+Situation
 Programs
 POP
 PC
@@ -71525,6 +71527,7 @@ Public
 Patrick
 Prentice
 Prefrence
+Perspectives
 ContextMenuManager
 ClashVerge
 Clash
@@ -79290,6 +79293,7 @@ Incremental
 Improve
 IMGUI
 Immediate
+Intelligent
 qq
 qyi
 quad
