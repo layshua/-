@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "临时/计算机系统大作业.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,12 +86,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "临时/计算机系统大作业.md"
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -130,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "临时/计算机系统大作业.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "临时/计算机系统大作业.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,8 +179,9 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "临时/计算机系统大作业.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
@@ -190,7 +190,6 @@
     "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/插件流.md",
     "Tools/Software/Office365/激活方法.md",
-    "临时/计算机系统大作业.md",
     "Tools/Software/Office365",
     "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
     "临时",
