@@ -44,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
               }
             }
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,12 +180,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "66310dfc6a3394eb",
+  "active": "b6663cb000fd271e",
   "lastOpenFiles": [
+    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
     "zip/images/Pasted image 20230609153257.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
     "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
     "zip/images/Pasted image 20230609140303.png",
@@ -223,7 +223,6 @@
     "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
     "引擎Unity/WebGL踩坑.md",
     "zip/images/diablo-iv-beta-vendor-3.png",
-    "zip/images/Pasted image 20230607233733.png",
     "zip/images/ScreenToGif.lnk",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
