@@ -22,3 +22,19 @@ Edit->Prefrence->Asset Pipeline
 修改方法： Settings - Languages&Frameworks - Unity Engine - 取消勾选 Automatically refresh assets in Unity
 ![[Pasted image 20230607161142.jpg]]
 3. 想要刷新的时候，手动 ctrl+r
+
+# 模型
+骨（骨骼)——非必须，有动作的模型才需要
+肉（网格面片)——必须，决定了模型的轮廓
+皮 (贴图)——必须，决定了模型的颜色效果
+
+官方推荐使用 FBX 格式的模型文件其它格式虽然支持，但是不推荐
+`. fbx/.dae/.3ds/.dxf/.obj`
+
+详细看官方文档
+![[Pasted image 20230609135746.png|500]]
+
+**重点规则:**
+**Unity 中模型面朝向朝模型坐标系的 Z 轴**
+缩放大小单位要注意
+

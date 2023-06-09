@@ -3144,9 +3144,6 @@ class Program
     {
         Console.WriteLine(message);
     }
-    
-    
-    
 }
 ```
 

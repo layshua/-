@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,25 +37,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b8b754ce840bc84b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
               }
             }
           }
@@ -141,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,9 +180,19 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "1634ffd0e7a79985",
+  "active": "66310dfc6a3394eb",
   "lastOpenFiles": [
+    "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
+    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
+    "zip/images/Pasted image 20230609140303.png",
+    "zip/images/Pasted image 20230609140152.png",
+    "zip/images/Pasted image 20230609140109.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "引擎Unity3D/游戏Demo/坦克大战",
+    "引擎Unity3D/游戏Demo",
+    "引擎Unity3D/Unity操作指南.md",
+    "zip/images/Pasted image 20230609135746.png",
+    "引擎Unity3D/BUG合集.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zip/images/Pasted image 20230609131650.png",
     "临时/计算机系统大作业.md",
@@ -209,8 +208,6 @@
     "AI/论文/Nerf/转mesh工作.md",
     "AI/论文/Nerf/学习论.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "引擎Unity3D/Unity操作指南.md",
-    "引擎Unity3D/BUG合集.md",
     "DCC/01 Blender/1 操作指南.md",
     "zip/images/Pasted image 20230608080626.png",
     "zip/images/Pasted image 20230608080527.png",
@@ -224,20 +221,13 @@
     "引擎Unity/教程.md",
     "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
     "引擎Unity/WebGL踩坑.md",
-    "引擎Unity/随笔.md",
     "zip/images/diablo-iv-beta-vendor-3.png",
     "zip/images/Pasted image 20230607233733.png",
-    "zip/images/Pasted image 20230607233554.png",
-    "zip/images/Pasted image 20230607232730.png",
-    "zip/images/Pasted image 20230607230430.png",
-    "zip/images/Pasted image 20230607225608.png",
     "zip/images/ScreenToGif.lnk",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
     "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "zip/icons/font-awesome-brands",
-    "zip/icons/font-awesome-solid",
-    "zip/icons/remix-icons",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
