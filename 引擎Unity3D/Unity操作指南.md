@@ -12,7 +12,7 @@ Align with View：ctrl+shift+F，选中摄像机后使用，可以让摄像机�
 
 
 # 资源类型
-![[Pasted image 20230602232944.png]]
+![[Pasted image 20230602232944.png|450]]
 # 关闭脚本自动重新编译
 1. Unity 的修改
 Edit->Prefrence->Asset Pipeline
