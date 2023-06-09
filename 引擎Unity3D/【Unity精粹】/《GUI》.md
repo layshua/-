@@ -199,8 +199,6 @@ nowvalue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100),, nowvalue, minValue,
 //竖直拖动条GUI.VerticalSlider()
 ```
 
-注意要初始化 string ，不然会报错：
-![[Pasted image 20230607210648.png]]
 ## 7 图片绘制和Box框
 ![[Pasted image 20230607212445.png]]
 ```cs file:GUI.DrawTexture
@@ -219,7 +217,6 @@ private void OnGUI()
     GUI.DrawTexture(texPos, texture,scaleMode,alphaBlend);
 }
 ```
-
 
 简单的 Box 边框，没特殊功能
 ![[Pasted image 20230607212756.png]]
