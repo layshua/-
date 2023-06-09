@@ -16,14 +16,6 @@
             }
           },
           {
-            "id": "456ac092953e6eb5",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
-            }
-          },
-          {
             "id": "b6663cb000fd271e",
             "type": "leaf",
             "state": {
@@ -47,8 +39,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -184,7 +175,7 @@
       "pdf-to-markdown-plugin:PDF to Markdown": true
     }
   },
-  "active": "456ac092953e6eb5",
+  "active": "1634ffd0e7a79985",
   "lastOpenFiles": [
     "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
