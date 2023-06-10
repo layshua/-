@@ -1234,7 +1234,8 @@ Continuous Dynamic > Continuous Speculativec > Continuous > Discrete
 
 **约束：**
 ![[Pasted image 20230605125531.png]]
-
+游戏中防止物体乱飞，可以这样设置：
+![[Pasted image 20230610161032.png]]
 ### 碰撞器 Collider
 
 ![[Pasted image 20230605125839.png]]
