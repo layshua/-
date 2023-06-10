@@ -258,9 +258,12 @@ Math 是中封装好的用于数学计算的工具**类**，位于 system 命名
 `IsPowerOfTwo` 判断一个数是否是 2 的 n 次方
 `Sign` 判断正负数，返回 1/-1
 
-`Lerp` 插值
+
+![[Pasted image 20230610205842.png|500]]
+`Lerp` 线性插值
+`Vector3.SLerp` 球形插值
 ```cs lerp
-//原理
+//Lerp原理
 result = （1-t）start + t * end; //t为插值系数，取值范围为0~1
 
 //用法
@@ -272,6 +275,10 @@ start = Mathf. Lerp ( start，10，Time.deltaTime);
 //每帧改变 t 的值—变化速度匀速，位置每帧接近，当 t>=1 时，得到结果
 time += Time.deltaTime;
 result = Mathf.Lerp(start,10,time);
+
+//用Slerp，让物体围绕一个点旋转
+C.position = Vector3.slerp(Vector3.right * 10，Vector3.forward * 10,time);
+
 ```
 ### 三角函数
 ```cs
@@ -288,12 +295,9 @@ float sinValue = Mathf.Sin(30 * Mathf.Deg2Rad); //注意角度转成弧度
 
 //反三角函数得到的结果也是弧度
 float arcSinValue = Mathf.Asin(0.5f);
-
-
 ```
 
 ### 向量
-#### Vector3
 ```cs file:Vector3
 //Vector3的初始化
 Vector3 v1 = new Vector3();
@@ -320,8 +324,43 @@ v1.magnitude
 
 //单位向量
 v1.normalized
+
+//点乘
+Vector3.Dot  //gameplay中点乘可以用来判断目标物体的前后方向
+//叉乘
+Vector3.Cross //gameplay中点乘可以用来得到两个向量之间的左右位置关系
 ```
 
+### 欧拉角
+[[01 三维旋转#欧拉角]]
+inspector 界面上显示的 Rotation 的 XYZ 值都是欧拉角
+Untiy 欧拉角常用顺规：YXZ（Yaw-pitch-Roll）
+
+使用欧拉角的两个缺点：
+1. 同一旋转表示不唯一，即欧拉角绕一个轴旋转 90° 和 450°结果是一样的
+2. X 轴达到 90 度时会产生万向节死锁
+
+### 四元数
+[[01 三维旋转#四元数]]
+**四元数构成**
+一个四元数包含一个标量和一个 3D 向量 $[w, v]$
+其中 $w$ 为标量，$v$  为 3D 向量，即 $[w, (x, y, z)]$
+
+**对于给定的任意一个四元数: 表示 3D 空间中的一个旋转量**
+
+> [!NOTE] 轴-角对
+> 在 3D 空间中，任意旋转都可以表示绕着某个轴旋转一个旋转角得到
+> 注意: 该轴是空间中的任意一个轴
+
+对于给定旋转，假设为绕着 $n$ 轴，旋转$β$度，$n$ 轴为$(x, y, z)$那么可以构成四元数为
+四元数 $Q= [\cos (β/2), \sin (β/2) n]$
+四元数 $Q= [\cos (β/2), \sin (β/2) x, \sin (β/2) y, \sin (β/2) z]$
+**四元数 $Q$ 则表示绕着轴 $n$，旋转$β$度的旋转量**
+
+```cs file:Unity中的四元数初始化方法
+
+
+```
 
 ## 8 坐标转换
 ### 坐标系
@@ -836,7 +875,7 @@ this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.World
 ```cs file:角度
 //和角度设置一样，不能单独设置x,y,z
         
-//是inspector界面上显示的Rotation是欧拉角
+//inspector界面上显示的Rotation是欧拉角
 print(this.transform.eulerAngles); //该方法返回欧拉角,
 print(this.transform.localEulerAngles);
 

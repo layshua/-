@@ -32,6 +32,30 @@
             }
           },
           {
+            "id": "1fb757a289ad66b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/01 三维旋转.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a90c1d29d42df049",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/01 三维旋转.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "66310dfc6a3394eb",
             "type": "leaf",
             "state": {
@@ -182,9 +206,11 @@
   },
   "active": "cfe123bc294a0dcd",
   "lastOpenFiles": [
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "zip/images/Pasted image 20230610205842.png",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/Unity操作指南.md",
     "zip/images/Pasted image 20230610194110.png",
     "zip/images/Pasted image 20230610194030.png",
@@ -200,7 +226,6 @@
     "zip/images/Pasted image 20230609140109.png",
     "引擎Unity3D/游戏Demo/坦克大战",
     "引擎Unity3D/游戏Demo",
-    "zip/images/Pasted image 20230609135746.png",
     "引擎Unity3D/BUG合集.md",
     "临时/计算机系统大作业.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
@@ -223,7 +248,6 @@
     "引擎Unity3D/【Unity精粹】",
     "引擎Unity3D/URP/入门精要urp重写.md",
     "引擎Unity/教程.md",
-    "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
     "zip/images/ScreenToGif.lnk",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
