@@ -29,7 +29,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -91,7 +91,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/Unity操作指南.md"
               }
             }
           }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -186,11 +186,15 @@
   },
   "active": "b6663cb000fd271e",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230610194110.png",
+    "zip/images/Pasted image 20230610194030.png",
+    "zip/images/Pasted image 20230610193454.png",
+    "zip/images/Pasted image 20230610193432.png",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zip/images/Pasted image 20230610161032.png",
     "引擎Unity3D/Unity操作指南.md",
     "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/游戏Demo/坦克大战/文档.md",
     "zip/images/Pasted image 20230609153257.png",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
@@ -216,18 +220,14 @@
     "AI/论文/Nerf/学习论.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "DCC/01 Blender/1 操作指南.md",
-    "zip/images/Pasted image 20230608080626.png",
-    "zip/images/Pasted image 20230608080527.png",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
     "编程/C++/《C++ Primer》.md",
-    "zip/images/Pasted image 20230608001551.png",
     "引擎Unity3D/2022minigame/2022minigame.md",
     "引擎Unity3D/【Unity精粹】",
     "引擎Unity3D/URP/入门精要urp重写.md",
     "引擎Unity/教程.md",
     "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
-    "zip/images/diablo-iv-beta-vendor-3.png",
     "zip/images/ScreenToGif.lnk",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",

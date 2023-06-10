@@ -38,3 +38,12 @@ Edit->Prefrence->Asset Pipeline
 **Unity 中模型面朝向朝模型坐标系的 Z 轴**
 缩放大小单位要注意
 
+
+# 打包
+![[Pasted image 20230610193454.png|600]]
+![[Pasted image 20230610193432.png]]
+
+
+![[Pasted image 20230610194110.png]]
+
+![[Pasted image 20230610194030.png]]
