@@ -270,7 +270,7 @@ result = （1-t）start + t * end; //t为插值系数，取值范围为0~1
 result  = Mathf.Lerp(start,end,t);
 
 //每帧改变 start 的值—变化速度先快后慢，位置无限接近，但是不会得到 end 位置 
-start = Mathf. Lerp ( start，10，Time.deltaTime);
+start = Mathf.Lerp ( start，10，Time.deltaTime);
 
 //每帧改变 t 的值—变化速度匀速，位置每帧接近，当 t>=1 时，得到结果
 time += Time.deltaTime;
@@ -415,9 +415,42 @@ GameObject objClone = Instantiate(obj, Vector3.zero, Quaternion.identity);
 在四元数中 `Lerp` 和 `Slerp` 只有一些细微差别由于算法不同
 - `Slerp` 的效果会好一些
 - `Lerp` 的效果相比 `Slerp` 更快但是如果，旋转范围较大则效果较差，所以**建议使用 Slerp 进行插值运算**
+```cs
+public Transform target;  //目标位置
+public Transform A;  
+public Transform B;  
+public Quaternion start;  
+  
+public float time;  
+void Start()  
+{  
+    start = B.transform.rotation;  
+}  
+  
+void Update()  
+{  
+    //无限接近目标的旋转状态，先快后慢  
+    A.transform.rotation = Quaternion.Slerp(A.transform.rotation, target.rotation, Time.deltaTime);  
+    print(Time.deltaTime);  
+  
+    //匀速变化，time>=1到达目标  
+    time += Time.deltaTime;  
+    B.transform.rotation = Quaternion.Slerp(start, target.rotation, time);  
+}
+```
 
+##### 向量方向转四元数
+`LookRoataion` 方法可以将传入的**面朝向量**转换为对应的四元数角度信息
 
+举例: 当人物面朝向（图中 A 的面朝向上方）想要改变时，只需要把目标面朝向（$\vec{AB}$）传入该函数，便可以得到目标四元数角度信息，之后将人物四元数角度信息改为得到的信息即可完成到转向。
+![[Pasted image 20230610221358.png]]
+```cs
+//A看向B
+Quaternion q = Quaternion.LookRotation(B.position - A.position);
+A.rotation = q;
+```
 
+### 
 ## 8 坐标转换
 ### 坐标系
 **世界坐标系**
