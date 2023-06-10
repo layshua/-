@@ -752,7 +752,6 @@ public void paramFunc(int i)
 `if(IsInVoking())`
 `if(IsInVoking("函数名"))`
 
-
 ## 1 Object 类
 **Object 是 Gameobject 的父类** 
 - unity 里面的 Object 不是指的 cs 中的万物之父 object（cs 中的 object 命名空间是 system ）
