@@ -259,7 +259,7 @@ Math 是中封装好的用于数学计算的工具**类**，位于 system 命名
 `Sign` 判断正负数，返回 1/-1
 
 
-![[Pasted image 20230610205842.png|500]]
+
 `Lerp` 线性插值
 `Vector3.SLerp` 球形插值
 ```cs lerp
@@ -329,22 +329,28 @@ v1.normalized
 Vector3.Dot  //gameplay中点乘可以用来判断目标物体的前后方向
 //叉乘
 Vector3.Cross //gameplay中点乘可以用来得到两个向量之间的左右位置关系
-```
 
+//线性插值
+Vector3.Lerp
+//球形插值
+Vector3.SLerp 
+
+```
+![[Pasted image 20230610205842.png|700]]
 ### 欧拉角
 [[01 三维旋转#欧拉角]]
 inspector 界面上显示的 Rotation 的 XYZ 值都是欧拉角
 Untiy 欧拉角常用顺规：YXZ（Yaw-pitch-Roll）
 
-使用欧拉角的两个缺点：
+**使用欧拉角的两个缺点：**
 1. 同一旋转表示不唯一，即欧拉角绕一个轴旋转 90° 和 450°结果是一样的
 2. X 轴达到 90 度时会产生万向节死锁
-
+**使用四元数可以解决这两个问题，四元数的旋转转换为欧拉角后可以发现对应的欧拉角范围为（-180~180），不会出现欧拉角的缺点一。**
 ### 四元数
 [[01 三维旋转#四元数]]
 **四元数构成**
-一个四元数包含一个标量和一个 3D 向量 $[w, v]$
-其中 $w$ 为标量，$v$  为 3D 向量，即 $[w, (x, y, z)]$
+一个四元数包含一个标量和一个 3D 向量 $[ v,w]$
+其中 $v$  为 3D 向量, $w$ 为标量，即 $[(x, y, z),w]$
 
 **对于给定的任意一个四元数: 表示 3D 空间中的一个旋转量**
 
@@ -353,14 +359,64 @@ Untiy 欧拉角常用顺规：YXZ（Yaw-pitch-Roll）
 > 注意: 该轴是空间中的任意一个轴
 
 对于给定旋转，假设为绕着 $n$ 轴，旋转$β$度，$n$ 轴为$(x, y, z)$那么可以构成四元数为
-四元数 $Q= [\cos (β/2), \sin (β/2) n]$
-四元数 $Q= [\cos (β/2), \sin (β/2) x, \sin (β/2) y, \sin (β/2) z]$
+四元数 $Q= [\sin (β/2)*n,\cos (β/2)]$
+四元数 $Q= [ \sin (β/2) *x, \sin (β/2) *y, \sin (β/2) *z,\cos (β/2)]$
 **四元数 $Q$ 则表示绕着轴 $n$，旋转$β$度的旋转量**
 
+#### Unity 中的四元数
 ```cs file:Unity中的四元数初始化方法
+//方法一：
+//绕轴（3，4，5）旋转30度  
+Quaternion q = new Quaternion(Mathf.Sin(30/2 * Mathf.Deg2Rad)*3, Mathf.Sin(30/2 * Mathf.Deg2Rad)*4, Mathf.Sin(30/2 * Mathf.Deg2Rad)*5,Mathf.Cos(30/2 * Mathf.Deg2Rad));  
 
+//方法二：更方便！推荐！
+//绕轴（3，4，5）旋转30度  
+Quaternion q2 = Quaternion.AngleAxis(30, new Vector3(3,4,5));
+
+//创建一个立方体  
+GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);  
+obj.transform.rotation = q;  //结果可直接赋给rotation
 
 ```
+
+**四元数相乘代表旋转四元数**
+以下实现每帧绕 Vector3. forward 旋转 1 度
+```cs
+this.transform.rotation *= Quaternion.AngleAxis(1，Vector3.forward); //此处的Vector3.forward是局部空间的！
+```
+
+> [!warning] 
+> 我们一般不会直接通过四元数的 w, x, y, z 进行修改，直接赋值给 `.transform.rotation` 即可 
+
+#### 四元数/欧拉角转换
+```cs
+//欧拉角转四元数
+Quaternion.Euler(x,y,z)
+
+//四元数转欧拉角
+Quaternion q;
+q.eulerAngles
+```
+#### 四元数常用方法
+##### 单位四元数
+单位四元数表示没有旋转量（角位移）
+当角度为 0 或者 360 度时对于给定轴都会得到单位四元数
+$[(0, 0,0),1]$ 和 $[(0, 0, 0),1]$ 都是单位四元数，表示没有旋转量
+```cs
+//将rotation改为了（0，0，0）
+obj.transform.rotation = Quaternion.identity; 
+
+//创建一个位置和角度都为0的对象
+GameObject objClone = Instantiate(obj, Vector3.zero, Quaternion.identity);
+```
+
+##### 四元数插值
+四元数中同样提供如同 Vector3 的插值运算 `Lerp` 和 `Slerp`
+在四元数中 `Lerp` 和 `Slerp` 只有一些细微差别由于算法不同
+- `Slerp` 的效果会好一些
+- `Lerp` 的效果相比 `Slerp` 更快但是如果，旋转范围较大则效果较差，所以**建议使用 Slerp 进行插值运算**
+
+
 
 ## 8 坐标转换
 ### 坐标系
