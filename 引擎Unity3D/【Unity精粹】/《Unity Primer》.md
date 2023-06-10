@@ -225,7 +225,6 @@ UnityAction ac1 = () => { print("test1"); };  //无参无返回值
 UnityAction<string> ac2 = (str) => { print("test2");};//有参无返回值
 ```
 
-
 使用 cs 自带委托加上 System. 就可以  
 ```cs file:cs自带委托  
 System.Action ac1 = () => { print("test1"); }; //无参无返回值  
@@ -233,6 +232,11 @@ System.Action<int,float> ac2 = (i,f)=> { print("test2"); };//有参无返回值
   
 System.Func<string> ac3 = () => { return "test3"; };//无参有返回值  
 System.Func<int, float, string> ac4 = (i, f) => { return "test3"; };//有参有返回值
+```
+
+事件：和 cs 一样
+```cs file:事件
+public event UnityAction clickEvent;
 ```
 # 二、重要组件和 API
 ## 0 MonoBehavior 基类
