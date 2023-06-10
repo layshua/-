@@ -292,6 +292,131 @@ float arcSinValue = Mathf.Asin(0.5f);
 
 ```
 
+### 向量
+#### Vector3
+```cs file:Vector3
+//Vector3的初始化
+Vector3 v1 = new Vector3();
+v1.x = 10;
+v1.y = 10;
+v1.z = 10;
+
+Vector3 v2 = new Vector3(10, 10, 10);
+
+Vector3 v3 = Vector3.zero; // (0, 0, 0)
+Vector3 v4 = Vector3.one; // (1, 1, 1)
+Vector3 v5 = Vector3.right; // (1, 0, 0)
+Vector3 v6 = Vector3.left; // (-1, 0, 0)
+Vector3 v7 = Vector3.up; // (0, 1, 0)
+Vector3 v8 = Vector3.down; // (0, -1, 0)
+Vector3 v9 = Vector3.forward; // (0, 0, 1)
+Vector3 v10 = Vector3.back; // (0, 0, -1)
+
+//计算点之间的距离
+Vector3.Distance(v1, v2);
+
+//向量模长
+v1.magnitude
+
+//单位向量
+v1.normalized
+```
+
+
+## 8 坐标转换
+### 坐标系
+**世界坐标系**
+```cs file:常用的世界空间坐标
+this.transform.position;
+this.transform.rotation;
+this.transform.eulerAngles;
+this.transform.lossyScale;
+```
+
+**局部坐标系**
+```cs
+//相对父对象的物体坐标系的位置本地坐标相对坐标T/
+this.transform.localposition;
+this.transform.localEulerAngles;
+this.transform.localRotation;
+this.transform.localscale;
+//修改他们会是相对父对象物体坐标系的变化
+```
+
+**屏幕坐标系**
+```cs
+Input.mousePosition
+Screen.width
+Screen.height
+```
+
+**视口坐标系**
+视口坐标系是与屏幕坐标系息息相关的，它是将 Game 视图的屏幕坐标系单位化，即左下角为 (0, 0)，右上角为 (1, 1)，z 轴坐标是相机的世界坐标中 z 轴坐标的负值。
+注意这和观察坐标系（以摄像机为原点）不同！
+
+### 局部/世界
+```cs file:世界坐标转局部坐标
+//世界坐标系的点转换为局部坐标系点（会受缩放影响）
+//上图中的P即为Vector3.forward
+this.transform.InverseTransformPoint(Vector3.forward);
+
+//世界坐标系的向量转换为本地坐标系的向量
+//不受缩放影响
+this.transform.InverseTransformDirection(Vector3.forward);
+//受缩放影响
+this.transform.InverseTransformVector(Vector3.forward);
+```
+以下是从正 Y 轴向下看的视角，中间有一个 Cube 模型
+
+![[zip/images/Diagram.svg]]
+
+世界坐标系的点 P (0，0，1)转换到局部空间，则 P 点坐标的 x，z 在局部空间为负数。
+世界坐标系的向量 P（0，0，1）转换为局部空间，将左边的向量平移到右边，可以观察到该方向向量的 x 为负数，z 为证书
+
+```cs file:局部坐标转世界坐标
+//⭐点（受缩放影响）
+print(this.transform.TransformPoint(Vector3.forward));  
+
+//向量
+//不受缩放影响
+print(this.transform.TransformDirection(Vector3.forward));
+//受缩放影响
+print(this.transform.TransformDirection(Vector3.up));
+```
+其中**最重要的就是局部坐标系的点转世界坐标系的点**
+比如现在玩家要在自己面前的 n 个单位前放一团火，这个时候我不用关心世界坐标系
+通过相对于本地坐标系的位置转换为世界坐标系的点，进行特效的创建或者攻击范围的判断,
+
+### 世界/屏幕
+
+```cs file:坐标转换
+//世界坐标转屏幕坐标
+Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);  //XY是屏幕坐标，Z轴是深度
+print(screenPos);
+
+//屏幕坐标转世界坐标
+Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+print(worldPos);
+```
+
+### 世界/视口
+```cs
+//世界坐标转视口坐标
+Camera. main. worldToViewportPoint
+
+//视口转世界
+Camera. main. ViewportToworldPoint 
+```
+
+
+### 视口/屏幕
+```cs
+//视口转屏幕
+Camera. main. ViewportToScreenPoint
+
+//屏幕转视口
+Camera. main. screenToViewportPoint
+```
 
 # 二、重要组件和 API
 ## 0 MonoBehavior 基类
@@ -316,9 +441,9 @@ float arcSinValue = Mathf.Asin(0.5f);
 > this. transform 代表脚本挂载的 GameObject 的位置信息
 > 等价写法：this.component.transform
 
-### 打印
+### 调试打印
 在 Unity 中打印信息的两种方式
-```cs
+```cs file:打印
 //1.没有继承MonoBehaviour的类的时候，可以使用Debug.Log
 Debug.Log("Awake Hello!");
 Debug.LogError("Awake Error");
@@ -327,6 +452,20 @@ Debug.LogWarning("Awake Warning");
 print("Awake Hello!");
 ```
 
+```cs file:调试画线
+//画线段
+//前两个参数为起点、终点
+//向前方画一条线段：
+Debug.DrawLine(this.transform.position,
+               this.transform.position + this.transform.forward,
+               Color.red);
+
+//画射线
+//前两个参数为起点、方向
+Debug.DrawRay(this.transform.position,
+               this.transform.forward,
+               Color.red);
+```
 ### 重要成员
 1. 获取依附的 Gameobject
 2. 获取依附的 Gameobject 的位置信息
@@ -645,28 +784,6 @@ private void FixedUpdate()
 
 ## 4 Transform 类
 游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
-#### Vector3
-```cs file:Vector3
-//Vector3的初始化
-Vector3 v1 = new Vector3();
-v1.x = 10;
-v1.y = 10;
-v1.z = 10;
-
-Vector3 v2 = new Vector3(10, 10, 10);
-
-Vector3 v3 = Vector3.zero; // (0, 0, 0)
-Vector3 v4 = Vector3.one; // (1, 1, 1)
-Vector3 v5 = Vector3.right; // (1, 0, 0)
-Vector3 v6 = Vector3.left; // (-1, 0, 0)
-Vector3 v7 = Vector3.up; // (0, 1, 0)
-Vector3 v8 = Vector3.down; // (0, -1, 0)
-Vector3 v9 = Vector3.forward; // (0, 0, 1)
-Vector3 v10 = Vector3.back; // (0, 0, -1)
-
-//计算点之间的距离
-float distance = Vector3.Distance(v1, v2);
-```
 
 #### 位置
 > [!NOTE] Inspector 面板上的 Transfrom 信息
@@ -897,39 +1014,6 @@ public static Transform CustomFind(this Transform father, string childName)
 print(this.transform.CustomFind("aaa").name);
 ```
 
-### 坐标转换
-以下是从正 Y 轴向下看的视角，中间有一个 Cube 模型
-
-![[zip/images/Diagram.svg]]
-
-世界坐标系的点 P(0，0，1)转换到局部空间，则 P 点坐标的 x，z 在局部空间为负数。
-世界坐标系的向量P（0，0，1）转换为局部空间，将左边的向量平移到右边，可以观察到该方向向量的 x 为负数，z 为证书
-```cs file:世界坐标转局部坐标
-//世界坐标系的点转换为局部坐标系点（会受缩放影响）
-//上图中的P即为Vector3.forward
-this.transform.InverseTransformPoint(Vector3.forward);
-
-//世界坐标系的向量转换为本地坐标系的向量
-//不受缩放影响
-this.transform.InverseTransformDirection(Vector3.forward);
-//受缩放影响
-this.transform.InverseTransformVector(Vector3.forward);
-```
-
-
-```cs file:局部坐标转世界坐标
-//⭐点（受缩放影响）
-print(this.transform.TransformPoint(Vector3.forward));  
-
-//向量
-//不受缩放影响
-print(this.transform.TransformDirection(Vector3.forward));
-//受缩放影响
-print(this.transform.TransformDirection(Vector3.up));
-```
-其中**最重要的就是局部坐标系的点转世界坐标系的点**
-比如现在玩家要在自己面前的 n 个单位前放一团火，这个时候我不用关心世界坐标系
-通过相对于本地坐标系的位置转换为世界坐标系的点，进行特效的创建或者攻击范围的判断,
 ## 5 Input 类
 输入相关内容都写在 Update 中
 
@@ -1164,15 +1248,6 @@ Camera.onPreRender += (cam) => { print("onPreRender"); };
 Camera.onPostRender += (cam) => { print("onPostRender"); };
 ```
 
-```cs file:坐标转换
-//世界坐标转屏幕坐标
-Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);  //XY是屏幕坐标，Z轴是深度
-print(screenPos);
-
-//屏幕坐标转世界坐标
-Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-print(worldPos);
-```
 ## 8 场景
 ![[Pasted image 20230609131650.png|500]]
 ```cs 
