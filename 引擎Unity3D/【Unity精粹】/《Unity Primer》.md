@@ -607,7 +607,7 @@ Debug.DrawRay(this.transform.position,
                this.transform.forward,
                Color.red);
 ```
-### 重要成员
+### 获取脚本挂载的对象
 1. 获取依附的 Gameobject
 2. 获取依附的 Gameobject 的位置信息
 3. 获取脚本是否激活
@@ -636,10 +636,10 @@ void Start()
 }
 ```
 
-### 重要方法
+### 获取对象挂载的脚本
 如何得到依附的 GameObject 对象上挂载的其它脚本?
 
-1. 得到 GameObject 挂载的单个脚本
+1. **得到 GameObject 挂载的单个脚本**
 ```cs file:得到自己挂载的单个脚本
 //根据脚本名获取，较少使用
 TestScript t1 = this.GetComponent("TestScript") as TestScript; 
@@ -670,7 +670,7 @@ if(this.TryGetComponent<MyScript>(out s2))
 }
 ```
 
-2. 得到 GameObject 挂载的多个脚本 (不常用，通常我们不会将同一个脚本挂载两次在同一个 GameObject 上)
+2. **得到 GameObject 挂载的多个脚本** (不常用，通常我们不会将同一个脚本挂载两次在同一个 GameObject 上)
 ```cs
 //方法一
 MyScript[] scripts = this.GetComponents<MyScript>();
@@ -680,7 +680,7 @@ List<MyScript> scriptList = new List<MyScript>(); //定义一个存放MyScript�
 this.GetComponents<MyScript>(scriptList); //将找到的结果存在List中
 ```
 
-3. 得到 GameObject 子孙对象挂载的脚本（默认会找本 GameObject 对象是否挂载该脚本）
+3. **得到 GameObject 子孙对象挂载的脚本**（默认会找本 GameObject 对象是否挂载该脚本）
 ```cs
 //得到子孙对象挂载的单个脚本：
 MyScript s1 = this.GetComponentInChildren<MyScript>(); //如果脚本失活，则无法找到
@@ -694,7 +694,7 @@ List<MyScript> ss2 = new List<MyScript>();
 this.GetComponentsInChildren<MyScript>(true, ss2);
 ```
 
-4. 得到 GameObject 长辈（包括父，爷爷...）对象挂载的脚本（默认会找本 GameObject 对象是否挂载该脚本）
+4. **得到 GameObject 长辈（包括父，爷爷...）对象挂载的脚本**（默认会找本 GameObject 对象是否挂载该脚本）
 ```cs
 //得到单个脚本
 MyScript s3 = this.GetComponentInParent<MyScript>();
@@ -702,6 +702,56 @@ MyScript s3 = this.GetComponentInParent<MyScript>();
 //得到多个脚本
 MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 ```
+
+### 延迟函数
+延迟函数就是**会延时执行的函数**，是 MonoBehaviour 基类中实现好的方法
+我们可以**自己设定延时要执行的函数**和具体**延时的时间**
+
+**`Invoke` 延迟执行函数**
+参数一: 函数名字符串
+参数二: 延迟时间以秒为单位
+
+**`InvokeRepeating` 延迟重复执行函数**
+参数一: 函数名字符串
+参数二: 第一次执行的延迟时间
+参数三: 之后每次执行的间隔时间
+
+**注意:**
+1. 延迟函数第一个参数传入的是函数名字符串
+2. 延迟函数**不能直接执行有参数的函数**，可以包裹一层来执行（即在一个延迟函数中调用目标有参函数）。
+3. 函数名**必须是该脚本上申明的函数**，可以包裹一层来执行
+```cs
+void Start()
+{
+    Invoke("TestFunc", 5.0f);
+}
+
+public void TestFunc()
+{
+    print("延时执行");
+    
+    paramFunc(2); //通过包裹一层来延迟执行paramFunc函数
+}
+
+public void paramFunc(int i)
+{
+    print("参数为" + i);
+}
+
+//5s后输出
+//延时执行
+//参数为2
+```
+
+
+**取消延迟函数**
+1. 取消该脚本上所有延迟函数 `CancelInVoke()`
+2. 取消指定延迟函数 `CancelInVoke("函数名")`
+
+**判断是否有延迟函数**
+`if(IsInVoking())`
+`if(IsInVoking("函数名"))`
+
 
 ## 1 Object 类
 **Object 是 Gameobject 的父类** 
