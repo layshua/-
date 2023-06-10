@@ -1132,6 +1132,13 @@ if( Input.GetKeyDown( Keycode.Escape) )
     //游戏打包后才起作用
     Application.Quit();
 }
+
+//当前场景判断
+if (SceneManager.GetActiveScene().name == "StartMenu")  
+{  
+    //让开始面板显示  
+    BeginPanel.Instance.ShowMe();  
+}
 ```
 
 ## 9 鼠标Cursor
