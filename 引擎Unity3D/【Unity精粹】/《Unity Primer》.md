@@ -639,6 +639,7 @@ print(this.transform.up);      //局部空间的y轴方向
 实现位移的四种方式：
 ![[Pasted image 20230605154644.png]]
 
+需要联动 [[《Unity Primer》#5 Input 类]]
 ```cs file:位移
 //理解坐标系下的位移计算公式
 //路程–方向*速度*时间
