@@ -356,7 +356,7 @@ Untiy 欧拉角常用顺规：YXZ（Yaw-pitch-Roll）
 
 > [!NOTE] 轴-角对
 > 在 3D 空间中，任意旋转都可以表示绕着某个轴旋转一个旋转角得到
-> 注意: 该轴是空间中的任意一个轴
+> 注意: 该轴是**局部空间**中的**任意一个轴**
 
 对于给定旋转，假设为绕着 $n$ 轴，旋转$β$度，$n$ 轴为$(x, y, z)$那么可以构成四元数为
 四元数 $Q= [\sin (β/2)*n,\cos (β/2)]$
@@ -377,12 +377,6 @@ Quaternion q2 = Quaternion.AngleAxis(30, new Vector3(3,4,5));
 GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);  
 obj.transform.rotation = q;  //结果可直接赋给rotation
 
-```
-
-**四元数相乘代表旋转四元数**
-以下实现每帧绕 Vector3. forward 旋转 1 度
-```cs
-this.transform.rotation *= Quaternion.AngleAxis(1，Vector3.forward); //此处的Vector3.forward是局部空间的！
 ```
 
 > [!warning] 
@@ -450,7 +444,26 @@ Quaternion q = Quaternion.LookRotation(B.position - A.position);
 A.rotation = q;
 ```
 
-### 
+#### 四元数相乘
+**四元数相乘代表旋转四元数**
+```cs
+ //绕y轴转30
+ //注意旋转轴是局部空间的！
+Quaternion q = Quaternion.AngleAxis(30,Vector3.up);
+this.transform.rotation *= q;
+
+//每帧绕 Vector3.forward 旋转 1 度
+this.transform.rotation *= Quaternion.AngleAxis(1，Vector3.forward); 
+```
+#### 向量左乘四元数
+**向量左乘四元数返回一个新向量**
+可以将指定向量旋转对应四元数的旋转量，相当于**旋转向量**
+```cs
+Vector3 v = Vector3.forward;  
+v = Quaternion.AngleAxis(45, Vector3.up) * v;
+```
+
+应用：比如在游戏中我们的技能向四周发射，只需要知道人物的面向向量，然后左乘四元数，就可以得到不同角度的向量。
 ## 8 坐标转换
 ### 坐标系
 **世界坐标系**
