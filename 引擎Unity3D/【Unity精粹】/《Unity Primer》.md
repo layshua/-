@@ -956,7 +956,6 @@ void Update()
     
     //游戏开始到现在跑了多少帧
     print(Time.frameCount);
-    
 }
 ```
 
