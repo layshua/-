@@ -74,12 +74,17 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 public int i;
 ```
 
-3. **private 和 protected 成员变量无法显示和编辑**
+1. **private 和 protected 成员变量无法显示和编辑**
    加上**强制序列化字段特性 `[serializeField]`** 后可以编辑。所谓序列化就是把一个对象保存到一个文件或数据库字段中去。
 ```cs
 [SerializeField]
 private int z;
 ```
+
+> [!NOTE] 序列化与反序列化
+>1. 序列化是将对象转换为二进制流的过程
+>2. 反序列化是将二进制流转换为对象的过程。
+>3. 序列化主要解决对象的传输问题。
 
 4. 大部分类型都能显示编辑，**不支持字典 Dictionary 和自定义类类型变量。**
 加上序列化 `[Serializable]` 特性后可以显示自定义类类型
@@ -2637,7 +2642,7 @@ Application.persistentDataPath
 
 - @ Plugins 插件文件夹
 > [!attention] 
-> 需要在 Assets 下手动创建名为 StreamingAssets 的文件夹
+> 需要在 Assets 下手动创建名为 Plugins 的文件夹
 
 路径获取: 一般不获取
 

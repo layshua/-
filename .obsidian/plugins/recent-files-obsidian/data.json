@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
@@ -9,20 +13,16 @@
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
+      "basename": "文档",
+      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
-    },
-    {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "文档",
-      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
     },
     {
       "basename": "01 三维旋转",
