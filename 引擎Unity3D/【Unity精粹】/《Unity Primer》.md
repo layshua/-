@@ -1932,18 +1932,24 @@ for(int i=0;i<colliders.Length;i++)
 参数区别：第三个参数传入一个`Collider[]`数组进行存储
 返回值回值：碰撞到的碰撞器数量
 ```cs file:Physics.OverlapBoxNonAlloc
-Collider[] colliders;
+Collider[] colliders = new Collider[10]; //数组数量必须等于检测到的碰撞体数量  
 
-//如果碰撞到的碰撞器数量不为0，则执行代码
-if(Physics.OverlapBoxNonAlloc(
+//碰撞到的碰撞器数量
+int num = Physics.OverlapBoxNonAlloc(
     Vector3.zero,
     Vector3.one,
     colliders,
     Quaternion.AngleAxis(45,Vector3.up), 
     1<<LayerMask.NameToLayer("UI") | 1<<LayerMask.NameToLayer("Water"),
-     QueryTriggerInteraction.UseGlobal) != 0)
-{
-    //逻辑代码
+     QueryTriggerInteraction.UseGlobal);
+
+//如果碰撞到的碰撞器数量不为0，则执行代码
+if(num != 0)  
+{  
+    for(int i = 0;i < num;i++)  
+    {  
+        Debug.Log(colliders[i].gameObject.name);  
+    }  
 }
 ```
 
@@ -1959,12 +1965,100 @@ if(Physics.OverlapBoxNonAlloc(
 - **参数一：** 球体中心点
 - **参数二：** 球半径
 - **参数三：** 检测指定 Layer （不填检测所有层)
-- **参数五：** 是否忽略触发器 
+- **参数四：** 是否忽略触发器 
     - UseGlobal 使用全局设置
-    -  Collide 检测触发器
+    - Collide 检测触发器
     - Ignore 忽略触发器
     - 不填默认使用 UseGlobal
 - **返回值：** **在该范围内的触发器 (得到了对象触发器就可以得到对象的所有信息)**
+
+```cs file:Physics.OverlapSphere
+Collider[] colliders = Physics.OverlapSphere(
+            Vector3.zero,
+            5,
+            1 << LayerMask.NameToLayer("UI"), 
+            QueryTriggerInteraction.UseGlobal);
+        
+for(int i=0;i<colliders.Length;i++)
+{
+    Debug.Log(colliders[i].gameObject.name); //打印触发器挂载的对象信息
+}
+```
+
+另一个 API: `Physics.OverlapSphereNonAlloc`
+返回值: 碰撞到的碰撞器数量
+参数: 传入一个数组进行存储
+```cs file:Physics.OverlapSphereNonAlloc
+Collider[] colliders = new Collider[10]; //数组数量必须等于检测到的碰撞体数量  
+  
+//碰撞到的碰撞器数量  
+int num = Physics.OverlapSphereNonAlloc(  
+    Vector3.zero,  
+    5,  
+    colliders,  
+    1<<LayerMask.NameToLayer("UI"),  
+    QueryTriggerInteraction.UseGlobal);  
+  
+//如果碰撞到的碰撞器数量不为0，则执行代码  
+if(num != 0)  
+{  
+    for(int i = 0;i < num;i++)  
+        {  
+            Debug.Log(colliders[i].gameObject.name);  
+        }  
+}
+```
+
+##### 胶囊范围检测
+![[Pasted image 20230611172957.png|193]]
+- **参数一：** 上半圆中心点（两个中心点确定胶囊体的位置）
+- **参数二：** 下半圆中心点
+- **参数三：** 半圆半径
+- **参数四：** 检测指定 Layer （不填检测所有层)
+- **参数五：** 是否忽略触发器 
+    - UseGlobal 使用全局设置
+    - Collide 检测触发器
+    - Ignore 忽略触发器
+    - 不填默认使用 UseGlobal
+- **返回值：** **在该范围内的触发器 (得到了对象触发器就可以得到对象的所有信息)
+```cs file:Physics.OverlapCapsule
+Collider[] colliders = Physics.OverlapCapsule(
+            Vector3.zero,
+            Vector3.up, 
+            5,
+            1 << LayerMask.NameToLayer("UI"), 
+            QueryTriggerInteraction.UseGlobal);
+        
+for(int i=0;i<colliders.Length;i++)
+{
+    Debug.Log(colliders[i].gameObject.name); //打印触发器挂载的对象信息
+}
+```
+
+**另一个 API**：`Physics.OverlapCapsuleNonAlloc`
+返回值：碰撞到的碰撞器数量
+参数：传入一个数组进行存储
+```cs file:Physics.OverlapCapsuleNonAlloc
+Collider[] colliders = new Collider[10]; //数组数量必须等于检测到的碰撞体数量  
+        
+//碰撞到的碰撞器数量
+int num = Physics.OverlapCapsuleNonAlloc(
+    Vector3.zero,
+    Vector3.up,
+    3,
+    colliders,
+    1 << LayerMask.NameToLayer("UI"),
+    QueryTriggerInteraction.UseGlobal);
+
+//如果碰撞到的碰撞器数量不为0，则执行代码
+if(num != 0)  
+{  
+    for(int i = 0;i < num;i++)  
+    {  
+        Debug.Log(colliders[i].gameObject.name);  
+    }  
+}
+```
 ## 3 音频系统 
 常用格式：wav，mp3，ogg，aiff
 ### 属性设置
