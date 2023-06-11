@@ -4496,7 +4496,7 @@ public int Add(int a, int b) => a + b;
 需要引用命名空间 `using System.Threading;`
 
 ```cs
-//1.声明一个新的线程
+//1.声明一个子线程
 //注意线程执行的代码需要封装到一个函数中(执行委托)
 Thread t = new Thread(TestFunc);
 

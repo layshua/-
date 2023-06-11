@@ -1839,5 +1839,75 @@ audioClip.GetData(f, 0);
 ```
 
 # 四、协同程序
-Unity 是支持多线程的，只是新开线程无法访问 unity 相关对象的内容
-注意: Unity 中的多线程要记住关闭
+## Unity 多线程
+Unity 是支持多线程的，只是线程是无法调用 Unity 主线程的 API（不常用）
+注意: Unity 中的多线程要记得关闭（即便停止运行，线程仍会执行）
+
+子线程可以执行一些可能导致主线程卡顿的算法计算（寻路、网络等算法），将结果放入公共容器，主线程取出使用。相反，主线程也可以将数据放入公共容器，子线程取出使用。
+```cs
+
+public class test : MonoBehaviour
+{
+    //声明一个子线程
+    private Thread t;
+    //公共容器
+    private Queue<Vector3> queue = new Queue<Vector3>();
+
+    private void Start()
+    {
+        t = new Thread(Test); //调用子线程函数
+        t.Start();
+    }
+
+    private void Update()
+    {
+        if (queue.Count > 0)
+        {
+            //取公共容器的内容
+            this.transform.Translate(queue.Dequeue());
+        }
+    }
+
+    private void OnDestroy()
+    {
+        //Unity中的多线程要记得关闭
+        t.Abort();
+        t = null;
+    }
+
+    //子线程函数
+    private void Test()
+    {
+        while (true)
+        {
+            //this.transform.Translate(Vector3.forward * Time.deltaTime);  //报错，因为子线程是无法调用Unity主线程的API的
+            
+            //将计算结果存入公共容器
+            queue.Enqueue(new Vector3(1,2,3));
+            Thread.Sleep(1000);
+            print("test");
+        }
+    }
+
+    
+}
+```
+
+## Unity 协程
+**协同程序（Coroutine）简称协程**，继承 MonoBehavior 的类都可以开启协程函数
+它是“假”的多线程，它**不是多线程**
+**主要作用**：将代码分时执行，不卡主线程
+简单理解，是把可能会让主线程卡顿的耗时的逻辑**分时分步执行**
+
+**主要使用场景 **
+- 异步加载文件
+- 异步下载文件
+- 场景异步加载
+- 批量创建时防止卡顿
+
+**协程和线程的区别：**
+- 子线程是独立的一个管道，和主线程并行执行
+- 协程是在原线程之上开启，进行逻辑分时分步执行
+
+
+ 
