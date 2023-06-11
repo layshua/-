@@ -1701,13 +1701,122 @@ Windous-Rendering-Lighting
 
 ![[Pasted image 20230605123701.png]]
 
-## 2 物理系统
-### 碰撞检测
+## 2 音频系统 
+常用格式：wav，mp3，ogg，aiff
+### 属性设置
+![[Pasted image 20230605155215.png|450]]
+![[Pasted image 20230605155225.png]]
+![[Pasted image 20230605155456.png]]
+### 音频源 Audio Source
+- 一个 Scene 内 Audio Source 只能有一个
+- 一个 Gameobject 可以挂载多个音效源脚本 AudioSource
+- 使用时要注意如果要挂载多个，那一定要自己管理他们，控制他们的播放停止，不然我们没有办法准确的获取谁是谁
+![[Pasted image 20230605155715.png|500]]
+![[Pasted image 20230605155803.png|450]]
+![[Pasted image 20230605160059.png]]
+
+
+**Spatial Blend**：设置 3D 音效，默认为 2D
+**Volume Rolloff**：声音距离衰减
+
+```cs file:代码控制
+AudioSource audioSource;
+void Start()
+{
+    audioSource = this.GetComponent<AudioSource>();
+}
+
+void Update()
+{
+    //控制播放停止
+    if (Input.GetKeyDown(KeyCode.P))
+    {
+        //播放
+        audioSource.Play();
+        //audioSource.PlayDelayed(5); //延迟几秒后播放
+
+    }
+    if(Input.GetKeyDown(KeyCode.S))
+    {
+        //停止
+        audioSource.Stop();
+    }
+
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        //暂停
+        audioSource.Pause();
+        //audioSource.UnPause(); //关闭暂停，实际上再执行一次Pause方法也会关闭暂停
+    }
+
+    //检测音效播放完毕
+    if(audioSource.isPlaying)
+    {
+        print("正在播放");
+    }
+    else
+    {
+        print("播放结束");
+    }
+}
+```
+
+**如何动态控制音效播放**
+1. 直接在要播放音效的对象上挂载脚本控制播放
+2. 实例化挂载了音效源脚本的对象
+3. 用一个 Audio Clip 来控制播放不同的音效
+```cs file:动态控制音效播放
+public AudioClip clip;
+void Start()
+{
+    AudioSource audioSource = this.GetComponent<AudioSource>();
+    audioSource.clip = clip;
+    audioSource.Play();
+}
+```
+
+### 麦克风设备
+```cs
+// 获取设备麦克风信息
+string[] strs = Microphone.devices;
+for (int i = 0; i < strs.Length; i++) 
+{
+    print(strs[i]);
+}
+
+//开始录音
+//参数一:设备名，传null使用默认设备
+//参数二:超过录制长度后是否重头录制
+//参数三:录制时长
+//参数四:采样率
+audioClip = Microphone.Start(null, false, 10, 44100);
+
+//结束录音
+Microphone.End(null);
+
+//播放录制音频
+AudioSource s = this.GetComponent<AudioSource>();
+if (s == null)
+{
+    s = this.gameObject.AddComponent<AudioSource>();
+}
+s.clip = audioClip;
+s.Play();
+
+//获取音频数据用于存储或者传输  
+//用于存储数组数据的长度=声道数*剪辑长度  
+float[] f = new float[audioClip.channels * audioClip.samples];  
+audioClip.GetData(f, 0);  
+```
+
+## 3 物理系统
+### (1) 碰撞检测
 物理信息的更新和 FixedTime 相关
 
  **碰撞产生的必要条件：**
 - 两个物体都有碰撞器 Collider
 - 至少一个物体有刚体 Rigidbody
+
 ![[Pasted image 20230605124248.png]]
 
 #### 刚体 Rigidbody
@@ -1884,7 +1993,7 @@ if(rigidBody.IsSleeping())
 更方便的添加力
 ![[Pasted image 20230605154007.png]]
 
-### 范围检测
+### (2) 范围检测
 游戏中**瞬时的攻击范围判断一般会使用范围检测**
 
 1. 玩家在前方 5m 处释放一个地刺魔法，在此处范围内的对象将受到地刺伤害 
@@ -1899,8 +2008,7 @@ if(rigidBody.IsSleeping())
 1. 范围检测相关 API 只有当执行该句代码时进行一次范围检测，它是瞬时的 
 2. 范围检测相关 API 并不会真正产生个碰撞器，只是碰撞判断计算而已
 
-#### 范围检测 API
-##### 盒状范围检测
+#### 盒状范围检测
 - **参数一：** 立方体中心点
 - **参数二：** 立方体三边大小
 - **参数三：** 立方体角度
@@ -1961,7 +2069,7 @@ if(num != 0)
 >
 >![[Pasted image 20230611164535.png|700]]
 
-##### 球体范围检测
+#### 球体范围检测
 - **参数一：** 球体中心点
 - **参数二：** 球半径
 - **参数三：** 检测指定 Layer （不填检测所有层)
@@ -2009,7 +2117,7 @@ if(num != 0)
 }
 ```
 
-##### 胶囊范围检测
+#### 胶囊范围检测
 ![[Pasted image 20230611172957.png|193]]
 - **参数一：** 上半圆中心点（两个中心点确定胶囊体的位置）
 - **参数二：** 下半圆中心点
@@ -2059,113 +2167,34 @@ if(num != 0)
     }  
 }
 ```
-## 3 音频系统 
-常用格式：wav，mp3，ogg，aiff
-### 属性设置
-![[Pasted image 20230605155215.png|450]]
-![[Pasted image 20230605155225.png]]
-![[Pasted image 20230605155456.png]]
-### 音频源 Audio Source
-- 一个 Scene 内 Audio Source 只能有一个
-- 一个 Gameobject 可以挂载多个音效源脚本 AudioSource
-- 使用时要注意如果要挂载多个，那一定要自己管理他们，控制他们的播放停止，不然我们没有办法准确的获取谁是谁
-![[Pasted image 20230605155715.png|500]]
-![[Pasted image 20230605155803.png|450]]
-![[Pasted image 20230605160059.png]]
 
+### (3) 射线检测 
 
-**Spatial Blend**：设置 3D 音效，默认为 2D
-**Volume Rolloff**：声音距离衰减
+射线检测通过在指定点发射一个指定方向的射线，判断该射线与哪些碰撞器相交，得到对应对象。
 
-```cs file:代码控制
-AudioSource audioSource;
-void Start()
-{
-    audioSource = this.GetComponent<AudioSource>();
-}
+**指定起点方向的射线**
+假设有一条
+起点为坐标 $(1,0,0)$ 
+方向为世界坐标 $z$ 轴正方向的射线 
 
-void Update()
-{
-    //控制播放停止
-    if (Input.GetKeyDown(KeyCode.P))
-    {
-        //播放
-        audioSource.Play();
-        //audioSource.PlayDelayed(5); //延迟几秒后播放
+**注意:**
+理解参数含义
+参数一： 起点 `ray.origin` 
+参数二：方向 `ray.direction` (**不是两点决定射线方向，第二个参数直接就代表方向向量**)  
 
-    }
-    if(Input.GetKeyDown(KeyCode.S))
-    {
-        //停止
-        audioSource.Stop();
-    }
-
-    if (Input.GetKeyDown(KeyCode.Space))
-    {
-        //暂停
-        audioSource.Pause();
-        //audioSource.UnPause(); //关闭暂停，实际上再执行一次Pause方法也会关闭暂停
-    }
-
-    //检测音效播放完毕
-    if(audioSource.isPlaying)
-    {
-        print("正在播放");
-    }
-    else
-    {
-        print("播放结束");
-    }
-}
+```cs file:指定起点方向的射线
+//声明射线
+Ray ray = new Ray(Vector3.right, Vector3.forward);
+print(ray.origin); //起点
+print(ray.direction); //方向
 ```
 
-**如何动态控制音效播放**
-1. 直接在要播放音效的对象上挂载脚本控制播放
-2. 实例化挂载了音效源脚本的对象
-3. 用一个 Audio Clip 来控制播放不同的音效
-```cs file:动态控制音效播放
-public AudioClip clip;
-void Start()
-{
-    AudioSource audioSource = this.GetComponent<AudioSource>();
-    audioSource.clip = clip;
-    audioSource.Play();
-}
+**另外一个常用的是摄像机发出的射线**
+```cs file:摄像机射线
+Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 ```
 
-### 麦克风设备
-```cs
-// 获取设备麦克风信息
-string[] strs = Microphone.devices;
-for (int i = 0; i < strs.Length; i++) 
-{
-    print(strs[i]);
-}
 
-//开始录音
-//参数一:设备名，传null使用默认设备
-//参数二:超过录制长度后是否重头录制
-//参数三:录制时长
-//参数四:采样率
-audioClip = Microphone.Start(null, false, 10, 44100);
-
-//结束录音
-Microphone.End(null);
-
-//播放录制音频
-AudioSource s = this.GetComponent<AudioSource>();
-if (s == null)
-{
-    s = this.gameObject.AddComponent<AudioSource>();
-}
-s.clip = audioClip;
-s.Play();
-
-//获取音频数据用于存储或者传输  
-//用于存储数组数据的长度=声道数*剪辑长度  
-float[] f = new float[audioClip.channels * audioClip.samples];  
-audioClip.GetData(f, 0);  
-```
 
 # 四、协同程序
 ## 1 Unity 多线程
