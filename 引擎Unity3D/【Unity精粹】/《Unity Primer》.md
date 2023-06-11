@@ -2079,29 +2079,103 @@ IEnumerator CreateCube(int num)
 
 # 五、资源动态加载
 ## 1 特殊文件夹
-- @ Assets 工程文件夹
-```cs
-//工程文件路径
-Application.dataPath();  //获取到Assets文件夹的路径
+- @ **Assets 工程文件夹**
+
+```cs file:路径获取
+Application.dataPath  //获取到Assets文件夹的路径
 //注意该方式获取到的路径一般情况下只在编辑模式下使用
 //我们不会在实际发布游戏后还使用该路径，游戏发布过后该路径就不存在了│
 ```
 
-<mark style="background: #FF5582A6;">Resources 资源文件夹</mark>
-> [!NOTE] 
+- @ **Resources 资源文件夹**
+> [!attention] 
 > 需要在 Assets 下手动创建名为 Resources 的文件夹
 
-**路径获取**: 一般不获取，只能使用 Resources 相关 API 进行加载
-如果硬要获取可以用工程路径拼接
-```
+```cs file:路径获取
+//一般不获取，只能使用 Resources 相关 API 进行加载
+//如果硬要获取可以用工程路径拼接(只在编辑模式下使用)
 Application.dataPath + "/Resources"
 ```
 
 **作用**：资源文件夹
-- 需要通过 Resources 相关 API 动态加载的资源需要放在其中
+- **需要通过 Resources 相关 API 动态加载的资源需要放在其中**
 - 该文件夹下所有文件都会被打包出去
 - 打包时 unity 会对其压缩加密
 - 该文件夹打包后只读，只能通过 Resources 相关 API 加载
+- 在一个工程当中  Resources 文件夹可以有多个（子文件夹中也可以有），通过 API 加载时，它会自己去这些同名的 Resources 文件夹中找资源。打包时所有 Resources 文件夹打包在一起
 
-streamingAssets 流动资源文件夹
 
+- @ **StreamingAssets 流动资源文件夹**
+> [!attention] 
+> 需要在 Assets 下手动创建名为 StreamingAssets 的文件夹
+
+```cs file:路径获取
+Application.streamingAssetsPath
+```
+
+**作用**：流文件夹
+- 打包出去不会被压缩加密，可以任由我们摆布
+- **移动平台只读**，PC 平台可读可写
+- 可以**放入一些需要自定义动态加载的初始资源**
+
+- @ **persistentDataPath 持久数据文件夹**
+
+> [!attention] 
+> 不需要自己创建
+
+```cs file:路径获取
+Application.persistentDataPath
+```
+
+**作用**：固定数据文件夹
+- 所有平台都可读可写
+- **一般用于放置动态下载或者动态创建的文件，游戏中创建或者获取的文件都放在其中**
+- 常用来保存玩家数据和热更新
+
+- @ Plugins 插件文件夹
+> [!attention] 
+> 需要在 Assets 下手动创建名为 StreamingAssets 的文件夹
+
+路径获取: 一般不获取
+
+作用：插件文件夹
+不同平台的插件相关文件放在其中，比如 ios 和 Android 平台 
+
+- @ Editor 编辑器文件夹
+> [!attention] 
+> 需要在 Assets 下手动创建名为 Editor 的文件夹
+
+```cs file:路径获取
+//一般不获取
+//如果硬要获取可以用工程路径拼接
+Application. dataPath + "/Editor"
+```
+
+**作用**：编辑器文件夹
+- 开发 unity 编辑器时，编辑器相关脚本放在该文件夹中
+- 该文件夹中内容**不会被打包出去**
+
+- @  Standard Assets 默认资源文件夹
+高版本 Unity 没有这个文件夹了。
+
+作用:
+默认资源文件夹
+一般 unity 自带资源都放在这个文件夹下
+代码和资源优先被编译
+
+## 2 Resources 资源动态加载
+
+1. 通过代码动态加载 Resources 文件夹下指定路径资源 
+2. 避免繁琐的拖曳操作
+
+
+常用资源类型
+1. 预设体对象 GameObject 
+2. 音效文件 AudioClip 
+3. 文本文件  TextAsset 
+4. 图片文件 Texture
+5. 其它类型
+
+注意：
+- 预设体对象加载需要实例化
+- 其它资源加载一般直接用
