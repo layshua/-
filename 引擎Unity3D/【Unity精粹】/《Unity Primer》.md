@@ -718,8 +718,12 @@ MyScript[] ss3 = this.GetComponentsInParent<MyScript>(true);
 
 **注意:**
 1. 延迟函数第一个参数传入的是函数名字符串
-2. 延迟函数**不能直接执行有参数的函数**，可以包裹一层来执行（即在一个延迟函数中调用目标有参函数）。
+2. 延迟函数**不能直接执行有参数的函数（无法传参）**，可以包裹一层来执行（即在一个延迟函数中调用目标有参函数）。
 3. 函数名**必须是该脚本上申明的函数**，可以包裹一层来执行
+4. 脚本依附对象**失活**，延迟函数**可以继续执行**
+5. 脚本依附对象**销毁**或者脚本移除，延迟函数**无法继续执行**
+6. 可以配合 OnEnable 和 OnDIsable 生命周期函数使用
+
 ```cs
 void Start()
 {
@@ -743,14 +747,27 @@ public void paramFunc(int i)
 //参数为2
 ```
 
+配合周期函数使用：
+```cs
+private void QnEnable()
+{
+    //对象激活的生命周期函数中开启延迟(重复执行的延迟)
+}
+
+private void QnDisable()
+{
+    //对象失活的生命周期函数中停止延迟
+}
+
+```
 
 **取消延迟函数**
 1. 取消该脚本上所有延迟函数 `CancelInVoke()`
 2. 取消指定延迟函数 `CancelInVoke("函数名")`
 
 **判断是否有延迟函数**
-`if(IsInVoking())`
-`if(IsInVoking("函数名"))`
+`if(IsInVoking())`：针对所有延迟函数
+`if(IsInVoking("函数名"))`：针对指定延迟函数
 
 ## 1 Object 类
 **Object 是 Gameobject 的父类** 
@@ -1821,3 +1838,6 @@ float[] f = new float[audioClip.channels * audioClip.samples];
 audioClip.GetData(f, 0);  
 ```
 
+# 四、协同程序
+Unity 是支持多线程的，只是新开线程无法访问 unity 相关对象的内容
+注意: Unity 中的多线程要记住关闭
