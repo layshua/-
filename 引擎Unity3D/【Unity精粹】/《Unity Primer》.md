@@ -2190,13 +2190,14 @@ print(ray.direction); //方向
 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 ```
 
-#### 射线检测
 Physics 类中提供了很多进行射线检测的静态函数
 他们有很多种重载类型我们只需要掌握核心的几个函数其它函数自然就明白什么意思了注意:
 **射线检测也是瞬时的了执行代码时进行一次射线检测**
+#### 检测是否相交
+`Raycast` 射线投射
 
 **进行射线检测如果碰撞到对象返回 true（只检测是否碰撞，得不到信息）**
-- **参数一：** 射线
+- **参数一：** 射线（或直接传入射线起点和方向）
 - **参数二：** 检测的最大距离，超出这个距离不检测
 - **参数三：** 检测指定层级 (不填检测所有层)
 - **参数四：** 是否忽略触发器 
@@ -2204,21 +2205,21 @@ Physics 类中提供了很多进行射线检测的静态函数
     - Collide 检测触发器
     - Ignore 忽略触发器
     - 不填默认使用 UseGlobal
-**返回值：** bool 当碰撞到对象时返回 true，没有返回 false
-```cs
+- **返回值：** bool 当碰撞到对象时返回 true，没有返回 false
+```cs file:Physics.Raycast
 //声明射线
  Ray ray = new Ray(Vector3.right, Vector3.forward);
 
  if (Physics.Raycast(
-         ray,
-         1000,
-         1 << LayerMask.NameToLayer("Default"),
-         QueryTriggerInteraction.Ignore))
+     ray,
+     1000,
+     1 << LayerMask.NameToLayer("Default"),
+     QueryTriggerInteraction.Ignore))
  {
-     print("碰撞到了");
+     print("碰撞到了对象");
  }
 
-//不声名直接传参
+//不声明直接传参
 if (Physics.Raycast(
          Vector3.right,
          Vector3.forward,
@@ -2226,10 +2227,121 @@ if (Physics.Raycast(
          1 << LayerMask.NameToLayer("Default"),
          QueryTriggerInteraction.Ignore))
  {
-     print("碰撞到了");
+     print("碰撞到了对象");
  }
 ```
 
+#### 获取相交的单个物体信息
+**物体信息类 `RaycastHit`**：射线投射命中
+![[Pasted image 20230611204141.png|500]]
+
+- **参数一：** 射线（或直接传入射线起点和方向）
+- **参数二：** `RaycastHit` 是结构体，是值类型。 unity 会通过 `out` 关键字，在函数内部处理得到的碰撞数据并返回到该参数中
+- **参数三：** 距离
+- **参数四：** 检测指定层级（不填检测所有层)
+- **参数五：** 是否忽略触发器 
+    - UseGlobal 使用全局设置
+    - Collide 检测触发器
+    - Ignore 忽略触发器
+    - 不填默认使用 UseGlobal
+- **返回值：** bool 当碰撞到对象时返回 true，没有返回 false
+```cs
+//声明射线
+Ray ray = new Ray(Vector3.right, Vector3.forward);
+
+if (Physics.Raycast(
+    ray,
+    out RaycastHit hit,
+    1000,
+    1 << LayerMask.NameToLayer("Default"),
+    QueryTriggerInteraction.Ignore))
+{
+    //碰撞器信息，得到了碰撞器就可以获取物体所有信息
+    print(hit.collider.gameObject.name);
+
+    //碰撞到的对象的位置
+    print(hit.transform.position);
+    
+    //碰撞到对象离射线起点的距离
+    print(hit.distance);
+    
+    //碰撞点，射线与物体相交的点
+    print(hit.point);
+
+    //碰撞点法线，射线与物体相交的点的法线
+    print(hit.normal);
+
+    //碰撞点uv坐标，射线与物体相交的点的uv坐标
+    print(hit.textureCoord);
+
+    //省略...
+}
+
+//不声明直接传参
+if (Physics.Raycast(
+    Vector3.right,
+    Vector3.forward,
+    out RaycastHit hit,
+    1000,
+    1 << LayerMask.NameToLayer("Default"),
+    QueryTriggerInteraction.Ignore))
+{...}
+```
+
+#### 获取相交的多个物体
+可以得到碰撞到的多个对象，如果没有就是容量为 0 的数组
+
+- **参数一：** 射线（或直接传入射线起点和方向）
+- **参数二：** 检测的最大距离，超出这个距离不检测
+- **参数三：** 检测指定层级 (不填检测所有层)
+- **参数四：** 是否忽略触发器 
+    - UseGlobal 使用全局设置
+    - Collide 检测触发器
+    - Ignore 忽略触发器
+    - 不填默认使用 UseGlobal
+- **返回值：** bool 当碰撞到对象时返回 true，没有返回 false
+
+```cs file:Physics.RaycastAll
+//声明射线
+Ray ray = new Ray(Vector3.right, Vector3.forward);
+
+RaycastHit[] hits = Physics.RaycastAll(
+    ray,
+    1000,
+    1 << LayerMask.NameToLayer("Default"),
+    QueryTriggerInteraction.Ignore);
+    
+for(int i = 0; i < hits.Length; i++)
+{
+    print(hits[i].collider.gameObject.name);
+}
+
+
+//不声明直接传参
+RaycastHit[] hits = Physics.RaycastAll(
+    Vector3.right,
+    Vector3.forward,
+    1000,
+    1 << LayerMask.NameToLayer("Default"),
+    QueryTriggerInteraction.Ignore);
+```
+
+#### 获取相交物体的数量
+```cs file:Physics.RaycastNonAlloc
+RaycastHit[] hits = new RaycastHit[10];
+        
+int num = Physics.RaycastNonAlloc(
+    ray,
+    hits,
+    1000,
+    1 << LayerMask.NameToLayer("Default"),
+    QueryTriggerInteraction.Ignore);
+
+for (int i = 0; i < num; i++) 
+{
+    print(hits[i].collider.gameObject.name);
+}
+```
 
 # 四、协同程序
 ## 1 Unity 多线程
