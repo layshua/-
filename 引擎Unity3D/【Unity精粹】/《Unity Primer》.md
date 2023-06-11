@@ -1900,22 +1900,71 @@ if(rigidBody.IsSleeping())
 2. 范围检测相关 API 并不会真正产生个碰撞器，只是碰撞判断计算而已
 
 #### 范围检测 API
-1. 盒状范围检测
+##### 盒状范围检测
 - **参数一：** 立方体中心点
 - **参数二：** 立方体三边大小
 - **参数三：** 立方体角度
-- **参数四：** 检测指定层级（int 值）（不填检测所有层)
+- **参数四：** 检测指定 Layer （不填检测所有层)
+- **参数五：** 是否忽略触发器 
+    - UseGlobal 使用全局设置
+        - 全局设置根据 Physics 中的设置来决定 ![[Pasted image 20230611164957.png|700]]
+    -  Collide 检测触发器
+    - Ignore 忽略触发器
+    - 不填默认使用 UseGlobal
+- **返回值：** **在该范围内的触发器 (得到了对象触发器就可以得到对象的所有信息)**
+
+```cs file:Physics.OverlapBox
+Collider[] colliders = Physics.OverlapBox(
+    Vector3.zero,
+    Vector3.one, 
+    Quaternion.AngleAxis(45,Vector3.up), 
+    1<<LayerMask.NameToLayer("UI") | 1<<LayerMask.NameToLayer("Water"),
+    //第四个参数用 | 继续添加就可以了
+     QueryTriggerInteraction.UseGlobal);
+        
+for(int i=0;i<colliders.Length;i++)
+{
+    Debug.Log(colliders[i].gameObject.name); //打印触发器挂载的对象信息
+}
+```
+
+另一个 API：`Physics.OverlapBoxNonAlloc`
+参数区别：第三个参数传入一个`Collider[]`数组进行存储
+返回值回值：碰撞到的碰撞器数量
+```cs file:Physics.OverlapBoxNonAlloc
+Collider[] colliders;
+
+//如果碰撞到的碰撞器数量不为0，则执行代码
+if(Physics.OverlapBoxNonAlloc(
+    Vector3.zero,
+    Vector3.one,
+    colliders,
+    Quaternion.AngleAxis(45,Vector3.up), 
+    1<<LayerMask.NameToLayer("UI") | 1<<LayerMask.NameToLayer("Water"),
+     QueryTriggerInteraction.UseGlobal) != 0)
+{
+    //逻辑代码
+}
+```
+
+> [!NOTE] 关于 Layer 编号
+> ![[Pasted image 20230611164625.png|400]]
+>- 通过名字得到层级编号可以使用 `LayerMask.NameToLayer` 方法
+>- 我们需要通过编号左移 `<<` 构建二进制数，这样每一个编号的层级都是对应位为 1 的 2 进制数，我们通过位运算可以选择想要检测层级
+>- 好处：一个 int 就可以表示所有想要检测的层级信息
+>
+>![[Pasted image 20230611164535.png|700]]
+
+##### 球体范围检测
+- **参数一：** 球体中心点
+- **参数二：** 球半径
+- **参数三：** 检测指定 Layer （不填检测所有层)
 - **参数五：** 是否忽略触发器 
     - UseGlobal 使用全局设置
     -  Collide 检测触发器
     - Ignore 忽略触发器
     - 不填默认使用 UseGlobal
-- **返回值：** 在该范围内的触发器 (得到了对象触发器就可以得到对象的所有信息)
-
-> [!NOTE] Title
-> Contents
-
-
+- **返回值：** **在该范围内的触发器 (得到了对象触发器就可以得到对象的所有信息)**
 ## 3 音频系统 
 常用格式：wav，mp3，ogg，aiff
 ### 属性设置
