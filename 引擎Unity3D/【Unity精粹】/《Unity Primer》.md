@@ -1909,5 +1909,39 @@ public class test : MonoBehaviour
 - 子线程是独立的一个管道，和主线程并行执行
 - 协程是在原线程之上开启，进行逻辑分时分步执行
 
+```cs file:协程
+private void Start()
+{
+    //第二步:启动协程函数
+    //可以同时执行多个协程函数
+    Coroutine c1 = StartCoroutine(MyCoroutine(1,"hello"));
+    Coroutine c2 = StartCoroutine(MyCoroutine(3,"test"));  
+    Coroutine c3 = StartCoroutine(MyCoroutine(4,"hello"));
+    
+    //第三步:关闭协程函数
+    StopAllCoroutines(); //关闭所有携程
+    StopCoroutine(c1); //关闭指定携程
+    
+}
 
+//第一步:声明协程函数
+////协程函数2个关键点
+//1-1 返回值为IEnumerator类型及其子类
+//1-2 通过yield return返回值;
+IEnumerator MyCoroutine(int i,string str)
+{
+        print(i);
+        yield return new WaitForSeconds(5.0f); //等待5秒执行下面的代码，从而将代码分块执行
+        print(str);
+        yield return new WaitForSeconds(3.0f); //等待5秒执行下面的代码
+        print(i);
+
+        //主线程里是可以写死循环协程的，不会卡死，等待时间继续Tick
+        while (true)
+        {
+            print("routine");
+            yield return new WaitForSeconds(10.0f);
+        }
+}
+```
  
