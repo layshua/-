@@ -2171,29 +2171,64 @@ if(num != 0)
 ### (3) 射线检测 
 
 射线检测通过在指定点发射一个指定方向的射线，判断该射线与哪些碰撞器相交，得到对应对象。
-
-**指定起点方向的射线**
-假设有一条
-起点为坐标 $(1,0,0)$ 
-方向为世界坐标 $z$ 轴正方向的射线 
-
-**注意:**
-理解参数含义
+#### 声明射线
+- @ **指定起点方向的射线**
 参数一： 起点 `ray.origin` 
 参数二：方向 `ray.direction` (**不是两点决定射线方向，第二个参数直接就代表方向向量**)  
 
 ```cs file:指定起点方向的射线
 //声明射线
+//起点为坐标 (1,0,0)
+//方向为世界坐标 z 轴正方向的射线 
 Ray ray = new Ray(Vector3.right, Vector3.forward);
 print(ray.origin); //起点
 print(ray.direction); //方向
 ```
 
-**另外一个常用的是摄像机发出的射线**
+- @ **摄像机发出的射线**
 ```cs file:摄像机射线
 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 ```
 
+#### 射线检测
+Physics 类中提供了很多进行射线检测的静态函数
+他们有很多种重载类型我们只需要掌握核心的几个函数其它函数自然就明白什么意思了注意:
+**射线检测也是瞬时的了执行代码时进行一次射线检测**
+
+**进行射线检测如果碰撞到对象返回 true（只检测是否碰撞，得不到信息）**
+- **参数一：** 射线
+- **参数二：** 检测的最大距离，超出这个距离不检测
+- **参数三：** 检测指定层级 (不填检测所有层)
+- **参数四：** 是否忽略触发器 
+    - UseGlobal 使用全局设置
+    - Collide 检测触发器
+    - Ignore 忽略触发器
+    - 不填默认使用 UseGlobal
+**返回值：** bool 当碰撞到对象时返回 true，没有返回 false
+```cs
+//声明射线
+ Ray ray = new Ray(Vector3.right, Vector3.forward);
+
+ if (Physics.Raycast(
+         ray,
+         1000,
+         1 << LayerMask.NameToLayer("Default"),
+         QueryTriggerInteraction.Ignore))
+ {
+     print("碰撞到了");
+ }
+
+//不声名直接传参
+if (Physics.Raycast(
+         Vector3.right,
+         Vector3.forward,
+         1000,
+         1 << LayerMask.NameToLayer("Default"),
+         QueryTriggerInteraction.Ignore))
+ {
+     print("碰撞到了");
+ }
+```
 
 
 # 四、协同程序
@@ -2203,8 +2238,8 @@ Unity 是支持多线程的，只是线程是无法调用 Unity 主线程的 API
 注意: Unity 中的多线程要记得关闭（即便停止运行，线程仍会执行）
 
 子线程可以执行一些可能导致主线程卡顿的算法计算（寻路、网络等算法），将结果放入公共容器，主线程取出使用。相反，主线程也可以将数据放入公共容器，子线程取出使用。
-```cs
 
+```cs
 public class test : MonoBehaviour
 {
     //声明一个子线程
@@ -2247,8 +2282,6 @@ public class test : MonoBehaviour
             print("test");
         }
     }
-
-    
 }
 ```
 
