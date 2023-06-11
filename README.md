@@ -19,7 +19,7 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 test
 ## 数学
 - [ ] 线性代数的本质[3Blue1Brown](https://space.bilibili.com/88461692)
-- [ ] 3D数学
+- [ ] 3D 数学
 ## 图形
 - [ ] DX12
 - [ ] GAMES101

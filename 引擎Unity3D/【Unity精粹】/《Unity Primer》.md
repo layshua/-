@@ -7,6 +7,10 @@ create_time: 2023-06-02 22:33
 uid: 202306022233
 banner: "![[Pasted image 20230602223746.png]]"
 ---
+
+> [!todo] 
+>复习时把课后练习重做一遍
+
 # 零、工作原理
 ## 反射机制
 
@@ -2163,19 +2167,102 @@ Application. dataPath + "/Editor"
 一般 unity 自带资源都放在这个文件夹下
 代码和资源优先被编译
 
-## 2 Resources 资源动态加载
+## 2 Resources 资源同步加载
 
 1. 通过代码动态加载 Resources 文件夹下指定路径资源 
-2. 避免繁琐的拖曳操作
-
+2. **避免繁琐的拖拽操作**
 
 常用资源类型
 1. 预设体对象 GameObject 
 2. 音效文件 AudioClip 
 3. 文本文件  TextAsset 
 4. 图片文件 Texture
-5. 其它类型
+5. 其它类型 2D 图片、动画文件、材质文件等等
 
-注意：
+**注意：**
 - 预设体对象加载需要实例化
 - 其它资源加载一般直接用
+### 加载文件资源
+```cs file:加载资源 h:7,13,20,33
+public class test : MonoBehaviour
+{
+    public AudioSource audioSource;
+    public Texture texture;
+    private void Start()
+    {
+        //1. 预设体对象，想要创建在场景上，记得实例化
+        //第一步：加载预设体的资源文件(本质上就是加载配置数据在内存中)
+        Object obj1 = Resources.Load("filename"); //""中是预设体在Resources文件夹下的相对路径,不需要写拓展名后缀
+        //第二步：实例化
+        Instantiate(obj1); 
+        
+        //2. 音效文件
+        //第一步：加载资源文件
+        Object obj2 = Resources.Load("Music/filename");
+        //第二步：使用数据，我们不需要实例化音效切片，我们只需要把数据赋值到正确的脚本上即可
+        audioSource.clip = obj2 as AudioClip;
+        audioSource.Play();
+        
+        //3. 文本文件
+        //文本资源支持的格式
+        //.txt
+        //.xml
+        //.bytes
+        //.json
+        //.html
+        //.csv
+        //...
+        TextAsset ta = Resources.Load("Text/filename") as TextAsset;
+        print(ta.text); //文本内容
+        print(ta.bytes); //字节数据组
+        
+        //4. 图片文件
+        texture = Resources.Load("Texture/filename") as Texture;
+    }
+
+    private void OnGUI()
+    {
+        //在GUI中绘制图片
+        GUI.DrawTexture(new Rect(0, 0, 100, 100), texture);
+    }
+}
+```
+
+### 加载同名文件
+`Resources. Load` 加载同名资源时无法准确（比如两个同名但是拓展名后缀（文件类型）不一样的文件，该方法无法区分），可以使用其他方法：
+```cs ffile:加载指定文件
+//填写第二个参数，指定类型
+Resources.Load("filename", typeof(TextAsset)) as TextAsset;
+```
+
+```cs file:加载指定名字的所有资源
+Object[] objs = Resources.LoadAll("filename");
+foreach (Object item in objs)
+{
+    if (item is Texture)
+    {
+        
+    }
+    else if (item is TextAsset)
+    {
+        
+    }
+}
+```
+
+### 泛型方法（推荐！）
+方便快捷，指定了类型
+```cs
+TextAsset ta2 = Resources.Load<TextAsset>("Text/Test"); //指定TextAsset类型
+```
+
+## 3 Resources 资源异步加载
+同步加载中，如果我们加载过大的资源可能会造成程序卡顿
+卡顿的原因就是从硬盘上把数据读取到内存中是需要进行计算的，越大的资源耗时越长，就会造成掉帧卡顿
+异步加载就是**内部新开一个子线程进行资源加载（加载完后存入公共容器）**，不会造成主线程卡顿
+
+> [!attention] 
+> 异步加载不能马上得到加载的资源，至少要等一帧
+
+
+

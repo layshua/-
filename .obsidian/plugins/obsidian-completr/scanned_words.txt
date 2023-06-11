@@ -3292,6 +3292,7 @@ oBo
 opsc
 oller
 offsetPos
+objs
 OneDrive
 Obsidian
 Office
@@ -59463,6 +59464,7 @@ Magnenat
 Makeev
 MyCoroutine
 MoveNext
+Music
 Windows
 Win
 World
@@ -79316,6 +79318,7 @@ Intelligent
 IoT
 IsBackground
 IEnumerator
+Instantiate
 qq
 qyi
 quad
@@ -87035,6 +87038,7 @@ pMZO
 poor
 positon
 prefs
+persistentDataPath
 nodesCatch
 nobr
 navy
@@ -97395,6 +97399,7 @@ framework
 fatherType
 fixedwidth
 fixedHeight
+ffile
 dd
 dcc
 data
@@ -101283,6 +101288,7 @@ divergence
 devices
 dicType
 deformation
+dataPath
 TFvYZOKeHL
 TAB
 TeX
@@ -105085,6 +105091,7 @@ Transtform
 Transfrom
 Twigg
 Thalmann
+TextAsset
 io
 ipad
 it
@@ -113648,6 +113655,7 @@ slerps
 splines
 squad
 sync
+streamingAssetsPath
 local
 list
 left
@@ -160828,6 +160836,7 @@ Ladislav
 Laperri
 Label
 Languages
+LoadAll
 Getx
 GetX
 GetName
