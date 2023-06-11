@@ -1896,10 +1896,9 @@ public class test : MonoBehaviour
 ## Unity 协程
 **协同程序（Coroutine）简称协程**，继承 MonoBehavior 的类都可以开启协程函数
 它是“假”的多线程，它**不是多线程**
-**主要作用**：将代码分时执行，不卡主线程
-简单理解，是把可能会让主线程卡顿的耗时的逻辑**分时分步执行**
+**主要作用**：将代码分时执行，不卡主线程。简单理解，是把可能会让主线程卡顿的耗时的逻辑**分时分步执行**
 
-**主要使用场景 **
+**主要使用场景**
 - 异步加载文件
 - 异步下载文件
 - 场景异步加载
@@ -1908,6 +1907,10 @@ public class test : MonoBehaviour
 **协程和线程的区别：**
 - 子线程是独立的一个管道，和主线程并行执行
 - 协程是在原线程之上开启，进行逻辑分时分步执行
+
+**协程开启后**
+- 组件和物体销毁，协程不执行
+- 物体失活，协程不执行；脚本组件失活，协程行
 
 ```cs file:协程
 private void Start()
@@ -1945,3 +1948,84 @@ IEnumerator MyCoroutine(int i,string str)
 }
 ```
  
+```cs file:yieldreturn不同内容的含义
+//1.下一帧执行
+yield return 数字;
+yield return null;
+//在Update和LateUpdate之间执行后面的代码
+
+//2.等待指定秒后执行
+yield return new waitForSeconds(秒);
+//在update和LateUpdate之间执行后面的代码
+
+//3.等待下一个固定物理帧更新时执行
+yield return new waitForFixedUpdate();
+//在FixedUpdate和碰撞检测相关函数之后执行后面的代码
+
+//4.等待摄像机和GUI渲染完成后执行
+yield return new waitForEndOfFrame(); 
+//在LateUpdate之后的渲染相关处理完毕后之后执行后面的代码（主要会用来实现截图功能）
+
+//5.一些特殊类型的对象比如异步加载相关函数返回的对象
+//之后讲解异步加载资源异步加载场景网络加载时再讲解
+//一般在update和LateUpdate之间执行
+
+//6.跳出协程
+yield break ;
+```
+## 协程原理
+协程可以分成两部分
+1. 协程函数本体 
+2. 协程调度器
+
+- 协程本体就是一个能够中间暂停返回的函数
+- 协程调度器是 unity 内部实现的，会在对应的时机帮助我们继续执行协程函数
+- Unity 只实现了协程调度部分
+- 协程的本体本质上就是一个 cs 的迭代器方法
+
+### 协程本体是迭代器方法的体现
+
+## 应用
+### 协程计时器
+```cs
+  private void Start()
+{
+    Coroutine c = StartCoroutine(MyCoroutine());
+}
+
+IEnumerator MyCoroutine()
+{
+    int time = 0;
+    while (true)
+    {
+        print(time+"s");
+        ++time;
+        yield return new WaitForSeconds(1.0f); //按s计时
+    }
+}
+```
+
+### 分时创建对象，防止批量处理卡顿
+创建 100000 个 Cube，直接创建直接卡死，使用协程每帧生产 1000 个
+```cs
+private void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        StartCoroutine(CreateCube(100000));
+    }
+}
+
+IEnumerator CreateCube(int num)
+{
+    for (int i = 0; i < num; i++)
+    {
+        GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        obj.transform.position = new Vector3(UnityEngine.Random.Range(-100, 100), UnityEngine.Random.Range(-100, 100), UnityEngine.Random.Range(-100, 100));
+        
+        //每创建1000个Cube，就等下一帧
+        if (i % 1000 == 0)
+            yield return null;
+    }
+}
+```

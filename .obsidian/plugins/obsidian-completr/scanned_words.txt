@@ -25870,6 +25870,9 @@ warps
 watt
 widgetPos
 widgetCenterPos
+waitForSeconds
+waitForFixedUpdate
+waitForEndOfFrame
 utools
 url
 unresolved
@@ -59458,6 +59461,7 @@ Mohr
 Matt
 Magnenat
 Makeev
+MyCoroutine
 Windows
 Win
 World
@@ -63327,6 +63331,7 @@ WkJoAAAAAAAAAAAAAAAAAAAbjh
 WakeUp
 Wright
 Woodland
+WaitForSeconds
 Start
 StartAllBack
 Shadowrocket
@@ -67633,6 +67638,9 @@ ScreenPos
 Survey
 Situation
 Sleep
+StartCoroutine
+StopAllCoroutines
+StopCoroutine
 Programs
 POP
 PC
@@ -71533,6 +71541,7 @@ Patrick
 Prentice
 Prefrence
 Perspectives
+PrimitiveType
 ContextMenuManager
 ClashVerge
 Clash
@@ -75518,6 +75527,8 @@ Collins
 Carol
 Centers
 Cursor
+CreateCube
+CreatePrimitive
 ImTip
 IMAP
 ID
@@ -79302,6 +79313,7 @@ Immediate
 Intelligent
 IoT
 IsBackground
+IEnumerator
 qq
 qyi
 quad
@@ -127973,6 +127985,7 @@ renaming
 rencent
 rigidBody
 regedit
+routine
 XXXXXX
 XXX
 XML
@@ -142844,6 +142857,7 @@ ForceMode
 Fong
 Filling
 Frameworks
+Fixedupdate
 Element
 Entity
 Enity
@@ -153456,6 +153470,7 @@ yzN
 yvxE
 yzzr
 yTw
+yieldreturn
 Debug
 DEBUG
 Dd

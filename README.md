@@ -9,6 +9,7 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 ---
 # Computer-Graphics-and-Tech-Art
 图形之路！
+[TA学习目录 (yuque.com)](https://www.yuque.com/faded-1bfel/ohdnsq/znk7wv)
 # 近期
 - [x] 后处理
 - [ ] 地形材质
