@@ -1496,8 +1496,8 @@ Cursor.SetCursor(texture, new Vector2(0, 0), CursorMode.Auto);
 ```
 
 # 三、核心系统
-## 光源系统
-### 光源组件
+## 1 光源系统
+### 2 光源组件
 ![[Pasted image 20230605104842.png|500]]
 
 **Mode**：光源模式
@@ -1548,7 +1548,7 @@ Windous-Rendering-Lighting
 
 ![[Pasted image 20230605123701.png]]
 
-## 物理系统之碰撞检测
+## 2 物理系统之碰撞检测
 物理信息的更新和 FixedTime 相关
 
  **碰撞产生的必要条件：**
@@ -1730,7 +1730,7 @@ if(rigidBody.IsSleeping())
 更方便的添加力
 ![[Pasted image 20230605154007.png]]
 
-## 音频系统 
+## 3 音频系统 
 常用格式：wav，mp3，ogg，aiff
 ### 属性设置
 ![[Pasted image 20230605155215.png|450]]
@@ -1839,7 +1839,8 @@ audioClip.GetData(f, 0);
 ```
 
 # 四、协同程序
-## Unity 多线程
+## 1 Unity 多线程
+[[《CS Primer》#十四、多线程]]
 Unity 是支持多线程的，只是线程是无法调用 Unity 主线程的 API（不常用）
 注意: Unity 中的多线程要记得关闭（即便停止运行，线程仍会执行）
 
@@ -1893,7 +1894,7 @@ public class test : MonoBehaviour
 }
 ```
 
-## Unity 协程
+## 2 Unity 协程
 **协同程序（Coroutine）简称协程**，继承 MonoBehavior 的类都可以开启协程函数
 它是“假”的多线程，它**不是多线程**
 **主要作用**：将代码分时执行，不卡主线程。简单理解，是把可能会让主线程卡顿的耗时的逻辑**分时分步执行**
@@ -1947,7 +1948,9 @@ IEnumerator MyCoroutine(int i,string str)
         }
 }
 ```
- 
+
+[[《CS Primer》#用 yield return 语法糖实现迭代器]]
+
 ```cs file:yieldreturn不同内容的含义
 //1.下一帧执行
 yield return 数字;
@@ -1973,19 +1976,63 @@ yield return new waitForEndOfFrame();
 //6.跳出协程
 yield break ;
 ```
-## 协程原理
+## 3 协程原理
 协程可以分成两部分
 1. 协程函数本体 
 2. 协程调度器
 
 - 协程本体就是一个能够中间暂停返回的函数
 - 协程调度器是 unity 内部实现的，会在对应的时机帮助我们继续执行协程函数
-- Unity 只实现了协程调度部分
-- 协程的本体本质上就是一个 cs 的迭代器方法
+- **Unity 只实现了协程调度部分**
+- **协程的本体本质上就是一个 cs 的迭代器方法**
 
-### 协程本体是迭代器方法的体现
+**协程调度器**
+继承 MonoBehavior 后开启协程
+相当于是把一个协程函数（迭代器)放入 Unity 的协程调度器中帮助我们管理
+具体的 yield return 后面的规则也是 Unity 定义的一些规则
 
-## 应用
+```cs
+//1. 协程函数本体
+//如果我们不通过开启协程方法执行协程
+//Unity 的协程调度器是不会帮助我们管理协程函数的 
+//Test(); //不会执行
+//Coroutine c = StartCoroutine(Test()); //会执行
+
+//但是我们可以自己执行迭代器函数内容,起到相同效果
+IEnumerator ie = Test();
+ie.MoveNext(); //会执行函数中内容遇到yield return为止的逻辑
+print(ie.Current); //返回yield return返回值
+
+ie.MoveNext();
+print(ie.Current);
+
+ie.MoveNext();
+print(ie.Current);
+
+ie.MoveNext();
+print(ie.Current);
+
+//也可以用一个循环执行所有协程函数内容
+//MoveNext 返回bool值代表着是否到了结尾(这个迭代器函数是否执行完毕)
+while (ie.MoveNext())
+{
+    print(ie.Current);
+}
+```
+
+总结：你可以简化理解迭代器函数
+- cs 看到迭代器函数和 yield return 语法糖就会把原本是一个的函数变成"几部分"
+- 我们可以通过迭代器，从上到下遍历这“几部分"进行执行
+- 就达到了将一个函数中的逻辑分时执行的目的
+
+**而协程调度器就是利用迭代器函数返回的内容来进行之后的处理**
+比如 unity 中的协程调度器
+根据 yield return 返回的内容决定了下一次在何时继续执行迭代器函数中的“下一部分"
+
+**理论上来说我们可以利用迭代器函数的特点自己实现协程调度器来取代 unity 自带的调度器（一般自己不需要实现，唐老师课程作业中讲了具体做法）**
+
+
+## 4 应用
 ### 协程计时器
 ```cs
   private void Start()
@@ -2029,3 +2076,32 @@ IEnumerator CreateCube(int num)
     }
 }
 ```
+
+# 五、资源动态加载
+## 1 特殊文件夹
+- @ Assets 工程文件夹
+```cs
+//工程文件路径
+Application.dataPath();  //获取到Assets文件夹的路径
+//注意该方式获取到的路径一般情况下只在编辑模式下使用
+//我们不会在实际发布游戏后还使用该路径，游戏发布过后该路径就不存在了│
+```
+
+<mark style="background: #FF5582A6;">Resources 资源文件夹</mark>
+> [!NOTE] 
+> 需要在 Assets 下手动创建名为 Resources 的文件夹
+
+**路径获取**: 一般不获取，只能使用 Resources 相关 API 进行加载
+如果硬要获取可以用工程路径拼接
+```
+Application.dataPath + "/Resources"
+```
+
+**作用**：资源文件夹
+- 需要通过 Resources 相关 API 动态加载的资源需要放在其中
+- 该文件夹下所有文件都会被打包出去
+- 打包时 unity 会对其压缩加密
+- 该文件夹打包后只读，只能通过 Resources 相关 API 加载
+
+streamingAssets 流动资源文件夹
+

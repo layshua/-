@@ -59462,6 +59462,7 @@ Matt
 Magnenat
 Makeev
 MyCoroutine
+MoveNext
 Windows
 Win
 World
@@ -75529,6 +75530,7 @@ Centers
 Cursor
 CreateCube
 CreatePrimitive
+Current
 ImTip
 IMAP
 ID
