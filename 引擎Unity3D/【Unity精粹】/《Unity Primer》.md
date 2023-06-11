@@ -1460,7 +1460,9 @@ Camera.onPostRender += (cam) => { print("onPostRender"); };
 
 ## 8 场景
 ![[Pasted image 20230609131650.png|500]]
-```cs 
+
+### 场景同步切换
+```cs file:场景同步切换
 //场景切换，指定的场景必须先在构建设置中加入
 SceneManager.LoadScene("GameScene");
 //旧版本代码
@@ -1481,6 +1483,18 @@ if (SceneManager.GetActiveScene().name == "StartMenu")
     BeginPanel.Instance.ShowMe();  
 }
 ```
+
+### 场景异步切换
+在切换场景时，Unity 会删除当前场景上所有对象，并且去加载下一个场景的相关信息
+如果当前场景对象过多或者下一个场景对象过多，这个过程会非常的耗时会让玩家感受到卡顿，异步切换就是来解决该问题的，开一个子线程去加载，加载好后存入公共容器。
+
+场景异步加载和资源异步加载几乎一致，有两种方式
+```cs file:通过事件回调函数异步加载
+
+
+```
+
+
 
 ## 9 鼠标Cursor
 ```cs
@@ -2264,5 +2278,97 @@ TextAsset ta2 = Resources.Load<TextAsset>("Text/Test"); //指定TextAsset类型
 > [!attention] 
 > 异步加载不能马上得到加载的资源，至少要等一帧
 
+**方法一：完成事件监听异步加载**
+好处: 写法简单
+坏处: 只能在资源加载结束后进行处理
+“线性加载”
+
+```cs file:通过异步加载中的完成事件监听使用加载的资源
+public Texture  texture;
+
+private void Start()
+{
+    //1. 通过异步加载中的完成事件监听 使用加载的资源
+    //这句代码你可以理解Unity 在内部就会去开一个线程进行资源下载
+    ResourceRequest resourceRequest = Resources.LoadAsync<Texture>("filename");
+    //马上进行一个资源下载结束的一个事件函数监听
+    resourceRequest.completed += LoadOver;
+
+    //不能在这里直接使用resourceRequest.asset
+}
+
+private void LoadOver(AsyncOperation obj)
+{
+    print("加载结束");
+    //asset是资源对象，加载完毕后就能得到它
+    texture = (obj as ResourceRequest).asset as Texture;
+}
+
+private void OnGUI()
+{
+    if (texture != null)
+    {
+        GUI.DrawTexture(new Rect(0, 0, 100, 100), texture);
+    }
+}
+```
+
+**方法二：协程异步加载**
+好处: 可以在协程中处理复杂逻辑，比如同时加载多个资源，比如进度条更新
+坏处: 写法稍麻烦
+“并行加载”
+
+```cs file:通过协程使用加载的资源
+public Texture  texture;
+
+private void Start()
+{
+    //2.通过协程使用加载的资源
+    StartCoroutine(Load());
+}
+
+IEnumerator Load()
+{
+    ResourceRequest resourceRequest = Resources.LoadAsync<Texture>("filename");
+
+    yield return resourceRequest; //Unity自己知道该返回值意味着你在异步加载资源
+    //Unity 会自己判断该资源是否加载完毕了,加载完毕过后才会继续执行后面的代码
+    
+    texture = resourceRequest.asset as Texture;
+}
+
+private void OnGUI()
+{
+    if (texture != null)
+    {
+        GUI.DrawTexture(new Rect(0, 0, 100, 100), texture);
+    }
+}
+```
+
+## 4 Resources 资源卸载
+**Resources 重复加载资源会浪费内存吗 ?**
+1.  Resources 加载一次资源过后，该资源就一直存放在内存中作为缓存
+2. 第二次加载时发现缓存中存在该资源，会直接取出来进行使用，所以多次重复加载不会浪费内存
+3. 但是会浪费性熊 (每次加载都会去查找取出，始终伴随一些性能消耗)
+
+**卸载指定资源**：`Resources. UnloadAsset()` 
+**注意:**
+- 该方法**不能释放 Gameobject 对象**，因为它会用于实例化对象（即使是没有实例化的 Gameobject 对象也不能使用该方法卸载）
+- 它**只能用于一些不需要实例化的内容**，比如图片和音效文本等等
+- 一般情况下我们很少单独使用它
+```cs
+
+tex = Resources.Load<Texture>("filename");
+
+Resources.UnloadAsset(tex); //卸载资源
+tex = null;
+```
 
 
+**卸载未使用的资源**：`Resources.UnloadUnusedAssets()`
+一般在过场景时和 GC 一起使用
+```cs
+Resources.UnloadUnusedAssets();
+GC.Collect();
+```
