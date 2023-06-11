@@ -611,6 +611,8 @@ Debug.DrawRay(this.transform.position,
                this.transform.forward,
                Color.red);
 ```
+
+
 ### 获取脚本挂载的对象
 1. 获取依附的 Gameobject
 2. 获取依附的 Gameobject 的位置信息
@@ -1469,6 +1471,13 @@ SceneManager.LoadScene("GameScene");
 //Application.LoadIevel("GameScene");
 
 
+//过场景不移除
+//默认情况在切换场景时场景中对象都会被自动删除掉
+//如果你希望某个对象过场景不被移除就使用该方法
+//一般都是传依附的Gameobject对象
+//比如下面这句代码的意思就是自己依附的Gameobject对象过场景不被删除
+GameObject.DontDestroyOnLoad(this.gameObject);
+
 //退出游戏
 if( Input.GetKeyDown( Keycode.Escape) )
 {
@@ -1488,13 +1497,90 @@ if (SceneManager.GetActiveScene().name == "StartMenu")
 在切换场景时，Unity 会删除当前场景上所有对象，并且去加载下一个场景的相关信息
 如果当前场景对象过多或者下一个场景对象过多，这个过程会非常的耗时会让玩家感受到卡顿，异步切换就是来解决该问题的，开一个子线程去加载，加载好后存入公共容器。
 
-场景异步加载和资源异步加载几乎一致，有两种方式
+场景异步加载和资源异步加载几乎一致，有两种方式：
+1. **通过事件回调函数异步加载**
 ```cs file:通过事件回调函数异步加载
+private void Start()
+{
+   AsyncOperation ao =  SceneManager.LoadSceneAsync("Scenename");
+   //当场景异步加载结束后就会自动调用该事件函数，我们如果希望在加载结束后做一些事情，那么就可以在该函数中，写处理逻辑
+   
+   //普通形式
+   ao.completed += LoadOver;
+   
+   //等价，lambda表达式形式
+   ao.completed += (a) =>
+   {
+       print("加载结束");
+   };
+}
 
-
+private void LoadOver(AsyncOperation ao)
+{
+    print("加载结束");
+}
 ```
 
 
+2. **通过协程异步加载**
+需要注意的是加载场景会把当前场景没有特别处理的对象都删除了，所以协程中的部分逻辑可能是执行不了的
+解决思路：使用 `GameObject.DontDestroyOnLoad()` 方法让处理场景加载的脚本依附的对象过场景时不被移除
+```cs
+ private void Start()
+{
+    GameObject.DontDestroyOnLoad(this.gameObject);
+    
+    StartCoroutine(LoadScene("Scenename"));
+}
+
+IEnumerator LoadScene(string sceneName)
+{
+    //异步加载场景
+    AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName);
+    
+    GameObject.DontDestroyOnLoad(this.gameObject);
+    
+    yield return ao; //Unity自己知道该返回值意味着你在异步加载资源
+    //Unity 会自己判断该场景是否加载完毕了,加载完毕过后才会继续执行后面的代码
+    
+    //加载完毕后执行其他逻辑
+    print("加载结束"); //无法执行，因为切换场景后，上一场景中的所有对象都会被删除，该脚本自然无法继续执行。
+                   
+    //我们可以在Start()函数中使用GameObject.DontDestroyOnLoad方法，让该脚本依附的对象过场景不被删除!这样就可以正常执行
+}
+```
+
+**协程的优点**是异步加载场景时我可以在加载的同时做一些别的逻辑 （写在 `yield return` 上面，通过事件回调函数异步加载的方法只能在加载结束后执行其他逻辑），**比如我们可以在异步加载过程中去更新进度条。**
+```cs
+while(!ao.isDone)
+{
+    print(ao.progress);
+    yield return null;
+}
+//离开循环后就会认为场景加载结束
+//可以把进度条顶满然后隐藏进度条
+```
+
+当然不是说必须用异步方法更新进度条（这种方法实际不准确），要根据你游戏的规则自己定义进度条变化的条件，根据需求选择，没有谁好谁坏：
+```cs
+yield return ao;
+//场景加载结束更新 20%进度
+//接着去加载场景中的其它信息
+//比如
+//动态加载怪物
+//这时进度条再更新 20%
+//动态加载场景模型
+//这时就认为加载结束了进度条顶满
+//隐藏进度条
+```
+
+他们的优缺点表现和资源异步加载也是一样的
+1. 事件回调函数
+优点: 写法简单，逻辑清晰
+缺点: 只能加载完场景做一些事情不能再加载过程中处理逻辑
+2. 协程异步加载
+优点: 可以在加载过程中处理逻辑，比如进度条更新等
+缺点: 写法较为麻烦，要通过协程
 
 ## 9 鼠标Cursor
 ```cs
@@ -1512,10 +1598,21 @@ Cursor.lockState = CursorLockMode.Confined;
 //参数三:平台支持的光标模式(硬件或软件)
 Cursor.SetCursor(texture, new Vector2(0, 0), CursorMode.Auto);
 ```
+## 10 LineRenderer
+LineRenderer 是 Unity 提供的一个用于**画线**的组件，使用它我们可以在场景中绘制线段
+一般可以用于
+1. 绘制攻击范围 
+2. 武器红外线 
+3. 辅助功能 
+4. 其它画线功能
+
+![[Pasted image 20230611160618.png|450]]
+
+![[Pasted image 20230611160703.png|450]]
 
 # 三、核心系统
 ## 1 光源系统
-### 2 光源组件
+### 光源组件
 ![[Pasted image 20230605104842.png|500]]
 
 **Mode**：光源模式
