@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "疑问",
+      "path": "技术美术/05 UnityShader/疑问.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "技术美术/01 百人计划/A美术向/场景设计精要.md"
+    },
+    {
+      "basename": "硬表面基础",
+      "path": "技术美术/01 百人计划/A美术向/硬表面基础.md"
+    },
+    {
+      "basename": "美术理论基础一 & 二",
+      "path": "技术美术/01 百人计划/A美术向/美术理论基础一 & 二.md"
+    },
+    {
+      "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
+      "path": "技术美术/01 百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
+    },
+    {
+      "basename": "角色设计精要",
+      "path": "技术美术/01 百人计划/A美术向/角色设计精要.md"
+    },
+    {
+      "basename": "DX12脑图",
+      "path": "图形学/2 图形API/DX12/龙书/DX12脑图.canvas"
+    },
+    {
+      "basename": "DX12渲染流程.km",
+      "path": "zip/MindMap/DX12渲染流程.km.md"
+    },
+    {
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+    },
+    {
+      "basename": "DirectXMath",
+      "path": "图形学/2 图形API/DX12/DirectXMath.md"
+    },
+    {
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
@@ -77,10 +125,6 @@
       "path": "AI/论文/Nerf/学习论.md"
     },
     {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
-    },
-    {
       "basename": "1 操作指南",
       "path": "DCC/01 Blender/1 操作指南.md"
     },
@@ -151,10 +195,6 @@
     {
       "basename": "第四章 高级扩展",
       "path": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md"
-    },
-    {
-      "basename": "疑问",
-      "path": "技术美术/05 UnityShader/疑问.md"
     }
   ],
   "omittedPaths": [],

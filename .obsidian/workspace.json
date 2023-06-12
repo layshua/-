@@ -4,47 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "0b0f3587e2cf616a",
+        "id": "332a365e129b8107",
         "type": "tabs",
         "children": [
           {
-            "id": "cfe123bc294a0dcd",
+            "id": "ff43f99a968ce193",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "7ee7f2c7e4d1e9ae",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "e0add43feae91315",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "3bff0597728c58bf",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md"
               }
             }
           }
@@ -130,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,8 +155,19 @@
       "pdf-to-markdown-plugin:PDF to Markdown": true
     }
   },
-  "active": "e0add43feae91315",
+  "active": "ff43f99a968ce193",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/疑问.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "技术美术/01 百人计划/A美术向/场景设计精要.md",
+    "技术美术/01 百人计划/A美术向/硬表面基础.md",
+    "技术美术/01 百人计划/A美术向/美术理论基础一 & 二.md",
+    "技术美术/01 百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
+    "技术美术/01 百人计划/A美术向/角色设计精要.md",
+    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "图形学/2 图形API/DX12/DirectXMath.md",
+    "图形学/2 图形API/DX12/HLSL语法.md",
     "zip/images/Pasted image 20230612002828.png",
     "zip/images/Pasted image 20230612002808.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
@@ -198,7 +184,6 @@
     "zip/images/Pasted image 20230611210946.png",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/BUG合集.md",
-    "zip/images/Pasted image 20230611204141.png",
     "引擎Unity3D/Unity操作指南.md",
     "README.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
@@ -213,23 +198,13 @@
     "Tools/Obsidian/插件流.md",
     "Tools/Software/Office365/激活方法.md",
     "Tools/Software/Office365",
-    "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
     "临时",
-    "AI/论文/Nerf/转mesh工作.md",
-    "AI/论文/Nerf/学习论.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "DCC/01 Blender/1 操作指南.md",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/C++/C++补充.md",
-    "编程/C++/《C++ Primer》.md",
-    "引擎Unity3D/2022minigame/2022minigame.md",
     "引擎Unity3D/【Unity精粹】",
     "zip/images/ScreenToGif.lnk",
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
     "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "zip/icons/font-awesome-brands",
-    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
