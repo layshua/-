@@ -11,12 +11,8 @@
             "id": "ff43f99a968ce193",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -62,7 +58,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md"
               }
             }
           }
@@ -105,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,6 +153,15 @@
   },
   "active": "ff43f99a968ce193",
   "lastOpenFiles": [
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/0 3D数学/3D数学.md",
+    "引擎Unity3D/【Shader精粹】/内置管线.md",
+    "zBuffer/Include 文件.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "引擎Unity3D/【Shader精粹】",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/05 UnityShader/疑问.md",
     "技术美术/01 百人计划/A美术向/场景设计精要.md",
@@ -165,7 +170,6 @@
     "技术美术/01 百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
     "技术美术/01 百人计划/A美术向/角色设计精要.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/2 图形API/DX12/DirectXMath.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "zip/images/Pasted image 20230612002828.png",
@@ -186,17 +190,10 @@
     "引擎Unity3D/BUG合集.md",
     "引擎Unity3D/Unity操作指南.md",
     "README.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
     "引擎Unity3D/游戏Demo/坦克大战",
     "引擎Unity3D/游戏Demo",
-    "临时/计算机系统大作业.md",
-    "Tools/图形工具/全景图 _ 六面图互相转换工具 – KRPano 技术解密.md",
-    "Tools/Obsidian/Mermaid流图.md",
-    "Tools/Obsidian/插件流.md",
-    "Tools/Software/Office365/激活方法.md",
     "Tools/Software/Office365",
     "临时",
     "引擎Unity3D/【Unity精粹】",
@@ -204,7 +201,6 @@
     "Tools/环境配置",
     "zip/images/Diagram.svg.xml",
     "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
-    "zip/icons/font-awesome-brands",
     "未命名.canvas",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",

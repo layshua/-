@@ -29471,6 +29471,8 @@ uniforms
 uTime
 units
 uler
+unityshadervariablescginc
+unitycgcginc
 everything
 ea
 ede
@@ -75554,6 +75556,7 @@ Cursor
 CreateCube
 CreatePrimitive
 Current
+CGIncludes
 ImTip
 IMAP
 ID
@@ -124142,6 +124145,7 @@ hCMH
 homogenization
 happen
 hosting
+hlslsupportcginc
 rgb
 right
 rm
