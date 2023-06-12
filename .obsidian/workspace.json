@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,8 +157,8 @@
   },
   "active": "ff43f99a968ce193",
   "lastOpenFiles": [
-    "技术美术/05 UnityShader/疑问.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "技术美术/05 UnityShader/疑问.md",
     "技术美术/01 百人计划/A美术向/场景设计精要.md",
     "技术美术/01 百人计划/A美术向/硬表面基础.md",
     "技术美术/01 百人计划/A美术向/美术理论基础一 & 二.md",
