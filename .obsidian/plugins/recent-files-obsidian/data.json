@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "控制面板",
+      "path": "Tools/System/控制面板.md"
+    },
+    {
       "basename": "内置管线",
       "path": "引擎Unity3D/【Shader精粹】/内置管线.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Three_js 进阶之旅：Shader 着色器入门",
       "path": "zip/Legacy/Threejs/Three_js 进阶之旅：Shader 着色器入门.md"
-    },
-    {
-      "basename": "第三章 进阶应用",
-      "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     }
   ],
   "omittedPaths": [],
