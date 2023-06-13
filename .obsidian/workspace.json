@@ -67,7 +67,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -110,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md"
+                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
               }
             }
           }
@@ -153,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,8 +203,9 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "ff43f99a968ce193",
+  "active": "dd06d5d2469f045d",
   "lastOpenFiles": [
+    "引擎Unity3D/头部项目/未命名.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "技术美术/PBR/PBR白皮书/media/5-PBR-The-Geometry-Function.png",
     "Zstore/v2-194d685244aaf670e9bce1664c70086a_1440w.webp",
@@ -249,7 +251,6 @@
     "Zstore/8561d8e306035a327223d9dad5c0f766_MD5.wUl8FQH3d8piQIv67T8uJQHaHI",
     "Zstore/01598f6726b9712bea619028a6e4119d_MD5.YUopdjjntkvQ9QdyE53e8wHaGb",
     "引擎Unity3D/BUG合集.md",
-    "虚幻引擎/9 教程剪藏/UE5 实现基于 Gerstner 波的写实海水渲染（一）/UE5 实现基于 Gerstner 波的写实海水渲染（一）.md",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
