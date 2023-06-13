@@ -13,7 +13,55 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/System/控制面板.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dd06d5d2469f045d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e1ad7e6e72ee1c4f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/Unity操作指南.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c888dc167e604bcf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c91a762ed52b1825",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +110,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/System/控制面板.md"
+                "file": "引擎Unity3D/头部项目/未命名.md"
               }
             }
           }
@@ -105,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/System/控制面板.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/System/控制面板.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -156,55 +204,55 @@
   },
   "active": "ff43f99a968ce193",
   "lastOpenFiles": [
-    "临时/计算机系统大作业.md",
-    "Tools/System/控制面板.md",
-    "zip/images/Pasted image 20230612234529.png",
-    "引擎Unity3D/【Shader精粹】/内置管线.md",
-    "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "技术美术/PBR/PBR白皮书/media/5-PBR-The-Geometry-Function.png",
+    "Zstore/v2-194d685244aaf670e9bce1664c70086a_1440w.webp",
+    "Zstore/v2-f7bb8a99be02accbf5dbc37666ad99ef_1440w.webp",
+    "Zstore/v2-33789871a86c5b76463e52b508c692dc_1440w.webp",
+    "Zstore/v2-1425b88cd7e27229608b94dca16e0fdc_1440w.webp",
+    "Zstore/v2-53d9f085fe850ece368c5d018d85dbbf_1440w.webp",
+    "Zstore/v2-33e2c70d429d9079c9b53e2f570032aa_1440w.webp",
+    "Zstore/v2-1aed76647223609baa7f8139cebc239a_1440w.webp",
+    "Zstore/v2-d3d5c2da31d64ed5db75a4cd8266d49d_1440w.webp",
+    "技术美术/PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
+    "虚幻引擎/2 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
+    "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/assets/1679722498820.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
-    "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "技术美术/05 UnityShader/疑问.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第一章 · 全书知识点总览/README.md",
+    "虚幻引擎/3 材质 & 渲染/《剖析虚幻渲染体系》向往/移动游戏性能优化通用技法/移动游戏性能优化通用技法.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
+    "虚幻引擎/9 教程剪藏/UE4 - 虚幻引擎草地生成 _静态篇_/UE4 - 虚幻引擎草地生成 _静态篇_.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第十章 · 基于图像的渲染技术/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第七章续 · 延迟渲染的前生今世/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第十五章 · 渲染管线优化方法论/README.md",
+    "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
+    "虚幻引擎/2 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第十一章 · 非真实感渲染(NPR)/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
+    "图形学/书籍/《Real-Time Rendering 3rd》/第三章 · GPU渲染管线与可编程着色器/README.md",
+    "图形学/面经/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享.md",
+    "虚幻引擎/4 特效/虚幻官方直播笔记 (贾越 - Niagara 基础）/虚幻官方直播笔记 (贾越 - Niagara 基础）.md",
+    "技术美术/PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md",
+    "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
+    "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
+    "Zstore/263d973e5c2a8910d73ec86e6c00ba09_MD5.UMjv_xZch6Re1LGaaYKJ-QHaE7",
+    "Zstore/9df7ec016a7320ad4009b25f44281fc9_MD5.-uOlWi_H4m379OfJP18UZAHaHa",
+    "Zstore/3dcbbb9bbedacebd312d834dcff167c1_MD5.6AuWSAgV3bF0S-Bb1WY0ywAAAA",
+    "Zstore/f801540d2ff71103255d394af37e586f_MD5.czbU9pQNHzvrvh5hRTX1ZgHaDT",
+    "Zstore/96f2ed488f4313f48f4d99aab7c6457f_MD5.0aCtA-j_T6HahRFtEN4X-QHaHa",
+    "Zstore/8561d8e306035a327223d9dad5c0f766_MD5.wUl8FQH3d8piQIv67T8uJQHaHI",
+    "Zstore/01598f6726b9712bea619028a6e4119d_MD5.YUopdjjntkvQ9QdyE53e8wHaGb",
+    "引擎Unity3D/BUG合集.md",
+    "虚幻引擎/9 教程剪藏/UE5 实现基于 Gerstner 波的写实海水渲染（一）/UE5 实现基于 Gerstner 波的写实海水渲染（一）.md",
     "未命名.canvas",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/04 纹理映射.md",
-    "图形学/0 3D数学/3D数学.md",
-    "zBuffer/Include 文件.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/【Shader精粹】",
-    "技术美术/01 百人计划/A美术向/场景设计精要.md",
-    "技术美术/01 百人计划/A美术向/硬表面基础.md",
-    "技术美术/01 百人计划/A美术向/美术理论基础一 & 二.md",
-    "技术美术/01 百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
-    "技术美术/01 百人计划/A美术向/角色设计精要.md",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "图形学/2 图形API/DX12/DirectXMath.md",
-    "图形学/2 图形API/DX12/HLSL语法.md",
-    "zip/images/Pasted image 20230612002828.png",
-    "zip/images/Pasted image 20230612002808.png",
-    "zip/images/Pasted image 20230611214123.png",
-    "zip/images/Pasted image 20230611214121.png",
-    "zip/images/Pasted image 20230611213325.png",
-    "zip/images/Pasted image 20230611212009.png",
-    "zip/images/Pasted image 20230611211909.png",
-    "zip/images/Pasted image 20230611211722.png",
-    "zip/images/Pasted image 20230611211123.png",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
-    "引擎Unity3D/游戏Demo/坦克大战",
-    "引擎Unity3D/游戏Demo",
-    "Tools/Software/Office365",
-    "临时",
-    "引擎Unity3D/【Unity精粹】",
-    "zip/images/ScreenToGif.lnk",
-    "Tools/环境配置",
-    "zip/images/Diagram.svg.xml",
-    "引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "图形学/DX12/龙书/DX12初始化.canvas",
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
