@@ -13,18 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "dd06d5d2469f045d",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           },
           {
@@ -38,29 +30,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "c888dc167e604bcf",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "c91a762ed52b1825",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md"
+                "file": "引擎Unity3D/【Shader精粹】/内置管线.md"
               }
             }
           }
@@ -146,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,11 +166,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "c91a762ed52b1825",
+  "active": "ff43f99a968ce193",
   "lastOpenFiles": [
+    "引擎Unity3D/头部项目/未命名.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "AI/深度学习/《鱼书》.md",
+    "技术美术/05 UnityShader/TA101.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "图形学/5 书籍/书单.md",
-    "引擎Unity3D/头部项目/未命名.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
@@ -218,7 +192,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
     "虚幻引擎/2 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
-    "引擎Unity3D/Unity操作指南.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第一章 · 全书知识点总览/README.md",
     "虚幻引擎/3 材质 & 渲染/《剖析虚幻渲染体系》向往/移动游戏性能优化通用技法/移动游戏性能优化通用技法.md",
@@ -232,8 +205,6 @@
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "虚幻引擎/2 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第十一章 · 非真实感渲染(NPR)/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第三章 · GPU渲染管线与可编程着色器/README.md",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
     "Zstore/263d973e5c2a8910d73ec86e6c00ba09_MD5.UMjv_xZch6Re1LGaaYKJ-QHaE7",
