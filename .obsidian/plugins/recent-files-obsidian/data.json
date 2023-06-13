@@ -5,12 +5,12 @@
       "path": "引擎Unity3D/【Shader精粹】/内置管线.md"
     },
     {
-      "basename": "未命名",
-      "path": "引擎Unity3D/头部项目/未命名.md"
-    },
-    {
       "basename": "Unity操作指南",
       "path": "引擎Unity3D/Unity操作指南.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "引擎Unity3D/头部项目/未命名.md"
     },
     {
       "basename": "《鱼书》",
@@ -195,10 +195,6 @@
     {
       "basename": "DrawCall，Batches，SetPass calls",
       "path": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md"
-    },
-    {
-      "basename": "101 材质大师",
-      "path": "引擎Unreal/03 材质 & 渲染/101 材质大师.md"
     }
   ],
   "omittedPaths": [],
