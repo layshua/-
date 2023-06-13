@@ -23,12 +23,8 @@
             "id": "dd06d5d2469f045d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -47,12 +43,8 @@
             "id": "c888dc167e604bcf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -61,7 +53,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+                "file": "引擎Unity3D/头部项目/未命名.md"
               }
             }
           }
@@ -154,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/头部项目/未命名.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,7 +195,7 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
     "引擎Unity3D/头部项目/未命名.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
