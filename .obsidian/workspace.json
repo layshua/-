@@ -53,7 +53,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "技术美术/05 UnityShader/TA101.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md"
+                "file": "技术美术/05 UnityShader/TA101.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "技术美术/05 UnityShader/TA101.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/头部项目/未命名.md",
+                "file": "技术美术/05 UnityShader/TA101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,8 +195,10 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "c91a762ed52b1825",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "图形学/5 书籍/书单.md",
     "引擎Unity3D/头部项目/未命名.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
@@ -232,7 +234,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第十一章 · 非真实感渲染(NPR)/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章 · 高级着色：BRDF及相关技术/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第三章 · GPU渲染管线与可编程着色器/README.md",
-    "图形学/面经/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享/零基础非科班校招图形 _ 引擎 _ 游戏面经长文分享.md",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
     "Zstore/263d973e5c2a8910d73ec86e6c00ba09_MD5.UMjv_xZch6Re1LGaaYKJ-QHaE7",

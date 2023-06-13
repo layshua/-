@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "TA101",
+      "path": "技术美术/05 UnityShader/TA101.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "书单",
+      "path": "图形学/5 书籍/书单.md"
+    },
+    {
       "basename": "未命名",
       "path": "引擎Unity3D/头部项目/未命名.md"
     },
@@ -47,10 +59,6 @@
     {
       "basename": "风格化草渲染 StylizedGrass",
       "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "疑问",
@@ -191,14 +199,6 @@
     {
       "basename": "光照设置",
       "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "ue操作指南",
-      "path": "引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
     }
   ],
   "omittedPaths": [],
