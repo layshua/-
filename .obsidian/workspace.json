@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Shader精粹】/光照.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "76b6ee4e3a127a8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -62,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
               }
             }
           }
@@ -105,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -154,8 +167,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "ff43f99a968ce193",
+  "active": "76b6ee4e3a127a8c",
   "lastOpenFiles": [
+    "引擎Unity3D/【Shader精粹】/光照.md",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "技术美术/学习大纲.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "zip/images/Pasted image 20230615000306.png",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "zip/images/Pasted image 20230614232035.png",
     "zip/images/Pasted image 20230614231939.png",
     "zip/images/Pasted image 20230614231934.png",
@@ -165,10 +188,7 @@
     "zip/images/Pasted image 20230614224010.png",
     "zip/images/Pasted image 20230614223913.png",
     "zip/images/Pasted image 20230614223858.png",
-    "zip/images/Pasted image 20230614222148.png",
-    "zip/images/Pasted image 20230614222145.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
@@ -179,19 +199,12 @@
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "图形学/5 书籍/书单.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "技术美术/PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第九章 · 全局光照/README.md",
     "虚幻引擎/2 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第二章 · 图形渲染管线/README.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第一章 · 全书知识点总览/README.md",
-    "虚幻引擎/3 材质 & 渲染/《剖析虚幻渲染体系》向往/移动游戏性能优化通用技法/移动游戏性能优化通用技法.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第十四章 · 渲染加速算法/README.md",
-    "虚幻引擎/9 教程剪藏/UE4 - 虚幻引擎草地生成 _静态篇_/UE4 - 虚幻引擎草地生成 _静态篇_.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第十章 · 基于图像的渲染技术/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",

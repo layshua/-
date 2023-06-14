@@ -1,12 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "shaderlab指南",
-      "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "光照",
+      "path": "引擎Unity3D/【Shader精粹】/光照.md"
+    },
+    {
+      "basename": "学习大纲",
+      "path": "技术美术/学习大纲.md"
+    },
+    {
+      "basename": "第二章 光照基础",
+      "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "01 图形渲染管线",
+      "path": "图形学/1 图形系统/01 图形渲染管线.md"
+    },
+    {
+      "basename": "shaderlab指南",
+      "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
     {
       "basename": "《CS Primer》",
@@ -71,10 +99,6 @@
     {
       "basename": "庄懂AP01",
       "path": "技术美术/05 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     },
     {
       "basename": "02 视图变换",
@@ -175,22 +199,6 @@
     {
       "basename": "C++补充",
       "path": "编程/C++/C++补充.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "2022minigame",
-      "path": "引擎Unity3D/2022minigame/2022minigame.md"
-    },
-    {
-      "basename": "入门精要urp重写",
-      "path": "引擎Unity3D/URP/入门精要urp重写.md"
-    },
-    {
-      "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md"
     }
   ],
   "omittedPaths": [],
