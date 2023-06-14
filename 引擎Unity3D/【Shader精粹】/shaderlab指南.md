@@ -1,6 +1,24 @@
 [Unity小白的TA之路-Shader开发|图形渲染管线|URP|性能优化|图形渲染|PostProcessing (91maketop.github.io)](https://91maketop.github.io/ta/#/README)
-
 # ShaderLab 语法基础
+# 名称
+
+Shader 程序的第一行代码用来声明该 Shader 的名称以及所在路径。
+
+```
+Shader "Unlit/NewUnlitShader"
+```
+
+这一行代码的意思是：这个 Shader 位于 Unlit 路径里，名称为 NewUnlitShader。最终在材质设置面板中选择 Shader 的下拉菜单，如图
+![[Pasted image 20230614182320.png|450]]
+
+当然也可以多加几级路径，例如：
+```
+Shader "Unlit/Path_1/Path_2/NewUnlitShader"
+```
+
+## Properties
+
+## ShaderLab 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
 
 在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
@@ -61,7 +79,7 @@ Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper
 
 - struct `appdata_img`: 顶点着色器输入，包含位置和一个纹理坐标。
 
-# 属性的常用特效
+# 属性的常用特性
 1. NoScaleOffset（隐藏 Tiling 和 Offset）
 
 `[NoScaleOffset]_MainTex ("Texture", 2D) = "white" {}`
@@ -355,7 +373,7 @@ Unity 首次加载应用程序时，它会检测到 `GraphicsTier` 并将结�
 
 ### 每平台着色器定义设置和图形层变体
 
-在内置渲染管线中，可以使用 [EditorGraphicsSettings.SetShaderSettingsForPlatform](https://docs.unity3d.com/cn/2021.1/ScriptReference/EditorGraphicsSettings.SetTierSettings.html) API 针对给定的 [BuildTarget](https://docs.unity3d.com/cn/2021.1/ScriptReference/BuildTarget.html) 和 [GraphicsTier](https://docs.unity3d.com/cn/2021.1/ScriptReference/Rendering.GraphicsTier.html) 来覆盖 Unity 的内部 #define。
+在内置渲染管线中，可以使用 [EditorGraphicsSettings.SetShaderSettingsForPlatform](https://docs.unity3d.com/cn/2021.1/ScriptReference/EditorGraphicsSettings.SetTierSettings.html) API 针对给定的 [BuildTarget](https://docs.unity3d.com/cn/2021.1/ScriptReference/BuildTarget.html) 和 [GraphicsTier](https://docs.unity3d.com/cn/2021.1/ScriptReference/Rendering.GraphicsTier.html) 来覆盖 Unity 的内部 `#define`。
 
 该功能仅与内置渲染管线兼容。它不兼容通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义的可编程渲染管线。
 
