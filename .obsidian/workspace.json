@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
               }
             }
           }
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -154,11 +154,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "ff43f99a968ce193",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "引擎Unity3D/Unity操作指南.md",
     "zBuffer/Include 文件.md",
@@ -170,7 +171,6 @@
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zip/images/1686645065208.png",
     "zip/images/1686645065163.png",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "技术美术/PBR/PBR白皮书/media/5-PBR-The-Geometry-Function.png",
     "Zstore/v2-194d685244aaf670e9bce1664c70086a_1440w.webp",
     "Zstore/v2-f7bb8a99be02accbf5dbc37666ad99ef_1440w.webp",
