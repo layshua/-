@@ -179,17 +179,41 @@ KeywordEnum和Enum使用上有些不同，区别在于KeywordEnum类似于if-els
 ![img](https://91maketop.github.io/ta/ShaderLab%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C%EF%BC%88%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BF%EF%BC%89/Shader%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7.assets/20200421113507377.png)
 
 ## SubShader
+```cs file:SubShader的大致结构
+SubShader
+{
+    //标签
+    Tags { "TagName1" = "valuel" "TagName2" = "value2" ...}
+    //渲染状态
+    Cull Back
+
+    Pass
+    {
+        //第一个 Pass
+    }
+    
+    Pass
+    {
+        //第二个 Pass
+    }
+    ...
+}
+```
 
 在 Unity 中，每一个 Shader 都会包含至少一个 SubShader。当 Unity 想要显示一个物体的时候，它就会去检测这些 SubShader，然后选择第一个能够在当前显卡运行的 SubShader。
 **每个 SubShader 都可以设置一个或者多个标签（Tags）和渲染状态（States），然后定义至少一个 Pass**。在 SubShader 中设置的渲染状态会影响到该 SubShader 中所有的 Pass，如果想要某些状态不影响其他 Pass，可以针对某个 Pass 单独设置渲染状态。但是需要注意的是，部分渲染状态在 Pass 中并不支持。
 ### Tags
-SubShader 通过标签来确定什么时候以及如何对物体进行渲染。
+
+SubShader 通过标签来**确定什么时候以及如何对物体进行渲染。**
+
 标签通过**键值对**的形式进行声明，并且没有使用数量的限制。如果有需要，可以使用任意多个标签。
 ```
 Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
 ```
 
-### 渲染队列
+#### Queue
+
+在 SubShader 中可以使用 Queue（队列）标签**确定物体的渲染顺序**
 
 |队列名称|**功能** |队列号|
 | :---------- | :------------------------ | :------------------------ |
@@ -199,9 +223,76 @@ Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
 | Transparent |在这个队列的几何体按由远及近的顺序进行绘制, 所有进行 Alpha 混合的几何体都应该使用这个队列, 例如玻璃材质、粒子特效等|3000|
 | Overlay     |用来叠加渲染的效果，例如镜头光晕等, 放在最后渲染|4000|
 
+除了使用 Unity 预定义的渲染队列，使用者也可以自己指定一个队列，例如：
+`Tags { "Queue" = "Geometry+1" }`
+这个队列的队列号其实就是 2001，表示在所有的非透明几何体绘制完成之后再进行绘制。
+使用自定义的渲染队列在某些情况下非常有用，例如：透明的水应该在所有不透明几何体之后，透明几何体之前被绘制，所以透明水的渲染队列一般会使用`"Queue"="Transparent-1"`。
+
+#### RenderType
+RenderType（渲染类型）标签可以将 Shader 划分为不同的类别，用于后期进行 Shader 替换或者产生摄像机的深度纹理
+
+|类型名称| 描述 |
+|:--|:--|
+|Opaque |用于普通 Shader, 例如: 不透明、自发光、反射、地形 Shader|
+|Transparent|用于半透明 Shader, 例如: 透明﹑粒子|
+|TransparentCutout|用于透明测试 Shader, 例如: 植物叶子|
+|Background|用于 Skybox Shader|
+|Overlay|用于 GUI 纹理、Halo、 Flare Shader |
+|TreeOpaque|用于地形系统中的干|
+|TreeTransparentCutout|用于地形系统中的树叶|
+|TreeBillboard|用于地形系统中的 Billboarded 树|
+|Grass|用于地形系统中的草|
+|GrassBillboard|用于地形系统中的 Billboarded 草|
+|  |  |
+
+#### 禁用批处理
+**当使用批处理（Batching）的时候，几何体会被变换到世界空间，模型空间会被丢弃。** 这会导致某些使用模型空间顶点数据的 Shader 最终无法实现所希望的效果。而开启 `DisableBatching`（禁用批处理）可以解决这个问题。
+禁用批处理标签有三个数值可以使用：
+（1）"DisableBatching"="True"：总是禁用批处理。
+（2）"DisableBatching"="False"：不禁用批处理，这是默认数值。
+（3）"DisableBatching"="LODFading"：当 LOD 效果激活的时候才会禁用批处理，主要用于地形系统上的树。
+
+#### 禁止阴影投射
+在游戏中，有很多特效类的物体并不需要对其他物体产生投影，这个时候可以使用`"ForceNoShadowCasting"`（禁止阴影投射）标签来达到需要实现的效果。只要将这个标签的数值设置为 true，那么使用这个 Shader 的物体就不会对其他物体产生投射阴影了。
+
+#### 忽略 Projector
+如果不希望物体受到 Projector（投影机）的投射，可以在 Shader 中添加 `IgnoreProjector` 标签。它有两个数值可以使用："True"和"False"，分别为忽略投射机和不忽略投射机。一般半透明的 Shader 都会开启这个标签。
+
+- ! 除此之外，Unity 还提供了其他可以设置的 Tags，待补充...
+### Pass 的渲染状态
+如果想某些 Pass 的渲染状态不影响到其他的 Pass，可以在该 Pass 中单独设置渲染状态。这些渲染状态在 SubShader 中同样被允许使用，需要特别注意的是，在 SubShader 中使用会影响到该 SubShader 中的所有 Pass。
+
+|渲染状态|数值|作用|
+|:--|:--|:--|
+|Cull|Cull Back/Front/ Off|设置多边形的剔除方式, 有背面剔除、正面剔除、不剔除﹐默认为 Back|
+|ZTest|ZTest (Less/Greater/LEqual/GEqual/Equal/NotEquall /Always)|设置深度测试的对比方式, 默认为 LEqual |
+|ZWrite|ZWrite On/ Off|设置是否写入深度缓存, 默认为 On |
+|Blend|Blend  sourceBlendMode  destBlendMode|设置渲染图像的混合方式|
+|ColorMask|ColorMask RGB/A/0/或者 R、G、B、A 的任意组合|设置颜色通道的写入蒙版﹐默认蒙版为 RGBA, 当设置为 0 时, 则无法写入任何颜色|
+
+- ! 除此之外，Unity 还提供了其他可以设置的渲染状态，待补充...
+
+### Fallback
+Fallback 在所有 SubShader 之后进行定义。当所有的 SubShader 都不能在当前显卡上运行的时候，就会运行 Fallback 定义的 Shader。它的语法如下：
+`Fallback "name"`
+最常用于 Fallback 的 Shader 为 Unity 内置的 Diffuse。
+如果觉得某些 Shader 肯定可以在目标显卡上运行，没有指定 Fallback 的必要，可以使用 Fallback Off 关闭 Fallback 功能，或者直接什么都不写。
+
+# CG 语法基础
+在 Unity Shader 中，ShaderLab 语言只是起到组织代码结构的作用，而真正实现渲染效果的部分是用 CG 语言编写的。
+CG 程序片段通过指令嵌入在 Pass 中，夹在 Pass 中的指令 CGPROGRAM 和 ENDCG 之间
+
+在 CG 程序片段之前，通常需要先使用 `#pragma`声明编译指令
+
+|编译指令 |作用|
+|:--|:--|
+|`#pragma vertex name`|定义顶点着色器的名称, 通常会使用 vert|
+|`#pragma fragment name`|定义片段着色器的名称, 通常会使用 frag|
+|`#pragma target name`|定义 Shader 要编译的目标级别﹐默认 2.5|
 
 
-#  include 文件
+
+# Unity 的 include 文件
 
 Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
 
