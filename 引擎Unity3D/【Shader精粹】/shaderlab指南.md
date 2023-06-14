@@ -1,6 +1,17 @@
 [Unity小白的TA之路-Shader开发|图形渲染管线|URP|性能优化|图形渲染|PostProcessing (91maketop.github.io)](https://91maketop.github.io/ta/#/README)
 # ShaderLab 语法基础
-# 名称
+## ShaderLab 组织结构
+Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
+
+在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
+假如当前 GPU 的硬件版本太旧，以至于所有的子着色器都无法正常运行时，则执行最后的回退（Fallback）命令，运行指定的一个基础着色器。
+
+如果编写的是顶点-片段着色器（Vertex-Fragment Shader），每个子着色器中还会包含一个甚至多个 Pass。在运行的过程中，如果某个子着色器能够在当前 GPU 上运行，那么该子着色器内的所有 Pass 会依次执行，每个 Pass 的输出的结果会以指定的方式与上一步的结果进行混合，最终输出。
+
+如果编写的是表面着色器（Surface Shader），着色器的代码也是包含在子着色器中，但是与顶点-片段着色器不同的是，表面着色器不会再嵌套 Pass。系统在编译表面着色器的时候会自动生成多个对应的 Pass，最终编译出来的 Shader 本质上就是顶点-片段着色器。
+
+
+## 名称
 
 Shader 程序的第一行代码用来声明该 Shader 的名称以及所在路径。
 
@@ -17,69 +28,96 @@ Shader "Unlit/Path_1/Path_2/NewUnlitShader"
 ```
 
 ## Properties
+```c file:所有类型属性汇总
+Properties
+{
+    _MyFloat ( "Float Property",Float) = 1                 //浮点类型
+    _MyRange ( "Range Property" , Range(0, 1)) = 0.1       //范围类型
+    _MyColor ( "Color Property" ,Color) = (1, 1, 1, 1)     //颜色类型
+    _MyVector ( "Vector Property" , Vector) = (0, 1, 0, 0) //向量类型
+    _MyTex ( "Texture Property", 2D) = "white"{}           //2D 贴图类型
+    _MyCube ( "Cube Property" ,Cube) = ""{}                //立方体贴图类型
+    _My3D ( "3D Property", 3D)= ""{}                       //3D 贴图类型
 
-## ShaderLab 组织结构
-Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
-
-在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
-假如当前 GPU 的硬件版本太旧，以至于所有的子着色器都无法正常运行时，则执行最后的回退（Fallback）命令，运行指定的一个基础着色器。
-
-如果编写的是顶点-片段着色器（Vertex-Fragment Shader），每个子着色器中还会包含一个甚至多个 Pass。在运行的过程中，如果某个子着色器能够在当前 GPU 上运行，那么该子着色器内的所有 Pass 会依次执行，每个 Pass 的输出的结果会以指定的方式与上一步的结果进行混合，最终输出。
-
-如果编写的是表面着色器（Surface Shader），着色器的代码也是包含在子着色器中，但是与顶点-片段着色器不同的是，表面着色器不会再嵌套 Pass。系统在编译表面着色器的时候会自动生成多个对应的 Pass，最终编译出来的 Shader 本质上就是顶点-片段着色器。
-
-
-#  include 文件
-
-Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
-
-```
-CGPROGRAM
-// ...
-#include"UnityCG.cginc"
-// ...
-ENDCG
+}
 ```
 
-Unity 中的着色器 include 文件采用 `.cginc` 扩展名，内置的着色器 include 文件包括：
+Unity Shader 的属性主要分为三大类：数值、颜色和向量、纹理贴图，每一条属性都是按照以下语法进行定义的：
+`_Name ("Display Name", type) = defaultValue ［{options}］`
+（1）`_Name`：属性的名字。为了方便获取，通常在名字的最前加一个下画线，后续在整个 Shader 中都将使用这个名称来获取该属性。
+（2）`Display Name`：在材质面板中显示出来的名称。
+（3）`type`：属性的类型。
+（4）`defaultValue`：将 Shader 指定给材质的时候初始化的默认值。
 
-- `HLSLSupport.cginc` -_（自动包含）_用于跨平台着色器编译的 helper 宏和定义。
+#### 数值属性
+**Unity Shader 的数值类属性基本都是浮点型（Float）数据，虽然 Unity 提供了整数型（Int）数据，但是在编译的时候最终都会转化为浮点型数据。**
 
-- `UnityShaderVariables.cginc` -_（自动包含）_常用的全局变量。
+```
+name ("display name", Float) = number
+name ("display name", Int) = number
+name ("display name", Range (min, max)) = number
+```
 
-- `UnityCG.cginc` - 常用的 [helper 函数](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinFunctions.html)。
+Float 是任意数值的浮点型数据，在材质面板上作为数字输入框显示。
+Range 是一个介于最大值和最小值之间的浮点型数据，在材质面板作为滑动条显示。
 
-- `AutoLight.cginc` - 光照和阴影功能，例如[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)在内部使用此文件。
+#### 颜色和向量属性
 
-- `Lighting.cginc` - 标准[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)光照模型；当您编写表面着色器时会自动包含。
+```
+name ("display name", Color) = (number,number,number,number)
+name ("display name", Vector) = (number,number,number,number)
+```
 
-- `TerrainEngine.cginc` - 地形和植被着色器的 helper 函数。
+使用给定 RGBA 分量的默认值定义颜色属性，或使用默认值定义 4D 矢量属性。颜色属性会显示拾色器，并根据颜色空间按需进行调整。矢量属性显示为四个数字字段。
 
-如果您要查看任何 helper 代码具体执行的操作，可在 Unity 应用程序中找到这些文件（Windows 上位于 **{unity 安装路径}/Data/CGIncludes/UnityCG.cginc__，Mac 上位于** /Applications/Unity/Unity.app/Contents/CGIncludes/UnityCG.cginc__）。
+有一点需要注意的是：用 Photoshop 处理图片一般会使用8位深度图，每个通道的亮度最大值为 $2^8=256$，由于从 $0$ 开始计算，因此数值范围是 $[0，255]$。
+而**在 Shader 中，每个分量的数值范围是 $[0,1]$**
+![[Pasted image 20230614183329.png|500]]
+#### 纹理贴图属性
 
-## HLSLSupport.cginc
+```
+name ("display name", 2D) = "defaulttexture" {}
+name ("display name", Cube) = "defaulttexture" {}
+name ("display name", 3D) = "defaulttexture" {}
+```
 
-编译 CGPROGRAM 着色器时会自动包含此文件（但不会对 HLSLPROGRAM 着色器包含此文件）。此文件声明各种[预处理器宏](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinMacros.html)以帮助进行多平台着色器开发。
+（1）2D 属性是纹理类属性中最常使用的，漫反射贴图、法线贴图等都属于 2D 类型。
+（2）Cube 全称 Cube map texture（立方体纹理），是由前、后、左、右、上、下 6 张有联系的 2D 贴图拼成的立方体，主要用作反射，例如 Skybox 和 Reflection Prob。
+（3）3D 纹理只能被脚本创建
 
-## UnityShaderVariables.cginc
+2D 类型的属性，默认值可以为空字符串，也可以是内置的表示颜色的字符串：`“white”（RGBA: 1，1，1，1）`，`“black”（RGBA：0，0，0，0）`，`“gray”（RGBA：0.5，0.5，0.5，0.5）`，`“bump”（RGBA：0.5，0.5，1，0.5）` 和 `“red”（RGBA：1，0，0，0）`。
+至于非2D 类型的属性（Cube，3D，2DArray），默认值为空字符串。当材质没有指定 Cubemap 或者3D 或者2DArray 纹理的时候，会默认使用 `gray（RGBA：0.5，0.5，0.5，0.5）`。
 
-编译 CGPROGRAM 着色器时会自动包含此文件（但不会对 HLSLPROGRAM 着色器包含此文件）。此文件声明着色器中常用的各种[内置全局变量](https://docs.unity3d.com/cn/2021.1/Manual/SL-UnityShaderVariables.html)。
+> [!info] 纹理贴图类的属性最后都有一对空的花括号
+这是因为在 Unity 5.0 之前的版本，纹理属性可以在花括号内添加选项，用于控制固定函数纹理坐标的生成。但是**该功能在 Unity 5.0 及以后的版本中已经被移除，所以无须考虑这个问题，直接加上一对空的花括号即可。**
 
-## UnityCG.cginc
+### 详细信息
 
-Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper 函数](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinFunctions.html)和数据结构。
+着色器中的每个属性均通过 **name** 引用（在 Unity 中，着色器属性名称通常以下划线开头）。属性在材质检视面板中将显示为 **display name**。每个属性都在等号后给出默认值：
 
-#### UnityCG.cginc 中的数据结构
+- 对于 _Range_ 和 _Float_ 属性，默认值仅仅是单个数字，例如“13.37”。
+- 对于 _Color_ 和 _Vector_ 属性，默认值是括在圆括号中的四个数字，例如“(1,0.5,0.2,1)”。
+- 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）、“black”（RGBA：0,0,0,0）、“gray”（RGBA：0.5,0.5,0.5,0.5）、“bump”（RGBA：0.5,0.5,1,0.5）或“red”（RGBA：1,0,0,0）。其中“bump”通常用于法线体贴图的默认值。
+- 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
 
-- struct `appdata_base`：顶点着色器输入，包含位置、法线和一个纹理坐标。
+稍后在着色器的固定函数部分中，可使用括在方括号中的属性名称来访问属性值：*_[name]**。例如，可通过声明两个整数属性（例如“_SrcBlend“和”*DstBlend”）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://91maketop.github.io/ta/#/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
 
-- struct `appdata_tan`：顶点着色器输入，包含位置、法线、切线和一个纹理坐标。
+`Properties` 代码块中的着色器参数被序列化为[材质](https://91maketop.github.io/ta/#/Materials.html)数据。[着色器程序](https://91maketop.github.io/ta/#/SL-ShaderPrograms.html)实际上可以有更多参数（如矩阵、矢量和浮点数），这些参数在运行时从代码中在材质上设置，但如果它们不是 Properties 代码块的一部分，则不会保存它们的值。这对于完全由脚本代码驱动的值最有用（使用 [Material.SetFloat](https://91maketop.github.io/ta/#/../ScriptReference/Material.SetFloat.html) 和类似函数）。
 
-- struct `appdata_full`：顶点着色器输入，包含位置、法线、切线、顶点颜色和两个纹理坐标。
+### 属性特性和绘制器
 
-- struct `appdata_img`: 顶点着色器输入，包含位置和一个纹理坐标。
+在属性前面，可指定可选的特性（用方括号括起）。这些是 Unity 可以识别的特性，或者它们可以指示您自己的 [MaterialPropertyDrawer 类](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyDrawer.html) 来控制它们在[材质检视面板](https://91maketop.github.io/ta/#/class-Material.html)中的呈现方式。Unity 可以识别的特性包括：
 
-# 属性的常用特性
+- `[HideInInspector]` - does not show the property value in the Material inspector.
+- `[NoScaleOffset]` - material inspector will not show Texture tiling/offset fields for Texture properties with this attribute.
+- `[Normal]` - indicates that a Texture property expects a normal-map.
+- `[HDR]` - indicates that a Texture property expects a high-dynamic range (HDR) Texture.
+- `[Gamma]` - 表示在 UI 中将浮点/矢量属性指定为 sRGB 值（就像颜色一样），并且可能需要根据使用的颜色空间进行转换。请参阅[着色器程序中的属性](https://91maketop.github.io/ta/#/SL-PropertiesInPrograms.html)。
+- `[PerRendererData]` - indicates that a property will be coming from per-renderer data in the form of a [MaterialPropertyBlock](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyBlock.html). Material inspector shows these properties as read-only.
+- `[MainTexture]` - indicates that a property is the [main texture for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-mainTexture.html). By default, Unity considers a texture with the property name name `_MainTex` as the main texture. Use this attribute if your texture has a different property name, but you want Unity to consider it the main texture. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
+- `[MainColor]` - indicates that a property is the [main color for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-color.html). By default, Unity considers a color with the property name name `_Color` as the main color. Use this attribute if your color has a different property name, but you want Unity to consider it the main color. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
+
+### 属性的常用特性
 1. NoScaleOffset（隐藏 Tiling 和 Offset）
 
 `[NoScaleOffset]_MainTex ("Texture", 2D) = "white" {}`
@@ -139,6 +177,79 @@ KeywordEnum和Enum使用上有些不同，区别在于KeywordEnum类似于if-els
 使用如下：
 
 ![img](https://91maketop.github.io/ta/ShaderLab%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C%EF%BC%88%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BF%EF%BC%89/Shader%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7.assets/20200421113507377.png)
+
+## SubShader
+
+在 Unity 中，每一个 Shader 都会包含至少一个 SubShader。当 Unity 想要显示一个物体的时候，它就会去检测这些 SubShader，然后选择第一个能够在当前显卡运行的 SubShader。
+**每个 SubShader 都可以设置一个或者多个标签（Tags）和渲染状态（States），然后定义至少一个 Pass**。在 SubShader 中设置的渲染状态会影响到该 SubShader 中所有的 Pass，如果想要某些状态不影响其他 Pass，可以针对某个 Pass 单独设置渲染状态。但是需要注意的是，部分渲染状态在 Pass 中并不支持。
+### Tags
+SubShader 通过标签来确定什么时候以及如何对物体进行渲染。
+标签通过**键值对**的形式进行声明，并且没有使用数量的限制。如果有需要，可以使用任意多个标签。
+```
+Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
+```
+
+### 渲染队列
+
+|队列名称|**功能** |队列号|
+| :---------- | :------------------------ | :------------------------ |
+| Background  |指定背景渲染队列。最先执行渲染﹐一般用来渲染天空盒 (Skybox)或者背景|1000|
+|Geometry|指定几何体渲染队列。非透明的几何体通常使用这个队列, 当没有声明渲染队列的时候，Unity 会默认使用这个队列|2000|
+|AlphaTest|Alpha 测试的几何体会使用这个队列, 之所以从 Geometry 队列单独拆分出来，是因为当所有实体都绘制完之后再绘制 Alpha 测试会更高效 |2450|
+| Transparent |在这个队列的几何体按由远及近的顺序进行绘制, 所有进行 Alpha 混合的几何体都应该使用这个队列, 例如玻璃材质、粒子特效等|3000|
+| Overlay     |用来叠加渲染的效果，例如镜头光晕等, 放在最后渲染|4000|
+
+
+
+#  include 文件
+
+Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
+
+```
+CGPROGRAM
+// ...
+#include"UnityCG.cginc"
+// ...
+ENDCG
+```
+
+Unity 中的着色器 include 文件采用 `.cginc` 扩展名，内置的着色器 include 文件包括：
+
+- `HLSLSupport.cginc` -_（自动包含）_用于跨平台着色器编译的 helper 宏和定义。
+
+- `UnityShaderVariables.cginc` -_（自动包含）_常用的全局变量。
+
+- `UnityCG.cginc` - 常用的 [helper 函数](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinFunctions.html)。
+
+- `AutoLight.cginc` - 光照和阴影功能，例如[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)在内部使用此文件。
+
+- `Lighting.cginc` - 标准[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)光照模型；当您编写表面着色器时会自动包含。
+
+- `TerrainEngine.cginc` - 地形和植被着色器的 helper 函数。
+
+如果您要查看任何 helper 代码具体执行的操作，可在 Unity 应用程序中找到这些文件（Windows 上位于 **{unity 安装路径}/Data/CGIncludes/UnityCG.cginc__，Mac 上位于** /Applications/Unity/Unity.app/Contents/CGIncludes/UnityCG.cginc__）。
+
+## HLSLSupport.cginc
+
+编译 CGPROGRAM 着色器时会自动包含此文件（但不会对 HLSLPROGRAM 着色器包含此文件）。此文件声明各种[预处理器宏](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinMacros.html)以帮助进行多平台着色器开发。
+
+## UnityShaderVariables.cginc
+
+编译 CGPROGRAM 着色器时会自动包含此文件（但不会对 HLSLPROGRAM 着色器包含此文件）。此文件声明着色器中常用的各种[内置全局变量](https://docs.unity3d.com/cn/2021.1/Manual/SL-UnityShaderVariables.html)。
+
+## UnityCG.cginc
+
+Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper 函数](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinFunctions.html)和数据结构。
+
+#### UnityCG.cginc 中的数据结构
+
+- struct `appdata_base`：顶点着色器输入，包含位置、法线和一个纹理坐标。
+
+- struct `appdata_tan`：顶点着色器输入，包含位置、法线、切线和一个纹理坐标。
+
+- struct `appdata_full`：顶点着色器输入，包含位置、法线、切线、顶点颜色和两个纹理坐标。
+
+- struct `appdata_img`: 顶点着色器输入，包含位置和一个纹理坐标。
 
 # 变体和关键字
 
@@ -683,92 +794,6 @@ Unity 具有许多内置实用函数，旨在使编写着色器更简单，更�
 |:--|:--|
 |`float3 ShadeVertexLights (float4 vertex, float3 normal)`|根据给定的对象空间位置和法线计算四个每顶点光源和环境光的光照。|
 
-
-# ShaderLab属性语法与特性]
-
-着色器可以定义 Unity [材质检视面板](https://91maketop.github.io/ta/#/Materials.html)中由美术师设置的参数列表。[着色器文件](https://91maketop.github.io/ta/#/SL-Shader.html)中的 Properties 代码块将定义这些属性。
-
-## 语法
-
-#### 属性
-
-```
-Properties { Property [Property ...]}
-```
-
-定义属性代码块。在大括号内，多个属性定义如下。
-
-#### 数字和滑动条
-
-```
-name ("display name", Range (min, max)) = number
-name ("display name", Float) = number
-name ("display name", Int) = number
-```
-
-这些全都定义一个具有默认值的数字（标量）属性。`Range` 格式使该属性显示为一个滑动条，范围在 _min_ 到 _max_ 之间。
-
-#### 颜色和矢量
-
-```
-name ("display name", Color) = (number,number,number,number)
-name ("display name", Vector) = (number,number,number,number)
-```
-
-使用给定 RGBA 分量的默认值定义颜色属性，或使用默认值定义 4D 矢量属性。颜色属性会显示拾色器，并根据颜色空间按需进行调整（请参阅[着色器程序中的属性](https://91maketop.github.io/ta/#/SL-PropertiesInPrograms.html)）。矢量属性显示为四个数字字段。
-
-#### 纹理
-
-```
-name ("display name", 2D) = "defaulttexture" {}
-name ("display name", Cube) = "defaulttexture" {}
-name ("display name", 3D) = "defaulttexture" {}
-```
-
-Defines a [2D Texture](https://91maketop.github.io/ta/#/class-TextureImporter.html), [cubemap](https://91maketop.github.io/ta/#/class-Cubemap.html) or [3D (volume)](https://91maketop.github.io/ta/#/class-Texture3D.html) property respectively.
-
-## 详细信息
-
-着色器中的每个属性均通过 **name** 引用（在 Unity 中，着色器属性名称通常以下划线开头）。属性在材质检视面板中将显示为 **display name**。每个属性都在等号后给出默认值：
-
-- 对于 _Range_ 和 _Float_ 属性，默认值仅仅是单个数字，例如“13.37”。
-- 对于 _Color_ 和 _Vector_ 属性，默认值是括在圆括号中的四个数字，例如“(1,0.5,0.2,1)”。
-- 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）、“black”（RGBA：0,0,0,0）、“gray”（RGBA：0.5,0.5,0.5,0.5）、“bump”（RGBA：0.5,0.5,1,0.5）或“red”（RGBA：1,0,0,0）。
-- 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
-
-稍后在着色器的固定函数部分中，可使用括在方括号中的属性名称来访问属性值：*_[name]**。例如，可通过声明两个整数属性（例如“_SrcBlend“和”*DstBlend”）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://91maketop.github.io/ta/#/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
-
-`Properties` 代码块中的着色器参数被序列化为[材质](https://91maketop.github.io/ta/#/Materials.html)数据。[着色器程序](https://91maketop.github.io/ta/#/SL-ShaderPrograms.html)实际上可以有更多参数（如矩阵、矢量和浮点数），这些参数在运行时从代码中在材质上设置，但如果它们不是 Properties 代码块的一部分，则不会保存它们的值。这对于完全由脚本代码驱动的值最有用（使用 [Material.SetFloat](https://91maketop.github.io/ta/#/../ScriptReference/Material.SetFloat.html) 和类似函数）。
-
-### 属性特性和绘制器
-
-在属性前面，可指定可选的特性（用方括号括起）。这些是 Unity 可以识别的特性，或者它们可以指示您自己的 [MaterialPropertyDrawer 类](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyDrawer.html) 来控制它们在[材质检视面板](https://91maketop.github.io/ta/#/class-Material.html)中的呈现方式。Unity 可以识别的特性包括：
-
-- `[HideInInspector]` - does not show the property value in the Material inspector.
-- `[NoScaleOffset]` - material inspector will not show Texture tiling/offset fields for Texture properties with this attribute.
-- `[Normal]` - indicates that a Texture property expects a normal-map.
-- `[HDR]` - indicates that a Texture property expects a high-dynamic range (HDR) Texture.
-- `[Gamma]` - 表示在 UI 中将浮点/矢量属性指定为 sRGB 值（就像颜色一样），并且可能需要根据使用的颜色空间进行转换。请参阅[着色器程序中的属性](https://91maketop.github.io/ta/#/SL-PropertiesInPrograms.html)。
-- `[PerRendererData]` - indicates that a property will be coming from per-renderer data in the form of a [MaterialPropertyBlock](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyBlock.html). Material inspector shows these properties as read-only.
-- `[MainTexture]` - indicates that a property is the [main texture for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-mainTexture.html). By default, Unity considers a texture with the property name name `_MainTex` as the main texture. Use this attribute if your texture has a different property name, but you want Unity to consider it the main texture. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
-- `[MainColor]` - indicates that a property is the [main color for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-color.html). By default, Unity considers a color with the property name name `_Color` as the main color. Use this attribute if your color has a different property name, but you want Unity to consider it the main color. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
-
-## 示例
-
-```
-// 水着色器的属性
-Properties
-{
-    _WaveScale ("Wave scale", Range (0.02,0.15)) = 0.07 // 滑动条
-    _ReflDistort ("Reflection distort", Range (0,1.5)) = 0.5
-    _RefrDistort ("Refraction distort", Range (0,1.5)) = 0.4
-    _RefrColor ("Refraction color", Color) = (.34, .85, .92, 1) // 颜色
-    _ReflectionTex ("Environment Reflection", 2D) = "" {} // 纹理
-    _RefractionTex ("Environment Refraction", 2D) = "" {}
-    _Fresnel ("Fresnel (A) ", 2D) = "" {}
-    _BumpMap ("Bumpmap (RGB) ", 2D) = "" {}
-}
-```
 
 # 平台特定的渲染差异
 
