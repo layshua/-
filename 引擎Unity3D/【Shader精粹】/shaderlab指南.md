@@ -49,6 +49,21 @@ Unity Shader 的属性主要分为三大类：数值、颜色和向量、纹理�
 （3）`type`：属性的类型。
 （4）`defaultValue`：将 Shader 指定给材质的时候初始化的默认值。
 
+对应的声明：
+```cs file:在CG中声明属性变量
+float _MyFloat;         //浮点类型
+float _MyRange;         //范围类型
+fixed4 _MyColor;        //颜色类型
+float4 _MyVector;       //向量类型
+
+sampler2D _MyTex;       //2D贴图类型
+float4 _MyTex_ST;       //声明纹理变量的Tiling和Offset
+
+samplerCUBE _MyCube;    //立方体贴图类型
+
+sampler3D _My3D;        //3D贴图类型
+```
+
 #### 数值属性
 **Unity Shader 的数值类属性基本都是浮点型（Float）数据，虽然 Unity 提供了整数型（Int）数据，但是在编译的时候最终都会转化为浮点型数据。**
 
@@ -329,14 +344,16 @@ CG 程序片段通过指令嵌入在 Pass 中，夹在 Pass 中的指令 CGPROGR
 
 片段着色器会自动获取顶点着色器输出的裁切空间顶点坐标，**所以片段函数输入的 SV_POSITION 可以省略**。这也解释了为什么有些 Shader 的片段函数中只有输出参数，但是没有输入参数。
 **需要特别注意的是，与顶点函数的输入语义不同，`TEXCOORDn` 不再特指模型的 UV 坐标，`COLORn` 也不再特指顶点颜色。它们的使用范围更广，可以用于声明任何符合要求的数据，所以在使用过程中不要被语义的名称欺骗了。**
-
-
 ### 片段着色器输出语义
 片段着色器通常只会输出一个 fixed4 类型的颜色信息，输出的值会存储到渲染目标（Render Target）中，输出参数使用 `SV_TARGET` 语义进行填充。
+
+
+
 # Unity 的 include 文件
 
-Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
+为了提高代码的重复使用率以及 Shader 的编写速度，Unity 提供了一系列的包含文件，其中有预先定义的变量、各种辅助函数和空间变换矩阵等。
 
+在编写 Shader 时，只需要使用编译指令提前把对应的文件包含进 Shader，就可以直接使用了。与其他编译指令一样，包含文件的声明也要写在 CG 代码块内，它的语法结构如下所示：
 ```
 CGPROGRAM
 // ...
@@ -345,9 +362,11 @@ CGPROGRAM
 ENDCG
 ```
 
-Unity 中的着色器 include 文件采用 `.cginc` 扩展名，内置的着色器 include 文件包括：
+Unity 中的着色器 include 文件采用 `.cginc` 扩展名，如果使用的是 Windows 系统，Unity 所有的包含文件存放在安装目录`\Editor\Data\CGIncludes`\路径下。
 
-- `HLSLSupport.cginc` -_（自动包含）_用于跨平台着色器编译的 helper 宏和定义。
+内置的着色器 include 文件包括：
+
+- `HLSLSupport.cginc` -（自动包含）_用于跨平台着色器编译的 helper 宏和定义。
 
 - `UnityShaderVariables.cginc` -_（自动包含）_常用的全局变量。
 
