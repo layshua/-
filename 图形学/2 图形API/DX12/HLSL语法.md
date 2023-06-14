@@ -646,8 +646,8 @@ VertexPosHWNormalTex VS(VertexPosNormalTex pIn)
 
 这是向量左乘矩阵开始前时四个向量寄存器的值 (将`float4(pOut.PosW, 1.0f)`和`viewProj`交换)：
 
-![](1681897512168.png)
-
+| ![](1681897512168.png) |
+|  |
 也许有人会奇怪，怎么在开始运算前两边寄存器存储的内容会不一样。我们需要往前观察上一个语句产生的汇编 (默认 HLSL)：
 
 ![](1681897512210.png)

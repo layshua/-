@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/内置管线.md"
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
               }
             }
           }
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/内置管线.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -156,16 +156,17 @@
   },
   "active": "ff43f99a968ce193",
   "lastOpenFiles": [
+    "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+    "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+    "图形学/2 图形API/DX12/HLSL语法.md",
     "引擎Unity3D/Unity操作指南.md",
-    "引擎Unity3D/【Shader精粹】/内置管线.md",
     "zBuffer/Include 文件.md",
     "引擎Unity3D/头部项目/未命名.md",
     "AI/深度学习/《鱼书》.md",
     "技术美术/05 UnityShader/TA101.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "图形学/5 书籍/书单.md",
-    "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
-    "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zip/images/1686645065208.png",
     "zip/images/1686645065163.png",
@@ -191,7 +192,6 @@
     "图形学/书籍/《Real-Time Rendering 3rd》/第六章 · 纹理贴图及相关技术/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第五章 · 图形渲染与视觉外观/README.md",
     "图形学/书籍/《Real-Time Rendering 3rd》/第七章续 · 延迟渲染的前生今世/README.md",
-    "图形学/书籍/《Real-Time Rendering 3rd》/第十五章 · 渲染管线优化方法论/README.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",

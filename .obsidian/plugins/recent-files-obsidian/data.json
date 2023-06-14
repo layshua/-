@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "内置管线",
-      "path": "引擎Unity3D/【Shader精粹】/内置管线.md"
+      "basename": "shaderlab指南",
+      "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
+    },
+    {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
+    },
+    {
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
     {
       "basename": "Unity操作指南",
@@ -31,14 +39,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
-    },
-    {
-      "basename": "Unity 从 CSV 文件中读取数据 - 简书",
-      "path": "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -127,10 +127,6 @@
     {
       "basename": "DirectXMath",
       "path": "图形学/2 图形API/DX12/DirectXMath.md"
-    },
-    {
-      "basename": "HLSL语法",
-      "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
     {
       "basename": "README",
