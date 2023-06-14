@@ -284,14 +284,55 @@ CG 程序片段通过指令嵌入在 Pass 中，夹在 Pass 中的指令 CGPROGR
 
 在 CG 程序片段之前，通常需要先使用 `#pragma`声明编译指令
 
+## 编译指令
+### 编译目标等级
+
 |编译指令 |作用|
 |:--|:--|
 |`#pragma vertex name`|定义顶点着色器的名称, 通常会使用 vert|
 |`#pragma fragment name`|定义片段着色器的名称, 通常会使用 frag|
 |`#pragma target name`|定义 Shader 要编译的目标级别﹐默认 2.5|
 
+当编写完 Shader 程序之后，其中的 CG 代码可以被编译到不同的 Shader Models（简称 SM）中，为了能够使用更高级的 GPU 功能，需要对应使用更高等级的编译目标。同时，高等级的编译目标可能会导致 Shader 无法在旧的 GPU 上运行。
+
+声明编译目标的级别可以使用 `#pragma target name` 指令，或者也可以使用 `#pragma require feature` 指令直接声明某个特定的功能，
+
+```c
+#pragma target 3.5  //目标等级3.5
+#pragma require geometry tessellation //需要儿何体细分功能
+```
+
+### 渲染平台
+默认情况下，Unity 会为所有支持的平台编译一份 Shader 程序，不过可以通过编译指令 `#pragma only_renderers PlatformName` 或者 ` #pragma exclude_renderers PlatformName` 指定编译某些平台或不编译某些平台
+
+![[Pasted image 20230614194552.png]]
+
+## 着色器函数
+顶点函数和片段函数中支持的数据类型
+![[Pasted image 20230614194727.png]]
+
+## 语义
+参数后被冒号隔开并且全部大写的关键词就是语义。
+
+当使用 CG 语言编写着色器函数的时候，函数的输入参数和输出参数都需要填充一个语义（Semantic）来表示它们要传递的数据信息。语义可以执行大量烦琐的操作，使用户能够避免直接与 GPU 底层进行交流。
+
+### 顶点着色器输入语义
+![[Pasted image 20230614195139.png]]
+当顶点信息包含的元素少于顶点着色器输入所需要的元素时，**缺少的部分会被0填充，而 w 分量会被1填充**。例如：顶点的 UV 坐标通常是二维向量，只包含 x 和 y 元素。如果输入的语义 TEXCOORD0被声明为 float4类型，那么顶点着色器最终获取到的数据将变成（x，y，0，1）。
+
+### 顶点着色器输出和片段着色器输入语义
+在整个渲染流水线中，顶点着色器最重要的一项任务就是需要输出顶点在裁切空间中的坐标，这样 GPU 就可以知道顶点在屏幕上的栅格化位置以及深度值。在顶点函数中，这个输出参数需要使用 float4类型的 `SV_POSITION` 语义进行填充。
+
+顶点着色器产生的输出值将会在三角形遍历阶段经过插值计算，最终作为像素值输入到片段着色器。换句话说，顶点着色器的输入即为片段着色器的输入。
+
+![[Pasted image 20230614195313.png]]
+
+片段着色器会自动获取顶点着色器输出的裁切空间顶点坐标，**所以片段函数输入的 SV_POSITION 可以省略**。这也解释了为什么有些 Shader 的片段函数中只有输出参数，但是没有输入参数。
+**需要特别注意的是，与顶点函数的输入语义不同，`TEXCOORDn` 不再特指模型的 UV 坐标，`COLORn` 也不再特指顶点颜色。它们的使用范围更广，可以用于声明任何符合要求的数据，所以在使用过程中不要被语义的名称欺骗了。**
 
 
+### 片段着色器输出语义
+片段着色器通常只会输出一个 fixed4 类型的颜色信息，输出的值会存储到渲染目标（Render Target）中，输出参数使用 `SV_TARGET` 语义进行填充。
 # Unity 的 include 文件
 
 Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
@@ -1219,13 +1260,7 @@ samplerCUBE_float _Cubemap;
 
 移动端 GPU 的支持程度可能稍有不同。在某些移动端 GPU 中，将零除以零可能会导致 NaN（“非数字”）；在其他移动端 GPU 上，它可能会导致无穷大、零或任何其他不明值。务必在目标设备上测试着色器以检查着色器是否受支持。
 
-## 外部 GPU 文档
 
-GPU 供应商会提供有关其 GPU 性能和功能的深入指南。请参阅下文以了解详情：
-
-- [ARM Mali GPU 最佳实践开发者指南 (ARM Mali GPU Best Practices Developer Guide)](https://developer.arm.com/docs/101897/0200)
-- [Qualcomm Adreno OpenGL ES 开发者指南 (Qualcomm Adreno OpenGL ES Developer Guide)](https://developer.qualcomm.com/software/adreno-gpu-sdk/tools)
-- [PowerVR 架构指南 (PowerVR Architecture Guides)](https://community.imgtec.com/developers/powervr/documentation/)
 
 
 # 升级 URP
