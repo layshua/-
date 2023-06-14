@@ -1,4 +1,16 @@
 [Unity小白的TA之路-Shader开发|图形渲染管线|URP|性能优化|图形渲染|PostProcessing (91maketop.github.io)](https://91maketop.github.io/ta/#/README)
+
+# ShaderLab 语法基础
+Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
+
+在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
+假如当前 GPU 的硬件版本太旧，以至于所有的子着色器都无法正常运行时，则执行最后的回退（Fallback）命令，运行指定的一个基础着色器。
+
+如果编写的是顶点-片段着色器（Vertex-Fragment Shader），每个子着色器中还会包含一个甚至多个 Pass。在运行的过程中，如果某个子着色器能够在当前 GPU 上运行，那么该子着色器内的所有 Pass 会依次执行，每个 Pass 的输出的结果会以指定的方式与上一步的结果进行混合，最终输出。
+
+如果编写的是表面着色器（Surface Shader），着色器的代码也是包含在子着色器中，但是与顶点-片段着色器不同的是，表面着色器不会再嵌套 Pass。系统在编译表面着色器的时候会自动生成多个对应的 Pass，最终编译出来的 Shader 本质上就是顶点-片段着色器。
+
+
 #  include 文件
 
 Unity 提供了若干文件供[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)用于引入预定义的变量和 helper 函数。这可以通过标准 `#include` 指令来完成，例如：
