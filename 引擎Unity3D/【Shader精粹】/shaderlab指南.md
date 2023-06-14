@@ -1,6 +1,6 @@
 [Unity小白的TA之路-Shader开发|图形渲染管线|URP|性能优化|图形渲染|PostProcessing (91maketop.github.io)](https://91maketop.github.io/ta/#/README)
 # ShaderLab 语法基础
-## ShaderLab 组织结构
+## 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
 
 在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
@@ -364,27 +364,133 @@ ENDCG
 
 Unity 中的着色器 include 文件采用 `.cginc` 扩展名，如果使用的是 Windows 系统，Unity 所有的包含文件存放在安装目录`\Editor\Data\CGIncludes`\路径下。
 
-内置的着色器 include 文件包括：
-
+常用的 include 文件包括：
 - `HLSLSupport.cginc` **（自动包含）** 用于跨平台着色器编译的 helper 宏和定义。
-
 - `UnityShaderVariables.cginc` **（自动包含）** 常用的全局变量。
-
 - `UnityCG.cginc` 常用的 [helper 函数](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinFunctions.html)。
 
-- `AutoLight.cginc` 光照和阴影功能，例如[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)在内部使用此文件。
-
-- `Lighting.cginc` 标准[表面着色器](https://docs.unity3d.com/cn/2021.1/Manual/SL-SurfaceShaders.html)光照模型；当您编写表面着色器时会自动包含。
-
-- `TerrainEngine.cginc` 地形和植被着色器的 helper 函数。
+其他 include 文件：
+![[Pasted image 20230614232035.png]]
 
 ## HLSLSupport.cginc
-
+**（自动包含）** 用于跨平台着色器编译的 helper 宏和定义。
 
 
 ## UnityShaderVariables.cginc
+**（自动包含）** 常用的全局变量。
+
+### 空间变换矩阵
+Unity 提供了很多空间变换矩阵，可以直接使用 CG 函数 `mul(Matrix，Vertex)` 将顶点在不同空间之间进行变换。
+![[Pasted image 20230614231825.png]]
+
+所有这些矩阵都是 `float4x4` 类型，并且是列主序的。
+
+| 名称                  | 值                 |
+|---------------------|-------------------|
+| UNITY_MATRIX_MVP    | 当前模型 * 视图 * 投影矩阵。 |
+| UNITY_MATRIX_MV     | 当前模型 * 视图矩阵。      |
+| UNITY_MATRIX_V      | 当前视图矩阵。           |
+|UNITY_MATRIX_P| 当前投影矩阵。           |
+| UNITY_MATRIX_VP     | 当前视图 * 投影矩阵。      |
+| UNITY_MATRIX_T_MV   | 模型转置 * 视图矩阵。      |
+| UNITY_MATRIX_IT_MV  | 模型逆转置 * 视图矩阵。     |
+| unity_ObjectToWorld | 当前模型矩阵。           |
+| unity_WorldToObject | 当前世界矩阵的逆矩阵。       |
 
 
+### 摄像机和屏幕
+
+这些变量将对应于正在渲染的[摄像机](https://docs.unity3d.com/cn/2021.1/Manual/class-Camera.html)。例如，在阴影贴图渲染中，它们仍将引用摄像机组件值，而不是用于阴影贴图投影的“虚拟摄像机”。
+
+| 名称                       | 类型     | 值                              |
+| ------------------------------ | -------- | ------------------------------------------------------------ |
+|` _WorldSpaceCameraPos`           | float3   | 摄像机的世界空间位置。                                       |
+| `_ProjectionParams`              | float4   | `x` 是 1.0（如果当前使用[翻转投影矩阵](https://docs.unity3d.com/cn/2021.1/Manual/SL-PlatformDifferences.html)进行渲染，则为 –1.0），`y` 是摄像机的近平面，`z` 是摄像机的远平面，`w` 是远平面的倒数。 |
+| `_ScreenParams`                  | float4   | `x` 是摄像机目标纹理的宽度（以像素为单位），`y` 是摄像机目标纹理的高度（以像素为单位），`z` 是 1.0 + 1.0/宽度，`w` 为 1.0 + 1.0/高度。 |
+| `_ZBufferParams`                 | float4   | 用于线性化 Z 缓冲区值。`x` 是 (1-远/近)，`y` 是 (远/近)，`z` 是 (x/远)，`w` 是 (y/远)。 |
+| unity_OrthoParams              | float4   | `x` 是正交摄像机的宽度，`y` 是正交摄像机的高度，`z` 未使用，`w` 在摄像机为正交模式时是 1.0，而在摄像机为透视模式时是 0.0。 |
+| unity_CameraProjection         | float4x4 | 摄像机的投影矩阵。                                           |
+| unity_CameraInvProjection      | float4x4 | 摄像机投影矩阵的逆矩阵。                                     |
+| unity_CameraWorldClipPlanes[6] | float4   | 摄像机视锥体平面世界空间方程，按以下顺序：左、右、底、顶、近、远。 |
+
+### 时间
+
+时间以秒为单位，并由项目 [Time 设置](https://docs.unity3d.com/cn/2021.1/Manual/class-TimeManager.html)中的时间乘数 (Time multiplier) 进行缩放。没有内置变量可用于访问未缩放的时间。
+
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|`_Time`|float4|自关卡加载以来的时间 (t/20, t, t_2, t_3)，用于将着色器中的内容动画化。|
+|`_SinTime`|float4|时间正弦：(t/8, t/4, t/2, t)。|
+|`_CosTime`|float4|时间余弦：(t/8, t/4, t/2, t)。|
+|unity_DeltaTime|float4|增量时间：(dt, 1/dt, smoothDt, 1/smoothDt)。|
+
+### 光照
+
+光源参数以不同的方式传递给着色器，具体取决于使用哪个[渲染路径](https://docs.unity3d.com/cn/2021.1/Manual/RenderingPaths.html)， 以及着色器中使用哪种光源模式[通道标签](https://docs.unity3d.com/cn/2021.1/Manual/SL-PassTags.html)。
+
+[前向渲染](https://docs.unity3d.com/cn/2021.1/Manual/RenderTech-ForwardRendering.html)（`ForwardBase` 和 `ForwardAdd` 通道类型）：
+
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|`_LightColor0`（在 UnityLightingCommon.cginc 中声明）|fixed4|光源颜色。|
+|`_WorldSpaceLightPos0`|float4|方向光：（世界空间方向，0）。其他光源：（世界空间位置，1）。|
+|unity_WorldToLight（在 AutoLight.cginc 中声明）|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
+|unity_4LightPosX0、unity_4LightPosY0、unity_4LightPosZ0|float4|（仅限 ForwardBase 通道）前四个非重要点光源的世界空间位置。|
+|unity_4LightAtten0| float4      | （仅限 ForwardBase 通道）前四个非重要点光源的衰减因子。    |
+|unity_LightColor|half4[4]| （仅限 ForwardBase 通道）前四个非重要点光源的颜色。        |
+|unity_WorldToShadow| float4x4[4] | 世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。  |
+
+
+
+延迟着色和延迟光照，在光照通道着色器中使用（全部在 UnityDeferredLibrary.cginc 中声明）：
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|`_LightColor`|float4|光源颜色。|
+|unity_WorldToLight|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
+|unity_WorldToShadow|float4x4[4]|世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。|
+
+为 `ForwardBase`、`PrePassFinal` 和 `Deferred` 通道类型设置了球谐函数系数 （由环境光和光照探针使用）。这些系数包含由世界空间法线求值的三阶 SH 函数（请参阅 [UnityCG.cginc](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinIncludes.html) 中的 `ShadeSH9`）。 这些变量都是 half4 类型、`unity_SHAr` 和类似名称。
+
+[顶点光照渲染](https://docs.unity3d.com/cn/2021.1/Manual/RenderTech-VertexLit.html)（`Vertex` 通道类型）：
+
+最多可为 `Vertex` 通道类型设置 8 个光源；始终从最亮的光源开始排序。因此，如果您希望 一次渲染受两个光源影响的对象，可直接采用数组中前两个条目。如果影响对象 的光源数量少于 8，则其余光源的颜色将设置为黑色。
+
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|unity_LightColor|half4[8]|光源颜色。|
+|unity_LightPosition|float4[8]|视图空间光源位置。方向光为 (-direction,0)；点光源/聚光灯为 (position,1)。|
+|unity_LightAtten|half4[8]|光源衰减因子。_x_ 是 cos(spotAngle/2) 或 –1（非聚光灯）；_y_ 是1/cos(spotAngle/4) 或 1（非聚光灯）；_z_ 是二次衰减；_w_ 是平方光源范围。|
+|unity_SpotDirection|float4[8]|视图空间聚光灯位置；非聚光灯为 (0,0,1,0)。|
+
+### 光照贴图
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|unity_Lightmap|Texture2D|包含光照贴图信息。|
+|unity_LightmapST|float4[8]|缩放 UV 信息并转换到正确的范围以对光照贴图纹理进行采样。|
+
+### 雾效和环境光
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|unity_AmbientSky|fixed4|梯度环境光照情况下的天空环境光照颜色。|
+|unity_AmbientEquator|fixed4|梯度环境光照情况下的赤道环境光照颜色。|
+|unity_AmbientGround|fixed4|梯度环境光照情况下的地面环境光照颜色。|
+|UNITY_LIGHTMODEL_AMBIENT|fixed4|环境光照颜色（梯度环境情况下的天空颜色）。旧版变量。|
+|unity_FogColor|fixed4|雾效颜色。|
+|unity_FogParams|float4|用于雾效计算的参数：(density / sqrt(ln(2))、density / ln(2)、–1/(end-start) 和 end/(end-start))。_x_ 对于 Exp2 雾模式很有用；_y_ 对于 Exp 模式很有用，_z_ 和 _w_ 对于 Linear 模式很有用。|
+
+### 其他
+
+
+|**名称**|**类型**|**值**|
+|:--|:--|:--|
+|unity_LODFade|float4|使用 [LODGroup](https://docs.unity3d.com/cn/2021.1/Manual/class-LODGroup.html) 时的细节级别淡入淡出。_x_ 为淡入淡出（0 到 1），_y_ 为量化为 16 级的淡入淡出，_z_ 和 _w_ 未使用。|
+|`_TextureSampleAdd`|float4|根据所使用的纹理是 Alpha8 格式（值设置为 (1,1,1,0)）还是不是该格式（值设置为 (0,0,0,0)）由 Unity **仅针对 UI** 自动设置。|
 
 ## UnityCG.cginc
 
@@ -656,123 +762,6 @@ Unity 首次加载应用程序时，它会检测到 `GraphicsTier` 并将结�
 该功能仅与内置渲染管线兼容。它不兼容通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义的可编程渲染管线。
 
 请注意，如果您为给定的 `BuildTarget` 的不同 `GraphicsTier` 提供不同的 `TierSettings` 值，即使您未向着色器代码添加 `#pragma hardware_tier_variants`，Unity 也会为着色器生成层变体。
-
-# 变量
-
-Unity 的内置文件包含着色器的全局变量：当前对象的变换矩阵、光源参数、当前时间等等。就像任何其他变量一样，可在[着色器程序](https://docs.unity3d.com/cn/2021.1/Manual/SL-ShaderPrograms.html)中使用这些变量，但如果已经包含相关的 include 文件，则不必声明这些变量。
-
-有关 include 文件更多信息，请参阅[内置 include 文件](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinIncludes.html)。
-
-## 变换
-
-所有这些矩阵都是 `float4x4` 类型，并且是列主序的。
-
-| 名称                  | 值                 |
-|---------------------|-------------------|
-| UNITY_MATRIX_MVP    | 当前模型 * 视图 * 投影矩阵。 |
-| UNITY_MATRIX_MV     | 当前模型 * 视图矩阵。      |
-| UNITY_MATRIX_V      | 当前视图矩阵。           |
-|UNITY_MATRIX_P| 当前投影矩阵。           |
-| UNITY_MATRIX_VP     | 当前视图 * 投影矩阵。      |
-| UNITY_MATRIX_T_MV   | 模型转置 * 视图矩阵。      |
-| UNITY_MATRIX_IT_MV  | 模型逆转置 * 视图矩阵。     |
-| unity_ObjectToWorld | 当前模型矩阵。           |
-| unity_WorldToObject | 当前世界矩阵的逆矩阵。       |
-
-
-## 摄像机和屏幕
-
-这些变量将对应于正在渲染的[摄像机](https://docs.unity3d.com/cn/2021.1/Manual/class-Camera.html)。例如，在阴影贴图渲染中，它们仍将引用摄像机组件值，而不是用于阴影贴图投影的“虚拟摄像机”。
-
-| 名称                       | 类型     | 值                              |
-| ------------------------------ | -------- | ------------------------------------------------------------ |
-|` _WorldSpaceCameraPos`           | float3   | 摄像机的世界空间位置。                                       |
-| `_ProjectionParams`              | float4   | `x` 是 1.0（如果当前使用[翻转投影矩阵](https://docs.unity3d.com/cn/2021.1/Manual/SL-PlatformDifferences.html)进行渲染，则为 –1.0），`y` 是摄像机的近平面，`z` 是摄像机的远平面，`w` 是远平面的倒数。 |
-| `_ScreenParams`                  | float4   | `x` 是摄像机目标纹理的宽度（以像素为单位），`y` 是摄像机目标纹理的高度（以像素为单位），`z` 是 1.0 + 1.0/宽度，`w` 为 1.0 + 1.0/高度。 |
-| `_ZBufferParams`                 | float4   | 用于线性化 Z 缓冲区值。`x` 是 (1-远/近)，`y` 是 (远/近)，`z` 是 (x/远)，`w` 是 (y/远)。 |
-| unity_OrthoParams              | float4   | `x` 是正交摄像机的宽度，`y` 是正交摄像机的高度，`z` 未使用，`w` 在摄像机为正交模式时是 1.0，而在摄像机为透视模式时是 0.0。 |
-| unity_CameraProjection         | float4x4 | 摄像机的投影矩阵。                                           |
-| unity_CameraInvProjection      | float4x4 | 摄像机投影矩阵的逆矩阵。                                     |
-| unity_CameraWorldClipPlanes[6] | float4   | 摄像机视锥体平面世界空间方程，按以下顺序：左、右、底、顶、近、远。 |
-
-## 时间
-
-时间以秒为单位，并由项目 [Time 设置](https://docs.unity3d.com/cn/2021.1/Manual/class-TimeManager.html)中的时间乘数 (Time multiplier) 进行缩放。没有内置变量可用于访问未缩放的时间。
-
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|`_Time`|float4|自关卡加载以来的时间 (t/20, t, t_2, t_3)，用于将着色器中的内容动画化。|
-|`_SinTime`|float4|时间正弦：(t/8, t/4, t/2, t)。|
-|`_CosTime`|float4|时间余弦：(t/8, t/4, t/2, t)。|
-|unity_DeltaTime|float4|增量时间：(dt, 1/dt, smoothDt, 1/smoothDt)。|
-
-## 光照
-
-光源参数以不同的方式传递给着色器，具体取决于使用哪个[渲染路径](https://docs.unity3d.com/cn/2021.1/Manual/RenderingPaths.html)， 以及着色器中使用哪种光源模式[通道标签](https://docs.unity3d.com/cn/2021.1/Manual/SL-PassTags.html)。
-
-[前向渲染](https://docs.unity3d.com/cn/2021.1/Manual/RenderTech-ForwardRendering.html)（`ForwardBase` 和 `ForwardAdd` 通道类型）：
-
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|`_LightColor0`（在 UnityLightingCommon.cginc 中声明）|fixed4|光源颜色。|
-|`_WorldSpaceLightPos0`|float4|方向光：（世界空间方向，0）。其他光源：（世界空间位置，1）。|
-|unity_WorldToLight（在 AutoLight.cginc 中声明）|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
-|unity_4LightPosX0、unity_4LightPosY0、unity_4LightPosZ0|float4|（仅限 ForwardBase 通道）前四个非重要点光源的世界空间位置。|
-|unity_4LightAtten0| float4      | （仅限 ForwardBase 通道）前四个非重要点光源的衰减因子。    |
-|unity_LightColor|half4[4]| （仅限 ForwardBase 通道）前四个非重要点光源的颜色。        |
-|unity_WorldToShadow| float4x4[4] | 世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。  |
-
-
-
-延迟着色和延迟光照，在光照通道着色器中使用（全部在 UnityDeferredLibrary.cginc 中声明）：
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|`_LightColor`|float4|光源颜色。|
-|unity_WorldToLight|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
-|unity_WorldToShadow|float4x4[4]|世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。|
-
-为 `ForwardBase`、`PrePassFinal` 和 `Deferred` 通道类型设置了球谐函数系数 （由环境光和光照探针使用）。这些系数包含由世界空间法线求值的三阶 SH 函数（请参阅 [UnityCG.cginc](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinIncludes.html) 中的 `ShadeSH9`）。 这些变量都是 half4 类型、`unity_SHAr` 和类似名称。
-
-[顶点光照渲染](https://docs.unity3d.com/cn/2021.1/Manual/RenderTech-VertexLit.html)（`Vertex` 通道类型）：
-
-最多可为 `Vertex` 通道类型设置 8 个光源；始终从最亮的光源开始排序。因此，如果您希望 一次渲染受两个光源影响的对象，可直接采用数组中前两个条目。如果影响对象 的光源数量少于 8，则其余光源的颜色将设置为黑色。
-
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|unity_LightColor|half4[8]|光源颜色。|
-|unity_LightPosition|float4[8]|视图空间光源位置。方向光为 (-direction,0)；点光源/聚光灯为 (position,1)。|
-|unity_LightAtten|half4[8]|光源衰减因子。_x_ 是 cos(spotAngle/2) 或 –1（非聚光灯）；_y_ 是1/cos(spotAngle/4) 或 1（非聚光灯）；_z_ 是二次衰减；_w_ 是平方光源范围。|
-|unity_SpotDirection|float4[8]|视图空间聚光灯位置；非聚光灯为 (0,0,1,0)。|
-
-## 光照贴图
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|unity_Lightmap|Texture2D|包含光照贴图信息。|
-|unity_LightmapST|float4[8]|缩放 UV 信息并转换到正确的范围以对光照贴图纹理进行采样。|
-
-## 雾效和环境光
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|unity_AmbientSky|fixed4|梯度环境光照情况下的天空环境光照颜色。|
-|unity_AmbientEquator|fixed4|梯度环境光照情况下的赤道环境光照颜色。|
-|unity_AmbientGround|fixed4|梯度环境光照情况下的地面环境光照颜色。|
-|UNITY_LIGHTMODEL_AMBIENT|fixed4|环境光照颜色（梯度环境情况下的天空颜色）。旧版变量。|
-|unity_FogColor|fixed4|雾效颜色。|
-|unity_FogParams|float4|用于雾效计算的参数：(density / sqrt(ln(2))、density / ln(2)、–1/(end-start) 和 end/(end-start))。_x_ 对于 Exp2 雾模式很有用；_y_ 对于 Exp 模式很有用，_z_ 和 _w_ 对于 Linear 模式很有用。|
-
-## 其他
-
-
-|**名称**|**类型**|**值**|
-|:--|:--|:--|
-|unity_LODFade|float4|使用 [LODGroup](https://docs.unity3d.com/cn/2021.1/Manual/class-LODGroup.html) 时的细节级别淡入淡出。_x_ 为淡入淡出（0 到 1），_y_ 为量化为 16 级的淡入淡出，_z_ 和 _w_ 未使用。|
-|`_TextureSampleAdd`|float4|根据所使用的纹理是 Alpha8 格式（值设置为 (1,1,1,0)）还是不是该格式（值设置为 (0,0,0,0)）由 Unity **仅针对 UI** 自动设置。|
 
 # 预定义的着色器预处理器宏
 
