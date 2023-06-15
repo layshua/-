@@ -89,7 +89,7 @@ $z,w$ 是直接在顶点着色器输出的裁剪空间的 z, w 值 (经过插值
 
 
 # ShaderLab 语法基础
-## 组织结构
+## 1 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
 
 在应用程序运行过程中，GPU 会先检测第一个子着色器能否正常运行，如果不能正常运行就会再检测第二个，以此类推。
@@ -100,7 +100,7 @@ Shader 中可以编写多个子着色器（SubShader），但至少需要一个�
 如果编写的是表面着色器（Surface Shader），着色器的代码也是包含在子着色器中，但是与顶点-片段着色器不同的是，表面着色器不会再嵌套 Pass。系统在编译表面着色器的时候会自动生成多个对应的 Pass，最终编译出来的 Shader 本质上就是顶点-片段着色器。
 
 
-## 名称
+## 2 名称
 
 Shader 程序的第一行代码用来声明该 Shader 的名称以及所在路径。
 
@@ -116,7 +116,7 @@ Shader "Unlit/NewUnlitShader"
 Shader "Unlit/Path_1/Path_2/NewUnlitShader"
 ```
 
-## Properties
+## 3 Properties
 
 ![[Pasted image 20230615092149.png]]
 
@@ -290,7 +290,7 @@ KeywordEnum和Enum使用上有些不同，区别在于KeywordEnum类似于if-els
 
 ![img](https://91maketop.github.io/ta/ShaderLab%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C%EF%BC%88%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BF%EF%BC%89/Shader%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7.assets/20200421113507377.png)
 
-## SubShader
+## 4 SubShader
 ```cs file:SubShader的大致结构
 SubShader
 {
@@ -314,7 +314,7 @@ SubShader
 
 在 Unity 中，每一个 Shader 都会包含至少一个 SubShader。当 Unity 想要显示一个物体的时候，它就会去检测这些 SubShader，然后选择第一个能够在当前显卡运行的 SubShader。
 **每个 SubShader 都可以设置一个或者多个标签（Tags）和渲染状态（States），然后定义至少一个 Pass**。在 SubShader 中设置的渲染状态会影响到该 SubShader 中所有的 Pass，如果想要某些状态不影响其他 Pass，**可以针对某个 Pass 单独设置渲染状态。但是需要注意的是，部分渲染状态在 Pass 中并不支持。**
-### Tags
+### （1）Tags
 
 ![[Pasted image 20230615092421.png]]
 >以上标签仅可以在 SubShader 中声明，不可以在 Pass 块中声明。
@@ -375,7 +375,7 @@ RenderType（渲染类型）标签可以将 Shader 划分为不同的类别，�
 如果不希望物体受到 Projector（投影机）的投射，可以在 Shader 中添加 `IgnoreProjector` 标签。它有两个数值可以使用："True"和"False"，分别为忽略投射机和不忽略投射机。一般半透明的 Shader 都会开启这个标签。
 
 - ! 除此之外，Unity 还提供了其他可以设置的 Tags，待补充...
-### 渲染状态
+### （2）渲染状态
 如果想某些 Pass 的渲染状态不影响到其他的 Pass，**可以在该 Pass 中单独设置渲染状态**。**这些渲染状态在 SubShader 中同样被允许使用**，需要特别注意的是，在 SubShader 中使用会影响到该 SubShader 中的所有 Pass。
 
 |渲染状态|数值|作用|
@@ -386,7 +386,7 @@ RenderType（渲染类型）标签可以将 Shader 划分为不同的类别，�
 |Blend|Blend  sourceBlendMode  destBlendMode|设置渲染图像的混合方式|
 |ColorMask|ColorMask RGB/A/0/或者 R、G、B、A 的任意组合|设置颜色通道的写入蒙版﹐默认蒙版为 RGBA, 当设置为 0 时, 则无法写入任何颜色|
 
-### pass
+### （3）Pass
 #### 自定义名称
 ```cs
 pass
@@ -401,21 +401,28 @@ pass
 > [!warning] Title
 > Unity 内部会把所有 Pass 的名称转换成大写字母，所以使用 UsePass 时要使用大写字母的名字
 
-#### Pass 的 Tags
+#### Pass 专用 Tags
 Pass 也可以设置标签，单核 SubShader 不同
 ![[Pasted image 20230615093350.png]]
 
 其他 Tags：
 `UsePass`: 如我们之前提到的一样，可以使用该命令来复用其他 Unity Shader 中的 Pass; 
 `GrabPass`: 该 Pass 负责抓取屏幕并将结果存储在一张纹理中, 以用于后续的 Pass 处理 。
+##### LightMode
+`LightMode`（灯光模式）标签定义了 Pass 在光照渲染流水线中的渲染规则
+![[Pasted image 20230615142758.png]]
 
-### Fallback
+##### PassFlags
+PassFlags 标签用于更改渲染流水线传递数据给 Pass 的方式。目前仅可以使用的值为 `OnlyDirectional`。
+当使用前向渲染的时候，这个标签使得只有主要平行光、环境光或灯光探针、光照贴图的数据才能传递给 Shader，SH 和逐顶点灯光不能传递数据。
+
+### （4）Fallback
 Fallback 在所有 SubShader 之后进行定义。当所有的 SubShader 都不能在当前显卡上运行的时候，就会运行 Fallback 定义的 Shader。它的语法如下：
 `Fallback "name"`
 最常用于 Fallback 的 Shader 为 Unity 内置的 Diffuse。
 如果觉得某些 Shader 肯定可以在目标显卡上运行，没有指定 Fallback 的必要，可以使用 Fallback Off 关闭 Fallback 功能，或者直接什么都不写。
 
-### lod
+### （5）LOD
 LOD：Level of Detail  
 **shader 的 LOD 和模型的 LOD 作用不同！shader 的 LOD 只是用来选择 SubShader 的**
 作用：unity 引擎会根据不同的 LOD 值在使用不同的 SubShader  
@@ -854,18 +861,13 @@ Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper
 |`float3 ShadeVertexLights (float4 vertex, float3 normal)`|根据给定的对象空间位置和法线计算四个每顶点光源和环境光的光照。|
 
 # 灯光阴影
-Unity 支持不同的渲染路径（Rendering Path），不同的渲染路径在光照和阴影方面会有不同的功能特点，应该根据游戏内容、目标平台以及硬件类型选择适合的渲染路径。
-## 渲染路径
-### 延迟渲染
-当使用延迟着色时，灯光 Pass 基于 G-Buffer（Geometry Buffer，屏幕空间缓存）和深度信息计算光照，**光照在屏幕空间进行计算**，因此计算量与场景的复杂程度无关，如此一来就可以避免计算因未通过深度测试而被丢弃的片段，从而减少性能浪费。并且**所有灯光都可以逐像素渲染**，这意味着所有灯光都可以与法线贴图等产生正确的交互，并且**所有的灯光都可以使用阴影和 cookies**。
-遗憾的是，延迟着色**不支持真正的抗锯齿，也不能处理半透明物体，这些会自动使用前向渲染处理**。使用延迟着色的模型**不支持接受阴影选项，Culling Mask 只能在限定条件下使用，且最多只能使用 4 个。**
-在性能方面，光照对于性能的消耗不再受灯光数量或受光物体数量影响，而是与受灯光影响的像素数量或者灯光的照射范围有关，所以物体受灯光影响的数量不会再有限制。投射阴影的灯光依然比无阴影投射的灯光更耗费性能，投射阴影的物体仍然需要为阴影投射灯光渲染多次。但是可以通过减小照射范围来降低性能消耗。
-**延迟着色只能在有多重渲染目标（Multiple Render Targets，MRT）、Shader Model3.0 或以上，并且支持深度渲染贴图的显卡上运行**。移动端上，可以在 OpenGL ES 3.0 及以上的设备上运行。**延迟着色不支持正交投影，当摄像机使用正交投影模式的时候，摄像机会自动使用前向渲染。**
+## multi_compile
+在默认状态下，前向渲染只支持一个投射阴影的平行光，如果想要修改默认状态，就需要添加多重编译指令。Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，这些编译指令主要用于处理不同类型的灯光、阴影和灯光贴图，可以使用的编译指令如下：
+（1）`multi_compile_fwdbase`：编译 ForwardBase Pass 中的所有变体，用于处理不同类型的光照贴图，并为主要平行光开启或者关闭阴影。
+（2）`multi_compile_fwdadd`：编译 ForwardAdd Pass 中的所有变体，用于处理平行光、聚光灯和点光源，以及它们的 cookie 纹理。
+（3）`multi_compile_fwdadd_fullshadows`：与 multi_compile_fwdadd 类似，但是增加了灯光投射实时阴影的效果。
 
-### 前向渲染
-前向渲染是传统的渲染路径，它支持所有的 Unity 图形功能，例如法线贴图、逐像素光照、阴影等。前向渲染路径渲染**使用一个或多个 Pass 渲染每一个物体，这取决于影响到物体的灯光数量**。并且灯光也会因为自身设置和强度不同而被区别对待。
-在前向渲染中，一部分最亮的灯光以完全逐像素照明的方式渲染，然后 4 个点光源以逐顶点的方式渲染，其余的灯光以更快速的 SH（Spherical Harmonics，球谐）光照渲染。
-SH 光照可以被非常快速地渲染，它只消耗很少的 CPU 性能，几乎不消耗 GPU 性能。并且增加 SH 灯光的数量不会影响性能的消耗。
+
 # 升级 URP
 本文是基于7.3版本的 URP 编写的，有些暂时还不支持的内容可能在后续版本更新迭代。
 

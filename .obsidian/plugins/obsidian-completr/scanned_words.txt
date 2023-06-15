@@ -7504,6 +7504,7 @@ OrthoParams
 Overlay
 OverLay
 OFFSET
+OnlyDirectional
 codeup
 clash
 ctrl
@@ -36458,6 +36459,7 @@ Vscode
 VERTEXLIGHT
 VPOS
 VULKAN
+Variant
 verge
 vPdIt
 vertical
@@ -79482,6 +79484,7 @@ IPreprocessComputeShaders
 Indicates
 INITIALIZE
 IsFloat
+Important
 qq
 qyi
 quad
