@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+                "file": "技术美术/05 UnityShader/庄懂AP01.md",
                 "mode": "source",
                 "source": false
               }
@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/冯乐乐入门精要.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,12 +203,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "6fa9cbad77f95202",
+  "active": "8068c9e523b16abc",
   "lastOpenFiles": [
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "zip/images/Pasted image 20230615142758.png",
     "zip/images/Pasted image 20230615140211.png",
     "zip/images/Pasted image 20230615140142.png",
