@@ -11,12 +11,8 @@
             "id": "ff43f99a968ce193",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -35,12 +31,8 @@
             "id": "d91649f589bbd073",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -183,15 +175,23 @@
   "lastOpenFiles": [
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+    "zBuffer/《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础.md",
+    "zip/images/1686794685404.png",
+    "zip/images/1686794685360.png",
+    "zip/images/1686794685304.png",
+    "zip/images/1686794685258.png",
+    "zip/images/1686794684972.png",
+    "zip/images/1686794684912.png",
+    "zip/images/1686794684709.png",
+    "zip/images/1686794684674.png",
+    "zip/images/1686794684603.png",
+    "zip/images/1686794684566.png",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "引擎Unity3D/【Shader精粹】/全局光照.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "zip/images/Pasted image 20230615093350.png",
-    "zip/images/Pasted image 20230615092421.png",
-    "zip/images/Pasted image 20230615092149.png",
     "技术美术/05 UnityShader/疑问.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
@@ -199,13 +199,6 @@
     "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
-    "zip/images/ef7d26d2d4e9a8c1e1c4e97baddb1614_MD5.webp",
-    "zip/images/9a0b3eee2b319c3bd955c53c6e9bacd3_MD5.webp",
-    "zip/images/bf9c2cdf8d6485f2bdd4ac86e3491cdb_MD5.webp",
-    "zip/images/5ab22688ea075e23c5da3e7a8d3a158d_MD5.webp",
-    "zip/images/39a325a6efcb8f35acb0b6eabfb27bf3_MD5.webp",
-    "zip/images/Pasted image 20230615005145.png",
-    "zip/images/Pasted image 20230615005019.png",
     "技术美术/学习大纲.md",
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/02 光栅化.md",
@@ -215,8 +208,6 @@
     "图形学/2 图形API/DX12/HLSL语法.md",
     "引擎Unity3D/Unity操作指南.md",
     "zBuffer/Include 文件.md",
-    "引擎Unity3D/头部项目/未命名.md",
-    "AI/深度学习/《鱼书》.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",

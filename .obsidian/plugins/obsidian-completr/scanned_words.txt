@@ -63436,6 +63436,7 @@ Woodland
 WaitForSeconds
 WorldToShadow
 WaveScale
+WPOS
 Start
 StartAllBack
 Shadowrocket
@@ -71683,6 +71684,7 @@ PROJ
 PREPASSBASE
 PREPASSFINAL
 Precomputed
+Postion
 ContextMenuManager
 ClashVerge
 Clash
@@ -87199,6 +87201,7 @@ poor
 positon
 prefs
 persistentDataPath
+posCS
 nodesCatch
 nobr
 navy
@@ -101460,6 +101463,7 @@ declaring
 documentation
 dLDR
 distort
+division
 TFvYZOKeHL
 TAB
 TeX
@@ -124321,6 +124325,7 @@ happen
 hosting
 hlslsupportcginc
 handling
+homogenerous
 rgb
 right
 rm
@@ -128206,6 +128211,7 @@ reverts
 respectively
 rawClipSpace
 renderingData
+relfection
 XXXXXX
 XXX
 XML
@@ -135576,6 +135582,7 @@ HARDWARE
 HULL
 HALF
 HAVE
+HLSLCG
 Bbb
 Bear
 Base

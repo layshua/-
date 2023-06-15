@@ -16,7 +16,76 @@ CG 是按行优先存储的，声明时，从左到右从上到下按顺序填�
 1. 行优先只会影响声明时的顺序，不等于计算时是行向量形式。
 2. Unity 的矩阵类型 Matrix4x4 是列优先存储!
 
-## Unity 中的屏幕坐标
+## Unity 中的屏幕坐标 ComputeScreenPos/VPOS/WPOS
+
+
+在写 Shader 的过程中，我们可以获得片元在屏幕上的像素位置
+
+在顶点 / 片元着色器中有两种方式获得片元的屏幕坐标
+
+**第一种**：在片元着色器的输入声明 **VPOS** 或 **WPOS** 语义, VPOS 是 HLSL 中对屏幕坐标的语义，WPOS 是 Cg 中对屏幕坐标的语义
+
+我们可以在**片元着色器**中这样写：
+
+```c
+fixed4 frag (float4 sp :VPOS) : SV_Target
+{
+    //_ScreenParams.xy是屏幕分辨率,.xy表示取前2个值构成2维
+    //用屏幕坐标除以屏幕分辨率，得到视口空间中的坐标
+    return fixed4 (sp.xy/_ScreenParams.xy,0.0,1.0);
+}
+```
+
+**VPOS/WPOS** 语义定义的输入是个 float4 类型的变量，它的 xy 值代表**屏幕空间**中的像素坐标。
+
+如果屏幕分辨率为 400x300，那么 x 的范围就是 $[0.5,400.5]$ ,y 的范围是 $[0.5,300.5]$
+
+**注意**：这里的像素坐标并不是整数值，这是因为 OpenGL 和 DirectX 10 以后的版本认为像素重心对应的是浮点值中的 0.5
+
+**VPOS/WPOS** 的 z 分量范围是 $[0,1]$ , 在相机的近裁剪平面处 z 为 0，远裁剪平面处 z 为 1
+
+**VPOS/WPOS** 的 w 分量范围是 $[\frac{1}{Near},\frac{1}{Far}]$ , $Near$ 和 $Far$ 对应 Camera 组件中设置的近裁切平面和远裁切平面距离相机的远近，若为正交投影，则 $w$ 恒为 1
+
+代码最后：用屏幕坐标除以屏幕分辨率，得到**视口空间**中的坐标，**视口空间 (viewport space)** 就是把屏幕坐标归一化，屏幕左下角为 $(0,0)$ , 右上交为 $(1,1)$
+
+
+**第二种**：通过 Unity 提供的 `ComputeScreenPos` 函数, 这个函数在 UnityCG. cginc 里被定义。
+
+1. ComputeScreenPos 函数在顶点着色器中使用，输入的是 posCS (裁剪空间顶点坐标)
+
+2. ComputeScreenPos 函数的输出结果传给片元着色器, 在片元着色器进行一个除法：自己的 xy 除以 w
+
+```c
+struct VertOut
+ {
+     float4 posCS : SV_POSITION;
+     float4 scrpos : TEXCOORD0;
+ };
+  VertOut vert (appdata v)
+ {
+     VertOut o;
+     o.posCS = UnityObjectToClipPos(v.vertex);
+     //第一步：把ComputeScreenPos的结果保存到scrPos中
+     o.scrpos = ComputeScreenPos(o.posCS);
+     return o;
+ }
+ ​
+ fixed4 frag (VertOut i ) : SV_Target
+ {
+     //第二步：用scrPos.xy除以scrpos.w得到视口空间的坐标
+     float2 wcoord = i.scrpos.xy/i.scrpos.w;
+     return fixed4 (wcoord,0.0,1.0);
+ }
+```
+
+**注：为什么不直接在 ComputeScreenPos 函数中直接除以 $w$ ，还需要在片元着色器中进行除？**
+
+答案是：投影空间不是线性的，不能在投影空间中插值。我们的 pos 是在顶点着色器得到的，如果直接在顶点着色器就除以 $w$ ，将裁剪空间转为 NDC 空间（正方体），再进行插值，此时是对 $\frac{x}{w}$ 和 $\frac{y}{w}$ 会得到错误的结果。所以必须先插值，再在片元着色器除以 $w$
+
+在片元着色器进行除法后，就得到了视口空间的坐标了，即 $x,y$ 的范围都在 $[0,1]$
+
+$z,w$ 是直接在顶点着色器输出的裁剪空间的 z, w 值 (经过插值后)。如果是透视投影，z 的范围是 $[-Near,Far]$ , $w$ 的范围是 $[Near,Far]$ ; 如果是正交投影， $z$ 的范围是 $[-1,1]$ , $w$ 的值恒为 1
+
 
 
 # ShaderLab 语法基础
@@ -421,6 +490,10 @@ samplerCUBE_float _Cubemap;
 ### 顶点着色器输入语义
 ![[Pasted image 20230614195139.png]]
 当顶点信息包含的元素少于顶点着色器输入所需要的元素时，**缺少的部分会被0填充，而 w 分量会被1填充**。例如：顶点的 UV 坐标通常是二维向量，只包含 x 和 y 元素。如果输入的语义 TEXCOORD0被声明为 float4类型，那么顶点着色器最终获取到的数据将变成（x，y，0，1）。
+
+
+> [!NOTE] 数据来源：MeshRender
+> 填充到这些语义中的数据由使用该材质的 MeshRender 组件提供，每帧调用 DrawCall 的时候，MeshRender 组件会把它负责渲染的模型数据发送给 UnityShader。
 
 ### 顶点着色器输出和片段着色器输入语义
 在整个渲染流水线中，顶点着色器最重要的一项任务就是需要输出顶点在裁切空间中的坐标，这样 GPU 就可以知道顶点在屏幕上的栅格化位置以及深度值。在顶点函数中，这个输出参数需要使用 float4类型的 `SV_POSITION` 语义进行填充。
