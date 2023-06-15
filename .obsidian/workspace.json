@@ -8,44 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ff43f99a968ce193",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "59b6c0c540b99fe2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "74287061360ce995",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0016127737cffc3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,9 +38,33 @@
               "type": "empty",
               "state": {}
             }
+          },
+          {
+            "id": "8068c9e523b16abc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "380595bfe84a71db",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -115,7 +107,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md"
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
               }
             }
           }
@@ -158,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -207,12 +199,17 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "74287061360ce995",
+  "active": "380595bfe84a71db",
   "lastOpenFiles": [
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
+    "zip/images/Pasted image 20230615140211.png",
+    "zip/images/Pasted image 20230615140142.png",
+    "zip/images/Pasted image 20230615135723.png",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/05 UnityShader/TA101.md",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+    "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "zBuffer/(32 条消息) Unity Shader LOD 使用_天地会舵主的博客 - CSDN 博客.md",
     "zBuffer/《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础.md",
     "zip/images/Pasted image 20230615103657.png",
@@ -224,16 +221,12 @@
     "zip/images/1686794685258.png",
     "zip/images/1686794684972.png",
     "zip/images/1686794684912.png",
-    "zip/images/1686794684709.png",
-    "zip/images/1686794684674.png",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "引擎Unity3D/【Shader精粹】/全局光照.md",
     "技术美术/05 UnityShader/疑问.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
@@ -244,7 +237,6 @@
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
-    "引擎Unity3D/Unity操作指南.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
