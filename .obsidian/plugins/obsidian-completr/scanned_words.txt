@@ -29521,6 +29521,7 @@ unityshadervariablescginc
 unitycgcginc
 uses
 usesReversedZBuffer
+unused
 everything
 ea
 ede
@@ -67819,6 +67820,8 @@ SUBTRACTIVE
 SampleSceneDepth
 SampleSH
 ScriptableRenderPasses
+Skip
+SpaceDecorator
 Programs
 POP
 PC
@@ -71735,6 +71738,7 @@ Postion
 PARAM
 ParallaxOffset
 PointLights
+PropertyDrawer
 ContextMenuManager
 ClashVerge
 Clash
@@ -135653,6 +135657,7 @@ HAVE
 HLSLCG
 HLSLINCLUDE
 Helpers
+HeaderDecorator
 Bbb
 Bear
 Base
@@ -157362,6 +157367,7 @@ DeclareOpaqueTextue
 DecodeLightmap
 DecodeFloatRGBA
 DecodeViewNormalStereo
+Drawer
 LNK
 Log
 Linux
