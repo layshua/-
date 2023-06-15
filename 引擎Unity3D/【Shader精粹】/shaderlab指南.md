@@ -347,7 +347,7 @@ Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
 #### RenderType
 RenderType（渲染类型）标签可以将 Shader 划分为不同的类别，用于后期进行 Shader 替换或者产生摄像机的深度纹理
 
-|类型名称| 描述 |
+|类型名称|描述|
 |:--|:--|
 |Opaque |用于普通 Shader, 例如: 不透明、自发光、反射、地形 Shader|
 |Transparent|用于半透明 Shader, 例如: 透明﹑粒子|
