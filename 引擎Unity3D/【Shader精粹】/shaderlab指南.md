@@ -859,8 +859,9 @@ Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper
 |**功能：**|**描述：**|
 |:--|:--|
 |`float3 ShadeVertexLights (float4 vertex, float3 normal)`|根据给定的对象空间位置和法线计算四个每顶点光源和环境光的光照。|
+# 多光源/阴影
 
-# 灯光阴影
+![image-20220707190035317](image-20220707190035317.png)
 ## multi_compile
 **在默认状态下，前向渲染只支持一个投射阴影的平行光，如果想要修改默认状态，就需要添加多重编译指令。**
 Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，这些编译指令主要用于处理不同类型的灯光、阴影和灯光贴图，可以使用的编译指令如下：
@@ -869,6 +870,40 @@ Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，
 （3）`multi_compile_fwdadd_fullshadows`：与 multi_compile_fwdadd 类似，但是增加了灯光投射实时阴影的效果。
 
 
+# 自定义材质面板
+Unity 为用户提供了基础类：MaterialPropertyDrawer，专门用于快速实现自定义材质面板的目的。
+## 不同类型的 DrawerClass
+![[Pasted image 20230615172023.png]]
+在编写 Shader 的时候，DrawerClass 需要写在对应属性之前的“[]”中，类别的后缀名称“Drawer”不需要添加，因为 Unity 在编辑的时候会自动添加。
+#### Toggle
+**将 float 类型的数据以开关的形式在材质属性面板上显示，数值只能设置为0或1，0为关闭，1为开启。**
+当开关开启，Shader 关键词（keyword）会被 Unity 默认设置为`“property name”+“_ON”`，需要注意的一点是，关键词的所有字母必须大写。例如：
+```c
+[Toggle] _Invert ( "Invert color?" ,Float) = 0
+```
+
+除了使用 Unity 默认的关键词，也可以自定义一个特殊的关键词，例如：
+`
+```c
+[Toggle (ENABLE_FANCY)] _Fancy ( "Fancy? " ,Float) = 0
+```
+括号内的名称 ENABLE_FANCY 即为自定义的 Shader 关键词。
+
+#### Enum
+枚举（Enum）将 float 类型的数据以下拉列表的形式在材质属性面板上显示，Unity 为用户提供了一些内置的枚举类，例如 BlendMode、CillMode、CompareFunction，举个例子：
+```c
+[ Enum(UnityEngine.Rendering.BlendMode)] _Blend ("Blend mode", Float) = 1
+```
+
+这是 Unity 内置的所有混合系数的枚举类，默认值为 0 表示选择第一个混合系数，默认值为 1 表示选择第二个混合系数，
+以此类推。最终在材质面板上的显示效果如图 11-1 所示，这些选项就是 Shader 中可以使用的所有混合系数。
+![[Pasted image 20230615172846.png|450]]
+
+当然，用户也可以自己定义枚举的名称／数值对，但是一个枚举最多只能自定义 7 个名称／数值对。举个例子：
+```cs
+[Enum(Off,0，On,1)] _Zwrite ( "ZWrite", Float) = 0
+```
+上述例子定义的枚举为“是否深度写入”，括号内为定义的名称／数值对，序号 0 对应 Off，序号 1 对应 On，中间用符号“，”间隔开。默认为序号 0，也就是 Off。
 # 升级 URP
 本文是基于7.3版本的 URP 编写的，有些暂时还不支持的内容可能在后续版本更新迭代。
 

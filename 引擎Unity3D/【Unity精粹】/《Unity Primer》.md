@@ -1713,7 +1713,7 @@ Windous-Rendering-Lighting
 ![[Pasted image 20230605123701.png]]
 
 
-### 烘焙
+### 烘焙光照贴图
 Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
 1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
 2. 预计算光 (全称: Precomputed Realtime Global Illumination，预计算实时全局光照)：作用在动态物体上

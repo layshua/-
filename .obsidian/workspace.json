@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6fa9cbad77f95202",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "技术美术/着色器/次表面散射.md",
                 "mode": "source",
                 "source": false
               }
@@ -38,18 +26,6 @@
               "type": "markdown",
               "state": {
                 "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "380595bfe84a71db",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
               }
             }
           }
@@ -154,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,17 +179,22 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "6fa9cbad77f95202",
+  "active": "8068c9e523b16abc",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230615172846.png",
+    "zip/images/Pasted image 20230615172023.png",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "技术美术/着色器/次表面散射.md",
+    "技术美术/着色器/布料.md",
+    "技术美术/05 UnityShader/庄懂AP01.md",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Shader精粹】/全局光照.md",
     "zip/images/Pasted image 20230615164846.png",
     "zip/images/Pasted image 20230615163418.png",
-    "引擎Unity3D/【Shader精粹】/全局光照.md",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "引擎Unity3D/Unity操作指南.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
     "zip/images/Pasted image 20230615142758.png",
     "zip/images/Pasted image 20230615140211.png",
     "zip/images/Pasted image 20230615140142.png",
@@ -223,10 +204,7 @@
     "zBuffer/《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础.md",
     "zip/images/Pasted image 20230615103657.png",
     "zip/images/Pasted image 20230615102705.png",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zip/images/1686794685404.png",
-    "zip/images/1686794685360.png",
-    "zip/images/1686794685304.png",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -239,8 +217,6 @@
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
