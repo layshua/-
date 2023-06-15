@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Game Objects and Scripts --- 游戏对象和脚本",
+      "path": "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md"
+    },
+    {
+      "basename": "Unity操作指南",
+      "path": "引擎Unity3D/Unity操作指南.md"
+    },
+    {
+      "basename": "Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）",
+      "path": "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md"
+    },
+    {
+      "basename": "Custom Render Pipeline --- 自定义渲染管道",
+      "path": "引擎Unity3D/【Catlike Coding】/Custom Render Pipeline --- 自定义渲染管道.md"
+    },
+    {
       "basename": "shaderlab指南",
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
@@ -19,10 +35,6 @@
     {
       "basename": "风格化草渲染 StylizedGrass",
       "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
-    },
-    {
-      "basename": "Unity操作指南",
-      "path": "引擎Unity3D/Unity操作指南.md"
     },
     {
       "basename": "布料",
@@ -187,18 +199,6 @@
     {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "激活方法",
-      "path": "Tools/Software/Office365/激活方法.md"
-    },
-    {
-      "basename": "可微渲染、NeRF 相关技术概念急速入门",
-      "path": "AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
-    },
-    {
-      "basename": "转mesh工作",
-      "path": "AI/论文/Nerf/转mesh工作.md"
     }
   ],
   "omittedPaths": [],

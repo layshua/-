@@ -75,3 +75,7 @@ _这里如果不选 Is Global 可以为局部场景添加后处理效果。_
     点击 Add Component -> Rending -> Post-process Layer。
 
 ![[ef7d26d2d4e9a8c1e1c4e97baddb1614_MD5.webp]]
+
+# 设置线性空间
+
+![](<images/1686829466971.png>)

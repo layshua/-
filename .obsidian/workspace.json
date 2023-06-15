@@ -25,7 +25,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "781ed5f130ea8d54",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
+                "file": "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md"
               }
             }
           }
@@ -130,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
+                "file": "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,27 +193,33 @@
   },
   "active": "04bc44e185b17d3f",
   "lastOpenFiles": [
+    "引擎Unity3D/Unity操作指南.md",
+    "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
+    "zBuffer/Building a Graph 构建图形.md",
+    "zip/images/1686829739550.png",
+    "zip/images/1686829738972.png",
+    "zip/images/1686829738435.png",
+    "zip/images/1686829737884.png",
+    "zip/images/1686829737329.png",
+    "zip/images/1686829736789.png",
+    "zip/images/1686829736223.png",
+    "zip/images/1686829735668.png",
+    "zip/images/1686829735094.png",
+    "zip/images/1686829734562.png",
+    "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md",
+    "引擎Unity3D/【Catlike Coding】/1 Basics",
+    "引擎Unity3D/【Catlike Coding】/Custom Render Pipeline --- 自定义渲染管道.md",
+    "引擎Unity3D/【Catlike Coding】",
+    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/着色器/次表面散射.md",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "zip/images/Pasted image 20230615180055.png",
-    "zip/images/Pasted image 20230615180016.png",
-    "zip/images/Pasted image 20230615175748.png",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
-    "zip/images/Pasted image 20230615172846.png",
-    "zip/images/Pasted image 20230615172023.png",
-    "引擎Unity3D/Unity操作指南.md",
     "技术美术/着色器/布料.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Shader精粹】/全局光照.md",
-    "zip/images/Pasted image 20230615164846.png",
-    "zip/images/Pasted image 20230615163418.png",
     "技术美术/05 UnityShader/冯乐乐入门精要.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "zip/images/Pasted image 20230615142758.png",
-    "zip/images/Pasted image 20230615140211.png",
-    "zip/images/Pasted image 20230615140142.png",
     "技术美术/05 UnityShader/TA101.md",
     "zBuffer/(32 条消息) Unity Shader LOD 使用_天地会舵主的博客 - CSDN 博客.md",
     "zBuffer/《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础.md",
@@ -213,9 +231,6 @@
     "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
-    "技术美术/学习大纲.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
@@ -224,8 +239,6 @@
     "Zstore/3dcbbb9bbedacebd312d834dcff167c1_MD5.6AuWSAgV3bF0S-Bb1WY0ywAAAA",
     "Zstore/f801540d2ff71103255d394af37e586f_MD5.czbU9pQNHzvrvh5hRTX1ZgHaDT",
     "Zstore/96f2ed488f4313f48f4d99aab7c6457f_MD5.0aCtA-j_T6HahRFtEN4X-QHaHa",
-    "Zstore/8561d8e306035a327223d9dad5c0f766_MD5.wUl8FQH3d8piQIv67T8uJQHaHI",
-    "Zstore/01598f6726b9712bea619028a6e4119d_MD5.YUopdjjntkvQ9QdyE53e8wHaGb",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
