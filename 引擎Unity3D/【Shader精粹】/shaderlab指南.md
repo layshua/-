@@ -785,7 +785,7 @@ Unity 提供了很多空间变换矩阵，可以直接使用 CG 函数 `mul(Matr
 |:--|:--|:--|
 |`_LightColor0`（在 UnityLightingCommon.cginc 中声明）|fixed4|光源颜色。|
 |`_WorldSpaceLightPos0`|float4|方向光：（世界空间方向，0）。其他光源：（世界空间位置，1）。 |
-|unity_WorldToLight（在 AutoLight.cginc 中声明）|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
+|unity_WorldToLight（在 AutoLight.cginc 中声明）|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。 |
 |unity_4LightPosX0、unity_4LightPosY0、unity_4LightPosZ0|float4|（仅限 ForwardBase 通道）前四个非重要点光源的世界空间位置。 |
 |unity_4LightAtten0| float4      | （仅限 ForwardBase 通道）前四个非重要点光源的衰减因子。    |
 |unity_LightColor|half4[4]| （仅限 ForwardBase 通道）前四个非重要点光源的颜色。        |

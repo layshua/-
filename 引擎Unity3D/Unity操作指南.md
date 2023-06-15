@@ -47,3 +47,31 @@ Edit->Prefrence->Asset Pipeline
 ![[Pasted image 20230610194110.png]]
 
 ![[Pasted image 20230610194030.png]]
+
+# 后处理
+**添加 Bloom 效果**
+1. 创建 Post-process Volume  
+    直接 Create -> 3D Object -> Post-process Volume，如果使用了 3D 模板，则需要先安装后处理模块。
+2. 将 Layer 设置为 Post-process
+
+![[39a325a6efcb8f35acb0b6eabfb27bf3_MD5.webp]]
+
+3. 创建 Profile
+
+![[5ab22688ea075e23c5da3e7a8d3a158d_MD5.webp]]
+
+4. 添加后处理效果  
+    点击 Add effect...，选择 Unity -> Bloom。
+
+![[bf9c2cdf8d6485f2bdd4ac86e3491cdb_MD5.webp]]
+
+5. 调整 Bloom 参数
+
+![[9a0b3eee2b319c3bd955c53c6e9bacd3_MD5.webp]]
+
+_这里如果不选 Is Global 可以为局部场景添加后处理效果。_
+
+6. 为相机创建 Post 层  
+    点击 Add Component -> Rending -> Post-process Layer。
+
+![[ef7d26d2d4e9a8c1e1c4e97baddb1614_MD5.webp]]

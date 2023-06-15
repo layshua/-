@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "全局光照",
+      "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+    },
+    {
       "basename": "shaderlab指南",
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
@@ -9,16 +17,16 @@
       "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     },
     {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+      "basename": "Unity操作指南",
+      "path": "引擎Unity3D/Unity操作指南.md"
     },
     {
       "basename": "第二章 光照基础",
       "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/05 UnityShader/庄懂AP01.md"
     },
     {
       "basename": "TA101",
@@ -43,10 +51,6 @@
     {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "全局光照",
-      "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
     },
     {
       "basename": "疑问",
@@ -87,10 +91,6 @@
     {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
-    },
-    {
-      "basename": "Unity操作指南",
-      "path": "引擎Unity3D/Unity操作指南.md"
     },
     {
       "basename": "未命名",
