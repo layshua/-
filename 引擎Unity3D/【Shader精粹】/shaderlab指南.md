@@ -28,10 +28,14 @@ Shader "Unlit/Path_1/Path_2/NewUnlitShader"
 ```
 
 ## Properties
+![[Pasted image 20230615092149.png]]
+
 ```c file:所有类型属性汇总
 Properties
 {
-    _MyFloat ( "Float Property",Float) = 1                 //浮点类型
+    _MyInt ( "Int Property",Int) = 1                       //浮点类型
+    _MyFloat ( "Float Property",Float) = 1.5               //浮点类型
+    
     _MyRange ( "Range Property" , Range(0, 1)) = 0.1       //范围类型
     _MyColor ( "Color Property" ,Color) = (1, 1, 1, 1)     //颜色类型
     _MyVector ( "Vector Property" , Vector) = (0, 1, 0, 0) //向量类型
@@ -218,6 +222,7 @@ SubShader
 在 Unity 中，每一个 Shader 都会包含至少一个 SubShader。当 Unity 想要显示一个物体的时候，它就会去检测这些 SubShader，然后选择第一个能够在当前显卡运行的 SubShader。
 **每个 SubShader 都可以设置一个或者多个标签（Tags）和渲染状态（States），然后定义至少一个 Pass**。在 SubShader 中设置的渲染状态会影响到该 SubShader 中所有的 Pass，如果想要某些状态不影响其他 Pass，可以针对某个 Pass 单独设置渲染状态。但是需要注意的是，部分渲染状态在 Pass 中并不支持。
 ### Tags
+![[Pasted image 20230615092421.png]]
 
 SubShader 通过标签来**确定什么时候以及如何对物体进行渲染。**
 
@@ -274,7 +279,7 @@ RenderType（渲染类型）标签可以将 Shader 划分为不同的类别，�
 如果不希望物体受到 Projector（投影机）的投射，可以在 Shader 中添加 `IgnoreProjector` 标签。它有两个数值可以使用："True"和"False"，分别为忽略投射机和不忽略投射机。一般半透明的 Shader 都会开启这个标签。
 
 - ! 除此之外，Unity 还提供了其他可以设置的 Tags，待补充...
-### Pass 的渲染状态
+### 渲染状态
 如果想某些 Pass 的渲染状态不影响到其他的 Pass，可以在该 Pass 中单独设置渲染状态。这些渲染状态在 SubShader 中同样被允许使用，需要特别注意的是，在 SubShader 中使用会影响到该 SubShader 中的所有 Pass。
 
 |渲染状态|数值|作用|
@@ -347,8 +352,6 @@ CG 程序片段通过指令嵌入在 Pass 中，夹在 Pass 中的指令 CGPROGR
 ### 片段着色器输出语义
 片段着色器通常只会输出一个 fixed4 类型的颜色信息，输出的值会存储到渲染目标（Render Target）中，输出参数使用 `SV_TARGET` 语义进行填充。
 
-
-
 # Unity 的 include 文件
 
 为了提高代码的重复使用率以及 Shader 的编写速度，Unity 提供了一系列的包含文件，其中有预先定义的变量、各种辅助函数和空间变换矩阵等。
@@ -399,8 +402,6 @@ Unity 提供了很多空间变换矩阵，可以直接使用 CG 函数 `mul(Matr
 
 
 ### 摄像机和屏幕
-
-这些变量将对应于正在渲染的[摄像机](https://docs.unity3d.com/cn/2021.1/Manual/class-Camera.html)。例如，在阴影贴图渲染中，它们仍将引用摄像机组件值，而不是用于阴影贴图投影的“虚拟摄像机”。
 
 | 名称                       | 类型     | 值                              |
 | ------------------------------ | -------- | ------------------------------------------------------------ |

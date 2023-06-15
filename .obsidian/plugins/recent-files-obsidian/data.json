@@ -1,8 +1,44 @@
 {
   "recentFiles": [
     {
+      "basename": "shaderlab指南",
+      "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
+    },
+    {
       "basename": "全局光照",
       "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "疑问",
+      "path": "技术美术/05 UnityShader/疑问.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/05 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "第二章 光照基础",
+      "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
+    },
+    {
+      "basename": "第三章 进阶应用",
+      "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
+    },
+    {
+      "basename": "第五章 物理世界",
+      "path": "技术美术/01 百人计划/T渲染向/第五章 物理世界.md"
+    },
+    {
+      "basename": "第四章 高级扩展",
+      "path": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md"
+    },
+    {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -11,10 +47,6 @@
     {
       "basename": "学习大纲",
       "path": "技术美术/学习大纲.md"
-    },
-    {
-      "basename": "第二章 光照基础",
-      "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
     },
     {
       "basename": "03 光照向量",
@@ -33,16 +65,8 @@
       "path": "图形学/1 图形系统/01 图形渲染管线.md"
     },
     {
-      "basename": "shaderlab指南",
-      "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
       "basename": "HLSL语法",
@@ -63,10 +87,6 @@
     {
       "basename": "TA101",
       "path": "技术美术/05 UnityShader/TA101.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "书单",
@@ -91,14 +111,6 @@
     {
       "basename": "风格化草渲染 StylizedGrass",
       "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
-    },
-    {
-      "basename": "疑问",
-      "path": "技术美术/05 UnityShader/疑问.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
     },
     {
       "basename": "02 视图变换",
@@ -187,18 +199,6 @@
     {
       "basename": "学习论",
       "path": "AI/论文/Nerf/学习论.md"
-    },
-    {
-      "basename": "1 操作指南",
-      "path": "DCC/01 Blender/1 操作指南.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "C++补充",
-      "path": "编程/C++/C++补充.md"
     }
   ],
   "omittedPaths": [],
