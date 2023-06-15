@@ -5,6 +5,14 @@
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
     {
+      "basename": "风格化草渲染 StylizedGrass",
+      "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/05 UnityShader/庄懂AP01.md"
+    },
+    {
       "basename": "第三章 进阶应用",
       "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "布料",
       "path": "技术美术/着色器/布料.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -123,10 +127,6 @@
     {
       "basename": "文档",
       "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
-    },
-    {
-      "basename": "风格化草渲染 StylizedGrass",
-      "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
     },
     {
       "basename": "04 纹理映射",

@@ -3294,6 +3294,8 @@ oller
 offsetPos
 objs
 ocol
+objectSpacePosition
+outpos
 OneDrive
 Obsidian
 Office
@@ -7505,6 +7507,11 @@ Overlay
 OverLay
 OFFSET
 OnlyDirectional
+OnPreCull
+OnPreRender
+OnPostRender
+OnRenderObject
+OnWillRenderObject
 codeup
 clash
 ctrl
@@ -11545,6 +11552,10 @@ cameraTextureDescriptor
 cameraData
 cameraTargetDescriptor
 cameraColorTarget
+coord
+clipPos
+clipSpacePosition
+cameras
 github
 grey
 green
@@ -18550,6 +18561,7 @@ twist
 textureCoord
 targeting
 tier
+textureName
 markdown
 matter
 mod
@@ -25916,6 +25928,7 @@ waitForSeconds
 waitForFixedUpdate
 waitForEndOfFrame
 wasted
+worldSpacePosition
 utools
 url
 unresolved
@@ -33072,6 +33085,9 @@ exceed
 ensuring
 enc
 exclude
+encodedIlluminance
+endCameraRendering
+endFrameRendering
 VPN
 Verge
 VS
@@ -36460,6 +36476,8 @@ VERTEXLIGHT
 VPOS
 VULKAN
 Variant
+Variants
+VertexLighting
 verge
 vPdIt
 vertical
@@ -43705,6 +43723,14 @@ AmbientGround
 AfterRenderingOpaques
 AVAILABLE
 Additoinal
+ADDITIONAL
+AdditionalLightsWorldToShadow
+APPLY
+AfterRenderingShadows
+AfterRenderingPrePasses
+AfterRenderingSkybox
+AfterRenderingPostProcessing
+AfterRendering
 URL
 Utools
 Users
@@ -47264,6 +47290,7 @@ UnityLightingCommon
 UnityDeferredLibrary
 UBYTE
 UPGRADE
+UniversalGBuffer
 api
 ac
 app
@@ -50924,6 +50951,7 @@ affects
 avoid
 afterwards
 activeTier
+added
 Roaming
 RegWorkshop
 Release
@@ -59568,6 +59596,14 @@ MOBILE
 MIGHT
 MyRarelyUpdatedVariables
 MYPASSNAME
+MotionVectors
+MAIN
+MIXED
+MULTIPLIER
+MainLightPosition
+MainLightColor
+MainLightWorldToShadow
+MixFog
 Windows
 Win
 World
@@ -63441,6 +63477,7 @@ WaitForSeconds
 WorldToShadow
 WaveScale
 WPOS
+WorldSpaceViewDir
 Start
 StartAllBack
 Shadowrocket
@@ -67776,6 +67813,12 @@ SomeGlobalValue
 SHADOWCASTER
 Stitch
 Seams
+SpaceTransforms
+ShaderVariablesFunctions
+SUBTRACTIVE
+SampleSceneDepth
+SampleSH
+ScriptableRenderPasses
 Programs
 POP
 PC
@@ -71689,6 +71732,9 @@ PREPASSBASE
 PREPASSFINAL
 Precomputed
 Postion
+PARAM
+ParallaxOffset
+PointLights
 ContextMenuManager
 ClashVerge
 Clash
@@ -75692,6 +75738,11 @@ COORD
 CAN
 COMPILE
 COMPILER
+CillMode
+CompareFunction
+CASCADE
+ComputeFogFactor
+ColorSpaceLuminance
 ImTip
 IMAP
 ID
@@ -94163,6 +94214,7 @@ binomial
 backface
 bank
 beginCameraRendering
+beginFrameRendering
 fe
 front
 fill
@@ -97572,6 +97624,7 @@ ffile
 fetch
 framebufferfetch
 fullshadows
+fogCoord
 dd
 dcc
 data
@@ -101469,6 +101522,7 @@ documentation
 dLDR
 distort
 division
+decodeInstructions
 TFvYZOKeHL
 TAB
 TeX
@@ -105281,6 +105335,11 @@ TierSettings
 TextureSampleAdd
 TEXEL
 TESSELLATION
+TransformObjectToHClip
+TransformWorldToView
+TransformObjectToWorld
+TransformWorldToObject
+TransformWorldToShadowCoord
 io
 ipad
 it
@@ -113862,6 +113921,9 @@ shadowViewMat
 shadowSpaceMatrix
 shadowCamera
 shadowMatrix
+samplerName
+shadowCoord
+sceneZ
 local
 list
 left
@@ -117329,6 +117391,7 @@ lmportant
 listType
 lowering
 lllumination
+linearRgb
 YAML
 You
 YEBAYGhURFRofHx
@@ -135588,6 +135651,8 @@ HULL
 HALF
 HAVE
 HLSLCG
+HLSLINCLUDE
+Helpers
 Bbb
 Bear
 Base
@@ -138999,6 +139064,12 @@ BEST
 BuildTarget
 BRANCH
 BasePass
+BeforeRendering
+BeforeRenderingShadows
+BeforeRenderingPrepasses
+BeforeRenderingOpaques
+BeforeRenderingSkybox
+BeforeRenderingTransparents
 Fraktur
 Frame
 Foo
@@ -147376,6 +147447,12 @@ Enqueue
 EnableShaderKeyword
 ExecuteCommandBuffer
 Enlighten
+ENABLE
+EntityLighting
+EXPONENT
+EncodeFloatRGBA
+EncodeFloatRG
+EncodeViewNormalStereo
 xmlns
 xyz
 xy
@@ -157280,6 +157357,11 @@ DOMAIN
 DECLARE
 DARRAY
 DEFERRED
+DeclareDepthTexture
+DeclareOpaqueTextue
+DecodeLightmap
+DecodeFloatRGBA
+DecodeViewNormalStereo
 LNK
 Log
 Linux
@@ -161109,6 +161191,9 @@ LightPosition
 LightmapST
 LODFade
 LODCtrl
+LIGHTING
+LightMatrix
+LoadSceneDepth
 Getx
 GetX
 GetName
@@ -165430,6 +165515,7 @@ GLES
 GOOD
 GraphicsTier
 GLCORE
+GetWorldSpaceViewDir
 NULL
 Native
 NormalMap

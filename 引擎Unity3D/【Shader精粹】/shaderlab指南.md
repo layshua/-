@@ -891,8 +891,24 @@ Unity 为用户提供了基础类：MaterialPropertyDrawer，专门用于快速�
 
 #### Enum
 枚举（Enum）将 float 类型的数据以下拉列表的形式在材质属性面板上显示，Unity 为用户提供了一些内置的枚举类，例如 BlendMode、CillMode、CompareFunction，举个例子：
+![[Pasted image 20221020200242.png|400]]
 ```c
-[ Enum(UnityEngine.Rendering.BlendMode)] _Blend ("Blend mode", Float) = 1
+Properties  
+{  
+    ......
+    [Enum(UnityEngine.Rendering.BlendMode)]  
+    _BlendSrc("混合源乘子",int) = 0  
+    [Enum(UnityEngine.Rendering.BlendMode)]  
+    _BlendOst("混合目标乘子",int) = 0  
+    [Enum(UnityEngine.Rendering.BlendOp)]  
+    _BlendOp("混合算符",int) = 0  
+}
+Pass  
+{
+......
+BlendOp [_BlendOp]        //可自定义混合运算符  
+Blend [_BlendSrc] [_BlendOst]   //可自定义混合模式
+}
 ```
 
 这是 Unity 内置的所有混合系数的枚举类，默认值为 0 表示选择第一个混合系数，默认值为 1 表示选择第二个混合系数，
@@ -904,6 +920,66 @@ Unity 为用户提供了基础类：MaterialPropertyDrawer，专门用于快速�
 [Enum(Off,0，On,1)] _Zwrite ( "ZWrite", Float) = 0
 ```
 上述例子定义的枚举为“是否深度写入”，括号内为定义的名称／数值对，序号 0 对应 Off，序号 1 对应 On，中间用符号“，”间隔开。默认为序号 0，也就是 Off。
+
+### KeywordEnum
+关键词枚举（KeywordEnum）跟普通的枚举类似，也是将 float 类型的数据以下拉列表的形式在材质属性面板上显示，**只不过关键词枚举会有与之对应的 Shader 关键词**，在 Shader 中通过 `#pragma shader_feature` 或 `#pragma multi_compile ` 指令可以开启或者关闭某一部分 Shader 代码。
+
+Shader 关键词格式为：`property name_enum name`，属性名称+“下画线”+枚举名称，所有英文必须大写，并且最多支持 9 个关键词。举个例子：
+```c
+[KeywordEnum(None,Add,Multiply)] _Overlay("Overlay mode", Float) = 0
+```
+括号内的 None，Add，Multiply 是定义的3个枚举名称，中间用逗号隔开。默认值为0，表示默认使用 None。这三个选项所对应的 Shader 关键词分别为：`_OVERLAY_NONE`、`_OVERLAY_ADD` 和 `_OVERLAY_MULTIPLY`。
+
+### 在编译指令中定义关键词
+定义了 `ToggleDrawer` 或者 `KeywordEnumDrawer` 之后，如果想要正常使用，还需要在编译指令中声明 Shader 关键词。例如，上面定义的 None、Add、Multiply 关键词枚举，在编译指令中的代码如下：
+
+```c
+#pragma shader_feature _OVERLAY_NONE _OVERLAY_ADD _OVERLAY_MULTIPLY
+```
+
+不同关键词之间需要用空格间隔开。
+另外，也可以使用另一种编译指令定义关键词，代码如下：
+
+```c
+#pragma multi_compile _OVERLAY_NONE _OVERLAY_ADD _OVERLAY_MULTIPLY
+```
+
+**虽然表面上看似通过一个 Shader 文件实现了不同种情况，但是 Unity 会自动将不同情况编译成不同版本的 Shader 文件，这些不同版本的 Shader 文件被称为 Shader 变体（Variants），上述编译指令中包含三个 Shader 变体**。
+
+假设再添加一个指令：
+```c
+#pragma shader_feature _INVERT_ON
+```
+本指令包含 Toggle 的关闭与开启两种情况，所以 Unity 最终会编译出 2×3=6 个 Shader 变体。因此在使用大量 shader feature 或 multi compile 指令的时候，无形之中会产生大量的 Shader 变体文件。
+
+**两种不同编译指令之间的区别如下：**
+（1）shader_feature：只会为材质使用到的关键词生成变体，没有使用到的关键词不会生成变体，因此无法在运行的时候通过脚本切换效果。
+（2）multi_compile：会为所有关键词生成变体，因此**可以在运行的时候通过脚本切换效果**。
+
+在 Shader 文件的属性设置面板中可以查看到本 Shader 生成的变体数量，如图11-2所示，通过开启“Skip unused shader_features”选项可以只查看使用关键词的变体数量，也可以关闭“Skip unused shader_features”选项查看所有关键词的变体数量。如果需要确定具体的关键词是哪些，可以单击“Show”查看。
+![[Pasted image 20230615175748.png]]
+
+### PowerSlider
+指数滑动条（PowerSlider）会将范围型数值的属性显示为非线性对应的滑动条。滑动条上的数值不再按照线性关系进行对应，而是以指数的方式。
+这是一个以3为指数对应关系的滑动条，其中，括号内的数值为指数
+```c
+[ PowerSlider(3.0) ]_Brightness ("Brightness", Range (0.01,1)) = 0.1
+```
+### IntRange
+
+以滑动条的形式在材质属性面板上显示，Int 类型
+
+## 属性的特性和 Drawer
+![[Pasted image 20230615180016.png]]
+
+## 装饰性 PropertyDrawer
+除了直接改变 UI 显示样式的 Property Drawer，Unity 还提供了两种装饰性的 Property Drawer，分别为 SpaceDecorator 和 HeaderDecorator。装饰性的 Property Drawer 只起到界面美观作用，不会影响属性本身。
+![[Pasted image 20230615180055.png]]
+
+在编写 Shader 的时候，类别的后缀名称“Decorator”依然不需要添加，因为 Unity 在编辑的时候会自动添加。
+
+### Space
+
 # 升级 URP
 本文是基于7.3版本的 URP 编写的，有些暂时还不支持的内容可能在后续版本更新迭代。
 
