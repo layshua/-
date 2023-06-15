@@ -862,9 +862,10 @@ Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper
 
 # 灯光阴影
 ## multi_compile
-在默认状态下，前向渲染只支持一个投射阴影的平行光，如果想要修改默认状态，就需要添加多重编译指令。Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，这些编译指令主要用于处理不同类型的灯光、阴影和灯光贴图，可以使用的编译指令如下：
-（1）`multi_compile_fwdbase`：编译 ForwardBase Pass 中的所有变体，用于处理不同类型的光照贴图，并为主要平行光开启或者关闭阴影。
-（2）`multi_compile_fwdadd`：编译 ForwardAdd Pass 中的所有变体，用于处理平行光、聚光灯和点光源，以及它们的 cookie 纹理。
+**在默认状态下，前向渲染只支持一个投射阴影的平行光，如果想要修改默认状态，就需要添加多重编译指令。**
+Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，这些编译指令主要用于处理不同类型的灯光、阴影和灯光贴图，可以使用的编译指令如下：
+（1）`multi_compile_fwdbase`：编译 Forward BasePass 中的所有变体，用于处理不同类型的光照贴图，并为主要平行光开启或者关闭阴影。
+（2）`multi_compile_fwdadd`：编译 Forward Additional Pass 中的所有变体，用于处理平行光、聚光灯和点光源，以及它们的 cookie 纹理。
 （3）`multi_compile_fwdadd_fullshadows`：与 multi_compile_fwdadd 类似，但是增加了灯光投射实时阴影的效果。
 
 
