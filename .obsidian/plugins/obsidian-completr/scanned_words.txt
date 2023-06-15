@@ -55070,6 +55070,7 @@ RenderTargetHandle
 RenderTextureDescriptor
 RenderingData
 ReleaseTemporaryRT
+Rending
 Microsoft
 Menu
 MicaForEveryone
@@ -67766,6 +67767,8 @@ SCREENSPACE
 SHADOWMAP
 SomeGlobalValue
 SHADOWCASTER
+Stitch
+Seams
 Programs
 POP
 PC
@@ -71677,6 +71680,7 @@ PSSL
 PROJ
 PREPASSBASE
 PREPASSFINAL
+Precomputed
 ContextMenuManager
 ClashVerge
 Clash
@@ -117313,6 +117317,7 @@ lmportanto
 lmportant
 listType
 lowering
+lllumination
 YAML
 You
 YEBAYGhURFRofHx
@@ -147355,6 +147360,7 @@ Egorov
 Enqueue
 EnableShaderKeyword
 ExecuteCommandBuffer
+Enlighten
 xmlns
 xyz
 xy

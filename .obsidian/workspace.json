@@ -23,16 +23,11 @@
             "id": "76b6ee4e3a127a8c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -75,7 +70,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/【Shader精粹】/全局光照.md"
               }
             }
           }
@@ -118,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Shader精粹】/全局光照.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Shader精粹】/全局光照.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -167,27 +162,28 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "76b6ee4e3a127a8c",
+  "active": "ff43f99a968ce193",
   "lastOpenFiles": [
-    "引擎Unity3D/【Shader精粹】/全局光照.md",
-    "zip/images/Pasted image 20230615003324.png",
+    "zip/images/ef7d26d2d4e9a8c1e1c4e97baddb1614_MD5.webp",
+    "zip/images/9a0b3eee2b319c3bd955c53c6e9bacd3_MD5.webp",
+    "zip/images/bf9c2cdf8d6485f2bdd4ac86e3491cdb_MD5.webp",
+    "zip/images/5ab22688ea075e23c5da3e7a8d3a158d_MD5.webp",
+    "zip/images/39a325a6efcb8f35acb0b6eabfb27bf3_MD5.webp",
+    "zip/images/Pasted image 20230615005145.png",
+    "zip/images/Pasted image 20230615005019.png",
+    "zip/images/Pasted image 20230615004915.png",
+    "zip/images/Pasted image 20230615004838.png",
+    "zip/images/Pasted image 20230615004712.png",
+    "zip/images/Pasted image 20230615004644.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Shader精粹】/全局光照.md",
     "技术美术/学习大纲.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zip/images/Pasted image 20230615000306.png",
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
     "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
-    "zip/images/Pasted image 20230614232035.png",
-    "zip/images/Pasted image 20230614231939.png",
-    "zip/images/Pasted image 20230614231934.png",
-    "zip/images/Pasted image 20230614231825.png",
-    "zip/images/Pasted image 20230614224113.png",
-    "zip/images/Pasted image 20230614224036.png",
-    "zip/images/Pasted image 20230614224010.png",
-    "zip/images/Pasted image 20230614223913.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【Unity精粹】/Unity 从 CSV 文件中读取数据 - 简书.md",
