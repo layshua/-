@@ -7,69 +7,6 @@
 
 ![](<images/1686829464193.png>)
 
-## Creating a Project 创建项目
-
-在我们开始使用 Unity 编辑器之前，我们必须首先创建一个项目。
-
-
-
-
-### Sample Scene 示例场景
-
-The new project contains a sample scene named _SampleScene_, which is opened by default. You can find its asset under _Assets / Scenes_ in the project window.  
-新项目包含一个名为的样例场景，该场景在默认情况下处于打开状态。您可以在项目窗口的下找到其资产。
-
-![](<images/1686829467514.png>)
-
-Sample scene in project window.  
-项目窗口中的示例场景。
-
-By default the project window uses a two-column layout. You can switch to a one-column layout via its triple-dot configuration menu option.  
-默认情况下，项目窗口使用两列布局。您可以通过其三点配置菜单选项切换到单列布局。
-
-![](<images/1686829468080.png>)
-
-One-column layout. 单列布局。
-
-The sample scene contains a main camera and a directional light. These are game objects. They are listed in the hierarchy window, under the scene.  
-示例场景包含一个主摄影机和一个平行光。这些是游戏对象。它们列在场景下的层次窗口中。
-
-![](<images/1686829468673.png>)
-
-Object hierarchy within scene.  
-场景中的对象层次。
-
-You can select a game object either via the hierarchy window or the scene window. The camera has a scene icon that looks like an oldfashioned film camera while the directional light's icon looks like a sun.  
-您可以通过层次窗口或场景窗口选择游戏对象。相机的场景图标看起来像老式的胶片相机，而平行光的图标看起来像太阳。
-
-![](<images/1686829469211.png>)
-
-Icons in scene window.  
-场景窗口中的图标。
-
-### How do I navigate the scene window?  
-如何在场景窗口中导航？
-
-You can use the alt or option key in combination with the cursor to rotate the view. You can also use the arrow keys to move the point of view, and zoom by scrolling. Also, pressing the F key focuses the view on the game object that is currently selected. There are more possibilities, but these are enough to find your way around the scene.
-
-When an object is selected details about it will be shown in the inspector window, but we'll cover those when we need them. We won't need to modify the camera nor the light, so we can hide them in the scene by clicking the eye icon to the left of them in the hierarchy window. This icon is invisible by default but will appear when we hover the cursor there. This is purely to reduce visual clutter in the scene window.  
-当一个对象被选中时，有关它的详细信息将显示在检查器窗口中，但我们会在需要时提供这些信息。我们不需要修改摄影机或灯光，因此可以通过在层次窗口中单击它们左侧的眼睛图标将它们隐藏在场景中。这个图标默认情况下是不可见的，但当我们将光标悬停在那里时会出现。这纯粹是为了减少场景窗口中的视觉混乱。
-
-![](<images/1686829469749.png>)
-
-Hidden objects. 隐藏对象。
-
-### What does the hand-like icon next to the eye do?  
-眼睛旁边的手形图标是做什么的？
-
-Next to the column that contains the eye icons is another column that contains hand-like icons. These icons are also invisible by default. When a game object's hand icon is active it is impossible to select the object via the scene window. This way you can control which objects respond to selection via the scene window.
-
-## Building a Simple Clock  
-制作一个简单的时钟
-
-Now that our project is set up correctly we can start creating our clock.  
-既然我们的项目设置正确，我们就可以开始创建我们的时钟了。
-
 ### Creating a Game Object  
 创建游戏对象
 
@@ -89,8 +26,8 @@ The inspector window shows the details of the game object as long as it is selec
 Inspector window with clock selected.  
 选中时钟的检查器窗口。
 
-Below the header is a list of all the components of the game object. The list always has a `[Transform](http://docs.unity3d.com/Documentation/ScriptReference/Transform.html)` component at the top, which is all our clock currently has. It controls the position, rotation, and scale of the game object. Make sure that all the clock's position and rotation values are set to 0. Its scale should be uniformly 1.  
-标题下方是游戏对象的所有组件的列表。列表的顶部总是有一个 `[Transform](http://docs.unity3d.com/Documentation/ScriptReference/Transform.html)` 组件，这是我们的时钟目前所拥有的全部。它控制游戏对象的位置、旋转和缩放。确保所有时钟的位置和旋转值都设置为 0。其比例应一致为 1。
+Below the header is a list of all the components of the game object. The list always has a [Transform](http://docs.unity3d.com/Documentation/ScriptReference/Transform.html) component at the top, which is all our clock currently has. It controls the position, rotation, and scale of the game object. Make sure that all the clock's position and rotation values are set to 0. Its scale should be uniformly 1.  
+标题下方是游戏对象的所有组件的列表。列表的顶部总是有一个 [Transform](http://docs.unity3d.com/Documentation/ScriptReference/Transform.html) 组件，这是我们的时钟目前所拥有的全部。它控制游戏对象的位置、旋转和缩放。确保所有时钟的位置和旋转值都设置为 0。其比例应一致为 1。
 
 ### What about 2D objects?  
 二维对象呢？
@@ -135,15 +72,15 @@ Game object representing a cylinder.
 代表圆柱体的游戏物体。
 
 The new object has three more components than an empty game object. First, it has a `[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html)`, which contains a reference to the built-in cylinder mesh.  
-新的对象比空的游戏对象多了三个组件。首先，它有一个 `[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html)` ，其中包含对内置圆柱体网格的引用。
+新的对象比空的游戏对象多了三个组件。首先，它有一个[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html)，其中包含对内置圆柱体网格的引用。
 
 ![](<images/1686829473714.png>)
 
 `[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html)` component, set to cylinder.  
-`[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html)` 组件，设置为圆柱体。
+[MeshFilter](http://docs.unity3d.com/Documentation/ScriptReference/MeshFilter.html) 组件，设置为圆柱体。
 
 Second is a `[MeshRenderer](http://docs.unity3d.com/Documentation/ScriptReference/MeshRenderer.html)`. This component's purpose is to ensure that the object's mesh gets rendered. It also determines what material is used for rendering, which is the default material. This material is also shown in the inspector, below the component list.  
-第二个是 `[MeshRenderer](http://docs.unity3d.com/Documentation/ScriptReference/MeshRenderer.html)` 。该组件的目的是确保渲染对象的网格。它还确定用于渲染的材质，即默认材质。该材料也显示在部件列表下方的检查器中。
+第二个是 [MeshRenderer](http://docs.unity3d.com/Documentation/ScriptReference/MeshRenderer.html) 。该组件的目的是确保渲染对象的网格。它还确定用于渲染的材质，即默认材质。该材料也显示在部件列表下方的检查器中。
 
 ![](<images/1686829474281.png>)
 
@@ -236,7 +173,7 @@ Dark gray albedo. 深灰色反照率。
 ### What is albedo? 什么是反照率？
 
 Albedo is a Latin word which means whiteness. It's the color of something when illuminated by white light.
-
+反 rr
 Make the hour indicator use this material. You can do this by dragging the material onto the object in either the scene or hierarchy window. You can also drag it to the bottom of the inspector window when the indicator game object is selected, or change _Element 0_ of the _Materials_ array of its `[MeshRenderer](http://docs.unity3d.com/Documentation/ScriptReference/MeshRenderer.html)`.  
 使小时指示器使用这种材料。可以通过在场景或层次窗口中将材质拖动到对象上来执行此操作。当指示器游戏对象被选中时，您也可以将其拖动到检查器窗口的底部，或者更改其 `[MeshRenderer](http://docs.unity3d.com/Documentation/ScriptReference/MeshRenderer.html)` 的数组。
 
