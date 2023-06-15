@@ -1,8 +1,12 @@
 {
   "recentFiles": [
     {
+      "basename": "2 对象种类",
+      "path": "zBuffer/2 对象种类.md"
+    },
+    {
       "basename": "1持久化对象",
-      "path": "zBuffer/1持久化对象.md"
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Object管理/1持久化对象.md"
     },
     {
       "basename": "Custom Render Pipeline --- 自定义渲染管道",
@@ -15,10 +19,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
-    },
-    {
-      "basename": "2 对象种类",
-      "path": "zBuffer/2 对象种类.md"
     },
     {
       "basename": "Unity操作指南",

@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/1持久化对象.md",
+                "file": "zBuffer/2 对象种类.md",
                 "mode": "source",
                 "source": false
               }
@@ -96,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#1可以使用",
+                "query": "tag:#4方法",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/1持久化对象.md"
+                "file": "zBuffer/2 对象种类.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/1持久化对象.md",
+                "file": "zBuffer/2 对象种类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/1持久化对象.md",
+                "file": "zBuffer/2 对象种类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,10 +205,11 @@
   },
   "active": "0ae9e8cc6ec3a5b2",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230615235041.png",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/Object管理/1持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "zBuffer/1持久化对象.md",
     "zBuffer/2 对象种类.md",
     "zBuffer/Procedural Grid_ a Unity C Tutorial程序网格，一个Unity C教程.md",
     "zip/images/1686838082679.png",
