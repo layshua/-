@@ -22476,6 +22476,7 @@ myColors
 myRandomWriteTexture
 myEffectCamera
 mypass
+maximumLOD
 windows
 win
 width
@@ -161102,6 +161103,7 @@ LightAtten
 LightPosition
 LightmapST
 LODFade
+LODCtrl
 Getx
 GetX
 GetName

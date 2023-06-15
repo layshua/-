@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
+    },
+    {
       "basename": "shaderlab指南",
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
-    },
-    {
-      "basename": "《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础",
-      "path": "zBuffer/《UnityShader 入门精要》学习笔记——第四章 (下）：学习 Shader 所需的数学基础.md"
     },
     {
       "basename": "3D数学",
@@ -31,10 +31,6 @@
     {
       "basename": "全局光照",
       "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "疑问",
