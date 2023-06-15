@@ -1712,6 +1712,32 @@ Windous-Rendering-Lighting
 
 ![[Pasted image 20230605123701.png]]
 
+
+### 烘焙
+Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
+1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
+2. 预计算光 (全称: Precomputed Realtime Global Illumination，预计算实时全局光照)：作用在动态物体上
+
+Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两种技术都需要一个技术流程——**烘焙**
+烘焙: 是指根据场景的光照信息，把物体受到场景光照的信息写入一张大的纹理贴图上（Lightingmap），并贴在物体表面的过程
+
+- 静态 static 物体才能接收光照贴图
+- 灯光 Mode 必须为 static 或 mixed
+
+![[Pasted image 20230615003324.png]]
+
+**烘焙时模型不受光照影响**：美术没有留 uv2，模型 Inspector 界面勾选 Generate lightmap UVs 生成 uv2
+![[Pasted image 20230615004838.png|300]] ![[Pasted image 20230615004915.png|450]]
+
+**烘焙模型有硬边缘接缝**：勾选 Stitch Seams
+![[Pasted image 20230615004644.png|250]] ![[Pasted image 20230615004712.png|400]]
+
+**烘焙后模型有小点**：由于渲 103 染精度太低造成，提高以下两个值即可
+
+![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|450]]
+
+### 反射探针
+
 ## 2 音频系统 
 常用格式：wav，mp3，ogg，aiff
 ### 属性设置

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
       "basename": "全局光照",
       "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "TA101",
       "path": "技术美术/05 UnityShader/TA101.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
       "basename": "3D数学",
