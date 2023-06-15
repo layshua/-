@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "2 对象种类",
+      "path": "zBuffer/2 对象种类.md"
+    },
+    {
       "basename": "1持久化对象",
       "path": "zBuffer/1持久化对象.md"
+    },
+    {
+      "basename": "Custom Render Pipeline --- 自定义渲染管道",
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -15,10 +23,6 @@
     {
       "basename": "Unity操作指南",
       "path": "引擎Unity3D/Unity操作指南.md"
-    },
-    {
-      "basename": "Custom Render Pipeline --- 自定义渲染管道",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
     },
     {
       "basename": "《URP》",
