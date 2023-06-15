@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/Custom Render Pipeline --- 自定义渲染管道.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Shader精粹】/《URP》.md",
                 "mode": "source",
                 "source": false
               }
@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "5bc877a1cfc5ee90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
               }
             }
           }
@@ -142,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,15 +203,21 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "3e00c76fcb371507",
+  "active": "5bc877a1cfc5ee90",
   "lastOpenFiles": [
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/Unity操作指南.md",
-    "引擎Unity3D/【Catlike Coding】/Custom Render Pipeline --- 自定义渲染管道.md",
-    "引擎Unity3D/【Catlike Coding】/Game Objects and Scripts --- 游戏对象和脚本 2.md",
-    "zBuffer/Building a Graph 构建图形.md",
     "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+    "zBuffer/Building a Graph 构建图形.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》",
+    "引擎Unity3D/【Catlike Coding】/未命名.md",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "引擎Unity3D/【Shader精粹】/《URP》.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "zip/images/Pasted image 20230615210754.png",
+    "zip/images/Pasted image 20230615210748.png",
+    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
+    "引擎Unity3D/【Catlike Coding】/Game Objects and Scripts --- 游戏对象和脚本 2.md",
     "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "zip/images/1686829739550.png",
@@ -210,11 +228,8 @@
     "zip/images/1686829736789.png",
     "zip/images/1686829736223.png",
     "zip/images/1686829735668.png",
-    "zip/images/1686829735094.png",
-    "zip/images/1686829734562.png",
     "引擎Unity3D/【Catlike Coding】/1 Basics",
     "引擎Unity3D/【Catlike Coding】",
-    "引擎Unity3D/【Shader精粹】/shaderlab指南.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/着色器/次表面散射.md",
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
@@ -228,9 +243,6 @@
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "技术美术/05 UnityShader/疑问.md",
-    "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
@@ -238,7 +250,6 @@
     "Zstore/9df7ec016a7320ad4009b25f44281fc9_MD5.-uOlWi_H4m379OfJP18UZAHaHa",
     "Zstore/3dcbbb9bbedacebd312d834dcff167c1_MD5.6AuWSAgV3bF0S-Bb1WY0ywAAAA",
     "Zstore/f801540d2ff71103255d394af37e586f_MD5.czbU9pQNHzvrvh5hRTX1ZgHaDT",
-    "Zstore/96f2ed488f4313f48f4d99aab7c6457f_MD5.0aCtA-j_T6HahRFtEN4X-QHaHa",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
