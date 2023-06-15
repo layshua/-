@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+    },
+    {
       "basename": "Unity操作指南",
       "path": "引擎Unity3D/Unity操作指南.md"
     },
@@ -103,10 +107,6 @@
     {
       "basename": "01 图形渲染管线",
       "path": "图形学/1 图形系统/01 图形渲染管线.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "HLSL语法",
