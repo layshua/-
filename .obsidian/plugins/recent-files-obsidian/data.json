@@ -5,6 +5,10 @@
       "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
+      "basename": "TA101",
+      "path": "技术美术/05 UnityShader/TA101.md"
+    },
+    {
       "basename": "shaderlab指南",
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
@@ -95,10 +99,6 @@
     {
       "basename": "《鱼书》",
       "path": "AI/深度学习/《鱼书》.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "技术美术/05 UnityShader/TA101.md"
     },
     {
       "basename": "书单",
