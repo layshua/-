@@ -5,6 +5,26 @@
       "path": "引擎Unity3D/【Shader精粹】/shaderlab指南.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "3D数学",
+      "path": "图形学/0 3D数学/3D数学.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
       "basename": "全局光照",
       "path": "引擎Unity3D/【Shader精粹】/全局光照.md"
     },
@@ -41,16 +61,8 @@
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
-    },
-    {
       "basename": "学习大纲",
       "path": "技术美术/学习大纲.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     },
     {
       "basename": "03 光照模型",
@@ -113,20 +125,8 @@
       "path": "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md"
     },
     {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
       "basename": "04 纹理映射",
       "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
     },
     {
       "basename": "DX12理论",

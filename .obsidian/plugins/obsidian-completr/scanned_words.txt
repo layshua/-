@@ -22475,6 +22475,7 @@ multiplier
 myColors
 myRandomWriteTexture
 myEffectCamera
+mypass
 windows
 win
 width
@@ -59562,6 +59563,7 @@ MainColor
 MOBILE
 MIGHT
 MyRarelyUpdatedVariables
+MYPASSNAME
 Windows
 Win
 World
