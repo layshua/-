@@ -715,3 +715,53 @@ img.texture = Resources.Load<Texture>( "EmojiOne");
 
 ![[Pasted image 20230616224314.png#pic_right]]
 
+![[Pasted image 20230616232905.png]]
+
+>1. Navigation 要联动 Event System：
+> ![[Pasted image 20230616232956.png|500]]
+>2. Explicit 指定周边控件：
+>![[Pasted image 20230616233516.png|500]]
+>3. 导航连线：
+>![[Pasted image 20230616233439.png|350]]
+
+#### 代码控制 button 属性
+```cs file:代码控制button
+Button btn = this.GetComponent<Button>();  
+btn.interactable = true;  
+btn.transition = Selectable.Transition.ColorTint;
+...
+```
+
+#### 监听点击事件
+点击事件是在按钮区域按下抬起一次就算一次点击
+监听点击事件有两种方式：
+1. 拖拽对象
+![[Pasted image 20230616234235.png]]
+只显示脚本上的 public 方法
+
+2. 代码添加
+```cs
+void Start()
+    {
+        Button button = GetComponent<Button>();
+        
+        //添加监听，原理就是委托
+        button.onClick.AddListener(ClickButton); 
+        //也可以使用lambda表达式
+        button.onClick.AddListener(() =>
+        {
+            print("另一种方式ClickButton");
+        });
+        
+        //移除监听
+        button.onClick.RemoveListener(ClickButton);
+        
+        //移除所有监听
+        button.onClick.RemoveAllListeners();
+    }
+
+    public void ClickButton()
+    {
+        print("ClickButton");
+    }
+```
