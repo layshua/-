@@ -8,26 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "781ed5f130ea8d54",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f099e7e6940c2776",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "0ed5db9a7861245b",
             "type": "leaf",
             "state": {
@@ -40,12 +20,12 @@
             }
           },
           {
-            "id": "5bc877a1cfc5ee90",
+            "id": "9c2122a70351dadf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -64,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -199,15 +179,16 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "0ae9e8cc6ec3a5b2",
   "lastOpenFiles": [
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "zBuffer/2 对象种类.md",
+    "引擎Unity3D/【Shader精粹】/《URP》.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/Unity操作指南.md",
     "zip/images/Pasted image 20230615235041.png",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/1持久化对象.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "zBuffer/2 对象种类.md",
     "zBuffer/Procedural Grid_ a Unity C Tutorial程序网格，一个Unity C教程.md",
     "zip/images/1686838082679.png",
     "zip/images/1686838082618.png",
@@ -218,7 +199,6 @@
     "zip/images/1686838080915.png",
     "zip/images/1686838080907.png",
     "zip/images/1686838080362.png",
-    "引擎Unity3D/【Shader精粹】/《URP》.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》",
     "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md",
     "zBuffer/Building a Graph 构建图形.md",
