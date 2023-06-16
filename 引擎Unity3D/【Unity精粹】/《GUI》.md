@@ -635,8 +635,8 @@ print((this.transform as RectTransform).sizeDelta);
 ## 三大基础控件
 ### Image
 ![[Pasted image 20230616213350.png]]
-- 是 UGUI 中用于显示精灵图片的关键组件
-- 除了背景图等大图，一般都使用 Image 来显示 UI 中的图片元素
+- 是 UGUI 中用于显示精灵图片（Sprite）的关键组件
+- 除了背景图等大图用RawImage，一般都使用 Image 来显示 UI 中的图片元素
 ![[Pasted image 20230616213356.png]]
 
 - @ **控件显示顺序**：根据在 Canvas 下的层级，越后面的优先级越高:
@@ -662,8 +662,8 @@ print((this.transform as RectTransform).sizeDelta);
 2. 拉动绿色线，将图片分割成九宫格区域。当拉伸图片时，横向拉伸只会拉伸竖向的中间一排，竖向拉伸只会拉伸横向的中间一排。四角不会发生拉伸
 ![[Pasted image 20230616215136.png|500]]
 
-### 代码获取Image属性
-```cs
+#### 代码获取 Image 属性
+```cs file:代码获取Image属性
 //修改当前Image控件的SourceImage
 //图片必须放在Resources文件夹
 Image img = this.GetComponent<Image>();
@@ -674,6 +674,44 @@ img.sprite = Resources.Load<Sprite>( "EmojiOne");
 有两个版本
 - Text(TMP)，基于 TextMeshPro
 - Text(Legacy)，旧版
+#### Text(TMP)
+
 #### Text(Legacy)
 ![[Pasted image 20230616222442.png|450]]
 ![[Pasted image 20230616222359.png]]
+#### 代码控制文本内容
+```cs file:代码控制文本内容
+//Text(TMP)
+TextMeshPro text = this.GetComponent<TextMeshPro>();  
+text.text = "Hello World";
+
+//Text(Legacy)
+Text txt = this.GetComponent<Text>();
+txt.text ="Helloworld;
+```
+
+### RawImage
+RawImage 是原始图像组件
+**是 UGUI 中用于显示任何纹理图片的关键组件**
+
+**和 Image 的区别：**
+- 一般 RawImage **用于显示大图 (背景图、不需要打入图集的图片、网络下载的图等等)**。Image 则用于显示一些小的 UI 元素。
+- RawImage 支持各种 Texture Type，Image 必须使用 Sprite
+
+![[Pasted image 20230616223059.png]]
+![[Pasted image 20230616223338.png]]
+#### 代码控制 Texture
+```cs file:代码控制Texture
+RawImage img = this.GetComponent<RawImage>();
+img.texture = Resources.Load<Texture>( "EmojiOne");
+```
+
+## 组合控件
+### Button
+**Button 是按钮组件，是 UGUI 中用于处理玩家按钮相关交互的关键组件**
+![[Pasted image 20230616223909.png|450]]
+
+![[Pasted image 20230616223923.png]]
+
+![[Pasted image 20230616224314.png#pic_right]]
+
