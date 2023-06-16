@@ -564,3 +564,12 @@ Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而�
 - ? 反转指的是将控件的 Rect Transfrom 中的 Rotation 属性的 x 或 y 轴旋转 180 度
 **Blocking Objects**:射线被哪些类型的碰撞器阻挡 (在覆盖渲染模式 Screen Space - Overlay下无效) 
 **Blocking Mask**: 射线被哪些层级的碰撞器阻挡（在覆盖渲染模式下无效)
+
+**演示：**
+在一个 Button 控件前分别放一个 3D object（Cube） 和 2D object（Sprite），这两个 object 都要添加碰撞器，如下：
+![[Pasted image 20230616175144.png]]
+- 当 Blocking Objects 为 None 时，可以点击到 button
+- 当 Blocking Objects 为 2D 时，右边点不到 button
+- 当 Blocking Objects 为 3D 时，左边点不到 button
+- 当 Blocking Objects 为 all 时，两边都点不到 button
+
