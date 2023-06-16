@@ -13,41 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "9c2122a70351dadf",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/未命名.canvas",
-                "viewState": {
-                  "x": 5.60003662109375,
-                  "y": -6.39996337890625,
-                  "zoom": 0
-                }
-              }
-            }
-          },
-          {
-            "id": "0ae9e8cc6ec3a5b2",
+            "id": "53dca3c04dbb12ee",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/2 对象种类.md",
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -59,7 +43,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 58.723021582733814,
+        "dimension": 58.72302158273382,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -90,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/未命名.canvas"
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md"
               }
             }
           }
@@ -99,7 +83,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 41.276978417266186,
+        "dimension": 41.27697841726618,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -133,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/未命名.canvas",
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/未命名.canvas",
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,12 +166,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "9c2122a70351dadf",
+  "active": "0ed5db9a7861245b",
   "lastOpenFiles": [
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/1持久化对象.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md",
-    "zBuffer/2 对象种类.md",
     "zip/images/1686884244846.png",
     "zip/images/1686884244812.png",
     "zip/images/1686884244772.png",
@@ -196,11 +182,9 @@
     "zip/images/1686884244630.png",
     "zip/images/1686884244393.png",
     "引擎Unity3D/【Shader精粹】/《URP》.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/Unity操作指南.md",
     "zip/images/Pasted image 20230615235041.png",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/1持久化对象.md",
     "zBuffer/Procedural Grid_ a Unity C Tutorial程序网格，一个Unity C教程.md",
     "zip/images/1686838082679.png",
     "zip/images/1686838082618.png",

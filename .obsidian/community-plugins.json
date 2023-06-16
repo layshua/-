@@ -36,5 +36,6 @@
   "obsidian-hider",
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-git",
-  "recent-files-obsidian"
+  "recent-files-obsidian",
+  "wikilinks-to-mdlinks-obsidian"
 ]
