@@ -2409,7 +2409,47 @@ for (int i = 0; i < num; i++)
     print(hits[i].collider.gameObject.name);
 }
 ```
+## 4 材质系统
+### MaterialPropertyBlock
+对于实例化出来的模型，我们改变它身上的颜色值或者贴图之类，Unity 是会把它当前使用的 ShareMaterial 复制一份实例出来，以做到不同对象身上的材质互不影响的改变参数。但这样做会导致如果使用的对象很多，就会产生很多材质的实例的问题，这样会对内存有一定的消耗。
 
+![](<images/1686884244393.png>)
+
+  
+在场景里面生成了多个 cube，然后用代码改变他们的颜色：  
+
+![](<images/1686884244630.png>)
+
+  
+给每一个 cube 随机一种颜色，然后用传统的 material. color 来设置颜色。  
+
+![](<images/1686884244693.png>)
+
+  
+结果会是这样，各个 cube 的颜色变化了。  
+
+![](<images/1686884244736.png>)
+
+  
+从 Profiler 里面看看内存，会发现场景内存里面，有很多的 InstanceMat（Instance）。这就是生成出来的材质实例。
+
+接下来改一下代码，使用 MaterialPropertyBlock 来作为设置颜色的手段：  
+
+![](<images/1686884244772.png>)
+
+  
+可以看到我们会先 new 一个 MaterialPropertyBlock，然后给它赋值，最后用 Renderer. SetPropertyBlock 方式给 MeshRender 设置属性。
+
+运行时，可以看到运行的结果和之前的写法是一样的。  
+
+![](<images/1686884244812.png>)
+
+再从 Profiler 里面看看内存。  
+
+![](<images/1686884244846.png>)
+
+  
+这次可以看到，并没有生成任何的 Material 的实例出来。
 # 四、协同程序
 ## 1 Unity 多线程
 [[《CS Primer》#十四、多线程]]
@@ -2924,3 +2964,4 @@ tex = null;
 Resources.UnloadUnusedAssets();
 GC.Collect();
 ```
+

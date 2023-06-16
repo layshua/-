@@ -60048,6 +60048,8 @@ Mathematically
 Master
 MinValue
 MaterialId
+MaterialPropertyBlock
+MeshRender
 Windows
 Win
 World
@@ -68295,6 +68297,8 @@ ScriptReference
 ShapeFactory
 ShapeId
 SetMaterial
+ShareMaterial
+SetPropertyBlock
 Programs
 POP
 PC
@@ -80064,6 +80068,7 @@ Ideally
 Instantiation
 Identifying
 Incorrect
+InstanceMat
 qq
 qyi
 quad
