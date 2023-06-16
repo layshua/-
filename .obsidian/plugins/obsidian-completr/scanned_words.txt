@@ -22718,6 +22718,7 @@ messy
 mostly
 mentioning
 mirroring
+materialId
 windows
 win
 width
@@ -47645,6 +47646,7 @@ UPGRADE
 UniversalGBuffer
 Updating
 Unfortunately
+Unsupported
 api
 ac
 app
@@ -55537,6 +55539,7 @@ Rotating
 Remembering
 Randomly
 Remaining
+RangeAttribute
 Microsoft
 Menu
 MicaForEveryone
@@ -60043,6 +60046,8 @@ Minutes
 Marking
 Mathematically
 Master
+MinValue
+MaterialId
 Windows
 Win
 World
@@ -68286,6 +68291,10 @@ Saturated
 Saving
 Shiny
 Shaded
+ScriptReference
+ShapeFactory
+ShapeId
+SetMaterial
 Programs
 POP
 PC
@@ -76246,6 +76255,7 @@ Clamping
 Closing
 Choosing
 Conceptually
+CreateShape
 ImTip
 IMAP
 ID
@@ -114848,6 +114858,9 @@ smoothly
 silhouette
 stretched
 symmetry
+shapeFactory
+shapeId
+saveVersion
 local
 list
 left
@@ -118347,6 +118360,9 @@ lies
 lots
 lie
 lazy
+localPosition
+localRotation
+localScale
 YAML
 You
 YEBAYGhURFRofHx
@@ -162307,6 +162323,7 @@ Looking
 Like
 Loops
 Limiting
+LogError
 Getx
 GetX
 GetName
@@ -166637,6 +166654,7 @@ GameDataReader
 Give
 Going
 Generating
+GetRandom
 NULL
 Native
 NormalMap

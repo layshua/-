@@ -76,7 +76,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 58.15217391304348,
+        "dimension": 58.723021582733814,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -107,7 +107,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/Unity操作指南.md"
+                "file": "zBuffer/2 对象种类.md"
               }
             }
           }
@@ -116,7 +116,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 41.84782608695652,
+        "dimension": 41.276978417266186,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
+                "file": "zBuffer/2 对象种类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
+                "file": "zBuffer/2 对象种类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,10 +199,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "引擎Unity3D/Unity操作指南.md",
     "zip/images/Pasted image 20230615235041.png",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Object管理/1持久化对象.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/1持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
@@ -217,10 +218,8 @@
     "zip/images/1686838080915.png",
     "zip/images/1686838080907.png",
     "zip/images/1686838080362.png",
-    "zip/images/1686838080340.png",
-    "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/【Shader精粹】/《URP》.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Object管理",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》",
     "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md",
     "zBuffer/Building a Graph 构建图形.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》",
