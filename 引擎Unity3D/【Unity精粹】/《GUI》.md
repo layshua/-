@@ -437,7 +437,25 @@ UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 `Event System` ：玩家输入事件响应系统，主要用于监听玩家操作 
 `Standalone Input Module` ：独立输入模块组件，主要用于监听玩家操作 
 
-## Canvas 组件
+## Rect Transform
+**UI 对象位置锚点控制组件，主要用于控制位置和对其方式** 
+
+Rect Transform 意思是矩形变换
+**是专门用于处理 UI 元素位置大小相关的组件**
+
+- **RectTransform 继承于 Transform**，Transform 组件只处理位置、角度、缩放
+- **RectTransform 在此基础上加入了矩形相关，将 UI 元素当做一个矩形来处理加入了中心点、锚点、长宽等属性**，其目的是更加方便的控制其大小以及分辨率自适应中的位置适应。
+
+![[Pasted image 20230616204414.png]]
+
+- @ Pivot：中间的蓝色圆圈为 Pivot 轴心点，默认为（0.5，0.5）
+- 轴心点是旋转的中心
+- 和锚点配合控制位置
+![[Pasted image 20230616204627.png]]
+
+- @ Anchors：父矩形中间的蓝色圆圈为  Anchors 轴心点，默认为（0.5，0.5）
+![[Pasted image 20230616205128.png]]
+## Canvas 
 **画布组件，主要用于渲染 UI 控件** 
 ![[Pasted image 20230616160418.png]]
 - 它是 UGUI 中所有 UI 元素能够被显示的根本
@@ -474,7 +492,7 @@ Order in Layer，适用于相同 Layer 中进行排序
 
 **Event Camera**：用于处理 UI 事件的摄像机（ 如果不设置，不能正常注册 UI 事件）
 
-## Canvas Scaler 组件
+## Canvas Scaler 
 **画布缩放控制器，用于画布分辨率自适应的组件  
 
 它主要负责在不同分辨率下 UI 控件大小自适应
@@ -554,7 +572,7 @@ Falback Screen DPI：备用 DPI，当找不到设备 DPI 时，使用此值 Defa
 
 ![[Pasted image 20230616173244.png]]
 
-## Graphic Raycaster 组件
+## Graphic Raycaster 
 Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而是基于图形）
 - **用于检测 UI 输入事件**
 - 主要负责通过射线检测玩家和 UI 元素的交互，判断是否点击到了 UI 元素
@@ -573,3 +591,33 @@ Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而�
 - 当 Blocking Objects 为 3D 时，左边点不到 button
 - 当 Blocking Objects 为 all 时，两边都点不到 button
 
+## Event System
+Event System 意思是事件系统
+**玩家输入事件响应系统，主要用于监听玩家操作** 
+![[Pasted image 20230616202924.png]]
+- **它是用于管理玩家的输入事件并分发给各 UI 控件**
+- 它是事件逻辑处理模块，**所有的 UI 事件都通过 EventSystem 组件中轮询检测并做相应的执行**
+- 它类似一个中转站，和许多模块一起共同协作，如果没有它，所有点击、拖曳等等行为都不会被响应
+
+`First Selected`: 首先选择的游戏对象，可以设置游戏一开始的默认选择 
+`Send Navigation Events`: 是否允许导航事件（开启后可以通过键盘控制移动/按下/取消，wasd 移动，空格/回车选择)
+`Drag Threshold`: 拖拽操作的阈值（移动多少像素的距离才算开始拖拽)
+
+## Standalone Input Module
+**独立输入模块组件，主要用于监听玩家操作** 
+![[Pasted image 20230616203659.png]]
+- 它主要针对处理鼠标/键盘/控制器/触屏 的输入
+- 输入的事件通过 Event System 进行分发
+- **它依赖于 Event System 组件，他们两缺一不可**
+
+**和 Input Manager 中的设置绑定，一般不会进行修改：**
+`Horizontal Axis`:水平轴按钮对应的热键名 (该名字对应 Input 管理器) 
+`Vertical Axis`: 垂直轴按钮对应的热键名（该名字对应 Input 管理器)
+`Submit Button`: 提交（确定)按钮对应的热建名（该名字对应 Input 管理器) 
+`Cancel Button`:取消按钮对应的热建名 (该名字对应 Input 管理器)
+
+`Input Actions Per Second`: 每秒允许键盘/控制器输入的数量 
+`Repeat Delay`: 每秒输入操作重复率生效前的延迟时间
+`ForceModule Active`: 是否强制模块处于激活状态
+
+# 
