@@ -20,6 +20,26 @@
             }
           },
           {
+            "id": "86eac3cd7c113fea",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "61c28f17f5e0bbf4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "53dca3c04dbb12ee",
             "type": "leaf",
             "state": {
@@ -27,8 +47,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,15 +89,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
-            }
-          },
-          {
-            "id": "f6e51305cd646969",
-            "type": "leaf",
-            "state": {
-              "type": "mk-file-view",
-              "state": {}
+              "state": {
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
+              }
             }
           }
         ]
@@ -120,6 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,6 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -167,16 +182,16 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "53dca3c04dbb12ee",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Shader精粹】/《URP》.md",
     "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
     "Context/spacesLastSync.log",
     "Context",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md",
     "zip/images/1686884244846.png",
