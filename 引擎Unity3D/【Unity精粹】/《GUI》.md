@@ -437,7 +437,7 @@ UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 `Event System` ：玩家输入事件响应系统，主要用于监听玩家操作 
 `Standalone Input Module` ：独立输入模块组件，主要用于监听玩家操作 
 
-## Rect Transform
+### Rect Transform
 **UI 对象位置锚点控制组件，主要用于控制位置和对其方式** 
 
 Rect Transform 意思是矩形变换
@@ -458,7 +458,7 @@ Rect Transform 意思是矩形变换
 
 - @ Anchors：Anchors 轴心点默认为（0.5，0.5）
 ![[Pasted image 20230616205128.png]]
-## Canvas 
+### Canvas 
 **画布组件，主要用于渲染 UI 控件** 
 ![[Pasted image 20230616160418.png]]
 - 它是 UGUI 中所有 UI 元素能够被显示的根本
@@ -467,14 +467,14 @@ Rect Transform 意思是矩形变换
 - 我们可以通过修改 Canvas 组件上的参数修改渲染方式
 - 场景中可以有多个 Canvas 对象，可以分别管理不同画布的渲染方式，分辨率适应方式等等参数。如果没有特殊需求，—般情况场景上一个 Canvas 即可。
 
-### RenderMode 渲染模式
+#### RenderMode 渲染模式
 ![[Pasted image 20230616160333.png]]
-#### Screen Space - Overlay
+##### Screen Space - Overlay
 覆盖模式，UI 始终显示在场景内容前方
 
 ![[Pasted image 20230616160500.png]]
 
-#### Screen Space - Camera
+##### Screen Space - Camera
 摄像机模式，3D 物体可以显示在 UI 之前
 
 ![[Pasted image 20230616160834.png|700]]
@@ -488,14 +488,14 @@ Rect Transform 意思是矩形变换
 4. 通过设置 Sorting Layer，也可以对 Canvas 进行排序，后面的层覆盖前面的层。
 Order in Layer，适用于相同 Layer 中进行排序
 
-#### Screen Space - Camera
+##### Screen Space - Camera
 3D 模式，可以把 UI 对象像 3D 物体一样处理，常用于 VR 或者 AR
 ![[Pasted image 20230616163024.png|350]]
 ![[Pasted image 20230616162932.png]]
 
 **Event Camera**：用于处理 UI 事件的摄像机（ 如果不设置，不能正常注册 UI 事件）
 
-## Canvas Scaler 
+### Canvas Scaler 
 **画布缩放控制器，用于画布分辨率自适应的组件  
 
 它主要负责在不同分辨率下 UI 控件大小自适应
@@ -511,7 +511,7 @@ Order in Layer，适用于相同 Layer 中进行排序
 3. Constant Physical Size（恒定物理模式)：
 无论屏幕大小和分辨率如何，UI 元素始终保持相同物理大小
 
-### 分辨率
+#### 分辨率
 1. **屏幕分辨率**——当前设备的分辨率，编辑器下 Game 窗口中 Stats 可以查看到
 ![[Pasted image 20230616164340.png]]
 2. **参考分辨率** Reference Resolution——在 Scale With Screen Size 缩放模式中出现的关键参数，参与分辨率自适应的计算
@@ -524,11 +524,11 @@ Height * Scale. y = 分辨率y
 
 4. **分辨率大小自适应**——通过一定的算法以屏幕分辨率和参考分辨率参与计算得出缩放系数该结果会影响所有 UI 控件的缩放大小
 
-### UI Scale Mode UI 缩放模式
+#### UI Scale Mode UI 缩放模式
 重点：
 ![[Pasted image 20230616172357.png]]
 ![[Pasted image 20230616171748.png]]
-#### Constant Pixel Size 恒定像素模式 
+##### Constant Pixel Size 恒定像素模式 
 **无论屏幕大小如何，U 始终保持相同像素大小**
 它不会让 UI 控件进行分辨率大小自适应
 会让 UI 控件始终保持设置的尺寸大小显示
@@ -543,7 +543,7 @@ Set Native Size：恢复 Source Image 的原始尺寸，结果需要经过计算
 ![[Pasted image 20230616165421.png]]
 
 
-#### Scale With Screen Size  随屏幕尺寸缩放模式
+##### Scale With Screen Size  随屏幕尺寸缩放模式
 **根据屏幕尺寸进行缩放，随着屏幕尺寸放大缩小，<mark style="background: #FF5582A6;">最常用</mark>**
 
 ![[Pasted image 20230616164147.png]]
@@ -558,7 +558,7 @@ Set Native Size：恢复 Source Image 的原始尺寸，结果需要经过计算
     2. <mark style="background: #D2B3FFA6;">Shrink</mark>: 水平或垂直**裁剪画布**区域，会根据宽高比的变化来放大缩小画布，可能会裁剪  ![[Pasted image 20230616171328.png|500]]
      3. <mark style="background: #D2B3FFA6;">Match Width Or Height</mark>: **以宽高或者二者的平均值**作为参考来缩放画布区域（常用）![[Pasted image 20230616171520.png|450]] ![[Pasted image 20230616171534.png|500]] ![[Pasted image 20230616171554.png]]
 
-#### Constant Physical Size 恒定物理模式 
+##### Constant Physical Size 恒定物理模式 
 无论屏幕大小和分辨率如何，UI 元素始终保持相同物理大小
  
 ![[Pasted image 20230616164157.png]]
@@ -570,12 +570,12 @@ Falback Screen DPI：备用 DPI，当找不到设备 DPI 时，使用此值 Defa
 ![[Pasted image 20230616172726.png]]
 ![[Pasted image 20230616172735.png]] ![[Pasted image 20230616172936.png]]
 
-#### World 世界模式
+##### World 世界模式
 ![[Pasted image 20230616173212.png]]
 
 ![[Pasted image 20230616173244.png]]
 
-## Graphic Raycaster 
+### Graphic Raycaster 
 Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而是基于图形）
 - **用于检测 UI 输入事件**
 - 主要负责通过射线检测玩家和 UI 元素的交互，判断是否点击到了 UI 元素
@@ -594,7 +594,7 @@ Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而�
 - 当 Blocking Objects 为 3D 时，左边点不到 button
 - 当 Blocking Objects 为 all 时，两边都点不到 button
 
-## Event System
+### Event System
 Event System 意思是事件系统
 **玩家输入事件响应系统，主要用于监听玩家操作** 
 ![[Pasted image 20230616202924.png]]
@@ -606,7 +606,7 @@ Event System 意思是事件系统
 `Send Navigation Events`: 是否允许导航事件（开启后可以通过键盘控制移动/按下/取消，wasd 移动，空格/回车选择)
 `Drag Threshold`: 拖拽操作的阈值（移动多少像素的距离才算开始拖拽)
 
-## Standalone Input Module
+### Standalone Input Module
 **独立输入模块组件，主要用于监听玩家操作** 
 ![[Pasted image 20230616203659.png]]
 - 它主要针对处理鼠标/键盘/控制器/触屏 的输入
@@ -623,8 +623,34 @@ Event System 意思是事件系统
 `Repeat Delay`: 每秒输入操作重复率生效前的延迟时间
 `ForceModule Active`: 是否强制模块处于激活状态
 
-## 获取
+### 获取组件属性
 ```cs
 //因为Transform是RectTransform父类，所以可以强转为RectTransform
-((RectTransform)this.transform).sizeDelta = new Vector2(100, 100);
+print(((RectTransform)this.transform).sizeDelta);
+
+//等价
+print((this.transform as RectTransform).sizeDelta);
 ```
+
+## 三大基础控件
+### Image
+![[Pasted image 20230616213350.png]]
+- 是 UGUI 中用于显示精灵图片的关键组件
+- 除了背景图等大图，一般都使用 Image 来显示 UI 中的图片元素
+![[Pasted image 20230616213356.png]]
+
+- @ **控件显示顺序**：根据在 Canvas 下的层级，越后面的优先级越高:
+![[Pasted image 20230616213645.png]]
+
+- @ **Raycast Taget 示例**：在 Button 控件前加一个 Image 控件
+    - 默认勾选，重叠部分无法点击Button
+    - 取消勾选，重叠部分可以点击Button
+![[Pasted image 20230616214219.png]]
+
+- @ ImageType 图片类型
+- Simple：只用于固定尺寸的图片，美术出什么尺寸就用什么尺寸
+- Sliced 切片模式：常用，需要设置图片边框 border
+  1. 找到图片，点击 SpriteEditor：
+![[Pasted image 20230616214956.png]]
+1. 拉动绿色线，将图片分割成九宫格区域。当拉伸图片时，横向拉伸只会拉伸竖向的中间一排，竖向拉伸只会拉伸横向的中间一排。四角不会发生拉伸
+![[Pasted image 20230616215136.png]]

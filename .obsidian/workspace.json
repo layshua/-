@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
               }
             }
           }
@@ -142,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,23 +191,24 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "de2d0a8fac487d63",
+  "active": "47add09d412cfbf9",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230616215136.png",
+    "zip/images/Pasted image 20230616215122.png",
+    "zip/images/Pasted image 20230616214956.png",
+    "zip/images/Pasted image 20230616214733.png",
+    "zip/images/Pasted image 20230616214219.png",
+    "zip/images/Pasted image 20230616213645.png",
+    "zip/images/Pasted image 20230616213356.png",
+    "zip/images/Pasted image 20230616213350.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/Unity操作指南.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "zip/images/Pasted image 20230616211614.png",
     "zip/images/Pasted image 20230616211600.png",
     "引擎Unity3D/BUG合集.md",
     "zip/images/Pasted image 20230616211120.png",
-    "zip/images/Pasted image 20230616210849.png",
-    "zip/images/Pasted image 20230616205128.png",
-    "zip/images/Pasted image 20230616204627.png",
-    "zip/images/Pasted image 20230616204414.png",
-    "zip/images/Pasted image 20230616203659.png",
-    "zip/images/Pasted image 20230616202924.png",
-    "zip/images/Pasted image 20230616202923.png",
     "zBuffer/3 重用对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
