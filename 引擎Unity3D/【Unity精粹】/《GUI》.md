@@ -481,27 +481,56 @@ Order in Layer，适用于相同 Layer 中进行排序
 **它并不负责位置，位置由之后的 Rect Transform 组件负责**
 
 **提供了三种用于分辨率自适应的模式**（按需选择）
-![[Pasted image 20230616163416.png]]
+1. Constant Pixel Size（恒定像素模式)∶
+无论屏幕大小如何，U 始终保持相同像素大小
 
-![[Pasted image 20230616164147.png]]
-**Reference Resolution: 参考分辨率**
-在缩放模式的宽高模式中出现的参数，**参与分辨率自适应的计算**
+2. Scale With Screen Size (随屏幕尺寸缩放模式)∶
+根据屏幕尺寸进行缩放，随着屏幕尺寸放大缩小
 
-![[Pasted image 20230616164157.png]]
+3. Constant Physical Size（恒定物理模式)：
+无论屏幕大小和分辨率如何，UI 元素始终保持相同物理大小
 
 ### 分辨率
-屏幕分辨率——当前设备的分辨率，编辑器下 Game 窗口中 Stats 可以查看到
-参考分辨率——在其中一种适配模式中出现的关键参数，参与分辨率自适应的计算
-画布宽高和缩放系数——分辨率自适应会改变的参数，通过屏幕分辨率和参考分辨率计算而来
-分辨率大小自适应——通过一定的算法以屏幕分辨率和参考分辨率参与计算得出缩放系数该结果会影响所有 UI 控件的缩放大小
-
-### 画布大小和缩放系数
-选中 Canvas 对象后在 Rect Transform 组件中看到的宽高和缩放系数
-
+1. **屏幕分辨率**——当前设备的分辨率，编辑器下 Game 窗口中 Stats 可以查看到
+![[Pasted image 20230616164340.png]]
+2. **参考分辨率** Reference Resolution——在 Scale With Screen Size 缩放模式中出现的关键参数，参与分辨率自适应的计算
+3. **画布宽高和缩放系数**——分辨率自适应会改变的参数，通过屏幕分辨率和参考分辨率计算而来。选中 Canvas 对象后在 Rect Transform 组件中看到的宽高和缩放系数
 ```
 //分辨率为（x,y）,则：
 Width * Scale. x = 分辨率x
 Height * Scale. y = 分辨率y
 ```
 
+4. **分辨率大小自适应**——通过一定的算法以屏幕分辨率和参考分辨率参与计算得出缩放系数该结果会影响所有 UI 控件的缩放大小
 
+### UI Scale Mode UI 缩放模式
+#### Constant Pixel Size 恒定像素模式 
+**无论屏幕大小如何，U 始终保持相同像素大小**
+它不会让 UI 控件进行分辨率大小自适应
+会让 UI 控件始终保持设置的尺寸大小显示
+**一般在进行游戏开发<mark style="background: #FF5582A6;">极少使用这种模式</mark>，除非通过代码计算来设置缩放系数**
+
+![[Pasted image 20230616163416.png]]
+- **Scale Factor: 缩放系数**，按此系数缩放画布中的所有 UI 元素 
+- **Reference Pixels Per Unit：单位参考像素**，多少像素对应 Unity 中的一个单位（**默认一个单位为 100 像素**)，图片设置中的 Pixels Per Unit 设置，会和该参数一起参与计算
+
+Set Native Size：恢复 Source Image 的原始尺寸，结果需要经过计算：
+![[Pasted image 20230616165546.png|500]]
+![[Pasted image 20230616165421.png]]
+
+
+#### Scale With Screen Size  随屏幕尺寸缩放模式
+**根据屏幕尺寸进行缩放，随着屏幕尺寸放大缩小，<mark style="background: #FF5582A6;">最常用</mark>**
+
+![[Pasted image 20230616164147.png]]
+
+- **Reference Resolution ：参考分辨率** (PC 常用 1920x1080，手机端也要适配对应分辨率，一般由美术人员决定)。缩放模式下的所有匹配模式都会基于参考分辨率进行自适应计算
+- **Screen Match Mode：屏幕匹配模式**，当前屏幕分辨率宽高比不适应参考分辨率时，用于分辨率大小自适应的匹配模式。有三种模式：
+    - <mark style="background: #D2B3FFA6;">Expand</mark>: 水平或垂直**拓展画布**区域，会根据宽高比的变化来放大缩小画布，可能有黑边： ![[Pasted image 20230616171229.png|300]] ![[Pasted image 20230616170712.png|500]] ![[Pasted image 20230616170854.png|500]]
+    - <mark style="background: #D2B3FFA6;">Shrink</mark>: 水平或垂直**裁剪画布**区域，会根据宽高比的变化来放大缩小画布，可能会裁剪  ![[Pasted image 20230616171328.png|500]]
+    - <mark style="background: #D2B3FFA6;">Match Width Or Height</mark>: **以宽高或者二者的平均值**作为参考来缩放画布区域（常用）
+
+#### Constant Physical Size 恒定物理模式 
+无论屏幕大小和分辨率如何，UI 元素始终保持相同物理大小
+
+![[Pasted image 20230616164157.png]]
