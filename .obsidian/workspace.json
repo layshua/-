@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
                 "mode": "source",
                 "source": false
               }
@@ -23,15 +23,12 @@
             "id": "53dca3c04dbb12ee",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,9 +70,15 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md"
-              }
+              "state": {}
+            }
+          },
+          {
+            "id": "f6e51305cd646969",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
             }
           }
         ]
@@ -117,7 +120,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +136,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,11 +167,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "0ed5db9a7861245b",
+  "active": "53dca3c04dbb12ee",
   "lastOpenFiles": [
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
+    "引擎Unity3D/【Shader精粹】/《URP》.md",
+    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
+    "Context/spacesLastSync.log",
+    "Context",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/2 对象种类.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/1持久化对象.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md",
@@ -181,7 +186,6 @@
     "zip/images/1686884244693.png",
     "zip/images/1686884244630.png",
     "zip/images/1686884244393.png",
-    "引擎Unity3D/【Shader精粹】/《URP》.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/Unity操作指南.md",
     "zip/images/Pasted image 20230615235041.png",
@@ -193,7 +197,6 @@
     "zBuffer/Building a Graph 构建图形.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》",
     "引擎Unity3D/【Catlike Coding】/未命名.md",
-    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
     "引擎Unity3D/【Catlike Coding】/Game Objects and Scripts --- 游戏对象和脚本 2.md",
     "zBuffer/Game Objects and Scripts --- 游戏对象和脚本.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
@@ -212,8 +215,6 @@
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
     "Zstore/263d973e5c2a8910d73ec86e6c00ba09_MD5.UMjv_xZch6Re1LGaaYKJ-QHaE7",
-    "Zstore/9df7ec016a7320ad4009b25f44281fc9_MD5.-uOlWi_H4m379OfJP18UZAHaHa",
-    "Zstore/3dcbbb9bbedacebd312d834dcff167c1_MD5.6AuWSAgV3bF0S-Bb1WY0ywAAAA",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
