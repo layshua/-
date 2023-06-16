@@ -1218,7 +1218,7 @@ flowchart LR
 
 **我们先来看一个图**
 
-![小鹤双形](https://help.flypy.com/assets/img/tu.png)
+![[2f7942c737c8de639c0ed67aaa589e1b_MD5.png]]
 
   
 

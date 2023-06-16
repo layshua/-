@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+                "file": "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md",
                 "mode": "source",
                 "source": false
               }
@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "技术美术/02 水体渲染/真实感水体渲染.md",
                 "mode": "source",
                 "source": false
               }
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
+                "file": "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+                "file": "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+                "file": "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,10 +182,30 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": true
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "0ed5db9a7861245b",
   "lastOpenFiles": [
+    "引擎Unity3D/【性能精粹】",
+    "zBuffer/GPU Instancing 深入浅出 - 中级篇（2）.md",
+    "zBuffer/GPU Instancing 深入浅出 - 基础篇（3）.md",
+    "zBuffer/GPU Instancing 深入浅出 - 中级篇（1）.md",
+    "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md",
+    "zip/images/bb18c37753e863b1607c81881fcc639f_MD5.jpg",
+    "zip/images/417539a170af3f55138a1f2afe8759a4_MD5.jpg",
+    "zip/images/17d1feaae828986a5ef2f52b45dcbbe4_MD5.jpg",
+    "zip/images/c843a509e59868129a3d69df25d79f72_MD5.jpg",
+    "zip/images/632225c8ecd1101c134a829309dae8de_MD5.jpg",
+    "zip/images/c8c6d64cb89f4e531b41d3f79def816f_MD5.jpg",
+    "zip/images/481f26d8df337ce85fe545fa74027163_MD5.jpg",
+    "zip/images/48ea4739a578c7f22702f68be400a53e_MD5.jpg",
+    "zip/images/041f582d981e9a6b970d330e74758af9_MD5.jpg",
+    "zip/images/42a8c3b78e1280a24ba50ee88f2bbfc1_MD5.jpg",
+    "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md",
+    "zBuffer/GPU Instancing 深入浅出 - 基础篇（2）.md",
+    "引擎Unity3D/性能优化",
+    "zBuffer/GPU Instancing 深入浅出 - 基础篇（1）.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
+    "技术美术/02 水体渲染/真实感水体渲染.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Shader精粹】/《URP》.md",
     "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
@@ -193,20 +213,9 @@
     "Context",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
-    "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md",
-    "zip/images/1686884244846.png",
-    "zip/images/1686884244812.png",
-    "zip/images/1686884244772.png",
-    "zip/images/1686884244736.png",
-    "zip/images/1686884244693.png",
-    "zip/images/1686884244630.png",
-    "zip/images/1686884244393.png",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/Unity操作指南.md",
-    "zip/images/Pasted image 20230615235041.png",
     "zBuffer/Procedural Grid_ a Unity C Tutorial程序网格，一个Unity C教程.md",
-    "zip/images/1686838082679.png",
-    "zip/images/1686838082618.png",
     "引擎Unity3D/【Catlike Coding】/《Object管理》",
     "zBuffer/Unity 基础教程 - 对象管理 （一）——持久化对象（Creating_Saving 和 Loading）.md",
     "zBuffer/Building a Graph 构建图形.md",
@@ -219,17 +228,9 @@
     "引擎Unity3D/【Catlike Coding】",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/着色器/次表面散射.md",
-    "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
-    "技术美术/着色器/布料.md",
-    "引擎Unity3D/【Shader精粹】/全局光照.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/05 UnityShader/TA101.md",
-    "zBuffer/(32 条消息) Unity Shader LOD 使用_天地会舵主的博客 - CSDN 博客.md",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
     "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "Zstore/b5ab41b419e8617c8795dd2df996fbee_MD5.8xRj6dzrTalqOL6r4rFBJAHaMW",
-    "Zstore/263d973e5c2a8910d73ec86e6c00ba09_MD5.UMjv_xZch6Re1LGaaYKJ-QHaE7",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",

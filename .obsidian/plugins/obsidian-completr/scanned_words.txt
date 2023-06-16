@@ -7549,6 +7549,7 @@ Otherwise
 Often
 Opening
 Overriding
+ObjectToWorldArray
 codeup
 clash
 ctrl
@@ -11696,6 +11697,7 @@ curving
 computes
 covering
 countered
+createCube
 github
 grey
 green
@@ -22719,6 +22721,7 @@ mostly
 mentioning
 mirroring
 materialId
+mpb
 windows
 win
 width
@@ -40057,6 +40060,7 @@ vary
 verifying
 verbatim
 verify
+vertexInput
 AA
 AppData
 AIRDyuVH
@@ -44084,6 +44088,7 @@ Accessing
 Animated
 Abstracting
 Assuming
+ACCESS
 URL
 Utools
 Users
@@ -47647,6 +47652,7 @@ UniversalGBuffer
 Updating
 Unfortunately
 Unsupported
+Ulit
 api
 ac
 app
@@ -55540,6 +55546,8 @@ Remembering
 Randomly
 Remaining
 RangeAttribute
+RenderForward
+RenderLoopJob
 Microsoft
 Menu
 MicaForEveryone
@@ -60050,6 +60058,10 @@ MinValue
 MaterialId
 MaterialPropertyBlock
 MeshRender
+MyInstanceShader
+MyGPUInstance
+MyGPUInstanceCube
+MatermialPropertyBlock
 Windows
 Win
 World
@@ -63931,6 +63943,7 @@ Warnings
 Whether
 Writing
 Watching
+WorldToObjectArray
 Start
 StartAllBack
 Shadowrocket
@@ -68299,6 +68312,11 @@ ShapeId
 SetMaterial
 ShareMaterial
 SetPropertyBlock
+SkinnedMeshRenderers
+SkinnedMeshRender
+SETUP
+Shadr
+Setcolor
 Programs
 POP
 PC
@@ -72227,6 +72245,9 @@ Prefabs
 Positioning
 Persistable
 PlayerPrefsDataManager
+Prefba
+Props
+PROP
 ContextMenuManager
 ClashVerge
 Clash
@@ -76260,6 +76281,8 @@ Closing
 Choosing
 Conceptually
 CreateShape
+CreatCube
+CubeCreate
 ImTip
 IMAP
 ID
@@ -80069,6 +80092,18 @@ Instantiation
 Identifying
 Incorrect
 InstanceMat
+Instanceing
+Instanced
+InstanceCube
+InstanceCubeCreate
+Instnacing
+Instacing
+Instances
+INSTANCING
+INPUT
+INSTANCE
+IINSTANCING
+INSTANCED
 qq
 qyi
 quad
@@ -87861,6 +87896,7 @@ palette
 procedurally
 peculiar
 pretending
+propertyName
 nodesCatch
 nobr
 navy
@@ -91379,6 +91415,7 @@ neatly
 noticeable
 newly
 normalizing
+nstanceID
 bf
 bc
 black
@@ -94863,6 +94900,8 @@ bunch
 bumpy
 bumps
 bilateral
+btte
+bufferName
 fe
 front
 fill
@@ -102269,6 +102308,7 @@ discarded
 determining
 detailed
 dramatic
+drawcall
 TFvYZOKeHL
 TAB
 TeX
@@ -110450,6 +110490,9 @@ introduction
 iterate
 insides
 illusion
+instanceing
+instancID
+instanceid
 shift
 svg
 sf
@@ -140167,6 +140210,8 @@ Being
 Bullets
 Backwards
 Beneath
+BaseInstanceID
+Batcing
 Fraktur
 Frame
 Foo
@@ -144289,6 +144334,9 @@ Fortunately
 Floating
 Finally
 Fabricating
+FrameDebug
+FunnyGPUInstance
+FunnyGPUInstanceCube
 Element
 Entity
 Enity
@@ -148566,6 +148614,7 @@ Exposed
 Encapsulate
 Even
 Experiment
+Enale
 xmlns
 xyz
 xy
@@ -158490,6 +158539,9 @@ Does
 DontDestroyOnLoad
 Displaying
 Demand
+Darw
+DrawMeshInstanced
+DEFINE
 LNK
 Log
 Linux
@@ -166660,6 +166712,7 @@ Give
 Going
 Generating
 GetRandom
+GPUInstancing
 NULL
 Native
 NormalMap
@@ -170417,6 +170470,9 @@ Namespaces
 Notice
 Normally
 Nodes
+NormalCubeCreate
+NormalCube
+NSTANCING
 ZooAnima
 ZooAnimal
 ZTest

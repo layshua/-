@@ -5,7 +5,7 @@ Github 地址： [https://github.com/pytorch/pytorch](https://github.com/pytorch
 
 本文是翻译自官方版教程 --[DEEP LEARNING WITH PYTORCH: A 60 MINUTE BLITZ](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)，一份 60 分钟带你快速入门 PyTorch 的官方教程。
 
-![](1681487155789.png)
+![[1681487155789.png]]
 
 # 1. Pytorch 是什么
 
@@ -18,7 +18,7 @@ Pytorch 是一个基于 Python 的科学计算库，它面向以下两种人群�
 
 pytorch 的安装可以直接查看官网教程，如下所示，官网地址：[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
 
-![](1681487155822.png)
+![[1681487155822.png]]
 
 根据提示分别选择系统 (Linux、Mac 或者 Windows)，安装方式 (Conda，Pip，LibTorch 或者源码安装)、使用的编程语言 (Python 2.7 或者 Python 3.5,3.6,3.7 或者是 C++)，如果是 GPU 版本，就需要选择 CUDA 的 版本，所以，如果如上图所示选择，安装的命令是：
 
@@ -34,7 +34,7 @@ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
 
 如下图所示，安装 0.4.1 版本的 pytorch，在不同版本的 CUDA 以及没有 CUDA 的情况。
 
-![](1681487155913.png)
+![[1681487155913.png]]
 
 然后还有其他的安装方式，具体可以自己点击查看。
 
@@ -526,7 +526,7 @@ False
 
 下面是一个经典的 LeNet 网络，用于对字符进行分类。
 
-![](1681487155950.png)
+![[1681487155950.png]]
 
 对于神经网络来说，一个标准的训练流程是这样的：
 
@@ -709,7 +709,7 @@ out.backward(torch.randn(1, 10))
 
 损失函数的输入是 `(output, target)` ，即网络输出和真实标签对的数据，然后返回一个数值表示网络输出和真实标签的差距。
 
-PyTorch 中其实已经定义了不少的[损失函数](https://pytorch.org/docs/nn.html#loss-functions)，这里仅采用简单的均方误差：`nn.MSELoss` ，例子如下：
+PyTorch 中其实已经定义了不少的[[https://pytorch.org/docs/nn.html#loss-functions]]，这里仅采用简单的均方误差：`nn.MSELoss` ，例子如下：
 
 ```python
 output = net(input)
@@ -850,7 +850,7 @@ PyTorch 对于计算机视觉，特别创建了一个 `torchvision` 的库，它
 
 在本教程中，将采用 `CIFAR10` 数据集，它包含 10 个类别，分别是飞机、汽车、鸟、猫、鹿、狗、青蛙、马、船和卡车。数据集中的图片都是 `3x32x32`。一些例子如下所示：
 
-![](1681487155987.png)
+![[1681487155987.png]]
 
 ### **4.2 训练图片分类器**
 
@@ -919,7 +919,7 @@ print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
 展示图片如下所示：
 
-![](1681487156026.png)
+![[1681487156026.png]]
 
 其类别标签为：
 
@@ -1035,7 +1035,7 @@ print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
 图片和标签分别如下所示：
 
-![](1681487156067.png)
+![[1681487156067.png]]
 
 ```
 GroundTruth:    cat  ship  ship plane

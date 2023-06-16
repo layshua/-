@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "《GPU Instance深入浅出》",
+      "path": "引擎Unity3D/【性能精粹】/《GPU Instance深入浅出》.md"
+    },
+    {
       "basename": "02 对象种类",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "01 持久化对象",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/02 水体渲染/真实感水体渲染.md"
     },
     {
       "basename": "《CS Primer》",
@@ -27,10 +35,6 @@
     {
       "basename": "《ShaderLab》",
       "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
-    },
-    {
-      "basename": "(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客",
-      "path": "zBuffer/(32 条消息) MaterialPropertyBlock_阿赵 3D 的博客 - CSDN 博客.md"
     },
     {
       "basename": "Custom Render Pipeline --- 自定义渲染管道",
@@ -183,18 +187,6 @@
     {
       "basename": "DX12渲染流程.km",
       "path": "zip/MindMap/DX12渲染流程.km.md"
-    },
-    {
-      "basename": "DirectXMath",
-      "path": "图形学/2 图形API/DX12/DirectXMath.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "Pot+LAV+madVR 配置教程_v1_10",
-      "path": "Tools/Software/PotPlayer/Pot+LAV+madVR 配置教程_v1_10.md"
     }
   ],
   "omittedPaths": [],

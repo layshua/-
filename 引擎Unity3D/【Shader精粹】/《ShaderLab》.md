@@ -284,11 +284,11 @@ KeywordEnum和Enum使用上有些不同，区别在于KeywordEnum类似于if-els
 
 定义如下：
 
-![img](https://91maketop.github.io/ta/ShaderLab%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C%EF%BC%88%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BF%EF%BC%89/Shader%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7.assets/20200421113212796.png)
+![[ff2ec5c9a828a57966b774f66e3c89b4_MD5.png]]
 
 使用如下：
 
-![img](https://91maketop.github.io/ta/ShaderLab%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C%EF%BC%88%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BF%EF%BC%89/Shader%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7.assets/20200421113507377.png)
+![[26594b2b6e750ca51a90aa2b193aeb79_MD5.png]]
 
 ## 4 SubShader
 ```cs file:SubShader的大致结构
