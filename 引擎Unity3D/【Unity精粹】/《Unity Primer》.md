@@ -2649,7 +2649,7 @@ IEnumerator CreateCube(int num)
 # 五、资源动态加载
 ## 1 文件夹路径获取
 - @ **Assets 工程文件夹**
-阿斯顿
+
 ```cs file:路径获取
 Application.dataPath  //获取到Assets文件夹的路径
 //注意该方式获取到的路径一般情况下只在编辑模式下使用

@@ -623,7 +623,7 @@ Event System 意思是事件系统
 `Repeat Delay`: 每秒输入操作重复率生效前的延迟时间
 `ForceModule Active`: 是否强制模块处于激活状态
 
-### 获取组件属性
+### 代码获取组件属性
 ```cs
 //因为Transform是RectTransform父类，所以可以强转为RectTransform
 print(((RectTransform)this.transform).sizeDelta);
@@ -647,10 +647,33 @@ print((this.transform as RectTransform).sizeDelta);
     - 取消勾选，重叠部分可以点击Button
 ![[Pasted image 20230616214219.png]]
 
-- @ ImageType 图片类型
+- @ **ImageType 图片类型**
+![[Pasted image 20230616215522.png]]
+![[Pasted image 20230616220250.png#pic_center|400]]
 - Simple：只用于固定尺寸的图片，美术出什么尺寸就用什么尺寸
-- Sliced 切片模式：常用，需要设置图片边框 border
-  1. 找到图片，点击 SpriteEditor：
-![[Pasted image 20230616214956.png]]
-1. 拉动绿色线，将图片分割成九宫格区域。当拉伸图片时，横向拉伸只会拉伸竖向的中间一排，竖向拉伸只会拉伸横向的中间一排。四角不会发生拉伸
-![[Pasted image 20230616215136.png]]
+- Sliced 切片模式：拉伸常用，需要设置图片边框 border
+- Tiled-平铺模式：重复平铺中央部分，可以设置图片边框 border
+- Filled-填充模式：效果较多，可以做血条 cd 等效果
+
+
+**设置图片边框 border 的步骤：**
+1. 找到图片，点击 SpriteEditor：
+![[Pasted image 20230616214956.png|450]]
+2. 拉动绿色线，将图片分割成九宫格区域。当拉伸图片时，横向拉伸只会拉伸竖向的中间一排，竖向拉伸只会拉伸横向的中间一排。四角不会发生拉伸
+![[Pasted image 20230616215136.png|500]]
+
+### 代码获取Image属性
+```cs
+//修改当前Image控件的SourceImage
+//图片必须放在Resources文件夹
+Image img = this.GetComponent<Image>();
+img.sprite = Resources.Load<Sprite>( "EmojiOne");
+```
+
+### Text
+有两个版本
+- Text(TMP)，基于 TextMeshPro
+- Text(Legacy)，旧版
+#### Text(Legacy)
+![[Pasted image 20230616222442.png|450]]
+![[Pasted image 20230616222359.png]]

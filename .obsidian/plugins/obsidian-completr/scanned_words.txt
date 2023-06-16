@@ -68378,6 +68378,8 @@ Setcolor
 Slow
 Scaler
 Shrink
+Sliced
+SpriteEditor
 Programs
 POP
 PC
@@ -80170,6 +80172,7 @@ INSTANCE
 IINSTANCING
 INSTANCED
 Inch
+ImageType
 qq
 qyi
 quad
@@ -106218,6 +106221,7 @@ Typically
 Ten
 Theoretically
 Things
+Taget
 io
 ipad
 it
@@ -144447,6 +144451,7 @@ FrameDebug
 FunnyGPUInstance
 FunnyGPUInstanceCube
 Falback
+Filled
 Element
 Entity
 Enity
