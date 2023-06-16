@@ -504,6 +504,9 @@ Height * Scale. y = 分辨率y
 4. **分辨率大小自适应**——通过一定的算法以屏幕分辨率和参考分辨率参与计算得出缩放系数该结果会影响所有 UI 控件的缩放大小
 
 ### UI Scale Mode UI 缩放模式
+重点：
+![[Pasted image 20230616172357.png]]
+![[Pasted image 20230616171748.png]]
 #### Constant Pixel Size 恒定像素模式 
 **无论屏幕大小如何，U 始终保持相同像素大小**
 它不会让 UI 控件进行分辨率大小自适应
@@ -525,12 +528,39 @@ Set Native Size：恢复 Source Image 的原始尺寸，结果需要经过计算
 ![[Pasted image 20230616164147.png]]
 
 - **Reference Resolution ：参考分辨率** (PC 常用 1920x1080，手机端也要适配对应分辨率，一般由美术人员决定)。缩放模式下的所有匹配模式都会基于参考分辨率进行自适应计算
-- **Screen Match Mode：屏幕匹配模式**，当前屏幕分辨率宽高比不适应参考分辨率时，用于分辨率大小自适应的匹配模式。有三种模式：
-    - <mark style="background: #D2B3FFA6;">Expand</mark>: 水平或垂直**拓展画布**区域，会根据宽高比的变化来放大缩小画布，可能有黑边： ![[Pasted image 20230616171229.png|300]] ![[Pasted image 20230616170712.png|500]] ![[Pasted image 20230616170854.png|500]]
-    - <mark style="background: #D2B3FFA6;">Shrink</mark>: 水平或垂直**裁剪画布**区域，会根据宽高比的变化来放大缩小画布，可能会裁剪  ![[Pasted image 20230616171328.png|500]]
-    - <mark style="background: #D2B3FFA6;">Match Width Or Height</mark>: **以宽高或者二者的平均值**作为参考来缩放画布区域（常用）
+- **Screen Match Mode：屏幕匹配模式**，当前屏幕分辨率宽高比不适应参考分辨率时，用于分辨率大小自适应的匹配模式。
+    - 有三种模式：最常使用的是 Match Width Or Height 模式，套路如下：
+![[Pasted image 20230616171748.png]]
+
+- <mark style="background: #FF5582A6;">三种模式的详细解释</mark>
+    1. <mark style="background: #D2B3FFA6;">Expand</mark>: 水平或垂直**拓展画布**区域，会根据宽高比的变化来放大缩小画布，可能有黑边： ![[Pasted image 20230616171229.png|300]] ![[Pasted image 20230616170712.png|500]] ![[Pasted image 20230616170854.png|500]]
+    2. <mark style="background: #D2B3FFA6;">Shrink</mark>: 水平或垂直**裁剪画布**区域，会根据宽高比的变化来放大缩小画布，可能会裁剪  ![[Pasted image 20230616171328.png|500]]
+     3. <mark style="background: #D2B3FFA6;">Match Width Or Height</mark>: **以宽高或者二者的平均值**作为参考来缩放画布区域（常用）![[Pasted image 20230616171520.png|450]] ![[Pasted image 20230616171534.png|500]] ![[Pasted image 20230616171554.png]]
 
 #### Constant Physical Size 恒定物理模式 
 无论屏幕大小和分辨率如何，UI 元素始终保持相同物理大小
-
+ 
 ![[Pasted image 20230616164157.png]]
+
+**DPI: （Dots Per Inch，每英寸点数）图像每英寸长度内的像素点数**
+Physical Unit：物理单位，使用的物理单位种类
+Falback Screen DPI：备用 DPI，当找不到设备 DPI 时，使用此值 Default Sprite DPI: 默认图片 DPI
+
+![[Pasted image 20230616172726.png]]
+![[Pasted image 20230616172735.png]] ![[Pasted image 20230616172936.png]]
+
+#### World 世界模式
+![[Pasted image 20230616173212.png]]
+
+![[Pasted image 20230616173244.png]]
+
+## Graphic Raycaster 组件
+Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而是基于图形）
+- **用于检测 UI 输入事件**
+- 主要负责通过射线检测玩家和 UI 元素的交互，判断是否点击到了 UI 元素
+
+![[Pasted image 20230616173440.png]]
+**lgnore Reversed Graphics**: 是否忽略反转图形
+- ? 反转指的是将控件的 Rect Transfrom 中的 Rotation 属性的 x 或 y 轴旋转 180 度
+**Blocking Objects**:射线被哪些类型的碰撞器阻挡 (在覆盖渲染模式 Screen Space - Overlay下无效) 
+**Blocking Mask**: 射线被哪些层级的碰撞器阻挡（在覆盖渲染模式下无效)
