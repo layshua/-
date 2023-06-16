@@ -448,11 +448,60 @@ UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 
 ### RenderMode 渲染模式
 ![[Pasted image 20230616160333.png]]
-
+#### Screen Space - Overlay
+覆盖模式，UI 始终显示在场景内容前方
 
 ![[Pasted image 20230616160500.png]]
 
+#### Screen Space - Camera
+摄像机模式，3D 物体可以显示在 UI 之前
 
 ![[Pasted image 20230616160834.png|700]]
-不建议使用 Main Camera，避免场景模型遮挡 UI。
-建议使用一个单独的 Camera 负责渲染 UI。
+
+1. 不建议使用 Main Camera，避免场景模型遮挡 UI。
+2. **使用一个单独的 Camera（后文称之为 UI Camera） 负责渲染 UI。**
+    - 主摄像机 Depth 保持默认的-1，UI Camera 的 Depth 要大于-1（深度较大的绘制在深度较小的上方）
+    - 主摄像机 Culling Mask 取消勾选 UI
+    - UI Camera 的 Culling Mask 只选择 UI，**Clear Flags**设置为 Depth Only（只画该层，背景透明，这样才不会让 UI 遮挡后面的内容）
+3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可
+4. 通过设置 Sorting Layer，也可以对 Canvas 进行排序，后面的层覆盖前面的层。
+Order in Layer，适用于相同 Layer 中进行排序
+
+#### Screen Space - Camera
+3D 模式，可以把 UI 对象像 3D 物体一样处理，常用于 VR 或者 AR
+![[Pasted image 20230616163024.png|350]]
+![[Pasted image 20230616162932.png]]
+
+**Event Camera**：用于处理 UI 事件的摄像机（ 如果不设置，不能正常注册 UI 事件）
+
+## Canvas Scaler 组件
+**画布缩放控制器，用于画布分辨率自适应的组件  
+
+它主要负责在不同分辨率下 UI 控件大小自适应
+**它并不负责位置，位置由之后的 Rect Transform 组件负责**
+
+**提供了三种用于分辨率自适应的模式**（按需选择）
+![[Pasted image 20230616163416.png]]
+
+![[Pasted image 20230616164147.png]]
+**Reference Resolution: 参考分辨率**
+在缩放模式的宽高模式中出现的参数，**参与分辨率自适应的计算**
+
+![[Pasted image 20230616164157.png]]
+
+### 分辨率
+屏幕分辨率——当前设备的分辨率，编辑器下 Game 窗口中 Stats 可以查看到
+参考分辨率——在其中一种适配模式中出现的关键参数，参与分辨率自适应的计算
+画布宽高和缩放系数——分辨率自适应会改变的参数，通过屏幕分辨率和参考分辨率计算而来
+分辨率大小自适应——通过一定的算法以屏幕分辨率和参考分辨率参与计算得出缩放系数该结果会影响所有 UI 控件的缩放大小
+
+### 画布大小和缩放系数
+选中 Canvas 对象后在 Rect Transform 组件中看到的宽高和缩放系数
+
+```
+//分辨率为（x,y）,则：
+Width * Scale. x = 分辨率x
+Height * Scale. y = 分辨率y
+```
+
+
