@@ -446,14 +446,17 @@ Rect Transform 意思是矩形变换
 - **RectTransform 继承于 Transform**，Transform 组件只处理位置、角度、缩放
 - **RectTransform 在此基础上加入了矩形相关，将 UI 元素当做一个矩形来处理加入了中心点、锚点、长宽等属性**，其目的是更加方便的控制其大小以及分辨率自适应中的位置适应。
 
-![[Pasted image 20230616204414.png]]
+![[Pasted image 20230616211120.png]]
 
-- @ Pivot：中间的蓝色圆圈为 Pivot 轴心点，默认为（0.5，0.5）
-- 轴心点是旋转的中心
+![[Pasted image 20230616210849.png]]
+
+
+- @ Pivot：Pivot 轴心点默认为（0.5，0.5）
+- 轴心点是旋转的中心（通过调节 Rotation. z 来旋转控件）
 - 和锚点配合控制位置
 ![[Pasted image 20230616204627.png]]
 
-- @ Anchors：父矩形中间的蓝色圆圈为  Anchors 轴心点，默认为（0.5，0.5）
+- @ Anchors：Anchors 轴心点默认为（0.5，0.5）
 ![[Pasted image 20230616205128.png]]
 ## Canvas 
 **画布组件，主要用于渲染 UI 控件** 
@@ -620,4 +623,8 @@ Event System 意思是事件系统
 `Repeat Delay`: 每秒输入操作重复率生效前的延迟时间
 `ForceModule Active`: 是否强制模块处于激活状态
 
-# 
+## 获取
+```cs
+//因为Transform是RectTransform父类，所以可以强转为RectTransform
+((RectTransform)this.transform).sizeDelta = new Vector2(100, 100);
+```

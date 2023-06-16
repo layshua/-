@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "引擎Unity3D/Unity操作指南.md",
                 "mode": "source",
                 "source": false
               }
@@ -32,6 +32,18 @@
             }
           },
           {
+            "id": "47add09d412cfbf9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "483708a02e0df13c",
             "type": "leaf",
             "state": {
@@ -43,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
               }
             }
           }
@@ -129,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,23 +191,23 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "0ed5db9a7861245b",
+  "active": "de2d0a8fac487d63",
   "lastOpenFiles": [
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "zip/images/Pasted image 20230616211614.png",
+    "zip/images/Pasted image 20230616211600.png",
+    "引擎Unity3D/BUG合集.md",
+    "zip/images/Pasted image 20230616211120.png",
+    "zip/images/Pasted image 20230616210849.png",
     "zip/images/Pasted image 20230616205128.png",
     "zip/images/Pasted image 20230616204627.png",
     "zip/images/Pasted image 20230616204414.png",
-    "引擎Unity3D/BUG合集.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "zip/images/Pasted image 20230616203659.png",
     "zip/images/Pasted image 20230616202924.png",
     "zip/images/Pasted image 20230616202923.png",
-    "zip/images/Pasted image 20230616175144.png",
-    "zip/images/Pasted image 20230616173440.png",
-    "zip/images/Pasted image 20230616173244.png",
-    "zip/images/Pasted image 20230616173212.png",
-    "zip/images/Pasted image 20230616172936.png",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "zBuffer/3 重用对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
@@ -220,7 +233,6 @@
     "Context/spacesLastSync.log",
     "Context",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
-    "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》",
     "引擎Unity3D/【Catlike Coding】/《SRP》",
     "引擎Unity3D/【Catlike Coding】/1 Basics",

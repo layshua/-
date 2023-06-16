@@ -2485,6 +2485,7 @@ public class DerivedClass : BaseClass
 ```
 
 ### is as 关键字
+#is #as
 **is**：判断一个对象是否是指定的类对象，如果能够转换成功，则返回一个 true，否则返回一个 false
 **as**：将一个对象转换为指定的类对象，如果能够转换则转换为指定的类对象，否则返回一个 null
 

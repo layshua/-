@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+    },
+    {
+      "basename": "Unity操作指南",
+      "path": "引擎Unity3D/Unity操作指南.md"
+    },
+    {
+      "basename": "BUG合集",
+      "path": "引擎Unity3D/BUG合集.md"
     },
     {
       "basename": "3 重用对象",
@@ -67,10 +75,6 @@
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
-    },
-    {
-      "basename": "Unity操作指南",
-      "path": "引擎Unity3D/Unity操作指南.md"
     },
     {
       "basename": "第三章 进阶应用",
@@ -159,10 +163,6 @@
     {
       "basename": "书单",
       "path": "图形学/5 书籍/书单.md"
-    },
-    {
-      "basename": "BUG合集",
-      "path": "引擎Unity3D/BUG合集.md"
     },
     {
       "basename": "控制面板",
