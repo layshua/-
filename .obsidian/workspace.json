@@ -25,19 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "47add09d412cfbf9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+                "file": "图形学/0 3D数学/公式推导/05 射线相交.md",
                 "mode": "source",
                 "source": false
               }
@@ -52,7 +40,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,7 +83,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
+                "file": "图形学/0 3D数学/公式推导/05 射线相交.md"
               }
             }
           }
@@ -138,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+                "file": "图形学/0 3D数学/公式推导/05 射线相交.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+                "file": "图形学/0 3D数学/公式推导/05 射线相交.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -165,7 +153,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 399.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -187,10 +175,31 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "47add09d412cfbf9",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
+    "zip/images/Pasted image 20230617120238.jpg",
+    "zip/images/Pasted image 20230617120229.jpg",
+    "zip/images/Pasted image 20230617120218.jpg",
+    "zip/images/Pasted image 20230617120207.png",
+    "zip/images/Pasted image 20230617120154.jpg",
+    "zip/images/Pasted image 20230617120129.jpg",
+    "zip/images/Pasted image 20230617120122.jpg",
+    "zip/images/Pasted image 20230617120108.jpg",
+    "zip/images/Pasted image 20230617120100.jpg",
+    "zip/images/Pasted image 20230617120045.jpg",
+    "zip/images/Pasted image 20230617120035.jpg",
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/0 3D数学/公式推导/05 射线相交.md",
+    "images/1686973072010.png.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/3 重用对象.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "zBuffer/2｜Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+    "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+    "images",
     "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
     "技术美术/01 百人计划/A美术向/模型常见问题及其规范.md",
     "技术美术/01 百人计划/A美术向/模型基础.md",
     "技术美术/01 百人计划/A美术向/Metallic 与 Specular 流程.md",
@@ -198,34 +207,14 @@
     "技术美术/01 百人计划/A美术向/角色设计精要.md",
     "技术美术/01 百人计划/A美术向/场景设计精要.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
-    "zip/images/Pasted image 20230616234235.png",
-    "zip/images/Pasted image 20230616233516.png",
-    "zip/images/Pasted image 20230616233439.png",
-    "zip/images/Pasted image 20230616232956.png",
-    "zip/images/Pasted image 20230616232905.png",
-    "zip/images/Pasted image 20230616224314.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "zip/images/Pasted image 20230616223923.png",
-    "zip/images/Pasted image 20230616223909.png",
-    "zip/images/Pasted image 20230616223338.png",
-    "zip/images/Pasted image 20230616223059.png",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/BUG合集.md",
-    "zBuffer/3 重用对象.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "技术美术/02 水体渲染/真实感水体渲染.md",
     "引擎Unity3D/【Shader精粹】/《GPU Instance深入浅出》.md",
     "引擎Unity3D/【Shader精粹】/《URP》.md",
-    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
-    "技术美术/01 百人计划/A美术向/美术理论基础一 & 二.md",
-    "技术美术/05 UnityShader/冯乐乐入门精要.md",
-    "zBuffer/GPU Instancing 深入浅出 - 基础篇（1）.md",
-    "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "引擎Unity3D/【性能精粹】",
-    "zBuffer/GPU Instancing 深入浅出 - 中级篇（2）.md",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",
     "Context",
@@ -235,7 +224,6 @@
     "引擎Unity3D/【Catlike Coding】/1 Basics",
     "引擎Unity3D/【Catlike Coding】",
     "Zstore/a0552f3d0199dd0c1d8544af198a6bcf.jpg@!web-video.avif",
-    "Zstore/3c500d33d63d6d8a5f9c35e17521b4a6_MD5.PzWDQBtztntUQTjr9cHlyQHaFM",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
     "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
