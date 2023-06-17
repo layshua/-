@@ -7,7 +7,7 @@ create_time: 2023-06-07 23:35
 uid: 202306072335
 banner: "![[diablo-iv-beta-vendor-3.png]]"
 ---
-[Screenshots | Interface In Game | Video games UI](https://interfaceingame.com/screenshots/)
+
 # 九宫格 UI
 **相对屏幕位置 ScreenPos：**
 ![[Pasted image 20230607232730.png]]
