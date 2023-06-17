@@ -866,14 +866,14 @@ void Start()
 ```
 
 - 在调用 Instantiate()方法创建对象时，**接收 Instantiate()方法返回值的变量类型必须和传入参数的类型一致**，否则接收变量的值会为 null.
-- 这是一个重载函数，支持任何 Object 类及其子类，可以传多个参数
+- 这是一个重载函数，支持任何 Object 类及其子类，可以传多个参数来设置初始的位置和父对象
 
 #### 删除对象
 `Destroy` 方法不会马上移除对象，一般情况下它会在下一帧时把这个对象移除并从内存中移除
 
 ```cs
 //删除GameObject对象 
-GameObject.Destroy(obj,5);  //第二个参数可选，表示延迟几秒删除
+GameObject.Destroy(obj, 5);  //第二个参数可选，表示延迟几秒删除
 
 //删除脚本对象
 GameObject.Destroy(this);
@@ -1079,7 +1079,6 @@ print(this.transform.localRotation);
     //参数三：默认Space.Self
     this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.World);
     this.transform.Rotate(Vector3.up, 10 * Time.deltaTime, Space.Self); 
-
 
     //绕点转
     //点，轴，旋转速度
