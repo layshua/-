@@ -128,7 +128,7 @@ void OnGUI()
 }
 ```
 
-## 5 Toggle 切换
+## 5 Toggle 开关
 Toggle 意为（两种状态之间）切换
 
 ```cs
@@ -707,8 +707,9 @@ img.texture = Resources.Load<Texture>( "EmojiOne");
 ```
 
 ## 组合控件
-### Button
-**Button 是按钮组件，是 UGUI 中用于处理玩家按钮相关交互的关键组件**
+### Button 按钮
+**按钮组件**
+是 UGUI 中用于处理玩家按钮相关交互的关键组件
 ![[Pasted image 20230616223909.png|450]]
 
 ![[Pasted image 20230616223923.png]]
@@ -766,10 +767,13 @@ void Start()
     }
 ```
 
-### Toggle'Toggle 是开关组件
+### Toggle 开关
+**开关组件**
 是 UGUI 中用于处理玩家**单选框多选框相关交互的关键组件**
 开关组件**默认是多选框**
-可以**通过配合 ToggleGroup 组件制作为单选框**（单选框就是）
+>可以**通过配合 ToggleGroup 组件制作为单选框**（单选框就是多个框只能同时选择其中的一个）
+>1. canvas 下创建一个空 object 命名为 GroupObject，添加 ToggleGroup 组件，然后将多个 Toggle 作为其子对象（Allow Switch Off 即是否允许所有选项都为关闭状态）![[Pasted image 20230617231302.png]] ![[Pasted image 20230617231207.png]]
+>2. 每个 Toggle 的 Group 都设置为 GroupObject ![[Pasted image 20230617231154.png]]
 
 默认创建的 Toggle 由 4 个对象组成
 - 父对象：Toggle 组件依附
@@ -779,3 +783,53 @@ void Start()
 
 Interactable、Transition、Navigation 设置和 Button 一致
 ![[Pasted image 20230617230510.png]]
+
+#### 代码控制
+```cs
+Toggle toggle = this.GetComponent<Toggle>();  
+toggle.isOn = true;  
+  
+ToggleGroup toggleGroup = this.GetComponent<ToggleGroup>();  
+toggleGroup.allowSwitchOff = true;  
+  
+//通过迭代器便利的到处于选中状态的Toggle  
+foreach (Toggle item in toggleGroup.ActiveToggles())  
+{  
+print(item.name);  
+}
+```
+
+#### 监听点击事件
+点击事件是在按钮区域按下抬起一次就算一次点击
+监听点击事件有两种方式：
+1. 拖拽对象，注意选择的函数必须有 bool 形参，表示打开和关闭
+![[Pasted image 20230617232706.png]]
+
+1. 代码添加
+```cs
+void Update()  
+{  
+Toggle toggle = GetComponent<Toggle>();  
+tog.onValueChanged.AddListener(ChangeValue);  
+}  
+  
+//必须传bool形参  
+public void ChangeValue(bool isOn)  
+{  
+print("状态改变" + isOn);  
+}
+```
+
+
+### InputField  输入字段
+**输入字段组件**
+是 uG 中用于**处理玩家文本输入相关交互**的关键组件
+
+默认创建的 InputField 由 3 个对象组成
+父对象：InputField 组件依附对象，以及同时在其上挂载了一个 Image 作为背景图
+子对象：文本显示组件 (必备)、默认显示文本组件 (必备)
+
+#### InputField (TMP)
+
+#### InputField (Legacy)
+![[Pasted image 20230617233548.png]]
