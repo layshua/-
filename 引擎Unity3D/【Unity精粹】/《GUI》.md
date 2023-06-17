@@ -779,7 +779,7 @@ void Start()
 - 父对象：Toggle 组件依附
 - 子对象：背景图 (必备)、选中图 (必备)、说明文字 (可选)
 
-![[Pasted image 20230617230340.png]]
+![[Pasted image 20230617230340.png|400]]
 
 Interactable、Transition、Navigation 设置和 Button 一致
 ![[Pasted image 20230617230510.png]]
@@ -833,3 +833,53 @@ print("状态改变" + isOn);
 
 #### InputField (Legacy)
 ![[Pasted image 20230617233548.png]]
+
+**Content Type：**
+![[Pasted image 20230617233722.png|450]]
+
+```cs
+InputField input = this.GetComponent<InputField>();print(input.text);
+input.text = "123123123123";
+```
+
+### Slider 滑动条
+**滑动条组件**
+是 UGUI 中用于处理滑动条相关交互的关键组件
+
+默认创建的 Slider 由 4 组对象组成
+父对象：Slider 组件依附的对象
+子对象：背景图、进度图、滑动块三组鸡象
+
+![[Pasted image 20230617234615.png]]
+
+![[Pasted image 20230617234645.png|450]]
+![[Pasted image 20230617234657.png]]
+
+```cs
+Slider slider = GetComponent<Slider>();
+slider.value += 0.01f;
+```
+
+### Scrollbar 滚动条
+**滚动条组件**
+
+是 UGUI 中**用于处理滚动条相关交互**的关键组件
+
+默认创建的 scrollbar 由 2 组对象组成
+父对象：Scrollbar 组件依附的对象子对象
+滚动块对象：**一般情况下我们不会单独使用滚动条，都是配合 ScrollView 滚动视图来使用**
+
+![[Pasted image 20230617235146.png]]
+### ScrollView 滚动视图
+**滚动视图组件**
+是 UGUI 中**用于处理滚动视图相关交互**的关键组件
+
+默认创建的 ScrollRect 由 4 组对象组成
+父对象：ScrollRect 组件依附的对象，还有一个 Image 组件最为背景图
+子对象：
+Viewport 控制**滚动视图可视范围**和 Content **控制内容范围** （内部控件都放在 Content 下面 ）
+Scrollbar Horizontal 水平滚动条
+Scrollbar Vertical 垂直滚动条
+
+![[Pasted image 20230617235616.png|400]]
+![[Pasted image 20230617235604.png]]
