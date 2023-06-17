@@ -44,15 +44,19 @@
             }
           },
           {
-            "id": "483708a02e0df13c",
+            "id": "c8db2c17350deeae",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -95,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
               }
             }
           }
@@ -138,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -187,11 +191,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "8b3ae5f0ae6294c1",
+  "active": "c8db2c17350deeae",
   "lastOpenFiles": [
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "zip/images/Pasted image 20230617230510.png",
+    "zip/images/Pasted image 20230617230340.png",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/头部项目/未命名.md",
     "图形学/0 3D数学/公式推导/05 射线相交.md",
     "zip/images/Pasted image 20230617120238.jpg",
@@ -203,12 +210,10 @@
     "zip/images/Pasted image 20230617120122.jpg",
     "zip/images/Pasted image 20230617120108.jpg",
     "zip/images/Pasted image 20230617120100.jpg",
-    "zip/images/Pasted image 20230617120045.jpg",
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "images/1686973072010.png.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "zBuffer/2｜Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
     "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
     "images",
@@ -225,7 +230,6 @@
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "技术美术/02 水体渲染/真实感水体渲染.md",
     "引擎Unity3D/【Shader精粹】/《GPU Instance深入浅出》.md",
-    "引擎Unity3D/【Shader精粹】/《URP》.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",

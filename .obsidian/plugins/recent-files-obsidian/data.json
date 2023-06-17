@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
       "basename": "03 重用对象",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
       "basename": "未命名",
@@ -31,10 +35,6 @@
     {
       "basename": "02 对象种类",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "Custom Render Pipeline --- 自定义渲染管道",

@@ -550,7 +550,7 @@ Set Native Size：恢复 Source Image 的原始尺寸，结果需要经过计算
 
 - **Reference Resolution ：参考分辨率** (PC 常用 1920x1080，手机端也要适配对应分辨率，一般由美术人员决定)。缩放模式下的所有匹配模式都会基于参考分辨率进行自适应计算
 - **Screen Match Mode：屏幕匹配模式**，当前屏幕分辨率宽高比不适应参考分辨率时，用于分辨率大小自适应的匹配模式。
-    - 有三种模式：最常使用的是 Match Width Or Height 模式，套路如下：
+    - 有三种模式：**最常使用的是 Match Width Or Height 模式，套路如下：**
 ![[Pasted image 20230616171748.png]]
 
 - <mark style="background: #FF5582A6;">三种模式的详细解释</mark>
@@ -765,3 +765,17 @@ void Start()
         print("ClickButton");
     }
 ```
+
+### Toggle'Toggle 是开关组件
+是 UGUI 中用于处理玩家**单选框多选框相关交互的关键组件**
+开关组件**默认是多选框**
+可以**通过配合 ToggleGroup 组件制作为单选框**（单选框就是）
+
+默认创建的 Toggle 由 4 个对象组成
+- 父对象：Toggle 组件依附
+- 子对象：背景图 (必备)、选中图 (必备)、说明文字 (可选)
+
+![[Pasted image 20230617230340.png]]
+
+Interactable、Transition、Navigation 设置和 Button 一致
+![[Pasted image 20230617230510.png]]
