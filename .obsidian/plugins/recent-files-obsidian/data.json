@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity 单例基类（运用单例模式）",
-      "path": "zBuffer/Unity 单例基类（运用单例模式）.md"
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
-      "basename": "ScriptableObject",
-      "path": "zBuffer/ScriptableObject.md"
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "ScriptableObject",
+      "path": "zBuffer/ScriptableObject.md"
     },
     {
       "basename": "02 对象种类",
@@ -23,10 +31,6 @@
     {
       "basename": "程序化网格",
       "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
       "basename": "pg-01-rendering-things.unitypackage",
@@ -133,10 +137,6 @@
       "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
     },
     {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
-    },
-    {
       "basename": "第三章 进阶应用",
       "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     },
@@ -195,10 +195,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "01 图形渲染管线",
-      "path": "图形学/1 图形系统/01 图形渲染管线.md"
     }
   ],
   "omittedPaths": [],
