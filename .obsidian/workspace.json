@@ -81,7 +81,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "mode": "source",
                 "source": false
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md"
               }
             }
           }
@@ -174,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -225,6 +225,10 @@
   },
   "active": "805dc10ab7ce22f8",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230618141523.png",
+    "zip/images/Pasted image 20230618141305.png",
+    "zip/images/Pasted image 20230618141215.png",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "技术美术/05 UnityShader/庄懂AP01.md",
     "技术美术/05 UnityShader/TA101.md",
@@ -236,10 +240,7 @@
     "zip/images/Pasted image 20230617235146.png",
     "zip/images/Pasted image 20230617234657.png",
     "zip/images/Pasted image 20230617234645.png",
-    "zip/images/Pasted image 20230617234615.png",
-    "zip/images/Pasted image 20230617233722.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/头部项目/未命名.md",
     "图形学/0 3D数学/公式推导/05 射线相交.md",
@@ -261,7 +262,6 @@
     "引擎Unity3D/Unity操作指南.md",
     "引擎Unity3D/BUG合集.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
-    "技术美术/02 水体渲染/真实感水体渲染.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",

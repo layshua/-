@@ -909,7 +909,7 @@ print(dropdown.value);
 print(dropdown.options[dropdown.value].text);
 dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 ```
-## 图集
+## 图集 (需要补一下Unity 核心)
 UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
 **打图集的目的就是减少 Drawcall 提高性能**，我们可以通过打图集，将小图合并成大图，将本应 n 次的 Drawcall 变成 1 次 Drawcall 来提高性能。
 
@@ -924,3 +924,12 @@ Edit->Project Setting->Editor
 
 ### 图集参数
 创建图集：create->2D->Sprite Atlas
+![[Pasted image 20230618141523.png|500]]
+图集打包后，不要让外部部件插入其中，这样会增加 drawcall
+
+```cs
+//加载图集注意:需要引用命名空间  
+SpriteAtlas sa = Resources.Load<SpriteAtlas>( "MyAlas");  
+//从图集中加载指定名字的小图  
+sa.GetSprite("bk");
+```
