@@ -933,3 +933,111 @@ SpriteAtlas sa = Resources.Load<SpriteAtlas>( "MyAlas");
 //从图集中加载指定名字的小图  
 sa.GetSprite("bk");
 ```
+
+## UI 事件接口
+ 
+目前所有的控件都只提供了常用的事件监听列表
+如果想做一些类似长按，双击，拖拽等功能是无法制作的，或者想让 Image 和 Text, RawImage 三大基础控件能够响应玩家输入也是无法制作的
+而事件接口就是用来处理类似问题，让所有控件都能够添加更多的事件监听来处理对应的逻辑
+
+**常用事件接口：**
+`IPointerEnterHandler` - `OnPointerEnter` -当指针进入对象时调用 (鼠标进入) 
+`IPointerExitHandler` - `OnPointerExit` -当指针退出对象时调用 (鼠标离开)
+`IPointerDownHandler` - `OnPointerDown` -在对象上按下指针时调用  (按下)
+`IPointerUpHandler` - `OnPointerUp` -松开指针时调用（在指针正在点击的游戏对象上调用)（抬起）
+`IPointerClickHandler` - `OnPointerclick` -在同一对象上按下再松开指针时调用 (点击)
+
+`IBeginDragHandler` - `OnBeginDrag`-即将开始拖动时在拖动对象上调用 (开始拖拽）
+`IDragHandler` - `OnDrag` - 发生拖动时在拖动对象上调用 (拖拽中)
+`IEndDragHandler`- `OnEndDrag` -拖动完成时在拖动对象上调用 (结束拖拽)
+
+![[Pasted image 20230618142218.png]]
+
+### 使用方法
+1. 继承 MonoBehavior 的脚本继承对应的事件接口，引用命名空间 
+2. 实现接口中的内容
+3. 将该脚本挂载到想要监听自定义事件的 UI 控件上 
+```cs
+//需要什么接口就继承什么
+public class Test : MonoBehaviour, IPointerEnterHandler,IPointerClickHandler
+{
+    //实现接口内容
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        print("鼠标进入");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        print("鼠标点击");
+    }
+}
+```
+### PointerEventData
+上面实现的接口内容都有一个 `PointerEventData` 类型的参数
+父类: `BaseEventData` 
+
+`pointerId`: 鼠标左右中键点击鼠标的 ID ，通过它可以判断左中右键点击，对一个 ID 分别为-1，-2，-3
+`position`:当前指针位置 (屏幕坐标系)
+`pressPosition`: 按下的时候指针的位置 delta: 指针移动增量
+`clickCount`: 连击次数 clickTime: 点击时间
+`pressEventCamera`: 最后一个 `onPointerPress` 按下事件关联的摄像机 
+`enterEvetnCamera`: 最后一个 `onPointerEnter` 进入事件关联的摄像机
+
+```cs file:使用方法
+public void OnPointerClick(PointerEventData eventData)
+{
+    print("鼠标点击");
+
+    //获取鼠标点击ID
+    print(eventData.pointerId);
+}
+```
+
+### EventTrigger 
+事件触发器是 EventTrigger 组件
+它是一个集成了上节课中学习的所有事件接口的脚本，它可以让我们更方便的为控件添加事件监听
+
+直接在 UI 控件上添加 EventTrigger 即可：
+![[Pasted image 20230618143456.png]]
+
+**使用方法：**
+1. 直接拖脚本关联，注意传入的函数参数为 BaseEventData 类型
+![[Pasted image 20230618143557.png]]
+
+```cs
+public void TestPointerEnter(BaseEventData eventData)
+    {
+        //如果想获取其他信息，就转换成PointerEventData类型
+        PointerEventData pointerEventData = eventData as PointerEventData;
+        print("鼠标进入" +  pointerEventData.position);
+    }
+```
+
+2. 代码关联
+```cs
+//声明事件
+EventTrigger.Entry entry = new EventTrigger.Entry();
+
+//设置事件类型
+entry.eventID = EventTriggerType.PointerEnter;
+
+//设置回调函数
+entry.callback.AddListener((data)=>{ Debug.Log("鼠标进入"); });
+
+//添加事件
+eventTrigger.triggers.Add(entry);
+```
+
+
+### 屏幕坐标转 UI 坐标
+`RectTransformUtility` 公共类是一个 `RectTransform` 的辅助类主要用于进行一些坐标的转换等等操作，其中对于我们目前来说最重要的函数是将屏幕空间上的点，转换成 UI 本地坐标下的点
+
+方法:
+`RectTransformUtility. ScreenPointToLocalPointInRectangle`
+**参数一**：相对父对象
+**参数二**：屏幕点
+**参数三**：摄像机
+**参数四**：最终得到的点
+一般配合拖拽事件使用
+

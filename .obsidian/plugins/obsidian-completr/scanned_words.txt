@@ -11715,6 +11715,7 @@ chunks
 collect
 choice
 clearFlags
+clickTime
 github
 grey
 green
@@ -72345,6 +72346,7 @@ PrepareBuffer
 Pmin
 Pmax
 Packer
+PointerEventData
 ContextMenuManager
 ClashVerge
 Clash
@@ -140380,6 +140382,7 @@ BaseInstanceID
 Batcing
 Batching
 BoxIntersections
+BaseEventData
 Fraktur
 Frame
 Foo
@@ -148793,6 +148796,7 @@ ExecuteBuffer
 ErrorShader
 EmitWorldGeometryForSceneView
 Enabled
+EventTrigger
 xmlns
 xyz
 xy
