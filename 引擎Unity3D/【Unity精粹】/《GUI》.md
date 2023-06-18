@@ -938,7 +938,7 @@ print(dropdown.options[dropdown.value].text);
 dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 ```
 
-## 自动布局组件
+## 4 自动布局组件
 虽然 UGUI 的 RectTransform 已经非常方便的可以帮助我们快速布局，但 UGUI 中还提供了很多可以帮助我们对 UI 控件进行自动布局的组件，他们可以帮助我们**自动的设置 UI控件的位置和大小等**
 
 **自动布局的工作方式**：自动布局控制组件 + 布局元素 = 自动布局 
@@ -958,14 +958,35 @@ dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 
 **在进行自动布局时都会通过计算布局元素中的这 6 个属性得到控件的大小位置**
 
+![[Pasted image 20230618205443.png]]
+>控件 Insepctor 最下方可以查看布局属性
+
 在布局时，**布局元素大小设置的基本规则：**
 1. 首先分配最小大小 `Minmum width` 和 `Minmum height`
 2. 如果父类容器中有足够的可用空间，则分配 `Preferred width` 和 `Preferred height`
 3. 如果上面两条分配完成后还有额外空间，则分配 `Flexible width` 和 `Flexible height`
-一般情况下布局元素的这些属性都是 0
-但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
 
-## 4 图集 (需要补一下 Unity 核心)
+一般情况下布局元素的这些属性都是 0，但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
+**一般情况下我们不会去手动修改他们**，但是如果你有这些需求，可以手动添加一个 `LayoutElement` 组件，可以修改这些布局属性。
+#### 水平垂直组件
+水平垂直布局组件：Horizontal Layout Group 和 Vertical Layout Group
+将子对象并排或者竖直的放在一起
+
+通常将组件给父对象，那么子对象就会自动布局，如图，红色 Image 作为父对象，其他颜色 Image 作为子对象，父对象添加 Horizontal Layout Group 组件：
+![[Pasted image 20230618210116.png]]![[202306072241 2.gif|500]]
+
+![[Pasted image 20230618210413.png]]
+参数相关:
+Padding: 左右上下边缘偏移位置
+Spacing: 子对象之间的间距
+ChildAlignment: 九宫格对其方式
+Control Child size: 是否控制子对象的宽高
+Use child Scale: 在设置子对象大小和布局时，是否考虑子对象的缩放
+child Force Expand: 是否强制子对象拓展以填充额外可用空间
+
+
+
+## 5  图集 (需要补一下 Unity 核心)
 UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
 **打图集的目的就是减少 Drawcall 提高性能**，我们可以通过打图集，将小图合并成大图，将本应 n 次的 Drawcall 变成 1 次 Drawcall 来提高性能。
 
@@ -990,7 +1011,7 @@ SpriteAtlas sa = Resources.Load<SpriteAtlas>( "MyAlas");
 sa.GetSprite("bk");
 ```
 
-## 5 UI 事件接口
+## 6 UI 事件接口
  
 目前所有的控件都只提供了常用的事件监听列表
 如果想做一些类似长按，双击，拖拽等功能是无法制作的，或者想让 Image 和 Text, RawImage 三大基础控件能够响应玩家输入也是无法制作的
@@ -1086,7 +1107,7 @@ eventTrigger.triggers.Add(entry);
 ```
 
 
-## 6 屏幕坐标转 UI 坐标
+## 7 屏幕坐标转 UI 坐标
 `RectTransformUtility` 公共类是一个 `RectTransform` 的辅助类主要用于进行一些坐标的转换等等操作，其中对于我们目前来说最重要的函数是将屏幕空间上的点，转换成 UI 本地坐标下的点
 
 方法:
@@ -1116,7 +1137,7 @@ public class Test : MonoBehaviour , IDragHandler
 }
 ```
 
-## 7 Mask 遮罩
+## 9 Mask 遮罩
 实现遮罩效果的关键组件时 Mask 组件
 通过**在父对象上添加 Mask 组件**即可遮罩其子对象
 
@@ -1128,7 +1149,7 @@ public class Test : MonoBehaviour , IDragHandler
  遮罩前： ![[Pasted image 20230618150128.png]]
  使用遮罩： ![[Pasted image 20230618150119.png]]
 
-## 8 模型和粒子显示在 UI 之前
+## 10 模型和粒子显示在 UI 之前
 ### 方法一：直接用摄像机渲染 3D 物体
 Canvas 的渲染模式：摄像机模式和世界 (3D)模式都可以让模型显示在 UI 之前（(Z 轴在 UI 元素之前即可)
 注意:
