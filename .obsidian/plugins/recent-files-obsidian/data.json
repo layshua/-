@@ -5,6 +5,14 @@
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
+      "basename": "庄懂AP01",
+      "path": "技术美术/05 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "技术美术/05 UnityShader/TA101.md"
+    },
+    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
@@ -113,10 +121,6 @@
       "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
     },
     {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
-    },
-    {
       "basename": "次表面散射",
       "path": "技术美术/着色器/次表面散射.md"
     },
@@ -131,10 +135,6 @@
     {
       "basename": "第二章 光照基础",
       "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "技术美术/05 UnityShader/TA101.md"
     },
     {
       "basename": "3D数学",

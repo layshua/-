@@ -45,6 +45,30 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "技术美术/05 UnityShader/TA101.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f56404911b38443d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/05 UnityShader/庄懂AP01.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "48fe065de5f94e44",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
                 "mode": "source",
                 "source": false
@@ -52,7 +76,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -187,8 +211,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "c8db2c17350deeae",
+  "active": "48fe065de5f94e44",
   "lastOpenFiles": [
+    "技术美术/05 UnityShader/庄懂AP01.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "zip/images/Pasted image 20230618001804.png",
     "zip/images/Pasted image 20230618001017.png",
     "zip/images/Pasted image 20230618000758.png",
@@ -199,8 +226,6 @@
     "zip/images/Pasted image 20230617234645.png",
     "zip/images/Pasted image 20230617234615.png",
     "zip/images/Pasted image 20230617233722.png",
-    "zip/images/Pasted image 20230617233548.png",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
@@ -225,7 +250,6 @@
     "引擎Unity3D/BUG合集.md",
     "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "技术美术/02 水体渲染/真实感水体渲染.md",
-    "引擎Unity3D/【Shader精粹】/《GPU Instance深入浅出》.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",
