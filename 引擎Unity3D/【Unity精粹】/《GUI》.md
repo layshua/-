@@ -767,10 +767,34 @@ void Start()
     }
 ```
 
-## 异形按钮
-异形即形状不规则
+### 异形按钮
+**异形即形状不规则**
 普通的 Button 是根据矩形区域来响应点击，当我们使用带有透明部分的图片时，如图，点击透明区域也会响应，我们只想要不透明部分作为button
 ![[Pasted image 20230618194912.png]]
+
+#### 方法一：添加子对象
+按钮之所以能够响应点击，主要是根据图片矩形范围进行判断的
+它的范围判断是**自下而上**的，意思是如果有子对象 Button，点击子对象 Button 的矩形范围也会让上面的 button 响应，那么我们就可运用多个透明图拼凑不规则图形作为按钮，子对象用于进行射线检测
+
+如下图，先用一个 Image 作为背景图，然后修改各个 Button 按钮的矩形范围，拼出大致区域即可。
+![[Pasted image 20230618201317.png]]
+
+![[Pasted image 20230618201241.png]]
+
+#### 方法二：通过代码改变图片的透明度响应阈值
+1. 第一步: 修改图片参数开启 Read/ write Enabled 开关，会增大内存消耗
+2. 第二步: 通过代码修改图片的响应阈值
+
+```cs
+public Image image;
+
+private void Start()
+{
+    //该参数含义: 指定一个像素必须具有的最小 alpha 值，以便能够认为射线命中了图片。
+    //说人话: 当像素点 alpha 值小于了该值就不会被射线检测了
+    image.alphaHitTestMinimumThreshold = 0.1f;
+}
+```
 ### Toggle 开关
 **开关组件**
 是 UGUI 中用于处理玩家**单选框多选框相关交互的关键组件**
@@ -913,6 +937,34 @@ print(dropdown.value);
 print(dropdown.options[dropdown.value].text);
 dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 ```
+
+## 自动布局组件
+虽然 UGUI 的 RectTransform 已经非常方便的可以帮助我们快速布局，但 UGUI 中还提供了很多可以帮助我们对 UI 控件进行自动布局的组件，他们可以帮助我们**自动的设置 UI控件的位置和大小等**
+
+**自动布局的工作方式**：自动布局控制组件 + 布局元素 = 自动布局 
+
+**自动布局控制组件**：unity 提供了很多用于自动布局的管理性质的组件用于布局
+**布局元素**： 具备布局属性的对象们，这里主要是指具备 RectTransform 的 UI 组件
+
+**要参与自动布局的布局元素必须包含布局属性，布局属性主要有以下几条**
+`Minmum width`: 该布局元素应具有的最小宽度
+`Minmum height`: 该布局元素应具有的最小高度
+
+`Preferred width`: 在分配额外可用宽度之前，此布局元素应具有的宽度
+`Preferred height`: 在分配额外可用高度之前，此布局元素应具有的高度。
+
+`Flexible width`: 此布局元素应相对于其同级而填充的额外可用宽度的相对量 
+`Flexible height`: 此布局元素应相对于其同级而填充的额外可用高度的相对量
+
+**在进行自动布局时都会通过计算布局元素中的这 6 个属性得到控件的大小位置**
+
+在布局时，**布局元素大小设置的基本规则：**
+1. 首先分配最小大小 `Minmum width` 和 `Minmum height`
+2. 如果父类容器中有足够的可用空间，则分配 `Preferred width` 和 `Preferred height`
+3. 如果上面两条分配完成后还有额外空间，则分配 `Flexible width` 和 `Flexible height`
+一般情况下布局元素的这些属性都是 0
+但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
+
 ## 4 图集 (需要补一下 Unity 核心)
 UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
 **打图集的目的就是减少 Drawcall 提高性能**，我们可以通过打图集，将小图合并成大图，将本应 n 次的 Drawcall 变成 1 次 Drawcall 来提高性能。
