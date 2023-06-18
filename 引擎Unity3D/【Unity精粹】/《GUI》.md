@@ -883,3 +883,44 @@ Scrollbar Vertical 垂直滚动条
 
 ![[Pasted image 20230617235616.png|400]]
 ![[Pasted image 20230617235604.png]]
+
+### DrawDown 下拉列表
+**下拉列表（下拉选单)组件**
+是 UGUI 中**用于处理下拉列表相关交互**的关键组件
+
+默认创建的 DropDown 由 4 组对象组成
+父对象：DropDown 组件依附的对象还有一个 Image 组件作为背景图
+子对象：
+Label 是当前选项描述 
+Arrow 右侧小箭头
+Template 下拉列表选单
+
+#### DrawDown (TMP)
+
+#### DrawDown (Legacy)
+![[Pasted image 20230618001017.png|350]]
+![[Pasted image 20230618000758.png|500]]
+
+
+```cs
+ Dropdown dropdown = GetComponent<Dropdown>();
+print(dropdown.value);
+
+print(dropdown.options[dropdown.value].text);
+dropdown.options.Add(new Dropdown.OptionData("新增选项"));
+```
+## 图集
+UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
+**打图集的目的就是减少 Drawcall 提高性能**，我们可以通过打图集，将小图合并成大图，将本应 n 次的 Drawcall 变成 1 次 Drawcall 来提高性能。
+
+### Sprite Packer
+**Sprite Packer (精灵包装器，可以通过 Unity 自带图集工具生成图集)**
+Edit->Project Setting->Editor
+![[Pasted image 20230618001804.png]]
+
+1. **Disabled**: 默认设置, 不会打包图集
+2. **Enabled For Build（常用）**: Unity 仅在构建时打包图集，在编辑器模式下不会打包
+3. **Always Enabled（常用）**: Unity 在构建时打包图集，在编辑模式下运行前会打包图集
+
+### 图集参数
+创建图集：create->2D->Sprite Atlas
