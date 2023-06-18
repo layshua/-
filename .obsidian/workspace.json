@@ -25,19 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/ScriptableObject.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6e2f2dc3e3b9dd68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
                 "mode": "source",
                 "source": false
               }
@@ -68,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
+                "file": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
               }
             }
           }
@@ -154,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
+                "file": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,7 +169,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 284.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -203,26 +191,36 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6e2f2dc3e3b9dd68",
+  "active": "6241fb45ceb51aac",
   "lastOpenFiles": [
-    "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
-    "zBuffer/ScriptableObject.md",
-    "zBuffer/Unity 单例基类（运用单例模式）.md",
-    "引擎Unity3D/【Unity精粹】/未命名",
-    "zip/images/2e2e1e6b7fe027d69393979f10db9e11_MD5.png",
-    "zip/images/1f35edcd368e1c8c5493437d49f5af78_MD5.png",
-    "zip/images/8a05138da9e0c699ff314a2b5f001d1d_MD5.png",
-    "zip/images/954298b2e6555e2abfbfbfea8fe2a437_MD5.png",
-    "zip/images/acbcc4d9edd9dff2068e043427b36f2d_MD5.png",
-    "zip/images/09343734f29d64ebe1a578b5995a492f_MD5.png",
-    "zip/images/57d7c082e2c1d3d5a0ceea069468dcc3_MD5.png",
-    "zip/images/edf8e6b1e0a54551985d38c40c071bd1_MD5.png",
-    "zip/images/de5e3d91f9b2b2c8ce783f010fa29e16_MD5.png",
-    "zip/images/b09f13f16b2b6fc509d2f5a3be836038_MD5.png",
+    "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
+    "zip/images/2c1251c891a2d8414b9a7e6e66779ac4_MD5.jpg",
+    "zip/images/0b6e8871bc6a4b56b8143308bb713080_MD5.png",
+    "zip/images/e27a5a3075475e8db669e3a06d04abdc_MD5.png",
+    "zip/images/0d673f3a46e635271a0c22c0827d1c16_MD5.jpg",
+    "zip/images/aadc434a6958fffe3a6a95625641b6c4_MD5.png",
+    "zip/images/d7875e2ed71496bda965bd80bcb56231_MD5.jpg",
+    "zip/images/71a31a009effd35c61530b86b5983a8a_MD5.png",
+    "zip/images/f6a9b4d7679dcc1f99a2bdc7bd311f05_MD5.png",
+    "zip/images/8eb96a2237f68ef176e19e4983b260b5_MD5.png",
+    "zip/images/5277cb8972d511418d6ad5eef823e871_MD5.png",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+    "zBuffer/Unity3d Editor 编辑器扩展功能详解（2） GUI_GUILayout.md",
+    "zBuffer/Unity3d Editor 编辑器扩展功能详解（1） 目录索引.md",
+    "zBuffer/Unity Editor 编辑器扩展功能详解（3）EditorGUI_EditorGUILayout（下）.md",
+    "zBuffer/Unity Editor 编辑器扩展功能详解（3） EditorGUI_EditorGUILayout（上）.md",
+    "引擎Unity3D/【Unity精粹】/编辑器扩展",
+    "zBuffer/Unity3d Editor 编辑器扩展功能详解（7）（完结）Editor 美化.md",
+    "zBuffer/Gizmos.md",
+    "zBuffer/Unity3d Editor 编辑器扩展功能详解（6）Editor 常用辅助类（下）.md",
+    "zBuffer/Unity3d Editor 编辑器扩展功能详解（6）Editor 常用辅助类（上）.md",
+    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "zBuffer/ScriptableObject.md",
+    "zBuffer/Handles.md",
+    "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md",
+    "zBuffer/Unity 单例基类（运用单例模式）.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/【Catlike Coding】/程序化网格.md",
     "pg-01-rendering-things.unitypackage.md",
@@ -235,18 +233,7 @@
     "技术美术/05 UnityShader/TA101.md",
     "zip/MindMap/20230618144259.km.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/头部项目/未命名.md",
-    "图形学/0 3D数学/公式推导/05 射线相交.md",
-    "图形学/0 3D数学/公式推导/04 纹理映射.md",
-    "images/1686973072010.png.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
-    "zBuffer/2｜Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
-    "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
     "images",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
-    "技术美术/01 百人计划/A美术向/模型常见问题及其规范.md",
-    "技术美术/01 百人计划/A美术向/模型基础.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",

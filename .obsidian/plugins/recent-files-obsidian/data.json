@@ -1,28 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+      "basename": "02 对象种类",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
-      "basename": "ScriptableObject",
-      "path": "zBuffer/ScriptableObject.md"
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md"
     },
     {
       "basename": "03 重用对象",
@@ -171,30 +171,6 @@
     {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "疑问",
-      "path": "技术美术/05 UnityShader/疑问.md"
-    },
-    {
-      "basename": "第五章 物理世界",
-      "path": "技术美术/01 百人计划/T渲染向/第五章 物理世界.md"
-    },
-    {
-      "basename": "第四章 高级扩展",
-      "path": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md"
-    },
-    {
-      "basename": "学习大纲",
-      "path": "技术美术/学习大纲.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
     }
   ],
   "omittedPaths": [],
