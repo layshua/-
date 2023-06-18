@@ -8,7 +8,7 @@ uid: 202306072335
 banner: "![[diablo-iv-beta-vendor-3.png]]"
 ---
 
-# 九宫格 UI
+# 九宫格 UI 理论
 **相对屏幕位置 ScreenPos：**
 ![[Pasted image 20230607232730.png]]
 widgetPos.x = ScreenPos + widgetCenterPos + offsetPos;
@@ -424,7 +424,7 @@ UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 它是基于 Unity 游戏对象的 UI 系统，**只能用来做游戏 UI 功能，不能用于开发 Unity 编辑器中内置的用户界面**
 ![[Pasted image 20230616154516.png]]
 
-## 六大基础组件
+## 1 六大基础组件
 
 **Canvas 对象上依附的:**
 `Rect Transform`：UI 对象位置锚点控制组件，主要用于控制位置和对其方式 
@@ -484,7 +484,7 @@ Rect Transform 意思是矩形变换
     - 主摄像机 Depth 保持默认的-1，UI Camera 的 Depth 要大于-1（深度较大的绘制在深度较小的上方）
     - 主摄像机 Culling Mask 取消勾选 UI
     - UI Camera 的 Culling Mask 只选择 UI，**Clear Flags**设置为 Depth Only（只画该层，背景透明，这样才不会让 UI 遮挡后面的内容）
-3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可
+3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可，Layer 要设置成UI
 4. 通过设置 Sorting Layer，也可以对 Canvas 进行排序，后面的层覆盖前面的层。
 Order in Layer，适用于相同 Layer 中进行排序
 
@@ -632,7 +632,7 @@ print(((RectTransform)this.transform).sizeDelta);
 print((this.transform as RectTransform).sizeDelta);
 ```
 
-## 三大基础控件
+## 2 三大基础控件
 ### Image
 ![[Pasted image 20230616213350.png]]
 - 是 UGUI 中用于显示精灵图片（Sprite）的关键组件
@@ -706,7 +706,7 @@ RawImage img = this.GetComponent<RawImage>();
 img.texture = Resources.Load<Texture>( "EmojiOne");
 ```
 
-## 组合控件
+## 3 组合控件
 ### Button 按钮
 **按钮组件**
 是 UGUI 中用于处理玩家按钮相关交互的关键组件
@@ -909,7 +909,7 @@ print(dropdown.value);
 print(dropdown.options[dropdown.value].text);
 dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 ```
-## 图集 (需要补一下Unity 核心)
+## 4 图集 (需要补一下 Unity 核心)
 UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
 **打图集的目的就是减少 Drawcall 提高性能**，我们可以通过打图集，将小图合并成大图，将本应 n 次的 Drawcall 变成 1 次 Drawcall 来提高性能。
 
@@ -934,7 +934,7 @@ SpriteAtlas sa = Resources.Load<SpriteAtlas>( "MyAlas");
 sa.GetSprite("bk");
 ```
 
-## UI 事件接口
+## 5 UI 事件接口
  
 目前所有的控件都只提供了常用的事件监听列表
 如果想做一些类似长按，双击，拖拽等功能是无法制作的，或者想让 Image 和 Text, RawImage 三大基础控件能够响应玩家输入也是无法制作的
@@ -1030,7 +1030,7 @@ eventTrigger.triggers.Add(entry);
 ```
 
 
-### 屏幕坐标转 UI 坐标
+## 6 屏幕坐标转 UI 坐标
 `RectTransformUtility` 公共类是一个 `RectTransform` 的辅助类主要用于进行一些坐标的转换等等操作，其中对于我们目前来说最重要的函数是将屏幕空间上的点，转换成 UI 本地坐标下的点
 
 方法:
@@ -1041,3 +1041,59 @@ eventTrigger.triggers.Add(entry);
 **参数四**：最终得到的点
 一般配合拖拽事件使用
 
+![[Pasted image 20230618144851.png]]
+![[Pasted image 20230618145514.png]]
+将以下脚本挂在给子对象，可以通过鼠标拖动 image 子对象相对于父对象移动
+```cs
+public class Test : MonoBehaviour , IDragHandler
+{
+    public void OnDrag(PointerEventData eventData)
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            this.transform.parent as RectTransfor,
+            eventData.position,
+            eventData.enterEventCamera,
+            out Vector2 localPoint);
+        
+        this.transform.localPosition = localPoint;
+    }
+}
+```
+
+## 7 Mask 遮罩
+实现遮罩效果的关键组件时 Mask 组件
+通过**在父对象上添加 Mask 组件**即可遮罩其子对象
+
+注意:
+1. 想要被遮罩的 Image 需要勾选 Maskable
+2. 只要父对象添加了 Mask 组件，那么所有的 UI 子对象都会被遮罩
+3. 遮罩父对象图片的制作，不透明的地方显示，透明的地方被遮罩
+
+ 遮罩前： ![[Pasted image 20230618150128.png]]
+ 使用遮罩： ![[Pasted image 20230618150119.png]]
+
+## 8 模型和粒子显示在 UI 之前
+以模型为例，粒子使用的的方式一样。
+### 方法一：直接用摄像机渲染 3D 物体
+Canvas 的渲染模式：摄像机模式和世界 (3D)模式都可以让模型显示在 UI 之前（(Z 轴在 UI 元素之前即可)
+注意:
+1. 摄像机模式时建议用专门的摄像机渲染 UI 相关 
+2. 面板上的 3D 物体建议也用 UI 摄像机进行渲染
+
+![[#Screen Space - Camera]]
+
+
+### 方法二：渲染在 RT 上，通过 RawImage 显示
+
+专门使用一个摄像机渲染 3D 模型，将其渲染内容输出到 Render Texture 上，类似小地图的制作方式
+再将渲染的图显示在 UI 上
+该方式不管 canvas 的渲染模式是哪种都可以使用
+
+ ![[Pasted image 20230618151231.png|500]]
+1. 创建一个专用摄像机，将想要渲染的模型单独设置一个 Layer，将摄像机的 CullingMask 设置为该 Layer，之渲染该模型
+2. Create->RenderTexture，将创建的 RT 传给摄像机
+3. Canvas 下创建一个 RawImage（RawImage 支持各种 Texture Type），将 RT 传过去就可以了。
+
+### 粒子系统注意点
+粒子xi
+![[Pasted image 20230618151734.png]]

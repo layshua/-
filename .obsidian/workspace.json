@@ -8,62 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0ed5db9a7861245b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/Unity操作指南.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "de2d0a8fac487d63",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8b3ae5f0ae6294c1",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "c8db2c17350deeae",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/TA101.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f56404911b38443d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/05 UnityShader/庄懂AP01.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "48fe065de5f94e44",
             "type": "leaf",
             "state": {
@@ -74,9 +18,45 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6241fb45ceb51aac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "df2838f42331cb78",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/【Unity精粹】/《GUI》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8974da1bc22a5da1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/游戏Demo/坦克大战/文档.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -211,23 +191,25 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "48fe065de5f94e44",
+  "active": "df2838f42331cb78",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230618151734.png",
+    "zip/images/Pasted image 20230618151231.png",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
+    "技术美术/05 UnityShader/庄懂AP01.md",
+    "技术美术/05 UnityShader/TA101.md",
+    "zip/images/Pasted image 20230618150128.png",
+    "zip/images/Pasted image 20230618150119.png",
+    "zip/images/Pasted image 20230618145514.png",
+    "zip/images/Pasted image 20230618144851.png",
     "zip/MindMap/20230618144259.km.md",
     "zip/images/Pasted image 20230618143557.png",
     "zip/images/Pasted image 20230618143456.png",
     "zip/images/Pasted image 20230618142218.png",
     "zip/images/Pasted image 20230618141523.png",
     "zip/images/Pasted image 20230618141305.png",
-    "zip/images/Pasted image 20230618141215.png",
-    "技术美术/05 UnityShader/庄懂AP01.md",
-    "技术美术/05 UnityShader/TA101.md",
-    "zip/images/Pasted image 20230618001804.png",
-    "zip/images/Pasted image 20230618001017.png",
-    "zip/images/Pasted image 20230618000758.png",
-    "zip/images/Pasted image 20230617235616.png",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/头部项目/未命名.md",
@@ -248,8 +230,6 @@
     "技术美术/01 百人计划/A美术向/角色设计精要.md",
     "技术美术/01 百人计划/A美术向/场景设计精要.md",
     "引擎Unity3D/Unity操作指南.md",
-    "引擎Unity3D/BUG合集.md",
-    "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",

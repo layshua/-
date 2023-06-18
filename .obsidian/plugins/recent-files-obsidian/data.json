@@ -9,6 +9,10 @@
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
+      "basename": "文档",
+      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
+    },
+    {
       "basename": "庄懂AP01",
       "path": "技术美术/05 UnityShader/庄懂AP01.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "控制面板",
       "path": "Tools/System/控制面板.md"
-    },
-    {
-      "basename": "文档",
-      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
     }
   ],
   "omittedPaths": [],
