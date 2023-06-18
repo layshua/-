@@ -957,7 +957,7 @@ dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 `Flexible height`: 此布局元素应相对于其同级而填充的额外可用高度的相对量
 
 **在进行自动布局时都会通过计算布局元素中的这 6 个属性得到控件的大小位置**
-
+- ! **一般情况下我们不会去手动修改他们**，但是如果你有这些需求，可以手动添加一个 `LayoutElement` 组件，可以修改这些布局属性。
 ![[Pasted image 20230618205443.png]]
 >控件 Insepctor 最下方可以查看布局属性
 
@@ -967,13 +967,13 @@ dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 3. 如果上面两条分配完成后还有额外空间，则分配 `Flexible width` 和 `Flexible height`
 
 一般情况下布局元素的这些属性都是 0，但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
-**一般情况下我们不会去手动修改他们**，但是如果你有这些需求，可以手动添加一个 `LayoutElement` 组件，可以修改这些布局属性。
+
 #### 水平垂直组件
-水平垂直布局组件：Horizontal Layout Group 和 Vertical Layout Group
-将子对象并排或者竖直的放在一起
+**组件名**：Horizontal Layout Group 和 Vertical Layout Group
+**将子对象并排或者竖直的放在一起**
 
 通常将组件给父对象，那么子对象就会自动布局，如图，红色 Image 作为父对象，其他颜色 Image 作为子对象，父对象添加 Horizontal Layout Group 组件：
-![[Pasted image 20230618210116.png]]![[202306072241 2.gif|500]]
+![[Pasted image 20230618210116.png]] ![[6a7sd15a1da.gif|500]]
 
 ![[Pasted image 20230618210413.png]]
 参数相关:
@@ -984,7 +984,55 @@ Control Child size: 是否控制子对象的宽高
 Use child Scale: 在设置子对象大小和布局时，是否考虑子对象的缩放
 child Force Expand: 是否强制子对象拓展以填充额外可用空间
 
+#### 网格布局组件
+**组件名**: Grid Layout Group
+**将子对象当成一个个的格子设置他们的大小和位置**
+![[6a7sd15a1da 1.gif|550]]
+![[Pasted image 20230618211335.png]]
+参数相关:
+Padding: 左右上下边缘偏移位置 
+Cell size: 每个格子的大小 
+Spacing: 格子间隔
+Start Corner:第一个元素所在位置 (4 个角)
+Start Axis: 沿哪个轴放置元素：Horizontal 水平放置满换行，Vertical 竖直放置满换列 
+Child Alignment: 格子对其方式（9宫格)
+Constraint: 行列约束
+Flexible: 灵活模式，根据容器大小自动适应 
+Fixed column Count: 固定列数
+Fixed Row Count: 固定行数
 
+#### 内容大小适配器
+**组件名**: Content size Fitter
+它可以**自动的调整 RectTransform 的长宽来让组件自动设置大小**
+一般在 Text 上使用或者配合其它布局组件一起使用
+
+![[Pasted image 20230618212411.png]]
+参数相关
+Horizontal Fit: 如何控制宽度 
+Vertical Fit: 如何控制高度
+Unconstrained: 不根据布局元素伸展
+Min size: 根据布局元素的最小宽高度来伸展
+Preferred Size: 根据布局元素的偏好宽度来伸展宽度。
+
+**常用情景，背包动态扩容**
+![[Pasted image 20230618211900.png]]
+为 Content 添加一个网格布局组件，然后不断添加 Image ，我们发现，随着 Image 数量增多，Content 的 Rect 高度并没有增加，这就导致，滚轮无法查看所有格子：
+![[6a7sd15a1dafasf.gif]]
+我们只需为 Content 添加内容大小适配器，将 Verticla Fit 设置为 Preferred Size，就可以了：
+![[6a7sd15a1dafasf4.gif]]
+#### 宽高比适配器
+组件名: Aspect Ratio Fitter
+
+让布局元素按照一定比例来调整自己的大小，使布局元素在父对象内部根据父对象大小进行适配
+![[Pasted image 20230618212719.png]]
+参数相关:
+Aspect Mode: 适配模式, 如果调整矩形大小来实施宽高比
+None: 不让矩形适应宽高比
+width Controls Height: 根据宽度自动调整高度 
+Height Controls width: 根据高度自动调整宽度
+Fit In Parent: 自动调整宽度、高度、位置和锚点，使矩形适应父项的矩形，同时保持宽高比，会出现黑边
+Envelope Parent: 自动调整宽度、高度、位置和锚点，使矩形覆盖父项的整个区域，同时保持宽高比，会出现“裁剪
+Aspect Ratio: 宽高比; 宽除以高的比值
 
 ## 5  图集 (需要补一下 Unity 核心)
 UGUI 和 NGUI 使用上最大的不同是：NGUI 使用前就要打图集，UGUI 可以再之后再打图集
@@ -1177,5 +1225,18 @@ canvas 和粒子系统都有一个层级排序选项，通过修改粒子系统�
 
 ![[Pasted image 20230618151734.png|550]]
 
+## 11 CanvasGroup
+为面板父对象添加 CanvasGroup 组件即可同时控制一组 Canvas
+常用于整体控制一个面板的淡入淡出或者整体禁用
 
+![[Pasted image 20230618212954.png]]
+参数相关:
+Alpha: 整体透明度控制
+Interactable: 整体启用禁用设置 
+Blocks Raycasts: 整体射线检测设置
+Ignore Parent Groups: 是否忽略父级 CanvasGroup 的作用
 
+## 12 常用插件
+DoTween—缓动插件，可以制作一些缓动效果
+
+TextMeshPro: 一文本网格插件，可以制作更多的特效文字
