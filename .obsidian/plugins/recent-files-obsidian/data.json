@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "pg-01-rendering-things.unitypackage",
+      "path": "pg-01-rendering-things.unitypackage.md"
+    },
+    {
+      "basename": "03 重用对象",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
+    },
+    {
+      "basename": "02 对象种类",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "文档",
@@ -25,10 +41,6 @@
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
-      "basename": "03 重用对象",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
-    },
-    {
       "basename": "未命名",
       "path": "引擎Unity3D/头部项目/未命名.md"
     },
@@ -43,10 +55,6 @@
     {
       "basename": "01 持久化对象",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md"
-    },
-    {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "Custom Render Pipeline --- 自定义渲染管道",
@@ -191,14 +199,6 @@
     {
       "basename": "《鱼书》",
       "path": "AI/深度学习/《鱼书》.md"
-    },
-    {
-      "basename": "书单",
-      "path": "图形学/5 书籍/书单.md"
-    },
-    {
-      "basename": "控制面板",
-      "path": "Tools/System/控制面板.md"
     }
   ],
   "omittedPaths": [],

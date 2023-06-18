@@ -53,10 +53,12 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 ![[Pasted image 20230604101859.png|700]]
 
 ![[Pasted image 20230604101922.png]]
-## 2 特性 
-`[ExecuteAlways]`：令脚本在编辑模式下运行
+## 2 特性
+特性可以组合在一个 `[]` 中，逗号分隔
 
-特性可以组合在一个`[]`中，逗号分隔
+`[ExecuteAlways]`：令脚本在编辑模式下运行
+`[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]`：自动添加需要的组件作为依赖项。
+
 ## 3 Inspector 窗口
 ### 可编辑的变量
 
