@@ -25,7 +25,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
+                "file": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6e2f2dc3e3b9dd68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
+                "file": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md"
               }
             }
           }
@@ -142,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/程序化网格.md",
+                "file": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/程序化网格.md",
+                "file": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,24 +203,26 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "1a9c710053f32a8e",
+  "active": "6e2f2dc3e3b9dd68",
   "lastOpenFiles": [
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
+    "zip/images/edf8e6b1e0a54551985d38c40c071bd1_MD5.png",
+    "zip/images/de5e3d91f9b2b2c8ce783f010fa29e16_MD5.png",
+    "zip/images/b09f13f16b2b6fc509d2f5a3be836038_MD5.png",
+    "zip/images/c9dbc2093c66bf771b0190672238f238_MD5.png",
+    "zip/images/733ebd2f19481b7dc3415d4562c806a5_MD5.png",
+    "zip/images/564200183c038bc2577039137227c635_MD5.png",
+    "zip/images/8b32c27a0db09a13b6f0ffe140ed0698_MD5.png",
+    "zip/images/9169cae06e4925acec6959d3a8bf1e3f_MD5.png",
+    "zip/images/372912b963bcc47098df28a5274fa252_MD5.png",
+    "zip/images/4ca118182146752514fc333a59e78251_MD5.png",
+    "zip/images/6a54d05cff033c5abbd0c5e5f1968a7c_MD5.png",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
+    "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md",
+    "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Catlike Coding】/程序化网格.md",
+    "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "pg-01-rendering-things.unitypackage.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
-    "zip/images/753ec4e9a8db835e9e735e9561a8efda_MD5.png",
-    "zip/images/f69e60370f36cf5a76836c080ddf5e49_MD5.png",
-    "zip/images/9b04c8b2187755dd3fb602c80f9e9da5_MD5.png",
-    "zip/images/bf4558830732c0f9909ac1f4d070fc8e_MD5.png",
-    "zip/images/bdabbea5c98af10fc45a9b85cd4cb233_MD5.png",
-    "zip/images/d34de78ccc2ce6147bd8fc0251bd2f12_MD5.png",
-    "zip/images/fa1d136393d1dbfbc066aa6fc8d9873c_MD5.png",
-    "zip/images/dd77cf3596570e0c36de3d10c3c7567c_MD5.png",
-    "zip/images/95c16c65100571ba0b5e6ddba40d57e0_MD5.png",
-    "zip/images/d8083fddb2e4c349bed154dbd520c70b_MD5.png",
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
     "zip/images/QQ录屏20230618120224 1.mp4",
@@ -232,8 +246,6 @@
     "技术美术/01 百人计划/A美术向/模型基础.md",
     "技术美术/01 百人计划/A美术向/Metallic 与 Specular 流程.md",
     "技术美术/01 百人计划/A美术向/DCC 工具链与引擎工具链.md",
-    "技术美术/01 百人计划/A美术向/角色设计精要.md",
-    "技术美术/01 百人计划/A美术向/场景设计精要.md",
     "引擎Unity3D/【性能精粹】",
     "引擎Unity3D/性能优化",
     "Context/spacesLastSync.log",

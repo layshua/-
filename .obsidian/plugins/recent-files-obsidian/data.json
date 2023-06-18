@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客",
+      "path": "zBuffer/(32 条消息) Unity 进阶：ScriptableObject 使用指南_YY-nb 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "02 对象种类",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
+    },
+    {
+      "basename": "03 重用对象",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
       "basename": "程序化网格",
       "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
     },
@@ -9,20 +25,8 @@
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
-    },
-    {
       "basename": "pg-01-rendering-things.unitypackage",
       "path": "pg-01-rendering-things.unitypackage.md"
-    },
-    {
-      "basename": "03 重用对象",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
-    },
-    {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "文档",
@@ -195,10 +199,6 @@
     {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
-    },
-    {
-      "basename": "《鱼书》",
-      "path": "AI/深度学习/《鱼书》.md"
     }
   ],
   "omittedPaths": [],
