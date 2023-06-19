@@ -9,17 +9,17 @@ banner: "![[Pasted image 20230619152331.png]]"
 ---
 
 ![[Pasted image 20230619152316.png]]
-### 2.1 Shader
+# 2.1 Shader
 
-Shader 是运行在 GPU 上的一种处理图像信息的程序。要在哪里绘制，如何绘制通常由 Shader 决定。第一节我们也说到，SRP 保留了对 Unlit Shader 的支持，从本节开始，我们将编写自己的 Shader 来渲染几何。
+Shader 是运行在 GPU 上的一种处理图像信息的程序。**要在哪里绘制，如何绘制通常由 Shader 决定**。第一节我们也说到，SRP 保留了对 Unlit Shader 的支持，从本节开始，我们将编写自己的 Shader 来渲染几何。
 
 着色器有很多可编程的阶段，比如顶点着色器和片元着色器等。这些着色器的可编程性在于我们可以使用一种特定的语言来编写程序，就和我们可以用 C# 来编写游戏逻辑一样。着色语言就是专门用于编写着色器的，常见的三种高级着色语言分别是微软 DirectX 的 HLSL（High Level Shading Language）、OpenGL 的 GLSL（OpenGL Shading Language）和 NVIDIA 的 CG（C for Graphic）。这些语言会被编译成与机器无关的汇编语言，也被称为中间语言，这些中间语言再交给显卡驱动来翻译成真正的机器语言，即 GPU 可以理解的语言。
 
-在 Unity 的内置渲染管线中，我们通常用 CG 语言来编写着色器，CG 是真正意义上的跨平台，它会根据平台不同编译成相应的中间语言，且 CG 的跨平台很大原因取决于与微软的合作，也导致 CG 语言的语法和 HLSL 非常像，很多情况下 CG 语言甚至可以无缝移植成 HLSL 代码，但 CG 语言已经停止更新很多年了，基本上已经被放弃了。现在 SRP 的着色器代码库使用的是 HLSL，Unity 也使用了 HLSL 的编译器来编译 Shader，且 HLSL 转 GLSL 比较容易。接下来的所有着色器代码我们将使用 HLSL 着色语言来编写。
+在 Unity 的内置渲染管线中，我们通常用 CG 语言来编写着色器，CG 是真正意义上的跨平台，它会根据平台不同编译成相应的中间语言，且 CG 的跨平台很大原因取决于与微软的合作，也导致 CG 语言的语法和 HLSL 非常像，很多情况下 CG 语言甚至可以无缝移植成 HLSL 代码，但 CG 语言已经停止更新很多年了，基本上已经被放弃了。**现在 SRP 的着色器代码库使用的是 HLSL，Unity 也使用了 HLSL 的编译器来编译 Shader，且 HLSL 转 GLSL 比较容易。接下来的所有着色器代码我们将使用 HLSL 着色语言来编写。**
 
 在这里希望读者对 Shader 语法有一定的了解，一些基本的语法知识将不过多介绍。
 
-**2.1.1 Unlit Shader**
+## 2.1.1 Unlit Shader
 
 本节内容不涉及光照的讲解，我们下面编写一个不受光照影响的 Unlit Shader。
 
@@ -45,13 +45,12 @@ Shader "CustomRP/Unlit"
 
 2. 创建一个材质球，命名为 Unlit，使用该 Shader。
 ![[Pasted image 20230619152452.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/1.1620400578182.png)
 
-3. 我们接下来实现 Pass 块，因为我们使用 HLSL 着色语言，所以用 HLSLPROGRAM 和 ENDHLSL 来包裹 Shader 代码，只有这样才能正确的编译。开头也说到着色器有两个常用的可编程阶段，也就是顶点着色器和片元着色器。我们使用 Pragma 指令来标识顶点和片元着色器用什么函数来实现。Pragma 个词来自希腊语，指的是一个行动或者一些需要做的事情，它在许多编程语言中用于发布特殊的编译器指令。
+3. 我们接下来实现 Pass 块，因为我们使用 HLSL 着色语言，所以用 HLSLPROGRAM 和 ENDHLSL 来包裹 Shader 代码，只有这样才能正确的编译。开头也说到着色器有两个常用的可编程阶段，也就是顶点着色器和片元着色器。我们使用 Pragma 指令来标识顶点和片元着色器用什么函数来实现。**Pragma 个词来自希腊语，指的是一个行动或者一些需要做的事情，它在许多编程语言中用于发布特殊的编译器指令。**
 
-我们在 Shader 的同级目录下创建一个 UnlitPass.hlsl 文件，在 HLSL 文件中去实现这两个函数，这有利于代码的管理和组织重用。然后在 Unlit.shader 中使用 #include 指令插入 HLSL 的内容，文件的路径是相对路径。Unity 没有直接创建 HLSL 的菜单选项，我们拷贝一个 Unlit.shader，然后把 “.shader” 改为“.hlsl”，里面的代码全部清空。
+我们在 Shader 的同级目录下创建一个 UnlitPass.hlsl 文件，在 HLSL 文件中去实现这两个函数，这有利于代码的管理和组织重用。然后在 Unlit.shader 中使用`#include` 指令插入 HLSL 的内容，文件的路径是相对路径。Unity 没有直接创建 HLSL 的菜单选项，我们拷贝一个 Unlit.shader，然后把 “.shader” 改为“.hlsl”，里面的代码全部清空。
 
-```cs
+```c
 Pass
         {
             HLSLPROGRAM
@@ -62,21 +61,21 @@ Pass
         }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/2.1620400659963.png)
+
 ![[Pasted image 20230619152542.png]]
-4. 使用 Include 指令会插入该 HLSL 文件全部的内容，并且它允许多次 Include 同一文件，这样就有可能出现多份重复代码，导致重复声明或者其它一些编译报错，当编写的 HLSL 文件多了，一层嵌套一层，难免会出现重复 Include 同一文件的疏忽，所以我们有必要在编写 HLSL 着色器代码的时候加个保护。
+4. 使用 Include 指令会插入该 HLSL 文件全部的内容，并且**它允许多次 Include 同一文件**，这样就有可能出现多份重复代码，导致重复声明或者其它一些编译报错，当编写的 HLSL 文件多了，一层嵌套一层，难免会出现重复 Include 同一文件的疏忽，所以我们**有必要在编写 HLSL 着色器代码的时候加个保护。**
 
-我们一般通过 `#define` 指令定义一些标识符，在定义宏之前先判断一下是否定义过此标识符，如果定义过了，就跳过里面的所有代码不再执行，直接跳转到 #endif 末尾的代码。这样就能保证无论重复 Include 该 HLSL 文件多少次，只有第一次的 Include 是有效代码插入。这是一个良好的习惯，包括 Unity 的 SRP 源码库中的 HLSL 文件也是这么做的。
+我们一般通过 `#define` 指令定义一些标识符，在定义宏之前先判断一下是否定义过此标识符，如果定义过了，就跳过里面的所有代码不再执行，直接跳转到 `#endif`末尾的代码。这样就能保证无论重复 Include 该 HLSL 文件多少次，只有第一次的 Include 是有效代码插入。这是一个良好的习惯，包括 Unity 的 SRP 源码库中的 HLSL 文件也是这么做的。
 
-```
+```c
 #ifndef CUSTOM_UNLIT_PASS_INCLUDED
 #define CUSTOM_UNLIT_PASS_INCLUDED
 #endif
 ```
 
-**2.1.2 着色器函数**
+## 2.1.2 着色器函数
 
-我们先定义一个空的顶点函数和片元函数来解决 Shader 的编译报错。然后在顶点函数中我们获取模型空间中的顶点位置并返回，模型空间中的顶点位置是一个三维向量，我们将其扩展到四维，W 分量设为 1。
+我们先定义一个空的顶点函数和片元函数来解决 Shader 的编译报错。然后在顶点函数中我们获取模型空间中的顶点位置并返回，**模型空间中的顶点位置是一个三维向量，我们将其扩展到四维，W 分量设为 1。**
 
 为什么返回的是一个四维向量？
 
@@ -84,7 +83,7 @@ Pass
 
 4X4 的矩阵可以表示平移变换，同时我们要把三维的矢量转换成四维矢量，也就是齐次坐标。对于 1 个点，从三维坐标转换成齐次坐标是要把 W 分量设置为 1，对于方向矢量则把 W 分量设置为 0。这样的设置会导致：当用一个 4X4 矩阵对一个点进行变换时，平移、旋转和缩放都会施加于该点。但如果是用于变换一个方向矢量，平移的效果会被忽略。
 
-```
+```c
 #ifndef CUSTOM_UNLIT_PASS_INCLUDED
 #define CUSTOM_UNLIT_PASS_INCLUDED
 //顶点函数
@@ -100,13 +99,12 @@ void UnlitPassFragment() {}
 
 然后我们创建一个球体，把 Unlit 材质球给它：
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/3.1620400867557.png)
 ![[Pasted image 20230619152558.png]]
 Mesh 被渲染出来了，但是效果不对，因为我们在顶点函数输出的顶点位置不是正确的空间。我们要进行空间变换，需要定义变换矩阵来进行。当物体被绘制时，这些变换矩阵会被发送到 GPU，我们需要在 Shader 中添加这些矩阵，由于这些都是相同的且是通用的，我们将这些定义到一个单独的 HLSL 文件中方便代码管理和调用。
 
 1. 新建一个 ShaderLibrary 子文件夹，来存放一些自定义的着色器库文件。我们在其下面新建一个 UnityInput.hlsl 文件，该文件用于存放 Unity 提供的一些的标准输入，我们在里面定义一个 float 4X4 类型的从模型空间到世界空间的转换矩阵。
 
-```
+```c
 //unity标准输入库
 #ifndef CUSTOM_UNITY_INPUT_INCLUDED
 #define CUSTOM_UNITY_INPUT_INCLUDED
@@ -118,7 +116,7 @@ float4x4 unity_ObjectToWorld;
 
 2. 空间转换矩阵有了，我们需要定义一个方法用来进行空间转换，这些函数基本都是常用的功能，我们在 ShaderLibrary 子文件夹中新建一个 Common.hlsl 库文件。然后定义一个将顶点从模型空间转换到世界空间的方法，传参是三维顶点坐标，并使用 mul() 方法完成顶点坐标的空间转换。第一个参数是转换矩阵，第二个是四维顶点坐标。我们返回世界空间的顶点坐标的 XYZ 分量。
 
-```
+```c
 //公共方法库
 #ifndef CUSTOM_COMMON_INCLUDED
 #define CUSTOM_COMMON_INCLUDED
@@ -241,8 +239,8 @@ float4 UnlitPassFragment() : SV_TARGET
 }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/5.1620401324954.png)
 
+![[Pasted image 20230619152618.png]]
 ### 2.2 批处理
 
 **2.2.1 Draw Call 和 Set Pass Call**
@@ -265,8 +263,8 @@ SRP Batcher 会在主存中将模型的坐标信息、材质信息、主光源�
 
 基本概念介绍完了，下面来实践。现在我们的 Shader 是不兼容 SRP Batcher 的，可以看到以下信息，我们需要对我们的 Shader 做一些调整。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/6.1620402439790.png)
 
+![[Pasted image 20230619152650.png]]
 1. 它是指材质的所有属性都需要在常量内存缓冲区 CBUFFER 里定义，要我们将_BaseColor 这个属性在名字为 UnityPerMaterial 的 CBUFFER 块中定义，如下所示。
 
 ```
@@ -301,7 +299,7 @@ CBUFFER_END
 编译后发现还是 Shader 不兼容 SRP Batcher：
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/7.1620402534908.png)
-
+![[Pasted image 20230619152700.png]]
 4. 它指出，如果我们需要使用一组特定值的其中一个值，我们需要把这组特定值全部定义出来，现在还缺少 unity_LODFade 的定义。
 
 ```
@@ -314,7 +312,7 @@ CBUFFER_END
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/8.1620402590882.png)
-
+![[Pasted image 20230619152712.png]]
 5. 至此，我们的 Shader 已经兼容 SRP Batcher 了，我们在代码中启用 SRP Batcher 进行测试。创建渲染管线实例的时候，在构造函数里启用。
 
 ```
@@ -328,7 +326,7 @@ public class CustomRenderPipeline : RenderPipeline
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/9.1620402640267.png)
-
+![[Pasted image 20230619152718.png]]
 可以看到，在 Statistics 面板中，有 4 个批次被存储起来，以负数的形式显示。在 Frame Debugger 中可以看到一个 SRP Batch 条目，但这不是说这些物体被合并成了一个 Draw Call，而是指它们的优化序列。
 
 **2.2.3 多种颜色**
@@ -368,7 +366,7 @@ public class PerObjectMaterialProperties : MonoBehaviour
 但我们发现 SRP Batcher 失效了，没有办法处理每个对象的材质属性。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.1620402723245.png)
-
+![[Pasted image 20230619152723.png]]
 ​**2.2.4 GPU Instancing**
 
 如果能将数据一次性发送给 GPU，然后使用一个绘制函数让渲染流水线利用这些数据绘制多个相同的物体将会大大提升性能。这种技术就是 GPU 多例化（GPU Instancing）技术。使用 GPU Instancing 能够在一个绘制调用中渲染多个具有相同网格的物体，CPU 收集每个物体的材质属性和变换，放入数组发送到 GPU，GPU 遍历数组按顺序进行渲染。
@@ -389,7 +387,7 @@ HLSLPROGRAM
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/11.1620402920095.png)
-
+![[Pasted image 20230619152734.png]]
 2. 在 Common.hlsl 文件中 include SpaceTransforms.hlsl 之前，我们将 SRP 源码库中的 UnityInstancing.hlsl 文件 Include 进来，我们需要用到里面的一些定义好的宏和方法。
 
 ```
@@ -465,7 +463,7 @@ float4 UnlitPassFragment(Varyings input):SV_Target{
 最后通过帧调试器可以看到 4 个小球已经合并成一个 Draw Call 了，它们使用的是同一材质。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/12.1620403064039.png)
-
+![[Pasted image 20230619152750.png]]
 ​**2.2.5 绘制许多网格小球**
 
 我们在 Examples 子文件夹下创建一个脚本 MeshBall.cs 来生成多个 Mesh 和多个小球对象，来展示成百上千个对象使用 GPU Instancing 进行合批的效果。
@@ -511,7 +509,7 @@ public class MeshBall : MonoBehaviour
 我们在场景中创建一个空的 GameObject，然后挂上该脚本，设置球体 Mesh 和 Unlit 材质球，运行游戏即可。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/13.1620403178208.png)
-
+![[Pasted image 20230619152758.png]]
 绘制 1023 个小球产生了 3 个 Draw Call。每个 Draw Call 的最大缓冲区大小不一样，因此需要几个 Draw Call 是根据不同机器不同平台来决定的，单个网格的绘制顺序与我们提供数组数据的顺序相同。
 
 **2.2.6 动态合批**
@@ -591,11 +589,11 @@ bool useDynamicBatching, useGPUInstancing;
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/14.1620403364255.png)
-
+![[Pasted image 20230619152812.png]]
 我们禁用 GPU Instancing 和 SRP Batcher，来测试动态批处理的效果。切换批处理的开关会立即生效，因为 Unity 在检测到管线资产改变时会创建一个新的渲染管线实例。（注：下图测试动态批处理时用的 Cube 进行测试，小球 Mesh 太大不满足动态合批的要求）。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/15.1620403459355.png)
-
+![[Pasted image 20230619152814.png]]
 ### **2.3 Alpha Blend 和 Alpha Test**
 
 透明是很常用的一种效果，在实时渲染中要实现透明效果，通常会在渲染模型时控制它的透明通道。在开启透明混合后，当一个物体被渲染到屏幕上，每个片元除了颜色值和深度值以外，还有一个透明度的属性：为 1 表示该像素是完全不透明的； 为 0 表示该像素完全不会显示。在 Unity 中我们通常使用两种方法来实现透明效果：第一种是透明度测试（Alpha Test），这种方法其实完全无法得到真正的半透明效果；另一种是透明度混合（Alpha Blend）。
@@ -641,7 +639,7 @@ Blend operations：混合操作
 
   
 通过混合操作和混合因子命令的组合，我们可以得到一些类似 Photoshop 混合模式中的混合效果，下图是一些常用的混合模式：
-
+![[Pasted image 20230619152837.png]]
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/16.1620404638523.png)
 
 1. 我们在 Shader 的属性中添加这两个混合因子，默认源混合因子是 1，表示完全添加，目标混合因子是 0，表示完全忽略，这是标准的不透明混合模式。
@@ -657,7 +655,7 @@ Properties
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/17.1620404688699.png)
-
+![[Pasted image 20230619152846.png]]
 2. 标准透明物体混合模式源混合因子为 SrcAlpha，所以混合等式为源颜色（该片元产生的颜色）的 RGB 乘上源颜色的 Alpha 值，目标混合因子为 OneMinusSrcAlpha，代表颜色缓冲中的颜色值乘以（1 - 源颜色的 Alpha 值） 。我们在 Pass 中使用 Blend 语句来定义混合模式，并在材质面板中设置标准透明物体的源和目标混合因子。
 
 ```
@@ -669,7 +667,7 @@ Pass
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/18.1620404760699.png)
-
+![[Pasted image 20230619152849.png]]
 3. 透明物体的渲染一般要关闭深度写入，不然得不到正确的结果。我们在属性栏中定义是否写入深度的属性，然后在 Pass 中通过 ZWrite 语句控制是否写入深度缓冲。最后我们可以调整下透明物体的渲染队列为 3000，让其在不透明物体和天空盒之后渲染。
 
 ```
@@ -689,7 +687,7 @@ Pass
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/19.1620404858989.png)
-
+![[Pasted image 20230619152853.png]]
 **2.3.2 材质添加对纹理的支持**
 
 1. 我们的材质球目前还不支持使用纹理，现在添加这个功能，在属性栏声明一张纹理。
@@ -760,7 +758,7 @@ float4 UnlitPassFragment (Varyings input) : SV_TARGET
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/20.1620405114276.png)
-
+![[Pasted image 20230619152901.png]]
 我们当前使用的纹理 RGB 颜色值为白色，但 Alpha 不同，所以颜色不受影响，但透明度每个物体各有不同。
 
 **2.3.3 透明度测试（Alpha Test）**
@@ -792,11 +790,11 @@ return base;
 ```
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/21.1620405240523.png)
-
+![[Pasted image 20230619152951.png]]
 材质通常使用透明度测试和透明度混合其中一个，而不是同时使用。透明度测试应使用在完全不透明的物体身上，除了被 clip 丢弃的片元外，其它片元会写入深度缓冲中。我们把混合模式设置成标准不透明物体的配置，然后开启深度写入，渲染队列设置为 AlphaTest。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/22.1620405279204.png)
-
+![[Pasted image 20230619152953.png]]
 **2.3.4 Shader Feature**
 
 使用 shader feature 可以让 Unity 根据不同的定义条件或关键字编译多次，生成多个着色器变体。然后通过外部代码或者材质面板上的开关来启用某个关键字，加载对应的着色器变种版本来执行某些特定功能，是项目开发中比较常用的一种手段。下面我们的目标是添加一个控制透明度测试功能是否启用的开关。
@@ -829,7 +827,7 @@ HLSLPROGRAM
 接下来就可以在材质面板中将控制裁剪功能启用。
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/23.1620405418529.png)
-
+![[Pasted image 20230619152958.png]]
 **2.3.5 逐对象的裁剪**
 
 1. 我们在 PerObjectMaterialProperties.cs 脚本中也添加裁剪的属性，可以给每个对象设置不同的裁剪程度，和设置颜色属性时差不多。
@@ -868,4 +866,4 @@ matrices[i] = Matrix4x4.TRS(Random.insideUnitSphere*10f, Quaternion.Euler
                 baseColors[i] = new Vector4(Random.value,Random.value,Random.value,Random.Range(0.5f, 1f));
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/24.1620405536241.png)
+![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/24.1620405536241.png)![[Pasted image 20230619153002.png]]

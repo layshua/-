@@ -1,20 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
+      "basename": "2 Draw Call",
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "3D数学",
+      "path": "图形学/0 3D数学/3D数学.md"
+    },
+    {
+      "basename": "《ShaderLab》",
+      "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
     },
     {
       "basename": "1 自定义渲染管线",
       "path": "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md"
-    },
-    {
-      "basename": "Custom Render Pipeline --- 自定义渲染管道",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "zBuffer/未命名.md"
     },
     {
       "basename": "《编辑器扩展》",
@@ -23,10 +23,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
-    },
-    {
-      "basename": "《ShaderLab》",
-      "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
     },
     {
       "basename": "《CS Primer》",
@@ -63,10 +59,6 @@
     {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md"
-    },
-    {
-      "basename": "pg-01-rendering-things.unitypackage",
-      "path": "pg-01-rendering-things.unitypackage.md"
     },
     {
       "basename": "庄懂AP01",
@@ -163,10 +155,6 @@
     {
       "basename": "第二章 光照基础",
       "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
     },
     {
       "basename": "03 光照向量",
