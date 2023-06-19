@@ -263,13 +263,13 @@ void Setup() {
 ![[Pasted image 20230619095711.png]]
 如上图所示，Draw GL 条目已经变成了 **Clear(color+Z+stencil) 条目，表示颜色、深度和模板缓冲区的旧数据都被清除了。**
 
-## **1.2.5 剔除（Culling）**
+## 1.2.5 剔除（Culling）
 
 我们只需要渲染在相机视野内的物体，视野外的物体需要剔除掉。这一步主要通过 `camera.TryGetCullingParameters` 方法得到需要进行剔除检查的所有物体，正式的剔除是通过 `context.Cull()` 实现的，最后会返回一个 `CullingResults` 的结构，里面**存储了我们相机剔除后的所有视野内可见物体的数据信息**。
 
-我们定义一个函数 Cull 来完成这个工作，然后在相机渲染 Render() 的最开始调用剔除操作。
+我们定义一个函数 Cull 来完成这个工作，然后**在相机渲染 Render() 的最开始调用剔除操作。**
 
-```
+```cs
 public void Render(ScriptableRenderContext context, Camera camera)
      {
          this.context = context;
@@ -305,11 +305,11 @@ public void Render(ScriptableRenderContext context, Camera camera)
      }
 ```
 
-**1.2.6 绘制几何体**
+## 1.2.6 绘制几何体
 
-当剔除裁剪完毕，我们就知道需要渲染哪些可见物体了。接下来就开始正式绘制，通过调用 context.DrawRenderers 方法来实现。它需要三个参数，除了上面的 CullingResults，还需要一个 DrawingSettings 绘制设置和 FilteringSettings，我们先用默认的设置，绘制物体的操作放在 DrawVisibleGeometry() 方法中的绘制天空盒之前完成。
+当剔除裁剪完毕，我们就知道需要渲染哪些可见物体了。接下来就**开始正式绘制**，通过调用 `context.DrawRenderers` 方法来实现。它需要三个参数，除了上面的 CullingResults，还需要一个 DrawingSettings 绘制设置和 FilteringSettings，我们先用默认的设置，**绘制物体的操作放在 `DrawVisibleGeometry()` 方法中的绘制天空盒之前完成。**
 
-```
+```cs
 void DrawVisibleGeometry()
     {
         var drawingSettings = new DrawingSettings();
@@ -323,13 +323,14 @@ void DrawVisibleGeometry()
     }
 ```
 
-现在我们还是看不到有物体被绘制在屏幕上，因为我们还需要在 DrawingSettings 中设置是哪个 Shader 的哪个 Pass 进行渲染。在 SRP 中，旧的着色器大部分基本不能再使用，但没有光照的内置着色器 Unlit 被保留了下来，我们需要获取 Pass 名字为 SRPDefaultUnlit 的着色器标识 ID，在最外部定义好后作为第一个参数传入 DrawingSettings 中。
+现在我们还是看不到有物体被绘制在屏幕上，因为我们**还需要在 `DrawingSettings` 中设置是哪个 Shader 的哪个 Pass 进行渲染。
+在 SRP 中，旧的着色器大部分基本不能再使用，但没有光照的内置着色器 Unlit 被保留了下来，我们需要获取 Pass 名字为 SRPDefaultUnlit 的着色器标识 ID，在最外部定义好后作为第一个参数传入 DrawingSettings 中。**
 
-我们还需要传入第二个参数，类型是 SortSettings。创建该对象的时候把相机作为参数传入进来。该排序设置的作用是确定相机的透明排序模式是否使用正交或基于距离的排序。如果单单这样设置，就会发现绘制的顺序是没有规律的，我们通过设置排序的条件来让它有序地绘制物体。目前我们暂时使用不透明对象的典型排序模式 SortingCriteria.CommonOpaque 来设置。
+我们还需要传入**第二个参数，类型是 SortSettings**。创建该对象的时候把相机作为参数传入进来。**该排序设置的作用是确定相机的透明排序模式是否使用正交或基于距离的排序**。如果单单这样设置，就会发现绘制的顺序是没有规律的，**我们通过设置排序的条件来让它有序地绘制物体**。目前我们暂时使用不透明对象的典型排序模式 `SortingCriteria.CommonOpaque` 来设置。
 
-最后我们还需要设置 FilteringSettings，用于过滤给定的一组可见对象以便渲染，我们使用 RenderQueueRange.all 来渲染所有渲染队列内的对象。
+最后我们还需要**设置 `FilteringSettings`，用于过滤给定的一组可见对象以便渲染**，我们使用 `RenderQueueRange.all` 来渲染所有渲染队列内的对象。
 
-```
+```cs
 static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
 ...
 void DrawVisibleGeometry () 
@@ -352,31 +353,23 @@ void DrawVisibleGeometry ()
 ```
 
 我们在场景中创建几个 Cube，然后使用 Shader 为 Unlit/Color 的材质，颜色设置为蓝色，可以看到 Cube 终于被画在了屏幕中。
-
 ​![[Pasted image 20230619095729.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.1620396814676.png)
-
-**1.2.7 透明和不透明几何分开绘制**
+# **1.2.7 透明和不透明几何分开绘制**
 
 现在我们创建 2 个球体，使用 Unlit/Transparent shader 的材质，发现并没有绘制在屏幕中。
 
 ​![[Pasted image 20230619095747.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/11.1620396855816.png)
-
 但是我们打开 Frame Debugger 查看，是有绘制的。
 ![[Pasted image 20230619095750.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/12.1620396890528.png)
 
-因为在代码中天空盒是最后绘制的，这样会把透明物体给挡住。一般情况下，我们应当遵守 不透明物体 -> 绘制天空盒 -> 绘制透明物体 的绘制顺序。先绘制不透明物体，绘制天空盒的时候，经过深度测试，部分区域像素已经被不透明物体所占用，绘制天空盒的时候也就减少了绘制像素的数量，最后绘制透明物体，因为不会进行深度测试，所以可以通过颜色混合正确地绘制到屏幕上。
+
+**因为在代码中天空盒是最后绘制的，这样会把透明物体给挡住**。一般情况下，**我们应当遵守 不透明物体 -> 绘制天空盒 -> 绘制透明物体 的绘制顺序**。先绘制不透明物体，绘制天空盒的时候，经过深度测试，部分区域像素已经被不透明物体所占用，绘制天空盒的时候也就减少了绘制像素的数量，最后绘制透明物体，因为不会进行深度测试，所以可以通过颜色混合正确地绘制到屏幕上。
 
 我们把 DrawVisibleGeometry() 中的代码改造一下。首先将绘制不透明物体的过滤设置的渲染队列范围设置为 opaque，然后在绘制天空盒之后重新设置排序设置为 SortingCriteria.CommonTransparent，再将绘制不透明物体的过滤设置的渲染队列范围设置为 transparent，最后再次调用 DrawRenderers。
 
-```
-/// <summary>
-    
-    
+```cs
     void DrawVisibleGeometry()
     {
         
