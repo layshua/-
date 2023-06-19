@@ -132,7 +132,7 @@ float3 TransformObjectToWorld(float3 positionOS) {
 
 3. 回到 UnlitPass 的顶点函数中，调用该方法进行空间转换。
 
-```
+```c
 #include "../ShaderLibrary/Common.hlsl"
 //顶点函数
 float4 UnlitPassVertex(float3 positionOS : POSITION) : SV_POSITION
@@ -144,12 +144,12 @@ float4 UnlitPassVertex(float3 positionOS : POSITION) : SV_POSITION
 
 4. 结果现在仍是错的，我们需要把顶点转换到齐次裁剪空间才能得到正确的结果。在 UnityInput.hlsl 中定义一个视图 - 投影转换矩阵，并在 Common.hlsl 定义方法将顶点从世界空间转换到齐次裁剪空间。
 
-```
+```c
 //定义一个从世界空间转换到裁剪空间的矩阵
 float4x4 unity_MatrixVP;
 ```
 
-```
+```c
 //函数功能：顶点从世界空间转换到裁剪空间
 float4 TransformWorldToHClip(float3 positionWS) {
     return mul(unity_MatrixVP, float4(positionWS, 1.0));
@@ -158,7 +158,7 @@ float4 TransformWorldToHClip(float3 positionWS) {
 
 5. 在 UnlitPass 的顶点函数中将顶点转换到齐次裁剪空间后，我们得到了正确的结果。
 
-```
+```c
 float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION 
 {
     float3 positionWS = TransformObjectToWorld(positionOS.xyz);
@@ -166,13 +166,13 @@ float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION
 }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/4.1620401108484.png)
+
 ![[Pasted image 20230619152611.png]]
-**2.1.3 SRP 源码库**
+## 2.1.3 SRP 源码库
 
 1. 以上提及的在 Common.hlsl 定义的两个空间转换方法比较常用，在安装的插件包 Core RP Library 中也有官方的库文件定义了这两个方法，所以我们把自己定义的 TransformObjectToWorld 和 TransformWorldToHClip 方法删除，把定义这两个方法的库文件 SpaceTransforms.hlsl 给 Include 进来。
 
-```
+```c
 //公共方法库
 #ifndef CUSTOM_COMMON_INCLUDED
 #define CUSTOM_COMMON_INCLUDED
@@ -182,9 +182,9 @@ float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION
 #endif
 ```
 
-2. 这时会有编译报错，告诉你 SpaceTransforms.hlsl 中不存在 unity_ObjectToWorld ，它希望我们定义 UNITY_MATRIX_M 宏来取代它，遵守它的规则才能通过编译。为了通过编译，我们定义一些宏来取代常用的转换矩阵。
+2. **这时会有编译报错，告诉你 SpaceTransforms.hlsl 中不存在 unity_ObjectToWorld ，它希望我们定义 UNITY_MATRIX_M 宏来取代它，遵守它的规则才能通过编译**。为了通过编译，我们定义一些宏来取代常用的转换矩阵。
 
-```
+```c
 //定义一些宏取代常用的转换矩阵
 #define UNITY_MATRIX_M unity_ObjectToWorld
 #define UNITY_MATRIX_I_M unity_WorldToObject
@@ -197,7 +197,7 @@ float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION
 
 3. 然后在 UnityInput.hlsl 补充一些没有定义的转换矩阵。
 
-```
+```c
 //unity标准输入库
 #ifndef CUSTOM_UNITY_INPUT_INCLUDED
 #define CUSTOM_UNITY_INPUT_INCLUDED
@@ -214,7 +214,7 @@ float4x4 glstate_matrix_projection;
 
 4. 最后在 Common.hlsl 中把官方的 Common 库 include 进来，用来补全所有的别名替代宏。
 
-```
+```c
 #include 
 "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 //使用UnityInput里面的字段前先include进来
@@ -223,7 +223,7 @@ float4x4 glstate_matrix_projection;
 
 5. 下面我们开始补全片元函数，我们想让它返回一个在材质面板中可调的颜色值。首先在 Shader 的属性块中定义一个 Color 值，供我们在材质面板中调色，然后在 UnlitPass.hlsl 定义对应的字段获取该颜色值，最后在片元函数中返回它。
 
-```
+```c
 Properties
       {
           _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
