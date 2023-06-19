@@ -1,60 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "15 非真实感渲染",
-      "path": "图形学/5 书籍/《RTR4》/15 非真实感渲染.md"
+      "basename": "2 光照基础",
+      "path": "技术美术/01 百人计划/T渲染向/2 光照基础.md"
     },
     {
-      "basename": "7 阴影",
-      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
-    },
-    {
-      "basename": "6 纹理化",
-      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
-    },
-    {
-      "basename": "5 着色基础",
-      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
-    },
-    {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+      "basename": "3 进阶应用",
+      "path": "技术美术/01 百人计划/T渲染向/3 进阶应用.md"
     },
     {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
-      "basename": "资源",
-      "path": "图形学/5 书籍/《RTR4》/资源.md"
-    },
-    {
-      "basename": "第三章 进阶应用",
-      "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "第二章 光照基础",
-      "path": "技术美术/01 百人计划/T渲染向/第二章 光照基础.md"
-    },
-    {
-      "basename": "第五章 物理世界",
-      "path": "技术美术/01 百人计划/T渲染向/第五章 物理世界.md"
-    },
-    {
-      "basename": "第四章 高级扩展",
-      "path": "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md"
-    },
-    {
-      "basename": "场景设计精要",
-      "path": "技术美术/01 百人计划/A美术向/场景设计精要.md"
+      "basename": "曲面细分与几何着色器",
+      "path": "技术美术/着色器/曲面细分与几何着色器.md"
     },
     {
       "basename": "ClearCoat清漆",
@@ -73,12 +33,104 @@
       "path": "技术美术/着色器/布料.md"
     },
     {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "混合",
+      "path": "图形学/1 图形系统/混合.md"
+    },
+    {
+      "basename": "08 阴影",
+      "path": "图形学/1 图形系统/08 阴影.md"
+    },
+    {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "4 高级扩展",
+      "path": "技术美术/01 百人计划/T渲染向/4 高级扩展.md"
+    },
+    {
+      "basename": "07 深度测试",
+      "path": "图形学/1 图形系统/07 深度测试.md"
+    },
+    {
+      "basename": "06 模板测试",
+      "path": "图形学/1 图形系统/06 模板测试.md"
+    },
+    {
+      "basename": "05 透明度测试与透明度混合",
+      "path": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
+    },
+    {
+      "basename": "2 Draw Call",
+      "path": "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
+    },
+    {
+      "basename": "Unity操作指南",
+      "path": "引擎Unity3D/Unity操作指南.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/【Shader精粹】/ShaderLab.md"
+    },
+    {
+      "basename": "7 阴影",
+      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
+    },
+    {
+      "basename": "15 非真实感渲染",
+      "path": "图形学/5 书籍/《RTR4》/15 非真实感渲染.md"
+    },
+    {
+      "basename": "6 纹理化",
+      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
+    },
+    {
+      "basename": "5 着色基础",
+      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
+    },
+    {
+      "basename": "3 图形处理单元GPU",
+      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+    },
+    {
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
+      "basename": "1 引言",
+      "path": "图形学/5 书籍/《RTR4》/1 引言.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "资源",
+      "path": "图形学/5 书籍/《RTR4》/资源.md"
+    },
+    {
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+    },
+    {
+      "basename": "5 物理世界",
+      "path": "技术美术/01 百人计划/T渲染向/5 物理世界.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "技术美术/01 百人计划/A美术向/场景设计精要.md"
     },
     {
       "basename": "冯乐乐入门精要",
@@ -109,24 +161,12 @@
       "path": "引擎Unity3D/【Shader精粹】/《SRP》/1 自定义渲染管线.md"
     },
     {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md"
-    },
-    {
       "basename": "02 视图变换",
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/【Shader精粹】/ShaderLab.md"
-    },
-    {
       "basename": "1685518836211",
       "path": "zip/images/1685518836211.png"
-    },
-    {
-      "basename": "1 引言",
-      "path": "图形学/5 书籍/《RTR4》/1 引言.md"
     },
     {
       "basename": "BUG合集",
@@ -139,10 +179,6 @@
     {
       "basename": "2 GPU Instance深入浅出",
       "path": "引擎Unity3D/【Shader精粹】/《渲染优化》/2 GPU Instance深入浅出.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -163,38 +199,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
-    },
-    {
-      "basename": "文档",
-      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
-    },
-    {
-      "basename": "01 持久化对象",
-      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/01 持久化对象.md"
-    },
-    {
-      "basename": "03 重用对象",
-      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/03 重用对象.md"
-    },
-    {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/02 对象种类.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "04 纹理映射",
-      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
     }
   ],
   "omittedPaths": [],

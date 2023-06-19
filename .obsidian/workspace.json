@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+                "file": "技术美术/01 百人计划/T渲染向/3 进阶应用.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
+                "file": "技术美术/01 百人计划/T渲染向/2 光照基础.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 55.75539568345324,
+        "dimension": 43.07553956834532,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md"
+                "file": "技术美术/01 百人计划/T渲染向/2 光照基础.md"
               }
             }
           }
@@ -96,7 +96,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 44.24460431654676,
+        "dimension": 56.92446043165468,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
+                "file": "技术美术/01 百人计划/T渲染向/2 光照基础.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
+                "file": "技术美术/01 百人计划/T渲染向/2 光照基础.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1026.5
+    "width": 427.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -179,44 +179,44 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "859ee0a5f1ac03c3",
   "lastOpenFiles": [
-    "zip/images/ba4c889d3de9fe68da404361f8cbc00d_MD5.png",
-    "zip/images/6494abe979c00db63df07a5776f35852_MD5.png",
-    "zip/images/c9751091ac4c02fe178cd876e31dfe88_MD5.png",
-    "zip/images/9f38b661aa069eb625bcaabcd95f753a_MD5.png",
-    "zip/images/06a178720f57a40eb120479b782335c3_MD5.png",
-    "zip/images/320295cc1af07ada8006b413cc6cceed_MD5.gif",
-    "zip/images/9214ad833c81ffecc4396802ea4578c8_MD5.png",
-    "zip/images/f2f67ce3603636f5f02a2b16541ab8bb_MD5.gif",
-    "zip/images/dcffc9d64b445d829e8b00053f7f978b_MD5.gif",
-    "zip/images/47605b6dc912b5cb40d98b17ec597e33_MD5.png",
-    "zip/images/f40e54edec4a5efea8401e1563a3aa96_MD5.gif",
-    "图形学/5 书籍/《RTR4》/6 纹理化.md",
-    "图形学/5 书籍/《RTR4》/7 阴影.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 7 章 阴影（下）7_7 ~ 7_10_西河某人的博客 - CSDN 博客.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 7 章 阴影（中）7_4 ~ 7_6_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/《RTR4》/15 非真实感渲染.md",
-    "图形学/5 书籍/《RTR4》/5 着色基础.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 15 章 非真实感渲染（下）15_3 ~ 15_5_西河某人的博客 - CSDN 博客.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 6 章 纹理化（下）6_7 ~ 6_9_西河某人的博客 - CSDN 博客.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 6 章 纹理化（中）6_4 ~ 6_6_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
-    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
+    "技术美术/01 百人计划/T渲染向/3 进阶应用.md",
+    "技术美术/01 百人计划/T渲染向/2 光照基础.md",
     "图形学/1 图形系统/01 渲染管线.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 5 章 着色基础（下）5_5 ~ 5_6_西河某人的博客 - CSDN 博客.md",
-    "zBuffer/(33 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 5 章 着色基础（中）5_3 ~ 5_4_实时渲染第四版_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/《RTR4》/资源.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
-    "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
-    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
-    "技术美术/01 百人计划/A美术向/场景设计精要.md",
+    "技术美术/着色器/曲面细分与几何着色器.md",
     "技术美术/着色器/ClearCoat清漆.md",
     "技术美术/着色器/各向异性.md",
     "技术美术/着色器/次表面散射.md",
     "技术美术/着色器/布料.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/混合.md",
+    "图形学/1 图形系统/08 阴影.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "技术美术/01 百人计划/T渲染向/4 高级扩展.md",
+    "图形学/1 图形系统/07 深度测试.md",
+    "图形学/1 图形系统/06 模板测试.md",
+    "图形学/1 图形系统/05 透明度测试与透明度混合.md",
+    "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md",
+    "引擎Unity3D/【Catlike Coding】/程序化网格.md",
+    "引擎Unity3D/Unity操作指南.md",
+    "引擎Unity3D/【Shader精粹】/ShaderLab.md",
+    "图形学/5 书籍/《RTR4》/7 阴影.md",
+    "图形学/5 书籍/《RTR4》/15 非真实感渲染.md",
+    "图形学/5 书籍/《RTR4》/6 纹理化.md",
+    "图形学/5 书籍/《RTR4》/5 着色基础.md",
+    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
+    "zip/images/38dfde6631594f990616a050fb0fbb27_MD5.png",
+    "zip/images/b78be76d0c89708cb3e284fe14a4db7b_MD5.png",
+    "zip/images/656818d9e2418f7d48ec949136157b10_MD5.png",
+    "zip/images/ac95b104b615128b562ec36a64847ea1_MD5.png",
+    "zip/images/d288286b5ff71a5d9885c1515a334f3e_MD5.png",
+    "zip/images/acba9856f66102d8f1ed228b2ccf85f0_MD5.png",
+    "zip/images/b29a52f0e1b0aee0a43b56347609c585_MD5.png",
+    "zip/images/859b32d78aa6c179a31745d3b47ed75d_MD5.png",
+    "zip/images/6aed3ce8b58bd9427b923878c4150773_MD5.png",
+    "zip/images/096af50877e8908ed5c8bd51b2f68aa2_MD5.png",
     "引擎Unity3D/【Shader精粹】/《URP》",
     "引擎Unity3D/【Shader精粹】/《渲染优化》",
     "引擎Unity3D/未命名",
