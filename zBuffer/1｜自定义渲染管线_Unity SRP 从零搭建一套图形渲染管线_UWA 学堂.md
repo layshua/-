@@ -570,23 +570,18 @@ public void Render (ScriptableRenderContext context, Camera camera) {
 
 
 ![[Pasted image 20230619095815.png]]
-**1.3.4 绘制 UI**
+## 1.3.4 绘制 UI
 
 当我们创建一个 UGUI button 的时候，会发现该 UI 在 Game 视图中显示，但在 Scene 视图是不显示的。通过 Frame Debugger 查看到 UI 是单独绘制的，而不是由我们的渲染管线绘制的。
 ![[Pasted image 20230619095817.png]]
 ​
-
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/17.1620397495032.png)
-
 默认创建的画布为 Render Mode 的 Screen Space - Overlay，如果我们改成 Screen Space - Camera，并把 RenderCamera 属性设置成我们场景的主相机，再看 Frame Debugger，就会发现 UI 也变成我们渲染透明物体的一部分了。
-
 ​![[Pasted image 20230619095820.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/18.1620397552099.png)
+但这个渲染顺序会有点问题，**一般情况下我们会单独使用一个相机渲染 UI，当绘制完所有可见物体后，最后绘制 UI**。这个我们先暂不处理，**现在要做的是在 Scene 视图中把 UI 给绘制出来，在 Editor 脚本中通过定义 `PrepareForSceneWindow` 方法来实现**。
+首先判断相机如果是在 Scene 视图渲染出来的，就调用 `ScriptableRenderContext.EmitWorldGeometryForSceneView` 方法将 UI 发送到 Scene 视图进行渲染。
 
-但这个渲染顺序会有点问题，一般情况下我们会单独使用一个相机渲染 UI，当绘制完所有可见物体后，最后绘制 UI。这个我们先暂不处理，现在要做的是在 Scene 视图中把 UI 给绘制出来，在 Editor 脚本中通过定义 PrepareForSceneWindow 方法来实现。首先判断相机如果是在 Scene 视图渲染出来的，就调用 ScriptableRenderContext.EmitWorldGeometryForSceneView 方法将 UI 发送到 Scene 视图进行渲染。
-
-```
+```cs
 partial void PrepareForSceneWindow ();
 #if UNITY_EDITOR
 ...
@@ -604,9 +599,9 @@ partial void PrepareForSceneWindow ();
 #endif
 ```
 
-因为此操作可能会给 Scene 场景中添加一些几何体，所以我们在 Render() 方法中进行几何体剔除之前调用这个方法。
+**因为此操作可能会给 Scene 场景中添加一些几何体，所以我们在 Render() 方法中进行几何体剔除之前调用这个方法。**
 
-```
+```cs
  public void Render(ScriptableRenderContext context, Camera camera)  
     {  
         this.context = context;  
@@ -624,21 +619,22 @@ partial void PrepareForSceneWindow ();
     }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/19.1620397635570.png)
+
 ![[Pasted image 20230619095827.png]]
-### 1.4 多摄像机
+# 1.4 多摄像机
 
 实际游戏中场景往往不止只有一个摄像机在进行绘制，所有我们需要对前面写的东西进行一些扩展，来支持多摄像机的正常渲染。
 
-**1.4.1 两个摄像机**
+## 1.4.1 两个摄像机
 
-游戏场景中的 Main Camera 深度值默认是 - 1，若场景中有多个相机，它们的渲染顺序是按深度递增渲染的。先新建一个普通相机，新建一个 Tag 叫做 Secondary Camera，让新相机使用这个 Tag，depth 属性设为 0，让它在 Main Camera 之后渲染。
+游戏场景中的 Main Camera 深度值默认是 - 1，若场景中有多个相机，它们的渲染顺序是按深度递增渲染的。**先新建一个普通相机，新建一个 Tag 叫做 Secondary Camera，让新相机使用这个 Tag，depth 属性设为 0，让它在 Main Camera 之后渲染。**
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/20.1620397707607.png)
+
 ![[Pasted image 20230619095830.png]]
-此时我们在帧调试发现两个相机渲染的内容都是一样的，因为中间清除了渲染目标，此时渲染的图像也是正确的。但是由于相邻的同级样本条目会被合并，所以我们发现只有一个 Render Camera 条目。为了区分两个相机渲染的条目，我们在 CameraRenderer.Editor 脚本中添加一个 PrepareBuffer() 方法，使用相机的名字去设置命令缓冲区的名字。最后在 Render() 方法的最开始就调用该方法。
 
-```
+此时我们在帧调试发现两个相机渲染的内容都是一样的，因为中间清除了渲染目标，此时渲染的图像也是正确的。但是由于相邻的同级样本条目会被合并，所以我们发现只有一个 Render Camera 条目。**为了区分两个相机渲染的条目，我们在 CameraRenderer.Editor 脚本中添加一个 PrepareBuffer() 方法，使用相机的名字去设置命令缓冲区的名字**。最后在 Render() 方法的最开始就调用该方法。
+
+```cs
 partial void PrepareBuffer ();
 #if UNITY_EDITOR
     ...
@@ -649,7 +645,7 @@ partial void PrepareBuffer ();
 #endif
 ```
 
-```
+```cs
 public void Render(ScriptableRenderContext context, Camera camera)  
     {  
         this.context = context;  
@@ -662,11 +658,11 @@ public void Render(ScriptableRenderContext context, Camera camera)
 
 如下图所示，通过不同的采样条目，我们可以方便地查看绘制信息，因为两个相机绘制的是相同的图像，所以 Draw Call 也是一样的。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/21.1620397783668.png)
 ![[Pasted image 20230619095833.png]]
-​我们还要解决一个问题，每次访问相机的 name 属性都会分配内存，每帧都去访问它是非常可怕的一件事。在编辑器模式下我们还不用太关心它，但在项目构建后在其它平台运行时我们要做好防护。在 Editor 脚本中，添加一个 #else 分支，如果是在编辑器下运行，定义一个 SampleName 属性，使用相机的名字给它和缓冲区的名字赋值。如果是在其它平台下运行，则 SampleName 只是作为一个常量字符串 bufferName，也就是 "Render Camera"。
 
-```
+​我们**还要解决一个问题，每次访问相机的 name 属性都会分配内存，每帧都去访问它是非常可怕的一件事**。在编辑器模式下我们还不用太关心它，但在项目构建后在其它平台运行时我们要做好防护。在 Editor 脚本中，添加一个 `#else` 分支，如果是在编辑器下运行，定义一个 SampleName 属性，使用相机的名字给它和缓冲区的名字赋值。如果是在其它平台下运行，则 SampleName 只是作为一个常量字符串 bufferName，也就是 "Render Camera"。
+
+```cs
 #if UNITY_EDITOR
     ...
     string SampleName { get; set; }
@@ -682,7 +678,7 @@ public void Render(ScriptableRenderContext context, Camera camera)
 
 我们在 Setup 和 Submit 方法中对采样过程使用 SampleName 这个属性。
 
-```
+```cs
 void Submit() {
         buffer.EndSample(SampleName);
         ...
@@ -696,9 +692,9 @@ void Submit() {
      }
 ```
 
-最后我们调整一下 PrepareBuffer 方法，使用 Profiler.BeginSample("Editor Only") 和 Profiler.EndSample() 将访问相机的名字并赋值的代码包裹起来，可以做到只在编辑器中分配内存，而不在构建项目后运行时分配内存。
+**最后我们调整一下 PrepareBuffer 方法，使用` Profiler.BeginSample("Editor Only")` 和 `Profiler.EndSample()` 将访问相机的名字并赋值的代码包裹起来，可以做到只在编辑器中分配内存，而不在构建项目后运行时分配内存。**
 
-```
+```cs
 using UnityEngine.Profiling;  
    
 #if UNITY_EDITOR  
