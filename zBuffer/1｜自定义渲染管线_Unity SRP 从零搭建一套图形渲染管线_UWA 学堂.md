@@ -178,11 +178,12 @@ public void Render(ScriptableRenderContext context, Camera camera) {
 
 ## 1.2.3 CommandBuffer
 
-接下来介绍另一个渲染接口 CommandBuffer。在内置渲染管线中，CommandBuffer 就已经是控制 Unity 渲染流程的一种手段了。前面也说到，当执行 context.Submit() 提交缓冲区渲染命令才进行这一帧的渲染，某些任务，比如绘制天空盒，可以直接调用 context 的专用方法发出命令，而其它命令需要通过单独的命令缓冲区（CommandBuffer）间接发出，我们需要这样一个缓冲区来绘制场景中其它几何图形。CommandBuffer 是一个容器，它保存了这些将要执行的渲染命令。
+接下来介绍**另一个渲染接口 `CommandBuffer`**。在内置渲染管线中，CommandBuffer 就已经是控制 Unity 渲染流程的一种手段了。前面也说到，当执行 context.Submit() 提交缓冲区渲染命令才进行这一帧的渲染，**某些任务，比如绘制天空盒，可以直接调用 context 的专用方法发出命令，而其它命令需要通过单独的命令缓冲区（CommandBuffer）间接发出，我们需要这样一个缓冲区来绘制场景中其它几何图形。**
+**CommandBuffer 是一个容器，它保存了这些将要执行的渲染命令。**
 
-在 CameraRender 脚本中创建一个 CommandBuffer 实例来获得缓冲区，我们只需一个缓冲区即可，实例化时定义一个 bufferName 给缓冲区起个名字，用于在 Frame Debugger 中识别它。
+在 CameraRender 脚本中创建一个 CommandBuffer 实例来获得缓冲区，我们只需一个缓冲区即可，**实例化时定义一个 bufferName 给缓冲区起个名字，用于在 Frame Debugger 中识别它。**
 
-```
+```cs
 const string bufferName = "Render Camera";
 
    CommandBuffer buffer = new CommandBuffer
@@ -191,9 +192,11 @@ const string bufferName = "Render Camera";
   };
 ```
 
-我们可以通过命令缓冲区的 BeginSample 和 EndSample 方法进行开启采样过程，这样在 Profiler 和 Frame Debugger 中就能进行显示，通常放在整个渲染过程的开始和结束，传参就用命令缓冲区的名字。执行缓冲区命令是通过 context.ExecuteCommandBuffer(buffer) 来执行，这个操作会从缓冲区复制命令但不会清除缓冲区，我们如果要重用 buffer，一般会在执行完该命令后调用 Clear() 清除。通常执行命令和清除缓冲区是一起执行的，我们封装成一个 ExecuteBuffer 方法用来更方便地调用。
+我们可以**通过命令缓冲区的 `BeginSample` 和 `EndSample` 方法进行开启采样过程**，这样在 Profiler 和 Frame Debugger 中就能进行显示，**通常放在整个渲染过程的开始和结束，传参就用命令缓冲区的名字**。
 
-```
+**执行缓冲区命令是通过 `context.ExecuteCommandBuffer(buffer)` 来执行，这个操作会从缓冲区复制命令但不会清除缓冲区**，我们如果要重用 buffer，一般会在执行完该命令后调用 `Clear()` 清除。**通常执行命令和清除缓冲区是一起执行的**，我们封装成一个 `ExecuteBuffer` 方法用来更方便地调用。
+
+```cs
 void Setup () {
     buffer.BeginSample(bufferName);
     ExecuteBuffer();
@@ -212,19 +215,25 @@ void ExecuteBuffer () {
 }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/7.1620955056712.png)
+
 ![[Pasted image 20230619095703.png]]
-**1.2.4 清除渲染目标**
 
-把一个场景渲染出来的过程，最终就是把图像绘制到一个帧缓冲（FrameBuffer）上的过程。显示到屏幕上的每一帧的数据其实对应的就是内存中的数据，在内存中对应分配着存储帧数据的缓冲区，包括写入颜色的颜色缓冲（Color Buffer）、写入深度值的深度缓冲（Depth Buffer） 以及基于一些条件丢弃片元的模板缓冲（Stencil Buffer），最后还包括自定义的缓冲区，这几种缓冲一起称之为帧缓冲。
+## 1.2.4 清除渲染目标 Render Target
 
-片元着色器在写入帧缓冲区之前会进行一系列的测试，例如模板测试、深度测试和 Alpha 测试等等，这些测试最终会决定当前像素是否需要写入帧缓冲中。
+**把一个场景渲染出来的过程，最终就是把图像绘制到一个帧缓冲（FrameBuffer）上的过程。** 
+**显示到屏幕上的每一帧的数据其实对应的就是内存中的数据，在内存中对应分配着存储帧数据的缓冲区，包括写入颜色的<mark style="background: #BBFABBA6;">颜色缓冲（Color Buffer）</mark>、写入深度值的<mark style="background: #BBFABBA6;">深度缓冲（Depth Buffer）</mark> 以及基于一些条件丢弃片元的<mark style="background: #BBFABBA6;">模板缓冲（Stencil Buffer）</mark>，最后还包括<mark style="background: #BBFABBA6;">自定义的缓冲区</mark>，<mark style="background: #FF5582A6;">这几种缓冲一起称之为帧缓冲</mark>。**
 
-相机默认的渲染目标就是显示器的屏幕，屏幕是默认的 FBO（帧缓冲对象），当然我们还可以让相机的渲染目标定义为 RenderTexture（渲染纹理）来实现一些诸如后处理等效果。
+**片元着色器在写入帧缓冲区之前会进行一系列的测试**，例如模板测试、深度测试和 Alpha 测试等等，这些测试最终会决定当前像素是否需要写入帧缓冲中。
 
-为了保证下一帧绘制的图像正确，我们通常要清除渲染目标，清除旧的数据。该操作通过调用 buffer.ClearRenderTarget 方法来完成，该方法有三个参数，前两个参数用来设置是否需要清除深度数据和颜色数据，这里我们都设为 true，第三个参数设置清除颜色数据的颜色，我们设置为 Color.clear。我们在 Setup() 中一开始就调用它。
+**相机默认的渲染目标就是显示器的屏幕，屏幕是默认的 FBO（帧缓冲对象）**，当然我们**还可以让相机的渲染目标定义为 RenderTexture（渲染纹理）来实现一些诸如后处理等效果。**
 
-```
+**为了保证下一帧绘制的图像正确，我们通常要清除渲染目标，清除旧的数据**。该操作通过调用 `buffer.ClearRenderTarget` 方法来完成，该方法有三个参数：
+- 前两个参数用来设置是否需要清除深度数据和颜色数据，这里我们都设为 true
+- 第三个参数设置清除颜色数据的颜色，我们设置为 Color.clear。
+
+我们在 Setup() 中一开始就调用它。
+
+```cs
 void Setup() {
         buffer.BeginSample(bufferName);        
         buffer.ClearRenderTarget(true, true, Color.clear);  
@@ -233,15 +242,15 @@ void Setup() {
     }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/8.1620396484963.png)
+
 ![[Pasted image 20230619095708.png]]
-这时我们打开帧调试器，发现多了一个 Draw GL 条目，用于相机的清除渲染目标操作。但会发现这样显示有一些问题，Render Camera 样本条目变成了嵌套显示，这是因为 ClearRenderTarget 操作会自动包裹在一个使用命令缓冲区名字的样本条目中，而我们的 BeginSample 使用的也是命令缓冲区的名字，就会导致这种相同样本条目名字的嵌套问题。
+这时我们打开帧调试器，发现多了一个 **Draw GL 条目，用于相机的清除渲染目标操作**。**但会发现这样显示有一些问题，Render Camera 样本条目变成了嵌套显示**，这是因为 ClearRenderTarget 操作会自动包裹在一个使用命令缓冲区名字的样本条目中，而我们的 BeginSample 使用的也是命令缓冲区的名字，就会导致这种相同样本条目名字的嵌套问题。
 
-我们可以在 BeginSample 之前清除渲染目标，使得两个相邻的同级渲染相机样本合并，这样在 Frame Debugger 的显示中就不会出现相同样本名嵌套。
+**我们可以在 BeginSample 之前清除渲染目标，使得两个相邻的同级渲染相机样本合并，这样在 Frame Debugger 的显示中就不会出现相同样本名嵌套。**
 
-另外，用于清除渲染目标的 Draw GL 条目是使用一个叫做 Hidden/InternalClear 的 Shader 绘制一个全屏的面片来写入渲染目标，但这不是清除渲染目标最快最有效的办法。我们对 context.SetupCameraProperties 的调用做一下调整，放在最开始阶段调用，在清除渲染目标之前就进行摄像机的属性设置，这样就能够实现快速清除。
+另外， **用于清除渲染目标的 Draw GL 条目是使用一个叫做 Hidden/InternalClear 的 Shader 绘制一个全屏的面片来写入渲染目标，但这不是清除渲染目标最快最有效的办法。** 我们对 `context.SetupCameraProperties` 的调用做一下调整，放在最开始阶段调用，在清除渲染目标之前就进行摄像机的属性设置，这样就能够实现快速清除。
 
-```
+```cs
 void Setup() {
         context.SetupCameraProperties(camera);
         buffer.ClearRenderTarget(true, true, Color.clear);
@@ -251,13 +260,14 @@ void Setup() {
      }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/9.1620396552219.png)
 ![[Pasted image 20230619095711.png]]
-如上图所示，Draw GL 条目已经变成了 Clear(color+Z+stencil) 条目，表示颜色、深度和模板缓冲区的旧数据都被清除了。
+如上图所示，Draw GL 条目已经变成了 **Clear(color+Z+stencil) 条目，表示颜色、深度和模板缓冲区的旧数据都被清除了。**
 
-**1.2.5 剔除（Culling）**
+## **1.2.5 剔除（Culling）**
 
-我们只需要渲染在相机视野内的物体，视野外的物体需要剔除掉。这一步主要通过 camera.TryGetCullingParameters 方法得到需要进行剔除检查的所有物体，正式的剔除是通过 context.Cull() 实现的，最后会返回一个 CullingResults 的结构，里面存储了我们相机剔除后的所有视野内可见物体的数据信息。我们定义一个函数 Cull 来完成这个工作，然后在相机渲染 Render() 的最开始调用剔除操作。
+我们只需要渲染在相机视野内的物体，视野外的物体需要剔除掉。这一步主要通过 `camera.TryGetCullingParameters` 方法得到需要进行剔除检查的所有物体，正式的剔除是通过 `context.Cull()` 实现的，最后会返回一个 `CullingResults` 的结构，里面**存储了我们相机剔除后的所有视野内可见物体的数据信息**。
+
+我们定义一个函数 Cull 来完成这个工作，然后在相机渲染 Render() 的最开始调用剔除操作。
 
 ```
 public void Render(ScriptableRenderContext context, Camera camera)
