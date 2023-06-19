@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "《程序化网格》",
+      "path": "引擎Unity3D/【Catlike Coding】/《程序化网格》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
       "basename": "《编辑器扩展》",
@@ -31,10 +35,6 @@
     {
       "basename": "03 重用对象",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
     },
     {
       "basename": "pg-01-rendering-things.unitypackage",
