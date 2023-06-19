@@ -355,7 +355,7 @@ void DrawVisibleGeometry ()
 我们在场景中创建几个 Cube，然后使用 Shader 为 Unlit/Color 的材质，颜色设置为蓝色，可以看到 Cube 终于被画在了屏幕中。
 ​![[Pasted image 20230619095729.png]]
 
-# **1.2.7 透明和不透明几何分开绘制**
+### 1.2.7 透明和不透明几何分开绘制
 
 现在我们创建 2 个球体，使用 Unlit/Transparent shader 的材质，发现并没有绘制在屏幕中。
 
@@ -397,19 +397,19 @@ void DrawVisibleGeometry ()
      }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/13.1620396963133.png)
+
 ![[Pasted image 20230619095756.png]]
-### 1.3 编辑器渲染
+# 1.3 编辑器渲染
 
 这块主要是优化我们的代码结构，优化改进 Unity 编辑器的使用。
 
-**1.3.1 绘制 SRP 不支持的着色器类型**
+## 1.3.1 绘制 SRP 不支持的着色器类型
 
-因为只有 SRP 支持 Unlit 类型的 Shader Pass 通过编译，我们的物体才能够渲染到屏幕中，所以在编辑器开发项目的过程中应该把那些不支持的着色器类型给暴露出来进行集中解决。特别是项目原来是用内置渲染管线开发的，然后想升级到 SRP，那么这些不支持的 Shader 类型就应该暴露出来。
+因为只有 SRP 支持 Unlit 类型的 Shader Pass 通过编译，我们的物体才能够渲染到屏幕中，所以**在编辑器开发项目的过程中应该把那些不支持的着色器类型给暴露出来进行集中解决**。特别是项目原来是用内置渲染管线开发的，然后想升级到 SRP，那么这些不支持的 Shader 类型就应该暴露出来。
 
 这里我们创建一个 ShaderTagId 的数组，把那些不支持的着色器类型标签给添加进来：
 
-```
+```cs
 static ShaderTagId[] legacyShaderTagIds = 
     {
         new ShaderTagId("Always"),
@@ -423,7 +423,7 @@ static ShaderTagId[] legacyShaderTagIds =
 
 创建 DrawUnsupportedShaders 方法绘制 SRP 不支持的着色器类型，在 Render 方法中绘制完所有几何体后调用：
 
-```
+```cs
 public void Render(ScriptableRenderContext context, Camera camera) {
         
         DrawVisibleGeometry();
@@ -436,7 +436,7 @@ public void Render(ScriptableRenderContext context, Camera camera) {
 
 DrawUnsupportedShaders 方法实现如下：
 
-```
+```cs
 void DrawUnsupportedShaders()
     {
 
