@@ -58,7 +58,7 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 
 `[ExecuteAlways]`：令脚本在编辑模式下运行
 `[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]`：自动添加需要的组件作为依赖项。
-
+`[CreateAssetMenu (menuName ="Rendering/CreateCustomRenderPipeline")]`：该标签会让你在 Project 下右键->Create 菜单中添加一个新的子菜单
 ## 3 Inspector 窗口
 ### 可编辑的变量
 

@@ -9,7 +9,7 @@ SRP（可编程渲染管线），现在叫做 CRP（Custom Render Pipeline，自
 若想了解更多 SRP 或是 URP 和 HDRP 的底层原理和应用，可以在 [UWA 学堂](https://edu.uwa4d.com/)学习雨松老师的新作《URP 从原理到应用》系列图文教程，分为[基础](https://edu.uwa4d.com/course-intro/0/283)和[进阶](https://edu.uwa4d.com/course-intro/0/284)两篇。他对这一块讲解的比较详细和深入，本系列教程则以实战为主。
 
 
-## **1.1.1 前置工作**
+## 1.1.1 前置工作
 
 本系列教程使用的 Unity 版本为 Unity 2019.4.4f1，在创建渲染管线之前，我们先进行两个前置工作：
 
@@ -18,17 +18,17 @@ SRP（可编程渲染管线），现在叫做 CRP（Custom Render Pipeline，自
 2. 通过 Windows->PackageManager，搜索 **Core RP Library** 并下载该包。SRP、URP 和 HDRP 都是依据该包进行功能拓展的，它是 Unity 开放出来供我们调用的 C# 接口，通过它调用更底层的 C++ 提供的渲染接口。该包中还含有一些基本功能的着色器文件，其中的方法可以直接供我们调用，而不是实现任何功能都需要自己造轮子，省了一部分工作量。
 
 ![[Pasted image 20230619095314.png]]
-## **1.1.2 新建渲染管线资产**
+## 1.1.2 新建渲染管线资产
 
-现在我们可以开始步入正题了，首先我们创建 CustomRP 文件夹，用来存放各类脚本、管线资产和着色器代码。之后创建 Runtime 子文件夹，存放运行脚本并新建脚本 CustomRenderPineAsset.cs。
+现在我们可以开始步入正题了，首先我们创建 CustomRP 文件夹，用来存放各类脚本、管线资产和着色器代码。之后创建 Runtime 子文件夹，存放运行脚本并新建脚本 `CustomRenderPineAsset`。
 
 ​![[Pasted image 20230619095639.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/2.1620391927227.png)
+**该类继承自 `RenderPipelineAsset`，是在 UnityEngine.Rendering 命名空间**下定义的，其实**所有 C++ 提供的渲染接口都暴露在该命名空间**下面。
 
-该类继承自 RenderPipelineAsset，是在 UnityEngine.Rendering 命名空间下定义的，其实所有 C++ 提供的渲染接口都暴露在该命名空间下面。接下来我们需要重写 CreatePipeline 抽象方法，该方法返回一个 RenderPipeline 实例，我们先什么都不做，返回 null。然后，在该类上面添加一个标签用来创建管线资产。
+接下来我们需要重写 `CreatePipeline` 抽象方法，该方法返回一个 `RenderPipeline` 实例，我们先什么都不做，返回 null。然后，在该类上面添加一个标签用来创建管线资产。
 
-```
+```cs
 using UnityEngine;
 using UnityEngine.Rendering;
 //该标签会让你在Project下右键->Create菜单中添加一个新的子菜单
@@ -45,17 +45,15 @@ public class CustomRenderPineAsset : RenderPipelineAsset
 
 新建 Assets 子文件夹用于存储各类资产，并将新建渲染管线资产命名为 CustomRP。接下来通过菜单 Editor->Project Settings->Graphics，把创建的渲染管线资产拖入 Scriptable Render Pipeline Settings 中，这时你会发现 Game 视图变成黑色了。因为我们替换了默认的渲染管线，而新的管线还什么都没做，返回的是 null，所以也就不显示任何内容了。
 ![[Pasted image 20230619095643.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/3.1620955056458.png)
 
 这时我们打开 Frame Debugger，发现确实没有绘制任何内容。
 ![[Pasted image 20230619095646.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/4.1620392077657.png)
 
 **1.1.3 创建渲染管线实例**
 
-在 Runtime 子文件夹中新建 CustomRenderPipeline 脚本，继承 RenderPipeline，并实现抽象方法 Render，目前我们还是什么都不做。
+在 Runtime 子文件夹中新建 `CustomRenderPipeline` 脚本，**继承 `RenderPipeline`**，并实现抽象方法 Render，目前我们还是什么都不做。
 
-```
+```cs
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -70,28 +68,28 @@ using UnityEngine.Rendering;
 
 接下来回到 CustomRenderPineAsset 脚本，我们在 CreatePipeline 方法中新建一个 CustomRenderPipeline 实例并返回。
 
-```
+```cs
 protected override RenderPipeline CreatePipeline()
 {
     return new CustomRenderPipeline();
 }
 ```
 
-### 1.2 正式渲染
+# 1.2 正式渲染
 
-Unity 每一帧都会调用 CustomRenderPipeline 实例的 Render() 方法进行画面渲染，该方法是 SRP 的入口，进行渲染时底层接口会调用它并传递两个参数，一个是 ScriptableRenderContext 对象，一个是 Camera[] 对象。
+**Unity 每一帧都会调用 `CustomRenderPipeline` 实例的 `Render()` 方法进行画面渲染**，<mark style="background: #FF5582A6;">该方法是 SRP 的入口</mark>，进行渲染时底层接口会调用它并传递两个参数，一个是 `ScriptableRenderContext` 对象，一个是 `Camera[]` 对象。
 
-ScriptableRenderContext 是 SRP 用于渲染的最底层接口之一，还有一个接口叫做 CommandBuffer。我们通过这两个接口封装的各种方法来实现基本的渲染绘制，虽然这些方法的实现都是由 C++ 在更底层实现的，但是我们只需要进行调用即可。
+`ScriptableRenderContext` 是 SRP 用于渲染的最底层接口之一，还有一个接口叫做 `CommandBuffer`。我们通过这两个接口封装的各种方法来实现基本的渲染绘制，虽然**这些方法的实现都是由 C++ 在更底层实现的，但是我们只需要进行调用即可。**
 
-Camera[] 是一个相机对象的数组，存储了参与这一帧渲染的所有相机对象。
+`Camera[]` 是一个相机对象的数组，存储了参与这一帧渲染的所有相机对象。
 
-**1.2.1 相机渲染**
+## 1.2.1 相机渲染
 
-虽然我们可以在 CustomRenderPipeline 中渲染所有的相机，但由于每个相机的渲染都是独立的，不如创建一个相机管理类去进行每个相机单独的渲染，而且后续功能会越来越多，这样做能够让代码更具有可读性且易管理。
+虽然我们可以在 `CustomRenderPipeline` 中渲染所有的相机，但由于每个相机的渲染都是独立的，不如**创建一个相机管理类去进行每个相机单独的渲染**，而且后续功能会越来越多，这样做能够让代码更具有可读性且易管理。
 
-我们在 Runtime 子文件夹新建一个 CameraRenderer 脚本用来进行单个相机单独渲染。定义一个相机的 Render 方法，用来绘制在相机视野内的所有物体。我们首先对传递来的渲染接口 ScriptableRenderContext 和当前相机 Camera 的对象进行存储追踪。
+我们在 Runtime 子文件夹新建一个 `CameraRenderer` 脚本**用来进行单个相机单独渲染**。定义一个相机的 `Render` 方法，**用来绘制在相机视野内的所有物体**。我们首先对传递来的渲染接口 ScriptableRenderContext 和当前相机 Camera 的对象进行存储追踪。
 
-```
+```cs
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -109,9 +107,9 @@ using UnityEngine.Rendering;
 }
 ```
 
-然后我们在 CustomRenderPipeline 脚本中创建一个 CameraRenderer 实例，在进行渲染时遍历所有相机进行单独渲染。这种设计可以让每个相机使用不同的渲染方式绘制画面。
+然后我们在 `CustomRenderPipeline` 脚本中创建一个 `CameraRenderer` 实例，**在进行渲染时遍历所有相机进行单独渲染**。这种设计可以让每个相机使用不同的渲染方式绘制画面。
 
-```
+```cs
 public class CustomRenderPipeline : RenderPipeline
 {
     CameraRenderer renderer = new CameraRenderer();
@@ -125,11 +123,11 @@ public class CustomRenderPipeline : RenderPipeline
 }
 ```
 
-**1.2.2 绘制天空盒**
+## 1.2.2 绘制天空盒
 
-接下来，我们可以让相机渲染一些东西了。定义一个 DrawVisibleGeometry 方法来绘制可见物。通过调用 ScriptableRenderContext 渲染接口的 DrawSkybox() 来绘制一个天空盒。但是到此还不行，因为通过 context 发送的渲染命令都是缓冲的，最后需要通过调用 Submit() 方法来正式提交渲染命令。
+接下来，我们可以让相机渲染一些东西了。定义一个 `DrawVisibleGeometry` 方法来绘制可见物。通过调用 `ScriptableRenderContext` 渲染接口的 `DrawSkybox()` 来绘制一个天空盒。但是到此还不行，因为**通过 context 发送的渲染命令都是缓冲的，最后需要通过调用 `Submit()` 方法来正式提交渲染命令。**
 
-```
+```cs
 public void Render(ScriptableRenderContext context, Camera camera) {
         this.context = context;
         this.camera = camera;
@@ -157,17 +155,13 @@ public void Render(ScriptableRenderContext context, Camera camera) {
 
 ​![[Pasted image 20230619095654.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/5.1620393030284.png)
-
-但现在我们还无法控制相机，通过设置相机的 Transform 旋转发现毫无作用，Scene 窗口右下角的 Camera Preview 视图也没有任何变化。因为我们还需要设置视图 - 投影变换矩阵，此转换矩阵结合了摄像机的位置和方向（视图矩阵）与摄像机的透视或正交投影（投影矩阵），Shader 中这个属性叫 unity_MatrixVP，是绘制几何图形时所用的 Shader 属性之一。在 Frame Debugger 可以选择一个 Draw Call，在 ShaderProperties 中看到这个矩阵的属性。
+但**现在我们还无法控制相机**，通过设置相机的 Transform 旋转发现毫无作用，Scene 窗口右下角的 Camera Preview 视图也没有任何变化。**因为我们还需要设置视图 - 投影变换矩阵**，此转换矩阵结合了摄像机的位置和方向（视图矩阵）与摄像机的透视或正交投影（投影矩阵），Shader 中这个属性叫 `unity_MatrixVP`，是绘制几何图形时所用的 Shader 属性之一。在 Frame Debugger 可以选择一个 Draw Call，在 ShaderProperties 中看到这个矩阵的属性。
 
 ​![[Pasted image 20230619095657.png]]
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/6.1620393101523.png)
+我们通过 `context.SetupCameraProperties` 方法来**设置相机特定的全局ShaderProperties，把这一步封装在 Setup 方法中，**渲染时放在绘制物体的前面调用**。
 
-我们通过 context.SetupCameraProperties 方法来设置矩阵和相机的其他属性，把这一步封装在 Setup 方法中，渲染时放在绘制物体的前面调用。
-
-```
+```cs
 public void Render(ScriptableRenderContext context, Camera camera) {
         this.context = context;
         this.camera = camera;
@@ -182,7 +176,7 @@ public void Render(ScriptableRenderContext context, Camera camera) {
     }
 ```
 
-**1.2.3 CommandBuffer**
+## 1.2.3 CommandBuffer
 
 接下来介绍另一个渲染接口 CommandBuffer。在内置渲染管线中，CommandBuffer 就已经是控制 Unity 渲染流程的一种手段了。前面也说到，当执行 context.Submit() 提交缓冲区渲染命令才进行这一帧的渲染，某些任务，比如绘制天空盒，可以直接调用 context 的专用方法发出命令，而其它命令需要通过单独的命令缓冲区（CommandBuffer）间接发出，我们需要这样一个缓冲区来绘制场景中其它几何图形。CommandBuffer 是一个容器，它保存了这些将要执行的渲染命令。
 
@@ -402,7 +396,7 @@ void DrawVisibleGeometry ()
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/13.1620396963133.png)
 ![[Pasted image 20230619095756.png]]
-### **1.3 编辑器渲染**
+### 1.3 编辑器渲染
 
 这块主要是优化我们的代码结构，优化改进 Unity 编辑器的使用。
 
@@ -613,7 +607,7 @@ public void Render(ScriptableRenderContext context, Camera camera) {
 
 ![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/19.1620397635570.png)
 ![[Pasted image 20230619095827.png]]
-### **1.4 多摄像机**
+### 1.4 多摄像机
 
 实际游戏中场景往往不止只有一个摄像机在进行绘制，所有我们需要对前面写的东西进行一些扩展，来支持多摄像机的正常渲染。
 
