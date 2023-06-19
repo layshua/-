@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂",
-      "path": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
+      "basename": "2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂",
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md"
+    },
+    {
+      "basename": "Custom Render Pipeline --- 自定义渲染管道",
+      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "zBuffer/未命名.md"
     },
     {
       "basename": "《编辑器扩展》",
@@ -19,10 +31,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "zBuffer/未命名.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -43,14 +51,6 @@
     {
       "basename": "02 对象种类",
       "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
-    },
-    {
-      "basename": "中文翻译",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md"
-    },
-    {
-      "basename": "Custom Render Pipeline --- 自定义渲染管道",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md"
     },
     {
       "basename": "《程序化网格》",

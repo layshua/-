@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,29 +205,31 @@
   },
   "active": "bb1a287aff31df62",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230619152618.png",
+    "zip/images/Pasted image 20230619152611.png",
+    "zip/images/Pasted image 20230619152558.png",
+    "zip/images/Pasted image 20230619152542.png",
+    "zip/images/Pasted image 20230619152533.png",
+    "zip/images/Pasted image 20230619152452.png",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
+    "zip/images/Pasted image 20230619152331.png",
+    "zip/images/Pasted image 20230619152316.png",
+    "zip/images/Pasted image 20230619152118.png",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
+    "zBuffer/未命名.md",
     "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
-    "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
     "引擎Unity3D/【Unity精粹】/《GUI》.md",
     "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
     "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "zBuffer/未命名.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/游戏Demo/坦克大战/文档.md",
     "zip/images/Pasted image 20230619095845.png",
     "zip/images/Pasted image 20230619095838.png",
-    "zip/images/Pasted image 20230619095833.png",
-    "zip/images/Pasted image 20230619095830.png",
-    "zip/images/Pasted image 20230619095827.png",
-    "zip/images/Pasted image 20230619095820.png",
-    "zip/images/Pasted image 20230619095817.png",
-    "zip/images/Pasted image 20230619095815.png",
-    "zip/images/Pasted image 20230619095808.png",
-    "zip/images/Pasted image 20230619095805.png",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
     "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
     "引擎Unity3D/【Catlike Coding】/《程序化网格》.md",
     "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
     "zBuffer/Unity3d Editor 编辑器扩展功能详解（2） GUI_GUILayout.md",
@@ -240,8 +242,6 @@
     "zBuffer/Unity3d Editor 编辑器扩展功能详解（6）Editor 常用辅助类（下）.md",
     "zBuffer/Unity3d Editor 编辑器扩展功能详解（6）Editor 常用辅助类（上）.md",
     "zBuffer/ScriptableObject.md",
-    "zBuffer/Handles.md",
-    "引擎Unity3D/【Unity精粹】/《Unity设计模式》.md",
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
     "zip/images/QQ录屏20230618120224 1.mp4",
