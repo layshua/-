@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
+                "file": "图形学/5 书籍/RTR/1 引言.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d27cbb459bfc53e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/03 光照模型.md",
                 "mode": "source",
                 "source": false
               }
@@ -30,14 +42,20 @@
                 "source": false
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "2860f7d3c2fd76ca",
+        "type": "tabs",
+        "children": [
           {
-            "id": "1f88d604c24965c6",
+            "id": "5f6ec92c0213cd12",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
+                "file": "图形学/1 图形系统/01 图形渲染管线.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +104,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
+                "file": "图形学/5 书籍/RTR/1 引言.md"
               }
             }
           }
@@ -129,7 +147,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
+                "file": "图形学/5 书籍/RTR/1 引言.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +164,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
+                "file": "图形学/5 书籍/RTR/1 引言.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,21 +198,34 @@
   },
   "active": "e6147cb2ec85dd4a",
   "lastOpenFiles": [
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（上）2_1 ~ 2_3（20200720 翻新）_西河某人的博客 - CSDN 博客.md",
+    "图形学/1 图形系统/01 图形渲染管线.md",
+    "图形学/5 书籍/RTR/1 引言.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（下）2_4 ~ 2_6（20200720 翻新）_实时渲染第四版中文_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客.md",
+    "图形学/5 书籍/RTR/资源.md",
+    "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+    "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
+    "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
+    "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
+    "引擎Unity3D/BUG合集.md",
+    "引擎Unity3D/头部项目/未命名.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
     "引擎Unity3D/【Shader精粹】/渲染优化/2 GPU Instance深入浅出.md",
     "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理总结.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
     "引擎Unity3D/【Catlike Coding】/《程序化网格》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Shader精粹】/渲染优化",
     "引擎Unity3D/未命名",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "图形学/0 3D数学/3D数学.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/Custom Render Pipeline --- 自定义渲染管道.md",
-    "zBuffer/未命名.md",
-    "pg-01-rendering-things.unitypackage.md",
     "zip/images/Pasted image 20230619153002.png",
     "zip/images/Pasted image 20230619152958.png",
     "zip/images/Pasted image 20230619152953.png",
@@ -205,19 +236,6 @@
     "zip/images/Pasted image 20230619152846.png",
     "zip/images/Pasted image 20230619152837.png",
     "zip/images/Pasted image 20230619152814.png",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/中文翻译.md",
-    "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md",
-    "引擎Unity3D/【Unity精粹】/《GUI》.md",
-    "引擎Unity3D/【Unity精粹】/《CS Primer》.md",
-    "引擎Unity3D/游戏Demo/坦克大战/文档.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md",
-    "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md",
-    "引擎Unity3D/【Unity精粹】/《数据持久化》.md",
-    "zBuffer/Unity3d Editor 编辑器扩展功能详解（2） GUI_GUILayout.md",
-    "zBuffer/Unity3d Editor 编辑器扩展功能详解（1） 目录索引.md",
-    "zBuffer/Unity Editor 编辑器扩展功能详解（3）EditorGUI_EditorGUILayout（下）.md",
-    "zBuffer/Unity Editor 编辑器扩展功能详解（3） EditorGUI_EditorGUILayout（上）.md",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
