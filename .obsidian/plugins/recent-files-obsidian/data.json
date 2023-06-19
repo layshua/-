@@ -1,24 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
     },
     {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
+    },
+    {
+      "basename": "02 对象种类",
+      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
     },
     {
       "basename": "《Unity设计模式》",
@@ -47,10 +51,6 @@
     {
       "basename": "TA101",
       "path": "技术美术/05 UnityShader/TA101.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "未命名",
