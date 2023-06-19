@@ -68485,6 +68485,7 @@ SRPBatcherProfiler
 StereoRenderingMode
 SinglePassInstanced
 SkinnedMeshRenderer
+SetVectorArray
 Programs
 POP
 PC
@@ -72434,6 +72435,7 @@ Playing
 PassName
 PreImageEffects
 PostImageEffects
+PropertyToID
 ContextMenuManager
 ClashVerge
 Clash
@@ -95143,6 +95145,8 @@ bulletData
 beneficial
 batched
 batcher
+baseColorId
+baseColors
 fe
 front
 fill
@@ -167113,6 +167117,7 @@ GUILayout
 GUILayoutOption
 GetAssetPath
 GizmoSubset
+GPUInstacing
 NULL
 Native
 NormalMap

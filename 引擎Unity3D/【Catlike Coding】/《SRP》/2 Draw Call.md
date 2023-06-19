@@ -404,7 +404,7 @@ HLSLPROGRAM
 1. **`UnityInstancing.hlsl` 通过重新定义一些宏去访问实例的数据数组，它需要知道当前渲染对象的索引，该索引是通过顶点数据提供的**。
    
    UnityInstancing.hlsl 中定义了 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏来简化了这个过程，**步骤如下：**
-    1. 我们定义一个顶点输入结构体，将 positionOS 的定义放进来，然后在结构体中加入 UNITY_VERTEX_INPUT_INSTANCE_ID 宏
+    1. 我们定义一个顶点输入结构体，将 positionOS 的定义放进来，然后在结构体中加入 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏
     2. 将该结构体对象作为顶点函数的输入参数。
     3. 在顶点函数添加 `UNITY_SETUP_INSTANCE_ID(input)` 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中。
 
@@ -437,7 +437,7 @@ UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor)
 UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
 ```
 
-5. 我们还需要在片元函数中也提供对象的索引，通过**在顶点函数**中使用 `UNITY_TRANSFER_INSTANCE_ID(input，output)` 将对象位置和索引输出，若索引存在则进行复制。为此我们还需定义一个片元函数输入结构体，在其中定义 positionCS 和 UNITY_VERTEX_INPUT_INSTANCE_ID 宏。
+5. 我们还需要在片元函数中也提供对象的索引，通过在顶点函数中使用 `UNITY_TRANSFER_INSTANCE_ID(input，output)` 将对象位置和索引输出，若索引存在则进行复制。为此我们还需定义一个片元函数输入结构体，在其中定义 `positionCS` 和 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏。
 
 ```c
 //用作片元函数的输入参数
@@ -459,7 +459,7 @@ struct Varyings
 }
 ```
 
-6. 在片元函数中也定义 UNITY_SETUP_INSTANCE_ID(input) 提供对象索引，且现在需要通过 UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor) 来访问获取材质的颜色属性了。
+6. 在片元函数中也定义 `UNITY_SETUP_INSTANCE_ID(input)` 提供对象索引，且现在需要通过 `UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor)` 来访问获取材质的颜色属性了。
 
 ```c
 float4 UnlitPassFragment(Varyings input):SV_Target{
@@ -468,17 +468,16 @@ float4 UnlitPassFragment(Varyings input):SV_Target{
 }
 ```
 
-最后通过帧调试器可以看到 4 个小球已经合并成一个 Draw Call 了，它们使用的是同一材质。
+最后通过帧调试器可以看到 4 个小球已经合**并成一个 Draw Call** 了，它们使用的是同一材质。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/12.1620403064039.png)
 ![[Pasted image 20230619152750.png]]
-​**2.2.5 绘制许多网格小球**
+## ​2.2.5 绘制许多网格小球
 
-我们在 Examples 子文件夹下创建一个脚本 MeshBall.cs 来生成多个 Mesh 和多个小球对象，来展示成百上千个对象使用 GPU Instancing 进行合批的效果。
+我们在 Examples 子文件夹下创建一个脚本 `MeshBall` 来生成多个 Mesh 和多个小球对象，来展示成百上千个对象使用 GPU Instancing 进行合批的效果。
 
-我们无需生成多个对象，只需要填充变换矩阵和颜色的数组，告诉 GPU 用它们去渲染 Mesh，这样最多可以一次提供 1023 个实例，这是 GPU Instancing 的特性。然后我们在 Awake 方法中随机生成位置和颜色填充数组。最后调用 Graphics.DrawMeshInstanced 绘制网格。
+**我们无需生成多个对象，只需要填充变换矩阵和颜色的数组，告诉 GPU 用它们去渲染 Mesh，这样最多可以一次提供 1023 个实例，这是 GPU Instancing 的特性**。然后我们在 Awake 方法中随机生成位置和颜色填充数组。最后调用 `Graphics.DrawMeshInstanced` 绘制网格。
 
-```
+```C
 public class MeshBall : MonoBehaviour
 {
     static int baseColorId = Shader.PropertyToID("_BaseColor");
@@ -516,19 +515,19 @@ public class MeshBall : MonoBehaviour
 
 我们在场景中创建一个空的 GameObject，然后挂上该脚本，设置球体 Mesh 和 Unlit 材质球，运行游戏即可。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/13.1620403178208.png)
 ![[Pasted image 20230619152758.png]]
-绘制 1023 个小球产生了 3 个 Draw Call。每个 Draw Call 的最大缓冲区大小不一样，因此需要几个 Draw Call 是根据不同机器不同平台来决定的，单个网格的绘制顺序与我们提供数组数据的顺序相同。
 
-**2.2.6 动态合批**
+**绘制 1023 个小球产生了 3 个 Draw Call。每个 Draw Call 的最大缓冲区大小不一样，因此需要几个 Draw Call 是根据不同机器不同平台来决定的**，单个网格的绘制顺序与我们提供数组数据的顺序相同。
 
-动态批处理的原理是每一帧把可以进行批处理的模型网格进行合并，再把合并好的数据传递给 CPU，然后使用同一个材质进行渲染。好处是经过批处理的物体仍然可以移动，这是由于 Unity 每帧都会重新合并一次网格。
+## 2.2.6 动态合批
 
-动态批处理有很多限制，比如在使用逐对象的材质属性时会失效，网格顶点属性规模要小于 900 等等，该技术适用于共享材质的小型的网格。
+**动态批处理的原理是每一帧把可以进行批处理的模型网格进行合并，再把合并好的数据传递给 CPU，然后使用同一个材质进行渲染。** 好处是经过批处理的物体仍然可以移动，这是由于 Unity 每帧都会重新合并一次网格。
 
-1. 我们的渲染管线已经支持了三种批处理，将这些批处理的启用开关设置成可配置项，使用或禁用哪种批处理由用户指定，在 CameraRenderer.DrawVisibleGeometry() 方法中作为参数传入。
+**动态批处理有很多限制**，比如在使用逐对象的材质属性时会失效，网格顶点属性规模要小于 900 等等，该技术适用于共享材质的小型的网格。
 
-```
+1. 我们的渲染管线已经支持了三种批处理，将这些批处理的启用开关设置成可配置项，使用或禁用哪种批处理由用户指定，在`CameraRenderer.DrawVisibleGeometry()` 方法中作为参数传入。
+
+```c
 void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing)
     {
         
@@ -549,7 +548,7 @@ void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing)
 
 2. 在 Render 方法中获取该配置的值。
 
-```
+```c
 public void Render(ScriptableRenderContext context, Camera camera,
         bool useDynamicBatching, bool useGPUInstancing) {
         ...
@@ -563,7 +562,7 @@ public void Render(ScriptableRenderContext context, Camera camera,
 
 3. 在 CustomRenderPipeline 脚本中定义 bool 字段跟踪批处理的启用情况，在构造函数中获得这些配置值，最后传递到 render.Render() 方法中。
 
-```
+```c
 bool useDynamicBatching, useGPUInstancing;
     
     public CustomRenderPipeline(bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher)

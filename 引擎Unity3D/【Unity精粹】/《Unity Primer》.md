@@ -2928,6 +2928,69 @@ GC.Collect();
 
 # 六 材质
 ## MaterialPropertyBlock
+
+```cs file:用法 file:单个物体使用
+public class Test : MonoBehaviour
+{
+    static int baseColorId = Shader.PropertyToID("_BaseColor");
+    
+    [SerializeField]
+    Color baseColor = Color.white;
+
+    private static MaterialPropertyBlock block;
+    
+    void Start()
+    {
+        if (block == null)
+        {
+            block = new MaterialPropertyBlock();
+        }
+        
+        block.SetColor(baseColorId, baseColor);
+        
+        GetComponent<MeshRenderer>().SetPropertyBlock(block);
+    }
+}
+```
+
+```cs file:批量使用，结合GPUInstacing
+public class MeshBall : MonoBehaviour
+{
+    static int baseColorId = Shader.PropertyToID("_BaseColor");
+
+    [SerializeField] private Mesh mesh = default;
+    [SerializeField] private Material material = default;
+    
+    Matrix4x4[] matrices = new Matrix4x4[1023];
+    Vector4[] baseColors = new Vector4[1023];
+    
+    MaterialPropertyBlock block;
+
+    private void Awake()
+    {
+        for (int i = 0; i < matrices.Length; i++)
+        {
+            matrices[i] = Matrix4x4.TRS(
+                Random.insideUnitSphere * 10f,
+                Quaternion.Euler(Random.value * 360f, Random.value * 360f, Random.value * 360f),
+                Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f)
+                );
+            baseColors[i] = new Vector4(Random.value, Random.value, Random.value, Random.Range(0.5f,1.0f));
+        }
+    }
+
+    void Update()
+    {
+        if (block == null)
+        {
+            block = new MaterialPropertyBlock();
+            block.SetVectorArray(baseColorId, baseColors);
+        }
+
+        Graphics.DrawMeshInstanced(mesh, 0, material, matrices, 1023, block);
+    }
+}
+```
 对于实例化出来的模型，我们改变它身上的颜色值或者贴图之类，Unity 是会把它当前使用的 ShareMaterial 复制一份实例出来，以做到不同对象身上的材质互不影响的改变参数。但这样做会导致如果使用的对象很多，就会产生很多材质的实例的问题，这样会对内存有一定的消耗。
 
 ![](<images/1686884244393.png>)

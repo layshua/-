@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
       "basename": "《程序化网格》",
       "path": "引擎Unity3D/【Catlike Coding】/《程序化网格》.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "1 自定义渲染管线",
       "path": "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
       "basename": "《ShaderLab》",
