@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/RTR4/2 图形渲染管线.md",
+                "file": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,19 +31,20 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "2860f7d3c2fd76ca",
         "type": "tabs",
         "children": [
           {
-            "id": "5f6ec92c0213cd12",
+            "id": "5c86143f11668fb9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/01 图形渲染管线.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/01 图形渲染管线.md"
+                "file": "图形学/1 图形系统/01 渲染管线.md"
               }
             }
           }
@@ -159,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/01 图形渲染管线.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/01 图形渲染管线.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -208,39 +209,41 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "5f6ec92c0213cd12",
+  "active": "5c86143f11668fb9",
   "lastOpenFiles": [
-    "图形学/5 书籍/RTR4/2 图形渲染管线.md",
-    "图形学/1 图形系统/01 图形渲染管线.md",
+    "zip/images/Pasted image 20230619215150.png",
+    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
+    "图形学/5 书籍/《RTR4》/资源.md",
+    "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
+    "图形学/5 书籍/虎书/《虎书》.md",
+    "图形学/5 书籍/《RTR4》/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md",
+    "引擎Unity3D/【Shader精粹】/《URP》/URP.md",
     "图形学/1 图形系统/02 光栅化.md",
+    "引擎Unity3D/【Shader精粹】/《URP》",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "引擎Unity3D/【Shader精粹】/《SRP》/1 自定义渲染管线.md",
     "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客.md",
+    "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "zip/images/Pasted image 20230619204802.png",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
+    "引擎Unity3D/【Shader精粹】/ShaderLab.md",
     "zip/images/Pasted image 20230619202118.png",
     "zip/images/Pasted image 20230619202104.png",
     "zip/images/Pasted image 20230619202059.png",
     "zip/images/1685518836211.png",
-    "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/RTR4/资源.md",
-    "图形学/5 书籍/RTR4/1 引言.md",
+    "图形学/5 书籍/《RTR4》/1 引言.md",
     "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（下）2_4 ~ 2_6（20200720 翻新）_实时渲染第四版中文_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md",
-    "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md",
     "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
     "引擎Unity3D/BUG合集.md",
     "引擎Unity3D/头部项目/未命名.md",
-    "引擎Unity3D/【Shader精粹】/渲染优化/2 GPU Instance深入浅出.md",
-    "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理总结.md",
-    "引擎Unity3D/【Catlike Coding】/《程序化网格》.md",
-    "引擎Unity3D/【Shader精粹】/渲染优化",
+    "引擎Unity3D/【Shader精粹】/《渲染优化》/2 GPU Instance深入浅出.md",
+    "引擎Unity3D/【Shader精粹】/《渲染优化》",
     "引擎Unity3D/未命名",
     "zip/images/Pasted image 20230619153002.png",
     "zip/images/Pasted image 20230619152958.png",
@@ -254,7 +257,6 @@
     "zip/images/QQ录屏20230618120224.mp4",
     "images",
     "引擎Unity3D/【性能精粹】",
-    "引擎Unity3D/性能优化",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

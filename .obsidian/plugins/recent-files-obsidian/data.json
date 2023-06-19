@@ -1,72 +1,68 @@
 {
   "recentFiles": [
     {
-      "basename": "01 图形渲染管线",
-      "path": "图形学/1 图形系统/01 图形渲染管线.md"
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "3 图形处理单元GPU",
+      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+    },
+    {
+      "basename": "资源",
+      "path": "图形学/5 书籍/《RTR4》/资源.md"
     },
     {
       "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/RTR4/2 图形渲染管线.md"
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
+      "basename": "《虎书》",
+      "path": "图形学/5 书籍/虎书/《虎书》.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/【Shader精粹】/《URP》/URP.md"
     },
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/【Shader精粹】/《SRP》/1 自定义渲染管线.md"
+    },
+    {
       "basename": "第三章 进阶应用",
       "path": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md"
-    },
-    {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
-    },
-    {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
       "basename": "DX12理论",
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
+      "basename": "2 Draw Call",
+      "path": "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
-      "basename": "《ShaderLab》",
-      "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/【Shader精粹】/ShaderLab.md"
     },
     {
       "basename": "1685518836211",
       "path": "zip/images/1685518836211.png"
     },
     {
-      "basename": "(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客",
-      "path": "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（下）3_7 ~ 3_10_西河某人的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "资源",
-      "path": "图形学/5 书籍/RTR4/资源.md"
-    },
-    {
       "basename": "1 引言",
-      "path": "图形学/5 书籍/RTR4/1 引言.md"
-    },
-    {
-      "basename": "(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客",
-      "path": "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客",
-      "path": "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客",
-      "path": "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客.md"
+      "path": "图形学/5 书籍/《RTR4》/1 引言.md"
     },
     {
       "basename": "第二章 光照基础",
@@ -90,15 +86,15 @@
     },
     {
       "basename": "2 GPU Instance深入浅出",
-      "path": "引擎Unity3D/【Shader精粹】/渲染优化/2 GPU Instance深入浅出.md"
+      "path": "引擎Unity3D/【Shader精粹】/《渲染优化》/2 GPU Instance深入浅出.md"
     },
     {
       "basename": "1 批处理总结",
-      "path": "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理总结.md"
+      "path": "引擎Unity3D/【Shader精粹】/《渲染优化》/1 批处理总结.md"
     },
     {
-      "basename": "《程序化网格》",
-      "path": "引擎Unity3D/【Catlike Coding】/《程序化网格》.md"
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -126,15 +122,15 @@
     },
     {
       "basename": "01 持久化对象",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/01 持久化对象.md"
+      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/01 持久化对象.md"
     },
     {
       "basename": "03 重用对象",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/03 重用对象.md"
+      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/03 重用对象.md"
     },
     {
       "basename": "02 对象种类",
-      "path": "引擎Unity3D/【Catlike Coding】/《Object管理》/02 对象种类.md"
+      "path": "引擎Unity3D/【Catlike Coding】/15 Object管理/02 对象种类.md"
     },
     {
       "basename": "《数据持久化》",
@@ -195,10 +191,6 @@
     {
       "basename": "真实感水体渲染",
       "path": "技术美术/02 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "《URP》",
-      "path": "引擎Unity3D/【Shader精粹】/《URP》.md"
     }
   ],
   "omittedPaths": [],
