@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/ta101PBR.md"
+                "file": "图形学/1 图形系统/10 色彩.md"
               }
             }
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/ta101PBR.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/ta101PBR.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,8 +179,9 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "859ee0a5f1ac03c3",
   "lastOpenFiles": [
+    "技术美术/7 PBR/ta101PBR.md",
     "引擎Unity3D/URP/入门精要urp重写.md",
     "Math/Others/三角函数.md",
     "技术美术/4 UnityShader/TA101.md",
@@ -193,7 +194,6 @@
     "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
     "zip/images/0f3c00735859275a4fa201b4e4561037.png",
     "zip/images/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png",
-    "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "zip/images/1679148471306.png",
     "图形学/1 图形系统/10 色彩.md",
