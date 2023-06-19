@@ -471,10 +471,10 @@ DrawUnsupportedShaders 方法实现如下：
 ```
 
 代码的注释已经写得很清楚了，不再作其它解释。最后我们创建 2 个使用 Standard 材质的 Cube，发现它们渲染到屏幕中是黑色的，因为我们的渲染管线没有给它设置所需的着色器属性。
-![[Pasted image 20230619095805.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/14.1620397152076.png)
 
-我们接下来使用 Unity 的 ErrorShader 来绘制不支持的着色器。先创建一个静态材质来缓存使用该 Shader 的材质，不需要每帧渲染时都 new 一个材质，然后在创建 DrawSettings 对象时设置绘制材质。
+![[Pasted image 20230619095805.png]]
+
+我们接下来使用 Unity 的 `ErrorShader` 来绘制不支持的着色器。先创建一个静态材质来缓存使用该 Shader 的材质，不需要每帧渲染时都 new 一个材质，然后在创建 DrawSettings 对象时设置绘制材质。
 
 ```cs
 //绘制成使用错误材质的粉红颜色  
@@ -501,22 +501,21 @@ DrawUnsupportedShaders 方法实现如下：
 
 ​![[Pasted image 20230619095808.png]]
 
-**1.3.2 动静代码分离：局部类**
+## 1.3.2 动静代码分离：局部类
+由于类似绘制不支持 Shader 对象等行为，在编辑器中开发时寻找问题有用，但是正式打包发布就没有作用了，同时也为了代码管理的漂亮一些，**我们把只在 Unity 编辑器中使用的代码单独放在一个（partial）局部类中管理**。局部类在很多项目的开发中比较常用，经常**用于分离编辑器中静态编辑的相关代码和运行时动态调用的相关代码**。
 
-由于类似绘制不支持 Shader 对象等行为，在编辑器中开发时寻找问题有用，但是正式打包发布就没有作用了，同时也为了代码管理的漂亮一些，我们把只在 Unity 编辑器中使用的代码单独放在一个（partial）局部类中管理。局部类在很多项目的开发中比较常用，经常用于分离编辑器中静态编辑的相关代码和运行时动态调用的相关代码。
+把 CameraRenderer.cs 脚本拷贝一份，重新命名为 `CameraRenderer.Editor`。两个脚本的类的定义前都加上 partial 关键字，这是一种组织代码的好办法，它们其实都是 CameraRenderer 这个类定义的一部分。
 
-把 CameraRenderer.cs 脚本拷贝一份，重新命名为 CameraRenderer.Editor.cs。两个脚本的类的定义前都加上 partial 关键字，这是一种组织代码的好办法，它们其实都是 CameraRenderer 这个类定义的一部分。
-
-```
+```cs
 public partial class CameraRenderer { … }
 ```
 
-在 CameraRenderer.Editor 脚本中，我们只保留渲染错误材质物体的字段和方法，并用 #if UNITY_EDITOR 宏包裹起来，意思为只在编辑器中代码生效：
+**在 CameraRenderer.Editor 脚本中，我们只保留渲染错误材质物体的字段和方法**，并用 `#if UNITY_EDITOR` 宏包裹起来，意思为只在编辑器中代码生效：
 
-```
+```cs
 partial class CameraRenderer 
 {
-#if UNITY_EDITOR
+#if UNITY_EDITOR //内容只会在unity编辑器中执行。打包后不会被执行。
     static ShaderTagId[] legacyShaderTagIds = { … };
     static Material errorMaterial;
     void DrawUnsupportedShaders () { … }
@@ -526,7 +525,7 @@ partial class CameraRenderer
 
 在 CameraRenderer 脚本中，把上面的渲染错误材质的字段和方法从脚本中删除，但是 Render 方法中的 DrawUnsupportedShaders 方法调用还是要保留。我们编译代码后发现会报错，因为在 Render 中我们一直在调用 DrawUnsupportedShaders 方法，但它却定义在 Editor 脚本中，并且是在加了 UNITY_EDITOR 的宏中定义的，所以我们在宏的外部还需要声明一下这个方法，类似抽象函数的声明，没有函数体，并且在声明方法前面也要加上 partial 关键字。在宏内的方法实体也要加上这个关键字：
 
-```
+```cs
 partial void DrawUnsupportedShaders ();
 #if UNITY_EDITOR
     …
@@ -534,11 +533,12 @@ partial void DrawUnsupportedShaders ();
 #endif
 ```
 
-**1.3.3 绘制 Gizmos**
+## 1.3.3 绘制 Gizmos
 
-我们通过 context.DrawGizmos() 来绘制 Gizmos 辅助线框，它在工程的测试和编辑时是比较有用的，该方法放到 Editor 脚本中来定义实现。Handles.ShouldRenderGizmos 决定是否绘制 Gizmos。绘制时调用 context.DrawGizmos 方法，第一个传参是给定当前视图的相机，第二个传参是需要绘制的 Gizmos 子集，子集一共有两个，用于指定应在图像效果（后处理效果）之前还是之后绘制 Gizmos。我们对两个子集都进行绘制。
+我们通过 `context.DrawGizmos()` 来绘制 `Gizmos` 辅助线框，它在工程的测试和编辑时是比较有用的，该方法放到 Editor 脚本中来定义实现。
+`Handles.ShouldRenderGizmos` 决定是否绘制 Gizmos。绘制时调用 `context.DrawGizmos` 方法，第一个传参是给定当前视图的相机，第二个传参是需要绘制的 Gizmos 子集，**子集一共有两个，用于指定应在图像效果（后处理效果）之前还是之后绘制 Gizmos**。我们对两个子集都进行绘制。
 
-```
+```cs
 partial void DrawGizmos();
 #if UNITY_EDITOR
     //绘制DrawGizmos
@@ -553,9 +553,9 @@ partial void DrawGizmos();
 #endif
 ```
 
-然后在 Render 方法中绘制完所有可见物之后才绘制 Gizmos。
+然后在 Render 方法中**绘制完所有可见物之后才绘制 Gizmos**。
 
-```
+```cs
 public void Render (ScriptableRenderContext context, Camera camera) {
     …
 
@@ -568,7 +568,7 @@ public void Render (ScriptableRenderContext context, Camera camera) {
 }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/16.1620397443370.png)
+
 ![[Pasted image 20230619095815.png]]
 **1.3.4 绘制 UI**
 

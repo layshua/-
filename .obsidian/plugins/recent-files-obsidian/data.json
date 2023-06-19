@@ -5,16 +5,20 @@
       "path": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
     },
     {
       "basename": "《ShaderLab》",
       "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
       "basename": "未命名",
@@ -55,10 +59,6 @@
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/【Unity精粹】/《数据持久化》.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
     },
     {
       "basename": "《Unity设计模式》",
