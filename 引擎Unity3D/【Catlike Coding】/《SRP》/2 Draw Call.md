@@ -331,15 +331,15 @@ public class CustomRenderPipeline : RenderPipeline
 ```
 
 ![[Pasted image 20230619152718.png]]
-可以看到，在 Statistics 面板中，有 4 个批次被存储起来，以负数的形式显示。在 Frame Debugger 中可以看到一个 SRP Batch 条目，但这不是说这些物体被合并成了一个 Draw Call，而是指它们的优化序列。
+可以看到，在 Statistics 面板中，有 4 个批次被存储起来，以负数的形式显示。**在 Frame Debugger 中可以看到一个 SRP Batch 条目，但这不是说这些物体被合并成了一个 Draw Call，而是指它们的优化序列。**
 
-**2.2.3 多种颜色**
+## 2.2.3 多种颜色
 
-若想给相同的物体设置不同的颜色，那么每个物体都需要使用一个不同的材质并调整颜色，我们接下来编写一个脚本，让所有相同物体使用同一个材质，但可以给每个物体设置不同的颜色。
+若想给相同的物体设置不同的颜色，那么每个物体都需要使用一个不同的材质并调整颜色，**我们接下来编写一个脚本，让所有相同物体使用同一个材质，但可以给每个物体设置不同的颜色。**
 
-在 CustomRP 下创建一个 Examples 子文件夹，新建脚本 PerObjectMaterialProperties.cs，脚本中我们定义一个可以调整颜色的 baseColor 属性，并将颜色值通过 MaterialPropertyBlock 对象传递给材质。把这个脚本挂到每一个球体上面，然后设置不同的颜色。
+在 CustomRP 下创建一个 Examples 子文件夹，新建脚本 `PerObjectMaterialProperties`，脚本中我们定义一个可以调整颜色的 baseColor 属性，并将颜色值通过 `MaterialPropertyBlock` 对象传递给材质。把这个脚本挂到每一个球体上面，然后设置不同的颜色。
 
-```
+```c
 [DisallowMultipleComponent]
 public class PerObjectMaterialProperties : MonoBehaviour
 {
@@ -367,32 +367,31 @@ public class PerObjectMaterialProperties : MonoBehaviour
 }
 ```
 
-但我们发现 SRP Batcher 失效了，没有办法处理每个对象的材质属性。
+但**我们发现 SRP Batcher 失效了**！没有办法处理每个对象的材质属性。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.1620402723245.png)
 ![[Pasted image 20230619152723.png]]
-​**2.2.4 GPU Instancing**
+## ​2.2.4 GPU Instancing
 
-如果能将数据一次性发送给 GPU，然后使用一个绘制函数让渲染流水线利用这些数据绘制多个相同的物体将会大大提升性能。这种技术就是 GPU 多例化（GPU Instancing）技术。使用 GPU Instancing 能够在一个绘制调用中渲染多个具有相同网格的物体，CPU 收集每个物体的材质属性和变换，放入数组发送到 GPU，GPU 遍历数组按顺序进行渲染。
+**如果能将数据一次性发送给 GPU，然后使用一个绘制函数让渲染流水线利用这些数据绘制多个相同的物体将会大大提升性能。这种技术就是 GPU 实例化（GPU Instancing）技术。** 使用 GPU Instancing 能够在一个绘制调用中渲染多个具有相同网格的物体，CPU 收集每个物体的材质属性和变换，放入数组发送到 GPU，GPU 遍历数组按顺序进行渲染。
 
-GPU 多例化的思想，就是把每个实例的不同信息存储在缓冲区（可能是顶点缓冲区，可能是存储着色器 Uniform 变量的常量缓冲区）中， 然后直接操作缓冲区中的数据来设置。
+GPU 实例化的思想，就是把每个实例的不同信息存储在缓冲区（可能是顶点缓冲区，可能是存储着色器 Uniform 变量的常量缓冲区）中，然后直接操作缓冲区中的数据来设置。
 
 假设需要渲染 100 个相同的模型，每个模型有 256 个三角形，那么需要两个缓冲区，一个是用来描述模型的顶点信息，因为待渲染的模型是相同的，所以这个缓冲区只存储了 256 个三角形（如果不存在任何的优化组织方式，则有 768 个顶点）；另一个就是用来描述模型在世界坐标下的位置信息。例如不考虑旋转和缩放，100 个模型即占用 100 个 float3 类型的存储空间。
 
-以 Direct3D 11 为例，当准备好顶点数据、设置好顶点缓冲区之后，接下来进入输入组装阶段。输入组装阶段是使用硬件实现的。此阶段根据用户输入的顶点缓冲区信息、图元拓扑结构信息和描述顶点布局格式信息，把顶点组装成图元，然后发送给顶点缓冲区。设置好组装的相关设置后，对应的顶点着色器和片元着色器也要做好对应的设置才能使用多例化技术。
+以 Direct3D 11 为例，当准备好顶点数据、设置好顶点缓冲区之后，接下来进入输入组装阶段。输入组装阶段是使用硬件实现的。此阶段根据用户输入的顶点缓冲区信息、图元拓扑结构信息和描述顶点布局格式信息，把顶点组装成图元，然后发送给顶点缓冲区。设置好组装的相关设置后，对应的顶点着色器和片元着色器也要做好对应的设置才能使用实例化技术。
 
-1. 要支持 GPU Instancing，首先需要在 Shader 的 Pass 中添加 #pragma multi_compile_instancing 指令，然后在材质球上就能看到切换开关了，这时 Unity 会为我们的 Shader 生成两种变体。
+1. **要支持 GPU Instancing，首先需要在 Shader 的 Pass 中添加 `#pragma multi_compile_instancing` 指令**，然后在材质球上就能看到切换开关了，这时 Unity 会为我们的 Shader 生成两种变体。
 
-```
+```c
 HLSLPROGRAM
     #pragma multi_compile_instancing
     #pragma vertex UnlitPassVertex
     #pragma fragment UnlitPassFragment
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/11.1620402920095.png)
 ![[Pasted image 20230619152734.png]]
-2. 在 Common.hlsl 文件中 include SpaceTransforms.hlsl 之前，我们将 SRP 源码库中的 UnityInstancing.hlsl 文件 Include 进来，我们需要用到里面的一些定义好的宏和方法。
+
+2. 在 Common.hlsl 文件中 include SpaceTransforms.hlsl 之前，我们将 SRP 源码库中的 `UnityInstancing.hlsl` 文件 Include 进来，我们需要用到里面的一些定义好的宏和方法。
 
 ```
 #include 
@@ -402,9 +401,14 @@ HLSLPROGRAM
 "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl"
 ```
 
-3. UnityInstancing.hlsl 通过重新定义一些宏去访问实例的数据数组，它需要知道当前渲染对象的索引，该索引是通过顶点数据提供的。UnityInstancing.hlsl 中定义了 UNITY_VERTEX_INPUT_INSTANCE_ID 宏来简化了这个过程，但它需要我们存在一个顶点输入结构体，我们定义它并将 positionOS 的定义放进来，然后在结构体中加入 UNITY_VERTEX_INPUT_INSTANCE_ID 宏，最后该结构体对象作为顶点函数的输入参数。然后在顶点函数添加 UNITY_SETUP_INSTANCE_ID(input) 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中。
+1. **`UnityInstancing.hlsl` 通过重新定义一些宏去访问实例的数据数组，它需要知道当前渲染对象的索引，该索引是通过顶点数据提供的**。
+   
+   UnityInstancing.hlsl 中定义了 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏来简化了这个过程，**步骤如下：**
+    1. 我们定义一个顶点输入结构体，将 positionOS 的定义放进来，然后在结构体中加入 UNITY_VERTEX_INPUT_INSTANCE_ID 宏
+    2. 将该结构体对象作为顶点函数的输入参数。
+    3. 在顶点函数添加 `UNITY_SETUP_INSTANCE_ID(input)` 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中。
 
-```
+```c
 //用作顶点函数的输入参数
 struct Attributes 
 {
@@ -421,21 +425,21 @@ float4 UnlitPassVertex(Attributes input) : SV_POSITION
 }
 ```
 
-4. 目前我们还不支持每个物体实例的材质数据，且 SRP Batcher 优先级比较高，我们还不能得到想要的结果。首先我们需要使用一个数组引用替换_BaseColor，并使用 UNITY_INSTANCING_BUFFER_START 和 UNITY_INSTANCING_BUFFER_END 替换 CBUFFER_START 和 CBUFFER_END。
+4. 目前我们还不支持每个物体实例的材质数据，且 SRP Batcher 优先级比较高，我们还不能得到想要的结果。首先我们需要使用一个数组引用替换`_BaseColor`，并使用 `UNITY_INSTANCING_BUFFER_START` 和 `UNITY_INSTANCING_BUFFER_END` 替换 `CBUFFER_START` 和 `CBUFFER_END`。
 
-```
+```c
 //CBUFFER_START(UnityPerMaterial)
 // 
 //CBUFFER_END
 
- UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
+UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
 UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor)
 UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
 ```
 
-5. 我们还需要在片元函数中也提供对象的索引，通过在顶点函数中使用 UNITY_TRANSFER_INSTANCE_ID(input，output) 将对象位置和索引输出，若索引存在则进行复制。为此我们还需定义一个片元函数输入结构体，在其中定义 positionCS 和 UNITY_VERTEX_INPUT_INSTANCE_ID 宏。
+5. 我们还需要在片元函数中也提供对象的索引，通过**在顶点函数**中使用 `UNITY_TRANSFER_INSTANCE_ID(input，output)` 将对象位置和索引输出，若索引存在则进行复制。为此我们还需定义一个片元函数输入结构体，在其中定义 positionCS 和 UNITY_VERTEX_INPUT_INSTANCE_ID 宏。
 
-```
+```c
 //用作片元函数的输入参数
 struct Varyings 
 {
@@ -457,7 +461,7 @@ struct Varyings
 
 6. 在片元函数中也定义 UNITY_SETUP_INSTANCE_ID(input) 提供对象索引，且现在需要通过 UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor) 来访问获取材质的颜色属性了。
 
-```
+```c
 float4 UnlitPassFragment(Varyings input):SV_Target{
     UNITY_SETUP_INSTANCE_ID(input);
     return UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_BaseColor);
