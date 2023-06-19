@@ -191,6 +191,8 @@ float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION
 #define UNITY_MATRIX_V unity_MatrixV
 #define UNITY_MATRIX_VP unity_MatrixVP
 #define UNITY_MATRIX_P glstate_matrix_projection
+#define UNITY_PREV_MATRIX_M unity_ObjectToWorld_prev  
+#define UNITY_PREV_MATRIX_I_M unity_WorldToObject_prev
 #include 
 "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl"
 ```
@@ -201,14 +203,16 @@ float4 UnlitPassVertex (float3 positionOS : POSITION) : SV_POSITION
 //unity标准输入库
 #ifndef CUSTOM_UNITY_INPUT_INCLUDED
 #define CUSTOM_UNITY_INPUT_INCLUDED
-float4x4 unity_ObjectToWorld;
-float4x4 unity_WorldToObject;
-//这个矩阵包含一些在这里我们不需要的转换信息
-real4 unity_WorldTransformParams;
-
- float4x4 unity_MatrixVP;
-float4x4 unity_MatrixV;
-float4x4 glstate_matrix_projection;
+float4x4 unity_ObjectToWorld;  
+float4x4 unity_WorldToObject;  
+//这个矩阵包含一些在这里我们不需要的转换信息  
+real4 unity_WorldTransformParams;  
+  
+float4x4 unity_MatrixVP;  
+float4x4 unity_MatrixV;  
+float4x4 glstate_matrix_projection;  
+float4x4 unity_ObjectToWorld_prev;  
+float4x4 unity_WorldToObject_prev;
 #endif
 ```
 
@@ -241,44 +245,45 @@ float4 UnlitPassFragment() : SV_TARGET
 
 
 ![[Pasted image 20230619152618.png]]
-### 2.2 批处理
+# 2.2 批处理
 
-**2.2.1 Draw Call 和 Set Pass Call**
+## 2.2.1 Draw Call 和 Set Pass Call
 
-要想 CPU 和 GPU 既可以并行又可以独立工作，要使用一个命令缓冲区（Command Buffer）。命令缓冲区包含了一个命令队列，当 CPU 需要渲染一些对象时，它会通过图像编程接口向命令缓冲区添加命令，当 GPU 完成上一次的渲染任务后，它会从命令队列中读取一个命令并执行它，添加和读取的过程是相互独立的。
+**要想 CPU 和 GPU 既可以并行又可以独立工作，要使用一个命令缓冲区（Command Buffer）**。命令缓冲区包含了一个命令队列，当 CPU 需要渲染一些对象时，它会通过图像编程接口向命令缓冲区添加命令，当 GPU 完成上一次的渲染任务后，它会从命令队列中读取一个命令并执行它，添加和读取的过程是相互独立的。
 
-命令缓冲区的命令有很多种类，而 Draw Call 就是其中一种，其它命令还有 Set Pass Call 等等。Set Pass Call 代表了我们常说的改变渲染状态，当切换材质或者切换同一材质中 Shader 的不同 Pass 进行渲染时都会触发一次 Set Pass Call。比如我们渲染 1000 个相同的物体和渲染 1000 个不同的物体，虽然两者 Draw Call 都是 1000，但是前者 Set Pass Call 为 1，后者还是 1000。切换渲染状态往往比 Draw Call 更耗时，所以这也是 URP 不再支持多 Pass 的原因。
+**命令缓冲区的命令有很多种类，而 Draw Call 就是其中一种，其它命令还有 Set Pass Call 等等**。
+**Set Pass Call 代表了我们常说的改变渲染状态，当切换材质或者切换同一材质中 Shader 的不同 Pass 进行渲染时都会触发一次 Set Pass Call**。比如我们渲染 1000 个相同的物体和渲染 1000 个不同的物体，虽然两者 Draw Call 都是 1000，但是前者 Set Pass Call 为 1，后者还是 1000。<mark style="background: #FF5582A6;">切换渲染状态往往比 Draw Call 更耗时，所以这也是 URP 不再支持多 Pass 的原因。</mark>
 
-每次调用 Draw Call 之前，CPU 都要向 GPU 发送很多内容，包括数据、状态和命令等。在这一阶段 CPU 需要完成很多工作，例如检查渲染状态等。一旦 CPU 完成了这些准备工作，GPU 就可以开始本次渲染，GPU 的渲染能力很强，渲染速度往往比 CPU 的提交命令速度快，如果 Draw Call 数量过多，CPU 就会把大量时间花费在提交 Draw Call 上，造成 CPU 过载，游戏帧率变低，所以我们需要使用批处理（Batching）技术来降低 Draw Call。
+每次调用 Draw Call 之前，CPU 都要向 GPU 发送很多内容，包括数据、状态和命令等。在这一阶段 CPU 需要完成很多工作，例如检查渲染状态等。一旦 CPU 完成了这些准备工作，GPU 就可以开始本次渲染，**GPU 的渲染能力很强，渲染速度往往比 CPU 的提交命令速度快，如果 Draw Call 数量过多，CPU 就会把大量时间花费在提交 Draw Call 上，造成 CPU 过载，游戏帧率变低，所以我们需要<mark style="background: #FF5582A6;">使用批处理（Batching）技术来降低 Draw Call</mark>。**
 
-早期的 Unity 只支持动态批处理和静态批处理，后来又支持了 GPU Instancing，最后 SRP 出现时支持了一种新的批处理方式 SRP Batcher。本节内容我们不讨论静态批处理，其它三种批处理方式我们在渲染管线中会添加支持。
+**早期的 Unity 只支持动态批处理和静态批处理，后来又支持了 GPU Instancing，最后 <mark style="background: #FF5582A6;">SRP 出现时支持了一种新的批处理方式 SRP Batcher</mark>**。本节内容我们不讨论静态批处理，其它三种批处理方式我们在渲染管线中会添加支持。
 
-**2.2.2 SRP Batcher**
+## 2.2.2 SRP Batcher
 
-SRP Batcher 是一种新的批处理方式，它不会减少 Draw Call 的数量，但可以减少 Set Pass Call 的数量，并减少绘制调用命令的开销。CPU 不需要每帧都给 GPU 发送渲染数据，如果这些数据没有发生变化则会保存在 GPU 内存中，每个绘制调用仅需包含一个指向正确内存位置的偏移量。
+SRP Batcher 是一种新的批处理方式，**它不会减少 Draw Call 的数量，但可以减少 Set Pass Call 的数量，并减少绘制调用命令的开销**。CPU 不需要每帧都给 GPU 发送渲染数据，如果这些数据没有发生变化则会保存在 GPU 内存中，每个绘制调用仅需包含一个指向正确内存位置的偏移量。
 
-SRP Batcher 是否会被打断的判断依据是 Shader 变种，即使物体之间使用了不同的材质，但是使用的 Shader 变种相同就不会被打断，传统的批处理方式是要求使用同一材质为前提的。
+**SRP Batcher 是否会被打断的判断依据是 Shader 变种，即使物体之间使用了不同的材质，但是使用的 Shader 变种相同就不会被打断**，传统的批处理方式是要求使用同一材质为前提的。
 
-SRP Batcher 会在主存中将模型的坐标信息、材质信息、主光源阴影参数和非主光源阴影参数分别保存到不同的 CBUFFER（常量缓冲区）中，只有 CBUFFER 发生变化才会重新提交到 GPU 并保存。
+**SRP Batcher 会在主存中将模型的坐标信息、材质信息、主光源阴影参数和非主光源阴影参数分别保存到不同的 CBUFFER（常量缓冲区）中，只有 CBUFFER 发生变化才会重新提交到 GPU 并保存。**
 
 基本概念介绍完了，下面来实践。现在我们的 Shader 是不兼容 SRP Batcher 的，可以看到以下信息，我们需要对我们的 Shader 做一些调整。
 
-
 ![[Pasted image 20230619152650.png]]
+
 1. 它是指材质的所有属性都需要在常量内存缓冲区 CBUFFER 里定义，要我们将_BaseColor 这个属性在名字为 UnityPerMaterial 的 CBUFFER 块中定义，如下所示。
 
-```
+```c
 cbuffer UnityPerMaterial 
 {
     float _BaseColor;
 };
 ```
 
-但并非所有平台（如 OpenGL ES 2.0）都支持常量缓冲区，我们使用 SRP 源码库中的 CBUFFER_START 和 CBUFFER_END 宏来替代 CBUFFER 块。这样的话不支持常量缓冲区的平台就会忽略掉 CBUFFER 的代码。
+但**并非所有平台（如 OpenGL ES 2.0）都支持常量缓冲区，我们使用 SRP 源码库中的 CBUFFER_START 和 CBUFFER_END 宏来替代 CBUFFER 块。这样的话不支持常量缓冲区的平台就会忽略掉 CBUFFER 的代码。**
 
 2. 我们在 UnlitPass.hlsl 中将_BaseColor 定义在名字为 UnityPerMaterial 的常量缓冲区中。
 
-```
+```c
 //所有材质的属性我们需要在常量缓冲区里定义
 CBUFFER_START(UnityPerMaterial)
     float4 _BaseColor;
@@ -287,7 +292,7 @@ CBUFFER_END
 
 3. 在 UnityInput.hlsl 中把几个矩阵定义在 UnityPerDraw 的常量缓冲区中。
 
-```
+```c
 CBUFFER_START(UnityPerDraw)
 float4x4 unity_ObjectToWorld;
 float4x4 unity_WorldToObject;
@@ -298,11 +303,11 @@ CBUFFER_END
 
 编译后发现还是 Shader 不兼容 SRP Batcher：
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/7.1620402534908.png)
 ![[Pasted image 20230619152700.png]]
-4. 它指出，如果我们需要使用一组特定值的其中一个值，我们需要把这组特定值全部定义出来，现在还缺少 unity_LODFade 的定义。
 
-```
+4. **它指出，如果我们需要使用一组特定值的其中一个值，我们需要把这组特定值全部定义出来，现在还缺少 unity_LODFade 的定义。**
+
+```c
 CBUFFER_START(UnityPerDraw)
     float4x4 unity_ObjectToWorld;
     float4x4 unity_WorldToObject;
@@ -311,11 +316,11 @@ CBUFFER_START(UnityPerDraw)
 CBUFFER_END
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/8.1620402590882.png)
 ![[Pasted image 20230619152712.png]]
-5. 至此，我们的 Shader 已经兼容 SRP Batcher 了，我们在代码中启用 SRP Batcher 进行测试。创建渲染管线实例的时候，在构造函数里启用。
 
-```
+5. 至此，我们的 Shader 已经兼容 SRP Batcher 了，我们在代码中启用 SRP Batcher 进行测试。**创建渲染管线实例的时候，在构造函数里启用。**
+
+```c
 public class CustomRenderPipeline : RenderPipeline
 {
     CameraRenderer renderer = new CameraRenderer();
@@ -325,7 +330,6 @@ public class CustomRenderPipeline : RenderPipeline
     }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/9.1620402640267.png)
 ![[Pasted image 20230619152718.png]]
 可以看到，在 Statistics 面板中，有 4 个批次被存储起来，以负数的形式显示。在 Frame Debugger 中可以看到一个 SRP Batch 条目，但这不是说这些物体被合并成了一个 Draw Call，而是指它们的优化序列。
 

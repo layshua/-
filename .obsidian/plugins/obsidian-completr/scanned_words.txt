@@ -3336,6 +3336,7 @@ occasionally
 optimized
 observing
 overrideMaterial
+onenote
 OneDrive
 Obsidian
 Office
@@ -11728,6 +11729,8 @@ clickTime
 correspond
 cullingResults
 cameraType
+consoles
+crates
 github
 grey
 green
@@ -15168,6 +15171,7 @@ grows
 gotten
 grow
 groups
+gain
 typora
 todo
 tooltip
@@ -22768,6 +22772,7 @@ moves
 menuName
 manipulate
 markers
+macOS
 windows
 win
 width
@@ -44161,6 +44166,7 @@ Addressables
 AutoSingleTest
 AnimationCurve
 AssetDatabase
+Almost
 URL
 Utools
 Users
@@ -47731,6 +47737,8 @@ UnlitPass
 UnityInstancing
 Unconstrained
 UnityGUI
+UntiyPerMaterial
+UntiyPerMaterialuf
 api
 ac
 app
@@ -51463,6 +51471,9 @@ altered
 adjustments
 altering
 actions
+achieve
+atlasing
+atlas
 Roaming
 RegWorkshop
 Release
@@ -55650,6 +55661,7 @@ RenderQueueRange
 RenderCamera
 Raycasts
 RenderQueue
+Renderers
 Microsoft
 Menu
 MicaForEveryone
@@ -60174,6 +60186,9 @@ MyIcon
 MaskField
 MinMaxSlider
 MouseDown
+MeshFilter
+MeshRenderer
+MegaCity
 Windows
 Win
 World
@@ -68463,6 +68478,12 @@ ScriptableCullingParameters
 SortingSettings
 SetShaderPassName
 ShaderTag
+SetUp
+SetShaderPass
+SRPBatcherProfiler
+StereoRenderingMode
+SinglePassInstanced
+SkinnedMeshRenderer
 Programs
 POP
 PC
@@ -76474,6 +76495,7 @@ CurveField
 ClearProgressBar
 CreateAsset
 CameraType
+Cbuffer
 ImTip
 IMAP
 ID
@@ -80303,6 +80325,7 @@ Insepctor
 IntField
 IntPopup
 IntSlider
+ImportSettings
 qq
 qyi
 quad
@@ -88107,6 +88130,7 @@ programmer
 pages
 paste
 potentially
+prewarming
 nodesCatch
 nobr
 navy
@@ -95115,6 +95139,9 @@ bilateral
 btte
 bufferName
 bulletData
+beneficial
+batched
+batcher
 fe
 front
 fill
@@ -102534,6 +102561,7 @@ deemed
 deactivated
 draggable
 drawingSettings
+differ
 TFvYZOKeHL
 TAB
 TeX
@@ -115156,6 +115184,7 @@ slab
 scrollbar
 summary
 sortingSettings
+stripping
 local
 list
 left
@@ -118662,6 +118691,7 @@ logically
 lgnore
 locker
 legacyShaderTagIds
+lightmapped
 YAML
 You
 YEBAYGhURFRofHx
@@ -140497,6 +140527,7 @@ BeginHorizontal
 BeginVertical
 BeginScrollView
 BBFABBA
+BRP
 Fraktur
 Frame
 Foo
@@ -148936,6 +148967,7 @@ EndVertical
 EndScrollView
 EditorGUIUtility
 EventType
+Enabling
 xmlns
 xyz
 xy

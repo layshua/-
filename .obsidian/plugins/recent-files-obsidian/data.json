@@ -5,8 +5,16 @@
       "path": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
     },
     {
+      "basename": "Unity 渲染优化的 4 种批处理：静态批处理，动态批处理，SRP Batcher 与 GPU Instancing",
+      "path": "引擎Unity3D/【Shader精粹】/渲染优化/Unity 渲染优化的 4 种批处理：静态批处理，动态批处理，SRP Batcher 与 GPU Instancing.md"
+    },
+    {
       "basename": "《ShaderLab》",
       "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
+    },
+    {
+      "basename": "《GPU Instance深入浅出》",
+      "path": "引擎Unity3D/【Shader精粹】/渲染优化/《GPU Instance深入浅出》.md"
     },
     {
       "basename": "3D数学",
@@ -119,10 +127,6 @@
     {
       "basename": "真实感水体渲染",
       "path": "技术美术/02 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "《GPU Instance深入浅出》",
-      "path": "引擎Unity3D/【Shader精粹】/《GPU Instance深入浅出》.md"
     },
     {
       "basename": "《URP》",
