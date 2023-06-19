@@ -50,12 +50,26 @@
             }
           },
           {
-            "id": "afbb4617fc2cc42d",
+            "id": "005cbbbc4fbf0c18",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "zip/images/1685518836211.png"
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0700e89e8c31977a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -196,8 +210,12 @@
   },
   "active": "5f6ec92c0213cd12",
   "lastOpenFiles": [
-    "图形学/5 书籍/RTR4/2 图形渲染管线.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/1 图形系统/01 图形渲染管线.md",
+    "图形学/5 书籍/RTR4/2 图形渲染管线.md",
+    "zip/images/Pasted image 20230619204802.png",
+    "图形学/1 图形系统/02 光栅化.md",
+    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/03 光照模型.md",
     "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
@@ -211,9 +229,7 @@
     "图形学/5 书籍/RTR/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 2 章 图形渲染管线（下）2_4 ~ 2_6（20200720 翻新）_实时渲染第四版中文_西河某人的博客 - CSDN 博客.md",
     "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 4 章 变换（上）4_1 ~ 4_2_西河某人的博客 - CSDN 博客.md",
     "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（上）3_1 ~ 3_3_西河某人的博客 - CSDN 博客.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "图形学/5 书籍/RTR4/(31 条消息) 《Real-Time Rendering 4th Edition》全文翻译 - 第 3 章 图形处理单元 (GPU)（中）3_4 ~ 3_6_西河某人的博客 - CSDN 博客.md",
-    "技术美术/01 百人计划/T渲染向/第三章 进阶应用.md",
     "技术美术/01 百人计划/T渲染向/第二章 光照基础.md",
     "技术美术/01 百人计划/T渲染向/第五章 物理世界.md",
     "技术美术/01 百人计划/T渲染向/第四章 高级扩展.md",
@@ -224,7 +240,6 @@
     "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理总结.md",
     "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
     "引擎Unity3D/【Catlike Coding】/《程序化网格》.md",
-    "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
     "引擎Unity3D/【Shader精粹】/渲染优化",
     "引擎Unity3D/未命名",
     "zip/images/Pasted image 20230619153002.png",
@@ -232,7 +247,6 @@
     "zip/images/Pasted image 20230619152953.png",
     "zip/images/Pasted image 20230619152951.png",
     "zip/images/Pasted image 20230619152901.png",
-    "zip/images/Pasted image 20230619152853.png",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
