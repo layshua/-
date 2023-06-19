@@ -13,31 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f971d1eecff9cecb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e03c104b4c301164",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
                 "mode": "source",
                 "source": false
               }
@@ -67,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md"
               }
             }
           }
@@ -154,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,15 +178,16 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "e03c104b4c301164",
+  "active": "e6147cb2ec85dd4a",
   "lastOpenFiles": [
-    "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
-    "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
     "引擎Unity3D/【Shader精粹】/渲染优化/2 GPU Instance深入浅出.md",
+    "引擎Unity3D/【Shader精粹】/渲染优化/1 批处理总结.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/2 Draw Call.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
+    "引擎Unity3D/【Catlike Coding】/《SRP》/1 自定义渲染管线.md",
     "引擎Unity3D/【Catlike Coding】/《程序化网格》.md",
     "引擎Unity3D/【Unity精粹】/《Unity Primer》.md",
-    "引擎Unity3D/【Shader精粹】/《ShaderLab》.md",
     "引擎Unity3D/【Shader精粹】/渲染优化",
     "引擎Unity3D/未命名",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
@@ -243,7 +219,6 @@
     "zBuffer/Unity Editor 编辑器扩展功能详解（3）EditorGUI_EditorGUILayout（下）.md",
     "zBuffer/Unity Editor 编辑器扩展功能详解（3） EditorGUI_EditorGUILayout（上）.md",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
-    "zBuffer/Unity3d Editor 编辑器扩展功能详解（7）（完结）Editor 美化.md",
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
     "zip/images/QQ录屏20230618120224 1.mp4",

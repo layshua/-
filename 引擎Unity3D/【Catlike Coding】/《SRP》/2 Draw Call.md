@@ -252,6 +252,7 @@ float4 UnlitPassFragment() : SV_TARGET
 **要想 CPU 和 GPU 既可以并行又可以独立工作，要使用一个命令缓冲区（Command Buffer）**。命令缓冲区包含了一个命令队列，当 CPU 需要渲染一些对象时，它会通过图像编程接口向命令缓冲区添加命令，当 GPU 完成上一次的渲染任务后，它会从命令队列中读取一个命令并执行它，添加和读取的过程是相互独立的。
 
 **命令缓冲区的命令有很多种类，而 Draw Call 就是其中一种，其它命令还有 Set Pass Call 等等**。
+
 **Set Pass Call 代表了我们常说的改变渲染状态，当切换材质或者切换同一材质中 Shader 的不同 Pass 进行渲染时都会触发一次 Set Pass Call**。比如我们渲染 1000 个相同的物体和渲染 1000 个不同的物体，虽然两者 Draw Call 都是 1000，但是前者 Set Pass Call 为 1，后者还是 1000。<mark style="background: #FF5582A6;">切换渲染状态往往比 Draw Call 更耗时，所以这也是 URP 不再支持多 Pass 的原因。</mark>
 
 每次调用 Draw Call 之前，CPU 都要向 GPU 发送很多内容，包括数据、状态和命令等。在这一阶段 CPU 需要完成很多工作，例如检查渲染状态等。一旦 CPU 完成了这些准备工作，GPU 就可以开始本次渲染，**GPU 的渲染能力很强，渲染速度往往比 CPU 的提交命令速度快，如果 Draw Call 数量过多，CPU 就会把大量时间花费在提交 Draw Call 上，造成 CPU 过载，游戏帧率变低，所以我们需要<mark style="background: #FF5582A6;">使用批处理（Batching）技术来降低 Draw Call</mark>。**
