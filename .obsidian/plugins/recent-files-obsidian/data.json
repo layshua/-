@@ -1,28 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "未命名",
-      "path": "zBuffer/未命名.md"
-    },
-    {
       "basename": "1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂",
       "path": "zBuffer/1｜自定义渲染管线_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
     },
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     },
     {
-      "basename": "文档",
-      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
+      "basename": "《ShaderLab》",
+      "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
     },
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "zBuffer/未命名.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
+    },
+    {
+      "basename": "文档",
+      "path": "引擎Unity3D/游戏Demo/坦克大战/文档.md"
     },
     {
       "basename": "01 持久化对象",
@@ -131,10 +135,6 @@
     {
       "basename": "《URP》",
       "path": "引擎Unity3D/【Shader精粹】/《URP》.md"
-    },
-    {
-      "basename": "《ShaderLab》",
-      "path": "引擎Unity3D/【Shader精粹】/《ShaderLab》.md"
     },
     {
       "basename": "美术理论基础一 & 二",

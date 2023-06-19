@@ -35,7 +35,7 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(menuName ="Rendering/CreateCustomRenderPipeline")]
 public class CustomRenderPineAsset : RenderPipelineAsset
 {
-    
+    //重写抽象方法，需要返回一个RenderPipeline实例对象
     protected override RenderPipeline CreatePipeline()
     {
         return null;
@@ -56,13 +56,13 @@ public class CustomRenderPineAsset : RenderPipelineAsset
 ```cs
 using UnityEngine;
 using UnityEngine.Rendering;
-
- public class CustomRenderPipeline : RenderPipeline
+ 
+public class CustomRenderPipeline : RenderPipeline
 {
     protected override void Render(ScriptableRenderContext context, Camera[] cameras)
     {
-
-     }
+ 
+    }
 }
 ```
 
@@ -128,25 +128,28 @@ public class CustomRenderPipeline : RenderPipeline
 接下来，我们可以让相机渲染一些东西了。定义一个 `DrawVisibleGeometry` 方法来绘制可见物。通过调用 `ScriptableRenderContext` 渲染接口的 `DrawSkybox()` 来绘制一个天空盒。但是到此还不行，因为**通过 context 发送的渲染命令都是缓冲的，最后需要通过调用 `Submit()` 方法来正式提交渲染命令。**
 
 ```cs
-public void Render(ScriptableRenderContext context, Camera camera) {
+public void Render(ScriptableRenderContext context, Camera camera)
+    {
         this.context = context;
         this.camera = camera;
-
-         DrawVisibleGeometry();
-
-         Submit();
+ 
+        DrawVisibleGeometry();
+ 
+        Submit();
     }
-
-     
-    
-    
-    void DrawVisibleGeometry() {
+ 
+    /// <summary>
+    /// 绘制可见物
+    /// </summary>
+    void DrawVisibleGeometry()
+    {
         context.DrawSkybox(camera);
     }
-    
-    
-    
-    void Submit() {
+    /// <summary>
+    /// 提交缓冲区渲染命令
+    /// </summary>
+    void Submit()
+    {
         context.Submit();
     }
 ```
@@ -162,16 +165,18 @@ public void Render(ScriptableRenderContext context, Camera camera) {
 我们通过 `context.SetupCameraProperties` 方法来**设置相机特定的全局ShaderProperties，把这一步封装在 Setup 方法中，**渲染时放在绘制物体的前面调用**。
 
 ```cs
-public void Render(ScriptableRenderContext context, Camera camera) {
+public void Render(ScriptableRenderContext context, Camera camera)
+    {
         this.context = context;
         this.camera = camera;
-
-         Setup();
+ 
+        Setup();
         DrawVisibleGeometry();
         Submit();
     }
 //设置相机的属性和矩阵
-    void Setup() {
+    void Setup()
+    {
         context.SetupCameraProperties(camera);
     }
 ```
@@ -274,29 +279,29 @@ public void Render(ScriptableRenderContext context, Camera camera)
      {
          this.context = context;
          this.camera = camera;
-
-          if (!Cull())
+ 
+         if (!Cull())
          {
              return;
          }
-
-          Setup();
+ 
+         Setup();
          DrawVisibleGeometry();
          Submit();
      }
-
-      
+ 
+     //存储剔除后的结果数据
      CullingResults cullingResults;
-
-      
-     
-     
-     
+ 
+     /// <summary>
+     /// 剔除
+     /// </summary>
+     /// <returns></returns>
      bool Cull()
      {
           ScriptableCullingParameters p;
-
-           if (camera.TryGetCullingParameters(out p))
+ 
+          if (camera.TryGetCullingParameters(out p))
           {
               cullingResults = context.Cull(ref p);
               return true;
@@ -310,17 +315,20 @@ public void Render(ScriptableRenderContext context, Camera camera)
 当剔除裁剪完毕，我们就知道需要渲染哪些可见物体了。接下来就**开始正式绘制**，通过调用 `context.DrawRenderers` 方法来实现。它需要三个参数，除了上面的 CullingResults，还需要一个 DrawingSettings 绘制设置和 FilteringSettings，我们先用默认的设置，**绘制物体的操作放在 `DrawVisibleGeometry()` 方法中的绘制天空盒之前完成。**
 
 ```cs
+/// <summary>
+/// 绘制几何体
+/// </summary>
 void DrawVisibleGeometry()
-    {
-        var drawingSettings = new DrawingSettings();
-        var filteringSettings = new FilteringSettings();
-        
-        context.DrawRenderers(
-            cullingResults, ref drawingSettings, ref filteringSettings
-        );
+{
+    var drawingSettings = new DrawingSettings();
+    var filteringSettings = new FilteringSettings();
+    //图像绘制
+    context.DrawRenderers(
+        cullingResults, ref drawingSettings, ref filteringSettings
+    );
 
-         context.DrawSkybox(camera);
-    }
+    context.DrawSkybox(camera);
+}
 ```
 
 现在我们还是看不到有物体被绘制在屏幕上，因为我们**还需要在 `DrawingSettings` 中设置是哪个 Shader 的哪个 Pass 进行渲染。
@@ -335,16 +343,16 @@ static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
 ...
 void DrawVisibleGeometry () 
 { 
-     
+     //设置绘制顺序和指定渲染相机
         var sortingSettings = new SortingSettings(camera)
         {
             criteria = SortingCriteria.CommonOpaque
         };
-        
+        //设置渲染的Shader Pass和排序模式
         var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings);
-        
+        //设置哪些类型的渲染队列可以被绘制
         var filteringSettings = new FilteringSettings(RenderQueueRange.all);
-        
+        //图像绘制
         context.DrawRenderers(
             cullingResults, ref drawingSettings, ref filteringSettings
         );
@@ -370,31 +378,34 @@ void DrawVisibleGeometry ()
 我们把 DrawVisibleGeometry() 中的代码改造一下。首先将绘制不透明物体的过滤设置的渲染队列范围设置为 opaque，然后在绘制天空盒之后重新设置排序设置为 SortingCriteria.CommonTransparent，再将绘制不透明物体的过滤设置的渲染队列范围设置为 transparent，最后再次调用 DrawRenderers。
 
 ```cs
-    void DrawVisibleGeometry()
-    {
-        
-        var sortingSettings = new SortingSettings(camera)
-        {
-            criteria = SortingCriteria.CommonOpaque
-        };
-        
-        var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings);
-        
-        var filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
-        
-        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
-
-         
-        context.DrawSkybox(camera);
-
-         sortingSettings.criteria = SortingCriteria.CommonTransparent;
-        drawingSettings.sortingSettings = sortingSettings;
-        
-        filteringSettings.renderQueueRange = RenderQueueRange.transparent;
-        
-        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
-
-     }
+/// <summary>  
+    /// 绘制几何体  
+    /// </summary>  
+    void DrawVisibleGeometry()  
+    {  
+        //设置绘制顺序和指定渲染相机  
+        var sortingSettings = new SortingSettings(camera)  
+        {  
+            criteria = SortingCriteria.CommonOpaque  
+        };  
+        //设置渲染的Shader Pass和渲染排序  
+        var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings);  
+        ////只绘制RenderQueue为opaque不透明的物体  
+        var filteringSettings = new FilteringSettings(RenderQueueRange.opaque);  
+        //1.绘制不透明物体  
+        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);  
+   
+        //2.绘制天空盒  
+        context.DrawSkybox(camera);  
+   
+        sortingSettings.criteria = SortingCriteria.CommonTransparent;  
+        drawingSettings.sortingSettings = sortingSettings;  
+        //只绘制RenderQueue为transparent透明的物体  
+        filteringSettings.renderQueueRange = RenderQueueRange.transparent;  
+        //3.绘制透明物体  
+        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);  
+   
+    }
 ```
 
 
@@ -410,46 +421,51 @@ void DrawVisibleGeometry ()
 这里我们创建一个 ShaderTagId 的数组，把那些不支持的着色器类型标签给添加进来：
 
 ```cs
-static ShaderTagId[] legacyShaderTagIds = 
-    {
-        new ShaderTagId("Always"),
-        new ShaderTagId("ForwardBase"),
-        new ShaderTagId("PrepassBase"),
-        new ShaderTagId("Vertex"),
-        new ShaderTagId("VertexLMRGBM"),
-        new ShaderTagId("VertexLM"),
+//SRP不支持的着色器标签类型  
+    static ShaderTagId[] legacyShaderTagIds =   
+    {  
+        new ShaderTagId("Always"),  
+        new ShaderTagId("ForwardBase"),  
+        new ShaderTagId("PrepassBase"),  
+        new ShaderTagId("Vertex"),  
+        new ShaderTagId("VertexLMRGBM"),  
+        new ShaderTagId("VertexLM"),  
     };
 ```
 
 创建 DrawUnsupportedShaders 方法绘制 SRP 不支持的着色器类型，在 Render 方法中绘制完所有几何体后调用：
 
 ```cs
-public void Render(ScriptableRenderContext context, Camera camera) {
-        
-        DrawVisibleGeometry();
-        
-        DrawUnsupportedShaders();
-
-         Submit();
+public void Render(ScriptableRenderContext context, Camera camera)  
+{  
+        //绘制几何体  
+        DrawVisibleGeometry();  
+        //绘制SRP不支持的着色器类型  
+        DrawUnsupportedShaders();  
+   
+        Submit();  
 }
 ```
 
 DrawUnsupportedShaders 方法实现如下：
 
 ```cs
-void DrawUnsupportedShaders()
+ /// <summary>
+    /// 绘制SRP不支持的着色器类型
+    /// </summary>
+    void DrawUnsupportedShaders()
     {
-
-         
+ 
+        //数组第一个元素用来构造DrawingSettings对象的时候设置
         var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera)) ;
         for (int i = 1; i < legacyShaderTagIds.Length; i++)
         {
-            
+            //遍历数组逐个设置着色器的PassName，从i=1开始
             drawingSettings.SetShaderPassName(i, legacyShaderTagIds[i]);
         }
-        
+        //使用默认设置即可，反正画出来的都是不支持的
         var filteringSettings = FilteringSettings.defaultValue;
-        
+        //绘制不支持的ShaderTag类型的物体
         context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
     }
 ```
@@ -460,31 +476,30 @@ void DrawUnsupportedShaders()
 
 我们接下来使用 Unity 的 ErrorShader 来绘制不支持的着色器。先创建一个静态材质来缓存使用该 Shader 的材质，不需要每帧渲染时都 new 一个材质，然后在创建 DrawSettings 对象时设置绘制材质。
 
-```
-static Material errorMaterial;
-    
-    
-    
-    void DrawUnsupportedShaders()
-    {
-        
-        if (errorMaterial == null)
-        {
-            errorMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
-        }
-
-         
-        var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera))
-        {overrideMaterial = errorMaterial };
-        ...
+```cs
+//绘制成使用错误材质的粉红颜色  
+    static Material errorMaterial;  
+    /// <summary>  
+    /// 绘制SRP不支持的内置Shader类型  
+    /// </summary>  
+    void DrawUnsupportedShaders()  
+    {  
+        //不支持的ShaderTag类型我们使用错误材质专用Shader来渲染(粉色颜色)  
+        if (errorMaterial == null)  
+        {  
+            errorMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));  
+        }  
+   
+        //数组第一个元素用来构造DrawingSettings的时候设置  
+        var drawingSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera))  
+        {overrideMaterial = errorMaterial };  
+        ...  
     }
 ```
 
 我们发现使用 Standard Shader 的 Cube 被绘制成了代表错误材质的粉色。
 
 ​![[Pasted image 20230619095808.png]]
-
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/15.1620397230199.png)
 
 **1.3.2 动静代码分离：局部类**
 
@@ -526,7 +541,7 @@ partial void DrawUnsupportedShaders ();
 ```
 partial void DrawGizmos();
 #if UNITY_EDITOR
-    
+    //绘制DrawGizmos
     partial void DrawGizmos()
     {
         if (Handles.ShouldRenderGizmos())
@@ -547,7 +562,7 @@ public void Render (ScriptableRenderContext context, Camera camera) {
      Setup();
     DrawVisibleGeometry();
     DrawUnsupportedShaders();
-    
+    //绘制Gizmos
     DrawGizmos();
     Submit();
 }
@@ -575,14 +590,14 @@ public void Render (ScriptableRenderContext context, Camera camera) {
 partial void PrepareForSceneWindow ();
 #if UNITY_EDITOR
 ...
-    
-    
-    
+    /// <summary>
+    /// 在Game视图绘制的几何体也绘制到Scene视图中
+    /// </summary>
     partial void PrepareForSceneWindow()
     {
         if (camera.cameraType == CameraType.SceneView)
         {
-            
+            //如果切换到了Scene视图，调用此方法完成绘制
             ScriptableRenderContext.EmitWorldGeometryForSceneView(camera);
         }
     }
@@ -592,19 +607,20 @@ partial void PrepareForSceneWindow ();
 因为此操作可能会给 Scene 场景中添加一些几何体，所以我们在 Render() 方法中进行几何体剔除之前调用这个方法。
 
 ```
-public void Render(ScriptableRenderContext context, Camera camera) {
-        this.context = context;
-        this.camera = camera;
-
-         
-        PrepareForSceneWindow();
-
-         if (!Cull())
-        {
-            return;
-        }
-
-         ...
+ public void Render(ScriptableRenderContext context, Camera camera)  
+    {  
+        this.context = context;  
+        this.camera = camera;  
+   
+        // 在Game视图绘制的几何体也绘制到Scene视图中  
+        PrepareForSceneWindow();  
+   
+        if (!Cull())  
+        {  
+            return;  
+        }  
+   
+        ...  
     }
 ```
 
@@ -634,12 +650,13 @@ partial void PrepareBuffer ();
 ```
 
 ```
-public void Render(ScriptableRenderContext context, Camera camera) {
-        this.context = context;
-        this.camera = camera;
-        
-        PrepareBuffer();
-        ...
+public void Render(ScriptableRenderContext context, Camera camera)  
+    {  
+        this.context = context;  
+        this.camera = camera;  
+        //设置命令缓冲区的名字  
+        PrepareBuffer();  
+        ...  
     }
 ```
 
@@ -682,17 +699,17 @@ void Submit() {
 最后我们调整一下 PrepareBuffer 方法，使用 Profiler.BeginSample("Editor Only") 和 Profiler.EndSample() 将访问相机的名字并赋值的代码包裹起来，可以做到只在编辑器中分配内存，而不在构建项目后运行时分配内存。
 
 ```
-using UnityEngine.Profiling;
-
- #if UNITY_EDITOR
-    partial void PrepareBuffer()
-    {
-        
-        Profiler.BeginSample("Editor Only");
-        buffer.name = SampleName = camera.name;
-        Profiler.EndSample();
-    }
-    ...
+using UnityEngine.Profiling;  
+   
+#if UNITY_EDITOR  
+    partial void PrepareBuffer()  
+    {  
+        //设置一下只有在编辑器模式下才分配内存  
+        Profiler.BeginSample("Editor Only");  
+        buffer.name = SampleName = camera.name;  
+        Profiler.EndSample();  
+    }  
+    ...  
 #endif
 ```
 
@@ -709,18 +726,18 @@ using UnityEngine.Profiling;
 接下来我们修改下 buffer.ClearRenderTarget() 的传参。第一个参数代表是否要清除深度缓冲，我们设置为 flags<=CameraClearFlags.Depth，因为前三个枚举都会清除深度缓冲。第二个参数代表是否要清除颜色缓冲，我们设置为 flags==CameraClearFlags.Color，当相机的清除标志设置为 Color 时才清除颜色缓冲，当清除标志为 Skybox 的情况下，最终都会使用天空盒替换颜色缓冲的数据，所以我们无需设置。第三个参数设置用于清除缓冲区的颜色值，这里进行判断，如果我们设置的 Clear Flags 是 Color，那么需要使用相机的 Background 属性的颜色值，由于我们使用的是线性色彩空间，颜色值进行一下转换，其它的 Clear Flags 还默认使用 Color.clear（黑色）即可。
 
 ```
-void Setup()
-  {
-      context.SetupCameraProperties(camera);
-      
-      CameraClearFlags flags = camera.clearFlags;
-      
-      buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, flags == CameraClearFlags.Color, 
-          flags == CameraClearFlags.Color ? camera.backgroundColor.linear : Color.clear);
-      buffer.BeginSample(SampleName);     
-      ExecuteBuffer();
-
-   }
+void Setup()  
+  {  
+      context.SetupCameraProperties(camera);  
+      //得到相机的clear flags  
+      CameraClearFlags flags = camera.clearFlags;  
+      //设置相机清除状态  
+      buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, flags == CameraClearFlags.Color,   
+          flags == CameraClearFlags.Color ? camera.backgroundColor.linear : Color.clear);  
+      buffer.BeginSample(SampleName);       
+      ExecuteBuffer();  
+   
+  }
 ```
 
 接下来我们调整相机的 Clear Flags 属性来结合两个相机的渲染结果，由于 Main Camera 是最先进行渲染的，Clear Flags 应为 Solid Color 或者 Skybox，怎么结合渲染结果还是要看 SecondCarema。我们可以设置成 Depth Only 或者 Don't Clear。

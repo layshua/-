@@ -3335,6 +3335,7 @@ overshoot
 occasionally
 optimized
 observing
+overrideMaterial
 OneDrive
 Obsidian
 Office
@@ -11725,6 +11726,8 @@ choice
 clearFlags
 clickTime
 correspond
+cullingResults
+cameraType
 github
 grey
 green
@@ -29844,6 +29847,7 @@ unrestricted
 unitypackage
 unlikely
 unreachable
+unlitShaderTagId
 everything
 ea
 ede
@@ -33469,6 +33473,7 @@ elapses
 eventually
 entirely
 exhaustive
+errorMaterial
 VPN
 Verge
 VS
@@ -55644,6 +55649,7 @@ RenderPipelineAsset
 RenderQueueRange
 RenderCamera
 Raycasts
+RenderQueue
 Microsoft
 Menu
 MicaForEveryone
@@ -68453,6 +68459,10 @@ SelectionGrid
 ScrollBar
 ShowObjectPicker
 SelectionMode
+ScriptableCullingParameters
+SortingSettings
+SetShaderPassName
+ShaderTag
 Programs
 POP
 PC
@@ -72399,6 +72409,9 @@ Preferred
 PositionHandle
 PingObject
 Playing
+PassName
+PreImageEffects
+PostImageEffects
 ContextMenuManager
 ClashVerge
 Clash
@@ -76460,6 +76473,7 @@ ColorField
 CurveField
 ClearProgressBar
 CreateAsset
+CameraType
 ImTip
 IMAP
 ID
@@ -98552,6 +98566,7 @@ fool
 frequent
 frequently
 fileName
+filteringSettings
 dd
 dcc
 data
@@ -102518,6 +102533,7 @@ depopulate
 deemed
 deactivated
 draggable
+drawingSettings
 TFvYZOKeHL
 TAB
 TeX
@@ -115138,6 +115154,8 @@ standalone
 send
 slab
 scrollbar
+summary
+sortingSettings
 local
 list
 left
@@ -118643,6 +118661,7 @@ localScale
 logically
 lgnore
 locker
+legacyShaderTagIds
 YAML
 You
 YEBAYGhURFRofHx
@@ -129647,6 +129666,7 @@ recycled
 reclaim
 reasons
 retrieves
+renderQueueRange
 XXXXXX
 XXX
 XML
@@ -167059,6 +167079,7 @@ GUISkin
 GUILayout
 GUILayoutOption
 GetAssetPath
+GizmoSubset
 NULL
 Native
 NormalMap
