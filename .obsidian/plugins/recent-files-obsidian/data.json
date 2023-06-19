@@ -1,12 +1,108 @@
 {
   "recentFiles": [
     {
-      "basename": "2 光照基础",
-      "path": "技术美术/01 百人计划/T渲染向/2 光照基础.md"
+      "basename": "ta101PBR",
+      "path": "技术美术/04 PBR/ta101PBR.md"
     },
     {
-      "basename": "3 进阶应用",
-      "path": "技术美术/01 百人计划/T渲染向/3 进阶应用.md"
+      "basename": "TA101",
+      "path": "技术美术/05 UnityShader/TA101.md"
+    },
+    {
+      "basename": "ta101卡渲",
+      "path": "技术美术/03 NPR/ta101卡渲.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "疑问",
+      "path": "技术美术/05 UnityShader/疑问.md"
+    },
+    {
+      "basename": "ASE",
+      "path": "技术美术/05 UnityShader/ASE.md"
+    },
+    {
+      "basename": "05 透明度测试与透明度混合",
+      "path": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
+    },
+    {
+      "basename": "溶解",
+      "path": "技术美术/渲染雅集/溶解.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/05 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "描边",
+      "path": "技术美术/渲染雅集/描边.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/后处理/ta101后处理.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "PBR全流程",
+      "path": "DCC/PBR全流程.md"
+    },
+    {
+      "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
+      "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "DCC/01 百人计划美术向/场景设计精要.md"
+    },
+    {
+      "basename": "05 基于屏幕空间",
+      "path": "技术美术/渲染雅集/05 基于屏幕空间.md"
+    },
+    {
+      "basename": "04 雾",
+      "path": "技术美术/渲染雅集/04 雾.md"
+    },
+    {
+      "basename": "03 景深",
+      "path": "技术美术/渲染雅集/03 景深.md"
+    },
+    {
+      "basename": "02 SSAO",
+      "path": "技术美术/渲染雅集/02 SSAO.md"
+    },
+    {
+      "basename": "01 Bloom",
+      "path": "技术美术/渲染雅集/01 Bloom.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/02 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "UE 制作 PBR 材质攻略 Part 1 - 色彩知识",
+      "path": "技术美术/04 PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md"
+    },
+    {
+      "basename": "学习大纲",
+      "path": "技术美术/学习大纲.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/【Shader精粹】/《URP》/URP.md"
     },
     {
       "basename": "01 渲染管线",
@@ -33,28 +129,12 @@
       "path": "技术美术/着色器/布料.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "混合",
-      "path": "图形学/1 图形系统/混合.md"
-    },
-    {
-      "basename": "08 阴影",
-      "path": "图形学/1 图形系统/08 阴影.md"
+      "basename": "08 混合",
+      "path": "图形学/1 图形系统/08 混合.md"
     },
     {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "4 高级扩展",
-      "path": "技术美术/01 百人计划/T渲染向/4 高级扩展.md"
     },
     {
       "basename": "07 深度测试",
@@ -63,10 +143,6 @@
     {
       "basename": "06 模板测试",
       "path": "图形学/1 图形系统/06 模板测试.md"
-    },
-    {
-      "basename": "05 透明度测试与透明度混合",
-      "path": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
     },
     {
       "basename": "2 Draw Call",
@@ -123,82 +199,6 @@
     {
       "basename": "DX12理论",
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "5 物理世界",
-      "path": "技术美术/01 百人计划/T渲染向/5 物理世界.md"
-    },
-    {
-      "basename": "场景设计精要",
-      "path": "技术美术/01 百人计划/A美术向/场景设计精要.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/05 UnityShader/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "技术美术/05 UnityShader/TA101.md"
-    },
-    {
-      "basename": "05 射线相交",
-      "path": "图形学/0 3D数学/公式推导/05 射线相交.md"
-    },
-    {
-      "basename": "1 批处理总结",
-      "path": "引擎Unity3D/【Shader精粹】/《渲染优化》/1 批处理总结.md"
-    },
-    {
-      "basename": "《虎书》",
-      "path": "图形学/5 书籍/虎书/《虎书》.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/【Shader精粹】/《URP》/URP.md"
-    },
-    {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/【Shader精粹】/《SRP》/1 自定义渲染管线.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "1685518836211",
-      "path": "zip/images/1685518836211.png"
-    },
-    {
-      "basename": "BUG合集",
-      "path": "引擎Unity3D/BUG合集.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "引擎Unity3D/头部项目/未命名.md"
-    },
-    {
-      "basename": "2 GPU Instance深入浅出",
-      "path": "引擎Unity3D/【Shader精粹】/《渲染优化》/2 GPU Instance深入浅出.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《Unity Primer》.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/【Unity精粹】/《编辑器扩展》.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/【Unity精粹】/《GUI》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/【Unity精粹】/《CS Primer》.md"
     }
   ],
   "omittedPaths": [],

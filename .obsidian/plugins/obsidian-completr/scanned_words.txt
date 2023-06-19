@@ -3346,6 +3346,7 @@ octaves
 omnidirectional
 overhangs
 occluders
+owMapping
 OneDrive
 Obsidian
 Office
@@ -11767,6 +11768,9 @@ copyright
 cutouts
 contact
 cookie
+cmyk
+catmullrom
+cyan
 github
 grey
 green
@@ -33580,6 +33584,7 @@ erosion
 endcap
 emoji
 ephane
+ellow
 VPN
 Verge
 VS
@@ -44298,6 +44303,8 @@ AndreasB
 Abraham
 Anton
 Annen
+AdobeRGB
+Arts
 URL
 Utools
 Users
@@ -51618,6 +51625,9 @@ asymmetry
 alphaThreshold
 acne
 antishadow
+aturation
+alue
+agenta
 Roaming
 RegWorkshop
 Release
@@ -55825,6 +55835,7 @@ Roberts
 Rougier
 Reprinted
 Risser
+Room
 Microsoft
 Menu
 MicaForEveryone
@@ -60386,6 +60397,7 @@ Manuel
 Mehra
 Meyer
 Miner
+MPEG
 Windows
 Win
 World
@@ -68754,6 +68766,8 @@ Sintorn
 Selgrad
 Samuli
 Scandolo
+Sharpness
+Sciences
 Programs
 POP
 PC
@@ -72735,6 +72749,11 @@ Policarpo
 Planar
 Projekt
 Poulin
+ProPhoto
+ProPhotoRGB
+Pantone
+Planck
+Picture
 ContextMenuManager
 ClashVerge
 Clash
@@ -76834,6 +76853,12 @@ Cigolle
 Clancy
 Crow
 Chen
+CYMK
+CIE
+Corel
+Chrominance
+Chroma
+Clarity
 ImTip
 IMAP
 ID
@@ -92029,6 +92054,7 @@ neighboring
 neighbors
 nonpremultiplied
 nonelephant
+nits
 bf
 bc
 black
@@ -122604,6 +122630,7 @@ Ygtt
 YoB
 Yuri
 Yvonne
+YPbPr
 header
 hidden
 height
@@ -141083,6 +141110,7 @@ BPTC
 Blow
 Buades
 Behr
+Blac
 Fraktur
 Frame
 Foo
@@ -145233,6 +145261,7 @@ Flagship
 Fabio
 Filtered
 Först
+Filmic
 Element
 Entity
 Enity
@@ -149553,6 +149582,7 @@ EAC
 Enhancement
 Eisemann
 EVSM
+Exclusion
 xmlns
 xyz
 xy
@@ -159541,6 +159571,8 @@ Donnelly
 Dummer
 Dachsbacher
 Drop
+Dodge
+Darken
 LNK
 Log
 Linux
@@ -163413,6 +163445,9 @@ Lloyd
 Lokovic
 Laine
 Lilley
+Lighten
+LightRoom
+Lightroom
 Getx
 GetX
 GetName
@@ -167786,6 +167821,7 @@ Guennebaud
 Gulik
 GRID
 Gollent
+Guild
 NULL
 Native
 NormalMap
@@ -187247,6 +187283,7 @@ Kaplanyan
 Klein
 Keyser
 Kampe
+Kelvin
 key
 kSC
 keaXj
