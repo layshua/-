@@ -193,7 +193,7 @@ Smith遮蔽函数成为业界主流的原因，以及从Smith遮蔽函数拓展�
 
 -   在微平面中，正确朝向（即m = h）的微平面法线m的统计分布由法线分布函数D（m）进行建模。若将D(m)在整个微平面法线上积分，会得到微表面的面积。但并非所有m = h的微平面都会对microfacet BRDF有所贡献：有些微平面会被光照方向或视图方向遮挡，这些被遮挡的光线在业界主流的微平面理论中被忽略不计。所以需要引入几何项G来对这种现象进行建模，得到最终对microfacet BRDF能产生贡献的法线分布。
 
-![](技术美术/04%20PBR/PBR白皮书/content/5%20几何函数/media/96cfde9628680bc6d9b5934b5a804316.png)
+![](技术美术/7%20PBR/PBR白皮书/content/5%20几何函数/media/96cfde9628680bc6d9b5934b5a804316.png)
 
 图 仅m = h的表面点的朝向才会将光线l反射到视线v的方向，其他表面点对BRDF没有贡献（图片来自《Real-Time Rendering 4th》）
 
@@ -209,7 +209,7 @@ Smith遮蔽函数成为业界主流的原因，以及从Smith遮蔽函数拓展�
 
 -   图 左图：光线被微表面从l的方向进行遮挡，右图：光线被微表面从v的方向进行遮挡。在这两种情况下，这些表面点对BRDF没有贡献。（图片来自Naty Hoffman, Recent Advances in Physically Based Shading, SIGGRAPH 2016）
 
-![](技术美术/04%20PBR/PBR白皮书/content/5%20几何函数/media/1115872096ef1ef2b2183fa73728d9d9.png)
+![](技术美术/7%20PBR/PBR白皮书/content/5%20几何函数/media/1115872096ef1ef2b2183fa73728d9d9.png)
 
 图 对可见微平面的投影区域（亮红色）进行积分，得到宏观表面在垂直于v的平面上的投影面积
 

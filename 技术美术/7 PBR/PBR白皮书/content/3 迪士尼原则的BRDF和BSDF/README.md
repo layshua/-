@@ -78,7 +78,7 @@ OK，让我们直接开始正文。
 
 随后，迪士尼动画工作室的Brent Burley于SIGGRAPH 2012上进行了著名的talk《Physically-based shading at Disney》，正式提出了迪士尼原则的BRDF（Disney Principled BRDF），由于其高度的通用性，将材质复杂的物理属性，用非常直观的少量变量表达了出来（如金属度metallic和粗糙度roughness），在电影业界和游戏业界引起了不小的轰动。从此，基于物理的渲染正式进入大众的视野。
 
-![](技术美术/04%20PBR/PBR白皮书/content/3%20迪士尼原则的BRDF和BSDF/media/4747c17311dca6610243229defd4241f.png)
+![](技术美术/7%20PBR/PBR白皮书/content/3%20迪士尼原则的BRDF和BSDF/media/4747c17311dca6610243229defd4241f.png)
 
 图 SIGGRAPH 2012《Physically-based shading at Disney》
 

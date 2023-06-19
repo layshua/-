@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/04 PBR/ta101PBR.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/04 PBR/ta101PBR.md",
+                "file": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/04 PBR/ta101PBR.md"
+                "file": "技术美术/7 PBR/ta101PBR.md"
               }
             }
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/04 PBR/ta101PBR.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/04 PBR/ta101PBR.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,46 +179,46 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "859ee0a5f1ac03c3",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "技术美术/05 UnityShader/TA101.md",
-    "技术美术/03 NPR/ta101卡渲.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "技术美术/05 UnityShader/疑问.md",
-    "技术美术/05 UnityShader/ASE.md",
-    "图形学/1 图形系统/05 透明度测试与透明度混合.md",
-    "技术美术/渲染雅集/溶解.md",
-    "技术美术/05 UnityShader/庄懂AP01.md",
-    "技术美术/渲染雅集/描边.md",
-    "技术美术/后处理/ta101后处理.md",
-    "技术美术/后处理",
+    "引擎Unity3D/URP/入门精要urp重写.md",
+    "Math/Others/三角函数.md",
+    "技术美术/4 UnityShader/TA101.md",
+    "技术美术/4 UnityShader/ASE.md",
+    "技术美术/4 UnityShader/庄懂AP01.md",
+    "技术美术/4 UnityShader/冯乐乐入门精要.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
+    "技术美术/6 NPR/NPR渲染管线概述.md",
+    "zip/images/1679722497805.png",
+    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
+    "zip/images/0f3c00735859275a4fa201b4e4561037.png",
+    "zip/images/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png",
+    "技术美术/7 PBR/ta101PBR.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+    "zip/images/1679148471306.png",
     "图形学/1 图形系统/10 色彩.md",
+    "技术美术/04 PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md",
+    "zip/images/1679151991447.png",
+    "技术美术/7 PBR/PBR白皮书/README.md",
+    "技术美术/05 UnityShader/疑问.md",
+    "技术美术/1 渲染雅集/草.md",
+    "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
+    "技术美术/6 NPR/ta101卡渲.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/05 透明度测试与透明度混合.md",
+    "技术美术/1 渲染雅集/溶解.md",
+    "技术美术/1 渲染雅集/描边.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "技术美术/3 后处理",
     "DCC/PBR全流程.md",
     "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
     "DCC/01 百人计划美术向/场景设计精要.md",
-    "技术美术/渲染雅集/05 基于屏幕空间.md",
-    "技术美术/01 百人计划/T渲染向/4 高级扩展.md",
-    "技术美术/渲染雅集/04 雾.md",
-    "技术美术/渲染雅集/03 景深.md",
-    "技术美术/渲染雅集/02 SSAO.md",
-    "技术美术/渲染雅集/01 Bloom.md",
-    "技术美术/渲染雅集",
-    "技术美术/02 水体渲染/真实感水体渲染.md",
-    "技术美术/04 PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md",
-    "技术美术/04 PBR/ta101PBR.md",
-    "技术美术/学习大纲.md",
-    "技术美术/NPR/就卡通渲染这一块，原神的材质细节做得如何？/就卡通渲染这一块，原神的材质细节做得如何？.md",
-    "技术美术/01 百人计划/T渲染向/2 光照基础.md",
+    "技术美术/1 渲染雅集",
     "zip/images/38dfde6631594f990616a050fb0fbb27_MD5.png",
     "zip/images/b78be76d0c89708cb3e284fe14a4db7b_MD5.png",
     "zip/images/656818d9e2418f7d48ec949136157b10_MD5.png",
     "zip/images/ac95b104b615128b562ec36a64847ea1_MD5.png",
     "zip/images/d288286b5ff71a5d9885c1515a334f3e_MD5.png",
-    "zip/images/acba9856f66102d8f1ed228b2ccf85f0_MD5.png",
-    "zip/images/b29a52f0e1b0aee0a43b56347609c585_MD5.png",
-    "zip/images/859b32d78aa6c179a31745d3b47ed75d_MD5.png",
-    "zip/images/6aed3ce8b58bd9427b923878c4150773_MD5.png",
-    "zip/images/096af50877e8908ed5c8bd51b2f68aa2_MD5.png",
     "引擎Unity3D/【Shader精粹】/《URP》",
     "引擎Unity3D/【Shader精粹】/《渲染优化》",
     "引擎Unity3D/未命名",

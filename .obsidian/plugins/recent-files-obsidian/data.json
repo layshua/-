@@ -2,27 +2,91 @@
   "recentFiles": [
     {
       "basename": "ta101PBR",
-      "path": "技术美术/04 PBR/ta101PBR.md"
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "DrawCall，Batches，SetPass calls",
+      "path": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md"
+    },
+    {
+      "basename": "入门精要urp重写",
+      "path": "引擎Unity3D/URP/入门精要urp重写.md"
+    },
+    {
+      "basename": "三角函数",
+      "path": "Math/Others/三角函数.md"
     },
     {
       "basename": "TA101",
-      "path": "技术美术/05 UnityShader/TA101.md"
+      "path": "技术美术/4 UnityShader/TA101.md"
+    },
+    {
+      "basename": "ASE",
+      "path": "技术美术/4 UnityShader/ASE.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "NPR渲染管线概述",
+      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
+    },
+    {
+      "basename": "1679722497805",
+      "path": "zip/images/1679722497805.png"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
+    },
+    {
+      "basename": "0f3c00735859275a4fa201b4e4561037",
+      "path": "zip/images/0f3c00735859275a4fa201b4e4561037.png"
+    },
+    {
+      "basename": "2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture",
+      "path": "zip/images/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png"
+    },
+    {
+      "basename": "由浅入深学习 PBR 的原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
+    },
+    {
+      "basename": "1679148471306",
+      "path": "zip/images/1679148471306.png"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "1679151991447",
+      "path": "zip/images/1679151991447.png"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/README.md"
+    },
+    {
+      "basename": "草",
+      "path": "技术美术/1 渲染雅集/草.md"
     },
     {
       "basename": "ta101卡渲",
-      "path": "技术美术/03 NPR/ta101卡渲.md"
+      "path": "技术美术/6 NPR/ta101卡渲.md"
     },
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "疑问",
-      "path": "技术美术/05 UnityShader/疑问.md"
-    },
-    {
-      "basename": "ASE",
-      "path": "技术美术/05 UnityShader/ASE.md"
     },
     {
       "basename": "05 透明度测试与透明度混合",
@@ -30,23 +94,15 @@
     },
     {
       "basename": "溶解",
-      "path": "技术美术/渲染雅集/溶解.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/05 UnityShader/庄懂AP01.md"
+      "path": "技术美术/1 渲染雅集/溶解.md"
     },
     {
       "basename": "描边",
-      "path": "技术美术/渲染雅集/描边.md"
+      "path": "技术美术/1 渲染雅集/描边.md"
     },
     {
       "basename": "ta101后处理",
-      "path": "技术美术/后处理/ta101后处理.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
+      "path": "技术美术/3 后处理/ta101后处理.md"
     },
     {
       "basename": "PBR全流程",
@@ -62,35 +118,27 @@
     },
     {
       "basename": "05 基于屏幕空间",
-      "path": "技术美术/渲染雅集/05 基于屏幕空间.md"
+      "path": "技术美术/1 渲染雅集/05 基于屏幕空间.md"
     },
     {
       "basename": "04 雾",
-      "path": "技术美术/渲染雅集/04 雾.md"
+      "path": "技术美术/1 渲染雅集/04 雾.md"
     },
     {
       "basename": "03 景深",
-      "path": "技术美术/渲染雅集/03 景深.md"
+      "path": "技术美术/1 渲染雅集/03 景深.md"
     },
     {
       "basename": "02 SSAO",
-      "path": "技术美术/渲染雅集/02 SSAO.md"
+      "path": "技术美术/1 渲染雅集/02 SSAO.md"
     },
     {
       "basename": "01 Bloom",
-      "path": "技术美术/渲染雅集/01 Bloom.md"
+      "path": "技术美术/1 渲染雅集/01 Bloom.md"
     },
     {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/02 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "UE 制作 PBR 材质攻略 Part 1 - 色彩知识",
-      "path": "技术美术/04 PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md"
-    },
-    {
-      "basename": "学习大纲",
-      "path": "技术美术/学习大纲.md"
+      "basename": "01 学习大纲",
+      "path": "技术美术/01 学习大纲.md"
     },
     {
       "basename": "02 光栅化",
@@ -110,23 +158,23 @@
     },
     {
       "basename": "曲面细分与几何着色器",
-      "path": "技术美术/着色器/曲面细分与几何着色器.md"
+      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
     },
     {
       "basename": "ClearCoat清漆",
-      "path": "技术美术/着色器/ClearCoat清漆.md"
+      "path": "技术美术/2 着色器/ClearCoat清漆.md"
     },
     {
       "basename": "各向异性",
-      "path": "技术美术/着色器/各向异性.md"
+      "path": "技术美术/2 着色器/各向异性.md"
     },
     {
       "basename": "次表面散射",
-      "path": "技术美术/着色器/次表面散射.md"
+      "path": "技术美术/2 着色器/次表面散射.md"
     },
     {
       "basename": "布料",
-      "path": "技术美术/着色器/布料.md"
+      "path": "技术美术/2 着色器/布料.md"
     },
     {
       "basename": "08 混合",
@@ -151,54 +199,6 @@
     {
       "basename": "程序化网格",
       "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
-    },
-    {
-      "basename": "Unity操作指南",
-      "path": "引擎Unity3D/Unity操作指南.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/【Shader精粹】/ShaderLab.md"
-    },
-    {
-      "basename": "7 阴影",
-      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
-    },
-    {
-      "basename": "15 非真实感渲染",
-      "path": "图形学/5 书籍/《RTR4》/15 非真实感渲染.md"
-    },
-    {
-      "basename": "6 纹理化",
-      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
-    },
-    {
-      "basename": "5 着色基础",
-      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
-    },
-    {
-      "basename": "1 引言",
-      "path": "图形学/5 书籍/《RTR4》/1 引言.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "资源",
-      "path": "图形学/5 书籍/《RTR4》/资源.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     }
   ],
   "omittedPaths": [],

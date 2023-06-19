@@ -84,11 +84,11 @@ PBR核心知识体系的第一部分自然是PBR的核心理论以及相关的�
 
 **基于物理的渲染（Physically Based Rendering，PBR）是指使用基于物理原理和微平面理论建模的着色/光照模型，以及使用从现实中测量的表面参数来准确表示真实世界材质的渲染理念。**
 
-![](技术美术/04%20PBR/PBR白皮书/content/1%20.PBR总览/media/a18e6e86e8ab561037718d63ae71cfa6.png)
+![](zip/images/a18e6e86e8ab561037718d63ae71cfa6.png)
 
 以下是对PBR基础理念的概括：
 2.0版本：
-[[技术美术/04 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README#一、基于物理的渲染核心理论总结]]
+[[技术美术/7 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README#一、基于物理的渲染核心理论总结]]
 
 以下为毛星云总结的1.0版本（建议看上面的版本）：
 - **微平面理论（Microfacet Theory）**。微平面理论是将物体表面建模成做无数微观尺度上有随机朝向的理想镜面反射的小平面（microfacet）的理论。在实际的PBR
@@ -114,7 +114,7 @@ PBR核心知识体系的第一部分自然是PBR的核心理论以及相关的�
 
 光在与非光学平坦表面（Non-Optically-Flat Surfaces）的交互时，非光学平坦表面表现得像一个微小的光学平面表面的大集合。表面上的每个点都会以略微不同的方向对入射光反射，而最终的表面外观是许多具有不同表面取向的点的聚合结果。
 
-![](技术美术/04%20PBR/PBR白皮书/content/1%20.PBR总览/media/e8d17495bbb483606ae1e6e6afa38b35.png)
+![](zip/images/e8d17495bbb483606ae1e6e6afa38b35.png)
 
 图：来自非光学平坦表面的可见光反射是来自具有不同方向的许多表面点的反射的总体结果
 
@@ -255,7 +255,7 @@ PBR核心知识体系的第三部分是迪士尼原则的BxDF。迪士尼动画�
 
 迪士尼动画工作室则是这次PBR革命的重要推动者。迪士尼的Brent Burley于SIGGRAPH 2012上进行了著名的talk《Physically-based shading at Disney》，提出了迪士尼原则的BRDF（Disney Principled BRDF），由于其高度的通用性，将材质复杂的物理属性，用非常直观的少量变量表达了出来（如金属度metallic和粗糙度roughness），在电影业界和游戏业界引起了不小的轰动。从此，基于物理的渲染正式进入大众的视野。
 
-![](技术美术/04%20PBR/PBR白皮书/content/1%20.PBR总览/media/4747c17311dca6610243229defd4241f.png)
+![](zip/images/4747c17311dca6610243229defd4241f.png)
 
 图 SIGGRAPH 2012《Physically-based shading at Disney》
 
@@ -387,7 +387,7 @@ PBR核心知识体系的第五部分是Specular BRDF。这也是基于物理的�
 
 在下图中，我们可以看到这些“正确朝向”的表面点的表面法线m正好位于l和v之间的中间位置。l和v之间的矢量称为半程矢量（half-vector）或半角矢量（half-angle vector）; 我们将其表示为h。
 
-![](技术美术/04%20PBR/PBR白皮书/content/1%20.PBR总览/media/96cfde9628680bc6d9b5934b5a804316.png)
+![](zip/images/96cfde9628680bc6d9b5934b5a804316.png)
 
 图 **仅m = h的表面点的朝向才会将光线l反射到视线v的方向，其他表面点对BRDF没有贡献。**
 

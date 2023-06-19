@@ -1,6 +1,6 @@
 
 
-![](技术美术/04%20PBR/PBR白皮书/media/title.jpg)
+![](zip/images/title.jpg)
 
 # 基于物理的渲染（PBR）白皮书 | PBR White Paper
 ## 目录

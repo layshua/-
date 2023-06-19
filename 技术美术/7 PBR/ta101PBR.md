@@ -609,7 +609,7 @@ return FinalColor
 [https://github.com/ipud2/Unity-Basic-Shader/blob/master/PBR_BetterThanUnity.shader](https://github.com/ipud2/Unity-Basic-Shader/blob/master/PBR_BetterThanUnity.shader)
 
 # 5.1 PBR
-[[技术美术/04 PBR/PBR白皮书/content/1 .PBR总览/README]]
+[[技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README]]
 ![[TA101_PBR_6.jpg]]
 ![[TA101_PBR_7.jpg]]
 ![[TA101_PBR_9.jpg]]
