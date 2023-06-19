@@ -521,10 +521,29 @@ public class MeshBall : MonoBehaviour
 
 ## 2.2.6 动态合批
 
-**动态批处理的原理是每一帧把可以进行批处理的模型网格进行合并，再把合并好的数据传递给 CPU，然后使用同一个材质进行渲染。** 好处是经过批处理的物体仍然可以移动，这是由于 Unity 每帧都会重新合并一次网格。
+**动态批处理的原理是每一帧把可以进行批处理的模型<mark style="background: #FF5582A6;">网格进行合并</mark>，再把合并好的数据传递给 CPU，然后使用同一个材质进行渲染。** 好处是经过批处理的物体仍然可以移动，这是由于 Unity 每帧都会重新合并一次网格。
 
 **动态批处理有很多限制**，比如在使用逐对象的材质属性时会失效，网格顶点属性规模要小于 900 等等，该技术适用于共享材质的小型的网格。
 
+开启步骤：
+1. 禁用 GPU 实例化，并在 `CameraRenderer.DrawVisibleGeometry` 中 `enableDynamicBatching` 设置为 `true` 。
+```cs
+var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings) 
+{
+    enableDynamicBatching = true,
+    enableInstancing = false
+};
+```
+
+同时禁用 SRP 批处理程序，因为它优先级比较高。
+```cs
+GraphicsSettings.useScriptableRenderPipelineBatching = false;
+```
+
+一般来说，GPU 实例化比动态批处理效果更好。**动态批处理也有一些注意事项**，例如，当涉及不同的尺度时，不能保证较大网格的法向量为单位长度。此外，绘制顺序也会更改，因为它现在是单个网格而不是多个网格。
+还有静态批处理，它的工作原理类似，但对于标记为批处理静态的对象，它会提前完成。除了需要更多的内存和存储之外，它没有任何警告。RP 没有意识到这一点，所以我们不必担心。
+
+## 2.2.7 配置批处理
 1. 我们的渲染管线已经支持了三种批处理，将这些批处理的启用开关设置成可配置项，使用或禁用哪种批处理由用户指定，在`CameraRenderer.DrawVisibleGeometry()` 方法中作为参数传入。
 
 ```c
@@ -583,7 +602,7 @@ bool useDynamicBatching, useGPUInstancing;
 
 4. 最后在 CustomRenderPipelineAsset 脚本中定义这三个可配置的批处理开关，实例化 CustomRenderPipeline 时作为参数传入。
 
-```
+```c
 //定义合批状态字段
     [SerializeField]
     bool useDynamicBatching = true, useGPUInstancing = true, useSRPBatcher = true;
@@ -595,13 +614,11 @@ bool useDynamicBatching, useGPUInstancing;
     }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/14.1620403364255.png)
 ![[Pasted image 20230619152812.png]]
 我们禁用 GPU Instancing 和 SRP Batcher，来测试动态批处理的效果。切换批处理的开关会立即生效，因为 Unity 在检测到管线资产改变时会创建一个新的渲染管线实例。（注：下图测试动态批处理时用的 Cube 进行测试，小球 Mesh 太大不满足动态合批的要求）。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/15.1620403459355.png)
 ![[Pasted image 20230619152814.png]]
-### **2.3 Alpha Blend 和 Alpha Test**
+# 2.3 Alpha Blend 和 Alpha Test
 
 透明是很常用的一种效果，在实时渲染中要实现透明效果，通常会在渲染模型时控制它的透明通道。在开启透明混合后，当一个物体被渲染到屏幕上，每个片元除了颜色值和深度值以外，还有一个透明度的属性：为 1 表示该像素是完全不透明的； 为 0 表示该像素完全不会显示。在 Unity 中我们通常使用两种方法来实现透明效果：第一种是透明度测试（Alpha Test），这种方法其实完全无法得到真正的半透明效果；另一种是透明度混合（Alpha Blend）。
 
