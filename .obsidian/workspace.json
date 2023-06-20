@@ -37,7 +37,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f7f2c9ad55c3cebb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/08 透明和剔除.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md"
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
               }
             }
           }
@@ -130,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,44 +191,44 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ceb4bb4c33d5def4",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "图形学/1 图形系统/01 渲染管线.md",
+    "zip/images/d4ae8afe6e4a3beb44974572125d49a5_MD5.jpg",
+    "zip/images/200e95ad180ae98367b964563691f7b4_MD5.jpg",
+    "zip/images/9caca3ddb0e8dcd2be2fff2c3bfb4293_MD5.jpg",
+    "zip/images/b59764e3408ee8434761893c985a0681_MD5.jpg",
+    "zip/images/6372e071c2a1efb6e331b17d10961acc_MD5.jpg",
+    "zip/images/f06aafdae8c26299dcc98a908a27eaf3_MD5.jpg",
+    "zip/images/b2839b984ef593abcece7477b2765235_MD5.jpg",
+    "zip/images/42b1a5db7afd03ddebf8eda9ebfef1b6_MD5.jpg",
+    "zip/images/013846611c4d933d563e5a7a25c63401_MD5.jpg",
+    "zip/images/5bb03e5141f0c4a906bc1b149cc03ddd_MD5.jpg",
+    "zip/images/3e69d1a7e33d22240faf7c215e0ee9c4_MD5.jpg",
+    "图形学/1 图形系统/07 混合.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
+    "图形学/1 图形系统/08 透明和剔除.md",
+    "图形学/5 书籍/《RTR4》/5 着色基础.md",
+    "技术美术/4 UnityShader/冯乐乐入门精要.md",
+    "技术美术/4 UnityShader/TA101.md",
+    "技术美术/4 UnityShader/庄懂AP01.md",
     "图形学/1 图形系统/06 深度测试.md",
+    "图形学/1 图形系统/05 模板测试.md",
+    "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/7 PBR/ta101PBR.md",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "图形学/3 软渲染器/软光栅/总结.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
-    "zip/images/871a50affdccc541329153e75f610c22_MD5.jpg",
-    "zip/images/d654fc5d8d155c66edf6c5a7382d1940_MD5.jpg",
-    "zip/images/f08c1caec1f5a907416ea622d243ce2e_MD5.jpg",
-    "zip/images/276bec784dbf9bd8bcba70101705fc92_MD5.jpg",
-    "zip/images/6599918a8a31034abb5f122e9e4ad32f_MD5.jpg",
-    "zip/images/0d6289669167d19b1ec3366c32078b84_MD5.jpg",
-    "zip/images/c04890db48d785f35622afad8db5612d_MD5.gif",
-    "zip/images/b2de56137d77e23bf06edefac9da8f94_MD5.gif",
-    "zip/images/ada3fca9f16998bd1979c860073fbf10_MD5.jpg",
-    "zip/images/58fb3aa3ab29fa0ea71036ddf5b6444a_MD5.jpg",
     "图形学/3 软渲染器/软光栅/TinyRenderer.md",
-    "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "图形学/5 书籍/《RTR4》/1 引言.md",
     "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/07 混合.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/04 纹理.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "技术美术/4 UnityShader/庄懂AP01.md",
-    "引擎Unity3D/3 Catlike Coding/程序化网格.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",

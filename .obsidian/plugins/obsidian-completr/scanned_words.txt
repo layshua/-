@@ -15736,6 +15736,11 @@ gggg
 gTTT
 gDVV
 ghPj
+glGenQueries
+glBeginQuery
+glEndQuery
+glGetQueryObjectiv
+glDeleteQueries
 typora
 todo
 tooltip
@@ -34743,6 +34748,7 @@ efIZ
 effJ
 errr
 eKZ
+earlyZ
 VPN
 Verge
 VS
@@ -38294,6 +38300,7 @@ VNNN
 VLe
 Vwdd
 VUig
+VRAM
 verge
 vPdIt
 vertical
@@ -71108,6 +71115,7 @@ SnnnJHH
 SFMp
 Shad
 Snapdragon
+SAMPLES
 Programs
 POP
 PC
@@ -75234,6 +75242,9 @@ PAAA
 Phhh
 PmUyIX
 PSVR
+Perpass
+PASSED
+Proxy
 ContextMenuManager
 ClashVerge
 Clash
@@ -83500,6 +83511,7 @@ IiasO
 ImageReadyq
 IQQg
 IIL
+Impostor
 qq
 qyi
 quad
@@ -91538,6 +91550,7 @@ pAQQQ
 piii
 pwwGNN
 perpass
+pname
 nodesCatch
 nobr
 navy
@@ -119660,6 +119673,7 @@ suue
 sGRR
 stWG
 sjfE
+stall
 local
 list
 left
@@ -146059,6 +146073,7 @@ BwQ
 Bff
 BDDDDDDDDDDDDDDDD
 Bhh
+BSphere
 Fraktur
 Frame
 Foo
@@ -154783,6 +154798,7 @@ EGGk
 Eaaa
 EDDDDDDDDDDDDDDDDD
 ENzf
+EarlyZ
 xmlns
 xyz
 xy
@@ -173688,6 +173704,7 @@ GVVV
 GGGIR
 Gzxx
 GqMw
+GLsizei
 NULL
 Native
 NormalMap

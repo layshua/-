@@ -1,8 +1,40 @@
 {
   "recentFiles": [
     {
+      "basename": "07 混合",
+      "path": "图形学/1 图形系统/07 混合.md"
+    },
+    {
+      "basename": "4 场景剔除",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
+    },
+    {
+      "basename": "08 透明和剔除",
+      "path": "图形学/1 图形系统/08 透明和剔除.md"
+    },
+    {
+      "basename": "5 着色基础",
+      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "技术美术/4 UnityShader/TA101.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
       "basename": "01 渲染管线",
@@ -23,10 +55,6 @@
     {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "总结",
@@ -53,28 +81,12 @@
       "path": "图形学/3 软渲染器/软光栅/TinyRenderer.md"
     },
     {
-      "basename": "5 着色基础",
-      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
       "basename": "1 引言",
       "path": "图形学/5 书籍/《RTR4》/1 引言.md"
     },
     {
       "basename": "3 图形处理单元GPU",
       "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "07 混合",
-      "path": "图形学/1 图形系统/07 混合.md"
     },
     {
       "basename": "09 阴影",
@@ -95,10 +107,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/4 UnityShader/庄懂AP01.md"
     },
     {
       "basename": "程序化网格",
@@ -127,10 +135,6 @@
     {
       "basename": "三角函数",
       "path": "Math/Others/三角函数.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "技术美术/4 UnityShader/TA101.md"
     },
     {
       "basename": "ASE",
@@ -195,10 +199,6 @@
     {
       "basename": "PBR全流程",
       "path": "DCC/PBR全流程.md"
-    },
-    {
-      "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
-      "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
     }
   ],
   "omittedPaths": [],
