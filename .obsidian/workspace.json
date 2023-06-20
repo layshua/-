@@ -25,7 +25,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "图形学/1 图形系统/05 透明度测试与透明度混合.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "71e7330b6dc791d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/4 UnityShader/冯乐乐入门精要.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md"
+                "file": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
               }
             }
           }
@@ -130,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "图形学/1 图形系统/05 透明度测试与透明度混合.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "图形学/1 图形系统/05 透明度测试与透明度混合.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +169,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 427.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -181,13 +193,20 @@
   },
   "active": "859ee0a5f1ac03c3",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230620102455.png",
+    "技术美术/4 UnityShader/冯乐乐入门精要.md",
+    "图形学/1 图形系统/05 透明度测试与透明度混合.md",
+    "技术美术/4 UnityShader/庄懂AP01.md",
+    "引擎Unity3D/3 Catlike Coding/程序化网格.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "Tools/工具流.md",
+    "Tools/Obsidian/插件流.md",
+    "图形学/1 图形系统/10 色彩.md",
     "技术美术/7 PBR/ta101PBR.md",
-    "引擎Unity3D/URP/入门精要urp重写.md",
+    "引擎Unity3D/4 URP/入门精要urp重写.md",
     "Math/Others/三角函数.md",
     "技术美术/4 UnityShader/TA101.md",
     "技术美术/4 UnityShader/ASE.md",
-    "技术美术/4 UnityShader/庄懂AP01.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/6 NPR/NPR渲染管线概述.md",
     "zip/images/1679722497805.png",
@@ -196,7 +215,6 @@
     "zip/images/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "zip/images/1679148471306.png",
-    "图形学/1 图形系统/10 色彩.md",
     "技术美术/04 PBR/UE 制作 PBR 材质攻略 Part 1 - 色彩知识/UE 制作 PBR 材质攻略 Part 1 - 色彩知识.md",
     "zip/images/1679151991447.png",
     "技术美术/7 PBR/PBR白皮书/README.md",
@@ -205,22 +223,16 @@
     "技术美术/05 UnityShader/教程剪藏/风格化草渲染 StylizedGrass.md",
     "技术美术/6 NPR/ta101卡渲.md",
     "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/05 透明度测试与透明度混合.md",
     "技术美术/1 渲染雅集/溶解.md",
-    "技术美术/1 渲染雅集/描边.md",
-    "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理",
-    "DCC/PBR全流程.md",
-    "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
-    "DCC/01 百人计划美术向/场景设计精要.md",
     "技术美术/1 渲染雅集",
     "zip/images/38dfde6631594f990616a050fb0fbb27_MD5.png",
     "zip/images/b78be76d0c89708cb3e284fe14a4db7b_MD5.png",
     "zip/images/656818d9e2418f7d48ec949136157b10_MD5.png",
     "zip/images/ac95b104b615128b562ec36a64847ea1_MD5.png",
     "zip/images/d288286b5ff71a5d9885c1515a334f3e_MD5.png",
-    "引擎Unity3D/【Shader精粹】/《URP》",
-    "引擎Unity3D/【Shader精粹】/《渲染优化》",
+    "引擎Unity3D/2 Shader精粹/《URP》",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》",
     "引擎Unity3D/未命名",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
     "zip/images/QQ录屏20230618120224 3.mp4",

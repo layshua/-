@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "05 透明度测试与透明度混合",
+      "path": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
     },
@@ -10,11 +38,11 @@
     },
     {
       "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/URP/DrawCall，Batches，SetPass calls.md"
+      "path": "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md"
     },
     {
       "basename": "入门精要urp重写",
-      "path": "引擎Unity3D/URP/入门精要urp重写.md"
+      "path": "引擎Unity3D/4 URP/入门精要urp重写.md"
     },
     {
       "basename": "三角函数",
@@ -27,14 +55,6 @@
     {
       "basename": "ASE",
       "path": "技术美术/4 UnityShader/ASE.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/4 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -69,10 +89,6 @@
       "path": "zip/images/1679148471306.png"
     },
     {
-      "basename": "1679151991447",
-      "path": "zip/images/1679151991447.png"
-    },
-    {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/README.md"
     },
@@ -87,10 +103,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "05 透明度测试与透明度混合",
-      "path": "图形学/1 图形系统/05 透明度测试与透明度混合.md"
     },
     {
       "basename": "溶解",
@@ -150,7 +162,7 @@
     },
     {
       "basename": "URP",
-      "path": "引擎Unity3D/【Shader精粹】/《URP》/URP.md"
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
       "basename": "01 渲染管线",
@@ -187,18 +199,6 @@
     {
       "basename": "07 深度测试",
       "path": "图形学/1 图形系统/07 深度测试.md"
-    },
-    {
-      "basename": "06 模板测试",
-      "path": "图形学/1 图形系统/06 模板测试.md"
-    },
-    {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/【Shader精粹】/《SRP》/2 Draw Call.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/【Catlike Coding】/程序化网格.md"
     }
   ],
   "omittedPaths": [],
