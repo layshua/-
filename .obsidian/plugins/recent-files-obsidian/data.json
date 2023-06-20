@@ -5,12 +5,28 @@
       "path": "图形学/1 图形系统/07 混合.md"
     },
     {
-      "basename": "4 场景剔除",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
-    },
-    {
       "basename": "08 透明和剔除",
       "path": "图形学/1 图形系统/08 透明和剔除.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "4 场景剔除",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
     },
     {
       "basename": "5 着色基础",
@@ -27,14 +43,6 @@
     {
       "basename": "庄懂AP01",
       "path": "技术美术/4 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
       "basename": "01 渲染管线",
@@ -59,10 +67,6 @@
     {
       "basename": "总结",
       "path": "图形学/3 软渲染器/软光栅/总结.md"
-    },
-    {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
     },
     {
       "basename": "LearnOpenGL",
@@ -91,10 +95,6 @@
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "03 光照模型",
