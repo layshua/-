@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/4 UnityShader/庄懂AP01.md",
+                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md"
+                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md"
               }
             }
           }
@@ -129,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,29 +179,30 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "23d48f64b0b1793e",
+  "active": "5301ac7540e9de40",
   "lastOpenFiles": [
-    "图形学/1 图形系统/07 混合和剔除.md",
     "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/05 模板测试.md",
+    "zBuffer/Unity 渲染顺序（Rendering Order）.md",
+    "zip/images/ba852a52d51849f9158cf443cded5061_MD5.jpg",
+    "zip/images/bcef7b0b7bb75a0d0bd756cd891f833f_MD5.jpg",
+    "zip/images/9fa4b63e50b7a4612d5d0a08591529f7_MD5.jpg",
+    "zip/images/55a299e7de41c82f4c3575de0fdde378_MD5.jpg",
+    "zip/images/ca37a2ad867ee77bcfa77d3da7caae06_MD5.jpg",
+    "zip/images/13689268295ba6d6c9a4925ed171ae8a_MD5.jpg",
+    "zip/images/29f5c88b31d2d14474e6a32292a876a7_MD5.jpg",
+    "zip/images/8e7a22d963d86de96cb7d3b3f06399b9_MD5.jpg",
+    "zip/images/c41cf813488837339d527b343fd9840f_MD5.jpg",
+    "zip/images/c8d38ac57525404f4db6a0dfebe33c1f_MD5.jpg",
     "技术美术/4 UnityShader/庄懂AP01.md",
-    "zip/images/Pasted image 20230620224434.png",
-    "zip/images/Pasted image 20230620224126.png",
-    "zip/images/Pasted image 20230620224119.png",
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "图形学/1 图形系统/05 模板测试.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/04 纹理.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
     "图形学/1 图形系统/10 色彩.md",
-    "zip/images/Pasted image 20230620143149.png",
-    "zip/images/Pasted image 20230620142352.png",
-    "zip/images/Pasted image 20230620142344.png",
-    "zip/images/Pasted image 20230620141847.png",
     "图形学/1 图形系统/02 光栅化.md",
-    "zip/images/Pasted image 20230620134637.png",
-    "zip/images/Pasted image 20230620134620.png",
-    "zip/images/Pasted image 20230620134604.png",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "技术美术/4 UnityShader/冯乐乐入门精要.md",
@@ -214,7 +216,6 @@
     "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
     "图形学/3 软渲染器/软光栅/TinyRenderer.md",
     "图形学/5 书籍/《RTR4》/1 引言.md",
-    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",

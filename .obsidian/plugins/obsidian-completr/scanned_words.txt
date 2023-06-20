@@ -3450,6 +3450,7 @@ oHKKc
 oWRR
 oRR
 otV
+opaqueSortMode
 OneDrive
 Obsidian
 Office
@@ -19508,6 +19509,8 @@ tSMVw
 tEXtSoftware
 tzs
 tests
+tested
+transparencySortMode
 markdown
 matter
 mod
@@ -23602,6 +23605,7 @@ mzzz
 maaa
 mRTT
 mSQQ
+meat
 windows
 win
 width
@@ -79493,6 +79497,8 @@ CHLLT
 CDDDDDDDDDDDDDDDDD
 CHII
 CDrs
+CustomAxis
+CanvasRenderer
 ImTip
 IMAP
 ID
@@ -119678,6 +119684,9 @@ sGRR
 stWG
 sjfE
 stall
+skyboxes
+sortingLayerID
+sortingOrder
 local
 list
 left
@@ -150343,6 +150352,7 @@ FEFF
 Fiii
 Fullscreen
 Forest
+FrontToBack
 Element
 Entity
 Enity
@@ -173710,6 +173720,7 @@ GGGIR
 Gzxx
 GqMw
 GLsizei
+GeometryLast
 NULL
 Native
 NormalMap
@@ -177601,6 +177612,7 @@ NYyk
 NNNj
 NMzM
 Nordeus
+NoDistanceSort
 ZooAnima
 ZooAnimal
 ZTest
