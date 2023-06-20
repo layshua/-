@@ -8,47 +8,11 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5c86143f11668fb9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/ta101PBR.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "23d48f64b0b1793e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ceb4bb4c33d5def4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "dd5855d09d5a584b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "图形学/1 图形系统/08 透明.md",
                 "mode": "source",
                 "source": false
@@ -56,31 +20,18 @@
             }
           },
           {
-            "id": "eaa1f9646646c89c",
+            "id": "80699013466fa0bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f7f2c9ad55c3cebb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -215,13 +166,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "eaa1f9646646c89c",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
     "图形学/1 图形系统/06 深度测试.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/07 混合和剔除.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/1 图形系统/05 模板测试.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
     "图形学/1 图形系统/10 色彩.md",
     "zip/images/Pasted image 20230620143149.png",
     "zip/images/Pasted image 20230620142352.png",
@@ -240,11 +193,9 @@
     "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "技术美术/4 UnityShader/TA101.md",
     "技术美术/4 UnityShader/庄懂AP01.md",
-    "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/7 PBR/ta101PBR.md",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "图形学/3 软渲染器/软光栅/总结.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",

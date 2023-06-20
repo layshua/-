@@ -9,16 +9,24 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
       "basename": "05 模板测试",
       "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
     },
     {
       "basename": "02 光栅化",
@@ -49,10 +57,6 @@
       "path": "技术美术/4 UnityShader/庄懂AP01.md"
     },
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
     },
@@ -63,10 +67,6 @@
     {
       "basename": "DX12理论",
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "总结",
