@@ -1,16 +1,60 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity 渲染顺序（Rendering Order）",
-      "path": "zBuffer/Unity 渲染顺序（Rendering Order）.md"
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "ASE",
+      "path": "技术美术/4 UnityShader/ASE.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "3 图形处理单元GPU",
+      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+    },
+    {
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
+      "basename": "3D数学",
+      "path": "图形学/0 3D数学/3D数学.md"
+    },
+    {
+      "basename": "05 射线相交",
+      "path": "图形学/0 3D数学/公式推导/05 射线相交.md"
+    },
+    {
+      "basename": "04 纹理映射",
+      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/4 UnityShader/庄懂AP01.md"
     },
     {
       "basename": "07 混合和剔除",
@@ -21,28 +65,36 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
       "basename": "05 模板测试",
       "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "Unity 渲染顺序（Rendering Order）",
+      "path": "zBuffer/Unity 渲染顺序（Rendering Order）.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
     },
     {
       "basename": "4 场景剔除",
@@ -53,20 +105,12 @@
       "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
     },
     {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
-    },
-    {
       "basename": "TA101",
       "path": "技术美术/4 UnityShader/TA101.md"
     },
     {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
     },
     {
       "basename": "DX12理论",
@@ -97,22 +141,6 @@
       "path": "图形学/5 书籍/《RTR4》/1 引言.md"
     },
     {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
       "basename": "程序化网格",
       "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
     },
@@ -139,10 +167,6 @@
     {
       "basename": "三角函数",
       "path": "Math/Others/三角函数.md"
-    },
-    {
-      "basename": "ASE",
-      "path": "技术美术/4 UnityShader/ASE.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -175,30 +199,6 @@
     {
       "basename": "1679148471306",
       "path": "zip/images/1679148471306.png"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/README.md"
-    },
-    {
-      "basename": "草",
-      "path": "技术美术/1 渲染雅集/草.md"
-    },
-    {
-      "basename": "ta101卡渲",
-      "path": "技术美术/6 NPR/ta101卡渲.md"
-    },
-    {
-      "basename": "溶解",
-      "path": "技术美术/1 渲染雅集/溶解.md"
-    },
-    {
-      "basename": "描边",
-      "path": "技术美术/1 渲染雅集/描边.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
     }
   ],
   "omittedPaths": [],

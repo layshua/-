@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5301ac7540e9de40",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
+                "file": "技术美术/4 UnityShader/庄懂AP01.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -87,7 +74,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md"
+                "file": "技术美术/4 UnityShader/庄懂AP01.md"
               }
             }
           }
@@ -130,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
+                "file": "技术美术/4 UnityShader/庄懂AP01.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Unity 渲染顺序（Rendering Order）.md",
+                "file": "技术美术/4 UnityShader/庄懂AP01.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,9 +166,29 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "5301ac7540e9de40",
+  "active": "23d48f64b0b1793e",
   "lastOpenFiles": [
+    "技术美术/4 UnityShader/冯乐乐入门精要.md",
+    "技术美术/4 UnityShader/ASE.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
+    "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
+    "图形学/0 3D数学/3D数学.md",
+    "图形学/0 3D数学/公式推导/05 射线相交.md",
+    "图形学/0 3D数学/公式推导/04 纹理映射.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "图形学/1 图形系统/06 深度测试.md",
+    "图形学/1 图形系统/05 模板测试.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "zBuffer/Unity 渲染顺序（Rendering Order）.md",
     "zip/images/ba852a52d51849f9158cf443cded5061_MD5.jpg",
     "zip/images/bcef7b0b7bb75a0d0bd756cd891f833f_MD5.jpg",
@@ -194,28 +201,9 @@
     "zip/images/c41cf813488837339d527b343fd9840f_MD5.jpg",
     "zip/images/c8d38ac57525404f4db6a0dfebe33c1f_MD5.jpg",
     "技术美术/4 UnityShader/庄懂AP01.md",
-    "图形学/1 图形系统/07 混合和剔除.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
-    "技术美术/4 UnityShader/TA101.md",
-    "技术美术/7 PBR/ta101PBR.md",
-    "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "图形学/3 软渲染器/软光栅/总结.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
-    "图形学/3 软渲染器/软光栅/TinyRenderer.md",
-    "图形学/5 书籍/《RTR4》/1 引言.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",
