@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/07 混合.md",
+                "file": "图形学/1 图形系统/08 透明.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/08 透明和剔除.md",
+                "file": "图形学/1 图形系统/08 透明.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/07 混合.md"
+                "file": "图形学/1 图形系统/08 透明.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/07 混合.md",
+                "file": "图形学/1 图形系统/08 透明.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/07 混合.md",
+                "file": "图形学/1 图形系统/08 透明.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,24 +205,25 @@
   },
   "active": "dd5855d09d5a584b",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230620142352.png",
+    "zip/images/Pasted image 20230620142344.png",
+    "zip/images/Pasted image 20230620141847.png",
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "图形学/1 图形系统/06 深度测试.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/05 模板测试.md",
     "zip/images/Pasted image 20230620134637.png",
     "zip/images/Pasted image 20230620134620.png",
     "zip/images/Pasted image 20230620134604.png",
-    "图形学/1 图形系统/08 透明和剔除.md",
+    "图形学/1 图形系统/08 透明.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/07 混合.md",
-    "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
     "zip/images/d4ae8afe6e4a3beb44974572125d49a5_MD5.jpg",
     "zip/images/200e95ad180ae98367b964563691f7b4_MD5.jpg",
     "zip/images/9caca3ddb0e8dcd2be2fff2c3bfb4293_MD5.jpg",
     "zip/images/b59764e3408ee8434761893c985a0681_MD5.jpg",
     "zip/images/6372e071c2a1efb6e331b17d10961acc_MD5.jpg",
-    "zip/images/f06aafdae8c26299dcc98a908a27eaf3_MD5.jpg",
-    "zip/images/b2839b984ef593abcece7477b2765235_MD5.jpg",
-    "zip/images/42b1a5db7afd03ddebf8eda9ebfef1b6_MD5.jpg",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "技术美术/4 UnityShader/TA101.md",
@@ -240,7 +241,6 @@
     "图形学/5 书籍/《RTR4》/1 引言.md",
     "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
     "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/03 光照模型.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",

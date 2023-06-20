@@ -7840,6 +7840,8 @@ ODDDDDDDDDDDDDDF
 ODDDDDDDDDDDDDT
 OOOX
 OOIII
+OpColor
+OpAlpha
 codeup
 clash
 ctrl
@@ -71116,6 +71118,7 @@ SFMp
 Shad
 Snapdragon
 SAMPLES
+SrcFactorA
 Programs
 POP
 PC
@@ -165185,6 +165188,7 @@ DDDDDDDDDDDDDDo
 DDDDDDDDDDT
 DAW
 DWM
+DstFactorA
 LNK
 Log
 Linux
