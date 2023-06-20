@@ -5,20 +5,16 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "总结",
-      "path": "图形学/3 软渲染器/软光栅/总结.md"
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
-    },
-    {
-      "basename": "3 OverDraw",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
     },
     {
       "basename": "DX12理论",
@@ -33,8 +29,24 @@
       "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
+      "basename": "总结",
+      "path": "图形学/3 软渲染器/软光栅/总结.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+    },
+    {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
+      "basename": "2 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "3 OverDraw",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
     },
     {
       "basename": "TinyRenderer",
@@ -51,10 +63,6 @@
     {
       "basename": "3 图形处理单元GPU",
       "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
     },
     {
       "basename": "08 透明",
@@ -191,14 +199,6 @@
     {
       "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
       "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
-    },
-    {
-      "basename": "场景设计精要",
-      "path": "DCC/01 百人计划美术向/场景设计精要.md"
-    },
-    {
-      "basename": "05 基于屏幕空间",
-      "path": "技术美术/1 渲染雅集/05 基于屏幕空间.md"
     }
   ],
   "omittedPaths": [],
