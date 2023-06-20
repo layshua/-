@@ -166,13 +166,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "23d48f64b0b1793e",
   "lastOpenFiles": [
+    "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/04 纹理.md",
     "图形学/1 图形系统/06 深度测试.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/05 模板测试.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
     "图形学/1 图形系统/10 色彩.md",
@@ -181,7 +182,6 @@
     "zip/images/Pasted image 20230620142344.png",
     "zip/images/Pasted image 20230620141847.png",
     "图形学/1 图形系统/02 光栅化.md",
-    "图形学/1 图形系统/04 纹理.md",
     "zip/images/Pasted image 20230620134637.png",
     "zip/images/Pasted image 20230620134620.png",
     "zip/images/Pasted image 20230620134604.png",
