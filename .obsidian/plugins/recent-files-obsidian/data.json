@@ -5,12 +5,12 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
       "basename": "2 图形渲染管线",
@@ -21,12 +21,12 @@
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
     },
     {
       "basename": "总结",
