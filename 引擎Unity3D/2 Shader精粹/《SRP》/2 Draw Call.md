@@ -325,7 +325,7 @@ CBUFFER_END
 public class CustomRenderPipeline : RenderPipeline
 {
     CameraRenderer renderer = new CameraRenderer();
-    
+    //测试SRP合批启用
     public CustomRenderPipeline() {
         GraphicsSettings.useScriptableRenderPipelineBatching = true;
     }
@@ -341,30 +341,30 @@ public class CustomRenderPipeline : RenderPipeline
 在 CustomRP 下创建一个 Examples 子文件夹，新建脚本 `PerObjectMaterialProperties.cs`，脚本中我们定义一个可以调整颜色的 baseColor 属性，并将颜色值通过 `MaterialPropertyBlock` 对象传递给材质。把这个脚本挂到每一个球体上面，然后设置不同的颜色。
 
 ```c
-[DisallowMultipleComponent]
-public class PerObjectMaterialProperties : MonoBehaviour
-{
-    static int baseColorId = Shader.PropertyToID("_BaseColor");
-
-     [SerializeField]
-    Color baseColor = Color.white;
-    static MaterialPropertyBlock block;
-
-     void OnValidate()
-    {
-        if (block == null)
-        {
-            block = new MaterialPropertyBlock();
-        }
-        
-        block.SetColor(baseColorId, baseColor);
-
-         GetComponent<Renderer>().SetPropertyBlock(block);
-    }
-    void Awake()
-    {
-        OnValidate();
-    }
+[DisallowMultipleComponent]  
+public class PerObjectMaterialProperties : MonoBehaviour  
+{  
+    static int baseColorId = Shader.PropertyToID("_BaseColor");  
+   
+    [SerializeField]  
+    Color baseColor = Color.white;  
+    static MaterialPropertyBlock block;  
+   
+    void OnValidate()  
+    {  
+        if (block == null)  
+        {  
+            block = new MaterialPropertyBlock();  
+        }  
+        //设置材质属性  
+        block.SetColor(baseColorId, baseColor);  
+   
+        GetComponent<Renderer>().SetPropertyBlock(block);  
+    }  
+    void Awake()  
+    {  
+        OnValidate();  
+    }  
 }
 ```
 
@@ -430,7 +430,7 @@ float4 UnlitPassVertex(Attributes input) : SV_POSITION
 
 ```c
 //CBUFFER_START(UnityPerMaterial)
-// 
+// float4 _BaseColor;
 //CBUFFER_END
 
 UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
@@ -550,15 +550,15 @@ GraphicsSettings.useScriptableRenderPipelineBatching = false;
 ```c
 void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing)
     {
-        
+        //设置绘制顺序和指定渲染相机
         var sortingSettings = new SortingSettings(camera)
         {
             criteria = SortingCriteria.CommonOpaque
         };
-        
+        //设置渲染的shader pass和渲染排序
         var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings)
         {
-            
+            //设置渲染时批处理的使用状态
             enableDynamicBatching = useDynamicBatching,
             enableInstancing = useGPUInstancing
         };
@@ -569,25 +569,26 @@ void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing)
 2. 在 Render 方法中获取该配置的值。
 
 ```c
-public void Render(ScriptableRenderContext context, Camera camera,
-        bool useDynamicBatching, bool useGPUInstancing) {
-        ...
-
-         Setup();
-        
-        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);
-        ...
+public void Render(ScriptableRenderContext context, Camera camera,  
+        bool useDynamicBatching, bool useGPUInstancing)  
+    {  
+        ...  
+   
+        Setup();  
+        //绘制几何体  
+        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);  
+        ...  
     }
 ```
 
 3. 在 CustomRenderPipeline 脚本中定义 bool 字段跟踪批处理的启用情况，在构造函数中获得这些配置值，最后传递到 render.Render() 方法中。
 
 ```c
-bool useDynamicBatching, useGPUInstancing;
-    
+ bool useDynamicBatching, useGPUInstancing;
+    //测试SRP合批启用
     public CustomRenderPipeline(bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher)
     {
-        
+        //设置合批启用状态
         this.useDynamicBatching = useDynamicBatching;
         this.useGPUInstancing = useGPUInstancing;
         GraphicsSettings.useScriptableRenderPipelineBatching = useSRPBatcher;
@@ -608,7 +609,7 @@ bool useDynamicBatching, useGPUInstancing;
     [SerializeField]
     bool useDynamicBatching = true, useGPUInstancing = true, useSRPBatcher = true;
 
-     
+     //重写抽象方法，需要返回一个RenderPipeline实例对象
     protected override RenderPipeline CreatePipeline()
     {
         return new CustomRenderPipeline(useDynamicBatching, useGPUInstancing, useSRPBatcher);
@@ -639,7 +640,7 @@ Blend 命令的语义有好几种，我们使用最常用的一种：Blend SrcFa
 Properties
       {
           _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
-          
+          //设置混合模式
           [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend ("Src Blend", Float) = 1
           [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend ("Dst Blend", Float) = 0
       }
@@ -652,7 +653,7 @@ Properties
 ```
 Pass
     {
-        
+        //定义混合模式
         Blend[_SrcBlend][_DstBlend]
         HLSLPROGRAM
 ```
@@ -661,19 +662,20 @@ Pass
 ![[Pasted image 20230619152849.png]]
 3. 透明物体的渲染一般要关闭深度写入，不然得不到正确的结果。我们在属性栏中定义是否写入深度的属性，然后在 Pass 中通过 ZWrite 语句控制是否写入深度缓冲。最后我们可以调整下透明物体的渲染队列为 3000，让其在不透明物体和天空盒之后渲染。
 
-```css
-[Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Blend", Float) = 1
+```cs
+ //设置混合模式
+      [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Blend", Float) = 1
       [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("Dst Blend", Float) = 0
-      
+      //默认写入深度缓冲区
       [Enum(Off, 0, On, 1)] _ZWrite("Z Write", Float) = 1
 ```
 
 ```cs
-Pass
+ Pass
       {
-          
+          //定义混合模式
           Blend[_SrcBlend][_DstBlend]
-          
+          //是否写入深度
           ZWrite[_ZWrite]
 ```
 
@@ -743,7 +745,7 @@ float4 UnlitPassFragment (Varyings input) : SV_TARGET
 {
     UNITY_SETUP_INSTANCE_ID(input);
     float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.baseUV);
-    
+    // 通过UNITY_ACCESS_INSTANCED_PROP访问material属性
     float4 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
     return baseMap * baseColor;
 }
@@ -762,7 +764,7 @@ Properties
       {
           _BaseMap("Texture", 2D) = "white" {}
           _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
-          
+           //透明度测试的阈值
           _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
 ```
 
@@ -795,6 +797,7 @@ return base;
 1. 首先添加一个控制着色器关键字的 Toggle 切换开关来控制是否启用透明度测试功能。
 
 ```cs
+ //透明度测试的阈值
 _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
   [Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
 ```

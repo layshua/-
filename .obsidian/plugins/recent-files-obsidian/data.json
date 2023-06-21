@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "4 方向阴影",
-      "path": "zBuffer/4 方向阴影.md"
-    },
-    {
       "basename": "3 方向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
     },
     {
       "basename": "2 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
+      "basename": "4 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/4 方向阴影.md"
     },
     {
       "basename": "工具流",
@@ -191,14 +199,6 @@
     {
       "basename": "真实感水体渲染",
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "NPR渲染管线概述",
-      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
-    },
-    {
-      "basename": "1679722497805",
-      "path": "zip/images/1679722497805.png"
     }
   ],
   "omittedPaths": [],
