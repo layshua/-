@@ -190,13 +190,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "23d48f64b0b1793e",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
@@ -224,7 +225,6 @@
     "zip/images/Pasted image 20230621105821.png",
     "zip/images/Pasted image 20230621105818.png",
     "Tools/工具流.md",
-    "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
