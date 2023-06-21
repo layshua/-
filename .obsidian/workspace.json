@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
               }
             }
           }
@@ -141,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +158,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,14 +190,28 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "23d48f64b0b1793e",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/5.md",
+    "zBuffer/5｜烘焙光照_Unity SRP 从零搭建一套图形渲染管线_UWA 学堂.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/4 方向阴影.md",
     "zip/images/Pasted image 20230621110102.png",
     "zip/images/Pasted image 20230621110051.png",
     "zip/images/Pasted image 20230621110049.png",
@@ -215,20 +229,6 @@
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
-    "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md",
-    "引擎Unity3D/5 头部项目/未命名.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
-    "zBuffer/Unity 渲染顺序（Rendering Order）.md",
-    "图形学/0 3D数学/3D数学.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "技术美术/4 UnityShader/庄懂AP01.md",
-    "技术美术/4 UnityShader/ASE.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",

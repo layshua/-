@@ -1,16 +1,68 @@
 {
   "recentFiles": [
     {
-      "basename": "3 方向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md"
+      "basename": "03 方向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "04 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
     },
     {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "06 阴影蒙版",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+    },
+    {
+      "basename": "16 渲染缩放",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
+    },
+    {
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+    },
+    {
+      "basename": "14 复杂纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
+    },
+    {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -19,10 +71,6 @@
     {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "4 方向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/4 方向阴影.md"
     },
     {
       "basename": "工具流",
@@ -151,54 +199,6 @@
     {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "总结",
-      "path": "图形学/3 软渲染器/软光栅/总结.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "3 OverDraw",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
-    },
-    {
-      "basename": "TinyRenderer",
-      "path": "图形学/3 软渲染器/软光栅/TinyRenderer.md"
-    },
-    {
-      "basename": "1 引言",
-      "path": "图形学/5 书籍/《RTR4》/1 引言.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "入门精要urp重写",
-      "path": "引擎Unity3D/4 URP/入门精要urp重写.md"
-    },
-    {
-      "basename": "三角函数",
-      "path": "Math/Others/三角函数.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     }
   ],
   "omittedPaths": [],
