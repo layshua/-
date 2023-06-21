@@ -5,20 +5,32 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客",
-      "path": "zBuffer/(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客.md"
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "02 Draw Call",
@@ -27,10 +39,6 @@
     {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "08 透明",
@@ -141,10 +149,6 @@
       "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
@@ -183,22 +187,6 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "4 场景剔除",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
     }
   ],
   "omittedPaths": [],

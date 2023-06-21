@@ -27244,6 +27244,7 @@ wzlg
 warframe
 whiteBalance
 whiteBalanceId
+weighed
 utools
 url
 unresolved
@@ -91809,6 +91810,7 @@ postExposure
 postFXSettings
 postFXStack
 positionSTS
+proportion
 nodesCatch
 nobr
 navy
@@ -115383,6 +115385,7 @@ iIII
 iMV
 iyU
 iiie
+incident
 shift
 svg
 sf
@@ -119985,6 +119988,7 @@ shadowBias
 shadowNearPlane
 shadowNormalBias
 shadowMaskChannel
+steradian
 local
 list
 left
@@ -135091,6 +135095,11 @@ rggg
 ruuE
 rxzz
 rDXE
+radiosity
+randomHemisphere
+randomHemisphereCosine
+randomSphere
+randomDisk
 XXXXXX
 XXX
 XML
@@ -150683,6 +150692,7 @@ FULL
 FLT
 FindProperty
 FinalPassFragment
+Frank
 Element
 Entity
 Enity
@@ -178003,6 +178013,7 @@ NoDistanceSort
 Neutral
 NeutralTonemap
 Nitro
+Neilyodog
 ZooAnima
 ZooAnimal
 ZTest
@@ -190406,6 +190417,7 @@ JIIQ
 Jhhh
 JLo
 JWO
+Jacobi
 Ke
 KjpKWmp
 KYW
