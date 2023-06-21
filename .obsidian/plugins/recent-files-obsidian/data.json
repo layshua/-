@@ -1,20 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "4 方向阴影",
+      "path": "zBuffer/4 方向阴影.md"
+    },
+    {
+      "basename": "3 方向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md"
+    },
+    {
       "basename": "2 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
     },
     {
       "basename": "Unity Git",
@@ -23,10 +39,6 @@
     {
       "basename": "Unity3D Shader： 科幻风线框渲染",
       "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
     },
     {
       "basename": "URP",
@@ -165,10 +177,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "1679722497805",
       "path": "zip/images/1679722497805.png"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
-    },
-    {
-      "basename": "0f3c00735859275a4fa201b4e4561037",
-      "path": "zip/images/0f3c00735859275a4fa201b4e4561037.png"
     }
   ],
   "omittedPaths": [],

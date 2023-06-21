@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
+                "file": "zBuffer/4 方向阴影.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
+                "file": "zBuffer/4 方向阴影.md"
               }
             }
           }
@@ -129,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
+                "file": "zBuffer/4 方向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
+                "file": "zBuffer/4 方向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,24 +180,28 @@
   },
   "active": "23d48f64b0b1793e",
   "lastOpenFiles": [
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/07 混合和剔除.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "zip/images/Pasted image 20230621104957.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/3 方向光.md",
+    "zBuffer/4 方向阴影.md",
+    "zip/images/Pasted image 20230621104855.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
-    "zip/images/Pasted image 20230621100730.png",
-    "zip/images/Pasted image 20230621095059.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
+    "Tools/工具流.md",
+    "zip/images/Pasted image 20230621104744.png",
+    "zip/images/Pasted image 20230621104739.png",
+    "zip/images/Pasted image 20230621104715.png",
+    "zip/images/Pasted image 20230621104648.png",
+    "zip/images/Pasted image 20230621104644.png",
+    "zip/images/Pasted image 20230621104640.png",
+    "zip/images/Pasted image 20230621104637.png",
+    "zip/images/Pasted image 20230621104630.png",
+    "zip/images/Pasted image 20230621104544.png",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/1 图形系统/07 混合和剔除.md",
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹",
-    "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md",
-    "zip/images/a0fe8c49e75de2c68b5da0cd54530a20_MD5.jpg",
-    "zip/images/fa326e65f3367438cde4a7678cc6e554_MD5.jpg",
-    "zip/images/e3f84da73479a45604fd4bef91214edc_MD5.jpg",
-    "zip/images/27b0e273f43f9f4c16fab8724920e5ac_MD5.jpg",
-    "zip/images/f57dba1c99c0cf1c04d4db0ce922dc06_MD5.jpg",
-    "zip/images/d67e4c9d54d127b7a4096c9869d80fc5_MD5.jpg",
-    "zip/images/5dc2507edf116aa5e7e22f31f16d4f67_MD5.jpg",
-    "zip/images/7c187a7cb51e6d853e3c773c29f126d7_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md",
     "引擎Unity3D/5 头部项目/未命名.md",
@@ -213,9 +217,6 @@
     "技术美术/4 UnityShader/庄懂AP01.md",
     "技术美术/4 UnityShader/ASE.md",
     "图形学/1 图形系统/10 色彩.md",
-    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
-    "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
-    "图形学/0 3D数学/公式推导/05 射线相交.md",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
     "引擎Unity3D/2 Shader精粹/《URP》",

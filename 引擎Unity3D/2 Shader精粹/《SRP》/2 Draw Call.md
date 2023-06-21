@@ -338,7 +338,7 @@ public class CustomRenderPipeline : RenderPipeline
 
 若想给相同的物体设置不同的颜色，那么每个物体都需要使用一个不同的材质并调整颜色，**我们接下来编写一个脚本，让所有相同物体使用同一个材质，但可以给每个物体设置不同的颜色。**
 
-在 CustomRP 下创建一个 Examples 子文件夹，新建脚本 `PerObjectMaterialProperties`，脚本中我们定义一个可以调整颜色的 baseColor 属性，并将颜色值通过 `MaterialPropertyBlock` 对象传递给材质。把这个脚本挂到每一个球体上面，然后设置不同的颜色。
+在 CustomRP 下创建一个 Examples 子文件夹，新建脚本 `PerObjectMaterialProperties.cs`，脚本中我们定义一个可以调整颜色的 baseColor 属性，并将颜色值通过 `MaterialPropertyBlock` 对象传递给材质。把这个脚本挂到每一个球体上面，然后设置不同的颜色。
 
 ```c
 [DisallowMultipleComponent]
@@ -749,15 +749,15 @@ float4 UnlitPassFragment (Varyings input) : SV_TARGET
 }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/20.1620405114276.png)
+
 ![[Pasted image 20230619152901.png]]
 我们当前使用的纹理 RGB 颜色值为白色，但 Alpha 不同，所以颜色不受影响，但透明度每个物体各有不同。
 
-**2.3.3 透明度测试（Alpha Test）**
+## 2.3.3 透明度测试（Alpha Test）
 
 1. 本节开头我们已经讲过了透明度测试的原理，只要一个片元的透明度不满足条件（通常是小于某个阈值），那么它对应的片元就会被舍弃，首先在属性栏中添加一个_Cutoff 属性作为舍弃像素的阈值。
 
-```
+```cs
 Properties
       {
           _BaseMap("Texture", 2D) = "white" {}
@@ -768,12 +768,12 @@ Properties
 
 2. 在 UnityPerMaterial 缓冲区中定义该属性，随后在片元函数中使用 clip() 函数舍弃不满足阈值的片元，它会判断传参如果为负数，就会舍弃当前像素的输出颜色（该片元就会产生完全透明的效果）。
 
-```
+```cs
 UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor)
 UNITY_DEFINE_INSTANCED_PROP(float, _Cutoff)
 ```
 
-```
+```cs
 float4 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
 float4 base = baseMap * baseColor;
 //透明度低于阈值的片元进行舍弃
@@ -781,26 +781,27 @@ clip(base.a - UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _Cutoff));
 return base;
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/21.1620405240523.png)
+
 ![[Pasted image 20230619152951.png]]
+
 材质通常使用透明度测试和透明度混合其中一个，而不是同时使用。透明度测试应使用在完全不透明的物体身上，除了被 clip 丢弃的片元外，其它片元会写入深度缓冲中。我们把混合模式设置成标准不透明物体的配置，然后开启深度写入，渲染队列设置为 AlphaTest。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/22.1620405279204.png)
 ![[Pasted image 20230619152953.png]]
-**2.3.4 Shader Feature**
+## 2.3.4 Shader Feature
 
-使用 shader feature 可以让 Unity 根据不同的定义条件或关键字编译多次，生成多个着色器变体。然后通过外部代码或者材质面板上的开关来启用某个关键字，加载对应的着色器变种版本来执行某些特定功能，是项目开发中比较常用的一种手段。下面我们的目标是添加一个控制透明度测试功能是否启用的开关。
+**使用 shader feature 可以让 Unity 根据不同的定义条件或关键字编译多次，生成多个着色器变体。然后通过外部代码或者材质面板上的开关来启用某个关键字，加载对应的着色器变种版本来执行某些特定功能，是项目开发中比较常用的一种手段**。
+下面我们的目标是添加一个控制透明度测试功能是否启用的开关。
 
 1. 首先添加一个控制着色器关键字的 Toggle 切换开关来控制是否启用透明度测试功能。
 
-```
+```cs
 _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
   [Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
 ```
 
-2. 在 Pass 中使用 shader feature 声明一个 Toggle 开关对应的_CLIPPING 关键字。
+2. **在 Pass 中使用 shader feature 声明一个 Toggle 开关对应的_CLIPPING 关键字。**
 
-```
+```cs
 HLSLPROGRAM
   #pragma shader_feature _CLIPPING
   #pragma multi_compile_instancing
@@ -808,7 +809,7 @@ HLSLPROGRAM
 
 3. 然后在片元函数中通过判断该关键字是否被定义，来控制是否进行裁剪操作。
 
-```
+```cs
 #if defined(_CLIPPING)
     
     clip(base.a - UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _Cutoff));
@@ -818,13 +819,13 @@ HLSLPROGRAM
 
 接下来就可以在材质面板中将控制裁剪功能启用。
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/23.1620405418529.png)
+
 ![[Pasted image 20230619152958.png]]
-**2.3.5 逐对象的裁剪**
+## 2.3.5 逐对象的裁剪
 
 1. 我们在 PerObjectMaterialProperties.cs 脚本中也添加裁剪的属性，可以给每个对象设置不同的裁剪程度，和设置颜色属性时差不多。
 
-```
+```cs
 static int baseColorId = Shader.PropertyToID("_BaseColor");
     static int cutoffId = Shader.PropertyToID("_Cutoff");
 
@@ -847,9 +848,9 @@ static int baseColorId = Shader.PropertyToID("_BaseColor");
     }
 ```
 
-2. 在 MeshBall.cs 脚本绘制多个小球时也进行一些调整。首先我们让每个小球的旋转角度增加一个随机变化，我们不设置每个小球的裁剪值，而是让每个小球的 Alpha 值在 [0.5,1] 区间内进行随机，最后可以通过调整材质上的裁剪值来控制小球的裁剪。
+2. 在 MeshBall.cs 脚本绘制多个小球时也进行一些调整。首先我们让每个小球的旋转角度增加一个随机变化，**我们不设置每个小球的裁剪值，而是让每个小球的 Alpha 值在 $[0.5,1]$ 区间内进行随机，最后可以通过调整材质上的裁剪值来控制小球的裁剪。**
 
-```
+```cs
 matrices[i] = Matrix4x4.TRS(Random.insideUnitSphere*10f, Quaternion.Euler
                 (
                     Random.value * 360f, Random.value * 360f, Random.value * 360f
@@ -858,4 +859,4 @@ matrices[i] = Matrix4x4.TRS(Random.insideUnitSphere*10f, Quaternion.Euler
                 baseColors[i] = new Vector4(Random.value,Random.value,Random.value,Random.Range(0.5f, 1f));
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/24.1620405536241.png)![[Pasted image 20230619153002.png]]
+![[Pasted image 20230619153002.png]]
