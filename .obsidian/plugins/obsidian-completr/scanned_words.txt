@@ -15772,6 +15772,7 @@ glEndQuery
 glGetQueryObjectiv
 glDeleteQueries
 globalIlluminationFlags
+gameobject
 typora
 todo
 tooltip
@@ -23646,6 +23647,7 @@ midtonesWeight
 mixedLightingMode
 maxShadowedDirectionalLightCount
 maskChannel
+mph
 windows
 win
 width
@@ -49676,6 +49678,7 @@ UaS
 UnlitInput
 UseProxyVolume
 UnityPerdraw
+UnityAsk
 api
 ac
 app
@@ -79735,6 +79738,7 @@ ColorGradingLUTParameters
 ColorGradingLUTInLogC
 CopyProbeOcclusionArrayFrom
 CascadeData
+ClosestPowerOfTwo
 ImTip
 IMAP
 ID
@@ -177998,6 +178002,7 @@ Nordeus
 NoDistanceSort
 Neutral
 NeutralTonemap
+Nitro
 ZooAnima
 ZooAnimal
 ZTest

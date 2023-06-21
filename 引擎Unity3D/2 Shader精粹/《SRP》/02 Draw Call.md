@@ -407,7 +407,7 @@ HLSLPROGRAM
    UnityInstancing.hlsl 中定义了 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏来简化了这个过程，**步骤如下：**
     1. 我们定义一个顶点输入结构体，将 positionOS 的定义放进来，然后在结构体中加入 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏
     2. 将该结构体对象作为顶点函数的输入参数。
-    3. 在顶点函数添加 `UNITY_SETUP_INSTANCE_ID(input)` 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中。
+    3. 在顶点函数添加 **`UNITY_SETUP_INSTANCE_ID(input)` 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中**。
 
 ```c
 //用作顶点函数的输入参数

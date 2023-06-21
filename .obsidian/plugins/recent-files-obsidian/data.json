@@ -5,12 +5,28 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客",
+      "path": "zBuffer/(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "ShaderLab",
@@ -19,14 +35,6 @@
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
     },
     {
       "basename": "04 方向阴影",
@@ -191,14 +199,6 @@
     {
       "basename": "4 场景剔除",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md"
-    },
-    {
-      "basename": "5 着色基础",
-      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "技术美术/4 UnityShader/TA101.md"
     }
   ],
   "omittedPaths": [],
