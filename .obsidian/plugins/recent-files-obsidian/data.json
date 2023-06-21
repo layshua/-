@@ -5,12 +5,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
       "basename": "PBR疑问",
       "path": "技术美术/7 PBR/PBR疑问.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "《Unity Primer》",
