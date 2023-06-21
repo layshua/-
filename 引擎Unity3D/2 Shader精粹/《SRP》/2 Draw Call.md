@@ -248,7 +248,7 @@ float4 UnlitPassFragment() : SV_TARGET
 # 2.2 批处理
 
 ## 2.2.1 Draw Call 和 Set Pass Call
-
+![[Pasted image 20230621095059.png|350]]
 **要想 CPU 和 GPU 既可以并行又可以独立工作，要使用一个命令缓冲区（Command Buffer）**。命令缓冲区包含了一个命令队列，当 CPU 需要渲染一些对象时，它会通过图像编程接口向命令缓冲区添加命令，当 GPU 完成上一次的渲染任务后，它会从命令队列中读取一个命令并执行它，添加和读取的过程是相互独立的。
 
 **命令缓冲区的命令有很多种类，而 Draw Call 就是其中一种，其它命令还有 Set Pass Call 等等**。
@@ -621,22 +621,9 @@ bool useDynamicBatching, useGPUInstancing;
 ![[Pasted image 20230619152814.png]]
 # 2.3 Alpha Blend 和 Alpha Test
 
-透明是很常用的一种效果，在实时渲染中要实现透明效果，通常会在渲染模型时控制它的透明通道。在开启透明混合后，当一个物体被渲染到屏幕上，每个片元除了颜色值和深度值以外，还有一个透明度的属性：为 1 表示该像素是完全不透明的； 为 0 表示该像素完全不会显示。在 Unity 中我们通常使用两种方法来实现透明效果：第一种是透明度测试（Alpha Test），这种方法其实完全无法得到真正的半透明效果；另一种是透明度混合（Alpha Blend）。
-
-渲染顺序问题也是很重要的。对于不透明物体，不考虑它们的渲染顺序也能得到正确的排序结果，这是由于强大的深度缓冲（Depth Buffer，也叫 Z-buffer）的存在。在实时渲染中，深度缓冲是用于解决可见性问题的，它可以决定哪个物体的哪些部分会被渲染在前面，而哪些部分会被其它物体遮挡。它的基本思想是：根据深度缓存中的值来判断该片元距离摄像机的距离。当渲染一个片元时，需要把它的深度值和已经存在于深度缓冲中的值进行比较（如果开启了深度测试），如果它的值距离摄像机更远，那么说明这个片元不应该被渲染到屏幕上（有物体挡住了它）；否则，这个片元应该覆盖掉此时颜色缓冲中的像素值，并把它的深度值更新到深度缓冲中（如果开启了深度写入）。
-
-  
-使用深度缓冲，可以让我们不用关心不透明物体的渲染顺序，例如 A 挡住 B，即便我们先渲染 A 再渲染 B，也不用担心 B 会遮盖掉 A，因为在进行深度测试时会判断出 B 距离摄像机更远，也就不会写入到颜色缓冲中。如果想要实现透明效果，事情就不那么简单了，因为当使用透明度混合时，我们会关闭深度写入（ZWrite）。
-
-透明度测试（Alpha Test）和透明度混合（Alpha Blend）的基本原理如下：
-
-（1）透明度测试：采用极端霸道的方式，只要一个片元的透明度不满足条件（通常是小于某个阈值），那么它对应的片元就会被舍弃。被舍弃的片元将不再进行任何处理，也不会对颜色缓冲产生影响，否则就按照普通不透明物体的处理方式来处理它，即进行深度测试，深度写入等。透明度测试是不需要关闭深度写入的，它和其它不透明物体最大的不同就是它会根据透明度来舍弃一些片元。虽然简单但产生的效果也很极端，要么完全透明要么完全不透明，而且它会使得硬件底层的优化技术 Early-Z 失效（将深度测试提前到片元着色器之前，减少片元计算量，减少 overdraw）。
-
-（2）透明度混合：这种方法可以得到真正的半透明效果，它会使用当前片元的透明度作为混合因子，与已经存储在颜色缓冲中的颜色值进行混合，得到新的颜色。但是透明度混合需要关闭深度写入，这使得我们要非常小心物体的渲染顺序。需要注意的是，透明度混合只是关闭了深度写入，但没有关闭深度测试。这意味着当使用透明度混合渲染一个片元时，还是会比较它的深度值与当前深度缓冲的深度值，如果它的深度值距离摄像机更远，那么就不会再进行混合操作。这一点决定了，当一个不透明物体出现在一个透明物体的前面，即使我们先渲染了不透明物体，它仍然可以正常地遮挡住透明物体，对于透明度混合来说，深度缓冲是只读的。
-
 目前我们的 Unlit.shader 只支持不透明材质，现在我们做些修改，让它可以切换成透明材质。
 
-**2.3.1 Blend Modes**
+## 2.3.1 Blend Modes
 
 为了进行混合，我们需要使用 Unity 的混合命令——Blend，这是 Unity 提供的设置混合模式的命令。想要实现半透明效果就需要把自身的颜色和已经存在于颜色缓冲中的颜色值进行混合，混合时使用的函数就是由该命令提供的。
 
@@ -646,30 +633,9 @@ Blend 命令的语义有好几种，我们使用最常用的一种：Blend SrcFa
 
 示例：float4 result = SrcFactor * fragment_output + DstFactor * pixel_color。
 
-  
-下面给出 ShaderLab 支持的一些混合因子，对应参数的描述：
-
-  
-One：因子为 1  
-Zero：因子为 0  
-SrcColor：源颜色值  
-SrcAlpha：源颜色的透明通道的值  
-DstColor：目标颜色值  
-DstAlpha：目标颜色的透明通道的值  
-OneMinusSrcColor：1 - 源颜色值  
-OneMinusSrcAlpha：1 - 源颜色的透明通道的值  
-OneMinusDstColor：1 - 目标颜色值  
-OneMinusDstAlpha：1 - 目标颜色的透明通道的值  
-Blend operations：混合操作
-
-  
-通过混合操作和混合因子命令的组合，我们可以得到一些类似 Photoshop 混合模式中的混合效果，下图是一些常用的混合模式：
-![[Pasted image 20230619152837.png]]
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/16.1620404638523.png)
-
 1. 我们在 Shader 的属性中添加这两个混合因子，默认源混合因子是 1，表示完全添加，目标混合因子是 0，表示完全忽略，这是标准的不透明混合模式。
 
-```
+```cs
 Properties
       {
           _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
@@ -679,7 +645,7 @@ Properties
       }
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/17.1620404688699.png)
+
 ![[Pasted image 20230619152846.png]]
 2. 标准透明物体混合模式源混合因子为 SrcAlpha，所以混合等式为源颜色（该片元产生的颜色）的 RGB 乘上源颜色的 Alpha 值，目标混合因子为 OneMinusSrcAlpha，代表颜色缓冲中的颜色值乘以（1 - 源颜色的 Alpha 值） 。我们在 Pass 中使用 Blend 语句来定义混合模式，并在材质面板中设置标准透明物体的源和目标混合因子。
 
@@ -691,18 +657,18 @@ Pass
         HLSLPROGRAM
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/18.1620404760699.png)
+
 ![[Pasted image 20230619152849.png]]
 3. 透明物体的渲染一般要关闭深度写入，不然得不到正确的结果。我们在属性栏中定义是否写入深度的属性，然后在 Pass 中通过 ZWrite 语句控制是否写入深度缓冲。最后我们可以调整下透明物体的渲染队列为 3000，让其在不透明物体和天空盒之后渲染。
 
-```
+```css
 [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Blend", Float) = 1
       [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("Dst Blend", Float) = 0
       
       [Enum(Off, 0, On, 1)] _ZWrite("Z Write", Float) = 1
 ```
 
-```
+```cs
 Pass
       {
           
@@ -711,21 +677,22 @@ Pass
           ZWrite[_ZWrite]
 ```
 
-![](https://uwa-edu.oss-cn-beijing.aliyuncs.com/19.1620404858989.png)
+
 ![[Pasted image 20230619152853.png]]
-**2.3.2 材质添加对纹理的支持**
+## 2.3.2 材质添加对纹理的支持
 
 1. 我们的材质球目前还不支持使用纹理，现在添加这个功能，在属性栏声明一张纹理。
 
-```
+```cs
 Properties
     {
         _BaseMap("Texture", 2D) = "white" {}
 ```
 
-2. Unity 会自动将使用的纹理上传到 GPU 内存中，然后使用 TEXTURE2D() 宏定义一张 2D 纹理，并使用 SAMPLER（sampler + 纹理名）这个宏为该纹理指定一个采样器。纹理和采样器是着色器资源，必须在全局定义，不能放入缓冲区中。除此之外还需要获取纹理的平铺和偏移值，这是通过定义一个 float4 类型的纹理名_ST 属性来获取的，该属性可以在 UnityPerMaterial 缓冲区中定义，设置给每个对象实例。
+1. Unity 会自动将使用的纹理上传到 GPU 内存中，然后使用 `TEXTURE2D()` 宏定义一张 2D 纹理，并使用 `SAMPLER（sampler + 纹理名）` 这个宏为该纹理指定一个采样器。**纹理和采样器是着色器资源，必须在全局定义，不能放入缓冲区中**。
+2. 除此之外**还需要获取纹理的平铺和偏移值**，这是通过定义一个 float4 类型的纹理名`_ST` 属性来获取的，该属性可以在 UnityPerMaterial 缓冲区中定义，设置给每个对象实例。
 
-```
+```cs
 TEXTURE2D(_BaseMap);
 SAMPLER(sampler_BaseMap);
 
@@ -738,7 +705,7 @@ UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
 
 3. 要采样纹理，我们还需要一套 UV 坐标，它应该被定义在顶点输入结构体中，纹理坐标要传到片元函数中进行采样，所以片元输入结构体也要定义 UV 坐标。
 
-```
+```cs
 //用作顶点函数的输入参数
 struct Attributes 
 {
@@ -757,7 +724,7 @@ struct Varyings
 
 4. 在顶点函数中，传递纹理坐标之前把为纹理的缩放和偏移也计算在内。
 
-```
+```cs
 //顶点函数
 Varyings UnlitPassVertex(Attributes input) {
     ...
@@ -770,7 +737,7 @@ Varyings UnlitPassVertex(Attributes input) {
 
 5. 最后我们将片元函数通过 SAMPLE_TEXTURE2D 宏对纹理采样，采样结果和颜色值相乘得到最终表面颜色。
 
-```
+```cs
 //片元函数
 float4 UnlitPassFragment (Varyings input) : SV_TARGET 
 {

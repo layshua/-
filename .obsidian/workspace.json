@@ -20,6 +20,18 @@
             }
           },
           {
+            "id": "f4951722e684465a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/08 透明.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "80699013466fa0bc",
             "type": "leaf",
             "state": {
@@ -168,6 +180,12 @@
   },
   "active": "23d48f64b0b1793e",
   "lastOpenFiles": [
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
+    "zip/images/Pasted image 20230621100730.png",
+    "zip/images/Pasted image 20230621095059.png",
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹",
@@ -176,22 +194,16 @@
     "zip/images/fa326e65f3367438cde4a7678cc6e554_MD5.jpg",
     "zip/images/e3f84da73479a45604fd4bef91214edc_MD5.jpg",
     "zip/images/27b0e273f43f9f4c16fab8724920e5ac_MD5.jpg",
-    "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md",
-    "图形学/1 图形系统/07 混合和剔除.md",
-    "图形学/1 图形系统/08 透明.md",
     "zip/images/f57dba1c99c0cf1c04d4db0ce922dc06_MD5.jpg",
     "zip/images/d67e4c9d54d127b7a4096c9869d80fc5_MD5.jpg",
     "zip/images/5dc2507edf116aa5e7e22f31f16d4f67_MD5.jpg",
     "zip/images/7c187a7cb51e6d853e3c773c29f126d7_MD5.jpg",
-    "zip/images/ff2428b09d1ecfbd884d7e10d187ee2d_MD5.jpg",
-    "zip/images/a87c99ff41f9cd0d77c5f8e06e1aad09_MD5.gif",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md",
     "引擎Unity3D/5 头部项目/未命名.md",
     "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "zBuffer/Unity 渲染顺序（Rendering Order）.md",
     "图形学/0 3D数学/3D数学.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "图形学/1 图形系统/06 深度测试.md",
     "图形学/1 图形系统/05 模板测试.md",
     "图形学/1 图形系统/04 纹理.md",

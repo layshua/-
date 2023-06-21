@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
     },
     {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
       "basename": "Unity Git",
       "path": "Tools/Git/Unity Git.md"
     },
@@ -15,14 +27,6 @@
     {
       "basename": "1 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
     },
     {
       "basename": "URP",
@@ -43,10 +47,6 @@
     {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "06 深度测试",
