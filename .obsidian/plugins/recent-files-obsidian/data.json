@@ -1,56 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "庄懂AP01",
-      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "zBuffer/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "2 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
+    },
+    {
+      "basename": "1 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "DrawCall，Batches，SetPass calls",
+      "path": "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "引擎Unity3D/5 头部项目/未命名.md"
     },
     {
       "basename": "冯乐乐入门精要",
       "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
     },
     {
-      "basename": "ASE",
-      "path": "技术美术/4 UnityShader/ASE.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
-    },
-    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
     {
-      "basename": "05 射线相交",
-      "path": "图形学/0 3D数学/公式推导/05 射线相交.md"
-    },
-    {
-      "basename": "04 纹理映射",
-      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "08 透明",
@@ -85,16 +69,48 @@
       "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
     },
     {
-      "basename": "Unity 渲染顺序（Rendering Order）",
-      "path": "zBuffer/Unity 渲染顺序（Rendering Order）.md"
+      "basename": "ASE",
+      "path": "技术美术/4 UnityShader/ASE.md"
     },
     {
-      "basename": "1 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/1 自定义渲染管线.md"
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "3 图形处理单元GPU",
+      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+    },
+    {
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
+      "basename": "05 射线相交",
+      "path": "图形学/0 3D数学/公式推导/05 射线相交.md"
+    },
+    {
+      "basename": "04 纹理映射",
+      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "4 场景剔除",
@@ -125,10 +141,6 @@
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
-      "basename": "2 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/2 Draw Call.md"
-    },
-    {
       "basename": "3 OverDraw",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
     },
@@ -155,10 +167,6 @@
     {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md"
     },
     {
       "basename": "入门精要urp重写",
@@ -191,14 +199,6 @@
     {
       "basename": "2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture",
       "path": "zip/images/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png"
-    },
-    {
-      "basename": "由浅入深学习 PBR 的原理和实现",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
-    },
-    {
-      "basename": "1679148471306",
-      "path": "zip/images/1679148471306.png"
     }
   ],
   "omittedPaths": [],

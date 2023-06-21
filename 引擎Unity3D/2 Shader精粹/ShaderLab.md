@@ -984,7 +984,16 @@ Shader 关键词格式为：`property name_enum name`，属性名称+“下画�
 [Header(name)]  //标题名
 ```
 
-### Space
+
+# 封装shader方法
+封装方法必须声明在前才能使用
+![[Pasted image 20221018211833.png]]
+# 封装cgnic库
+新建文件: XXX. cgnic
+unity 内无法直接创建，可以使用 IDE 创建
+
+在 shader 中使用： # include “路径” 
+![[Pasted image 20221018211856.png]]
 
 # 升级 URP
 本文是基于7.3版本的 URP 编写的，有些暂时还不支持的内容可能在后续版本更新迭代。
