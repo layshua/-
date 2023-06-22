@@ -871,7 +871,7 @@ Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，
 
 
 # 自定义材质面板
-Unity 为用户提供了基础类：MaterialPropertyDrawer，专门用于快速实现自定义材质面板的目的。
+Unity 为用户提供了基础类：`MaterialPropertyDrawer`，专门**用于快速实现自定义材质面板**的目的。
 ## 不同类型的 DrawerClass
 ![[Pasted image 20230615172023.png]]
 在编写 Shader 的时候，DrawerClass 需要写在对应属性之前的“[]”中，类别的后缀名称“Drawer”不需要添加，因为 Unity 在编辑的时候会自动添加。

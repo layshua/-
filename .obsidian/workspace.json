@@ -13,30 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d025298d4e276ddd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5687bf90d515d62a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "mode": "source",
                 "source": false
@@ -66,9 +42,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "4ac7e2e411d2d9f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -203,14 +191,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "80699013466fa0bc",
+  "active": "4ac7e2e411d2d9f6",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zip/images/Pasted image 20230622155106.jpg",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "图形学/1 图形系统/08 透明.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/(33 条消息) Unity 编辑器基础 EditorGUILayout （大部分用法）_一只学习的小鸟的博客 - CSDN 博客.md",
     "zip/images/0a481a9bf1f3e1e14d93e154d99d1b44_MD5.png",
     "zip/images/06a49d958bf7cb0e0728a892d41faf46_MD5.png",
@@ -240,7 +229,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
