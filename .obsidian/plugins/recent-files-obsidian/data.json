@@ -5,6 +5,74 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     },
     {
+      "basename": "3 阴影1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 阴影1.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "总结",
+      "path": "图形学/3 软渲染器/软光栅/总结.md"
+    },
+    {
+      "basename": "TinyRenderer",
+      "path": "图形学/3 软渲染器/软光栅/TinyRenderer.md"
+    },
+    {
+      "basename": "透视矫正插值",
+      "path": "图形学/3 软渲染器/软光栅/透视矫正插值.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "图形学/3 软渲染器/软光追/未命名.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "04 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
+    },
+    {
+      "basename": "06 阴影蒙版",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
       "basename": "14 工业界主流方法",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
     },
@@ -41,40 +109,20 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md"
     },
     {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
       "basename": "4 阴影2",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/4 阴影2.md"
-    },
-    {
-      "basename": "3 阴影1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 阴影1.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "05-Lighting_ Materials and Shaders - Bo's Blog",
@@ -105,10 +153,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
-      "basename": "04 方向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
-    },
-    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -127,10 +171,6 @@
     {
       "basename": "03 方向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "11 HDR",
@@ -153,52 +193,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
-      "basename": "06 阴影蒙版",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
-    },
-    {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
     },
     {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "PBR疑问",
-      "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
     }
   ],
   "omittedPaths": [],

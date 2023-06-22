@@ -10,6 +10,9 @@ cssclass: academia, academia-rounded
 banner: "![[Pasted image 20230506154153.png]]"
 ---
 
+> [!NOTE]
+> 注明：前几章已经整理到到图形系统笔记中了。
+
 # **几何**
 
 ### **几何表示方法的分类**
