@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
+      "basename": "4 实时阴影2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     },
     {
       "basename": "3 实时阴影1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
     },
     {
-      "basename": "7 阴影",
-      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
+      "basename": "2 CG基础概述",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     },
     {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "7 阴影",
+      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
     },
     {
       "basename": "微积分基础",
@@ -47,10 +51,6 @@
     {
       "basename": "6 纹理化",
       "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
-    },
-    {
-      "basename": "2 CG基础概述",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     },
     {
       "basename": "01 渲染管线",
