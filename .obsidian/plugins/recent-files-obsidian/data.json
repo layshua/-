@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
+      "basename": "03 方向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
@@ -13,16 +25,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "(33 条消息) Unity 编辑器基础 EditorGUILayout （大部分用法）_一只学习的小鸟的博客 - CSDN 博客",
@@ -31,10 +35,6 @@
     {
       "basename": "Unity 自定义 Shader GUI",
       "path": "zBuffer/Unity 自定义 Shader GUI.md"
-    },
-    {
-      "basename": "03 方向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
       "basename": "04 方向阴影",
