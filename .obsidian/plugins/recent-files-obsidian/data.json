@@ -1,22 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "03 方向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -25,16 +9,40 @@
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "Unity 自定义 Shader GUI",
+      "path": "zBuffer/Unity 自定义 Shader GUI.md"
+    },
+    {
+      "basename": "03 方向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
+    },
+    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "PBR疑问",
-      "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
       "basename": "04 方向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
     },
     {
       "basename": "01 自定义渲染管线",
@@ -51,10 +59,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "06 阴影蒙版",

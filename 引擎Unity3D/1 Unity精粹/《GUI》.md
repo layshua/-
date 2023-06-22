@@ -380,7 +380,7 @@ private void OnGUI()
   GUI.Button(new Rect(300,300,100,100),"按钮2");
 }
 ```
-## 12 布局
+## 12 布局 GUILayout
 不需要传 Rect 位置参数，自动布局，主要用于编辑器开发（编辑器 UI 排列比较整齐简单）, 不适合作为游戏UI
 
 ![[Pasted image 20230607230430.png]]
@@ -1240,3 +1240,236 @@ Ignore Parent Groups: 是否忽略父级 CanvasGroup 的作用
 DoTween—缓动插件，可以制作一些缓动效果
 
 TextMeshPro: 一文本网格插件，可以制作更多的特效文字
+
+# SimpleShaderGUI（插件）
+
+最近抽空学习并弄了一个通用的 Shader GUI，你可以使用他轻松的组织你的 shader 属性。他非常的方便，并且兼容 Unity 内置的属性样式例如 [Header ()]、[Space]、[Toggle]、[Enum] 等
+
+在介绍如何使用前，先感谢那些大佬无私的奉献，让我少走了很多弯路，参考已放在文章最后。
+
+## 目录
+
+1.  URP Shader 模板
+2.  使用 SimpleShaderGUI
+3.  折叠属性
+4.  切换属性
+5.  纹理属性
+6.  向量属性
+7.  范围属性
+8.  兼容于扩展
+9.  工程
+10.  参考
+
+## 1. URP Shader 模板
+
+众所周知，目前 Unity 没有提供创建 URP Shader 的模板，在编写 URP shader 时需要建一个 UnlitShader，然后在对其进行修改。
+
+我在这里编写了一个 URP Shader 模板，你可以通过右键 Create->Shader->URP Shader 来创建他，该模板具有基础的 URP 格式，并使用了我自定义的 ShaderGUI，你可以通过修改 CustomShaderGUI/Editor/Template/URPShader 来修改这么模板
+
+模板的创建使用了[雨松大佬的方法](https://www.xuanyusong.com/archives/3732)
+
+![[4ee2ec6f75f2474aaadb4e98bdd530d7_MD5.gif]]
+
+## 2. 使用 SimpleShaderGUI
+
+使用时只需要在 Shader 最后添加 ShaderGUI 的引用 Scarecrow. SimpleShaderGUI，之后像使用 Unity 内置的属性绘制一样就可以，下面将说明目前的属性有哪些
+
+![[966717cc548efc2f7b7562bd9fb1dd3b_MD5.png]]
+
+Unity 自带的属性绘制可以参考以下文章
+
+[【Unity Shader】自定义材质面板的小技巧](https://blog.csdn.net/candycat1992/article/details/51417965) [喵喵 Mya：Shader 面板上常用的一些内置 Enum](https://zhuanlan.zhihu.com/p/93194054)
+
+在使用该 ShaderGUI 时，如果你的属性中包含以下俩个属性_SrcBlend、_DstBlend。将会自动在材质顶部生成不透明和半透明的切换按钮
+
+![[94cc68aa35c11c82d749ca6a7e5b802e_MD5.png]]
+
+## 3. 折叠属性
+
+折叠页使用了 World 标签的形式，使用这种方式可以轻松的制作和管理嵌套折叠页 (之前还考虑使用标签语言的方式，但发现太麻烦了就弃用了...)
+
+![[861d61308f18ef896f6cf942f61f3bea_MD5.jpg]]
+
+```
+//foldoutLevel      折叠页等级，折叠页最低等级为1级(默认1级折叠页)
+        //foldoutStyle      折叠页外观样式(默认第一种)，目前有3种 1 大折叠页样式， 2 中折叠页样式, 3 小折叠页样式
+        //foldoutToggleDraw 折叠页 复选框是否绘制， 0 不绘制 , 1绘制 
+        //foldoutOpen       折叠页初始展开状态，    0 折叠， 1展开
+        //showList          填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
+        public FoldoutDrawer(float foldoutLevel = 1, float foldoutStyle = 1, float foldoutToggleDraw = 0, float foldoutOpen = 1, params string[] showList)
+```
+
+1.  **foldoutLevel 折叠页等级:** 就像 World 一样，你可以选择折叠页的等级，级别低 (数字大) 的就会被嵌套在级别高的折叠页中
+2.  **foldoutStyle 折叠页外观样式:** 目前一共有三种样式，通过 1~3 进行选择
+3.  **foldoutToggleDraw 是否绘制复选框:** 控制复选框是否被绘制 0 不绘制， 1 绘制
+4.  **foldoutOpen 折叠页初始展开状态:** 0 折叠， 1 展开
+5.  **showList 显示项列表:** 该属性配合切换属性进行使用，当列表中任意一个选项被选中时该折叠页 (以及折叠页里的属性) 将会被绘制，否则将不绘制
+
+![[08a4d7a0bd3222e123ebb856cc6a6809_MD5.jpg]]
+
+**特别需要注意的是折叠页显示的名字必须以_Foldout 结尾，他只起表示作用，属性为 float。属性的初始值 0 为禁用折叠页，1 为启用折叠页**
+
+当勾选复选框时，将会对材质设置关键字 **大写属性名_ON**，你可以使用他进行一些操作，例如
+
+![[5e80ffa77b2beccde834b0980d821620_MD5.webp]]
+
+showList 将会和切换属性一起说明
+
+**3.1 跳出折叠页**
+
+如果你想将内容跳出当前折叠页，你可以使用 [Foldout_Out]
+
+```
+public Foldout_Out(float foldoutLevel = 1)
+```
+
+foldoutLevel 跳出折叠页等级: 比如你的属性在 3 级折叠页中，你可以选择跳到 2 级或者 1 级，例如将颜色属性跳出 2 级折叠页
+
+![[bec36c29d34892780d70ed0b0415aeca_MD5.gif]]
+
+**4. 切换属性**
+
+切换属性它可以控制你指定的属性显示或隐藏，他与折叠页不同，折叠页只是把属性折叠起来。在介绍切换属性前，先了解一下他的工作原理
+
+切换属性一共有两种控件，一个是复选框 [Toggle_Switch]、另一个是菜单栏 [Enum_Switch]。我们有一个选项池，用来存储被选中的选项。当复选框被勾选、或者菜单栏某个选项被选中都会向选项池里添加该选项。其他属性需要输入他显示的选项列表，当他显示列表中的选项至少有一个存在选项池里，该属性将会被显示出来。如下图
+
+![[022bd850241f5576f169c45ec1a125bd_MD5.jpg]]
+
+如上图，颜色 1 属性会不显示、颜色 2 属性将会显示出来，接下来来了解下切换控件吧
+
+**4.1 复选框切换**
+
+他和 Unity 的 [Toggle] 一样，只是名称需要换成[Toggle_Switch]
+
+![[f400abc347da3eeed1f7287d0abfa507_MD5.jpg]]
+
+![[58a55d8637634ddee7f5895bd735bd80_MD5.jpg]]
+
+选中时会设置 **大写属性名_ON** 的关键字，如上就会设置 TOGGLE1_ON
+
+**4.2 菜单栏切换**
+
+他和 Unity 的 [Enum] 一样 (只是目前不支持直接输入枚举), 需要名称换成[Enum_Switch]
+
+你需要对他进行传参 (任意多)，该参数表示菜单栏中的选项
+
+![[2397a234baa7ddba9b513f3ce0ff4ee6_MD5.jpg]]
+
+![[0c52f1ddc30f18653044fc7f38a173b6_MD5.jpg]]
+
+选中会设置 **大写属性名_大写选项名** 的关键字，如上就会设置 **_ENUM1_ENUM2**
+
+**4.3 显示控件**
+
+对于一般的属性使用 [Switch] 来进行属性的显示切换，但对于已经使用绘制的属性来说 (例如折叠页、纹理、向量等) 在属性最后面的 showList 就是他的显示列表
+
+下面来看下 [Switch] 的使用
+
+![[2588712904f9b7dde277f69bcdac2f11_MD5.jpg]]
+
+![[f5723f5a37a5868d4809865a6cec3e94_MD5.gif]]
+
+但是对于折叠页那样的属性，已经使用了 [Foldout] 绘制，所以他不能使用 [Switch] 来进行切换。不过我在参数的最后面留有了显示列表的接口 (showList) 提供使用，其他属性也是一样的。当折叠页不显示时，他里面的所有东西也会不显示。当参数为空时他将一直显示
+
+![[003dbfe6e18e6ec002893d23e93cefdf_MD5.jpg]]
+
+![[3bb56a0296d6ac690eadedde37ae03d6_MD5.webp]]
+
+他的自由度非常高，你甚至可以通过以下方式来控制使用纹理的数量
+
+![[194e41d1ba0786f1d6b98c521bb51f42_MD5.jpg]]
+
+![[863ea8cc16362472b5dbfe3bfff01a55_MD5.gif]]
+
+**4.4 注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
+
+**在使用该切换控件时有两点需要特别注意，当然你可能不知道意味着什么，当你出了问题时会想起来的**
+
+1.  **切换控件一定要在使用该选项的属性前面 (在属性列表中把他放在前面)，因为只有记录了该控件的选项你才能使用该选项**
+2.  **切换控件一定要比使用该选项的属性优先显示，出于某些骚操作，你可能会将切换控件和显示属性放在两个不同的折叠页中，当切换控件被折叠时，依然不会记录选中的选项**
+
+**一般是不会有问题的，这是考虑某些极端的骚操作所留下来的问题，当你遇到问题时，看看是不是犯了这两个错误**
+
+**5. 纹理属性**
+
+这里提供了一个单行纹理的显示方式，并且纹理后面可以选择跟一个属性
+
+```
+//addProName    要在纹理后面绘制属性的名字
+//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
+public TexDrawer(string addProName, params string[] showList)
+```
+
+*   addProName 纹理后面要显示属性的名字
+*   showList 显示选项列表，当任意一个被选中时，该属性将会显示
+
+![[38abc1f9fd524893e995b07175ce09dc_MD5.jpg]]
+
+![[02164397a33b7d0125089faadd98b224_MD5.jpg]]
+
+使用 [NoScaleOffset] 就可以不显示缩放属性
+
+**6. 向量属性**
+
+这里把[喵爷控制方向的属性整合 (搬(抄)) 了过来](https://zhuanlan.zhihu.com/p/97256929)
+
+```
+//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
+public Vector3Drawer (params string[] showList)
+```
+
+![[b19a96b37f21a1096242011f17827f3e_MD5.png]]
+
+![[01ae48d06ea268ec35ef44958e421614_MD5.gif]]
+
+使用时你需要选中一个物体，然后再点击 Set。他将会设置一个世界空间下的向量
+
+需要注意的是如果你想使用该向量来计算光照，你应该使用该向量的相反数
+
+![[917748b8a51dea55179177c0ad0419a9_MD5.jpg]]
+
+**7. 范围属性**
+
+该属性会生成一个范围的滑块控件，在你向指定某一个范围时会很有用
+
+```
+//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
+public RangeDrawer(params string[] showList)
+```
+
+![[610a7492671d8d8035e68a1c2abbdfc0_MD5.png]]
+
+![[cd5e00cc0c3ee6b03037267428f5e995_MD5.gif]]
+
+**8. 兼容于扩展**
+
+该 ShaderGUI 使用的是 Unity 2020.2.3f1c1 制作的，其他版本没有测试，在制作时发现 SceneView. onSceneGUIDelegate 在新版将被弃用，所以使用的是 SceneView. duringSceneGui。如果你在旧版的 unity 中使用报这个错误，你可以将其替换回来。
+
+如果你想要拓展自己的属性绘制方法，直接继承 MaterialPropertyDrawer 就好。并不会造成冲突。如果想使用切换控件来控制自己属性的显示，你可以参考 PropertyGUI_Texture. cs 来看如何使用他
+
+如果你想要学习这方面的知识，你可以直接查看代码，里面的注释我已经写的非常详细
+
+**9. 工程**
+
+*   暂时放在了网盘里，注意这里不会及时更新，建议去 github 下载最新版本
+
+链接：[https://pan.baidu.com/s/17-vVMD4tY8x554T8NumquQ](https://pan.baidu.com/s/17-vVMD4tY8x554T8NumquQ)
+
+提取码：7cyz
+
+*   工程更新到了我的 Github
+
+[https://github.com/Straw1997/UnityCustomShaderGUI](https://github.com/Straw1997/UnityCustomShaderGUI)
+
+*   unitypackage 下载地址
+
+[Releases · Straw1997/UnityCustomShaderGUI](https://github.com/Straw1997/UnityCustomShaderGUI/releases)
+
+**10. 参考**
+
+*   [喵刀 Hime：LWGUI：不写一行 GUI 自定义 Unity ShaderGUI](https://zhuanlan.zhihu.com/p/129289103)
+*   [unity3d-jp/UnityChanToonShaderVer2_Project](https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project)
+*   [喵喵 Mya：[自定义 shader 面板] 在 SceneView 中绘制一个控制灯光方向的操纵杆]( https://zhuanlan.zhihu.com/p/97256929 )
+*   [喵喵 Mya：Shader 面板上常用的一些内置 Enum](https://zhuanlan.zhihu.com/p/93194054)
+*   [Unity Shader GUI 学习](https://blog.csdn.net/enk_2/article/details/109236874)
+*   [Unity3D 研究院编辑器之创建 Lua 脚本模板（十六） | 雨松 MOMO 程序研究院](https://www.xuanyusong.com/archives/3732)

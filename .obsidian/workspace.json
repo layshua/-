@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "mode": "source",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,44 +203,43 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "d025298d4e276ddd",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zBuffer/Unity 自定义 Shader GUI.md",
+    "zip/images/01ae48d06ea268ec35ef44958e421614_MD5.gif",
+    "zip/images/38abc1f9fd524893e995b07175ce09dc_MD5.jpg",
+    "zip/images/2588712904f9b7dde277f69bcdac2f11_MD5.jpg",
+    "zip/images/f5723f5a37a5868d4809865a6cec3e94_MD5.gif",
+    "zip/images/cd5e00cc0c3ee6b03037267428f5e995_MD5.gif",
+    "zip/images/610a7492671d8d8035e68a1c2abbdfc0_MD5.png",
+    "zip/images/863ea8cc16362472b5dbfe3bfff01a55_MD5.gif",
+    "zip/images/3bb56a0296d6ac690eadedde37ae03d6_MD5.webp",
+    "zip/images/003dbfe6e18e6ec002893d23e93cefdf_MD5.jpg",
+    "zip/images/bec36c29d34892780d70ed0b0415aeca_MD5.gif",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "技术美术/7 PBR/PBR疑问.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "技术美术/7 PBR/PBR疑问.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zBuffer/关于理解 Premultiplied Alpha 的一些 Tips.md",
-    "zip/images/Pasted image 20230621163310.png",
-    "zip/images/Pasted image 20230621163306.png",
     "zBuffer/Albedo 应该怎么理解？.md",
     "zBuffer/为什么 BRDF 的漫反射项要除以π？.md",
     "zBuffer/(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客.md",
-    "zip/images/60d7ac994c37849bbdf8bfd22987f2f2_MD5.jpg",
-    "zip/images/8722047e0e4b90239ba53949564c6c29_MD5.jpg",
-    "zip/images/2f19ffce101e5be064b7b4ff170e13e2_MD5.jpg",
-    "zip/images/5294f9e2ea4607dcc0ee4bf059490f44_MD5.jpg",
-    "zip/images/9fb967bf2925a6a357a99734129397b1_MD5.jpg",
-    "zip/images/077018734d114a969d0df6e8960b273c_MD5.png",
-    "zip/images/608b18b9383d930215355f1e6767b346_MD5.jpg",
-    "zip/images/cd7fb3b0946a9d30272ed919725278b6_MD5.jpg",
     "技术美术/7 PBR/ta101PBR.md",
     "图形学/1 图形系统/03 光照模型.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
