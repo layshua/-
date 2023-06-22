@@ -1,7 +1,4 @@
 # Recap of CG Basis
-本文是 games202 的 Lecture 2 的笔记, 如有任何错误之处请各位大佬指正.
-
-[GAMES202 - 高质量实时渲染_哔哩哔哩 (゜ - ゜) つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1YK4y1T7yY?p=2)
 
 本课目录
 
