@@ -25,8 +25,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c9b0e08e91b07a01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
+                "mode": "source",
+                "backlinks": false,
                 "source": false
               }
             }
@@ -59,6 +72,25 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "3af77bb67248b918",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "afe2621d99250a3e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/09 阴影.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+                "file": "图形学/1 图形系统/09 阴影.md"
               }
             }
           }
@@ -144,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +193,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -193,28 +225,28 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "bc13977632f12855",
+  "active": "afe2621d99250a3e",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/5 书籍/《RTR4》/7 阴影.md",
+    "zip/images/Pasted image 20230622232605.png",
+    "zip/images/Pasted image 20230622232554.png",
+    "zip/images/Pasted image 20230622232346.png",
+    "zip/images/Pasted image 20230622232240.png",
+    "zip/images/Pasted image 20230622232211.png",
+    "zip/images/Pasted image 20230622232125.png",
+    "zip/images/Pasted image 20230622232107.png",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "Math/微积分/微积分基础.md",
     "zip/images/Pasted image 20230622231017.png",
     "zip/images/Pasted image 20230622230951.png",
     "zip/images/Pasted image 20230622230807.png",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
-    "zip/images/Pasted image 20230622222325.png",
-    "zip/images/Pasted image 20230622215651.png",
-    "zip/images/Pasted image 20230622215637.png",
-    "zip/images/Pasted image 20230622215242.png",
-    "zip/images/Pasted image 20230622215034.png",
-    "zip/images/Pasted image 20230622214840.png",
     "图形学/1 图形系统/02 光栅化.md",
-    "Math/微积分/微积分基础.md",
-    "zip/images/Pasted image 20230622213757.png",
-    "zip/images/Pasted image 20230622213647.png",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "Math/LaTeX/常用语法.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/5 书籍/《RTR4》/7 阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
     "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
