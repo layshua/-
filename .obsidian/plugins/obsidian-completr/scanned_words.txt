@@ -131431,6 +131431,7 @@ hasMixedValue
 hasMultipleDifferentValues
 highRes
 hallway
+heuristics
 rgb
 right
 rm

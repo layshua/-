@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
               }
             }
           }
@@ -144,7 +144,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,6 +195,11 @@
   },
   "active": "bc13977632f12855",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230622231017.png",
+    "zip/images/Pasted image 20230622230951.png",
+    "zip/images/Pasted image 20230622230807.png",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "zip/images/Pasted image 20230622222325.png",
     "zip/images/Pasted image 20230622215651.png",
     "zip/images/Pasted image 20230622215637.png",
@@ -203,17 +208,12 @@
     "zip/images/Pasted image 20230622214840.png",
     "图形学/1 图形系统/02 光栅化.md",
     "Math/微积分/微积分基础.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "zip/images/Pasted image 20230622213757.png",
     "zip/images/Pasted image 20230622213647.png",
-    "zip/images/Pasted image 20230622212736.png",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "Math/LaTeX/常用语法.md",
-    "zip/images/Pasted image 20230622211119.png",
-    "zip/images/Pasted image 20230622211109.png",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
