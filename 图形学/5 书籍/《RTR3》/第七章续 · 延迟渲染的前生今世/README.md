@@ -504,7 +504,7 @@ Conference. Vol. 2. 2011.
 
 [11] [http://blog.csdn.net/bugrunner/article/details/7436600](http://link.zhihu.com/?target=http%3A//blog.csdn.net/bugrunner/article/details/7436600)
 
-[12] [https://learnopengl-cn.readthedocs.io/zh/latest/05%20Advanced%20Lighting/08%20Deferred%20Shading/](http://link.zhihu.com/?target=https%3A//learnopengl-cn.readthedocs.io/zh/latest/05%2520Advanced%2520Lighting/08%2520Deferred%2520Shading/)
+[12] [https://[[learnopengl]]-cn.readthedocs.io/zh/latest/05%20Advanced%20Lighting/08%20Deferred%20Shading/](http://link.zhihu.com/?target=https%3A//learnopengl-cn.readthedocs.io/zh/latest/05%2520Advanced%2520Lighting/08%2520Deferred%2520Shading/)
 
 [13] [http://www.cnblogs.com/ghl_carmack/p/4150232.html](http://link.zhihu.com/?target=http%3A//www.cnblogs.com/ghl_carmack/p/4150232.html)
 

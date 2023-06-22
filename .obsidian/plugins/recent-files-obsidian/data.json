@@ -1,20 +1,60 @@
 {
   "recentFiles": [
     {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+      "basename": "3 实时阴影1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+    },
+    {
+      "basename": "4 实时阴影2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+    },
+    {
+      "basename": "7 阴影",
+      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
+    },
+    {
+      "basename": "04 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
+    },
+    {
+      "basename": "6 纹理化",
+      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
     },
     {
       "basename": "2 CG基础概述",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     },
     {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "README",
+      "path": "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md"
+    },
+    {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "书单",
+      "path": "图形学/5 书籍/书单.md"
     },
     {
       "basename": "由浅入深学习 PBR 的原理和实现",
@@ -29,14 +69,6 @@
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
-      "basename": "04 方向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
-    },
-    {
-      "basename": "书单",
-      "path": "图形学/5 书籍/书单.md"
-    },
-    {
       "basename": "5 环境光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
@@ -45,16 +77,8 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
-      "basename": "3 阴影1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 阴影1.md"
-    },
-    {
       "basename": "07 混合和剔除",
       "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
       "basename": "06 深度测试",
@@ -133,10 +157,6 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md"
     },
     {
-      "basename": "4 阴影2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 阴影2.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -173,32 +193,12 @@
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "03 方向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
     }
   ],
   "omittedPaths": [],
