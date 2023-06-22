@@ -30,6 +30,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2f24d5b2903c559b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/微积分/微积分基础.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -167,13 +180,21 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "bc13977632f12855",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230622211119.png",
+    "zip/images/Pasted image 20230622211109.png",
+    "zip/images/Pasted image 20230622211059.png",
+    "Math/微积分/微积分基础.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md",
@@ -181,20 +202,14 @@
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "图形学/1 图形系统/05 模板测试.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "图形学/5 书籍/书单.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "图形学/1 图形系统/06 深度测试.md",
     "图形学/1 图形系统/10 色彩.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/3 软渲染器/软光栅/总结.md",
-    "图形学/3 软渲染器/软光栅/TinyRenderer.md",
     "zip/images/58208c056e123440a86c7654d6b136fa_MD5.jpg",
     "zip/images/e74aae0f1df87b01849af9a5932ef01f_MD5.jpg",
     "zip/images/f1e27c0d4995e6694dfb652fd18f157a_MD5.jpg",
@@ -203,8 +218,6 @@
     "zip/images/47f28239857fa5c85931d6ba7b5df505_MD5.jpg",
     "zip/images/9d7caf6f78cf71087e841831ab30d6a6_MD5.jpg",
     "zip/images/61d7c2cb891e83c08fcde7de9297d590_MD5.jpg",
-    "zip/images/b7e7ced1badd837272978633014580d5_MD5.jpg",
-    "zip/images/6436782f678475e18a8edaaeb7428123_MD5.jpg",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
