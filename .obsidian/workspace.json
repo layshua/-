@@ -32,6 +32,19 @@
             }
           },
           {
+            "id": "7cffd7ab6de2c883",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/LaTeX/常用语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2f24d5b2903c559b",
             "type": "leaf",
             "state": {
@@ -182,13 +195,17 @@
   },
   "active": "bc13977632f12855",
   "lastOpenFiles": [
+    "图形学/1 图形系统/02 光栅化.md",
+    "Math/微积分/微积分基础.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "zip/images/Pasted image 20230622213757.png",
+    "zip/images/Pasted image 20230622213647.png",
+    "zip/images/Pasted image 20230622212736.png",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "Math/LaTeX/常用语法.md",
     "zip/images/Pasted image 20230622211119.png",
     "zip/images/Pasted image 20230622211109.png",
     "zip/images/Pasted image 20230622211059.png",
-    "Math/微积分/微积分基础.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
@@ -209,15 +226,10 @@
     "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "图形学/1 图形系统/10 色彩.md",
     "zip/images/58208c056e123440a86c7654d6b136fa_MD5.jpg",
     "zip/images/e74aae0f1df87b01849af9a5932ef01f_MD5.jpg",
     "zip/images/f1e27c0d4995e6694dfb652fd18f157a_MD5.jpg",
     "zip/images/e49fc9c293ab99e1c3ba0e1df3fc8e38_MD5.jpg",
-    "zip/images/ec8d9cf431c0fbca87c4a610e69780d8_MD5.jpg",
-    "zip/images/47f28239857fa5c85931d6ba7b5df505_MD5.jpg",
-    "zip/images/9d7caf6f78cf71087e841831ab30d6a6_MD5.jpg",
-    "zip/images/61d7c2cb891e83c08fcde7de9297d590_MD5.jpg",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",

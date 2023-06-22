@@ -5,6 +5,10 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
     },
     {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
       "basename": "微积分基础",
       "path": "Math/微积分/微积分基础.md"
     },
@@ -13,8 +17,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
     },
     {
       "basename": "01 三维旋转",
@@ -195,10 +199,6 @@
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],
