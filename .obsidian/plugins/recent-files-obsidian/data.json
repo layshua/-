@@ -5,16 +5,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md"
     },
     {
-      "basename": "04 方向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "08 透明",
@@ -25,12 +21,16 @@
       "path": "技术美术/7 PBR/PBR疑问.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+      "basename": "04 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "ta101PBR",

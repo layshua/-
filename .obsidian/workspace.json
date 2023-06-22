@@ -32,12 +32,12 @@
             }
           },
           {
-            "id": "ec8a384fe5db766d",
+            "id": "70d5aecae5e61ede",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/PBR疑问.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "source": false
               }
@@ -193,17 +193,17 @@
   },
   "active": "d025298d4e276ddd",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/1 图形系统/08 透明.md",
+    "技术美术/7 PBR/PBR疑问.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
     "zBuffer/关于理解 Premultiplied Alpha 的一些 Tips.md",
-    "技术美术/7 PBR/PBR疑问.md",
     "zip/images/Pasted image 20230621163310.png",
     "zip/images/Pasted image 20230621163306.png",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/Albedo 应该怎么理解？.md",
     "zBuffer/为什么 BRDF 的漫反射项要除以π？.md",
     "zBuffer/(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客.md",
