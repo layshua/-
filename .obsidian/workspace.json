@@ -32,31 +32,19 @@
             }
           },
           {
-            "id": "80699013466fa0bc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bc13977632f12855",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "673404990c1a333b",
@@ -68,7 +56,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "mode": "source",
                 "source": false
               }
@@ -117,7 +105,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+                "file": "图形学/1 图形系统/09 阴影.md"
               }
             }
           }
@@ -160,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -211,41 +199,42 @@
   },
   "active": "4ac7e2e411d2d9f6",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "图形学/4 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
+    "图形学/4 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
+    "引擎Unity3D/01 BUG合集.md",
+    "引擎Unity3D/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "zip/images/Pasted image 20230622155106.jpg",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "图形学/1 图形系统/08 透明.md",
-    "zBuffer/(33 条消息) Unity 编辑器基础 EditorGUILayout （大部分用法）_一只学习的小鸟的博客 - CSDN 博客.md",
-    "zip/images/0a481a9bf1f3e1e14d93e154d99d1b44_MD5.png",
-    "zip/images/06a49d958bf7cb0e0728a892d41faf46_MD5.png",
-    "zip/images/f9fbd6a00ccffa20ca887a2e98bc4db8_MD5.png",
+    "zBuffer/(33 条消息) Unity Shader GUI 学习_shadergui_enk_2 的博客 - CSDN 博客.md",
     "zBuffer/Unity 自定义 Shader GUI.md",
-    "zip/images/01ae48d06ea268ec35ef44958e421614_MD5.gif",
-    "zip/images/38abc1f9fd524893e995b07175ce09dc_MD5.jpg",
-    "zip/images/2588712904f9b7dde277f69bcdac2f11_MD5.jpg",
-    "zip/images/f5723f5a37a5868d4809865a6cec3e94_MD5.gif",
-    "zip/images/cd5e00cc0c3ee6b03037267428f5e995_MD5.gif",
-    "zip/images/610a7492671d8d8035e68a1c2abbdfc0_MD5.png",
+    "zBuffer/(33 条消息) Unity 编辑器基础 EditorGUILayout （大部分用法）_一只学习的小鸟的博客 - CSDN 博客.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "技术美术/7 PBR/PBR疑问.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "zBuffer/关于理解 Premultiplied Alpha 的一些 Tips.md",
-    "zBuffer/Albedo 应该怎么理解？.md",
-    "zBuffer/为什么 BRDF 的漫反射项要除以π？.md",
-    "zBuffer/(33 条消息) Unity3D 编辑器扩展 强大的 OnValidate_unity onvalidate_UnityAsk 的博客 - CSDN 博客.md",
-    "技术美术/7 PBR/ta101PBR.md",
-    "图形学/1 图形系统/03 光照模型.md",
+    "zip/images/Pasted image 20230622164004.png",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+    "zip/images/7449c1a5fcb835adaf7c7845c5dfcb27_MD5.gif",
+    "zip/images/222151b3539e6faf843b96590fd115a5_MD5.gif",
+    "zip/images/4a7d3a24518cf0e8840b72e5960bc410_MD5.gif",
+    "zip/images/e8eb2a7285e194b61e01ab9116042ab4_MD5.gif",
+    "zip/images/377de902a4d3ad548a715b0159317bd0_MD5.gif",
+    "zip/images/3173a3dd4a1e65e8ddc95c18a3952730_MD5.png",
+    "zip/images/be95405ef6aeca6b9db35edddcf0c5a7_MD5.gif",
+    "zip/images/2318ba91681f552da97bc6736e230faf_MD5.png",
+    "zip/images/36a37e9485c5e538c2970bf3d6e26e39_MD5.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",

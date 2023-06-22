@@ -799,7 +799,7 @@ return base;
 ```cs
  //透明度测试的阈值
 _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
-  [Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
+[Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
 ```
 
 2. **在 Pass 中使用 shader feature 声明一个 Toggle 开关对应的_CLIPPING 关键字。**
