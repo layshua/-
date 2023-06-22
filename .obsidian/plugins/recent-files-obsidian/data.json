@@ -1,6 +1,78 @@
 {
   "recentFiles": [
     {
+      "basename": "2 CG基础概述",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
+    },
+    {
+      "basename": "14 工业界主流方法",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
+    },
+    {
+      "basename": "13 实时光追2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "11 基于物理的材质2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/11 基于物理的材质2.md"
+    },
+    {
+      "basename": "10 基于物理的材质1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 基于物理的材质1.md"
+    },
+    {
+      "basename": "9 全局光照3",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
+    },
+    {
+      "basename": "8 全局光照2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md"
+    },
+    {
+      "basename": "7 全局光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
+    },
+    {
+      "basename": "6 环境光照2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "4 阴影2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 阴影2.md"
+    },
+    {
+      "basename": "3 阴影1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 阴影1.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
@@ -11,10 +83,6 @@
     {
       "basename": "04-Rendering on Game Engine - Bo's Blog",
       "path": "图形学/4 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "3 OverDraw",
@@ -35,10 +103,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "04 方向阴影",
@@ -117,10 +181,6 @@
       "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
       "basename": "16 渲染缩放",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
     },
@@ -139,66 +199,6 @@
     {
       "basename": "13 多相机",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
-    },
-    {
-      "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/4 URP/DrawCall，Batches，SetPass calls.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "引擎Unity3D/5 头部项目/未命名.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "技术美术/4 UnityShader/庄懂AP01.md"
     }
   ],
   "omittedPaths": [],

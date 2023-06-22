@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
                 "mode": "source",
                 "source": false
               }
@@ -45,24 +45,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "673404990c1a333b",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "4ac7e2e411d2d9f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -105,7 +87,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
               }
             }
           }
@@ -148,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -175,7 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 785.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -197,44 +179,44 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "4ac7e2e411d2d9f6",
+  "active": "70d5aecae5e61ede",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
+    "zip/images/58208c056e123440a86c7654d6b136fa_MD5.jpg",
+    "zip/images/e74aae0f1df87b01849af9a5932ef01f_MD5.jpg",
+    "zip/images/f1e27c0d4995e6694dfb652fd18f157a_MD5.jpg",
+    "zip/images/e49fc9c293ab99e1c3ba0e1df3fc8e38_MD5.jpg",
+    "zip/images/ec8d9cf431c0fbca87c4a610e69780d8_MD5.jpg",
+    "zip/images/47f28239857fa5c85931d6ba7b5df505_MD5.jpg",
+    "zip/images/9d7caf6f78cf71087e841831ab30d6a6_MD5.jpg",
+    "zip/images/61d7c2cb891e83c08fcde7de9297d590_MD5.jpg",
+    "zip/images/b7e7ced1badd837272978633014580d5_MD5.jpg",
+    "zip/images/6436782f678475e18a8edaaeb7428123_MD5.jpg",
+    "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/11 基于物理的材质2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/10 基于物理的材质1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 阴影2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 阴影1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "图形学/4 GAMES系列/202高质量实时渲染",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/05-Lighting_ Materials and Shaders - Bo's Blog.md",
     "图形学/4 GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/4 场景剔除.md",
     "引擎Unity3D/01 BUG合集.md",
     "引擎Unity3D/02 Unity操作指南.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "zBuffer/(33 条消息) Unity Shader GUI 学习_shadergui_enk_2 的博客 - CSDN 博客.md",
-    "zBuffer/Unity 自定义 Shader GUI.md",
-    "zBuffer/(33 条消息) Unity 编辑器基础 EditorGUILayout （大部分用法）_一只学习的小鸟的博客 - CSDN 博客.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
-    "zip/images/Pasted image 20230622164004.png",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "zip/images/7449c1a5fcb835adaf7c7845c5dfcb27_MD5.gif",
-    "zip/images/222151b3539e6faf843b96590fd115a5_MD5.gif",
-    "zip/images/4a7d3a24518cf0e8840b72e5960bc410_MD5.gif",
-    "zip/images/e8eb2a7285e194b61e01ab9116042ab4_MD5.gif",
-    "zip/images/377de902a4d3ad548a715b0159317bd0_MD5.gif",
-    "zip/images/3173a3dd4a1e65e8ddc95c18a3952730_MD5.png",
-    "zip/images/be95405ef6aeca6b9db35edddcf0c5a7_MD5.gif",
-    "zip/images/2318ba91681f552da97bc6736e230faf_MD5.png",
-    "zip/images/36a37e9485c5e538c2970bf3d6e26e39_MD5.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
@@ -244,7 +226,6 @@
     "zip/images/QQ录屏20230618120224 3.mp4",
     "zip/images/QQ录屏20230618120224 2.mp4",
     "zip/images/QQ录屏20230618120224 1.mp4",
-    "zip/images/QQ录屏20230618120224.mp4",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
