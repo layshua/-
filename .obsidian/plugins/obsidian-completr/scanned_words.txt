@@ -31011,6 +31011,8 @@ useSRPBatcher
 useLightsPerObject
 useHDR
 useShadowMask
+unmultiply
+upsampling
 everything
 ea
 ede
@@ -49680,6 +49682,7 @@ UnlitInput
 UseProxyVolume
 UnityPerdraw
 UnityAsk
+Unmultiply
 api
 ac
 app
@@ -79740,6 +79743,7 @@ ColorGradingLUTInLogC
 CopyProbeOcclusionArrayFrom
 CascadeData
 ClosestPowerOfTwo
+Courr
 ImTip
 IMAP
 ID
@@ -91811,6 +91815,7 @@ postFXSettings
 postFXStack
 positionSTS
 proportion
+premultiplied
 nodesCatch
 nobr
 navy
@@ -99124,6 +99129,7 @@ baseMap
 balance
 bakingOutput
 baked
+bleed
 fe
 front
 fill
@@ -106891,6 +106897,7 @@ duq
 dNQN
 dDo
 defered
+downsampling
 TFvYZOKeHL
 TAB
 TeX
@@ -146419,6 +146426,8 @@ BASE
 BeginChangeCheck
 BuiltinRenderTextureType
 Balance
+BlendState
+Bleed
 Fraktur
 Frame
 Foo

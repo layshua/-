@@ -13,18 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "file": "图形学/1 图形系统/08 透明.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "60c8bd206d79e9bc",
+            "id": "d025298d4e276ddd",
             "type": "leaf",
             "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+                "mode": "source",
+                "source": false
+              }
             }
           },
           {
@@ -51,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -186,12 +191,17 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "1f8366f9d035d01e",
+  "active": "d025298d4e276ddd",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "zBuffer/关于理解 Premultiplied Alpha 的一些 Tips.md",
+    "技术美术/7 PBR/PBR疑问.md",
     "zip/images/Pasted image 20230621163310.png",
     "zip/images/Pasted image 20230621163306.png",
-    "技术美术/7 PBR/PBR疑问.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/Albedo 应该怎么理解？.md",
@@ -205,15 +215,10 @@
     "zip/images/077018734d114a969d0df6e8960b273c_MD5.png",
     "zip/images/608b18b9383d930215355f1e6767b346_MD5.jpg",
     "zip/images/cd7fb3b0946a9d30272ed919725278b6_MD5.jpg",
-    "zip/images/51ed0fcdf50f1167d612ec4eb116ad11_MD5.jpg",
     "技术美术/7 PBR/ta101PBR.md",
     "图形学/1 图形系统/03 光照模型.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
