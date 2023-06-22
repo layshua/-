@@ -32,6 +32,18 @@
             }
           },
           {
+            "id": "5687bf90d515d62a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "70d5aecae5e61ede",
             "type": "leaf",
             "state": {
@@ -191,15 +203,17 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "d025298d4e276ddd",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "技术美术/7 PBR/PBR疑问.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zBuffer/关于理解 Premultiplied Alpha 的一些 Tips.md",
     "zip/images/Pasted image 20230621163310.png",
@@ -217,7 +231,6 @@
     "zip/images/cd7fb3b0946a9d30272ed919725278b6_MD5.jpg",
     "技术美术/7 PBR/ta101PBR.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
@@ -228,7 +241,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
