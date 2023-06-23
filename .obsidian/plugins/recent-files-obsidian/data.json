@@ -9,6 +9,10 @@
       "path": "Math/LaTeX/常用语法.md"
     },
     {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
       "basename": "大数定律与中心极限定理",
       "path": "Math/概率论/大数定律与中心极限定理.md"
     },
@@ -115,10 +119,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
       "basename": "01 三维旋转",
