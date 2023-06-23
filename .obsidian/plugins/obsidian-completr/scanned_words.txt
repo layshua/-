@@ -147129,6 +147129,7 @@ BLENDING
 BicubicRescalingMode
 Bernstein
 Bernoulli
+Bayes
 Fraktur
 Frame
 Foo
