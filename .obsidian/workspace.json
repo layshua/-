@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "Math/概率论/概率论与数理统计.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -45,7 +45,14 @@
                 "source": false
               }
             }
-          },
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "c04e8fdd8b67b8c3",
+        "type": "tabs",
+        "children": [
           {
             "id": "7cffd7ab6de2c883",
             "type": "leaf",
@@ -59,8 +66,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/概率论/概率论.md"
+                "file": "Math/概率论/概率论与数理统计.md"
               }
             }
           }
@@ -146,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "Math/概率论/概率论与数理统计.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "Math/概率论/概率论与数理统计.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -197,22 +203,23 @@
   },
   "active": "bc13977632f12855",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230623161845.png",
+    "zip/images/Pasted image 20230623161650.png",
+    "zip/images/Pasted image 20230623161023.png",
+    "zip/images/Pasted image 20230623160929.png",
+    "zip/images/Pasted image 20230623160414.png",
+    "zip/images/Pasted image 20230623155931.png",
+    "zip/images/Pasted image 20230623155929.png",
+    "zip/images/Pasted image 20230623155558.png",
+    "zip/images/Pasted image 20230623155554.png",
+    "zip/images/Pasted image 20230623155552.png",
+    "zip/images/Pasted image 20230623155550.png",
     "Math/LaTeX/常用语法.md",
-    "Math/概率论/概率论.md",
+    "Math/概率论/概率论与数理统计.md",
     "Math/概率论/大数定律与中心极限定理.md",
     "Math/微积分/微积分基础.md",
-    "zip/images/f29162fdbdcc392eac170c1ee8203e9c_MD5.jpg",
-    "zip/images/79d4b96f0793b514ba7d5826f4026549_MD5.jpg",
-    "zip/images/959c7dd4503157fb9df3c61270290f7a_MD5.jpg",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "图形学/0 3D数学/常用噪声算法.md",
-    "zip/images/a1b6a10e1de527e0666451de6f04414d_MD5.jpg",
-    "zip/images/25fff1826a2af22d35724c56ef376d4c_MD5.jpg",
-    "zip/images/243742ea5ba9902e97423b5a93cc17c6_MD5.jpg",
-    "zip/images/0de8814bad436aa7de4bd9a5bc234750_MD5.jpg",
-    "zip/images/3a565ffcbbedc68f85af7041496ea160_MD5.jpg",
-    "zip/images/c1519993c755a21fd9c8ffc75f6373dc_MD5.png",
-    "zip/images/512e791d4543100c3de5e505e93610b4_MD5.jpg",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/3 软渲染器/软光追/未命名.md",
     "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
@@ -232,7 +239,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
