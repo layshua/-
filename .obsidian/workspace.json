@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/概率论/概率论.md"
+                "file": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/概率论/概率论.md",
+                "file": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,24 +182,30 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "bc13977632f12855",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230623135542.png",
-    "zip/images/Pasted image 20230623135323.png",
-    "zip/images/Pasted image 20230623135304.png",
-    "zip/images/Pasted image 20230623135212.png",
-    "zip/images/Pasted image 20230623135203.png",
-    "zip/images/Pasted image 20230623135157.png",
-    "zip/images/Pasted image 20230623135148.png",
-    "zip/images/Pasted image 20230623135139.png",
-    "zip/images/Pasted image 20230623135103.png",
-    "zip/images/Pasted image 20230623135044.png",
-    "引擎Unity3D/01 BUG合集.md",
-    "Math/概率论/概率论.md",
-    "zip/images/Pasted image 20230623135011.png",
-    "Math/LaTeX/常用语法.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/0 3D数学/常用噪声算法.md",
+    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
+    "zip/images/a1b6a10e1de527e0666451de6f04414d_MD5.jpg",
+    "zip/images/25fff1826a2af22d35724c56ef376d4c_MD5.jpg",
+    "zip/images/243742ea5ba9902e97423b5a93cc17c6_MD5.jpg",
+    "zip/images/0de8814bad436aa7de4bd9a5bc234750_MD5.jpg",
+    "zip/images/3a565ffcbbedc68f85af7041496ea160_MD5.jpg",
+    "zip/images/c1519993c755a21fd9c8ffc75f6373dc_MD5.png",
+    "zip/images/512e791d4543100c3de5e505e93610b4_MD5.jpg",
+    "zip/images/c803020fdb18f04f84d67035c848e107_MD5.png",
+    "zip/images/806c56703900a3d2812669ae8ed03e0f_MD5.jpg",
+    "zip/images/ba3d53a9be92cce3994a589e6bb9a96b_MD5.png",
+    "图形学/0 3D数学/参数化曲线.md",
+    "图形学/3 软渲染器/软光追/未命名.md",
+    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
+    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (三) 低差异采样序列.md",
+    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
     "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
+    "Math/概率论/概率论.md",
+    "Math/LaTeX/常用语法.md",
+    "引擎Unity3D/01 BUG合集.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
@@ -214,12 +220,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
-    "Math/微积分/微积分基础.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
