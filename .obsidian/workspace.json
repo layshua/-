@@ -72,7 +72,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -135,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
               }
             }
           }
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,13 +227,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "d113f9d1c7cb134a",
+  "active": "bc13977632f12855",
   "lastOpenFiles": [
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "zip/images/Pasted image 20230623114042.png",
-    "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "zip/images/eb177f2cfe20c1682ed2f4f9c5fddfb4_MD5.png",
