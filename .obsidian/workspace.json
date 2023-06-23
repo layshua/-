@@ -78,6 +78,32 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "338e12aa7b82e369",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "17d7e745ef696f0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -218,9 +244,10 @@
   "lastOpenFiles": [
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "zip/images/Pasted image 20230623112052.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
@@ -242,7 +269,6 @@
     "Math/微积分/微积分基础.md",
     "zip/images/Pasted image 20230622231017.png",
     "zip/images/Pasted image 20230622230951.png",
-    "zip/images/Pasted image 20230622230807.png",
     "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "Math/LaTeX/常用语法.md",
@@ -251,7 +277,6 @@
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md",
-    "图形学/1 图形系统/04 纹理.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",

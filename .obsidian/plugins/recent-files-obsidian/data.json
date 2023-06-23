@@ -9,16 +9,16 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     },
     {
-      "basename": "04 方向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
-    },
-    {
       "basename": "7 阴影",
       "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
     },
     {
       "basename": "3 实时阴影1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+    },
+    {
+      "basename": "04 方向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
     },
     {
       "basename": "16 渲染缩放",
