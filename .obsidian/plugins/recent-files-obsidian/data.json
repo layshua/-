@@ -5,6 +5,10 @@
       "path": "Math/概率论/概率论.md"
     },
     {
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
       "basename": "4 实时阴影2",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
     },
     {
       "basename": "01 三维旋转",
