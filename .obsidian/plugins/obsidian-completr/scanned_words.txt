@@ -62845,6 +62845,8 @@ MaskMap
 MaskMapToggle
 Missing
 Malley
+Markov
+Moivre
 Windows
 Win
 World
@@ -147126,6 +147128,7 @@ Between
 BLENDING
 BicubicRescalingMode
 Bernstein
+Bernoulli
 Fraktur
 Frame
 Foo
@@ -170403,6 +170406,10 @@ LayoutKind
 Larange
 LHS
 LookDev
+Lindeberg
+Levy
+Laplace
+Lyapunov
 Getx
 GetX
 GetName
@@ -195084,6 +195091,7 @@ KDlF
 KHHP
 KeywordEnumDrawer
 Knot
+Khinchin
 key
 kSC
 keaXj

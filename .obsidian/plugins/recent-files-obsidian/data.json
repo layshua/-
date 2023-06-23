@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "概率论",
+      "path": "Math/概率论/概率论.md"
+    },
+    {
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
+      "basename": "大数定律与中心极限定理",
+      "path": "Math/概率论/大数定律与中心极限定理.md"
+    },
+    {
+      "basename": "微积分基础",
+      "path": "Math/微积分/微积分基础.md"
+    },
+    {
       "basename": "实时渲染高级特性开发",
       "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
     },
@@ -27,14 +43,6 @@
     {
       "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
       "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
-    },
-    {
-      "basename": "概率论",
-      "path": "Math/概率论/概率论.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
     },
     {
       "basename": "4 实时阴影2",
@@ -103,10 +111,6 @@
     {
       "basename": "2 CG基础概述",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
-    },
-    {
-      "basename": "微积分基础",
-      "path": "Math/微积分/微积分基础.md"
     },
     {
       "basename": "02 光栅化",
@@ -195,10 +199,6 @@
     {
       "basename": "TinyRenderer",
       "path": "图形学/3 软渲染器/软光栅/TinyRenderer.md"
-    },
-    {
-      "basename": "透视矫正插值",
-      "path": "图形学/3 软渲染器/软光栅/透视矫正插值.md"
     }
   ],
   "omittedPaths": [],
