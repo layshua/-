@@ -80,25 +80,12 @@
             }
           },
           {
-            "id": "338e12aa7b82e369",
+            "id": "fd6bf7fdc64ea291",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "17d7e745ef696f0f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -242,11 +229,22 @@
   },
   "active": "d113f9d1c7cb134a",
   "lastOpenFiles": [
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/1 图形系统/09 阴影.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "zip/images/Pasted image 20230623114042.png",
+    "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "zip/images/Pasted image 20230623112052.png",
+    "zip/images/eb177f2cfe20c1682ed2f4f9c5fddfb4_MD5.png",
+    "zip/images/acc9eae04b7ca7a6f785267d988da2af_MD5.png",
+    "zip/images/9ca3a977926b16d019bedef48eeb6f37_MD5.png",
+    "zip/images/ca4d6ecedbf7626ccb7ad6ca14dcb322_MD5.png",
+    "zip/images/8ed0cd1914f02cd07645255f0457573e_MD5.png",
+    "zip/images/5790d516c206560925f5046e721d2b26_MD5.png",
+    "zip/images/3d5847f8e37a8e167b93c77fbc2d8d33_MD5.png",
+    "zip/images/f101a5f4ffc804b9f9785b77df6d4612_MD5.png",
+    "zip/images/6cb1783228e58d33c3d988b2a4d83d7b_MD5.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
@@ -259,16 +257,7 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
-    "zip/images/Pasted image 20230622232605.png",
-    "zip/images/Pasted image 20230622232554.png",
-    "zip/images/Pasted image 20230622232346.png",
-    "zip/images/Pasted image 20230622232240.png",
-    "zip/images/Pasted image 20230622232211.png",
-    "zip/images/Pasted image 20230622232125.png",
-    "zip/images/Pasted image 20230622232107.png",
     "Math/微积分/微积分基础.md",
-    "zip/images/Pasted image 20230622231017.png",
-    "zip/images/Pasted image 20230622230951.png",
     "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "Math/LaTeX/常用语法.md",
@@ -276,7 +265,6 @@
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
     "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
