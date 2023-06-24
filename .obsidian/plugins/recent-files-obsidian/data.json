@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
+    },
+    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
     },
     {
       "basename": "05 烘焙光照",
