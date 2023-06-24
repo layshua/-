@@ -6,34 +6,7 @@
       {
         "id": "2860f7d3c2fd76ca",
         "type": "tabs",
-        "dimension": 49.02597402597403,
         "children": [
-          {
-            "id": "bc13977632f12855",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/概率论/大数定律与中心极限定理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8494459d11c09038",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
           {
             "id": "b8c4e6e4d80ee3e5",
             "type": "leaf",
@@ -48,33 +21,12 @@
             }
           },
           {
-            "id": "1c3f0a066a24772d",
+            "id": "80abc5fbbbd8d26b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "2455b2dc9b72e008",
-        "type": "tabs",
-        "dimension": 50.97402597402597,
-        "children": [
-          {
-            "id": "6c31383dec179665",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -82,19 +34,33 @@
             }
           },
           {
-            "id": "b4e9b58b34a0a1ff",
+            "id": "92f2192bcbbb3e50",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2adaf0a3ee9eccf2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -137,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md"
               }
             }
           }
@@ -180,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,24 +195,30 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6c31383dec179665",
+  "active": "80abc5fbbbd8d26b",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 方向光.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "Math/概率论/大数定律与中心极限定理.md",
+    "Math/概率论/概率论与数理统计.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "zip/images/Pasted image 20230624160021.png",
+    "图形学/5 书籍/《RTR4》/7 阴影.md",
+    "zip/images/Pasted image 20230624155545.png",
+    "zip/images/Pasted image 20230624155523.png",
+    "zip/images/Pasted image 20230624155240.png",
+    "zip/images/Pasted image 20230624155016.png",
+    "zip/images/Pasted image 20230624154937.png",
     "zip/images/Pasted image 20230624153637.png",
     "zip/images/Pasted image 20230624153444.png",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "zip/images/Pasted image 20230624150706.png",
     "zip/images/Pasted image 20230624150522.png",
-    "Math/概率论/大数定律与中心极限定理.md",
-    "zip/images/Pasted image 20230624144956.png",
-    "zip/images/Pasted image 20230624144757.png",
     "图形学/1 图形系统/04 纹理.md",
-    "Math/概率论/概率论与数理统计.md",
-    "zip/images/Pasted image 20230624140026.png",
-    "zip/images/Pasted image 20230624135932.png",
-    "zip/images/Pasted image 20230624135809.png",
-    "zip/images/Pasted image 20230624135800.png",
-    "zip/images/Pasted image 20230624135655.png",
     "Math/LaTeX/常用语法.md",
     "Math/微积分/微积分基础.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
@@ -260,13 +232,7 @@
     "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
     "引擎Unity3D/01 BUG合集.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/5 书籍/《RTR4》/7 阴影.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 方向阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
