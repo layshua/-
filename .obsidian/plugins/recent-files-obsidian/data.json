@@ -5,12 +5,12 @@
       "path": "Math/概率论/概率论与数理统计.md"
     },
     {
-      "basename": "大数定律与中心极限定理",
-      "path": "Math/概率论/大数定律与中心极限定理.md"
-    },
-    {
       "basename": "常用语法",
       "path": "Math/LaTeX/常用语法.md"
+    },
+    {
+      "basename": "大数定律与中心极限定理",
+      "path": "Math/概率论/大数定律与中心极限定理.md"
     },
     {
       "basename": "《GUI》",

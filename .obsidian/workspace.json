@@ -6,6 +6,7 @@
       {
         "id": "2860f7d3c2fd76ca",
         "type": "tabs",
+        "dimension": 47.67316017316017,
         "children": [
           {
             "id": "bc13977632f12855",
@@ -25,6 +26,7 @@
       {
         "id": "c04e8fdd8b67b8c3",
         "type": "tabs",
+        "dimension": 52.32683982683982,
         "children": [
           {
             "id": "7cffd7ab6de2c883",
@@ -176,20 +178,20 @@
   },
   "active": "bc13977632f12855",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230624121651.png",
-    "zip/images/Pasted image 20230624121521.png",
-    "zip/images/Pasted image 20230624121357.png",
-    "zip/images/Pasted image 20230624121339.png",
-    "zip/images/Pasted image 20230624121327.png",
-    "Math/概率论/大数定律与中心极限定理.md",
-    "Math/概率论/概率论与数理统计.md",
-    "zip/images/Pasted image 20230624121118.png",
-    "zip/images/Pasted image 20230624120725.png",
-    "zip/images/Pasted image 20230624120305.png",
-    "zip/images/Pasted image 20230624113030.png",
-    "zip/images/Pasted image 20230624112530.png",
-    "zip/images/Pasted image 20230624112415.png",
+    "zip/images/Pasted image 20230624124718.png",
+    "zip/images/Pasted image 20230624124629.png",
+    "zip/images/Pasted image 20230624124509.png",
+    "zip/images/Pasted image 20230624124401.png",
+    "zip/images/Pasted image 20230624124225.png",
+    "zip/images/Pasted image 20230624124206.png",
+    "zip/images/Pasted image 20230624124109.png",
+    "zip/images/Pasted image 20230624124040.png",
+    "zip/images/Pasted image 20230624123938.png",
+    "zip/images/Pasted image 20230624123924.png",
+    "zip/images/Pasted image 20230624123835.png",
     "Math/LaTeX/常用语法.md",
+    "Math/概率论/概率论与数理统计.md",
+    "Math/概率论/大数定律与中心极限定理.md",
     "Math/微积分/微积分基础.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
