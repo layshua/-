@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "Reshaper快捷键",
+      "path": "编程/IDE/Reshaper快捷键.md"
+    },
+    {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
       "basename": "03 定向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "02 Draw Call",
@@ -195,10 +199,6 @@
     {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
     }
   ],
   "omittedPaths": [],
