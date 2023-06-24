@@ -5,8 +5,20 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "01 自定义渲染管线",
@@ -27,14 +39,6 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "大数定律与中心极限定理",
@@ -195,10 +199,6 @@
     {
       "basename": "5 环境光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
-      "basename": "10 PBR1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     }
   ],
   "omittedPaths": [],
