@@ -6,10 +6,43 @@
       {
         "id": "2860f7d3c2fd76ca",
         "type": "tabs",
-        "dimension": 47.67316017316017,
+        "dimension": 49.02597402597403,
         "children": [
           {
             "id": "bc13977632f12855",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/概率论/大数定律与中心极限定理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "2455b2dc9b72e008",
+        "type": "tabs",
+        "dimension": 50.97402597402597,
+        "children": [
+          {
+            "id": "6c31383dec179665",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a68a3dc42d7277d6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -21,27 +54,8 @@
               }
             }
           }
-        ]
-      },
-      {
-        "id": "c04e8fdd8b67b8c3",
-        "type": "tabs",
-        "dimension": 52.32683982683982,
-        "children": [
-          {
-            "id": "7cffd7ab6de2c883",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/LaTeX/常用语法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -176,22 +190,23 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "bc13977632f12855",
+  "active": "a68a3dc42d7277d6",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230624134702.png",
-    "zip/images/Pasted image 20230624134615.png",
-    "zip/images/Pasted image 20230624134529.png",
-    "zip/images/Pasted image 20230624134523.png",
-    "zip/images/Pasted image 20230624134504.png",
-    "zip/images/Pasted image 20230624134231.png",
-    "Math/LaTeX/常用语法.md",
-    "Math/概率论/概率论与数理统计.md",
-    "zip/images/Pasted image 20230624134217.png",
-    "zip/images/Pasted image 20230624134152.png",
-    "zip/images/Pasted image 20230624134135.png",
-    "zip/images/Pasted image 20230624134123.png",
-    "zip/images/Pasted image 20230624134022.png",
     "Math/概率论/大数定律与中心极限定理.md",
+    "Math/概率论/概率论与数理统计.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "zip/images/Pasted image 20230624140026.png",
+    "zip/images/Pasted image 20230624135932.png",
+    "zip/images/Pasted image 20230624135809.png",
+    "zip/images/Pasted image 20230624135800.png",
+    "zip/images/Pasted image 20230624135655.png",
+    "zip/images/Pasted image 20230624135618.png",
+    "zip/images/Pasted image 20230624135452.png",
+    "zip/images/Pasted image 20230624135350.png",
+    "zip/images/Pasted image 20230624135130.png",
+    "zip/images/Pasted image 20230624135102.png",
+    "Math/LaTeX/常用语法.md",
     "Math/微积分/微积分基础.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
@@ -203,8 +218,6 @@
     "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
     "zBuffer/L4：实时阴影 2 - 深入 PCF、PCSS；VSSM；Moment shadowmapping.md",
     "引擎Unity3D/01 BUG合集.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
-    "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
