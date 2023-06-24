@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,12 +195,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "80abc5fbbbd8d26b",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",

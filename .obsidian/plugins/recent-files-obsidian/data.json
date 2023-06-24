@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "03 定向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
       "basename": "05 烘焙光照",
