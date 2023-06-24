@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Reshaper快捷键",
-      "path": "编程/IDE/Reshaper快捷键.md"
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "Reshaper快捷键",
+      "path": "编程/IDE/Reshaper快捷键.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "03 定向光",
@@ -25,20 +37,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "03 光照向量",
