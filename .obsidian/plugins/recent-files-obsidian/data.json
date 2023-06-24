@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
       "basename": "ShaderLab",
@@ -183,10 +187,6 @@
     {
       "basename": "05 模板测试",
       "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
       "basename": "书单",

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "2860f7d3c2fd76ca",
+        "id": "ae3ac53a7005a108",
         "type": "tabs",
         "children": [
           {
-            "id": "b9f227d358f5627c",
+            "id": "bce876e87dba84d2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -45,41 +45,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "2adaf0a3ee9eccf2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "ae3ac53a7005a108",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "bce876e87dba84d2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
               }
             }
           }
@@ -165,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -214,10 +182,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "bce876e87dba84d2",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "图形学/1 图形系统/09 阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/6a7sdASd 1.gif",
     "zip/images/6a7sdASd.gif",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
