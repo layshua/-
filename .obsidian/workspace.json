@@ -20,6 +20,32 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8494459d11c09038",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/09 阴影.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1c3f0a066a24772d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/概率论/概率论与数理统计.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ]
       },
@@ -42,20 +68,19 @@
             }
           },
           {
-            "id": "a68a3dc42d7277d6",
+            "id": "b4e9b58b34a0a1ff",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/概率论/概率论与数理统计.md"
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
               }
             }
           }
@@ -141,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,12 +215,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "a68a3dc42d7277d6",
+  "active": "6c31383dec179665",
   "lastOpenFiles": [
+    "图形学/1 图形系统/04 纹理.md",
     "Math/概率论/大数定律与中心极限定理.md",
-    "Math/概率论/概率论与数理统计.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "Math/概率论/概率论与数理统计.md",
     "zip/images/Pasted image 20230624140026.png",
     "zip/images/Pasted image 20230624135932.png",
     "zip/images/Pasted image 20230624135809.png",
