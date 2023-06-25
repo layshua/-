@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "06 阴影蒙版",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
@@ -67,10 +91,6 @@
     {
       "basename": "03 定向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "02 Draw Call",
@@ -157,24 +177,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
     },
     {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影蒙版",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
     },
     {
       "basename": "2 CG基础概述",
@@ -195,10 +199,6 @@
     {
       "basename": "README",
       "path": "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     }
   ],
   "omittedPaths": [],

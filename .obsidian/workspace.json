@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,9 +196,14 @@
   },
   "active": "bce876e87dba84d2",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/02 光栅化.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zip/images/Pasted image 20230625164105.png",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
@@ -220,13 +225,9 @@
     "编程/IDE/Reshaper快捷键.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "Math/概率论/大数定律与中心极限定理.md",
-    "Math/概率论/概率论与数理统计.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "zip/images/Pasted image 20230624160021.png",
     "zip/images/Pasted image 20230624155545.png",
     "zip/images/Pasted image 20230624155523.png",
