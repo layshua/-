@@ -34,7 +34,7 @@
             }
           },
           {
-            "id": "78854995a7131e18",
+            "id": "8aef818fb10f7281",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -47,33 +47,19 @@
             }
           },
           {
-            "id": "fb9de3175d312eb5",
+            "id": "fc2f749a59d49f83",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/7 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "43aa22fac144a1f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
               }
             }
           }
@@ -159,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -208,12 +194,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "78854995a7131e18",
+  "active": "bce876e87dba84d2",
   "lastOpenFiles": [
-    "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/1 图形系统/09 阴影.md",
+    "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zip/images/Pasted image 20230625164105.png",
+    "图形学/5 书籍/《RTR4》/7 阴影.md",
     "zip/images/Pasted image 20230625161036.png",
     "图形学/1 图形系统/08 透明.md",
     "zip/images/Pasted image 20230621105312 1.png",
@@ -221,7 +209,6 @@
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "编程/设计模式/工厂模式.md",
     "编程/IDE/Pycharm.md",
     "编程/IDE/VS2022.md",
@@ -240,12 +227,10 @@
     "Math/概率论/大数定律与中心极限定理.md",
     "Math/概率论/概率论与数理统计.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "zip/images/Pasted image 20230624160021.png",
     "zip/images/Pasted image 20230624155545.png",
     "zip/images/Pasted image 20230624155523.png",
     "zip/images/Pasted image 20230624155240.png",
-    "zip/images/Pasted image 20230624155016.png",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
