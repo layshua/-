@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
       "basename": "02 视图变换",

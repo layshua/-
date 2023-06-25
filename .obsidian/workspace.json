@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "78854995a7131e18",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "92f2192bcbbb3e50",
             "type": "leaf",
             "state": {
@@ -45,8 +32,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "78854995a7131e18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/09 阴影.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -89,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+                "file": "图形学/1 图形系统/09 阴影.md"
               }
             }
           }
@@ -132,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "图形学/1 图形系统/09 阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,11 +182,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "bce876e87dba84d2",
+  "active": "78854995a7131e18",
   "lastOpenFiles": [
-    "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+    "图形学/1 图形系统/09 阴影.md",
     "zip/images/Pasted image 20230621105312 1.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/参数化曲线.md",
