@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
               }
             }
           }
@@ -119,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -170,28 +170,31 @@
   },
   "active": "92f2192bcbbb3e50",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
+    "zip/images/Pasted image 20230625215105.png",
+    "zip/images/Pasted image 20230625215100.png",
+    "zip/images/Pasted image 20230625215029.png",
+    "zip/images/Pasted image 20230625215026.png",
+    "zip/images/Pasted image 20230625215024.png",
+    "zip/images/Pasted image 20230625215011.png",
+    "zip/images/Pasted image 20230625215008.png",
+    "zip/images/Pasted image 20230625214949.png",
+    "zip/images/Pasted image 20230625214936.png",
+    "zip/images/Pasted image 20230625214807.png",
+    "zip/images/Pasted image 20230625214804.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
-    "zip/images/Pasted image 20230625210722.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "图形学/1 图形系统/09 阴影.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zip/images/Pasted image 20230625200843.png",
-    "zip/images/Pasted image 20230625200839.png",
-    "zip/images/Pasted image 20230625200826.png",
-    "zip/images/Pasted image 20230625200816.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "图形学/1 图形系统/02 光栅化.md",
-    "zip/images/Pasted image 20230625164105.png",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
-    "zip/images/Pasted image 20230625161036.png",
     "图形学/1 图形系统/08 透明.md",
-    "zip/images/Pasted image 20230621105312 1.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
@@ -199,9 +202,7 @@
     "编程/设计模式/工厂模式.md",
     "编程/IDE/Pycharm.md",
     "编程/IDE/VS2022.md",
-    "zip/images/Pasted image 20230624235438.png",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "zip/images/6a7sdASd 1.gif",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "编程/IDE/Reshaper快捷键.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
