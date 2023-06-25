@@ -47,25 +47,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "92672c87ff583063",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "ef3aea8b71910055",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
               }
             }
           }
@@ -151,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -168,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,10 +181,12 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ef3aea8b71910055",
+  "active": "bce876e87dba84d2",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "图形学/1 图形系统/09 阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zip/images/Pasted image 20230621105312 1.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
@@ -223,7 +206,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "Math/概率论/大数定律与中心极限定理.md",
     "Math/概率论/概率论与数理统计.md",
@@ -236,8 +218,6 @@
     "zip/images/Pasted image 20230624155240.png",
     "zip/images/Pasted image 20230624155016.png",
     "zip/images/Pasted image 20230624154937.png",
-    "zip/images/Pasted image 20230624153637.png",
-    "图形学/1 图形系统/04 纹理.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
