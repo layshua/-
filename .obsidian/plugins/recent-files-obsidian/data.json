@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "16 渲染缩放",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
+    },
+    {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+    },
+    {
+      "basename": "14 复杂纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
+    },
+    {
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
+    },
+    {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "06 阴影蒙版",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+    },
+    {
       "basename": "05 烘焙光照",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
@@ -23,26 +71,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影蒙版",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
     },
     {
       "basename": "02 光栅化",
@@ -161,26 +189,6 @@
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
       "basename": "2 CG基础概述",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "6 纹理化",
       "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "README",
-      "path": "图形学/5 书籍/《RTR3》/第七章续 · 延迟渲染的前生今世/README.md"
     }
   ],
   "omittedPaths": [],

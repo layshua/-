@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
               }
             }
           }
@@ -119,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -170,6 +170,19 @@
   },
   "active": "92f2192bcbbb3e50",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
     "zip/images/Pasted image 20230625215343.png",
     "zip/images/Pasted image 20230625215319.png",
     "zip/images/Pasted image 20230625215317.png",
@@ -180,18 +193,10 @@
     "zip/images/Pasted image 20230625215227.png",
     "zip/images/Pasted image 20230625215219.png",
     "zip/images/Pasted image 20230625215204.png",
-    "zip/images/Pasted image 20230625215123.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "图形学/1 图形系统/09 阴影.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/1 图形系统/08 透明.md",
@@ -201,11 +206,6 @@
     "图形学/1 图形系统/03 光照模型.md",
     "编程/设计模式/工厂模式.md",
     "编程/IDE/Pycharm.md",
-    "编程/IDE/VS2022.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "编程/IDE/Reshaper快捷键.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
