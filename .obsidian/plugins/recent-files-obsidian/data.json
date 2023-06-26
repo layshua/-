@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名",
+      "path": "图形学/3 软渲染器/软光追/未命名.md"
+    },
+    {
       "basename": "ASE",
       "path": "技术美术/4 UnityShader/ASE.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],
