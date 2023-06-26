@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "ASE",
+      "path": "技术美术/4 UnityShader/ASE.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "01 学习大纲",
+      "path": "技术美术/01 学习大纲.md"
+    },
+    {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十九篇 性能拔尖的模糊 - 双重 Kasase 模糊 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十九篇 性能拔尖的模糊 - 双重 Kasase 模糊 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十二篇补充 ShadowCaster - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十二篇补充 ShadowCaster - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十二篇 ShadowCaster 和 SRP batcher - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十二篇 ShadowCaster 和 SRP batcher - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],

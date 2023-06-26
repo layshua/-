@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "技术美术/4 UnityShader/ASE.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md"
+                "file": "技术美术/4 UnityShader/ASE.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "技术美术/4 UnityShader/ASE.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "技术美术/4 UnityShader/ASE.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -184,6 +184,10 @@
   },
   "active": "fc2f749a59d49f83",
   "lastOpenFiles": [
+    "技术美术/4 UnityShader/庄懂AP01.md",
+    "技术美术/4 UnityShader/冯乐乐入门精要.md",
+    "技术美术/01 学习大纲.md",
+    "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
@@ -216,10 +220,6 @@
     "zip/images/Pasted image 20230626174939.png",
     "zip/images/Pasted image 20230626174937.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/02 Unity操作指南.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
