@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
       "basename": "10 屏幕后处理效果(Bloom)",
@@ -13,20 +13,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
     {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
     },
     {
       "basename": "15 粒子",
@@ -37,8 +25,20 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
     },
     {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+    },
+    {
+      "basename": "16 渲染缩放",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
     },
     {
       "basename": "14 复杂纹理",

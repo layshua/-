@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -184,28 +184,27 @@
   },
   "active": "7880a290ee5cd5e0",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230626171511.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "zip/images/Pasted image 20230626174706.png",
+    "zip/images/Pasted image 20230626174655.png",
+    "zip/images/Pasted image 20230626174631.png",
+    "zip/images/Pasted image 20230626174627.png",
+    "zip/images/Pasted image 20230626174530.png",
+    "zip/images/Pasted image 20230626174509.png",
+    "zip/images/Pasted image 20230626174506.png",
+    "zip/images/Pasted image 20230626174458.png",
+    "zip/images/Pasted image 20230626174456.png",
+    "zip/images/Pasted image 20230626174452.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
-    "zip/images/Pasted image 20230626170600.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "zip/images/Pasted image 20230626170552.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
-    "zip/images/Pasted image 20230626170540.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "zip/images/Pasted image 20230626170524.png",
-    "zip/images/Pasted image 20230626170511.png",
-    "zip/images/Pasted image 20230626170453.png",
-    "zip/images/Pasted image 20230626170424.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
-    "zip/images/Pasted image 20230626170407.png",
-    "zip/images/Pasted image 20230626170349.png",
-    "zip/images/Pasted image 20230626170324.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/02 Unity操作指南.md",
