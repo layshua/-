@@ -31,7 +31,12 @@
   "editor:save-file": [],
   "editor:insert-link": [],
   "app:open-settings": [],
-  "easy-typing-obsidian:easy-typing-insert-codeblock": [],
+  "easy-typing-obsidian:easy-typing-insert-codeblock": [
+    {
+      "modifiers": [],
+      "key": "F4"
+    }
+  ],
   "easy-typing-obsidian:easy-typing-format-article": [],
   "easy-typing-obsidian:easy-typing-format-selection": [],
   "easy-typing-obsidian:easy-typing-format-switch": [],
