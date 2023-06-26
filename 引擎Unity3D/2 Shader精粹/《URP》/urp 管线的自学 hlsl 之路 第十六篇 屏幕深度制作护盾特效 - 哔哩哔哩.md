@@ -1,0 +1,289 @@
+![[4eaeaff8090749f5174699ad8a3034a9_MD5.webp]]
+
+简单的利用屏幕深度特效
+
+      上一篇一键说了屏幕颜色的获取，这一篇学习一下屏幕深度的内容，这里写了一个简单的特效，该特效在 unity 里很常见了，会连连看的童鞋分分钟能搞定。这里在 urp 里手写一遍加深理解。
+
+    第一步，我们要获取屏幕 uv。上一篇里讲了三种方式获取，而当时使用了第三种最简单的方式；该篇我们采取第二种 ------ 手动计算一遍屏幕 uv。在顶点着色器里，计算屏幕 uv，并把 xy 存储为未经透除的 uv 通道，zw 正常存储。
+
+![[9ba8a66d3a55b0f8be9cf3dae6c74fa3_MD5.webp]]
+
+顶点着色器里计算屏幕 uv
+
+      在片元着色器里进行透视除法，在检测一下平台矫正 uv。这样我们就能得到正常的 uv，当然如果你嫌弃这种方式麻烦，可以使用上一篇的方式获得屏幕 uv。
+
+![[73aa152d55edcb8500a77082e3fc6a85_MD5.webp]]
+
+屏幕 uv 的计算
+
+第二步，拿到 0-1 线性的屏幕深度图。管线配置文件里要打开深度图，然后 shader 里采样这张图，这张深度图的名字是_CameraDepthTexture。
+
+![[4ea44b6ce9346f2b4f580352aaa4ff2e_MD5.webp]]
+
+采样深度图
+
+然后在顶点着色器里用屏幕 uv 去采样这张图，并用 float Linear01Depth(float depth, float4 zBufferParam) 函数去把它变换成线性深度图。
+
+![[7b1d109d0180400b42eb28beb402b4e7_MD5.webp]]
+
+得到正常的深度缓冲的图
+
+该函数定义在 Common.hlsl 里，注意它和 build in 的同名函数的参数不同，请注意。
+
+![[5f2c678d694096bd335f59eccb399739_MD5.webp]]
+
+深度图变换到 0-1 的线性深度函数
+
+第三步，拿到模型像素在线性 0-1 的深度值。这个比较简单，直接取片元着色器里的 HClip 的 Z 分量，再次使用上面的函数即可得到正常深度。
+
+![[b0e18f834f0b33125e8569631a73fa31_MD5.webp]]
+
+得到模型像素的深度
+
+把模型深度在和屏幕深度图相减，进行一些加减乘除手动微调，即可得到和场景模型接触的效果。
+
+![[1e62f5035a528190c892da53eeeaef16_MD5.webp]]
+
+接触效果
+
+第四步，计算一个菲涅尔，可以使用 “入门精要” 的公式计算，这里本人弄了个山寨版的，效果还行。
+
+![[b4e9b5ebee463f44273d6e4b39cdb61e_MD5.webp]]
+
+随意计算的菲涅尔，公式并不完全准确
+
+![[98615fe6ac39c45360f42650d6278ff8_MD5.webp]]
+
+山寨菲尼尔
+
+第五步，计算扫光效果，利用世界坐标的 y 轴作为 “uv” 的滚动效果，这是本人在连连看里经常使用的一个公式，如果读者看不懂公式也没关系，可以手动在连连看里还原一下看看效果。
+
+![[ed3d217100f8080d86cf74fcc522c1c5_MD5.webp]]
+
+利用世界坐标制作扫光效果
+
+![[d8fec9d5c786d7971696789ac7bb91c8_MD5.webp]]
+
+光带会缓慢从下向上滚动，类型滚 uv
+
+第六步，采样一下主纹理，本人是在百度上搜了一张图，在 ps 里小修了一下拿来用。
+
+![[4c565fb2a82ee34614e6655382459f0b_MD5.webp]]
+
+百度随便找的一张图然后 ps 修了一下
+
+把它贴到球上，调整一下 tile，shader 里顺便滚一下 uv。
+
+![[cfcf55a810bf0a12634e7a51cf5465d7_MD5.webp]]
+
+采样的时候滚 uv
+
+最后把它们全部加到一起，小特效就做出来了。
+
+![[b6cc27919e59b3e713f1d4d8998a5705_MD5.webp]]
+
+        本篇的内容重点并不是特效本身，而是如果获取屏幕深度并把它转到线性空间里，同时也说明了一下如何获取模型像素的线性深度值。有时候在水体的制作里也会用到：它和岸边的交界线的制作原理也是一致的，通过他可以做一些水体和岸，水中裸露的石头的交互；在配合上一篇的屏幕空间颜色来得到折射效果；在采样一下反射球 / 天空盒来得到反射效果；配合一下菲涅尔，来点法线的滚 uv，（如果可以再来点去曲面细分 + 快速傅里叶变换的顶点动画）就可以做出一个漂亮的水体效果了。不吹了，再吹牛下去就吹不动了，下面附源码，直接复制时，若出现报错，是每行代码前面的空格错误，删掉即可。
+
+       该篇完成后，下一篇的内容将是 URP 的自定义后处理。
+
+Shader "WX/URP/depth"
+
+{
+
+    Properties
+
+    {
+
+        _MainTex("MainTex",2D)="white"{}
+
+       _BaseColor("BaseColor",Color)=(1,1,1,1)
+
+        _depthoffset("depthoffset",float)=1
+
+        [HDR]_emissioncolor("EmissionColor",Color  )=(1,1,1,1)
+
+    }
+
+    SubShader
+
+    {
+
+        Tags{
+
+        "RenderPipeline"="UniversalRenderPipeline"
+
+        "Queue"="Transparent"
+
+        }
+
+        HLSLINCLUDE
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        //#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+
+        //#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
+
+        //#pragma  shader_feature_local _ADDLIGHT_ON 
+
+        //#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+
+        //#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+
+        //#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
+
+        //#pragma multi_compile _ _SHADOWS_SOFT
+
+        CBUFFER_START(UnityPerMaterial)
+
+        float4 _MainTex_ST;
+
+        half4 _BaseColor;
+
+        float _depthoffset;
+
+        float4 _emissioncolor;
+
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+
+        SAMPLER(sampler_MainTex);
+
+        SAMPLER(_CameraDepthTexture);
+
+         struct a2v
+
+         {
+
+             float4 positionOS:POSITION;
+
+             float4 normalOS:NORMAL;
+
+             float2 texcoord:TEXCOORD;
+
+         };
+
+         struct v2f
+
+         {
+
+             float4 positionCS:SV_POSITION;
+
+             float2 texcoord:TEXCOORD;
+
+             float4 sspos:TEXCOORD2;
+
+             float3 positionWS:TEXCOORD3;
+
+             float3 normalWS:TEXCOORD4 ; 
+
+         };
+
+        ENDHLSL
+
+        pass
+
+        {
+
+        Tags{
+
+         "LightMode"="UniversalForward"
+
+         "RenderType"="Transparent"
+
+        }
+
+        Blend  SrcAlpha OneMinusSrcAlpha 
+
+            HLSLPROGRAM
+
+            #pragma vertex VERT
+
+            #pragma fragment FRAG
+
+            v2f VERT(a2v i)
+
+            {
+
+                v2f o;
+
+                o.positionCS=TransformObjectToHClip(i.positionOS.xyz);
+
+                o.texcoord=TRANSFORM_TEX(i.texcoord,_MainTex);
+
+                // 屏幕坐标 sspos，xy 保存为未透除的屏幕 uv，zw 不变
+
+                o.sspos.xy=o.positionCS.xy*0.5+0.5*float2(o.positionCS.w,o.positionCS.w);
+
+                o.sspos.zw=o.positionCS.zw;
+
+                o.positionWS=TransformObjectToWorld(i.positionOS.xyz);
+
+                o.normalWS=normalize(TransformObjectToWorldNormal(i.normalOS.xyz));
+
+                return o;
+
+            }
+
+            half4 FRAG(v2f i):SV_TARGET
+
+            {
+
+            float2 uv=i.texcoord;
+
+            uv.x+=_Time.y*0.2;// 滚 uv，以每秒钟滚 0.2 圈的速度旋转
+
+                half4 tex=SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,uv)*_BaseColor;
+
+                // 开始计算屏幕 uv  
+
+                i.sspos.xy/=i.sspos.w;// 透除
+
+                #ifdef UNITY_UV_STARTS_AT_TOP// 判断当前的平台是 openGL 还是 dx
+
+                i.sspos.y=1-i.sspos.y;
+
+                #endif// 得到正常的屏幕 uv，也可以通过 i.positionCS.xy/_ScreenParams.xy 来得到屏幕 uv
+
+                // 计算（山寨简化版）菲涅尔
+
+                float3 WSview=normalize(_WorldSpaceCameraPos-i.positionWS);
+
+                float fre=(1-dot(i.normalWS,WSview))*_depthoffset;
+
+                // 计算缓冲区深度，模型深度
+
+                float4 depthcolor= tex2D(_CameraDepthTexture,i.sspos.xy);
+
+                float depthbuffer=Linear01Depth(depthcolor,_ZBufferParams);// 得到线性的深度缓冲
+
+                // 计算模型深度
+
+                float depth=i.positionCS.z;
+
+                depth=Linear01Depth(depth,_ZBufferParams);// 得到模型的线性深度
+
+                float edge= saturate(depth-depthbuffer+0.005)*100*_depthoffset;// 计算接触光
+
+                //return edge;
+
+                // 计算扫光, 这步看不懂建议用连连看还原，这是一个做特效的通用公式
+
+                float flow=saturate(pow(1-abs(frac(i.positionWS.y*0.3-_Time.y*0.2)-0.5),10)*0.3);
+
+                float4 flowcolor=flow*_emissioncolor;
+
+                //return flowcolor*2;
+
+                return float4(tex.xyz,edge+fre)+flowcolor;
+
+            }
+
+            ENDHLSL
+
+        }
+
+    }
+
+}

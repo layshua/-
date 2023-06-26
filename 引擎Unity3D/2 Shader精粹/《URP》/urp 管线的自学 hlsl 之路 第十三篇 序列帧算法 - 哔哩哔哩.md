@@ -1,0 +1,181 @@
+      序列帧是特效里常用的特殊算法，在做特效的时候会经常用到，如果经过用连连看做 shader 的朋友，比如 sg ase 已经帮我们做好现成的节点了拿来用即可，这里只是想彻底还原它的算法，掌握他的原理。
+
+![[3c44fdaca9d47d99ce0085def42a5661_MD5.webp]]
+
+SG 自带的序列帧节点
+
+ 序列帧的难点在于如何处理行和列的交替排序，入门精要那本书写了算法但不是很好理解和记忆，这里本人结合自己的想法去还原它。
+
+ 第一步，实现阶梯取整，然后映射到 0-1，我们新建一个 shader，假定我们的序列帧是 8x8 的，在片元着色器部分，我们先对时间向下取整，就能得到时间整数，然后用时间整数除以 8，再取它的余数，就可以得到在 0-1 之间的 8 个硬灰度，即 0，0.125，0.25，0.375，0.5，0.625，0.75，0.875。我们就可以在场景里看到输出的颜色为 8 个灰度的硬切换，这个就是序列帧动画播放的核心原理。
+
+![[278abb2fddb9a85190373d5829dba91a_MD5.webp]]
+
+梯度取整
+
+     第二步，对行方向进行处理。找到我们的序列帧图，我们观察它的行，它无论哪一行，每一个小方块与下一个小方块的间距都是 1/8，每一个小方块的 uv 是 UV/8(这里用大写的 UV 表示原本的 UV，小写的 uv 表示每一个小方块)。然后 8 个小方块的 uv 分别是 UV/8+0，UV/8+0.125，UV/8+0.25，UV/8+0.375，UV/8+0.5，UV/8+0.625，UV/8+0.75，UV/8+0.875。
+
+![[ebaaf1517439caef36794ec3c3cde540_MD5.webp]]
+
+每个方块的 uv
+
+得到的这个每个方块的 uv，它的 x 就等于 UV.x/8+frac(floor(_Time.y)/8)，而 y 临时等于 UV.y/8; 我们在 shader 里把它输出到片元并附上序列帧贴图，就会看到我们的贴图开始动了起来！但是会发现采样是最小面一行方格，这是因为 uv 的原点在左下角导致的。但是我们不着急，解决好行方向后，我们已经离成功很接近了。
+
+![[7730cf722e54f3f6b2fdc2ce05bb43c2_MD5.webp]]
+
+先让行方向的小方块动起来，代码中的 texcoord 就是 uv
+
+       第三步，对列方向进行处理。列方向的值变化也是 0，0.125，0.25，0.375，0.5，0.625，0.75，0.875 变化，不过他都是在 x 完成一个循环之后在跳下一个列方块，这里我们可以用多进制的思维，满 8 进 1，即 x 满 8 之后，y 才 + 1，为了方便处理，我们把 0，0.125，0.25，0.375，0.5，0.625，0.75，0.875 全部乘 8 变成整数，即 0，1，2，3，4，5，6，7，最后最后全部算完了在除以 8，取余数即可。
+
+这样的思维下处理 y 就非常方便了：先对时间除以 8，再取整数，即 floor(_Time.y/8)，这样在 x 完成一个循环后，y 才 + 1，然后我们再除以 8 取余数，就得到了我们想要的结果，我们在 shader 里这样写进行调试，为了加快时间的增长率，我们对时间乘以 25，就是 25fps 的帧率了。
+
+![[55a72801c21af36eb33d576981a8a120_MD5.webp]]
+
+对列方向进行处理
+
+这样写了之后童鞋会发现我们的动画已经正常开始播了，amazing！但是奇怪的是它是 “倒着播放” 的，这是因为我们的序列帧是上到下为正，而 uv 里是下到上为正，我们把 y 的计算的加法改成减法并 + 1，+1 是因为原本就是 0 如果在减的话就变成负数，对于 repeat 模式的贴图无影响，但是对于 clamp 的贴图则会采样不到任何像素，故此处需要 + 1 进行修正，他和 shadergraph 里的 oneminus 节点的意义一致。
+
+![[a14cd8d7a533042eb557fadf6967cc45_MD5.webp]]
+
+然后我们把乘 25 的倍率暴露出来在材质面板中作为帧率调节；x 和 y 里的 8 暴露到材质面板的_Sheet 参数进行调节。
+
+![[0dbc8fe2ddeca8530d5694bd1103e63b_MD5.webp]]
+
+把一些常用的变量暴露在材质面板里
+
+        然后设置一下混合模式，渲染类型为半透明混合，一个序列帧的特效就完成了，本人第一次看《入门精要》并未完全理解算法原理，索性干脆自己推算，然后把思维分享出来，希望能帮助各位学习，下一篇将会讲广告牌的算法，广告牌 + 序列帧是很多特效的必备算法，所以非常有必要掌握。
+
+![[8bb012f89dfae880306786574f8cfe5e_MD5.webp]]
+
+下面附 shader 源码，序列帧的 shader 源码并不重要，重要的是理解行和列是如何处理的。
+
+Shader "WX/URP / 序列帧"
+
+{
+
+    Properties
+
+    {
+
+        _MainTex("MainTex",2D)="white"{}
+
+        _BaseColor("BaseColor",Color)=(1,1,1,1)
+
+        _Sheet("Sheet",Vector)=(1,1,1,1)
+
+        _FrameRate("FrameRate",float)=25
+
+    }
+
+    SubShader
+
+    {
+
+        Tags{
+
+        "RenderPipeline"="UniversalRenderPipeline"
+
+        "Queue"="Transparent"
+
+        "RenderType"="Transparent"
+
+        }
+
+        HLSLINCLUDE
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        CBUFFER_START(UnityPerMaterial)
+
+        float4 _MainTex_ST;
+
+        half4 _BaseColor;
+
+        half4 _Sheet;
+
+        float _FrameRate;
+
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+
+        SAMPLER(sampler_MainTex);
+
+         struct a2v
+
+         {
+
+             float4 positionOS:POSITION;
+
+             float4 normalOS:NORMAL;
+
+             float2 texcoord:TEXCOORD;
+
+         };
+
+         struct v2f
+
+         {
+
+             float4 positionCS:SV_POSITION;
+
+             float2 texcoord:TEXCOORD;
+
+         };
+
+        ENDHLSL
+
+        pass
+
+        {
+
+        Tags{
+
+         "LightMode"="UniversalForward"
+
+        }
+
+        ZWrite off
+
+        Blend SrcAlpha OneMinusSrcAlpha  
+
+            HLSLPROGRAM
+
+            #pragma vertex VERT
+
+            #pragma fragment FRAG
+
+            v2f VERT(a2v i)
+
+            {
+
+                v2f o;
+
+                o.positionCS=TransformObjectToHClip(i.positionOS.xyz);
+
+                o.texcoord=TRANSFORM_TEX(i.texcoord,_MainTex);
+
+                return o;
+
+            }
+
+            half4 FRAG(v2f i):SV_TARGET
+
+            {
+
+            float2 uv;// 小方块的 uv
+
+            uv.x=i.texcoord.x/_Sheet.x+frac(floor(_Time.y*_FrameRate)/_Sheet.x);
+
+           uv.y=i.texcoord.y/_Sheet.y+1-frac(floor(_Time.y*_FrameRate/_Sheet.x)/_Sheet.y);
+
+                return SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,uv);
+
+            }
+
+            ENDHLSL
+
+        }
+
+    }
+
+}

@@ -1,8 +1,176 @@
 {
   "recentFiles": [
     {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十五篇 Render Feature 制作特定模型外描边 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十五篇 Render Feature 制作特定模型外描边 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第二十九篇 ComputeShader 释义 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第二十九篇 ComputeShader 释义 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十六篇 色彩分离 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十六篇 色彩分离 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第五篇 法线贴图 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第五篇 法线贴图 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第四篇 布林风 - 半兰伯特光照模型 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第四篇 布林风 - 半兰伯特光照模型 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十一篇 多光源阴影处理 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十一篇 多光源阴影处理 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十四篇  广告牌算法 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十四篇  广告牌算法 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十三篇 序列帧算法 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十三篇 序列帧算法 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十七篇 建立自己的后处理系统并调整屏幕的亮度饱和度对比度 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十七篇 建立自己的后处理系统并调整屏幕的亮度饱和度对比度 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十九篇 性能拔尖的模糊 - 双重 Kasase 模糊 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十九篇 性能拔尖的模糊 - 双重 Kasase 模糊 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十二篇补充 ShadowCaster - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十二篇补充 ShadowCaster - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十二篇 ShadowCaster 和 SRP batcher - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十二篇 ShadowCaster 和 SRP batcher - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十一篇  矩阵的拆解与证明 --- 广告牌算法数学篇 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十一篇  矩阵的拆解与证明 --- 广告牌算法数学篇 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十五篇 SSPR 屏幕空间平面反射 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十五篇 SSPR 屏幕空间平面反射 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十四篇 光线步进 RayMarch 第一节入门 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十四篇 光线步进 RayMarch 第一节入门 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十三篇 屏幕空间贴花 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十三篇 屏幕空间贴花 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十七篇 造一个 PBR 的轮子 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十七篇 造一个 PBR 的轮子 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十篇 年轻人写的第一个 GPU 粒子 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十篇 年轻人写的第一个 GPU 粒子 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十六篇 屏幕空间平面反射 SSPR 补充 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十六篇 屏幕空间平面反射 SSPR 补充 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "URP 管线的自学 HLSL 之路 第三十二篇 镜头炫光 更好的广告牌算法 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十二篇 镜头炫光 更好的广告牌算法 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第三篇 兰伯特 _ 半兰伯特光照模型 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第三篇 兰伯特 _ 半兰伯特光照模型 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第六篇 渐变纹理 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第六篇 渐变纹理 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第九篇 多光源处理 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第九篇 多光源处理 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十一篇  景深和散景模糊——数学篇 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十一篇  景深和散景模糊——数学篇 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十四篇 科幻扫描效果后篇 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十四篇 科幻扫描效果后篇 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十三篇 科幻扫描效果前篇 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十三篇 科幻扫描效果前篇 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十七篇  制作 VEG 粒子特效 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十七篇  制作 VEG 粒子特效 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二十篇 径向模糊 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十篇 径向模糊 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "urp 管线的自学 hlsl 之路 第二篇 从写一个 unlit shader 开始 - 哔哩哔哩",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二篇 从写一个 unlit shader 开始 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "技术美术 TA3000 问",
+      "path": "图形学/面经/技术美术 TA3000 问.md"
     },
     {
       "basename": "16 渲染缩放",
@@ -31,174 +199,6 @@
     {
       "basename": "10 屏幕后处理效果(Bloom)",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影蒙版",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "7 阴影",
-      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "参数化曲线",
-      "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "常用噪声算法",
-      "path": "图形学/0 3D数学/常用噪声算法.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "工厂模式",
-      "path": "编程/设计模式/工厂模式.md"
-    },
-    {
-      "basename": "Pycharm",
-      "path": "编程/IDE/Pycharm.md"
-    },
-    {
-      "basename": "VS2022",
-      "path": "编程/IDE/VS2022.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
-      "basename": "Reshaper快捷键",
-      "path": "编程/IDE/Reshaper快捷键.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "大数定律与中心极限定理",
-      "path": "Math/概率论/大数定律与中心极限定理.md"
-    },
-    {
-      "basename": "概率论与数理统计",
-      "path": "Math/概率论/概率论与数理统计.md"
-    },
-    {
-      "basename": "3 实时阴影1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
-    },
-    {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "微积分基础",
-      "path": "Math/微积分/微积分基础.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "图形学/3 软渲染器/软光追/未命名.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (一) 概率分布变换与随机采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (三) 低差异采样序列",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (三) 低差异采样序列.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "2 CG基础概述",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "6 纹理化",
-      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
     }
   ],
   "omittedPaths": [],

@@ -1,0 +1,213 @@
+    法线贴图这块我们采用在世界坐标系下，在片元着色器中进行计算。定义顶点着色器拿到数据的结构体，我们需要顶点位置，uv，顶点法线，顶点切线。
+
+![[ead407935e730c0f682aa002e1285e65_MD5.webp]]
+
+顶点拿到的数据
+
+    在定义输出给片元着色器的结构体，我们需要裁剪空间的顶点坐标，一个 float4 的 uv（前两个用作漫反射纹理的偏移缩放, 后两个用作法线纹理的偏移缩放), 世界空间法线，世界空间切线，世界空间副切线，世界空间的顶点坐标（藏在切线，副切线，法线的 w 通道里）。
+
+![[1eaa587454a0e0dd681733ac400f7569_MD5.webp]]
+
+顶点输出的数据
+
+     获取世界空间的法线，切线，并标准化。
+
+![[1b4904cd675d878126c46a28456a1a51_MD5.webp]]
+
+拿到世界空间的标准化法线，切线
+
+    计算副切线时，叉乘法线，切线，并在乘切线的 w 值判断正负，在乘负奇数缩放影响因子。
+
+![[8ac08a1da5461059768d560540ddbc20_MD5.webp]]
+
+   在计算世界空间顶点坐标，并存储到法线，切线，副切线的 w 通道里。
+
+![[2d983816e26140b0847987bccef397e4_MD5.webp]]
+
+    顶点着色器里，获取 T2W 矩阵，即 TBN 矩阵，但是这里应该在取矩阵的逆。这里并未取逆矩阵，故在 mul（）函数里左乘矩阵需换成右乘。
+
+![[7b2331aa0c4e11d7e277182d877c6a3a_MD5.webp]]
+
+矩阵的左乘右乘需注意
+
+   在利用第三篇，第四篇的高光，漫反射公式进行计算即可。shader 源码如下
+
+Shader "URP/normal"
+
+{
+
+    Properties
+
+    {
+
+        _MainTex("MainTex",2D)="white"{}
+
+        _BaseColor("BaseColor",Color)=(1,1,1,1)
+
+        [Normal]_NormalTex("Normal",2D)="bump"{}// 注意这里是小写
+
+        _NormalScale("NormalScale",Range(0,1))=1
+
+        _SpecularRange("SpecularRange",Range(1,200))=50
+
+        [HDR]_SpecularColor("SpecularColor",Color)=(1,1,1,1)
+
+    }
+
+    SubShader
+
+    {
+
+        Tags{
+
+            "RenderPipeline"="UniversalRenderPipeline"
+
+        }
+
+        HLSLINCLUDE
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+
+        CBUFFER_START(UnityPerMaterial)
+
+        float4 _NormalTex_ST;
+
+        float4 _MainTex_ST;
+
+        real4 _BaseColor;
+
+        real _NormalScale;
+
+        real _SpecularRange;
+
+        real4 _SpecularColor;
+
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+
+        TEXTURE2D(_NormalTex);
+
+        SAMPLER(sampler_MainTex);
+
+        SAMPLER(sampler_NormalTex);
+
+        struct a2v
+
+        {
+
+            float3 positionOS:POSITION;
+
+            float2 texcoord:TEXCOORD0;
+
+            float3 normalOS:NORMAL;
+
+            float4 tangentOS:TANGENT; 
+
+        } ;
+
+        struct v2f
+
+        {
+
+            float4 positionCS:SV_POSITION;
+
+            float4 texcoord:TEXCOORD0;
+
+            float4 tangentWS:TANGENT;
+
+            float4 normalWS:NORMAL;
+
+            float4 BtangentWS:TEXCOORD1;
+
+        };
+
+        ENDHLSL
+
+        Pass {
+
+            NAME"MainPass"
+
+            Tags{
+
+                "LightMode"="UniversalForward"
+
+            }
+
+            HLSLPROGRAM
+
+            #pragma vertex vert
+
+            #pragma fragment  frag
+
+            v2f vert(a2v i)
+
+            {
+
+                v2f o;
+
+                o.texcoord.xy=TRANSFORM_TEX(i.texcoord,_MainTex);
+
+                o.texcoord.zw=TRANSFORM_TEX(i.texcoord,_NormalTex);
+
+                o.positionCS=TransformObjectToHClip(i.positionOS);
+
+                o.normalWS.xyz=normalize(TransformObjectToWorldNormal(i.normalOS));
+
+                o.tangentWS.xyz=normalize(TransformObjectToWorld(i.tangentOS));
+
+                o.BtangentWS.xyz=cross(o.normalWS.xyz,o.tangentWS.xyz)*i.tangentOS.w*unity_WorldTransformParams.w;
+
+                // 这里乘一个 unity_WorldTransformParams.w 是为判断是否使用了奇数相反的缩放
+
+                float3 positionWS=TransformObjectToWorld(i.positionOS);
+
+                o.tangentWS.w=positionWS.x;
+
+                o.BtangentWS.w=positionWS.y;
+
+                o.normalWS.w=positionWS.z;
+
+                return  o;
+
+            } 
+
+            real4 frag(v2f i):SV_TARGET
+
+            {
+
+                float3 WSpos=float3(i.tangentWS.w,i.BtangentWS.w,i.normalWS.w);
+
+                float3x3 T2W={i.tangentWS.xyz,i.BtangentWS.xyz,i.normalWS.xyz};
+
+                real4 nortex=SAMPLE_TEXTURE2D(_NormalTex,sampler_NormalTex,i.texcoord.zw);
+
+                float3 normalTS=UnpackNormalScale(nortex,_NormalScale);
+
+                normalTS.z=pow((1-pow(normalTS.x,2)-pow(normalTS.y,2)),0.5);// 规范化法线
+
+                float3 norWS=mul(normalTS,T2W);// 注意这里是右乘 T2W 的，等同于左乘 T2W 的逆
+
+                Light mylight=GetMainLight();
+
+                float halflambot=dot(norWS,normalize(mylight.direction))*0.5+0.5;// 计算半兰伯特
+
+                real4 diff=SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.texcoord.xy)*halflambot*_BaseColor*real4(mylight.color,1);
+
+                float spe= dot(normalize(normalize(mylight.direction)+normalize(_WorldSpaceCameraPos-WSpos)),norWS);// 计算高光
+
+                spe=pow(spe,_SpecularRange);
+
+                return spe*_SpecularColor+diff;
+
+            }
+
+            ENDHLSL
+
+        }
+
+    }
+
+}

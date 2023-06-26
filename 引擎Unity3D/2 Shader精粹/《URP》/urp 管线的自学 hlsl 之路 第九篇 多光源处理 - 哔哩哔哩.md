@@ -1,0 +1,214 @@
+![[065087eb90bc97c4604e0c2724485a16_MD5.webp]]
+
+URP 的多光源实现
+
+     URP 的多光源处理方式大改，从 buildin 里的一个 pass 处理主光源，addpass 去处理额外光源变成了一个 pass 里循环处理光源。本人研究了一段时间的 urp 的多光源写法，得益于 lighting 库函数已经帮我们定义好了很多函数，总体做起来也比较简单。URP 这样处理确实会降低 drawcall 来提升明显的性能，虽然会打破合批，但总体来说性能肯定更好，在该场景一次就完成了 6 个灯光的渲染，非常给力。
+
+![[e4cc6fa273496a7626133abe20dc6525_MD5.webp]]
+
+一次性计算 6 个灯光（1 主光 5 额外光）
+
+同时为了某些特殊情况，我额外做了个关键字去控制是否开启多光源计算。
+
+![[8e084bd55c63724a83bd6948fb3b2dea_MD5.webp]]
+
+shader_feature
+
+    但是尴尬的是我把它关掉后，发现 batches 和打开的时候一样，还是 3，23333。
+
+![[b1d52c889c3c3e2a2fd316257b59cca3_MD5.webp]]
+
+是否开启额外光源计算
+
+    下面说明下 lightling 库函数里面的几个关于多光源的计算会用到的函数。
+
+*   GetAdditionalLightsCount() 函数，无参数，它返回 int 类型，返回值为额外灯光的数量。
+    
+*   GetAdditionalLight(i,WS_Pos) 函数，参数 i 为 int 类型的额外灯光 id 的编号；第二个参数为 float3 类型顶点的世界坐标。该函数返回值类型为结构体 Light。
+    
+
+![[8f07cc0bc4f217bc48137a3470c9fa91_MD5.webp]]
+
+额外灯光 ID 的编号
+
+shader 的前面部分比较简单，主要说一下额外光源的计算，这个前几章没有提到过。
+
+![[7e626b7ef70e8fcfa8fad851319c49e9_MD5.webp]]
+
+额外光源计算
+
+    思路是先获取额外灯光的数量，然后用它做 for 循环遍历全部灯光，循环里通过 GetAdditionalLight(i,WS_Pos) 函数去遍历每个灯光的 Light 结构体，然后得到光照方向，颜色，距离衰减和阴影衰减（由于 urp 目前不支持点光源，聚光灯的实时阴影，返回值始终为 1，关于阴影的部分本人后面在研究了写出来），得到这些数据后，再使用主光源的方法去计算漫颜色，再把它们累加起来，和主光源相加即可。这里我只使用了最简单的半兰伯特去计算示意一下。 最后再用一个 keyword 去控制要不要计算这部分，毕竟遍历全部额外灯光有时得考虑性能。
+
+    最后附上 shader 源码
+
+Shader "URP/multi_Light"
+
+{
+
+    Properties
+
+    {
+
+        _MainTex("MainTex",2D)="white"{}
+
+        _BaseColor("BaseColor",Color)=(1,1,1,1)
+
+        [KeywordEnum(ON,OFF)]_ADD_LIGHT("AddLight",float)=1
+
+    }
+
+    SubShader
+
+    {
+
+        Tags{
+
+        "RenderPipeline"="UniversalRenderPipeline"
+
+        "RenderType"="Opaque"
+
+        }
+
+        HLSLINCLUDE
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+
+        CBUFFER_START(UnityPerMaterial)
+
+        float4 _MainTex_ST;
+
+        half4 _BaseColor;
+
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+
+        SAMPLER(sampler_MainTex);
+
+         struct a2v
+
+         {
+
+             float4 positionOS:POSITION;
+
+             float4 normalOS:NORMAL;
+
+             float2 texcoord:TEXCOORD;
+
+         };
+
+         struct v2f
+
+         {
+
+             float4 positionCS:SV_POSITION;
+
+             float2 texcoord:TEXCOORD;
+
+             float3 WS_N:NORMAL;
+
+             float3 WS_V:TEXCOORD1; 
+
+             float3 WS_P:TEXCOORD2; 
+
+         };
+
+        ENDHLSL
+
+        pass
+
+        {
+
+        Tags{
+
+         "LightMode"="UniversalForward"
+
+        }
+
+            HLSLPROGRAM
+
+            #pragma vertex VERT
+
+            #pragma fragment FRAG
+
+            #pragma shader_feature _ADD_LIGHT_ON _ADD_LIGHT_OFF
+
+            v2f VERT(a2v i)
+
+            {
+
+                v2f o;
+
+                o.positionCS=TransformObjectToHClip(i.positionOS.xyz);
+
+                o.texcoord=TRANSFORM_TEX(i.texcoord,_MainTex);
+
+                o.WS_N=normalize(TransformObjectToWorldNormal(i.normalOS.xyz));
+
+                o.WS_V=normalize(_WorldSpaceCameraPos-TransformObjectToWorld(i.positionOS.xyz));
+
+                o.WS_P=TransformObjectToWorld(i.positionOS.xyz);
+
+                return o;
+
+            }
+
+            real4 FRAG(v2f i):SV_TARGET
+
+            {
+
+                half4 tex=SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.texcoord)*_BaseColor;
+
+                Light mylight=GetMainLight();
+
+                float3 WS_Light=normalize(mylight.direction);
+
+                float3 WS_Normal=i.WS_N;
+
+                float3 WS_View=i.WS_V;
+
+                float3 WS_H=normalize(WS_View+WS_Light);
+
+                float3 WS_Pos=i.WS_P;
+
+                float4 maincolor=(dot(WS_Light,WS_Normal)*0.5+0.5)*tex*float4( mylight.color,1);
+
+                //calcute addlight
+
+                real4 addcolor=real4(0,0,0,1);
+
+                #if _ADD_LIGHT_ON
+
+                int addLightsCount = GetAdditionalLightsCount(); // 定义在 lighting 库函数的方法 返回一个额外灯光的数量
+
+                for(int i=0;i<addLightsCount;i++)
+
+                {
+
+                    Light addlight=GetAdditionalLight(i,WS_Pos);// 定义在 lightling 库里的方法 返回一个灯光类型的数据
+
+                    float3 WS_addLightDir=normalize(addlight.direction);
+
+                    addcolor+=(dot(WS_Normal,WS_addLightDir)*0.5+0.5)*real4(addlight.color,1)*tex*addlight.distanceAttenuation*addlight.shadowAttenuation;
+
+                }
+
+                #else
+
+                addcolor=real4(0,0,0,1);
+
+                #endif
+
+                return maincolor+addcolor;
+
+            }
+
+            ENDHLSL
+
+        }
+
+    }
+
+}

@@ -1,0 +1,425 @@
+![[fe529498461ea9ee1e2a25a37b24cc82_MD5.webp]]
+
+基础效果如上图
+
+        此篇文章的核心原理是在 urp 管线的 renderFeather 里重建世界坐标系，本人利用该原理在配合一些小的技巧，实现了空间扫描效果。
+
+         **第一步，在后处理里重建世界坐标系**。达到该效果的方式有很多种，譬如把得到的屏幕坐标经过 ndc 再逆透除得到裁剪空间的坐标，再经过 vp 的逆矩阵就得到相机空间坐标，再经过 cameratoworld 函数还原到世界坐标; 但是整个过程都是在片元着色器中进行，我想避免 overdraw 的问题，故使用乐乐的《入门精要》第 13.3 章全局雾效里提到的利用相机的视锥体参数去重建世界坐标。
+
+        在 RenderFeature 里，我们除了要和之前的专栏里一样使用 blit 去处理屏幕图像，还会向 shader 发送一个视锥体参数的矩阵。这个讲解在《入门精要》里有很详细的推导过程，这里我就只说明核心原理，在 RenderFeather 里的计算如下。
+
+![[692834ff76e01ddf9fb795c2d3b77456_MD5.webp]]
+
+计算原理
+
+        想知道某点的世界坐标，我们只需要计算出该点在相机空间的坐标 + 相机本身坐标即可得到，相机本身的坐标很容易知道，而我们要实现的就是计算出该点在相机空间下的坐标。下图中，O 处为我们的相机，ABCDFGH 为我们的视锥体，其中 ABCD 平面为近裁剪面，距离相机的距离 OE=nearplane；X 所在平面为我们要求的平面，该平面距离相机的距离为 OE‘。因为 AE//XE', 故很容易推导出ΔOAE~ΔOXE'。
+
+![[af1cba58d036304f0262961e9d135e72_MD5.webp]]
+
+示意图
+
+         ΔOAE 相似于ΔOXE'，故有 OA/OX=OE/OE', 即 OX=OA*OE'/OE。这里，令 salce=OA/OE，OA 可以由**向量 OE**+ **向量 EA** 得到**向量 OA** 然后取模长得到；OE 就是相机近裁剪面的距离，则可以得 scale 的计算如下：
+
+![[0d05f7788865a5cec599e5ceeceb0699_MD5.webp]]
+
+计算 scale
+
+      得到 scale 后代入原式，则有 OX=scale*OE‘。但是该等式的 2 边都是标量，在等式两边同时乘一个向量：normalize（**向量 OA**）则有
+
+normalize（**向量 OA**）*OX=normalize（**向量 OA**）*scale*OE‘
+
+       显而易见**向量 OA** 和**向量 OX** 共线，normalize（**向量 OA**）=normalize（**向量 OX**）, 则有
+
+**向量 OX**=normalize（**向量 OA**）*scale*OE‘
+
+        这里我们令**向量 TopLeft**=normalize（**向量 OA**）*scale，而 OE’就是相机空间的深度值 depth（这里的相机空间并未严格意义的相机空间，我们并未考虑相机空间坐标的 Z 朝向正负，为什么？因为我们只想在左手坐标系里计算），**向量 OX** 即可由**向量 TopLeft***depth 得到。
+
+但是深度值需要在 shader 里进行计算得到，故在 RenderFeather 里只需要计算出**向量 TopLeft** 并把它传到 shader 里即可。
+
+![[73b73fface905d426bc7f2a62e4f598f_MD5.webp]]
+
+        其他三个向量的计算方法如法炮制，然后把它们组成矩阵 4X4 的矩阵传给 shader。注意这里是按行进行存储，在 shader 里同样需要按行进行取出。
+
+![[7c0d3f4e8b31ac6a1dbd5e66fbb65259_MD5.webp]]
+
+传矩阵
+
+       最后再申请 commandbuffer，申请 RT，执行我们的绘制命令，归还 RT, 归还 cmd。
+
+![[2c03814b374b1e1b83d1b78517510679_MD5.webp]]
+
+执行绘制
+
+        第二步，shader 计算部分。定义一个矩阵 Matrix 来接收 commandbuffer 传过来的矩阵。
+
+![[a311dbf9cdf4ab1c330fab8fe5b7b519_MD5.webp]]
+
+shader 里的接收矩阵
+
+       顶点着色器里，根据顶点所在位置来定义需要传递给片元着色器的向量（这个新的向量我定义为 **Direction**, 即上面的**向量 TopLeft**），用来在片元着色器里得到正确的相机空间坐标，为了区分我们到底是传**向量 TopLeft？还是**向量 TopRight？**还是**向量 **ButtomLeft？**还是 **ButtomRight？****** 即取矩阵的哪一行进行计算，我们巧妙得利用了 uv 的值去判断。众所周知，屏幕本身就是一个片，只有 4 个顶点，其 UV 坐标为（0，0）（1，0）（1，1）（0，1），通过多个 if 逻辑来判断，我们可以很方便去得到正确的**向量 Direction**，虽然 shader 里使用逻辑判断会有性能瓶颈，但是由于只有 4 个顶点，所以计算量可以忽略不计。
+
+![[86b480d6bf816f3245d3bd289e88cae7_MD5.webp]]
+
+顶点着色器里
+
+        在片元着色器里，我们先采样得到相机空间的线性深度值 depth，再用它乘以顶点着色器里传过来的向量 Direction，再加上相机本身坐标，可以得到正确的世界坐标。
+
+![[dca7c9048df66690f74271e730106363_MD5.webp]]
+
+得到世界坐标
+
+       得到正确的世界空间坐标后，我们将它输出到屏幕，效果如下。X 方向为红色（1，0，0，0），Y 方向为绿色（0，1，0，0），Z 方向为蓝色（0，0，1，0），和 unity 引擎右上角的世界坐标轴朝向完全一致！这样我们就成功在后处理里重建了世界坐标系。既然后处理里都能拿到每个像素的坐标了，那岂不是为所欲为..... 它能做非常多炫酷的效果，本专栏里所演示的只是它的冰山一角。
+
+![[3d1504c14c5e69fb0bbe5af606b66600_MD5.webp]]
+
+把世界坐标输出到屏幕
+
+        得到世界坐标后，因为我们的坐标轴取值范围是从 -∞到 +∞，而颜色的范围只是 0-1 之间，如果对世界坐标使用取余函数就可以得到只在 0-1 的值了，上一次这样的骚操作是在序列帧算法这篇文章 [https://www.bilibili.com/read/cv6482589](https://www.bilibili.com/read/cv6482589) 里提到过，有兴趣的读者可以去看看。
+
+![[787061c70606bd75bf82f0ab4ccc0dbd_MD5.webp]]
+
+取余数
+
+        我们把余数输出出来看看效果如何，所有的值都是在 0-1 之间不断循环变换。
+
+![[61fb3efd59dc2c6cf9b00ff81ee5c9b4_MD5.webp]]
+
+取余数
+
+        对于在 0-1 之间均匀变换的我们想得到它的边界位置，所以直接来个 step 函数，我们只取 0.98 到 1.0 之间的值为 1，其他的值为 0，我们把它输出出来。是不是有那味了，线框就直接出来了。
+
+![[89da9b0159e843562f581518306b433d_MD5.webp]]
+
+        但是这个线框的颜色红蓝绿（为什么是红蓝绿？是因为它对应 XYZ 三个轴向）很乱而且不好看，我们想要自由控制颜色，我们定义三个颜色，去分别控制 XYZ 方向的线框颜色，并把它输出。
+
+![[248dd835198f5ef05b6c64552a6603ca_MD5.webp]]
+
+线框颜色
+
+        然后我们再看看输出后的效果如何，颜色加上 HDR 确实变漂亮了许多。
+
+![[491827e4610af03207193f11c6a4878a_MD5.webp]]
+
+得到正常的线框效果
+
+       然后采样颜色，两者相加，即可得到正常的效果。
+
+![[15daf97e90e4be4a42969ff2164f2944_MD5.webp]]
+
+和屏幕颜色混合后的效果
+
+    最后我们通过一个参数 Spacing 去控制线框的间距，Width 参数去控制线框宽度。下一篇，我们将通过世界坐标制作一个 mask 遮罩，通过 sobel 算子去得到描边效果，再修改 RenderFeather 去控制这些效果。先附上这一篇的源码，如果直接复制过去报错是空格问题，请替换掉所有空格。
+
+**Shader 源码**
+
+Shader "WX/URP/Post/scan"
+
+{
+
+    Properties
+
+    {
+
+      [HideInInspector]_MainTex("MainTex",2D)="white"{}
+
+      [HDR]_colorX("ColorX",Color)=(1,1,1,1)
+
+      [HDR]_colorY("ColorY",Color)=(1,1,1,1)
+
+      [HDR]_ColorZ("ColorZ",Color)=(1,1,1,1)
+
+      [HDR]_ColorEdge("ColorEdge",Color)=(1,1,1,1)
+
+      _width("Width",float)=0.02
+
+      _Spacing("Spacing",float)=1
+
+      _Speed("Speed",float)=1
+
+    }
+
+    SubShader
+
+    {
+
+        Tags{
+
+        "RenderPipeline"="UniversalRenderPipeline"
+
+        }
+
+        Cull Off ZWrite Off ZTest Always
+
+        HLSLINCLUDE
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        CBUFFER_START(UnityPerMaterial)
+
+        float4 _MainTex_ST;
+
+        CBUFFER_END
+
+        real4 _colorX;
+
+        real4 _colorY;
+
+        real4 _ColorZ;
+
+        real4 _ColorEdge;
+
+        float _width;
+
+        float _Spacing;
+
+        float _Speed;
+
+        TEXTURE2D(_MainTex);
+
+        SAMPLER(sampler_MainTex);
+
+        TEXTURE2D(_CameraDepthTexture);
+
+        SAMPLER(sampler_CameraDepthTexture);
+
+        float4x4 Matrix;
+
+         struct a2v
+
+         {
+
+             float4 positionOS:POSITION;
+
+             float2 texcoord:TEXCOORD;
+
+         };
+
+         struct v2f
+
+         {
+
+             float4 positionCS:SV_POSITION;
+
+             float2 texcoord:TEXCOORD;
+
+             float3 Dirction:TEXCOORD1;
+
+         };
+
+        ENDHLSL
+
+        pass
+
+        {
+
+            HLSLPROGRAM
+
+            #pragma vertex VERT
+
+            #pragma fragment FRAG
+
+            v2f VERT(a2v i)
+
+            {
+
+                v2f o;
+
+                o.positionCS=TransformObjectToHClip(i.positionOS.xyz);
+
+                o.texcoord=i.texcoord;
+
+                int t=0;
+
+                if(i.texcoord.x<0.5&&i.texcoord.y<0.5)
+
+                t=0;
+
+                else if(i.texcoord.x>0.5&&i.texcoord.y<0.5)
+
+                t=1;
+
+                else if(i.texcoord.x>0.5&&i.texcoord.y>0.5)
+
+                t=2;
+
+                else
+
+                t=3;
+
+                o.Dirction=Matrix[t].xyz;
+
+                return o;
+
+            }
+
+            real4 FRAG(v2f i):SV_TARGET
+
+            {
+
+                real4 tex=SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.texcoord);
+
+                half depth=LinearEyeDepth(SAMPLE_TEXTURE2D(_CameraDepthTexture,sampler_CameraDepthTexture,i.texcoord).x,_ZBufferParams).x;
+
+                float3 WSpos=_WorldSpaceCameraPos+depth*i.Dirction+float3(0.1,0.1,0.1);// 得到世界坐标
+
+                //return real4(frac(WSpos),1);
+
+                float3 Line=step(1-_width,frac(WSpos/_Spacing));// 线框
+
+                //return real4(Line,1);
+
+                float4 Linecolor=Line.x*_colorX+Line.y*_colorY+Line.z*_ColorZ;// 给线框上色
+
+                return Linecolor+tex;
+
+            }
+
+            ENDHLSL
+
+        }
+
+    }
+
+}
+
+**RenderFeather 源码**
+
+using UnityEngine;
+
+using UnityEngine.Rendering;
+
+using UnityEngine.Rendering.Universal;
+
+[ExecuteInEditMode]
+
+public class scan : ScriptableRendererFeature
+
+{
+
+    [System.Serializable]public class setting
+
+    {
+
+        public Material mat;
+
+        public RenderPassEvent Event=RenderPassEvent.AfterRenderingTransparents;
+
+    }
+
+    public setting mysetting =new setting();
+
+    class CustomRenderPass : ScriptableRenderPass
+
+    {
+
+        public Material mat;
+
+        RenderTargetIdentifier sour;
+
+        public void set(RenderTargetIdentifier sour)
+
+        {
+
+            this.sour=sour;
+
+        }
+
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+
+        {
+
+            int temp=Shader.PropertyToID("temp");
+
+            CommandBuffer cmd=CommandBufferPool.Get("扫描特效");
+
+            RenderTextureDescriptor desc=renderingData.cameraData.cameraTargetDescriptor;
+
+            Camera cam= renderingData.cameraData.camera;
+
+            float height=cam.nearClipPlane*Mathf.Tan(Mathf.Deg2Rad*cam.fieldOfView*0.5f);
+
+            Vector3 up=cam.transform.up*height;
+
+            Vector3 right=cam.transform.right*height*cam.aspect;
+
+            Vector3 forward=cam.transform.forward*cam.nearClipPlane;
+
+            Vector3 ButtomLeft=forward-right-up;
+
+            float scale=ButtomLeft.magnitude/cam.nearClipPlane;
+
+            ButtomLeft.Normalize();
+
+            ButtomLeft*=scale;
+
+            Vector3 ButtomRight=forward+right-up;
+
+            ButtomRight.Normalize();
+
+            ButtomRight*=scale;
+
+            Vector3 TopRight=forward+right+up;
+
+            TopRight.Normalize();
+
+            TopRight*=scale;
+
+            Vector3 TopLeft=forward-right+up;
+
+            TopLeft.Normalize();
+
+            TopLeft*=scale;
+
+            Matrix4x4 MATRIX=new Matrix4x4();
+
+            MATRIX.SetRow(0,ButtomLeft);
+
+            MATRIX.SetRow(1,ButtomRight);
+
+            MATRIX.SetRow(2,TopRight);
+
+            MATRIX.SetRow(3,TopLeft);
+
+            mat.SetMatrix("Matrix",MATRIX);
+
+            cmd.GetTemporaryRT(temp,desc);
+
+            cmd.Blit(sour,temp,mat);
+
+            cmd.Blit(temp,sour);
+
+            context.ExecuteCommandBuffer(cmd);
+
+            cmd.ReleaseTemporaryRT(temp);
+
+            CommandBufferPool.Release(cmd);
+
+        }
+
+    }
+
+    CustomRenderPass m_ScriptablePass;
+
+    public override void Create()
+
+    {
+
+        m_ScriptablePass = new CustomRenderPass();
+
+        m_ScriptablePass.mat=mysetting.mat;
+
+        m_ScriptablePass.renderPassEvent = mysetting.Event; 
+
+    }
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+
+    {
+
+        m_ScriptablePass.set(renderer.cameraColorTarget);
+
+        renderer.EnqueuePass(m_ScriptablePass);
+
+    }
+
+}
