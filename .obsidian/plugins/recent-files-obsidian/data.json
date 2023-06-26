@@ -1,12 +1,84 @@
 {
   "recentFiles": [
     {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "01  unlit shader",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
+    },
+    {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+    },
+    {
+      "basename": "14 复杂纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
+    },
+    {
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
+    },
+    {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "11 ShadowCaster 和 SRP batcher",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
+    },
+    {
+      "basename": "05 渐变纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
+    },
+    {
+      "basename": "06 alpha 混合",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
     },
     {
       "basename": "GAMES101",
@@ -73,24 +145,8 @@
       "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
     },
     {
       "basename": "9 全局光照3",
@@ -107,22 +163,6 @@
     {
       "basename": "16 渲染缩放",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
     },
     {
       "basename": "05 烘焙光照",
@@ -153,52 +193,12 @@
       "path": "编程/C++/《Effective C++ 3th》.md"
     },
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
     },
     {
-      "basename": "urp 管线的自学 hlsl 之路 第二十五篇 Render Feature 制作特定模型外描边 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十五篇 Render Feature 制作特定模型外描边 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第二十九篇 ComputeShader 释义 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第二十九篇 ComputeShader 释义 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第二十六篇 色彩分离 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十六篇 色彩分离 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第五篇 法线贴图 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第五篇 法线贴图 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第四篇 布林风 - 半兰伯特光照模型 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第四篇 布林风 - 半兰伯特光照模型 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十一篇 多光源阴影处理 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十一篇 多光源阴影处理 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩.md"
+      "basename": "28 ComputeShader",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
     }
   ],
   "omittedPaths": [],

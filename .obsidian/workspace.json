@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,11 +90,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -133,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -184,8 +185,26 @@
   },
   "active": "fc2f749a59d49f83",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
     "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md",
@@ -193,23 +212,6 @@
     "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
-    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
-    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (三) 低差异采样序列.md",
-    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
-    "图形学/3 软渲染器/软光追/未命名.md",
-    "技术美术/4 UnityShader/ASE.md",
-    "技术美术/4 UnityShader/庄懂AP01.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
-    "技术美术/01 学习大纲.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
     "zip/images/Pasted image 20230626175108.png",
     "zip/images/Pasted image 20230626175101.png",
     "zip/images/Pasted image 20230626175056.png",
@@ -229,7 +231,6 @@
     "引擎Unity3D/2 Shader精粹/《渲染优化》",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
     "zip/images/QQ录屏20230618120224 3.mp4",
-    "zip/images/QQ录屏20230618120224 2.mp4",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

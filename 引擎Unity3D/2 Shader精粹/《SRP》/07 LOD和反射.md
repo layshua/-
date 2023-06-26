@@ -47,7 +47,7 @@ LOD（Level of Detail）技术是一种常用的提升渲染效率的手段，�
 #pragma multi_compile _ LOD_FADE_CROSSFADE
 ```
 
-2. 在UnityInput.hlsl的UnityPerDraw缓冲区中我们已经定义过unity_LODFade向量，它代表对象的过渡程度，其中X分量存储的是过渡因子，Y分量其实也存储了相同的因子，只不过它被量化为16步，我们不使用它。现在做个测试，在LitPass.hlsl的片元函数的开头返回该向量的X分量来观察过渡因子。
+2. 在UnityInput.hlsl的UnityPerDraw缓冲区中我们已经**定义过`unity_LODFade`向量，它代表对象的过渡程度，其中X分量存储的是过渡因子，Y分量其实也存储了相同的因子**，只不过它被量化为16步，我们不使用它。现在做个测试，在LitPass.hlsl的片元函数的开头返回该向量的X分量来观察过渡因子。
 
 ```c
 float4 LitPassFragment(Varyings input) : SV_TARGET   
@@ -64,11 +64,11 @@ float4 LitPassFragment(Varyings input) : SV_TARGET
 
 上图白色是LOD 1级别中的小球，黑色是LOD 2级别中的小球，可以看出淡出的对象过渡因子从1开始然后减到0。
 
-**7.1.3 抖动**
+## 7.1.3 抖动 (上次学到到这里！)
 
-1. 要混合两个LOD级别，可以使用裁剪，要用类似于近似半透明阴影的方法，由于我们需要对表面和阴影进行裁剪，因此在Common.hlsl中定义一个ClipLOD方法来完成裁剪，它需要一个裁剪空间的顶点坐标的XY分量和过渡因子作为参数，如果LOD_FADE_CROSSFADE被定义了，则使用过渡因子减去抖动值来进行裁剪。抖动值可以使用一个简单的计算公式来得到，这里我们在垂直方向进行渐变。
+1. 要**混合两个LOD级别，可以使用裁剪**，要用类似于近似半透明阴影的方法，由于我们需要对表面和阴影进行裁剪，因此在Common.hlsl中定义一个ClipLOD方法来完成裁剪，它需要一个裁剪空间的顶点坐标的XY分量和过渡因子作为参数，如果LOD_FADE_CROSSFADE被定义了，则使用过渡因子减去抖动值来进行裁剪。抖动值可以使用一个简单的计算公式来得到，这里我们在垂直方向进行渐变。
 
-```
+```cs
 void ClipLOD (float2 positionCS, float fade)   
 {  
   #if defined(LOD_FADE_CROSSFADE)  
@@ -79,49 +79,44 @@ void ClipLOD (float2 positionCS, float fade)
 
 ```
 2. 在LitPass.hlsl和ShadowCasterPass.hlsl片元函数的最开始处调用该方法，之前的测试代码可以删掉了。
-
    
-```
+```cs
  UNITY_SETUP_INSTANCE_ID(input);  
     ClipLOD(input.positionCS.xy, unity_LODFade.x);
 ```
+
 ![[Pasted image 20230626174926.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/7.1620885485101.png "UWA")
 
 3. 我们得到了条纹状的渲染结果，但在交叉过渡时只有一个LOD级别中的对象出现，这是因为两个级别的其中一个的过渡因子为负数，要在裁剪时进行判断。如果过渡因子为负，则应和抖动值相加而不是相减来解决这个问题。
 
-```
+```cs
 clip(fade + (fade < 0.0 ? dither : -dither));
 ```
 ![[Pasted image 20230626174937.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/8.1620885485172.png "UWA")
 
 4. 最后，我们调用InterleavedGradientNoise方法来获取正常的抖动值。
 
-```
+```c
 float dither = InterleavedGradientNoise(positionCS.xy, 0);
 ```
 ![[Pasted image 20230626174939.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/9.1620885485237.png "UWA")
 
-**7.1.4 动画交叉过渡**
+## 7.1.4 动画交叉过渡
 
-虽然抖动创建了一个非常平滑的过渡，但像半透明阴影一样，过渡的阴影不是很稳定，我们可以通过勾选Animate Cross-fading来改善这点，这会忽略过渡区域的宽度，而是通过一个LOD的级别阈值时快速地过渡。默认过渡动画会持续半秒，不过可以通过调整LODGroup.crossFadeAnimationDuration字段来修改动画持续时间。
+虽然抖动创建了一个非常平滑的过渡，但像半透明阴影一样，**过渡的阴影不是很稳定，我们可以通过勾选 `Animate Cross-fading` 来改善这点，这会忽略过渡区域的宽度，而是通过一个 LOD 的级别阈值时快速地过渡**。默认过渡动画会持续半秒，不过可以通过调整 LODGroup.crossFadeAnimationDuration 字段来修改动画持续时间。
+
 ![[Pasted image 20230626174942.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.1620885485307.png "UWA")
 
----
-
-### 7.2 反射
+# 7.2 反射
 
 我们继续沿用上一节的场景来实现镜面反射。反射是用来增加场景的真实感，对于金属物体这一特性比较重要，完全金属的表面目前大部分都是黑色的。我们在场景中添加一种金属球，通过调整材质的金属度和光滑度属性来实现。
 
-**7.2.1 间接BRDF**
+## **7.2.1 间接BRDF**
 
 1. 我们已经支持了基于BRDF漫反射颜色的漫反射全局照明，现在我们开始支持镜面反射全局照明。首先在BRDF.hlsl定义一个IndirectBRDF方法获取基于BRDF的间接照明，它有四个参数，分别是表面信息、BRDF数据、从全局照明中获得的漫反射和镜面反射颜色，最初只返回反射的漫反射光照。
 
    
-```
+```cs
 float3 IndirectBRDF (Surface surface, BRDF brdf, float3 diffuse, float3 specular)   
 {  
     return diffuse * brdf.diffuse;  
@@ -131,7 +126,7 @@ float3 IndirectBRDF (Surface surface, BRDF brdf, float3 diffuse, float3 specular
 2. 然后通过全局照明中的镜面反射颜色乘以BRDF中的镜面反射颜色得到镜面反射照明，但表面的粗糙度会散射镜面反射，所以最终反射到人眼的镜面反射应该是减弱的。接着我们将镜面反射除以表面的粗糙度的平方加一，这对较低粗糙度的表面影响不大，但是针对高粗糙度的表面可以使得镜面反射强度减半。最后将镜面反射和漫反射照明相加得到最终基于BRDF的间接照明。
 
   
-```
+```cs
   float3 reflection = specular * brdf.specular;  
     reflection /= brdf.roughness * brdf.roughness + 1.0;  
     return diffuse * brdf.diffuse + reflection;
@@ -139,13 +134,12 @@ float3 IndirectBRDF (Surface surface, BRDF brdf, float3 diffuse, float3 specular
 
 3. 在Light.hlsl的GetLighting方法中调用该方法获取最终的间接照明，而不是直接计算漫反射间接照明，其中第四个代表全局照明中的镜面反射颜色的参数，我们先设为白色。
 
-```
+```cs
 float3 color = IndirectBRDF(surfaceWS, brdf, gi.diffuse, 1.0);
 ```
 
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/11.1620885485373.png "UWA")
 ![[Pasted image 20230626174954.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/12.1620885485441.png "UWA")
+
 ![[Pasted image 20230626174956.png]]
 前后对比下发现所有物体都亮了一些，尤其是金属表面。
 
