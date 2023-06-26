@@ -71804,6 +71804,8 @@ SignedDistanceField
 SpecularColor
 SpaceTransform
 SpecularRange
+ShadowMaskKeywords
+ShadowMaskMode
 Programs
 POP
 PC
