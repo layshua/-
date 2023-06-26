@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "14 复杂纹理",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     }
   ],
   "omittedPaths": [],

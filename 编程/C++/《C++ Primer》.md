@@ -191,9 +191,11 @@ typedef struct_record_type name_company_position_salary;
 
 ### `...` 变参宏
 `...` 在 C 语言中被称为**变参宏**   
+
 ```c++
 #define myprintf (templt, ...)  fprintf (stderr, templt, ##__VA_ARGS__)  
 ```
+
 这是 `##` 这个连接符充当的作用就是当`__VA_ARGS__`为空的时候，消除前面的那个逗号。
 # 一、变量和基本类型
 ## 1 对象
@@ -205,6 +207,7 @@ typedef struct_record_type name_company_position_salary;
 * 应用程序会把内存分为两个主要部分：堆和栈。还有其他部分，比如源代码部分，此时它是机器码。
 
 ### 栈分配
+
 ```c++
 // 栈中创建
 Entity entity;
@@ -215,6 +218,7 @@ Entity entity("lk");
 *   什么时候不栈分配？ 如果创建的**对象太大**，或是需要显示地控制对象的**生存期**，那就需要堆上创建 。  
 
 ### 堆分配
+
 ```c++
 // 堆中创建
 Entity* entity = new Entity("lk");
@@ -262,7 +266,7 @@ delete e;//new了，必须要手动清除
 
 ```c++
 int* b = new int[50]; 
-Entity* entity = new(b) Entity();
+Entity* entity = new(b) Entity(); 
 ```
 
 ## 2 变量
