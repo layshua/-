@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
@@ -9,40 +13,80 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
     },
     {
       "basename": "09 点光源和聚光灯阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
     },
     {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "14 工业界主流方法",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
     },
     {
       "basename": "06 阴影遮罩",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
     },
     {
+      "basename": "13 实时光追2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "11 PBR2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md"
+    },
+    {
+      "basename": "10 PBR1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
+    },
+    {
+      "basename": "9 全局光照3",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
+    },
+    {
+      "basename": "8 全局光照2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md"
+    },
+    {
+      "basename": "7 全局光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
       "basename": "16 渲染缩放",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
     },
     {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+    },
+    {
       "basename": "14 复杂纹理",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
+    },
+    {
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
     },
     {
       "basename": "05 烘焙光照",
@@ -95,10 +139,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "URP",
@@ -159,46 +199,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十八篇 Kawase 高性能模糊 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十一篇  矩阵的拆解与证明 --- 广告牌算法数学篇 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十一篇  矩阵的拆解与证明 --- 广告牌算法数学篇 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十五篇 SSPR 屏幕空间平面反射 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十五篇 SSPR 屏幕空间平面反射 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十四篇 光线步进 RayMarch 第一节入门 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十四篇 光线步进 RayMarch 第一节入门 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十三篇 屏幕空间贴花 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十三篇 屏幕空间贴花 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十七篇 造一个 PBR 的轮子 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十七篇 造一个 PBR 的轮子 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十篇 年轻人写的第一个 GPU 粒子 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十篇 年轻人写的第一个 GPU 粒子 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十六篇 屏幕空间平面反射 SSPR 补充 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十六篇 屏幕空间平面反射 SSPR 补充 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "URP 管线的自学 HLSL 之路 第三十二篇 镜头炫光 更好的广告牌算法 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第三十二篇 镜头炫光 更好的广告牌算法 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第三篇 兰伯特 _ 半兰伯特光照模型 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第三篇 兰伯特 _ 半兰伯特光照模型 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],

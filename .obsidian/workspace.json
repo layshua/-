@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+                "file": "图形学/1 图形系统/10 色彩.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,44 +182,45 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "7880a290ee5cd5e0",
+  "active": "fc2f749a59d49f83",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
-    "zip/images/Pasted image 20230626174706.png",
-    "zip/images/Pasted image 20230626174655.png",
-    "zip/images/Pasted image 20230626174631.png",
-    "zip/images/Pasted image 20230626174627.png",
-    "zip/images/Pasted image 20230626174530.png",
-    "zip/images/Pasted image 20230626174509.png",
-    "zip/images/Pasted image 20230626174506.png",
-    "zip/images/Pasted image 20230626174458.png",
-    "zip/images/Pasted image 20230626174456.png",
-    "zip/images/Pasted image 20230626174452.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "zip/images/Pasted image 20230626175108.png",
+    "zip/images/Pasted image 20230626175101.png",
+    "zip/images/Pasted image 20230626175056.png",
+    "zip/images/Pasted image 20230626175054.png",
+    "zip/images/Pasted image 20230626175013.png",
+    "zip/images/Pasted image 20230626174956.png",
+    "zip/images/Pasted image 20230626174954.png",
+    "zip/images/Pasted image 20230626174942.png",
+    "zip/images/Pasted image 20230626174939.png",
+    "zip/images/Pasted image 20230626174937.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "技术美术/3 后处理/ta101后处理.md",
-    "编程/C++/《C++ Primer》.md",
-    "编程/C++/《Effective C++ 3th》.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十五篇 Render Feature 制作特定模型外描边 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP 管线的自学 HLSL 之路 第二十九篇 ComputeShader 释义 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十六篇 色彩分离 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩.md",
-    "图形学/1 图形系统/09 阴影.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
