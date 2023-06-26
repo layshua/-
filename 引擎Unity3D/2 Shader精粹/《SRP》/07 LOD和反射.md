@@ -11,45 +11,45 @@ banner: "![[Pasted image 20230626170324.png]]"
 ![[Pasted image 20230626174848.png]]
 # 7.1 LOD（Level of Detail）技术
 
-LOD（Level of Detail）技术是一种常用的提升渲染效率的手段，它的原理是根据物体的包围盒高度所占当前屏幕的高度的百分比来调用不同精细度的模型。当一个物体距离摄像机很远时，模型上的很多细节是无法被察觉到的，可以使用精细度较低的模型（面片数量较少，从而减少渲染压力），当对象靠近相机时，使用精细度较高的模型。该技术常用于开放大世界的游戏项目，缺点是需要准备几种不同精细度的模型，一来需要美术对同一对象制作几个不同层次的精细度模型，会增加美术的工作量；二来模型数量增多会导致游戏运行时占用更多的内存空间，这是一种典型的空间换时间的手段。
+LOD（Level of Detail）技术是一种常用的提升渲染效率的手段，它的**原理是<mark style="background: #FF5582A6;">根据物体的包围盒高度所占当前屏幕的高度的百分比</mark>来调用不同精细度的模型。当一个物体距离摄像机很远时，模型上的很多细节是无法被察觉到的，可以使用精细度较低的模型（面片数量较少，从而减少渲染压力），当对象靠近相机时，使用精细度较高的模型**。该技术常用于开放大世界的游戏项目，**缺点是需要准备几种不同精细度的模型，一来需要美术对同一对象制作几个不同层次的精细度模型，会增加美术的工作量；二来模型数量增多会导致游戏运行时占用更多的内存空间，这是一种典型的空间换时间的手段。**
 
-**7.1.1 LOD Group组件**
+## 7.1.1 LOD Group组件
 
 在Unity中可以使用LOD Group组件来为一个对象构建LOD，我们需要为同一对象准备多个包含不同细节程度的模型，然后把它们赋值给LOD Group组件中不同级别，Unity就会自动判断当前位置上需要使用哪个级别的模型。
 
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/1-.1620885463695.png "UWA")
 ![[Pasted image 20230626174853.png]]
-​我们创建一个空的游戏对象并添加LOD Group组件，组件默认有4个级别，最后的Culled代表不渲染任何内容，每个级别的LOD百分比表示当前物体的包围盒高度所占当前屏幕的高度的百分比的阈值。在默认配置中，当物体包围盒高度所占当前屏幕高度60%以上的比例时，将使用LOD 0级别中的精细度最高的模型来渲染。
+​
+我们创建一个空的游戏对象并添加LOD Group组件，组件默认有4个级别，最后的**Culled代表不渲染任何内容**，每个级别的**LOD百分比表示当前物体的包围盒高度所占当前屏幕的高度的百分比的阈值**。在默认配置中，当物体包围盒高度所占当前屏幕高度60%以上的比例时，将使用LOD 0级别中的精细度最高的模型来渲染。
 
-但实际上并非如此，上图中我们可以发现一个黄色的警告，它的意思是Project Settings->Quality->Other中有一个LOD Bias属性，该属性可以缩放这些阈值。该属性默认值为2，这意味着实际上评估物体高度占比时会将LOD百分比阈值翻倍，也就是物体包围盒高度所占当前屏幕高度30%以上的比例时就可以使用LOD 0级别中精细度最高的模型来渲染，而不是60%，所以如果想跟组件中的LOD百分比阈值同步，就将LOD Bias属性设为1即可。此外还有一个Maximum LOD Level属性，用来限制最高的LOD级别，如果设置为1，那么会将LOD 1代替LOD 0级别。
+但实际上并非如此，上图中我们可以发现一个黄色的警告，它的意思是 Project Settings->Quality->Other 中有一个 `LOD Bias` 属性，该属性可以缩放这些阈值。**该属性默认值为2，这意味着实际上评估物体高度占比时会将 LOD 百分比阈值翻倍，也就是物体包围盒高度所占当前屏幕高度30%以上的比例时就可以使用 LOD 0级别中精细度最高的模型来渲染，而不是60%，所以如果想跟组件中的 LOD 百分比阈值同步，就将 LOD Bias 属性设为1即可**。
+此外还有一个 **`Maximum LOD Level` 属性，用来限制最高的 LOD 级别，如果设置为1，那么会将 LOD 1代替 LOD 0级别。** 
 ![[Pasted image 20230626174856.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/2.1620885478449.png "UWA")
+
 
 现在我们创建三个球体，颜色分别设置为红、黄、蓝色，然后分别拖到LOD 0、LOD 1、LOD 2级别中，然后可以通过在Scene视图滑动滚轮调整视距查看效果。
 
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/3.1620885478514.png "UWA")
+
 ![[Pasted image 20230626174857.png]]
 ​
 
-**7.1.2 LOD级别过渡**
+## 7.1.2 LOD级别过渡
 
-现在LOD的级别在临界阈值之间进行切换时会突然变换过去，这在视觉上会比较突兀，特别是当对象由于一些原因在临界阈值来回切换时，所以我们需要使得LOD级别切换时能够平滑过渡来改善视觉效果。将Fade Mode切换成Cross Fade模式即可，这使得旧的级别淡出，新的级别淡入。然后每个LOD级别下面会多出一个Fade Transition Width属性，它代表过渡区域占当前LOD级别的比例，其范围在[0，1]之间，如果该值为0表示当前LOD级别和下一个LOD级别切换时没有过渡，该值为1表示进入到当前LOD级别时将立即往下一个LOD级别过渡，当值为0.5时，表示进入到当前LOD级别的50%（中间）处开始往下一个LOD级别过渡，所以该值越小会过渡的越快，可以调节到一个合适的值。
+现在 LOD 的级别在临界阈值之间进行切换时会突然变换过去，这在视觉上会比较突兀，特别是当对象由于一些原因在临界阈值来回切换时，所以我们需要使得 LOD 级别切换时能够平滑过渡来改善视觉效果。**将 `Fade Mode` 切换成 `Cross Fade` 模式即可，这使得旧的级别淡出，新的级别淡入**。然后每个 LOD 级别下面会多出一个 Fade Transition Width 属性，它代表过渡区域占当前 LOD 级别的比例，其范围在 $[0，1]$ 之间，如果该值为0表示当前 LOD 级别和下一个 LOD 级别切换时没有过渡，该值为1表示进入到当前 LOD 级别时将立即往下一个 LOD 级别过渡，当值为0.5时，表示进入到当前 LOD 级别的50%（中间）处开始往下一个 LOD 级别过渡，所以该值越小会过渡的越快，可以调节到一个合适的值。 
+
 ![[Pasted image 20230626174900.png]]
 ​
 
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/4.1620885478577.png "UWA")
 ![[Pasted image 20230626174903.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/5.1620885478639.png "UWA")
 
-1. 当启用Cross Fade时，其实两个LOD级别的对象会同时渲染出来，然后着色器将以某种方式进行混合，Unity通常使用屏幕空间抖动或着混合来实现Cross Fade。下面我们在Lit.shader的CustomLit和ShadowCaster Pass中添加一个LOD_FADE_CROSSFADE关键字的声明指令。
+1. **当启用 Cross Fade 时，其实两个 LOD 级别的对象会同时渲染出来，然后着色器将以某种方式进行混合，Unity 通常使用屏幕空间抖动或着混合来实现 Cross Fade**。下面我们在 Lit.shader 的 CustomLit 和 ShadowCaster Pass 中添加一个 `LOD_FADE_CROSSFADE` 关键字的声明指令。 
 
-```
+```c
 #pragma multi_compile _ LOD_FADE_CROSSFADE
 ```
 
 2. 在UnityInput.hlsl的UnityPerDraw缓冲区中我们已经定义过unity_LODFade向量，它代表对象的过渡程度，其中X分量存储的是过渡因子，Y分量其实也存储了相同的因子，只不过它被量化为16步，我们不使用它。现在做个测试，在LitPass.hlsl的片元函数的开头返回该向量的X分量来观察过渡因子。
 
-```
+```c
 float4 LitPassFragment(Varyings input) : SV_TARGET   
 {  
     UNITY_SETUP_INSTANCE_ID(input);  
@@ -60,7 +60,7 @@ float4 LitPassFragment(Varyings input) : SV_TARGET
 }
 ```
 ![[Pasted image 20230626174909.png]]
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/6.1620885485033.png "UWA")
+
 
 上图白色是LOD 1级别中的小球，黑色是LOD 2级别中的小球，可以看出淡出的对象过渡因子从1开始然后减到0。
 

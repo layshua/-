@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "14 工业界主流方法",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
+    },
+    {
+      "basename": "13 实时光追2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "11 PBR2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md"
+    },
+    {
+      "basename": "10 PBR1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (三) 低差异采样序列",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (三) 低差异采样序列.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (一) 概率分布变换与随机采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md"
+    },
+    {
       "basename": "未命名",
       "path": "图形学/3 软渲染器/软光追/未命名.md"
     },
@@ -25,16 +73,8 @@
       "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
       "basename": "10 屏幕后处理效果(Bloom)",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
     },
     {
       "basename": "11 HDR",
@@ -49,28 +89,8 @@
       "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
-      "basename": "14 工业界主流方法",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
-    },
-    {
       "basename": "06 阴影遮罩",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "13 实时光追2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
-    },
-    {
-      "basename": "11 PBR2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md"
-    },
-    {
-      "basename": "10 PBR1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
       "basename": "9 全局光照3",
@@ -83,10 +103,6 @@
     {
       "basename": "7 全局光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
-    },
-    {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
     {
       "basename": "16 渲染缩放",
@@ -183,22 +199,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十四篇  广告牌算法 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十四篇  广告牌算法 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十三篇 序列帧算法 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十三篇 序列帧算法 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十七篇 建立自己的后处理系统并调整屏幕的亮度饱和度对比度 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十七篇 建立自己的后处理系统并调整屏幕的亮度饱和度对比度 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],
