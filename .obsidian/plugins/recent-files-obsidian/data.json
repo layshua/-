@@ -1,16 +1,68 @@
 {
   "recentFiles": [
     {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+      "basename": "未命名",
+      "path": "图形学/3 软渲染器/软光追/未命名.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (一) 概率分布变换与随机采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/README.md"
+    },
+    {
+      "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
+      "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
+    },
+    {
+      "basename": "14 工业界主流方法",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
+    },
+    {
+      "basename": "由浅入深学习 PBR 的原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
     },
     {
       "basename": "01  unlit shader",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
       "basename": "15 粒子",
@@ -37,10 +89,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
     },
@@ -51,10 +99,6 @@
     {
       "basename": "06 阴影遮罩",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
@@ -81,14 +125,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
     },
     {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "14 工业界主流方法",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
-    },
-    {
       "basename": "13 实时光追2",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md"
     },
@@ -109,20 +145,8 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
     {
-      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
-    },
-    {
       "basename": "看懂蒙特卡洛积分 (三) 低差异采样序列",
       "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (三) 低差异采样序列.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (一) 概率分布变换与随机采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "图形学/3 软渲染器/软光追/未命名.md"
     },
     {
       "basename": "ASE",
@@ -175,30 +199,6 @@
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "28 ComputeShader",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
     }
   ],
   "omittedPaths": [],

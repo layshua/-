@@ -26,20 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "fc2f749a59d49f83",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +34,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -90,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
               }
             }
           }
@@ -134,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +148,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 201.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -183,35 +170,37 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "fc2f749a59d49f83",
+  "active": "7880a290ee5cd5e0",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "README.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/3 软渲染器/软光追/未命名.md",
+    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
+    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
+    "技术美术/7 PBR/ta101PBR.md",
+    "技术美术/7 PBR/PBR疑问.md",
+    "技术美术/7 PBR/PBR白皮书/README.md",
+    "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
+    "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
+    "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/13 实时光追2.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "zip/images/Pasted image 20230626175108.png",
     "zip/images/Pasted image 20230626175101.png",
     "zip/images/Pasted image 20230626175056.png",
@@ -221,7 +210,6 @@
     "zip/images/Pasted image 20230626174954.png",
     "zip/images/Pasted image 20230626174942.png",
     "zip/images/Pasted image 20230626174939.png",
-    "zip/images/Pasted image 20230626174937.png",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
@@ -230,7 +218,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》",
     "引擎Unity3D/2 Shader精粹/《渲染优化》",
     "引擎Unity3D/【Unity精粹】/编辑器扩展",
-    "zip/images/QQ录屏20230618120224 3.mp4",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

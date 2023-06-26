@@ -25,19 +25,6 @@
 
 ![](PBR-White-Paper-Knowledge-Architecture-1.0.png)
 
-
-<br>
-
-
-
-# 常见材质F0参考速查图表PDF下载
-
-- **常见材质F0参考速查图表PDF: [【下载地址】](https://github.com/QianMo/PBR-White-Paper/raw/master/bonus/%5BPBR-White-Paper%5D%20PBR-Material-F0-Quick-Reference-Chart.pdf)**
-
-![](PBR-Material-F0-Quick-Reference-Chart.png)
-
-<br>
-
 # 【第二章】PBR核心理论与渲染光学原理知识架构图
 - **[PBR核心理论与渲染光学原理知识架构] 高清大图：
 [【下载地址】](https://github.com/QianMo/PBR-White-Paper/raw/master/media/2-PBR-Core-Theory-and-Rendering-Principle-Knowledge-Architecture.png)**
