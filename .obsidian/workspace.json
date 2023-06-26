@@ -154,7 +154,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 475.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -176,7 +176,7 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "92f2192bcbbb3e50",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",

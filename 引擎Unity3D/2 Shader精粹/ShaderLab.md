@@ -948,7 +948,7 @@ URP支持着色器的变体，可以使用#pragma multi_compile宏实现编译�
 |Built-in|URP|
 |:--|:--|
 |UNITY_PROJ_COORD(a)|无，使用 a.xy/a.w 来代替|
-|UNITY_INITIALIZE_OUTPUT(type, name)|ZERO_INITIALIZE(type, name)|
+|UNITY_INITIALIZE_OUTPUT(type, name)|ZERO_INITIALIZE(type, name) |
 
 ### 阴影贴图
 
