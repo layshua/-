@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
       "basename": "ta101后处理",
       "path": "技术美术/3 后处理/ta101后处理.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "技术美术 TA3000 问",
       "path": "图形学/面经/技术美术 TA3000 问.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
     }
   ],
   "omittedPaths": [],
