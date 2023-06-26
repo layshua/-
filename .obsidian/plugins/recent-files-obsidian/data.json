@@ -1,48 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "06 阴影蒙版",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
     },
     {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "09 点光源和聚光灯阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
     },
     {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
     },
     {
       "basename": "16 渲染缩放",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
     },
     {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
+    },
+    {
+      "basename": "12 颜色分级",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
+    },
+    {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
     {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+      "basename": "14 复杂纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -195,10 +199,6 @@
     {
       "basename": "urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第七篇 alpha 混合 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "urp 管线的自学 hlsl 之路 第六篇 渐变纹理 - 哔哩哔哩",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第六篇 渐变纹理 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],

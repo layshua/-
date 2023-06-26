@@ -1,3 +1,4 @@
+![[Pasted image 20230626170511.png]]
 ## 11｜HDR
 
 ![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/11.HDR.1620983559339.png "UWA")

@@ -1,3 +1,14 @@
+
+---
+title: 07 LOD和反射
+aliases: []
+tags: []
+create_time: 2023-06-26 17:03
+uid: 202306261703
+banner: "![[Pasted image 20230626170324.png]]"
+---
+
+
 ## 7｜LOD 和反射
 
 ![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/7.LOD%E5%92%8C%E5%8F%8D%E5%B0%84.1620983465098.png "UWA")

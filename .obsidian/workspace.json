@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
               }
             }
           }
@@ -133,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,29 +182,30 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "7880a290ee5cd5e0",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "zip/images/Pasted image 20230626150939.png",
-    "zip/images/Pasted image 20230626150901.png",
-    "zip/images/Pasted image 20230626150849.png",
-    "zip/images/Pasted image 20230626150819.png",
-    "zip/images/Pasted image 20230626150817.png",
-    "zip/images/Pasted image 20230626150812.png",
-    "zip/images/Pasted image 20230626150810.png",
-    "zip/images/Pasted image 20230626150804.png",
-    "zip/images/Pasted image 20230626150640.png",
-    "zip/images/Pasted image 20230626150630.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
+    "zip/images/Pasted image 20230626170600.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "zip/images/Pasted image 20230626170552.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "zip/images/Pasted image 20230626170540.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "zip/images/Pasted image 20230626170524.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "zip/images/Pasted image 20230626170511.png",
+    "zip/images/Pasted image 20230626170453.png",
+    "zip/images/Pasted image 20230626170424.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "zip/images/Pasted image 20230626170407.png",
+    "zip/images/Pasted image 20230626170349.png",
+    "zip/images/Pasted image 20230626170324.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
@@ -219,8 +220,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十二篇 景深和散景模糊——实践篇 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第二十八篇 ComputeShader 入门 实现 RendererFeature 后处理 - 哔哩哔哩.md",
     "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",

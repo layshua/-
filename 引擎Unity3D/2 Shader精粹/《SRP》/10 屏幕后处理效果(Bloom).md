@@ -1,3 +1,4 @@
+![[Pasted image 20230626170453.png]]
 ## 10｜屏幕后处理效果（Bloom）
 
 ![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.%E5%B1%8F%E5%B9%95%E5%90%8E%E5%A4%84%E7%90%86%20%EF%BC%88Bloom%EF%BC%89.1620983535177.png "UWA")
