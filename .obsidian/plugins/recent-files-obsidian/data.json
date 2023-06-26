@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "06 阴影蒙版",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
+    },
+    {
       "basename": "05 烘焙光照",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
       "basename": "02 Unity操作指南",
@@ -191,14 +199,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "技术美术 TA3000 问",
-      "path": "图形学/面经/技术美术 TA3000 问.md"
     }
   ],
   "omittedPaths": [],

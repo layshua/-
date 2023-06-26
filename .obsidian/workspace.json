@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -24,8 +24,13 @@
             "id": "7880a290ee5cd5e0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
@@ -41,7 +46,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -84,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md"
               }
             }
           }
@@ -127,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -176,11 +182,23 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "92f2192bcbbb3e50",
+  "active": "7880a290ee5cd5e0",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/02 Unity操作指南.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影蒙版.md",
+    "zip/images/Pasted image 20230626150939.png",
+    "zip/images/Pasted image 20230626150901.png",
+    "zip/images/Pasted image 20230626150849.png",
+    "zip/images/Pasted image 20230626150819.png",
+    "zip/images/Pasted image 20230626150817.png",
+    "zip/images/Pasted image 20230626150812.png",
+    "zip/images/Pasted image 20230626150810.png",
+    "zip/images/Pasted image 20230626150804.png",
+    "zip/images/Pasted image 20230626150640.png",
+    "zip/images/Pasted image 20230626150630.png",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "技术美术/3 后处理/ta101后处理.md",
     "编程/C++/《C++ Primer》.md",
@@ -196,25 +214,12 @@
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第八篇 alphaTest 制作烧溶效果 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第五篇 法线贴图 - 哔哩哔哩.md",
-    "zip/images/7b2331aa0c4e11d7e277182d877c6a3a_MD5.webp",
-    "zip/images/2d983816e26140b0847987bccef397e4_MD5.webp",
-    "zip/images/8ac08a1da5461059768d560540ddbc20_MD5.webp",
-    "zip/images/1b4904cd675d878126c46a28456a1a51_MD5.webp",
-    "zip/images/1eaa587454a0e0dd681733ac400f7569_MD5.webp",
-    "zip/images/ead407935e730c0f682aa002e1285e65_MD5.webp",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第四篇 布林风 - 半兰伯特光照模型 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十一篇 多光源阴影处理 - 哔哩哔哩.md",
-    "zip/images/e96172f5e1611c7f512df58b788d31c7_MD5.webp",
-    "zip/images/79155e6fa06a713e12190267657d2af2_MD5.webp",
-    "zip/images/f5e164d6ba75aa3ab5dfee39e3d16a4f_MD5.webp",
-    "zip/images/3689a139b11af6b63c6f0d6fc257e6f5_MD5.webp",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十五篇 屏幕颜色制作玻璃效果 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十四篇  广告牌算法 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十三篇 序列帧算法 - 哔哩哔哩.md",
     "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十七篇 建立自己的后处理系统并调整屏幕的亮度饱和度对比度 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十篇 主光源阴影投射和接收 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十六篇 屏幕深度制作护盾特效 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/urp 管线的自学 hlsl 之路 第十九篇 性能拔尖的模糊 - 双重 Kasase 模糊 - 哔哩哔哩.md",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
