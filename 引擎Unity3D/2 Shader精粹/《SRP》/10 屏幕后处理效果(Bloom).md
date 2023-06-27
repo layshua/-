@@ -170,7 +170,7 @@ void Cleanup()
 ![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/2.1620791239062.png "UWA")
 
 7. 当渲染到中间帧缓冲区时，我们会给渲染纹理填充任意的数据，这在启用Frame Debugger时可以看到此情况。Unity会确保帧调试器在每帧开始时获得清理后的帧缓冲区，但当渲染到我们自己的纹理中时，我们会回避这个问题。它通常会导致我们在上一帧绘制的结果中继续绘制，但不能保证一定会这样做。如果摄像机的ClearFlags属性设置为Skybox或者Solid Color还好，因为保证可以完全覆盖旧的数据，颜色缓冲和深度缓冲都会被清除，但使用Depth only和Don't Clear是做不到的。因此当后处理特效栈被启用时，应当始终清除颜色和深度缓冲，我们在Setup方法中对相机的ClearFlags进行强制设置。
-```
+```cs
 
 void Setup()  
 {  

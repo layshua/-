@@ -1,12 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "01 Bloom",
-      "path": "技术美术/1 渲染雅集/01 Bloom.md"
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
     {
       "basename": "10 屏幕后处理效果(Bloom)",
@@ -15,6 +11,22 @@
     {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
+      "basename": "01 Bloom",
+      "path": "技术美术/1 渲染雅集/01 Bloom.md"
     },
     {
       "basename": "前往斯旺西",
@@ -31,14 +43,6 @@
     {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
     },
     {
       "basename": "06 阴影遮罩",
@@ -139,10 +143,6 @@
     {
       "basename": "12 颜色分级",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
