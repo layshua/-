@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "3 进阶应用",
+      "path": "3 进阶应用.md"
+    },
+    {
+      "basename": "曲面细分与几何着色器",
+      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
@@ -25,20 +45,12 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
       "basename": "Litshader.km",
@@ -187,18 +199,6 @@
     {
       "basename": "PBR疑问",
       "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/README.md"
-    },
-    {
-      "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
-      "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
-    },
-    {
-      "basename": "14 工业界主流方法",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
     }
   ],
   "omittedPaths": [],
