@@ -106,21 +106,23 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |SurfaceInput |定义 SurfaceData 结构体和几种纹理的采样函数|
 |UnityInput |包含了大量可以直接使用的全局变量和变换矩阵|
 
-### Input
+### Input.hlsl
 
 结构体：
 ```cs
 struct InputData
 {
     float3  positionWS;
+    float4  positionCS;
     half3   normalWS;
     half3   viewDirectionWS;
-    float4  shadowCoord;
-    half    fogCoord; //雾坐标
-    half3   vertexLighting; //顶点光照
-    half3   bakedGI; //全局光照
+    float4  shadowCoord;             //阴影坐标
+    half    fogCoord;                //雾坐标
+    half3   vertexLighting;          //顶点光照
+    half3   bakedGI;                 //全局光照
     float2  normalizedScreenSpaceUV; //标准化屏幕空间UV
-    half4   shadowMask; //阴影遮罩
+    half4   shadowMask;              //阴影遮罩
+    half3x3 tangentToWorld;          //切线空间到世界空间变换矩阵
 };
 ```
 
@@ -153,23 +155,39 @@ struct InputData
 #else
 ```
 
-### SpaceTransforms
+### SpaceTransforms.hlsl
 
 |获取空间变换矩阵|说明|
 |:--|:--|
-|float4x4 GetObjectToWorldMatrix()|模型空间到世界空间，反之成立|
-|float4x4 GetViewToWorldMatrix()|观察空间到世界空间，反之成立|
-|float4x4 GetWorldToHClipMatrix()|世界空间到齐次裁剪空间|
-|float4x4 GetViewToHClipMatrix()|观察空间到齐次裁剪空间|
+|float4x4 **GetObjectToWorldMatrix()** |模型空间到世界空间，反之|
+|float4x4 **GetViewToWorldMatrix()**|观察空间到世界空间，反之|
+|float4x4 **GetWorldToHClipMatrix()**|世界空间到齐次裁剪空间|
+|float4x4 **GetViewToHClipMatrix()**|观察空间到齐次裁剪空间|
 
 
-|顶点变换函数|  |  |
-|:--|:--|:--|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|顶点变换函数|说明|
+|:--|:--|
+|float3 **TransformObjectToWorld(float3 positionOS)**|模型空间到世界空间，反之|
+|float3 **TransformViewToWorld(float3 positionVS)**|观察空间到世界空间，反之|
+|float4 **TransformObjectToHClip(float3 positionOS)** |模型空间到齐次裁剪空间 |
+|float4 **TransformWViewToHClip(float3 positionVS)**|观察空间到齐次裁剪空间|
+|float4 **TransformWorldToHClip(float3 positionWS)** |世界空间到齐次裁剪空间|
+
+
+|向量变换函数|说明 |
+|:--|:--|
+|float3 **TransformObjectToWorldDir**(float3 dirOS, bool doNormalize = true)|模型到世界，是否将向量标准化。反之 |
+|real3 **TransformViewToWorldDir**(real3 dirVS, bool doNormalize = false)|观察到世界，是否将向量标准化。反之 |
+|real3 **TransformWorldToHClipDir**(real3 directionWS, bool doNormalize = false)|世界到齐次裁剪，是否将向量标准化。反之|
+|float3 **TransformObjectToWorldNormal**(float3 normalOS, bool doNormalize = true)|模型到世界法线，是否将向量标准化，反之|
+|real3 **TransformViewToWorldNormal**(real3 normalVS, bool doNormalize = false)|观察到世界法线，是否将向量标准化，反之 |
+|  |  |
+|real3x3 **CreateTangentToWorld**(real3 normal, real3 tangent, real flipSign)|（用于法线）传入法线，切线，方向符号，返回法线从切线空间到世界空间的3x3变换矩阵tangentToWorld |
+|real3 **TransformTangentToWorld**(float3 normalTS, real3x3 tangentToWorld, bool doNormalize = false)|（用于法线）用tangentToWorld矩阵，切线到世界，反之|
+|real3 **TransformTangentToWorldDir**(real3 dirWS, real3x3 tangentToWorld, bool doNormalize = false)|（用于向量）切线到世界，是否将向量标准化，反之|
+|real3 **TransformObjectToTangent**(real3 dirOS, real3x3 tangentToWorld)|（用于向量）模型到世界，是否将向量标准化，反之|
+
+
 
 ## 文件包含关系
 ![[Pasted image 20230627140250.png]]
