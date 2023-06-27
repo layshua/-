@@ -12305,6 +12305,7 @@ codex
 cooool
 chapter
 cstdlib
+chosen
 github
 grey
 green
@@ -15906,6 +15907,7 @@ glassColor
 gmail
 gatsby
 giscus
+guarantees
 typora
 todo
 tooltip
@@ -19710,6 +19712,10 @@ typo
 turb
 tracer
 triLinear
+transitions
+triangulator
+triangulation
+triangulate
 markdown
 matter
 mod
@@ -23863,6 +23869,8 @@ mmrvc
 mmqio
 mmxk
 mirrorOnce
+mikktspace
+mirrored
 windows
 win
 width
@@ -58305,6 +58313,7 @@ RenderFeatherName
 RGBs
 RAND
 RadToDeg
+Reproducing
 Microsoft
 Menu
 MicaForEveryone
@@ -63013,6 +63022,8 @@ Matthew
 Markdeep
 Mach
 Macros
+MikktSpace
+Morten
 Windows
 Win
 World
@@ -84462,6 +84473,7 @@ IndirSpeColor
 IndirColor
 Ingo
 InputData
+InitializeInputData
 qq
 qyi
 quad
@@ -92559,6 +92571,8 @@ participating
 ptrshrl
 perlite
 priority
+polygonal
+prior
 nodesCatch
 nobr
 navy
@@ -99922,6 +99936,8 @@ buildin
 bufferid
 bufferblur
 bands
+behaved
+baker
 fe
 front
 fill
@@ -121039,6 +121055,10 @@ smallest
 suface
 shadowxxx
 sourceBlendMode
+strategy
+shortest
+splits
+stress
 local
 list
 left
@@ -132066,6 +132086,7 @@ halflambot
 hittable
 hermite
 hugo
+heavily
 rgb
 right
 rm
@@ -151952,6 +151973,7 @@ ForwardLit
 FragDefault
 FragForward
 FragDeferred
+Furthermore
 Element
 Entity
 Enity
@@ -159798,6 +159820,7 @@ xQM
 xJHH
 xqqq
 xyya
+xNormal
 yellow
 your
 you

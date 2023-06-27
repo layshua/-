@@ -493,21 +493,24 @@ Varyings LitPassVertex(Attributes input)
     //获取顶点位置信息
     VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
 
-    // normalWS and tangentWS already normalize.
+    // normalWS and tangentWS已经标准化
     // this is required to avoid skewing the direction during interpolation
     // also required for per-vertex lighting and SH evaluation
     VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
 
+    //计算顶点光照
     half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);
 
+    //计算雾系数
     half fogFactor = 0;
     #if !defined(_FOG_FRAGMENT)
         fogFactor = ComputeFogFactor(vertexInput.positionCS.z);
     #endif
-
+    
+    //得到纹理坐标
     output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
 
-    // already normalized from normal transform to WS.
+    // 保存法线切线信息
     output.normalWS = normalInput.normalWS;
 #if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR) || defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
     real sign = input.tangentOS.w * GetOddNegativeScale();
@@ -517,8 +520,11 @@ Varyings LitPassVertex(Attributes input)
     output.tangentWS = tangentWS;
 #endif
 
+
 #if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+    //世界空间观察方向
     half3 viewDirWS = GetWorldSpaceNormalizeViewDir(vertexInput.positionWS);
+    //切线空间观察方向
     half3 viewDirTS = GetViewDirectionTangentSpace(tangentWS, output.normalWS, viewDirWS);
     output.viewDirTS = viewDirTS;
 #endif
@@ -596,7 +602,7 @@ VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
 {
     VertexNormalInputs tbn;
 
-    // mikkts space compliant. only normalize when extracting normal at frag.
+    // 兼容mikktsSpace.在片元处提取法线时只进行归一化
     real sign = real(tangentOS.w) * GetOddNegativeScale();
     tbn.normalWS = TransformObjectToWorldNormal(normalOS);
     tbn.tangentWS = real3(TransformObjectToWorldDir(tangentOS.xyz));
@@ -604,7 +610,57 @@ VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
     return tbn;
 }
 ```
+###### 计算顶点光照
+```cs file:计算顶点光照
+half3 VertexLighting(float3 positionWS, half3 normalWS)
+{
+    half3 vertexLightColor = half3(0.0, 0.0, 0.0);
 
+//当开启额外灯光并将其设置为顶点光照
+#ifdef _ADDITIONAL_LIGHTS_VERTEX
+    uint lightsCount = GetAdditionalLightsCount(); //获取所有额外灯光数量
+
+    //遍历所有灯光并累加颜色
+    LIGHT_LOOP_BEGIN(lightsCount)
+        Light light = GetAdditionalLight(lightIndex, positionWS);
+        half3 lightColor = light.color * light.distanceAttenuation;
+        vertexLightColor += LightingLambert(lightColor, light.direction, normalWS);
+    LIGHT_LOOP_END
+#endif
+
+    return vertexLightColor;
+}
+
+```
+###### 计算雾系数
+```cs
+real ComputeFogFactor(float zPositionCS)
+{
+    //由于OpenGL和Direct3D保存深度值的范围不同
+    //使用UNITY_Z_0_FAR_FROM_CLIPSPACE()宏针对不哦她那个平台重新映射深度值的范围
+    float clipZ_0Far = UNITY_Z_0_FAR_FROM_CLIPSPACE(zPositionCS); 
+    
+    return ComputeFogFactorZ0ToFar(clipZ_0Far);
+}
+
+real ComputeFogFactorZ0ToFar(float z)
+    {
+    //当使用线性雾
+    #if defined(FOG_LINEAR) 
+    // factor = (end-z)/(end-start) = z * (-1/(end-start)) + (end/(end-start))
+    float fogFactor = saturate(z * unity_FogParams.z + unity_FogParams.w);
+    return real(fogFactor);
+
+    //当使用指数雾
+    #elif defined(FOG_EXP) || defined(FOG_EXP2)
+    // factor = exp(-(density*z)^2)
+    // -density * z computed at vertex
+    return real(unity_FogParams.x * z);
+    #else
+        return real(0.0);
+    #endif
+}
+```
 # 语法
 
 ## 纹理和采样器
