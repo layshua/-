@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "01 Bloom",
+      "path": "技术美术/1 渲染雅集/01 Bloom.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
       "basename": "前往斯旺西",
       "path": "zip/dailynote/前往斯旺西.md"
     },
@@ -23,14 +35,6 @@
     {
       "basename": "09 点光源和聚光灯阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     },
     {
       "basename": "06 阴影遮罩",
@@ -195,10 +199,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "技术美术/01 学习大纲.md"
     }
   ],
   "omittedPaths": [],

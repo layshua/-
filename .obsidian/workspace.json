@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "技术美术/1 渲染雅集/01 Bloom.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md"
+                "file": "技术美术/1 渲染雅集/01 Bloom.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "技术美术/1 渲染雅集/01 Bloom.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/dailynote/前往斯旺西.md",
+                "file": "技术美术/1 渲染雅集/01 Bloom.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,14 +157,15 @@
   },
   "active": "92f2192bcbbb3e50",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "zip/dailynote/前往斯旺西.md",
     "zip/images/Pasted image 20230627093819.png",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
     "图形学/1 图形系统/09 阴影.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
@@ -194,7 +195,6 @@
     "zip/images/Pasted image 20230626174956.png",
     "zip/images/Pasted image 20230626174954.png",
     "zip/images/Pasted image 20230626174942.png",
-    "zip/images/Pasted image 20230626174939.png",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
