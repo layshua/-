@@ -5,12 +5,16 @@
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "技术美术/4 UnityShader/庄懂AP01.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "ShaderLab",
@@ -195,10 +199,6 @@
     {
       "basename": "由浅入深学习 PBR 的原理和实现",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md"
-    },
-    {
-      "basename": "01  unlit shader",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
     }
   ],
   "omittedPaths": [],

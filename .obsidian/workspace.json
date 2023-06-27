@@ -32,6 +32,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "96e56c08a48b6ef4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/4 UnityShader/庄懂AP01.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -172,9 +185,10 @@
   },
   "active": "ce3afdde0e392350",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "技术美术/4 UnityShader/庄懂AP01.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/3D数学.md",
@@ -204,7 +218,6 @@
     "引擎Unreal/03 材质 & 渲染/303 实时渲染.md",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
     "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
-    "引擎Unreal/02 蓝图 & U++/101 蓝图.md",
     "zip/images/Pasted image 20230627093819.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",

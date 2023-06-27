@@ -777,6 +777,138 @@ struct SurfaceData
     half  clearCoatSmoothness;
 };
 ```
+### ShadowCaster
+阴影投射 Pass，作用是生成阴影贴图
+```cs
+Pass
+{
+    Name "ShadowCaster"
+    Tags
+    {
+        "LightMode" = "ShadowCaster"
+    }
+
+    // -------------------------------------
+    // Render State Commands
+    ZWrite On
+    ZTest LEqual
+    ColorMask 0
+    Cull[_Cull]
+
+    HLSLPROGRAM
+    #pragma target 2.0
+
+    // -------------------------------------
+    // Shader Stages
+    #pragma vertex ShadowPassVertex
+    #pragma fragment ShadowPassFragment
+
+    // -------------------------------------
+    // Material Keywords
+    // 计算阴影贴图会用到透明度裁切属性
+    #pragma shader_feature_local_fragment _ALPHATEST_ON 
+    #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+
+    //--------------------------------------
+    // GPU Instancing
+    #pragma multi_compile_instancing
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
+
+    // -------------------------------------
+    // Universal Pipeline keywords
+
+    // -------------------------------------
+    // Unity defined keywords
+    #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE 
+
+    // This is used during shadow map generation to differentiate between directional and punctual light shadows, as they use different formulas to apply Normal Bias
+    #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+
+    // -------------------------------------
+    // Includes
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+    ENDHLSL
+}
+```
+#### ShadowCasterPass.hlsl
+```c
+//这些变量在应用阴影法线偏移时使用，并由UnityEngine.Rendering.Universal.ShadowUtils.SetupShadowCasterConstantBuffer在com.unity.render-pipelines.universal/Runtime/ShadowUtils.cs中设置
+float3 _LightDirection; //对于方向灯，_LightDirection在应用阴影法线偏移时使用。
+float3 _LightPosition; //对于聚光灯和点光源，_LightPosition用于计算实际的光方向，因为它在每个阴影投射几何顶点是不同的。
+
+struct Attributes
+{
+    float4 positionOS   : POSITION;
+    float3 normalOS     : NORMAL;    //用于法线偏移
+    float2 texcoord     : TEXCOORD0; //用于采样透明贴图
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+struct Varyings
+{
+    float2 uv           : TEXCOORD0;
+    float4 positionCS   : SV_POSITION;
+};
+
+//获得齐次裁剪空间下的阴影坐标
+float4 GetShadowPositionHClip(Attributes input)
+{
+    float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+    float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
+
+#if _CASTING_PUNCTUAL_LIGHT_SHADOW
+    float3 lightDirectionWS = normalize(_LightPosition - positionWS);
+#else
+    float3 lightDirectionWS = _LightDirection;
+#endif
+
+    float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, lightDirectionWS));
+
+#if UNITY_REVERSED_Z
+    positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#else
+    positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#endif
+
+    return positionCS;
+}
+
+Varyings ShadowPassVertex(Attributes input)
+{
+    Varyings output;
+    UNITY_SETUP_INSTANCE_ID(input);
+
+    output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+    output.positionCS = GetShadowPositionHClip(input);
+    return output;
+}
+
+half4 ShadowPassFragment(Varyings input) : SV_TARGET
+{
+    Alpha(SampleAlbedoAlpha(input.uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap)).a, _BaseColor, _Cutoff);
+
+#ifdef LOD_FADE_CROSSFADE
+    LODFadeCrossFade(input.positionCS);
+#endif
+
+    return 0;
+}
+```
+
+```cs file:Shadow.hlsl:得到偏移后的阴影坐标
+float3 ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)
+{
+    float invNdotL = 1.0 - saturate(dot(lightDirection, normalWS));
+    float scale = invNdotL * _ShadowBias.y;
+
+    // 法线是负值的
+    //_ShadowBias：x值是Depth Bias深度偏移，y是Normal Bias法线偏移
+    positionWS = lightDirection * _ShadowBias.xxx + positionWS;
+    positionWS = normalWS * scale.xxx + positionWS;
+    return positionWS;
+}
+```
 # 语法
 
 ## 纹理和采样器
