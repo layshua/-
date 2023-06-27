@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "Litshader.km",
+      "path": "zip/MindMap/Litshader.km.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "Mermaid流图",
+      "path": "Tools/Obsidian/Mermaid流图.md"
+    },
+    {
+      "basename": "20230627151722.km",
+      "path": "zip/MindMap/20230627151722.km.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
       "basename": "《GUI》",
@@ -183,22 +195,6 @@
     {
       "basename": "13 多相机",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
     }
   ],
   "omittedPaths": [],

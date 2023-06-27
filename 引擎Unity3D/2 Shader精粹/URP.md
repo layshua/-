@@ -55,17 +55,21 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 6. Shadow 包含了 Core 
 
 # Lit. shader 解析
+
+> [!NOTE] 版本
+> Unity2022.3.0f1c1：URP14.0
+
+![[Litshader.km]]
 ## SubShader
 Lit. shader 只有一个 SubShader，SubShader 的 Tags 如下：
 
 ```cs
-Tags
-{
-    "RenderType" = "Opaque" 
-    "RenderPipeline" = "UniversalPipeline" 
-    "UniversalMaterialType" = "Lit" 
-    "IgnoreProjector" = "True" 
-    "ShaderModel"="4.5"
+Tags  
+{  
+    "RenderType" = "Opaque"  
+    "RenderPipeline" = "UniversalPipeline"  
+    "UniversalMaterialType" = "Lit"  
+    "IgnoreProjector" = "True"  
 }
 ```
 
@@ -79,6 +83,6 @@ CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
 
 
 ## Pass
-SubShader 中使用了 5 个 pass
+
 
 

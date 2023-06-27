@@ -4,37 +4,46 @@
     "type": "split",
     "children": [
       {
-        "id": "e045579a18cf7301",
-        "type": "tabs",
+        "id": "bb61d3b22607a4b7",
+        "type": "split",
         "children": [
           {
-            "id": "a62503cc85f85407",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
+            "id": "e045579a18cf7301",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d8941e79109c911e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                    "mode": "source",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
               }
-            }
+            ]
           },
           {
-            "id": "cd72a58bd5aa500f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
+            "id": "9546ece3c1bb61b7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "8ea259531463b3d9",
+                "type": "leaf",
+                "state": {
+                  "type": "kity-mind",
+                  "state": {
+                    "file": "zip/MindMap/Litshader.km.md"
+                  }
+                }
               }
-            }
+            ]
           }
         ],
-        "currentTab": 1
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -77,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md"
+                "file": "zip/MindMap/Litshader.km.md"
               }
             }
           }
@@ -120,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "zip/MindMap/Litshader.km.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "zip/MindMap/Litshader.km.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -169,12 +178,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "cd72a58bd5aa500f",
+  "active": "8ea259531463b3d9",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
+    "zip/images/Pasted image 20230627152452.png",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "zip/MindMap/Litshader.km.md",
+    "Tools/Obsidian/Mermaid流图.md",
+    "zip/MindMap/20230627151722.km.md",
+    "zip/MindMap/20230618144259.km.md",
+    "zip/MindMap/20230511092754.km.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "zip/images/Pasted image 20230627140250.png",
     "zip/images/Pasted image 20230627122009.png",
     "Tools/Obsidian/发布方案.md",
@@ -195,20 +210,13 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/02 Unity操作指南.md",
-    "技术美术/1 渲染雅集/01 Bloom.md",
-    "zip/dailynote/前往斯旺西.md",
     "zip/images/Pasted image 20230627093819.png",
-    "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "zip/images/Pasted image 20230626175108.png",
     "zip/images/Pasted image 20230626175101.png",
     "zip/images/Pasted image 20230626175056.png",
-    "zip/images/Pasted image 20230626175054.png",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
