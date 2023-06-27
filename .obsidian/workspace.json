@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ce3afdde0e392350",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
               }
             }
           }
@@ -106,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +137,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -155,10 +169,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "d8941e79109c911e",
+  "active": "ce3afdde0e392350",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "zip/images/Pasted image 20230627160037.png",
     "zip/images/Pasted image 20230627155115.png",
     "zip/MindMap/Litshader.km.md",
@@ -189,7 +204,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "zip/images/Pasted image 20230627093819.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
