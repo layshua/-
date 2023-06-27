@@ -2,7 +2,19 @@
   "recentFiles": [
     {
       "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
+      "basename": "发布方案",
+      "path": "Tools/Obsidian/发布方案.md"
+    },
+    {
+      "basename": "【URP 学习记录】 阴影的接收与生成",
+      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "DrawCall，Batches，SetPass calls",
@@ -69,16 +81,8 @@
       "path": "zip/dailynote/前往斯旺西.md"
     },
     {
-      "basename": "【URP 学习记录】 阴影的接收与生成",
-      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
-    },
-    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "06 阴影遮罩",
@@ -191,14 +195,6 @@
     {
       "basename": "11 ShadowCaster 和 SRP batcher",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
-    },
-    {
-      "basename": "05 渐变纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
-    },
-    {
-      "basename": "06 alpha 混合",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
     }
   ],
   "omittedPaths": [],
