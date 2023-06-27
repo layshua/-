@@ -86,7 +86,7 @@ CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
 
 ### ForwardLit
 前向渲染 Pass，在一个 Pass 中计算所有光照，包括全局光照 GI，自发光 Emission，雾效 Fog。
-将该 Pass 拆解，解析如下：
+
 ```cs
 Pass
 {
@@ -114,17 +114,62 @@ Pass
     #pragma fragment LitPassFragment
 
     // -------------------------------------
-    //材质属性关键词
-    //通用管线关键词
-    //Unity定义的关键词
-    // -------------------------------------
+    // 材质属性关键词 Material Keywords
 
+    //对应材质inspector面板中的设置
+    //例如：添加NormalMap就会传入_NORMALMAP关键词
+    #pragma shader_feature_local _NORMALMAP 
+    #pragma shader_feature_local _PARALLAXMAP 
+    #pragma shader_feature_local _RECEIVE_SHADOWS_OFF 
+    #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
+    #pragma shader_feature_local_fragment _SURFACE_TYPE_TRANSPARENT
+    #pragma shader_feature_local_fragment _ALPHATEST_ON
+    #pragma shader_feature_local_fragment _ _ALPHAPREMULTIPLY_ON _ALPHAMODULATE_ON
+    #pragma shader_feature_local_fragment _EMISSION
+    #pragma shader_feature_local_fragment _METALLICSPECGLOSSMAP
+    #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    #pragma shader_feature_local_fragment _OCCLUSIONMAP
+    #pragma shader_feature_local_fragment _SPECULARHIGHLIGHTS_OFF
+    #pragma shader_feature_local_fragment _ENVIRONMENTREFLECTIONS_OFF
+    #pragma shader_feature_local_fragment _SPECULAR_SETUP
+    
+    // -------------------------------------
+    // 通用管线关键词 Universal Pipeline keywords
+    // 对应Universal Render Pipeline Asset和Lighting中的设置
+    #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+    #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+    #pragma multi_compile _ EVALUATE_SH_MIXED EVALUATE_SH_VERTEX
+    #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+    #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+    #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
+    #pragma multi_compile_fragment _ _SHADOWS_SOFT
+    #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+    #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
+    #pragma multi_compile_fragment _ _LIGHT_LAYERS
+    #pragma multi_compile_fragment _ _LIGHT_COOKIES
+    #pragma multi_compile _ _FORWARD_PLUS
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl"
+    
+    // -------------------------------------
+    // Unity定义的关键词 Unity defined keywords
+    // 对应Lighting中的设置
+    #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
+    #pragma multi_compile _ SHADOWS_SHADOWMASK
+    #pragma multi_compile _ DIRLIGHTMAP_COMBINED
+    #pragma multi_compile _ LIGHTMAP_ON
+    #pragma multi_compile _ DYNAMICLIGHTMAP_ON
+    #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+    #pragma multi_compile_fog
+    #pragma multi_compile_fragment _ DEBUG_DISPLAY
+    
     // -------------------------------------
     // GPU Instancing
     #pragma multi_compile_instancing
     #pragma instancing_options renderinglayer
     #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
-    
+
+    // -------------------------------------
+    // 变量声明、顶点函数和片元函数都在包含文件中
     #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
     ENDHLSL
@@ -132,58 +177,24 @@ Pass
 
 ```
 
-#### 材质属性关键词
-![[Pasted image 20230627155115.png|450]]
-
+### LitInput. hlsl
+# 语法
+### 纹理和采样器
 ```cs
-// 材质属性关键词 Material Keywords
+//声明纹理和采样器
+TEXTURE2D(_textureName); SAMPLER(sampler_textureName);
 
-//对应材质inspector面板中的设置
-//例如：添加NormalMap就会传入_NORMALMAP关键词
-#pragma shader_feature_local _NORMALMAP 
-#pragma shader_feature_local _PARALLAXMAP 
-#pragma shader_feature_local _RECEIVE_SHADOWS_OFF 
-#pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
-#pragma shader_feature_local_fragment _SURFACE_TYPE_TRANSPARENT
-#pragma shader_feature_local_fragment _ALPHATEST_ON
-#pragma shader_feature_local_fragment _ _ALPHAPREMULTIPLY_ON _ALPHAMODULATE_ON
-#pragma shader_feature_local_fragment _EMISSION
-#pragma shader_feature_local_fragment _METALLICSPECGLOSSMAP
-#pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-#pragma shader_feature_local_fragment _OCCLUSIONMAP
-#pragma shader_feature_local_fragment _SPECULARHIGHLIGHTS_OFF
-#pragma shader_feature_local_fragment _ENVIRONMENTREFLECTIONS_OFF
-#pragma shader_feature_local_fragment _SPECULAR_SETUP
+//如果需要使用Tilling和Scale功能，需要在CBuffer中声明float4类型的变量
+float4 _textureName_ST;
+
+//进行纹理采样
+SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 ```
 
-#### 通用管线关键词
-```cs
+采样器可以定义纹理设置面板上的 Wrap Mode（重复模式，clamp、repeat、mirror、mirrorOnce）和 Filter Mode （过滤模式，point、linear、triLinear）
 
-// 通用管线关键词 Universal Pipeline keywords
-#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-#pragma multi_compile _ EVALUATE_SH_MIXED EVALUATE_SH_VERTEX
-#pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
-#pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
-#pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
-#pragma multi_compile_fragment _ _SHADOWS_SOFT
-#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-#pragma multi_compile_fragment _ _LIGHT_LAYERS
-#pragma multi_compile_fragment _ _LIGHT_COOKIES
-#pragma multi_compile _ _FORWARD_PLUS
-#include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl"
-```
-#### Unity 定义的关键词
-```cs
-// Unity定义的关键词 Unity defined keywords
-#pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-#pragma multi_compile _ SHADOWS_SHADOWMASK
-#pragma multi_compile _ DIRLIGHTMAP_COMBINED
-#pragma multi_compile _ LIGHTMAP_ON
-#pragma multi_compile _ DYNAMICLIGHTMAP_ON
-#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
-#pragma multi_compile_fog
-#pragma multi_compile_fragment _ DEBUG_DISPLAY
-```
+采样器的三种定义方式：
+1. `SAMPLER(sampler_textureName)`：表示该纹理使用设置面板设定的采样方式
+2. `SAMPLER(filer_wrap)`：使用自定义的采样器设置，必须同时包含 Wrap Mode 和 Filter Mode 的设置，如 `SAMPLER(point_clamp) `
+3. `SAMPLER(filer_wrapU_wrapV)` ：可以同时为 U 和 V 设置不同的 Wrap Mode 如：`SAMPLER(filer_clampU_mirrorV)`
 
