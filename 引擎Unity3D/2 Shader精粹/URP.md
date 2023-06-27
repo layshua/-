@@ -330,7 +330,8 @@ Pass
 ```
 
 #### LitForwardPass.hlsl
-```c
+##### 顶点输入输出结构体
+```c file:顶点输入结构体
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
 struct Attributes
@@ -345,15 +346,15 @@ struct Attributes
 };
 ```
 
-```c
+```c file:顶点输出结构体
 struct Varyings
 {
     float2 uv                       : TEXCOORD0;
     float3 positionWS               : TEXCOORD1;
     float3 normalWS                 : TEXCOORD2;
-    half4  tangentWS                : TEXCOORD3;    // xyz:切线分量, w: 切线方向
+    half4  tangentWS                : TEXCOORD3;  // xyz:切线分量, w: 切线方向
     half4  fogFactorAndVertexLight   : TEXCOORD5; // 雾系数和顶点光照，x: fogFactor, yzw: vertex light
-    half   fogFactor                 : TEXCOORD5;
+    half   fogFactor                 : TEXCOORD5; // 雾系数
     float4 shadowCoord              : TEXCOORD6;
     half3  viewDirTS                : TEXCOORD7;
     DECLARE_LIGHTMAP_OR_SH(staticLightmapUV, vertexSH, 8);//光照贴图纹理坐标，光照贴图名称，球谐光照名称，纹理坐标索引
@@ -366,6 +367,7 @@ struct Varyings
 };
 ```
 
+##### InitializeInputData 函数
 ```c file:InitializeInputData函数
 void InitializeInputData(Varyings input, half3 normalTS, out InputData inputData)
 {
@@ -411,16 +413,18 @@ void InitializeInputData(Varyings input, half3 normalTS, out InputData inputData
 #endif
 
 //--------------------------------------------------------------------
-
-#ifdef _ADDITIONAL_LIGHTS_VERTEX
-    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactorAndVertexLight.x);
-    inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
+#ifdef _ADDITIONAL_LIGHTS_VERTEX //当额外灯光选择了逐顶点光照
+    //保存雾系数和顶点光照
+    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactorAndVertexLight.x); 
+    inputData.vertexLighting = input.fogFactorAndVertexLight.yzw; 
 #else
+    //只保存雾系数
     inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactor);
 #endif
 
 //--------------------------------------------------------------------
 #if defined(DYNAMICLIGHTMAP_ON)
+    //调用SAMPLE_GI宏定义得到全局光照（球谐函数）
     inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV, input.vertexSH, inputData.normalWS);
 #else
     inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.vertexSH, inputData.normalWS);
@@ -442,9 +446,7 @@ void InitializeInputData(Varyings input, half3 normalTS, out InputData inputData
 }
 ```
 
-
-
-```cs file:将法线标准化的函数
+```c file:将法线标准化的函数
 //普通的normalize
 float3 NormalizeNormalPerVertex(float3 normalWS)
 {
@@ -463,7 +465,7 @@ float3 NormalizeNormalPerPixel(float3 normalWS)
 }
 ```
 
-```cs file:传入世界空间顶点坐标得到阴影坐标
+```c file:传入世界空间顶点坐标得到阴影坐标
 float4 TransformWorldToShadowCoord(float3 positionWS)
 {
 #ifdef _MAIN_LIGHT_SHADOWS_CASCADE //如果开启了级联阴影
@@ -477,6 +479,132 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
     return float4(shadowCoord.xyz, 0);
 }
 ```
+
+##### 顶点函数
+```c
+Varyings LitPassVertex(Attributes input)
+{
+    Varyings output = (Varyings)0; //初始化
+
+    UNITY_SETUP_INSTANCE_ID(input); //GPU Instancing获取实例ID
+    UNITY_TRANSFER_INSTANCE_ID(input, output); //将实例ID从输入结构体传递到输出结构体
+    UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output); //用于VR平台的宏定义
+
+    //获取顶点位置信息
+    VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+
+    // normalWS and tangentWS already normalize.
+    // this is required to avoid skewing the direction during interpolation
+    // also required for per-vertex lighting and SH evaluation
+    VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
+
+    half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);
+
+    half fogFactor = 0;
+    #if !defined(_FOG_FRAGMENT)
+        fogFactor = ComputeFogFactor(vertexInput.positionCS.z);
+    #endif
+
+    output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+
+    // already normalized from normal transform to WS.
+    output.normalWS = normalInput.normalWS;
+#if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR) || defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+    real sign = input.tangentOS.w * GetOddNegativeScale();
+    half4 tangentWS = half4(normalInput.tangentWS.xyz, sign);
+#endif
+#if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR)
+    output.tangentWS = tangentWS;
+#endif
+
+#if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+    half3 viewDirWS = GetWorldSpaceNormalizeViewDir(vertexInput.positionWS);
+    half3 viewDirTS = GetViewDirectionTangentSpace(tangentWS, output.normalWS, viewDirWS);
+    output.viewDirTS = viewDirTS;
+#endif
+
+    OUTPUT_LIGHTMAP_UV(input.staticLightmapUV, unity_LightmapST, output.staticLightmapUV);
+#ifdef DYNAMICLIGHTMAP_ON
+    output.dynamicLightmapUV = input.dynamicLightmapUV.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
+#endif
+    OUTPUT_SH(output.normalWS.xyz, output.vertexSH);
+#ifdef _ADDITIONAL_LIGHTS_VERTEX
+    output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
+#else
+    output.fogFactor = fogFactor;
+#endif
+
+#if defined(REQUIRES_WORLD_SPACE_POS_INTERPOLATOR)
+    output.positionWS = vertexInput.positionWS;
+#endif
+
+#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
+    output.shadowCoord = GetShadowCoord(vertexInput);
+#endif
+
+    output.positionCS = vertexInput.positionCS;
+
+    return output;
+}
+```
+
+###### 获取顶点位置和法线信息
+```cs file:顶点位置/法线输入结构体
+struct VertexPositionInputs
+{
+    float3 positionWS; 
+    float3 positionVS; 
+    float4 positionCS; 
+    float4 positionNDC;
+};
+
+struct VertexNormalInputs
+{
+    real3 tangentWS;
+    real3 bitangentWS;
+    float3 normalWS;
+};
+
+//输入模型空间坐标，得到其他空间坐标
+VertexPositionInputs GetVertexPositionInputs(float3 positionOS)
+{
+    VertexPositionInputs input;
+    input.positionWS = TransformObjectToWorld(positionOS);
+    input.positionVS = TransformWorldToView(input.positionWS);
+    input.positionCS = TransformWorldToHClip(input.positionWS);
+
+    float4 ndc = input.positionCS * 0.5f;
+    input.positionNDC.xy = float2(ndc.x, ndc.y * _ProjectionParams.x) + ndc.w;
+    input.positionNDC.zw = input.positionCS.zw;
+
+    return input;
+}
+
+
+//输入模型空间法线，获得世界法线，其他分量只是简单填充
+VertexNormalInputs GetVertexNormalInputs(float3 normalOS)
+{
+    VertexNormalInputs tbn;
+    tbn.tangentWS = real3(1.0, 0.0, 0.0);
+    tbn.bitangentWS = real3(0.0, 1.0, 0.0);
+    tbn.normalWS = TransformObjectToWorldNormal(normalOS);
+    return tbn;
+}
+
+//输入模型空间法线和切线，获取TBN矩阵及其分量
+VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
+{
+    VertexNormalInputs tbn;
+
+    // mikkts space compliant. only normalize when extracting normal at frag.
+    real sign = real(tangentOS.w) * GetOddNegativeScale();
+    tbn.normalWS = TransformObjectToWorldNormal(normalOS);
+    tbn.tangentWS = real3(TransformObjectToWorldDir(tangentOS.xyz));
+    tbn.bitangentWS = real3(cross(tbn.normalWS, float3(tbn.tangentWS))) * sign;
+    return tbn;
+}
+```
+
 # 语法
 
 ## 纹理和采样器

@@ -96226,6 +96226,7 @@ normalTex
 norWS
 netlify
 numer
+normalVS
 bf
 bc
 black
@@ -103582,6 +103583,7 @@ fadeOutRange
 flowSpeed
 fragshadow
 flowcolor
+flipSign
 dd
 dcc
 data
@@ -107783,6 +107785,11 @@ depthbuffer
 develop
 destBlendMode
 deg
+dirOS
+doNormalize
+dirVS
+directionWS
+dirWS
 TFvYZOKeHL
 TAB
 TeX
@@ -111845,6 +111852,13 @@ TreeOpaque
 TreeTransparentCutout
 TreeBillboard
 ToggleOff
+TransformViewToWorld
+TransformWViewToHClip
+TransformViewToWorldDir
+TransformWorldToHClipDir
+TransformViewToWorldNormal
+TransformTangentToWorldDir
+TransformObjectToTangent
 io
 ipad
 it
