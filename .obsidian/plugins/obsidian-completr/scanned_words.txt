@@ -38632,6 +38632,8 @@ VERT
 VScoordZ
 VScoordX
 VScoordY
+VaryingsDefault
+VertDefault
 verge
 vPdIt
 vertical
@@ -46226,6 +46228,7 @@ AddColor
 ADDLIGHT
 Addlight
 AdditionalLightRealtimeShadow
+AttributesDefault
 URL
 Utools
 Users
@@ -71842,6 +71845,7 @@ States
 Semantic
 SurfaceData
 ShaderModel
+ShaderLibray
 Programs
 POP
 PC
@@ -151926,6 +151930,9 @@ FadeOutRange
 Feather
 FrameRate
 ForwardLit
+FragDefault
+FragForward
+FragDeferred
 Element
 Entity
 Enity

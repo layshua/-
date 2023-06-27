@@ -39,10 +39,28 @@ banner: "![[Pasted image 20230627122009.png]]"
      - N：法线向量
      - H：半角向量
 3. 顶点函数的输入输出结构体使用帕斯卡命名，并以输入类型为前缀
-    - struct AttributesDefault
-    - struct VaryingsDefault
+    - struct AttributesDefault 顶点函数输入结构体
+    - struct VaryingsDefault 顶点函数输出结构体
+    - 调用结构体时使用 input/output 作为变量名
+4. 顶点函数和片元函数名称：VertDefault、FragDefault/FragForward/FragDeferred
+5. 浮点常数写作 1.0，不能是 1，1.0f，1.0h
+6. 函数如果需要显式地定义精度，可以使用 float 或者 half 修饰，当这两种精度都支持的时候，则使用 real 修饰。
+7. 如果一个函数同时会用到 half 和 float 版本，那么这两个版本都需要显式定义。
+8. 禁止使用 in，只能使用 out 和 inout 作为函数参数的修饰词，也不要使用 inline，该修饰词无效。函数的 out 参数要放在最后
+9. uniform 变量使用下划线作为前缀，后面的首字母大写，例如：`_MainTex`。
+10. **所有的 uniform 变量都应该放在常量缓冲区**。这是因为要保证 Compute Shader 的常数缓冲区布局在内核中保持一致，有时候这是全局命名空间无法控制的（uniform 在不被使用的时候会得到优化，因此每核都会调整全局常数缓冲区的布局）
+11. ShaderLibray 中的函数是无状态的，声明时不需要使用 uniform
+12. ShaderLibrary 的头文件不包含"common.hlsl"，这应该包含在".shader" 中使用它(或 "Material.hlsl")。
+13. cs 和 hlsl 之间共享的结构体定义需要在 float4上对齐，以遵守着色器语言中的各种打包规则。这意味着这些结构体需要填充。规则如下：当为常量缓冲区变量执行数组时，我们总是使用 float4来避免任何打包问题，特别是在计算着色器和像素着色器之间。即不要使用 `SetGlobalFloatArray` 或 `SetComputeFloatParams`
+14. 数组可以是hlsl中的别名。示例：
+```cs
+//hlsl
+uniform float4 packedArray[3]；
 
-//使用这些结构时使用input/output作为变量名
+//cs
+static float unpackedArray[12] =（float[12]）packedArray；
+```
+
 # 文件
 
 **内置 Shader 文件路径**：Packages/Universal RP/Shaders
