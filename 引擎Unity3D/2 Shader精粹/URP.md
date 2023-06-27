@@ -27,7 +27,7 @@ banner: "![[Pasted image 20230627122009.png]]"
 |WS|World space 世界空间 |
 |RWS|Camera-Relative World Space 相对于摄像机的世界空间，在这个空间中，为了提高摄像机的精度，会将摄像机的平移减去|
 |VS |View Space 观察空间|
-|OS |Object Space 对象空间/局部空间/模型空间|
+|OS |Object Space 对象空间/局部空间/模型空间 |
 |CS|HomogeneousClip Space 齐次裁剪空间|
 |TS|Tangent Space 切线空间|
 |TXS|Texture Space 纹理空间|
@@ -153,6 +153,23 @@ struct InputData
 #else
 ```
 
+### SpaceTransforms
+
+|获取空间变换矩阵|说明|
+|:--|:--|
+|float4x4 GetObjectToWorldMatrix()|模型空间到世界空间，反之成立|
+|float4x4 GetViewToWorldMatrix()|观察空间到世界空间，反之成立|
+|float4x4 GetWorldToHClipMatrix()|世界空间到齐次裁剪空间|
+|float4x4 GetViewToHClipMatrix()|观察空间到齐次裁剪空间|
+
+
+|顶点变换函数|  |  |
+|:--|:--|:--|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 ## 文件包含关系
 ![[Pasted image 20230627140250.png]]

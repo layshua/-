@@ -58304,6 +58304,7 @@ REVERSE
 RenderFeatherName
 RGBs
 RAND
+RadToDeg
 Microsoft
 Menu
 MicaForEveryone
@@ -71846,6 +71847,7 @@ Semantic
 SurfaceData
 ShaderModel
 ShaderLibray
+SafeDiv
 Programs
 POP
 PC
@@ -96223,6 +96225,7 @@ newpos
 normalTex
 norWS
 netlify
+numer
 bf
 bc
 black
@@ -107779,6 +107782,7 @@ depthcolor
 depthbuffer
 develop
 destBlendMode
+deg
 TFvYZOKeHL
 TAB
 TeX
@@ -116335,6 +116339,7 @@ instensity
 instenID
 isStereoEnabled
 imageBasedLighting
+inVec
 shift
 svg
 sf
@@ -166864,6 +166869,7 @@ Doualblur
 DualBlur
 Debry
 Drummond
+DegToRad
 LNK
 Log
 Linux
@@ -175511,6 +175517,11 @@ GetAdditionalPerObjectLight
 Grue
 GrassBillboard
 GEqual
+GetObjectToWorldMatrix
+GetViewToWorldMatrix
+GetWorldToHClipMatrix
+GetViewToHClipMatrix
+GetWorldToViewMatrix
 NULL
 Native
 NormalMap
