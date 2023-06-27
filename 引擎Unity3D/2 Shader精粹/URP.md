@@ -54,3 +54,31 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 5. ImageBasedLighting 包含了 CommonLighting、CommonMaterial
 6. Shadow 包含了 Core 
 
+# Lit. shader 解析
+## SubShader
+Lit. shader 只有一个 SubShader，SubShader 的 Tags 如下：
+
+```cs
+Tags
+{
+    "RenderType" = "Opaque" 
+    "RenderPipeline" = "UniversalPipeline" 
+    "UniversalMaterialType" = "Lit" 
+    "IgnoreProjector" = "True" 
+    "ShaderModel"="4.5"
+}
+```
+
+SubShader 需要添加 `"RenderPipeline" = "UniversalPipeline"` 标签，告诉 Unity 当前 SubShader 需要在 URP 运行。
+>如果想要一个 Shader 既可以在 URP 也可以在 Builtin 运行，可以加一个 SubShader，或者通过 FallBack 指令回到适配的 Shader。
+
+```cs
+FallBack "Hidden/Universal Render Pipeline/FallbackError"  //显示错误紫色
+CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
+```
+
+
+## Pass
+SubShader 中使用了 5 个 pass
+
+

@@ -31245,6 +31245,7 @@ unityCG
 upPass
 upperBound
 unityshader
+unitform
 everything
 ea
 ede
@@ -49997,6 +49998,7 @@ URPUnlitShader
 UVpos
 UnpackNormalScale
 UVoffset
+UntiyShader
 api
 ac
 app
@@ -62998,6 +63000,7 @@ MainPass
 Matthew
 Markdeep
 Mach
+Macros
 Windows
 Win
 World
@@ -71827,6 +71830,9 @@ ShadowMaskKeywords
 ShadowMaskMode
 SampleAlbedoAlpha
 SurfaceInput
+States
+Semantic
+SurfaceData
 Programs
 POP
 PC
@@ -76003,6 +76009,7 @@ PbrFunction
 PositionWS
 PPSV
 PeterShirley
+PassFlags
 ContextMenuManager
 ClashVerge
 Clash
@@ -80376,6 +80383,7 @@ ClampedIntParameter
 ClampedFloatParameter
 Caste
 CALCULATE
+CommonLighting
 ImTip
 IMAP
 ID
@@ -84437,6 +84445,7 @@ IndirSpeCubeFactor
 IndirSpeColor
 IndirColor
 Ingo
+InputData
 qq
 qyi
 quad
@@ -107754,6 +107763,7 @@ depthoffset
 depthcolor
 depthbuffer
 develop
+destBlendMode
 TFvYZOKeHL
 TAB
 TeX
@@ -111812,6 +111822,9 @@ TEMProughness
 Thiago
 Trevor
 ToyViewer
+TreeOpaque
+TreeTransparentCutout
+TreeBillboard
 io
 ipad
 it
@@ -120990,6 +121003,7 @@ subliner
 smallest
 suface
 shadowxxx
+sourceBlendMode
 local
 list
 left
@@ -147583,6 +147597,7 @@ Becker
 Buckley
 Book
 BuiltIn
+Billboarded
 Fraktur
 Frame
 Foo
@@ -170908,6 +170923,8 @@ LightDirection
 LOCK
 Lightling
 LightDirWS
+LODFading
+Libraries
 Getx
 GetX
 GetName
@@ -175470,6 +175487,8 @@ GAMMA
 GrazingTSection
 GetAdditionalPerObjectLight
 Grue
+GrassBillboard
+GEqual
 NULL
 Native
 NormalMap
@@ -179390,6 +179409,7 @@ NdotH
 NATIVE
 NormalizeNormalPerPixel
 NormalStage
+NotEquall
 ZooAnima
 ZooAnimal
 ZTest
