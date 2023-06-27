@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "前往斯旺西",
+      "path": "zip/dailynote/前往斯旺西.md"
+    },
+    {
+      "basename": "【URP 学习记录】 阴影的接收与生成",
+      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
       "basename": "技术美术 TA3000 问",
       "path": "图形学/面经/技术美术 TA3000 问.md"
     },
@@ -23,10 +67,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "未命名",
@@ -73,10 +113,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
     },
     {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
@@ -99,22 +135,6 @@
     {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
@@ -179,26 +199,6 @@
     {
       "basename": "01 学习大纲",
       "path": "技术美术/01 学习大纲.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "8 全局光照2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md"
-    },
-    {
-      "basename": "7 全局光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
     }
   ],
   "omittedPaths": [],

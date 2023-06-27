@@ -71823,6 +71823,8 @@ SpaceTransform
 SpecularRange
 ShadowMaskKeywords
 ShadowMaskMode
+SampleAlbedoAlpha
+SurfaceInput
 Programs
 POP
 PC
@@ -120982,6 +120984,7 @@ specolor
 subliner
 smallest
 suface
+shadowxxx
 local
 list
 left
@@ -147569,6 +147572,7 @@ Batecher
 Becker
 Buckley
 Book
+BuiltIn
 Fraktur
 Frame
 Foo
