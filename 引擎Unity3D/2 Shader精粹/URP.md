@@ -74,7 +74,7 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 
 |文件名称|描述|
 |:--|:--|
-|Common|定义了新的数据类型 real 和一些通用注的函数|
+|Common|定义了新的数据类型 real 和一些通用的函数|
 |CommonLighting|定义了灯光计算的通用函数|
 |CommonMaterial|定义了粗糙度的计算函数和一些纹理叠加混合的计算函数|
 |EntityLighting|定义了光照贴图采样和环境光解码相关操作的函数 |
@@ -84,18 +84,75 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |Refraction|定义了折射函数 |
 |SpaceTransforms|定义了大量空间变换相关的函数 |
 |Tessellation|定义多种了不同类型的曲面细分函数|
+### Common
 
-## **Universal RP
+|函数|说明|
+|:--|:--|
+|real DegToRad(real deg) |角度转弧度|
+|real RadToDeg(real rad)|弧度转角度|
+|float Length2(float3 v)|返回向量长度的平方：dot(v,v)|
+|real3 SafeNormalize(float3 inVec)|返回标准化向量，与Normalize()不同的是，本函数会兼容长度为0的向量|
+|real SafeDiv(real numer, real denom)|返回相处之后的商，不同于直接进行除法运算，当两个数值同时为无穷大或者0时，函数返回1|
+
+## Universal RP
 **Universal RP/ShaderLibrary 路径保存了 URP 内置的 Shader 所关联的包含文件**
 
 |文件名称|描述|
 |:--|:--|
 |Core|URP 的核心文件, 包含了大量顶点数据、获取数据的函数等|
-|Input|定义了 InputData 结构体、常量数据和空间变换矩阵的宏定义 |
+|Input |定义了 InputData 结构体、常量数据和空间变换矩阵的宏定义 |
 |Lighting|定义了光照计算相关的函数, 包括全局照明、多种光照模型等 |
 |Shadows|定义了计算阴影相关的函数 |
 |SurfaceInput |定义 SurfaceData 结构体和几种纹理的采样函数|
 |UnityInput |包含了大量可以直接使用的全局变量和变换矩阵|
+
+### Input
+
+结构体：
+```cs
+struct InputData
+{
+    float3  positionWS;
+    half3   normalWS;
+    half3   viewDirectionWS;
+    float4  shadowCoord;
+    half    fogCoord; //雾坐标
+    half3   vertexLighting; //顶点光照
+    half3   bakedGI; //全局光照
+    float2  normalizedScreenSpaceUV; //标准化屏幕空间UV
+    half4   shadowMask; //阴影遮罩
+};
+```
+
+变量
+
+|变量名称|说明|
+|:--|:--|
+|`half4 _GlossyEnvironmentColor`|环境的反射颜色|
+|`half4 _SubtractiveShadowColor`|阴影颜色|
+|`float4 _MainLightPosition`|主光源位置|
+|`half4 _MainLightColor`|主光源颜色|
+
+变换矩阵宏定义
+```c file:变换矩阵宏定义
+#ifndef BUILTIN_TARGET_API
+#define UNITY_MATRIX_M     unity_ObjectToWorld
+#define UNITY_MATRIX_I_M   unity_WorldToObject
+#define UNITY_MATRIX_V     unity_MatrixV
+#define UNITY_MATRIX_I_V   unity_MatrixInvV
+#define UNITY_MATRIX_P     OptimizeProjectionMatrix(glstate_matrix_projection)
+#define UNITY_MATRIX_I_P   (float4x4)0
+#define UNITY_MATRIX_VP    unity_MatrixVP
+#define UNITY_MATRIX_I_VP  (float4x4)0
+#define UNITY_MATRIX_MV    mul(UNITY_MATRIX_V, UNITY_MATRIX_M)
+#define UNITY_MATRIX_T_MV  transpose(UNITY_MATRIX_MV)
+#define UNITY_MATRIX_IT_MV transpose(mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V))
+#define UNITY_MATRIX_MVP   mul(UNITY_MATRIX_VP, UNITY_MATRIX_M)
+#define UNITY_PREV_MATRIX_M   unity_MatrixPreviousM
+#define UNITY_PREV_MATRIX_I_M unity_MatrixPreviousMI
+#else
+```
+
 
 ## 文件包含关系
 ![[Pasted image 20230627140250.png]]
@@ -133,7 +190,6 @@ SubShader 需要添加 `"RenderPipeline" = "UniversalPipeline"` 标签，告诉 
 FallBack "Hidden/Universal Render Pipeline/FallbackError"  //显示错误紫色
 CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
 ```
-
 
 ## Pass
 
@@ -268,8 +324,6 @@ struct Varyings
 ```
 # 语法
 
-## 数据类型
-real 类型：参数同时支持 float 和 half 类型时使用
 ## 纹理和采样器
 ```c
 //声明纹理和采样器
@@ -335,6 +389,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 ```
 
 `UnpackNormal()` 和 `UnpackNormalScale`：当平台不使用 DXT5nm 压缩法线贴图（移动平台），函数内部会分别调用 `UnpackNormalRGBNoScale()` 和 `UnpackNormalRGB()` ；佛则，这两个函数内部都调用 `UnpackNormalmapRGorAG()` 函数，只不过 `UnpackNormal()` 法线强度始终为 1。
+
 
 
 
