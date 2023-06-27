@@ -404,7 +404,7 @@ HLSLPROGRAM
 
 1. **`UnityInstancing.hlsl` 通过重新定义一些宏去访问实例的数据数组，它需要知道当前渲染对象的索引，该索引是通过顶点数据提供的**。
    
-   UnityInstancing.hlsl 中定义了 **`UNITY_VERTEX_INPUT_INSTANCE_ID` 宏**来简化了这个过程，**步骤如下：**
+   UnityInstancing.hlsl 中定义了 **`UNITY_VERTEX_INPUT_INSTANCE_ID` 宏**来简化了这个过程，通过该宏定义可以在输入输出结构体中获取到实例的 ID。**步骤如下：**
     1. 我们定义一个顶点输入结构体，将 positionOS 的定义放进来，然后在结构体中加入 `UNITY_VERTEX_INPUT_INSTANCE_ID` 宏
     2. 将该结构体对象作为顶点函数的输入参数。
     3. 在顶点函数添加 **`UNITY_SETUP_INSTANCE_ID(input)` 代码，用来提取顶点输入结构体中的渲染对象的索引，并将其存储到其他实例宏所依赖的全局静态变量中**。

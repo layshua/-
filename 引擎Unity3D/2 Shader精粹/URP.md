@@ -8,6 +8,41 @@ uid: 202306271220
 banner: "![[Pasted image 20230627122009.png]]"
 ---
 
+# 规范
+## 坐标系
+
+![image-20220702145045963](image-20220702145045963.png)
+>注意观察空间是右手坐标系
+
+- 模型和世界空间中，$Y$ 轴朝上，前向是 $Z$ 轴
+- 观察空间中，摄像机的前向为 $-Z$ 轴，深度越大，Z 轴坐标越小
+- 对于反射探针获取的 cubemap，查看空间依然使用左手坐标系
+
+光照模型默认按照 1 单位为 1 米进行运算，因此为了实现更逼真的渲染效果，要确保模型的比例尺寸是正确的。
+## 变量命名规范
+1. 变量名称后面的缩写表示的是所在空间名称
+
+|缩写 |说明|
+|:---|:--|
+|WS|World space 世界空间 |
+|RWS|Camera-Relative World Space 相对于摄像机的世界空间，在这个空间中，为了提高摄像机的精度，会将摄像机的平移减去|
+|VS |View Space 观察空间|
+|OS |Object Space 对象空间/局部空间/模型空间|
+|CS|HomogeneousClip Space 齐次裁剪空间|
+|TS|Tangent Space 切线空间|
+|TXS|Texture Space 纹理空间|
+
+1. 标准化/为标准化（$normalized$ 和 $unormalized$）：所有可以直接使用的向量都已经标准化处理了，除非使用 $un$ 标记的向量，如 `unL` 表示未标准化的灯光向量
+2. 常用的向量用大写字母表示，向量总是从像素位置指向外边，并且可以直接用于光照计算。大写字母表示向量是规范化的，除非我们在它前面加上`un`。
+     -  V：观察方向
+     -  L：灯光方向
+     - N：法线向量
+     - H：半角向量
+3. 顶点函数的输入输出结构体使用帕斯卡命名，并以输入类型为前缀
+    - struct AttributesDefault
+    - struct VaryingsDefault
+
+//使用这些结构时使用input/output作为变量名
 # 文件
 
 **内置 Shader 文件路径**：Packages/Universal RP/Shaders
@@ -187,9 +222,9 @@ struct Attributes
     float3 normalOS     : NORMAL;
     float4 tangentOS    : TANGENT;
     float2 texcoord     : TEXCOORD0;
-    float2 staticLightmapUV   : TEXCOORD1;
-    float2 dynamicLightmapUV  : TEXCOORD2;
-    UNITY_VERTEX_INPUT_INSTANCE_ID //用于获取GPU Instancing实例ID
+    float2 staticLightmapUV   : TEXCOORD1; //静态光照贴图
+    float2 dynamicLightmapUV  : TEXCOORD2; //动态光照贴图
+    UNITY_VERTEX_INPUT_INSTANCE_ID //GPU Instancing获取实例ID
 };
 ```
 
@@ -197,41 +232,24 @@ struct Attributes
 struct Varyings
 {
     float2 uv                       : TEXCOORD0;
-
-#if defined(REQUIRES_WORLD_SPACE_POS_INTERPOLATOR)
     float3 positionWS               : TEXCOORD1;
-#endif
-
     float3 normalWS                 : TEXCOORD2;
-#if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR)
-    half4 tangentWS                : TEXCOORD3;    // xyz: tangent, w: sign
-#endif
-
-#ifdef _ADDITIONAL_LIGHTS_VERTEX
-    half4 fogFactorAndVertexLight   : TEXCOORD5; // x: fogFactor, yzw: vertex light
-#else
+    half4 tangentWS                : TEXCOORD3;    // xyz:切线分量, w: 切线方向
+    half4 fogFactorAndVertexLight   : TEXCOORD5; // 雾系数和顶点光照，x: fogFactor, yzw: vertex light
     half  fogFactor                 : TEXCOORD5;
-#endif
-
-#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
     float4 shadowCoord              : TEXCOORD6;
-#endif
-
-#if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
     half3 viewDirTS                : TEXCOORD7;
-#endif
-
-    DECLARE_LIGHTMAP_OR_SH(staticLightmapUV, vertexSH, 8);
-#ifdef DYNAMICLIGHTMAP_ON
+    DECLARE_LIGHTMAP_OR_SH(staticLightmapUV, vertexSH, 8);//光照贴图纹理坐标，光照贴图名称，球谐光照名称，纹理坐标索引
     float2  dynamicLightmapUV : TEXCOORD9; // Dynamic lightmap UVs
-#endif
 
-    float4 positionCS               : SV_POSITION;
-    UNITY_VERTEX_INPUT_INSTANCE_ID
-    UNITY_VERTEX_OUTPUT_STEREO
+    float4 positionCS               : SV_POSITION; //齐次裁剪空间顶点坐标
+    
+    UNITY_VERTEX_INPUT_INSTANCE_ID //GPU Instancing获取实例ID
+    UNITY_VERTEX_OUTPUT_STEREO //用于VR平台的宏定义
 };
 ```
 # 语法
+
 ## 数据类型
 real 类型：参数同时支持 float 和 half 类型时使用
 ## 纹理和采样器
