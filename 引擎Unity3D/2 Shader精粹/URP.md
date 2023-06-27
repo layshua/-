@@ -529,10 +529,12 @@ Varyings LitPassVertex(Attributes input)
     output.viewDirTS = viewDirTS;
 #endif
 
+    //OUTPUT_LIGHTMAP_UV()宏得到光照贴图纹理坐标lightmapUV
     OUTPUT_LIGHTMAP_UV(input.staticLightmapUV, unity_LightmapST, output.staticLightmapUV);
 #ifdef DYNAMICLIGHTMAP_ON
     output.dynamicLightmapUV = input.dynamicLightmapUV.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
 #endif
+    //OUTPUT_SH宏得到顶点球谐光照
     OUTPUT_SH(output.normalWS.xyz, output.vertexSH);
 #ifdef _ADDITIONAL_LIGHTS_VERTEX
     output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
@@ -555,7 +557,8 @@ Varyings LitPassVertex(Attributes input)
 ```
 
 ###### 获取顶点位置和法线信息
-```cs file:顶点位置/法线输入结构体
+
+```cs file:Core.hlsl：顶点位置/法线输入结构体
 struct VertexPositionInputs
 {
     float3 positionWS; 
@@ -611,7 +614,7 @@ VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
 }
 ```
 ###### 计算顶点光照
-```cs file:计算顶点光照
+```cs file:Lighting.hlsl:计算顶点光照
 half3 VertexLighting(float3 positionWS, half3 normalWS)
 {
     half3 vertexLightColor = half3(0.0, 0.0, 0.0);
@@ -633,7 +636,7 @@ half3 VertexLighting(float3 positionWS, half3 normalWS)
 
 ```
 ###### 计算雾系数
-```cs
+```cs file:Core.hlsl:计算雾系数
 real ComputeFogFactor(float zPositionCS)
 {
     //由于OpenGL和Direct3D保存深度值的范围不同
@@ -661,6 +664,30 @@ real ComputeFogFactorZ0ToFar(float z)
     #endif
 }
 ```
+
+###### 光照贴图和球谐光照宏定义
+
+```c file:lighting.hlsl:光照贴图和球谐光照宏定义
+//如果使用了光照贴图
+#if defined(LIGHTMAP_ON) 
+    //该宏用于声明光照贴图的纹理坐标
+    #define DECLARE_LIGHTMAP_OR_SH(lmName, shName, index) float2 lmName : TEXCOORD##index
+    //该宏用于计算光照贴图的纹理坐标（就是一个正常的uv计算）
+    #define OUTPUT_LIGHTMAP_UV(lightmapUV, lightmapScaleOffset, OUT) OUT.xy = lightmapUV.xy * lightmapScaleOffset.xy + lightmapScaleOffset.zw;
+    //空定义
+    #define OUTPUT_SH(normalWS, OUT) 
+
+//否则使用球谐光照
+#else
+    //该宏用于声明球谐光照贴图的纹理坐标
+    #define DECLARE_LIGHTMAP_OR_SH(lmName, shName, index) half3 shName : TEXCOORD##index
+    //空定义
+    #define OUTPUT_LIGHTMAP_UV(lightmapUV, lightmapScaleOffset, OUT)
+    //该宏用于计算球谐光照
+    #define OUTPUT_SH(normalWS, OUT) OUT.xyz = SampleSHVertex(normalWS)
+#endif
+```
+
 # 语法
 
 ## 纹理和采样器
