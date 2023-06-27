@@ -212,82 +212,80 @@ name ("display name", 3D) = "defaulttexture" {}
 - 对于 2D 纹理，默认值为空字符串或内置默认纹理之一：“white”（RGBA：1,1,1,1）、“black”（RGBA：0,0,0,0）、“gray”（RGBA：0.5,0.5,0.5,0.5）、“bump”（RGBA：0.5,0.5,1,0.5）或“red”（RGBA：1,0,0,0）。其中“bump”通常用于法线体贴图的默认值。
 - 对于非 2D 纹理（立方体、3D 或 2D 数组），默认值为空字符串。如果材质未指定立方体贴图/3D/数组纹理，则使用灰色（RGBA：0.5,0.5,0.5,0.5）。
 
-稍后在着色器的固定函数部分中，可使用括在方括号中的属性名称来访问属性值：*_[name]**。例如，可通过声明两个整数属性（例如“_SrcBlend“和”*DstBlend”）来使混合模式由材质属性驱动，然后让 [Blend 命令](https://91maketop.github.io/ta/#/SL-Blend.html)使用它们：`Blend [_SrcBlend] [_DstBlend]`。
+稍后在着色器的固定函数部分中，可使用括在方括号中的属性名称来访问属性值：`[_name]`。例如，可通过声明两个整数属性（例如`_SrcBlend` 和`_DstBlend`）来使混合模式由材质属性驱动，然后让 Blend 命令使用它们：`Blend [_SrcBlend] [_DstBlend]`
 
 `Properties` 代码块中的着色器参数被序列化为[材质](https://91maketop.github.io/ta/#/Materials.html)数据。[着色器程序](https://91maketop.github.io/ta/#/SL-ShaderPrograms.html)实际上可以有更多参数（如矩阵、矢量和浮点数），这些参数在运行时从代码中在材质上设置，但如果它们不是 Properties 代码块的一部分，则不会保存它们的值。这对于完全由脚本代码驱动的值最有用（使用 [Material.SetFloat](https://91maketop.github.io/ta/#/../ScriptReference/Material.SetFloat.html) 和类似函数）。
 
-### 属性特性和绘制器
 
-在属性前面，可指定可选的特性（用方括号括起）。这些是 Unity 可以识别的特性，或者它们可以指示您自己的 [MaterialPropertyDrawer 类](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyDrawer.html) 来控制它们在[材质检视面板](https://91maketop.github.io/ta/#/class-Material.html)中的呈现方式。Unity 可以识别的特性包括：
 
-- `[HideInInspector]` - does not show the property value in the Material inspector.
-- `[NoScaleOffset]` - material inspector will not show Texture tiling/offset fields for Texture properties with this attribute.
-- `[Normal]` - indicates that a Texture property expects a normal-map.
-- `[HDR]` - indicates that a Texture property expects a high-dynamic range (HDR) Texture.
-- `[Gamma]` - 表示在 UI 中将浮点/矢量属性指定为 sRGB 值（就像颜色一样），并且可能需要根据使用的颜色空间进行转换。请参阅[着色器程序中的属性](https://91maketop.github.io/ta/#/SL-PropertiesInPrograms.html)。
 - `[PerRendererData]` - indicates that a property will be coming from per-renderer data in the form of a [MaterialPropertyBlock](https://91maketop.github.io/ta/#/../ScriptReference/MaterialPropertyBlock.html). Material inspector shows these properties as read-only.
-- `[MainTexture]` - indicates that a property is the [main texture for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-mainTexture.html). By default, Unity considers a texture with the property name name `_MainTex` as the main texture. Use this attribute if your texture has a different property name, but you want Unity to consider it the main texture. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
-- `[MainColor]` - indicates that a property is the [main color for a Material](https://91maketop.github.io/ta/#/../ScriptReference/Material-color.html). By default, Unity considers a color with the property name name `_Color` as the main color. Use this attribute if your color has a different property name, but you want Unity to consider it the main color. If you use this attribute more than once, Unity uses the first property and ignores subsequent ones.
+-  -
 
 ### 属性的常用特性
+
+- HideInInSpector（在 InSpector 面板隐藏）
+`[HideInInSpector]_FloatValue("Float Value",Float) = 0`
+
+ -  `[MainTexture]` 将纹理设置为主纹理，默认情况 Unity 会将名为 `_MainTexture` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
+```cs file:脚本访问主纹理
+public Texture texture;
+void Start()
+{
+    Material.mat = GetConponent<Renderer>().material;
+    mat.material = texture;
+}
+```
+
+-  `[MainColor]`：将属性设置为主颜色，默认情况 Unity 会将名为 `_BaseColor` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
+```cs file:脚本访问主颜色
+public Texture texture;
+void Start()
+{
+    Material.mat = GetConponent<Renderer>().material;
+    mat.color = color.red;
+}
+```
+
 1. NoScaleOffset（隐藏 Tiling 和 Offset）
-
 `[NoScaleOffset]_MainTex ("Texture", 2D) = "white" {}`
-
 如果不想在InSpector面板上被人修改，可以用这个特性隐藏掉
 
 2. Normal（法线纹理）
-
 `[Normal]_NormalTexture("Normal Texture",2D) = "white" {}`
 
-3. HDR
-
+3. HDR Gamma
 `[HDR]_MainColor("Main Color",Color) = (1,1,1,1)`
+`[Gamma]` - 表示在 UI 中将浮点/矢量属性指定为 sRGB 值（就像颜色一样），并且可能需要根据使用的颜色空间进行转换。请参阅[着色器程序中的属性](https://91maketop.github.io/ta/#/SL-PropertiesInPrograms.html)。
 
-4. HideInInSpector（InSpector面板隐藏）
-
-`[HideInInSpector]_FloatValue("Float Value",Float) = 0`
 
 5. Toggle
-
 `[Toggle]_IsFloat("Is Float",Float) = 0`
 
 6. IntRange（整数滑动条）
-
 `[IntRange]_Alpha("Alpha",Range(0,255)) = 0`
 
 7. Space（垂直间隔）
-
 `[Space]_Prop1("Prop1",Float) = 0`
-
 也可以加数字增大间隔
-
 `[Space(50)]_Prop2("Prop2",Float) = 0`
 
 8. Header（标题头）
-
 `[Header(Title)]_Title("Title",Float) = 0`
 
 9. PowerSlider（指数式的滑动条）
-
 `[PowerSlider(3.0)]_Shininess("Shininess",Range(0,1)) = 0`
 
 10. Enum（枚举）
-
 `[Enum(Zero,0,One,1,Two,2,Three,3)] _Number ("Number", Float) = 0`
 
 11. KeywordEnum（枚举）
-
 `[KeywordEnum(None,Add,Multiply)]_Overlay("OverLay Mode",Float) = 0`
-
 KeywordEnum和Enum使用上有些不同，区别在于KeywordEnum类似于if-else，同时在shader代码中需要处理
 
 定义如下：
-
 ![[ff2ec5c9a828a57966b774f66e3c89b4_MD5.png]]
 
 使用如下：
-
 ![[26594b2b6e750ca51a90aa2b193aeb79_MD5.png]]
 
 ## 4 SubShader

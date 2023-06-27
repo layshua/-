@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,13 +157,16 @@
   },
   "active": "a62503cc85f85407",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "zip/images/Pasted image 20230627140250.png",
     "zip/images/Pasted image 20230627122009.png",
     "Tools/Obsidian/发布方案.md",
     "zip/images/645d0562d3f715edbac46c8128d37169_MD5.png",
     "zip/images/c57645211e3c18849dd59dbf2215b02b_MD5.png",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
     "引擎Unity3D/4 URP/入门精要urp重写.md",
@@ -192,8 +195,6 @@
     "zip/images/Pasted image 20230626175101.png",
     "zip/images/Pasted image 20230626175056.png",
     "zip/images/Pasted image 20230626175054.png",
-    "zip/images/Pasted image 20230626175013.png",
-    "zip/images/Pasted image 20230626174956.png",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
