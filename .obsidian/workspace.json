@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -183,11 +182,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ce3afdde0e392350",
+  "active": "d8941e79109c911e",
   "lastOpenFiles": [
+    "图形学/1 图形系统/06 深度测试.md",
+    "zip/images/v2-f16b18c05e59f7c93aed342ffa3de19e_1440w.webp",
+    "zip/images/v2-305978cf70035c41ad60e9383d957df8_1440w.webp",
+    "引擎Unity3D/2 Shader精粹/URP.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "技术美术/4 UnityShader/庄懂AP01.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
@@ -216,13 +218,9 @@
     "引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
     "引擎Unreal/03 材质 & 渲染/202 材质教程.md",
     "引擎Unreal/03 材质 & 渲染/303 实时渲染.md",
-    "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
-    "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
     "zip/images/Pasted image 20230627093819.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
-    "zip/images/Pasted image 20230626175108.png",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",

@@ -792,7 +792,7 @@ Pass
     // Render State Commands
     ZWrite On
     ZTest LEqual
-    ColorMask 0
+    ColorMask 0  //只保存阴影信息，不需要颜色绘制
     Cull[_Cull]
 
     HLSLPROGRAM
@@ -865,6 +865,7 @@ float4 GetShadowPositionHClip(Attributes input)
 
     float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, lightDirectionWS));
 
+//反向Z方式Z-Fighting
 #if UNITY_REVERSED_Z
     positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
 #else
@@ -886,6 +887,7 @@ Varyings ShadowPassVertex(Attributes input)
 
 half4 ShadowPassFragment(Varyings input) : SV_TARGET
 {
+    //透明度裁剪
     Alpha(SampleAlbedoAlpha(input.uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap)).a, _BaseColor, _Cutoff);
 
 #ifdef LOD_FADE_CROSSFADE
@@ -899,16 +901,126 @@ half4 ShadowPassFragment(Varyings input) : SV_TARGET
 ```cs file:Shadow.hlsl:得到偏移后的阴影坐标
 float3 ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)
 {
+    //_ShadowBias：x值是Depth Bias深度偏移，y是Normal Bias法线偏移
+    //这两个值从灯光属性中设置
+    //URP也可以在URPAsset中对除了点光源以外的所有灯光统一设置
+    
+    //得到背向灯光的暗面
     float invNdotL = 1.0 - saturate(dot(lightDirection, normalWS));
+    //相乘得到法线方向的偏移程度
     float scale = invNdotL * _ShadowBias.y;
 
-    // 法线是负值的
-    //_ShadowBias：x值是Depth Bias深度偏移，y是Normal Bias法线偏移
+    //阴影世界空间坐标沿着灯光方向偏移
     positionWS = lightDirection * _ShadowBias.xxx + positionWS;
+    //再沿着法线偏移
     positionWS = normalWS * scale.xxx + positionWS;
     return positionWS;
 }
 ```
+
+### GBUFFER
+待补充
+
+### DepthOnly
+```cs
+Pass
+{
+    Name "DepthOnly"
+    Tags
+    {
+        "LightMode" = "DepthOnly"
+    }
+
+    // -------------------------------------
+    // Render State Commands
+    ZWrite On
+    ColorMask R
+    Cull[_Cull]
+
+    HLSLPROGRAM
+    #pragma target 2.0
+
+    // -------------------------------------
+    // Shader Stages
+    #pragma vertex DepthOnlyVertex
+    #pragma fragment DepthOnlyFragment
+
+    // -------------------------------------
+    // Material Keywords
+    #pragma shader_feature_local_fragment _ALPHATEST_ON
+    #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+
+    // -------------------------------------
+    // Unity defined keywords
+    #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+
+    //--------------------------------------
+    // GPU Instancing
+    #pragma multi_compile_instancing
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
+
+    // -------------------------------------
+    // Includes
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl"
+    ENDHLSL
+}
+```
+### DepthNormals
+绘制 `_CameraNormalsTexture` 纹理时使用
+```cs
+// This pass is used when drawing to a _CameraNormalsTexture texture
+Pass
+{
+    Name "DepthNormals"
+    Tags
+    {
+        "LightMode" = "DepthNormals"
+    }
+
+    // -------------------------------------
+    // Render State Commands
+    ZWrite On
+    Cull[_Cull]
+
+    HLSLPROGRAM
+    #pragma target 2.0
+
+    // -------------------------------------
+    // Shader Stages
+    #pragma vertex DepthNormalsVertex
+    #pragma fragment DepthNormalsFragment
+
+    // -------------------------------------
+    // Material Keywords
+    #pragma shader_feature_local _NORMALMAP
+    #pragma shader_feature_local _PARALLAXMAP
+    #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
+    #pragma shader_feature_local_fragment _ALPHATEST_ON
+    #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+
+    // -------------------------------------
+    // Unity defined keywords
+    #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+
+    // -------------------------------------
+    // Universal Pipeline keywords
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl"
+
+    //--------------------------------------
+    // GPU Instancing
+    #pragma multi_compile_instancing
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
+
+    // -------------------------------------
+    // Includes
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl"
+    ENDHLSL
+}
+```
+
+### me
 # 语法
 
 ## 纹理和采样器
