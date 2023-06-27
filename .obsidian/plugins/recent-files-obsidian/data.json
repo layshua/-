@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
       "basename": "01 Bloom",
       "path": "技术美术/1 渲染雅集/01 Bloom.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "庄懂AP01",
       "path": "技术美术/4 UnityShader/庄懂AP01.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
     }
   ],
   "omittedPaths": [],

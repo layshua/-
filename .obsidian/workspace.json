@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Bloom.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Bloom.md"
+                "file": "引擎Unity3D/02 Unity操作指南.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Bloom.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Bloom.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,6 +157,7 @@
   },
   "active": "92f2192bcbbb3e50",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/01 Bloom.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "zip/dailynote/前往斯旺西.md",
@@ -185,7 +186,6 @@
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
     "图形学/4 GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "zip/images/Pasted image 20230626175108.png",
     "zip/images/Pasted image 20230626175101.png",
