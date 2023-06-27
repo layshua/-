@@ -480,7 +480,7 @@ float4 TransformWorldToShadowCoord(float3 positionWS)
 }
 ```
 
-##### 顶点函数
+##### 顶点着色器函数
 ```c
 Varyings LitPassVertex(Attributes input)
 {
@@ -536,6 +536,8 @@ Varyings LitPassVertex(Attributes input)
 #endif
     //OUTPUT_SH宏得到顶点球谐光照
     OUTPUT_SH(output.normalWS.xyz, output.vertexSH);
+
+    //保存雾系数和顶点光照
 #ifdef _ADDITIONAL_LIGHTS_VERTEX
     output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
 #else
@@ -687,7 +689,94 @@ real ComputeFogFactorZ0ToFar(float z)
     #define OUTPUT_SH(normalWS, OUT) OUT.xyz = SampleSHVertex(normalWS)
 #endif
 ```
+###### 获取阴影坐标
+```c file:Shadows.hlsl:获取阴影坐标
+float4 GetShadowCoord(VertexPositionInputs vertexInput)
+{
+#if defined(_MAIN_LIGHT_SHADOWS_SCREEN) && !defined(_SURFACE_TYPE_TRANSPARENT)
+    return ComputeScreenPos(vertexInput.positionCS);
+#else
+    return TransformWorldToShadowCoord(vertexInput.positionWS);
+#endif
+}
+```
 
+##### 片元着色器函数
+```c
+void LitPassFragment(
+    Varyings input
+    , out half4 outColor : SV_Target0
+#ifdef _WRITE_RENDERING_LAYERS
+    , out float4 outRenderingLayers : SV_Target1
+#endif
+)
+{
+    UNITY_SETUP_INSTANCE_ID(input); //GPU Instancing获取实例ID
+    UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input); //用于VR平台的宏定义
+
+    //视察贴图
+#if defined(_PARALLAXMAP)
+#if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+    half3 viewDirTS = input.viewDirTS;
+#else
+    half3 viewDirWS = GetWorldSpaceNormalizeViewDir(input.positionWS);
+    half3 viewDirTS = GetViewDirectionTangentSpace(input.tangentWS, input.normalWS, viewDirWS);
+#endif
+    ApplyPerPixelDisplacement(viewDirTS, input.uv);
+#endif
+
+    //表面数据结构体
+    SurfaceData surfaceData;
+    //初始化
+    InitializeStandardLitSurfaceData(input.uv, surfaceData);
+
+#ifdef LOD_FADE_CROSSFADE
+    LODFadeCrossFade(input.positionCS);
+#endif
+    
+    //声明InputData结构体
+    InputData inputData;
+    //初始化
+    InitializeInputData(input, surfaceData.normalTS, inputData);
+    SETUP_DEBUG_TEXTURE_DATA(inputData, input.uv, _BaseMap);
+
+#ifdef _DBUFFER
+    ApplyDecalToSurfaceData(input.positionCS, surfaceData, inputData);
+#endif
+
+    //SurfaceData结构体和InputData结构体最终要传入UniversalFragmentPBR函数中
+    //经过一系列内置函数最终计算出颜色
+    half4 color = UniversalFragmentPBR(inputData, surfaceData);
+    
+    //将渲染颜色与三种类型的雾效进行混合
+    color.rgb = MixFog(color.rgb, inputData.fogCoord);
+    //计算透明度
+    color.a = OutputAlpha(color.a, IsSurfaceTypeTransparent(_Surface));
+
+    outColor = color;
+
+#ifdef _WRITE_RENDERING_LAYERS
+    uint renderingLayers = GetMeshRenderingLayer();
+    outRenderingLayers = float4(EncodeMeshRenderingLayer(renderingLayers), 0, 0, 0);
+#endif
+}
+```
+
+```cs
+struct SurfaceData
+{
+    half3 albedo;
+    half3 specular;
+    half  metallic;
+    half  smoothness;
+    half3 normalTS;
+    half3 emission;
+    half  occlusion;
+    half  alpha;
+    half  clearCoatMask;
+    half  clearCoatSmoothness;
+};
+```
 # 语法
 
 ## 纹理和采样器
