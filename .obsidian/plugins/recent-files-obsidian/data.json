@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
       "basename": "Litshader.km",
       "path": "zip/MindMap/Litshader.km.md"
     },
@@ -107,10 +111,6 @@
     {
       "basename": "06 阴影遮罩",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "04 定向阴影",

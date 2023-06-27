@@ -179,6 +179,8 @@ Pass
 
 ### LitInput. hlsl
 # 语法
+## 
+real 类型：参数同时支持 float 和 half 类型时使用
 ### 纹理和采样器
 ```cs
 //声明纹理和采样器
@@ -198,3 +200,25 @@ SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 2. `SAMPLER(filer_wrap)`：使用自定义的采样器设置，必须同时包含 Wrap Mode 和 Filter Mode 的设置，如 `SAMPLER(point_clamp) `
 3. `SAMPLER(filer_wrapU_wrapV)` ：可以同时为 U 和 V 设置不同的 Wrap Mode 如：`SAMPLER(filer_clampU_mirrorV)`
 
+
+`TEXTURE2D_ARGS()` 宏：只是将纹理名称和采样器名称这两个参数合并在一起
+```cs file:DX11下的定义
+#define TEXTURE2D_ARGS(textureName, samplerName) textureName, samplerName
+```
+
+`TEXTURE2D_PARAM()` 宏，传入纹理名称和采样器名称，转换为一个纹理变量和一个采样器，可以作为参数，节省字数。
+```cs file:DX11下的定义
+#define TEXTURE2D_PARAM(textureName, samplerName)              TEXTURE2D(textureName),         SAMPLER(samplerName)
+```
+
+
+>图形API宏定义路径：Packages/Core RP Library/ShaderLibrary/API
+### 法线贴图采样
+```c
+half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
+# if BUMP_SCALE_NOT_supported //如果平台不支持调节法线强度
+    return UnpackNormal(n)
+#else 
+    return UnpackNormalScale(n,scale);
+```
+`UnpackNormal()` 和 `UnpackNormalScale`：当平台不使用 DXT5nm 压缩法线贴图（移动平台），函数内部会分别调用 `UnpackNormalRGBNoScale()` 和 `UnpackNormalRGB()` ；佛则，这两个函数内部都调用 `UnpackNormalmapRGorAG()` 函数，只不过 `UnpackNormal()` 法线强度始终为 1。

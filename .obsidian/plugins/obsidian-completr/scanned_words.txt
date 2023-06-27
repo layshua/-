@@ -19709,6 +19709,7 @@ temRT
 typo
 turb
 tracer
+triLinear
 markdown
 matter
 mod
@@ -23861,6 +23862,7 @@ mmxw
 mmrvc
 mmqio
 mmxk
+mirrorOnce
 windows
 win
 width
@@ -151922,6 +151924,7 @@ ForwardDecal
 FadeOutRange
 Feather
 FrameRate
+ForwardLit
 Element
 Entity
 Enity
