@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -157,6 +157,15 @@
   },
   "active": "a62503cc85f85407",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
+    "引擎Unity3D/4 URP/入门精要urp重写.md",
+    "引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
+    "引擎Unreal/03 材质 & 渲染/202 材质教程.md",
+    "引擎Unreal/03 材质 & 渲染/303 实时渲染.md",
+    "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
+    "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
+    "引擎Unreal/02 蓝图 & U++/101 蓝图.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
@@ -175,15 +184,6 @@
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
     "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
     "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
-    "README.md",
-    "图形学/3 软渲染器/软光追/未命名.md",
-    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
-    "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
-    "技术美术/7 PBR/ta101PBR.md",
-    "技术美术/7 PBR/PBR疑问.md",
-    "技术美术/7 PBR/PBR白皮书/README.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
