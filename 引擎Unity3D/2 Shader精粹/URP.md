@@ -94,6 +94,14 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |real3 SafeNormalize(float3 inVec)|返回标准化向量，与Normalize()不同的是，本函数会兼容长度为0的向量|
 |real SafeDiv(real numer, real denom)|返回相处之后的商，不同于直接进行除法运算，当两个数值同时为无穷大或者0时，函数返回1|
 
+```cs file:SafeNormalize
+//检查了一下向量的长度的平方，是否为0，如果小于FLT_MIN则取FLT_MIN,即最小的正32位浮点数。`rsqrt`这个hlsl函数计算平方根的倒数，和原向量相乘就做了归一化。这个函数可以避免向量长度过小引起的除0错误。
+real3 SafeNormalize(float3 inVec)
+{
+    real dp3 = max(FLT_MIN, dot(inVec, inVec));
+    return inVec * rsqrt(dp3);
+}
+```
 ## Universal RP
 **Universal RP/ShaderLibrary 路径保存了 URP 内置的 Shader 所关联的包含文件**
 
@@ -343,19 +351,131 @@ struct Varyings
     float2 uv                       : TEXCOORD0;
     float3 positionWS               : TEXCOORD1;
     float3 normalWS                 : TEXCOORD2;
-    half4 tangentWS                : TEXCOORD3;    // xyz:切线分量, w: 切线方向
-    half4 fogFactorAndVertexLight   : TEXCOORD5; // 雾系数和顶点光照，x: fogFactor, yzw: vertex light
-    half  fogFactor                 : TEXCOORD5;
+    half4  tangentWS                : TEXCOORD3;    // xyz:切线分量, w: 切线方向
+    half4  fogFactorAndVertexLight   : TEXCOORD5; // 雾系数和顶点光照，x: fogFactor, yzw: vertex light
+    half   fogFactor                 : TEXCOORD5;
     float4 shadowCoord              : TEXCOORD6;
-    half3 viewDirTS                : TEXCOORD7;
+    half3  viewDirTS                : TEXCOORD7;
     DECLARE_LIGHTMAP_OR_SH(staticLightmapUV, vertexSH, 8);//光照贴图纹理坐标，光照贴图名称，球谐光照名称，纹理坐标索引
     float2  dynamicLightmapUV : TEXCOORD9; // Dynamic lightmap UVs
 
-    float4 positionCS               : SV_POSITION; //齐次裁剪空间顶点坐标
+    float4  positionCS               : SV_POSITION; //齐次裁剪空间顶点坐标
     
     UNITY_VERTEX_INPUT_INSTANCE_ID //GPU Instancing获取实例ID
     UNITY_VERTEX_OUTPUT_STEREO //用于VR平台的宏定义
 };
+```
+
+```c file:InitializeInputData函数
+void InitializeInputData(Varyings input, half3 normalTS, out InputData inputData)
+{
+    inputData = (InputData)0; //初始化
+
+    //世界空间顶点
+#if defined(REQUIRES_WORLD_SPACE_POS_INTERPOLATOR)
+    inputData.positionWS = input.positionWS;
+#endif
+    
+    //世界空间观察向量
+    half3 viewDirWS = GetWorldSpaceNormalizeViewDir(input.positionWS);
+
+//------------------------------------------------------------------------
+    //⭐NormalMap处理步骤：
+    //TBN矩阵
+#if defined(_NORMALMAP) || defined(_DETAIL)
+    float sgn = input.tangentWS.w;      // should be either +1 or -1
+    float3 bitangent = sgn * cross(input.normalWS.xyz, input.tangentWS.xyz);
+    half3x3 tangentToWorld = half3x3(input.tangentWS.xyz, bitangent.xyz, input.normalWS.xyz);
+
+    #if defined(_NORMALMAP)
+    inputData.tangentToWorld = tangentToWorld;
+    #endif
+    //使用TBN矩阵将法线转换到世界空间
+    inputData.normalWS = TransformTangentToWorld(normalTS, tangentToWorld);
+#else
+    inputData.normalWS = input.normalWS;
+#endif
+    //将法线标准化
+    inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);
+    inputData.viewDirectionWS = viewDirWS;
+    
+//--------------------------------------------------------------------
+    //⭐获取阴影坐标
+#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) //如果需要顶点阴影坐标
+    inputData.shadowCoord = input.shadowCoord;
+#elif defined(MAIN_LIGHT_CALCULATE_SHADOWS) //如果主光开启了计算阴影
+    //传入世界空间顶点坐标得到阴影坐标
+    inputData.shadowCoord = TransformWorldToShadowCoord(inputData.positionWS);
+#else
+    inputData.shadowCoord = float4(0, 0, 0, 0);
+#endif
+
+//--------------------------------------------------------------------
+
+#ifdef _ADDITIONAL_LIGHTS_VERTEX
+    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactorAndVertexLight.x);
+    inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
+#else
+    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactor);
+#endif
+
+//--------------------------------------------------------------------
+#if defined(DYNAMICLIGHTMAP_ON)
+    inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.dynamicLightmapUV, input.vertexSH, inputData.normalWS);
+#else
+    inputData.bakedGI = SAMPLE_GI(input.staticLightmapUV, input.vertexSH, inputData.normalWS);
+#endif
+
+    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
+    inputData.shadowMask = SAMPLE_SHADOWMASK(input.staticLightmapUV);
+
+    #if defined(DEBUG_DISPLAY)
+    #if defined(DYNAMICLIGHTMAP_ON)
+    inputData.dynamicLightmapUV = input.dynamicLightmapUV;
+    #endif
+    #if defined(LIGHTMAP_ON)
+    inputData.staticLightmapUV = input.staticLightmapUV;
+    #else
+    inputData.vertexSH = input.vertexSH;
+    #endif
+    #endif
+}
+```
+
+
+
+```cs file:将法线标准化的函数
+//普通的normalize
+float3 NormalizeNormalPerVertex(float3 normalWS)
+{
+    return normalize(normalWS);
+}
+
+//兼容长度为0的向量
+float3 NormalizeNormalPerPixel(float3 normalWS)
+{
+    //使用XYZ法线映射编码，我们偶尔采样接近零长度的法线，导致Inf/NaN
+    #if defined(UNITY_NO_DXT5nm) && defined(_NORMALMAP)
+        return SafeNormalize(normalWS);
+    #else
+        return normalize(normalWS);
+    #endif
+}
+```
+
+```cs file:传入世界空间顶点坐标得到阴影坐标
+float4 TransformWorldToShadowCoord(float3 positionWS)
+{
+#ifdef _MAIN_LIGHT_SHADOWS_CASCADE //如果开启了级联阴影
+    half cascadeIndex = ComputeCascadeIndex(positionWS); //获取级联索引
+#else
+    half cascadeIndex = half(0.0);
+#endif
+    //根据级联索引获取对应的阴影坐标
+    float4 shadowCoord = mul(_MainLightWorldToShadow[cascadeIndex], float4(positionWS, 1.0));
+
+    return float4(shadowCoord.xyz, 0);
+}
 ```
 # 语法
 
