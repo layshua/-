@@ -12298,6 +12298,13 @@ commandbufffer
 custompass
 contranst
 computegrabscreenpos
+cornell
+contributor
+cool
+codex
+cooool
+chapter
+cstdlib
 github
 grey
 green
@@ -15896,6 +15903,7 @@ guessed
 getSDFdis
 getNormal
 glassColor
+gmail
 typora
 todo
 tooltip
@@ -19696,6 +19704,9 @@ topColor
 texcoordNor
 texcolor
 temRT
+typo
+turb
+tracer
 markdown
 matter
 mod
@@ -35044,6 +35055,7 @@ executing
 eFeature
 eventPlugIn
 emissioncolor
+earthmap
 VPN
 Verge
 VS
@@ -58275,6 +58287,8 @@ RayMarch
 RayMarchDrawSphere
 REVERSE
 RenderFeatherName
+RGBs
+RAND
 Microsoft
 Menu
 MicaForEveryone
@@ -62979,6 +62993,9 @@ MainLight
 MainLightRealtimeShadow
 MainLightShadow
 MainPass
+Matthew
+Markdeep
+Mach
 Windows
 Win
 World
@@ -75981,6 +75998,7 @@ POSTstack
 PbrFunction
 PositionWS
 PPSV
+PeterShirley
 ContextMenuManager
 ClashVerge
 Clash
@@ -84414,6 +84432,7 @@ IndirSpeCubeColor
 IndirSpeCubeFactor
 IndirSpeColor
 IndirColor
+Ingo
 qq
 qyi
 quad
@@ -92506,6 +92525,8 @@ passTemplecolorTex
 passint
 passCount
 perObjectLightIndex
+participating
+ptrshrl
 nodesCatch
 nobr
 navy
@@ -99865,6 +99886,7 @@ blurtex
 buildin
 bufferid
 bufferblur
+bands
 fe
 front
 fill
@@ -107724,6 +107746,7 @@ distanceTotal
 depthoffset
 depthcolor
 depthbuffer
+develop
 TFvYZOKeHL
 TAB
 TeX
@@ -111779,6 +111802,9 @@ TopLeft
 TopRight
 TSnormal
 TEMProughness
+Thiago
+Trevor
+ToyViewer
 io
 ipad
 it
@@ -120953,6 +120979,9 @@ seting
 sspos
 shadowTexcoord
 specolor
+subliner
+smallest
+suface
 local
 list
 left
@@ -124621,6 +124650,8 @@ lighdir
 lightmapUV
 lightDirection
 lastdown
+lambertian
+liner
 YAML
 You
 YEBAYGhURFRofHx
@@ -131973,6 +132004,8 @@ hallway
 heuristics
 hdrp
 halflambot
+hittable
+hermite
 rgb
 right
 rm
@@ -136140,6 +136173,7 @@ rayVS
 rendererfeature
 rayWS
 renderevent
+rtweekend
 XXXXXX
 XXX
 XML
@@ -143849,6 +143883,8 @@ HWSpos
 HdotL
 HdotV
 HClip
+Heimlich
+Hollasch
 Bbb
 Bear
 Base
@@ -147530,6 +147566,9 @@ BRDFspe
 BtangentWS
 BRDFSpeSection
 Batecher
+Becker
+Buckley
+Book
 Fraktur
 Frame
 Foo
@@ -166772,6 +166811,8 @@ DisableBatch
 DanShenJie
 Doualblur
 DualBlur
+Debry
+Drummond
 LNK
 Log
 Linux
@@ -175414,6 +175455,7 @@ GroupThread
 GAMMA
 GrazingTSection
 GetAdditionalPerObjectLight
+Grue
 NULL
 Native
 NormalMap
@@ -191752,6 +191794,7 @@ JWO
 Jacobi
 Jittered
 Jitttered
+Jean
 Ke
 KjpKWmp
 KYW

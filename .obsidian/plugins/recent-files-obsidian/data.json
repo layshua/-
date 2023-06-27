@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "技术美术 TA3000 问",
+      "path": "图形学/面经/技术美术 TA3000 问.md"
+    },
+    {
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
+    },
+    {
       "basename": "GAMES101",
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "7 全局光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/02 Unity操作指南.md"
     }
   ],
   "omittedPaths": [],
