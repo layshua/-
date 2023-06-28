@@ -189,7 +189,7 @@ struct InputData
 |顶点变换函数|说明|
 |:--|:--|
 |float3 **TransformObjectToWorld(float3 positionOS)**|模型空间到世界空间，反之|
-|float3 **TransformViewToWorld(float3 positionVS)**|观察空间到世界空间，反之|
+|float3 **TransformViewToWorld(float3 positionVS)** |观察空间到世界空间，反之|
 |float4 **TransformObjectToHClip(float3 positionOS)** |模型空间到齐次裁剪空间 |
 |float4 **TransformWViewToHClip(float3 positionVS)**|观察空间到齐次裁剪空间|
 |float4 **TransformWorldToHClip(float3 positionWS)** |世界空间到齐次裁剪空间|

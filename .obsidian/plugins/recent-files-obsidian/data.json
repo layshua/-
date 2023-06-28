@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "03 布林风 - 半兰伯特光照模型",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md"
+      "basename": "04 法线贴图",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md"
     },
     {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
+      "basename": "05 渐变纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
     },
     {
       "basename": "ShaderLab",
@@ -83,14 +87,6 @@
     {
       "basename": "06 alpha 混合",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
-    },
-    {
-      "basename": "05 渐变纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
-    },
-    {
-      "basename": "04 法线贴图",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md"
     },
     {
       "basename": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp",
