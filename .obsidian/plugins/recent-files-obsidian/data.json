@@ -1,28 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "变体",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
-    },
-    {
-      "basename": "变体和关键字",
-      "path": "zBuffer/变体和关键字.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "变体",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "URP 多光源处理",
-      "path": "zBuffer/URP 多光源处理.md"
+      "basename": "变体和关键字",
+      "path": "zBuffer/变体和关键字.md"
     },
     {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "CG shaderlab",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
+    },
+    {
+      "basename": "URP 多光源处理",
+      "path": "zBuffer/URP 多光源处理.md"
     },
     {
       "basename": "13 多相机",
@@ -31,10 +35,6 @@
     {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
-    },
-    {
-      "basename": "CG语法",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG语法.md"
     },
     {
       "basename": "08 多光源处理",

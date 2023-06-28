@@ -220,3 +220,34 @@ Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，
 （1）`multi_compile_fwdbase`：编译 Forward BasePass 中的所有变体，用于处理不同类型的光照贴图，并为主要平行光开启或者关闭阴影。
 （2）`multi_compile_fwdadd`：编译 Forward Additional Pass 中的所有变体，用于处理平行光、聚光灯和点光源，以及它们的 cookie 纹理。
 （3）`multi_compile_fwdadd_fullshadows`：与 multi_compile_fwdadd 类似，但是增加了灯光投射实时阴影的效果。
+
+
+# 变体
+### 快捷方式
+在**内置管线**中，有几个 “快捷方式” 可以用于常用变体组合。这些组合常用于处理不同的灯光、阴影和光照贴图类型。
+
+
+*   `multi_compile_fwdbase` 编译 [PassType.ForwardBase](https://docs.unity3d.com/cn/2021.1/ScriptReference/Rendering.PassType.ForwardBase.html) 所需的所有变体。这些变体处理不同的光照贴图类型以及启用或禁用的方向光主要阴影，它相当于这些变体的组合：
+    *   DIRECTIONAL
+    *   LIGHTMAP_ON
+    *   DIRLIGHTMAP_COMBINED
+    *   DYNAMICLIGHTMAP_ON
+    *   SHADOWS_SCREEN
+    *   SHADOWS_SHADOWMASK
+    *   LIGHTMAP_SHADOW_MIXING
+    *   LIGHTPROBE_SH
+    *   VERTEXLIGHT_ON
+*   `multi_compile_fwdadd` 编译 [PassType.ForwardAdd](https://docs.unity3d.com/cn/2021.1/ScriptReference/Rendering.PassType.ForwardAdd.html) 的变体。这将编译变体来处理方向光、聚光灯或点光源类型，以及它们带有剪影纹理的变体，它相当于这些变体的组合：
+    *   POINT
+    *   DIRECTIONAL
+    *   SPOT
+    *   POINT_COOKIE
+    *   DIRECTIONAL_COOKIE
+*   `multi_compile_fwdadd_fullshadows` - 与 `multi_compile_fwdadd` 相同，但还能够让光源具有实时阴影，它相当于 `multi_compile_fwdadd`  变体的组合加上：
+    *   SHADOWS_DEPTH
+    *   SHADOWS_SCREEN
+    *   SHADOWS_CUBE
+    *   SHADOWS_SOFT
+    *   SHADOWS_SHADOWMASK
+    *   LIGHTMAP_SHADOW_MIXING
+*   `multi_compile_fog` 扩展为多个变体以处理不同的雾效类型 (off/linear/exp/exp2)。

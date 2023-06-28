@@ -8,19 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "81d8cbec5fedbb8c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ca8a9f068028660f",
             "type": "leaf",
             "state": {
@@ -32,16 +19,35 @@
                 "source": false
               }
             }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "23dd8261c66be81f",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "21eb8c3485c97ccc",
+            "id": "dbaf97e3d31e146a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3638557b6977ea2f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5e68616527f61301",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
               }
             }
           }
@@ -139,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 337.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -188,17 +195,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ca8a9f068028660f",
+  "active": "dbaf97e3d31e146a",
   "lastOpenFiles": [
-    "zBuffer/变体和关键字.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "图形学/1 图形系统/08 透明.md",
+    "zBuffer/变体和关键字.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "zip/images/Pasted image 20230628200255.png",
     "zip/images/Pasted image 20230628195959.png",
     "zip/images/Pasted image 20230628195933.png",
     "zBuffer/URP 多光源处理.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "zip/images/Pasted image 20230628194839.png",
     "zip/images/Pasted image 20230628194409.png",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
@@ -209,7 +217,6 @@
     "zip/images/Pasted image 20230628192227.png",
     "zip/images/Pasted image 20230628192002.png",
     "引擎Unity3D/2 Shader精粹/URP.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/CG语法.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
