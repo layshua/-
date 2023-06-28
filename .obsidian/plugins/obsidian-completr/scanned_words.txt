@@ -15908,6 +15908,7 @@ gmail
 gatsby
 giscus
 guarantees
+geometryOutput
 typora
 todo
 tooltip
@@ -19716,6 +19717,9 @@ transitions
 triangulator
 triangulation
 triangulate
+tessVert
+triangleStream
+transformMatrix
 markdown
 matter
 mod
@@ -23871,6 +23875,8 @@ mmxk
 mirrorOnce
 mikktspace
 mirrored
+maxvertexcount
+maxvertexcout
 windows
 win
 width
@@ -27476,6 +27482,7 @@ warpMode
 walking
 wavelet
 webGL
+widths
 utools
 url
 unresolved
@@ -38642,6 +38649,8 @@ VScoordX
 VScoordY
 VaryingsDefault
 VertDefault
+VertexOutput
+VFACE
 verge
 vPdIt
 vertical
@@ -58316,6 +58325,7 @@ RAND
 RadToDeg
 Reproducing
 Reveresed
+RestartStrip
 Microsoft
 Menu
 MicaForEveryone
@@ -67083,6 +67093,8 @@ WSpos
 WSmatrix
 WSnor
 WSview
+WindDistortionMap
+WindFrequency
 Start
 StartAllBack
 Shadowrocket
@@ -80414,6 +80426,7 @@ Caste
 CALCULATE
 CommonLighting
 CustomGUI
+CustomTessellation
 ImTip
 IMAP
 ID
@@ -96244,6 +96257,7 @@ norWS
 netlify
 numer
 normalVS
+noraml
 bf
 bc
 black
@@ -111879,6 +111893,11 @@ TransformViewToWorldNormal
 TransformTangentToWorldDir
 TransformObjectToTangent
 Tessellator
+TopColor
+TessVert
+TransformationMatrix
+TriangleStream
+Tessellating
 io
 ipad
 it
@@ -132091,6 +132110,7 @@ hittable
 hermite
 hugo
 heavily
+heights
 rgb
 right
 rm
@@ -147660,6 +147680,9 @@ Book
 BuiltIn
 Billboarded
 Builtin
+BottomColor
+BladeForward
+BladeCurve
 Fraktur
 Frame
 Foo
@@ -175565,6 +175588,7 @@ GetWorldToHClipMatrix
 GetViewToHClipMatrix
 GetWorldToViewMatrix
 GBUFFER
+GenerateGrassVertex
 NULL
 Native
 NormalMap

@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md"
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
               }
             }
           }
@@ -139,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,12 +188,22 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "2384a5da855cebc2",
+  "active": "83734f9117f74108",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230628102005.png",
-    "zip/images/Pasted image 20230628101135.png",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "zBuffer/菜鸡都能学会的 Unity 草地 shader.md",
+    "zip/images/3993d61b5d8a48d83f1c73cd4a3f7173_MD5.gif",
+    "zip/images/532aca4e64b948c9b0ed09ca86229bc3_MD5.png",
+    "zip/images/67668b29ac1fceb3d4450dde55b59d3a_MD5.gif",
+    "zip/images/410d17f3f7047c6eccd30e3e9ebd0e77_MD5.gif",
+    "zip/images/9eaa87546885bef4aadb9ef2333fd2d9_MD5.png",
+    "zip/images/c0b82866cb1fb2a1836b943aeb2aee64_MD5.jpg",
+    "zip/images/e4a87b22bd589cb6361bd3bcebe66e2a_MD5.png",
+    "zip/images/0bd8426c473d072ca82702ff8e097d3d_MD5.png",
+    "zip/images/96f42664ec0576e062277a5b20b58f79_MD5.png",
+    "zip/images/b9d12651fc3909c306a9e9efe9df1390_MD5.png",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
     "图形学/1 图形系统/06 深度测试.md",
@@ -205,27 +215,17 @@
     "技术美术/2 着色器/曲面细分与几何着色器.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "zip/images/v2-f16b18c05e59f7c93aed342ffa3de19e_1440w.webp",
-    "zip/images/v2-305978cf70035c41ad60e9383d957df8_1440w.webp",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "技术美术/4 UnityShader/庄懂AP01.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "图形学/0 3D数学/3D数学.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "zip/images/Pasted image 20230627160037.png",
-    "zip/images/Pasted image 20230627155115.png",
     "zip/MindMap/Litshader.km.md",
-    "zip/images/Pasted image 20230627152452.png",
     "Tools/Obsidian/Mermaid流图.md",
     "zip/MindMap/20230627151722.km.md",
     "zip/MindMap/20230618144259.km.md",
     "zip/MindMap/20230511092754.km.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "zip/images/Pasted image 20230627140250.png",
-    "zip/images/Pasted image 20230627122009.png",
-    "zip/images/645d0562d3f715edbac46c8128d37169_MD5.png",
-    "zip/images/c57645211e3c18849dd59dbf2215b02b_MD5.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
