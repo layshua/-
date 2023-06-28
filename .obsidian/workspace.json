@@ -26,6 +26,19 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "09e06f4c371dc24f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "mode": "source",
                 "backlinks": false,
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -195,20 +208,31 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "3a4fafdc752e3bf7",
+  "active": "09e06f4c371dc24f",
   "lastOpenFiles": [
-    "zBuffer/变体和关键字.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "zBuffer/变体和关键字.md",
+    "zBuffer/URP 多光源处理.md",
+    "zBuffer/URP 深度法线纹理.md",
+    "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "README.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "图形学/1 图形系统/08 透明.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "zip/images/Pasted image 20230628200255.png",
     "zip/images/Pasted image 20230628195959.png",
     "zip/images/Pasted image 20230628195933.png",
-    "zBuffer/URP 多光源处理.md",
     "zip/images/Pasted image 20230628194839.png",
     "zip/images/Pasted image 20230628194409.png",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
@@ -220,22 +244,11 @@
     "zip/images/Pasted image 20230628192002.png",
     "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",
-    "zBuffer/URP 深度法线纹理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
