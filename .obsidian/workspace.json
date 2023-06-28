@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3d9353d62d9408f5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -52,15 +39,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
               }
             }
           }
@@ -146,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -173,7 +159,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 397.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -195,36 +181,36 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ca8a9f068028660f",
+  "active": "c46a6ed91b20cd65",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
     "图形学/1 图形系统/04 纹理.md",
     "zip/images/Pasted image 20230628163052.png",
     "zip/images/Pasted image 20230628162914.png",
-    "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
-    "技术美术/4 UnityShader/TA101.md",
-    "技术美术/4 UnityShader/冯乐乐入门精要.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
     "zip/images/Pasted image 20230628110952.png",
     "zip/images/Pasted image 20230628110847.png",
     "zip/images/Pasted image 20230628110726.png",

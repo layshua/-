@@ -1,24 +1,88 @@
 {
   "recentFiles": [
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+      "basename": "11 ShadowCaster 和 SRP batcher",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
     },
     {
-      "basename": "07 alphaTest 制作烧溶效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md"
+      "basename": "12 序列帧算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
     },
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+      "basename": "13 广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "28 ComputeShader",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "08 多光源处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+    },
+    {
+      "basename": "10 多光源阴影处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
+    },
+    {
+      "basename": "09 主光源阴影投射和接收",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "08 多光源处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
       "basename": "ShaderLab",
@@ -45,56 +109,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
     },
     {
-      "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md"
-    },
-    {
-      "basename": "28 ComputeShader",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
-    },
-    {
       "basename": "22 科幻扫描效果前篇",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md"
     },
     {
       "basename": "21 和散景模糊——实践篇",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
-    },
-    {
-      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
-    },
-    {
-      "basename": "09 主光源阴影投射和接收",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
     },
     {
       "basename": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp",
@@ -177,20 +197,8 @@
       "path": "图形学/0 3D数学/3D数学.md"
     },
     {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
       "basename": "Litshader.km",
       "path": "zip/MindMap/Litshader.km.md"
-    },
-    {
-      "basename": "Mermaid流图",
-      "path": "Tools/Obsidian/Mermaid流图.md"
-    },
-    {
-      "basename": "20230627151722.km",
-      "path": "zip/MindMap/20230627151722.km.md"
     }
   ],
   "omittedPaths": [],
