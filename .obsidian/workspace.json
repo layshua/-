@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+                "file": "图形学/1 图形系统/01 渲染管线.md"
               }
             }
           }
@@ -139,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 328.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -188,11 +188,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "83734f9117f74108",
+  "active": "2384a5da855cebc2",
   "lastOpenFiles": [
+    "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "图形学/1 图形系统/02 光栅化.md",
+    "zip/images/Pasted image 20230628110952.png",
+    "zip/images/Pasted image 20230628110847.png",
+    "zip/images/Pasted image 20230628110726.png",
     "zBuffer/菜鸡都能学会的 Unity 草地 shader.md",
     "zip/images/3993d61b5d8a48d83f1c73cd4a3f7173_MD5.gif",
     "zip/images/532aca4e64b948c9b0ed09ca86229bc3_MD5.png",
@@ -201,9 +204,6 @@
     "zip/images/9eaa87546885bef4aadb9ef2333fd2d9_MD5.png",
     "zip/images/c0b82866cb1fb2a1836b943aeb2aee64_MD5.jpg",
     "zip/images/e4a87b22bd589cb6361bd3bcebe66e2a_MD5.png",
-    "zip/images/0bd8426c473d072ca82702ff8e097d3d_MD5.png",
-    "zip/images/96f42664ec0576e062277a5b20b58f79_MD5.png",
-    "zip/images/b9d12651fc3909c306a9e9efe9df1390_MD5.png",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
     "图形学/1 图形系统/06 深度测试.md",
@@ -225,7 +225,6 @@
     "zip/MindMap/20230627151722.km.md",
     "zip/MindMap/20230618144259.km.md",
     "zip/MindMap/20230511092754.km.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
