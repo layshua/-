@@ -2,30 +2,30 @@
 
 alpha blend
 
-    在使用透明度混合的时候，tags 里需设置渲染类型为 transparent，渲染队列为 transparent，忽略透射可开可关视情况。
+在使用透明度混合的时候，tags 里需设置渲染类型为 transparent，渲染队列为 transparent，忽略透射可开可关视情况。
 
 ![[b62618c94fdce6605cdd9f4f7136d93e_MD5.webp]]
 
-    这里，我使用一张 mask 图取它的 r 通道作为 a 去混合，它和 maintex 一样进行 uv 采样。
+这里，我使用一张 mask 图取它的 r 通道作为 a 去混合，它和 maintex 一样进行 uv 采样。
 
 ![[a19b8edf0f71fc16f64fb072970a2611_MD5.webp]]
 
 mask 图作为 a 混合
 
-    pass 里，设置好混合模式，当前颜色的混合因子为 SrcAlpha，而颜色缓存区的混合因子设为 OneMinusSrcAlpha。然后关掉深度写入。
+pass 里，设置好混合模式，当前颜色的混合因子为 SrcAlpha，而颜色缓存区的混合因子设为 OneMinusSrcAlpha。然后关掉深度写入。
 
 ![[1817ef79ef1a706b69bbe166366665f2_MD5.webp]]
 
 pass 里设置渲染状态
 
-        片元着色器里，使用 maintex 的 rgb 通道作为当前颜色，mask 图的 r 通道作为混合因子。最终即可得到我们的效果。
+片元着色器里，使用 maintex 的 rgb 通道作为当前颜色，mask 图的 r 通道作为混合因子。最终即可得到我们的效果。
 
 ![[4985ab941b57c03d6964933fc32814ac_MD5.webp]]
 
 片元着色器
 
-    最后，再附上 shader 的源码
-
+最后，再附上 shader 的源码
+```c
 Shader "WX/URP/alpha blend"
 
 {
@@ -159,3 +159,4 @@ Shader "WX/URP/alpha blend"
     }
 
 }
+```

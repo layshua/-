@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "da03b177480a8f80",
+            "id": "c46a6ed91b20cd65",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "870e0b189d65cf91",
+            "id": "3d9353d62d9408f5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,19 +34,33 @@
             }
           },
           {
-            "id": "d570d6be6d9c6677",
+            "id": "81d8cbec5fedbb8c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
+                "file": "图形学/1 图形系统/08 透明.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ca8a9f068028660f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -89,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md"
+                "file": "引擎Unity3D/2 Shader精粹/URP.md"
               }
             }
           }
@@ -132,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,14 +195,19 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "da03b177480a8f80",
+  "active": "ca8a9f068028660f",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230628162914.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
-    "图形学/1 图形系统/04 纹理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "zip/images/Pasted image 20230628163052.png",
+    "zip/images/Pasted image 20230628162914.png",
     "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
     "技术美术/4 UnityShader/TA101.md",
@@ -206,9 +225,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "zip/images/Pasted image 20230628110952.png",
     "zip/images/Pasted image 20230628110847.png",
     "zip/images/Pasted image 20230628110726.png",
@@ -217,8 +233,6 @@
     "zip/images/67668b29ac1fceb3d4450dde55b59d3a_MD5.gif",
     "zip/images/410d17f3f7047c6eccd30e3e9ebd0e77_MD5.gif",
     "zip/images/9eaa87546885bef4aadb9ef2333fd2d9_MD5.png",
-    "zip/images/c0b82866cb1fb2a1836b943aeb2aee64_MD5.jpg",
-    "zip/images/e4a87b22bd589cb6361bd3bcebe66e2a_MD5.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",

@@ -1,24 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "05 渐变纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
+      "basename": "07 alphaTest 制作烧溶效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "08 多光源处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
     },
     {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "06 alpha 混合",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "TA101",
@@ -89,16 +97,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
     },
     {
-      "basename": "08 多光源处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
-    },
-    {
       "basename": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp",
       "path": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp.md"
-    },
-    {
-      "basename": "07 alphaTest 制作烧溶效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md"
     },
     {
       "basename": "36 造一个 PBR 的轮子",
