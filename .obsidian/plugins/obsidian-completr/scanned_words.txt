@@ -38653,6 +38653,7 @@ VertDefault
 VertexOutput
 VFACE
 VolumetricCloud
+Voloume
 verge
 vPdIt
 vertical
@@ -46248,6 +46249,9 @@ ADDLIGHT
 Addlight
 AdditionalLightRealtimeShadow
 AttributesDefault
+AdditionalPostProcessData
+AdditionalMaterialLibrary
+AdditionPostProcessPass
 URL
 Utools
 Users
@@ -71878,6 +71882,8 @@ SurfaceData
 ShaderModel
 ShaderLibray
 SafeDiv
+ShaderPass
+StandardLightDepthPass
 Programs
 POP
 PC
@@ -76055,6 +76061,7 @@ PositionWS
 PPSV
 PeterShirley
 PassFlags
+PerObjectLimit
 ContextMenuManager
 ClashVerge
 Clash
@@ -152010,6 +152017,7 @@ FragDefault
 FragForward
 FragDeferred
 Furthermore
+FogWithDepthTexture
 Element
 Entity
 Enity
@@ -156483,6 +156491,7 @@ Eavg
 Estimator
 EdgeSample
 EdgeStretchPrevent
+EdgeDetectionNormalsAndDepth
 xmlns
 xyz
 xy
@@ -171030,6 +171039,7 @@ LODFading
 Libraries
 LightingLambert
 LightingSpecular
+Lighing
 Getx
 GetX
 GetName

@@ -82,7 +82,6 @@ struct VertOut
 $z,w$ 是直接在顶点着色器输出的裁剪空间的 z, w 值 (经过插值后)。如果是透视投影，z 的范围是 $[-Near,Far]$ , $w$ 的范围是 $[Near,Far]$ ; 如果是正交投影， $z$ 的范围是 $[-1,1]$ , $w$ 的值恒为 1
 
 
-
 # ShaderLab 语法基础
 ## 1 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
@@ -420,211 +419,6 @@ public class LODCtrl : MonoBehaviour
 ```
 
 （4）运行，查看效果，通过按 ABC 按键，修改 maximumLOD 的值。查看 Cube 颜色的变化。
-# CG 语法基础
-在 Unity Shader 中，ShaderLab 语言只是起到组织代码结构的作用，而真正实现渲染效果的部分是用 CG 语言编写的。
-CG 程序片段通过指令嵌入在 Pass 中，夹在 Pass 中的指令 CGPROGRAM 和 ENDCG 之间
-
-在 CG 程序片段之前，通常需要先使用 `#pragma`声明编译指令
-
-## 编译指令
-### 编译目标等级
-
-|编译指令 |作用|
-|:--|:--|
-|`#pragma vertex name`|定义顶点着色器的名称, 通常会使用 vert|
-|`#pragma fragment name`|定义片段着色器的名称, 通常会使用 frag|
-|`#pragma target name`|定义 Shader 要编译的目标级别﹐默认 2.5|
-
-当编写完 Shader 程序之后，其中的 CG 代码可以被编译到不同的 Shader Models（简称 SM）中，为了能够使用更高级的 GPU 功能，需要对应使用更高等级的编译目标。同时，高等级的编译目标可能会导致 Shader 无法在旧的 GPU 上运行。
-
-声明编译目标的级别可以使用 `#pragma target name` 指令，或者也可以使用 `#pragma require feature` 指令直接声明某个特定的功能，
-
-```c
-#pragma target 3.5  //目标等级3.5
-#pragma require geometry tessellation //需要儿何体细分功能
-```
-
-### 渲染平台
-默认情况下，Unity 会为所有支持的平台编译一份 Shader 程序，不过可以通过编译指令 `#pragma only_renderers PlatformName` 或者 ` #pragma exclude_renderers PlatformName` 指定编译某些平台或不编译某些平台
-
-![[Pasted image 20230614194552.png]]
-
-## 数据类型
-顶点函数和片段函数中支持的数据类型
-![[Pasted image 20230614194727.png]]
-
-
-> [!NOTE] uniform 关键字
-> uniform 关键词和图形 API 的 unitform 作用不一样，只是一个修饰词。在 UntiyShader 中，uniform 关键词是可以省略的。
-
-### 整数数据类型
-
-整数（`int` 数据类型）通常用作循环计数器或数组索引。为此，它们通常可以在各种平台上正常工作。
-
-根据平台的不同，GPU 可能不支持整数类型。例如，Direct3D 9 和 OpenGL ES 2.0 GPU 仅对浮点数据进行运算，并且可以使用相当复杂的浮点数学指令来模拟简单的整数表达式（涉及位运算或逻辑运算）。
-
-Direct3D 11、OpenGL ES 3、Metal 和其他现代平台都对整数数据类型有适当的支持，因此使用位移位和位屏蔽可以按预期工作。
-
-### 复合矢量/矩阵类型
-
-HLSL 具有从基本类型创建的内置矢量和矩阵类型。例如，`float3` 是一个 3D 矢量，具有分量 .x、. y 和 .z，而 `half4` 是一个中等精度 4D 矢量，具有分量 .x、. y、. z 和 .w。或者，可使用 .r、. g、. b 和 .a 分量来对矢量编制索引，这在处理颜色时很有用。
-
-矩阵类型以类似的方式构建；例如 `float4x4` 是一个 4x4 变换矩阵。请注意，某些平台仅支持方形矩阵，最主要的是 OpenGL ES 2.0。
-
-### 纹理/采样器类型
-
-通常按照如下方式在 HLSL 代码中声明纹理：
-
-```
-sampler2D _MainTex;
-samplerCUBE _Cubemap;
-```
-
-对于移动平台，这些将转换为“低精度采样器”，即预期纹理应具有低精度数据。如果您知道纹理包含 HDR 颜色，则可能需要使用半精度采样器：
-
-```
-sampler2D_half _MainTex;
-samplerCUBE_half _Cubemap;
-```
-
-或者，如果纹理包含完整浮点精度数据（例如[深度纹理](https://docs.unity3d.com/cn/2021.1/Manual/SL-DepthTextures.html)），请使用完整精度采样器：
-
-```
-sampler2D_float _MainTex;
-samplerCUBE_float _Cubemap;
-```
-
-## 语义
-参数后被冒号隔开并且全部大写的关键词就是语义。
-
-当使用 CG 语言编写着色器函数的时候，函数的输入参数和输出参数都需要填充一个语义（Semantic）来表示它们要传递的数据信息。语义可以执行大量烦琐的操作，使用户能够避免直接与 GPU 底层进行交流。
-
-### 顶点着色器输入语义
-![[Pasted image 20230614195139.png]]
-当顶点信息包含的元素少于顶点着色器输入所需要的元素时，**缺少的部分会被0填充，而 w 分量会被1填充**。例如：顶点的 UV 坐标通常是二维向量，只包含 x 和 y 元素。如果输入的语义 TEXCOORD0被声明为 float4类型，那么顶点着色器最终获取到的数据将变成（x，y，0，1）。
-
-
-> [!NOTE] 数据来源：MeshRender
-> 填充到这些语义中的数据由使用该材质的 MeshRender 组件提供，每帧调用 DrawCall 的时候，MeshRender 组件会把它负责渲染的模型数据发送给 UnityShader。
-
-### 顶点着色器输出和片段着色器输入语义
-在整个渲染流水线中，顶点着色器最重要的一项任务就是需要输出顶点在裁切空间中的坐标，这样 GPU 就可以知道顶点在屏幕上的栅格化位置以及深度值。在顶点函数中，这个输出参数需要使用 float4类型的 `SV_POSITION` 语义进行填充。
-
-顶点着色器产生的输出值将会在三角形遍历阶段经过插值计算，最终作为像素值输入到片段着色器。换句话说，顶点着色器的输入即为片段着色器的输入。
-
-![[Pasted image 20230614195313.png]]
-
-片段着色器会自动获取顶点着色器输出的裁切空间顶点坐标，**所以片段函数输入的 SV_POSITION 可以省略**。这也解释了为什么有些 Shader 的片段函数中只有输出参数，但是没有输入参数。
-**需要特别注意的是，与顶点函数的输入语义不同，`TEXCOORDn` 不再特指模型的 UV 坐标，`COLORn` 也不再特指顶点颜色。它们的使用范围更广，可以用于声明任何符合要求的数据，所以在使用过程中不要被语义的名称欺骗了。**
-### 片段着色器输出语义
-片段着色器通常只会输出一个 fixed4 类型的颜色信息，输出的值会存储到渲染目标（Render Target）中，输出参数使用 `SV_TARGET` 语义进行填充。
-
-## CG 标准库函数
-![[Pasted image 20230615103657.png]]
-### lerp 插值
-
-lerp 函数是针对**CG/HLSL**（一种 Shader 语法）中的 lerp 函数
-我们先看一下它的函数签名和定义
-
-![image-20220706155641339](image-20220706155641339.png)
-
-从定义来看还是挺简单的，我们主要是理解它有什么作用。另外我们规定，weight 是一个在区间[0,1]的实数，倒不是因为取更大的值之后，这个函数就无定义了，而是因为取更大的值，这个函数就失去了我们构造它的理由，另外，CG 会限制 weight 的值在 0-1 的范围内，超过这个范围会被留在边界 0 或者边界1
-
-这里的 y1 被称为起点，而 y2 被称为终点，lerp 函数就是取值 y1 到 y2 中间的一个值。取多少呢？就由 weight 来控制，当 weight 为 0.5 时，它正好落在起点和终点的中间。为了更加方便理解，我们可以把这个公式换成这种格式
-
-![image-20220706155700754](image-20220706155700754.png)
-
-简单来说，lerp 函数就是在 y1 和 y2 之间过渡，唯一不同的地方就是，y1 和 y2 可以是一个值，也可以是一个函数。比如，我们可以在正弦函数和线性函数之前做过渡，我们先看一下正弦函数
-
-![img](v2-911d01df3d20519bd07b2880d8d91fb2_1440w.jpg)
-
-再看一下最简单的线性函数（恒等映射函数 y=x）
-
-![img](v2-a2374819e0d93f70242bb91131883a47_1440w.jpg)
-
-在它俩之间做过渡，我们只需要写出 lerp (sin (x), x, 0.5)即可。当然，可以调整 weight 参数观察不同的结果。
-
-**weight 为 0.5 时：**
-
-![img](v2-770e7772c6e7a8d99962450eb7672745_1440w.jpg)
-
-**weight 为 0.8 时：**
-
-![img](v2-000da5aa65555a40a9c08537824e69db_1440w.jpg)
-
-**weight 为 0.2 时：**
-
-![img](v2-aa8c4ca591e6dd6f54393eb8b67c634b_1440w.jpg)
-
-是不是非常的直观，所以这就扯到了 Lerp 函数的两种不同的作用。
-
-- 构造新的函数
-- 在两个值之间进行过度
-
-### frac 向下取整
-
-frac 函数通过如下代码实现：
-
-```cpp
-float frac(float v)
-{
-  // floor函数返回值会向下取整
-  return v - floor(v);
-}
-```
-
-该函数只有一个参数 v，v 参数的类型不仅可以是 float 类型，也可以是其它 float 向量。通过该函数的实现可知，它**返回标量或每个矢量中各分量的小数部分。**
-
-### clamp 夹具函数
-
-~~~less
-float clamp（float x, float a, float b）;
-~~~
-
-将 x 固定在[a, b]范围内，
-
-如下所示:
-
-1. 如果 x 小于 a，返回 a;
-
-2. 如果 x 大于 b，返回 b;
-
-3. 否则返回 x。
-
-### clip 剔除
-
-如果给定向量的任何分量或给定标量为负，则终止当前像素输出
-
-对像素剔除：当采样结果小于 0，该像素就会被剔除不会显示到屏幕上
-
-### smoothstep 平滑阶梯
-
-smoothstep 可以用来生成 0 到 1 的平滑过渡值，它也叫平滑阶梯函数。
-
-```cpp
-float smoothstep(float t1, float t2, float x)
-{
-  x = clamp((x - t1) / (t2 - t1), 0.0, 1.0); 
-  return x * x * (3 - 2 * x);
-}
-```
-
-**当 x 等于 t1 时，结果值为 0；**
-
-**当 x 等于 t2 时，结果值为 1；**
-
-**(ps: 值限制在 0~1 之间的原因是因为 clamp 函数的限制)**
-
-
-
-### step 函数
-
-step (a, b) 
-
-b >= a 时输出 1
-
-b < a 时输出 0
-
 
 # Unity 的 include 文件
 
@@ -785,166 +579,47 @@ Unity 着色器中通常会包含此文件。此文件声明大量[内置 helper
 |**功能：**|**描述：**|
 |:--|:--|
 |`float3 ShadeVertexLights (float4 vertex, float3 normal)`|根据给定的对象空间位置和法线计算四个每顶点光源和环境光的光照。|
-# 多光源/阴影
-
-![image-20220707190035317](image-20220707190035317.png)
-## multi_compile
-**在默认状态下，前向渲染只支持一个投射阴影的平行光，如果想要修改默认状态，就需要添加多重编译指令。**
-Unity 提供了一系列多重编译指令以编译出不同的 Shader 变体，这些编译指令主要用于处理不同类型的灯光、阴影和灯光贴图，可以使用的编译指令如下：
-（1）`multi_compile_fwdbase`：编译 Forward BasePass 中的所有变体，用于处理不同类型的光照贴图，并为主要平行光开启或者关闭阴影。
-（2）`multi_compile_fwdadd`：编译 Forward Additional Pass 中的所有变体，用于处理平行光、聚光灯和点光源，以及它们的 cookie 纹理。
-（3）`multi_compile_fwdadd_fullshadows`：与 multi_compile_fwdadd 类似，但是增加了灯光投射实时阴影的效果。
 
 
-# 封装shader方法
-封装方法必须声明在前才能使用
-![[Pasted image 20221018211833.png]]
-# 封装cgnic库
-新建文件: XXX. cgnic
-unity 内无法直接创建，可以使用 IDE 创建
 
-在 shader 中使用： # include “路径” 
-![[Pasted image 20221018211856.png]]
+# 变体
+![[Pasted image 20230628192002.png]]
+能否写一个 All in One 的 Shader？
+有三种方式，根据具体需求选择：
+1. 静态分支 `#if`
+2. 动态分支 `if`
+3. 着色器变体 `#pragma`
 
-# HLSL 函数参考
-下表列出了 HLSL 中可用的内部函数。每个函数都有简短说明，并提供指向有关输入参数和返回类型的更多详细信息的参考页的链接。
+## 静态分支 `#if`
+![[Pasted image 20230628192227.png|500]]
 
-|名称|说明|
-|:--|:--|
-|[**abort**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/abort) |终止正在执行的当前绘图或调度调用。|
-|[**abs**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-abs)|每个组件) (绝对值。|
-|[**acos**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-acos)|返回 x 的每个分量的反余弦。|
-|[**all**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-all)|测试 x 的所有组件是否为非零。|
-|[**AllMemoryBarrier**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/allmemorybarrier)|阻止组中所有线程的执行，直到所有内存访问都完成。|
-|[**AllMemoryBarrierWithGroupSync**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/allmemorybarrierwithgroupsync)|阻止组中所有线程的执行，直到所有内存访问都完成并且组中的所有线程都达到此调用。|
-|[**any**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-any)|测试 x 的任何组件是否为非零。|
-|[**asdouble**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/asdouble)|重新解释将转换值转换为双精度值。|
-|[**asfloat**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-asfloat)|将输入类型转换为 float。|
-|[**asin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-asin)|返回 x 的每个分量的反正弦。|
-|[**asint**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-asint)|将输入类型转换为整数。|
-|[**asuint**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/asuint)|将64位类型的位模式重新解释为 uint。|
-|[**asuint**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-asuint)|将输入类型转换为无符号整数。|
-|[**atan**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-atan)|返回 x 的反正切值。|
-|[**atan2**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-atan2)|返回两个值的反正切值 (x，y) 。|
-|[**ceil**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-ceil)|返回大于或等于 x 的最小整数。|
-|[**CheckAccessFullyMapped**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/checkaccessfullymapped)|确定 **示例** 或 **加载** 操作中的所有值是否都访问了 [平铺资源](https://docs.microsoft.com/zh-cn/windows/desktop/direct3d11/direct3d-11-2-features)中的映射磁贴。|
-|[**clamp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-clamp)|夹紧 x 到最 [ 小值，最大值 ] 。|
-|[**clip**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-clip)|如果 x 的任何分量小于零，则放弃当前像素。|
-|[**cos**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-cos)|返回 x 的余弦值。|
-|[**cosh**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-cosh)|返回 x 的双曲余弦值。|
-|[**countbits**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/countbits)|计算输入整数中每个组件) (的位数。|
-|[**cross**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-cross)|返回两个三维向量的叉积。|
-|[**D3DCOLORtoUBYTE4**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-d3dcolortoubyte4)|Swizzles 和缩放4D 向量 xto 的组件补偿某些硬件中是否缺少 UBYTE4 支持。|
-|[**ddx**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-ddx)|返回 x 的部分导数，相对于屏幕空间 x 坐标。|
-|[**ddy**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-ddy)|返回 x 的部分导数，与屏幕空间的 y 坐标有关。|
-|[**degrees**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-degrees)|将 x 从弧度转换为度。|
-|[**diterminant**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-determinant)|返回正方形 matrix m 的行列式。|
-|[**DeviceMemoryBarrier**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/devicememorybarrier)|阻止组中所有线程的执行，直到所有设备内存访问都完成。|
-|[**DeviceMemoryBarrierWithGroupSync**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/devicememorybarrierwithgroupsync)|阻止组中所有线程的执行，直到所有设备内存访问完成并且组中的所有线程都达到此调用。|
-|[**distance**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-distance)|返回两个点之间的距离。|
-|[**dot**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-dot)|返回两个向量的点积。|
-|[**dst**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dst)|计算距离向量。|
-|[**errorf**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/errorf)|向信息队列提交一条错误消息。|
-|[**EvaluateAttributeAtCentroid**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/evaluateattributeatcentroid)|计算像素质心。|
-|[**EvaluateAttributeAtSample**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/evaluateattributeatsample)|在索引样本位置计算。|
-|[**EvaluateAttributeSnapped**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/evaluateattributesnapped)|计算带有偏移量的质心的像素。|
-|[**.exp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-exp)|返回以 e 为底的指数。|
-|[**exp2**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-exp2)|每个组件) 以2为底的指数 (。|
-|[**f16tof32**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/f16tof32)|将在 uint 的下半部分中存储的 float16 转换为 float。|
-|[**f32tof16**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/f32tof16)|将输入转换为 float16 类型。|
-|[**faceforward**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-faceforward)|返回-n * 符号 (点 (i，ng) ) 。|
-|[**firstbithigh**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/firstbithigh)|获取第一组位的位置，从最高顺序位开始，按组件向下移动。|
-|[**firstbitlow**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/firstbitlow)|返回第一组位的位置（从最低顺序位开始，按组件向上处理）。|
-|[**floor**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-floor)|返回小于或等于 x 的最大整数。|
-|[**fma**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-fma)|返回一个与 b + c 的双精度的带外乘法 * 。|
-|[**fmod**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-fmod)|返回 x/y 的浮点余数。|
-|[**frac**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-frac)|返回 x 的小数部分。|
-|[**frexp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-frexp)|返回 x 的尾数和指数。|
-|[**fwidth**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-fwidth)|返回 abs (ddx (x) ) + abs (ddy (x) )|
-|[**GetRenderTargetSampleCount**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-getrendertargetsamplecount)|返回呈现器目标样本的数目。|
-|[**GetRenderTargetSamplePosition**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-getrendertargetsampleposition)|返回给定示例索引 (x，y) 的位置。|
-|[**GroupMemoryBarrier**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/groupmemorybarrier)|阻止组中所有线程的执行，直到所有组共享访问都完成。|
-|[**GroupMemoryBarrierWithGroupSync**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/groupmemorybarrierwithgroupsync)|阻止组中所有线程的执行，直到所有组共享访问完成并且组中的所有线程都达到此调用。|
-|[**InterlockedAdd**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedadd)|执行保证的原子值向目标资源变量的原子性。|
-|[**InterlockedAnd**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedand)|执行保证的原子和。|
-|[**InterlockedCompareExchange**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedcompareexchange)|以原子方式将输入与比较值进行比较并交换结果。|
-|[**InterlockedCompareStore**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedcomparestore)|以原子方式将输入与比较值进行比较。|
-|[**InterlockedExchange**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedexchange)|将值分配给 dest 并返回原始值。|
-|[**InterlockedMax**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedmax)|执行保证的原子最大值。|
-|[**InterlockedMin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedmin)|执行保证的原子最小值。|
-|[**InterlockedOr**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedor)|执行保证的原子或。|
-|[**InterlockedXor**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/interlockedxor)|执行保证的原子 xor。|
-|[**isfinite**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-isfinite)|如果 x 是有限的，则返回 true，否则返回 false。|
-|[**isinf**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-isinf)|如果 x 为 + INF 或-INF，则返回 true，否则返回 false。|
-|[**isnan**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-isnan)|如果 x 为 NAN 或 QNAN，则返回 true，否则返回 false。|
-|[**ldexp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-ldexp)|返回 x * 2exp|
-|[**length**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-length)|返回向量 v 的长度。|
-|[**lerp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-lerp)|返回 (y-x) 的 x + s。|
-|[**lit**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-lit)|返回光源向量 (环境、漫射、镜面、1)|
-|[**log**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-log)|返回 x 的以 e 为底的对数。|
-|[**log10**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-log10)|返回 x 的以10为底的对数。|
-|[**log2**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-log2)|返回 x 的以2为底的对数。|
-|[**mad**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/mad)|对三个值执行算术乘/加法运算。|
-|[**max**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-max)|选择 x 和 y 的较大。|
-|[**min**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-min)|选择 x 和 y 中的较小者。|
-|[**modf**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-modf)|将值 x 拆分为小数部分和整数部分。|
-|[**msad4**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-msad4)|比较4个字节的引用值和8个字节的源值，并累计4个和的向量。|
-|[**mul**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul)|使用 x 和 y 执行矩阵乘法。|
-|[**noise**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-noise)|使用 Perlin-干扰算法生成随机值。|
-|[**normalize**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-normalize)|返回规范化向量。|
-|[**pow**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-pow)|返回 xy。|
-|[**printf**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/printf)|将自定义着色器消息提交到信息队列。|
-|[**Process2DQuadTessFactorsAvg**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/process2dquadtessfactorsavg)|为四个修补程序生成已更正的分割系数。|
-|[**Process2DQuadTessFactorsMax**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/process2dquadtessfactorsmax)|为四个修补程序生成已更正的分割系数。|
-|[**Process2DQuadTessFactorsMin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/process2dquadtessfactorsmin)|为四个修补程序生成已更正的分割系数。|
-|[**ProcessIsolineTessFactors**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processisolinetessfactors)|生成等值线的舍入分割系数。|
-|[**ProcessQuadTessFactorsAvg**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processquadtessfactorsavg)|为四个修补程序生成已更正的分割系数。|
-|[**ProcessQuadTessFactorsMax**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processquadtessfactorsmax)|为四个修补程序生成已更正的分割系数。|
-|[**ProcessQuadTessFactorsMin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processquadtessfactorsmin)|为四个修补程序生成已更正的分割系数。|
-|[**ProcessTriTessFactorsAvg**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processtritessfactorsavg)|生成适用于三个修补程序的已更正分割系数。|
-|[**ProcessTriTessFactorsMax**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processtritessfactorsmax)|生成适用于三个修补程序的已更正分割系数。|
-|[**ProcessTriTessFactorsMin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/processtritessfactorsmin)|生成适用于三个修补程序的已更正分割系数。|
-|[**radians**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-radians)|将 x 转换为弧度。|
-|[**rcp**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/rcp)|计算快速、近似、按分量的倒数。|
-|[**reflect**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-reflect)|返回反射向量。|
-|[**refract**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-refract)|返回折射向量。|
-|[**reversebits**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/reversebits)|为每个分量反转位的顺序。|
-|[**round**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-round)|将 x 舍入到最接近的整数|
-|[**rsqrt**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-rsqrt)|返回 1/sqrt (x)|
-|[**saturate**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-saturate)|夹紧 x 到 [ 0，1]|
-|[**sign**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-sign)|计算 x 的符号。|
-|[**sin**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-sin)|返回 x 的正弦值|
-|[**sincos**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-sincos)|返回 x 的正弦和余弦值。|
-|[**sinh**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-sinh)|返回 x 的双曲正弦值|
-|[**smoothstep**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-smoothstep)|返回介于0和1之间的平滑 Hermite 内插。|
-|[**sqrt**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-sqrt)|每个组件 (平方根)|
-|[**step**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-step)|返回 (x >=) ？ 1 : 0|
-|[**tan**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tan)|返回 x 的正切值|
-|[**tanh**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tanh)|返回 x 的双曲正切值|
-|[**tex1D (s，t)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1d)|1D 纹理查找。|
-|[**tex1D (s、t、ddx、ddy)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1d-s-t-ddx-ddy)|1D 纹理查找。|
-|[**tex1Dbias**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1dbias)|带有偏移的一维纹理查找。|
-|[**tex1Dgrad**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1dgrad)|使用渐变的一维纹理查找。|
-|[**tex1Dlod**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1dlod)|用 LOD 的一维纹理查找。|
-|[**tex1Dproj**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex1dproj)|用 projective 相除的1D 纹理查找。|
-|[**tex2D (s，t)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2d)|2D 纹理查找。|
-|[**tex2D (s、t、ddx、ddy)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2d-s-t-ddx-ddy)|2D 纹理查找。|
-|[**tex2Dbias**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2dbias)|带有偏移的2D 纹理查找。|
-|[**tex2Dgrad**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2dgrad)|使用渐变的2D 纹理查找。|
-|[**tex2Dlod**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2dlod)|2D 纹理查找和 LOD。|
-|[**tex2Dproj**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex2dproj)|projective 相除的2D 纹理查找。|
-|[**tex3D (s，t)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3d)|3D 纹理查找。|
-|[**tex3D (s、t、ddx、ddy)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3d-s-t-ddx-ddy)|3D 纹理查找。|
-|[**tex3Dbias**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3dbias)|带有偏置的3D 纹理查找。|
-|[**tex3Dgrad**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3dgrad)|使用渐变的3D 纹理查找。|
-|[**tex3Dlod**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3dlod)|用 LOD 的3D 纹理查找。|
-|[**tex3Dproj**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-tex3dproj)|带有 projective 除法的3D 纹理查找。|
-|[**texCUBE (s，t)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcube)|多维数据集纹理查找。|
-|[**texCUBE (s、t、ddx、ddy)**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcube-s-t-ddx-ddy)|多维数据集纹理查找。|
-|[**texCUBEbias**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcubebias)|带有偏移的多维数据集纹理查找。|
-|[**texCUBEgrad**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcubegrad)|使用渐变的多维数据集纹理查找。|
-|[**texCUBElod**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcubelod)|LOD 的多维数据集纹理查找。|
-|[**texCUBEproj**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-texcubeproj)|Projective 相除的多维数据集纹理查找。|
-|[**transpose**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-transpose)|返回矩阵 m 的转置。|
-| [**trunc**](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-trunc) |将) (的浮点值截断到整数值 (s|下表列出了 HLSL 中可用的内部函数。每个函数都有简短说明，并提供指向有关输入参数和返回类型的更多详细信息的参考页的链接。
+**原理**：着色器**编译时**选择代码分支
 
+**选择**：编译时，能够确定 Shader 执行的条件
+
+- 静态分支
+    - 使用 `#define` 定义激活分支
+    - 使用 `#if` 、 `#elif` 、 `#else` 和 `#endif` 预处理程序指令来创建静态分支
+    - 让 shader 代码执行其中一个分支
+    - 编译器会裁剪未激活代码分支，只会将执行的部分编译
+
+注意：静态分支仅在手写代码可用，不能在 Shader Graph 中创建静念分文。
+
+## 动态分支 `if`
+![[Pasted image 20230628192654.png|300]]
+原理：着色器**运行时**选择代码分支
+
+选择：运行时，是否有可能动态选择分支? 
+
+动态分支用法:
+- 在手写代码中，使用 if 语句来执行分支
+- 在 Shader Graph 中，使用 Branch 节点
+
+动态分支的优点（相对于着色器变体方式)：
+- 可以动态选择分支
+- 不会造成代码膨胀
+
+动态分支缺点（相对于着色器变体方式):·会导致运行时性能损失
+
+## 着色器变体 `#pragma`
+静态分支的加强版

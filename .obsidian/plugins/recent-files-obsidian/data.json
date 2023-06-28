@@ -1,12 +1,68 @@
 {
   "recentFiles": [
     {
-      "basename": "1 批处理总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "URP 多光源处理",
+      "path": "zBuffer/URP 多光源处理.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
+      "basename": "CG语法",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG语法.md"
+    },
+    {
+      "basename": "08 多光源处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
     },
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "URP 深度法线纹理",
+      "path": "zBuffer/URP 深度法线纹理.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "12 序列帧算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+    },
+    {
+      "basename": "11 ShadowCaster 和 SRP batcher",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "09 主光源阴影投射和接收",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
+    },
+    {
+      "basename": "10 多光源阴影处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
+    },
+    {
+      "basename": "1 批处理总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     },
     {
       "basename": "2 GPU Instance深入浅出",
@@ -21,10 +77,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
     },
     {
-      "basename": "08 多光源处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
-    },
-    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -35,14 +87,6 @@
     {
       "basename": "体积云",
       "path": "技术美术/1 渲染雅集/体积云.md"
-    },
-    {
-      "basename": "11 ShadowCaster 和 SRP batcher",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
-    },
-    {
-      "basename": "12 序列帧算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
     },
     {
       "basename": "13 广告牌算法",
@@ -57,24 +101,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
     },
     {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
-    },
-    {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
       "basename": "17 Kawase 高性能模糊",
@@ -93,14 +125,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
-      "basename": "10 多光源阴影处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
-    },
-    {
-      "basename": "09 主光源阴影投射和接收",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
-    },
-    {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
@@ -109,24 +133,16 @@
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
-    },
-    {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "TA101",
-      "path": "技术美术/4 UnityShader/TA101.md"
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     },
     {
       "basename": "冯乐乐入门精要",
-      "path": "技术美术/4 UnityShader/冯乐乐入门精要.md"
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
     },
     {
       "basename": "31 镜头炫光 更好的广告牌算法",
@@ -143,10 +159,6 @@
     {
       "basename": "21 和散景模糊——实践篇",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp",
-      "path": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp.md"
     },
     {
       "basename": "36 造一个 PBR 的轮子",
@@ -187,18 +199,6 @@
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "曲面细分与几何着色器",
-      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     }
   ],
   "omittedPaths": [],
