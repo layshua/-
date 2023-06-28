@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4bc8df70e3fd5965",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md"
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
               }
             }
           }
@@ -132,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 397.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -181,8 +195,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "c46a6ed91b20cd65",
+  "active": "4bc8df70e3fd5965",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "编程/C++/《C++ Primer》.md",
+    "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
+    "技术美术/1 渲染雅集/体积云.md",
+    "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
     "zip/images/d4062f450f27f47fbde557ff4b28cdc7_MD5.gif",
     "zip/images/8f7d7ab1ce76d04e6920cfb114b9fb82_MD5.png",
     "zip/images/aebbd389541f0f84d2dd44a547175ccf_MD5.gif",
@@ -193,9 +217,7 @@
     "zip/images/506bfacd08992cddde90d2dafaa7cfc5_MD5.png",
     "zip/images/36967b26f1fd3f8bd337030d7dd9fc67_MD5.png",
     "zip/images/1b223dfe58be80b98a9f1060d10039d7_MD5.png",
-    "zip/images/e025600b32a0b903a0918d151214760b_MD5.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
-    "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md",
@@ -209,16 +231,8 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
