@@ -1,423 +1,12 @@
 
 ---
-title: 《GUI》
+title: UGUI
 aliases: []
 tags: []
-create_time: 2023-06-07 23:35
-uid: 202306072335
-banner: "![[diablo-iv-beta-vendor-3.png]]"
+create_time: 2023-06-28 23:41
+uid: 202306282341
+banner: "![[]]"
 ---
-
-# 九宫格 UI 理论
-**相对屏幕位置 ScreenPos：**
-![[Pasted image 20230607232730.png]]
-widgetPos.x = ScreenPos + widgetCenterPos + offsetPos;
-
-**控件中心点位置 widgetCenterPos：**
-cw 是控件自身的宽度
-ch 是控件自身的高度
-![[Pasted image 20230608080527.png|850]]
-
-最后通过操作偏移位置 offset 来摆放UI
-# GUI
-## 1 原理及作用
-**IMGUI**  （Immediate Mode Graphical User Interface）即时模式图形化交互界面
-IMGUI 在 Unity 中一般简称为 GUI，它是一个代码驱动的 UI 系统
-
-作用：
-1. 作为程序员的调试工具，创建游戏内调试工具
-2. 为脚本组件创建自定义检视面板
-3. 创建新的编辑器窗口和工具以拓展 Unity 本身（一般用作内置游戏工具）
-4. 用于进行 Unity 内置编辑器，调试工具编辑工具等等相关开发，**不适合用它为玩家制作 UI 功能**
-
-**GUI 的工作原理**：在继承 MonoBehaviour 的脚本中的特殊函数里，调用 GUI 提供的方法，类似生命周期函数。
-```cs
-private void OnGUI()
-{
-    
-}
-```
-1. 它**每帧执行**相当于是用于专门绘制 GUI 界面的函数 
-2. 一般只在其中执行 GUI 相关界面绘制和操作逻辑 
-3. 该函数**在 OnDisable 之前 LateUpdate 之后执行** 
-4. 只要是继承 Mono 的脚本都可以在 OnGUI 中绘制 GUI
-
-**缺点**
-- 重复工作量繁多
-- 控件（widget）绘制相关代码很多
-- 最大缺点:必须运行时才能去查看结果（不能所见即所得，通过 `[ExecuteAlways]` 特性解决），不支持分辨率自适应
-
-
-## 2 重要参数
-
-> [!warning] 
-> GUI 的屏幕原点是左上角
-
-**GUI 控件绘制的共同点：**
-1. 他们都是 GUI 公共类中提供的静态函数直接调用即可 
-2. 他们的参数都大同小异
-    - 位置参数: Rect  （xy 位置 wh 尺寸）
-    - 显示文本: string 
-    - 图片信息: Texture 
-    - 参数综合信息: GUIContent 
-    - 参数自定义样式: GUIStyle 
-3. **每一种控件都有多种重载，都是各个参数的排列组合必备的参数内容，是位置信息和显示信息**
-
-
-## 3 Label 标签
-![[Pasted image 20230607151421.png|700]]
-![[Pasted image 20230607151337.png|450]]
-
-```cs
-public Texture texture;  
-
-//骷髅
-public Rect rect1;  
-
-//小黄脸
-public Rect rect2;  
-public GUIContent content2;
-
-public GUIStyle style;
-
-private void OnGUI()  
-{
-    //1.文本
-    GUI.Label(new Rect(0,0,100,20),"Hello World"); //text，传位置信息也可以直接声明公共变量Rect，如下：
-    
-    //2.图片
-    GUI.Label(rect1, texture);  
-    
-    //3.文本+图片
-    //GUIContent可以控制text,image,tooltip
-    GUI.Label(rect2,content2);
-    Debug.Log(GUI.tooltip);  //获取当前鼠标或者键盘选中的GUI控件对应的tooltip信息
-
-
-    //4.自定义格式，第三个参数传入GUIStyle
-    GUI.Label(new Rect(0,0,100,20),"Hello World",style);
-}
-```
-
-
-## 4 Button 按钮
-自定义格式：
-![[Pasted image 20230607151820.png|450]]
-
-
-```cs
-public Rect rect;  
-public GUIContent content;  
-public GUIStyle style;
-
-void OnGUI()  
-{
-    //鼠标按下松开为一次点击
-    //无style参数时，使用默认style
-    if (GUI.Button(rect, content, style))  //判断是否点击
-    {  
-        //处理按钮点击逻辑
-        print("Button Clicked");  
-    }
-    
-    //鼠标长按
-    if(GUI.RepeatButton(rect, content, style))  
-    {  
-        print("Button Clicked");  
-    }
-}
-```
-
-## 5 Toggle 开关
-Toggle 意为（两种状态之间）切换
-
-```cs
-//设置方法类似上面的按钮，多一个点击选中的判断，我们要自己声明一个bool值
-public bool isSelect;  
-  
-public Rect rect;  
-public GUIContent content;  
-public GUIStyle style;
-
-void OnGUI()  
-{
-    isSelect = GUI.Toggle(rect, isSelect, "Toggle");
-    isSelect = GUI.Toggle(rect, isSelect, content,style);
-}
-```
-
-排版攻略：
-1. 修改固定宽高 fixedwidth 和 fixedHeight
-2. 修改从 GUIStyle 边缘到内容起始处的空间 padding
-
-
-![[2022306071646.gif]]
-```cs file:基于Toggle实现多选框
-public bool isSelect;  
-public Rect rect;  
-private int nowSelIndex = 0;
-
-void OnGUI()  
-{
-    //基于Toggle实现多选框
-    if (GUI.Toggle(new Rect(0, 60, 100, 30), nowSelIndex == 1, "选项一"))
-    {
-        nowSelIndex = 1;
-    }
-
-    ;
-    if (GUI.Toggle(new Rect(0, 90, 100, 30), nowSelIndex == 2, "选项二"))
-    {
-        nowSelIndex = 2;
-    }
-
-    if (GUI.Toggle(new Rect(0, 120, 100, 30), nowSelIndex == 3, "选项三"))
-    {
-        nowSelIndex = 3;
-    }
-}
-    
-```
-
-## 6 输入框和拖动条
-![[Pasted image 20230607210356.png]]
-
-```cs
-private string inputStr = "";
-private string password = "";   
-private float nowValue = 0.5f;
-public GUIStyle thumbStyle; //滑块样式
-//输入框
-//比较特别是的第三个参数，最大输入长度
-inputStr = GUI.TextField(new Rect(0,0,100,50), inputStr,5); 
-
-//密码输入,输入全被*遮盖
-password = GUI.PasswordField(new Rect(100,0,100,50), password, '*');
-
-//水平拖动条
-nowValue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100), nowValue,0.0f,1.0f);
-//带风格的拖动条，多一个style参数
-nowvalue = GUI.HorizontalSlider(new Rect(200, 0, 100, 100),, nowvalue, minValue, maxValue,style,thumbStyle); //默认的style时滑动条的style，滑块style要自己声明
-
-//竖直拖动条GUI.VerticalSlider()
-```
-
-## 7 图片绘制和Box框
-![[Pasted image 20230607212445.png]]
-```cs file:GUI.DrawTexture
-public Rect texPos;
-public Texture texture;
-
-public ScaleMode scaleMode; //可切换三种缩放模式
-//scaleAndCrop:通过宽高比来计算图片，但是会进行裁剪
-//ScaleToFit:会自动根据宽高比进行计算，不会拉变形，会一直保持图片完全显示的状态
-//stretchToFill:始终填充满你传入的 Rect范围
-
-public bool alphaBlend ;    //默认为true使用alpha透明通道
-
-private void OnGUI()
-{
-    GUI.DrawTexture(texPos, texture,scaleMode,alphaBlend);
-}
-```
-
-简单的 Box 边框，没特殊功能
-![[Pasted image 20230607212756.png]]
-```cs file:GUI.Box
-GUI.Box(new Rect(0,0,100,100),"123");
-```
-
-## 8 工具栏和选择网格
-工具栏特点，多个按钮只能同时选择一个
-![[Pasted image 20230607215332.png]]
-
-```cs file:GUI.Toolbar
-private int toolbarIndex = 0;
-private string[] toolbarInfos = {"选项一", "选项二", "选项三"};
-private void OnGUI()
-{
-    toolbarIndex = GUI.Toolbar(new Rect(0,0,300,30),toolbarIndex,toolbarInfos);
-    switch (toolbarIndex)
-    {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-    }
-}
-```
-
-选择网格和工具栏具有相同的特点，相对 toolbar 多了一个参数 xCount，**代表水平方向最多显示的按钮数量。**
-
-当 xCount 为 3 时，和上面 toolbar 绘制的 ui 一样。
-![[Pasted image 20230607215332.png]]
-当 xCount 为 2 时：
-![[Pasted image 20230607215701.png]]
-当 xCount 为 1 时：
-![[Pasted image 20230607215722.png]]
-```cs file:GUI.SelectionGrid
-private int selGridIndex = 0;
-private string[] selGridInfos = {"选项一", "选项二", "选项三"};
-private void OnGUI()
-{
-    selGridIndex = GUI.SelectionGrid(new Rect(0, 50, 300, 30), selGridIndex, selGridInfos,3);
-}
-```
-## 9 滚动视图和分组
-**分组**
-- 用于批量控制控件位置
-- 可以理解为包裹着的控件加了一个父对象
-- 可以通过控制分组来控制包裹控件的位置
-```cs file:GUI.BeginGroup
-public Rect groupPos;  
-
-private void OnGUI()  
-{
-    //批量控制控件位置
-    GUI.BeginGroup(groupPos);
-    GUI.Button(new Rect(0,0,100,50),"按钮1");
-    GUI.Button(new Rect(0,50,100,50),"按钮2");
-    GUI.EndGroup();
-}
-```
-
-**滚动视图：**
-![[Pasted image 20230607222051.png]]
-
-```cs file:GUI.BeginScrollView
-public Rect uiPos;
-public Vector2 scrollPos;
-public Rect viewPos;
-
-private void OnGUI()
-{
-    GUI.BeginScrollView(uiPos, scrollPos, viewPos);
-    GUI.Button(new Rect(0,0,100,50),"按钮1");
-    GUI.Button(new Rect(0,50,100,50),"按钮2");
-    GUI.EndScrollView();
-}
-```
-
-## 10 窗口
-就是单独的一个窗口，在绘制窗口的函数中写 UI 代码，以窗口的左上角为原点
-![[202306072241.gif]]
-```cs file:GUI.Window
-public Rect windowPos;
-   
-private void OnGUI()
-{
-   //参数一：窗口唯一ID，
-   //委托参数是用于绘制窗口用的函数，传入即可
-   GUI.Window(1,new Rect(100,100,200,150),DrawWindow,"窗口1");
-   GUI.Window(2,new Rect(400,100,200,150),DrawWindow,"窗口2");
-
-   //可拖动窗口
-   //1.位置赋值
-   //2.绘制函数调用GUI.DragWindow();
-   windowPos = GUI.Window(3,windowPos,DrawWindow,"拖动窗口");
-
-}
-
-private void DrawWindow(int id)
-{
-   switch (id)
-   {
-       case 1:
-           GUI.Button(new Rect(0,0,50,50),"按钮");
-           break;
-       case 2:
-           GUI.Box(new Rect(0,0,100,100),"123");
-           break;
-       case 3:
-           //传入Rect参数的重载作用
-           //决定窗口中哪一部分位置可以被拖动
-           //默认不填,就是无参重载,默认窗口的所有位置都能被拖动
-           GUI.DragWindow();  
-           
-           //传参限制可拖动位置，可以实现只能通过拖动顶栏移动窗口
-           //GUI.DragWindow(new Rect(0,0,100,20));  
-           break;
-   }
-}
-```
-
-**模态窗口**
-- 可以让窗口外的其它控件无法点击
-- 你可以理解该窗口在最上层，其它按钮都点击不到了，只能点击该窗口上控件
-```cs file:GUI.ModalWindow
-GUI.ModalWindow(2,new Rect(400,100,200,150),DrawWindow,"模态窗口");
-```
-
-## 11 颜色和皮肤
-```cs file:设置颜色
-//全局着色，同时影响背景和字体，不常用
-GUI.color = Color.blue;
-      
-GUI.contentColor = Color.green;     //文本颜色
-GUI.backgroundColor = Color.yellow; //背景颜色
-GUI.Button(new Rect(100, 100, 100, 100), "按钮1");
-      
-GUI.contentColor = Color.white;  //设置白色就可以恢复原色
-GUI.backgroundColor = Color.white;
-GUI.Button(new Rect(300, 300, 100, 100), "按钮2");
-```
-
-右键创建 GUI Skin，相当于 GUI style 的集合体，支持修改所有控件样式。
-可以在这里面修改，通过代码传给 UI 控件。
-![[Pasted image 20230607225608.png|400]]
-
-```cs file:设置皮肤
-public GUISkin guiSkin;
-
-private void OnGUI()
-{
-  GUI.skin = guiSkin;
-  GUI.Button(new Rect(100,100,100,100),"按钮1");
-  
-  GUI.skin = null;  //恢复默认皮肤
-  GUI.Button(new Rect(300,300,100,100),"按钮2");
-}
-```
-## 12 布局 GUILayout
-不需要传 Rect 位置参数，自动布局，主要用于编辑器开发（编辑器 UI 排列比较整齐简单）, 不适合作为游戏UI
-
-![[Pasted image 20230607230430.png]]
-```cs
-GUILayout.BeginArea(new Rect(100,100,50,50));   //也可以使用group等统一管理位置
-GUILayout.Button("123");
-GUILayout.Button("123");
-GUILayout.Button("123142");
-GUILayout.Button("阿斯顿123142");
-GUILayout.EndArea();
-```
-
-使用布局选项：
-
-
-```cs file:布局选项
-GUILayout.Button("123",GUILayout.Width(300)); //布局选项作为第二个参数传入
-
-
-//布局选项：
-//控件的固定宽高
-GUILayout.Width(300);
-GUILayout.Height(200);
-//允许控件的最小宽高
-GUILayout.MinWidth(50);
-GUILayout.MinHeight(50);
-//允许控件的最大宽高
-GUILayout.MaxWidth(100);
-GUILayout.MaxHeight(100);
-//允许或禁止水平拓展
-GUILayout.ExpandWidth(true);    //允许
-GUILayout.ExpandHeight(false);  //禁止
-```
-
-## 13 自适应
-![[Pasted image 20230608080626.png|350]]
-
 # UGUI
 UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 是目前 Unity 商业游戏开发中使用最广泛的 UI 系统开发解决方案
@@ -484,7 +73,7 @@ Rect Transform 意思是矩形变换
     - 主摄像机 Depth 保持默认的-1，UI Camera 的 Depth 要大于-1（深度较大的绘制在深度较小的上方）
     - 主摄像机 Culling Mask 取消勾选 UI
     - UI Camera 的 Culling Mask 只选择 UI，**Clear Flags**设置为 Depth Only（只画该层，背景透明，这样才不会让 UI 遮挡后面的内容）
-3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可，Layer 要设置成UI
+3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可，Layer 要设置成 UI
 4. 通过设置 Sorting Layer，也可以对 Canvas 进行排序，后面的层覆盖前面的层。
 Order in Layer，适用于相同 Layer 中进行排序
 
@@ -583,7 +172,7 @@ Graphic Raycaster 意思是图形射线投射器（不是基于碰撞器，而�
 ![[Pasted image 20230616173440.png]]
 **lgnore Reversed Graphics**: 是否忽略反转图形
 - ? 反转指的是将控件的 Rect Transfrom 中的 Rotation 属性的 x 或 y 轴旋转 180 度
-**Blocking Objects**:射线被哪些类型的碰撞器阻挡 (在覆盖渲染模式 Screen Space - Overlay下无效) 
+**Blocking Objects**: 射线被哪些类型的碰撞器阻挡 (在覆盖渲染模式 Screen Space - Overlay 下无效) 
 **Blocking Mask**: 射线被哪些层级的碰撞器阻挡（在覆盖渲染模式下无效)
 
 **演示：**
@@ -609,15 +198,15 @@ Event System 意思是事件系统
 ### Standalone Input Module
 **独立输入模块组件，主要用于监听玩家操作** 
 ![[Pasted image 20230616203659.png]]
-- 它主要针对处理鼠标/键盘/控制器/触屏 的输入
+- 它主要针对处理鼠标/键盘/控制器/触屏的输入
 - 输入的事件通过 Event System 进行分发
 - **它依赖于 Event System 组件，他们两缺一不可**
 
 **和 Input Manager 中的设置绑定，一般不会进行修改：**
-`Horizontal Axis`:水平轴按钮对应的热键名 (该名字对应 Input 管理器) 
+`Horizontal Axis`: 水平轴按钮对应的热键名 (该名字对应 Input 管理器) 
 `Vertical Axis`: 垂直轴按钮对应的热键名（该名字对应 Input 管理器)
 `Submit Button`: 提交（确定)按钮对应的热建名（该名字对应 Input 管理器) 
-`Cancel Button`:取消按钮对应的热建名 (该名字对应 Input 管理器)
+`Cancel Button`: 取消按钮对应的热建名 (该名字对应 Input 管理器)
 
 `Input Actions Per Second`: 每秒允许键盘/控制器输入的数量 
 `Repeat Delay`: 每秒输入操作重复率生效前的延迟时间
@@ -636,15 +225,15 @@ print((this.transform as RectTransform).sizeDelta);
 ### Image
 ![[Pasted image 20230616213350.png]]
 - 是 UGUI 中用于显示精灵图片（Sprite）的关键组件
-- 除了背景图等大图用RawImage，一般都使用 Image 来显示 UI 中的图片元素
+- 除了背景图等大图用 RawImage，一般都使用 Image 来显示 UI 中的图片元素
 ![[Pasted image 20230616213356.png]]
 
 - @ **控件显示顺序**：根据在 Canvas 下的层级，越后面的优先级越高:
 ![[Pasted image 20230616213645.png]]
 
 - @ **Raycast Taget 示例**：在 Button 控件前加一个 Image 控件
-    - 默认勾选，重叠部分无法点击Button
-    - 取消勾选，重叠部分可以点击Button
+    - 默认勾选，重叠部分无法点击 Button
+    - 取消勾选，重叠部分可以点击 Button
 ![[Pasted image 20230616214219.png]]
 
 - @ **ImageType 图片类型**
@@ -672,11 +261,11 @@ img.sprite = Resources.Load<Sprite>( "EmojiOne");
 
 ### Text
 有两个版本
-- Text(TMP)，基于 TextMeshPro
-- Text(Legacy)，旧版
-#### Text(TMP)
+- Text (TMP)，基于 TextMeshPro
+- Text (Legacy)，旧版
+#### Text (TMP)
 
-#### Text(Legacy)
+#### Text (Legacy)
 ![[Pasted image 20230616222442.png|450]]
 ![[Pasted image 20230616222359.png]]
 #### 代码控制文本内容
@@ -721,9 +310,9 @@ img.texture = Resources.Load<Texture>( "EmojiOne");
 >1. Navigation 要联动 Event System：
 > ![[Pasted image 20230616232956.png|500]]
 >2. Explicit 指定周边控件：
->![[Pasted image 20230616233516.png|500]]
+> ![[Pasted image 20230616233516.png|500]]
 >3. 导航连线：
->![[Pasted image 20230616233439.png|350]]
+> ![[Pasted image 20230616233439.png|350]]
 
 #### 代码控制 button 属性
 ```cs file:代码控制button
@@ -769,7 +358,7 @@ void Start()
 
 ### 异形按钮
 **异形即形状不规则**
-普通的 Button 是根据矩形区域来响应点击，当我们使用带有透明部分的图片时，如图，点击透明区域也会响应，我们只想要不透明部分作为button
+普通的 Button 是根据矩形区域来响应点击，当我们使用带有透明部分的图片时，如图，点击透明区域也会响应，我们只想要不透明部分作为 button
 ![[Pasted image 20230618194912.png]]
 
 #### 方法一：添加子对象
@@ -820,7 +409,7 @@ toggle.isOn = true;
 ToggleGroup toggleGroup = this.GetComponent<ToggleGroup>();  
 toggleGroup.allowSwitchOff = true;  
   
-//通过迭代器便利的到处于选中状态的Toggle  
+//通过迭代器便利的到处于选中状态的 Toggle  
 foreach (Toggle item in toggleGroup.ActiveToggles())  
 {  
 print(item.name);  
@@ -858,7 +447,9 @@ print("状态改变" + isOn);
 子对象：文本显示组件 (必备)、默认显示文本组件 (必备)
 
 #### InputField (TMP)
-
+```cs
+public TMP_InputField inputField;  //声明
+```
 #### InputField (Legacy)
 ![[Pasted image 20230617233548.png]]
 
@@ -885,7 +476,7 @@ input.text = "123123123123";
 
 ```cs
 Slider slider = GetComponent<Slider>();
-slider.value += 0.01f;
+slider. value += 0.01f;
 ```
 
 ### Scrollbar 滚动条
@@ -939,7 +530,7 @@ dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 ```
 
 ## 4 自动布局组件
-虽然 UGUI 的 RectTransform 已经非常方便的可以帮助我们快速布局，但 UGUI 中还提供了很多可以帮助我们对 UI 控件进行自动布局的组件，他们可以帮助我们**自动的设置 UI控件的位置和大小等**
+虽然 UGUI 的 RectTransform 已经非常方便的可以帮助我们快速布局，但 UGUI 中还提供了很多可以帮助我们对 UI 控件进行自动布局的组件，他们可以帮助我们**自动的设置 UI 控件的位置和大小等**
 
 **自动布局的工作方式**：自动布局控制组件 + 布局元素 = 自动布局 
 
@@ -993,9 +584,9 @@ child Force Expand: 是否强制子对象拓展以填充额外可用空间
 Padding: 左右上下边缘偏移位置 
 Cell size: 每个格子的大小 
 Spacing: 格子间隔
-Start Corner:第一个元素所在位置 (4 个角)
+Start Corner: 第一个元素所在位置 (4 个角)
 Start Axis: 沿哪个轴放置元素：Horizontal 水平放置满换行，Vertical 竖直放置满换列 
-Child Alignment: 格子对其方式（9宫格)
+Child Alignment: 格子对其方式（9 宫格)
 Constraint: 行列约束
 Flexible: 灵活模式，根据容器大小自动适应 
 Fixed column Count: 固定列数
@@ -1072,7 +663,7 @@ sa.GetSprite("bk");
 `IPointerUpHandler` - `OnPointerUp` -松开指针时调用（在指针正在点击的游戏对象上调用)（抬起）
 `IPointerClickHandler` - `OnPointerclick` -在同一对象上按下再松开指针时调用 (点击)
 
-`IBeginDragHandler` - `OnBeginDrag`-即将开始拖动时在拖动对象上调用 (开始拖拽）
+`IBeginDragHandler` - `OnBeginDrag` -即将开始拖动时在拖动对象上调用 (开始拖拽）
 `IDragHandler` - `OnDrag` - 发生拖动时在拖动对象上调用 (拖拽中)
 `IEndDragHandler`- `OnEndDrag` -拖动完成时在拖动对象上调用 (结束拖拽)
 
@@ -1084,7 +675,7 @@ sa.GetSprite("bk");
 3. 将该脚本挂载到想要监听自定义事件的 UI 控件上 
 ```cs
 //需要什么接口就继承什么
-public class Test : MonoBehaviour, IPointerEnterHandler,IPointerClickHandler
+public class Test : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     //实现接口内容
     public void OnPointerEnter(PointerEventData eventData)
@@ -1103,7 +694,7 @@ public class Test : MonoBehaviour, IPointerEnterHandler,IPointerClickHandler
 父类: `BaseEventData` 
 
 `pointerId`: 鼠标左右中键点击鼠标的 ID ，通过它可以判断左中右键点击，对一个 ID 分别为-1，-2，-3
-`position`:当前指针位置 (屏幕坐标系)
+`position`: 当前指针位置 (屏幕坐标系)
 `pressPosition`: 按下的时候指针的位置 delta: 指针移动增量
 `clickCount`: 连击次数 clickTime: 点击时间
 `pressEventCamera`: 最后一个 `onPointerPress` 按下事件关联的摄像机 
@@ -1240,236 +831,3 @@ Ignore Parent Groups: 是否忽略父级 CanvasGroup 的作用
 DoTween—缓动插件，可以制作一些缓动效果
 
 TextMeshPro: 一文本网格插件，可以制作更多的特效文字
-
-# SimpleShaderGUI（插件）
-
-最近抽空学习并弄了一个通用的 Shader GUI，你可以使用他轻松的组织你的 shader 属性。他非常的方便，并且兼容 Unity 内置的属性样式例如 [Header ()]、[Space]、[Toggle]、[Enum] 等
-
-在介绍如何使用前，先感谢那些大佬无私的奉献，让我少走了很多弯路，参考已放在文章最后。
-
-## 目录
-
-1.  URP Shader 模板
-2.  使用 SimpleShaderGUI
-3.  折叠属性
-4.  切换属性
-5.  纹理属性
-6.  向量属性
-7.  范围属性
-8.  兼容于扩展
-9.  工程
-10.  参考
-
-## 1. URP Shader 模板
-
-众所周知，目前 Unity 没有提供创建 URP Shader 的模板，在编写 URP shader 时需要建一个 UnlitShader，然后在对其进行修改。
-
-我在这里编写了一个 URP Shader 模板，你可以通过右键 Create->Shader->URP Shader 来创建他，该模板具有基础的 URP 格式，并使用了我自定义的 ShaderGUI，你可以通过修改 CustomShaderGUI/Editor/Template/URPShader 来修改这么模板
-
-模板的创建使用了[雨松大佬的方法](https://www.xuanyusong.com/archives/3732)
-
-![[4ee2ec6f75f2474aaadb4e98bdd530d7_MD5.gif]]
-
-## 2. 使用 SimpleShaderGUI
-
-使用时只需要在 Shader 最后添加 ShaderGUI 的引用 Scarecrow. SimpleShaderGUI，之后像使用 Unity 内置的属性绘制一样就可以，下面将说明目前的属性有哪些
-
-![[966717cc548efc2f7b7562bd9fb1dd3b_MD5.png]]
-
-Unity 自带的属性绘制可以参考以下文章
-
-[【Unity Shader】自定义材质面板的小技巧](https://blog.csdn.net/candycat1992/article/details/51417965) [喵喵 Mya：Shader 面板上常用的一些内置 Enum](https://zhuanlan.zhihu.com/p/93194054)
-
-在使用该 ShaderGUI 时，如果你的属性中包含以下俩个属性_SrcBlend、_DstBlend。将会自动在材质顶部生成不透明和半透明的切换按钮
-
-![[94cc68aa35c11c82d749ca6a7e5b802e_MD5.png]]
-
-## 3. 折叠属性
-
-折叠页使用了 World 标签的形式，使用这种方式可以轻松的制作和管理嵌套折叠页 (之前还考虑使用标签语言的方式，但发现太麻烦了就弃用了...)
-
-![[861d61308f18ef896f6cf942f61f3bea_MD5.jpg]]
-
-```
-//foldoutLevel      折叠页等级，折叠页最低等级为1级(默认1级折叠页)
-        //foldoutStyle      折叠页外观样式(默认第一种)，目前有3种 1 大折叠页样式， 2 中折叠页样式, 3 小折叠页样式
-        //foldoutToggleDraw 折叠页 复选框是否绘制， 0 不绘制 , 1绘制 
-        //foldoutOpen       折叠页初始展开状态，    0 折叠， 1展开
-        //showList          填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
-        public FoldoutDrawer(float foldoutLevel = 1, float foldoutStyle = 1, float foldoutToggleDraw = 0, float foldoutOpen = 1, params string[] showList)
-```
-
-1.  **foldoutLevel 折叠页等级:** 就像 World 一样，你可以选择折叠页的等级，级别低 (数字大) 的就会被嵌套在级别高的折叠页中
-2.  **foldoutStyle 折叠页外观样式:** 目前一共有三种样式，通过 1~3 进行选择
-3.  **foldoutToggleDraw 是否绘制复选框:** 控制复选框是否被绘制 0 不绘制， 1 绘制
-4.  **foldoutOpen 折叠页初始展开状态:** 0 折叠， 1 展开
-5.  **showList 显示项列表:** 该属性配合切换属性进行使用，当列表中任意一个选项被选中时该折叠页 (以及折叠页里的属性) 将会被绘制，否则将不绘制
-
-![[08a4d7a0bd3222e123ebb856cc6a6809_MD5.jpg]]
-
-**特别需要注意的是折叠页显示的名字必须以_Foldout 结尾，他只起表示作用，属性为 float。属性的初始值 0 为禁用折叠页，1 为启用折叠页**
-
-当勾选复选框时，将会对材质设置关键字 **大写属性名_ON**，你可以使用他进行一些操作，例如
-
-![[5e80ffa77b2beccde834b0980d821620_MD5.webp]]
-
-showList 将会和切换属性一起说明
-
-**3.1 跳出折叠页**
-
-如果你想将内容跳出当前折叠页，你可以使用 [Foldout_Out]
-
-```
-public Foldout_Out(float foldoutLevel = 1)
-```
-
-foldoutLevel 跳出折叠页等级: 比如你的属性在 3 级折叠页中，你可以选择跳到 2 级或者 1 级，例如将颜色属性跳出 2 级折叠页
-
-![[bec36c29d34892780d70ed0b0415aeca_MD5.gif]]
-
-**4. 切换属性**
-
-切换属性它可以控制你指定的属性显示或隐藏，他与折叠页不同，折叠页只是把属性折叠起来。在介绍切换属性前，先了解一下他的工作原理
-
-切换属性一共有两种控件，一个是复选框 [Toggle_Switch]、另一个是菜单栏 [Enum_Switch]。我们有一个选项池，用来存储被选中的选项。当复选框被勾选、或者菜单栏某个选项被选中都会向选项池里添加该选项。其他属性需要输入他显示的选项列表，当他显示列表中的选项至少有一个存在选项池里，该属性将会被显示出来。如下图
-
-![[022bd850241f5576f169c45ec1a125bd_MD5.jpg]]
-
-如上图，颜色 1 属性会不显示、颜色 2 属性将会显示出来，接下来来了解下切换控件吧
-
-**4.1 复选框切换**
-
-他和 Unity 的 [Toggle] 一样，只是名称需要换成[Toggle_Switch]
-
-![[f400abc347da3eeed1f7287d0abfa507_MD5.jpg]]
-
-![[58a55d8637634ddee7f5895bd735bd80_MD5.jpg]]
-
-选中时会设置 **大写属性名_ON** 的关键字，如上就会设置 TOGGLE1_ON
-
-**4.2 菜单栏切换**
-
-他和 Unity 的 [Enum] 一样 (只是目前不支持直接输入枚举), 需要名称换成[Enum_Switch]
-
-你需要对他进行传参 (任意多)，该参数表示菜单栏中的选项
-
-![[2397a234baa7ddba9b513f3ce0ff4ee6_MD5.jpg]]
-
-![[0c52f1ddc30f18653044fc7f38a173b6_MD5.jpg]]
-
-选中会设置 **大写属性名_大写选项名** 的关键字，如上就会设置 **_ENUM1_ENUM2**
-
-**4.3 显示控件**
-
-对于一般的属性使用 [Switch] 来进行属性的显示切换，但对于已经使用绘制的属性来说 (例如折叠页、纹理、向量等) 在属性最后面的 showList 就是他的显示列表
-
-下面来看下 [Switch] 的使用
-
-![[2588712904f9b7dde277f69bcdac2f11_MD5.jpg]]
-
-![[f5723f5a37a5868d4809865a6cec3e94_MD5.gif]]
-
-但是对于折叠页那样的属性，已经使用了 [Foldout] 绘制，所以他不能使用 [Switch] 来进行切换。不过我在参数的最后面留有了显示列表的接口 (showList) 提供使用，其他属性也是一样的。当折叠页不显示时，他里面的所有东西也会不显示。当参数为空时他将一直显示
-
-![[003dbfe6e18e6ec002893d23e93cefdf_MD5.jpg]]
-
-![[3bb56a0296d6ac690eadedde37ae03d6_MD5.webp]]
-
-他的自由度非常高，你甚至可以通过以下方式来控制使用纹理的数量
-
-![[194e41d1ba0786f1d6b98c521bb51f42_MD5.jpg]]
-
-![[863ea8cc16362472b5dbfe3bfff01a55_MD5.gif]]
-
-**4.4 注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
-
-**在使用该切换控件时有两点需要特别注意，当然你可能不知道意味着什么，当你出了问题时会想起来的**
-
-1.  **切换控件一定要在使用该选项的属性前面 (在属性列表中把他放在前面)，因为只有记录了该控件的选项你才能使用该选项**
-2.  **切换控件一定要比使用该选项的属性优先显示，出于某些骚操作，你可能会将切换控件和显示属性放在两个不同的折叠页中，当切换控件被折叠时，依然不会记录选中的选项**
-
-**一般是不会有问题的，这是考虑某些极端的骚操作所留下来的问题，当你遇到问题时，看看是不是犯了这两个错误**
-
-**5. 纹理属性**
-
-这里提供了一个单行纹理的显示方式，并且纹理后面可以选择跟一个属性
-
-```
-//addProName    要在纹理后面绘制属性的名字
-//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
-public TexDrawer(string addProName, params string[] showList)
-```
-
-*   addProName 纹理后面要显示属性的名字
-*   showList 显示选项列表，当任意一个被选中时，该属性将会显示
-
-![[38abc1f9fd524893e995b07175ce09dc_MD5.jpg]]
-
-![[02164397a33b7d0125089faadd98b224_MD5.jpg]]
-
-使用 [NoScaleOffset] 就可以不显示缩放属性
-
-**6. 向量属性**
-
-这里把[喵爷控制方向的属性整合 (搬(抄)) 了过来](https://zhuanlan.zhihu.com/p/97256929)
-
-```
-//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
-public Vector3Drawer (params string[] showList)
-```
-
-![[b19a96b37f21a1096242011f17827f3e_MD5.png]]
-
-![[01ae48d06ea268ec35ef44958e421614_MD5.gif]]
-
-使用时你需要选中一个物体，然后再点击 Set。他将会设置一个世界空间下的向量
-
-需要注意的是如果你想使用该向量来计算光照，你应该使用该向量的相反数
-
-![[917748b8a51dea55179177c0ad0419a9_MD5.jpg]]
-
-**7. 范围属性**
-
-该属性会生成一个范围的滑块控件，在你向指定某一个范围时会很有用
-
-```
-//showList      填写任意数量的选项，当其中一个选项被选中时，该控件会被渲染
-public RangeDrawer(params string[] showList)
-```
-
-![[610a7492671d8d8035e68a1c2abbdfc0_MD5.png]]
-
-![[cd5e00cc0c3ee6b03037267428f5e995_MD5.gif]]
-
-**8. 兼容于扩展**
-
-该 ShaderGUI 使用的是 Unity 2020.2.3f1c1 制作的，其他版本没有测试，在制作时发现 SceneView. onSceneGUIDelegate 在新版将被弃用，所以使用的是 SceneView. duringSceneGui。如果你在旧版的 unity 中使用报这个错误，你可以将其替换回来。
-
-如果你想要拓展自己的属性绘制方法，直接继承 MaterialPropertyDrawer 就好。并不会造成冲突。如果想使用切换控件来控制自己属性的显示，你可以参考 PropertyGUI_Texture. cs 来看如何使用他
-
-如果你想要学习这方面的知识，你可以直接查看代码，里面的注释我已经写的非常详细
-
-**9. 工程**
-
-*   暂时放在了网盘里，注意这里不会及时更新，建议去 github 下载最新版本
-
-链接：[https://pan.baidu.com/s/17-vVMD4tY8x554T8NumquQ](https://pan.baidu.com/s/17-vVMD4tY8x554T8NumquQ)
-
-提取码：7cyz
-
-*   工程更新到了我的 Github
-
-[https://github.com/Straw1997/UnityCustomShaderGUI](https://github.com/Straw1997/UnityCustomShaderGUI)
-
-*   unitypackage 下载地址
-
-[Releases · Straw1997/UnityCustomShaderGUI](https://github.com/Straw1997/UnityCustomShaderGUI/releases)
-
-**10. 参考**
-
-*   [喵刀 Hime：LWGUI：不写一行 GUI 自定义 Unity ShaderGUI](https://zhuanlan.zhihu.com/p/129289103)
-*   [unity3d-jp/UnityChanToonShaderVer2_Project](https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project)
-*   [喵喵 Mya：[自定义 shader 面板] 在 SceneView 中绘制一个控制灯光方向的操纵杆]( https://zhuanlan.zhihu.com/p/97256929 )
-*   [喵喵 Mya：Shader 面板上常用的一些内置 Enum](https://zhuanlan.zhihu.com/p/93194054)
-*   [Unity Shader GUI 学习](https://blog.csdn.net/enk_2/article/details/109236874)
-*   [Unity3D 研究院编辑器之创建 Lua 脚本模板（十六） | 雨松 MOMO 程序研究院](https://www.xuanyusong.com/archives/3732)

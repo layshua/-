@@ -5,6 +5,26 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
+      "basename": "UGUI",
+      "path": "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md"
+    },
+    {
+      "basename": "ShaderGUI",
+      "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
+    },
+    {
+      "basename": "GUI",
+      "path": "引擎Unity3D/1 Unity精粹/UI系统/GUI.md"
+    },
+    {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
@@ -55,14 +75,6 @@
     {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
       "basename": "《CS Primer》",
@@ -187,18 +199,6 @@
     {
       "basename": "21 和散景模糊——实践篇",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
-    },
-    {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
     }
   ],
   "omittedPaths": [],
