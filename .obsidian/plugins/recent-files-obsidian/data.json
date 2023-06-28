@@ -1,6 +1,38 @@
 {
   "recentFiles": [
     {
+      "basename": "02 兰伯特 _半兰伯特光照模型",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md"
+    },
+    {
+      "basename": "01  unlit shader",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
+      "basename": "3 图形处理单元GPU",
+      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
+    },
+    {
+      "basename": "6 纹理化",
+      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
+    },
+    {
+      "basename": "7 阴影",
+      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
+    },
+    {
+      "basename": "5 着色基础",
+      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
+    },
+    {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
     },
@@ -13,10 +45,6 @@
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
-      "basename": "2 图形渲染管线",
-      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
-    },
-    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
@@ -27,10 +55,6 @@
     {
       "basename": "2 GPU Instance深入浅出",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md"
-    },
-    {
-      "basename": "01  unlit shader",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
     },
     {
       "basename": "ShaderLab",
@@ -175,30 +199,6 @@
     {
       "basename": "技术美术 TA3000 问",
       "path": "图形学/面经/技术美术 TA3000 问.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "图形学/3 软渲染器/软光追/未命名.md"
     }
   ],
   "omittedPaths": [],
