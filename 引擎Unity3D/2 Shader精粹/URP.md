@@ -109,12 +109,12 @@ real3 SafeNormalize(float3 inVec)
 |:--|:--|
 |Core|URP 的核心文件, 包含了大量顶点数据、获取数据的函数等|
 |Input |定义了 InputData 结构体、常量数据和空间变换矩阵的宏定义 |
-|Lighting|定义了光照计算相关的函数, 包括全局照明、多种光照模型等 |
+|Lighting |定义了光照计算相关的函数, 包括全局照明、多种光照模型等 |
 |Shadows|定义了计算阴影相关的函数 |
 |SurfaceInput |定义 SurfaceData 结构体和几种纹理的采样函数|
 |UnityInput |包含了大量可以直接使用的全局变量和变换矩阵|
 
-### Input.hlsl
+### Input
 
 结构体：
 ```cs
@@ -162,8 +162,21 @@ struct InputData
 #define UNITY_PREV_MATRIX_I_M unity_MatrixPreviousMI
 #else
 ```
+### Lighting
 
-### SpaceTransforms.hlsl
+|函数|说明|
+|:--|:--|
+|GetMainLight() |获取主光源|
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+
+
+### SpaceTransforms
 
 |获取空间变换矩阵|说明|
 |:--|:--|
@@ -181,19 +194,17 @@ struct InputData
 |float4 **TransformWViewToHClip(float3 positionVS)**|观察空间到齐次裁剪空间|
 |float4 **TransformWorldToHClip(float3 positionWS)** |世界空间到齐次裁剪空间|
 
-
 |向量变换函数|说明 |
 |:--|:--|
 |float3 **TransformObjectToWorldDir**(float3 dirOS, bool doNormalize = true)|模型到世界，是否将向量标准化。反之 |
 |real3 **TransformViewToWorldDir**(real3 dirVS, bool doNormalize = false)|观察到世界，是否将向量标准化。反之 |
 |real3 **TransformWorldToHClipDir**(real3 directionWS, bool doNormalize = false)|世界到齐次裁剪，是否将向量标准化。反之|
-|float3 **TransformObjectToWorldNormal**(float3 normalOS, bool doNormalize = true)|模型到世界法线，是否将向量标准化，反之|
-|real3 **TransformViewToWorldNormal**(real3 normalVS, bool doNormalize = false)|观察到世界法线，是否将向量标准化，反之 |
-|  |  |
+|float3 **TransformObjectToWorldNormal**(float3 normalOS, bool doNormalize = true)|（用于法线）模型到世界，是否将向量标准化，反之 |
+|real3 **TransformViewToWorldNormal**(real3 normalVS, bool doNormalize = false)|（用于法线）观察到世界，是否将向量标准化，反之|
 |real3x3 **CreateTangentToWorld**(real3 normal, real3 tangent, real flipSign)|（用于法线）传入法线，切线，方向符号，返回法线从切线空间到世界空间的3x3变换矩阵tangentToWorld |
 |real3 **TransformTangentToWorld**(float3 normalTS, real3x3 tangentToWorld, bool doNormalize = false)|（用于法线）用tangentToWorld矩阵，切线到世界，反之|
 |real3 **TransformTangentToWorldDir**(real3 dirWS, real3x3 tangentToWorld, bool doNormalize = false)|（用于向量）切线到世界，是否将向量标准化，反之|
-|real3 **TransformObjectToTangent**(real3 dirOS, real3x3 tangentToWorld)|（用于向量）模型到世界，是否将向量标准化，反之|
+|real3 **TransformObjectToTangent**(real3 dirOS, real3x3 tangentToWorld) |（用于向量）模型到世界，是否将向量标准化，反之|
 
 
 
