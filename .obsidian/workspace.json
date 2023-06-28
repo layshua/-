@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 201.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -190,6 +190,8 @@
   },
   "active": "2384a5da855cebc2",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230628102005.png",
+    "zip/images/Pasted image 20230628101135.png",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
@@ -222,10 +224,8 @@
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "zip/images/Pasted image 20230627140250.png",
     "zip/images/Pasted image 20230627122009.png",
-    "Tools/Obsidian/发布方案.md",
     "zip/images/645d0562d3f715edbac46c8128d37169_MD5.png",
     "zip/images/c57645211e3c18849dd59dbf2215b02b_MD5.png",
-    "zip/images/Pasted image 20230627093819.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
