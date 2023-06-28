@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "【URP 学习记录】 阴影的接收与生成",
+      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
+    },
+    {
       "basename": "DX12理论",
       "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
@@ -21,16 +33,8 @@
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
-      "basename": "3 进阶应用",
-      "path": "3 进阶应用.md"
-    },
-    {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
       "basename": "03 光照向量",
@@ -43,10 +47,6 @@
     {
       "basename": "05 烘焙光照",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
       "basename": "3D数学",
@@ -79,10 +79,6 @@
     {
       "basename": "发布方案",
       "path": "Tools/Obsidian/发布方案.md"
-    },
-    {
-      "basename": "【URP 学习记录】 阴影的接收与生成",
-      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
     },
     {
       "basename": "DrawCall，Batches，SetPass calls",

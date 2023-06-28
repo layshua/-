@@ -207,6 +207,79 @@ struct InputData
 5. ImageBasedLighting 包含了 CommonLighting、CommonMaterial
 6. Shadow 包含了 Core 
 
+# 语法
+
+## 纹理和采样器
+```c
+//声明纹理和采样器
+TEXTURE2D(_textureName); SAMPLER(sampler_textureName);
+
+//如果需要使用Tilling和Scale功能，需要在CBuffer中声明float4类型的变量
+float4 _textureName_ST;
+
+//进行纹理采样
+SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
+```
+
+采样器可以定义纹理设置面板上的 Wrap Mode（重复模式，clamp、repeat、mirror、mirrorOnce）和 Filter Mode （过滤模式，point、linear、triLinear）
+
+采样器的三种定义方式：
+1. `SAMPLER(sampler_textureName)`：表示该纹理使用设置面板设定的采样方式
+2. `SAMPLER(filer_wrap)`：使用自定义的采样器设置，必须同时包含 Wrap Mode 和 Filter Mode 的设置，如 `SAMPLER(point_clamp) `
+3. `SAMPLER(filer_wrapU_wrapV)` ：可以同时为 U 和 V 设置不同的 Wrap Mode 如：`SAMPLER(filer_clampU_mirrorV)`
+
+### 宏定义
+`TEXTURE2D_ARGS()` 宏：只是将纹理名称和采样器名称这两个参数合并在一起
+```c file:DX11下的定义
+#define TEXTURE2D_ARGS(textureName, samplerName) textureName, samplerName
+```
+
+`TEXTURE2D_PARAM()` 宏，传入纹理名称和采样器名称，转换为一个纹理变量和一个采样器，可以作为参数，节省字数。
+```c file:DX11下的定义
+#define TEXTURE2D_PARAM(textureName, samplerName)              TEXTURE2D(textureName),         SAMPLER(samplerName)
+```
+
+```c file:宏定义用法
+//采样函数，TEXTURE2D_PARAM()接收参数
+half4 SampleAlbedoAlpha(float2 uv, TEXTURE2D_PARAM(albedoAlphaMap, sampler_albedoAlphaMap))
+{
+    return SAMPLE_TEXTURE2D(albedoAlphaMap, sampler_albedoAlphaMap, uv);
+}
+
+//使用采样函数，TEXTURE2D_ARGS()很方便的将两个参数传入
+float albedoAlpha = SampleAlbedoAlpha(uv, TEXTURE2D_ARGS(_BaseMap,sampler_BaseMap));
+
+
+//等价实现：
+half4 SampleAlbedoAlpha(float2 uv, TEXTURE2D(_textureName),  SAMPLER(sampler_textureName))
+{
+    return SAMPLE_TEXTURE2D(albedoAlphaMap, sampler_albedoAlphaMap, uv);
+}
+
+float albedoAlpha = SampleAlbedoAlpha(uv ,_BaseMap ,sampler_BaseMap);
+```
+
+
+>图形API宏定义路径：Packages/Core RP Library/ShaderLibrary/API
+### 法线贴图采样
+`real3 UnpackNormal(real4 packedNormal)`
+`real3 UnpackNormalScale(real4 packedNormal, real bumpScale)`
+
+```c
+half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
+# if BUMP_SCALE_NOT_supported //如果平台不支持调节法线强度
+    return UnpackNormal(n)
+#else 
+    return UnpackNormalScale(n,scale);
+```
+
+`UnpackNormal()` 和 `UnpackNormalScale`：当平台不使用 DXT5nm 压缩法线贴图（移动平台），函数内部会分别调用 `UnpackNormalRGBNoScale()` 和 `UnpackNormalRGB()` ；佛则，这两个函数内部都调用 `UnpackNormalmapRGorAG()` 函数，只不过 `UnpackNormal()` 法线强度始终为 1。
+
+
+
+
+
+
 # Lit. shader 解析
 
 > [!NOTE] 版本
@@ -239,7 +312,7 @@ CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
 ### ForwardLit
 前向渲染 Pass，在一个 Pass 中计算所有光照，包括全局光照 GI，自发光 Emission，雾效 Fog。
 
-```c
+```c file:ForwardLit
 Pass
 {
     //Lightmode 标签 与 UniversalRenderPipeline.cs 中设置的 ShaderPassName 匹配
@@ -778,7 +851,7 @@ struct SurfaceData
 };
 ```
 ### ShadowCaster
-阴影投射 Pass，作用是生成阴影贴图
+阴影投射 Pass，计算灯光的阴影贴图
 ```cs
 Pass
 {
@@ -922,6 +995,7 @@ float3 ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection
 待补充
 
 ### DepthOnly
+计算摄像机的深度信息
 ```cs
 Pass
 {
@@ -934,7 +1008,7 @@ Pass
     // -------------------------------------
     // Render State Commands
     ZWrite On
-    ColorMask R
+    ColorMask R  //深度图只需要R通道
     Cull[_Cull]
 
     HLSLPROGRAM
@@ -947,6 +1021,7 @@ Pass
 
     // -------------------------------------
     // Material Keywords
+    // 计算深度图会用到透明度裁切属性
     #pragma shader_feature_local_fragment _ALPHATEST_ON
     #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
 
@@ -964,6 +1039,53 @@ Pass
     #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl"
     ENDHLSL
+}
+```
+#### DepthOnlyPass.hlsl
+
+```c file:DepthOnlyPass.hlsl
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#if defined(LOD_FADE_CROSSFADE)
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LODCrossFade.hlsl"
+#endif
+
+struct Attributes
+{
+    float4 position     : POSITION;
+    float2 texcoord     : TEXCOORD0;
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+struct Varyings
+{
+    float2 uv           : TEXCOORD0;
+    float4 positionCS   : SV_POSITION;
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+    UNITY_VERTEX_OUTPUT_STEREO
+};
+
+Varyings DepthOnlyVertex(Attributes input)
+{
+    Varyings output = (Varyings)0;
+    UNITY_SETUP_INSTANCE_ID(input);
+    UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+    output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+    output.positionCS = TransformObjectToHClip(input.position.xyz);
+    return output;
+}
+
+half DepthOnlyFragment(Varyings input) : SV_TARGET
+{
+    UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+    //透明度裁剪
+    Alpha(SampleAlbedoAlpha(input.uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap)).a, _BaseColor, _Cutoff);
+
+#ifdef LOD_FADE_CROSSFADE
+    LODFadeCrossFade(input.positionCS);
+#endif
+    //返回深度
+    return input.positionCS.z;
 }
 ```
 ### DepthNormals
@@ -1021,49 +1143,126 @@ Pass
 ```
 
 ### Meta
+将材质的 Albedo 和 Emission 属性传递给 Unity 的烘焙系统，从而保证物体能够被准确计算出间接照明。因此只有 Shader 中带 MetaPass，物体才能烘焙出光照贴图，并且只有在烘焙光照贴图是，MetaPass 才会被执行。
 ```cs
 // This pass it not used during regular rendering, only for lightmap baking.
-        Pass
+    Pass
+    {
+        Name "Meta"
+        Tags
         {
-            Name "Meta"
-            Tags
-            {
-                "LightMode" = "Meta"
-            }
-
-            // -------------------------------------
-            // Render State Commands
-            Cull Off
-
-            HLSLPROGRAM
-            #pragma target 2.0
-
-            // -------------------------------------
-            // Shader Stages
-            #pragma vertex UniversalVertexMeta
-            #pragma fragment UniversalFragmentMetaLit
-
-            // -------------------------------------
-            // Material Keywords
-            #pragma shader_feature_local_fragment _SPECULAR_SETUP
-            #pragma shader_feature_local_fragment _EMISSION
-            #pragma shader_feature_local_fragment _METALLICSPECGLOSSMAP
-            #pragma shader_feature_local_fragment _ALPHATEST_ON
-            #pragma shader_feature_local_fragment _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
-            #pragma shader_feature_local_fragment _SPECGLOSSMAP
-            #pragma shader_feature EDITOR_VISUALIZATION
-
-            // -------------------------------------
-            // Includes
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl"
-
-            ENDHLSL
+            "LightMode" = "Meta"
         }
+
+        // -------------------------------------
+        // Render State Commands
+        Cull Off  //烘焙需要考虑到物体背面，因此关闭Cull
+
+        HLSLPROGRAM
+        #pragma target 2.0
+
+        // -------------------------------------
+        // Shader Stages
+        #pragma vertex UniversalVertexMeta
+        #pragma fragment UniversalFragmentMetaLit
+
+        // -------------------------------------
+        // Material Keywords
+        #pragma shader_feature_local_fragment _SPECULAR_SETUP
+        #pragma shader_feature_local_fragment _EMISSION
+        #pragma shader_feature_local_fragment _METALLICSPECGLOSSMAP
+        #pragma shader_feature_local_fragment _ALPHATEST_ON
+        #pragma shader_feature_local_fragment _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
+        #pragma shader_feature_local_fragment _SPECGLOSSMAP
+        #pragma shader_feature EDITOR_VISUALIZATION
+
+        // -------------------------------------
+        // Includes
+        #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+        #include "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl"
+
+        ENDHLSL
+    }
 ```
 
+#### UniversalMetaPass.hlsl
+```cs file:UniversalMetaPass.hlsl
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl"
+
+struct Attributes
+{
+    float4 positionOS   : POSITION;
+    float3 normalOS     : NORMAL;
+    float2 uv0          : TEXCOORD0; //模型uv
+    float2 uv1          : TEXCOORD1; //静态光照贴图uv
+    float2 uv2          : TEXCOORD2; //动态光照（实时GI）贴图uv
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+struct Varyings
+{
+    float4 positionCS   : SV_POSITION;
+    float2 uv           : TEXCOORD0;
+#ifdef EDITOR_VISUALIZATION
+    float2 VizUV        : TEXCOORD1;
+    float4 LightCoord   : TEXCOORD2;
+#endif
+};
+
+Varyings UniversalVertexMeta(Attributes input)
+{
+    Varyings output = (Varyings)0;
+    //获取齐次裁剪空间顶点位置
+    output.positionCS = UnityMetaVertexPosition(input.positionOS.xyz, input.uv1, input.uv2);
+    output.uv = TRANSFORM_TEX(input.uv0, _BaseMap);
+#ifdef EDITOR_VISUALIZATION
+    UnityEditorVizData(input.positionOS.xyz, input.uv0, input.uv1, input.uv2, output.VizUV, output.LightCoord);
+#endif
+    return output;
+}
+
+half4 UniversalFragmentMeta(Varyings fragIn, MetaInput metaInput)
+{
+#ifdef EDITOR_VISUALIZATION
+    metaInput.VizUV = fragIn.VizUV;
+    metaInput.LightCoord = fragIn.LightCoord;
+#endif
+
+    return UnityMetaFragment(metaInput);
+}
+#endif
+
+```
+
+```cs file:获取齐次裁剪空间顶点位置
+float4 UnityMetaVertexPosition(float3 vertex, float2 uv1, float2 uv2, float4 lightmapST, float4 dynlightmapST)
+{
+#ifndef EDITOR_VISUALIZATION
+    if (unity_MetaVertexControl.x)  //x分量表示使用uv1作为光栅化坐标
+    {
+        vertex.xy = uv1 * lightmapST.xy + lightmapST.zw;
+        // OpenGL right now needs to actually use incoming vertex position,
+        // so use it in a very dummy way
+        vertex.z = vertex.z > 0 ? REAL_MIN : 0.0f;
+        //REAL_MIN表示无线接近于0的数值
+    }
+    if (unity_MetaVertexControl.y) //x分量表示使用uv2作为光栅化坐标
+    {
+        vertex.xy = uv2 * dynlightmapST.xy + dynlightmapST.zw;
+        // OpenGL right now needs to actually use incoming vertex position,
+        // so use it in a very dummy way
+        vertex.z = vertex.z > 0 ? REAL_MIN : 0.0f;
+    }
+    return TransformWorldToHClip(vertex);
+#else
+    return TransformObjectToHClip(vertex);
+#endif
+}
+```
 ### Universal2D
+使用 2D 渲染器绘制物体时调用，不需要进行光照计算
+
 ```cs
 Pass
 {
@@ -1089,6 +1288,7 @@ Pass
 
     // -------------------------------------
     // Material Keywords
+    //透明度裁剪
     #pragma shader_feature_local_fragment _ALPHATEST_ON
     #pragma shader_feature_local_fragment _ALPHAPREMULTIPLY_ON
 
@@ -1101,75 +1301,53 @@ Pass
     ENDHLSL
 }
 ```
-# 语法
 
-## 纹理和采样器
-```c
-//声明纹理和采样器
-TEXTURE2D(_textureName); SAMPLER(sampler_textureName);
+#### Universal2D.hlsl
+```cs file:Universal2D.hlsl
 
-//如果需要使用Tilling和Scale功能，需要在CBuffer中声明float4类型的变量
-float4 _textureName_ST;
-
-//进行纹理采样
-SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
-```
-
-采样器可以定义纹理设置面板上的 Wrap Mode（重复模式，clamp、repeat、mirror、mirrorOnce）和 Filter Mode （过滤模式，point、linear、triLinear）
-
-采样器的三种定义方式：
-1. `SAMPLER(sampler_textureName)`：表示该纹理使用设置面板设定的采样方式
-2. `SAMPLER(filer_wrap)`：使用自定义的采样器设置，必须同时包含 Wrap Mode 和 Filter Mode 的设置，如 `SAMPLER(point_clamp) `
-3. `SAMPLER(filer_wrapU_wrapV)` ：可以同时为 U 和 V 设置不同的 Wrap Mode 如：`SAMPLER(filer_clampU_mirrorV)`
-
-### 宏定义
-`TEXTURE2D_ARGS()` 宏：只是将纹理名称和采样器名称这两个参数合并在一起
-```c file:DX11下的定义
-#define TEXTURE2D_ARGS(textureName, samplerName) textureName, samplerName
-```
-
-`TEXTURE2D_PARAM()` 宏，传入纹理名称和采样器名称，转换为一个纹理变量和一个采样器，可以作为参数，节省字数。
-```c file:DX11下的定义
-#define TEXTURE2D_PARAM(textureName, samplerName)              TEXTURE2D(textureName),         SAMPLER(samplerName)
-```
-
-```c file:宏定义用法
-//采样函数，TEXTURE2D_PARAM()接收参数
-half4 SampleAlbedoAlpha(float2 uv, TEXTURE2D_PARAM(albedoAlphaMap, sampler_albedoAlphaMap))
+struct Attributes
 {
-    return SAMPLE_TEXTURE2D(albedoAlphaMap, sampler_albedoAlphaMap, uv);
+    float4 positionOS       : POSITION;
+    float2 uv               : TEXCOORD0;
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+struct Varyings
+{
+    float2 uv        : TEXCOORD0;
+    float4 vertex : SV_POSITION;
+    UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+Varyings vert(Attributes input)
+{
+    Varyings output = (Varyings)0;
+
+    UNITY_SETUP_INSTANCE_ID(input);
+    UNITY_TRANSFER_INSTANCE_ID(input, output);
+
+    VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+    output.vertex = vertexInput.positionCS;
+    output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
+
+    return output;
 }
 
-//使用采样函数，TEXTURE2D_ARGS()很方便的将两个参数传入
-float albedoAlpha = SampleAlbedoAlpha(uv, TEXTURE2D_ARGS(_BaseMap,sampler_BaseMap));
-
-
-//等价实现：
-half4 SampleAlbedoAlpha(float2 uv, TEXTURE2D(_textureName),  SAMPLER(sampler_textureName))
+half4 frag(Varyings input) : SV_Target
 {
-    return SAMPLE_TEXTURE2D(albedoAlphaMap, sampler_albedoAlphaMap, uv);
+    UNITY_SETUP_INSTANCE_ID(input);
+    half2 uv = input.uv;
+    half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv);
+    half3 color = texColor.rgb * _BaseColor.rgb;
+    half alpha = texColor.a * _BaseColor.a;
+    //透明度裁切
+    AlphaDiscard(alpha, _Cutoff);
+
+    //是否开启透明度预乘
+#ifdef _ALPHAPREMULTIPLY_ON
+    color *= alpha;
+#endif
+    return half4(color, alpha);
 }
 
-float albedoAlpha = SampleAlbedoAlpha(uv ,_BaseMap ,sampler_BaseMap);
 ```
-
-
->图形API宏定义路径：Packages/Core RP Library/ShaderLibrary/API
-### 法线贴图采样
-`real3 UnpackNormal(real4 packedNormal)`
-`real3 UnpackNormalScale(real4 packedNormal, real bumpScale)`
-
-```c
-half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
-# if BUMP_SCALE_NOT_supported //如果平台不支持调节法线强度
-    return UnpackNormal(n)
-#else 
-    return UnpackNormalScale(n,scale);
-```
-
-`UnpackNormal()` 和 `UnpackNormalScale`：当平台不使用 DXT5nm 压缩法线贴图（移动平台），函数内部会分别调用 `UnpackNormalRGBNoScale()` 和 `UnpackNormalRGB()` ；佛则，这两个函数内部都调用 `UnpackNormalmapRGorAG()` 函数，只不过 `UnpackNormal()` 法线强度始终为 1。
-
-
-
-
-

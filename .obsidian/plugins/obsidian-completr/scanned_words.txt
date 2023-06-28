@@ -175561,6 +175561,7 @@ GetViewToWorldMatrix
 GetWorldToHClipMatrix
 GetViewToHClipMatrix
 GetWorldToViewMatrix
+GBUFFER
 NULL
 Native
 NormalMap
