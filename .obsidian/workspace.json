@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
               }
             }
           }
@@ -107,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,6 +158,8 @@
   },
   "active": "453f24151ce984cd",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
@@ -192,8 +194,6 @@
     "技术美术/4 UnityShader/庄懂AP01.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "图形学/0 3D数学/3D数学.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "zip/MindMap/Litshader.km.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",

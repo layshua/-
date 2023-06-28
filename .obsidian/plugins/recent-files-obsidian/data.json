@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "08 多光源处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+    },
+    {
+      "basename": "03 布林风 - 半兰伯特光照模型",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md"
+    },
+    {
       "basename": "02 兰伯特 _半兰伯特光照模型",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "06 阴影遮罩",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
-      "basename": "技术美术 TA3000 问",
-      "path": "图形学/面经/技术美术 TA3000 问.md"
     }
   ],
   "omittedPaths": [],
