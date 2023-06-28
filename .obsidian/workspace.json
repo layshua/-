@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,14 +195,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "f2b34ba71aa97aad",
+  "active": "3a4fafdc752e3bf7",
   "lastOpenFiles": [
+    "zBuffer/变体和关键字.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "README.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "zBuffer/变体和关键字.md",
     "图形学/1 图形系统/08 透明.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "zip/images/Pasted image 20230628200255.png",
