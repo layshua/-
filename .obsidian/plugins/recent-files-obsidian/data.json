@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+      "basename": "变体",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
       "basename": "URP 多光源处理",
       "path": "zBuffer/URP 多光源处理.md"
+    },
+    {
+      "basename": "ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "13 多相机",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
     },
     {
       "basename": "URP",
@@ -191,14 +199,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
     }
   ],
   "omittedPaths": [],

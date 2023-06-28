@@ -8,19 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c46a6ed91b20cd65",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "81d8cbec5fedbb8c",
             "type": "leaf",
             "state": {
@@ -32,27 +19,22 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "ae09b507099c0706",
-        "type": "tabs",
-        "children": [
+          },
           {
             "id": "ca8a9f068028660f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 多光源处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
               }
             }
           }
@@ -138,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +137,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -187,12 +169,19 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "c46a6ed91b20cd65",
+  "active": "ca8a9f068028660f",
   "lastOpenFiles": [
+    "zBuffer/URP 多光源处理.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "zip/images/Pasted image 20230628194839.png",
+    "zip/images/Pasted image 20230628194409.png",
+    "引擎Unity3D/2 Shader精粹/ShaderLab",
+    "zip/images/Pasted image 20230628193737.png",
+    "zip/images/Pasted image 20230628193118.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "zip/images/Pasted image 20230628192654.png",
     "zip/images/Pasted image 20230628192227.png",
-    "zBuffer/URP 多光源处理.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "zip/images/Pasted image 20230628192002.png",
     "zip/images/Pasted image 20230628191949.png",
     "引擎Unity3D/2 Shader精粹/URP.md",
@@ -205,11 +194,6 @@
     "zip/images/c0551cb9f280646d6a797830b16bd182_MD5.png",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",
     "zBuffer/URP 深度法线纹理.md",
-    "zip/images/36dc94ff1aad853c6d8f9df49ac09061_MD5.png",
-    "zip/images/451f43e9063229766fefddb5bc9c0c8b_MD5.png",
-    "zip/images/193f7296ef04af3a2dd849649da64e99_MD5.png",
-    "zip/images/9a530e4ec0055be8463ba828f4df3c57_MD5.png",
-    "zip/images/b2ab4637c111d96f2ba7dff656106a45_MD5.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
@@ -225,8 +209,6 @@
     "编程/C++/《C++ Primer》.md",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
     "技术美术/1 渲染雅集/体积云.md",
-    "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
@@ -234,7 +216,6 @@
     "引擎Unity3D/收藏夹",
     "技术美术/3 后处理",
     "技术美术/1 渲染雅集",
-    "引擎Unity3D/2 Shader精粹/《URP》",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
