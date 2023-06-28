@@ -710,7 +710,7 @@ Unity 提供了很多空间变换矩阵，可以直接使用 CG 函数 `mul(Matr
 |**名称**|**类型**|**值**|
 |:--|:--|:--|
 |`_LightColor0`（在 UnityLightingCommon.cginc 中声明）|fixed4|光源颜色。|
-|`_WorldSpaceLightPos0`|float4|方向光：（世界空间方向，0）。其他光源：（世界空间位置，1）。 |
+|`_WorldSpaceLightPos0` |float4|方向光：（世界空间方向，0）。其他光源：（世界空间位置，1）。 |
 |unity_WorldToLight（在 AutoLight.cginc 中声明）|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。 |
 |unity_4LightPosX0、unity_4LightPosY0、unity_4LightPosZ0|float4|（仅限 ForwardBase 通道）前四个非重要点光源的世界空间位置。 |
 |unity_4LightAtten0| float4      | （仅限 ForwardBase 通道）前四个非重要点光源的衰减因子。    |
@@ -724,7 +724,7 @@ Unity 提供了很多空间变换矩阵，可以直接使用 CG 函数 `mul(Matr
 |:--|:--|:--|
 |`_LightColor`|float4|光源颜色。|
 |unity_WorldToLight|float4x4|世界/光源矩阵。用于对剪影和衰减纹理进行采样。|
-|unity_WorldToShadow|float4x4[4]|世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。|
+|unity_WorldToShadow|float4x4[4] |世界/阴影矩阵。聚光灯的一个矩阵，方向光级联最多有四个矩阵。|
 
 为 `ForwardBase`、`PrePassFinal` 和 `Deferred` 通道类型设置了球谐函数系数 （由环境光和光照探针使用）。这些系数包含由世界空间法线求值的三阶 SH 函数（请参阅 [UnityCG.cginc](https://docs.unity3d.com/cn/2021.1/Manual/SL-BuiltinIncludes.html) 中的 `ShadeSH9`）。 这些变量都是 half4 类型、`unity_SHAr` 和类似名称。
 

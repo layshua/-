@@ -166,16 +166,145 @@ struct InputData
 
 |函数|说明|
 |:--|:--|
-|GetMainLight() |获取主光源|
-|GetAdditionalLightsCount()|获取其他光源数量|
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+|Light GetMainLight()|获取主光源|
+|int GetAdditionalLightsCount();|获取其他光源数量|
+|half3 SampleSH(half3 normalWS) |环境光函数|
+|half3  `_GlossyEnvironmentColor`|Unity 内置环境光 |
+|half3 LightingLambert|Lambert 函数 |
+|half3 LightingSpecular|  |
 |  |  |
 
+```cs
+struct Light
+{
+    half3   direction;
+    half3   color; //主光源颜色*强度
+    float   distanceAttenuation;  //距离衰减
+    half    shadowAttenuation;    //阴影衰减
+    uint    layerMask;
+};
+```
 
+*   采样光照贴图不支持实时 GI
 
+```c
+half3 SampleLightmap(float2 lightmapUV, half3 normalWS);
+half3 SubtractDirectMainLightFromLightmap(Light mainLight, half3 normalWS, half3 bakedGI);
+```
+
+*   混合实时光和 bakeGI
+
+```c
+void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedGI)
+```
+
+### Shadows
+表明该 Pass 选择阴影渲染模式
+
+```c
+Tags { "LightMode" = "ShadowCaster" }
+```
+
+- 用于获取应用阴影的深度偏移后的阴影坐标
+
+```c
+ApplyShadowBias(positionWS, normalWS, _LightDirection)
+```
+
+- 获取阴影坐标
+
+```c
+TransformWorldToShadowCoord(positionWS)
+```
+
+- 用于接受阴影用的关键字
+
+```c
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+#pragma multi_compile _ _SHADOWS_SOFT
+```
+
+示例
+
+```c
+Pass         
+{             
+	Name "ShadowCaster" 
+	Tags { "LightMode" = "ShadowCaster" } 
+	Cull Off 
+	ZWrite On 
+	ZTest LEqual 
+	                    
+	HLSLPROGRAM         
+ #pragma vertex vert 
+ #pragma fragment frag 
+ #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+ #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
+	
+	float3 _LightDirection; 
+	//为了让shader的SRP Batcher能够使用，所以每个pass的Cbuffer都要保持一直。（应该是这样吧）
+	
+	CBUFFER_START(UnityPerMaterial)                 
+	//...             
+	CBUFFER_END         
+	    
+	struct Attributes 
+	{                 
+		float4 positionOS: POSITION; 
+		float3 normalOS: NORMAL; 
+		float2 texcoord: TEXCOORD0; 
+	};             
+	
+	struct Varyings 
+	{                 
+		float2 uv: TEXCOORD0; 
+		float4 positionCS: SV_POSITION; 
+	};             
+	
+	// 获取裁剪空间下的阴影坐标 
+	float4 GetShadowPositionHClips(Attributes input) 
+	{                 
+		float3 positionWS = TransformObjectToWorld(input.positionOS.xyz); 
+		float3 normalWS = TransformObjectToWorldNormal(input.normalOS); 
+		//_LightDirection这个是官方自己定义的特定的float3，它可以获得主光源和额外光源的方向，替换掉MainLight.direction后，就可以正常获取addlight的灯光方向了                 
+		float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _LightDirection)); 
+		return positionCS; 
+	}             
+	
+	Varyings vert(Attributes input) 
+	{                 
+		Varyings output; 
+		output.uv = TRANSFORM_TEX(input.texcoord, _MainTex); 
+		output.positionCS = GetShadowPositionHClips(input); 
+		return output; 
+	}             
+	
+	half4 frag(Varyings input): SV_TARGET 
+	{                 
+		half4 albedoAlpha = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv); 
+		//这里要是否需要裁剪透明通道。现在BASE是Opaque渲染模式，没有裁剪。需要用的自己改一下。                 //clip(albedoAlpha.a - _Cutoff); 
+		return 0; 
+	}           
+	ENDHLSL
+}
+```
+
+*   或者使用 UsePass 调用内置的 ShadowCaster
+
+```c
+UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+```
+
+URP 只支持使用单个 Pass 渲染如果要开启多 Pass 需要按以下方式
+*   第二个 Pass 添加
+
+```c
+Tags{ "LightMode" = "SRPDefaultUnlit" }
+```
+
+*   即可让这两个 pass 同时生效
 ### SpaceTransforms
 
 |获取空间变换矩阵|说明|

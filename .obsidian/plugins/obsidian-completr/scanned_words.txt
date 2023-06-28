@@ -171019,6 +171019,8 @@ Lightling
 LightDirWS
 LODFading
 Libraries
+LightingLambert
+LightingSpecular
 Getx
 GetX
 GetName
