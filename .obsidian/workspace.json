@@ -8,19 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ca8a9f068028660f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "dbaf97e3d31e146a",
             "type": "leaf",
             "state": {
@@ -34,12 +21,25 @@
             }
           },
           {
-            "id": "3638557b6977ea2f",
+            "id": "3a4fafdc752e3bf7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f2b34ba71aa97aad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -102,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
               }
             }
           }
@@ -145,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,13 +195,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ca8a9f068028660f",
+  "active": "f2b34ba71aa97aad",
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "图形学/1 图形系统/08 透明.md",
-    "zBuffer/变体和关键字.md",
+    "README.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "zBuffer/变体和关键字.md",
+    "图形学/1 图形系统/08 透明.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "zip/images/Pasted image 20230628200255.png",
     "zip/images/Pasted image 20230628195959.png",
@@ -233,8 +236,6 @@
     "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
-    "编程/C++/《C++ Primer》.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
