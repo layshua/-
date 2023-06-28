@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md"
               }
             }
           }
@@ -107,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -158,22 +158,35 @@
   },
   "active": "453f24151ce984cd",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
+    "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/07 alphaTest 制作烧溶效果.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
     "图形学/5 书籍/《RTR4》/2 图形渲染管线.md",
     "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
-    "图形学/5 书籍/《RTR4》/6 纹理化.md",
-    "图形学/5 书籍/《RTR4》/7 阴影.md",
-    "图形学/5 书籍/《RTR4》/5 着色基础.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230628110952.png",
     "zip/images/Pasted image 20230628110847.png",
     "zip/images/Pasted image 20230628110726.png",
-    "zBuffer/菜鸡都能学会的 Unity 草地 shader.md",
     "zip/images/3993d61b5d8a48d83f1c73cd4a3f7173_MD5.gif",
     "zip/images/532aca4e64b948c9b0ed09ca86229bc3_MD5.png",
     "zip/images/67668b29ac1fceb3d4450dde55b59d3a_MD5.gif",
@@ -181,19 +194,6 @@
     "zip/images/9eaa87546885bef4aadb9ef2333fd2d9_MD5.png",
     "zip/images/c0b82866cb1fb2a1836b943aeb2aee64_MD5.jpg",
     "zip/images/e4a87b22bd589cb6361bd3bcebe66e2a_MD5.png",
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab.md",
-    "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
-    "3 进阶应用.md",
-    "技术美术/2 着色器/曲面细分与几何着色器.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "技术美术/4 UnityShader/庄懂AP01.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "图形学/0 3D数学/3D数学.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
