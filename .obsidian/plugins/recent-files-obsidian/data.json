@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "05 渐变纹理",
@@ -13,8 +13,12 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
+      "basename": "06 alpha 混合",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
       "basename": "TA101",
@@ -87,10 +91,6 @@
     {
       "basename": "08 多光源处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
-    },
-    {
-      "basename": "06 alpha 混合",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md"
     },
     {
       "basename": "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp",

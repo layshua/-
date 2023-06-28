@@ -169,7 +169,7 @@ struct InputData
 |Light GetMainLight()|获取主光源|
 |int GetAdditionalLightsCount();|获取其他光源数量|
 |half3 SampleSH(half3 normalWS) |环境光函数|
-|half3  `_GlossyEnvironmentColor`|Unity 内置环境光 |
+|half3  `_GlossyEnvironmentColor` |Unity 内置环境光 |
 |half3 LightingLambert|Lambert 函数 |
 |half3 LightingSpecular|  |
 |  |  |
