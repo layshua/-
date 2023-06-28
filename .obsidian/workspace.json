@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
+                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md"
               }
             }
           }
@@ -132,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+                "file": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,9 +183,21 @@
   },
   "active": "c46a6ed91b20cd65",
   "lastOpenFiles": [
+    "zip/images/d4062f450f27f47fbde557ff4b28cdc7_MD5.gif",
+    "zip/images/8f7d7ab1ce76d04e6920cfb114b9fb82_MD5.png",
+    "zip/images/aebbd389541f0f84d2dd44a547175ccf_MD5.gif",
+    "zip/images/451e11f190326c426ff4a3768696c03c_MD5.png",
+    "zip/images/4ed9a2c3eb2528ef480eba92d5e8ea7b_MD5.png",
+    "zip/images/5fcf36adf5ec4d055a60c3fb31586108_MD5.png",
+    "zip/images/f9c0bb6dc2708f8363ddcbe219a43db6_MD5.png",
+    "zip/images/506bfacd08992cddde90d2dafaa7cfc5_MD5.png",
+    "zip/images/36967b26f1fd3f8bd337030d7dd9fc67_MD5.png",
+    "zip/images/1b223dfe58be80b98a9f1060d10039d7_MD5.png",
+    "zip/images/e025600b32a0b903a0918d151214760b_MD5.png",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
@@ -207,18 +219,6 @@
     "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "zip/images/Pasted image 20230628163052.png",
-    "zip/images/Pasted image 20230628162914.png",
-    "zip/images/Pasted image 20230628110952.png",
-    "zip/images/Pasted image 20230628110847.png",
-    "zip/images/Pasted image 20230628110726.png",
-    "zip/images/3993d61b5d8a48d83f1c73cd4a3f7173_MD5.gif",
-    "zip/images/532aca4e64b948c9b0ed09ca86229bc3_MD5.png",
-    "zip/images/67668b29ac1fceb3d4450dde55b59d3a_MD5.gif",
-    "zip/images/410d17f3f7047c6eccd30e3e9ebd0e77_MD5.gif",
-    "zip/images/9eaa87546885bef4aadb9ef2333fd2d9_MD5.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",

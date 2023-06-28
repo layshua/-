@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上",
+      "path": "zBuffer/Shader 魔法学笔记_ RayMarching 体积云 URP 实现_ 上.md"
+    },
+    {
       "basename": "11 ShadowCaster 和 SRP batcher",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "Litshader.km",
-      "path": "zip/MindMap/Litshader.km.md"
     }
   ],
   "omittedPaths": [],
