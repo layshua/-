@@ -6,9 +6,7 @@
     
 *    CBUFFER_START 和 CBUFFER_END, 对于变量是单个材质独有的时候建议放在这里面，以提高性能。CBUFFER(常量缓冲区) 的空间较小，不适合存放纹理贴图这种大量数据的数据类型，适合存放 float，half 之类的不占空间的数据，关于它的官方文档在下有详细说明。https://blogs.unity3d.com/2019/02/28/srp-batcher-speed-up-your-rendering/
     
-*    新的 DXD11 HLSL 贴图的采样函数和采样器函数，TEXTURE2D (_MainTex) 和 SAMPLER(sampler_MainTex)，用来定义采样贴图和采样状态代替原来 DXD9 的 sampler2D，在不同的平台有不同的变化，在 GLcore 库函数里定义，具体的原理未知，如有大佬了解望给予评论和指出。
-    
-*   贴图的采用输出函数采用 DXD11 HLSL 下的 SAMPLE_TEXTURE2D(textureName, samplerName, coord2) ，具有三个变量，分别是 TEXTURE2D (_MainTex) 的变量和 SAMPLER(sampler_MainTex) 的变量和 uv，用来代替原本 DXD9 的 TEX2D(_MainTex,texcoord)。
+
     
 *   UnityCG，cginc 已经不再适用，取而代之的是 Core.hlsl，在引用时注明 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl" 即可。
     

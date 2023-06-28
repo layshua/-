@@ -50018,6 +50018,7 @@ UVpos
 UnpackNormalScale
 UVoffset
 UntiyShader
+UniversalMetaPass
 api
 ac
 app
@@ -111877,6 +111878,7 @@ TransformWorldToHClipDir
 TransformViewToWorldNormal
 TransformTangentToWorldDir
 TransformObjectToTangent
+Tessellator
 io
 ipad
 it
@@ -166909,6 +166911,7 @@ DualBlur
 Debry
 Drummond
 DegToRad
+DepthOnlyPass
 LNK
 Log
 Linux

@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+    },
+    {
+      "basename": "2 图形渲染管线",
+      "path": "图形学/5 书籍/《RTR4》/2 图形渲染管线.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "2 GPU Instance深入浅出",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md"
+    },
+    {
+      "basename": "01  unlit shader",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/01  unlit shader.md"
     },
     {
       "basename": "ShaderLab",
@@ -11,18 +35,6 @@
     {
       "basename": "【URP 学习记录】 阴影的接收与生成",
       "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
       "basename": "曲面细分与几何着色器",
@@ -187,14 +199,6 @@
     {
       "basename": "看懂蒙特卡洛积分 (一) 概率分布变换与随机采样",
       "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
-    },
-    {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
     }
   ],
   "omittedPaths": [],
