@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
       "basename": "08 透明",
@@ -195,10 +199,6 @@
     {
       "basename": "5 着色基础",
       "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
     }
   ],
   "omittedPaths": [],
