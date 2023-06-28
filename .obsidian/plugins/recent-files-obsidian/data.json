@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "04 法线贴图",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md"
+      "basename": "05 渐变纹理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
+    },
+    {
+      "basename": "(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客",
+      "path": "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md"
     },
     {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "05 渐变纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md"
-    },
-    {
       "basename": "ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "技术美术/4 UnityShader/TA101.md"
     },
     {
       "basename": "冯乐乐入门精要",

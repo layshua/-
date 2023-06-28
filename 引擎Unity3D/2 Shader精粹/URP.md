@@ -167,7 +167,7 @@ struct InputData
 |函数|说明|
 |:--|:--|
 |GetMainLight() |获取主光源|
-|  |  |
+|GetAdditionalLightsCount()|获取其他光源数量|
 |  |  |
 |  |  |
 |  |  |

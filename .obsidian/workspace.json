@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "edfe82e54672368d",
+            "id": "da03b177480a8f80",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md"
+                "file": "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md"
               }
             }
           }
@@ -134,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
+                "file": "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
+                "file": "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,12 +182,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "edfe82e54672368d",
+  "active": "460ed01699ccee70",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/05 渐变纹理.md",
+    "zBuffer/(34 条消息) URP 光照阴影常用函数_getmainlight_奈何猿潜的博客 - CSDN 博客.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/04 法线贴图.md",
+    "技术美术/4 UnityShader/TA101.md",
     "技术美术/4 UnityShader/冯乐乐入门精要.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/03 布林风 - 半兰伯特光照模型.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/02 兰伯特 _半兰伯特光照模型.md",
@@ -208,9 +210,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/06 alpha 混合.md",
-    "![[e78eb9d6615f7b2be09ad850c024bbc4_MD5.webp.md",
     "zip/images/Pasted image 20230628110952.png",
     "zip/images/Pasted image 20230628110847.png",
     "zip/images/Pasted image 20230628110726.png",
