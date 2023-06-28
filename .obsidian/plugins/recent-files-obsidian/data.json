@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
+      "basename": "变体和关键字",
+      "path": "zBuffer/变体和关键字.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
       "basename": "URP 多光源处理",
       "path": "zBuffer/URP 多光源处理.md"
     },
@@ -133,14 +145,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
     }
   ],
   "omittedPaths": [],

@@ -53914,6 +53914,8 @@ addLightDir
 addlights
 addlightCount
 addcount
+aashader
+apis
 Roaming
 RegWorkshop
 Release
@@ -71885,6 +71887,7 @@ ShaderLibray
 SafeDiv
 ShaderPass
 StandardLightDepthPass
+SPOTPOINT
 Programs
 POP
 PC
