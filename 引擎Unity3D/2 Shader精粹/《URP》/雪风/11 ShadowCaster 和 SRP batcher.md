@@ -366,9 +366,9 @@ Shader "WX/URP/shadowCaster"
 }
 ```
 
-      在补充下 ShadowCaster 的 pass 里可以成功获取额外灯光的数据了。 
+  在补充下 ShadowCaster 的 pass 里可以成功获取额外灯光的数据了。 
 
-      翻了下官方的源码，找到在 ShadowCasterPass.hlsl 的，里面使用的光照是_LightDirection，这个是官方自己定义的特定的 float3，它可以获得主光源和额外光源的方向，替换掉 MainLight.direction 后，就可以正常获取 addlight 的灯光方向了，效果如下图所示（并且保持 SRP Batcher）。
+  翻了下官方的源码，找到在 ShadowCasterPass.hlsl 的，里面使用的光照是_LightDirection，这个是官方自己定义的特定的 float3，它可以获得主光源和额外光源的方向，替换掉 MainLight.direction 后，就可以正常获取 addlight 的灯光方向了，效果如下图所示（并且保持 SRP Batcher）。
 
 ![[a8cad8c92c63065f4d51e3c214dc8400_MD5.webp]]
 ```c
