@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,32 +34,6 @@
             }
           },
           {
-            "id": "b54c8a8f22f9d7f4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e88e0d48c00b5db1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/URP 透明效果.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "7ff768e014cfc9e0",
             "type": "leaf",
             "state": {
@@ -72,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md"
+                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
               }
             }
           }
@@ -159,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -208,14 +181,20 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "b54c8a8f22f9d7f4",
+  "active": "5babda0b7ee9ac97",
   "lastOpenFiles": [
-    "zBuffer/URP 多光源阴影处理.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "zBuffer/URP 手册.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
-    "图形学/1 图形系统/08 透明.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "zBuffer/URP 多光源阴影处理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "zBuffer/URP 深度法线纹理.md",
     "zBuffer/URP 透明效果.md",
+    "zBuffer/URP 手册.md",
+    "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/09 阴影.md",
     "zip/images/58898c932eae8d9bc2a4e81f2ee3a426_MD5.png",
     "zip/images/f9415eba5e5d8afe4ec59d0fc2aa17f0_MD5.png",
@@ -231,7 +210,6 @@
     "zip/images/2529b3381c5682aad1576cd316d99654_MD5.png",
     "zip/images/443689b47fbc242d734db654b28b7f5c_MD5.png",
     "zBuffer/URP 多光源处理.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "DCC/01 百人计划美术向/场景设计精要.md",
@@ -241,12 +219,7 @@
     "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
     "zBuffer/变体和关键字.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/1 Unity精粹/UI系统/GUI.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
-    "zBuffer/URP 深度法线纹理.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",

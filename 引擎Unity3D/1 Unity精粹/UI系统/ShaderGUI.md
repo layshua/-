@@ -18,9 +18,9 @@ Unity 为用户提供了基础类：`MaterialPropertyDrawer`，专门**用于快
 `[HideInInSpector]`：在 InSpector 面板隐藏
 `[NoScaleOffset]`：隐藏纹理的 Tiling 和 Offset
 `[Normal]`：检测是否为 NormalMap
-`[HDR]`：开启高动态范围，颜色值可以超过 1
-`[Gamma]`
-`[MainTexture]` ：将纹理设置为主纹理，默认情况 Unity 会将名为 `_MainTexture` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
+`[HDR]`：指示纹理或颜色属性使用[高动态范围 (HDR)](https://docs.unity3d.com/cn/2022.3/Manual/HDR.html) 值。
+`[Gamma]`：指示浮点数或矢量属性使用 sRGB 值
+`[MainTexture]` ：将纹理设置为主纹理，默认情况 Unity 会将属性名为 `_MainTex` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
 ```cs file:脚本访问主纹理
 public Texture texture;
 void Start()
@@ -30,7 +30,7 @@ void Start()
 }
 ```
 
--  `[MainColor]`：将属性设置为主颜色，默认情况 Unity 会将名为 `_BaseColor` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
+-  `[MainColor]`：将属性设置为主颜色，默认情况 Unity 会将名为 `_Color` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
 ```cs file:脚本访问主颜色
 public Texture texture;
 void Start()
@@ -40,7 +40,7 @@ void Start()
 }
 ```
 
-
+`[PerRendererData]`：指示纹理属性将来自每渲染器数据，形式为 [MaterialPropertyBlock](https://docs.unity3d.com/cn/2022.3/ScriptReference/MaterialPropertyBlock.html)。  材质 Inspector 会将这些属性显示为只读。
 
 ### 不同类型的 DrawerClass
 ![[Pasted image 20230615172023.png]]
