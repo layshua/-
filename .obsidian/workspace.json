@@ -34,7 +34,7 @@
             }
           },
           {
-            "id": "f963ef2faa6da0f7",
+            "id": "b54c8a8f22f9d7f4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -47,7 +47,20 @@
             }
           },
           {
-            "id": "2fbbddbb90b6ef20",
+            "id": "e88e0d48c00b5db1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/URP 透明效果.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7ff768e014cfc9e0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md"
+                "file": "引擎Unity3D/2 Shader精粹/URP.md"
               }
             }
           }
@@ -146,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,12 +208,20 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "2fbbddbb90b6ef20",
+  "active": "b54c8a8f22f9d7f4",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/URP.md",
     "zBuffer/URP 多光源阴影处理.md",
-    "zip/images/Pasted image 20230629144401.png",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "zBuffer/URP 手册.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "图形学/1 图形系统/08 透明.md",
+    "zBuffer/URP 透明效果.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "zip/images/58898c932eae8d9bc2a4e81f2ee3a426_MD5.png",
+    "zip/images/f9415eba5e5d8afe4ec59d0fc2aa17f0_MD5.png",
+    "zip/images/1095d2ff7d16baa1cab3b191069d1d0b_MD5.png",
+    "zip/images/062dce23a07a7a3082de0242e8d34b98_MD5.png",
+    "zip/images/Pasted image 20230629144401.png",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
@@ -209,7 +230,6 @@
     "zip/images/e6a648bb090c859ac7fe9b07291890a7_MD5.png",
     "zip/images/2529b3381c5682aad1576cd316d99654_MD5.png",
     "zip/images/443689b47fbc242d734db654b28b7f5c_MD5.png",
-    "zip/images/23921c45077d0f628d2727424d447e99_MD5.png",
     "zBuffer/URP 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
@@ -222,17 +242,11 @@
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
     "zBuffer/变体和关键字.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "zip/images/6a7sdASdsssssadasd.gif",
     "引擎Unity3D/1 Unity精粹/UI系统/GUI.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "zBuffer/URP 深度法线纹理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
-    "zip/images/Pasted image 20230628200255.png",
-    "zip/images/Pasted image 20230628195959.png",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",

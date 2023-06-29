@@ -3484,6 +3484,7 @@ otherLightDirectionsAndMasks
 overrideMaterialPassIndex
 opaquedesc
 oneminus
+outBRDFData
 OneDrive
 Obsidian
 Office
@@ -7908,6 +7909,8 @@ OpenColorIO
 OutPut
 OutlineColr
 OnRenderimagePass
+OneMinusReflectivityMetallic
+OneMinus
 codeup
 clash
 ctrl
@@ -12306,6 +12309,7 @@ cooool
 chapter
 cstdlib
 chosen
+cascades
 github
 grey
 green
@@ -38657,6 +38661,7 @@ VFACE
 VolumetricCloud
 Voloume
 Verasl
+VertexPositionInputs
 verge
 vPdIt
 vertical
@@ -42032,6 +42037,7 @@ viewWS
 vertexRayOS
 vertshadow
 viewDirWS
+viewDirectionWS
 AA
 AppData
 AIRDyuVH
@@ -46257,6 +46263,7 @@ AdditionalMaterialLibrary
 AdditionPostProcessPass
 ANDRE
 Attachments
+AngleAttenuation
 URL
 Utools
 Users
@@ -58344,6 +58351,7 @@ RestartStrip
 RampMap
 RarMarching
 Rederer
+ReflectivitySpecular
 Microsoft
 Menu
 MicaForEveryone
@@ -63058,6 +63066,8 @@ MikktsSpace
 Mega
 MCGRAIL
 MindMap
+MixFogColor
+MixRealtimeAndBakedGI
 Windows
 Win
 World
@@ -71898,6 +71908,10 @@ SafeDiv
 ShaderPass
 StandardLightDepthPass
 SPOTPOINT
+SampleLightmap
+SampleScreenSpaceShadowmap
+SampleShadowmap
+ShadowSamplingData
 Programs
 POP
 PC
@@ -80455,6 +80469,7 @@ CustomGUI
 CustomTessellation
 CustomRenderFeature
 Converter
+ComputeFogIntensity
 ImTip
 IMAP
 ID
@@ -84518,6 +84533,7 @@ IndirColor
 Ingo
 InputData
 InitializeInputData
+InitializeBRDFData
 qq
 qyi
 quad
@@ -99984,6 +100000,8 @@ bands
 behaved
 baker
 bakeGI
+brdfData
+bakedGI
 fe
 front
 fill
@@ -103646,6 +103664,8 @@ flowSpeed
 fragshadow
 flowcolor
 flipSign
+fogFactor
+fresnelTerm
 dd
 dcc
 data
@@ -107852,6 +107872,7 @@ doNormalize
 dirVS
 directionWS
 dirWS
+dirTS
 TFvYZOKeHL
 TAB
 TeX
@@ -111929,6 +111950,10 @@ TriangleStream
 Tessellating
 Tyndall
 TestMultiCompile
+TransformWorldToObjectDir
+TransformWorldToViewDir
+TransformWorldToTangent
+TransformTangentToObject
 io
 ipad
 it
@@ -116424,6 +116449,10 @@ instenID
 isStereoEnabled
 imageBasedLighting
 inVec
+indirectDiffuse
+indirectSpecular
+inputData
+isPerspectiveProjection
 shift
 svg
 sf
@@ -121116,6 +121145,8 @@ stress
 stepSize
 shaderlab
 seamless
+specularGloss
+samplingData
 local
 list
 left
@@ -124788,6 +124819,7 @@ lambertian
 liner
 logseq
 linter
+lightAttenuation
 YAML
 You
 YEBAYGhURFRofHx
@@ -136316,6 +136348,7 @@ rtweekend
 readme
 ruby
 reddit
+reflectVector
 XXXXXX
 XXX
 XML
@@ -147720,6 +147753,7 @@ BottomColor
 BladeForward
 BladeCurve
 Beer
+BRDFData
 Fraktur
 Frame
 Foo
@@ -166977,6 +167011,8 @@ DegToRad
 DepthOnlyPass
 DNoise
 DEMO
+DistanceAttenuation
+DirectBDRF
 LNK
 Log
 Linux
@@ -171064,6 +171100,9 @@ LightingLambert
 LightingSpecular
 Lighing
 Litshader
+LightingPhysicallyBased
+LightweightFragmentPBR
+LightweightFragmentBlinnPhong
 Getx
 GetX
 GetName
@@ -175635,6 +175674,13 @@ GetViewToHClipMatrix
 GetWorldToViewMatrix
 GBUFFER
 GenerateGrassVertex
+GetVertexPositionInputs
+GetScaledScreenParams
+GetPerObjectLightIndex
+GlossyEnvironmentReflection
+GetMainLightShadowStrength
+GetAdditionalLightShadowStrenth
+GetShadowCoord
 NULL
 Native
 NormalMap
@@ -179556,6 +179602,7 @@ NATIVE
 NormalizeNormalPerPixel
 NormalStage
 NotEquall
+NormalizeNormalPerVertex
 ZooAnima
 ZooAnimal
 ZTest

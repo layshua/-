@@ -8,7 +8,20 @@ uid: 202306271220
 banner: "![[Pasted image 20230627122009.png]]"
 ---
 
+
 # 规范
+## 总体结构
+
+1. 在 SubShader 的 Tags 中添加 `"RenderPipeline" = "UniversalPipeline"` 
+2. 所有 URP 着色器都是 HLSL 编写的，使用宏 `HLSL` 包含的 shader 代码 
+3. 使用 HLSLINCLUDE 替代 CGINCLUDE
+
+| 内置管线                  | URP         |
+|-----------------------|-------------|
+| CGPROGRAM HLSLPROGRAM | HLSLPROGRAM |
+| ENDCG ENDHLSL         | ENDHLSL     |
+| CGINCLUDE HLSLINCLUDE | HLSLINCLUDE |
+
 ## 坐标系
 
 ![[image-20220702145045963.png]]
@@ -62,12 +75,29 @@ static float unpackedArray[12] =（float[12]）packedArray；
 ```
 
 # 文件
-
 **内置 Shader 文件路径**：Packages/Universal RP/Shaders
 
 **两个重要路径**：Packages/Core RP Libraries 和 Packages/Universal RP ，这两个文件都不是真正的名字，为了方便查看，Unity 在 UI 上对其进行了处理，真实名称如下：
 Packages/Core RP Libraries：`com.unity.render-pipelines.core`
 Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
+
+
+| 内容                                                                                        | 内置管线            | URP                                                                       |
+|-------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------|
+| Core                                                                                      | Unity.cginc     | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl     |
+| Light                                                                                     | AutoLight.cginc | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl |
+| Shadow                                                                                    | AutoLight.cginc | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl  |
+| 表面着色器                                                                                     | Lighting.cginc  | URP内没有，可以参考项目：在此处                                                         |
+
+其他有用的包括：
+- [Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl)
+- [Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl)
+- [Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl)
+- [Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl)
+- [Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl)
+- [Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl)
+- [Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTextue.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl)
+
 
 ## Core RP Library
 **Core RP Libraries/ShaderLibrary 路径保存了大量用于 shader 计算的库文件**
@@ -348,9 +378,30 @@ Tags{ "LightMode" = "SRPDefaultUnlit" }
 5. ImageBasedLighting 包含了 CommonLighting、CommonMaterial
 6. Shadow 包含了 Core 
 
-# 语法
+# 着色器宏
+## 辅助宏
+
+|内置管线|URP|
+|---|---|
+|**UNITY_PROJ_COORD**(_a_)|移除了，使用**a.xy / a.w**代替|
+|**UNITY_INITIALIZE_OUTPUT**(_type_，_name_) |**ZERO_INITIALIZE**(_type_，_name_)|
 
 ## 纹理和采样器
+Unity 有很多纹理/采样器宏来改善 API 之间的交叉兼容性，但是人们并不习惯使用它们。URP 中这些宏的名称有所变化。由于数量很多，全部的宏可以在 [API includes中](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.core/ShaderLibrary/API)查看，下面主要列举一些常用的：
+
+| 内置管线                                            | URP                                                                  |
+|-------------------------------------------------|----------------------------------------------------------------------|
+| UNITY_DECLARE_TEX2D（name）                       | TEXTURE2D（textureName）; SAMPLER（samplerName）;                        |
+| UNITY_DECLARE_TEX2D_NOSAMPLER（name）             | TEXTURE2D（textureName）;                                              |
+| UNITY_DECLARE_TEX2DARRAY（name）                  | TEXTURE2D_ARRAY（textureName）; SAMPLER（samplerName）;                  |
+| UNITY_SAMPLE_TEX2D（name，uv）                     | SAMPLE_TEXTURE2D（textureName，samplerName，coord2）                     |
+| UNITY_SAMPLE_TEX2D_SAMPLER（name，samplername，uv） | SAMPLE_TEXTURE2D（textureName，samplerName，coord2）                     |
+| UNITY_SAMPLE_TEX2DARRAY（name，uv）                | SAMPLE_TEXTURE2D_ARRAY（textureName，samplerName，coord2，index）         |
+| UNITY_SAMPLE_TEX2DARRAY_LOD（name，uv，lod）        | SAMPLE_TEXTURE2D_ARRAY_LOD（textureName，samplerName，coord2，index，lod） |
+
+需要注意 `SCREENSPACE_TEXTURE` 变成了 `TEXTURE2D_X`。如果你想要在 VR 中（_Single Pass Instanced_ 或 _Multi-view_ 模式）制作屏幕效果，你必须使用 `TEXTURE2D_X` 定义纹理。这个宏会为你处理正确的纹理声明（是否为数组）。对这个纹理采样的时候必须使用 `SAMPLE_TEXTURE2D_X`，并且对 uv 使用 `UnityStereoTransformScreenSpaceTex`。
+
+### 常用
 ```c
 //声明纹理和采样器
 TEXTURE2D(_textureName); SAMPLER(sampler_textureName);
@@ -400,9 +451,8 @@ half4 SampleAlbedoAlpha(float2 uv, TEXTURE2D(_textureName),  SAMPLER(sampler_tex
 float albedoAlpha = SampleAlbedoAlpha(uv ,_BaseMap ,sampler_BaseMap);
 ```
 
-
 >图形API宏定义路径：Packages/Core RP Library/ShaderLibrary/API
-### 法线贴图采样
+### 法线贴图
 `real3 UnpackNormal(real4 packedNormal)`
 `real3 UnpackNormalScale(real4 packedNormal, real bumpScale)`
 
@@ -417,8 +467,14 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 `UnpackNormal()` 和 `UnpackNormalScale`：当平台不使用 DXT5nm 压缩法线贴图（移动平台），函数内部会分别调用 `UnpackNormalRGBNoScale()` 和 `UnpackNormalRGB()` ；佛则，这两个函数内部都调用 `UnpackNormalmapRGorAG()` 函数，只不过 `UnpackNormal()` 法线强度始终为 1。
 
 
+### 阴影贴图
+必须 include [“Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl”](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl)
 
-
+| 内置管线                             | URP                                                                  |
+|----------------------------------|----------------------------------------------------------------------|
+| UNITY_DECLARE_SHADOWMAP（tex）     | TEXTURE2D_SHADOW_PARAM（textureName，samplerName）                      |
+| UNITY_SAMPLE_SHADOW（tex，uv）      | SAMPLE_TEXTURE2D_SHADOW（textureName，samplerName，coord3）              |
+| UNITY_SAMPLE_SHADOW_PROJ（tex，uv） | SAMPLE_TEXTURE2D_SHADOW（textureName，samplerName，coord4.xyz/coord4.w） |
 
 
 # Lit. shader 解析
