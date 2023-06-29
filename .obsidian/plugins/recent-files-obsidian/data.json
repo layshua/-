@@ -1,12 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+      "basename": "01 序列帧",
+      "path": "技术美术/1 渲染雅集/01 序列帧.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "CG shaderlab",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
       "basename": "12 序列帧算法",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "13 广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
+    },
+    {
+      "basename": "01 学习大纲",
+      "path": "01 学习大纲.md"
+    },
+    {
+      "basename": "灯光组，光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "10 体积云",
+      "path": "技术美术/1 渲染雅集/10 体积云.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     },
     {
       "basename": "09 点光源和聚光灯阴影",
@@ -57,10 +101,6 @@
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "URP 多光源阴影处理",
-      "path": "zBuffer/URP 多光源阴影处理.md"
-    },
-    {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
@@ -79,10 +119,6 @@
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
       "basename": "URP 深度法线纹理",
@@ -117,10 +153,6 @@
       "path": "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md"
     },
     {
-      "basename": "【URP 学习记录】 阴影的接收与生成",
-      "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -133,28 +165,12 @@
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
-      "basename": "13 广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
-    },
-    {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
     },
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "CG shaderlab",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
       "basename": "13 多相机",
@@ -179,26 +195,6 @@
     {
       "basename": "2 GPU Instance深入浅出",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md"
-    },
-    {
-      "basename": "3 OverDraw",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "体积云",
-      "path": "技术美术/1 渲染雅集/体积云.md"
-    },
-    {
-      "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/29 年轻人写的第一个 GPU 粒子.md"
-    },
-    {
-      "basename": "28 ComputeShader",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
     }
   ],
   "omittedPaths": [],

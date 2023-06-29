@@ -4,32 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "7f711e34f971d164",
+        "id": "1338015a33f69753",
         "type": "tabs",
         "children": [
           {
-            "id": "84de5fdee8953f1c",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "ff725ec5686a1540",
+            "id": "cb49430516192514",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cf02f02a0a73753f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d2dcefb92200f94d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -72,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
+                "file": "技术美术/1 渲染雅集/01 序列帧.md"
               }
             }
           }
@@ -115,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "技术美术/1 渲染雅集/01 序列帧.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "技术美术/1 渲染雅集/01 序列帧.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -164,10 +181,34 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ff725ec5686a1540",
+  "active": "cb49430516192514",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230629231955.png",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "README.md",
+    "技术美术/1 渲染雅集/01 序列帧.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
+    "01 学习大纲.md",
+    "技术美术/2 空间技法",
+    "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
+    "zBuffer/URP 多光源阴影处理.md",
+    "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
+    "zip/images/db018a46c2e28732d311dd1d8b8669f4_MD5.jpg",
+    "zip/images/53c6b09c4ad01b7295f0649b42361379_MD5.jpg",
+    "zip/images/0e35977b90b0de7be09ed5920f68f1f7_MD5.jpg",
+    "zip/images/47d705aa5ef48a041e50de3ab5b3c229_MD5.jpg",
+    "zip/images/30c037dfab4531dfacd74fd22d98821e_MD5.jpg",
+    "zip/images/daaa669ffa0f5c807558a8a9e08cd6b7_MD5.jpg",
+    "zip/images/abfc441748d19f473a9973a7c8625915_MD5.jpg",
+    "zip/images/bcfb6a72452bc567ff33117f15b041c0_MD5.jpg",
+    "zip/images/9db26397539e62743fb8820c8029d323_MD5.jpg",
+    "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
+    "技术美术/1 渲染雅集/10 体积云.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "zip/images/Pasted image 20230629231955.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
@@ -179,29 +220,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
-    "zBuffer/URP 多光源阴影处理.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
-    "zip/images/Pasted image 20230629222147.png",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
-    "zip/images/Pasted image 20230629172200.png",
-    "zip/images/Pasted image 20230629155628.png",
-    "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
-    "zBuffer/URP 深度法线纹理.md",
-    "zBuffer/URP 透明效果.md",
-    "zBuffer/URP 手册.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "zip/images/58898c932eae8d9bc2a4e81f2ee3a426_MD5.png",
-    "zip/images/f9415eba5e5d8afe4ec59d0fc2aa17f0_MD5.png",
-    "zip/images/1095d2ff7d16baa1cab3b191069d1d0b_MD5.png",
-    "zip/images/062dce23a07a7a3082de0242e8d34b98_MD5.png",
-    "zip/images/Pasted image 20230629144401.png",
-    "zip/images/4fc0f849946cf53e46af2565685e4ba6_MD5.png",
-    "zip/images/d9f48dcbd3888263097501ac8b7d002e_MD5.png",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
@@ -211,7 +229,6 @@
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
     "引擎Unity3D/收藏夹",
-    "技术美术/3 后处理",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

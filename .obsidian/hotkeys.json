@@ -122,13 +122,20 @@
   "obsidian-completr:completr-bypass-tab-key": [],
   "obsidian-completr:completr-bypass-enter-key": [],
   "editor:toggle-italics": [],
-  "omnisearch:show-modal-infile": [],
-  "omnisearch:show-modal": [
+  "omnisearch:show-modal-infile": [
     {
       "modifiers": [
         "Mod"
       ],
       "key": "I"
+    }
+  ],
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
     }
   ]
 }
