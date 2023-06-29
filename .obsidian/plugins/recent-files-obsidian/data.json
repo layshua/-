@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "12 序列帧算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "07 LOD和反射",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+    },
+    {
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+    },
+    {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
@@ -9,24 +29,28 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+      "basename": "入门精要urp重写",
+      "path": "引擎Unity3D/4 URP/入门精要urp重写.md"
     },
     {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
     },
     {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
     },
     {
-      "basename": "12 序列帧算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "URP",
@@ -55,10 +79,6 @@
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
     },
     {
       "basename": "语法",
@@ -179,26 +199,6 @@
     {
       "basename": "28 ComputeShader",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/28 ComputeShader.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
-      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
-    },
-    {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
     }
   ],
   "omittedPaths": [],

@@ -132,7 +132,7 @@ float3 IndirectBRDF (Surface surface, BRDF brdf, float3 diffuse, float3 specular
     return diffuse * brdf.diffuse + reflection;
 ```
 
-3. 在Light.hlsl的GetLighting方法中调用该方法获取最终的间接照明，而不是直接计算漫反射间接照明，其中第四个代表全局照明中的镜面反射颜色的参数，我们先设为白色。
+3. 在Lighting.hlsl的GetLighting方法中调用该方法获取最终的间接照明，而不是直接计算漫反射间接照明，其中第四个代表全局照明中的镜面反射颜色的参数，我们先设为白色。
 
 ```cs
 float3 color = IndirectBRDF(surfaceWS, brdf, gi.diffuse, 1.0);
@@ -143,18 +143,18 @@ float3 color = IndirectBRDF(surfaceWS, brdf, gi.diffuse, 1.0);
 ![[Pasted image 20230626174956.png]]
 前后对比下发现所有物体都亮了一些，尤其是金属表面。
 
-**7.2.2 采样环境的Cubemap**
+## 7.2.2 采样环境的 Cubemap 
 
 1. 镜面反射反映了环境，默认情况下是天空盒，它是一个立方体纹理（Cube Map），我们在GI.hlsl中声明该纹理和对应采样器。
 
-```
+  ```c
 TEXTURECUBE(unity_SpecCube0);  
 SAMPLER(samplerunity_SpecCube0);
 ```
 
 2. 定义一个SampleEnvironment方法对Cube Map进行采样，通过SAMPLE_TEXTURECUBE_LOD宏对纹理进行采样，然后返回采样后的RGB颜色数据，它还需要另外两个参数，分别是3D纹理坐标UVW和纹理Mipmap等级。UVW可以通过reflect方法由负的视角方向和法线方向得到反射方向，Mipmap等级我们设置为0作为最高级，也就是对全分辨率的Cube Map进行采样。
 
-```
+```c
 //采样环境立方体纹理  
 float3 SampleEnvironment (Surface surfaceWS)   
 {  
@@ -166,7 +166,7 @@ float3 SampleEnvironment (Surface surfaceWS)
 
 3. 在GI结构体中定义一个镜面反射颜色属性，然后在GetGI方法中通过采样Cube Map获得环境的镜面反射。
 
-```
+```c
 struct GI   
 {  
     ...  
@@ -184,14 +184,14 @@ GI GetGI(float2 lightMapUV, Surface surfaceWS)
 
 4. 然后将正确的镜面反射颜色传递给Lighting文件的GetLighting方法对IndirectBRDF方法的调用中。
 
-```
+```c
 float3 color = IndirectBRDF(surfaceWS, brdf, gi.diffuse, gi.specular);
 ```
 
 5. 最后需要在CameraRenderer脚本的DrawVisibleGeometry方法中添加反射探针的标志PerObjectData.ReflectionProbes。
 
  
-```
+```c
 perObjectData = PerObjectData.Lightmaps | PerObjectData.ShadowMask | PerObjectData.LightProbe   
 | PerObjectData.OcclusionProbe | PerObjectData.LightProbeProxyVolume | PerObjectData.OcclusionProbeProxyVolume | PerObjectData.ReflectionProbes 
 ```
@@ -199,8 +199,6 @@ perObjectData = PerObjectData.Lightmaps | PerObjectData.ShadowMask | PerObjectDa
 现在我们的表面可以反射环境了，现在的环境是天空盒，这在金属表面上效果比较明显。
 ![[Pasted image 20230626175013.png]]
 ​
-
-![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/13.1620885485505.png "UWA")
 
 6. 当粗糙表面散射镜面反射时，不仅会降低反射强度，且使得反射不均匀，像是失去了焦点一样。这个可以通过将环境的Cube Map的模糊版本存储在较低的Mipmap级别中来近似实现这个效果，要得到正确的Mipmap级别，需要知道感知粗糙度，我们将这个属性添加到BRDF结构体中，并在GetBRDF方法中给其赋值。
 
