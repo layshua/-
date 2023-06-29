@@ -5,12 +5,12 @@
       "path": "zBuffer/URP 多光源处理.md"
     },
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
-    },
-    {
       "basename": "08 多光源处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
       "basename": "ShaderGUI",
