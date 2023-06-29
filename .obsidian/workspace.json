@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,25 +21,12 @@
             }
           },
           {
-            "id": "c844bf27523480c5",
+            "id": "7740c2d0e8ae09d3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 多光源阴影处理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7ff768e014cfc9e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md"
               }
             }
           }
@@ -132,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -183,18 +170,20 @@
   },
   "active": "5babda0b7ee9ac97",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
+    "zip/images/Pasted image 20230629155628.png",
+    "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+    "图形学/1 图形系统/08 透明.md",
+    "zBuffer/URP 多光源阴影处理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "zBuffer/URP 多光源阴影处理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
     "zBuffer/URP 深度法线纹理.md",
     "zBuffer/URP 透明效果.md",
     "zBuffer/URP 手册.md",
-    "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/09 阴影.md",
     "zip/images/58898c932eae8d9bc2a4e81f2ee3a426_MD5.png",
     "zip/images/f9415eba5e5d8afe4ec59d0fc2aa17f0_MD5.png",
@@ -208,9 +197,7 @@
     "zip/images/d9f48dcbd3888263097501ac8b7d002e_MD5.png",
     "zip/images/e6a648bb090c859ac7fe9b07291890a7_MD5.png",
     "zip/images/2529b3381c5682aad1576cd316d99654_MD5.png",
-    "zip/images/443689b47fbc242d734db654b28b7f5c_MD5.png",
     "zBuffer/URP 多光源处理.md",
-    "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "DCC/01 百人计划美术向/场景设计精要.md",
     "Tools/Obsidian/Mermaid流图.md",
@@ -218,7 +205,6 @@
     "Tools/Obsidian/插件流.md",
     "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
-    "zBuffer/变体和关键字.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",

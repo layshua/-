@@ -583,7 +583,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 
 
 **多光源阴影思路：**
-1.  阴影分为接收阴影和投射阴影两个部分，接收阴影开启部分关键字就可以了，但投射阴影需要写一个用与投射阴影的 Pass，该 Pass 的渲染路径采用 **ShadowCaster**（可以直接使用内置的投射阴影 pass）
+1.  阴影分为接收阴影和投射阴影两个部分，接收阴影开启部分关键字就可以了，但投射阴影需要写一个用与投射阴影的 Pass，该 Pass 的渲染路径采用 **ShadowCaster**（可以直接使用 URP 内置的投射阴影 pass，但导致不兼容 SRP Batecher）
 2.  第一个 Pass，开启一系列相关关键字，用于接收阴影
 3.  然后在片元着色器中使用 **TransformWorldToShadowCoord** 函数获取阴影纹理坐标，使用该坐标作为 `GetMainLight` 函数的参数获取主光源，再进行一系列光源计算
 4.  第二个 Pass 参考 URP 的 `Universal Render Pipeline/Lit/ShadowCasterPass` 创建生成阴影的 Pass，主要任务在于将阴影从对象空间中转换到裁剪空间。
