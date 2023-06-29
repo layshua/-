@@ -1492,3 +1492,167 @@ half4 frag(Varyings input) : SV_Target
 }
 
 ```
+
+
+# 多光源
+
+1.  使用 **GetMainLight** 函数获取主光源，然后进行漫反射与高光反射计算
+2.  使用 **GetAdditionalLightsCount** 函数获取副光源个数，在一个 For 循环中使用 **GetAdditionalLight** 函数获取其他的副光源，进行漫反射与高光反射计算，叠加到光源结果上
+
+在 URP 中，光照的计算不再像 Built-in 管线那样死板，全部由 Unity 的光照路径决定；现如今是由 URP 管线的脚本收集好场景中所有的光照信息，再传输给 Pass，由我们开发者在 Pass 中决定采用那些光源进行光照计算。
+
+```cs fold file:多光源计算
+Shader "Custom/AdditionalLighting URP Shader"
+{
+    Properties
+    {
+
+        _MainTex ("MainTex", 2D) = "white" {}
+        _BaseColor("BaseColor", Color) = (1,1,1,1)
+        [Normal] _NormalMap("NormalMap", 2D) = "bump" {}
+        _NormalScale("NormalScale", Range(0, 10)) = 1
+
+        [Header(Specular)]
+        _SpecularExp("SpecularExp", Range(1, 100)) = 32
+        _SpecularStrength("SpecularStrength", Range(0, 10)) = 1
+        _SpecularColor("SpecularColor", Color) = (1,1,1,1)
+
+        [Toggle] _AdditionalLights("开启多光源", Float) = 1
+    }
+
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType"="Opaque"
+        }
+        LOD 100
+
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #pragma shader_feature _ADDITIONALLIGHTS_ON
+
+            #pragma multi_compile_instancing
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
+
+            struct Attributes
+            {
+                float4 positionOS : POSITION;
+                float4 color : COLOR;
+                float3 normalOS : NORMAL;
+                float4 tangentOS : TANGENT;
+                float2 uv : TEXCOORD0;
+
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            struct Varyings
+            {
+                float4 positionoCS : SV_POSITION;
+                float4 color : COLOR0;
+                float2 uv : TEXCOORD0;
+                float3 positionWS: TEXCOORD1;
+                float3 normalWS : TEXCOORD2;
+                float4 tangentWS : TEXCOORD3;
+                float3 bitangentWS : TEXCOORD4;
+                float3 viewDirWS : TEXCOORD5;
+                float3 lightDirWS : TEXCOORD6;
+
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            CBUFFER_START(UnityPerMateiral)
+            float4 _MainTex_ST;
+            float4 _BaseColor;
+            float _NormalScale;
+            float _SpecularExp;
+            float _SpecularStrength;
+            float4 _SpecularColor;
+            CBUFFER_END
+
+            TEXTURE2D(_MainTex);
+            SAMPLER(sampler_MainTex);
+            TEXTURE2D(_NormalMap);
+            SAMPLER(sampler_NormalMap);
+
+            Varyings vert(Attributes i)
+            {
+                Varyings o = (Varyings)0;
+                UNITY_SETUP_INSTANCE_ID(i);
+                UNITY_TRANSFER_INSTANCE_ID(i, o);
+
+                o.positionoCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.uv = i.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                o.positionWS = TransformObjectToWorld(i.positionOS.xyz);
+                o.normalWS = TransformObjectToWorldNormal(i.normalOS);
+                o.tangentWS.xyz = TransformObjectToWorldDir(i.tangentOS.xyz);
+                o.viewDirWS = normalize(_WorldSpaceCameraPos.xyz - o.positionWS);
+
+                return o;
+            }
+
+            //多光源光照计算
+            float3 AdditionalLighting(float3 normalWS,float3 viewDirWS, float3 lightDirWS , float3 lightColor, float lightAttenuation)
+            {
+                float3 H = normalize(lightDirWS + viewDirWS);
+                float NdotL = dot(normalWS, lightDirWS);
+                float NdotH = dot(normalWS, H);
+
+                float3 diffuse = (0.5 * NdotL + 0.5) * lightAttenuation * _BaseColor.rgb * lightColor.rgb;
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor.rgb;
+
+                return diffuse + specular;
+            }
+
+            float4 frag(Varyings i) : SV_Target
+            {
+                UNITY_SETUP_INSTANCE_ID(i);
+                //主光源
+                Light mainLight = GetMainLight();
+                float4 lightColor = float4(mainLight.color, 1.0);
+
+                //纹理采样
+                float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                float3 normalMap = UnpackNormalScale(
+                    SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, i.uv), _NormalScale);
+
+                //向量计算
+                float3x3 TBN = CreateTangentToWorld(i.normalWS, i.tangentWS.xyz, i.tangentWS.w);
+                float3 N = TransformTangentToWorld(normalMap, TBN, true);
+                float3 L = normalize(mainLight.direction);
+                float3 V = normalize(i.viewDirWS);
+                float3 H = normalize(L + V);
+                float NdotL = dot(N, L);
+                float NdotH = dot(N, H);
+                //颜色计算
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * lightColor.rgb;
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor
+                    .rgb;
+                
+                float3 addColor = float3(0, 0, 0);
+                //如果开启多光源
+                #if _ADDITIONALLIGHTS_ON
+                int addLightsCount = GetAdditionalLightsCount();
+                for (int idx = 0; idx < addLightsCount; idx++)
+                {
+                    Light addLight = GetAdditionalLight(idx, i.positionWS);
+                    addColor += AdditionalLighting(N,V, normalize(addLight.direction),  addLight.color, addLight.distanceAttenuation + addLight.shadowAttenuation);
+                }
+                #endif
+
+                
+                float4 finalColor = MainTex * float4(diffuse  + specular + addColor + _GlossyEnvironmentColor.rgb, 1);
+                return finalColor;
+            }
+            ENDHLSL
+        }
+    }
+    FallBack "Lit"
+}
+```
