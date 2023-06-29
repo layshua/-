@@ -9,6 +9,14 @@
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
+      "basename": "URP 多光源阴影处理",
+      "path": "zBuffer/URP 多光源阴影处理.md"
+    },
+    {
+      "basename": "1 批处理总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
+    },
+    {
       "basename": "ShaderGUI",
       "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
     },
@@ -17,16 +25,8 @@
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "URP 多光源阴影处理",
-      "path": "zBuffer/URP 多光源阴影处理.md"
-    },
-    {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "1 批处理总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     },
     {
       "basename": "语法",
