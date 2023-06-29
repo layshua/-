@@ -11,7 +11,7 @@ banner: "![[Pasted image 20230627122009.png]]"
 # 规范
 ## 坐标系
 
-![image-20220702145045963](image-20220702145045963.png)
+![[image-20220702145045963.png]]
 >注意观察空间是右手坐标系
 
 - 模型和世界空间中，$Y$ 轴朝上，前向是 $Z$ 轴
@@ -166,12 +166,13 @@ struct InputData
 
 |函数|说明|
 |:--|:--|
-|Light GetMainLight()|获取主光源|
-|int GetAdditionalLightsCount();|获取其他光源数量|
-|half3 SampleSH(half3 normalWS) |环境光函数|
-|half3  `_GlossyEnvironmentColor` |Unity 内置环境光 |
-|half3 LightingLambert|Lambert 函数 |
-|half3 LightingSpecular|  |
+|Light **GetMainLight**()|获取主光源|
+|int **GetAdditionalLightsCount**();|获取其他光源数量|
+|Light **GetAdditionalLight**(int index, float3 WS_Pos)|获取其他的光源|
+|half3 **SampleSH**(half3 normalWS)|环境光函数|
+|half3  `_GlossyEnvironmentColor`|Unity 内置环境光 |
+|half3 **LightingLambert**|Lambert  |
+|half3 **LightingSpecular**|BlinnPhong|
 |  |  |
 
 ```cs

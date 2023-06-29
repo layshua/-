@@ -1,24 +1,56 @@
 {
   "recentFiles": [
     {
+      "basename": "URP 多光源处理",
+      "path": "zBuffer/URP 多光源处理.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+    },
+    {
       "basename": "08 多光源处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
     },
     {
-      "basename": "10 多光源阴影处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
+      "basename": "ShaderGUI",
+      "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
     },
     {
-      "basename": "UGUI",
-      "path": "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md"
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "DCC/01 百人计划美术向/场景设计精要.md"
+    },
+    {
+      "basename": "Mermaid流图",
+      "path": "Tools/Obsidian/Mermaid流图.md"
+    },
+    {
+      "basename": "发布方案",
+      "path": "Tools/Obsidian/发布方案.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "UGUI",
+      "path": "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md"
+    },
+    {
+      "basename": "10 多光源阴影处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
     },
     {
       "basename": "09 主光源阴影投射和接收",
@@ -29,16 +61,8 @@
       "path": "zBuffer/【URP 学习记录】 阴影的接收与生成.md"
     },
     {
-      "basename": "URP 多光源处理",
-      "path": "zBuffer/URP 多光源处理.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "ShaderGUI",
-      "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
     },
     {
       "basename": "GUI",
@@ -47,10 +71,6 @@
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
       "basename": "URP 深度法线纹理",
@@ -179,22 +199,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
     }
   ],
   "omittedPaths": [],

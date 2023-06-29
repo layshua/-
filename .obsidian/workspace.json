@@ -8,32 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3ef18a0aeccbebbd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6cb933df42c3a716",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "38f115503a600bdf",
             "type": "leaf",
             "state": {
@@ -47,7 +21,46 @@
             }
           },
           {
-            "id": "84308c7cc55a464b",
+            "id": "c629d87a6d9c9c84",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/URP 多光源处理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "944491d2093109fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8886061a6e644daa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d30ffeb63becda01",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -58,22 +71,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "09e06f4c371dc24f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md"
+                "file": "zBuffer/URP 多光源处理.md"
               }
             }
           }
@@ -159,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "file": "zBuffer/URP 多光源处理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+                "file": "zBuffer/URP 多光源处理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -208,35 +208,36 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "38f115503a600bdf",
+  "active": "c629d87a6d9c9c84",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
-    "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/2 Shader精粹/URP.md",
+    "zBuffer/URP 多光源处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "引擎Unity3D/02 Unity操作指南.md",
+    "DCC/01 百人计划美术向/场景设计精要.md",
+    "Tools/Obsidian/Mermaid流图.md",
+    "Tools/Obsidian/发布方案.md",
+    "Tools/Obsidian/插件流.md",
+    "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
-    "zBuffer/URP 多光源处理.md",
     "zBuffer/变体和关键字.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "zip/images/6a7sdASdsssssadasd.gif",
-    "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
     "引擎Unity3D/1 Unity精粹/UI系统/GUI.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "zBuffer/URP 深度法线纹理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/11 ShadowCaster 和 SRP batcher.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "README.md",
-    "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "zip/images/Pasted image 20230628200255.png",
     "zip/images/Pasted image 20230628195959.png",
     "zip/images/Pasted image 20230628195933.png",
@@ -245,7 +246,6 @@
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "zip/images/Pasted image 20230628193737.png",
     "zip/images/Pasted image 20230628193118.png",
-    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "zip/images/Pasted image 20230628192654.png",
     "zip/images/Pasted image 20230628192227.png",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
