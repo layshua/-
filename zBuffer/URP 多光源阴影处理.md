@@ -35,11 +35,11 @@
 
 *   一些列用于接收阴影的关键字。
 
-```
+```c
 #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
-          #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-            #pragma multi_compile _ _SHADOWS_SOFT
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+#pragma multi_compile _ _SHADOWS_SOFT
 ```
 
 *   传入片元的世界位置，获取该位置下的阴影纹理坐标，后续可以使用该坐标获取到主光源（Light），与之前不同的是该光源信息中 **shadowAttenuation** 阴影衰减不在为 1，方便后续的阴影计算
@@ -58,21 +58,22 @@
     
     `o.normalWS = NormalizeNormalPerVertex(normalInput.normalWS);`
     
-    ```
-    //"Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-    real3 NormalizeNormalPerVertex(real3 normalWS) {
-    #if defined(SHADER_QUALITY_LOW) && defined(_NORMALMAP)
-        return normalWS;
-    #else
-        return normalize(normalWS);
-    #endif
-    }
-    ```
+```c
+//"Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+real3 NormalizeNormalPerVertex(real3 normalWS) 
+{
+#if defined(SHADER_QUALITY_LOW) && defined(_NORMALMAP)
+    return normalWS;
+#else
+    return normalize(normalWS);
+#endif
+}
+```
     
 
 ## 完整代码
 
-```
+```c
 Shader "URP/MultiLightShadow"
 {
     Properties
@@ -205,7 +206,8 @@ Shader "URP/MultiLightShadow"
         }
         
         //下面计算阴影的Pass可以直接通过使用URP内置的Pass计算
-        //UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+        
         // or
         // 计算阴影的Pass
         Pass

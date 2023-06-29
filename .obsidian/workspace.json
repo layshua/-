@@ -21,15 +21,20 @@
             }
           },
           {
-            "id": "f8415d1b6e882151",
+            "id": "d30ffeb63becda01",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
-            "id": "a45aec15ba716b3e",
+            "id": "c844bf27523480c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -42,15 +47,20 @@
             }
           },
           {
-            "id": "d30ffeb63becda01",
+            "id": "f963ef2faa6da0f7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/URP.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP 多光源阴影处理.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
               }
             }
           }
@@ -136,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP 多光源阴影处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP 多光源阴影处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,8 +195,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "a45aec15ba716b3e",
+  "active": "d30ffeb63becda01",
   "lastOpenFiles": [
+    "zBuffer/URP 多光源阴影处理.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "zip/images/4fc0f849946cf53e46af2565685e4ba6_MD5.png",
     "zip/images/d9f48dcbd3888263097501ac8b7d002e_MD5.png",
     "zip/images/e6a648bb090c859ac7fe9b07291890a7_MD5.png",
@@ -194,20 +210,14 @@
     "zip/images/443689b47fbc242d734db654b28b7f5c_MD5.png",
     "zip/images/23921c45077d0f628d2727424d447e99_MD5.png",
     "zBuffer/URP 多光源处理.md",
-    "zBuffer/URP 多光源阴影处理.md",
-    "引擎Unity3D/2 Shader精粹/URP.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/08 多光源处理.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "DCC/01 百人计划美术向/场景设计精要.md",
     "Tools/Obsidian/Mermaid流图.md",
     "Tools/Obsidian/发布方案.md",
     "Tools/Obsidian/插件流.md",
     "引擎Unity3D/1 Unity精粹/UI系统/UGUI.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md",
     "zBuffer/【URP 学习记录】 阴影的接收与生成.md",
     "zBuffer/变体和关键字.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
@@ -223,7 +233,6 @@
     "zip/images/Pasted image 20230628200255.png",
     "zip/images/Pasted image 20230628195959.png",
     "zip/images/Pasted image 20230628195933.png",
-    "zip/images/Pasted image 20230628194839.png",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",
