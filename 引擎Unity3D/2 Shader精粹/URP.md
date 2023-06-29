@@ -1494,15 +1494,40 @@ half4 frag(Varyings input) : SV_Target
 ```
 
 
-# 多光源
+# 多光源阴影
 
+> [!bug] 
+> 计算颜色时要将灯光衰减和阴影衰减属性考虑进去
+
+**多光源思路：**
 1.  使用 **GetMainLight** 函数获取主光源，然后进行漫反射与高光反射计算
 2.  使用 **GetAdditionalLightsCount** 函数获取副光源个数，在一个 For 循环中使用 **GetAdditionalLight** 函数获取其他的副光源，进行漫反射与高光反射计算，叠加到光源结果上
 
 在 URP 中，光照的计算不再像 Built-in 管线那样死板，全部由 Unity 的光照路径决定；现如今是由 URP 管线的脚本收集好场景中所有的光照信息，再传输给 Pass，由我们开发者在 Pass 中决定采用那些光源进行光照计算。
 
-```cs fold file:多光源计算
-Shader "Custom/AdditionalLighting URP Shader"
+
+**多光源阴影思路：**
+1.  阴影分为接收阴影和投射阴影两个部分，接收阴影开启部分关键字就可以了，但投射阴影需要写一个用与投射阴影的 Pass，该 Pass 的渲染路径采用 **ShadowCaster**（可以直接使用内置的投射阴影 pass）
+2.  第一个 Pass，开启一系列相关关键字，用于接收阴影
+3.  然后在片元着色器中使用 **TransformWorldToShadowCoord** 函数获取阴影纹理坐标，使用该坐标作为 `GetMainLight` 函数的参数获取主光源，再进行一系列光源计算
+4.  第二个 Pass 参考 URP 的 `Universal Render Pipeline/Lit/ShadowCasterPass` 创建生成阴影的 Pass，主要任务在于将阴影从对象空间中转换到裁剪空间。
+
+```c file:接收阴影关键字
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+#pragma multi_compile _ _SHADOWS_SOFT
+```
+
+```cs file:投射阴影pass
+UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+```
+
+Settings 文件夹，URP Assets 中配置阴影：
+![[Pasted image 20230629144401.png|500]]
+
+```c fold file:多光源阴影
+Shader "Custom/MultipleLightingShadows URP Shader"
 {
     Properties
     {
@@ -1519,7 +1544,8 @@ Shader "Custom/AdditionalLighting URP Shader"
 
         [Toggle] _AdditionalLights("开启多光源", Float) = 1
     }
-
+    
+    
     SubShader
     {
         Tags
@@ -1529,14 +1555,22 @@ Shader "Custom/AdditionalLighting URP Shader"
         }
         LOD 100
 
+        //阴影接收pass
         Pass
         {
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
 
+            //开启多光源关键字
             #pragma shader_feature _ADDITIONALLIGHTS_ON
 
+            //阴影关键字
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ _SHADOWS_SOFT
+            
             #pragma multi_compile_instancing
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
@@ -1604,18 +1638,22 @@ Shader "Custom/AdditionalLighting URP Shader"
                 float NdotL = dot(normalWS, lightDirWS);
                 float NdotH = dot(normalWS, H);
 
-                float3 diffuse = (0.5 * NdotL + 0.5) * lightAttenuation * _BaseColor.rgb * lightColor.rgb;
-                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor.rgb;
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * lightColor;
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor;
 
-                return diffuse + specular;
+                return (diffuse + specular) * lightAttenuation;
             }
 
             float4 frag(Varyings i) : SV_Target
             {
                 UNITY_SETUP_INSTANCE_ID(i);
-                //主光源
-                Light mainLight = GetMainLight();
-                float4 lightColor = float4(mainLight.color, 1.0);
+
+                //获取阴影坐标
+                float4 shadowCoord = TransformWorldToShadowCoord(i.positionWS);
+                
+                //主光源(传入阴影坐标)
+                Light mainLight = GetMainLight(shadowCoord);
+                
 
                 //纹理采样
                 float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
@@ -1630,29 +1668,39 @@ Shader "Custom/AdditionalLighting URP Shader"
                 float3 H = normalize(L + V);
                 float NdotL = dot(N, L);
                 float NdotH = dot(N, H);
-                //颜色计算
-                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * lightColor.rgb;
-                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor
-                    .rgb;
                 
-                float3 addColor = float3(0, 0, 0);
+                //主光源颜色计算（乘阴影衰减）
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * mainLight.color;
+                
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * mainLight.color;
+                float3 mainColor = (diffuse + specular)* mainLight.shadowAttenuation;
+
+
+                //其他光源颜色计算
                 //如果开启多光源
+                float3 addColor = float3(0, 0, 0);
                 #if _ADDITIONALLIGHTS_ON
                 int addLightsCount = GetAdditionalLightsCount();
                 for (int idx = 0; idx < addLightsCount; idx++)
                 {
                     Light addLight = GetAdditionalLight(idx, i.positionWS);
-                    addColor += AdditionalLighting(N,V, normalize(addLight.direction),  addLight.color, addLight.distanceAttenuation + addLight.shadowAttenuation);
+                    
+                    // 注意light.distanceAttenuation * light.shadowAttenuation，这里已经将距离衰减与阴影衰减进行了计算
+                    addColor += AdditionalLighting(N,V, normalize(addLight.direction),  addLight.color, addLight.distanceAttenuation * addLight.shadowAttenuation);
                 }
                 #endif
 
                 
-                float4 finalColor = MainTex * float4(diffuse  + specular + addColor + _GlossyEnvironmentColor.rgb, 1);
+                float4 finalColor = MainTex * float4(mainColor + addColor + _GlossyEnvironmentColor.rgb, 1);
                 return finalColor;
             }
             ENDHLSL
         }
+        
+        //阴影投射pass
+        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
     }
-    FallBack "Lit"
+    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
 }
 ```
+

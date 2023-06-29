@@ -1,20 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "09 主光源阴影投射和接收",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/09 主光源阴影投射和接收.md"
-    },
-    {
-      "basename": "URP 多光源阴影处理",
-      "path": "zBuffer/URP 多光源阴影处理.md"
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
     },
     {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/URP.md"
     },
     {
-      "basename": "10 多光源阴影处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/10 多光源阴影处理.md"
+      "basename": "URP 多光源阴影处理",
+      "path": "zBuffer/URP 多光源阴影处理.md"
     },
     {
       "basename": "变体",
@@ -99,10 +95,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
     },
     {
       "basename": "CG shaderlab",
