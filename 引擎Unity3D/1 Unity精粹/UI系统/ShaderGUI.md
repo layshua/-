@@ -1,4 +1,3 @@
-# 3 ShaderGUI
 **ShaderGUI 分为两种，一种是 Drawer 一种是 GUI，当然可以把 GUI 集成后用 Drawer 的形式写。**
 这里主要说的是  GUI，因为 Drawer 有很多限制，例如修改 RenderType 的时候就很麻烦。
 回到 GUI。大部分 GUI 继承自两个类，**`ShaderGUI & BaseShaderGUI`**（可以去 Unity 里翻翻，记得改成 all）。前者是自己造轮子，后者是根据前者的基础上造好了一些轮子（如果是在 Lit 基础上魔改的，用 BaseShaderGUI 方便一些）这里主要是抄作业
