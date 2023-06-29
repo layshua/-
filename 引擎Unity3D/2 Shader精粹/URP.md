@@ -581,18 +581,25 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 
 在 URP 中，光照的计算不再像 Built-in 管线那样死板，全部由 Unity 的光照路径决定；现如今是由 URP 管线的脚本收集好场景中所有的光照信息，再传输给 Pass，由我们开发者在 Pass 中决定采用那些光源进行光照计算。
 
-
 **多光源阴影思路：**
 1.  阴影分为接收阴影和投射阴影两个部分，接收阴影开启部分关键字就可以了，但投射阴影需要写一个用与投射阴影的 Pass，该 Pass 的渲染路径采用 **ShadowCaster**（可以直接使用 URP 内置的投射阴影 pass，但导致不兼容 SRP Batecher）
 2.  第一个 Pass，开启一系列相关关键字，用于接收阴影
 3.  然后在片元着色器中使用 **TransformWorldToShadowCoord** 函数获取阴影纹理坐标，使用该坐标作为 `GetMainLight` 函数的参数获取主光源，再进行一系列光源计算
 4.  第二个 Pass 参考 URP 的 `Universal Render Pipeline/Lit/ShadowCasterPass` 创建生成阴影的 Pass，主要任务在于将阴影从对象空间中转换到裁剪空间。
 
+当我们通过 `UsePass` 方式进行投射阴影，SRP 的要求之一如下，：
+- 必须在一个名为 `UnityPerMaterial` 的 CBUFFER 中声明所有材质属性。所以我们要共用一个 CBUFFER，把 CBUUFER 写在两个 Pass 之前。
+
+![[Pasted image 20230629155628.png]]
+
+可以自己写阴影的投射 pass，这样就可以继续开启 SRP Batcher，并支持 alpha test 的透明阴影。
+
 ```c file:接收阴影关键字
-#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
-#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
-#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-#pragma multi_compile _ _SHADOWS_SOFT
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS   //接收阴影
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE //TransformWorldToShadowCoord
+#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS   //额外光源阴影
+#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS //开启额外光源计算
+#pragma multi_compile _ _SHADOWS_SOFT  //软阴影
 ```
 
 ```cs file:投射阴影pass
@@ -780,6 +787,278 @@ Shader "Custom/MultipleLightingShadows URP Shader"
 }
 ```
 
+```c fold file:多光源阴影支持SRP和AlphaTest
+Shader "Custom/MultipleLightingShadows for SRPBatche"
+{
+    Properties
+    {
+        [MainTexture] _MainTex ("MainTex", 2D) = "white" {}
+        [MainColor] _BaseColor("BaseColor", Color) = (1,1,1,1)
+        [Normal] _NormalMap("NormalMap", 2D) = "bump" {}
+        _NormalScale("NormalScale", Range(0, 10)) = 1
+
+        [Header(Specular)]
+        _SpecularExp("SpecularExp", Range(1, 100)) = 32
+        _SpecularStrength("SpecularStrength", Range(0, 10)) = 1
+        _SpecularColor("SpecularColor", Color) = (1,1,1,1)
+
+        [Toggle] _AdditionalLights("开启多光源", Float) = 1
+        
+        [Toggle] _Cut("透明度裁剪", Float) = 1
+        _Cutoff("透明度裁剪阈值", Range(0, 1)) = 1
+    }
+    
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+        }
+      
+        HLSLINCLUDE
+        
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
+        //开启多光源关键字
+        #pragma shader_feature _ADDITIONALLIGHTS_ON
+
+        //透明度裁剪关键字
+        #pragma shader_feature _CUT_ON
+
+        //阴影关键字
+        #pragma multi_compile _ _MAIN_LIGHT_SHADOWS                          //接收阴影
+        #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE                  //TransformWorldToShadowCoord
+        #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS                    //额外光源阴影
+        #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS //开启额外光源计算
+        #pragma multi_compile _ _SHADOWS_SOFT                                //软阴影
+    
+        CBUFFER_START(UnityPerMaterial)
+        float4 _MainTex_ST;
+        float4 _BaseColor;
+        float _NormalScale;
+        float _SpecularExp;
+        float _SpecularStrength;
+        float4 _SpecularColor;
+        float _Cutoff;
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+        SAMPLER(sampler_MainTex);
+        TEXTURE2D(_NormalMap);
+        SAMPLER(sampler_NormalMap);
+
+        struct Attributes
+        {
+            float4 positionOS : POSITION;
+            float4 color : COLOR;
+            float3 normalOS : NORMAL;
+            float4 tangentOS : TANGENT;
+            float2 uv : TEXCOORD0;
+
+            UNITY_VERTEX_INPUT_INSTANCE_ID
+        };
+
+        struct Varyings
+        {
+            float4 positionCS : SV_POSITION;
+            float4 color : COLOR0;
+            float2 uv : TEXCOORD0;
+            float3 positionWS: TEXCOORD1;
+            float3 normalWS : TEXCOORD2;
+            float4 tangentWS : TEXCOORD3;
+            float3 bitangentWS : TEXCOORD4;
+            float3 viewDirWS : TEXCOORD5;
+            float3 lightDirWS : TEXCOORD6;
+
+            UNITY_VERTEX_INPUT_INSTANCE_ID
+        };
+        ENDHLSL
+        
+        //阴影接收pass
+        Pass
+        {
+            Tags
+            {
+                 "LightMode"="UniversalForward"
+                 "RenderType"="TransparentCutout"
+                 "Queue"="AlphaTest"
+            }
+            
+            Cull off
+            
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            
+            
+            
+            #pragma multi_compile_instancing
+            
+            
+            Varyings vert(Attributes input)
+            {
+                Varyings output = (Varyings)0;
+                UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_TRANSFER_INSTANCE_ID(input, output);
+
+                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                output.uv = input.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                output.positionWS = TransformObjectToWorld(input.positionOS.xyz);
+                output.normalWS = TransformObjectToWorldNormal(input.normalOS);
+                output.tangentWS.xyz = TransformObjectToWorldDir(input.tangentOS.xyz);
+                output.viewDirWS = normalize(_WorldSpaceCameraPos.xyz - output.positionWS);
+
+                return output;
+            }
+
+            //多光源光照计算
+            float3 AdditionalLighting(float3 normalWS,float3 viewDirWS, float3 lightDirWS , float3 lightColor, float lightAttenuation)
+            {
+                float3 H = normalize(lightDirWS + viewDirWS);
+                float NdotL = dot(normalWS, lightDirWS);
+                float NdotH = dot(normalWS, H);
+
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * lightColor;
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * lightColor;
+
+                return (diffuse + specular) * lightAttenuation;
+            }
+
+            float4 frag(Varyings input) : SV_Target
+            {
+                UNITY_SETUP_INSTANCE_ID(input);
+
+                //获取阴影坐标
+                float4 shadowCoord = TransformWorldToShadowCoord(input.positionWS);
+                
+                //主光源(传入阴影坐标)
+                Light mainLight = GetMainLight(shadowCoord);
+                
+
+                //纹理采样
+                float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
+
+                #if _CUT_ON
+                    clip(MainTex.a - _Cutoff);
+                #endif
+                
+                float3 normalMap = UnpackNormalScale(
+                    SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, input.uv), _NormalScale);
+
+                //向量计算
+                float3x3 TBN = CreateTangentToWorld(input.normalWS, input.tangentWS.xyz, input.tangentWS.w);
+                float3 N = TransformTangentToWorld(normalMap, TBN, true);
+                float3 L = normalize(mainLight.direction);
+                float3 V = normalize(input.viewDirWS);
+                float3 H = normalize(L + V);
+                float NdotL = dot(N, L);
+                float NdotH = dot(N, H);
+                
+                //主光源颜色计算（乘阴影衰减）
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * mainLight.color;
+                
+                float3 specular = pow(max(0, NdotH), _SpecularExp) * _SpecularStrength * _SpecularColor.rgb * mainLight.color;
+                float3 mainColor = (diffuse + specular)* mainLight.shadowAttenuation;
+
+
+                //其他光源颜色计算
+                //如果开启多光源
+                float3 addColor = float3(0, 0, 0);
+                #if _ADDITIONALLIGHTS_ON
+                int addLightsCount = GetAdditionalLightsCount();
+                for (int i = 0; i < addLightsCount; i++)
+                {
+                    Light addLight = GetAdditionalLight(i, input.positionWS);
+                    
+                    // 注意light.distanceAttenuation * light.shadowAttenuation，这里已经将距离衰减与阴影衰减进行了计算
+                    addColor += AdditionalLighting(N,V, normalize(addLight.direction),  addLight.color, addLight.distanceAttenuation * addLight.shadowAttenuation);
+                }
+                #endif
+                
+                float4 finalColor = MainTex * float4(mainColor + addColor + _GlossyEnvironmentColor.rgb, 1);
+                return finalColor;
+            }
+            ENDHLSL
+        }
+        
+        //阴影投射pass
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags
+            {
+                "LightMode" = "ShadowCaster"
+            }
+            
+            ZWrite On
+            ZTest LEqual
+            ColorMask 0  //只保存阴影信息，不需要颜色绘制
+            Cull Off
+
+            HLSLPROGRAM
+            #pragma target 2.0
+
+            #pragma multi_compile_instancing
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            
+            //获得齐次裁剪空间下的阴影坐标
+            float4 GetShadowPositionHClip(Attributes input)
+            {
+                float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+                float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
+            
+                //光源方向
+                //为什么只传了主光源方向，点光源也可以投射阴影
+                //这个PASS走的 是 记录灯光视角下深度，点光源使用这个方向计算是错的，但只是影响一点offset，所以点光源还是能看到影子
+                float3 lightDirectionWS = _MainLightPosition.xyz;
+
+                //ApplyShadowBias()得到经过深度偏移和法线偏移后的世界空间阴影坐标
+                //然后转换到齐次裁剪空间
+                float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, lightDirectionWS));
+
+            //反向Z防止Z-Fighting
+            #if UNITY_REVERSED_Z
+                positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+            #else
+                positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+            #endif
+
+                return positionCS;
+            }
+            
+            Varyings ShadowPassVertex(Attributes input)
+            {
+                Varyings output = (Varyings)0;
+                UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_TRANSFER_INSTANCE_ID(input, output);
+                output.uv = input.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                output.positionCS = GetShadowPositionHClip(input);
+                return output;
+            }
+
+            half4 ShadowPassFragment(Varyings input) : SV_TARGET
+            {
+                 UNITY_SETUP_INSTANCE_ID(input);
+                
+                //纹理采样
+                float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
+
+                #if _CUT_ON
+                    clip(MainTex.a - _Cutoff);
+                #endif
+                
+                return 0;
+            }
+            ENDHLSL
+        }
+    }
+            
+    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
+}
+```
 
 # Lit. shader 解析
 

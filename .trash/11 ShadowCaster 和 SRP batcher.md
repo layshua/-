@@ -1,9 +1,4 @@
-当我们通过 `UsePass` 方式进行，SRP 的要求之一：
-- 必须在一个名为 `UnityPerMaterial` 的 CBUFFER 中声明所有材质属性。所以我们要共用一个 CBUFFER，把 CBUUFER 写在两个 Pass 之前。
 
-![[Pasted image 20230629155628.png]]
-
-自己写阴影的投射 pass，这样就可以继续开启 SRP Batcher，并支持 alpha test 的透明阴影。
 
 
 
