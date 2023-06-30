@@ -937,7 +937,8 @@ Shader "L18/Polar" {
   
                 // 反正切(两种不同方法) 求角度  
                 // atan()值域[-π/2, π/2]一般不用; atan2()值域[-π, π]  
-                // float2 theta = atan(i.uv.y/ i.uv.x);float theta = atan2(i.uv.y, i.uv.x);   
+                // float2 theta = atan(i.uv.y/ i.uv.x);
+                float theta = atan2(i.uv.y, i.uv.x);   
                 // 值域转成（0，1）  
                 theta = theta / UNITY_PI * 0.5 + 0.5;  
                 // 求半径  

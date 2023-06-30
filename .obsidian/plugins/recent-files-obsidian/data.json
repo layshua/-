@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+      "basename": "极坐标 shader 原理及实现",
+      "path": "zBuffer/极坐标 shader 原理及实现.md"
     },
     {
       "basename": "UV操作",
       "path": "技术美术/1 渲染雅集/UV操作.md"
+    },
+    {
+      "basename": "ShaderGraph 结点分析 ---PolarCoordinates（极坐标）---1_牛神自的博客 - CSDN 博客",
+      "path": "zBuffer/ShaderGraph 结点分析 ---PolarCoordinates（极坐标）---1_牛神自的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
+      "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
     },
     {
       "basename": "01 序列帧",
@@ -45,10 +65,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
     },
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
-    },
-    {
       "basename": "Shader HLSL",
       "path": "引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
     },
@@ -67,10 +83,6 @@
     {
       "basename": "顶点动画",
       "path": "技术美术/1 渲染雅集/顶点动画.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "布料",
@@ -99,10 +111,6 @@
     {
       "basename": "10 体积云",
       "path": "技术美术/1 渲染雅集/10 体积云.md"
-    },
-    {
-      "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
-      "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
     },
     {
       "basename": "变体",
@@ -191,14 +199,6 @@
     {
       "basename": "真实感水体渲染",
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "01 学习大纲.md"
-    },
-    {
-      "basename": "灯光组，光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
     }
   ],
   "omittedPaths": [],
