@@ -50092,6 +50092,7 @@ UnityEditorVizData
 UniversalFragmentMeta
 UnityMetaFragment
 Utils
+Uninitialized
 api
 ac
 app
@@ -84634,6 +84635,7 @@ InitializeInputDataFog
 InitializeStandardLitSurfaceData
 IsSurfaceTypeTransparent
 Includes
+Inpector
 qq
 qyi
 quad

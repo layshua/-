@@ -8,15 +8,7 @@ uid: 202306271220
 banner: "![[Pasted image 20230627122009.png]]"
 ---
 
-URP 帧渲染循环
-![[Pasted image 20230630202743.png]]
 
-URP 渲染器为每个相机执行一个相机循环，该循环执行以下步骤：
-1.  **Setup Culling Parameters 设置剔除参数**：配置用于确定剔除系统如何剔除灯光和阴影的参数。可以使用自定义渲染器 override 渲染管线的这一部分。 
-2. **Culling 剔除**  ：使用上一步中的剔除参数来计算相机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和相机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
-3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器相机和当前选择的平台所需的渲染工作量和质量。
-4. **Setup Renderer 设置渲染器** ： 构建渲染 Pass 的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
-5. **Execute Renderer 执行渲染器**：执行队列中的每个 Pass 。渲染器将“Camera”图像输出到帧缓冲区（framebuffer） 。
 # 规范
 ## 总体结构
 
@@ -701,7 +693,17 @@ URP Asset->Lighting
 urp 的相机和内置管线有较大差异
 ![[Pasted image 20230630214444.png]]
 
-## Universal Additional Camera Data 组件
+## URP 帧渲染循环
+![[Pasted image 20230630202743.png]]
+
+URP 渲染器为每个相机执行一个相机循环，该循环执行以下步骤：
+1.  **Setup Culling Parameters 设置剔除参数**：配置用于确定剔除系统如何剔除灯光和阴影的参数。可以使用自定义渲染器 override 渲染管线的这一部分。 
+2. **Culling 剔除**  ：使用上一步中的剔除参数来计算相机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和相机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
+3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器相机和当前选择的平台所需的渲染工作量和质量。
+4. **Setup Renderer 设置渲染器** ： 构建渲染 Pass 的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
+5. **Execute Renderer 执行渲染器**：执行队列中的每个 Pass 。渲染器将“Camera”图像输出到帧缓冲区（framebuffer） 。
+
+## 通用附加摄影机数据组件
 ![[Pasted image 20230630221353.png]]
 通用附加摄影机数据组件是通用渲染管道（URP）用于内部数据存储的组件。通用附加摄像头数据组件允许 URP 扩展和重载Unity 标准摄像头组件的功能和外观。
 在 URP 中，具有相机组件的游戏对象也必须具有通用附加相机数据组件
@@ -717,10 +719,6 @@ var cameraData = camera.GetUniversalAdditionalCameraData();
 
 ![[Pasted image 20230630215445.png]]**Overlay**：在另一个相机的输出之上进行渲染。可以将 Base 相机的输出与一个或多个 Overlay 相机的输出组合。这被称为 [Camera stacking](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/camera-stacking.html)。可以使用 Overlay 相机在二维 UI 中创建3D 对象或车辆中的驾驶舱等效果。
 必须将 Oberlay 相机与使用相机堆叠系统的一个或多个 Base 相机结合使用。您不能单独使用 Oberlay 相机。不属于“相机堆栈”（Camera Stack）的“Oberlay 相机”（Overlay Camera）不会执行其渲染循环的任何步骤，并且被称为孤立相机 orphan Camera.。
-```cs
-var cameraData = camera.GetUniversalAdditionalCameraData();
-cameraData.renderType = CameraRenderType.Base;
-```
 
 1. 相机堆栈中的Base相机决定相机堆栈的大部分属性。因为您只能在“相机堆栈”中使用“Oberlay相机”，所以在渲染场景时，URP 仅使用Oberlay相机的以下属性：
     - Projection
@@ -734,6 +732,12 @@ cameraData.renderType = CameraRenderType.Base;
     - Culling Mask 
     - Occlusion Culling 
 2. 不能将后处理应用于单个 Oberlay 相机。可以将后处理应用于单个 Base 相机或相机堆栈。
+
+可以在脚本中更改相机的类型，方法是设置相机的通用附加相机数据组件的 `renderType` 属性，如下所示：
+```cs file:更改相机的类型
+var cameraData = camera.GetUniversalAdditionalCameraData();
+cameraData.renderType = CameraRenderType.Base;
+```
 
 ## 使用多摄像机
 ### Camera Stack 相机堆栈
@@ -749,7 +753,7 @@ cameraData.renderType = CameraRenderType.Base;
 ![[Pasted image 20230630220539.png]]
 
 脚本控制 Base 相机的 Universal Additional Camera Data 组件的 `cameraStack` 属性
-```cs
+```cs file:相机堆栈操作
 //将相机添加到堆栈
 var cameraData = camera.GetUniversalAdditionalCameraData();
 cameraData.cameraStack.Add(myOverlayCamera);
@@ -779,11 +783,49 @@ myUniversalAdditionalCameraData.rect = new Rect(0.5f, 0f, 0.5f, 0f);
 2. 创建 Quad，将 RenderTexture 拖到 Quad 上作为纹理使用
 3. 新建 Base Camera， Inpector->Output->Output Texture，放入创建的 Render Texture
 
-
-## Changing
-
+通过设置摄影机的“通用附加摄影机数据”组件的 ``cameraOutput``属性，可以在脚本中设置摄影机的输出目标，如下所示：
+```cs file:设置摄影机的输出目标
+myUniversalAdditionalCameraData.cameraOutput = CameraOutput.Texture;
+myCamera.targetTexture = myRenderTexture;
 ```
+## Clearing 缓冲区清除
+摄影机清除行为取决于摄影机的渲染类型
 
+**Base Camera**
+![[Pasted image 20230630225225.png]]
+>Inspector->Environment
+
+1. 颜色缓冲区 Color buffer：在渲染循环开始时清除为以下三种背景类型：
+    - Skybox：如果没有找到 Skybox，默认为 Solid Color
+    - Solid Color：将 Color buffer 清除为纯色
+    - Uninitialized：使用未初始化的颜色缓冲区。未初始化的相机背景值未定义。只有当你渲染相机视图中的所有像素时才使用这个。
+2. 深度缓冲区 Depth Buffer：始终在每个渲染循环开始时清除
+
+**Overlay Camera**
+1. 颜色缓冲区 Color buffer：在渲染循环开始时，Overlay Camera 会接收一个颜色缓冲区，该缓冲区包含摄影机堆栈中以前摄影机的颜色数据。它不会清除颜色缓冲区的内容。
+2. 深度缓冲区 Depth Buffer：在渲染循环开始时，Overlay Camera 会接收一个深度缓冲区，其中包含来自摄影机堆栈中先前摄影机的深度数据。当“渲染类型”设置为“覆盖”时，可以使用 Camera Inspector->Rendering->Clear Depth 选项确定是否清除，默认清除。
+
+## Culling 和 Rendering Order 
+如果URP场景包含多个摄影机，Unity将按可预测的顺序执行它们的剔除和渲染操作。
+每一帧 Unity 执行以下操作：
+1. Unity 获取场景中所有活动的基本摄影机的列表
+2. Unity 将活动的基本摄影机组织为两组：渲染到 Render Texture 和渲染到到屏幕
+3. Unity 将渲染到 Render Texture 的 Base Camera 按“优先级”（Priority）顺序排序，以便最后绘制“优先级”值较高的摄影机。
+4. 对于渲染到 Render Texture 的每个 Base Camera，Unity 执行以下步骤：
+    1. 剔除 Base Camera
+    2. 将 Base Camera 渲染到 Render Texture
+    3. 对于作为 Base Camera 的摄影机堆栈一部分的每个 Overlay Camera，按照摄影机堆栈中定义的顺序：
+        1. 剔除 Overlay Camera
+        2. 将 Overlay Camera 渲染到 Render Texture
+5. Unity 将渲染到屏幕的“Base Camera”按“优先级”顺序排序，以便“优先级”值较高的摄影机最后绘制。
+6. 对于渲染到屏幕上的每个基本摄影机，Unity 执行以下步骤：
+    1. 剔除 Base Camera
+    2. 将 Base Camera 渲染到 Render Texture
+    3. 对于作为 Base Camera 的摄影机堆栈一部分的每个 Overlay Camera，按照摄影机堆栈中定义的顺序：
+        1. Cull the Overlay Camera  
+            剔除叠加摄影机
+        2. Render the Overlay Camera to the screen  
+            将叠加摄影机渲染到屏幕
 ### 可编辑参数
 **Clear Flags**：清除标志，如何清除背景
 - skybox 天空盒 
