@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
       "basename": "Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/02 Unity操作指南.md"
     },
     {
       "basename": "Unity Git",

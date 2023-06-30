@@ -701,9 +701,14 @@ URP Asset->Lighting
 urp 的相机和内置管线有较大差异
 ![[Pasted image 20230630214444.png]]
 
+## Universal Additional Camera Data 组件
+![[Pasted image 20230630221353.png]]
+通用附加摄影机数据组件是通用渲染管道（URP）用于内部数据存储的组件。通用附加摄像头数据组件允许 URP 扩展和重载Unity 标准摄像头组件的功能和外观。
+在 URP 中，具有相机组件的游戏对象也必须具有通用附加相机数据组件
+
 脚本 API：[Class UniversalAdditionalCameraData | Universal RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/api/UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.html)
 ```cs
-//使用脚本访问相机的通用附加相机数据组件
+//使用脚本访问相机的通用附加相机数据组件 Universal Additional Camera Data component
 var cameraData = camera.GetUniversalAdditionalCameraData();
 ```
 ## Render Type
@@ -737,12 +742,47 @@ cameraData.renderType = CameraRenderType.Base;
 摄影机堆栈由一个基本摄影机和一个或多个叠加摄影机组成。摄影机堆栈使用摄影机堆栈中所有摄影机的组合输出覆盖基础摄影机的输出。因此，**可以对“基本摄影机”的输出执行的任何操作，都可以对“摄影机堆栈”的输出进行。例如，可以将“摄影机堆栈”渲染到给定的渲染目标，应用后期处理效果，等等。**
 要注意渲染顺序，减少 overdraw
 
-相机添加到堆栈
+**相机添加到堆栈**
 1. 设置一个相机为 Base ，一个为 Overlay
 2. Base 相机的 Camera 组件 —> Stack，添加 Overlay 相机
-3. Overlay 相机的输出叠加在 Base 相机上面（Overlayzai）
+3. Overlay 相机的输出叠加在 Base 相机上面（栈结构，从上到下渲染，后面加的优先显示）
 ![[Pasted image 20230630220539.png]]
 
+脚本控制 Base 相机的 Universal Additional Camera Data 组件的 `cameraStack` 属性
+```cs
+//将相机添加到堆栈
+var cameraData = camera.GetUniversalAdditionalCameraData();
+cameraData.cameraStack.Add(myOverlayCamera);
+
+//将相机移出堆栈
+var cameraData = camera.GetUniversalAdditionalCameraData();
+cameraData.cameraStack.Remove(myOverlayCamera);
+```
+
+### 渲染到同一渲染目标
+多个基本摄影机或摄影机堆栈可以渲染到同一渲染目标。这允许您创建诸如分屏渲染（split screen）之类的效果。
+
+使用两个 Base Camera，设置 Inspector->Output->Viewport Rect
+
+$XYWH$ 分别设置为 $(0,0,0.5,1) \quad(0.5,0,0.5,1)$
+可以看到 Game 视口已经分屏：
+![[Pasted image 20230630222857.png|500]]
+
+```cs file:通过设置rect属性来更改摄影机的Viewport rect
+myUniversalAdditionalCameraData.rect = new Rect(0.5f, 0f, 0.5f, 0f);
+```
+
+### 渲染到 RenderTexture
+在 URP 中，渲染到 RenderTexture 的所有摄影机在渲染到屏幕的所有摄影机之前执行其渲染循环。这样可以确保 Render Textures 已准备好渲染到屏幕。
+
+1. 创建 Render Texture，Assets > Create > Render Texture
+2. 创建 Quad，将 RenderTexture 拖到 Quad 上作为纹理使用
+3. 新建 Base Camera， Inpector->Output->Output Texture，放入创建的 Render Texture
+
+
+## Changing
+
+```
 
 ### 可编辑参数
 **Clear Flags**：清除标志，如何清除背景
