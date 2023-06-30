@@ -1,4 +1,9 @@
 
+> [!NOTE] Title
+> Unity： UV 坐标原点为左下角
+> UE：UV 坐标原点为左上角
+
+# 遮罩
 ## 1 UV 坐标系转换成笛卡尔直角坐标系
 ![[Pasted image 20221215123919.png]]
 ![[Pasted image 20221215123942.png]]
