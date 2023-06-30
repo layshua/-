@@ -13,28 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1bd500bb95dfa5d4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -77,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
               }
             }
           }
@@ -120,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -169,39 +155,40 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "1bd500bb95dfa5d4",
+  "active": "cb49430516192514",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/04 序列帧.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "技术美术/1 渲染雅集/03 顶点动画.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "zBuffer/极坐标 shader 原理及实现.md",
-    "zip/images/456415651sd.gif",
-    "zBuffer/ShaderGraph 结点分析 ---PolarCoordinates（极坐标）---1_牛神自的博客 - CSDN 博客.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
-    "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "技术美术/1 渲染雅集/10 溶解.md",
+    "技术美术/1 渲染雅集/11 体积云.md",
+    "技术美术/1 渲染雅集/09 描边.md",
+    "技术美术/1 渲染雅集/08 草.md",
+    "技术美术/1 渲染雅集/07 基于屏幕空间.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/05 SSAO.md",
+    "技术美术/1 渲染雅集/03 顶点动画.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/05 模板测试.md",
+    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zip/images/456415651sd.gif",
     "zip/images/7b82047ff25c9c660102970b65946c39_MD5.jpg",
     "zip/images/fdc75060b59a3a4e1ec2f458ab7ec471_MD5.jpg",
     "zip/images/94a8011ad9bd29fe5b39a527c42be4ca_MD5.jpg",
     "zip/images/d50de4123d4fff38e4dceadafcc4717a_MD5.jpg",
     "zip/images/213a69bbdbedbc30c75fb2c008ab54a4_MD5.jpg",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
-    "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
-    "引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
-    "引擎Unreal/03 材质 & 渲染/303 实时渲染.md",
-    "引擎Unreal/03 材质 & 渲染/202 材质教程.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md",
-    "技术美术/2 着色器/布料.md",
-    "引擎Unreal/02 蓝图 & U++/101 蓝图.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "zip/images/Pasted image 20230630150252.png",
     "zip/images/9f4987808275aacfab1f390d6438c39b_MD5.jpg",
     "zip/images/966c31aca74b36ce1490fd61a31774b4_MD5.jpg",

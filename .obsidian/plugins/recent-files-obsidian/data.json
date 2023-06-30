@@ -1,36 +1,128 @@
 {
   "recentFiles": [
     {
-      "basename": "02 UV操作",
-      "path": "技术美术/1 渲染雅集/02 UV操作.md"
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "10 溶解",
+      "path": "技术美术/1 渲染雅集/10 溶解.md"
+    },
+    {
+      "basename": "11 体积云",
+      "path": "技术美术/1 渲染雅集/11 体积云.md"
+    },
+    {
+      "basename": "09 描边",
+      "path": "技术美术/1 渲染雅集/09 描边.md"
+    },
+    {
+      "basename": "08 草",
+      "path": "技术美术/1 渲染雅集/08 草.md"
+    },
+    {
+      "basename": "07 基于屏幕空间",
+      "path": "技术美术/1 渲染雅集/07 基于屏幕空间.md"
+    },
+    {
+      "basename": "06 雾",
+      "path": "技术美术/1 渲染雅集/06 雾.md"
+    },
+    {
+      "basename": "05 SSAO",
+      "path": "技术美术/1 渲染雅集/05 SSAO.md"
     },
     {
       "basename": "03 顶点动画",
       "path": "技术美术/1 渲染雅集/03 顶点动画.md"
     },
     {
+      "basename": "02 UV操作",
+      "path": "技术美术/1 渲染雅集/02 UV操作.md"
+    },
+    {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
       "basename": "极坐标 shader 原理及实现",
       "path": "zBuffer/极坐标 shader 原理及实现.md"
     },
     {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
-    },
-    {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
@@ -57,10 +149,6 @@
       "path": "引擎Unreal/03 材质 & 渲染/101 材质大师.md"
     },
     {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
-    },
-    {
       "basename": "Shader HLSL",
       "path": "引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
     },
@@ -85,24 +173,12 @@
       "path": "引擎Unreal/02 蓝图 & U++/101 蓝图.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
-    },
-    {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "11 体积云",
-      "path": "技术美术/1 渲染雅集/11 体积云.md"
     },
     {
       "basename": "变体",
@@ -123,74 +199,6 @@
     {
       "basename": "TA 之路",
       "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "ClearCoat清漆",
-      "path": "技术美术/2 着色器/ClearCoat清漆.md"
-    },
-    {
-      "basename": "曲面细分与几何着色器",
-      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
-    },
-    {
-      "basename": "各向异性",
-      "path": "技术美术/2 着色器/各向异性.md"
-    },
-    {
-      "basename": "次表面散射",
-      "path": "技术美术/2 着色器/次表面散射.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "前往斯旺西",
-      "path": "zip/dailynote/前往斯旺西.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     }
   ],
   "omittedPaths": [],
