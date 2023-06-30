@@ -578,7 +578,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 |**LinearEyeDepth**（_sceneZ_） |**LinearEyeDepth**（sceneZ，_ZBufferParams）|
 |**Linear01Depth**（_sceneZ_）|**Linear01Depth**（_sceneZ_，__ZBufferParams_）|
 # 1 Lighting
-### 光源组件
+### Light 组件
 ![[Pasted image 20230630210404.png|450]]
 
 **Mode**：光源模式（都是局部光照）
@@ -596,13 +596,6 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 低于 1，每次反弹会使光更暗
 大于 1，每次反弹会使光更亮
 
-**Shadow Type** 阴影设置：
-Strength 阴影暗度 0~1 之间，越大越黑
-Resolution 阴影贴图渲染分辨率，越高越逼真，消耗越高
-Bias 阴影推离光源的距离
-Normal Bias 阴影投射面沿法线收缩距离
-Near Panel 渲染阴影的近裁剪面
-
 **Cookie**：投影遮罩，URP 不支持 Area lights 使用 Cookie
 
 **Draw Halo**：光晕 ![[Pasted image 20230605105457.png|245]]
@@ -614,10 +607,10 @@ Near Panel 渲染阴影的近裁剪面
 **Render Mode**：渲染模式，设置选定灯光的渲染优先级
 Auto 运行时确定，具体取决于附近灯光的亮度和当前的 Quality settings 
 lmportanto 以逐像素模式渲染，效果逼真，消耗大。仅将该模式用于最显著的视觉效果（例如，玩家汽车的前灯）。
-Not lmportant：以快速模式进行渲染
+Not lmportant：以逐顶点/对象模式渲染，便宜
 
-**Culling Mask**：剔除遮罩
-``
+**Culling Mask**：剔除遮罩，可以选择性地排除对象组不受灯光影响
+
 ```cs file:代码控制
 public Light light;
 void Start()
@@ -627,14 +620,30 @@ void Start()
 }
 ```
 
+**Shadow Type** **阴影类型**：
+Baked Shadow Angle/Radius：为光的软阴影边缘添加软化
+Strength 阴影暗度 0~1 之间，越大越黑
+Resolution 阴影贴图渲染分辨率
+Bias 阴影偏移，包括 depth bias 和 normal bias 
+Normal Bias 阴影投射面沿法线收缩距离
+Near Panel 渲染阴影的近裁剪面
+Custom Shadow Layers: [[URP#自定义 Shadow Layers]]
+
+**阴影图集设置**：URP Asset->Shadows
+![[Pasted image 20230630213031.png]]
+- 聚光灯渲染 1 张阴影贴图。
+- 点光源渲染 6 张阴影贴图（立方体贴图中的面数）
+- “平行光”为每个级联渲染 1 张阴影贴图，URP Asset->Shadows->Cascade Count 可以设置级联数量
+- URP 使用一个用于所有实时灯光的阴影图集（shadow atlas）来渲染实时阴影，可以指定阴影图集的分辨率。并且要根据项目决定
+    - 例如：如果场景有四个聚光灯和一个点光源；并且您希望每个阴影贴图的分辨率至少为256x256。场景需要渲染十个阴影贴图（每个聚光灯一个，点光源六个），每个贴图的分辨率为256x256。使用大小为512x512的阴影图集是不够的，因为它只能包含四个大小为256x256的贴图。因此，您应该使用大小为1024x1024的阴影图集，其中最多可以包含16个大小为256x256的贴图。
+      
 ### Lighting 面板
-Windous-Rendering-Lighting
+Windows-Rendering-Lighting
 ![[Pasted image 20230605123432.png|300]]
 
 ![[Pasted image 20230605123417.png]]
 
 ![[Pasted image 20230605123701.png]]
-
 
 ### 烘焙光照贴图
 Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
@@ -687,6 +696,9 @@ Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两
 环境物体要设置为 static 才能被采集到
 
 通常而言，要将其位置放置在场景中明显可以进行，比如让立方体的各个平面靠近房间墙壁的边缘。
+
+URP Asset->Lighting
+![[Pasted image 20230630213444.png]]
 
 # 多光源阴影
 
