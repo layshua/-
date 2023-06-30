@@ -690,6 +690,8 @@ URP Asset->Lighting
 
 
 # Camera
+组件参考：[Camera component reference | Universal RP | 14.0.8 --- 相机组件参考|通用RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/camera-component-reference.html#rendering)
+
 urp 的相机和内置管线有较大差异
 ![[Pasted image 20230630214444.png]]
 
@@ -805,9 +807,17 @@ myCamera.targetTexture = myRenderTexture;
 1. 颜色缓冲区 Color buffer：在渲染循环开始时，Overlay Camera 会接收一个颜色缓冲区，该缓冲区包含摄影机堆栈中以前摄影机的颜色数据。它不会清除颜色缓冲区的内容。
 2. 深度缓冲区 Depth Buffer：在渲染循环开始时，Overlay Camera 会接收一个深度缓冲区，其中包含来自摄影机堆栈中先前摄影机的深度数据。当“渲染类型”设置为“覆盖”时，可以使用 Camera Inspector->Rendering->Clear Depth 选项确定是否清除，默认清除。
 
-## Culling 和 Rendering Order 
-如果URP场景包含多个摄影机，Unity将按可预测的顺序执行它们的剔除和渲染操作。
-每一帧 Unity 执行以下操作：
+## 剔除和渲染顺序
+Culling 和 Rendering order
+
+如果 URP 场景包含多个摄影机，Unity 将按可预测的顺序执行它们的剔除和渲染操作。
+
+
+![[Pasted image 20230630232002.png|500]]
+>优先级（Priority）设置： Camera inspector->Rendering
+优先级较高的摄影机绘制在优先级较低的摄影机之上。优先级的范围从-100到100。仅当渲染类型设置为 Base 时，此属性才可见。  
+
+**每一帧 Unity 执行以下操作：**
 1. Unity 获取场景中所有活动的基本摄影机的列表
 2. Unity 将活动的基本摄影机组织为两组：渲染到 Render Texture 和渲染到到屏幕
 3. Unity 将渲染到 Render Texture 的 Base Camera 按“优先级”（Priority）顺序排序，以便最后绘制“优先级”值较高的摄影机。
@@ -820,71 +830,19 @@ myCamera.targetTexture = myRenderTexture;
 5. Unity 将渲染到屏幕的“Base Camera”按“优先级”顺序排序，以便“优先级”值较高的摄影机最后绘制。
 6. 对于渲染到屏幕上的每个基本摄影机，Unity 执行以下步骤：
     1. 剔除 Base Camera
-    2. 将 Base Camera 渲染到 Render Texture
+    2. 将 Base Camera 渲染到屏幕
     3. 对于作为 Base Camera 的摄影机堆栈一部分的每个 Overlay Camera，按照摄影机堆栈中定义的顺序：
-        1. Cull the Overlay Camera  
-            剔除叠加摄影机
-        2. Render the Overlay Camera to the screen  
-            将叠加摄影机渲染到屏幕
-### 可编辑参数
-**Clear Flags**：清除标志，如何清除背景
-- skybox 天空盒 
-- Solid Color 颜色填充
-- Depth only 只画该层，背景透明
-- Don't Clear 不移除，覆盖渲染（不会有）
-
-**Culling Mask**：剔除遮罩，指定渲染哪些 Layer 
-
-**Physical Camera**：物理摄像机
-勾选后可以模拟真实世界中的摄像机焦距，传感器尺寸，透镜移位等等
-- Focal Length 焦距
-- Sensor Type  传感器类型
-- Sensor Size 传感器尺寸
-- Lens Shift 透镜移位
-- Gate Fit 闸门配合
+        1. 剔除 Overlay Camera
+        2. 将 Overlay Camera 渲染到屏幕
 
 
-**Depth**：深度决定渲染顺序
-- 多相机的时候要设置顺序。（比如 UI 一个摄像机，游戏一个摄像机，设置两个 Culling Mask 不同的摄像机绘制不同的 Layer） 
-- 深度较大的绘制在深度较小的上方（覆盖小的），game 中的界面是深度最大相机渲染出来的
-- 深度大的可以将 Clear Flags 设置为 Depth only，这样就可以渲染出多个摄像机拍摄的内容
+Unity 可以在一帧中多次渲染叠加摄影机的视图，或者是因为叠加摄影机出现在多个摄影机堆栈中，或者是叠加摄影机多次出现在同一摄影机堆栈中。当这种情况发生时，Unity 不会重用剔除或渲染操作的任何元素。按照上面详述的顺序，完全重复这些操作。（overdraw）
 
-**Viewport Rect**：视口范围
-可以起到分屏的作用，这样可以放置多个摄像机，实现分屏多人游戏
+> [!bug] 重要提示
+> 在此版本的 URP 中，只有在使用 Universal Renderer 时才支持叠加摄影机和摄影机堆栈。如果使用2D Renderer，叠加摄影机将不会执行其渲染循环的任何部分。
 
-**Target Texture**：渲染纹理
-- 可以把摄像机画面渲染到一张图上，用于制作小地图
-- 在 Project 右键创建 RenderTexture
 
-### 代码相关
-主摄像机的 Tag 必须设置为 MainCamera，否则 `Camera. main` 无法得到对象
-![[Pasted image 20230604234018.png]]
-```cs
-//获取tag为MainCamera摄像机
-//获取MainCamera的名字
-print(Camera.main.name);
 
-//Inspector界面上的参数，都可以在Camera中获取
-Camera.main.depth = 10;
-
-//获取摄像机的数量
-print(Camera.allCamerasCount);
-
-//得到所有摄像机
-Camera[] cameras = Camera.allCameras;
-print(cameras.Length);
-```
-
-```cs file:渲染相关委托
-//摄像机 剔除前 处理的委托函数
-Camera.onPreCull += (cam) => { print("onPreCull"); };
-
-//摄像机 渲染前 处理的委托函数
-Camera.onPreRender += (cam) => { print("onPreRender"); };
-
-//摄像机 渲染后 处理的委托函数
-Camera.onPostRender += (cam) => { print("onPostRender"); };
-```
 
 # 多光源阴影
 

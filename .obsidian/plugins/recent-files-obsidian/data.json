@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "变体",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
       "basename": "02 Unity操作指南",
@@ -191,14 +199,6 @@
     {
       "basename": "101 蓝图",
       "path": "引擎Unreal/02 蓝图 & U++/101 蓝图.md"
-    },
-    {
-      "basename": "HLSL语法",
-      "path": "图形学/2 图形API/DX12/HLSL语法.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
     }
   ],
   "omittedPaths": [],

@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,7 +72,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -167,6 +167,9 @@
   "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "zip/images/Pasted image 20230630232002.png",
+    "zip/images/Pasted image 20230630231957.png",
+    "图形学/1 图形系统/02 光栅化.md",
     "zip/images/Pasted image 20230630225225.png",
     "zip/images/Pasted image 20230630222857.png",
     "zip/images/Pasted image 20230630222720.png",
@@ -177,8 +180,6 @@
     "zip/images/Pasted image 20230630220146.png",
     "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
     "zip/images/Pasted image 20230630215445.png",
-    "zip/images/Pasted image 20230630215440.png",
-    "zip/images/Pasted image 20230630214444.png",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "Tools/Git/Unity Git.md",
@@ -200,7 +201,6 @@
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/05 SSAO.md",
     "技术美术/1 渲染雅集/03 顶点动画.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
