@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "Trick！",
+      "path": "技术美术/1 渲染雅集/Trick！.md"
+    },
+    {
+      "basename": "CG shaderlab",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
+    },
+    {
+      "basename": "Shader HLSL",
+      "path": "引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
+    },
+    {
+      "basename": "303 实时渲染",
+      "path": "引擎Unreal/03 材质 & 渲染/303 实时渲染.md"
+    },
+    {
+      "basename": "202 材质教程",
+      "path": "引擎Unreal/03 材质 & 渲染/202 材质教程.md"
+    },
+    {
+      "basename": "101 材质大师",
+      "path": "引擎Unreal/03 材质 & 渲染/101 材质大师.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+    },
+    {
+      "basename": "ASE",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
+    },
+    {
+      "basename": "冯乐乐入门精要",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
+    },
+    {
+      "basename": "UV操作",
+      "path": "技术美术/1 渲染雅集/UV操作.md"
+    },
+    {
       "basename": "顶点动画",
       "path": "技术美术/1 渲染雅集/顶点动画.md"
     },
@@ -9,16 +57,20 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
+      "basename": "布料",
+      "path": "技术美术/2 着色器/布料.md"
     },
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+      "basename": "101 蓝图",
+      "path": "引擎Unreal/02 蓝图 & U++/101 蓝图.md"
     },
     {
       "basename": "15 屏幕深度制作护盾特效",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
@@ -31,14 +83,6 @@
     {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
-    },
-    {
-      "basename": "UV操作",
-      "path": "技术美术/1 渲染雅集/UV操作.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
       "basename": "08 透明",
@@ -97,10 +141,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "冯乐乐入门精要",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -149,10 +189,6 @@
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
-      "basename": "CG shaderlab",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
-    },
-    {
       "basename": "01 学习大纲",
       "path": "01 学习大纲.md"
     },
@@ -163,42 +199,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
       "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "08 点光源和聚光灯",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "1 批处理总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     }
   ],
   "omittedPaths": [],
