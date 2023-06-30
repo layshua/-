@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "变体",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     }
   ],
   "omittedPaths": [],

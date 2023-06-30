@@ -14,9 +14,9 @@ URP 帧渲染循环
 URP 渲染器为每个摄影机执行一个摄影机循环，该循环执行以下步骤：
 1.  **Setup Culling Parameters 设置剔除参数**：配置用于确定剔除系统如何剔除灯光和阴影的参数。可以使用自定义渲染器 override 渲染管线的这一部分。 
 2. **Culling 剔除**  ：使用上一步中的剔除参数来计算摄影机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和摄影机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
-3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、相机和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器摄影机和当前选择的平台所需的渲染工作量和质量。
+3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器摄影机和当前选择的平台所需的渲染工作量和质量。
 4. **Setup Renderer 设置渲染器** ： 构建渲染 Pass 的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
-5. **Execute Renderer 执行渲染器**
+5. **Execute Renderer 执行渲染器**：执行队列中的每个 Pass 。渲染器将“Camera”图像输出到帧缓冲区（framebuffer） 。
 # 规范
 ## 总体结构
 
@@ -577,6 +577,116 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 |---|---|
 |**LinearEyeDepth**（_sceneZ_） |**LinearEyeDepth**（sceneZ，_ZBufferParams）|
 |**Linear01Depth**（_sceneZ_）|**Linear01Depth**（_sceneZ_，__ZBufferParams_）|
+# 1 Lighting
+### 光源组件
+![[Pasted image 20230630210404.png|450]]
+
+**Mode**：光源模式（都是局部光照）
+- Realtime：实时光源。每帧实时计算，效果好，性能消耗大
+    - 优点：灯光位置、强度、颜色会发生移动
+    - 缺点：
+        - 实时运算，开销大（逐个顶点运算/逐个像素运算）
+        - 不能计算多次光线反射的效果，**只能计算一次光线反射效果**（只有直接光）
+- Baked：烘焙光源，事先把光线经过多次反射（间接光）的效果计算在一张场景光照贴图（uv2）上，这张贴图作用于场景内的所有物体的表面。
+    - 优点：光线模拟的效果真实，由于是在游戏开始前计算的，所以没有实时计算的开销
+    - 缺点：不能实时运算
+- Mixed：混合光源，预先计算+实时运算
+
+**lndirect Multiplier 间接乘数**：改变间接光的强度，定义由全局照明（GI）系统计算的反弹光的亮度。
+低于 1，每次反弹会使光更暗
+大于 1，每次反弹会使光更亮
+
+**Shadow Type** 阴影设置：
+Strength 阴影暗度 0~1 之间，越大越黑
+Resolution 阴影贴图渲染分辨率，越高越逼真，消耗越高
+Bias 阴影推离光源的距离
+Normal Bias 阴影投射面沿法线收缩距离
+Near Panel 渲染阴影的近裁剪面
+
+**Cookie**：投影遮罩，URP 不支持 Area lights 使用 Cookie
+
+**Draw Halo**：光晕 ![[Pasted image 20230605105457.png|245]]
+
+
+**Flare**：耀斑，需要给摄像机添加组件：![[Pasted image 20230605105620.png]]
+![[Pasted image 20230605123853.png|450]]
+
+**Render Mode**：渲染模式，设置选定灯光的渲染优先级
+Auto 运行时确定，具体取决于附近灯光的亮度和当前的 Quality settings 
+lmportanto 以逐像素模式渲染，效果逼真，消耗大。仅将该模式用于最显著的视觉效果（例如，玩家汽车的前灯）。
+Not lmportant：以快速模式进行渲染
+
+**Culling Mask**：剔除遮罩
+``
+```cs file:代码控制
+public Light light;
+void Start()
+{
+    //Inspector面板上的属性都能获得
+    light.intensity = 1;
+}
+```
+
+### Lighting 面板
+Windous-Rendering-Lighting
+![[Pasted image 20230605123432.png|300]]
+
+![[Pasted image 20230605123417.png]]
+
+![[Pasted image 20230605123701.png]]
+
+
+### 烘焙光照贴图
+Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
+1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
+2. 预计算光 (全称: Precomputed Realtime Global Illumination，预计算实时全局光照)：作用在动态物体上
+
+Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两种技术都需要一个技术流程——**烘焙**
+烘焙: 是指根据场景的光照信息，把物体受到场景光照的信息写入一张大的纹理贴图上（Lightingmap），并贴在物体表面的过程
+![[Pasted image 20230615163418.png]]
+
+注意点：
+- 静态 static 物体才能接收光照贴图
+- 灯光 Mode 必须为 static 或 mixed
+
+![[Pasted image 20230615003324.png]]
+
+**烘焙时模型不受光照影响**：美术没有留 uv2，模型 Inspector 界面勾选 Generate lightmap UVs 生成 uv2
+![[Pasted image 20230615004838.png|300]] ![[Pasted image 20230615004915.png|450]]
+
+**烘焙模型有硬边缘接缝**：勾选 Stitch Seams
+![[Pasted image 20230615004644.png|250]] ![[Pasted image 20230615004712.png|400]]
+
+**烘焙后模型有小点**：由于渲 103 染精度太低造成，提高以下两个值即可
+
+![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|450]]
+
+### 光照探针
+光照贴图会记录场景中静态物体 Mesh 表面的光照信息，并将这些信息存储在光照贴图当中。
+光照探针与光照贴图的相同点是, 两者都是对场景的光照信息进行的记录，但**光照探针记录的是是光线在场景中穿过空白区域后，其在场景中的信息。**
+
+在场景中，如果一个非静态物体不进行烘培，在实时模式系也可以接受部分光源的直接光的效果，只需要在对应光源的 Light 组件当中将其 Mode 设置为是 Mixed 或者 Realtime 即可。但这种方法依然只能接受直接光，**如果想让场景中的非静态物体在没有光照贴图的情况下依然可以接收到场景的间接光, 就可以使用光照探针来达成。**
+
+![[Pasted image 20230615164846.png|550]]
+光照探针技术的核心，就是通过存储光线在空间中的关键信息，来插值计算出每个点的光照。
+
+注意点：
+- 光源设置为静态
+- 物体设置为 mixed 或者 realtime
+- 探针通过复制可以扩大范围
+- **光照探针要布置在光照信息发生变化的位置**。
+
+### 反射探针
+有游戏当中会有很多物体具有反射效果，像是一些金属材质、玻璃等等。只要一个物体具有镜面特征，就可以产生反射。
+但在游戏中实时的渲染反射的画面通常是一件性能消耗非常大的事情，为了减少运行时的性能消耗, Unity 提供了反射贴图技术，将这些反射的结果预存储在对应的反射贴图中, 在游戏进行时只需要加载即可实现反射的画面效果。和上文中讲解光照贴图时是一样的思路: 以空间换时间。
+
+和光照探针的工作原理类似, 反射探针也是利用一些探针来记录环境中不同位置的信息。
+当使用反射探针在场景中的关键点对其中心点周围的视觉环境进行采样与烘培后, 这些采样得到的反射信息结果会存储到一个立方体贴图上。此立方体贴图的六个面分别记录了其周围六个方向上面的视觉信息，当一个物体靠近了反射探针之后，采样得到的反射效果就会被应用到物体上。**当场景中存在多个反射探针时，其不同反射探针对应的反射效果会进行插值计算。**
+
+注意点：
+环境物体要设置为 static 才能被采集到
+
+通常而言，要将其位置放置在场景中明显可以进行，比如让立方体的各个平面靠近房间墙壁的边缘。
 
 # 多光源阴影
 
@@ -1068,6 +1178,41 @@ Shader "Custom/MultipleLightingShadows for SRPBatche"
 }
 ```
 
+# Rendering Layers
+渲染层功能允许将某些灯光配置为仅影响特定的游戏对象。
+例如，在下图中，灯光 `A` 会影响球体 `D` ，但不会影响球体 `C` 。光 `B` 会影响球体 `C` ，但不会影响球体 `D` 。
+![[Pasted image 20230630204416.png]]
+
+可编辑渲染层名称
+![[Pasted image 20230630204837.png|500]]
+## 为灯光启用渲染层
+  1. 灯光设置
+![[Pasted image 20230630204527.png]]
+![[eff088918bf5cc200f66ce8c5711f76e_MD5.png]]
+>URP Asset > Lighting > Use Rendering Layers  
+
+![[Pasted image 20230630205002.png|450]]
+> Light > General > Rendering Layers
+
+2. 对应 Mesh 设置，选择相应层即可
+![[Pasted image 20230630205103.png|500]]
+> Mesh Renderer > Additional Settings > Rendering Layer Mask
+## 自定义 Shadow Layers
+单独控制阴影投射
+![[Pasted image 20230630205334.png|500]]
+## 为 Decals 启用渲染层
+![[Pasted image 20230630204720.png]]
+>Decal Renderer feature
+![[Pasted image 20230630204744.png]]
+
+![[Pasted image 20230630205412.png]]
+>在图像 `1` 中，油漆桶选择了 `Receive decals` 层。在图像 `2` 中，它没有，因此Decal Projector不会投影到桶上。
+
+## 性能
+1. 尽可能减少 Rendering Layers 的数量。避免创建不在项目中使用的 Rendering Layers。  
+2. 将 Rendering Layers 用于贴花时，增加层数会增加所需的内存带宽并降低性能。 
+3. 当仅对“正向渲染路径”中的灯光使用 Rendering Layers 时，性能影响很小。  
+4. 当“Rendering Layers”计数超过8的倍数时，性能影响会更显著。例如：将层数从8层增加到9层比将层数从9层增加到10层具有更大的相对影响。 
 # Lit. shader 解析
 
 > [!NOTE] 版本
