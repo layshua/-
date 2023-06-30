@@ -863,96 +863,61 @@ float existingDepth01 = tex2D(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosi
 ### 获取背景纹理的方法
 ![[AP01_L17_12 1.jpg]]
 
-## 极坐标
-极坐标不是笛卡尔坐标系，一般只在片元着色器中使用
 
-**将得到的值 Remap 到（0，1）**
-![[Pasted image 20221022214919.png|300]]
-**模型顶点色**：根据这个颜色实现渐入渐出
-顶点色是模型自带的数据，下图为 Blender 里面绘制的模型顶点色
-**为什么要用顶点色**：用顶点色虽然效果不是很好，但是其是在“应用阶段”就生成的数据，非常的省性能。
-我们当然可以画张 Mask，用 uv 去采样，但是这样太费性能。
-![[Pasted image 20221022215652.png|300]]
-```less
-Shader "L18/Polar" {  
-    Properties  
-    {  
-        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
-        [HDR]_Color("混合颜色", color) = (1.0, 1.0, 1.0, 1.0)  
-        _Opacity ("透明度", range(0, 1)) = 0.5  
-    }  
-    SubShader  
-    {  
-        Tags   
-{   "Queue" = "Transparent"             //调整渲染顺序  
-            "RenderType"="Transparent"          //对应改为Cutout  
-            "ForceNoShadowCasting" = "True"     //关闭阴影投射  
-            "IgnoreProjector" = "True"          //不响应投射器  
-        }     
-          
-        Pass  
-        {  
-            Name "FORWARD"  
-            Tags  
-            { "LightMode" = "ForwardBase" }  
-            Blend One OneMinusSrcAlpha  
-              
-            CGPROGRAM  
-            #pragma vertex vert  
-            #pragma fragment frag  
-            #pragma  multi_compile_fwdbase_fullshadows  
-            #include "UnityCG.cginc"  
-  
-            struct appdata  
-            {  
-                float4 vertex : POSITION;  
-                float2 uv : TEXCOORD0;  
-                float4 color : COLOR;   //顶点颜色  
-            };  
-  
-            struct v2f  
-            {  
-                float4 pos : SV_POSITION;  
-                float2 uv : TEXCOORD0;  
-                float4 color : COLOR;  
-            };  
-  
-            sampler2D _MainTex;  
-            float4 _MainTex_ST;  
-            float  _Opacity;  
-            float4 _Color;  
-              
-            v2f vert (appdata v)  
-            {  
-                v2f o;  
-                o.pos = UnityObjectToClipPos(v.vertex);  
-                o.uv = v.uv;  
-                o.color = v.color;  
-                return o;  
-            }  
-  
-            fixed4 frag (v2f i) : SV_Target  
-            {  
-                i.uv = i.uv - float2(0.5, 0.5); //把uv原点从左下角移到中心点  
-  
-                // 反正切(两种不同方法) 求角度  
-                // atan()值域[-π/2, π/2]一般不用; atan2()值域[-π, π]  
-                // float2 theta = atan(i.uv.y/ i.uv.x);
-                float theta = atan2(i.uv.y, i.uv.x);   
-                // 值域转成（0，1）  
-                theta = theta / UNITY_PI * 0.5 + 0.5;  
-                // 求半径  
-                float r = length(i.uv) + frac(_Time.x * 3);   
-                i.uv = float2(theta, r);  
-  
-                float4 MainTex = tex2D(_MainTex, i.uv);  
-                // 最后乘顶点色，实现渐入渐出（效果和模型本身顶点色有关）  
-                half3 finalColor = MainTex. rgb * _Color;       
-                half opacity = MainTex. a * _Opacity;      
-                return float4(finalColor * opacity, opacity);              
-            }  
-            ENDCG  
-        }  
-    }  
-    }
+# 极坐标UV
+极坐标的优点就是模型只需要很低的面数就能够轻易制作出完美的圆形效果，同时极坐标的偏移轴是径向和角度这两个轴向，可以制作出从圆心处收缩或扩散以及旋转的效果，很适合制作魔法阵、Buff 等圆形动态特效。
+
+![[456415651sd.gif|400]]
+```cs file:代码实现
+float4 frag(Varyings i) : SV_Target
+{
+    //把uv原点从左下角移到中心点
+    i.uv = i.uv - float2(0.5, 0.5);  
+
+    // 反正切(两种不同方法) 求角度  
+    // atan()值域[-π/2, π/2]一般不用; atan2()值域为[-π, π]
+    float theta = atan2(i.uv.y, i.uv.x);
+
+    //将夹角值域转为-1到1，_Theta进行外部控制
+    theta = theta / PI  * 0.5 + 0.5 + _Theta;
+
+    ////获取半径，_Radius进行外部控制
+    float r = length(i.uv) + _Radius;         
+    //随时间改变半径
+    //float r = length(i.uv) + frac(_Time.x * 3);
+
+    //uv坐标转换为极坐标
+    i.uv = float2(theta, r);
+
+    //使用极坐标采样贴图
+    float4 MainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv);  
+    return float4(MainTex);
+}
 ```
+
+我们常用笛卡尔二维坐标系统，极坐标是一种坐标系统，极坐标是**用距离和角度**来表示二维坐标中的一个点。相比于 UV 坐标，极坐标则是直接将坐标系改了，由默认 UV 两轴坐标定义的方形笛卡尔直角坐标系，转换成了由弧度、半径两个坐标定义的圆形极坐标系，在这基础上进行动态偏移的效果。
+
+**ShaderGraph  Polar Coordinates 节点**：[极坐标官方结点文档](https://docs.unity3d.com/Packages/com.unity.shadergraph@12.0/manual/Polar-Coordinates-Node.html)
+通过 UV 坐标（其实就是笛卡尔二维坐标）转换为极坐标表示。  
+
+![[213a69bbdbedbc30c75fb2c008ab54a4_MD5.jpg|500]]
+上图就是 Unity 实现的极坐标：R 通道表示距离，G 通道表示角度。
+
+**官方代码：**
+```c
+void Unity_PolarCoordinates_float(float2 UV, float2 Center, float RadialScale, float LengthScale, out float2 Out) 
+{
+    float2 delta = UV - Center;
+    float radius = length(delta) * 2 * RadialScale;
+    float angle = atan2(delta.x, delta.y) * 1.0/6.28 * LengthScale;
+    Out = float2(radius, angle);
+}
+```
+
+**极坐标：**
+![|500](https://www.yumefx.com/wp-content/uploads/2021/10/PolarCoord_02.jpg)
+对于图中的 A 点，在传统的笛卡尔直角坐标系中表示为 (x, y)，其中 x 值为 A 点在 x 轴的投影长度，y 值为 A 点在 y 轴的投影长度，A 的位置范围为矩形。
+
+而如果使用极坐标系，则 A 点表示为 (ρ,θ)，其中ρ值为 A 点距离坐标原点 O 的距离，θ值为 AO 与 x 轴正方向的夹角，A 的位置范围为圆形。
+
+
