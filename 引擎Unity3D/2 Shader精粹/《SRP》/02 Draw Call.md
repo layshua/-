@@ -6,6 +6,7 @@ tags: []
 create_time: 2023-06-19 15:23
 uid: 202306191523
 banner: "![[Pasted image 20230619152331.png]]"
+banner_y: 0.5
 ---
 
 ![[Pasted image 20230619152316.png]]
