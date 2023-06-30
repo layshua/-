@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
     },
     {
       "basename": "Unity Git",
@@ -191,14 +199,6 @@
     {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
-    },
-    {
-      "basename": "2022minigame",
-      "path": "zip/Legacy/6 游戏Demo/2022minigame/2022minigame.md"
-    },
-    {
-      "basename": "文档",
-      "path": "zip/Legacy/6 游戏Demo/坦克大战/文档.md"
     }
   ],
   "omittedPaths": [],

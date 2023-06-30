@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/02 Unity操作指南.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/02 Unity操作指南.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/02 Unity操作指南.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/02 Unity操作指南.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -155,9 +155,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "cb49430516192514",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230630203108.png",
+    "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
+    "zip/images/Pasted image 20230630202743.png",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "图形学/1 图形系统/01 渲染管线.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md",
@@ -180,9 +184,6 @@
     "技术美术/1 渲染雅集/03 顶点动画.md",
     "技术美术/1 渲染雅集/02 UV操作.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/05 模板测试.md",
     "zip/images/456415651sd.gif",
     "zip/images/7b82047ff25c9c660102970b65946c39_MD5.jpg",
     "zip/images/fdc75060b59a3a4e1ec2f458ab7ec471_MD5.jpg",
@@ -192,7 +193,6 @@
     "zip/images/Pasted image 20230630150252.png",
     "zip/images/9f4987808275aacfab1f390d6438c39b_MD5.jpg",
     "zip/images/966c31aca74b36ce1490fd61a31774b4_MD5.jpg",
-    "zip/images/e9145ccc73395853b7d1b5ac9ae54576_MD5.jpg",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
