@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md"
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -189,8 +189,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "cb49430516192514",
   "lastOpenFiles": [
+    "技术美术/2 着色器/ClearCoat清漆.md",
+    "技术美术/2 着色器/曲面细分与几何着色器.md",
+    "技术美术/2 着色器/各向异性.md",
+    "技术美术/2 着色器/次表面散射.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "zip/dailynote/前往斯旺西.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
     "技术美术/1 渲染雅集/01 序列帧.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
@@ -221,13 +228,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
-    "引擎Unity3D/4 URP/入门精要urp重写.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
