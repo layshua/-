@@ -46264,6 +46264,7 @@ AdditionPostProcessPass
 ANDRE
 Attachments
 AngleAttenuation
+AnimUV
 URL
 Utools
 Users
@@ -67126,6 +67127,7 @@ WSnor
 WSview
 WindDistortionMap
 WindFrequency
+WrapMode
 Start
 StartAllBack
 Shadowrocket
@@ -71912,6 +71914,7 @@ SampleLightmap
 SampleScreenSpaceShadowmap
 SampleShadowmap
 ShadowSamplingData
+ShowID
 Programs
 POP
 PC
@@ -116454,6 +116457,8 @@ indirectDiffuse
 indirectSpecular
 inputData
 isPerspectiveProjection
+indexX
+indexY
 shift
 svg
 sf

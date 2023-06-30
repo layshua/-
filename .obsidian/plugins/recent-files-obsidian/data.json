@@ -1,28 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "01 序列帧",
-      "path": "技术美术/1 渲染雅集/01 序列帧.md"
+      "basename": "UV操作",
+      "path": "技术美术/1 渲染雅集/UV操作.md"
     },
     {
-      "basename": "12 序列帧算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+      "basename": "顶点动画",
+      "path": "技术美术/1 渲染雅集/顶点动画.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "HLSL语法",
-      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "10 体积云",
+      "path": "技术美术/1 渲染雅集/10 体积云.md"
+    },
+    {
+      "basename": "01 序列帧",
+      "path": "技术美术/1 渲染雅集/01 序列帧.md"
+    },
+    {
+      "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
+      "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
     },
     {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+    },
+    {
+      "basename": "13 广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "变体",
@@ -121,14 +149,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
-    },
-    {
-      "basename": "13 广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
-    },
-    {
       "basename": "01 学习大纲",
       "path": "01 学习大纲.md"
     },
@@ -139,14 +159,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
       "path": "图形学/3 软渲染器/软光追/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "10 体积云",
-      "path": "技术美术/1 渲染雅集/10 体积云.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
       "basename": "03 光照向量",
@@ -187,18 +199,6 @@
     {
       "basename": "DrawCall，Batches，SetPass calls",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md"
-    },
-    {
-      "basename": "ShaderGUI",
-      "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
-    },
-    {
-      "basename": "URP 深度法线纹理",
-      "path": "zBuffer/URP 深度法线纹理.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     }
   ],
   "omittedPaths": [],

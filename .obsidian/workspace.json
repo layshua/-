@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/1 渲染雅集/UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,38 +47,12 @@
             }
           },
           {
-            "id": "2f839c051b76c021",
+            "id": "8bfb31766f3d6f5d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ae745fc44055e0c0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9f3c82b89a31cf46",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md"
+                "file": "技术美术/1 渲染雅集/UV操作.md"
               }
             }
           }
@@ -172,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/1 渲染雅集/UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/1 渲染雅集/UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -221,14 +195,32 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "b41268a652be7590",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
-    "技术美术/1 渲染雅集/01 序列帧.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/2 图形API/DX12/HLSL语法.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "技术美术/1 渲染雅集/顶点动画.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
+    "技术美术/1 渲染雅集/UV操作.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "技术美术/1 渲染雅集/10 体积云.md",
+    "技术美术/1 渲染雅集/01 序列帧.md",
+    "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "图形学/2 图形API/DX12/HLSL语法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
+    "zip/images/9f4987808275aacfab1f390d6438c39b_MD5.jpg",
+    "zip/images/966c31aca74b36ce1490fd61a31774b4_MD5.jpg",
+    "zip/images/e9145ccc73395853b7d1b5ac9ae54576_MD5.jpg",
+    "zip/images/c23058712239a7502f22f36519917505_MD5.jpg",
+    "zip/images/fd84a94aaa016eaeb9891aadd4849dfc_MD5.jpg",
+    "zip/images/76721c476d50ebcbea483d893e54ae77_MD5.jpg",
+    "zip/images/54414151a347d707b35144c90f445359_MD5.jpg",
+    "zip/images/d28e2d5ab4676c68fd68464870cf845d_MD5.jpg",
+    "zip/images/700a4d79846203502b379330568712e5_MD5.jpg",
+    "zip/images/25a773740a726229a9ffc8d905fe6d5b_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "zip/Legacy/6 游戏Demo/2022minigame/2022minigame.md",
@@ -241,25 +233,7 @@
     "引擎Unity3D/4 URP/入门精要urp重写.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "图形学/0 3D数学/3D数学.md",
-    "技术美术/2 着色器/ClearCoat清漆.md",
-    "技术美术/2 着色器/曲面细分与几何着色器.md",
     "技术美术/2 空间技法",
-    "zip/images/db018a46c2e28732d311dd1d8b8669f4_MD5.jpg",
-    "zip/images/53c6b09c4ad01b7295f0649b42361379_MD5.jpg",
-    "zip/images/0e35977b90b0de7be09ed5920f68f1f7_MD5.jpg",
-    "zip/images/47d705aa5ef48a041e50de3ab5b3c229_MD5.jpg",
-    "zip/images/30c037dfab4531dfacd74fd22d98821e_MD5.jpg",
-    "zip/images/daaa669ffa0f5c807558a8a9e08cd6b7_MD5.jpg",
-    "zip/images/abfc441748d19f473a9973a7c8625915_MD5.jpg",
-    "zip/images/bcfb6a72452bc567ff33117f15b041c0_MD5.jpg",
-    "zip/images/9db26397539e62743fb8820c8029d323_MD5.jpg",
-    "zip/images/Pasted image 20230629231955.png",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",

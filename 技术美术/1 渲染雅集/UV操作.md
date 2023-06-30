@@ -1,0 +1,957 @@
+# 序列帧动画
+## 代码
+```cs fold file:代码
+Shader "Custom/SimplerColor"
+{
+    Properties
+    {
+        [MainTexture] _MainTex ("MainTex", 2D) = "white" {}
+        [MainColor] _BaseColor("BaseColor", Color) = (1,1,1,1)
+        _RowCount("每行序列帧数", Range(0,50)) = 8
+        _ColCount("每列序列帧数", Range(0,50)) = 8
+        _Speed("速度", Range(0,10)) = 1
+        }
+    
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType"="Transparent"
+            "Queue"="Transparent"
+        }
+    
+        HLSLINCLUDE
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+        
+        CBUFFER_START(UnityPerMateiral)
+        float4 _BaseColor;
+        float4 _MainTex_ST;
+        float _RowCount;
+        float _ColCount;
+        float _Speed;
+        CBUFFER_END
+
+        TEXTURE2D(_MainTex);
+        SAMPLER(sampler_MainTex);
+        
+        struct Attributes
+        {
+            float4 positionOS : POSITION;
+            float2 uv : TEXCOORD0;
+        };
+
+        struct Varyings
+        {
+            float4 positionoCS : SV_POSITION;
+            float2 uv : TEXCOORD0;
+        };
+        ENDHLSL
+//----------------------------------------------------
+        Pass
+        {
+            Tags
+            {
+                "LightMode" = "UniversalForward"
+            }
+            
+            Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off
+            ZWrite Off
+            
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            Varyings vert(Attributes input)
+            {
+                Varyings output = (Varyings)0;
+
+                output.positionoCS = TransformObjectToHClip(input.positionOS.xyz);
+                output.uv =input.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+
+                return output;
+            }
+
+            float4 frag(Varyings input) : SV_Target
+            {
+                //Unity纹理坐标左下角为原点，序列帧纹理播放顺序从左上角开始
+                float time = floor(_Time.y* _Speed);       //向下取整获得整数时间，该事件表示现在是第几个子图像
+                float row = floor(time / _RowCount);       //商为行索引
+                float col = time - row * _ColCount;        //余数为列索引
+
+                //将uv按行列的序列帧数等分,得到每个子图像的纹理坐标范围
+                float2 uv = float2(input.uv.x / _RowCount, input.uv.y / _ColCount);
+                uv.x += col / _RowCount;
+                uv.y -= row / _ColCount;
+
+                float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
+                
+                float4 finalColor = MainTex * _BaseColor;
+                return finalColor;
+            }
+            ENDHLSL
+        }
+    }
+    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
+}
+```
+## 原理
+使用数字来代表每个动画的位置，序列帧从左上角开始播放。UV 坐标以左下角为原点
+
+![[8545b84a8c2beeadcd70095e1eb865d5_MD5.png]] ![[25a773740a726229a9ffc8d905fe6d5b_MD5.jpg|384]]
+
+数字增长方式 U 是从左到右，V 是从上倒下。
+
+改下图片
+
+![[700a4d79846203502b379330568712e5_MD5.jpg]]
+
+使用一个符合 UV 增长方式的排列。
+
+接下来使用上面的图片来制作 Shader
+
+需要添加 3 个参数来控制显示范围。
+
+```c
+_X_Sum("序列水平个数",float) = 3
+_Y_Sum("序列竖直个数",float) = 3
+_ShowID("当前显示ID",float) = 0
+```
+
+首先需要吧_ShowID 的一个数据转换为二维坐标
+
+首先获得 V 的坐标系数据
+
+![[d28e2d5ab4676c68fd68464870cf845d_MD5.jpg]]
+
+```c
+//对ID取模约束数值在0~最大图像之间。
+_ShowID = _ShowID % (_X_Sum*_Y_Sum);
+
+//显示ID默认是浮点数，向下取整获得整数
+_ShowID = floor(_ShowID);
+
+// 纵向ID = 显示ID除以横向个数，使用Floor获取整数部分,就是纵向坐标
+float indexY = floor(_ShowID / _X_Sum);
+
+// 横向 ID = 整数 ID 减去横向个数乘以纵向 ID  
+float indexX = _ShowID - _X_Sum * indexY; 
+```
+
+![[966c31aca74b36ce1490fd61a31774b4_MD5.jpg]]
+
+接下来吧 0~1 的原始 UV 约束进一个数字上使用 AnimUV 记录
+
+```c
+//依据个数缩小UV（放大图像）
+float2 AnimUV = float2(i.uv.x / _X_Sum, i.uv.y / _Y_Sum);
+```
+
+获得默认位置显示 “0”
+
+![[76721c476d50ebcbea483d893e54ae77_MD5.jpg]]
+
+添加左右横向偏移
+
+```c
+//依据横向ID与横向个数获取偏移值累加给基础位置
+AnimUV.x += indexX / _X_Sum ;
+```
+
+累加结果
+
+![[e9145ccc73395853b7d1b5ac9ae54576_MD5.jpg]]
+
+添加上下纵向偏移
+
+```c
+//(由下向上播放)  Y累加变大 
+AnimUV.y +=indexY / _YSum;
+```
+
+![[c23058712239a7502f22f36519917505_MD5.jpg]]
+
+一般这样就可以直接使用新的 AnimUV 获取图像了。
+
+但是很多软件自动生成序列是这样的。
+
+![[fd84a94aaa016eaeb9891aadd4849dfc_MD5.jpg]]
+
+把
+
+```c
+//(由下向上播放)  Y累加变大 
+AnimUV.y +=indexY / _YSum;
+```
+
+改为
+
+```c
+//(由上向下播放 )  纵向偏移 =  纵向总数-1（获得正确的ID区间上限0~2） - 当前ID（获得反向纵向ID），ID越大，Y越小 。
+AnimUV.y +=(_Y_Sum-1 - indexY )/ _Y_Sum;
+```
+
+带入刚才的计算
+
+![[9f4987808275aacfab1f390d6438c39b_MD5.jpg]]
+
+最后获得贴图
+
+```c
+//用新UV坐标获取贴图
+fixed4 col = tex2D(_MainTex, AnimUV);
+```
+
+源码
+
+```c fold
+Shader "CRLuo/CRLuo_Teaching14_Tex_Amin"
+{
+    Properties
+    {
+		[NoScaleOffset]
+        _MainTex ("Texture", 2D) = "white" {}
+        _X_Sum("序列水平个数",float) = 3
+		_Y_Sum("序列竖直个数",float) = 3
+        _ShowID("当前显示ID",float) = 0
+    }
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        LOD 100
+
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            // make fog work
+            #pragma multi_compile_fog
+            #include "UnityCG.cginc"
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
+
+            sampler2D _MainTex;
+			float  _X_Sum;
+			float	_Y_Sum;
+			float	_ShowID;
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                UNITY_TRANSFER_FOG(o,o.vertex);
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                //对ID取模约束数值在0~最大图像之间。
+                _ShowID = _ShowID % (_X_Sum*_Y_Sum);
+        
+                //ID向下取整
+                _ShowID = floor(_ShowID);
+        
+                //纵横向ID = ID除以横向个数，使用Floor获取整数部分,就是横向坐标
+                float indexY = floor(_ShowID / _X_Sum);
+        
+                //横向ID = 整数ID减去 横向个数乘以纵向ID
+                            float indexX = _ShowID - _X_Sum * indexY;
+        
+                //依据个数缩小UV（放大图像）
+                float2 AnimUV = float2(i.uv.x / _X_Sum, i.uv.y / _Y_Sum);
+        
+                //依据横向ID与横向个数获取偏移值累加给基础位置
+                AnimUV.x += indexX / _X_Sum ;
+        
+                //(由下向上播放)  如果纵向ID为0 ,Y累加变大 
+                //AnimUV.y +=indexY / _YSum;
+        
+                //(由上向下播放 )  如果纵向ID为0  总数-1 - 当前ID，ID越大，Y越小 。
+                AnimUV.y +=(_Y_Sum-1 - indexY )/ _Y_Sum;
+        
+                //用新UV显示贴图
+                fixed4 col = tex2D(_MainTex, AnimUV);
+
+                //透明剔除
+               clip(col.a - 0.5);
+               
+                // apply fog
+                UNITY_APPLY_FOG(i.fogCoord, col);
+               
+				return col;
+            }
+            ENDCG
+        }
+    }
+}
+```
+
+#  uv 扰动
+![[flow.gif]]
+## Flow 流动
+使用一张噪声图
+![[Pasted image 20221020212222.png|300]]
+```less
+Shader "Unlit/Flow"  
+{  
+ Properties  
+    {  
+        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
+        _Opacity("透明度",Range(0,1)) = 0.5  
+        _NoiseTex("噪声图",2d) = "grey"{}  
+        _NoiseScale("噪声强度",range(0,5)) = 0.5  
+        _FlowSpeed("流动速度",range(0,10)) = 5  
+    }  
+    SubShader {  
+        Tags {  
+            "Queue"="Transparent"                 
+            "RenderType"="Transparent"            
+            "ForceNoShadowCasting"="True"        
+            "IgnoreProjector"="True"              
+}  
+        Pass {  
+            Name "FORWARD"  
+            Tags {  
+                "LightMode"="ForwardBase"  
+            }  
+            Zwrite Off  
+            Blend One OneMinusSrcAlpha            
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #include "UnityCG.cginc"  
+            #pragma multi_compile_fwdbase  
+  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            sampler2D _NoiseTex;  
+            float4 _NoiseTex_ST;  
+            float _Opacity;  
+            float _NoiseScale;  
+            float _FlowSpeed;  
+    
+            struct appdata {  unity TRANSFORM_TEX
+                float4 vertex : POSITION;         
+                float2 uv : TEXCOORD0;          
+            };  
+     
+            struct v2f {  
+                float4 pos : SV_POSITION;     
+                float2 uv0 : TEXCOORD0;  
+                float2 uv1 : TEXCOORD1; //因为要在顶点着色器中对噪声贴图进行偏移，所以这里要声明  
+            };  
+            v2f vert (appdata v) {  
+                v2f o = (v2f)0;  
+                o.pos = UnityObjectToClipPos( v.vertex);     
+                o.uv0 = v.uv;  
+                o.uv1 = TRANSFORM_TEX(v.uv, _NoiseTex); //UV1支持Tiling、Offset  
+                //加frac的意义：（保证安全）  
+                //1. time一直增长，取小数可以防止数字无限大，最后导致数值溢出，图像花掉  
+                //2. 浮点精度问题导致图像花掉  
+                o.uv1.y = o.uv1.y + frac(-_Time.x * _FlowSpeed);  
+                return o;  
+            }  
+            float4 frag(v2f i) : COLOR {  
+                float4 MainTex = tex2D(_MainTex,i.uv0);  
+                float NoiseTex = tex2D(_NoiseTex, i.uv1).r;  
+  
+                float3 finalColor = MainTex.rgb;  
+                //NoiseTex * 2.0将值域扩增到（0~2），然后在写个lerp进行控制。  
+                float noise = lerp(1.0, NoiseTex * 2.0, _NoiseScale);  
+                noise = max(0.0,noise);  
+  
+                float opacity = MainTex.a * _Opacity * noise;  
+  
+                return float4(finalColor * opacity,opacity);  
+                  
+                  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+
+```
+**加 frac 的意义：（保证安全**）  
+       1. time 一直增长，取小数可以防止数字无限大，最后导致数值溢出，图像花掉  
+      2. 浮点精度问题导致图像花掉 
+![[Pasted image 20221020211640.png|300]]
+## Wrap 扭曲
+使用一张扭曲图
+**R、G 通道：扭曲图
+B 通道：噪声图**
+![[Pasted image 20221020212309.png|300]]
+**扭曲图制作方法**
+![[AP01_L15_13.jpg]]
+```less
+Shader "Unlit/Warp"  
+{  
+ Properties  
+    {  
+        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
+        _Opacity("透明度",Range(0,1)) = 0.5  
+        _WarpTex("扭曲图",2d) = "grey"{}  
+        _WarpScale("扭曲强度",range(0,1)) = 0.5  
+        _NoiseScale("噪声强度",range(0,5)) = 0.5  
+        _FlowSpeed("流动速度",range(0,10)) = 5  
+    }  
+    SubShader {  
+        Tags {  
+            "Queue"="Transparent"                 
+            "RenderType"="Transparent"            
+            "ForceNoShadowCasting"="True"        
+            "IgnoreProjector"="True"              
+}  
+        Pass {  
+            Name "FORWARD"  
+            Tags {  
+                "LightMode"="ForwardBase"  
+            }  
+            Zwrite Off  
+            Blend One OneMinusSrcAlpha            
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #include "UnityCG.cginc"  
+            #pragma multi_compile_fwdbase  
+  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            sampler2D _WarpTex;  
+            float4 _WarpTex_ST;  
+            float _Opacity;  
+            float _WarpScale;  
+            float _NoiseScale;  
+            float _FlowSpeed;  
+    
+            struct appdata {  
+                float4 vertex : POSITION;         
+                float2 uv : TEXCOORD0;          
+            };  
+     
+            struct v2f {  
+                float4 pos : SV_POSITION;     
+                float2 uv0 : TEXCOORD0;  
+                float2 uv1 : TEXCOORD1;   
+            };  
+            v2f vert (appdata v) {  
+                v2f o = (v2f)0;  
+                o.pos = UnityObjectToClipPos( v.vertex);     
+                o.uv0 = v.uv;  
+                o.uv1 = TRANSFORM_TEX(v.uv, _WarpTex);   
+                o.uv1.y = o.uv1.y + frac(-_Time.x * _FlowSpeed);  
+                return o;  
+            }  
+            float4 frag(v2f i) : COLOR {  
+                float3 WarpTex = tex2D(_WarpTex, i.uv1).rgb; //噪声图  
+                float2 uvBias = (WarpTex.rg - 0.5) * _WarpScale;   //计算uv偏移值,将RG通道从（0，1）Remap到（-0.5，0.5），使扰动可以分别往正负方向偏移  
+                float4 MainTex = tex2D(_MainTex,i.uv0 + uvBias); //应用uv偏移后进行采样  
+                float3 finalColor = MainTex. rgb;  
+                float noise = lerp (1.0, WarpTex. b * 2.0, _NoiseScale);  
+                noise = max(0.0,noise);  
+                float opacity = MainTex.a * _Opacity * noise;  
+  
+                return float4(finalColor * opacity,opacity);  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+```
+## 卡通火
+![[tong.gif|300]]
+### 贴图解析
+#### Mask
+![[Pasted image 20221020220057.png|300]]
+R 通道：红色为外焰
+![[Pasted image 20221020220642.png|300]]
+G 通道：绿色为内焰
+![[Pasted image 20221020220650.png|300]]
+B 通道：透贴，下面是黑色
+![[Pasted image 20221020231613.png|300]]
+A 通道：控制火焰强度，白色部分强，黑色部分弱
+![[Pasted image 20221020220611.png|300]]
+
+#### 噪声图
+![[Pasted image 20221020220234.png|300]]
+**RG 通道分别为两种不同的噪声图，对这两张 noise 做不同的偏移，混合占比不同，流动速度不同，可以混合出一张随机性比较强的噪声图**
+R 通道：
+![[Pasted image 20221020220319.png|300]]
+G 通道：
+![[Pasted image 20221020220333.png|300]]
+#### 代码
+```less
+Shader "Unlit/Fire"  
+{  
+    Properties  
+    {  
+        _Mask ("R:外焰 G:内焰 B:透贴", 2D) = "blue" {}  
+        _Noise("R:噪声1 G：噪声2", 2D) = "gray"{}  
+        _Noise1Params("X:大小 Y:流速 Z:强度", vector) = (1,0.2,0.2,1)  
+        _Noise2Params("X:大小 Y:流速 Z:强度", vector) = (1,0.2,0.2,1)  
+        [HDR]_Color1    ("外焰颜色", color) = (1,1,1,1)  
+        [HDR]_Color2    ("内焰颜色", color) = (1,1,1,1)  
+    }  
+    SubShader  
+    {  
+        Tags   
+{   "Queue" = "Transparent"             
+            "RenderType"="Transparent"      
+"ForceNoShadowCasting" = "True"       
+"IgnoreProjector" = "True"           
+}  
+  
+        Pass  
+        {  
+            Name "FORWARD"  
+            Tags  
+            { "LightMode" = "ForwardBase" }  
+            Blend One OneMinusSrcAlpha     
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #pragma  multi_compile_fwdbase_fullshadows  
+            #include "UnityCG.cginc"  
+  
+            struct appdata  
+            {  
+                float4 vertex : POSITION;  
+                float2 uv : TEXCOORD0;  
+            };  
+  
+            struct v2f  
+            {  
+                float4 pos : SV_POSITION;  
+                float2 uv0 : TEXCOORD0;  //采样Mask  
+                float2 uv1 : TEXCOORD1;  //采样Noise1  
+                float2 uv2 : TEXCOORD3;  //采样Noise2  
+            };  
+  
+            sampler2D _Mask;  
+            float4 _Mask_ST;  
+            sampler2D _Noise;  
+            float3 _Noise1Params;  
+            float3 _Noise2Params;  
+            float3 _Color1;  
+            float3 _Color2;  
+            v2f vert (appdata v)  
+            {  
+                v2f o;  
+                o.pos = UnityObjectToClipPos(v.vertex);  
+                o.uv0 = TRANSFORM_TEX(v.uv, _Mask);  
+                //只有y轴流动，所以减一个float2（0，xxx），不影响x轴  
+                //加减决定y轴向上流还是向下流  
+                o.uv1 = v.uv * _Noise1Params.x - float2(0 ,frac(_Time.x * _Noise1Params.y));  
+                o.uv2 = v.uv * _Noise2Params.x - float2(0, frac(_Time.x * _Noise2Params.y));  
+                return o;  
+            }  
+  
+            float4 frag (v2f i) : SV_Target  
+            {  
+                // 扰动遮罩  
+                half warpMask = tex2D (_Mask, i.uv0). b;  
+                //构建噪声  
+                float noise1 = tex2D(_Noise, i.uv1).r;  
+                float noise2 = tex2D (_Noise, i.uv2). g;  
+                float noise = noise1 * _Noise1Params.z + noise2 * _Noise2Params.z;  
+                //扰动uv  
+                float2 warpUV = i.uv0 - float2(0, noise) * warpMask;  
+                //采样Mask  
+                float4 mask = tex2D(_Mask, warpUV);  
+                //计算finalColor 不透明度  
+                float3 finalColor = (_Color1 * mask.r + _Color2 * mask.g) * mask  
+                .a;  
+                float opacity = mask.r + mask.g;    //火焰部分不透明，其他部分透明  
+                return float4(finalColor,opacity);  
+                  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+```
+## 卡通水
+### 贴图解析
+#### MainTex
+![[Pasted image 20221021220922.png]]
+####  扭曲图 Warp
+![[Pasted image 20221021211312.png]]
+#### 代码
+```c
+Shader "Unlit/CartoomWater"  
+{  
+    Properties  
+    {  
+        _MainTex ("颜色贴图", 2D) = "blue" {}  
+        _WarpTex("扰动图", 2D) = "gray"{}  
+        _Speed("X：流速X Y：流速Y", vector) = (1.0, 1.0, 0.5, 1.0)  
+        _Warp1Params("X:大小 Y:流速X Z:流速Y W:强度", vector) = (1.0, 1.0, 0.5, 1.0)  
+        _Warp2Params("X:大小 Y:流速X Z:流速Y W:强度", vector) = (2.0, 0.5, 0.5, 1.0)  
+    }  
+    SubShader  
+    {  
+        Tags   
+{  
+            "RenderType"="Opaque"      
+}  
+  
+        Pass  
+        {  
+            Name "FORWARD"  
+            Tags  
+            { "LightMode" = "ForwardBase" }  
+            Blend One OneMinusSrcAlpha     
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #pragma  multi_compile_fwdbase_fullshadows  
+            #include "UnityCG.cginc"  
+  
+            struct appdata  
+            {  
+                float4 vertex : POSITION;  
+                float2 uv : TEXCOORD0;  
+            };  
+  
+            struct v2f  
+            {  
+                float4 pos : SV_POSITION;  
+                float2 uv0 : TEXCOORD0;  //采样Mask  
+                float2 uv1 : TEXCOORD1;  //采样Noise1  
+                float2 uv2 : TEXCOORD3;  //采样Noise2  
+            };  
+  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            sampler2D _WarpTex;  
+            float2 _Speed;  
+            float4 _Warp1Params;  
+            float4 _Warp2Params;  
+            v2f vert (appdata v)  
+            {  
+                v2f o;  
+                o.pos = UnityObjectToClipPos(v.vertex);  
+                o.uv0 = v.uv - frac(_Time.x * _Speed);  
+                //与卡通火不同，这里对xy方向都进行偏移  
+                o.uv1 = v.uv * _Warp1Params.x - frac(_Time.x * _Warp1Params.yz);  
+                o.uv2 = v.uv * _Warp2Params.x - frac(_Time.x * _Warp2Params.yz);  
+                return o;  
+            }  
+  
+            float4 frag (v2f i) : SV_Target  
+            {  
+                float3 warp1 = tex2D (_WarpTex, i.uv1). rgb;  //扰动 1  
+                float3 warp2 = tex2D(_WarpTex, i.uv2).rgb;  //扰动2  
+                //扰动混合  
+                float2 warp = (warp1.xy - 0.5) * _Warp1Params.w * (warp2.xy - 0.5) * _Warp2Params.w;  
+                //扰动UV  
+                float2 warpUV = i.uv0 + warp;  
+                //扰动 UV  
+                float3 MainTex = tex2D(_MainTex, warpUV);  
+                  
+                return float4(MainTex,1);  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+```
+# 第 17 课屏幕 UV
+![[screen 1.gif|300]]
+## 屏幕 UV 的使用方法
+![[AP01_L17_4.jpg]]
+![[AP01_L17_7.jpg]]
+```less
+Shader "Unlit/SceenUV"  
+{  
+    Properties  
+    {  
+        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
+        _Opacity ("透明度",range(0,1)) = 0.5  
+        _ScreenTex ("屏幕纹理", 2d) = "black"{}  
+    }  
+    SubShader  
+    {  
+        Tags   
+{   "Queue" = "Transparent"             //调整渲染顺序  
+            "RenderType"="Transparent"    //对应改为Cutout  
+            "ForceNoShadowCasting" = "True"     //关闭阴影投射  
+            "IgnoreProjector" = "True"          //不响应投射器  
+        }  
+  
+        Pass  
+        {  
+            Name "FORWARD"  
+            Tags  
+            { "LightMode" = "ForwardBase" }  
+            Blend One OneMinusSrcAlpha  
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #pragma  multi_compile_fwdbase_fullshadows  
+            #include "UnityCG.cginc"  
+  
+            struct appdata  
+            {  
+                float4 vertex : POSITION;  
+                float2 uv : TEXCOORD0;  
+            };  
+  
+            struct v2f  
+            {  
+                float4 pos : SV_POSITION;  
+                float2 uv : TEXCOORD0;  
+                float2 screenUV : TEXCOORD1; //屏幕UV  
+            };  
+  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            float _Opacity;  
+            sampler2D _ScreenTex;  
+            float4 _ScreenTex_ST;  
+            v2f vert (appdata v)  
+            {  
+                v2f o;  
+                o.pos = UnityObjectToClipPos(v.vertex);  
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);  
+  
+                //观察空间以摄像机为中心，将xy轴视为uv，用这个uv去采样就能采样到屏幕上。  
+                //1. 表面会有畸变，需要除以z（深度）  
+                //2. 模型与采样的纹理随着视野缩放，tilling值变化不一样。需要进行锁定,锁定后变化一致  
+                float3 posVS = UnityObjectToViewPos(v.vertex).xyz;  //顶点位置 OS->VS                float originDist = UnityObjectToViewPos(float3(0.0, 0.0, 0.0)).z; //原点位置 OS->VS，获得模型原点与摄像机的距离  
+                o.screenUV = posVS.xy / posVS.z;    //VS空间畸变矫正  
+                o.screenUV *= originDist;           //纹理大小按距离锁定  
+                o.screenUV = o.screenUV * _ScreenTex_ST.xy - frac(_Time.x * _ScreenTex_ST.zw);  //启用屏幕纹理ST     
+return o;  
+            }  
+  
+            float4 frag (v2f i) : SV_Target  
+            {  
+                float4 MainTex = tex2D (_MainTex, i.uv);   
+                float ScreenTex = tex2D (_ScreenTex, i.screenUV). r;  
+                float3 finalColor = MainTex.rgb;  
+                float opacity = MainTex.a * _Opacity * ScreenTex;  
+                  
+                return float4(finalColor * opacity, opacity);  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+```
+## 屏幕扰动
+**术语：正片叠底**，意思就是乘法
+![[AP01_L17_9.jpg]]
+
+```less
+Shader "Unlit/SceenWarp"  
+{  
+    Properties  
+    {  
+        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
+        _Opacity ("透明度",range(0,1)) = 0.5  
+        _WarpMidval("扰动中间值",range(0,1)) = 0.5  
+        _WarpScale("扰动强度",range(0,10)) = 1  
+    }  
+    SubShader  
+    {  
+        Tags   
+{   "Queue" = "Transparent"             //调整渲染顺序  
+            "RenderType"="Transparent"    //对应改为Cutout  
+            "ForceNoShadowCasting" = "True"     //关闭阴影投射  
+            "IgnoreProjector" = "True"          //不响应投射器  
+        }  
+          
+        // 获取背景纹理  
+        GrabPass  
+        {  
+            "_BackgroundTex"  
+        }  
+          
+        // Forward Pass  
+        Pass  
+        {  
+            Name "FORWARD"  
+            Tags  
+            { "LightMode" = "ForwardBase" }  
+            Blend One OneMinusSrcAlpha  
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #pragma  multi_compile_fwdbase_fullshadows  
+            #include "UnityCG.cginc"  
+  
+            struct appdata  
+            {  
+                float4 vertex : POSITION;  
+                float2 uv : TEXCOORD0;  
+            };  
+  
+            struct v2f  
+            {  
+                float4 pos : SV_POSITION;  
+                float2 uv : TEXCOORD0;  
+                float4 grabPos : TEXCOORD1; //背景纹理采样坐标  
+            };  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            float _Opacity;  
+            float _WarpMidval;  
+            float _WarpScale;  
+            sampler2D _BackgroundTex;  
+              
+            v2f vert (appdata v)  
+            {  
+                v2f o;  
+                o.pos = UnityObjectToClipPos(v.vertex);  
+                o.uv = v.uv;  
+                o.grabPos = ComputeGrabScreenPos(o.pos);  //背景纹理采样坐标  
+                return o;  
+            }  
+  
+            float4 frag (v2f i) : SV_Target  
+            {  
+                float4 MainTex = tex2D(_MainTex, i.uv);  
+                // 扰动背景纹理坐标采样  
+                i.grabPos. xy += (MainTex. r - _WarpMidval) * _WarpScale;  
+                // 采样背景 tex2Dproj                float3 BackgroundTex = tex2Dproj (_BackgroundTex, i.grabPos. xyzw). rgb;  
+                  
+                float3 finalColor = lerp(1.0, MainTex.rgb, _Opacity) * BackgroundTex;  
+                float opacity = MainTex.a;  
+                  
+                return float4(finalColor * opacity, opacity);  
+            }  
+            ENDCG  
+        }  
+    }  
+}
+```
+### tex2Dproj
+**tex2Dproj 和 tex2D 这两个功能几乎相同。**
+唯一的区别是，在对纹理进行采样之前，`tex2Dproj` 将输入的 UV `xy` 坐标除以其 `w` 坐标。**这是将坐标从正交投影转换为透视投影**。
+
+例如以下段代码的返回值是相同的.
+```c
+float existingDepth01 = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosition)).r;
+```
+  
+```c
+float existingDepth01 = tex2D(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosition.xy / i.screenPosition.w)).r;
+```
+**具体什么情况下使用 tex2Dproj 呢?**
+
+我们知道,裁剪空间的坐标经过缩放和偏移后就变成了 (0,ｗ), 而当分量除以分量 W 以后,就变成了 (0,1),这样在计算需要返回 (0,1)值的时候, 就可以直接使用 tex2Dproj 了.
+### 获取背景纹理的方法
+![[AP01_L17_12 1.jpg]]
+
+## 极坐标
+极坐标不是笛卡尔坐标系，一般只在片元着色器中使用
+
+**将得到的值 Remap 到（0，1）**
+![[Pasted image 20221022214919.png|300]]
+**模型顶点色**：根据这个颜色实现渐入渐出
+顶点色是模型自带的数据，下图为 Blender 里面绘制的模型顶点色
+**为什么要用顶点色**：用顶点色虽然效果不是很好，但是其是在“应用阶段”就生成的数据，非常的省性能。
+我们当然可以画张 Mask，用 uv 去采样，但是这样太费性能。
+![[Pasted image 20221022215652.png|300]]
+```less
+Shader "L18/Polar" {  
+    Properties  
+    {  
+        _MainTex ("RGB：颜色 A：透贴", 2D) = "white" {}  
+        [HDR]_Color("混合颜色", color) = (1.0, 1.0, 1.0, 1.0)  
+        _Opacity ("透明度", range(0, 1)) = 0.5  
+    }  
+    SubShader  
+    {  
+        Tags   
+{   "Queue" = "Transparent"             //调整渲染顺序  
+            "RenderType"="Transparent"          //对应改为Cutout  
+            "ForceNoShadowCasting" = "True"     //关闭阴影投射  
+            "IgnoreProjector" = "True"          //不响应投射器  
+        }     
+          
+        Pass  
+        {  
+            Name "FORWARD"  
+            Tags  
+            { "LightMode" = "ForwardBase" }  
+            Blend One OneMinusSrcAlpha  
+              
+            CGPROGRAM  
+            #pragma vertex vert  
+            #pragma fragment frag  
+            #pragma  multi_compile_fwdbase_fullshadows  
+            #include "UnityCG.cginc"  
+  
+            struct appdata  
+            {  
+                float4 vertex : POSITION;  
+                float2 uv : TEXCOORD0;  
+                float4 color : COLOR;   //顶点颜色  
+            };  
+  
+            struct v2f  
+            {  
+                float4 pos : SV_POSITION;  
+                float2 uv : TEXCOORD0;  
+                float4 color : COLOR;  
+            };  
+  
+            sampler2D _MainTex;  
+            float4 _MainTex_ST;  
+            float  _Opacity;  
+            float4 _Color;  
+              
+            v2f vert (appdata v)  
+            {  
+                v2f o;  
+                o.pos = UnityObjectToClipPos(v.vertex);  
+                o.uv = v.uv;  
+                o.color = v.color;  
+                return o;  
+            }  
+  
+            fixed4 frag (v2f i) : SV_Target  
+            {  
+                i.uv = i.uv - float2(0.5, 0.5); //把uv原点从左下角移到中心点  
+  
+                // 反正切(两种不同方法) 求角度  
+                // atan()值域[-π/2, π/2]一般不用; atan2()值域[-π, π]  
+                // float2 theta = atan(i.uv.y/ i.uv.x);float theta = atan2(i.uv.y, i.uv.x);   
+                // 值域转成（0，1）  
+                theta = theta / UNITY_PI * 0.5 + 0.5;  
+                // 求半径  
+                float r = length(i.uv) + frac(_Time.x * 3);   
+                i.uv = float2(theta, r);  
+  
+                float4 MainTex = tex2D(_MainTex, i.uv);  
+                // 最后乘顶点色，实现渐入渐出（效果和模型本身顶点色有关）  
+                half3 finalColor = MainTex. rgb * _Color;       
+                half opacity = MainTex. a * _Opacity;      
+                return float4(finalColor * opacity, opacity);              
+            }  
+            ENDCG  
+        }  
+    }  
+    }
+```
