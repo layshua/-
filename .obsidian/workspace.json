@@ -13,11 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
+            }
+          },
+          {
+            "id": "8fdab69785066407",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -89,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md"
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md"
               }
             }
           }
@@ -132,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 序列帧.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -181,13 +189,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "cb49430516192514",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
-    "README.md",
-    "技术美术/1 渲染雅集/01 序列帧.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md",
+    "技术美术/1 渲染雅集/01 序列帧.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/URP.md",
+    "README.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md",
     "01 学习大纲.md",
@@ -219,7 +228,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
