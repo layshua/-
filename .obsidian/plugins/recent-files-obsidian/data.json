@@ -5,12 +5,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "01 渲染管线",

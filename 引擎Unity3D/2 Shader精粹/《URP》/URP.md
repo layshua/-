@@ -11,10 +11,10 @@ banner: "![[Pasted image 20230627122009.png]]"
 URP 帧渲染循环
 ![[Pasted image 20230630202743.png]]
 
-URP 渲染器为每个摄影机执行一个摄影机循环，该循环执行以下步骤：
+URP 渲染器为每个相机执行一个相机循环，该循环执行以下步骤：
 1.  **Setup Culling Parameters 设置剔除参数**：配置用于确定剔除系统如何剔除灯光和阴影的参数。可以使用自定义渲染器 override 渲染管线的这一部分。 
-2. **Culling 剔除**  ：使用上一步中的剔除参数来计算摄影机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和摄影机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
-3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器摄影机和当前选择的平台所需的渲染工作量和质量。
+2. **Culling 剔除**  ：使用上一步中的剔除参数来计算相机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和相机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
+3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器相机和当前选择的平台所需的渲染工作量和质量。
 4. **Setup Renderer 设置渲染器** ： 构建渲染 Pass 的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
 5. **Execute Renderer 执行渲染器**：执行队列中的每个 Pass 。渲染器将“Camera”图像输出到帧缓冲区（framebuffer） 。
 # 规范
@@ -596,14 +596,6 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 低于 1，每次反弹会使光更暗
 大于 1，每次反弹会使光更亮
 
-**Cookie**：投影遮罩，URP 不支持 Area lights 使用 Cookie
-
-**Draw Halo**：光晕 ![[Pasted image 20230605105457.png|245]]
-
-
-**Flare**：耀斑，需要给摄像机添加组件：![[Pasted image 20230605105620.png]]
-![[Pasted image 20230605123853.png|450]]
-
 **Render Mode**：渲染模式，设置选定灯光的渲染优先级
 Auto 运行时确定，具体取决于附近灯光的亮度和当前的 Quality settings 
 lmportanto 以逐像素模式渲染，效果逼真，消耗大。仅将该模式用于最显著的视觉效果（例如，玩家汽车的前灯）。
@@ -630,7 +622,7 @@ Near Panel 渲染阴影的近裁剪面
 Custom Shadow Layers: [[URP#自定义 Shadow Layers]]
 
 **阴影图集设置**：URP Asset->Shadows
-![[Pasted image 20230630213031.png]]
+![[Pasted image 20230630213031.png|450]]
 - 聚光灯渲染 1 张阴影贴图。
 - 点光源渲染 6 张阴影贴图（立方体贴图中的面数）
 - “平行光”为每个级联渲染 1 张阴影贴图，URP Asset->Shadows->Cascade Count 可以设置级联数量
@@ -699,6 +691,118 @@ Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两
 
 URP Asset->Lighting
 ![[Pasted image 20230630213444.png]]
+
+
+## 镜头光斑 Lens Flare
+[Lens Flare (SRP) Data Asset | Universal RP | 14.0.8 --- 镜头光斑（SRP）数据资产|通用RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/shared/lens-flare/lens-flare-asset.html)
+
+
+# Camera
+urp 的相机和内置管线有较大差异
+![[Pasted image 20230630214444.png]]
+
+脚本 API：[Class UniversalAdditionalCameraData | Universal RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/api/UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.html)
+```cs
+//使用脚本访问相机的通用附加相机数据组件
+var cameraData = camera.GetUniversalAdditionalCameraData();
+```
+## Render Type
+![[Pasted image 20230630215440.png]]**Base**：通用相机，用于渲染到 Render target（屏幕或 Render Texture）
+场景中必须至少有一个 Base 相机。在一个场景中可以有多个 Base 相机。可以单独使用Base 相机，也可以在相机堆栈中使用它。
+
+![[Pasted image 20230630215445.png]]**Overlay**：在另一个相机的输出之上进行渲染。可以将 Base 相机的输出与一个或多个 Overlay 相机的输出组合。这被称为 [Camera stacking](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/camera-stacking.html)。可以使用 Overlay 相机在二维 UI 中创建3D 对象或车辆中的驾驶舱等效果。
+必须将 Oberlay 相机与使用相机堆叠系统的一个或多个 Base 相机结合使用。您不能单独使用 Oberlay 相机。不属于“相机堆栈”（Camera Stack）的“Oberlay 相机”（Overlay Camera）不会执行其渲染循环的任何步骤，并且被称为孤立相机 orphan Camera.。
+```cs
+var cameraData = camera.GetUniversalAdditionalCameraData();
+cameraData.renderType = CameraRenderType.Base;
+```
+
+1. 相机堆栈中的Base相机决定相机堆栈的大部分属性。因为您只能在“相机堆栈”中使用“Oberlay相机”，所以在渲染场景时，URP 仅使用Oberlay相机的以下属性：
+    - Projection
+    - FOV Axis 
+    - Field of View 
+    - Physical Camera properties  
+    - Clipping plans 
+    - Renderer 
+    - Clear Depth 
+    - Render Shadows 
+    - Culling Mask 
+    - Occlusion Culling 
+2. 不能将后处理应用于单个 Oberlay 相机。可以将后处理应用于单个 Base 相机或相机堆栈。
+
+## 使用多摄像机
+### Camera Stack 相机堆栈
+![[Pasted image 20230630220146.png|450]]
+使用 Camera Stack 对多个摄影机的输出进行分层，并创建单个组合输出。比如在2D UI 中创建3D 模型或车辆驾驶舱等效果。
+摄影机堆栈由一个基本摄影机和一个或多个叠加摄影机组成。摄影机堆栈使用摄影机堆栈中所有摄影机的组合输出覆盖基础摄影机的输出。因此，**可以对“基本摄影机”的输出执行的任何操作，都可以对“摄影机堆栈”的输出进行。例如，可以将“摄影机堆栈”渲染到给定的渲染目标，应用后期处理效果，等等。**
+要注意渲染顺序，减少 overdraw
+
+相机添加到堆栈
+1. 设置一个相机为 Base ，一个为 Overlay
+2. Base 相机的 Camera 组件 —> Stack，添加 Overlay 相机
+3. Overlay 相机的输出叠加在 Base 相机上面（Overlayzai）
+![[Pasted image 20230630220539.png]]
+
+
+### 可编辑参数
+**Clear Flags**：清除标志，如何清除背景
+- skybox 天空盒 
+- Solid Color 颜色填充
+- Depth only 只画该层，背景透明
+- Don't Clear 不移除，覆盖渲染（不会有）
+
+**Culling Mask**：剔除遮罩，指定渲染哪些 Layer 
+
+**Physical Camera**：物理摄像机
+勾选后可以模拟真实世界中的摄像机焦距，传感器尺寸，透镜移位等等
+- Focal Length 焦距
+- Sensor Type  传感器类型
+- Sensor Size 传感器尺寸
+- Lens Shift 透镜移位
+- Gate Fit 闸门配合
+
+
+**Depth**：深度决定渲染顺序
+- 多相机的时候要设置顺序。（比如 UI 一个摄像机，游戏一个摄像机，设置两个 Culling Mask 不同的摄像机绘制不同的 Layer） 
+- 深度较大的绘制在深度较小的上方（覆盖小的），game 中的界面是深度最大相机渲染出来的
+- 深度大的可以将 Clear Flags 设置为 Depth only，这样就可以渲染出多个摄像机拍摄的内容
+
+**Viewport Rect**：视口范围
+可以起到分屏的作用，这样可以放置多个摄像机，实现分屏多人游戏
+
+**Target Texture**：渲染纹理
+- 可以把摄像机画面渲染到一张图上，用于制作小地图
+- 在 Project 右键创建 RenderTexture
+
+### 代码相关
+主摄像机的 Tag 必须设置为 MainCamera，否则 `Camera. main` 无法得到对象
+![[Pasted image 20230604234018.png]]
+```cs
+//获取tag为MainCamera摄像机
+//获取MainCamera的名字
+print(Camera.main.name);
+
+//Inspector界面上的参数，都可以在Camera中获取
+Camera.main.depth = 10;
+
+//获取摄像机的数量
+print(Camera.allCamerasCount);
+
+//得到所有摄像机
+Camera[] cameras = Camera.allCameras;
+print(cameras.Length);
+```
+
+```cs file:渲染相关委托
+//摄像机 剔除前 处理的委托函数
+Camera.onPreCull += (cam) => { print("onPreCull"); };
+
+//摄像机 渲染前 处理的委托函数
+Camera.onPreRender += (cam) => { print("onPreRender"); };
+
+//摄像机 渲染后 处理的委托函数
+Camera.onPostRender += (cam) => { print("onPostRender"); };
+```
 
 # 多光源阴影
 
