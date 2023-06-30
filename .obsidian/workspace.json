@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,7 +72,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,6 +166,16 @@
   },
   "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/07 空间.md",
+    "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
+    "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
+    "zBuffer/URP 深度法线纹理.md",
+    "zBuffer/极坐标 shader 原理及实现.md",
+    "zBuffer/从深度纹理重建像素的世界空间位置 _ Universal RP _ 12_1_1.md",
+    "zip/images/64ee8f6014b193c7c227fafc6a7f60c5_MD5.png",
+    "zip/images/bea0eb975aeba44af438bc2e0358f82c_MD5.png",
+    "zip/images/941d2ad117ed2b3944f362d99084e8e9_MD5.png",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "zip/images/Pasted image 20230630232002.png",
     "zip/images/Pasted image 20230630231957.png",
@@ -176,10 +186,7 @@
     "zip/images/Pasted image 20230630222706.png",
     "引擎Unity3D/02 Unity操作指南.md",
     "zip/images/Pasted image 20230630221353.png",
-    "zip/images/Pasted image 20230630220539.png",
-    "zip/images/Pasted image 20230630220146.png",
     "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
-    "zip/images/Pasted image 20230630215445.png",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "Tools/Git/Unity Git.md",
@@ -195,12 +202,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "技术美术/1 渲染雅集/10 溶解.md",
     "技术美术/1 渲染雅集/11 体积云.md",
-    "技术美术/1 渲染雅集/09 描边.md",
-    "技术美术/1 渲染雅集/08 草.md",
-    "技术美术/1 渲染雅集/07 基于屏幕空间.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/05 SSAO.md",
-    "技术美术/1 渲染雅集/03 顶点动画.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

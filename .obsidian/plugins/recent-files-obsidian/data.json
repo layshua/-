@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "07 空间",
+      "path": "技术美术/1 渲染雅集/07 空间.md"
+    },
+    {
+      "basename": "灯光组，光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
+    },
+    {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
@@ -89,10 +101,6 @@
       "path": "技术美术/1 渲染雅集/08 草.md"
     },
     {
-      "basename": "07 基于屏幕空间",
-      "path": "技术美术/1 渲染雅集/07 基于屏幕空间.md"
-    },
-    {
       "basename": "06 雾",
       "path": "技术美术/1 渲染雅集/06 雾.md"
     },
@@ -145,18 +153,6 @@
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
-      "basename": "极坐标 shader 原理及实现",
-      "path": "zBuffer/极坐标 shader 原理及实现.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
-    },
-    {
-      "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
-      "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
-    },
-    {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
@@ -195,10 +191,6 @@
     {
       "basename": "布料",
       "path": "技术美术/2 着色器/布料.md"
-    },
-    {
-      "basename": "101 蓝图",
-      "path": "引擎Unreal/02 蓝图 & U++/101 蓝图.md"
     }
   ],
   "omittedPaths": [],
