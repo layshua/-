@@ -1,6 +1,58 @@
 {
   "recentFiles": [
     {
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "变体",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "12 序列帧算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+    },
+    {
+      "basename": "01 序列帧",
+      "path": "技术美术/1 渲染雅集/01 序列帧.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "2022minigame",
+      "path": "zip/Legacy/6 游戏Demo/2022minigame/2022minigame.md"
+    },
+    {
+      "basename": "文档",
+      "path": "zip/Legacy/6 游戏Demo/坦克大战/文档.md"
+    },
+    {
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "实时渲染高级特性开发",
+      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "03 定向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
     },
@@ -65,26 +117,6 @@
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
-      "basename": "12 序列帧算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
-    },
-    {
-      "basename": "01 序列帧",
-      "path": "技术美术/1 渲染雅集/01 序列帧.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/URP.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
       "basename": "CG shaderlab",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
@@ -141,20 +173,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
     },
     {
-      "basename": "入门精要urp重写",
-      "path": "引擎Unity3D/4 URP/入门精要urp重写.md"
-    },
-    {
       "basename": "10 屏幕后处理效果(Bloom)",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
-    },
-    {
-      "basename": "变体",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
       "basename": "1 批处理总结",
@@ -169,36 +193,12 @@
       "path": "引擎Unity3D/1 Unity精粹/UI系统/ShaderGUI.md"
     },
     {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
       "basename": "URP 深度法线纹理",
       "path": "zBuffer/URP 深度法线纹理.md"
     },
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "场景设计精要",
-      "path": "DCC/01 百人计划美术向/场景设计精要.md"
-    },
-    {
-      "basename": "Mermaid流图",
-      "path": "Tools/Obsidian/Mermaid流图.md"
-    },
-    {
-      "basename": "发布方案",
-      "path": "Tools/Obsidian/发布方案.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
     }
   ],
   "omittedPaths": [],

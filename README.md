@@ -14,6 +14,10 @@ banner: "![[Pasted image 20230109001000.jpg]]"
 PBR：[Physically Based Rendering Algorithms In Unity - Jordan Stevens (jordanstevenstechart.com)](https://www.jordanstevenstechart.com/physically-based-rendering)
 
 
+教程
+[为技术美术准备的 Unity 工具集和工作流程 | Unity 中文课堂 (u3d.cn)](https://learn.u3d.cn/tutorial/unity-ta-tools)
+
+
 平时个人练习用、或是项目 DEMO 用，都可以找一些网上现成的，3D 模型和动画
 
 下面是链接索引：
