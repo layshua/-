@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "UV操作",
-      "path": "技术美术/1 渲染雅集/UV操作.md"
+      "basename": "02 UV操作",
+      "path": "技术美术/1 渲染雅集/02 UV操作.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "03 顶点动画",
+      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "极坐标 shader 原理及实现",
@@ -25,14 +37,6 @@
       "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
     },
     {
-      "basename": "01 序列帧",
-      "path": "技术美术/1 渲染雅集/01 序列帧.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/1 渲染雅集/02 Bloom.md"
-    },
-    {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
@@ -53,10 +57,6 @@
       "path": "引擎Unreal/03 材质 & 渲染/101 材质大师.md"
     },
     {
-      "basename": "Trick！",
-      "path": "技术美术/1 渲染雅集/Trick！.md"
-    },
-    {
       "basename": "15 屏幕深度制作护盾特效",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
     },
@@ -75,10 +75,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "顶点动画",
-      "path": "技术美术/1 渲染雅集/顶点动画.md"
     },
     {
       "basename": "布料",
@@ -105,8 +101,8 @@
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "10 体积云",
-      "path": "技术美术/1 渲染雅集/10 体积云.md"
+      "basename": "11 体积云",
+      "path": "技术美术/1 渲染雅集/11 体积云.md"
     },
     {
       "basename": "变体",
