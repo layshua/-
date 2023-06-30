@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+                "file": "引擎Unity3D/02 Unity操作指南.md"
               }
             }
           }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+                "file": "引擎Unity3D/02 Unity操作指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -155,8 +155,11 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "cb49430516192514",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "引擎Unity3D/02 Unity操作指南.md",
+    "Tools/Git/Unity Git.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
@@ -167,7 +170,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "技术美术/1 渲染雅集/10 溶解.md",
     "技术美术/1 渲染雅集/11 体积云.md",
     "技术美术/1 渲染雅集/09 描边.md",
@@ -181,8 +183,6 @@
     "图形学/1 图形系统/04 纹理.md",
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/05 模板测试.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zip/images/456415651sd.gif",
     "zip/images/7b82047ff25c9c660102970b65946c39_MD5.jpg",
     "zip/images/fdc75060b59a3a4e1ec2f458ab7ec471_MD5.jpg",

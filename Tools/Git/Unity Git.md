@@ -1,5 +1,6 @@
-
-## Git 最佳实践
+# 官方支持
+https://unity.github.com/
+# Git 最佳实践
 
 在说 Unity 与 Git 之前，我们先来看一下一些 Git 的通用最佳实践是什么。
 

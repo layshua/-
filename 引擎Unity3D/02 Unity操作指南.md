@@ -85,3 +85,7 @@ _这里如果不选 Is Global 可以为局部场景添加后处理效果。_
 ![[Pasted image 20230616211600.png]]
 发现工具条中，选中了 Center，所以无法操作了(Center ：根据提示的解释，位置锁定在中心了)，修改为 Pivot 即可
 ![[Pasted image 20230616211614.png]]
+
+
+# built-in 升级 URP
+window->rendering->Render pipleline converter

@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/02 Unity操作指南.md"
+    },
+    {
       "basename": "URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
     },
     {
       "basename": "32 屏幕空间贴花",
@@ -191,14 +199,6 @@
     {
       "basename": "文档",
       "path": "zip/Legacy/6 游戏Demo/坦克大战/文档.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
     }
   ],
   "omittedPaths": [],
