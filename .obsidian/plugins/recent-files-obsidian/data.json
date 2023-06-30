@@ -5,16 +5,8 @@
       "path": "技术美术/1 渲染雅集/顶点动画.md"
     },
     {
-      "basename": "13 广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/13 广告牌算法.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
-    },
-    {
-      "basename": "HLSL语法",
-      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "04 纹理",
@@ -23,6 +15,22 @@
     {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
+    },
+    {
+      "basename": "URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
+    },
+    {
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
     {
       "basename": "UV操作",
@@ -47,10 +55,6 @@
     {
       "basename": "UnityShader 基础（22）-UV 坐标 - 序列帧动画",
       "path": "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "变体",
@@ -195,10 +199,6 @@
     {
       "basename": "1 批处理总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
-    },
-    {
-      "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md"
     }
   ],
   "omittedPaths": [],
