@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "01 序列帧",
+      "path": "技术美术/1 渲染雅集/01 序列帧.md"
+    },
+    {
+      "basename": "12 序列帧算法",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
@@ -9,24 +21,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
-      "basename": "变体",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
-    },
-    {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
-      "basename": "12 序列帧算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/12 序列帧算法.md"
-    },
-    {
-      "basename": "01 序列帧",
-      "path": "技术美术/1 渲染雅集/01 序列帧.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
+      "basename": "变体",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
     {
       "basename": "2022minigame",
