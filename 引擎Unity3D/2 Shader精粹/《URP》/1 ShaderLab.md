@@ -1,14 +1,4 @@
 
-
-## 矩阵运算
-变换顶点时，使用左乘变换矩阵，因为 Untiy 提供的内置矩阵都是列向量形式。
-
-CG 是按行优先存储的，声明时，从左到右从上到下按顺序填就可以，
-注意: 
-1. 行优先只会影响声明时的顺序，不等于计算时是行向量形式。
-2. Unity 的矩阵类型 Matrix4x4 是列优先存储!
-
-
 # ShaderLab 语法基础
 ## 1 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
@@ -175,7 +165,7 @@ SubShader
 
 在 Unity 中，每一个 Shader 都会包含至少一个 SubShader。当 Unity 想要显示一个物体的时候，它就会去检测这些 SubShader，然后选择第一个能够在当前显卡运行的 SubShader。
 **每个 SubShader 都可以设置一个或者多个标签（Tags）和渲染状态（States），然后定义至少一个 Pass**。在 SubShader 中设置的渲染状态会影响到该 SubShader 中所有的 Pass，如果想要某些状态不影响其他 Pass，**可以针对某个 Pass 单独设置渲染状态。但是需要注意的是，部分渲染状态在 Pass 中并不支持。**
-### （1）Tags
+### Tags
 [ShaderLab：向子着色器分配标签 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/SL-SubShaderTags.html)
 
 > [!bug] 
@@ -287,7 +277,7 @@ Unity 编辑器用于显示使用此子着色器的**材质预览的形状**。
 | 平面 (Plane) |在平面上显示材质。|
 | Skybox     | 在天空盒上显示材质。      |
 
-### （3）Pass
+### Pass
 #### 自定义名称
 ```cs
 pass
@@ -340,13 +330,13 @@ Pass 也可以设置标签，但和 SubShader 不同。
 
 ##### UniversalMaterialType
 Unity在URP延迟渲染路径中使用Tag。
-### （4）Fallback
+### Fallback
 Fallback 在所有 SubShader 之后进行定义。当所有的 SubShader 都不能在当前显卡上运行的时候，就会运行 Fallback 定义的 Shader。它的语法如下：
 `Fallback "name"`
 最常用于 Fallback 的 Shader 为 Unity 内置的 Diffuse。
 如果觉得某些 Shader 肯定可以在目标显卡上运行，没有指定 Fallback 的必要，可以使用 Fallback Off 关闭 Fallback 功能，或者直接什么都不写。
 
-### （5）LOD
+### LOD
 LOD：Level of Detail  
 **shader 的 LOD 和模型的 LOD 作用不同！shader 的 LOD 只是用来选择 SubShader 的**
 作用：unity 引擎会根据不同的 LOD 值在使用不同的 SubShader  
@@ -1104,4 +1094,11 @@ ShaderData. Pass. Name：此通道的名称
 
 在 Unity 编辑器中，可以控制材质属性在 Inspector 窗口中的显示方式。为此，最简单的方法是使用 [MaterialPropertyDrawer](https://docs.unity3d.com/cn/2022.3/ScriptReference/MaterialPropertyDrawer.html)。对于更复杂的需求，可以使用 [MaterialEditor](https://docs.unity3d.com/cn/2022.3/ScriptReference/MaterialEditor.html)、[MaterialProperty](https://docs.unity3d.com/cn/2022.3/ScriptReference/MaterialProperty.html) 和 [ShaderGUI](https://docs.unity3d.com/cn/2022.3/ScriptReference/ShaderGUI.html) 类。有关为着色器创建自定义 GUI 的更多信息，请参阅 [ShaderLab：分配自定义编辑器](https://docs.unity3d.com/cn/2022.3/Manual/SL-CustomEditor.html)。
 
+
+|方法名称|用途|
+|------------------|--------------------|
+|SetColor |更改材质的颜色|
+|SetFloat |设置浮点值|
+|SetInteger | 在材质中设置整数值          |
+|SetTexture | 为材质分配新纹理           |
 

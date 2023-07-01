@@ -72008,6 +72008,7 @@ SetupShadowCasterConstantBuffer
 ShadowBias
 SPECGLOSSMAP
 ShaderData
+SetInteger
 Programs
 POP
 PC

@@ -1,20 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "灯光组，光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
     },
     {
-      "basename": "CG shaderlab",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "3D数学",
+      "path": "图形学/0 3D数学/3D数学.md"
     },
     {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "CG shaderlab",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
       "basename": "01 自定义渲染管线",
@@ -31,10 +59,6 @@
     {
       "basename": "03 顶点动画",
       "path": "技术美术/1 渲染雅集/03 顶点动画.md"
-    },
-    {
-      "basename": "灯光组，光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
     },
     {
       "basename": "02 光栅化",
@@ -149,10 +173,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -179,18 +199,6 @@
     {
       "basename": "Shader HLSL",
       "path": "引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
-    },
-    {
-      "basename": "303 实时渲染",
-      "path": "引擎Unreal/03 材质 & 渲染/303 实时渲染.md"
-    },
-    {
-      "basename": "202 材质教程",
-      "path": "引擎Unreal/03 材质 & 渲染/202 材质教程.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
     }
   ],
   "omittedPaths": [],

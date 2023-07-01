@@ -105,7 +105,7 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |文件名称|描述|
 |:--|:--|
 |Common|定义了新的数据类型 real 和一些通用的函数|
-|CommonLighting|定义了灯光计算的通用函数|
+|CommonLighting |定义了灯光计算的通用函数|
 |CommonMaterial|定义了粗糙度的计算函数和一些纹理叠加混合的计算函数|
 |EntityLighting|定义了光照贴图采样和环境光解码相关操作的函数 |
 |ImageBasedLighting|定义了 Skybox 光照相关的函数 |
@@ -114,6 +114,7 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |Refraction|定义了折射函数 |
 |SpaceTransforms|定义了大量空间变换相关的函数 |
 |Tessellation|定义多种了不同类型的曲面细分函数|
+
 ### Common
 
 |函数|说明|
@@ -414,8 +415,6 @@ Tags{ "LightMode" = "SRPDefaultUnlit" }
 |real3 **TransformTangentToWorldDir**(real3 dirWS, real3x3 tangentToWorld, bool doNormalize = false)|（用于向量）切线到世界，是否将向量标准化，反之|
 |real3 **TransformObjectToTangent**(real3 dirOS, real3x3 tangentToWorld) |（用于向量）模型到世界，是否将向量标准化，反之|
 
-
-
 ## 文件包含关系
 ![[Pasted image 20230627140250.png]]
 
@@ -569,7 +568,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 |---|---|
 |**LinearEyeDepth**（_sceneZ_） |**LinearEyeDepth**（sceneZ，_ZBufferParams）|
 |**Linear01Depth**（_sceneZ_）|**Linear01Depth**（_sceneZ_，__ZBufferParams_）|
-# 1 Lighting
+#  Lighting
 ### Light 组件
 ![[Pasted image 20230630210404.png|450]]
 
@@ -844,6 +843,41 @@ Unity 可以在一帧中多次渲染叠加摄影机的视图，或者是因为�
 
 
 
+# Rendering Layers
+渲染层功能允许将某些灯光配置为仅影响特定的游戏对象。
+例如，在下图中，灯光 `A` 会影响球体 `D` ，但不会影响球体 `C` 。光 `B` 会影响球体 `C` ，但不会影响球体 `D` 。
+![[Pasted image 20230630204416.png]]
+
+可编辑渲染层名称
+![[Pasted image 20230630204837.png|500]]
+## 为灯光启用渲染层
+  1. 灯光设置
+![[Pasted image 20230630204527.png]]
+![[eff088918bf5cc200f66ce8c5711f76e_MD5.png]]
+>URP Asset > Lighting > Use Rendering Layers  
+
+![[Pasted image 20230630205002.png|450]]
+> Light > General > Rendering Layers
+
+2. 对应 Mesh 设置，选择相应层即可
+![[Pasted image 20230630205103.png|500]]
+> Mesh Renderer > Additional Settings > Rendering Layer Mask
+## 自定义 Shadow Layers
+单独控制阴影投射
+![[Pasted image 20230630205334.png|500]]
+## 为 Decals 启用渲染层
+![[Pasted image 20230630204720.png]]
+>Decal Renderer feature
+![[Pasted image 20230630204744.png]]
+
+![[Pasted image 20230630205412.png]]
+>在图像 `1` 中，油漆桶选择了 `Receive decals` 层。在图像 `2` 中，它没有，因此Decal Projector不会投影到桶上。
+
+## 性能
+1. 尽可能减少 Rendering Layers 的数量。避免创建不在项目中使用的 Rendering Layers。  
+2. 将 Rendering Layers 用于贴花时，增加层数会增加所需的内存带宽并降低性能。 
+3. 当仅对“正向渲染路径”中的灯光使用 Rendering Layers 时，性能影响很小。  
+4. 当“Rendering Layers”计数超过8的倍数时，性能影响会更显著。例如：将层数从8层增加到9层比将层数从9层增加到10层具有更大的相对影响。 
 # 多光源阴影
 
 > [!bug] 
@@ -1334,41 +1368,6 @@ Shader "Custom/MultipleLightingShadows for SRPBatche"
 }
 ```
 
-# Rendering Layers
-渲染层功能允许将某些灯光配置为仅影响特定的游戏对象。
-例如，在下图中，灯光 `A` 会影响球体 `D` ，但不会影响球体 `C` 。光 `B` 会影响球体 `C` ，但不会影响球体 `D` 。
-![[Pasted image 20230630204416.png]]
-
-可编辑渲染层名称
-![[Pasted image 20230630204837.png|500]]
-## 为灯光启用渲染层
-  1. 灯光设置
-![[Pasted image 20230630204527.png]]
-![[eff088918bf5cc200f66ce8c5711f76e_MD5.png]]
->URP Asset > Lighting > Use Rendering Layers  
-
-![[Pasted image 20230630205002.png|450]]
-> Light > General > Rendering Layers
-
-2. 对应 Mesh 设置，选择相应层即可
-![[Pasted image 20230630205103.png|500]]
-> Mesh Renderer > Additional Settings > Rendering Layer Mask
-## 自定义 Shadow Layers
-单独控制阴影投射
-![[Pasted image 20230630205334.png|500]]
-## 为 Decals 启用渲染层
-![[Pasted image 20230630204720.png]]
->Decal Renderer feature
-![[Pasted image 20230630204744.png]]
-
-![[Pasted image 20230630205412.png]]
->在图像 `1` 中，油漆桶选择了 `Receive decals` 层。在图像 `2` 中，它没有，因此Decal Projector不会投影到桶上。
-
-## 性能
-1. 尽可能减少 Rendering Layers 的数量。避免创建不在项目中使用的 Rendering Layers。  
-2. 将 Rendering Layers 用于贴花时，增加层数会增加所需的内存带宽并降低性能。 
-3. 当仅对“正向渲染路径”中的灯光使用 Rendering Layers 时，性能影响很小。  
-4. 当“Rendering Layers”计数超过8的倍数时，性能影响会更显著。例如：将层数从8层增加到9层比将层数从9层增加到10层具有更大的相对影响。 
 # Lit. shader 解析
 
 > [!NOTE] 版本

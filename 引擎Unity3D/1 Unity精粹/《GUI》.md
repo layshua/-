@@ -1254,7 +1254,6 @@ TextMeshPro: 一文本网格插件，可以制作更多的特效文字
 ## 一、Drawer
 Unity 为用户提供了基础类：`MaterialPropertyDrawer`，专门**用于快速实现自定义材质面板**的目的。
 
-
 ### 常用的属性特性
 
 `[Space]` 单行空格
@@ -1265,6 +1264,8 @@ Unity 为用户提供了基础类：`MaterialPropertyDrawer`，专门**用于快
 `[Normal]`：检测是否为 NormalMap
 `[HDR]`：指示纹理或颜色属性使用[高动态范围 (HDR)](https://docs.unity3d.com/cn/2022.3/Manual/HDR.html) 值。
 `[Gamma]`：指示浮点数或矢量属性使用 sRGB 值
+![[1 ShaderLab#颜色空间和颜色/矢量着色器数据]]
+
 `[MainTexture]` ：将纹理设置为主纹理，默认情况 Unity 会将属性名为 `_MainTex` 的纹理设置为主纹理。如果 Shader 中有多个该命令，只有第一个命令会生效 
 ```cs file:脚本访问主纹理
 public Texture texture;
