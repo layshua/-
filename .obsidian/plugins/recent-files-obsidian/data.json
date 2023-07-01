@@ -1,20 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "03 顶点动画",
-      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
+      "basename": "脚本控制",
+      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
     },
     {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
-    },
-    {
-      "basename": "07 空间",
-      "path": "技术美术/1 渲染雅集/07 空间.md"
-    },
-    {
-      "basename": "灯光组，光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
     },
     {
       "basename": "变体",
@@ -25,16 +17,28 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
     },
     {
+      "basename": "Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
+    },
+    {
+      "basename": "03 顶点动画",
+      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
+    },
+    {
+      "basename": "07 空间",
+      "path": "技术美术/1 渲染雅集/07 空间.md"
+    },
+    {
+      "basename": "灯光组，光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
+    },
+    {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
     },
     {
       "basename": "《Unity Primer》",

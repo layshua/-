@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,7 +72,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 顶点动画.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -167,6 +167,11 @@
   "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
+    "技术美术/1 渲染雅集/03 顶点动画.md",
     "技术美术/1 渲染雅集/07 空间.md",
     "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
     "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
@@ -176,8 +181,6 @@
     "zip/images/64ee8f6014b193c7c227fafc6a7f60c5_MD5.png",
     "zip/images/bea0eb975aeba44af438bc2e0358f82c_MD5.png",
     "zip/images/941d2ad117ed2b3944f362d99084e8e9_MD5.png",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "zip/images/Pasted image 20230630232002.png",
     "zip/images/Pasted image 20230630231957.png",
     "图形学/1 图形系统/02 光栅化.md",
@@ -187,7 +190,6 @@
     "zip/images/Pasted image 20230630222706.png",
     "引擎Unity3D/02 Unity操作指南.md",
     "zip/images/Pasted image 20230630221353.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "Tools/Git/Unity Git.md",
@@ -200,8 +202,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
-    "技术美术/1 渲染雅集/10 溶解.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
