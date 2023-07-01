@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "acc5ea5d240c18b7",
+            "id": "722068661c0b4217",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,19 +195,19 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "ac7d2c4818851dca",
+  "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/07 空间.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
     "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md",
     "技术美术/1 渲染雅集/03 顶点动画.md",
-    "技术美术/1 渲染雅集/07 空间.md",
     "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
     "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
     "zBuffer/URP 深度法线纹理.md",

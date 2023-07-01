@@ -5,16 +5,20 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
     {
+      "basename": "07 空间",
+      "path": "技术美术/1 渲染雅集/07 空间.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
       "basename": "CG shaderlab",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
       "basename": "脚本控制",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "变体",
@@ -31,10 +35,6 @@
     {
       "basename": "03 顶点动画",
       "path": "技术美术/1 渲染雅集/03 顶点动画.md"
-    },
-    {
-      "basename": "07 空间",
-      "path": "技术美术/1 渲染雅集/07 空间.md"
     },
     {
       "basename": "灯光组，光照探针，反射探针，光照烘焙",
