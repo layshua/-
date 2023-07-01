@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,7 +72,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+                "file": "技术美术/1 渲染雅集/03 顶点动画.md"
               }
             }
           }
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+                "file": "技术美术/1 渲染雅集/03 顶点动画.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,6 +166,7 @@
   },
   "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "技术美术/1 渲染雅集/07 空间.md",
     "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
     "zBuffer/UnityShader 基础（22）-UV 坐标 - 序列帧动画.md",
@@ -201,7 +202,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "技术美术/1 渲染雅集/10 溶解.md",
-    "技术美术/1 渲染雅集/11 体积云.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

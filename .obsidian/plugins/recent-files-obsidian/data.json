@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "03 顶点动画",
+      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
+    },
+    {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
     },
@@ -107,10 +111,6 @@
     {
       "basename": "05 SSAO",
       "path": "技术美术/1 渲染雅集/05 SSAO.md"
-    },
-    {
-      "basename": "03 顶点动画",
-      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
     },
     {
       "basename": "02 UV操作",
