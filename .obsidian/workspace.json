@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,11 +196,12 @@
   },
   "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
     "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230701163225.png",
     "zip/images/Pasted image 20230701163120.png",
     "zip/images/Pasted image 20230701161135.png",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/images/Pasted image 20230701160137.png",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
