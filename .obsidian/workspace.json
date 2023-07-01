@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+                "file": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+                "file": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+                "file": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+                "file": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,6 +196,7 @@
   },
   "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230701163225.png",
     "zip/images/Pasted image 20230701163120.png",
     "zip/images/Pasted image 20230701161135.png",
@@ -204,7 +205,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/3D数学.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
@@ -229,7 +229,6 @@
     "zip/images/bea0eb975aeba44af438bc2e0358f82c_MD5.png",
     "zip/images/941d2ad117ed2b3944f362d99084e8e9_MD5.png",
     "zip/images/Pasted image 20230630232002.png",
-    "zip/images/Pasted image 20230630231957.png",
     "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/02 Unity操作指南.md",
     "技术美术/2 空间技法",

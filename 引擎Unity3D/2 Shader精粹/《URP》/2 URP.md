@@ -640,26 +640,22 @@ Mixed Lighting ->**Lighting Mode**
 
 **光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
 Progressive Lightmapper：渐进光照贴图程序是一种基于路径追踪的光照贴图系统
-## 烘焙光照贴图
-1. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开Mesh
-2. ![[Pasted image 20230701163120.png]]
+
 ### 烘焙光照贴图
 Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
 1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
 2. 预计算光 (全称: Precomputed Realtime Global Illumination，预计算实时全局光照)：作用在动态物体上
 
 Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两种技术都需要一个技术流程——**烘焙**
-烘焙: 是指根据场景的光照信息，把物体受到场景光照的信息写入一张大的纹理贴图上（Lightingmap），并贴在物体表面的过程
-![[Pasted image 20230615163418.png]]
-
-注意点：
-- 静态 static 物体才能接收光照贴图
-- 灯光 Mode 必须为 static 或 mixed
 
 ![[Pasted image 20230615003324.png]]
 
-**烘焙时模型不受光照影响**：美术没有留 uv2，模型 Inspector 界面勾选 Generate lightmap UVs 生成 uv2
-![[Pasted image 20230615004838.png|300]] ![[Pasted image 20230615004915.png|450]]
+1. 静态 static 对象才能接收光照贴图，灯光 Mode 必须为 static 或 mixed
+2. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开 [Mesh import settings](https://docs.unity3d.com/cn/2022.3/Manual/FBXImporter-Model.html) 开启生成光照贴图 UV ![[Pasted image 20230701163120.png|550]]
+3. 若要包含在光照贴图中，对象的 Renderer 必须满足以下条件：
+  - 具有 **Mesh Renderer** 或 **Terrain** 组件
+  - Mesh Renderer->Lighting->开启 Contribute GI
+  - 材质有 Meta Pass 
 
 **烘焙模型有硬边缘接缝**：勾选 Stitch Seams
 ![[Pasted image 20230615004644.png|250]] ![[Pasted image 20230615004712.png|400]]
