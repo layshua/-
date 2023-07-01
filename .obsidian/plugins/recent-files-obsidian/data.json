@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《Unity设计模式》",
@@ -23,10 +27,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
       "basename": "02 视图变换",
