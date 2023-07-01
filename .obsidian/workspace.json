@@ -33,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -77,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
               }
             }
           }
@@ -120,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
+                "file": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -169,10 +168,10 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "283dcabcf9d988f2",
+  "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",

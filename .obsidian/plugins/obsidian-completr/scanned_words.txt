@@ -71998,6 +71998,7 @@ ShadowUtils
 SetupShadowCasterConstantBuffer
 ShadowBias
 SPECGLOSSMAP
+ShaderData
 Programs
 POP
 PC
@@ -92741,6 +92742,7 @@ pipleline
 positionoCS
 pragmas
 positionHCS
+passName
 nodesCatch
 nobr
 navy
