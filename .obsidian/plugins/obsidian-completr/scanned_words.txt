@@ -15925,6 +15925,7 @@ gatsby
 giscus
 guarantees
 geometryOutput
+globalMaximumLOD
 typora
 todo
 tooltip
@@ -58409,6 +58410,7 @@ RenderingLayers
 REQUIRES
 RENDERING
 REAL
+RenderStateBlock
 Microsoft
 Menu
 MicaForEveryone
@@ -144193,6 +144195,7 @@ Heimlich
 Hollasch
 HomogeneousClip
 Haven
+HighDefinitionRenderPipeline
 Bbb
 Bear
 Base
