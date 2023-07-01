@@ -611,7 +611,7 @@ Resolution 阴影贴图渲染分辨率
 Bias 阴影偏移，包括 depth bias 和 normal bias 
 Normal Bias 阴影投射面沿法线收缩距离
 Near Panel 渲染阴影的近裁剪面
-Custom Shadow Layers: [[URP#自定义 Shadow Layers]]
+Custom Shadow Layers: [[2 URP#自定义 Shadow Layers]]
 
 **阴影图集设置**：URP Asset->Shadows
 ![[Pasted image 20230630213031.png|450]]

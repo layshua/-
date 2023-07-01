@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md"
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
-      "basename": "脚本控制",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+    },
+    {
+      "basename": "CG shaderlab",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
+    },
+    {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
       "basename": "01 自定义渲染管线",
@@ -17,20 +25,8 @@
       "path": "技术美术/1 渲染雅集/07 空间.md"
     },
     {
-      "basename": "CG shaderlab",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
-    },
-    {
-      "basename": "变体",
-      "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
-    },
-    {
-      "basename": "URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/URP.md"
-    },
-    {
-      "basename": "Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/Render Feature.md"
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
       "basename": "03 顶点动画",
@@ -195,10 +191,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "布料",
-      "path": "技术美术/2 着色器/布料.md"
     }
   ],
   "omittedPaths": [],
