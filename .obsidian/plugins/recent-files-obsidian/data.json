@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+    },
+    {
       "basename": "灯光组，光照探针，反射探针，光照烘焙",
       "path": "zBuffer/灯光组，光照探针，反射探针，光照烘焙.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
     },
     {
       "basename": "01 三维旋转",

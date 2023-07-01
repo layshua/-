@@ -581,7 +581,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 - Baked：烘焙光源，事先把光线经过多次反射（间接光）的效果计算在一张场景光照贴图（uv2）上，这张贴图作用于场景内的所有物体的表面。
     - 优点：光线模拟的效果真实，由于是在游戏开始前计算的，所以没有实时计算的开销
     - 缺点：不能实时运算
-- Mixed：混合光源，预先计算+实时运算
+- Mixed：混合光源，可在运行时更改混合光源的属性。这样做将**更新光源的实时光照，但不会更新烘焙光照**。有三种烘焙模式可选：[[2 URP#^gmojg3]]
 
 **lndirect Multiplier 间接乘数**：改变间接光的强度，定义由全局照明（GI）系统计算的反弹光的亮度。
 低于 1，每次反弹会使光更暗
@@ -622,12 +622,27 @@ Custom Shadow Layers: [[2 URP#自定义 Shadow Layers]]
       
 ### Lighting 面板
 Windows-Rendering-Lighting
-![[Pasted image 20230605123432.png|300]]
+
 
 ![[Pasted image 20230605123417.png]]
 
 ![[Pasted image 20230605123701.png]]
 
+![[Pasted image 20230701161135.png|450]]
+实时 GI：[使用Enlighten-Unity的实时全球照明手册](https://docs.unity3d.com/cn/2022.3/Manual/realtime-gi-using-enlighten.html)
+
+**混合灯光设置：**
+Mixed Lighting ->**Lighting Mode**
+[光照模式 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/lighting-mode.html) ^gmojg3
+1. Baked Indirect：将实时直接照明与烘焙间接照明相结合。此模式提供具有实时阴影贴图的实时阴影。适用于中端硬件。
+2. Shadowmask：将实时直接照明与烘焙间接照明相结合。它支持远距离游戏对象的烘焙阴影（带阴影遮罩），并将其与实时阴影（阴影贴图）自动混合。此照明模式适用于高端或中端硬件。
+3. Subtractive：提供烘焙的直射和间接光照，**仅针对一个方向光渲染直接实时阴影**。适合于风格化的艺术效果或低端硬件。
+
+**光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
+Progressive Lightmapper：渐进光照贴图程序是一种基于路径追踪的光照贴图系统
+## 烘焙光照贴图
+1. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开Mesh
+2. ![[Pasted image 20230701163120.png]]
 ### 烘焙光照贴图
 Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
 1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
