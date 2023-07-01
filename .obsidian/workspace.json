@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,11 +194,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "722068661c0b4217",
+  "active": "ac7d2c4818851dca",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/07 空间.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "zip/images/Pasted image 20230701143251.png",
+    "zip/images/2023711422.gif",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "技术美术/1 渲染雅集/07 空间.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
@@ -224,7 +225,6 @@
     "zip/images/Pasted image 20230630222720.png",
     "zip/images/Pasted image 20230630222706.png",
     "引擎Unity3D/02 Unity操作指南.md",
-    "zip/images/Pasted image 20230630221353.png",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "Tools/Git/Unity Git.md",
@@ -232,7 +232,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
