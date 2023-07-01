@@ -1,12 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
+      "basename": "6 纹理化",
+      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
+    },
+    {
+      "basename": "5 着色基础",
+      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
+    },
+    {
+      "basename": "7 阴影",
+      "path": "图形学/5 书籍/《RTR4》/7 阴影.md"
+    },
+    {
+      "basename": "15 非真实感渲染",
+      "path": "图形学/5 书籍/《RTR4》/15 非真实感渲染.md"
+    },
+    {
+      "basename": "技术美术 TA3000 问",
+      "path": "图形学/面经/技术美术 TA3000 问.md"
     },
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
+      "basename": "1678871300372",
+      "path": "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/assets/1678871300372.png"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -53,14 +97,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
     },
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
       "basename": "CG shaderlab",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
@@ -87,10 +123,6 @@
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
       "basename": "Unity Git",
@@ -167,38 +199,6 @@
     {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
-    },
-    {
-      "basename": "ASE",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     }
   ],
   "omittedPaths": [],
