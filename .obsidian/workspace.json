@@ -21,12 +21,38 @@
             }
           },
           {
+            "id": "2378f7205cd0116e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "283dcabcf9d988f2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "83511b6917cd4a81",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -172,6 +198,7 @@
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/语法.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
     "引擎Unity3D/2 Shader精粹/《URP》/URP.md",
@@ -205,7 +232,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/20 景深和散景模糊——数学篇.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

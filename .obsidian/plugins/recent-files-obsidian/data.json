@@ -9,6 +9,10 @@
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md"
     },
     {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
       "basename": "变体",
       "path": "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md"
     },
