@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/6 纹理化.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -105,7 +105,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/6 纹理化.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/6 纹理化.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/5 书籍/《RTR4》/6 纹理化.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -197,8 +197,22 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "Tools/Obsidian/插件流.md",
+    "zip/dailynote/前往斯旺西.md",
+    "图形学/5 书籍/《RTR4》/6 纹理化.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
     "图形学/5 书籍/《RTR4》/15 非真实感渲染.md",
@@ -212,24 +226,10 @@
     "图形学/1 图形系统/01 渲染管线.md",
     "Tools/工具流.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230701163225.png",
     "zip/images/Pasted image 20230701163120.png",
     "zip/images/Pasted image 20230701161135.png",
     "zip/images/Pasted image 20230701160137.png",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/0 3D数学/3D数学.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/脚本控制.md",
-    "引擎Unity3D/2 Shader精粹/ShaderLab/变体.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zip/images/Pasted image 20230701143251.png",
     "zip/images/2023711422.gif",
     "zip/images/64ee8f6014b193c7c227fafc6a7f60c5_MD5.png",
