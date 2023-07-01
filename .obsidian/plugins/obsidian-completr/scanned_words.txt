@@ -80571,6 +80571,8 @@ ComputeFogFactorZ
 CASTING
 CameraNormalsTexture
 Category
+ColorFront
+ColorBack
 ImTip
 IMAP
 ID
