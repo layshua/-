@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+    },
+    {
+      "basename": "06 阴影遮罩",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
+    },
+    {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
+    },
+    {
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "资源",
+      "path": "图形学/5 书籍/《RTR4》/资源.md"
+    },
+    {
+      "basename": "《虎书》",
+      "path": "图形学/5 书籍/虎书/《虎书》.md"
+    },
+    {
+      "basename": "PBRT3",
+      "path": "图形学/5 书籍/PBRT/PBRT3.md"
+    },
+    {
+      "basename": "图床",
+      "path": "Tools/Git/图床.md"
+    },
+    {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
@@ -35,14 +83,6 @@
     {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "插件流",
@@ -125,10 +165,6 @@
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
-    },
-    {
       "basename": "02 视图变换",
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
@@ -145,20 +181,12 @@
       "path": "图形学/0 3D数学/3D数学.md"
     },
     {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
       "basename": "CG shaderlab",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/CG shaderlab.md"
     },
     {
       "basename": "07 空间",
       "path": "技术美术/1 渲染雅集/07 空间.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
       "basename": "03 顶点动画",
@@ -171,34 +199,6 @@
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/02 Unity操作指南.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     }
   ],
   "omittedPaths": [],

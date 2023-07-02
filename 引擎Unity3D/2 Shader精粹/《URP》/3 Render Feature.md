@@ -12,4 +12,9 @@ Render Feature 是一种 Asset，用于向 URP 渲染器添加额外的渲染过
 - [Full Screen Pass 全屏Pass](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-full-screen-pass.html)
 
 
+> [!NOTE] 简称
+> 下文Renderer Feature 简称为 RF
 
+# Decal
+1. URP Renderer 添加 Decal RF
+2. 创建一个材质，并为其指定 `Shader Graphs/Decal` 着色器。添加贴图 ![[Pasted image 20230702100652.png|350]]

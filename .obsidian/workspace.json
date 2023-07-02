@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -105,7 +105,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,42 +199,42 @@
   },
   "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230702100652.png",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "图形学/5 书籍/《RTR4》/资源.md",
+    "图形学/5 书籍/虎书/《虎书》.md",
+    "图形学/5 书籍/PBRT/PBRT3.md",
+    "Tools/Git/图床.md",
+    "zip/images/830cde65d45829b3f0c0d54ae9a5c24f_MD5.png",
+    "zip/images/d17c0d7bb45ae1b7bf5519585fd988f3_MD5.png",
+    "zip/images/ef4a50e6f1ef1a8da92ac37f8aceb8e4_MD5.png",
+    "zip/images/ef9da3698bc59e6bab590df66c631356_MD5.png",
+    "zip/images/3074cd9a104801d308c634361531ce57_MD5.png",
+    "zip/images/f6ecf637644a6c106232dd33dc60f985_MD5.png",
+    "zip/images/c5507d3db05e68f92c3f3e52d1dc2adf_MD5.png",
+    "zip/images/9d27bf407601a5ecdddeb49a1e0ae37f_MD5.png",
+    "zip/images/5c87660b5574d014db86190972f95a6f_MD5.png",
+    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "Tools/Obsidian/插件流.md",
     "zip/dailynote/前往斯旺西.md",
     "图形学/5 书籍/《RTR4》/6 纹理化.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "图形学/5 书籍/《RTR4》/7 阴影.md",
-    "图形学/5 书籍/《RTR4》/15 非真实感渲染.md",
-    "图形学/面经/技术美术 TA3000 问.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "图形学/面经/(10 条消息) 2021 搜狐畅游引擎部笔试【追光者计划】_P1ay_的博客 - CSDN 博客/assets/1678871300372.png",
-    "图形学/1 图形系统/06 深度测试.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "Tools/工具流.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "zip/images/Pasted image 20230701163225.png",
-    "zip/images/Pasted image 20230701163120.png",
-    "zip/images/Pasted image 20230701161135.png",
-    "zip/images/Pasted image 20230701160137.png",
-    "zip/images/Pasted image 20230701143251.png",
-    "zip/images/2023711422.gif",
-    "zip/images/64ee8f6014b193c7c227fafc6a7f60c5_MD5.png",
-    "zip/images/bea0eb975aeba44af438bc2e0358f82c_MD5.png",
-    "zip/images/941d2ad117ed2b3944f362d99084e8e9_MD5.png",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
