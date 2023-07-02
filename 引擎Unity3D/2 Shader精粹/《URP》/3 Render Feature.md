@@ -1,21 +1,31 @@
+
+
+---
+title: 3 Render Feature
+aliases: []
+tags: []
+create_time: 2023-07-02 14:00
+uid: 202307021400
+banner: "![[Pasted image 20230702140512.png]]"
+---
+
+> [!NOTE] 简称
+> 下文 Renderer Feature 简称为 RF
+
+
 1.  介绍 [URP Renderer Feature | Universal RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/urp-renderer-feature.html)
 2.  使用 [Example: How to create a custom rendering effect using the Render Objects Renderer Feature | Universal RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/containers/how-to-custom-effect-render-objects.html)
 
 Render Feature 是一种 Asset，用于向 URP 渲染器添加额外的渲染过程并配置其行为。
 
 以下 Render Feature在 URP 中可用：
-
 - [Render Objects 渲染对象](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-render-objects.html)
 - [Screen Space Ambient Occlusion  屏幕空间环境光遮蔽](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/post-processing-ssao.html)
 - [Decal 贴花](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-feature-decal.html)
 - [Screen Space Shadows 屏幕空间阴影](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-feature-screen-space-shadows.html)
 - [Full Screen Pass 全屏Pass](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-full-screen-pass.html)
 
-
-> [!NOTE] 简称
-> 下文Renderer Feature 简称为 RF
-
-# Render Objects
+# Render Objects RF
 [Render Objects Renderer Feature | Universal RP | 14.0.8 --- 渲染对象渲染器功能](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-render-objects.html)
 ![[Pasted image 20230702103753.png|500]]
 URP 在 DrawOpaqueObjects 和 DrawTransparent Objects 过程中绘制对象。您可能需要在帧渲染的不同点绘制对象，或者以其他方式解释和写入渲染数据（如 depth 和 stencil）。Render Objects RT 允许通过特定的重载（overides）在指定的图层、指定的时间来自定义 Draw Objects。
@@ -40,7 +50,35 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 2. 现在 Unity 不会渲染角色，除非它在游戏对象后面。（因为 RF1 相当于加了一次渲染，虽然渲染器设置的不对该层物体渲染，但是当 RF1 的 Event 触发后，就增加了一次对该层物体的渲染。由于深度测试是 Greater，Zbuffer 默认是无限大，所以在遮挡物体意外是无法通过深度测试的，所以不显示。只有在遮挡物体后面才能通过，显示为 Blue） ![[Pasted image 20230702110612.png|160]]
 3. 添加 RF2（虽然都是默认的 Event 条件，但 RF2 执行顺序在 RF1 之后），LayerMask 选择 Character 层，可以发现，都被渲染为 red（RF1 选择了 Equal 作为深度测试条件，所以此时深度缓冲区都是较大值。新建的 RF2 默认是 Less Equal，渲染时与上次 RF1 渲染的重合部分深度相等，上次未显示部位深度小于无限大，所以物体通过深度测试，以本身的 Red 颜色显示出来）![[Pasted image 20230702113031.png]]
 4. 关闭 RF1 的深度写入，那么当 RF2 渲染时，遮挡物后面由于角色深度小于遮挡物，不通过测试，所以不会覆盖 RF1 绘制的 Blue。遮挡物外面通过测试，显示为 Red。这样就完成了！![[character-goes-behind-object 1.gif]]
-# Decal
+
+# Full Screen RF
+![[Pasted image 20230702134053.png|450]]
+**Full Screen PF 允许在预定义的注入点（injection point）注入全屏渲染 Pass，以创建全屏效果。** 
+
+- **Injection Point 注入点：**
+    1. **Before Rendering Transparents**：渲染透明体之前，在 skybox pass 之后和 transparents pass 之前添加效果。
+    2. **Before Rendering Post Processing**: 渲染后处理前：在 Transparent Pass 之后和 post-processing pass 之前添加效果。
+    3. **After Rendering Post Processing**：渲染后处理后：在 post-processing pass 之后和 AfterRendering pass 之前添加效果。
+
+- **Requirements 要求：** 选择以下一个或多个 Pass 以供 RF 使用：  
+    - **Depth**：添加 depth prepass（深度预处理） 以启用深度值的使用。 
+    - **Normal**: 启用法线矢量数据的使用。
+    - **Color**: 将屏幕的颜色数据复制到着色器内部的 `_BlitTexture` 纹理。
+    - **Motion**: 启用运动矢量的使用 
+
+
+> [!NOTE] Blit
+> **blit 全称应该是 block transfer(块传输)。作用是将一块内容放到另一个表面上**
+> 
+> Bit blit（也写成 Bit Blt，代表位块传输 bit block transfer）是计算机图形学中常用的数据操作，其中多个位图使用布尔函数组合成一个。 
+>
+>该操作至少涉及两个位图：“源 Src”（或“前景”）和“目标 Dst”（或“背景”），可能还有第三个通常称为“蒙版 Mask”的位图。结果可能会写入第四个位图，尽管它通常会替换目标。每个像素根据指定的栅格运算 （ROP） 按位组合，然后将结果写入目标。ROP 本质上是一个布尔公式。最明显的 ROP 用源覆盖目标。其他 ROP 可能涉及 AND、OR、XOR 和 NOT 操作。
+
+  
+  
+
+
+# Decal RF
 ![[Pasted image 20230702102255.png]]
 
 **创建步骤：**
@@ -73,10 +111,13 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 3. 若要减少贴花所需的材质数量，请将多个贴花纹理放入一个纹理（图集）中。使用贴花投影仪上的 UV 偏移特性来确定要显示图集的哪个部分。
 
 
-# 屏幕空间阴影
-URP14 暂时无法使用
+
+
+# SSAO RF
+屏幕空间AO
+
+# SS Shadows RF
+屏幕空间阴影，URP14 暂时无法使用
 ![[Pasted image 20230702102742.png]]
 
 计算受主定向光影响的不透明对象的屏幕空间阴影，并在场景中绘制这些阴影。若要渲染屏幕空间阴影，URP 需要一个额外的 Render Target。这增加了应用程序所需的内存量，但如果项目使用前向渲染，屏幕空间阴影可以提高运行时资源强度。这是因为如果使用屏幕空间阴影，URP 不需要多次访问级联阴影贴图。
-
-# SSAO
