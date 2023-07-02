@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+                "file": "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,10 +196,20 @@
   },
   "active": "722068661c0b4217",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
+    "引擎Unity3D/收藏夹/TA 之路.md",
+    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/3D数学.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/09 阴影.md",
@@ -222,16 +232,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "图形学/5 书籍/《RTR4》/资源.md",
     "图形学/5 书籍/虎书/《虎书》.md",
-    "图形学/5 书籍/PBRT/PBRT3.md",
-    "Tools/Git/图床.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

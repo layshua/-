@@ -69,9 +69,6 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
     - **Motion**: 启用运动矢量的使用 
 
 
-> [!NOTE] Blit
->block transfer(块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
-
 # Decal RF
 ![[Pasted image 20230702102255.png]]
 
@@ -108,11 +105,14 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 # 自定义 URP
 ## URP blit
 
+> [!NOTE] Blit
+>block transfer (块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
+
  [Perform a full screen blit in URP | Universal RP | 14.0.8 --- 在URP | Universal RP | 14.0.8中执行全屏闪电战 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/how-to-fullscreen-blit.html)
 
 > [!bug] 
 > 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
-> **应该使用使用 [Blitter API](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@13.1/api/UnityEngine.Rendering.Blitter.html)**
+> **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
 
 ## beginCameraRendering 事件 
 Unity 在每帧中渲染每个激活的 Camera 之前引发一个 `beginCameraRendering` 事件。
@@ -121,8 +121,33 @@ Unity 在每帧中渲染每个激活的 Camera 之前引发一个 `beginCameraR
 订阅此事件的方法时，可以在 Unity 渲染 Camera 之前执行自定义逻辑（比如将额外的 Camera 渲染为 Render Texture，以及将这些纹理用于平面反射或监视摄影机视图等效果。）
 [RenderPipelineManager](https://docs.unity3d.com/ScriptReference/Rendering.RenderPipelineManager.html) 类中的其他事件提供了更多自定义 URP 的方法。
 
-如何为 `beginCameraRendering` 事件订阅方法？
+**如何为 `beginCameraRendering` 事件订阅方法？**
+将下面的脚本拖放到一个 gameobject 即可使用：
+```cs
+public class URPCallbackExample : MonoBehaviour
+{
+    //依附的GameObject对象每次激活时调用（打勾）
+    private void OnEnable()
+    {
+        //订阅方法
+        //添加 WriteLogMessage 作为 RenderPipelineManager.beginCameraRendering 事件的委托
+        RenderPipelineManager.beginCameraRendering += WriteLogMessage;
+    }
 
+    //依附的GameObject对象每次失活时调用（去掉勾）
+    private void OnDisable()
+    {
+        //移除 WriteLogMessage 作为 RenderPipelineManager.beginCameraRendering 事件的委托
+        RenderPipelineManager.beginCameraRendering -= WriteLogMessage;
+    }
+    
+    // 当此方法是 RenderPipeline.beginCameraRendering 事件的委托时，Unity 每次引发 beginCameraRendering 事件时都会调用此方法
+    void WriteLogMessage(ScriptableRenderContext context, Camera camera)
+    {
+        Debug.Log($"Beginning rendering the camera: {camera.name}");
+    }
+}
+```
 
 ## 自定义 Render Feature
 创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
