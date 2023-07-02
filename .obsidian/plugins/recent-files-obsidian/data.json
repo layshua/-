@@ -9,6 +9,14 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
+    },
+    {
       "basename": "01 BUG合集",
       "path": "引擎Unity3D/01 BUG合集.md"
     },
@@ -55,10 +63,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "《Unity Primer》",
@@ -119,10 +123,6 @@
     {
       "basename": "图床",
       "path": "Tools/Git/图床.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
     {
       "basename": "16 渲染缩放",

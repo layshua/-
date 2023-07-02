@@ -3,7 +3,7 @@
 ![[Pasted image 20230626172735.png]]
 ![loading](https://uwa-edu.oss-cn-beijing.aliyuncs.com/10.%E5%B1%8F%E5%B9%95%E5%90%8E%E5%A4%84%E7%90%86%20%EF%BC%88Bloom%EF%BC%89.1620983535177.png "UWA")
 
-### 10.1 Post-FX Stack
+### 10.1 Post-FX Stack（已 yiqi）
 
 屏幕后处理效果（Screen Post-Processing Effects）是游戏开发过程中实现屏幕特效的一种常用方法，通常指的是在渲染完整个场景得到屏幕图像后，再对这个图像进行一系列地操作，来实现各种屏幕特效。它可以为游戏画面添加更多的艺术效果，例如景深、运动模糊、Bloom等等，最终渲染到屏幕中的画面往往叠加了多种屏幕特效，就像栈（Stack）一样。Unity官方提供了一套Post-Processing Stack后处理框架和各种常用的屏幕特效供开发者使用，本节我们将自己搭建一套后处理框架，并实现最常用的Bloom屏幕特效。
 
