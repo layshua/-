@@ -53,12 +53,25 @@
             }
           },
           {
-            "id": "ada83914ec1727ae",
+            "id": "15da9e70d46f3689",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f44a6383f63d0e81",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -122,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
               }
             }
           }
@@ -165,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -214,15 +227,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6cb29e57b057a698",
+  "active": "9b172936b2e37007",
   "lastOpenFiles": [
-    "编程/C++/《C++ Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "图形学/1 图形系统/01 渲染管线.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "zip/images/Pasted image 20230702232446.png",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+    "zip/images/Pasted image 20230702231206.png",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "编程/C++/《C++ Primer》.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230702225910.png",
     "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -234,9 +250,6 @@
     "zip/images/25833c7bafd2110d3e58cdd8b1bbf56a_MD5.png",
     "zip/images/64d60dea540a407204407c57e6dd2ee1_MD5.png",
     "zip/images/8b7fea79ac6721ff04a7697791d9b985_MD5.png",
-    "zip/images/5d56a45e1381d383c3918b8a0353952b_MD5.png",
-    "zip/images/18c439e67a7312bdf4967884dbb0979a_MD5.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "图形学/1 图形系统/08 透明.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -251,7 +264,6 @@
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/3D数学.md",
-    "图形学/1 图形系统/02 光栅化.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

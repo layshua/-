@@ -360,8 +360,23 @@ public partial class CameraRenderer
 
 ![[1 ShaderLab#^d4529f]]
 
-对于渲染状态的更新，体现最明显的是在 `Context.DrawRenderers` 这个指令，可以看到 DrawObjectPass  在构造函数中它的 ` RenderStateBlock ` 是 ` Nothing `。
+对于渲染状态的更新，体现最明显的是在 `Context.DrawRenderers` 这个指令，可以看到 DrawObjectPass  在构造函数中它的 `RenderStateBlock ` 是 ` Nothing `。
 所以它对于 Opaque pass 也好，Transparent pass 也好，它渲染状态的更新是跟每个 Shader 中各自的 Depth、ZWrite、Blend 等等的状态设置有关。
 而下面的 StencilState 则是与在 ForwardRenderer 中的 Forward Renderer Data 的具体设置有关。
 
-PS: 需要注意的是: DrawObjectPass 需要跟 RenderObjectPass 做下区分，这两还不太一样。具体体现在: RenderObjectPass 多了 `SetDetphState` 和 `SetStencilState` 这两个函数，能够更方便重载当前 pass 在 DrawRenderers 时的 Render state。
+```cs file:context.DrawRenderer
+public void DrawRenderers (Rendering.CullingResults cullingResults, ref Rendering.DrawingSettings drawingSettings, ref Rendering.FilteringSettings filteringSettings, ref Rendering.RenderStateBlock stateBlock);
+
+//调用：
+context.DrawRenderers(cullingResults, ref drawingSettings, ref fileteringSettings, stateBlock);
+```
+`context.DrawRenderers` 指令是最常见用于绘制一批物体，参数如下：
+1. `CullingResults` ：存储相机剔除后的结果（所有视野内可见物体的数据信息）
+2. `DrawingSettings` 设置绘制顺序以及绘制时使用哪一个 Shader 中的 Pass。
+3. `FilteringSettings` 设置过滤设置来渲染指定的 Layer,
+4. `RenderStateBlock`： 重载覆盖 GPU 渲染状态，更改 StateBlock 来重载深度、模板写入方式。 
+
+PS: 需要注意的是: `DrawObjectPass` 需要跟 `RenderObjectPass` 做下区分，这两还不太一样。具体体现在: `RenderObjectPass` 多了 `SetDetphState` 和 `SetStencilState` 这两个函数，能够更方便重载当前 pass 在 DrawRenderers 时的 Render state。
+
+![[Pasted image 20230702232446.png]]
+

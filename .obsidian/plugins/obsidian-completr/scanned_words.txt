@@ -72087,6 +72087,7 @@ SetPosition
 StencilState
 SetDetphState
 SetStencilState
+StateBlock
 Programs
 POP
 PC
@@ -80688,6 +80689,7 @@ ConfigureProcedural
 ComputeBuffer
 ComputeBufferType
 CeilToInt
+CullingResult
 ImTip
 IMAP
 ID
@@ -103922,6 +103924,7 @@ fragIn
 frendly
 forcemaxcount
 fadb
+filterSettings
 dd
 dcc
 data
@@ -116738,6 +116741,7 @@ inputInstanceID
 isActive
 instanceMesh
 instanceMaterial
+iyer
 shift
 svg
 sf
@@ -136665,6 +136669,7 @@ renderTargetHandle
 renderTextureID
 resolutionId
 realtimeSinceStartup
+refdrawSettings
 XXXXXX
 XXX
 XML
@@ -152410,6 +152415,7 @@ FAjK
 FullScreenPass
 FullPassScreen
 FunctionKernel
+FilteringSetting
 Element
 Entity
 Enity
@@ -167391,6 +167397,7 @@ DrawInstance
 DrawProceduralIndirect
 DrawSkyboxPass
 DrawObjectPass
+DrawingSetting
 LNK
 Log
 Linux

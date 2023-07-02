@@ -1,28 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "DX12理论",
@@ -39,10 +43,6 @@
     {
       "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
       "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
       "basename": "4 后处理",
