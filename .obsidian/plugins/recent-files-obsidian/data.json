@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
@@ -9,12 +17,16 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
     },
     {
       "basename": "06 阴影遮罩",
@@ -137,24 +149,12 @@
       "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
       "basename": "工具流",
       "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "《Unity设计模式》",

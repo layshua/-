@@ -189,3 +189,86 @@ public class CustomRenderFeature : ScriptableRendererFeature
 
 ## 案例
 本例中 RF 将镜头光斑绘制为一个 Quad 上的纹理
+
+```cs
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class CustomRenderFeature : ScriptableRendererFeature
+{
+    private CustomRenderPass _customRenderPass;
+    public Material material;
+    public Mesh mesh;
+    
+    public override void Create()
+    {
+        _customRenderPass = new CustomRenderPass(material, mesh);
+        
+        //更改渲染顺序，在渲染天空盒之后渲染自定义渲染pass，这样天空盒就不会覆盖渲染的光斑了
+        _customRenderPass.renderPassEvent = RenderPassEvent.AfterRenderingSkybox;
+    }
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+    {
+        if(material!=null && mesh!=null)
+        {
+            renderer.EnqueuePass(_customRenderPass);
+        }
+    }
+}
+
+```
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class CustomRenderPass : ScriptableRenderPass
+{
+    private Material _material;
+    private Mesh _mesh;
+
+    public CustomRenderPass(Material material, Mesh mesh)
+    {
+        _material = material;
+        _mesh = mesh;
+    }
+        
+    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+    {
+        //获取新的命令缓冲区并为其指定一个名称
+        CommandBuffer cmd = CommandBufferPool.Get(name: "CustomRenderPass");
+        
+        //获取相机
+        Camera camera = renderingData.cameraData.camera;
+        //设置投影矩阵，以便 Unity 在屏幕空间中绘制四边形
+        cmd.SetViewProjectionMatrices(Matrix4x4.identity, Matrix4x4.identity);
+        //比例变量，使用摄像机纵横比作为 y 坐标
+        Vector3 scale = new Vector3(1, camera.aspect, 1);
+        //在Light的屏幕空间位置为每个Light绘制一个四边形。
+        foreach (VisibleLight visibleLight in renderingData.lightData.visibleLights)
+        {
+            Light light = visibleLight.light;
+            
+            //将每个光源的位置从世界转换为viewport空间
+            Vector3 position = camera.WorldToViewportPoint(light.transform.position) * 2 - Vector3.one;
+            //将quad的 z 坐标设置为 0，以便 Uniy 将它们绘制在同一平面上。
+            position.z = 0; 
+            
+            //绘制quad
+            cmd.DrawMesh(_mesh, Matrix4x4.TRS(position,Quaternion.identity, scale), _material, 0, 0);
+        }
+        
+        //执行命令缓冲区中的命令
+        context.ExecuteCommandBuffer(cmd);
+            
+        //释放命令缓冲区
+        CommandBufferPool.Release(cmd);
+    }
+}
+```

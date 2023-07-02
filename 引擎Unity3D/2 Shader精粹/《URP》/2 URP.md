@@ -712,7 +712,7 @@ URP 渲染器为每个相机执行一个相机循环，该循环执行以下步�
 1.  **Setup Culling Parameters 设置剔除参数**：配置用于确定剔除系统如何剔除灯光和阴影的参数。可以使用自定义渲染器 override 渲染管线的这一部分。 
 2. **Culling 剔除**  ：使用上一步中的剔除参数来计算相机可见的可见渲染器、阴影投射器和灯光的列表。剔除参数和相机 [layer distances](https://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html) 会影响剔除和渲染性能。
 3. **Build Rendering Data 生成渲染数据** ：捕获基于剔除输出和 URP Asset、Camera 和当前运行平台的质量设置的信息，以构建 `RenderingData` 。渲染数据告诉渲染器相机和当前选择的平台所需的渲染工作量和质量。
-4. **Setup Renderer 设置渲染器** ： 构建渲染 Pass 的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
+4. **Setup Renderer 设置渲染器** ： 构建 Render Pass  的列表，并根据渲染数据对其进行排队执行。可以使用自定义渲染器 overide 渲染管道的这一部分。
 5. **Execute Renderer 执行渲染器**：执行队列中的每个 Pass 。渲染器将“Camera”图像输出到帧缓冲区（framebuffer） 。
 
 ## 通用附加摄影机数据组件

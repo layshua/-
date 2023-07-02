@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "50995d5490938b9f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/08 透明.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a31fcf2379c744a3",
             "type": "leaf",
             "state": {
@@ -34,27 +47,20 @@
             }
           },
           {
-            "id": "4254fde6536acbf1",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "d2ea2d5ada7514c2",
+            "id": "f7643d354067f7b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -97,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -140,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -189,24 +195,26 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "722068661c0b4217",
+  "active": "f7643d354067f7b9",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230702151355.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+    "zip/images/Pasted image 20230702151355.png",
     "zip/images/Pasted image 20230702145615.png",
     "引擎Unity3D/02 Unity操作指南.md",
     "zip/images/Pasted image 20230702143135.png",
     "zip/images/Pasted image 20230702141356.png",
     "zip/images/Pasted image 20230702141013.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230702140512.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "zip/images/Pasted image 20230702140312.png",
     "zip/images/Pasted image 20230702140139.png",
     "zip/images/Pasted image 20230702140137.png",
     "zip/images/Pasted image 20230702134053.png",
-    "zip/images/character-goes-behind-object 1.gif",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
@@ -225,8 +233,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
-    "Tools/Obsidian/插件流.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

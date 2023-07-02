@@ -270,8 +270,6 @@ Math 是中封装好的用于数学计算的工具**类**，位于 system 命名
 `IsPowerOfTwo` 判断一个数是否是 2 的 n 次方
 `Sign` 判断正负数，返回 1/-1
 
-
-
 `Lerp` 线性插值
 `Vector3.SLerp` 球形插值
 ```cs lerp
@@ -560,7 +558,6 @@ Camera. main. worldToViewportPoint
 //视口转世界
 Camera. main. ViewportToworldPoint 
 ```
-
 
 ### 视口/屏幕
 ```cs
