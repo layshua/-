@@ -30,13 +30,8 @@
             "id": "50995d5490938b9f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -58,7 +53,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -92,7 +87,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -135,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
               }
             }
           }
@@ -178,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,16 +222,18 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "9b172936b2e37007",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
+    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "图形学/1 图形系统/01 渲染管线.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zip/images/Pasted image 20230702232446.png",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "zip/images/Pasted image 20230702231206.png",
-    "图形学/1 图形系统/01 渲染管线.md",
     "编程/C++/《C++ Primer》.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230702225910.png",
@@ -246,7 +243,6 @@
     "zip/images/Pasted image 20230702221037.png",
     "zip/images/Pasted image 20230702220915.png",
     "zip/images/Pasted image 20230702220808.png",
-    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zip/images/25833c7bafd2110d3e58cdd8b1bbf56a_MD5.png",
     "zip/images/64d60dea540a407204407c57e6dd2ee1_MD5.png",
     "zip/images/8b7fea79ac6721ff04a7697791d9b985_MD5.png",

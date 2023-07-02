@@ -4,35 +4,10 @@
 
 ppt:[here](https://docs.qq.com/slide/DUUxtdE5GcEtwZmNm?u=09b32b4448404afa92a380647f4970da)  
 
-![[81d9748a2c602bf9e92385f73164ecdd_MD5.png]]
-
 # RenderObjectFeature  
 
-## Inspector  
 
-![[6d90e5e2cd94d536c206b930b9eaef46_MD5.png]] 
-
-### Render Queue Type  
-
-![[a05ba11000237a506543e12d5254dbc5_MD5.png]]![[1fe7dc1bc4f0e361609c9651eceffd61_MD5.png]]  
-
-### Layer Mask  
-
-![[02b86f53d8d84f7c40b84de619a1002b_MD5.png]] 
-
-### Material Pass Index  
-
-![[b8a9277c72aaf0b19d8ac695a3e8c309_MD5.png]]![[e3a77893be1dc491cf7b1505d6afc553_MD5.png]]![[26ce4a73de8b6881f3461edfc9ebe388_MD5.png]]  
-
-![[5349a415c221acd78246588981d04878_MD5.png]]![[84340f6f3f6855ac8aae34e6930b9365_MD5.png]]![[3fb88dc8ffb1db8ffe7c0aebcdc69d14_MD5.png]]  
-
-![[4c798d700367abb6f385897c875c9c23_MD5.png]] 
-
-### Overwrite camera  
-
-![[cdd156e048942a8e043e69b9cc29a9d1_MD5.png]]![[64fa4d6bfbdb26ad90f5affd8b99ab31_MD5.png]]![[a78d3024a0c31a8cf4153014eade32bf_MD5.png]]  
-
-## Scriptable[RenderObjectsFeature]  
+## Scriptable RenderObjectsFeature
 
 ### RenderObjectsFeature.cs  
 
@@ -44,7 +19,7 @@ ppt:[here](https://docs.qq.com/slide/DUUxtdE5GcEtwZmNm?u=09b32b4448404afa92a3806
 
 renderfeature设置：  
 
-```
+```c
 public enum RenderQueueType
 {
     Opaque,
@@ -87,7 +62,7 @@ public CustomCameraSettings cameraSettings = new CustomCameraSettings();
 
 将对应设置传入DrawRenderersPass[继承自ScriptableRenderPass ] 构造函数:  
 
-```
+```c
 //in Create():
 m_DrawRendererPass = new DrawRenderersPass(this.name, Event, m_RenderQueueType, m_LayerMask, PassNames,
                                            override_Material, overrideMaterialPassIndex,

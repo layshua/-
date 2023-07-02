@@ -167398,6 +167398,7 @@ DrawProceduralIndirect
 DrawSkyboxPass
 DrawObjectPass
 DrawingSetting
+DrawTransparentObjects
 LNK
 Log
 Linux
