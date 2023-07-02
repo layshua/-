@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "722068661c0b4217",
+            "id": "50995d5490938b9f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "图形学/1 图形系统/01 渲染管线.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "50995d5490938b9f",
+            "id": "27a7f2801001ae88",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/08 透明.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+                "file": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
               }
             }
           }
@@ -145,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/DX12/龙书/DX12理论.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,26 +195,29 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "27a7f2801001ae88",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "zip/images/Pasted image 20230702213623.png",
+    "zip/images/Pasted image 20230702213440.png",
+    "zip/images/Pasted image 20230702213259.png",
+    "zip/images/Pasted image 20230702213202.png",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "zip/images/Pasted image 20230702210129.png",
     "zip/images/Pasted image 20230702210113.png",
     "zip/images/Pasted image 20230702210043.png",
     "zip/images/Pasted image 20230702210001.png",
     "zip/images/Pasted image 20230702205941.png",
     "zip/images/Pasted image 20230702205751.png",
-    "zip/images/Pasted image 20230702205653.png",
-    "zip/images/Pasted image 20230702205611.png",
-    "zip/images/Pasted image 20230702204838.png",
     "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
-    "zip/images/Pasted image 20230702204748.png",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
     "引擎Unity3D/01 BUG合集.md",
@@ -227,11 +231,7 @@
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/02 Unity操作指南.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
