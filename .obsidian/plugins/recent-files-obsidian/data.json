@@ -5,20 +5,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
-      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
       "basename": "01 渲染管线",
@@ -31,6 +23,18 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
+      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
       "basename": "08 透明",
@@ -127,10 +131,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "资源",
