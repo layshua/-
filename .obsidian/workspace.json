@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
               }
             }
           }
@@ -146,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -195,15 +194,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "f7643d354067f7b9",
+  "active": "722068661c0b4217",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "图形学/1 图形系统/08 透明.md",
     "图形学/1 图形系统/09 阴影.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230702151355.png",
     "zip/images/Pasted image 20230702145615.png",
     "引擎Unity3D/02 Unity操作指南.md",

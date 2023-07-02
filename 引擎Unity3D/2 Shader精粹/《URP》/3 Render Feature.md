@@ -70,15 +70,7 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 
 
 > [!NOTE] Blit
-> **blit 全称应该是 block transfer(块传输)。作用是将一块内容放到另一个表面上**
-> 
-> Bit blit（也写成 Bit Blt，代表位块传输 bit block transfer）是计算机图形学中常用的数据操作，其中多个位图使用布尔函数组合成一个。 
->
->该操作至少涉及两个位图：“源 Src”（或“前景”）和“目标 Dst”（或“背景”），可能还有第三个通常称为“蒙版 Mask”的位图。结果可能会写入第四个位图，尽管它通常会替换目标。每个像素根据指定的栅格运算 （ROP） 按位组合，然后将结果写入目标。ROP 本质上是一个布尔公式。最明显的 ROP 用源覆盖目标。其他 ROP 可能涉及 AND、OR、XOR 和 NOT 操作。
-
-  
-  
-
+>block transfer(块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
 
 # Decal RF
 ![[Pasted image 20230702102255.png]]
@@ -113,18 +105,26 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 3. 若要减少贴花所需的材质数量，请将多个贴花纹理放入一个纹理（图集）中。使用贴花投影仪上的 UV 偏移特性来确定要显示图集的哪个部分。
 
 
+# 自定义 URP
+## URP blit
+
+ [Perform a full screen blit in URP | Universal RP | 14.0.8 --- 在URP | Universal RP | 14.0.8中执行全屏闪电战 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/how-to-fullscreen-blit.html)
+
+> [!bug] 
+> 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
+> **应该使用使用 [Blitter API](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@13.1/api/UnityEngine.Rendering.Blitter.html)**
+
+## beginCameraRendering 事件 
+Unity 在每帧中渲染每个激活的 Camera 之前引发一个 `beginCameraRendering` 事件。
+>如果相机处于失活状态（去掉勾），Unity 不会为此相机引发 `beginCameraRendering` 事件。
+
+订阅此事件的方法时，可以在 Unity 渲染 Camera 之前执行自定义逻辑（比如将额外的 Camera 渲染为 Render Texture，以及将这些纹理用于平面反射或监视摄影机视图等效果。）
+[RenderPipelineManager](https://docs.unity3d.com/ScriptReference/Rendering.RenderPipelineManager.html) 类中的其他事件提供了更多自定义 URP 的方法。
+
+如何为 `beginCameraRendering` 事件订阅方法？
 
 
-# SSAO RF
-屏幕空间AO
-
-# SS Shadows RF
-屏幕空间阴影，URP14 暂时无法使用
-![[Pasted image 20230702102742.png]]
-
-计算受主定向光影响的不透明对象的屏幕空间阴影，并在场景中绘制这些阴影。若要渲染屏幕空间阴影，URP 需要一个额外的 Render Target。这增加了应用程序所需的内存量，但如果项目使用前向渲染，屏幕空间阴影可以提高运行时资源强度。这是因为如果使用屏幕空间阴影，URP 不需要多次访问级联阴影贴图。
-
-# 可编程 Render Feature
+## 自定义 Render Feature
 创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
 1. 创建脚本，命名为 CustomRenderFeature. cs
@@ -137,7 +137,7 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
     - `AddRenderPasses` ：Unity 每台相机每帧调用一次此方法。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
 4. 将创建的 RF 添加到 URP Asset 中。可以看到 Add  Render Feature 多了一个选项 ![[Pasted image 20230702151355.png|250]]
 
-## 可编程 Render Pass
+### 可编程 Render Pass
 
 **创建可编程 Render Pass，并将其实例入队（enqueue）渲染队列**
 
@@ -187,7 +187,7 @@ public class CustomRenderFeature : ScriptableRendererFeature
 }
 ```
 
-## 案例
+### 案例
 本例中 RF 将镜头光斑绘制为一个 Quad 上的纹理
 
 ```cs
@@ -272,3 +272,4 @@ public class CustomRenderPass : ScriptableRenderPass
     }
 }
 ```
+

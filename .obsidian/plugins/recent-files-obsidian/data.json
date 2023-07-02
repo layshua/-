@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
-    },
-    {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
       "basename": "08 透明",
@@ -23,10 +27,6 @@
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
     },
     {
       "basename": "06 阴影遮罩",
