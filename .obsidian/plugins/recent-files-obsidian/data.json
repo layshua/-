@@ -5,12 +5,20 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
+      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
     },
     {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
       "basename": "01 渲染管线",
@@ -191,14 +199,6 @@
     {
       "basename": "15 非真实感渲染",
       "path": "图形学/5 书籍/《RTR4》/15 非真实感渲染.md"
-    },
-    {
-      "basename": "技术美术 TA3000 问",
-      "path": "图形学/面经/技术美术 TA3000 问.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     }
   ],
   "omittedPaths": [],

@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "9b172936b2e37007",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a31fcf2379c744a3",
             "type": "leaf",
             "state": {
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -195,15 +208,24 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "27a7f2801001ae88",
+  "active": "9b172936b2e37007",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "zip/images/Pasted image 20230702220808.png",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "zip/images/25833c7bafd2110d3e58cdd8b1bbf56a_MD5.png",
+    "zip/images/64d60dea540a407204407c57e6dd2ee1_MD5.png",
+    "zip/images/8b7fea79ac6721ff04a7697791d9b985_MD5.png",
+    "zip/images/5d56a45e1381d383c3918b8a0353952b_MD5.png",
+    "zip/images/18c439e67a7312bdf4967884dbb0979a_MD5.png",
+    "zip/images/0008d1e41736a780ce3149cb25aac8e6_MD5.png",
+    "zip/images/34e841d3ce92a8148da26f8d1bc7e1dc_MD5.png",
+    "zip/images/273d966033646f2796416d8e99e2977f_MD5.png",
+    "zip/images/b64e4602617fb3fe613dc8610d7cd0c8_MD5.png",
+    "zip/images/abc55407a0059ffb7deb93ab4154241c_MD5.png",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
-    "zip/images/Pasted image 20230702213623.png",
-    "zip/images/Pasted image 20230702213440.png",
-    "zip/images/Pasted image 20230702213259.png",
-    "zip/images/Pasted image 20230702213202.png",
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -211,12 +233,6 @@
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "zip/images/Pasted image 20230702210129.png",
-    "zip/images/Pasted image 20230702210113.png",
-    "zip/images/Pasted image 20230702210043.png",
-    "zip/images/Pasted image 20230702210001.png",
-    "zip/images/Pasted image 20230702205941.png",
-    "zip/images/Pasted image 20230702205751.png",
     "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
@@ -230,8 +246,6 @@
     "图形学/0 3D数学/3D数学.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/09 阴影.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
