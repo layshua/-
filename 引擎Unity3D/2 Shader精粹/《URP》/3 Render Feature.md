@@ -16,7 +16,29 @@ Render Feature 是一种 Asset，用于向 URP 渲染器添加额外的渲染过
 > 下文Renderer Feature 简称为 RF
 
 # Render Objects
-URP 在 DrawOpaqueObjects 和 DrawTransparent Objects 过程中绘制对象。您可能需要在帧渲染的不同点绘制对象，或者以其他方式解释和写入渲染数据（如 depth 和 stencil）。Render Objects RT 允许通过特定的重载（overides）在特定的图层、特定的时间来自定义绘制对象。
+[Render Objects Renderer Feature | Universal RP | 14.0.8 --- 渲染对象渲染器功能](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-render-objects.html)
+![[Pasted image 20230702103753.png|500]]
+URP 在 DrawOpaqueObjects 和 DrawTransparent Objects 过程中绘制对象。您可能需要在帧渲染的不同点绘制对象，或者以其他方式解释和写入渲染数据（如 depth 和 stencil）。Render Objects RT 允许通过特定的重载（overides）在指定的图层、指定的时间来自定义 Draw Objects。
+
+**实战**：当角色在GameObjects后面时，用不同的材质绘制角色轮廓。
+![[character-goes-behind-object.gif]]
+
+使用两个 Render Objects RF：一个用于绘制不被遮挡的颜色，另一个用于绘制被遮挡颜色
+1. 创建一个 Layer，命名为 Character
+2. 将要渲染的 object 分配给该层，然后将 RF 的 LayerMask 也设置为该层
+3. 创建 Red 材质和 Blue 材质。Object 给与 Red 材质，然后Overides->Blue 材质
+4. 我们要实现当角色位于其他游戏对象之后时，渲染器功能才会使用 Blue 材质渲染角色。可以通过深度测试来实现，Depth->DepthTest 设置为 Greater，这样在该 Layer 下深度大的物体绘制在前面。
+
+当模型复杂时，这样设置可能会发生自透视：
+![[character-depth-test-greater.gif|449]]
+
+## 创建额外的 RF 避免自透视
+RF 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 从 Render Object RF 注入渲染过程的注入点。在该 RF 进行渲染之前已经进行了不透明物体的渲染，并将深度值写入了深度缓冲区。执行 RF 时，Unity 使用“深度测试”属性中指定的条件执行深度测试。
+
+1. Universal Renderer 的 Filtering > Opaque Layer Mask，清除 Character 层旁边的复选标记。![[Pasted image 20230702110513.png|500]]
+2. 现在 Unity 不会渲染角色，除非它在游戏对象后面。 ![[Pasted image 20230702110612.png|160]]
+3. 
+
 # Decal
 ![[Pasted image 20230702102255.png]]
 
