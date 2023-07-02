@@ -152,6 +152,9 @@ public class URPCallbackExample : MonoBehaviour
 ## 自定义 Render Feature
 创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
+> [!NOTE] 创建 RenderFeature 脚本更简单的方法
+> 右键->Rendering->URP Render Feature
+
 1. 创建脚本，命名为 CustomRenderFeature. cs
 2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类
 3. 该脚本类必须实现以下方法：
@@ -213,7 +216,7 @@ public class CustomRenderFeature : ScriptableRendererFeature
 ```
 
 ### 案例
-本例中 RF 将镜头光斑绘制为一个 Quad 上的纹理
+本例中 RF 将镜头光斑绘制为一个 Quad 上的纹理，这里我将两个类分开了。
 
 ```cs
 using UnityEngine;
