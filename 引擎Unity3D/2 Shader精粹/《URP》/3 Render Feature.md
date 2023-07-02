@@ -124,8 +124,43 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 
 计算受主定向光影响的不透明对象的屏幕空间阴影，并在场景中绘制这些阴影。若要渲染屏幕空间阴影，URP 需要一个额外的 Render Target。这增加了应用程序所需的内存量，但如果项目使用前向渲染，屏幕空间阴影可以提高运行时资源强度。这是因为如果使用屏幕空间阴影，URP 不需要多次访问级联阴影贴图。
 
-# 可脚本化 RF
-创建可脚本化的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可脚本化渲染器的方法。
+# 可编程 Render Feature
+创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
 1. 创建脚本，命名为 CustomRenderFeature. cs
-2. 
+2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类
+3. 该脚本类必须实现以下方法：
+    -  `Create` ：Unity 对以下事件调用此方法：
+        - 首次加载 RF 时
+        - 启用或禁用 RF 时
+        - 在 RF 的 Inspector 中更改属性时
+    - `AddRenderPasses` ：Unity 每台相机每帧调用一次此方法。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
+4. 将创建的 RF 添加到 URP Asset 中。可以看到 Add  Render Feature 多了一个选项 ![[Pasted image 20230702151355.png|250]]
+5. **创建可编程 Render Pass，并将其实例放入可编程 Render Feature**
+    1. 在 `CustomRenderFeature` 类中，声明 `CustomRenderPass` 类并继承 `ScriptableRenderPass` 类
+    2. 必须实现 `Execute` 方法：Unity 每帧运行 Execute 方法。使用此方法，可以实现自定义渲染功能。
+    3. 在 `CustomRenderFeature` 类中，声明一个私有的 `CustomRenderPass` 字段
+    4. 在 `Create` 方法中，实例化 `_customRenderPass` 对象
+    5. 在 `AddRenderPasses` 方法中，使用 `renderer. EnqueuePass` 方法将 `_customRenderPass` 放入渲染队列。现在 `CustomRenderFeature` 正在 `CustomRenderPass` 中执行 `Execute` 方法
+
+
+```cs file:CustomRenderFeature. cs
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class CustomRenderFeature : ScriptableRendererFeature
+{
+    public override void Create()
+    {
+        
+    }
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+    {
+        
+    }
+}
+```
+
+# 可编程 Render Pass
