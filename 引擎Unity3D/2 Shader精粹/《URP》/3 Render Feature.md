@@ -136,31 +136,56 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
         - 在 RF 的 Inspector 中更改属性时
     - `AddRenderPasses` ：Unity 每台相机每帧调用一次此方法。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
 4. 将创建的 RF 添加到 URP Asset 中。可以看到 Add  Render Feature 多了一个选项 ![[Pasted image 20230702151355.png|250]]
-5. **创建可编程 Render Pass，并将其实例放入可编程 Render Feature**
-    1. 在 `CustomRenderFeature` 类中，声明 `CustomRenderPass` 类并继承 `ScriptableRenderPass` 类
-    2. 必须实现 `Execute` 方法：Unity 每帧运行 Execute 方法。使用此方法，可以实现自定义渲染功能。
-    3. 在 `CustomRenderFeature` 类中，声明一个私有的 `CustomRenderPass` 字段
-    4. 在 `Create` 方法中，实例化 `_customRenderPass` 对象
-    5. 在 `AddRenderPasses` 方法中，使用 `renderer. EnqueuePass` 方法将 `_customRenderPass` 放入渲染队列。现在 `CustomRenderFeature` 正在 `CustomRenderPass` 中执行 `Execute` 方法
 
+## 可编程 Render Pass
 
+**创建可编程 Render Pass，并将其实例入队（enqueue）渲染队列**
+
+1. 在 `CustomRenderFeature` 类中，声明 `CustomRenderPass` 类并继承 `ScriptableRenderPass` 类
+2. 必须实现 `Execute` 方法：Unity 每帧运行 Execute 方法。使用此方法，可以实现自定义渲染功能。我们**在 `Execute` 方法中实现渲染命令**
+3. 在 `CustomRenderFeature` 类中，声明一个私有的 `CustomRenderPass` 字段
+4. 在 `Create` 方法中，实例化 `_customRenderPass` 对象
+5. 在 `AddRenderPasses` 方法中，使用 `renderer. EnqueuePass` 方法将 `_customRenderPass` 放入渲染队列。现在 `CustomRenderFeature` 正在 `CustomRenderPass` 中执行 `Execute` 方法
+6. 在 `Execute` 方法中创建 `CommandBuffer` 类型的对象，此对象包含要执行的渲染命令的列表。
 ```cs file:CustomRenderFeature. cs
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-
+//自定义Render Feature
 public class CustomRenderFeature : ScriptableRendererFeature
 {
+    //自定义Render Pass
+    private class CustomRenderPass : ScriptableRenderPass
+    {
+        //每帧执行
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+        {
+            //获取新的命令缓冲区并为其指定一个名称
+            CommandBuffer cmd = CommandBufferPool.Get(name: "CustomRenderPass");
+            
+            //执行命令缓冲区中的命令
+            context.ExecuteCommandBuffer(cmd);
+            
+            //释放命令缓冲区
+            CommandBufferPool.Release(cmd);
+        }
+    }
+
+    private CustomRenderPass _customRenderPass;
+    
     public override void Create()
     {
-        
+        //创建CustomRenderPass实例
+        _customRenderPass = new CustomRenderPass();
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        
+        //入队
+        renderer.EnqueuePass(_customRenderPass);
     }
 }
 ```
 
-# 可编程 Render Pass
+## 案例
+本例中 RF 将镜头光斑绘制为一个 Quad 上的纹理
