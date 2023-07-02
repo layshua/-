@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -53,7 +53,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "编程/C++/Cherno剩余.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -130,11 +130,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "b49fb9eff2f6ac76",
@@ -173,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -190,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,7 +201,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 357.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -222,17 +223,24 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "编程/C++/Cherno剩余.md",
+    "引擎Unity3D/01 BUG合集.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+    "编程/C++/C++原理.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zip/images/Pasted image 20230702232446.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "zip/images/Pasted image 20230702231206.png",
     "编程/C++/《C++ Primer》.md",
     "图形学/2 图形API/DX12/龙书/DX12理论.md",
@@ -249,17 +257,10 @@
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "图形学/1 图形系统/08 透明.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "引擎Unity3D/01 BUG合集.md",
     "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
-    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "图形学/0 3D数学/3D数学.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

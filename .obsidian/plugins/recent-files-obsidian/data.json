@@ -1,8 +1,44 @@
 {
   "recentFiles": [
     {
+      "basename": "08 点光源和聚光灯",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+    },
+    {
+      "basename": "09 点光源和聚光灯阴影",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/C++/Cherno剩余.md"
+    },
+    {
+      "basename": "01 BUG合集",
+      "path": "引擎Unity3D/01 BUG合集.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
+    },
+    {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
     },
     {
       "basename": "光照探针，反射探针，光照烘焙",
@@ -27,10 +63,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
       "basename": "《C++ Primer》",
@@ -61,20 +93,8 @@
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "01 BUG合集",
-      "path": "引擎Unity3D/01 BUG合集.md"
     },
     {
       "basename": "ta101后处理",
@@ -177,28 +197,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
     },
     {
-      "basename": "09 点光源和聚光灯阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md"
-    },
-    {
       "basename": "07 LOD和反射",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "前往斯旺西",
-      "path": "zip/dailynote/前往斯旺西.md"
-    },
-    {
-      "basename": "6 纹理化",
-      "path": "图形学/5 书籍/《RTR4》/6 纹理化.md"
-    },
-    {
-      "basename": "5 着色基础",
-      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
     }
   ],
   "omittedPaths": [],
