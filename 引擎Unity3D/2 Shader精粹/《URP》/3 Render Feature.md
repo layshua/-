@@ -55,6 +55,8 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 ![[Pasted image 20230702134053.png|450]]
 **Full Screen PF 允许在预定义的注入点（injection point）注入全屏渲染 Pass，以创建全屏效果。** 
 
+- **Pass Material**：影响全屏 pass 的材质，必须为 Fullscreen Shader Graph 创建的材质。
+![[4 后处理#自定义后处理]]
 - **Injection Point 注入点：**
     1. **Before Rendering Transparents**：渲染透明体之前，在 skybox pass 之后和 transparents pass 之前添加效果。
     2. **Before Rendering Post Processing**: 渲染后处理前：在 Transparent Pass 之后和 post-processing pass 之前添加效果。
@@ -121,3 +123,9 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 ![[Pasted image 20230702102742.png]]
 
 计算受主定向光影响的不透明对象的屏幕空间阴影，并在场景中绘制这些阴影。若要渲染屏幕空间阴影，URP 需要一个额外的 Render Target。这增加了应用程序所需的内存量，但如果项目使用前向渲染，屏幕空间阴影可以提高运行时资源强度。这是因为如果使用屏幕空间阴影，URP 不需要多次访问级联阴影贴图。
+
+# 可脚本化 RF
+创建可脚本化的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可脚本化渲染器的方法。
+
+1. 创建脚本，命名为 CustomRenderFeature. cs
+2. 

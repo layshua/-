@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,11 +191,13 @@
   },
   "active": "722068661c0b4217",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "zip/images/Pasted image 20230702145615.png",
+    "引擎Unity3D/02 Unity操作指南.md",
     "zip/images/Pasted image 20230702143135.png",
     "zip/images/Pasted image 20230702141356.png",
     "zip/images/Pasted image 20230702141013.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
     "zip/images/Pasted image 20230702140512.png",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
@@ -204,8 +206,6 @@
     "zip/images/Pasted image 20230702140137.png",
     "zip/images/Pasted image 20230702134053.png",
     "zip/images/character-goes-behind-object 1.gif",
-    "zip/images/Pasted image 20230702113617.png",
-    "zip/images/Pasted image 20230702113031.png",
     "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md",
@@ -226,7 +226,6 @@
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md",
     "Tools/Obsidian/插件流.md",
-    "zip/dailynote/前往斯旺西.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
