@@ -23,9 +23,9 @@ URP 在 DrawOpaqueObjects 和 DrawTransparent Objects 过程中绘制对象。�
 **实战**：当角色在GameObjects后面时，用不同的材质绘制角色轮廓。
 ![[character-goes-behind-object.gif]]
 
-使用两个 Render Objects RF：一个用于绘制不被遮挡的颜色，另一个用于绘制被遮挡颜色
+使用两个 Render Objects RF（命名为 RF1 和 RF2）：一个用于绘制不被遮挡的颜色，另一个用于绘制被遮挡颜色
 1. 创建一个 Layer，命名为 Character
-2. 将要渲染的 object 分配给该层，然后将 RF 的 LayerMask 也设置为该层
+2. 将要渲染的 object 分配给该层，然后将 RF1 的 LayerMask 也设置为该层
 3. 创建 Red 材质和 Blue 材质。Object 给与 Red 材质，然后Overides->Blue 材质
 4. 我们要实现当角色位于其他游戏对象之后时，渲染器功能才会使用 Blue 材质渲染角色。可以通过深度测试来实现，Depth->DepthTest 设置为 Greater，这样在该 Layer 下深度大的物体绘制在前面。
 
@@ -33,12 +33,12 @@ URP 在 DrawOpaqueObjects 和 DrawTransparent Objects 过程中绘制对象。�
 ![[character-depth-test-greater.gif|449]]
 
 ## 创建额外的 RF 避免自透视
-RF 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 从 Render Object RF 注入渲染过程的注入点。在该 RF 进行渲染之前已经进行了不透明物体的渲染，并将深度值写入了深度缓冲区。执行 RF 时，Unity 使用“深度测试”属性中指定的条件执行深度测试。
+RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 从 Render Object RF 注入渲染过程的注入点。在该 RF1 进行渲染之前已经进行了不透明物体的渲染，并将深度值写入了深度缓冲区。执行 RF1 时，Unity 使用“深度测试”属性中指定的条件执行深度测试。
 
 1. Universal Renderer 的 Filtering > Opaque Layer Mask，清除 Character 层旁边的复选标记。![[Pasted image 20230702110513.png|500]]
-2. 现在 Unity 不会渲染角色，除非它在游戏对象后面。 ![[Pasted image 20230702110612.png|160]]
-3. 
-
+2. 现在 Unity 不会渲染角色，除非它在游戏对象后面。（因为 RF1 相当于加了一次渲染，虽然渲染器设置的不对该层物体渲染，但是当 RF1 的 Event 触发后，就增加了一次对该层物体的渲染。由于深度测试是 Greater，Zbuffer 默认是无限大，所以在遮挡物体意外是无法通过深度测试的，所以不显示。只有在遮挡物体后面才能通过，显示为 Blue） ![[Pasted image 20230702110612.png|160]]
+3. 添加 RF2，LayerMask 选择 Character 层，可以发现，都被渲染为 red（RF1 选择了 Equal 作为深度测试条件，所以此时深度缓冲区都是较大值。新建的 RF2 默认是 Less Equal，渲染时与上次 RF1 渲染的重合部分深度相等，上次未显示部位深度小于无限大，所以物体通过深度测试，以本身的 Red 颜色显示出来）![[Pasted image 20230702113031.png]]
+4. 关闭 RF1 的深度写入，那么当 RF2 渲染时，遮挡物后面由于角色深度小于遮挡物，不通过测试，所以不会覆盖 RF1 绘制的 Blue。遮挡物外面通过测试，显示为 Red。这样就完成了！![[character-goes-behind-object 1.gif]]
 # Decal
 ![[Pasted image 20230702102255.png]]
 
