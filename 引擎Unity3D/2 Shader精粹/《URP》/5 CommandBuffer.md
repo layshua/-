@@ -83,11 +83,15 @@ public class CustomRenderPineAsset : RenderPipelineAsset
 ```
 
 ## 创建渲染管线实例：RenderPipeline
-首先先写一个继承自 `RenderPipeline` 的自定义管线类 `CustomRenderPipeline`，类中有一个 `CameraRenderer`, 主要负责的是渲染的主要逻辑。
+首先先写一个继承自 `RenderPipeline` 的自定义管线类 `CustomRenderPipeline`，**类中有一个 `CameraRenderer`, 主要负责的是渲染的主要逻辑**。
 
 **Unity 每一帧都会调用 `CustomRenderPipeline` 实例的 `Render()` 方法进行画面渲染**，<mark style="background: #FF5582A6;">该方法是 SRP 的入口</mark>，进行渲染时底层接口会调用它并传递两个参数对象：
-1. `ScriptableRenderContext` 是 SRP 用于渲染的最底层接口之一，还有一个接口叫做 `CommandBuffer`。我们通过这两个接口封装的各种方法来实现基本的渲染绘制
-2.  `Camera[]` 是相机对象的数组，存储了参与这一帧渲染的所有相机对象。在 `Render()` 中遍历所有相机进行单独渲染，这样设计可以让每个相机使用不同的渲染方式绘制画面
+1. **`ScriptableRenderContex` 定义自定义渲染管线使用的状态和绘制命令**。定义自定义 `RenderPipeline` 时，可使用 `ScriptableRenderContext` 向 GPU 调度和提交状态更新和绘制命令。（[[DX12理论#资源与描述符]]）
+2.  **`Camera[]` 是相机对象的数组，存储了参与这一帧渲染的所有相机对象。**
+3. 我们在 `CustomRenderPipeline` 脚本中创建一个 `CameraRenderer` 实例。在 `Render()` 中遍历所有相机进行单独渲染，这样设计可以让每个相机使用不同的渲染方式绘制画面
+
+> [!NOTE] Title
+> [ScriptableRenderContext](https://docs.unity3d.com/cn/2022.3/ScriptReference/Rendering.ScriptableRenderContext.html) 是 SRP 用于渲染的最底层接口之一，还有一个接口叫做 `CommandBuffer`。我们通过这两个接口封装的各种方法来实现基本的渲染绘制
 
 ```cs file:CustomRenderPipeline.cs
 using UnityEngine;
@@ -135,7 +139,12 @@ public class CustomRenderPipeline : RenderPipeline
 }
 ```
 
-## 渲染逻辑：Renderer 类
+## 渲染逻辑：CameraRenderer 类
+
+最后，就是负责渲染主要逻辑的 `Renderer` 类, 直译过来就是渲染器，渲染器的 `Render` 方法的参数可以随便设置，因为它目前并没有继承自什么类，所以在上一层的 `CustomRenderPipeline` 中，可以根据自己实际需要来处理。
+可以看到在 `Render` 函数里主要的工作就是使用 `CommandBuffer` 把渲染过程相关指令写入到 `ScriptableRenderContext`，最后`ScriptableRenderContext` 使用 `Submit` 提交指令。
+**为了方便组织渲染的流程和复用, 可以把其中渲染的一段流程抽离出来成为一个 Pass**。例如: 代码中的中的 `DrawVisibleGeometry` (并不完善)。
+
 ```cs file:CameraRenderer
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -345,3 +354,14 @@ public partial class CameraRenderer
 /*******************************************************************************/
 }
 ```
+
+## 渲染状态的更新：RenderStateBlock
+![[Pasted image 20230702225910.png]]
+
+![[1 ShaderLab#^d4529f]]
+
+对于渲染状态的更新，体现最明显的是在 `Context.DrawRenderers` 这个指令，可以看到 DrawObjectPass  在构造函数中它的 ` RenderStateBlock ` 是 ` Nothing `。
+所以它对于 Opaque pass 也好，Transparent pass 也好，它渲染状态的更新是跟每个 Shader 中各自的 Depth、ZWrite、Blend 等等的状态设置有关。
+而下面的 StencilState 则是与在 ForwardRenderer 中的 Forward Renderer Data 的具体设置有关。
+
+PS: 需要注意的是: DrawObjectPass 需要跟 RenderObjectPass 做下区分，这两还不太一样。具体体现在: RenderObjectPass 多了 `SetDetphState` 和 `SetStencilState` 这两个函数，能够更方便重载当前 pass 在 DrawRenderers 时的 Render state。

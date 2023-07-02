@@ -229,9 +229,8 @@ Shader "ExampleShader"
 
 #### RenderType
 
-**URP 可以自定义该标签的值**
-在基于 SRP 的渲染管线中，可以使用 `RenderStateBlock` 结构覆盖在 Shader 对象中定义的渲染状态。可以使用 `RenderType` 标签的值标识要覆盖的子着色器。
-
+**URP 可以自定义 Shader RenderType 标签的值**
+在基于 SRP 的渲染管线中，可以使用 `RenderStateBlock` 结构覆盖在 Shader 对象中定义的渲染状态。可以使用 `RenderType` 标签的值标识要覆盖的子着色器。 ^d4529f
 
 
 在内置渲染管线中，可以使用一种称为[着色器替换](https://docs.unity3d.com/cn/2022.3/Manual/SL-ShaderReplacement.html)的技术在运行时交换子着色器。此技术的工作方式是标识具有匹配 `RenderType` 标签值的子着色器。这在某些情况下用于生成[摄像机的深度纹理](https://docs.unity3d.com/cn/2022.3/Manual/SL-CameraDepthTexture.html)。

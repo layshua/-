@@ -58477,6 +58477,7 @@ RenderInstancesProceduralPass
 Refference
 RoadMap
 RWStructuredBuffer
+RenderObjectPass
 Microsoft
 Menu
 MicaForEveryone
@@ -72083,6 +72084,9 @@ SetData
 SetInt
 SetBuffer
 SetPosition
+StencilState
+SetDetphState
+SetStencilState
 Programs
 POP
 PC
@@ -167385,6 +167389,8 @@ DrawMeshInstance
 DrawLitMeshInstanced
 DrawInstance
 DrawProceduralIndirect
+DrawSkyboxPass
+DrawObjectPass
 LNK
 Log
 Linux
