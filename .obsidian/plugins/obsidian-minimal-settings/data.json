@@ -1,9 +1,9 @@
 {
   "theme": "moonstone",
-  "lightStyle": "minimal-light-white",
+  "lightStyle": "minimal-light",
   "darkStyle": "minimal-dark",
-  "lightScheme": "minimal-default-light",
-  "darkScheme": "minimal-default-dark",
+  "lightScheme": "minimal-macos-light",
+  "darkScheme": "minimal-things-dark",
   "editorFont": "",
   "lineHeight": 1.7,
   "lineWidth": 50,

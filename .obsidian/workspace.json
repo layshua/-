@@ -21,6 +21,26 @@
             }
           },
           {
+            "id": "5ac6b4f8bc42a1c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "b3722c8abecd0254",
+        "type": "tabs",
+        "children": [
+          {
             "id": "c8364727c447fbd2",
             "type": "leaf",
             "state": {
@@ -32,22 +52,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "5ac6b4f8bc42a1c9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/工具流.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/工具流.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -163,6 +169,14 @@
   },
   "active": "5ac6b4f8bc42a1c9",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "Tools/工具流.md",
+    "zip/images/Pasted image 20230703132459.png",
+    "zip/images/Pasted image 20230703132426.png",
+    "zip/images/Pasted image 20230703132051.png",
+    "zip/images/Pasted image 20230703132026.png",
+    "zip/images/Pasted image 20230703132015.png",
     "zip/images/Pasted image 20230703124459.png",
     "Tools/Obsidian/插件流.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
@@ -191,15 +205,7 @@
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "test",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "技术美术/3 后处理/04 景深.md",
     "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png",
-    "zip/images/Pasted image 20230702232446.png",
-    "zip/images/Pasted image 20230702231206.png",
-    "zip/images/Pasted image 20230702225910.png",
-    "zip/images/Pasted image 20230702221224.png",
-    "zip/images/Pasted image 20230702221037.png",
-    "zip/images/Pasted image 20230702220915.png",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
