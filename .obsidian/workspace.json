@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -50,7 +50,7 @@
         "currentTab": 2
       },
       {
-        "id": "559e6e9843a61af4",
+        "id": "e7a7b59b516251da",
         "type": "tabs",
         "children": [
           {
@@ -59,7 +59,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/PBR总结.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -109,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md"
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
               }
             }
           }
@@ -173,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -190,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,18 +218,28 @@
   },
   "active": "d11951351a665a24",
   "lastOpenFiles": [
+    "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/PBR总结.md",
+    "zip/images/Pasted image 20230703160450.png",
+    "zip/images/Pasted image 20230703160437.png",
+    "zip/images/Pasted image 20230703160320.png",
+    "zip/images/Pasted image 20230703160317.png",
+    "zip/images/Pasted image 20230703160305.png",
+    "zip/images/Pasted image 20230703160302.png",
+    "zip/images/Pasted image 20230703160214.png",
+    "zip/images/Pasted image 20230703160130.png",
+    "zip/images/Pasted image 20230703160122.png",
+    "zip/images/Pasted image 20230703160117.png",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md",
     "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md",
     "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR疑问.md",
-    "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
@@ -244,18 +254,7 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md",
-    "zip/images/Pasted image 20230703132459.png",
-    "zip/images/Pasted image 20230703132426.png",
-    "zip/images/Pasted image 20230703132051.png",
-    "zip/images/Pasted image 20230703132026.png",
-    "zip/images/Pasted image 20230703132015.png",
-    "zip/images/Pasted image 20230703124459.png",
-    "zip/images/1679148080869.png",
-    "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/assets/1677315621012.png",
-    "zip/images/1677315630020.png",
     "test",
-    "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
