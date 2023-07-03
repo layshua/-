@@ -2547,7 +2547,7 @@ Application.persistentDataPath
 ```cs file:路径获取
 //一般不获取
 //如果硬要获取可以用工程路径拼接
-Application. dataPath + "/Editor"
+Application.dataPath + "/Editor"
 ```
 
 **作用**：编辑器文件夹
