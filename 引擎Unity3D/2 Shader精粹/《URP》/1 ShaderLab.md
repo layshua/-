@@ -139,8 +139,6 @@ float4 {TextureName}_HDR //和DecodeHDR有关？
 3. 最后，如果这两个地方不存在着色器属性，则使用全局属性值。
 4. 最终，如果在任何地方都没有定义着色器属性值，则将提供“默认值”（浮点数的默认值为零，颜色的默认值为黑色，纹理的默认值为空的白色纹理）。
 
-
-
 ## 4 SubShader
 ```cs file:SubShader的大致结构
 SubShader

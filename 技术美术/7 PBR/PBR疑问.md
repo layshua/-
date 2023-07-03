@@ -51,7 +51,7 @@ $$L_o(p, \vec v) = \int _\Omega f(\vec l, \vec v) \ L_i(p, \vec l) \ (\vec n \cd
 
 ![[5294f9e2ea4607dcc0ee4bf059490f44_MD5.jpg]]
 
-　　光照模型有很多种 [[1]] ( https://zhuanlan.zhihu.com/p/342807202#ref_1 )，Cook-Torrance 光照模型是最常用的。光照一般划分为漫反射和高光。漫反射模型提出的有 [Lambert](https://en.wikipedia.org/wiki/Lambertian_reflectance)、 [Oren-Nayar](https://en.wikipedia.org/wiki/Oren%E2%80%93Nayar_reflectance_model)、[Minnaert](https://en.wikipedia.org/wiki/Minnaert_function) 三种，它们有着不同的计算公式。Cook-Torrance 采用 Lambert 漫反射后的计算如下：
+　　光照模型有很多种 [[1 前言]] ( https://zhuanlan.zhihu.com/p/342807202#ref_1 )，Cook-Torrance 光照模型是最常用的。光照一般划分为漫反射和高光。漫反射模型提出的有 [Lambert](https://en.wikipedia.org/wiki/Lambertian_reflectance)、 [Oren-Nayar](https://en.wikipedia.org/wiki/Oren%E2%80%93Nayar_reflectance_model)、[Minnaert](https://en.wikipedia.org/wiki/Minnaert_function) 三种，它们有着不同的计算公式。Cook-Torrance 采用 Lambert 漫反射后的计算如下：
 
 $$f = k_d f_{lambert} + k_s f_{cook-torrance},\hspace{5mm} f_{lambert} = \frac {c_{diffuse}} {\pi} $$
 
@@ -65,7 +65,7 @@ $L_o(p, \vec v) = f_{lambert} \cdot L_i(p, \vec l) \int _\Omega \cos\phi \ d\ome
 
 　　这里科普一下几个术语。**反照率（**albedo）是行星物理学中用来表示天体反射本领的物理量，定义为物体的**辐射度（**radiosity）与**辐照度**（irradiance）之比。射是出，照是入，出射量除以入射量，得到**无量纲量**。绝对**黑体**（black body）的反照率是 0。煤炭呈黑色，反照率接近 0，因为它吸收了投射到其表面上的几乎所有可见光。镜面将可见光几乎全部反射出去，其反照率接近 1。albedo 翻译成**反照率**，与 reflectance（**反射率**）是有区别的。反射率用来表示某一种波长的反射能量与入射能量之比；而反照率用来表示全波段的反射能量与入射能量之比。BRDF 的 R 是 reflectance，方程仅关注一种波长。
 
-　　术语 albedo 与 diffuse 语义重叠，有时候会混用。当只存在漫反射，不存在镜面反射的情况下，albedo 才等于 diffuse [[2]] ( https://zhuanlan.zhihu.com/p/342807202#ref_2 )。其取值范围在 0（光全部吸收）到 1（光全部反射）之间，不同波长的光，其 reflectance 值不一样。由于不同波长的光能用 **RGB 三原色**表示，所以 albedo 也用 0 到 1 区间的 vec3 向量表示。场景中的物体不同表面处的 albedo 不一样，就要用上 albedo 纹理贴图了。
+　　术语 albedo 与 diffuse 语义重叠，有时候会混用。当只存在漫反射，不存在镜面反射的情况下，albedo 才等于 diffuse [[2 基本认知和应用]] ( https://zhuanlan.zhihu.com/p/342807202#ref_2 )。其取值范围在 0（光全部吸收）到 1（光全部反射）之间，不同波长的光，其 reflectance 值不一样。由于不同波长的光能用 **RGB 三原色**表示，所以 albedo 也用 0 到 1 区间的 vec3 向量表示。场景中的物体不同表面处的 albedo 不一样，就要用上 albedo 纹理贴图了。
 
 ## 3. 球面坐标系
 

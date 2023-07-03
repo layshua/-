@@ -11,7 +11,7 @@
 
 ### 实现
 
-上面原理部分描述了最基础效果。实际开发中，用URP的方式照搬了开源工程[[1]](https://zhuanlan.zhihu.com/p/437305443#ref_1) ，完成了一些花活：lerp不同分辨率的高斯模糊，使模糊效果更佳；毛玻璃多一张贴图，控制lerp数值，来呈现不同的毛玻璃效果。
+上面原理部分描述了最基础效果。实际开发中，用URP的方式照搬了开源工程[[1 前言]](https://zhuanlan.zhihu.com/p/437305443#ref_1) ，完成了一些花活：lerp不同分辨率的高斯模糊，使模糊效果更佳；毛玻璃多一张贴图，控制lerp数值，来呈现不同的毛玻璃效果。
 
 #### RenderFeature
 
@@ -214,7 +214,7 @@ Shader "Unlit/Blur"
 
 **MyFrostedGlass**：完成毛玻璃渲染。
 
-_FrostTexture为毛玻璃纹理，实际只需要一个通道。资源来自参考工程[[1]](https://zhuanlan.zhihu.com/p/437305443#ref_1) ，出彩的效果主要靠它。
+_FrostTexture为毛玻璃纹理，实际只需要一个通道。资源来自参考工程[[1 前言]](https://zhuanlan.zhihu.com/p/437305443#ref_1) ，出彩的效果主要靠它。
 
 ![[f0fb5a7ecdf204c340c649a9ebaa65cc_MD5.webp]]
 >                                              不同的毛玻璃纹理

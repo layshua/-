@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -48,6 +48,25 @@
           }
         ],
         "currentTab": 2
+      },
+      {
+        "id": "559e6e9843a61af4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "69200d152bd69e8d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/PBR总结.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md"
               }
             }
           }
@@ -154,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -199,6 +218,23 @@
   },
   "active": "d11951351a665a24",
   "lastOpenFiles": [
+    "技术美术/7 PBR/PBR总结.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
+    "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md",
+    "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md",
+    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
+    "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
+    "技术美术/7 PBR/PBR疑问.md",
+    "技术美术/7 PBR/ta101PBR.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
+    "DCC/06 Zbush/基本操作.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
@@ -209,22 +245,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/23 科幻扫描效果后篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "Tools/工具流.md",
-    "DCC/06 Zbush/基本操作.md",
     "zip/images/Pasted image 20230703132459.png",
     "zip/images/Pasted image 20230703132426.png",
     "zip/images/Pasted image 20230703132051.png",
@@ -241,7 +261,6 @@
     "引擎Unity3D/2 Shader精粹/ShaderLab",
     "引擎Unity3D/2 Shader精粹/《Built-in》",
     "引擎Unity3D/2 Shader精粹/《URP》/URP精要",
-    "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",

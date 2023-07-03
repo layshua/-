@@ -1,0 +1,865 @@
+# **四. 进阶：PBR 核心理论和原理**
+
+上章主要介绍了 PBR 中 Cook-Torrance 的 BRDF 的两个部分：直接光照和 IBL。
+
+这章将深入介绍 PBR 核心部分的底层理论和原理，使读者对 PBR 的底层原理有更彻底的理解。本章部分内容在上一章已经有所涉及，但会更加深入。
+
+主要面向：
+
+*   进阶程序员
+*   对 PBR 底层原理感兴趣的人
+$$
+\lim_{x\to 0}\frac{\sin x}{x}=1
+$$
+## **4.1 再论 PBR 核心理论**
+
+上章讲述了符合 PBR 必须满足以下 3 个条件：
+
+*   **基于微平面模型（Be based on the microfacet surface model）**。该模型将物体表面建模成无数微观尺度上有随机朝向的**理想镜面反射**的小平面（microfacet）。微观几何（microgeometry）是在不同微表面改变其法线，从而改变反射和折射光的方向。常用统计方法处理微观几何现象，将表面视为具有微观结构法线的随机分布，在宏观表面视为在每个点处多个方向上反射（和折射）光的总和。
+*   **能量守恒 （Energy Conservation）**。出射光线的能量永远不能大于入射光线的能量。随着表面粗糙度的增加，镜面反射区域的面积会增加，但平均亮度则会下降。
+*   **使用基于物理的 BRDF（Use a physically based BRDF）**。Cook-Torance 的 BRDF 是实时渲染领域最普遍的 PBR 光照模型，上章详述了其原理和实现。它是数学和物理领域里诸多知识的综合体。
+
+若是将上面 3 点进一步详细论述，将涉及以下知识点：
+
+*   **光学**
+    *   光的性质
+    *   光的理论
+    *   光的能量
+    *   几何光学
+        *   反射
+            *   镜面反射
+            *   菲涅尔反射
+        *   折射
+            *   散射
+            *   吸收
+*   **物质**
+    *   微观表面
+    *   宏观表面
+    *   分类：金属、电介质、半导体
+    *   与光学的交互
+*   **能量**
+    *   光能
+    *   电能
+    *   动能
+    *   热能
+    *   能量守恒
+    *   能量转化
+*   **PBR 综合**
+    *   材质分类
+    *   属性模拟
+    *   光照模型
+
+总结起来，PBR 就是光学原理和物体结构交互作用的抽象和模拟。下面先从光的性质说起。
+
+## **4.2 光的性质**
+
+### **4.2.1 光是什么？**
+
+有人说光是粒子，有人说光是电磁，有人说光是一种波，有人说光是一种能量，还有人说光是量子，那么光到底是什么？
+
+狭义上说，光是电磁辐射的某一部分内人眼可见的电磁频谱，即可见光，它是人眼可感知的可见光谱，是造成视觉的原因。
+
+可见光通常被定义为具有波长在 400-700 纳米（nm）的范围内，不可见的有红外线（具有更长的波长）和紫外线（具有更短的波长）。
+
+广义上说，光指的是任何波长的电磁辐射，无论是否可见。包括伽马射线、X 射线、微波和无线电波。而可见光（400-700 纳米）只是所有波长区域的一小部分：  
+
+![](1679148478105.png)
+
+### **4.2.2 电磁频谱和可见光（Electromagnetic spectrum and visible light）**
+
+电磁辐射（Electromagnetic Radiation，EMR）按波长从长到短分为：无线电波、微波、红外线、可见光、紫外线、X 射线和伽玛射线。
+
+EMR 的行为取决于其波长。较高频率具有较短波长，较低频率具有较长波长。不同波长的电磁辐射携带着不同的能量。当 EMR 与单个原子和分子相互作用时，其行为取决于它携带的每个量子的能量。
+
+不同波长的可见光代表着不同的颜色。太阳光、日光灯等可见光是一组不同波长的电磁辐射的集合，在三棱镜下可以被分离出不同的颜色：  
+
+![](1679148478354.png)
+
+不同来源对可见光的定义略有不同，有的将可见光定义为狭窄的 420-680nm，有的宽达 380-800nm。在理想的实验室条件下，人们可以看到至少 1050 纳米的红外线; 儿童和年轻人可能会感知波长低至约 310-313 纳米的紫外线。  
+
+![](1679148478410.png)
+
+### **4.2.3 人眼感知可见光原理**
+
+上节阐述了可见光的范围和简单的感知理论，本小节将深入阐述人类为什么会感知并且只感知波长为 380-800 纳米的可见光。
+
+首先要了解人眼的结构和视觉的分子机制。
+
+人眼的结构类似于一架高精度的照相机，光线穿过透明的角膜（cornea）和虹膜（iris）包围的瞳孔（pupil），经过晶状体（lens）的折射在视网膜（retina）上形成空间分布的像。而视网膜上则分布着主要检测**光强度**的视杆细胞（rod cell）和主要检测**颜色**的视锥细胞（cone cell），它们是视觉形成的细胞基础。  
+
+![](1679148478475.png)
+
+视杆细胞与视锥细胞对光的响应程度虽然略有差异，但它们发生光响应的机制都是类似的。以视杆细胞上的视紫红质（rhodopsin）为例，它由一个细胞膜上的七次跨膜蛋白（视蛋白，opsin）和视黄醛（retinal）辅基组成。视蛋白是 G 蛋白偶联受体（GPCR）的一种，视黄醛辅基以共价键结合在其第七个跨膜$\alpha$螺旋片段的赖氨酸残基上。
+
+视黄醛分子是由维生素 A 氧化而来的，一个维生素 A 分子氧化得到一个视黄醛。视黄醛具有两种构型：11 位顺式（11-cis）和 全反式（All-trans），正常与视蛋白结合的是 11 位顺式构型。恰巧在可见光（对视紫红质而言是波长 500 nm 左右的电磁波）照射下，11 位顺式构型可以转变为全反式构型，从而导致视黄醛辅基从视蛋白上脱离。辅基的脱离造成视紫红质**构象变化**，经过信号转导导致细胞膜内外**离子电位发生变化，产生神经电信号**。这一信号经过视神经传入大脑，就使得我们产生了视觉。  
+
+![](1679148478739.png)
+
+  
+_(a) 视紫红质的结构；(b) 视黄醛分子的光敏异构反应。_
+
+因此，从视觉的分子机制出发，可以这么回答：正由于视黄醛分子的构型转变反应恰好响应了可见光波段的电磁波，这才导致这一波段的电磁波能被人类 “看见”。
+
+此外，视黄醛分子是维生素 A 的部分氧化产物，又可由植物中广泛存在的天然色素——β- 胡萝卜素氧化得到，来源和代谢路径明确，被大多数生物进化选中作为光敏分子也在情理之中。
+
+**那为什么高度进化的人类不能感知可见光谱之外的电磁辐射呢？为什么视黄醛分子刚好只对可见波段的电磁波产生反应？**
+
+这个可以从各个波段的电磁辐射的性质来回答。
+
+波长最短的伽马射线（Gamma ray）和高能 X 射线（X ray）由于携带的能量（光子）太高，很快就会导致分子电离、分解甚至激发原子核（导致原子核爆发）。首先被排除。
+
+波长较短的深紫外（deep Ultraviolet）和软 X 射线激发的电子能级一般是内层电子或高能电子，这种激发得到的分子高能态很不稳定，在常温下的水溶液或空气中都难以保证信息的有效传递。也被排除。
+
+波长较长的红外（Infrared）与微波（Microwave）频段的电磁波主要与分子的振动、转动和平动相耦合，而这些运动主要以随机热运动形式存在，很难实现信息的准确表达。
+
+波长更长的中波、长波（Radio）的运动尺度超过了单个分子能够接收的尺度，更不适合以细胞为基础的生物选择。
+
+这样考察的结果，如果细胞一定要采取分子层面上的光敏机制对电磁波进行响应，那么最合适的波段可能就是现在的可见光波段。**这一波段在分子运动中相当于电子光谱的外层电子激发能量，与分子中化学键的能量高低大致相当而略低，既不至于损伤一般较为稳定的化学键（尤其是作为生命体基础的 C-C、C-H、C=O、C-N 等化学键），又可以使得一些 “动态” 化学键（例如视黄醛中具有顺反异构的 11 位双键）发生光响应，并实现信息的有效传递。**
+
+所以，人类感知当前波段的可见光，是亿万年不断进化的结果。换个角度说，感知其它波段的人类祖先已经被淘汰了，他们的基因无法遗传传承下来。
+
+可谓：**物竞天择，适者生存**。
+
+### **4.2.4 光的来源**
+
+众所皆知，光是电磁波，而物质是由原子组成，原子是由原子核与核外运转着的电子组成。那么，物质原子中的电磁波是哪里来的？电磁波难道会无中生有？
+
+奥斯特实验发现了直流导线的周围产生磁场，因为电子的运动伴生着磁场。电子的运动分为**线性运动**和**振动**：
+
+*   **线性运动**：电子的线性运动是核外电子的绕核运动及在导电时电子的流动，它所伴生电磁波的宏观表现是**磁场**。电子的线性运动不是产生光的原因。
+*   **振动**：电子的振动与发光息息相关，它会使电磁脱离场源形成电磁波，也就是产生了光，而不是所谓的光子。引起电子振动有两种原因：
+    *   一是高温物质核外电子的跃迁引发的振动，这种振动需要物质的温度大大高于环境温度，运转速率很高的核外电子跃迁辐射才能达到可见光的频率。这种高温物质核外电子的跃迁辐射所形成发光的光源叫**热光源**。岩浆、铁水、火焰、灯丝等高温物质的发光属于热光源。
+    *   二是电子在磁场或电场的作用下引发的受激振动，这样的电子振动与温度无关、与核外电子运转速率无关。这种不需要高温而使电子振动所形成辐射的光源叫**冷光源**。日光灯、节能灯、极光、萤火虫的发光、半导体发光（LED）等属于冷光源。
+
+本小节开头的问题有了答案：光源中的光来自于电子的振动，电子振动所伴生的电磁波辐射形成了光波，电子振动的频率构成了光波的频率，大量电子振动所伴生的电磁波辐射形成了光源。
+
+### **4.2.5 光的理论**
+
+光的研究和理论经过数百年的发展，至今出了很多理论学说，每种理论都是为了解释部分光的物理现象。
+
+目前，光存在的理论主要有：粒子理论、波动理论、电磁理论、量子理论及波粒二象性等。
+
+#### **4.2.5.1 光的粒子理论 (Particle theory)**
+
+光的粒子说又称光的微粒说，这种理论认为光的本质与通过它反射而可见的实体物质一样，是一种粒子（下图）。  
+
+![](1679148478775.png)
+
+  
+_光的粒子性示意图_
+
+法国数学家皮埃尔 · 加森迪（Pierre Gassendi）于 1660 年提出了一种光的粒子理论。 Isaac Newton 在 Gassendi 的理论基础上做了扩展：光是由来自各个方向或从各个方向发射的微粒（物质粒子）组成的。
+
+牛顿随后对于加森迪的这种观点进行研究，他根据光的直线传播规律、光的偏振现象，最终于 1675 年提出假设，认为光是从光源发出的一种物质微粒，在均匀媒质中以一定的速度传播。
+
+微粒说很容易解释光的直进性，也很容易解释光的反射，因为粒子与光滑平面发生碰撞的反射定律与光的反射定律相同。
+
+然而微粒说在解释一束光射到两种介质分界面处会同时发生反射和折射，以及几束光交叉相遇后彼此毫不妨碍的继续向前传播等现象时，却发生了很大困难。
+
+#### **4.2.5.2 光的波动理论 (Wave theory)**
+
+在 1660 年代，胡克（Robert Hooke）发表了他的光波动理论。他认为光线在一个名为光以太（Luminiferous ether）的介质中以波的形式四射，并且由于波并不受重力影响，光在进入高密度介质时会减速。
+
+光的波理论预言了干涉现象以及光的偏振性。
+
+欧拉是波动学说的支持者之一，他认为波理论更容易解释衍射现象。
+
+菲涅耳也支持并独立完成了他的波动理论。在 1821 年，菲涅尔使用数学方法使光的偏振在波动理论上得到了唯一解释。  
+
+![](1679148478828.png)
+
+  
+_上图：光的偏振现象，回旋光波先后经过四分一波偏振板和线性偏振板的情形。_
+
+但是，波动理论的弱点在于，波类似于声波，传播需要介质。虽然曾有过光以太介质的假想，但因为 19 世纪迈克耳孙 - 莫雷实验陷入了强烈的质疑。
+
+牛顿推测光速在高密度下变高，惠更斯和其他人觉得正相反，但当时并没有准确测量光速的条件。直到 1850 年，莱昂 · 傅科（Léon Foucault）的实验得到了和波动理论同样的结果。之后，经典粒子理论才真正被抛弃。
+
+#### **4.2.5.3 光的电磁理论 (Electromagnetic theory)**
+
+光的电磁理论是关于光的本性的一种现代学说，19 世纪 60 年代由麦克斯韦提出。把光看成是频率在某一范围的电磁波。能解释光的传播、干涉、衍射、散射、偏振等现象，以及光与物质相互作用的规律。
+
+电磁理论还认为，电磁波具有互相垂直的电场与磁场，电场与磁场的频率、振幅、波长、传播方向是一致的。  
+
+![](1679148478925.png)
+
+但由于光还具有粒子性，所以它不能解释光电效应、康普顿效应等物理现象。
+
+#### **4.2.5.4 光的量子理论 (Quantum theory)**
+
+光的量子理论是以辐射的量子理论研究光的产生、传输、检测及光与物质相互作用的学科。  
+
+![](1679148478962.png)
+
+  
+_量子光学示意图_
+
+1900 年，普朗克在研究黑体辐射时，为了从理论上推导出得到的与实际相符甚好的经验公式，他大胆地提出了与经典概念迥然不同的假设，即 “组成黑体的振子的能量不能连续变化，只能取一份份的分立值”。
+
+1905 年，爱因斯坦在研究光电效应时推广了普朗克的上述量子论，进而提出了光子的概念。他认为光能并不像电磁波理论所描述的那样分布在波阵面上，而是集中在所谓光子的微粒上。在光电效应中，当光子照射到金属表面时，一次为金属中的电子全部吸收，而无需电磁理论所预计的那种累积能量的时间，电子把这能量的一部分用于克服金属表面对它的吸力即作逸出功，余下的就变成电子离开金属表面后的动能。
+
+1923 年，亚瑟 · 霍利康普顿表明，当从电子散射的低强度 X 射线（所谓的康普顿散射）中看到的波长漂移可以通过 X 射线的粒子理论来解释，而不是波动理论。
+
+1926 年 Gilbert N. Lewis 将这些光量子粒子命名为**光子**。
+
+2018 年 2 月，科学家首次报道了一种可能涉及极化子的新型光的发现，这可能对量子计算机的发展有用。
+
+量子力学作为一门 “很数学” 化的物理体系，已经像经典力学那样成熟了，并成为洞悉微观世界的重要工具。
+
+但量子力学也给留下了许多物理上的困惑，如粒子运动的波粒二象性问题、几率波问题、粒子纠缠问题、波函数崩塌问题等等。
+
+#### **4.2.5.5 光的波粒二象性 (Wave-particle duality)**
+
+历史上关于光是粒子还是波动的争论，已有两千多年（下图）。  
+
+![](1679148478986.png)
+
+光的种种现象和性质表明它既有粒子的特征又有波动的特征，处于两个派别立场的研究者各执一词，互不相让。
+
+直到 1905 年，爱因斯坦在德国《物理年报》上发表了题为《关于光的产生和转化的一个推测性观点》的论文。他认为对于时间的平均值，光表现为波动；对于时间的瞬间值，光表现为粒子性。这是历史上第一次揭示微观客体波动性和粒子性的统一，即**波粒二象性**。这一科学理论最终得到了学术界的广泛接受。
+
+在新的事实与理论面前，光的波动说与粒子说之争以 “光具有波粒二象性” 而落下了帷幕。
+
+即：**光粒子的运动轨迹是呈周期性的波**。
+
+Wikipedia 提供了[一个视频](https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e4/Wave-particle_duality.ogv/Wave-particle_duality.ogv.720p.webm)，形象地描述了光在各种理论下的特征。
+
+### **4.2.6 光的能量**
+
+光是能量的一种传播方式。光能量也被称为光子能量（按粒子性）或电磁辐射（按波动性）。每个光子都具有一定量的能量，频率越高，能量也越高。
+
+光的度量跟能量或辐射测量类似，常被用于太阳能、加热、照明、电信、计算机图形学等领域。
+
+光能量作为能量，可被测量，单位是焦耳（J）。可以通过将辐射通量（或功率）相对于时间、面积、空间积分来计算辐射能量的量。
+
+测量辐射能量的概念和符号非常多，[完整的表](https://en.wikipedia.org/wiki/Radiant_energy)有数十个。下面只列出跟 PBR 相关的概念：
+
+<table><thead><tr><th>名称</th><th>符号</th><th>单位</th><th>公式</th><th>解析</th></tr></thead><tbody><tr><td><strong>辐射能量</strong> (Radiant energy)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-240-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>Q</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2402" style="width: 1.031em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.803em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.75em, 2.631em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2403"><span class="mi" id="MathJax-Span-2404" style="font-family: MathJax_Math-italic;">Q</span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi></math></span></span><script type="math/tex" id="MathJax-Element-240">Q</script></span></td><td>焦耳 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-241-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>J</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2405" style="width: 0.803em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.631em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.63em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2406"><span class="mi" id="MathJax-Span-2407" style="font-family: MathJax_Math-italic;">J<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>J</mi></math></span></span><script type="math/tex" id="MathJax-Element-241">J</script></span>)</td><td>-</td><td>电磁辐射能量</td></tr><tr><td><strong>辐射通量</strong> (Radiant Flux)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-242-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2408" style="width: 0.974em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.746em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.69em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2409"><span class="mi" id="MathJax-Span-2410" style="font-family: MathJax_Main;">Φ</span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Φ</mi></math></span></span><script type="math/tex" id="MathJax-Element-242">\Phi</script></span></td><td>瓦 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-243-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>W</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2411" style="width: 1.374em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.089em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1001.09em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2412"><span class="mi" id="MathJax-Span-2413" style="font-family: MathJax_Math-italic;">W<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.117em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math></span></span><script type="math/tex" id="MathJax-Element-243">W</script></span>)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-244-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>Q</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2414" style="width: 4.174em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.317em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.089em, 1003.32em, 2.86em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2415"><span class="mi" id="MathJax-Span-2416" style="font-family: MathJax_Main;">Φ</span><span class="mo" id="MathJax-Span-2417" style="font-family: MathJax_Main; padding-left: 0.289em;">=</span><span class="mfrac" id="MathJax-Span-2418" style="padding-left: 0.289em;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; margin-right: 0.117em; margin-left: 0.117em;"><span style="position: absolute; clip: rect(3.317em, 1000.92em, 4.289em, -999.997em); top: -4.569em; left: 50%; margin-left: -0.454em;"><span class="mrow" id="MathJax-Span-2419"><span class="mi" id="MathJax-Span-2420" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2421" style="font-size: 70.7%; font-family: MathJax_Math-italic;">Q</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(3.317em, 1000.63em, 4.174em, -999.997em); top: -3.597em; left: 50%; margin-left: -0.283em;"><span class="mrow" id="MathJax-Span-2422"><span class="mi" id="MathJax-Span-2423" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2424" style="font-size: 70.7%; font-family: MathJax_Math-italic;">t</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(0.86em, 1001.03em, 1.26em, -999.997em); top: -1.311em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.031em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.089em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.568em; border-left: 0px solid; width: 0px; height: 2.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Φ</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>Q</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-244">\Phi = \frac{dQ}{dt}</script></span></td><td>单位时间辐射的能量，也叫辐射功率 (Radiant Power) 或通量(Flux)</td></tr><tr><td><strong>辐照度</strong> (Irradiance)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-245-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>E</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2425" style="width: 0.974em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.746em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.75em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2426"><span class="mi" id="MathJax-Span-2427" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi></math></span></span><script type="math/tex" id="MathJax-Element-245">E</script></span></td><td>瓦 / 平方米 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-246-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>W</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><msup><mi>m</mi><mn>2</mn></msup></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2428" style="width: 3.603em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.86em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.26em, 1002.86em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2429"><span class="texatom" id="MathJax-Span-2430"><span class="mrow" id="MathJax-Span-2431"><span class="mi" id="MathJax-Span-2432" style="font-family: MathJax_Math-italic;">W<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.117em;"></span></span></span></span><span class="texatom" id="MathJax-Span-2433"><span class="mrow" id="MathJax-Span-2434"><span class="mo" id="MathJax-Span-2435" style="font-family: MathJax_Main;">/</span></span></span><span class="texatom" id="MathJax-Span-2436"><span class="mrow" id="MathJax-Span-2437"><span class="msubsup" id="MathJax-Span-2438"><span style="display: inline-block; position: relative; width: 1.317em; height: 0px;"><span style="position: absolute; clip: rect(3.374em, 1000.86em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2439" style="font-family: MathJax_Math-italic;">m</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.34em; left: 0.86em;"><span class="mn" id="MathJax-Span-2440" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.504em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi>W</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mrow class="MJX-TeXAtom-ORD"><msup><mi>m</mi><mn>2</mn></msup></mrow></math></span></span><script type="math/tex" id="MathJax-Element-246">{W}/{m^2}</script></span>)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-247-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi></mrow><mrow><mi>d</mi><msup><mi>A</mi><mo>&amp;#x22A5;</mo></msup></mrow></mfrac></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2441" style="width: 4.746em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.774em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.203em, 1003.77em, 3.031em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2442"><span class="mi" id="MathJax-Span-2443" style="font-family: MathJax_Main;">Φ</span><span class="mo" id="MathJax-Span-2444" style="font-family: MathJax_Main; padding-left: 0.289em;">=</span><span class="mfrac" id="MathJax-Span-2445" style="padding-left: 0.289em;"><span style="display: inline-block; position: relative; width: 1.489em; height: 0px; margin-right: 0.117em; margin-left: 0.117em;"><span style="position: absolute; clip: rect(3.317em, 1000.86em, 4.174em, -999.997em); top: -4.397em; left: 50%; margin-left: -0.454em;"><span class="mrow" id="MathJax-Span-2446"><span class="mi" id="MathJax-Span-2447" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2448" style="font-size: 70.7%; font-family: MathJax_Main;">Φ</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(3.203em, 1001.32em, 4.174em, -999.997em); top: -3.426em; left: 50%; margin-left: -0.683em;"><span class="mrow" id="MathJax-Span-2449"><span class="mi" id="MathJax-Span-2450" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="msubsup" id="MathJax-Span-2451"><span style="display: inline-block; position: relative; width: 0.974em; height: 0px;"><span style="position: absolute; clip: rect(3.317em, 1000.52em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2452" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.283em; left: 0.517em;"><span class="mo" id="MathJax-Span-2453" style="font-size: 50%; font-family: MathJax_Main;">⊥</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(0.86em, 1001.49em, 1.26em, -999.997em); top: -1.311em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.489em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.089em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.782em; border-left: 0px solid; width: 0px; height: 2.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Φ</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant="normal">Φ</mi></mrow><mrow><mi>d</mi><msup><mi>A</mi><mo>⊥</mo></msup></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-247">\Phi = \frac{d\Phi}{dA^\perp}</script></span></td><td><em>到达</em>单位面积的辐射通量</td></tr><tr><td><strong>辐射度</strong> (Radiosity)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-248-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>M</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2454" style="width: 1.317em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1001.03em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2455"><span class="mi" id="MathJax-Span-2456" style="font-family: MathJax_Math-italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math></span></span><script type="math/tex" id="MathJax-Element-248">M</script></span></td><td>瓦 / 平方米 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-249-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>W</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><msup><mi>m</mi><mn>2</mn></msup></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2457" style="width: 3.603em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.86em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.26em, 1002.86em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2458"><span class="texatom" id="MathJax-Span-2459"><span class="mrow" id="MathJax-Span-2460"><span class="mi" id="MathJax-Span-2461" style="font-family: MathJax_Math-italic;">W<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.117em;"></span></span></span></span><span class="texatom" id="MathJax-Span-2462"><span class="mrow" id="MathJax-Span-2463"><span class="mo" id="MathJax-Span-2464" style="font-family: MathJax_Main;">/</span></span></span><span class="texatom" id="MathJax-Span-2465"><span class="mrow" id="MathJax-Span-2466"><span class="msubsup" id="MathJax-Span-2467"><span style="display: inline-block; position: relative; width: 1.317em; height: 0px;"><span style="position: absolute; clip: rect(3.374em, 1000.86em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2468" style="font-family: MathJax_Math-italic;">m</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.34em; left: 0.86em;"><span class="mn" id="MathJax-Span-2469" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.504em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi>W</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mrow class="MJX-TeXAtom-ORD"><msup><mi>m</mi><mn>2</mn></msup></mrow></math></span></span><script type="math/tex" id="MathJax-Element-249">{W}/{m^2}</script></span>)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-250-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>M</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi></mrow><mrow><mi>d</mi><msup><mi>A</mi><mo>&amp;#x22A5;</mo></msup></mrow></mfrac></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2470" style="width: 5.146em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.117em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.203em, 1004.12em, 3.031em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2471"><span class="mi" id="MathJax-Span-2472" style="font-family: MathJax_Math-italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mo" id="MathJax-Span-2473" style="font-family: MathJax_Main; padding-left: 0.289em;">=</span><span class="mfrac" id="MathJax-Span-2474" style="padding-left: 0.289em;"><span style="display: inline-block; position: relative; width: 1.489em; height: 0px; margin-right: 0.117em; margin-left: 0.117em;"><span style="position: absolute; clip: rect(3.317em, 1000.86em, 4.174em, -999.997em); top: -4.397em; left: 50%; margin-left: -0.454em;"><span class="mrow" id="MathJax-Span-2475"><span class="mi" id="MathJax-Span-2476" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2477" style="font-size: 70.7%; font-family: MathJax_Main;">Φ</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(3.203em, 1001.32em, 4.174em, -999.997em); top: -3.426em; left: 50%; margin-left: -0.683em;"><span class="mrow" id="MathJax-Span-2478"><span class="mi" id="MathJax-Span-2479" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="msubsup" id="MathJax-Span-2480"><span style="display: inline-block; position: relative; width: 0.974em; height: 0px;"><span style="position: absolute; clip: rect(3.317em, 1000.52em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2481" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.283em; left: 0.517em;"><span class="mo" id="MathJax-Span-2482" style="font-size: 50%; font-family: MathJax_Main;">⊥</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(0.86em, 1001.49em, 1.26em, -999.997em); top: -1.311em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.489em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.089em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.782em; border-left: 0px solid; width: 0px; height: 2.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant="normal">Φ</mi></mrow><mrow><mi>d</mi><msup><mi>A</mi><mo>⊥</mo></msup></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-250">M = \frac{d\Phi}{dA^\perp}</script></span></td><td><em>离开</em>单位面积的辐射通量，也叫辐出度、辐射出射度（Radiant Existance）</td></tr><tr><td><strong>辐射强度</strong> (Radiant Intensity)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-251-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>I</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2483" style="width: 0.689em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.517em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.52em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2484"><span class="mi" id="MathJax-Span-2485" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi></math></span></span><script type="math/tex" id="MathJax-Element-251">I</script></span></td><td>瓦 / 立体弧度 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-252-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>W</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>s</mi><mi>r</mi></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2486" style="width: 3.089em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.46em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.374em, 1002.46em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2487"><span class="texatom" id="MathJax-Span-2488"><span class="mrow" id="MathJax-Span-2489"><span class="mi" id="MathJax-Span-2490" style="font-family: MathJax_Math-italic;">W<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.117em;"></span></span></span></span><span class="texatom" id="MathJax-Span-2491"><span class="mrow" id="MathJax-Span-2492"><span class="mo" id="MathJax-Span-2493" style="font-family: MathJax_Main;">/</span></span></span><span class="texatom" id="MathJax-Span-2494"><span class="mrow" id="MathJax-Span-2495"><span class="mi" id="MathJax-Span-2496" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-2497" style="font-family: MathJax_Math-italic;">r</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.432em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi>W</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mi>s</mi><mi>r</mi></mrow></math></span></span><script type="math/tex" id="MathJax-Element-252">{W}/{sr}</script></span>)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-253-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>I</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi></mrow><mrow><mi>d</mi><mi>&amp;#x03C9;</mi></mrow></mfrac></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2498" style="width: 3.946em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.146em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.203em, 1003.15em, 2.86em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2499"><span class="mi" id="MathJax-Span-2500" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mo" id="MathJax-Span-2501" style="font-family: MathJax_Main; padding-left: 0.289em;">=</span><span class="mfrac" id="MathJax-Span-2502" style="padding-left: 0.289em;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; margin-right: 0.117em; margin-left: 0.117em;"><span style="position: absolute; clip: rect(3.317em, 1000.86em, 4.174em, -999.997em); top: -4.397em; left: 50%; margin-left: -0.454em;"><span class="mrow" id="MathJax-Span-2503"><span class="mi" id="MathJax-Span-2504" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2505" style="font-size: 70.7%; font-family: MathJax_Main;">Φ</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(3.317em, 1000.8em, 4.174em, -999.997em); top: -3.597em; left: 50%; margin-left: -0.397em;"><span class="mrow" id="MathJax-Span-2506"><span class="mi" id="MathJax-Span-2507" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2508" style="font-size: 70.7%; font-family: MathJax_Math-italic;">ω</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(0.86em, 1001.03em, 1.26em, -999.997em); top: -1.311em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.031em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.089em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.568em; border-left: 0px solid; width: 0px; height: 1.789em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant="normal">Φ</mi></mrow><mrow><mi>d</mi><mi>ω</mi></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-253">I = \frac{d\Phi}{d\omega}</script></span></td><td>通过单位立体角的辐射通量</td></tr><tr><td><strong>辐射率</strong> (Radiance)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-254-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>L</mi></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2509" style="width: 0.86em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.689em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.431em, 1000.63em, 2.46em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2510"><span class="mi" id="MathJax-Span-2511" style="font-family: MathJax_Math-italic;">L</span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math></span></span><script type="math/tex" id="MathJax-Element-254">L</script></span></td><td>瓦 / 平方米立体弧度 (<span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-255-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>W</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo>/</mo></mrow><msup><mi>m</mi><mn>2</mn></msup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>s</mi><mi>r</mi></mrow></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2512" style="width: 4.746em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.774em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.26em, 1003.77em, 2.689em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2513"><span class="texatom" id="MathJax-Span-2514"><span class="mrow" id="MathJax-Span-2515"><span class="mi" id="MathJax-Span-2516" style="font-family: MathJax_Math-italic;">W<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.117em;"></span></span></span></span><span class="texatom" id="MathJax-Span-2517"><span class="mrow" id="MathJax-Span-2518"><span class="mo" id="MathJax-Span-2519" style="font-family: MathJax_Main;">/</span></span></span><span class="msubsup" id="MathJax-Span-2520"><span style="display: inline-block; position: relative; width: 1.317em; height: 0px;"><span style="position: absolute; clip: rect(3.374em, 1000.86em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2521" style="font-family: MathJax_Math-italic;">m</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.34em; left: 0.86em;"><span class="mn" id="MathJax-Span-2522" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span><span class="texatom" id="MathJax-Span-2523"><span class="mrow" id="MathJax-Span-2524"><span class="mi" id="MathJax-Span-2525" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-2526" style="font-family: MathJax_Math-italic;">r</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.504em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mi>W</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><msup><mi>m</mi><mn>2</mn></msup><mrow class="MJX-TeXAtom-ORD"><mi>s</mi><mi>r</mi></mrow></math></span></span><script type="math/tex" id="MathJax-Element-255">{W}/m^2{sr}</script></span>)</td><td><span class="math inline"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-256-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>L</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant=&quot;normal&quot;>&amp;#x03A6;</mi></mrow><mrow><mi>d</mi><mi>&amp;#x03C9;</mi><mi>d</mi><msup><mi>A</mi><mo>&amp;#x22A5;</mo></msup></mrow></mfrac></math>" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-2527" style="width: 5.717em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.574em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.203em, 1004.57em, 3.031em, -999.997em); top: -2.283em; left: 0em;"><span class="mrow" id="MathJax-Span-2528"><span class="mi" id="MathJax-Span-2529" style="font-family: MathJax_Math-italic;">L</span><span class="mo" id="MathJax-Span-2530" style="font-family: MathJax_Main; padding-left: 0.289em;">=</span><span class="mfrac" id="MathJax-Span-2531" style="padding-left: 0.289em;"><span style="display: inline-block; position: relative; width: 2.289em; height: 0px; margin-right: 0.117em; margin-left: 0.117em;"><span style="position: absolute; clip: rect(3.317em, 1000.86em, 4.174em, -999.997em); top: -4.397em; left: 50%; margin-left: -0.454em;"><span class="mrow" id="MathJax-Span-2532"><span class="mi" id="MathJax-Span-2533" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2534" style="font-size: 70.7%; font-family: MathJax_Main;">Φ</span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(3.203em, 1002.17em, 4.174em, -999.997em); top: -3.426em; left: 50%; margin-left: -1.083em;"><span class="mrow" id="MathJax-Span-2535"><span class="mi" id="MathJax-Span-2536" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-2537" style="font-size: 70.7%; font-family: MathJax_Math-italic;">ω</span><span class="mi" id="MathJax-Span-2538" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="msubsup" id="MathJax-Span-2539"><span style="display: inline-block; position: relative; width: 0.974em; height: 0px;"><span style="position: absolute; clip: rect(3.317em, 1000.52em, 4.174em, -999.997em); top: -3.997em; left: 0em;"><span class="mi" id="MathJax-Span-2540" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; top: -4.283em; left: 0.517em;"><span class="mo" id="MathJax-Span-2541" style="font-size: 50%; font-family: MathJax_Main;">⊥</span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.003em;"></span></span><span style="position: absolute; clip: rect(0.86em, 1002.29em, 1.26em, -999.997em); top: -1.311em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 2.289em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.089em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.289em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.782em; border-left: 0px solid; width: 0px; height: 2.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi mathvariant="normal">Φ</mi></mrow><mrow><mi>d</mi><mi>ω</mi><mi>d</mi><msup><mi>A</mi><mo>⊥</mo></msup></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-256">L = \frac{d\Phi}{d\omega dA^\perp}</script></span></td><td>通过单位面积单位立体角的辐射通量</td></tr></tbody></table>
+
+## **4.3 光学原理（Optics theory）**
+
+**光学**（Optics）是物理学的一个分支，研究光的行为和性质，包括它与物质的相互作用以及使用或检测它的仪器的结构。
+
+光学通常描述可见光、紫外光和红外光的行为。由于光是电磁波，其它波段的电磁辐射（如 X 射线、微波和无线电波）表现出类似的特性。
+
+光学按照不同角度、不同粒度和不同侧重点大致可以分为以下几类：
+
+*   **电磁光学**。将光分为大多数光学现象可以使用光的经典电磁描述来解释。然而，光的完整电磁描述通常难以应用于实践中，需要借助其它光学类型。
+*   **几何光学**。几何光学系统将光线视为一组光线，它们以直线传播，并在通过或从表面反射时弯曲。是物理应用中简化的一种模型。由于 PBR 的 BRDF 几乎都是基于几何光学，后面章节会侧重地介绍几何光学。
+*   **物理光学**。物理光学是一种更全面的光模型，包括衍射和干涉等波效应几何光学中无法解释的。历史上，首先开发基于射线的光模型，然后是波的光模型。19 世纪电磁理论的进步才发现光波实际上是电磁辐射。
+*   **运动物理光学**。主要研究天体运动的光速差、光漂移、多普勒效应等。当前已经发展成一支庞大的独立的物理分支。
+*   **量子光学**。一些现象取决于光具有波状和粒子状特性的事实。这些效应的解释需要量子力学。当考虑光的粒子特性时，光被建模为称为 “光子” 的粒子集合。量子光学涉及量子力学在光学系统中的应用。
+
+光学与许多相关学科联合进行研究，包括天文学、工程领域、摄影、计算机和医学等等。光学的应用存在于各种日常物品中，包括镜子、透镜、望远镜、显微镜、激光器和光纤等等。
+
+### **4.3.1 光的反射（Reflection）**
+
+光的反射是当光在两种物质分界面上改变传播方向又返回原来物质中的现象。  
+
+![](1679148479241.png)
+
+  
+_上图：光的反射现象。_
+
+产生反射的原理：光是电磁波，射在物体上的光波引起单个原子中的极化振荡（或电子在金属中的振荡），致使每个粒子在各个方向上辐射小的二次波，如偶极天线（ dipole antenna）。根据惠更斯 - 菲涅耳原理，所有这些波加起来就产生反射和折射。
+
+光的反射细分为以下几种：
+
+*   **镜面反射**（Specular reflection）：平行光线射到光滑表面上时反射光线也是平行的现象。表面平滑的物体，易形成光的镜面反射，形成刺目的强光，反而看不清楚物体。
+*   **漫反射**（Diffuse reflection）：平行光线射到凹凸不平的表面上，反射光线射向各个方向的现象。
+*   **方向反射**（Directional reflection）：是介于漫反射和镜面反射之间反射，也称非朗伯反射。其表现为各向都有反射，且各向反射强度不均一。
+*   **回射**（Retroreflection）：入射光射在介质表面上，反射光的方向与入射光一致的现象。飞机在飞越被阳光照射的云层时，在飞机阴影周围看到的区域将显得更亮，从草地上的露水可以看到类似的效果。
+
+### **4.3.2 光的折射（Refraction）**
+
+光的折射是指光从一种介质斜射入另一种介质时，传播方向发生改变，从而使光线在不同介交界处发生的偏折。  
+
+![](1679148479282.png)
+
+  
+_上图：光的折射现象。_
+
+折射的原理与反射类似：光波是一种特定频段的电磁波，光在传播过程中有两个垂直于传播方向的分量：电场分量和磁场分量。当电场分量与介质中的原子发生相互作用，引起电子极化，形成电子云和原子荷重心发生相对位移。导致光的一部分能量被吸收，同时光在介质中的速度被减慢，方向发生变化，引发了折射。  
+
+![](1679148479351.png)
+
+  
+_上图：光从一种物质进入另一种物质后发生了折射，波长、方向、速率都发生了改变。_
+
+近代物理学指出，光是一种没有静质量、体积非常小、运动速度比较高的物质。光和其它物质有相同的性质。光和物质间的相互作用力使光的运动方向发生改变即折射。
+
+### **4.3.3 光的散射（Scattering）**
+
+光通过不均匀媒质时，部分光束将偏离原来方向而分散传播，从侧向也可以看到光的现象。
+
+散射发生的原理：当光子与分子或原子相互接近时，由于双方具有很强的相互斥力，迫使它们在接触前就偏离了原来的运动方向而分开。
+
+散射是观察和辨别物体的主要现象，是自然中最普遍存在的现象。漫反射其实也是散射的一种。
+
+### **4.3.4 光的色散（Dispersion）**
+
+光的色散指的是复色光分解为单色光的现象。  
+
+![](1679148479609.png)
+
+色散现象说明光在介质中的速度 $v=\frac{c}{n}$（$n$为介质的折射率）随光的频率 $f$而变。光的色散可以用三棱镜、衍射光栅、干涉仪等来实现。
+
+光的色散说明了光具有波动性。因为色散是光的成分（不同色光）折射率不同引起的，而折射率由波的频率决定。
+
+对同一种介质，光的频率越高，介质对这种光的折射率就越大。在可见光中，紫光的频率最高，红光频率最小。当白光通过三棱镜时，棱镜对紫光的折射率最大，光通过棱镜后，紫光的偏折程度最大，红光偏折程度最小。这样，三棱镜将不同频率的光分开，就产生了光的色散。
+
+**为什么在同一介质中，不同波长的光，其速度和折射率会不同呢？**
+
+由于光有粒子性，与介质的原子、分子有相互作用力。对于波长越短的光，其携带的能量越大、运动越强，与介质的原子、分子的相互作用力越大，致使其速度越小、折射率越大。_（这个回答是笔者根据经典物理学结合波动论的推测，未找到确切的依据和论据，有待考证！）_
+
+### **4.3.5 光的吸收（Absorption）**
+
+电磁理论认为，光的吸收是光 (电磁辐射) 通过材料时，与材料发生相互作用，电磁辐射能量被部分地转化为其他能量形式的物理过程。
+
+当被吸收的光能量以热能的形式被释放，即形成了光热转化；当未被吸收的光能量被物体反射、散射或透射，便影响着我们看到的物体的色彩。
+
+量子理论认为，光的吸收是指分子或原子在光波辐射场（光照）下，会吸收光子的能量由低能态跃迁到高能态的现象。这种跃迁也等效于一个具有一定固有频率的振子。
+
+电磁理论证明，当物体对某种频率光的吸收系数很大时，它对该频率光的反射率也大。若干电介质具有很强的吸收带，故它们对于吸收带附近频率的光也有很强的反射，这称为**选择反射**。
+
+半导体材料在不同的程度上具备电介质和金属材料的全部光学特性。当半导体材料从外界以某种形式（如光、电等）吸收能量，则其电子将从基态被激发到激发态，即光吸收。而处于激发态的电子会自发或受激再从激发态跃迁到基态，并将吸收的能量以光的形式辐射出来（辐射复合），即发光；当然也可以无辐射的形式如发热将吸收的能量发散出来（无辐射复合）
+
+金属的光吸收要同时考虑束缚电子与自由电子的作用。对于红外线或更低频率的辐射，自由电子起主要作用；而对于紫外线及更高频率的辐射，则束缚电子的作用比较显著，这时金属实际上表现出与电介质相似的光学性质。
+
+### **4.3.6 光的衍射（Diffraction）**
+
+衍射是指当光波遇到障碍物或狭缝时发生的各种现象。它被定义为围绕障碍物或孔的角落的波浪弯曲到障碍物的几何阴影区域中。
+
+由于光具有波动性，所以也会产生衍射。  
+
+![](1679148479671.png)
+
+  
+_光波穿过单波长的缝隙后发生了衍射现象。_
+
+当光波穿过具有变化的折射率的介质时，也会发生衍射的效果。所有波都会发生衍射，包括声波、水波和电磁波（可见光、X 射线和无线电波）。
+
+光的衍射产生的原理可以从两方面解释：
+
+*   波动光学：根据惠更斯 - 菲涅耳原理和波叠加原理，衍射是由于波传播的方式而产生的。通过将波前传输介质的每个粒子视为二次球面波的点源，可以可视化波的传播，任何后续点的波位移是这些二次波的总和。当这些波被加在一起时，它们的总和由相对相位以及各个波的幅度确定，使得波的总和幅度可以具有零和各个幅度之和之间的任何值
+*   量子光学：在通过狭缝传播光时，每个光子具有波函数，波函数描述了从发射器通过狭缝到屏幕的路径。波函数（光子将采取的路径）由物理环境决定，例如狭缝形状、屏幕距离和光子创建时的初始条件。
+
+### **4.3.7 光的叠加和干涉（Superposition and interference）**
+
+若干个光波组合在一起形成的复合效果便是光的叠加。
+
+更准确地说，在没有非线性效应的情况下，叠加原理可用于通过简单地添加干涉来预测相互作用波形的形状。产生光波的复合图案的相互作用通常被称为干涉，干涉可能导致不同的结果。  
+
+![](1679148479725.png)
+
+  
+_光波在不同相位产生的叠加效果。_
+
+光产生叠加和干涉现象的原理与衍射类型，便不再累述。
+
+### **4.3.8 光的偏振（Polarization）**
+
+偏振是波的一般属性，描述了它们的振荡方向。由于光具有波动性，所以也会偏振。
+
+偏振为横向波（如许多电磁波）描述了垂直于行进波方向的平面中的振荡方向。振荡可以在单个方向上（线性偏振），或者随着波行进方向而旋转（圆形或椭圆形偏振）。  
+
+![](1679148479961.png)
+
+  
+_左：线性偏振；中：圆形偏振；右：椭圆偏振。_
+
+## **4.4 几何光学（Geometry optics）**
+
+**几何光学**是将光的波长视作无限小，以致可以将光当成直线来研究的一门物理分支。它以光线为基础，研究光的传播和成像规律。
+
+在几何光学中，把组成物体的物点看作是几何点，把它所发出的光束看作是无数几何光线的集合，光线的方向代表光能的传播方向。
+
+**几何光学中光线的概念与光的波动性质相违背**。因为从能量和光的波动性现象（如衍射）来看，这种几何光线都是不可能存在的。**几何光学只是波动光学的近似**，把所有光当成波长极小的情况处理，小到光线被当成了直线。但是，简化后的几何光学可以不涉及光的物理本性，而能以其简便的方法解决光学仪器中的光学技术问题和计算机图形渲染的复杂度问题。
+
+在几何光学中，特别是在计算机图形学中，光线处理做了以下简化或遵循以下基本定律：
+
+*   **直线传播**：光在均匀介质中沿直线传播。直线意味着将光波长视作极小。
+*   **独立传播**：两束光在传播途中相遇时互不干扰，仍按各自的途径继续传播。而当两束光会聚于同一点时，在该点上的光能量是简单的相加。
+*   **反射和折射**：光在传播途中遇到两种不同介质的光滑分界面时，一部分光线反射，它们的传播方向遵循反射定律；另外另一部分折射，它们的传播方向遵循折射定律。
+*   **路径可逆性**：一束光线从一点出发经过无论多少次反射和折射，如在最后遇到与光束成直角的界面反射，光束必然准确地循原路返回出发点。
+*   **介质各向同性**：将光线传播的介质简化成均匀的，即各向同性（isotropic）。所谓各向同性是指介质任意一点的所有方向的物理性质（如密度、弹性、摩擦系数等等）和化学性质是一样的。
+*   **分界面简化**：将光线经过两个介质的分界面处的点当做平面上的点处理。
+*   **单色光源**：真实的发光源基本是复合色光源，但在几何光学中，简化成了单色光，避开色散、傅里叶积分、能量积分等复杂问题。
+*   **麦克斯韦方程的特化**：由于很多参数作了特例化和简化，所以几何光学的光照计算实际上使用的是麦克斯韦方程简化和特化后的版本。
+
+由于 PBR 的相关技术及诸多理论跟几何光学相关，所以本节将深入地探讨几何光学的内容。
+
+### **4.4.1 反射定律（Law of Reflection）**
+
+反射定律描述了反射光的角度：入射光的角度与反射光的角度相同。  
+
+![](1679148480248.png)
+
+如上图所示，入射光线 P 射在介质点 O 上，反射光线是 Q，点 O 的法线是 normal，则根据反射定律：
+
+$$\theta_i = \theta_r$$
+
+即入射角$\theta_i$和反射角$\theta_r$相同。它们的另外一种等效表达形式：
+
+$$\theta_r = \pi - \theta_i$$
+
+需要注意的是，反射定律描述的是反射角问题，并不涉及能量分配。
+
+反射还涉及到反射率的问题。**反射率**是反射波的功率与入射波的功率之比。每种材料的反射率不一样，并且跟入射光与介质的夹角有关，这种现象叫**菲涅尔反射效应**，与之相关的方程是[菲涅尔方程（Fresnel equations）](https://en.wikipedia.org/wiki/Fresnel_equations)。  
+
+![](1679148480311.png)
+
+  
+_上图：菲涅尔反射效应，球体的反射率从中心到边缘以某种曲线提升。_
+
+实际上，当光照射到介质表面时，光可能产生的结果：
+
+*   被吸收：部分光被介质吸收，转化其它形式的能力。
+*   被折射：部分折射的光如果透过介质进入另外的介质，就会形成透射效果。
+*   被反射：部分光被反射，其中反射分成了镜面反射和漫反射。
+
+### **4.4.2 折射定律（Law of Refraction）**
+
+**折射定律**也叫**斯涅尔定律**（Snell's law，Snell–Descartes law），描述了光在两种介质之间折射后的角度、折射率、光速的关系。  
+
+![](1679148480364.png)
+
+  
+_上图：折射定律动画示意图。_
+
+![](1679148480438.png)
+
+  
+如上图所示，光在介质之间发生了折射，介质 1 的入射角、折射率和光速分别是$\theta_1$、$n_1$、$v_1$，介质 2 的入射角、折射率和光速分别是$\theta_2$、$n_2$、$v_2$，则根据折射定律，它们有以下的关系：
+
+$$\frac{\text{sin}\theta_2}{\text{sin}\theta_1} = \frac{v_2}{v_1} = \frac{n_2}{n_1}$$
+
+用折射定律会出现一种**异常**情况：当光从较**高折射率**的介质传播到较**低折射率**的介质时，在入射角足够大的情况下，折射定律似乎要求折射角的正弦大于 1。
+
+这当然是不可能的。实际上，在这种情况下，光线完全被边界反射，这种现象称为**全内反射（Total internal reflection）**。仍能导致折射的最大入射角称为**临界角**，此时折射角是 $90^\circ$。
+
+![](1679148480491.png)
+
+如上图所示，光线从较高折射率的水射到较低折射率的空气中，当入射角大于临界角时，会出现图右的全内反射。
+
+其中，临界角$\theta_\text{crit}$可由折射定律推导出来：
+
+$$\theta_\text{crit} = \text{arcsin} \left( \frac{n_2}{n_1}\text{sin}\theta_2 \right)$$
+
+由于水的折射率 $n_1 = 1.333$，空气的折射率 $n_2 = 1.0$，折射角$\theta_2 = 90^\circ$，则根据上面的公式可以算出水相对空气折射的临界角：
+
+$$\theta_\text{crit_water2air} = \text{arcsin} \left( \frac{1.0}{1.333}\text{sin}90^\circ \right) = 48.6^\circ$$
+
+### **4.4.3 几何光学的其它定律**
+
+在几何光学中，除了反射定律和折射定律之外，还有以下定律：
+
+*   拉格朗日积分不变式。
+*   费马原理。
+*   马吕斯和杜平定律。
+
+由于这些定律跟 PBR 技术关联不大，本文不详述，有兴趣的可以另外找资料。
+
+## **4.5 物质理论**
+
+### **4.5.1 物质是什么？**
+
+从经典物理学上，物质是任何具有质量并且有体积占据空间的东西。
+
+从现代物理学上，物质是构成宇宙间一切物体的实物和能量场（光、电场、磁场、声等），还包括反物质和暗物质。
+
+从宏观上，物质是所有看得见摸得着感受得到的东西。
+
+从微观上，物质是由原子构成的所有东西，而原子又是由相互作用的亚原子粒子构成。实体粒子包含但不限于：原子、中子、质子、电子、夸克、轻子、重子、费米子等等；能量粒子包含但不限于：光量子、声波等。
+
+从哲学上，物质除了客观实体，还有包含了主观意识。
+
+虽然物质的概念和构成非常复杂，但计算机图形学的 PBR 领域，只要研究经典物理学的物质和能量场的光波即可。
+
+### **4.5.2 物质结构**
+
+物质的构成千姿百态，结构也形态各异。
+
+从不同的微观尺寸观察，物体的结构描述如下：
+
+*   $10^0m$：1 米维度，这个维度就是人类最常接触也最熟悉的尺度，人体、动物、生物、静态物体大多数是这个维度。
+*   $10^{-3}m$：1 毫米维度，仔细观察或借助普通的放大镜，人类还是能清晰看到很多东西，如毛孔、微型动物、微型昆虫、巨型细菌、血管、毛发、皮肤细节等。
+*   $10^{-6}m$：1 微米维度，在此维度下的物质有细菌、病毒、DNA、血小板、红细胞、白细胞、淋巴细胞等等。
+*   $10^{-9}m$：1 纳米维度，这个维度已经到达了原子级别，可以分析氢原子、X 射线的特性。
+*   $10^{-12}m$：1 皮米维度，这个维度已经深入到原子核级别，可描述的原子、质子、中子的尺寸。
+*   $10^{-15}m$：1 飞米维度，这个维度只能描述电荷、强子、费米子的尺寸。
+*   $10^{-18}m$：1 阿米维度，这个维度只能描述电子、夸克的尺寸。
+*   $10^{-35}m$：1 普朗克长度，这个维度只能描述量子泡沫、量子弦。  
+    
+    ![](1679148480511.png)
+    
+      
+    _不同尺寸维度下的物质构成。从上到下：$10^{-35}m$到 $10^{27}m$。_
+
+### **4.5.3 物质形态**
+
+物质的**形态（Phase，也叫相态）**常见的有：固态、气态、液态、非晶态、液晶态，另外还有奇特的形态：等离子态、超固态、中子态、超导态、超流态、玻色–爱因斯坦凝聚、费米子凝聚态。
+
+这些状态都是物质在不同的密度、温度、压强、辐射下的形态，当所处的环境发生改变时，会从一种形态转成另外一种形态。  
+
+![](1679148480563.png)
+
+  
+_物质在固态、液态、气态、等离子态的转化图。_
+
+### **4.5.4 物质属性**
+
+物质的属性有很多，从不同角度有不同的属性，但常见的物理和化学属性有：体积、尺寸、质量、密度、硬度、导电性、导磁性、磁性、范性（可塑性）、透光性（透明度）、比热容、弹性、可燃性、助燃性、酸碱性等等。
+
+下面只阐述跟 PBR 相关的物质属性。
+
+#### **4.5.4.1 导电性**
+
+**导电性**是指物质内载电荷粒子的运动。含有电荷的粒子称为**电荷载子**，它们的运动形成了**电流**。
+
+电流产生的原因有两种：
+
+*   受到电场的作用。
+*   电荷载子分布不均匀引发的扩散机制。
+
+根据导电性，可以将物质分为：
+
+*   **绝缘体**：也称电介质，常见的绝缘体包含干燥的木材、塑料、橡胶、纸张等。
+*   **半导体**：处于导体和绝缘体之间，半导体的电传导是由电场作用和扩散这两种物理机制共同引发。常见的半导体有硅、锗、砷化镓等。
+*   **导体**：导电性强，常见的导体有金属、电解质、液体等。
+*   **超导体**：导电性非常强，没有电阻，通常在绝对零度左右的极限条件下才能出现。
+
+#### **4.5.4.2 粗糙度**
+
+**粗糙度**是反映物质微观表面的轮廓紊乱的程度。
+
+根据粗糙程度可以将物体分成以下几类：
+
+*   **光滑物体**：粗糙度非常小，几乎为 0，摩擦系数很小；微观表面轮廓几乎是一条直线，易产生镜面反射。
+*   **半光滑物体**：粗糙度较小，摩擦系数较小；微观表面轮廓是较平整，产生介于镜面和漫反射之间的反射。
+*   **粗糙物体**：粗糙度很大，接近 1.0，摩擦系数很大；微观表面轮廓非常不平坦，产生漫反射。
+
+![](1679148480615.png)
+
+  
+有很多估算物体粗糙度的方法：
+
+![](1679148480644.png)
+
+*   $R_a$：算术平均偏差法，公式：
+
+$$R_a = \frac{1}{n}\sum_{i=1}^n|y_i|$$
+
+*   $R_q$：均方根法，公式：
+
+$$R_q = \sqrt{\frac{1}{n}\sum_{i=1}^n y_i^2}$$
+
+*   $R_{sk}$：偏态分布法，公式：
+
+$$R_{sk} = \frac{1}{nR_{q^3}}\sum_{i=1}^n y_i^3$$
+
+*   $R_{ku}$：峰态法，公式：
+
+$$R_{ku} = \frac{1}{nR_{q^4}}\sum_{i=1}^n y_i^4$$
+
+还有 $R_zDIN$、$R_zJIS$法，但最常用的是 $R_a$。
+
+#### **4.5.4.3 透光性**
+
+**透光性**亦即透明度，描述物质透过光线的程度。
+
+物体的透光性主要取决于物质内部结构对外来光子的吸收和散射。
+
+金属物质在可见光波段的电子轨道密集（有能带），能强烈地吸收对应能量的光子并发射（相同能量或较小能量的）光子，即其表面可以强烈地反射光，是不透明的。
+
+物质内部对光的散射，主要取决于其内部缺陷的多少，缺陷多的物质，散射率高。普通陶瓷材料，其内部充斥着大量的微气孔等缺陷，气孔会对经过的光产生强烈的散射，所以普通陶瓷是不透明的；而气孔率保持极低的陶瓷材料是可以像玻璃一样透明的。单晶体（如天然水晶）和液体（如水）由于内部排列规则，缺陷极少，是透明的。
+
+#### **4.5.4.4 各向性**
+
+各向性是描述物质任意一点的物理和化学等属性跟方向是否相关，如果与方向无关叫**各向同性（isortropy）**，否则叫**各向异性（anisortropy）**。
+
+比如清澈平静的水是各向同性，因为水的每个部分的属性（密度、压力、温度、折射率质量等等）都与方向无关；而飘忽不定的烟或雾则是各向异性，很明显同个部位不同方向有着不一样的密度或外力。
+
+在计算机图形学，特别是实时渲染领域，通常将物体简化成均匀的，即各向同性的。几何光学也通常将光线传播的介质看成各向同性。
+
+## **4.6 能量理论**
+
+### **4.6.1 能量是什么？**
+
+**能量**是必须转移到物体以便对物体进行影响或加热的定量属性。能量是物质运动转换的量度，是表征物理系统做功本领的量度。
+
+能量的单位与功的单位相同，在国际单位制中是焦耳（J）；在微观研究领域，常用电子伏（eV）作为单位。
+
+### **4.6.2 能量类型**
+
+能量存在的形式多种多样，在不同学科不同分支不同角度有着不同的类别，主要有：
+
+*   **机械能**：物体运动（平移、旋转）宏观的能量（动能、势能）的总和。
+*   **电能**：由电场引起或存储的势能。
+*   **磁能**：由磁场引起或存储的势能。
+*   **重力势能**：由重力场引起或存储的势能。
+*   **化学能**：由化学键引起的势能。
+*   **电离能**：由电子与其原子或分子结合引起的势能。
+*   **核能**：结合原子形成原子核和核反应的势能。
+*   **胶子结合能**：结合夸克形成强子的势能。
+*   **弹性能**：由于材料（或其容器）的变形而出现恢复力的势能。
+*   **机械波能**：由于机械波的传播引发的弹性材料中的动能和势能。
+*   **声波能**：声波是机械波的一种。
+*   **辐射能**：存储在电磁辐射传播的场中的势能，包括光。
+*   **静止能**：由物体的静止质量引发的势能。
+*   **热能**：粒子微观运动的动能，是一种无序等效的机械能。
+
+### **4.6.3 能量转化**
+
+能量的类型多钟多样，而且它们之间是可以相互转化的。
+
+能量的转化在生活中随处可见。比如，“利用太阳能发的电煮开了水，水蒸气一直往上冒”，蕴含了很多能量转化的过程：
+
+*   太阳内部的核能通过核反应转变成太阳光的辐射能；
+*   太阳发电站的太阳板吸收辐射能形成了电能；
+*   利用煮水电器将电能转化成了水的热能；
+*   水蒸气向上冒的过程转化成了重力势能。
+
+### **4.6.4 质能等值**
+
+爱因斯坦在二十世纪初提出了著名的质能转化公式：
+
+$$E = Pc = mc\cdot c = mc^2$$
+
+其中 $E$是能量，$m$是物质的静止质量，$c$是真空的光速，约 $3\times10^8m/s$。
+
+质能等值公式揭示了任意有静止质量的物质都可以转化成能量，而且很少一部分的物质转成能量后是非常巨量的。
+
+比如，1kg 的物质转成能量后：
+
+$$E_{1kg} \approx 1.0 \times (3\times10^8)^2 = 9\times10^{16} J$$
+
+其能量相当于：
+
+*   250 亿千瓦时（$2000GW\cdot h$）；
+*   三峡水电站（全球发电量最大）一整个季度的发电量；
+*   21.5 万亿千卡（$21Pcal$）；
+*   21 万吨 TNT；
+*   26.3 亿升汽油。
+
+由此可见，物质转化成能量后，是非常恐怖的。一块小石头，足以毁掉一个小星球。
+
+幸好，目前尚没有很便捷地将物质转化成能量的方法。然而，虽然核爆（原子弹、中子弹、氢弹）不是利用质能转化定理，但是核能表现出的威力已经足够令人望而生畏了。
+
+### **4.6.5 能量守恒 (Conservation of energy)**
+
+传统物理学上，**能量守恒定律**表明在封闭的系统中，能量不会凭空出现或消失，只会从一种形式转成另外一种形式，能量的总量保持不变。
+
+现代物理学上，由于质量和能量可以相互转化，能量守恒扩展到能量和质量的总和保持不变。
+
+诺埃德定理（Noether's theorem）可以严格证明能量守恒，它也表明了永动机是不可行的。
+
+![](1679148481033.png)
+
+比如，上图所示，光线照到物质表面上时，光能可能一部分被镜面反射（黄色），一部分被散射（深蓝色），一部分被吸收（褐色），还有一部分被透射（图中未标识）。与之对应的能量分别是反射部分依旧是光能，吸收部分转化成热能、电能等形式，透射部分依旧还是光能，并且：
+
+$$E_{in} = E_{specular} + E_{diffuse} + E_{absorb} + E_{transmit}$$
+
+亦即入射光能与反射（包含镜面反射和散射）、吸收、透射部分的总光能相等，遵循了能量守恒定律。
+
+PBR 的 BRDF 也遵循了这一守恒定律，引入粗糙度、反射率等概念，使得原理上更加物理正确，渲染效果上更加真实。
+
+## **4.7 PBR 与光学**
+
+本节将阐述本章前几节涉及的光学理论与 PBR 结合的理论，特别是物质和光的交互原理及理论。主要参考了 **Naty Hoffman** 在 2013~2015 年（特别是 2015 年）的 SIGGRAPH 公开课中演讲的主题：**《Physics and Math of Shading》**。
+
+### **4.7.1 光谱能量分布（SPD）**
+
+回顾一下 [4.2.5.3 光的电磁理论(Electromagnetic theory)](#4.2.5.3 光的电磁理论(Electromagnetic theory)) 描述的电磁理论：
+
+光是电磁波，在介质中作为能量以特定波长（Wavelength）和频率振荡着向前方传播。电磁波可被分解成电场（Electric）和磁场（Magnetic），并且它们相互垂直（如下图）。
+
+![](1679148481071.png)
+
+人类可见的光波波长分布在 400nm~780nm 之间，可见光的波长跟蜘蛛丝宽度相仿，但远小于人类头发丝的宽度（下图）。
+
+![](1679148481121.png)
+
+_上图：可见光波长（图左）与蜘蛛丝（图右斜灰线）、人类头发丝（图右黄色区域）宽度比较。_
+
+实际上，绝大多数光包含了很多个波段的电磁场，每个波段的电磁场包含了不同的能量。比如下图的位于 500~550nm 波段的电磁波，在左上角的**光谱能量分布（Spectral Power Distribution，SPD）**中显示出了绿色光的能量。激光可以发出单色的光。
+
+![](1679148481171.png)
+
+下图左 R、G、B 的光谱能量分布乘以各自的缩放因子，将它们的结果相加之后就成了下图右的摸样。
+
+![](1679148481224.png)
+
+这个原理与已投入影院使用的 R、G、B 激光投影系统类似。
+
+上图所示的是能量分布图，如果将它们用波形图表示，会显得更加复杂，因为涉及到光的叠加和干涉，见下图：
+
+![](1679148481270.png)
+
+但是，由于大多数光源都不是单一波长的光波，而是有一定宽度的连续的复合光波，于是它们的最终叠加的波形更加复杂。举个例子，以标准白光光源 D65 为例，它的光谱能量分布图和复合波形如下：
+
+![](1679148481319.png)
+
+有趣的是，下图的两种 SPD 虽然不一样（上部分是连续的分布，下部分是离散的 RGB 分布），但是刚好跟人类视觉成像原理（详见 [4.2.3 人眼感知可见光原理](#4.2.3 人眼感知可见光原理)）匹配，所以人类并没有发现它们之间的差别。也就是说，人类的视觉是有损的，将无限维度的 SPD 简化成了三维视觉空间。
+
+![](1679148481353.png)
+
+### **4.7.2 物质与光交互**
+
+在纳米级别，当一束电磁光波和原子或分子相遇后，会发生什么呢？
+
+![](1679148481398.png)
+
+答案是，光波会引发原子、分子偏振，并且使它们的正负电荷分离，形成偶极子（dipole）。这就意味着进入的光波被吸收了。
+
+![](1679148481430.png)
+
+吸收了能量并且极化后的原子、分子会迅速恢复，重新向外辐射，形成二次光波。当然被吸收的部分能量可能转化成了热运动，即热能。
+
+![](1679148481454.png)
+
+对均匀介质（Homogeneous Medium）来说，光线是沿着直线传播。由于所有物质在原子维度上看是不可能完全均匀的，所以均匀介质是在实践中抽象出来的概念。
+
+在渲染技术中，会使用宏观的统计和组合为材质提供参数。这个参数就是**折射率（Index of refraction，IOR）**，它由两个部分组成：
+
+*   一部分描述光在介质中的速率。
+*   另外一部分描述光在介质被吸收的比例。
+
+对于介质中局部不均匀的部分将被建模成粒子（原子核等），折射率不连续的物质会散射入射光，散射出的光方向向着四面八方。
+
+![](1679148481498.png)
+
+虽然这跟前面讨论的单一分子或原子的极化类似，但可以将这些微粒组合起来，形成宏观模型。
+
+下图是吸收系数和散射系数组合成的宏观维度的材质表现图。
+
+![](1679148481523.png)
+
+**横轴**是**散射**系数，从左到右可以看出物质从清澈到混浊的程度；**纵轴**是**吸收**系数，从下到上表示物质从透明（光被全透射而表现出跟入射光几乎一样的颜色）到不透明（光被全吸收而表现出与入射光不一样的颜色）的程度。比如牛奶，它是吸收系数低而散射系数高的物质，所以它表现出入射光一致的白色，并且是混浊的。有色液体能很轻易吸某些波段的光，而其它波段的就没那么容易。
+
+从光学角度上看，最重要的事情是所有材质的表面都是粗糙的。没有表面是完全平坦的，至少在原子维度上是不规则的。原子间排布距离如果跟光波差不多或更小，就会引起一种现象，它就是之前章节涉及过的**衍射**。
+
+**惠根斯 - 菲涅尔原理（Huygens-Fresnel Principle）**可以解释这个现象。当光波遇到跟它波长相仿的障碍时，会 “绕弯” 传播，绕到了障碍后面：
+
+![](1679148481572.png)
+
+在纳米维度，当光波传播到光学平坦的表面时，惠根斯 - 菲涅尔原理同样适用。当与入射光碰撞后，每个粒子都会发射球面波，有些强有些弱。这些不平行的球面波结合起来，就会形成复杂的波形，在很多方向发射不一样的光：
+
+![](1679148481612.png)
+
+纳米几何体（Namogeometry）越小，越少光波被衍射。入射光与单个原子碰撞后，少部分会被衍射。
+
+现在聊回几何和射线光学，它们都是更简化的并且广泛应用于计算机图形领域。其中一种简化方法是忽略纳米级别的不规则和衍射，将光学平坦的表面当成完全平坦。由此可以应用几何光学的反射和折射定律。
+
+很多材质表面看起来是平滑的，但实际并非如此，对于微观几何体（Microgeometry），它们一样凹凸不平：
+
+![](1679148481843.png)
+
+上图的上部分由于物体更加平滑，所以在微观的表面看起来更加规则，反射的光也相对规则，宏观表现就是被反射的光更加清晰，反射的画面更容易表达出被反射物体的轮廓；而下部分由于微观更加不规则，反射的光线取向更紊乱，所以宏观表现就是高光变模糊了，被反射的物体看不清楚。
+
+**对于折射进入介质的光，会发生什么呢？**
+
+对这个问题，需要对物质的导电性进行分类，然后分开探讨：
+
+*   **导体（Conductor）**：导体是金属、电解质等导电性强的物质，由于它们的微粒组合特性，会立即吸收折射光形成热运动。
+    
+    ![](1679148481889.png)
+    
+*   **绝缘体（Dielectric）**：即电介质，指没有导电性的物质。如前面章节描述的一样，折射光进入除了透明的电介质后，小部分被吸收，相当一部分在介质内部被多次散射并重新射出表面形成漫反射。
+    
+    ![](1679148481927.png)
+    
+    重新被散射出介质表面的光线形成了不同的散射距离。散射距离的分布取决于散射微粒的密度和属性。
+    
+    ![](1679148482178.png)
+    
+    如下图所示，如果像素尺寸（绿色标识区域）大于散射距离（黄色线段），就可以无视次表面散射效果。
+    
+    ![](1679148482435.png)
+    
+    由于忽略次表面散射的效果，所以入射光附近的区域可以当成一个点来处理（下图），采用经典的关照计算方式，比如 Lambert 或 Phong 光照模型。
+    
+    ![](1679148482457.png)
+    
+    当成单点处理后，便可以将光照分成两个部分：镜面反射和漫反射（包含了折射、吸收、散射和重新折射回表面的光），见下图：
+    
+    ![](1679148482521.png)
+    
+    对于下图中所示的，散射范围（黄色线段）大于像素尺寸（绿色小圆区域），就不能采用上面的简化模型，而需要采取次表面散射（Subsurface scattering）渲染技术。
+    
+    ![](1679148482560.png)
+    
+*   **半导体（Semiconductor）**：由于半导体与光交互的特性介于金属和非金属之间，在实际渲染中，常用迪尼斯原则的金属度系数来模拟半导体特性。
+    
+
+### **4.7.3 BxDF**
+
+上节讲述了物质和光的不同情况的交互原理，本节将讲述 BxDF 的主要类型。
+
+目前计算机图形渲染领域，基于物理的渲染方式主要有：
+
+*   **辐射度（Radiance）**：计算光源的镜面反射和漫反射占总的辐射能量的比例，从而算出颜色。在实时渲染领域，是最主流的渲染方式。BRDF 大多数都是基于此种方式，包括 Cook-Torrance。
+    
+*   **光线追踪（Ray Tracing）**：即光线追踪技术，它的做法是将摄像机的位置与渲染纹理的每个像素构造一条光线，从屏幕射出到虚拟世界，每遇到几何体就计算一次光照，同时损耗一定比例的能量，继续分拆成反射光线和折射光线，如此递归地计算，直到初始光线及其所有分拆的光线能量耗尽为止。
+    
+    ![](1679148482590.png)
+    
+    由于这种方式开销非常大，特别是场景复杂度高的情况，所以常用于离线渲染，如影视制作、动漫制作、设计行业等。
+    
+    近年来，随着 NVIDIA 的 RTX 系列和 AMD 的 RX 系列显卡问世，它们的共同特点是硬件级别支持光线追踪，从而将高大上的光线追踪技术带入了实时渲染领域。
+    
+*   **路径追踪（Path Tracing）**：实际上路径追踪是光线追踪的一种改进方法。它与光线追踪不同的是，引入了蒙特卡洛方法，利用 BRDF 随机跟踪多条反射光线，随后根据这些光线的贡献计算该点的颜色值。
+    
+    这种方法更加真实（下图），但同时也更加耗时，通常用于离线渲染领域。
+    
+    ![](1679148482649.png)
+    
+
+上章已经详细描述了基于辐射度的 Cook-Torrance 的 BRDF 模型的理论和实现。实际上，Cook-Torrance 模型在整个渲染体系中，只是冰山一角。下面是 BRDF 光照模型体系：
+
+![](1679148482675.png)
+
+限于篇幅和本文主题，下面将介绍基于辐射度方式的 BxDF 光照模型。
+
+BxDF 可细分为以下几类：
+
+*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于非透明材质的光照计算。Cook-Torrance 就是 BRDF 的一种实现方式，上章详述过，不多说。
+    
+*   **BTDF**（双向透射分布函数，Bidirectional Transmission Distribution Function）：用于透明材质的光照计算。折射光穿透介质进入另外一种介质时的光照计算模型，只对有透明度的介质适用。
+    
+*   **BSDF**（双向散射分布函数，Bidirectional Scattering Distribution Function）：实际上是 BRDF 和 BTDF 的综合体：
+    
+    ![](1679148482726.png)
+    
+    简单地用公式表达：**BSDF = BRDF + BTDF**。
+    
+*   **SVBRDF**（空间变化双向反射分布函数，Spatially Varying Bidirectional Reflectance Distribution Function）：将含有双参数的柯西分布替代常规高斯分布引入微面元双向反射分布函数 (BRDF) 模型，同时考虑了目标自身辐射强度的方向依赖性，在此基础上推导了长波红外偏振的数学模型，并在合理范围内对模型做简化与修正使之适用于仿真渲染。
+    
+*   **BTF**（双向纹理函数，Bidirectional Texture Function）：主要用于模拟非平坦表面，参数跟 SVBRDF 一致。但是，BTF 包含了非局部的散射效果，比如阴影、遮挡、相互反射、次表面散射等。用 BTF 给表面的每个点建模的方法被成为 **Apparent BRDFs**（表面双向反射分布函数）。
+    
+*   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术。下面是用 SSS 模拟的玉石效果图：
+    
+    ![](1679148482775.png)
+    
+    关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。
+    
+*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于模拟透明材质，目前是主流技术。它和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：
+    
+    ![](1679148482799.png)
+    
+
+从上面可以看出，BxDF 的形式多种多样，但由于它们都是基于辐射度的光照模型，所以最终可以用以下公式抽象出来：
+
+$$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
+
+用更简洁的方式描述，入射光$\omega_i$在 $p$点的颜色的计算公式：
+
+$$\begin{eqnarray*} p点颜色 & = & 光源颜色 \times 材质颜色 \times 反射系数 \times 光照函数 \\ 光照函数 & = & f(n_{法线}, \omega_{光源方向}, v_{视点方向}) \end{eqnarray*}$$
+
+由于篇幅问题，本文不会对 BTDF、BSDF、SSS、BSSRDF 进行详细讨论，有兴趣的可以另外找资料了解。笔者以后也可能另外开辟专题探讨。
+
+本章末，值得一提的是，BRDF 最终的光照计算结果是几何函数和油墨算法（ink-selection）结合的结果。
+
+![](1679148483056.png)
+
+其中油墨算法描述了如何计算各颜色分量的反射率，可参看论文[《A Multi-Ink Color-Separation Algorithm Maximizing Color Constancy》](https://pdfs.semanticscholar.org/9e56/8b13ea51ca3c669186624566f672eb547857.pdf)。

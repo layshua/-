@@ -1,6 +1,66 @@
 {
   "recentFiles": [
     {
+      "basename": "2 基本认知和应用",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md"
+    },
+    {
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
+    },
+    {
+      "basename": "5 PBR 关联理论和推导1",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "3 PBR 基本原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+    },
+    {
+      "basename": "1 前言",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
+    },
+    {
+      "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
+      "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "4 PBR 核心理论和原理",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
+    },
+    {
+      "basename": "6 后记",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md"
+    },
+    {
+      "basename": "基本操作",
+      "path": "DCC/06 Zbush/基本操作.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
@@ -105,10 +165,6 @@
       "path": "Tools/工具流.md"
     },
     {
-      "basename": "基本操作",
-      "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
@@ -143,62 +199,6 @@
     {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
-    },
-    {
-      "basename": "101 材质大师",
-      "path": "zip/引擎Unreal/03 材质 & 渲染/101 材质大师.md"
-    },
-    {
-      "basename": "202 材质教程",
-      "path": "zip/引擎Unreal/03 材质 & 渲染/202 材质教程.md"
-    },
-    {
-      "basename": "303 实时渲染",
-      "path": "zip/引擎Unreal/03 材质 & 渲染/303 实时渲染.md"
-    },
-    {
-      "basename": "Shader HLSL",
-      "path": "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
-    },
-    {
-      "basename": "移动游戏性能优化通用技法",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/移动游戏性能优化通用技法.md"
-    },
-    {
-      "basename": "1679148080869",
-      "path": "zip/images/1679148080869.png"
-    },
-    {
-      "basename": "交互草",
-      "path": "zip/引擎Unreal/08 案例/交互草.md"
-    },
-    {
-      "basename": "UE5 实现基于 Gerstner 波的写实海水渲染（一）",
-      "path": "zip/引擎Unreal/09 教程剪藏/UE5 实现基于 Gerstner 波的写实海水渲染（一）/UE5 实现基于 Gerstner 波的写实海水渲染（一）.md"
-    },
-    {
-      "basename": "1677315621012",
-      "path": "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/assets/1677315621012.png"
-    },
-    {
-      "basename": "UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）",
-      "path": "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md"
-    },
-    {
-      "basename": "UE4 - 虚幻引擎草地生成 _静态篇_",
-      "path": "zip/引擎Unreal/09 教程剪藏/UE4 - 虚幻引擎草地生成 _静态篇_/UE4 - 虚幻引擎草地生成 _静态篇_.md"
-    },
-    {
-      "basename": "死亡搁浅扫描特效",
-      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
-    },
-    {
-      "basename": "1677315630020",
-      "path": "zip/images/1677315630020.png"
     }
   ],
   "omittedPaths": [],
