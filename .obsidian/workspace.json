@@ -96,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "Tools/工具流.md"
               }
             }
           }
@@ -167,8 +167,10 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "5ac6b4f8bc42a1c9",
+  "active": "c8364727c447fbd2",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "DCC/06 Zbush/基本操作.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "Tools/工具流.md",
@@ -202,9 +204,7 @@
     "zip/引擎Unreal/09 教程剪藏/UE4 - 虚幻引擎草地生成 _静态篇_/UE4 - 虚幻引擎草地生成 _静态篇_.md",
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "zip/images/1677315630020.png",
-    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "test",
-    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",

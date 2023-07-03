@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "基本操作",
+      "path": "DCC/06 Zbush/基本操作.md"
     },
     {
       "basename": "《CS Primer》",
@@ -11,10 +19,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
     },
     {
       "basename": "插件流",
@@ -147,10 +151,6 @@
     {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "基本操作",
-      "path": "DCC/06 Zbush/基本操作.md"
     },
     {
       "basename": "03 顶点动画",
