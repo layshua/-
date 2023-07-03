@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
@@ -15,14 +31,6 @@
     {
       "basename": "19 径向模糊",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
@@ -75,10 +83,6 @@
     {
       "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
-    },
-    {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
     },
     {
       "basename": "《编辑器扩展》",
@@ -143,10 +147,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
       "basename": "101 材质大师",

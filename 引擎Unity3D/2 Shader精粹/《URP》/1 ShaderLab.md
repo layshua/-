@@ -90,7 +90,7 @@ _Cubemap ("Cubemap", Cube) = "" {}
 _CubemapArray ("CubemapArray", CubeArray) = "" {}
 ```
 
-（1）2D 属性是纹理类属性中最常使用的，漫反射贴图、法线贴图等都属于 2D 类型。
+（1）2D 属性是纹理类属性中最常使用的，漫反射贴图、法线贴图等都属于 2D 类型。2D 
 （2）Cube 全称 Cube map texture（立方体纹理），是由前、后、左、右、上、下 6 张有联系的 2D 贴图拼成的立方体，主要用作反射，例如 Skybox 和 Reflection Prob。
 （3）3D 纹理只能被脚本创建
 
