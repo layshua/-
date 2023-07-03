@@ -72,7 +72,7 @@ cameraSettings);
 
 ``` 
 
-### DrawRenderPass.cs  
+### DrawRenderPass.cs 
 
 完整代码：[here](https://github.com/logic-three-body/CommandBufferDemo/blob/main/Assets/Scripts/RenderFeatures/SetRenderTarget/Passes/DrawRenderersPass.cs)  
 
@@ -80,7 +80,7 @@ cameraSettings);
 
 DrawRenderersPass构造函数：  
 
-```
+```c
 public DrawRenderersPass(string profilerTag, RenderPassEvent renderPassEvent, RenderQueueType renderQueueType, int layerMask, string[] shaderTags,
                          Material overrideMaterial, int overrideMaterialPassIndex,
                          bool overrideDepthState, bool enableWrite, CompareFunction depthCompareFunction,
