@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -51,13 +51,8 @@
             "id": "15da9e70d46f3689",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/Cherno剩余.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -99,7 +94,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 43.07553956834532,
+        "dimension": 44.514388489208635,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -130,17 +125,31 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
+      },
+      {
+        "id": "b824bcc2141c9fa2",
+        "type": "tabs",
+        "dimension": 17.985611510791365,
+        "children": [
+          {
+            "id": "ffd75fe37a90e6ea",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 56.92446043165468,
+        "dimension": 37.5,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -150,14 +159,6 @@
               "state": {
                 "sortOrder": "alphabetical"
               }
-            }
-          },
-          {
-            "id": "ffd75fe37a90e6ea",
-            "type": "leaf",
-            "state": {
-              "type": "recent-files",
-              "state": {}
             }
           },
           {
@@ -174,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +192,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
+                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,7 +202,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 357.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -223,30 +224,37 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "6cb29e57b057a698",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/09 描边.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/05 SSAO.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+    "引擎Unity3D/3 Catlike Coding/程序化网格.md",
+    "技术美术/1 渲染雅集/阿萨的.md",
+    "技术美术/1 渲染雅集/07 空间.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "引擎Unity3D/01 BUG合集.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "编程/C++/Cherno剩余.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "编程/C++/Cherno剩余.md",
-    "引擎Unity3D/01 BUG合集.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
-    "编程/C++/C++原理.md",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "zip/images/Pasted image 20230702232446.png",
     "zip/images/Pasted image 20230702231206.png",
-    "编程/C++/《C++ Primer》.md",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
     "zip/images/Pasted image 20230702225910.png",
-    "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/Pasted image 20230702221224.png",
     "zip/images/Pasted image 20230702221037.png",
     "zip/images/Pasted image 20230702220915.png",
@@ -254,13 +262,6 @@
     "zip/images/25833c7bafd2110d3e58cdd8b1bbf56a_MD5.png",
     "zip/images/64d60dea540a407204407c57e6dd2ee1_MD5.png",
     "zip/images/8b7fea79ac6721ff04a7697791d9b985_MD5.png",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md",
-    "技术美术/3 后处理/ta101后处理.md",
-    "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",

@@ -1,6 +1,86 @@
 {
   "recentFiles": [
     {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "09 描边",
+      "path": "技术美术/1 渲染雅集/09 描边.md"
+    },
+    {
+      "basename": "06 雾",
+      "path": "技术美术/1 渲染雅集/06 雾.md"
+    },
+    {
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
+    },
+    {
+      "basename": "05 SSAO",
+      "path": "技术美术/1 渲染雅集/05 SSAO.md"
+    },
+    {
+      "basename": "07 空间",
+      "path": "技术美术/1 渲染雅集/07 空间.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "01 BUG合集",
+      "path": "引擎Unity3D/01 BUG合集.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/C++/Cherno剩余.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
+    },
+    {
       "basename": "08 点光源和聚光灯",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md"
     },
@@ -15,14 +95,6 @@
     {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "Cherno剩余",
-      "path": "编程/C++/Cherno剩余.md"
-    },
-    {
-      "basename": "01 BUG合集",
-      "path": "引擎Unity3D/01 BUG合集.md"
     },
     {
       "basename": "《Effective C++ 3th》",
@@ -89,10 +161,6 @@
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
       "basename": "11 HDR",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
     },
@@ -117,10 +185,6 @@
       "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
     },
     {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
@@ -135,70 +199,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "06 阴影遮罩",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/06 阴影遮罩.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/04 定向阴影.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "资源",
-      "path": "图形学/5 书籍/《RTR4》/资源.md"
-    },
-    {
-      "basename": "《虎书》",
-      "path": "图形学/5 书籍/虎书/《虎书》.md"
-    },
-    {
-      "basename": "PBRT3",
-      "path": "图形学/5 书籍/PBRT/PBRT3.md"
-    },
-    {
-      "basename": "图床",
-      "path": "Tools/Git/图床.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "14 复杂纹理",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/14 复杂纹理.md"
-    },
-    {
-      "basename": "13 多相机",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/13 多相机.md"
-    },
-    {
-      "basename": "12 颜色分级",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/12 颜色分级.md"
-    },
-    {
-      "basename": "07 LOD和反射",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/07 LOD和反射.md"
     }
   ],
   "omittedPaths": [],

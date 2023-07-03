@@ -29,7 +29,6 @@
   "obsidian-list-callouts",
   "kity-mindmap",
   "obsidian-banners",
-  "file-order",
   "omnisearch",
   "obsidian-icon-folder",
   "codeblock-customizer",
@@ -38,5 +37,6 @@
   "obsidian-git",
   "recent-files-obsidian",
   "obsidian-link-converter",
-  "obsidian-emoji-toolbar"
+  "obsidian-emoji-toolbar",
+  "file-order"
 ]
