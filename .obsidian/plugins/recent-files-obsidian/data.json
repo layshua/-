@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -13,8 +17,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "常用语法",
@@ -195,10 +199,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
     }
   ],
   "omittedPaths": [],

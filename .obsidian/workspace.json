@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "a941fb875a28a6ab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "649754e3239594f8",
             "type": "leaf",
             "state": {
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -212,10 +225,11 @@
   },
   "active": "5864e9b8d3bc4270",
   "lastOpenFiles": [
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
     "Math/LaTeX/常用语法.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
@@ -248,7 +262,6 @@
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR疑问.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
     "test",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",

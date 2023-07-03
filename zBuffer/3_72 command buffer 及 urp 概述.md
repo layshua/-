@@ -142,8 +142,8 @@ public override void Execute(ScriptableRenderContext context, ref RenderingData 
 
 ### Test0:CullingResults+DrawingSettings+FilteringSettings  
 
- ```
-									   //使用哪个pass绘制
+ ```c
+//使用哪个pass绘制
 m_DrawingSetting = new DrawingSettings(m_ShaderTagIdList[0], sortingSettings)
 {
     perObjectData = renderingData.perObjectData,
@@ -157,11 +157,11 @@ for (int i = 1; i < m_ShaderTagIdList.Count; ++i)
     m_DrawingSetting.SetShaderPassName(i, m_ShaderTagIdList[i]);
 }
 
-``` ```
-Debug.Log(((string)m_DrawingSetting.GetShaderPassName(0)));
-
 ``` 
 
+```
+Debug.Log(((string)m_DrawingSetting.GetShaderPassName(0)));
+``` 
 着色器中的lightmode：  
 
 ```
@@ -203,7 +203,9 @@ Shader "Unlit/UnlitTest _LightModeTest"
 m_DrawingSetting.overrideMaterial = overrideMaterial;
 m_DrawingSetting.overrideMaterialPassIndex = overrideMaterialPassIndex;
 
-``` <table class="table" style="width: 500px;"><colgroup><col width="250"><col width="249"></colgroup><tbody class="table-inner"><tr class="tr" style="height: 35px;"><td class="td" data-col="0"><div class="td-content"><p id="u496ee263" data-lake-id="u496ee263"><text id="uf67a910f">未重写（注释上述语句）</text><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td><td class="td" data-col="1"><div class="td-content"><p id="ub8f1893c" data-lake-id="ub8f1893c"><text id="u2e5db491">重写</text><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td></tr><tr class="tr"><td class="td" data-col="0"><div class="td-content"><p id="u923840b5" data-lake-id="u923840b5" class="sr-rd-content-center"><img width="960" class="image image-preview" alt="image.png" draggable="true" src="https://cdn.nlark.com/yuque/0/2021/png/22095277/1635216602402-dfe928e3-deed-42df-98a5-a8fd83549e4b.png?x-oss-process=image%2Fresize%2Cw_1125%2Climit_0"><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td><td class="td" data-col="1"><div class="td-content"><p id="ud46b3e94" data-lake-id="ud46b3e94" class="sr-rd-content-center"><img width="960" class="image image-preview" alt="image.png" draggable="true" src="https://cdn.nlark.com/yuque/0/2021/png/22095277/1635216313612-c100d952-b0af-423a-b3b4-4798f8263435.png?x-oss-process=image%2Fresize%2Cw_1125%2Climit_0"><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td></tr></tbody></table>
+```
+
+<table class="table" style="width: 500px;"><colgroup><col width="250"><col width="249"></colgroup><tbody class="table-inner"><tr class="tr" style="height: 35px;"><td class="td" data-col="0"><div class="td-content"><p id="u496ee263" data-lake-id="u496ee263"><text id="uf67a910f">未重写（注释上述语句）</text><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td><td class="td" data-col="1"><div class="td-content"><p id="ub8f1893c" data-lake-id="ub8f1893c"><text id="u2e5db491">重写</text><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td></tr><tr class="tr"><td class="td" data-col="0"><div class="td-content"><p id="u923840b5" data-lake-id="u923840b5" class="sr-rd-content-center"><img width="960" class="image image-preview" alt="image.png" draggable="true" src="https://cdn.nlark.com/yuque/0/2021/png/22095277/1635216602402-dfe928e3-deed-42df-98a5-a8fd83549e4b.png?x-oss-process=image%2Fresize%2Cw_1125%2Climit_0"><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td><td class="td" data-col="1"><div class="td-content"><p id="ud46b3e94" data-lake-id="ud46b3e94" class="sr-rd-content-center"><img width="960" class="image image-preview" alt="image.png" draggable="true" src="https://cdn.nlark.com/yuque/0/2021/png/22095277/1635216313612-c100d952-b0af-423a-b3b4-4798f8263435.png?x-oss-process=image%2Fresize%2Cw_1125%2Climit_0"><span class="viewer-b-filler" filler="block"><br></span></p></div><div class="td-break" contenteditable="false" style="user-select: text !important;-webkit-user-select: text !important;-webkit-touch-callout: text !important;"></div></td></tr></tbody></table>
 
 这时可以解决我们之前的疑惑，就是在[material pass index](#giMAX)时，为什么不同的material index会有不同的效果，因为我们重写的材质shader是Lit_RenderStateBlockTest，里面有多个pass，对应着不同的index，下面是Lit_RenderStateBlockTest简略代码（完整代码见:[here](https://github.com/logic-three-body/CommandBufferDemo/blob/main/Assets/Shader/DrawMesh/Lit_RenderStateBlockTest.shader)）：  
 
