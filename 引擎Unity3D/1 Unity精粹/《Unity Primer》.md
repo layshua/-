@@ -553,19 +553,20 @@ print(worldPos);
 ### 世界/视口
 ```cs
 //世界坐标转视口坐标
-Camera. main. worldToViewportPoint
+Camera.main.worldToViewportPoint
 
 //视口转世界
-Camera. main. ViewportToworldPoint 
+Camera.main.ViewportToworldPoint 
 ```
 
+视口空间是标准化的、相对于摄像机的空间。视口左下角为 (0,0)，右上角为 (1,1)。z 位置为与摄像机的距离，采用世界单位。
 ### 视口/屏幕
 ```cs
 //视口转屏幕
-Camera. main. ViewportToScreenPoint
+Camera.main.ViewportToScreenPoint
 
 //屏幕转视口
-Camera. main. screenToViewportPoint
+Camera.main.screenToViewportPoint
 ```
 
 # 二、重要组件和 API
@@ -779,6 +780,7 @@ private void QnDisable()
 **判断是否有延迟函数**
 `if(IsInVoking())`：针对所有延迟函数
 `if(IsInVoking("函数名"))`：针对指定延迟函数
+
 
 ## 1 Object 类
 **Object 是 Gameobject 的父类** 

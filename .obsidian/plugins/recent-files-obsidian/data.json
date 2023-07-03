@@ -1,12 +1,104 @@
 {
   "recentFiles": [
     {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
     },
     {
       "basename": "基本操作",
@@ -17,16 +109,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
       "basename": "01 学习大纲",
@@ -115,90 +199,6 @@
     {
       "basename": "1677315630020",
       "path": "zip/images/1677315630020.png"
-    },
-    {
-      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
-      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "04 景深",
-      "path": "技术美术/3 后处理/04 景深.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "01 BUG合集",
-      "path": "引擎Unity3D/1 Unity精粹/01 BUG合集.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
-    },
-    {
-      "basename": "工厂模式",
-      "path": "编程/设计模式/工厂模式.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "03 顶点动画",
-      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "09 描边",
-      "path": "技术美术/1 渲染雅集/09 描边.md"
-    },
-    {
-      "basename": "02 UV操作",
-      "path": "技术美术/1 渲染雅集/02 UV操作.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "0cbe51fa24d47bffbecd3ae513fac8ba",
-      "path": "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png"
-    },
-    {
-      "basename": "[译文]UE 基础—蓝图 VS_ C++",
-      "path": "zip/引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
-    },
-    {
-      "basename": "05 SSAO",
-      "path": "技术美术/1 渲染雅集/05 SSAO.md"
-    },
-    {
-      "basename": "07 空间",
-      "path": "技术美术/1 渲染雅集/07 空间.md"
     }
   ],
   "omittedPaths": [],

@@ -14,7 +14,6 @@
   "CodeMirror Options@@cm-theme-selection": "cm-theme-custom",
   "CodeMirror Options@@cm-font-monospace": "Fira Code",
   "CodeMirror Options@@cm-font-size": "15px",
-  "CodeMirror Options@@cm-wrap-lines": "pre-wrap",
   "CodeMirror Options@@cm-font-weight": 400,
   "CodeMirror Options@@cm-background-color@@light": "#313641",
   "CodeMirror Options@@cm-comment@@light": "#A1A4AF",
@@ -127,5 +126,6 @@
   "file-tree-alternative-plugin@@oz-fta-file-pane-active-file-background-color": "#E5E0F3",
   "file-tree-alternative-plugin@@oz-fta-folder-icon-color": "#B3B2B2",
   "file-tree-alternative-plugin@@oz-fta-folder-indendation-guide-color": "#E4E4E5",
-  "file-tree-alternative-plugin@@oz-fta-folder-pane-file-name-color": "#7D7A7A"
+  "file-tree-alternative-plugin@@oz-fta-folder-pane-file-name-color": "#7D7A7A",
+  "CodeMirror Options@@cm-wrap-lines": "pre-wrap"
 }
