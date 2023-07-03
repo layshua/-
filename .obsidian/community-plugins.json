@@ -14,7 +14,6 @@
   "mousewheel-image-zoom",
   "obsidian-local-images-plus",
   "remotely-save",
-  "obsidian-focus-mode",
   "obsidian-plugin-update-tracker",
   "mysnippets-plugin",
   "darlal-switcher-plus",
@@ -40,5 +39,6 @@
   "obsidian-emoji-toolbar",
   "file-order",
   "markdown-table-editor",
-  "cmdr"
+  "cmdr",
+  "obsidian-focus-mode"
 ]

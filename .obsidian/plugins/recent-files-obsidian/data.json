@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "程序化网格",
+      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
     },
     {
       "basename": "09 描边",
@@ -15,10 +19,6 @@
     {
       "basename": "06 雾",
       "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "程序化网格",
-      "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
     },
     {
       "basename": "05 SSAO",
