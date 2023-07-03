@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+    },
+    {
       "basename": "01 学习大纲",
       "path": "01 学习大纲.md"
     },
@@ -93,10 +105,6 @@
       "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
     },
     {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
       "basename": "03 定向光",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
     },
@@ -127,10 +135,6 @@
     {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
     },
     {
       "basename": "基本操作",
@@ -183,10 +187,6 @@
     {
       "basename": "[译文]UE 基础—蓝图 VS_ C++",
       "path": "zip/引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
       "basename": "程序化网格",
