@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "矩阵论",
+      "path": "Math/线性代数/矩阵论.md"
+    },
+    {
+      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
+      "path": "zBuffer/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+    },
+    {
+      "basename": "原神",
+      "path": "技术美术/6 NPR/原神.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     }
   ],
   "omittedPaths": [],

@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "Math/线性代数/矩阵论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+                "file": "Math/线性代数/矩阵论.md"
               }
             }
           }
@@ -180,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "Math/线性代数/矩阵论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+                "file": "Math/线性代数/矩阵论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -223,13 +223,20 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "5864e9b8d3bc4270",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "zBuffer/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
+    "技术美术/6 NPR/原神.md",
+    "zBuffer/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
+    "zBuffer/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
+    "zBuffer/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md",
+    "zBuffer/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "Math/LaTeX/常用语法.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
@@ -254,14 +261,7 @@
     "技术美术/7 PBR/PBR总结.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
-    "技术美术/7 PBR/ta101PBR.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md",
-    "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md",
-    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "技术美术/7 PBR/PBR疑问.md",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
     "test",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",

@@ -1,15 +1,15 @@
 /** 文件名**/
-body .nav-file-title-content:not(.is-being-renamed):hover {
+/* body .nav-file-title-content:not(.is-being-renamed):hover {
   animation: filemove 1.5s 1 normal linear;
-}
+} */
 
 body .nav-file-title-content:not(.is-being-renamed) {
   min-width: 200px;
   white-space: nowrap;
 }
-body .nav-file {
-  display: table;
-}
+/* body .nav-file {
+  display:table;
+} */
 /** 文件夹名**/
 body .obsidian-icon-folder-icon {
   vertical-align: middle;
