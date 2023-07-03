@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
+      "basename": "辐射度量学",
+      "path": "技术美术/7 PBR/辐射度量学.md"
     },
     {
       "basename": "3 PBR 基本原理和实现",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "基本操作",
+      "path": "DCC/06 Zbush/基本操作.md"
+    },
+    {
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
     },
     {
       "basename": "1 前言",
@@ -57,10 +73,6 @@
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md"
     },
     {
-      "basename": "基本操作",
-      "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
@@ -83,10 +95,6 @@
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
       "basename": "19 径向模糊",
@@ -191,14 +199,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "ASE",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     }
   ],
   "omittedPaths": [],

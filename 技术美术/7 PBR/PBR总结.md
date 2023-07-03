@@ -20,7 +20,7 @@
 *   清漆效果
 *   其它更复杂的表面特征
 
-# PBR 基础基础理论和推导
+# 1 PBR 基础基础理论和推导
 满足以下条件的光照模型才能称之为 PBR 光照模型（基于物理的材质三大条件）：
 *   基于微平面理论的表面模型（Be based on the microfacet surface model）。
 *   能量守恒（Be energy conserving）。
@@ -81,7 +81,6 @@ $$h = \frac{l + v}{\|l + v\|}$$
 PBR 的反射方程可抽象成下面的形式：
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
-
 
 ![[Pasted image 20230703155823.png]]
 
@@ -164,3 +163,4 @@ G：我们是使用微平面理论，也就是说每个面单独计算互不干�
 
 ![[Pasted image 20230703160437.png]]
 >可以得到如下所示不同粗糙度的视觉效果 0: 没有微平面阴影    1：微平面彻底被遮蔽
+
