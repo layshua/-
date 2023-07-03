@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
     }
   ],
   "omittedPaths": [],
