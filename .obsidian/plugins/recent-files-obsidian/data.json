@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+    },
+    {
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
+      "basename": "光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
+    },
+    {
+      "basename": "可微渲染、NeRF 相关技术概念急速入门",
+      "path": "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
+    },
+    {
       "basename": "3 PBR 基本原理和实现",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
     },
@@ -27,10 +51,6 @@
     {
       "basename": "基本操作",
       "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
     },
     {
       "basename": "PBR总结",
@@ -91,10 +111,6 @@
     {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
       "basename": "4 后处理",
@@ -183,22 +199,6 @@
     {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "01 学习大纲.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     }
   ],
   "omittedPaths": [],

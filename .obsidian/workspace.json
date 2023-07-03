@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,38 +21,33 @@
             }
           },
           {
-            "id": "bd40376485452127",
+            "id": "649754e3239594f8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/LaTeX/常用语法.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "9cd2013a3f95aed0",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "69200d152bd69e8d",
+            "id": "5864e9b8d3bc4270",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
               }
             }
           }
@@ -159,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -202,30 +197,36 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "d11951351a665a24",
+  "active": "649754e3239594f8",
   "lastOpenFiles": [
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "Math/LaTeX/常用语法.md",
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
+    "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
+    "zBuffer/可微渲染、NeRF 相关技术概念急速入门.md",
+    "zip/images/25f8835ff03a341bfa91883c419a8f43_MD5.jpg",
+    "zip/images/83ba849b10cbf2342bf2b4e7d42fe66e_MD5.jpg",
+    "zip/images/9c648b95a61771e8efa4714d0329d89f_MD5.jpg",
+    "zip/images/10f1ad71e327758ee024be06da09d976_MD5.jpg",
+    "zip/images/3e3c802123399764cf8ae11a68be342b_MD5.jpg",
+    "zip/images/49cdb9a734253545cae3a3e33e7c80fe_MD5.jpg",
+    "zip/images/7d9c192c2dcdd3b1b3b1702ae36faf6b_MD5.jpg",
+    "zip/images/5ab196f4f93b63ab23ff7008a1eff299_MD5.jpg",
+    "zip/images/2338964841e04903f934419cefa3d74c_MD5.jpg",
+    "zip/images/3ded7e03c48462cdcfe13faf6fd021f8_MD5.jpg",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/辐射度量学.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md",
     "DCC/06 Zbush/基本操作.md",
-    "Math/LaTeX/常用语法.md",
     "技术美术/7 PBR/PBR总结.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
     "技术美术/7 PBR/ta101PBR.md",
-    "zip/images/Pasted image 20230703160450.png",
-    "zip/images/Pasted image 20230703160437.png",
-    "zip/images/Pasted image 20230703160320.png",
-    "zip/images/Pasted image 20230703160317.png",
-    "zip/images/Pasted image 20230703160305.png",
-    "zip/images/Pasted image 20230703160302.png",
-    "zip/images/Pasted image 20230703160214.png",
-    "zip/images/Pasted image 20230703160130.png",
-    "zip/images/Pasted image 20230703160122.png",
-    "zip/images/Pasted image 20230703160117.png",
     "图形学/1 图形系统/03 光照模型.md",
     "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md",
     "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md",
@@ -235,12 +236,6 @@
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
     "test",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",

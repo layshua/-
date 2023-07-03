@@ -156,6 +156,68 @@ public class URPCallbackExample : MonoBehaviour
 > [!NOTE] 创建 RenderFeature 脚本更简单的方法
 > 右键->Rendering->URP Render Feature
 
+
+```cs file:RF模板
+public class CustomRenderFeature : ScriptableRendererFeature
+{
+    class CustomRenderPass : ScriptableRenderPass
+    {
+        // 该方法在执行render pass之前被调用
+        // 它可用于配置render target和它们的clear state，还可以创建临时渲染目标纹理。
+        // 当为空时，该render pass将渲染到活动相机的render target.
+        // 永远不要调用CommandBuffer.SetRenderTarget. 而应该是 ConfigureTarget 和 ConfigureClear.
+        // 渲染管线将确保render target的setup和clearing以高性能方式进行。
+        public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
+        {
+        }
+
+        // 每帧执行，这里可以实现渲染逻辑
+        // 使用 criptableRenderContext 发出绘制命令或执行命令缓冲区
+        // https://docs.unity3d.com/ScriptReference/Rendering.ScriptableRenderContext.html
+        // 您不必调用 ScriptableRenderContext.submit，渲染管道将在管道中的特定点调用它。
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+        {
+            //获取新的命令缓冲区并为其指定一个名称
+            CommandBuffer cmd = CommandBufferPool.Get(name: "CustomRenderPass");
+            
+            //执行命令缓冲区中的命令
+            context.ExecuteCommandBuffer(cmd);
+            
+            //释放命令缓冲区
+            CommandBufferPool.Release(cmd);
+        }
+
+        // 清理在此render pass执行期间创建的所有已分配资源。
+        public override void OnCameraCleanup(CommandBuffer cmd)
+        {
+        }
+    }
+
+    CustomRenderPass m_ScriptablePass;
+
+    /// <inheritdoc/>
+    public override void Create()
+    {
+        //创建CustomRenderPass实例
+        m_ScriptablePass = new CustomRenderPass();
+
+        // 配置render pass插入的位置
+        m_ScriptablePass.renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
+    }
+
+    // 这里你可以在渲染器中插入一个或多个render pass
+    // 在每个摄像机设置一次渲染器时调用此方法。
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+    {
+        //入队渲染队列
+        renderer.EnqueuePass(m_ScriptablePass);
+    }
+}
+```
+
+---
+
+**手动创建过程：**
 1. 创建脚本，命名为 CustomRenderFeature. cs
 2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类
 3. 该脚本类必须实现以下方法：

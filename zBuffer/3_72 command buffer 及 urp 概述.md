@@ -65,10 +65,10 @@ public CustomCameraSettings cameraSettings = new CustomCameraSettings();
 ```c
 //in Create():
 m_DrawRendererPass = new DrawRenderersPass(this.name, Event, m_RenderQueueType, m_LayerMask, PassNames,
-                                           override_Material, overrideMaterialPassIndex,
-                                           overriderDepthState, enableWrite, depthCompareFunction,
-                                           this.stencilSettings,
-                                           cameraSettings);
+override_Material, overrideMaterialPassIndex,
+overriderDepthState, enableWrite, depthCompareFunction,
+this.stencilSettings,
+cameraSettings);
 
 ``` 
 
