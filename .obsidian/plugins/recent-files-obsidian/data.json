@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "辐射度量学",
-      "path": "技术美术/7 PBR/辐射度量学.md"
-    },
-    {
       "basename": "3 PBR 基本原理和实现",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "5 PBR 关联理论和推导1",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md"
+    },
+    {
+      "basename": "4 PBR 核心理论和原理",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
+    },
+    {
+      "basename": "辐射度量学",
+      "path": "技术美术/7 PBR/辐射度量学.md"
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
@@ -37,10 +49,6 @@
       "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "5 PBR 关联理论和推导1",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md"
-    },
-    {
       "basename": "03 光照模型",
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
@@ -63,10 +71,6 @@
     {
       "basename": "PBR疑问",
       "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
-      "basename": "4 PBR 核心理论和原理",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
     },
     {
       "basename": "6 后记",
@@ -195,10 +199,6 @@
     {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
     }
   ],
   "omittedPaths": [],

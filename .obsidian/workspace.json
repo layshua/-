@@ -45,7 +45,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md"
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
               }
             }
           }
@@ -159,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -202,9 +202,12 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "69200d152bd69e8d",
+  "active": "d11951351a665a24",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/辐射度量学.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md",
     "DCC/06 Zbush/基本操作.md",
@@ -223,14 +226,12 @@
     "zip/images/Pasted image 20230703160130.png",
     "zip/images/Pasted image 20230703160122.png",
     "zip/images/Pasted image 20230703160117.png",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
     "图形学/1 图形系统/03 光照模型.md",
     "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md",
     "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md",
     "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "技术美术/7 PBR/PBR疑问.md",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
@@ -240,7 +241,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "test",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
