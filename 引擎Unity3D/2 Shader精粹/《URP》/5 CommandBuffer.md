@@ -44,7 +44,7 @@ Render Target 可以设置为系统内置的纹理 (比如深度、相机纹理)
 ![[Pasted image 20230702220915.png]]
 
 而为了更好扩展 unity 的渲染管线，unity 提供了 CommandBuffer, 让你根据自己的需求，在**不同的渲染阶段**插入绘制指令，例如插入 `DrawRenderer` , `DrawMesh`, `DrawProcedure`。
-绘制的时候也可以根据需要设置绘制时材质 (Material)的`MaterialPropertyBlock` 更改当前绘制的材质的属性。
+绘制的时候也可以根据需要设置绘制时材质的 `MaterialPropertyBlock` 更改当前绘制的材质的属性。
 PS: MaterialPropertyBlock 比直接修改 Material 的优势是: 不会创建出新的材质实例。
 
 这里我用了 RenderFeature 在 BeforeRenderingOpaques 的时候用 DrawMesh 指令渲染了一个 Box：

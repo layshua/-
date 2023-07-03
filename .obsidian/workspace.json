@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "DCC/06 Zbush/基本操作.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c8364727c447fbd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -32,7 +46,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 44.514388489208635,
+        "dimension": 38.938848920863315,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -63,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
               }
             }
           }
@@ -72,7 +86,7 @@
       {
         "id": "b824bcc2141c9fa2",
         "type": "tabs",
-        "dimension": 17.985611510791365,
+        "dimension": 18.345323741007196,
         "children": [
           {
             "id": "ffd75fe37a90e6ea",
@@ -87,7 +101,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 37.5,
+        "dimension": 42.7158273381295,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -113,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -163,18 +177,22 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "c8364727c447fbd2",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "DCC/06 Zbush/基本操作.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/3 Catlike Coding/程序化网格.md",
     "Tools/Obsidian/插件流.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
     "技术美术/1 渲染雅集/09 描边.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/05 SSAO.md",
     "技术美术/1 渲染雅集/阿萨的.md",
     "技术美术/1 渲染雅集/07 空间.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/01 BUG合集.md",
     "技术美术/3 后处理/02 Bloom.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md",
@@ -187,10 +205,6 @@
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/Cherno剩余.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/08 点光源和聚光灯.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/09 点光源和聚光灯阴影.md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
     "zip/images/Pasted image 20230702232446.png",
     "zip/images/Pasted image 20230702231206.png",
     "zip/images/Pasted image 20230702225910.png",

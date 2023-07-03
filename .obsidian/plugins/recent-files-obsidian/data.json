@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
+    },
+    {
+      "basename": "基本操作",
+      "path": "DCC/06 Zbush/基本操作.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -27,10 +47,6 @@
     {
       "basename": "07 空间",
       "path": "技术美术/1 渲染雅集/07 空间.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "01 BUG合集",
@@ -105,10 +121,6 @@
       "path": "编程/C++/《Effective C++ 3th》.md"
     },
     {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
-    },
-    {
       "basename": "2 URP",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md"
     },
@@ -137,10 +149,6 @@
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
-    },
-    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -155,10 +163,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
       "basename": "08 透明",
@@ -195,10 +199,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
     }
   ],
   "omittedPaths": [],
