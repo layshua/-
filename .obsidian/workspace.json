@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,10 +210,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "a8a37dad7eb37d3a",
+  "active": "5864e9b8d3bc4270",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "Math/LaTeX/常用语法.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
@@ -248,7 +249,6 @@
     "技术美术/7 PBR/PBR疑问.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
     "test",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
