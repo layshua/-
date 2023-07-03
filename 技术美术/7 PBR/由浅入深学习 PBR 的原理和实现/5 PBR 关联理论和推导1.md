@@ -12,7 +12,7 @@
 
 利用数学曲线拟合工具，可以直观地看到函数在参数具体化后的结果，并协助我们得到想要的数据。
 
-![](1679148484508.png)
+![[1679148484508.png]]
 
 _利用曲线拟合工具直观地展现数据曲线变化。_
 
@@ -22,7 +22,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
     
 *   **Mathematica**：跟 MathLab 类似，功能虽然不如 MathLab 多，但更轻巧，各有侧重，非常适合曲线拟合。
     
-    ![](1679148484560.png)
+    ![[1679148484560.png]]
     
 *   **Excel**：你没看错，Excel 同样可以用于简单曲线的拟合，参考文献里有不少图就出自 Excel。
     
@@ -31,7 +31,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
 
 *   **GeoGebra**：功能强大，基本可以画出我们所需的图例，也可用以曲线拟合。它还有[在线版](https://www.geogebra.org/graphing)。
     
-    ![](1679148484597.png)
+    ![[1679148484597.png]]
     
 *   **几何画板**：老牌数学绘图软件，数学教师的必备工具。
     
@@ -46,7 +46,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
 
 迪斯尼原则发布的时候，随同发布了 [BRDF Explorer](https://www.disneyanimation.com/technology/brdf.html)，用于查看 BRDF 的各种公式参数和材质属性。
 
-![](1679148484634.png)
+![[1679148484634.png]]
 
 ## **6.2 更多资料**
 
@@ -56,7 +56,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
 
 骚年，走你~~
 
-![](1679148484660.png)
+![[1679148484660.png]]
 
 # **特别说明**
 
@@ -97,7 +97,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
     *   [【SIGGRAPH 2016 Course】Physically-Based Shading Models in Film and Game Production](http://renderwonk.com/publications/s2016-shading-course/)
     *   [【SIGGRAPH 2017 Course】Physically-Based Shading Models in Film and Game Production](http://renderwonk.com/publications/s2017-shading-course/)
     *   [Physically Based Shading and Image Based Lighting](https://www.trentreed.net/blog/physically-based-shading-and-image-based-lighting/)
-    *   [disney animation papers](https://www.disneyanimation.com/technology/publications/#papers)
+    *   [[https://www.disneyanimation.com/technology/publications/#papers]]
     *   [Physically Based Shading in Cry Engine](https://docs.cryengine.com/display/SDKDOC2/Physically+Based+Shading)
     *   Reflection Model Design for WALL-E and Up
     *   Background-Physics and Math of Shading (2013~2015)
@@ -120,7 +120,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
 *   **Wikipedia**
     *   [Optics](https://en.wikipedia.org/wiki/Optics)
     *   [Light](https://en.wikipedia.org/wiki/Light)
-    *   [Polarization (waves)](https://en.wikipedia.org/wiki/Polarization_(waves))
+    *   [[waves)](https://en.wikipedia.org/wiki/Polarization_(waves|Polarization (waves)]])
     *   [Spectroscopy](https://en.wikipedia.org/wiki/Spectroscopy)
     *   [Visible spectrum](https://en.wikipedia.org/wiki/Visible_spectrum)
     *   [Wave–particle duality](https://en.wikipedia.org/wiki/Wave%E2%80%93particle_duality#)
@@ -157,7 +157,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
     *   [基于物理的渲染学习心得——面向使用的 PBR 理论](https://www.jianshu.com/p/7c9b666c3fe1)
     *   [PBR 渲染介绍](https://www.jianshu.com/p/d2c97d0646d5?open_source=weibo_search)
 *   **博客园、CSDN**
-    *   [基于物理的渲染技术（PBR）系列](%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E6%B8%B2%E6%9F%93%E6%8A%80%E6%9C%AF%EF%BC%88PBR%EF%BC%89%E7%B3%BB%E5%88%97)
+    *   [[基于物理的渲染技术（PBR）系列]]
     *   [基于物理渲染的基础理论](https://www.cnblogs.com/TracePlus/p/4056893.html)
     *   [基于物理的渲染](https://blog.csdn.net/coldkaweh/article/details/70187399)
     *   [Physically Based Rendering,PBRT 笔记](https://blog.csdn.net/pizi0475/article/details/48393933)
@@ -174,7 +174,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
     *   [Specular BRDF Reference](https://blog.csdn.net/aidlife/article/details/48972661)
     *   [Physically Based Rendering—BRDF 中 D 函数 NDF 的中文资料](https://blog.csdn.net/xingzhe2001/article/details/83897914)
     *   [手推系列——直观理解推导 Physically Based Rendering 的 BRDF 公式之微表面法线分布函数 NDF](https://blog.csdn.net/xingzhe2001/article/details/83829705)
-    *   [Equirectangular Projection(ERP)](https://blog.csdn.net/lin453701006/article/details/71173090)
+    *   [[ERP)](https://blog.csdn.net/lin453701006/article/details/71173090|Equirectangular Projection(ERP)]]
 *   **Unreal、Unity**
     *   [SubSurface Profile Shading Model](https://docs.unrealengine.com/en-us/Engine/Rendering/Materials/LightingModels/SubSurfaceProfile)
     *   [Physically Based Materials in Unreal Engine 4](https://docs.unrealengine.com/en-us/Engine/Rendering/Materials/PhysicallyBased)
@@ -209,7 +209,7 @@ _利用曲线拟合工具直观地展现数据曲线变化。_
     *   一份不太简短的 LATEX 2ε 介绍
     *   [The Beginner’s Guide to Physically Based Rendering in Unity](https://blog.teamtreehouse.com/beginners-guide-physically-based-rendering-unity)
     *   [Image Based Lighting](https://chetanjags.wordpress.com/2015/08/26/image-based-lighting/)
-    *   [Using Image Based Lighting (IBL)](https://www.indiedb.com/features/using-image-based-lighting-ibl)
+    *   [[IBL)](https://www.indiedb.com/features/using-image-based-lighting-ibl|Using Image Based Lighting (IBL)]]
     *   [Converting a Cubemap into Equirectangular Panorama](https://stackoverflow.com/questions/34250742/converting-a-cubemap-into-equirectangular-panorama)
     *   [使用基于物理规则的渲染，你也可以做到！](http://gad.qq.com/program/translateview/7196156)
     *   [Does PBR incur a performance penalty by design?](https://computergraphics.stackexchange.com/questions/1568/does-pbr-incur-a-performance-penalty-by-design)
