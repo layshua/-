@@ -7,7 +7,7 @@
   "allSearchOnlyInFocusedFolder": false,
   "showFilesFromSubFoldersButton": true,
   "revealActiveFileButton": true,
-  "excludedExtensions": "",
+  "excludedExtensions": "png, jpg, jpeg, webq,",
   "excludedFolders": "AI, zip, 引擎Unreal, Math, Tools",
   "folderIcon": "icomoon",
   "folderCount": false,

@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/插件流.md",
+                "file": "01 学习大纲.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 34.44244604316547,
+        "dimension": 38.39928057553957,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -90,17 +90,31 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/插件流.md"
+                "file": "01 学习大纲.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
+      },
+      {
+        "id": "c860fd12f8384878",
+        "type": "tabs",
+        "dimension": 20.14388489208633,
+        "children": [
+          {
+            "id": "ffd75fe37a90e6ea",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
       },
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 65.55755395683454,
+        "dimension": 41.456834532374096,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -113,31 +127,14 @@
             }
           },
           {
-            "id": "78d00e1513160f01",
-            "type": "leaf",
-            "state": {
-              "type": "file-tree-view",
-              "state": {}
-            }
-          },
-          {
             "id": "e71deaf0fc9fcfb8",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {}
             }
-          },
-          {
-            "id": "ffd75fe37a90e6ea",
-            "type": "leaf",
-            "state": {
-              "type": "recent-files",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -161,48 +158,48 @@
       "remotely-save:Remotely Save": false,
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
-      "file-tree-alternative:File Tree Alternative Plugin": false
+      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "78d00e1513160f01",
+  "active": "f84a969369554ab9",
   "lastOpenFiles": [
+    "README.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/2 URP.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
+    "zip/引擎Unreal/03 材质 & 渲染/101 材质大师.md",
+    "zip/引擎Unreal/03 材质 & 渲染/202 材质教程.md",
+    "zip/引擎Unreal/03 材质 & 渲染/303 实时渲染.md",
+    "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/移动游戏性能优化通用技法.md",
+    "zip/images/1679148080869.png",
+    "zip/引擎Unreal/08 案例/交互草.md",
+    "zip/引擎Unreal/09 教程剪藏/UE5 实现基于 Gerstner 波的写实海水渲染（一）/UE5 实现基于 Gerstner 波的写实海水渲染（一）.md",
+    "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/assets/1677315621012.png",
+    "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md",
+    "zip/引擎Unreal/09 教程剪藏/UE4 - 虚幻引擎草地生成 _静态篇_/UE4 - 虚幻引擎草地生成 _静态篇_.md",
+    "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
+    "zip/images/1677315630020.png",
+    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
+    "Tools/Obsidian/插件流.md",
+    "test",
     "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
     "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/3 后处理/02 Bloom.md",
-    "引擎Unity3D/01 BUG合集.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
     "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
-    "编程/设计模式/工厂模式.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "Tools/工具流.md",
-    "DCC/06 Zbush/基本操作.md",
-    "技术美术/1 渲染雅集/03 顶点动画.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/09 描边.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png",
-    "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "引擎Unity3D/3 Catlike Coding/程序化网格.md",
-    "Tools/Obsidian/插件流.md",
     "zip/images/Pasted image 20230702232446.png",
     "zip/images/Pasted image 20230702231206.png",
     "zip/images/Pasted image 20230702225910.png",
     "zip/images/Pasted image 20230702221224.png",
     "zip/images/Pasted image 20230702221037.png",
     "zip/images/Pasted image 20230702220915.png",
-    "zip/images/Pasted image 20230702220808.png",
-    "zip/images/25833c7bafd2110d3e58cdd8b1bbf56a_MD5.png",
-    "zip/images/64d60dea540a407204407c57e6dd2ee1_MD5.png",
     "技术美术/2 空间技法",
     "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/2 Shader精粹/ShaderLab",
@@ -212,7 +209,6 @@
     "引擎Unity3D/2 Shader精粹/《URP》/雪风",
     "引擎Unity3D/2 Shader精粹/JsonDataManager.cs",
     "图形学/4 GAMES系列/202高质量实时渲染",
-    "引擎Unity3D/收藏夹",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

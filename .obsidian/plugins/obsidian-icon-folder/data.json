@@ -25,13 +25,13 @@
   "Tools": "SiObsidian",
   "编程": "SiVisualstudio",
   "技术美术": "SiArtstation",
-  "AI": "SiPython",
   "DCC": "SiAdobe",
   "Math": "SiMatrix",
   "zBuffer": "SiBuffer",
   "zip": "SiAmp",
   "图形学": "SiTaichigraphics",
   "README.md": "LiGamepad2",
-  "引擎Unreal": "SiUnrealengine",
-  "引擎Unity3D": "SiUnity"
+  "引擎Unity3D": "SiUnity",
+  "zip/引擎Unreal": "SiUnrealengine",
+  "zip/AI": "SiPython"
 }
