@@ -121,5 +121,10 @@
   "blue-topaz-theme@@folder-style-change-options-colorful": "folder-style-change-options-colorful-default",
   "blue-topaz-theme@@folder-style-change-options-colorful-subfolder": "folder-colorful-one",
   "blue-topaz-theme@@show-full-metadata": false,
-  "blue-topaz-theme@@tab-head-style": "transparent-tab-style"
+  "blue-topaz-theme@@tab-head-style": "transparent-tab-style",
+  "file-tree-alternative-plugin@@oz-fta-file-font-size": 13,
+  "file-tree-alternative-plugin@@oz-fta-header-background-color": "#FFFFFF",
+  "file-tree-alternative-plugin@@oz-fta-file-pane-active-file-background-color": "#E5E0F3",
+  "file-tree-alternative-plugin@@oz-fta-folder-icon-color": "#DADADA",
+  "file-tree-alternative-plugin@@oz-fta-folder-indendation-guide-color": "#E4E4E5"
 }

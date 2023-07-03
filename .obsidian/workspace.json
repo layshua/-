@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 30.921052631578945,
+        "dimension": 34.44244604316547,
         "children": [
           {
             "id": "86b0a46618d8ba0a",
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+                "file": "Tools/Obsidian/插件流.md"
               }
             }
           }
@@ -100,7 +100,7 @@
       {
         "id": "b49fb9eff2f6ac76",
         "type": "tabs",
-        "dimension": 69.07894736842104,
+        "dimension": 65.55755395683454,
         "children": [
           {
             "id": "6ea84489302e84b4",
@@ -113,7 +113,7 @@
             }
           },
           {
-            "id": "71773a5d4bbfdd09",
+            "id": "78d00e1513160f01",
             "type": "leaf",
             "state": {
               "type": "file-tree-view",
@@ -126,35 +126,6 @@
             "state": {
               "type": "bookmarks",
               "state": {}
-            }
-          },
-          {
-            "id": "b718d4b7b66dbfbd",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
-                "collapseAll": true,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
-              }
-            }
-          },
-          {
-            "id": "9d395a5bb522340c",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
-                "linksCollapsed": true,
-                "unlinkedCollapsed": true
-              }
             }
           },
           {
@@ -194,8 +165,24 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "71773a5d4bbfdd09",
+  "active": "78d00e1513160f01",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "技术美术/3 后处理/04 景深.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "引擎Unity3D/01 BUG合集.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
+    "编程/设计模式/工厂模式.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "Tools/工具流.md",
+    "DCC/06 Zbush/基本操作.md",
+    "技术美术/1 渲染雅集/03 顶点动画.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/09 描边.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
@@ -203,26 +190,10 @@
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/7 PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/media/0cbe51fa24d47bffbecd3ae513fac8ba.png",
     "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
-    "Tools/工具流.md",
     "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md",
-    "DCC/06 Zbush/基本操作.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/3 Catlike Coding/程序化网格.md",
     "Tools/Obsidian/插件流.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md",
-    "技术美术/1 渲染雅集/09 描边.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/05 SSAO.md",
-    "技术美术/1 渲染雅集/阿萨的.md",
-    "技术美术/1 渲染雅集/07 空间.md",
-    "引擎Unity3D/01 BUG合集.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
-    "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "zip/images/Pasted image 20230702232446.png",
     "zip/images/Pasted image 20230702231206.png",
     "zip/images/Pasted image 20230702225910.png",

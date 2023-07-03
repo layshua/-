@@ -1,6 +1,70 @@
 {
   "recentFiles": [
     {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/2 Shader精粹/《SRP》/03 定向光.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "04 景深",
+      "path": "技术美术/3 后处理/04 景深.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "01 BUG合集",
+      "path": "引擎Unity3D/01 BUG合集.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "编程/设计模式/工厂模式.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
+      "basename": "基本操作",
+      "path": "DCC/06 Zbush/基本操作.md"
+    },
+    {
+      "basename": "03 顶点动画",
+      "path": "技术美术/1 渲染雅集/03 顶点动画.md"
+    },
+    {
+      "basename": "06 雾",
+      "path": "技术美术/1 渲染雅集/06 雾.md"
+    },
+    {
+      "basename": "09 描边",
+      "path": "技术美术/1 渲染雅集/09 描边.md"
+    },
+    {
+      "basename": "02 UV操作",
+      "path": "技术美术/1 渲染雅集/02 UV操作.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
@@ -33,44 +97,16 @@
       "path": "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
     },
     {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
     },
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
     },
     {
-      "basename": "基本操作",
-      "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
       "basename": "程序化网格",
       "path": "引擎Unity3D/3 Catlike Coding/程序化网格.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "09 描边",
-      "path": "技术美术/1 渲染雅集/09 描边.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
     },
     {
       "basename": "05 SSAO",
@@ -79,14 +115,6 @@
     {
       "basename": "07 空间",
       "path": "技术美术/1 渲染雅集/07 空间.md"
-    },
-    {
-      "basename": "01 BUG合集",
-      "path": "引擎Unity3D/01 BUG合集.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
       "basename": "33 光线步进 RayMarch 第一节入门",
@@ -161,10 +189,6 @@
       "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
-    },
-    {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "3 图形处理单元GPU",
-      "path": "图形学/5 书籍/《RTR4》/3 图形处理单元GPU.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "01 持久化对象",
-      "path": "引擎Unity3D/3 Catlike Coding/15 Object管理/01 持久化对象.md"
     }
   ],
   "omittedPaths": [],
