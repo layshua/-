@@ -1,8 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
       "basename": "Unity URP14_0 自定义后处理系统",
       "path": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md"
+    },
+    {
+      "basename": "实时渲染高级特性开发",
+      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
     },
     {
       "basename": "Unity3D Shader： 科幻风线框渲染",
@@ -18,11 +38,7 @@
     },
     {
       "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
@@ -106,7 +122,7 @@
     },
     {
       "basename": "3 Render Feature",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     },
     {
       "basename": "常用语法",
@@ -138,7 +154,7 @@
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/34 SSPR屏幕空间平面反射.md"
+      "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
       "basename": "基本操作",
@@ -183,22 +199,6 @@
     {
       "basename": "PBR疑问",
       "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
-      "basename": "6 后记",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/6 后记.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/1 ShaderLab.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/14 屏幕颜色制作玻璃效果.md"
-    },
-    {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
     }
   ],
   "omittedPaths": [],

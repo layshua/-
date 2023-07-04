@@ -1,13 +1,23 @@
+
+---
+title: Unity URP14_0 自定义后处理系统
+aliases: []
+tags: []
+create_time: 2023-07-04 13:06
+uid: 202307041306
+banner: "![[67b0c8f0fc4826ec0d1df8df225712e5_MD5.gif]]"
+---
+
 Unity 版本：2022  
 URP 版本：14.0.6
 
 项目连接：[github](https://github.com/dyxdyxdyx/URP-Custom-Post-Processing-System/tree/master/Assets)
 
-![[67b0c8f0fc4826ec0d1df8df225712e5_MD5.gif]]
+
 
 在 Unity [官方文档](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/index.html)中，给出了两种使用后处理的方法。第一种使用 Global Volume，但仅限于使用内置后处理，自定义后处理需要修改 URP，十分麻烦。第二种使用自定义 RenderFeature 添加自定义 RenderPass，但一个后处理效果对应两个脚本，并且会带来多个 RenderPass，不停纹理申请和获取的消耗。
 
-在这个基础上，我们创建一个自己的后处理系统，使得 Renderer 挂载一个 RenderFeature，并且一个后处理效果只需要创建一个脚本。
+**在这个基础上，我们创建一个自己的后处理系统，使得 Renderer 挂载一个 RenderFeature，并且一个后处理效果只需要创建一个脚本。**
 
 建议先过一遍[官方文档](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/index.html)，特别是三部分，[Render feature](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/urp-renderer-feature.html)、[Volume](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/Volumes.html) 和 [Fullscreen blit](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/how-to-fullscreen-blit.html) 部分。
 
