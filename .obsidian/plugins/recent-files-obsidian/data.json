@@ -5,6 +5,10 @@
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
+    },
+    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md"
     },
@@ -103,10 +107,6 @@
     {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
     {
       "basename": "常用语法",

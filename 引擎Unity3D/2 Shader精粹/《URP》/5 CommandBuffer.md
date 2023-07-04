@@ -218,13 +218,13 @@ public partial class CameraRenderer
         //渲染场景开始前的设置
         Setup(); //设置结束后进行buffer.BeginSample(SampleName)
         
-        //绘制可见几何体
+        //RenderPass:绘制可见几何体
         DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);
 
-        //绘制SRP不支持的着色器类型
+        //RenderPass:绘制SRP不支持的着色器类型
         DrawUnsupportedShaders();
 
-        //绘制Gizmos
+        //RenderPass:绘制Gizmos
         DrawGizmos();
         
         //释放ShadowMap RT内存
