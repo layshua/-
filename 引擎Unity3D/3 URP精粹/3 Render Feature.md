@@ -155,6 +155,8 @@ public class URPCallbackExample : MonoBehaviour
 - @ **`CustomRenderPass` 自定义 Render Pass**
     1. **`OnCameraSetup`：在执行 render pass 之前被调用。** 它可用于配置 Render Target 和它们的 Clear State，还可以创建临时渲染目标纹理。当为空时，该 Render Pass 将渲染到活动相机的 Render Target。（不要调用 CommandBuffer.SetRenderTarget. 而应该是 `ConfigureTarget` 和 `ConfigureClear`）s
     2. **`Execute`：每帧执行，在这里实现渲染逻辑。** 使用 ` ScriptableRenderContext` 发出绘制命令或执行命令缓冲区。不必调用 submit 指令，渲染管线将在管线中的特定点调用它。
+        1. `ProfilingSampler`：CPU 和 GPU 分析采样器的包装器。将此与 `ProfileScope` 一起使用可以评测一段代码。标记 Profiling 后，可在 FrameDebugger 中直接查看标记 Profiling 的对象
+        2. `DrawRenderer`：批量绘制对象
     3. **`OnCameraCleanup`** ：清理在此 render pass 执行期间创建的所有已分配资源。
 
 ```cs file:RF模板
@@ -170,16 +172,24 @@ public class CustomRenderFeature : ScriptableRendererFeature
         // 每帧执行，这里可以实现渲染逻辑
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            //CPU和GPU分析采样器的包装器。将此与ProfileScope一起使用可以评测一段代码。
+            //标记Profiling后，可在FrameDebugger中直接查看标记Profiling的对象
+            ProfilingSampler mProfilingSampler = new ProfilingSampler("Test1");
             //获取新的命令缓冲区并为其指定一个名称
-            CommandBuffer cmd = CommandBufferPool.Get(name: "CustomRenderPass");
             
-            //执行命令缓冲区中的命令
-            context.ExecuteCommandBuffer(cmd);
+            CommandBuffer cmd = CommandBufferPool.Get("Test1 Cmd");
             
-            //释放命令缓冲区
-            CommandBufferPool.Release(cmd);
+            //ProfilingScope
+            using (new ProfilingScope(cmd, mProfilingSampler))
+            {
+                
+                //执行命令缓冲区中的命令
+                context.ExecuteCommandBuffer(cmd);
+                
+                //释放命令缓冲区
+                CommandBufferPool.Release(cmd);
+            }
         }
-
         // 清理在此render pass执行期间创建的所有已分配资源。
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
@@ -208,7 +218,20 @@ public class CustomRenderFeature : ScriptableRendererFeature
 }
 ```
 
----
+![[Pasted image 20230704154156.png]]
+打开了管线设置中的 Debug Level 后；可以通过这个参数看见更多的调试信息
+![[Pasted image 20230704154208.jpg]]
+
+如 UniversalRenderPipeline.cs 的 `RenderSingleCamera` 方法里：
+```c
+static void RenderSingleCamera(...)  
+{  
+   ...  
+   asset.debugLevel >= PipelineDebugLevel.Profiling ? ...
+
+```
+这段代码在勾选这个设置后可以在FrameDebugger内显示不同的相机名。
+
 
 **手动创建过程：**
 1. 创建脚本，命名为 CustomRenderFeature. cs
