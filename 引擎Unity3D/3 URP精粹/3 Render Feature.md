@@ -11,6 +11,7 @@ banner: "![[Pasted image 20230702140512.png]]"
 
 > [!NOTE] 简称
 > 下文 Renderer Feature 简称为 RF
+> RenderTexture 简称RT
 
 
 1.  介绍 [URP Renderer Feature | Universal RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/urp-renderer-feature.html)
@@ -29,7 +30,7 @@ Render Feature 是一种 Asset，用于向 URP 渲染器添加额外的 Render P
 [Render Objects Renderer Feature | Universal RP | 14.0.8 --- 渲染对象渲染器功能](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/renderer-feature-render-objects.html)
 ![[Pasted image 20230702103753.png|500]]
 URP 在 DrawOpaqueObjects 和 DrawTransparentObjects Pass 中绘制对象。您可能需要在帧渲染的不同点绘制对象，或者以其他方式解释和写入渲染数据（如 depth 和 stencil）。
-Render Objects RT 允许通过特定的重载（overides）在指定的图层、指定的时间来自定义 Draw Objects。
+Render Objects RF 允许通过特定的重载（overides）在指定的图层、指定的时间来自定义 Draw Objects。
 
 ## 透视效果
 **实战**：当角色在GameObjects后面时，用不同的材质绘制角色轮廓。
@@ -108,7 +109,7 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 Unity 在每帧中渲染每个激活的 Camera 之前引发一个 `beginCameraRendering` 事件。
 >如果相机处于失活状态（去掉勾），Unity 不会为此相机引发 `beginCameraRendering` 事件。
 
-订阅此事件的方法时，可以在 Unity 渲染 Camera 之前执行自定义逻辑（比如将额外的 Camera 渲染为 Render Texture，以及将这些纹理用于平面反射或监视摄影机视图等效果。）
+订阅此事件的方法时，可以在 Unity 渲染 Camera 之前执行自定义逻辑（比如将额外的 Camera 渲染为 RT，以及将这些纹理用于平面反射或监视摄影机视图等效果。）
 [RenderPipelineManager](https://docs.unity3d.com/ScriptReference/Rendering.RenderPipelineManager.html) 类中的其他事件提供了更多自定义 URP 的方法。
 
 **如何为 `beginCameraRendering` 事件订阅方法？**
@@ -380,3 +381,15 @@ public class CustomRenderPass : ScriptableRenderPass
 }
 ```
 
+# RTHandle 系统
+Render Target 管理是任何渲染管道的重要组成部分。在复杂的渲染管道中，有许多相互依赖的 Rendr Pass 使用许多不同的 RT，因此重要的是要有一个可维护和可扩展的系统，以便轻松管理内存。 
+最大的问题之一是当渲染管道使用许多不同的摄影机，每个摄影机都有自己的分辨率时。例如，离屏摄像头或实时反射探针。在这种情况下，如果系统为每个摄影机独立分配 RT，则内存总量将增加到无法管理的级别。
+这对于使用许多中间 RT 的复杂渲染管道来说尤其糟糕。Unity 可以使用临时临时渲染纹理 [temporary render textures](https://docs.unity3d.com/ScriptReference/RenderTexture.GetTemporary.html)，但不幸的是，它们不适合这种情况，因为只有当新渲染纹理使用完全相同的属性和分辨率时，临时渲染纹理才能重用内存。这意味着，当使用两种不同的分辨率进行渲染时，Unity 使用的内存总量是所有分辨率的总和。
+为了解决渲染纹理内存分配的这些问题，Unity 的 SRP 包含了 RTHandle 系统。
+## RTHandle 基本原理
+RTHandle 系统是 Unity 的 [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) API 之上的一个抽象层，可以自动 RT 管理。可以可以在使用各种分辨率的摄影机之间重用 RT。
+ RTHandle 系统工作基础：
+1. 您不再为自己分配具有固定分辨率的 RT。相反，您可以使用与给定分辨率下的全屏相关的比例来声明渲染纹理。RTHandle 系统仅为整个渲染管道分配一次纹理，以便可以将其重新用于不同的摄影机。
+2. 现在有了 **reference size** （参考尺寸）的概念。这是应用程序用于渲染的分辨率。**您有责任在渲染管道以特定分辨率渲染每个摄影机之前声明它**。有关如何执行此操作的信息，请参阅 [Updating the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-fundamentals.html#updating-the-rthandle-system)。
+3. 在内部，RTHandle 系统跟踪您声明的最大 reference size。它将其用作渲染纹理的实际大小。最大 reference size 是最大大小。
+4. 每次声明新的引用大小用于渲染，RTHandle 系统都会检查它是否大于当前记录的最大引用大小。如果是，RTHandle 系统会在内部重新分配所有渲染纹理以适应新的大小，并用新的大小替换最大的引用大小。
