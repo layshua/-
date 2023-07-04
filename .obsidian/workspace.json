@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+                "file": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
+                "file": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -197,17 +197,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "649754e3239594f8",
+  "active": "a941fb875a28a6ab",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
+    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
+    "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
+    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
+    "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
     "引擎Unity3D/2 Shader精粹/《SRP》/01 自定义渲染管线.md",
+    "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
     "引擎Unity3D/收藏夹/Unity 曲面细分着色器详解.md",
-    "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
     "zip/images/dc01d68984c66a46c71b392e8077b781_MD5.gif",
     "zip/images/720516e9d18ff4fa4fa6268fbd985d87_MD5.jpg",
     "zip/images/8298b8fffbb439940594339dd8f5828a_MD5.jpg",
@@ -218,7 +219,6 @@
     "zip/images/19c1995cc8610fb73b36ee37873e1b3b_MD5.jpg",
     "zip/images/32f861524f74ae453e2e5b64d35de084_MD5.jpg",
     "zip/images/69685a04dca357086ab453614b916353_MD5.jpg",
-    "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
