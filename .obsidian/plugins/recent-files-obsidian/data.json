@@ -1,20 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
     {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "辐射度量学",
+      "path": "技术美术/7 PBR/辐射度量学.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
+    },
+    {
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
     },
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
       "basename": "2 URP",
@@ -45,16 +81,8 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
       "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
       "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "光照探针，反射探针，光照烘焙",
@@ -65,28 +93,12 @@
       "path": "引擎Unity3D/收藏夹/Unity 曲面细分着色器详解.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
-    },
-    {
       "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
-    },
-    {
       "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
     },
     {
       "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
@@ -149,20 +161,12 @@
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
     },
     {
-      "basename": "辐射度量学",
-      "path": "技术美术/7 PBR/辐射度量学.md"
-    },
-    {
       "basename": "34 SSPR屏幕空间平面反射",
       "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
       "basename": "基本操作",
       "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
     },
     {
       "basename": "1 前言",
@@ -195,10 +199,6 @@
     {
       "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
       "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
-    },
-    {
-      "basename": "PBR疑问",
-      "path": "技术美术/7 PBR/PBR疑问.md"
     }
   ],
   "omittedPaths": [],

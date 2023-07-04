@@ -145,27 +145,29 @@ public class URPCallbackExample : MonoBehaviour
 > [!NOTE] 创建 RenderFeature 脚本更简单的方法
 > 右键->Rendering->URP Render Feature
 
-1. **`OnCameraSetup`：在执行 render pass 之前被调用。** 它可用于配置 Render Target 和它们的 Clear State，还可以创建临时渲染目标纹理。当为空时，该 Render Pass 将渲染到活动相机的 Render Target.
+- @ **`CustomRenderFeature` 自定义 RF**
+1. **`Create` ：Unity 对以下事件调用此方法：**
+    - 首次加载 RF 时
+    - 在 RF 的 Inspector 中更改属性时
+    - 启用或禁用 RF 时
+2. **`AddRenderPasses` ：Unity 每台相机每帧调用一次此方法**。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
 
+- @ **`CustomRenderPass` 自定义 Render Pass**
+    1. **`OnCameraSetup`：在执行 render pass 之前被调用。** 它可用于配置 Render Target 和它们的 Clear State，还可以创建临时渲染目标纹理。当为空时，该 Render Pass 将渲染到活动相机的 Render Target。（不要调用 CommandBuffer.SetRenderTarget. 而应该是 `ConfigureTarget` 和 `ConfigureClear`）s
+    2. **`Execute`：每帧执行，在这里实现渲染逻辑。** 使用 ` ScriptableRenderContext` 发出绘制命令或执行命令缓冲区。不必调用 submit 指令，渲染管线将在管线中的特定点调用它。
+    3. **`OnCameraCleanup`** ：清理在此 render pass 执行期间创建的所有已分配资源。
 
 ```cs file:RF模板
 public class CustomRenderFeature : ScriptableRendererFeature
 {
     class CustomRenderPass : ScriptableRenderPass
     {
-        // 该方法在执行render pass之前被调用
-        // 它可用于配置render target和它们的clear state，还可以创建临时渲染目标纹理。
-        // 当为空时，该render pass将渲染到活动相机的render target.
-        // 永远不要调用CommandBuffer.SetRenderTarget. 而应该是 ConfigureTarget 和 ConfigureClear.
-        // 渲染管线将确保render target的setup和clearing以高性能方式进行。
+        // 在执行 render pass 之前被调用。
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
         }
 
         // 每帧执行，这里可以实现渲染逻辑
-        // 使用 criptableRenderContext 发出绘制命令或执行命令缓冲区
-        // https://docs.unity3d.com/ScriptReference/Rendering.ScriptableRenderContext.html
-        // 您不必调用 ScriptableRenderContext.submit，渲染管道将在管道中的特定点调用它。
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
             //获取新的命令缓冲区并为其指定一个名称
@@ -355,4 +357,3 @@ public class CustomRenderPass : ScriptableRenderPass
 }
 ```
 
-## URP blit

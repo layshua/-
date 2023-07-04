@@ -14,11 +14,13 @@
   },
   {
     "color": "124, 77, 255",
-    "char": "~"
+    "char": "~",
+    "icon": "lucide-book-down"
   },
   {
     "color": "0, 184, 212",
-    "char": "@"
+    "char": "@",
+    "icon": "lucide-code-2"
   },
   {
     "color": "0, 200, 83",
@@ -27,6 +29,7 @@
   },
   {
     "color": "158, 158, 158",
-    "char": "%"
+    "char": "%",
+    "icon": "lucide-book-open"
   }
 ]
