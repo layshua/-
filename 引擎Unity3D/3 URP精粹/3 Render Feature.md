@@ -388,8 +388,17 @@ Render Target 管理是任何渲染管道的重要组成部分。在复杂的渲
 为了解决渲染纹理内存分配的这些问题，Unity 的 SRP 包含了 RTHandle 系统。
 ## RTHandle 基本原理
 RTHandle 系统是 Unity 的 [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) API 之上的一个抽象层，可以自动 RT 管理。可以可以在使用各种分辨率的摄影机之间重用 RT。
- RTHandle 系统工作基础：
-1. 您不再为自己分配具有固定分辨率的 RT。相反，您可以使用与给定分辨率下的全屏相关的比例来声明渲染纹理。RTHandle 系统仅为整个渲染管道分配一次纹理，以便可以将其重新用于不同的摄影机。
+
+ RTHandle 系统基础：
+1. 您不再为自己分配具有固定分辨率的 RT。相反，您可以使用与给定全屏分辨率下的**比例（scale）** 来声明渲染纹理。RTHandle 系统仅为整个渲染管道分配一次纹理，以便可以将其重新用于不同的摄影机。
 2. 现在有了 **reference size** （参考尺寸）的概念。这是应用程序用于渲染的分辨率。**您有责任在渲染管道以特定分辨率渲染每个摄影机之前声明它**。有关如何执行此操作的信息，请参阅 [Updating the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-fundamentals.html#updating-the-rthandle-system)。
 3. 在内部，RTHandle 系统跟踪您声明的最大 reference size。它将其用作渲染纹理的实际大小。最大 reference size 是最大大小。
-4. 每次声明新的引用大小用于渲染，RTHandle 系统都会检查它是否大于当前记录的最大引用大小。如果是，RTHandle 系统会在内部重新分配所有渲染纹理以适应新的大小，并用新的大小替换最大的引用大小。
+4. 每次声明新的 reference size 用于渲染，RTHandle 系统都会检查它是否大于当前记录的最大 reference size。如果是，RTHandle 系统会在内部重新分配所有 RT 以适应新的大小，并用新的大小替换最大的 reference size。
+5. **RTHandleSystem 还允许您分配具有固定大小的纹理。在这种情况下，RTHandle 系统不再重新分配纹理。这允许您对 RTHandle 系统管理的自动调整大小的纹理和常规固定大小的纹理一致地使用 RTHandle-API。**
+
+这个过程的一个例子如下：分配 main color buffer 时，它使用 1 的比例，因为它是全屏纹理。您希望以屏幕的分辨率进行渲染。四分之一分辨率 transparency pass 的 downscaled buffer 将对 x 轴和 y 轴使用 0.5 的比例。**在内部，RTHandle 系统使用最大 reference size 乘以为 RT 声明的比例来分配渲染纹理**。之后，在每次“摄影机”渲染之前，您会告诉系统当前的 reference size。基于此和所有纹理的缩放因子（scaling factor），RTHandle 系统会确定是否需要重新分配渲染纹理。如上所述，如果新 reference size 大于当前最大 reference size，则 RTHandle 系统会重新分配所有渲染纹理。通过这样做，RTHandle 系统最终会为所有 RT 提供稳定的最大分辨率，这很可能是主摄影机的分辨率。 
+**关键是渲染纹理的实际分辨率不一定与当前视口相同：它可以更大**。当您使用 RTHandles 编写渲染器时，这会产生影响， [Using the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-using.html) 对此进行了解释。
+
+## 使用方法
+[Using the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-using.html)
+
