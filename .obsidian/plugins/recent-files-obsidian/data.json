@@ -1,12 +1,92 @@
 {
   "recentFiles": [
     {
-      "basename": "矩阵论",
-      "path": "Math/线性代数/矩阵论.md"
+      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
+      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
+    },
+    {
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
+    },
+    {
+      "basename": "Unity 曲面细分着色器详解",
+      "path": "引擎Unity3D/收藏夹/Unity 曲面细分着色器详解.md"
+    },
+    {
+      "basename": "Unity 几何着色器详解",
+      "path": "引擎Unity3D/收藏夹/Unity 几何着色器详解.md"
+    },
+    {
+      "basename": "Unity URP14_0 自定义后处理系统",
+      "path": "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
+    },
+    {
+      "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
+      "path": "原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
+    },
+    {
+      "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
+      "path": "原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
+    },
+    {
+      "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
+      "path": "原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
+    },
+    {
+      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
+      "path": "原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
     },
     {
       "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "zBuffer/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+      "path": "原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+    },
+    {
+      "basename": "01 学习大纲",
+      "path": "01 学习大纲.md"
+    },
+    {
+      "basename": "矩阵论",
+      "path": "Math/线性代数/矩阵论.md"
     },
     {
       "basename": "原神",
@@ -21,14 +101,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《URP》/3 Render Feature.md"
     },
     {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/5 CommandBuffer.md"
     },
@@ -39,10 +111,6 @@
     {
       "basename": "常用语法",
       "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
     {
       "basename": "可微渲染、NeRF 相关技术概念急速入门",
@@ -131,74 +199,6 @@
     {
       "basename": "15 屏幕深度制作护盾特效",
       "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/15 屏幕深度制作护盾特效.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/4 后处理.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/26  制作 VEG 粒子特效.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
-      "basename": "16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度",
-      "path": "引擎Unity3D/2 Shader精粹/《URP》/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],

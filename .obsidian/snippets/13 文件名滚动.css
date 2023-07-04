@@ -3,15 +3,16 @@
   animation: filemove 1.5s 1 normal linear;
 } */
 
+/* 文件列表显示宽度 */
 body .nav-file-title-content:not(.is-being-renamed) {
   min-width: 200px;
-  white-space: nowrap;
 }
+
 /* body .nav-file {
   display:table;
 } */
 /** 文件夹名**/
-body .obsidian-icon-folder-icon {
+/* body .obsidian-icon-folder-icon {
   vertical-align: middle;
   display: inline;
 }
@@ -36,3 +37,4 @@ body .nav-folder-title-content:not(.is-being-renamed):hover {
   0% {transform: translate(0, 0);}
   100% {transform: translate(calc(-100% + 200px), 0);}
 }
+ */
