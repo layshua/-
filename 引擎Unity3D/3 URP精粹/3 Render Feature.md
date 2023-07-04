@@ -104,17 +104,6 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 
 
 # 自定义 URP
-## URP blit
-
-> [!NOTE] Blit
->block transfer (块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
-
- [Perform a full screen blit in URP | Universal RP | 14.0.8 --- 在URP | Universal RP | 14.0.8中执行全屏闪电战 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/renderer-features/how-to-fullscreen-blit.html)
-
-> [!bug] 
-> 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
-> **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
-
 ## beginCameraRendering 事件 
 Unity 在每帧中渲染每个激活的 Camera 之前引发一个 `beginCameraRendering` 事件。
 >如果相机处于失活状态（去掉勾），Unity 不会为此相机引发 `beginCameraRendering` 事件。
@@ -155,6 +144,8 @@ public class URPCallbackExample : MonoBehaviour
 
 > [!NOTE] 创建 RenderFeature 脚本更简单的方法
 > 右键->Rendering->URP Render Feature
+
+1. **`OnCameraSetup`：在执行 render pass 之前被调用。** 它可用于配置 Render Target 和它们的 Clear State，还可以创建临时渲染目标纹理。当为空时，该 Render Pass 将渲染到活动相机的 Render Target.
 
 
 ```cs file:RF模板
@@ -221,11 +212,11 @@ public class CustomRenderFeature : ScriptableRendererFeature
 1. 创建脚本，命名为 CustomRenderFeature. cs
 2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类
 3. 该脚本类必须实现以下方法：
-    -  `Create` ：Unity 对以下事件调用此方法：
+    -  **`Create` ：Unity 对以下事件调用此方法：**
         - 首次加载 RF 时
         - 启用或禁用 RF 时
         - 在 RF 的 Inspector 中更改属性时
-    - `AddRenderPasses` ：Unity 每台相机每帧调用一次此方法。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
+    - **`AddRenderPasses` ：Unity 每台相机每帧调用一次此方法**。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
 4. 将创建的 RF 添加到 URP Asset 中。可以看到 Add  Render Feature 多了一个选项 ![[Pasted image 20230702151355.png|250]]
 
 ### 可编程 Render Pass
@@ -363,3 +354,5 @@ public class CustomRenderPass : ScriptableRenderPass
     }
 }
 ```
+
+## URP blit
