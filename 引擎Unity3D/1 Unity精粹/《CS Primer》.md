@@ -1840,6 +1840,43 @@ class Program
 
 从上面的执行效果可以看出，在使用 foreach 语句时可以免去使用下标的麻烦，这也给遍历数组中的元素带来很多方便。
 
+## 表达式主体成员 =>
+通过表达式主体定义，可采用非常简洁的可读形式提供成员的实现。**只要任何支持的成员（如方法或属性）的逻辑包含单个表达式，就可以使用表达式主体定义**。表达式主体定义具有下列常规语法：
+```cs
+member => expression;
+```
+表达式主体定义可用于以下类型成员：
+- [方法](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods)
+- [只读属性](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#read-only-properties)
+- [属性](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#properties)
+- [构造函数](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#constructors)
+- [终结器](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#finalizers)
+- [索引器](https://learn.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#indexers)
+
+### return 单句时可以用 `=>` 代替
+```cs
+public string Name
+{
+    get => "lk";
+    set => Name = value;
+}
+
+public int Add(int a, int b) => a + b;
+
+//注意和lambda表达式中的=>用法不同，后者可以用大括号包含完整逻辑
+(参数列表)=>{ 函数逻辑 }
+```
+
+### 只读属性
+只读属性可以将 `get` 访问器作为 expression-bodied 成员实现。在这种情况下，既不使用 `get` 访问器关键字，也不使用 `return` 关键字。
+
+```cs
+public string Name => locationName;
+//相当于
+public string Name { get=>locationName; }
+```
+
+
 # 五、面向对象 OOP
 ## 1 类 class
 
@@ -4453,20 +4490,6 @@ int a = b == null ? 100 : b.value; //等价
 ```cs
 string name = "Hello world!";
 Console.WriteLine($"好好学习，{name}"); 
-```
-## 8 单句 return =>
-return 单句时可以用 `=>` 代替
-```cs
-public string Name
-{
-    get => "lk";
-    set => Name = value;
-}
-
-public int Add(int a, int b) => a + b;
-
-//注意和lambda表达式中的=>用法不同，后者可以用大括号包含完整逻辑
-(参数列表)=>{ 函数逻辑 }
 ```
 
 # 十四、多线程

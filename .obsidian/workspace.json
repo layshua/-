@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -199,9 +199,10 @@
   },
   "active": "2d9632402aba9430",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
-    "技术美术/7 PBR/辐射度量学.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "技术美术/7 PBR/辐射度量学.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
@@ -210,7 +211,6 @@
     "技术美术/7 PBR/PBR总结.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zip/images/Pasted image 20230704134749.png",
     "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
