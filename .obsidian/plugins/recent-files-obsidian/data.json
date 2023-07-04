@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
@@ -9,24 +21,16 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
       "basename": "辐射度量学",
       "path": "技术美术/7 PBR/辐射度量学.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
@@ -75,10 +79,6 @@
     {
       "basename": "Unity3D Shader： 科幻风线框渲染",
       "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
       "basename": "Unity 几何着色器详解",
