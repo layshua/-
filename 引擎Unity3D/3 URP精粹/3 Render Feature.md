@@ -384,7 +384,7 @@ public class CustomRenderPass : ScriptableRenderPass
 # RTHandle 系统
 Render Target 管理是任何渲染管道的重要组成部分。在复杂的渲染管道中，有许多相互依赖的 Rendr Pass 使用许多不同的 RT，因此重要的是要有一个可维护和可扩展的系统，以便轻松管理内存。 
 最大的问题之一是当渲染管道使用许多不同的摄影机，每个摄影机都有自己的分辨率时。例如，离屏摄像头或实时反射探针。在这种情况下，如果系统为每个摄影机独立分配 RT，则内存总量将增加到无法管理的级别。
-这对于使用许多中间 RT 的复杂渲染管道来说尤其糟糕。Unity 可以使用临时临时渲染纹理 [temporary render textures](https://docs.unity3d.com/ScriptReference/RenderTexture.GetTemporary.html)，但不幸的是，它们不适合这种情况，因为只有当新渲染纹理使用完全相同的属性和分辨率时，临时渲染纹理才能重用内存。这意味着，当使用两种不同的分辨率进行渲染时，Unity 使用的内存总量是所有分辨率的总和。
+这对于使用许多中间 RT 的复杂渲染管道来说尤其糟糕。Unity 可以使用临时临时渲染纹理 temporary render textures，但不幸的是，它们不适合这种情况，因为只有当新渲染纹理使用完全相同的属性和分辨率时，临时渲染纹理才能重用内存。这意味着，当使用两种不同的分辨率进行渲染时，Unity 使用的内存总量是所有分辨率的总和。
 为了解决渲染纹理内存分配的这些问题，Unity 的 SRP 包含了 RTHandle 系统。
 ## RTHandle 基本原理
 RTHandle 系统是 Unity 的 [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) API 之上的一个抽象层，可以自动 RT 管理。可以可以在使用各种分辨率的摄影机之间重用 RT。
@@ -400,5 +400,69 @@ RTHandle 系统是 Unity 的 [RenderTexture](https://docs.unity3d.com/ScriptRefe
 **关键是渲染纹理的实际分辨率不一定与当前视口相同：它可以更大**。当您使用 RTHandles 编写渲染器时，这会产生影响， [Using the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-using.html) 对此进行了解释。
 
 ## 使用方法
-[Using the RTHandle system](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/manual/rthandle-system-using.html)
 
+新接口：
+1.  `ScriptableRenderer.cameraColorTargetHandle`
+2. 通过以下辅助函数，可以使用 `RTHandle` 系统创建和使用临时RT ( 舍弃 GetTemporaryRT 方法 )RT
+    - `RenderingUtils.ReAllocateIfNeeded`
+    - `ShadowUtils.ShadowRTReAllocateIfNeeded`
+3. `cameraDepthTarget` 属性必须与 `cameraColorTarget` 属性分开。
+4. 如果渲染目标在应用程序的生存期内没有更改，请使用 `RTHandles.Alloc` 方法分配 `RTHandle` 目标。这种方法是有效的，因为代码不必检查是否应该在每个帧上分配渲染目标。
+5. 如果渲染目标是全屏纹理，这意味着其分辨率与屏幕分辨率匹配或只是屏幕分辨率的一小部分，请使用诸如 `Vector2D.one` 之类的缩放因子来支持动态缩放。
+
+```cs file:示例
+public class CustomPass : ScriptableRenderPass
+{
+    RTHandle m_Handle;
+    // 然后使用RTHandles，Color和Depth属性必须分开
+    RTHandle m_DestinationColor;
+    RTHandle m_DestinationDepth;
+
+    void Dispose()
+    {
+        m_Handle?.Release();
+    }
+
+    public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
+    {
+        var desc = renderingData.cameraData.cameraTargetDescriptor;
+        desc.depthBufferBits = 0;
+        //分配RTHandle
+        RenderingUtils.ReAllocateIfNeeded(
+            ref m_Handle,
+            desc,
+            FilterMode.Point,
+            TextureWrapMode.Clamp,
+            name: "_CustomPassHandle");
+    }
+
+    public override void OnCameraCleanup(CommandBuffer cmd)
+    {
+        m_DestinationColor = null;
+        m_DestinationDepth = null;
+    }
+
+    public void Setup(RTHandle destinationColor, RTHandle destinationDepth)
+    {
+        m_DestinationColor = destinationColor;
+        m_DestinationDepth = destinationDepth;
+    }
+
+    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+    {
+        CommandBuffer cmd = CommandBufferPool.Get();
+        
+        //设置渲染目标
+        CoreUtils.SetRenderTarget(
+            cmd, 
+            m_DestinationColor, 
+            m_DestinationDepth,
+            clearFlag, 
+            clearColor);
+        
+        context.ExecuteCommandBuffer(cmd);
+        CommandBufferPool.Release(cmd);
+    }
+}
+
+```
