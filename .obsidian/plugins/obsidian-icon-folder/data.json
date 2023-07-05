@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "TiSchool",
       "TiFile",
       "FabAmazonPay",
       "SiUnity",
-      "TiBrandUnity",
-      "LiBook"
+      "TiBrandUnity"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -33,5 +33,6 @@
   "README.md": "LiGamepad2",
   "引擎Unity3D": "SiUnity",
   "zip/引擎Unreal": "SiUnrealengine",
-  "zip/AI": "SiPython"
+  "zip/AI": "SiPython",
+  "zip/留学": "TiSchool"
 }

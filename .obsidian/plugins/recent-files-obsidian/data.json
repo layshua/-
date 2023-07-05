@@ -1,20 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "mermaid流图",
+      "path": "zip/templates/mermaid流图.md"
+    },
+    {
+      "basename": "markmap脑图",
+      "path": "zip/templates/markmap脑图.md"
+    },
+    {
+      "basename": "callout分栏",
+      "path": "zip/templates/callout分栏.md"
+    },
+    {
       "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
-      "path": "zip/dailynote/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
+      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
     },
     {
       "basename": "行李",
-      "path": "zip/dailynote/行李.md"
+      "path": "zip/留学/行李.md"
     },
     {
       "basename": "缴费",
-      "path": "zip/dailynote/缴费.md"
+      "path": "zip/留学/缴费.md"
     },
     {
       "basename": "前往斯旺西",
-      "path": "zip/dailynote/前往斯旺西.md"
+      "path": "zip/留学/前往斯旺西.md"
     },
     {
       "basename": "TA 之路",
@@ -39,10 +55,6 @@
     {
       "basename": "Unity URP ColorGradingLut 分析与实现",
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
     {
       "basename": "3 Render Feature",
@@ -130,23 +142,23 @@
     },
     {
       "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
-      "path": "原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
+      "path": "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
     },
     {
       "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
-      "path": "原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
+      "path": "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
     },
     {
       "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
-      "path": "原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
+      "path": "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
     },
     {
       "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
-      "path": "原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
+      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
     },
     {
       "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
     },
     {
       "basename": "01 学习大纲",
@@ -155,10 +167,6 @@
     {
       "basename": "矩阵论",
       "path": "Math/线性代数/矩阵论.md"
-    },
-    {
-      "basename": "原神",
-      "path": "技术美术/6 NPR/原神.md"
     },
     {
       "basename": "《GUI》",
@@ -187,18 +195,6 @@
     {
       "basename": "4 PBR 核心理论和原理",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "基本操作",
-      "path": "DCC/06 Zbush/基本操作.md"
-    },
-    {
-      "basename": "1 前言",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md"
     }
   ],
   "omittedPaths": [],
