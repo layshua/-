@@ -11,22 +11,25 @@
             "id": "a941fb875a28a6ab",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
             "id": "665fb40633055cd5",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "851ba150d35e19b2",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/收藏夹/TA 之路.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +93,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+                "file": "引擎Unity3D/收藏夹/TA 之路.md"
               }
             }
           }
@@ -154,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/收藏夹/TA 之路.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +174,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/收藏夹/TA 之路.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -197,14 +200,19 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "851ba150d35e19b2",
   "lastOpenFiles": [
+    "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
+    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
+    "引擎Unity3D/收藏夹/TA 之路.md",
+    "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
+    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
+    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
-    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
     "技术美术/7 PBR/辐射度量学.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zip/images/Pasted image 20230704154208.jpg",
@@ -222,12 +230,8 @@
     "引擎Unity3D/收藏夹/Unity URP14_0 自定义后处理系统.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/后处理",
-    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "引擎Unity3D/收藏夹/Unity 曲面细分着色器详解.md",
     "zip/images/dc01d68984c66a46c71b392e8077b781_MD5.gif",
     "zip/images/720516e9d18ff4fa4fa6268fbd985d87_MD5.jpg",
     "zip/images/8298b8fffbb439940594339dd8f5828a_MD5.jpg",
@@ -235,7 +239,6 @@
     "zip/images/cf0ee62d9583f13dc793a64cb5f7a1e9_MD5.jpg",
     "zip/images/fb446d851602aaa80bdcbd7e58d12041_MD5.jpg",
     "zip/images/7013fd75b43e5b4f6875476fd05770fe_MD5.jpg",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/从0开始PBR",
     "原神",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",

@@ -1,12 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "死亡搁浅扫描特效",
+      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
+    },
+    {
+      "basename": "实时渲染高级特性开发",
+      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
+    },
+    {
+      "basename": "Unity 几何着色器详解",
+      "path": "引擎Unity3D/收藏夹/Unity 几何着色器详解.md"
+    },
+    {
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     },
     {
       "basename": "2 URP",
@@ -19,10 +43,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
       "basename": "辐射度量学",
@@ -71,18 +91,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "Unity 几何着色器详解",
-      "path": "引擎Unity3D/收藏夹/Unity 几何着色器详解.md"
     },
     {
       "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
@@ -191,14 +199,6 @@
     {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/4 法线分布函数/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
     }
   ],
   "omittedPaths": [],
