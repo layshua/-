@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
       "basename": "mermaid流图",
       "path": "zip/templates/mermaid流图.md"
     },
@@ -33,10 +45,6 @@
       "path": "zip/留学/前往斯旺西.md"
     },
     {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
       "basename": "死亡搁浅扫描特效",
       "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
     },
@@ -57,10 +65,6 @@
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
@@ -75,10 +79,6 @@
     {
       "basename": "辐射度量学",
       "path": "技术美术/7 PBR/辐射度量学.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
