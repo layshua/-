@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "缴费",
+      "path": "zip/dailynote/缴费.md"
+    },
+    {
+      "basename": "前往斯旺西",
+      "path": "zip/dailynote/前往斯旺西.md"
+    },
+    {
       "basename": "TA 之路",
       "path": "引擎Unity3D/收藏夹/TA 之路.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/5 几何函数/README.md"
     }
   ],
   "omittedPaths": [],
