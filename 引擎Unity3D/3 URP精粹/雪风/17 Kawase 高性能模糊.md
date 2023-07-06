@@ -1,12 +1,12 @@
         unity 里，对于模糊的处理有非常多的算法，这里有一篇文章总得了十种常见的模糊算法，非常硬核，建议收藏，链接如下：https://blog.csdn.net/poem_qianmo/article/details/105350519
 
-        这里介绍其中的一种模糊算法：Kawase 模糊。这个在 unity 官方 URP 管线下自带的 volume 使用的 bloom，就是将此 Kawase 模糊采样过程中降升采样精度，得到的名为 “双重模糊” 的算法，这个在下一篇会在讲到。
+这里介绍其中的一种模糊算法：Kawase 模糊。这个在 unity 官方 URP 管线下自带的 volume 使用的 bloom，就是将此 Kawase 模糊采样过程中降升采样精度，得到的名为 “双重模糊” 的算法，这个在下一篇会在讲到。
 
 ![[5a6cd0347d9b50cb610d0050bd22d775_MD5.webp]]
 
 模糊效果
 
-        先构建一个自定义 renderfeather，他要继承 ScriptableRendererFeature 类。然后再定义一个设置的类，方便我们调整参数。
+    先构建一个自定义 renderfeather，他要继承 ScriptableRendererFeature 类。然后再定义一个设置的类，方便我们调整参数。
 
 ![[a83f7585598732a38fb94ba1324fc633_MD5.webp]]
 

@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "851ba150d35e19b2",
+            "id": "338a9e78a5f0bdf7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -58,9 +58,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "157adfa73862cd86",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
+                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md"
               }
             }
           }
@@ -167,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,20 +223,37 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "b7899ffb6afeed22",
+  "active": "157adfa73862cd86",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+    "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
+    "zip/images/ea31844b7b0326eef02876745e6655bf_MD5.webp",
+    "zip/images/ba27e61f3d96a1f3c2cea1f149724a30_MD5.webp",
+    "zip/images/689cbbc3db8aba21b1a1c580af41c9d9_MD5.webp",
+    "zip/images/df6d341f2ba2aedb69a8e2dd4f6de8a7_MD5.webp",
+    "zip/images/5a612bb8fdc2bc954b9239a566b0ead4_MD5.webp",
+    "zip/images/8e9d8145bc0127303f5fa0a6b5f40d37_MD5.webp",
+    "zip/images/b6c943eeeb7835f95cefcc1dfb6ba055_MD5.webp",
+    "zip/images/038a42a90ec9dd2fc697b270485c49b0_MD5.webp",
+    "zip/images/6ab5e30d4885c8032b361c9235038015_MD5.webp",
+    "zip/images/24fa1584e94c59763be6657c9fc7f4b2_MD5.webp",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/后处理/URP Blit 入门.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "技术美术/1 渲染雅集/07 空间.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
@@ -231,24 +261,7 @@
     "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
     "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
     "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
-    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
-    "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md",
-    "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md",
-    "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zBuffer/Unity 2022 URP 自定义后处理之基于颜色使用 Sobel 算子进行描边.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
-    "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
-    "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
-    "zip/images/Pasted image 20230705203229.png",
-    "zip/images/Pasted image 20230704154208.jpg",
-    "zip/images/Pasted image 20230704154156.png",
-    "zip/images/Pasted image 20230704134749.png",
     "引擎Unity3D/3 URP精粹/后处理",
-    "zip/images/dc01d68984c66a46c71b392e8077b781_MD5.gif",
-    "zip/images/720516e9d18ff4fa4fa6268fbd985d87_MD5.jpg",
-    "zip/images/8298b8fffbb439940594339dd8f5828a_MD5.jpg",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",

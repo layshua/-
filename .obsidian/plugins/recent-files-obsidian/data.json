@@ -1,12 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "URP _ 热扭曲效果 - 哔哩哔哩",
+      "path": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "02 UV操作",
+      "path": "技术美术/1 渲染雅集/02 UV操作.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "14 屏幕颜色制作玻璃效果",
       "path": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
+      "basename": "【笔记】URP 透明物体截屏 - 哔哩哔哩",
+      "path": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "光照探针，反射探针，光照烘焙",
@@ -15,14 +51,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -69,28 +97,12 @@
       "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
     },
     {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "19 径向模糊",
       "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "TA 之路",
@@ -187,10 +199,6 @@
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
-    },
-    {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
     }
   ],
   "omittedPaths": [],
