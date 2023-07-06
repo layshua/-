@@ -3,121 +3,6 @@
 ![[16a5d29809cc086fdecabbcb80f877cd_MD5.webp]]
 
 
-```c
-Shader "URP/14_OpaqueTexture_01"
-{
-    Properties
-    {
-
-    }
-    HLSLINCLUDE
-        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-
-        CBUFFER_START(UnityPerMaterial)
-        CBUFFER_END
-
-
-        struct appdata
-        {
-            float4 positionOS : POSITION;
-            float2 texcoord : TEXCOORD0;
-        };
-
-        struct v2f
-        {
-            float2 uv : TEXCOORD0;
-            float4 positionOS : SV_POSITION;
-
-        };
-
-
-        SAMPLER(_CameraOpaqueTexture);                   //定义贴图
-    ENDHLSL
-
-    SubShader
-    {
-        Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent"  "Queue" = "Transparent" "IgnoreProjector" = " True"}
-        LOD 100
-
-        Pass
-        {
-            Tags{ "LightMode"="UniversalForward" }
-            Blend SrcAlpha OneMinusSrcAlpha
-
-            HLSLPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.positionOS = TransformObjectToHClip(v.positionOS.xyz);
-                return o;
-            }
-
-            half4 frag (v2f i) : SV_Target
-            {
-
-                half2 screenUV = (i.positionOS.xy / _ScreenParams.xy);
-                half4 col = tex2D(_CameraOpaqueTexture, screenUV);
-                return col;
-            }
-            ENDHLSL
-        }
-    }
-}
-```
-
-*   效果
-    
-
-![[36fb6ccc38c5b73f6e280a1421583973_MD5.webp]]
-
-
-*   制作原理，就是我们获取到屏幕颜色以后，对屏幕颜色 UV 进行偏移达到扭曲的效果。
-*   原来我们是扭曲纹理，就是对纹理坐标 UV 扭曲。
-*   现在我们获取一张 Niose 纹理对屏幕 UV 扭曲。
-    
-
-*   输入需要的变量
-    
-
-![[2170f4d44ac5a21d23fdca8d12351b6a_MD5.webp]]
-
-   niose 纹理，遮罩纹理，niose 纹理移动速度，扭曲力度
-
-*   计算 UV 信息，输出
-    
-
-![[bf0d0c970d193d4fda54a2af6b3de03e_MD5.webp]]
-
-*   片元着色器阶段
-    
-    前计算出不同的 UV 移动方向，
-    
-    生成俩个扭曲的纹理，计算出不同的 UV 扭曲程度，
-    
-    加到屏幕 UV 里。
-    
-
-![[4d06e5b1da9b2402bbf89f24088828cd_MD5.webp]]
-
-*   计算遮罩，
-    
-    我们输出设置成遮罩，这样我们就可控扭曲范围大小。
-    
-
-![[d0d9a27cc668ea26d43188b335295a2c_MD5.webp]]
-
-*   效果
-    
-
-GIF
-
-![[7bc8afd6a2b519feb94dae12448e2162_MD5.webp]]
-
-![[8ee97bf9bbc88681364c992db823a9c4_MD5.png]]
-
 *   准备好特效刀光贴图
     
 
@@ -163,9 +48,6 @@ half4 frag (v2f i) : SV_Target
 ```
 
 *   效果
-    
-
-GIF
 
 ![[2c15b430b7e6c24fb3f112166910b3ab_MD5.webp]]
 

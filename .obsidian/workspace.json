@@ -108,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md"
+                "file": "技术美术/1 渲染雅集/02 UV操作.md"
               }
             }
           }
@@ -172,7 +172,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +189,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -215,10 +215,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "f7f11f9dc67581c7",
+  "active": "157adfa73862cd86",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/02 UV操作.md",
     "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
+    "zip/images/2023762208.gif",
     "zip/images/Pasted image 20230706220148.png",
     "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
@@ -236,7 +237,6 @@
     "zip/images/5a612bb8fdc2bc954b9239a566b0ead4_MD5.webp",
     "zip/images/8e9d8145bc0127303f5fa0a6b5f40d37_MD5.webp",
     "zip/images/b6c943eeeb7835f95cefcc1dfb6ba055_MD5.webp",
-    "zip/images/038a42a90ec9dd2fc697b270485c49b0_MD5.webp",
     "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/后处理/URP Blit 入门.md",
