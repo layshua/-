@@ -109,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md"
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
               }
             }
           }
@@ -173,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -190,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -216,16 +216,16 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "157adfa73862cd86",
+  "active": "864d21b0dc8935ac",
   "lastOpenFiles": [
+    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zBuffer/URP 渲染优化总结.md",
     "zip/images/631a2287569db3dac74f27474a99cf98_MD5.png",
     "zip/images/c388f963d5e53c0eaf80a26b9e9cf469_MD5.png",
     "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
-    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
     "zip/images/2023762208.gif",
     "zip/images/Pasted image 20230706220148.png",
     "引擎Unity3D/3 URP精粹/2 URP.md",
