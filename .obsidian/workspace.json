@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/收藏夹/TA 之路.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,7 +21,7 @@
             }
           },
           {
-            "id": "2ca18c855779ab07",
+            "id": "92ceb656c6e44a7d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,11 +34,16 @@
             }
           },
           {
-            "id": "92ceb656c6e44a7d",
+            "id": "b7899ffb6afeed22",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
@@ -55,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +102,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "引擎Unity3D/收藏夹/TA 之路.md"
+              }
             }
           }
         ]
@@ -160,6 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "引擎Unity3D/收藏夹/TA 之路.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,6 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "引擎Unity3D/收藏夹/TA 之路.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,25 +210,27 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "92ceb656c6e44a7d",
+  "active": "75b6bb3c8883c106",
   "lastOpenFiles": [
     "zBuffer/URP Blit 入门.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/收藏夹/TA 之路.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
+    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
     "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
     "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/02 Bloom.md",
     "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "Tools/工具流.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
     "zip/templates/mermaid流图.md",
     "技术美术/6 NPR/原神.md",
     "zip/templates/markmap脑图.md",
@@ -231,7 +242,6 @@
     "zip/images/Pasted image 20230705203229.png",
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
-    "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
     "zip/images/Pasted image 20230704134749.png",
