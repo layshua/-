@@ -33,7 +33,7 @@ SAMPLER(_CameraOpaqueTexture);            //注意名字
 *   全代码
     
 
-```
+```c
 Shader "URP/14_OpaqueTexture_01"
 {
     Properties
@@ -103,12 +103,9 @@ Shader "URP/14_OpaqueTexture_01"
 
 ![[36fb6ccc38c5b73f6e280a1421583973_MD5.webp]]
 
-![[8ee97bf9bbc88681364c992db823a9c4_MD5.png]]
 
 *   制作原理，就是我们获取到屏幕颜色以后，对屏幕颜色 UV 进行偏移达到扭曲的效果。
-    
 *   原来我们是扭曲纹理，就是对纹理坐标 UV 扭曲。
-    
 *   现在我们获取一张 Niose 纹理对屏幕 UV 扭曲。
     
 

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -71,9 +71,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "0cd8e31ade984dd5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md"
+                "file": "技术美术/1 渲染雅集/02 UV操作.md"
               }
             }
           }
@@ -180,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "技术美术/1 渲染雅集/02 UV操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -223,16 +235,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "157adfa73862cd86",
+  "active": "338a9e78a5f0bdf7",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
+    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "技术美术/1 渲染雅集/02 UV操作.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
-    "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
     "zip/images/ea31844b7b0326eef02876745e6655bf_MD5.webp",
     "zip/images/ba27e61f3d96a1f3c2cea1f149724a30_MD5.webp",
     "zip/images/689cbbc3db8aba21b1a1c580af41c9d9_MD5.webp",
@@ -243,7 +257,6 @@
     "zip/images/038a42a90ec9dd2fc697b270485c49b0_MD5.webp",
     "zip/images/6ab5e30d4885c8032b361c9235038015_MD5.webp",
     "zip/images/24fa1584e94c59763be6657c9fc7f4b2_MD5.webp",
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/后处理/URP Blit 入门.md",
@@ -260,7 +273,6 @@
     "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md",
     "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
     "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",
