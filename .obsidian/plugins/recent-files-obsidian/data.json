@@ -5,12 +5,12 @@
       "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     },
     {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
       "basename": "URP Blit 入门",

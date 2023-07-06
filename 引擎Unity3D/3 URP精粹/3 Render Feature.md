@@ -58,7 +58,7 @@ RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 
 **Full Screen PF 允许在预定义的注入点（injection point）注入全屏渲染 Pass，以创建全屏效果。** 
 
 - **Pass Material**：影响全屏 pass 的材质，必须为 Fullscreen Shader Graph 创建的材质。
-![[4 后处理#自定义后处理]]
+[[4 后处理#自定义后处理]]
 - **Injection Point 注入点：**
     1. **Before Rendering Transparents**：渲染透明体之前，在 skybox pass 之后和 transparents pass 之前添加效果。
     2. **Before Rendering Post Processing**: 渲染后处理前：在 Transparent Pass 之后和 post-processing pass 之前添加效果。
@@ -407,7 +407,7 @@ RTHandle 系统是 Unity 的 [RenderTexture](https://docs.unity3d.com/ScriptRefe
     - `RenderingUtils.ReAllocateIfNeeded`
     - `ShadowUtils.ShadowRTReAllocateIfNeeded`
 3. `cameraDepthTarget` 属性必须与 `cameraColorTarget` 属性分开。
-4. 如果渲染目标在应用程序的生存期内没有更改，请使用 `RTHandles.Alloc` 方法分配 `RTHandle` 目标。这种方法是有效的，因为代码不必检查是否应该在每个帧上分配渲染目标。
+4. 如果渲染目标在应用程序的生存期内没有更改，使用 `RTHandles.Alloc` 方法分配 `RTHandle` 目标。
 5. 如果渲染目标是全屏纹理，这意味着其分辨率与屏幕分辨率匹配或只是屏幕分辨率的一小部分，请使用诸如 `Vector2D.one` 之类的缩放因子来支持动态缩放。
 
 ```cs file:示例
