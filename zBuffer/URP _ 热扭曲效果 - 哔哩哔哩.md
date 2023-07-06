@@ -3,180 +3,6 @@
 ![[16a5d29809cc086fdecabbcb80f877cd_MD5.webp]]
 
 
-*   准备好特效刀光贴图
-    
-
-![[e2c0b16135ca31bae9685f9bc1fee250_MD5.webp]]
-
-*   在结构体输入，输出，如果不清楚可以参考上面的文档。
-    
-
-```
-struct appdata
-        {
-            float4 positionOS : POSITION;
-            float2 texcoord : TEXCOORD0;
-            float4 vertexColor : COLOR;
-        };
-
-        struct v2f
-        {
-            float2 uv : TEXCOORD0;
-            float4 positionOS : SV_POSITION;
-            float4 vertexColor : COLOR;
-        };
-```
-
-*   顶点着色器阶段输出
-    
-
-![[2c5d1dd689e4301b456a9edeac2b063e_MD5.webp]]
-
-*   计算出俩个方向，使用顶点 Alpha 控制扭曲强度。
-    
-
-```
-half4 frag (v2f i) : SV_Target
-            {
-
-                half4 mainTex = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv);
-
-                half2 screenUV = (i.positionOS.xy / _ScreenParams.xy) + half2(mainTex.rg * _Force * i.vertexColor.a);
-                half4 col = tex2D(_CameraOpaqueTexture, screenUV);
-                return col;
-            }
-```
-
-*   效果
-
-![[2c15b430b7e6c24fb3f112166910b3ab_MD5.webp]]
-
-能看到扭曲越来越弱。
-
-![[4de8ef8484ce8568ac8514d37f0379c8_MD5.webp]]
-
-*   准备贴图
-    
-
-![[a284b2348dce7bb509d6f9fa405fbdbf_MD5.webp]]
-
-*   修改变量
-    
-
-```
-Properties
-    {
-        _NormalTex("_NormalTex",2D) = "bump" {}
-        _NormalScale("_NormalScale",range(0,0.05)) = 0.01
-    }
-```
-
-**注意：法线贴图使用 **"bump" {}  法线标签 ****
-
-*   在片元着色器阶段我们处理法线的方法。
-    
-
-```
-half4 frag (v2f i) : SV_Target
-            {
-
-                half3 NormalTex = UnpackNormalScale(SAMPLE_TEXTURE2D(_NormalTex,sampler_NormalTex,i.uv),_NormalScale);
-
-                half2 screenUV = (i.positionOS.xy / _ScreenParams.xy) + half2(NormalTex.rg  * i.vertexColor.a);
-                half4 col = tex2D(_CameraOpaqueTexture, screenUV);
-                return col;
-            }
-```
-
-这里和普通贴图不一样，使用一个内置函数，UnpackNormalScale 这函数是控制法线强度。
-
-*   效果
-    
-
-GIF
-
-![[33e991364ba89259a77f8a81b24b51bd_MD5.webp]]
-
-*   代码
-    
-
-```
-Shader "URP/14_OpaqueTexture_Normal"
-{
-    Properties
-    {
-        _NormalTex("_NormalTex",2D) = "bump" {}
-        _NormalScale("_NormalScale",range(0,0.05)) = 0.01
-    }
-    HLSLINCLUDE
-        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-
-        CBUFFER_START(UnityPerMaterial)
-            float4 _NormalTex_ST;
-            float _NormalScale;
-        CBUFFER_END
-
-
-        struct appdata
-        {
-            float4 positionOS : POSITION;
-            float2 texcoord : TEXCOORD0;
-            float4 vertexColor : COLOR;
-        };
-
-        struct v2f
-        {
-            float2 uv : TEXCOORD0;
-            float4 positionOS : SV_POSITION;
-            float4 vertexColor : COLOR;
-        };
-
-        TEXTURE2D (_NormalTex);
-        SAMPLER(sampler_NormalTex);
-
-        SAMPLER(_CameraOpaqueTexture);                   //定义贴图
-    ENDHLSL
-
-    SubShader
-    {
-        Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent"  "Queue" = "Transparent" "IgnoreProjector" = " True"}
-        LOD 100
-
-        Pass
-        {
-            Tags{ "LightMode"="UniversalForward" }
-            Blend SrcAlpha OneMinusSrcAlpha
-
-            HLSLPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.positionOS = TransformObjectToHClip(v.positionOS.xyz);
-                o.uv = TRANSFORM_TEX(v.texcoord, _NormalTex);
-                o.vertexColor = v.vertexColor;
-                return o;
-            }
-
-            half4 frag (v2f i) : SV_Target
-            {
-
-                half3 NormalTex = UnpackNormalScale(SAMPLE_TEXTURE2D(_NormalTex,sampler_NormalTex,i.uv),_NormalScale);
-
-                half2 screenUV = (i.positionOS.xy / _ScreenParams.xy) + half2(NormalTex.rg  * i.vertexColor.a);
-                half4 col = tex2D(_CameraOpaqueTexture, screenUV);
-                return col;
-            }
-            ENDHLSL
-        }
-    }
-}
-```
-
-![[8ee97bf9bbc88681364c992db823a9c4_MD5.png]]
-
 *   上面方法是不支持半透明物体。但是我们特效中都是半透明物体。
     
 *   怎么让支持半透明物体扭曲。
@@ -188,12 +14,10 @@ Shader "URP/14_OpaqueTexture_Normal"
 ![[96f9c96feacd0335a9634ae2cd45050b_MD5.webp]]
 
 *   这张图是后处理完保存的一张图。
-    
 
 *   然后利用 RendererFeatures 新建一个渲染时机 ，并新建一种 LightMode Tags 类型.
     
 *   这样所有 Tags 是 Grab 的 shader 都会在后期处理完成之后在渲染。
-    
 
 简单理解：我们创建一个状态，让这个状态是在摄像机渲染完以后在渲染。
 
@@ -374,7 +198,6 @@ Shader "URP/14_OpaqueTexture_01"
 *   _CameraColorTexture   是场景渲染后生成的纹理截图，
     
 *   _CameraOpaqueTexture  是在不透明物体渲染后截图，所以截取不到透明物体。
-    
 
 *   _AfterPostProcessTexture 是后处理渲染结果输出的图。
     
@@ -382,7 +205,6 @@ Shader "URP/14_OpaqueTexture_01"
 ![[6ab5e30d4885c8032b361c9235038015_MD5.webp]]
 
 *   第一，我们可以看到最前渲染的是 CameraColorTexture
-    
 
 ![[8e9d8145bc0127303f5fa0a6b5f40d37_MD5.webp]]
 
@@ -400,7 +222,6 @@ Shader "URP/14_OpaqueTexture_01"
 
 *   URP 管线下怎么抓取渲染图，默认 URP 管线提供了设置，这里有俩个一个是获取渲染图，一个是渲染深度。
     
-
 ![[038a42a90ec9dd2fc697b270485c49b0_MD5.webp]]
 
 *   渲染结果输出图的认识，会产生 CameraColorTexture ，_CameraOpaqueTexture   ，AfterPostProcessTexture ，他们的前后顺序，具体什么情况使用上面图。

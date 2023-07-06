@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "5e61ea30e58d2e49",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "141f43ff9895c17c",
             "type": "leaf",
             "state": {
@@ -64,8 +51,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "864d21b0dc8935ac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -108,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md"
+                "file": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md"
               }
             }
           }
@@ -172,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -215,14 +216,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "157adfa73862cd86",
+  "active": "864d21b0dc8935ac",
   "lastOpenFiles": [
     "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
     "技术美术/1 渲染雅集/02 UV操作.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/images/2023762208.gif",
     "zip/images/Pasted image 20230706220148.png",
     "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "zip/images/Pasted image 20230706212015.png",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
