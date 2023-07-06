@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "04 景深",
+      "path": "技术美术/3 后处理/04 景深.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "5 CommandBuffer",
@@ -179,26 +199,6 @@
     {
       "basename": "常用语法",
       "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "可微渲染、NeRF 相关技术概念急速入门",
-      "path": "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
-    },
-    {
-      "basename": "3 PBR 基本原理和实现",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "5 PBR 关联理论和推导1",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md"
-    },
-    {
-      "basename": "4 PBR 核心理论和原理",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
     }
   ],
   "omittedPaths": [],

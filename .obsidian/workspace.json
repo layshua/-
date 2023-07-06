@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -207,8 +207,14 @@
   },
   "active": "2ca18c855779ab07",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+    "技术美术/3 后处理/04 景深.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
+    "引擎Unity3D/3 URP精粹/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "Tools/工具流.md",
@@ -228,14 +234,8 @@
     "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
-    "技术美术/7 PBR/辐射度量学.md",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "zip/images/Pasted image 20230704134749.png",
     "引擎Unity3D/3 URP精粹/后处理",
     "zip/images/dc01d68984c66a46c71b392e8077b781_MD5.gif",
