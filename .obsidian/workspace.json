@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,11 +210,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "b7899ffb6afeed22",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "zBuffer/URP Blit 入门.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
