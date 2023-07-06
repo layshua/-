@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "URP Blit 入门",
+      "path": "zBuffer/URP Blit 入门.md"
+    },
+    {
+      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
+      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
+    },
+    {
       "basename": "14 屏幕颜色制作玻璃效果",
       "path": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
     },
@@ -49,24 +69,8 @@
       "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-    },
-    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "URP Blit 入门",
-      "path": "zBuffer/URP Blit 入门.md"
     },
     {
       "basename": "《CS Primer》",
@@ -79,10 +83,6 @@
     {
       "basename": "光照探针，反射探针，光照烘焙",
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
-    },
-    {
-      "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
-      "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
     },
     {
       "basename": "04 景深",

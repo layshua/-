@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
               }
             }
           }
@@ -166,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -209,30 +210,30 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "851ba150d35e19b2",
+  "active": "92ceb656c6e44a7d",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "zBuffer/URP Blit 入门.md",
+    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
+    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md",
     "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
     "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
     "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "zBuffer/URP Blit 入门.md",
     "zBuffer/Unity 2022 URP 自定义后处理之基于颜色使用 Sobel 算子进行描边.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/收藏夹/TA 之路.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
     "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
     "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
