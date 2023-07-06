@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -212,14 +212,17 @@
   },
   "active": "b7899ffb6afeed22",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/1 渲染雅集/07 空间.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/后处理/URP Blit 入门.md",
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "zBuffer/URP Blit 入门.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+    "技术美术/1 渲染雅集/07 空间.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
@@ -235,12 +238,9 @@
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "zBuffer/Unity 2022 URP 自定义后处理之基于颜色使用 Sobel 算子进行描边.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
     "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
     "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
-    "技术美术/3 后处理/04 景深.md",
     "zip/images/Pasted image 20230705203229.png",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
