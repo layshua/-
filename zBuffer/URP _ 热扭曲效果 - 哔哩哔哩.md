@@ -114,7 +114,7 @@ Shader "URP/14_OpaqueTexture_01"
 
 ![[2170f4d44ac5a21d23fdca8d12351b6a_MD5.webp]]
 
-           niose 纹理，遮罩纹理，niose 纹理移动速度，扭曲力度
+   niose 纹理，遮罩纹理，niose 纹理移动速度，扭曲力度
 
 *   计算 UV 信息，输出
     
