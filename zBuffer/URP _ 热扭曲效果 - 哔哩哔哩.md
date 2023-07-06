@@ -2,36 +2,6 @@
 
 ![[16a5d29809cc086fdecabbcb80f877cd_MD5.webp]]
 
-*   URP 管线下怎么获取屏幕信息。
-*   实现特效中使用的热扭曲效果。
-*   认识摄像机输出的不同阶段效果图。
-    
-
-*   URP 管线环境下，GrabPass 是失效的。
-*   在 URP 管线使用的 `OpaqueTexture` 获取不透明物体的绘制。
-
-![[ce449645edc09d088c28c26147053ec3_MD5.webp]]
-
-*   在 shader Graph 里对应的节点是  SceneColor
-
-![[b8b79fba7b11fb3cbd53f648435c682c_MD5.webp]]
-
-**注意： OpaqueTexture 只能渲染不透明物体。** 透明物体是抓取不到的。
-
-![[a48c0e7ed60fca2461eb8029bc83778e_MD5.webp]]
-
-*   设置贴图
-
-```
-SAMPLER(_CameraOpaqueTexture);            //注意名字
-```
-
-*   计算出模型显示 UV 坐标
-
-![[1e67ee312f033073be8ec7213aafb63c_MD5.webp]]
-
-*   全代码
-    
 
 ```c
 Shader "URP/14_OpaqueTexture_01"
