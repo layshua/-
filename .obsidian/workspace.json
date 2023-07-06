@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "zBuffer/URP Blit 入门.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -55,7 +55,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -97,9 +97,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -162,7 +160,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +176,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -205,10 +201,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "92ceb656c6e44a7d",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "zBuffer/URP Blit 入门.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
+    "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
+    "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/3 后处理/ta101后处理.md",
@@ -232,8 +232,6 @@
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "引擎Unity3D/收藏夹/Unity 几何着色器详解.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
     "zip/images/Pasted image 20230704134749.png",
@@ -241,9 +239,6 @@
     "zip/images/dc01d68984c66a46c71b392e8077b781_MD5.gif",
     "zip/images/720516e9d18ff4fa4fa6268fbd985d87_MD5.jpg",
     "zip/images/8298b8fffbb439940594339dd8f5828a_MD5.jpg",
-    "zip/images/b8b43c9ad9df5c32f9af160b2df1cf9f_MD5.jpg",
-    "zip/images/cf0ee62d9583f13dc793a64cb5f7a1e9_MD5.jpg",
-    "zip/images/fb446d851602aaa80bdcbd7e58d12041_MD5.jpg",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",

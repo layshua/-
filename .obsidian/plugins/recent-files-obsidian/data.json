@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "URP Blit 入门",
+      "path": "zBuffer/URP Blit 入门.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
     }
   ],
   "omittedPaths": [],

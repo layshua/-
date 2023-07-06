@@ -3509,6 +3509,7 @@ odLW
 orgin
 outputpology
 outputcontrolpoints
+opaqueDesc
 OneDrive
 Obsidian
 Office
@@ -12386,6 +12387,7 @@ cyiq
 colorimetry
 ccw
 colorgrading
+cameraColorTargetHandle
 github
 grey
 green
@@ -19844,6 +19846,8 @@ tessMaxDist
 triangleSize
 tonemapping
 tonemap
+tempA
+tempB
 markdown
 matter
 mod
@@ -24021,6 +24025,7 @@ monochromatic
 maxtessfactor
 mTempRT
 mDesRT
+meye
 windows
 win
 width
@@ -38858,6 +38863,7 @@ VXg
 VIS
 VolumenComponent
 Vlomue
+Vert
 verge
 vPdIt
 vertical
@@ -46507,6 +46513,7 @@ ApplyColorLut
 ApplyColorLutPass
 Aces
 ApplyColorGrading
+Actually
 URL
 Utools
 Users
@@ -54215,6 +54222,7 @@ artifaction
 adjacency
 adjustment
 aces
+alexandera
 Roaming
 RegWorkshop
 Release
@@ -58686,6 +58694,9 @@ RTHandle
 Rendr
 RTHandleSystem
 RTHandles
+RenderingUtils
+ReAllocateIfNeeded
+RenderGraph
 Microsoft
 Menu
 MicaForEveryone
@@ -72333,6 +72344,7 @@ Symbol
 Subspace
 SPDs
 ShaderFeature
+SetTarget
 Programs
 POP
 PC
@@ -76538,6 +76550,7 @@ PjEuv
 PKR
 PrePass
 PostProcessCopy
+PropertyBlock
 ContextMenuManager
 ClashVerge
 Clash
@@ -80965,6 +80978,13 @@ ColorGradingLut
 ColorGradingLutRendererFeature
 ColorGradingRendererFeature
 ColorGradingRenderPass
+Cyanilux
+ColorBlitPass
+CameraColorTarget
+CameraOpaqueTexture
+CopyColor
+ColorBlitRendererFeature
+CameraColorAttachmentA
 ImTip
 IMAP
 ID
@@ -96873,6 +96893,7 @@ nbzyK
 nISm
 nmHZ
 neutral
+nameID
 bf
 bc
 black
@@ -112611,6 +112632,7 @@ TIjO
 Tty
 Troll
 Torrane
+TempTex
 io
 ipad
 it
@@ -117144,6 +117166,7 @@ inelastic
 irrdiance
 interger
 internalLut
+importantly
 shift
 svg
 sf
@@ -121864,6 +121887,7 @@ ssedt
 spectral
 sourceRT
 sFloat
+strucutre
 local
 list
 left
@@ -148584,6 +148608,8 @@ Buuu
 BlinkMacSystemFont
 Blitter
 BlitCameraTexture
+BlitRenderFeature
+BlitTexture
 Fraktur
 Frame
 Foo
@@ -167953,6 +167979,7 @@ DuiIK
 DcoBY
 Dress
 Degamma
+DrawTriangle
 LNK
 Log
 Linux
