@@ -72345,6 +72345,7 @@ Subspace
 SPDs
 ShaderFeature
 SetTarget
+SobelOutline
 Programs
 POP
 PC
@@ -125585,6 +125586,7 @@ lnP
 lPn
 lets
 linearly
+lts
 YAML
 You
 YEBAYGhURFRofHx
@@ -152948,6 +152950,7 @@ FvgZ
 FdotL
 Frag
 FinalBlit
+FullScreenPassRendererFeature
 Element
 Entity
 Enity

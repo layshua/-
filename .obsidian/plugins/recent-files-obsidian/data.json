@@ -1,8 +1,60 @@
 {
   "recentFiles": [
     {
-      "basename": "URP Blit 入门",
-      "path": "zBuffer/URP Blit 入门.md"
+      "basename": "14 屏幕颜色制作玻璃效果",
+      "path": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "3 Render Feature",
@@ -13,12 +65,16 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+      "basename": "URP Blit 入门",
+      "path": "zBuffer/URP Blit 入门.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
     },
     {
       "basename": "光照探针，反射探针，光照烘焙",
@@ -27,10 +83,6 @@
     {
       "basename": "【Unity Rendering】Unity SRP 管线的底层执行过程",
       "path": "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md"
-    },
-    {
-      "basename": "14 屏幕颜色制作玻璃效果",
-      "path": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
     },
     {
       "basename": "04 景深",
@@ -45,20 +97,8 @@
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "工具流",
       "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "mermaid流图",
@@ -159,46 +199,6 @@
     {
       "basename": "Unity 曲面细分着色器详解",
       "path": "引擎Unity3D/收藏夹/Unity 曲面细分着色器详解.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
-    },
-    {
-      "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
-      "path": "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
-    },
-    {
-      "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
-      "path": "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
-    },
-    {
-      "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
-      "path": "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
-    },
-    {
-      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
-      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
-    },
-    {
-      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "01 学习大纲.md"
-    },
-    {
-      "basename": "矩阵论",
-      "path": "Math/线性代数/矩阵论.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     }
   ],
   "omittedPaths": [],

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP Blit 入门.md",
+                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/收藏夹/TA 之路.md"
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
               }
             }
           }
@@ -151,7 +150,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 304.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -167,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/收藏夹/TA 之路.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/收藏夹/TA 之路.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,38 +209,38 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "75b6bb3c8883c106",
+  "active": "851ba150d35e19b2",
   "lastOpenFiles": [
-    "zBuffer/URP Blit 入门.md",
+    "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
+    "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
+    "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
+    "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md",
+    "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
+    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
+    "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md",
+    "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "zBuffer/URP Blit 入门.md",
+    "zBuffer/Unity 2022 URP 自定义后处理之基于颜色使用 Sobel 算子进行描边.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/收藏夹/TA 之路.md",
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
     "zip/images/e06474d147ded16efad00671ec3ea2fe_MD5.png",
     "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
     "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
-    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/02 Bloom.md",
-    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "Tools/工具流.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zip/templates/mermaid流图.md",
-    "技术美术/6 NPR/原神.md",
-    "zip/templates/markmap脑图.md",
-    "zip/templates/callout分栏.md",
-    "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
-    "zip/留学/行李.md",
-    "zip/留学/缴费.md",
-    "zip/留学/前往斯旺西.md",
     "zip/images/Pasted image 20230705203229.png",
-    "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
-    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
     "zip/images/Pasted image 20230704134749.png",
