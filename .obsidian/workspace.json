@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -212,8 +212,11 @@
   },
   "active": "b7899ffb6afeed22",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "技术美术/1 渲染雅集/07 空间.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zBuffer/URP Blit 入门.md",
     "zBuffer/【Unity Rendering】Unity SRP 管线的底层执行过程.md",
@@ -238,9 +241,6 @@
     "zip/images/5373a34467cbee99eaddb4affd3c3ea9_MD5.png",
     "zip/images/36a84effd6ac3b5a1f3198ede7445de0_MD5.jpg",
     "技术美术/3 后处理/04 景深.md",
-    "技术美术/3 后处理/ta101后处理.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "引擎Unity3D/3 URP精粹/雪风/16 建立自己的后处理系统并调整屏幕的亮度饱和度对比度.md",
     "zip/images/Pasted image 20230705203229.png",
     "zip/images/Pasted image 20230704154208.jpg",
     "zip/images/Pasted image 20230704154156.png",
