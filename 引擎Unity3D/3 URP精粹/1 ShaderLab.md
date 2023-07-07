@@ -837,11 +837,13 @@ cbuffer myConstantBuffer {
 
 深度 (Z) 方向在不同的着色器平台上不同。
 
+DirectX 下的深度值即是 $z_{NDC}$ 的值， $depth=z_{NDC}$ 
+
 > [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
 > **DirectX 11，DirectX12，PS4，Xbox One，和Metal:** 
 > - ZBuffer 在近平面处为 1.0，在远平面处减小到 0.0。
 > - 裁剪空间的 Z 值范围是 $[near,0]$（near 表示近平面距离，在远平面处减小到 0.0）。
-> - NDC 的 Z 值范围为 $[1,0]$
+> - **NDC 的 Z 值范围为 $[1,0]$，NDC 的 Z 值即是我们常说的深度值，存储在 ZBuffer 上。**
 > - Unity 定义了 `UNITY_REVERSED_Z` 宏定义，用于判断是否是使用翻转 z 方向的平台
 > - `_CameraDepthTexture` 用于获取深度图（ZBuffer），近平面为 1，近白远黑。
 
@@ -849,7 +851,7 @@ cbuffer myConstantBuffer {
 > - ZBuffer在近平面处为 0.0，在远平面处为 1.0。
 > - 裁剪空间的 Z 值取决于具体平台：
 >     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[0,1]$
->     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$
+>     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$。由于深度值应该是 0~1 的数，所以 Unity 对其将其转换为$[0,1]$存入ZBuffer
 
 ```c file:Reverseddirection
 #if UNITY_REVERSED_Z
@@ -864,12 +866,12 @@ cbuffer myConstantBuffer {
 
 ### 提取深度缓冲区/深度纹理采样
 
-如果要手动提取深度 (Z) 缓冲区值，则可能需要检查缓冲区方向。以下是执行此操作的示例：
+我们做东西肯定要考虑跨平台，前面提到了不同平台生成的深度图是不同的，如 DirctX 近到远是 1 到 0，OpenGL 近到远是 0 到 1，那么怎么统一采样的值呢？根据前面的介绍我们知道 DirctX 等平台之所以是 1 到 0 是因为 unity 为其做了反转，那么我们再把它们转回来不就得了么。而对于这些进行了深度反转的平台，unity 都定义了名为 **UNITY_REVERSED_Z** 的宏，**因此如果想要各个平台近到远都是 0 到 1，就可以这么处理：**
 
 ```c
-float z = tex2D(_CameraDepthTexture, uv);
+float depth = tex2D(_CameraDepthTexture, uvSS);
 # if defined(UNITY_REVERSED_Z)
-    z = 1.0f - z;
+    depth = 1.0f - z;
 # endif
 ```
 
