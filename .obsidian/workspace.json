@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "accbd42ea8867708",
+            "id": "cb7d8b795b525a9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,38 +73,12 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       },
       {
         "id": "af01975e70e73712",
         "type": "tabs",
         "children": [
-          {
-            "id": "551862bf085e1af6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "84ec161d674632f8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
           {
             "id": "540384e82b8002a8",
             "type": "leaf",
@@ -118,8 +92,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -162,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/06 深度图.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -226,7 +199,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +216,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -269,45 +242,45 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "accbd42ea8867708",
+  "active": "540384e82b8002a8",
   "lastOpenFiles": [
+    "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md",
+    "技术美术/1 渲染雅集/04 深度操作.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/0 3D数学/公式推导/06 深度图.md",
     "图形学/1 图形系统/06 深度测试.md",
+    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+    "图形学/0 3D数学/公式推导/06 深度缓冲.md",
+    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "zip/images/57f269bc58db0d7a46c35ba31347b1b7_MD5.webp",
+    "zip/images/00bfce6e7a584fe3953f5096df7d93c2_MD5.webp",
+    "zip/images/296372eb07c4c0f77893acdf4c91417e_MD5.webp",
+    "zip/images/af9dc9b6f88651963e54f903681c490b_MD5.webp",
+    "zip/images/69a74153809c2d6850cb8a5014db7799_MD5.webp",
+    "zip/images/6793512789b8d95f9d8ea8cf139fa415_MD5.webp",
+    "zip/images/dae88d424f6a4eb58634b1e451b549d5_MD5.webp",
+    "zip/images/ed3d96e893b43d2ec618422f6ceee286_MD5.webp",
+    "zip/images/90cf1ec144e4e05117961db9a2858384_MD5.webp",
+    "zip/images/dad9a491408d89e7ad4c029cfbea609b_MD5.webp",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/15 粒子.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md",
-    "技术美术/1 渲染雅集/04 深度操作.md",
     "技术美术/1 渲染雅集/05 空间.md",
-    "zip/images/v2-4ead41b0f3d7e5842f047d15f067e285_1440w.webp",
-    "zip/images/v2-11bac0a9fd7fee29687f222ef4b317fd_1440w.webp",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zip/images/202377141633.gif",
-    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "zip/images/2023771458.gif",
     "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
-    "zip/images/Pasted image 20230707144026.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/media/1cdecce356f6f3f5f39169ea569cad48.jpg",
     "图形学/5 书籍/《RTR3》/第六章 · 纹理贴图及相关技术/README.md",
     "图形学/5 书籍/《RTR3》/第九章 · 全局光照/README.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "zip/images/Pasted image 20230707140918.png",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
-    "zip/images/df90e7cc813db252b7e9aacfcd53044d_MD5.jpg",
-    "zip/images/dd81b78262b920929f03c7f3b38d6850_MD5.jpg",
-    "zip/images/dd99397f7b82045d737fe1b5916083a8_MD5.jpg",
-    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md",
-    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",

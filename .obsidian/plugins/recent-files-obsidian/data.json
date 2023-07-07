@@ -1,16 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "06 深度图",
-      "path": "图形学/0 3D数学/公式推导/06 深度图.md"
-    },
-    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
+    },
+    {
+      "basename": "04 定向阴影",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md"
+    },
+    {
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "04 深度操作",
+      "path": "技术美术/1 渲染雅集/04 深度操作.md"
+    },
+    {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "Unity Shader - 深度图基础及应用 - 简书",
+      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "06 深度缓冲",
+      "path": "图形学/0 3D数学/公式推导/06 深度缓冲.md"
+    },
+    {
+      "basename": "Unity Shader - 消融效果原理与变体 - 简书",
+      "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
     },
     {
       "basename": "02 视图变换",
@@ -33,16 +69,8 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
     },
     {
-      "basename": "04 深度操作",
-      "path": "技术美术/1 渲染雅集/04 深度操作.md"
-    },
-    {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
     },
     {
       "basename": "01 Trick！",
@@ -125,10 +153,6 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "04 景深",
       "path": "技术美术/3 后处理/04 景深.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "mermaid流图",
-      "path": "zip/templates/mermaid流图.md"
-    },
-    {
-      "basename": "markmap脑图",
-      "path": "zip/templates/markmap脑图.md"
-    },
-    {
-      "basename": "callout分栏",
-      "path": "zip/templates/callout分栏.md"
     }
   ],
   "omittedPaths": [],

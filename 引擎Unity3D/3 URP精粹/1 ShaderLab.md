@@ -799,25 +799,13 @@ float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 
 与纹理坐标类似，裁剪空间坐标（也称为投影后空间坐标）在 Direct3D 类和 OpenGL 类平台之间有所不同：
 
-- **Direct3D **：裁剪空间深度从近平面的 +1.0 到远平面的 0.0。
-- **OpenGL **：裁剪空间深度从近平面的 –1.0 到远平面的 +1.0。
+- **Direct3D **：裁剪空间深度为 $[near,0]$。
+- **OpenGL **：裁剪空间深度为$[-near, far]$。
 
-**在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**
+- **在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**`UNITY_NEAR_CLIP_VALUE` 定义为近剪裁平面的值。 Direct3D 为1.0，OpenGL 为–1.0
+- 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
 
-```c
-#if UNITY_REVERSED_Z
-    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
-    // UNITY_NEAR_CLIP_VALUE定义为近剪裁平面的值。 Direct3D为1.0，OpenGL为–1.0
-    positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
-#else
-    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
-    positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
-#endif
-```
-
-在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
-
-## GPU 缓冲区缓冲区
+## 缓冲区数据结构
 
 执行以下操作以确保所有图形 API 编译具有相同数据布局的缓冲区：
 
@@ -835,9 +823,8 @@ cbuffer myConstantBuffer {
 
 ## 深度 (Z) 方向
 
-深度 (Z) 方向在不同的着色器平台上不同。
-
-DirectX 下的深度值即是 $z_{NDC}$ 的值， $depth=z_{NDC}$ 
+- ZBuffer 中存放的深度值即是 NDC 坐标的 Z 值
+- 我们可以进行跨平台处理 [[1 ShaderLab#跨平台采样深度纹理]]，让所有平台的 ZBuffer 范围都是 $[0,1]$
 
 > [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
 > **DirectX 11，DirectX12，PS4，Xbox One，和Metal:** 
@@ -853,29 +840,18 @@ DirectX 下的深度值即是 $z_{NDC}$ 的值， $depth=z_{NDC}$
 >     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[0,1]$
 >     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$。由于深度值应该是 0~1 的数，所以 Unity 对其将其转换为$[0,1]$存入ZBuffer
 
-```c file:Reverseddirection
-#if UNITY_REVERSED_Z
-    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
-    // UNITY_NEAR_CLIP_VALUE定义为近剪裁平面的值。 Direct3D为1.0，OpenGL为–1.0
-    positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
-#else
-    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
-    positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
-#endif
-```
-
-### 提取深度缓冲区/深度纹理采样
+### 跨平台采样深度纹理
 
 我们做东西肯定要考虑跨平台，前面提到了不同平台生成的深度图是不同的，如 DirctX 近到远是 1 到 0，OpenGL 近到远是 0 到 1，那么怎么统一采样的值呢？根据前面的介绍我们知道 DirctX 等平台之所以是 1 到 0 是因为 unity 为其做了反转，那么我们再把它们转回来不就得了么。而对于这些进行了深度反转的平台，unity 都定义了名为 **UNITY_REVERSED_Z** 的宏，**因此如果想要各个平台近到远都是 0 到 1，就可以这么处理：**
 
-```c
+```c file:方法一
 float depth = tex2D(_CameraDepthTexture, uvSS);
 # if defined(UNITY_REVERSED_Z)
     depth = 1.0f - z;
 # endif
 ```
 
-```c file:从深度纹理中采样深度
+```c file:方法二
 #if UNITY_REVERSED_Z
     // 具有 REVERSED_Z 的平台（如 D3D）的情况。
     real depth = SampleSceneDepth(uvSS);
