@@ -17,13 +17,20 @@
     padding: 2px 4px; /*文字距边缘的距离*/
     border-radius: 5px; /* 边缘 */
 }
-/* 标注中的代码块 */
+
+/* 标注callout中的代码块 */
 .markdown-rendered code {
-    background-color: #e4e4e4;
-    /* 边框 */
-    box-shadow: 0 0 0px 1px rgb(172, 172, 148);
-    border-radius: 0;
-    padding: 2px 4px;
+    background-color: #e0d6ed;
+        /* 背景颜色 */
+        color: rgb(140, 0, 254);
+        /* 字体颜色 */
+        /*  box-shadow: 0 0 0px 1px rgb(172, 172, 148);  */
+        /* 边框 */
+        vertical-align: baseline;
+        padding: 2px 4px;
+        /*文字距边缘的距离*/
+        border-radius: 5px;
+        /* 边缘 */
 }
 
 /* 数学公式块 */
