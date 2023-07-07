@@ -50328,6 +50328,7 @@ Uoe
 Ubuntu
 UberPost
 UIRT
+UpdateDepthTexture
 api
 ac
 app
@@ -54230,6 +54231,7 @@ aces
 alexandera
 alphaclip
 animator
+addshadow
 Roaming
 RegWorkshop
 Release
@@ -58707,6 +58709,7 @@ RenderGraph
 RenderObject
 RendererFeatures
 RenderScale
+RenderForwardOpaque
 Microsoft
 Menu
 MicaForEveryone
@@ -67512,6 +67515,7 @@ WeaponClass
 WiFi
 WBI
 WeF
+WEBGL
 Start
 StartAllBack
 Shadowrocket
@@ -72356,6 +72360,7 @@ SPDs
 ShaderFeature
 SetTarget
 SobelOutline
+SurfaceShader
 Programs
 POP
 PC
@@ -80996,6 +81001,7 @@ CameraOpaqueTexture
 CopyColor
 ColorBlitRendererFeature
 CameraColorAttachmentA
+CollectShadows
 ImTip
 IMAP
 ID
@@ -104302,6 +104308,8 @@ fYvo
 foreshortening
 finalBlit
 finalblit
+fight
+fallbacks
 dd
 dcc
 data
@@ -168000,6 +168008,9 @@ DcoBY
 Dress
 Degamma
 DrawTriangle
+DirextX
+DepthTexture
+DirctX
 LNK
 Log
 Linux
@@ -172123,6 +172134,7 @@ LutBuilderHdr
 LUTsize
 LogC
 LutBuilderPass
+LastCameraDepthTexture
 Getx
 GetX
 GetName
@@ -176731,6 +176743,7 @@ Gossy
 GranTurismo
 Given
 Grab
+GetGlobalTexture
 NULL
 Native
 NormalMap

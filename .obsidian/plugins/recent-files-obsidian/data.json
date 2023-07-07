@@ -21,6 +21,18 @@
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "06 深度图",
+      "path": "图形学/0 3D数学/公式推导/06 深度图.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
       "basename": "05 空间",
       "path": "技术美术/1 渲染雅集/05 空间.md"
     },
@@ -35,10 +47,6 @@
     {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
     {
       "basename": "URP 渲染优化总结",
@@ -191,14 +199,6 @@
     {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "辐射度量学",
-      "path": "技术美术/7 PBR/辐射度量学.md"
     }
   ],
   "omittedPaths": [],
