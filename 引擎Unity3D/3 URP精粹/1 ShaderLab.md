@@ -870,7 +870,17 @@ cbuffer myConstantBuffer {
 ```
 
 
-另一个需要判断翻转 Z 的地方是在对深度纹理采样时：
+### 提取深度缓冲区/深度纹理采样
+
+如果要手动提取深度 (Z) 缓冲区值，则可能需要检查缓冲区方向。以下是执行此操作的示例：
+
+```c
+float z = tex2D(_CameraDepthTexture, uv);
+# if defined(UNITY_REVERSED_Z)
+    z = 1.0f - z;
+# endif
+```
+
 ```c file:从深度纹理中采样深度
 #if UNITY_REVERSED_Z
     // 具有 REVERSED_Z 的平台（如 D3D）的情况。
@@ -881,24 +891,13 @@ cbuffer myConstantBuffer {
     real depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, SampleSceneDepth(uvSS));
 #endif
 ```
-
-
-### 提取深度缓冲区
-
-如果要手动提取深度 (Z) 缓冲区值，则可能需要检查缓冲区方向。以下是执行此操作的示例：
-
-```
-float z = tex2D(_CameraDepthTexture, uv);
-# if defined(UNITY_REVERSED_Z)
-    z = 1.0f - z;
-# endif
-```
-
 ### 使用裁剪空间
 
 如果要手动使用裁剪空间 (Z) 深度，则可能还需要使用以下宏来抽象化平台差异：
 
-`float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);`
+```c
+float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);
+```
 
 **注意**：此宏不会改变 OpenGL 或 OpenGL ES 平台上的裁剪空间，因此在这些平台上，此宏返回“-near”1（近平面）到 far（远平面）之间的值。
 
@@ -908,7 +907,7 @@ float z = tex2D(_CameraDepthTexture, uv);
 
 以下是执行此操作的示例：
 
-```
+```cs
 var shadowProjection = Matrix4x4.Ortho(...); //阴影摄像机投影矩阵
 var shadowViewMat = ...     //阴影摄像机视图矩阵
 var shadowSpaceMatrix = ... //从裁剪空间到阴影贴图纹理空间
@@ -929,13 +928,9 @@ if(SystemInfo.usesReversedZBuffer)
     m_shadowMatrix = shadowSpaceMatrix * shadowProjection * shadowViewMat;
 ```
 
-### 深度 (Z) 偏差
+### 深度 (Z) 方向检查工具
 
-Unity 自动处理深度 (Z) 偏差，以确保其与 Unity 的深度 (Z) 方向匹配。但是，如果要使用本机代码渲染插件，则需要在 C 或 C++ 代码中消除（反转）深度 (Z) 偏差。
-
-#### 深度 (Z) 方向检查工具
-
-- 使用 [SystemInfo.usesReversedZBuffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/SystemInfo-usesReversedZBuffer.html) 可确认所在平台是否使用反转深度 (Z)。
+- 使用`SystemInfo.usesReversedZBuffer` 可确认所在平台是否使用反转深度 (Z)。
 # 变体
 ## 变体基础
 ![[Pasted image 20230628192002.png]]
