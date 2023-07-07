@@ -4,35 +4,6 @@
 
 写这篇文章的原因是在知乎看到的有关 URP 渲染优化的内容都不太全，在其他平台购买的资料又太简单（感觉被坑了啊），所以就打算自己写一篇供后人查看。当然，个人认为相对来说比较全面，实际上也存在大量疏漏，欢迎在评论区补充，共同学习。
 
-## 后处理全屏 Blit 优化
-
-在 URP 中使用后处理一般会需要如下步骤
-
-```
-blit(source,temp); //把资源拷贝到temp RT中
-blit(temp,source,mat);//把temp blit到source中，并在mat中做效果
-```
-
-为什么不直接 blit(source,source,mat)；是因为 RT 不能既采样又写颜色。在电脑上看着没什么问题，打包出来之后就会花屏。但是第一次的全屏 blit 是真的浪费。
-
-### URP 内置已经有一个方案解决了这个问题：
-
-原理就是 URP 会生成 backbuffer，纹理分别是  
-`_CameraColorAttachmentA`, `_CameraColorAttachmentB`
-
-在做后处理时，会先在 A 中绘制，当 blit 效果时绘制到 B 上，将 B 作为主纹理，后面的绘制就在 B 上进行，再遇到后处理，再切回 A。如此绘制下去，但是 Unity 很操蛋的没有提供接口给外部使用，需要自己魔改这部分，把功能公开。
-
-流程变成：
-
-rebder a
-
-blit(a,b);
-
-render b
-
-blit(b,a)
-
-render a
 
 ## UI 部分优化
 
