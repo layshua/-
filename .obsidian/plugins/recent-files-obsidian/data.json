@@ -5,6 +5,14 @@
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
     },
     {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
       "basename": "05 空间",
       "path": "技术美术/1 渲染雅集/05 空间.md"
     },
@@ -19,14 +27,6 @@
     {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
