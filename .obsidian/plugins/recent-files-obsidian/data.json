@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
+      "basename": "06 深度缓冲",
+      "path": "图形学/0 3D数学/公式推导/06 深度缓冲.md"
+    },
+    {
+      "basename": "04 深度操作",
+      "path": "技术美术/1 渲染雅集/04 深度操作.md"
+    },
+    {
+      "basename": "Unity Shader - 深度图基础及应用 - 简书",
+      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+    },
+    {
       "basename": "05 烘焙光照",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
     },
@@ -25,24 +37,12 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "04 深度操作",
-      "path": "技术美术/1 渲染雅集/04 深度操作.md"
-    },
-    {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "Unity Shader - 深度图基础及应用 - 简书",
-      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "06 深度缓冲",
-      "path": "图形学/0 3D数学/公式推导/06 深度缓冲.md"
     },
     {
       "basename": "Unity Shader - 消融效果原理与变体 - 简书",

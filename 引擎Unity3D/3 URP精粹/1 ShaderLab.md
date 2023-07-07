@@ -824,7 +824,7 @@ cbuffer myConstantBuffer {
 ## 深度 (Z) 方向
 
 - ZBuffer 中存放的深度值即是 NDC 坐标的 Z 值
-- 我们可以进行跨平台处理 [[1 ShaderLab#跨平台采样深度纹理]]，让所有平台的 ZBuffer 范围都是 $[0,1]$
+- 我们可以进行跨平台处理 [[1 ShaderLab#跨平台采样深度纹理]]，让所有平台的 ZBuffer 范围都是 $[0,1]$ 或 $[1,0]$
 
 > [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
 > **DirectX 11，DirectX12，PS4，Xbox One，和Metal:** 
@@ -842,22 +842,24 @@ cbuffer myConstantBuffer {
 
 ### 跨平台采样深度纹理
 
-我们做东西肯定要考虑跨平台，前面提到了不同平台生成的深度图是不同的，如 DirctX 近到远是 1 到 0，OpenGL 近到远是 0 到 1，那么怎么统一采样的值呢？根据前面的介绍我们知道 DirctX 等平台之所以是 1 到 0 是因为 unity 为其做了反转，那么我们再把它们转回来不就得了么。而对于这些进行了深度反转的平台，unity 都定义了名为 **UNITY_REVERSED_Z** 的宏，**因此如果想要各个平台近到远都是 0 到 1，就可以这么处理：**
+我们做东西肯定要考虑跨平台，前面提到了不同平台生成的深度图是不同的，如 DirctX 近到远是 1 到 0，OpenGL 近到远是 0 到 1，那么怎么统一采样的值呢？根据前面的介绍我们知道 DirctX 等平台之所以是 1 到 0 是因为 unity 为其做了反转，那么我们再把它们转回来不就得了么。而对于这些进行了深度反转的平台，unity 都定义了名为 **UNITY_REVERSED_Z** 的宏，
+**如果想要各个平台Zbuffer从近到远都是 $[0,1]$：**
 
 ```c file:方法一
 float depth = tex2D(_CameraDepthTexture, uvSS);
 # if defined(UNITY_REVERSED_Z)
-    depth = 1.0f - z;
+    depth = 1.0f - depth;
 # endif
 ```
 
+**如果想要各平台 Zbuffer从远到近都是 $[1,0]$：**
 ```c file:方法二
 #if UNITY_REVERSED_Z
     // 具有 REVERSED_Z 的平台（如 D3D）的情况。
     real depth = SampleSceneDepth(uvSS);
 #else
     // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
-    // 调整 Z 以匹配 OpenGL 的 NDC ([-1, 1])
+    // 调整 Z 以匹配 OpenGL 的 NDC
     real depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, SampleSceneDepth(uvSS));
 #endif
 ```
