@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "方向",
+      "path": "zip/AI/论文/方向.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "Unity Shader - 深度图基础及应用 - 简书",
+      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
     },
     {
       "basename": "06 深度缓冲",
@@ -11,10 +23,6 @@
     {
       "basename": "04 深度操作",
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
-    },
-    {
-      "basename": "Unity Shader - 深度图基础及应用 - 简书",
-      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
     },
     {
       "basename": "05 烘焙光照",
@@ -191,14 +199,6 @@
     {
       "basename": "19 径向模糊",
       "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "04 景深",
-      "path": "技术美术/3 后处理/04 景深.md"
     }
   ],
   "omittedPaths": [],
