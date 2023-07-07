@@ -807,6 +807,7 @@ float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 ```c
 #if UNITY_REVERSED_Z
     // 具有 REVERSED_Z 的平台（如 D3D）的情况。
+    // UNITY_NEAR_CLIP_VALUE定义为近剪裁平面的值。 Direct3D为1.0，OpenGL为–1.0
     positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
 #else
     // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
@@ -815,7 +816,6 @@ float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 ```
 
 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
-
 
 ## GPU 缓冲区缓冲区
 
@@ -838,7 +838,7 @@ cbuffer myConstantBuffer {
 深度 (Z) 方向在不同的着色器平台上不同。
 
 > [!hint] 常用平台**Reversed direction**
-> **DirectX 11, DirectX 12, Metal:** 使用了 Reversed direction_Z 技术，相比u
+> **DirectX 11, DirectX 12, Metal:** 
 > - 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
 > - 裁剪空间的 Z 值范围是 $[near,0]$（表示近平面处的近平面距离，在远平面处减小到 0.0）。对应 NDC 的 Z 值值范围为 $[1,0]$
 
@@ -848,7 +848,8 @@ cbuffer myConstantBuffer {
 >     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[0,1]$
 >     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$
 
-**请注意，使反转方向深度 (Reversed direction_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
+**翻转 Z 的的目的：反转方向深度 (Reversed direction_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
+翻转之后，深度缓存中近平面的值变为 1，远平面的值变为 0，裁剪空间的 Z 值范围变成了 $[near,0]$，对于其他 near 的图形接口，则保持传统的取值范围。
 
 > [!danger] Unity 规定
 > **Unity 在使用深度 (Z) 发生反转的平台上的着色器时：**
@@ -857,7 +858,7 @@ cbuffer myConstantBuffer {
 > - 裁剪空间的 Z 值范围是 $[near,0]$（近平面为 near），对应 NDC 的 Z 值值范围为 $[1,0]$。
 
 代码如下：
-翻转之后，深度缓存中近平面的值变为 1，远平面的值变为 0，裁剪空间的 Z 值范围变成了 $[near,0]$，对于其他 near 的图形接口，保持传统的取值范围。
+
 
 ```c
 #if UNITY_REVERSED_Z
@@ -904,7 +905,7 @@ float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);
 
 ### 投影矩阵
 
-如果处于深度 (Z) 发生反转的平台上，则 [GL.GetGPUProjectionMatrix()](https://docs.unity3d.com/cn/2022.3/ScriptReference/GL.GetGPUProjectionMatrix.html) 返回一个还原了 z 的矩阵。 但是，如果要手动从投影矩阵中进行合成（例如，对于自定义阴影或深度渲染），您需要通过脚本按需自行还原深度 (Z) 方向。
+如果处于深度 (Z) 发生反转的平台上，则 `GL.GetGPUProjectionMatrix()` 返回一个还原了 z 的矩阵。 但是，如果要手动从投影矩阵中进行合成（例如，对于自定义阴影或深度渲染），您需要通过脚本按需自行还原深度 (Z) 方向。
 
 以下是执行此操作的示例：
 

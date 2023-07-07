@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "15 粒子",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/15 粒子.md"
+    },
+    {
+      "basename": "16 渲染缩放",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
+    },
+    {
       "basename": "04 深度操作",
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
     },
@@ -19,10 +31,6 @@
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "03 光照向量",
@@ -191,10 +199,6 @@
     {
       "basename": "callout分栏",
       "path": "zip/templates/callout分栏.md"
-    },
-    {
-      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
-      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],
