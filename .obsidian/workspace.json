@@ -21,6 +21,45 @@
             }
           },
           {
+            "id": "50d7e372e7355399",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/06 深度测试.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "84ec161d674632f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/06 深度测试.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "accbd42ea8867708",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "7055c714ed38619a",
             "type": "leaf",
             "state": {
@@ -60,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -103,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md"
+                "file": "图形学/0 3D数学/公式推导/06 深度图.md"
               }
             }
           }
@@ -167,7 +206,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +223,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "图形学/0 3D数学/公式推导/06 深度图.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,11 +249,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "31b921b1b2747b8a",
+  "active": "accbd42ea8867708",
   "lastOpenFiles": [
+    "图形学/1 图形系统/06 深度测试.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/15 粒子.md",

@@ -837,30 +837,21 @@ cbuffer myConstantBuffer {
 
 深度 (Z) 方向在不同的着色器平台上不同。
 
-> [!hint] 常用平台**Reversed direction**
-> **DirectX 11, DirectX 12, Metal:** 
-> - 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
-> - 裁剪空间的 Z 值范围是 $[near,0]$（表示近平面处的近平面距离，在远平面处减小到 0.0）。对应 NDC 的 Z 值值范围为 $[1,0]$
+> [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
+> **DirectX 11，DirectX12，PS4，Xbox One，和Metal:** 
+> - ZBuffer 在近平面处为 1.0，在远平面处减小到 0.0。
+> - 裁剪空间的 Z 值范围是 $[near,0]$（near 表示近平面距离，在远平面处减小到 0.0）。
+> - NDC 的 Z 值范围为 $[1,0]$
+> - Unity 定义了 `UNITY_REVERSED_Z` 宏定义，用于判断是否是使用翻转 z 方向的平台
+> - `_CameraDepthTexture` 用于获取深度图（ZBuffer），近平面为 1，近白远黑。
 
-> [!quote] 传统老平台
-> - 深度 (Z) 缓冲区值在近平面处为 0.0，在远平面处为 1.0。
+> [!quote] 传统平台
+> - ZBuffer在近平面处为 0.0，在远平面处为 1.0。
 > - 裁剪空间的 Z 值取决于具体平台：
 >     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[0,1]$
 >     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$
 
-**翻转 Z 的的目的：反转方向深度 (Reversed direction_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
-翻转之后，深度缓存中近平面的值变为 1，远平面的值变为 0，裁剪空间的 Z 值范围变成了 $[near,0]$，对于其他 near 的图形接口，则保持传统的取值范围。
-
-> [!danger] Unity 规定
-> **Unity 在使用深度 (Z) 发生反转的平台上的着色器时：**
-> - 定义了 `UNITY_REVERSED_Z`。
-> - `_CameraDepthTexture` 深度图 (即深度缓冲区) 的范围是 $[1,0]$ （近平面为 1，近白远黑）。
-> - 裁剪空间的 Z 值范围是 $[near,0]$（近平面为 near），对应 NDC 的 Z 值值范围为 $[1,0]$。
-
-代码如下：
-
-
-```c
+```c file:Reverseddirection
 #if UNITY_REVERSED_Z
     // 具有 REVERSED_Z 的平台（如 D3D）的情况。
     // UNITY_NEAR_CLIP_VALUE定义为近剪裁平面的值。 Direct3D为1.0，OpenGL为–1.0
@@ -870,7 +861,6 @@ cbuffer myConstantBuffer {
     positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
 #endif
 ```
-
 
 ### 提取深度缓冲区/深度纹理采样
 
