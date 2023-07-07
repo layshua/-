@@ -43,7 +43,8 @@ banner: "![[Pasted image 20230627122009.png]]"
 |OS |Object Space 对象空间/局部空间/模型空间 |
 |CS|HomogeneousClip Space 齐次裁剪空间|
 |TS|Tangent Space 切线空间|
-|TXS|Texture Space 纹理空间|
+|TXS|Texture Space 纹理空间 |
+|SS|Screen Space 屏幕空间|
 
 1. 标准化/为标准化（$normalized$ 和 $unormalized$）：所有可以直接使用的向量都已经标准化处理了，除非使用 $un$ 标记的向量，如 `unL` 表示未标准化的灯光向量
 2. 常用的向量用大写字母表示，向量总是从像素位置指向外边，并且可以直接用于光照计算。大写字母表示向量是规范化的，除非我们在它前面加上`un`。
