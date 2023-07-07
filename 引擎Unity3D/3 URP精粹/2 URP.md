@@ -561,14 +561,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 |**UNITY_TRANSFER_FOG**(o*, outpos)|_o.fogCoord_ = **ComputeFogFactor**(_clipSpacePosition.z_);|
 |**UNITY_APPLY_FOG**(_coord_, _col_)|_color_ = **MixFog**(_color_, _i.fogCoord_);|
 
-## 深度
 
-要使用相机深度纹理，需要 include “Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl” ，然后会自动声明 `_CameraDepthTexture`，也会包含辅助函数 `SampleSceneDepth(...)` 和 `LoadSceneDepth(...)`。
-
-|内置管线|URP|
-|---|---|
-|**LinearEyeDepth**（_sceneZ_） |**LinearEyeDepth**（sceneZ，_ZBufferParams）|
-|**Linear01Depth**（_sceneZ_）|**Linear01Depth**（_sceneZ_，__ZBufferParams_）|
 #  Lighting
 ### Light 组件
 ![[Pasted image 20230630210404.png|450]]
