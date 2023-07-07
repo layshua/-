@@ -837,8 +837,8 @@ cbuffer myConstantBuffer {
 
 深度 (Z) 方向在不同的着色器平台上不同。
 
-> [!hint] 常用平台
-> **DirectX 11, DirectX 12, Metal: Reversed direction**
+> [!hint] 常用平台**Reversed direction**
+> **DirectX 11, DirectX 12, Metal: 
 > - 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
 > - 裁剪空间范围是 $[near,0]$（表示近平面处的近平面距离，在远平面处减小到 0.0）。
 
@@ -848,13 +848,13 @@ cbuffer myConstantBuffer {
 >     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。
 >     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。
 
-**请注意，使反转方向深度 (REVERSED_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
+**请注意，使反转方向深度 (Reversed direction_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
 
 > [!danger] Unity 规定
 > **Unity 在使用深度 (Z) 发生反转的平台上的着色器时：**
 > - 定义了 `UNITY_REVERSED_Z`。
-> - `_CameraDepthTexture` 纹理的纹理范围是 $[1,0]$ （近平面为 1）。
-> - 裁剪空间范围是 $[near,0]$（近平面为 near）。
+> - `_CameraDepthTexture` 深度图的范围是 $[1,0]$ （近平面为 1，近白远黑）。
+> - 裁剪空间 Z 值范围是 $[near,0]$（近平面为 near）。
 
 代码如下：
 翻转之后，深度缓存中近平面的值变为 1，远平面的值变为 0，裁剪空间的 Z 值范围变成了 $[near,0]$，对于其他 near 的图形接口，保持传统的取值范围。
