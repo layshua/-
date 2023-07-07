@@ -58706,6 +58706,7 @@ ReAllocateIfNeeded
 RenderGraph
 RenderObject
 RendererFeatures
+RenderScale
 Microsoft
 Menu
 MicaForEveryone
