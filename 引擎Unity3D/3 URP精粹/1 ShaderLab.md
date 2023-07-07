@@ -802,41 +802,30 @@ float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 - **Direct3D **：裁剪空间深度从近平面的 +1.0 到远平面的 0.0。
 - **OpenGL **：裁剪空间深度从近平面的 –1.0 到远平面的 +1.0。
 
-在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。
+**在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**
+
+```c
+#if UNITY_REVERSED_Z
+    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
+    positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#else
+    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
+    positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#endif
+```
 
 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
 
-## 着色器计算的精度
 
-要避免精度问题，请确保在目标平台上测试着色器。移动设备和 PC 中的 GPU 在处理浮点类型方面有所不同。PC GPU 将所有浮点类型（浮点精度、半精度和固定精度）视为相同；PC GPU 使用完整 32 位精度进行所有计算，而许多移动设备 GPU 并不是这样做。
+## GPU 缓冲区缓冲区
 
-有关详细信息，请参阅[数据类型和精度](https://docs.unity3d.com/cn/2022.3/Manual/SL-DataTypesAndPrecision.html)的文档。
+执行以下操作以确保所有图形 API 编译具有相同数据布局的缓冲区：
 
-## 着色器中的 const 声明
-
-Use of `const` differs between Microsoft HLSL (see [msdn.microsoft.com](http://msdn.microsoft.com/)) and OpenGL’s GLSL (see [Wikipedia](https://en.wikipedia.org/wiki/OpenGL_Shading_Language)) Shader language.
-
-- Microsoft 的 HLSL `const` 与 C# 和 C++ 中的含义大致相同：声明的变量在其作用域内是只读的，但可按任何方式初始化。
-    
-- OpenGL 的 GLSL `const` 表示变量实际上是编译时常量，因此必须使用编译时约束（文字值或其他对于 `const` 的计算）进行初始化。
-    
-
-最好是遵循 OpenGL 的 GLSL 语义，并且只有当变量真正不变时才将变量声明为 `const`。避免使用其他一些可变值初始化 `const` 变量（例如，作为函数中的局部变量）。这一原则也适用于 Microsoft 的 HLSL，因此以这种方式使用 `const` 可以避免在某些平台上混淆错误。
-
-## Using buffers with GPU buffers
-
-If you use buffers to declare variables in your shader, then set values using the data from a GPU [compute buffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/ComputeBuffer.html) or [graphics buffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/GraphicsBuffer.html), the data layouts might not match depending on the graphics API. This means you might overwrite data or set variables to the wrong values.
-
-For example if you use `cbuffer` or Unity’s [constant buffer macro](https://docs.unity3d.com/cn/2022.3/Manual/SL-BuiltinMacros.html#cbuffer), depending on the constant buffer’s data layout and the graphics API, a `float3` might become a `float4`, or a `float` might become a `float2`.
-
-You can do the following to make sure all graphics APIs compile a buffer with the same data layout:
-
-- Use `float4` and `float4x4` instead of `float3` and `float3x3`, because `float4` variables are the same size on all graphics APIs, while `float3` variables can become a different size on some graphics APIs.
-- Declare variables in decreasing size order, for example `float4` then `float2` then `float`, so all graphics APIs structure the data in the same way.
+- 使用“float4”和“float4x4”而不是“float3”和“float3x3”，因为“float4”变量在所有图形 API 上的大小相同，而“float3”变量在某些图形 API 上的大小可能不同。
+- 按大小递减的顺序声明变量，例如“float4”，然后“float2”，然后“float”，因此所有图形 API 都以相同的方式构造数据。
 
 例如：
-
-```
+```c
 cbuffer myConstantBuffer { 
     float4x4 matWorld;
     float4 vObjectPosition; // Uses a float4 instead of a float3
@@ -844,109 +833,55 @@ cbuffer myConstantBuffer {
 }
 ```
 
-## 着色器使用的语义
-
-要让着色器在所有平台上运行，一些着色器值应该使用以下语义：
-
-- __顶点着色器输出（裁剪空间）位置__：`SV_POSITION`。有时，着色器使用 POSITION 语义来使着色器在所有平台上运行。请注意，这不适用于 Sony PS4 或有曲面细分的情况。
-    
-- __片元着色器输出颜色__：`SV_Target`。有时，着色器使用 `COLOR` 或 `COLOR0` 来使着色器在所有平台上运行。请注意，这不适用于 Sony PS4。
-    
-
-将网格渲染为点时，从顶点着色器输出 `PSIZE` 语义（例如，将其设置为 1）。某些平台（如 OpenGL ES 或 Metal）在未从着色器写入点大小时会将点大小视为“未定义”。
-
-有关更多详细信息，请参阅有关[着色器语义](https://docs.unity3d.com/cn/2022.3/Manual/SL-ShaderSemantics.html)的文档。
-
-## Direct3D 着色器编译器语法
-
-Direct3D 平台使用 Microsoft 的 [HLSL 着色器编译器](https://docs.unity3d.com/cn/2022.3/Manual/shader-compilation.html)。对于各种细微的着色器错误，HLSL 编译器比其他编译器更严格。例如，它不接受未正确初始化的函数输出值。
-
-使用此编译器时，您可能遇到的最常见情况是：
-
-- 具有 `out` 参数的[表面着色器](https://docs.unity3d.com/cn/2022.3/Manual/SL-SurfaceShaders.html)顶点修改器。按如下方式初始化输出：
-
-```
-  void vert (inout appdata_full v, out Input o) 
-      {
-        **UNITY_INITIALIZE_OUTPUT(Input,o);**
-        // ...
-      }
-```
-
-- 部分初始化的值。例如，函数返回 `float4`，但代码只设置它的 `.xyz` 值。如果只需要三个值，请设置所有值或更改为 `float3`。
-    
-- 在顶点着色器中使用 `tex2D`。这是无效的，因为顶点着色器中不存在 UV 导数。这种情况下，您需要采样显式 Mip 级别；例如，使用 `tex2Dlod` (`tex, float4(uv,0,0)`)。此外，还需要添加 `#pragma target 3.0`，因为 `tex2Dlod` 是着色器模型 3.0 的功能。
-    
-
-## 着色器中的 DirectX 11 (DX11) HLSL 语法
-
-[表面着色器](https://docs.unity3d.com/cn/2022.3/Manual/SL-SurfaceShaders.html)编译管线的某些部分不能理解特定于 DirectX 11 的 HLSL（Microsoft 的着色器语言）语法。
-
-如果您正在使用 HLSL 功能（比如 `StructuredBuffers`、`RWTextures` 和其他非 DirectX 9 语法），请将它们包裹在 DirectX X11 专用的预处理器宏中，如下例所示。
-
-```
-# ifdef SHADER_API_D3D11
-// DirectX11 专用代码，例如
-StructuredBuffer<float4> myColors;
-RWTexture2D<float4> myRandomWriteTexture;
-# endif
-```
-
-## 使用着色器帧缓冲提取
-
-一些 GPU（最明显的是 iOS 上基于 PowerVR 的 GPU）允许您通过提供当前片元颜色作为片元着色器的输入来进行某种可编程混合（请参阅 [khronos.org](https://www.khronos.org/registry/gles/extensions/EXT/EXT_shader_framebuffer_fetch.txt) 上的 `EXT_shader_framebuffer_fetch`）。
-
-可在 Unity 中编写使用帧缓冲提取功能的着色器。要执行此操作，请在使用 HLSL（Microsoft 的着色语言，请参阅 [msdn.microsoft.com](http://msdn.microsoft.com/)）或 Cg（Nvidia 的着色语言，请参阅 [nvidia.co.uk](http://www.nvidia.co.uk/)）编写片元着色器时使用 `inout` 颜色参数。
-
-以下示例采用的是 Cg 语言。
-
-```
-CGPROGRAM
-// 只为可能支持该功能的平台（目前是 gles、gles3 和 metal）
-// 编译着色器
-# pragma only_renderers framebufferfetch
-
-void frag (v2f i, inout half4 ocol : SV_Target)
-{
-    // ocol 可以被读取（当前帧缓冲区颜色）
-    // 并且可以被写入（将颜色更改为该颜色）
-    // ...
-}   
-ENDCG
-```
-
 ## 着色器中的深度 (Z) 方向
 
 深度 (Z) 方向在不同的着色器平台上不同。
 
-**DirectX 11, DirectX 12, Metal: Reversed direction**
+> [!hint] 常用平台
+> **DirectX 11, DirectX 12, Metal: Reversed direction**
+> - 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
+> - 裁剪空间范围是 $[near,0]$（表示近平面处的近平面距离，在远平面处减小到 0.0）。
 
-- 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
-    
-- 裁剪空间范围是 [near,0]（表示近平面处的近平面距离，在远平面处减小到 0.0）。
-    
+> [!quote] 传统老平台
+> - 深度 (Z) 缓冲区值在近平面处为 0.0，在远平面处为 1.0。
+> - 裁剪空间取决于具体平台：
+>     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。
+>     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。
 
-**其他平台：传统方向**
+**请注意，使反转方向深度 (REVERSED_Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度**。这样做的优点是降低 Z-Fighting 并改善阴影，特别是在使用小的近平面和大的远平面时。
 
-- 深度 (Z) 缓冲区值在近平面处为 0.0，在远平面处为 1.0。
-    
-- 裁剪空间取决于具体平台：
-    - 在 Direct3D 类平台上，范围是 [0,far]（表示在近平面处为 0.0，在远平面处增加到远平面距离）。
-    - 在 OpenGL 类平台上，范围是 [-near,far]（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。
+> [!danger] Unity 规定
+> **Unity 在使用深度 (Z) 发生反转的平台上的着色器时：**
+> - 定义了 `UNITY_REVERSED_Z`。
+> - `_CameraDepthTexture` 纹理的纹理范围是 $[1,0]$ （近平面为 1）。
+> - 裁剪空间范围是 $[near,0]$（近平面为 near）。
 
-请注意，使反转方向深度 (Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度。这样做的优点是降低 Z 坐标的冲突并改善阴影，特别是在使用小的近平面和大的远平面时。
+代码如下：
+翻转之后，深度缓存中近平面的值变为 1，远平面的值变为 0，裁剪空间的 Z 值范围变成了 $[near,0]$，对于其他 near 的图形接口，保持传统的取值范围。
 
-因此，在使用深度 (Z) 发生反转的平台上的着色器时：
+```c
+#if UNITY_REVERSED_Z
+    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
+    positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#else
+    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
+    positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+#endif
+```
 
-- 定义了 UNITY_REVERSED_Z。
-- `_CameraDepth` 纹理的纹理范围是 1（近平面）到 0（远平面）。
-- 裁剪空间范围是“near”（近平面）到 0（远平面）。
 
-但是，以下宏和函数会自动计算出深度 (Z) 方向的任何差异：
+另一个需要判断翻转 Z 的地方是在对深度纹理采样时：
+```c file:从深度纹理中采样深度
+#if UNITY_REVERSED_Z
+    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
+    real depth = SampleSceneDepth(uvSS);
+#else
+    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
+    // 调整 Z 以匹配 OpenGL 的 NDC ([-1, 1])
+    real depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, SampleSceneDepth(uvSS));
+#endif
+```
 
-- `Linear01Depth(float z)`
-- `LinearEyeDepth(float z)`
-- UNITY_CALC_FOG_FACTOR(coord)
 
 ### 提取深度缓冲区
 

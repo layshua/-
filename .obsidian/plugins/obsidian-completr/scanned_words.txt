@@ -31450,6 +31450,7 @@ uMOEv
 umyJ
 uBG
 unpolarized
+uvSS
 everything
 ea
 ede
@@ -81014,6 +81015,7 @@ ColorBlitRendererFeature
 CameraColorAttachmentA
 CollectShadows
 CRSr
+CALC
 ImTip
 IMAP
 ID
@@ -152992,6 +152994,7 @@ FdotL
 Frag
 FinalBlit
 FullScreenPassRendererFeature
+FACTOR
 Element
 Entity
 Enity

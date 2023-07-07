@@ -5,10 +5,6 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
@@ -17,12 +13,16 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
       "basename": "04 深度操作",
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     },
     {
       "basename": "05 空间",
