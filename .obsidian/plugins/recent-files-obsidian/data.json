@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "04 深度操作",
+      "path": "技术美术/1 渲染雅集/04 深度操作.md"
+    },
+    {
       "basename": "15 屏幕深度制作护盾特效",
       "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
       "basename": "03 光照向量",
@@ -37,16 +49,8 @@
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
-      "basename": "04 深度操作",
-      "path": "技术美术/1 渲染雅集/04 深度操作.md"
-    },
-    {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "4 后处理",
@@ -195,10 +199,6 @@
     {
       "basename": "行李",
       "path": "zip/留学/行李.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
     }
   ],
   "omittedPaths": [],

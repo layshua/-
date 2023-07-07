@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "66b29e1f2f907aa5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "3579ea676f5289cc",
             "type": "leaf",
             "state": {
@@ -59,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
+                "file": "技术美术/1 渲染雅集/04 深度操作.md"
               }
             }
           }
@@ -167,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,8 +196,13 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "66b29e1f2f907aa5",
+  "active": "3a44fb7a1b139b3c",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "zip/images/2023771458.gif",
+    "技术美术/1 渲染雅集/04 深度操作.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "zip/images/Pasted image 20230707144026.png",
@@ -221,11 +212,8 @@
     "图形学/5 书籍/《RTR3》/第九章 · 全局光照/README.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
-    "技术美术/1 渲染雅集/04 深度操作.md",
     "zip/images/Pasted image 20230707140918.png",
     "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "图形学/0 3D数学/公式推导/06 深度图.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -235,7 +223,6 @@
     "zip/images/c93a44373b646c1b68a2d3723eba3d2d_MD5.png",
     "zip/images/7dddbbae50da7b810b3bb5bafbd01075_MD5.jpg",
     "zip/images/e44837874b533457bd1f7257c72dbf3a_MD5.jpg",
-    "zip/images/cef1be47dc30a9ae816c8096e6cf56ce_MD5.jpg",
     "技术美术/1 渲染雅集/05 空间.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
@@ -247,7 +234,6 @@
     "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",

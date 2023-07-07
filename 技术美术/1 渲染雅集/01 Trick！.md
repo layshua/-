@@ -49,7 +49,13 @@ UE 材质中的 Sine 函数，取值范围是-1~1，周期为 1（不是 2pai）
 ![[Pasted image 20221215133053.png]]
 ![[Pasted image 20221215145815.png]]
 
+# 扫光
+![[2023771458.gif|300]]
 
+```c
+float flow=saturate(pow(1-abs(frac(i.positionWS.y*0.3-_Time.y*0.2)-0.5),10)*0.3);  
+float4 flowcolor=flow*_FlowLightColor;
+```
 # 法线
 ##  多面显示
 xyz 面分别显示对应图片，此时-x-y-z 面颜色值为-1黑色
