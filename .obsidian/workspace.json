@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "1aeb60aef473ab80",
+            "id": "4c9834a59361fbf3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,41 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "ef3a39ea564be309",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f7f11f9dc67581c7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "864d21b0dc8935ac",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -123,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md"
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md"
               }
             }
           }
@@ -171,7 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 304.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -187,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,23 +196,24 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "864d21b0dc8935ac",
+  "active": "157adfa73862cd86",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
-    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/02 UV操作.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "zBuffer/URP _ 热扭曲效果 - 哔哩哔哩.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
+    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "zip/images/631a2287569db3dac74f27474a99cf98_MD5.png",
     "zip/images/c388f963d5e53c0eaf80a26b9e9cf469_MD5.png",
     "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
     "zip/images/2023762208.gif",
     "zip/images/Pasted image 20230706220148.png",
     "zip/images/Pasted image 20230706212015.png",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zip/images/ea31844b7b0326eef02876745e6655bf_MD5.webp",
@@ -267,7 +234,6 @@
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",

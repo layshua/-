@@ -105,13 +105,15 @@ _CubemapArray ("CubemapArray", CubeArray) = "" {}
 ```cs
 //纹理属性的 Tiling 和 Offset 字段
 float4 {TextureName}_ST
+//#define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
 
-//包含纹理大小信息
+//纹理的纹素大小信息
 //x 1.0/宽度
 //y 1.0/高度
 //z宽度
 //w高度
 float4 {TextureName}_TexelSize
+//half2 offs = _MainTex_TexelSize.xy * half2(1,0) *  _BlurSize;
 
 //纹理 HDR 参数
 float4 {TextureName}_HDR //和DecodeHDR有关？
