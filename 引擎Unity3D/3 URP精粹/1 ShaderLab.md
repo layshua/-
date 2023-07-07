@@ -740,7 +740,267 @@ float4 frag(Varyings input) : SV_Target
 }
 ENDHLSL
 ```
+# 图形 API 平台差异 
+Unity 默认是以 OpenGL 的标准体系进行描述的：左手坐标系、屏幕坐标系左下角为（0,0）等。为了确保统一性，所有非OpenGL 的平台的特性，Unity 会做出转换，使得该特性能够以 OpenGL 的标准来描述。
 
+在某些情况下，不同图形 API 之间的图形渲染行为方式存在差异。大多数情况下，Unity 编辑器会隐藏这些差异，**但在某些情况下，编辑器无法为您执行此操作。下面列出了这些情况以及发生这些情况时需要采取的操作。**
+## 渲染纹理坐标
+平台差异：
+- **Direct3D**：纹理坐标原点在左上角
+- **OpenGL**：纹理坐标原点在左下角
+![[v2-11bac0a9fd7fee29687f222ef4b317fd_1440w.webp]]
+我们知道，Unity 是用 OpenGL 的标准进行描述的，右边的图像用左边的 OpenGL 坐标系来描述的话，得到的将会是下面这样一幅颠倒的图像。
+
+![[v2-4ead41b0f3d7e5842f047d15f067e285_1440w.webp|450]]
+>**为什么换了坐标系图像会颠倒？**
+>首先我们得理解，**纹理本身就是以二维的数组的形式储存的**。从上面的参考图的网格可以理解，每个像素都有一个明确的数组下标（x,y），数组下标是不变的，但是坐标系会变。比如：在 D3D 中，像素点（512,0）是在右上角的，但是在 OpenGL 的坐标系中，就变成右下角了。这就是坐标系变换造成图像颠倒的原因。
+
+**为了避免这种颠倒**，在 Direct3D 类平台上渲染到纹理时，Unity 会在内部上下翻转渲染。这样就会使坐标约定在平台之间匹配，并以 OpenGL 类平台约定作为标准。
+
+在着色器中，有两种常见情况需要您采取操作确保不同的坐标约定不会在项目中产生问题，这两种情况就是**后处理**和 **UV 空间中的渲染**。
+
+### 后处理
+
+**抗锯齿：**
+**在 non-OpenGL 平台，MSAA 开启的情况下，Unity 不会对图像进行 Filp 翻转操作**。但是由于 Unity 还是以 OpenGL 的 RenderTexture 的坐标系去描述这个 `_MainTex`，所以 `_MainTex_TexelSize.y` 为负数。`UNITY_UV_STARTS_AT_TOP` 这个宏其实就判断图形 api 平台是否为规定 uv 在原点在顶部，即非 OpenGL 平台平台。
+
+```c
+// 如果不是OpenGL平台，翻转纹理的采样
+# if UNITY_UV_STARTS_AT_TOP
+if (_MainTex_TexelSize.y < 0)
+        uv.y = 1-uv.y;
+# endif
+```
+>注意有的内置方法已经进行了判断，如果我们多写一个就会造成翻转失败
+
+
+### 在 UV 空间中渲染
+
+在纹理坐标 (UV) 空间中渲染特殊效果或工具时，您可能需要调整着色器，以便在 Direct3D 类和 OpenGL 类系统之间进行一致渲染。您还可能需要在渲染到屏幕和渲染到纹理之间进行渲染调整。为进行此类调整，应上下翻转 Direct3D 类投影，使其坐标与 OpenGL 类投影坐标相匹配。
+
+内置变量`ProjectionParams.x` 包含值 `+1` 或 `–1`。`-1` 表示投影已上下翻转以匹配 OpenGL 类投影坐标，而 `+1` 表示尚未翻转。 您可以在着色器中检查此值，然后执行不同的操作。下面的示例将检查是否已翻转投影，如果已翻转，则再次进行翻转，然后返回 UV 坐标以便匹配。
+
+```c
+float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
+{
+    float4 pos;
+    pos.xy = uv;
+    // 此示例使用上下翻转的投影进行渲染，
+    // 因此也翻转垂直 UV 坐标
+    if (_ProjectionParams.x < 0)
+        pos.y = 1 - pos.y;
+    pos.z = 0;
+    pos.w = 1;
+    return pos;
+}
+```
+
+## 裁剪空间坐标
+
+与纹理坐标类似，裁剪空间坐标（也称为投影后空间坐标）在 Direct3D 类和 OpenGL 类平台之间有所不同：
+
+- **Direct3D **：裁剪空间深度从近平面的 +1.0 到远平面的 0.0。
+- **OpenGL **：裁剪空间深度从近平面的 –1.0 到远平面的 +1.0。
+
+在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。
+
+在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
+
+## 着色器计算的精度
+
+要避免精度问题，请确保在目标平台上测试着色器。移动设备和 PC 中的 GPU 在处理浮点类型方面有所不同。PC GPU 将所有浮点类型（浮点精度、半精度和固定精度）视为相同；PC GPU 使用完整 32 位精度进行所有计算，而许多移动设备 GPU 并不是这样做。
+
+有关详细信息，请参阅[数据类型和精度](https://docs.unity3d.com/cn/2022.3/Manual/SL-DataTypesAndPrecision.html)的文档。
+
+## 着色器中的 const 声明
+
+Use of `const` differs between Microsoft HLSL (see [msdn.microsoft.com](http://msdn.microsoft.com/)) and OpenGL’s GLSL (see [Wikipedia](https://en.wikipedia.org/wiki/OpenGL_Shading_Language)) Shader language.
+
+- Microsoft 的 HLSL `const` 与 C# 和 C++ 中的含义大致相同：声明的变量在其作用域内是只读的，但可按任何方式初始化。
+    
+- OpenGL 的 GLSL `const` 表示变量实际上是编译时常量，因此必须使用编译时约束（文字值或其他对于 `const` 的计算）进行初始化。
+    
+
+最好是遵循 OpenGL 的 GLSL 语义，并且只有当变量真正不变时才将变量声明为 `const`。避免使用其他一些可变值初始化 `const` 变量（例如，作为函数中的局部变量）。这一原则也适用于 Microsoft 的 HLSL，因此以这种方式使用 `const` 可以避免在某些平台上混淆错误。
+
+## Using buffers with GPU buffers
+
+If you use buffers to declare variables in your shader, then set values using the data from a GPU [compute buffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/ComputeBuffer.html) or [graphics buffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/GraphicsBuffer.html), the data layouts might not match depending on the graphics API. This means you might overwrite data or set variables to the wrong values.
+
+For example if you use `cbuffer` or Unity’s [constant buffer macro](https://docs.unity3d.com/cn/2022.3/Manual/SL-BuiltinMacros.html#cbuffer), depending on the constant buffer’s data layout and the graphics API, a `float3` might become a `float4`, or a `float` might become a `float2`.
+
+You can do the following to make sure all graphics APIs compile a buffer with the same data layout:
+
+- Use `float4` and `float4x4` instead of `float3` and `float3x3`, because `float4` variables are the same size on all graphics APIs, while `float3` variables can become a different size on some graphics APIs.
+- Declare variables in decreasing size order, for example `float4` then `float2` then `float`, so all graphics APIs structure the data in the same way.
+
+例如：
+
+```
+cbuffer myConstantBuffer { 
+    float4x4 matWorld;
+    float4 vObjectPosition; // Uses a float4 instead of a float3
+    float arrayIndex;
+}
+```
+
+## 着色器使用的语义
+
+要让着色器在所有平台上运行，一些着色器值应该使用以下语义：
+
+- __顶点着色器输出（裁剪空间）位置__：`SV_POSITION`。有时，着色器使用 POSITION 语义来使着色器在所有平台上运行。请注意，这不适用于 Sony PS4 或有曲面细分的情况。
+    
+- __片元着色器输出颜色__：`SV_Target`。有时，着色器使用 `COLOR` 或 `COLOR0` 来使着色器在所有平台上运行。请注意，这不适用于 Sony PS4。
+    
+
+将网格渲染为点时，从顶点着色器输出 `PSIZE` 语义（例如，将其设置为 1）。某些平台（如 OpenGL ES 或 Metal）在未从着色器写入点大小时会将点大小视为“未定义”。
+
+有关更多详细信息，请参阅有关[着色器语义](https://docs.unity3d.com/cn/2022.3/Manual/SL-ShaderSemantics.html)的文档。
+
+## Direct3D 着色器编译器语法
+
+Direct3D 平台使用 Microsoft 的 [HLSL 着色器编译器](https://docs.unity3d.com/cn/2022.3/Manual/shader-compilation.html)。对于各种细微的着色器错误，HLSL 编译器比其他编译器更严格。例如，它不接受未正确初始化的函数输出值。
+
+使用此编译器时，您可能遇到的最常见情况是：
+
+- 具有 `out` 参数的[表面着色器](https://docs.unity3d.com/cn/2022.3/Manual/SL-SurfaceShaders.html)顶点修改器。按如下方式初始化输出：
+
+```
+  void vert (inout appdata_full v, out Input o) 
+      {
+        **UNITY_INITIALIZE_OUTPUT(Input,o);**
+        // ...
+      }
+```
+
+- 部分初始化的值。例如，函数返回 `float4`，但代码只设置它的 `.xyz` 值。如果只需要三个值，请设置所有值或更改为 `float3`。
+    
+- 在顶点着色器中使用 `tex2D`。这是无效的，因为顶点着色器中不存在 UV 导数。这种情况下，您需要采样显式 Mip 级别；例如，使用 `tex2Dlod` (`tex, float4(uv,0,0)`)。此外，还需要添加 `#pragma target 3.0`，因为 `tex2Dlod` 是着色器模型 3.0 的功能。
+    
+
+## 着色器中的 DirectX 11 (DX11) HLSL 语法
+
+[表面着色器](https://docs.unity3d.com/cn/2022.3/Manual/SL-SurfaceShaders.html)编译管线的某些部分不能理解特定于 DirectX 11 的 HLSL（Microsoft 的着色器语言）语法。
+
+如果您正在使用 HLSL 功能（比如 `StructuredBuffers`、`RWTextures` 和其他非 DirectX 9 语法），请将它们包裹在 DirectX X11 专用的预处理器宏中，如下例所示。
+
+```
+# ifdef SHADER_API_D3D11
+// DirectX11 专用代码，例如
+StructuredBuffer<float4> myColors;
+RWTexture2D<float4> myRandomWriteTexture;
+# endif
+```
+
+## 使用着色器帧缓冲提取
+
+一些 GPU（最明显的是 iOS 上基于 PowerVR 的 GPU）允许您通过提供当前片元颜色作为片元着色器的输入来进行某种可编程混合（请参阅 [khronos.org](https://www.khronos.org/registry/gles/extensions/EXT/EXT_shader_framebuffer_fetch.txt) 上的 `EXT_shader_framebuffer_fetch`）。
+
+可在 Unity 中编写使用帧缓冲提取功能的着色器。要执行此操作，请在使用 HLSL（Microsoft 的着色语言，请参阅 [msdn.microsoft.com](http://msdn.microsoft.com/)）或 Cg（Nvidia 的着色语言，请参阅 [nvidia.co.uk](http://www.nvidia.co.uk/)）编写片元着色器时使用 `inout` 颜色参数。
+
+以下示例采用的是 Cg 语言。
+
+```
+CGPROGRAM
+// 只为可能支持该功能的平台（目前是 gles、gles3 和 metal）
+// 编译着色器
+# pragma only_renderers framebufferfetch
+
+void frag (v2f i, inout half4 ocol : SV_Target)
+{
+    // ocol 可以被读取（当前帧缓冲区颜色）
+    // 并且可以被写入（将颜色更改为该颜色）
+    // ...
+}   
+ENDCG
+```
+
+## 着色器中的深度 (Z) 方向
+
+深度 (Z) 方向在不同的着色器平台上不同。
+
+**DirectX 11, DirectX 12, Metal: Reversed direction**
+
+- 深度 (Z) 缓冲区在近平面处为 1.0，在远平面处减小到 0.0。
+    
+- 裁剪空间范围是 [near,0]（表示近平面处的近平面距离，在远平面处减小到 0.0）。
+    
+
+**其他平台：传统方向**
+
+- 深度 (Z) 缓冲区值在近平面处为 0.0，在远平面处为 1.0。
+    
+- 裁剪空间取决于具体平台：
+    - 在 Direct3D 类平台上，范围是 [0,far]（表示在近平面处为 0.0，在远平面处增加到远平面距离）。
+    - 在 OpenGL 类平台上，范围是 [-near,far]（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。
+
+请注意，使反转方向深度 (Z) 与浮点深度缓冲区相结合，可显著提高相对于传统方向的深度缓冲区精度。这样做的优点是降低 Z 坐标的冲突并改善阴影，特别是在使用小的近平面和大的远平面时。
+
+因此，在使用深度 (Z) 发生反转的平台上的着色器时：
+
+- 定义了 UNITY_REVERSED_Z。
+- `_CameraDepth` 纹理的纹理范围是 1（近平面）到 0（远平面）。
+- 裁剪空间范围是“near”（近平面）到 0（远平面）。
+
+但是，以下宏和函数会自动计算出深度 (Z) 方向的任何差异：
+
+- `Linear01Depth(float z)`
+- `LinearEyeDepth(float z)`
+- UNITY_CALC_FOG_FACTOR(coord)
+
+### 提取深度缓冲区
+
+如果要手动提取深度 (Z) 缓冲区值，则可能需要检查缓冲区方向。以下是执行此操作的示例：
+
+```
+float z = tex2D(_CameraDepthTexture, uv);
+# if defined(UNITY_REVERSED_Z)
+    z = 1.0f - z;
+# endif
+```
+
+### 使用裁剪空间
+
+如果要手动使用裁剪空间 (Z) 深度，则可能还需要使用以下宏来抽象化平台差异：
+
+`float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);`
+
+**注意**：此宏不会改变 OpenGL 或 OpenGL ES 平台上的裁剪空间，因此在这些平台上，此宏返回“-near”1（近平面）到 far（远平面）之间的值。
+
+### 投影矩阵
+
+如果处于深度 (Z) 发生反转的平台上，则 [GL.GetGPUProjectionMatrix()](https://docs.unity3d.com/cn/2022.3/ScriptReference/GL.GetGPUProjectionMatrix.html) 返回一个还原了 z 的矩阵。 但是，如果要手动从投影矩阵中进行合成（例如，对于自定义阴影或深度渲染），您需要通过脚本按需自行还原深度 (Z) 方向。
+
+以下是执行此操作的示例：
+
+```
+var shadowProjection = Matrix4x4.Ortho(...); //阴影摄像机投影矩阵
+var shadowViewMat = ...     //阴影摄像机视图矩阵
+var shadowSpaceMatrix = ... //从裁剪空间到阴影贴图纹理空间
+    
+//当引擎通过摄像机投影计算设备投影矩阵时，
+//"m_shadowCamera.projectionMatrix"被隐式反转
+m_shadowCamera.projectionMatrix = shadowProjection; 
+
+//"shadowProjection"在连接到"m_shadowMatrix"之前被手动翻转，
+//因为它被视为着色器的其他矩阵。
+if(SystemInfo.usesReversedZBuffer) 
+{
+    shadowProjection[2, 0] = -shadowProjection[2, 0];
+    shadowProjection[2, 1] = -shadowProjection[2, 1];
+    shadowProjection[2, 2] = -shadowProjection[2, 2];
+    shadowProjection[2, 3] = -shadowProjection[2, 3];
+}
+    m_shadowMatrix = shadowSpaceMatrix * shadowProjection * shadowViewMat;
+```
+
+### 深度 (Z) 偏差
+
+Unity 自动处理深度 (Z) 偏差，以确保其与 Unity 的深度 (Z) 方向匹配。但是，如果要使用本机代码渲染插件，则需要在 C 或 C++ 代码中消除（反转）深度 (Z) 偏差。
+
+#### 深度 (Z) 方向检查工具
+
+- 使用 [SystemInfo.usesReversedZBuffer](https://docs.unity3d.com/cn/2022.3/ScriptReference/SystemInfo-usesReversedZBuffer.html) 可确认所在平台是否使用反转深度 (Z)。
 # 变体
 ## 变体基础
 ![[Pasted image 20230628192002.png]]

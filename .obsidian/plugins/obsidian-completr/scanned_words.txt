@@ -24030,6 +24030,8 @@ maxtessfactor
 mTempRT
 mDesRT
 meye
+myConstantBuffer
+matWorld
 windows
 win
 width
@@ -42259,6 +42261,7 @@ vEdr
 vJR
 vjs
 vGGG
+vObjectPosition
 AA
 AppData
 AIRDyuVH
@@ -54237,6 +54240,7 @@ alexandera
 alphaclip
 animator
 addshadow
+arrayIndex
 Roaming
 RegWorkshop
 Release
