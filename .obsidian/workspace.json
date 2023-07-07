@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 UV操作.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -32,7 +32,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Trick！.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -82,7 +82,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Trick！.md"
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
               }
             }
           }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Trick！.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/01 Trick！.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -191,11 +191,12 @@
   },
   "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/深度操作.md",
-    "技术美术/1 渲染雅集/07 空间.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/1 渲染雅集/02 UV操作.md",
     "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
+    "技术美术/1 渲染雅集/04 深度操作.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "技术美术/1 渲染雅集/02 顶点动画.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "技术美术/1 渲染雅集/05 空间.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/雪风/14 屏幕颜色制作玻璃效果.md",
     "zip/images/2023771047.gif",
@@ -226,7 +227,6 @@
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",
