@@ -1,12 +1,40 @@
 {
   "recentFiles": [
     {
+      "basename": "15 屏幕深度制作护盾特效",
+      "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
+    },
+    {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
-      "basename": "15 屏幕深度制作护盾特效",
-      "path": "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md"
+      "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
+      "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
+    },
+    {
+      "basename": "1cdecce356f6f3f5f39169ea569cad48",
+      "path": "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/media/1cdecce356f6f3f5f39169ea569cad48.jpg"
+    },
+    {
+      "basename": "README",
+      "path": "图形学/5 书籍/《RTR3》/第六章 · 纹理贴图及相关技术/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "图形学/5 书籍/《RTR3》/第九章 · 全局光照/README.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
       "basename": "04 深度操作",
@@ -171,34 +199,6 @@
     {
       "basename": "缴费",
       "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "前往斯旺西",
-      "path": "zip/留学/前往斯旺西.md"
-    },
-    {
-      "basename": "死亡搁浅扫描特效",
-      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "Unity 几何着色器详解",
-      "path": "引擎Unity3D/收藏夹/Unity 几何着色器详解.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
     }
   ],
   "omittedPaths": [],
