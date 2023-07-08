@@ -14,7 +14,7 @@ float4 ndcPos = (o.screenPos / o.screenPos.w) * 2 - 1;
 然后将屏幕像素对应在摄像机远平面（Far plane）的点转换到剪裁空间（Clip space）。因为在 NDC 空间中远平面上的点的 z 分量为 1，所以可以直接乘以摄像机的 Far 值来将其转换到剪裁空间（实际就是反向透视除法）。
 
 ```c
-float far = _ProjectionParams.z;
+float far = _ProjectionParams.z; //z分量为远平面
 float3 clipVec = float3(ndcPos.x, ndcPos.y, 1.0) * far;
 ```
 
