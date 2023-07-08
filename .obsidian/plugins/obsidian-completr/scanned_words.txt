@@ -46533,6 +46533,7 @@ ApplyColorGrading
 Actually
 AfterPostProcessTexture
 AfterRenderingPostProcess
+AfterPostProcessColor
 URL
 Utools
 Users
@@ -50346,6 +50347,7 @@ UIRT
 UpdateDepthTexture
 UeDPUeAU
 URasterizer
+UIColorTexture
 api
 ac
 app
@@ -72392,6 +72394,7 @@ SurfaceShader
 ScanLine
 SimpleBlur
 Specify
+SwapColorBuffer
 Programs
 POP
 PC
@@ -76601,6 +76604,7 @@ PropertyBlock
 PmQW
 PrintDepthMap
 Persp
+PostProcessPass
 ContextMenuManager
 ClashVerge
 Clash
@@ -81039,6 +81043,7 @@ CollectShadows
 CRSr
 CALC
 CurValue
+CreateCameraRenderTarget
 ImTip
 IMAP
 ID
@@ -104356,6 +104361,7 @@ finalblit
 fight
 fallbacks
 farVal
+finalPostProcessPass
 dd
 dcc
 data
