@@ -39,13 +39,11 @@ float LinearEyeDepth(float depth, float4 zBufferParam)
 第一种方法是通过像素的屏幕坐标位置来计算。
 
 ![[6471c3e36c9050bb5ad67495a3088a7b_MD5.png]]
-计算屏幕空间坐标，将屏幕空间坐标转换到 NDC 空间中。
+
+首先将屏幕空间坐标转换到 NDC 空间中。
 
 ```c
-//屏幕空间坐标
-float4 screenPos = i.positionCS / _ScaledScreenParams;
-//NDC空间坐标，[-1,1]
-float4 ndcPos = float4(screenPos.xy * 2 - 1, screenPos.z, 1);
+float4 ndcPos = (o.screenPos / o.screenPos.w) * 2 - 1;
 ```
 
 然后将屏幕像素对应在摄像机远平面（Far plane）的点转换到剪裁空间（Clip space）。因为在 NDC 空间中远平面上的点的 z 分量为 1，所以可以直接乘以摄像机的 Far 值来将其转换到剪裁空间（实际就是反向透视除法）。
@@ -72,7 +70,7 @@ float3 viewPos = i.viewVec * Linear01Depth(depth);
 
 最后将观察空间中的位置变换到世界空间中。
 
-```c
+```
 float3 worldPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1.0)).xyz;
 ```
 
@@ -80,7 +78,7 @@ float3 worldPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1.0)).xyz;
 
 ![[94472e125fcd056bf928bcf28d6ddd3e_MD5.png]]
 
-## 在世界空间中重建
+## 在世界空间中重建 
 
 第二种方法是利用在世界空间中从摄像机指向屏幕像素点的向量来计算。
 
@@ -335,9 +333,3 @@ half4 frag(v2f i) : SV_Target
 }
 ```
 
-## 参考
-
-1.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_1_0) w is 1/FarPlane. [https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html](https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html)
-2.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_2_0)Unity's convention, where forward is the positive Z axis. [https://docs.unity3d.com/ScriptReference/Camera-worldToCameraMatrix.html](https://docs.unity3d.com/ScriptReference/Camera-worldToCameraMatrix.html)
-3.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_3_0)[https://www.jianshu.com/p/df878a386bec](https://www.jianshu.com/p/df878a386bec)
-4.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_4_0)[https://forum.unity.com/threads/getting-scene-depth-z-buffer-of-the-orthographic-camera.601825/#post-4966334](https://forum.unity.com/threads/getting-scene-depth-z-buffer-of-the-orthographic-camera.601825/#post-4966334)

@@ -1,17 +1,16 @@
-
 # 相交高亮
 
 思路是判断当前物体的深度值与深度图中对应的深度值是否在一定范围内，如果是则判定为相交。  
 首先访问当前物体的深度值：
 
-```
+```c
 //vertex
 COMPUTE_EYEDEPTH(o.eyeZ);
 ```
 
 然后访问深度图。由于此时不是 Post Process，因此需要利用投影纹理采样来访问深度图：
 
-```
+```c
 //vertex
 o.screenPos = ComputeScreenPos(o.vertex);
 //fragment
@@ -20,7 +19,7 @@ float screenZ = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UN
 
 最后就是进行相交判断：
 
-```
+```c
 float halfWidth = _IntersectionWidth / 2;
 float diff = saturate(abs(i.eyeZ - screenZ) / halfWidth); //除以halfWidth来控制相交宽度为_IntersectionWidth
 
