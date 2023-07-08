@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -219,9 +219,15 @@
   },
   "active": "3ecebbfad3c93bea",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "图形学/0 3D数学/公式推导/03 深度计算.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
@@ -234,7 +240,6 @@
     "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
     "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
     "技术美术/1 渲染雅集/04 深度操作.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "zip/images/e69e9c0c0b080a15c527572d6751f125_MD5.png",
     "zip/images/053339cd6c7e8e3217cf385dd760a206_MD5.png",
@@ -243,7 +248,6 @@
     "zip/images/6471c3e36c9050bb5ad67495a3088a7b_MD5.png",
     "zip/images/Pasted image 20230708183054.png",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "Math/LaTeX/常用语法.md",
     "技术美术/1 渲染雅集/10 SSAO.md",
     "zip/images/Pasted image 20230708152930.png",
@@ -251,10 +255,6 @@
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zBuffer/(35 条消息) GAMES101 投影矩阵推导详解和分析_n5 的博客 - CSDN 博客.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "图形学/0 3D数学/公式推导/04 光照向量.md",
-    "zip/AI/论文/方向.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",

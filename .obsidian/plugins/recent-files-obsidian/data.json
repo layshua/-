@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "ASE",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
       "basename": "Unity Shader - 深度图基础及应用 - 简书",
       "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
     },
@@ -37,20 +65,12 @@
       "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
     },
     {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
       "basename": "10 屏幕后处理效果(Bloom)",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "常用语法",
@@ -145,10 +165,6 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
     },
     {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
-    },
-    {
       "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
       "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
     },
@@ -173,10 +189,6 @@
       "path": "图形学/1 图形系统/03 光照模型.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-    },
-    {
       "basename": "冯乐乐入门精要",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
     },
@@ -187,14 +199,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     }
   ],
   "omittedPaths": [],
