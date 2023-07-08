@@ -1,8 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "ShaderGraph",
-      "path": "引擎Unity3D/3 URP精粹/ShaderGraph.md"
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/3 URP精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "28 ComputeShader",
+      "path": "引擎Unity3D/3 URP精粹/雪风/28 ComputeShader.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
       "basename": "2 URP",
@@ -23,14 +71,6 @@
     {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
       "basename": "Unity Shader - 深度图基础及应用 - 简书",
@@ -109,20 +149,12 @@
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
       "basename": "21 和散景模糊——实践篇",
       "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "06 溶解",
@@ -167,38 +199,6 @@
     {
       "basename": "16 渲染缩放",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
-    },
-    {
-      "basename": "[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart",
-      "path": "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf"
-    },
-    {
-      "basename": "1cdecce356f6f3f5f39169ea569cad48",
-      "path": "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/media/1cdecce356f6f3f5f39169ea569cad48.jpg"
-    },
-    {
-      "basename": "README",
-      "path": "图形学/5 书籍/《RTR3》/第六章 · 纹理贴图及相关技术/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "图形学/5 书籍/《RTR3》/第九章 · 全局光照/README.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "冯乐乐入门精要",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/冯乐乐入门精要.md"
-    },
-    {
-      "basename": "URP 渲染优化总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
     }
   ],
   "omittedPaths": [],

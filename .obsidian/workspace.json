@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/ShaderGraph.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/ShaderGraph.md"
+                "file": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
               }
             }
           }
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/ShaderGraph.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/ShaderGraph.md",
+                "file": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,14 +218,25 @@
   },
   "active": "3ecebbfad3c93bea",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
+    "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
+    "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
+    "引擎Unity3D/3 URP精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
+    "引擎Unity3D/3 URP精粹/雪风/28 ComputeShader.md",
+    "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md",
+    "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
+    "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/ShaderGraph.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
@@ -236,24 +247,13 @@
     "zip/images/Pasted image 20230708195945.png",
     "zip/images/Pasted image 20230708195942.png",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "zBuffer/【笔记】URP 透明物体截屏 - 哔哩哔哩.md",
-    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
-    "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
-    "技术美术/1 渲染雅集/04 深度操作.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "zip/images/e69e9c0c0b080a15c527572d6751f125_MD5.png",
     "zip/images/053339cd6c7e8e3217cf385dd760a206_MD5.png",
     "zip/images/a2bb8d47bf027dec6e209f61cf7e0731_MD5.png",
     "zip/images/94472e125fcd056bf928bcf28d6ddd3e_MD5.png",
     "zip/images/6471c3e36c9050bb5ad67495a3088a7b_MD5.png",
     "zip/images/Pasted image 20230708183054.png",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "Math/LaTeX/常用语法.md",
-    "技术美术/1 渲染雅集/10 SSAO.md",
     "zip/images/Pasted image 20230708152930.png",
-    "DCC/02 Blender/1 操作指南.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
