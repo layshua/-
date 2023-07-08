@@ -39,11 +39,13 @@ float LinearEyeDepth(float depth, float4 zBufferParam)
 第一种方法是通过像素的屏幕坐标位置来计算。
 
 ![[6471c3e36c9050bb5ad67495a3088a7b_MD5.png]]
-
-首先将屏幕空间坐标转换到 NDC 空间中。
+计算屏幕空间坐标，将屏幕空间坐标转换到 NDC 空间中。
 
 ```c
-float4 ndcPos = (o.screenPos / o.screenPos.w) * 2 - 1;
+//屏幕空间坐标
+float4 screenPos = i.positionCS / _ScaledScreenParams;
+//NDC空间坐标，[-1,1]
+float4 ndcPos = float4(screenPos.xy * 2 - 1, screenPos.z, 1);
 ```
 
 然后将屏幕像素对应在摄像机远平面（Far plane）的点转换到剪裁空间（Clip space）。因为在 NDC 空间中远平面上的点的 z 分量为 1，所以可以直接乘以摄像机的 Far 值来将其转换到剪裁空间（实际就是反向透视除法）。
