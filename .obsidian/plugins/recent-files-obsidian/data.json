@@ -5,6 +5,38 @@
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
     },
     {
+      "basename": "10 SSAO",
+      "path": "技术美术/1 渲染雅集/10 SSAO.md"
+    },
+    {
+      "basename": "Unity Shader - 深度图基础及应用 - 简书",
+      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+    },
+    {
+      "basename": "Unity Shader - 消融效果原理与变体 - 简书",
+      "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "06 溶解",
+      "path": "技术美术/1 渲染雅集/06 溶解.md"
+    },
+    {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
@@ -23,10 +55,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "Unity Shader - 深度图基础及应用 - 简书",
-      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
     },
     {
       "basename": "06 深度缓冲",
@@ -55,10 +83,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "Unity Shader - 消融效果原理与变体 - 简书",
-      "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
     },
     {
       "basename": "02 视图变换",
@@ -149,10 +173,6 @@
       "path": "引擎Unity3D/3 URP精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
       "basename": "光照探针，反射探针，光照烘焙",
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "33 光线步进 RayMarch 第一节入门",
       "path": "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
     }
   ],
   "omittedPaths": [],

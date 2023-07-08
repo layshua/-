@@ -52,7 +52,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 深度操作.md",
+                "file": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2e40d1d2afb96b91",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/10 SSAO.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -210,16 +223,23 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "5ff52c555b7a6bf0",
+  "active": "b5ae6e79b2d1bde9",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/10 SSAO.md",
+    "技术美术/1 渲染雅集/04 深度操作.md",
+    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
+    "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
+    "技术美术/1 渲染雅集/06 溶解.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
     "zip/AI/论文/方向.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "图形学/0 3D数学/公式推导/06 深度缓冲.md",
-    "技术美术/1 渲染雅集/04 深度操作.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
@@ -227,7 +247,6 @@
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/3 URP精粹/雪风/15 屏幕深度制作护盾特效.md",
-    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "zip/images/57f269bc58db0d7a46c35ba31347b1b7_MD5.webp",
     "zip/images/00bfce6e7a584fe3953f5096df7d93c2_MD5.webp",
@@ -242,13 +261,7 @@
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/15 粒子.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md",
-    "技术美术/1 渲染雅集/05 空间.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "图形学/5 书籍/《RTR3》/第六章 · 纹理贴图及相关技术/README.md",
-    "图形学/5 书籍/《RTR3》/第九章 · 全局光照/README.md",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
     "技术美术/6 NPR/原神",
