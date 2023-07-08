@@ -1,9 +1,44 @@
+在某些特定应用场景，比如说屏幕空间反射，会要求我们从深度缓冲中重建像素点的世界空间位置。本文介绍在 Unity 中如何从深度缓冲中重建世界空间位置。
+
+## 深度缓冲
+
+首先先来看看在 Unity 中怎么计算深度。
+
+UnityCG.cginc
+
+```c
+#define COMPUTE_EYEDEPTH(o) o = -mul( UNITY_MATRIX_MV, v.vertex ).z
+#define COMPUTE_DEPTH_01 -(mul( UNITY_MATRIX_MV, v.vertex ).z * _ProjectionParams.w)
+```
+
+其中，`_ProjectionParams.w` 是 $\frac{1}{far}$ 
+
+符号取反的原因是在 Unity 的观察空间（View space）看向 $-z$，符号取反是为了获得距离正数。
+
+**从上式可知，Unity 中的观察线性深度（Eye depth）就是顶点在观察空间（View space）中的 z 分量，而 01 线性深度（01 depth）就是观察线性深度通过除以摄像机远平面重新映射到 [0，1] 区间所得到的值。**
+
+我们可以从深度缓冲中采样得到深度值，并使用 Unity 中内置的功能函数将原始数据转换成线性深度。
+
+
+```cs
+// zBufferParam = { (f-n)/n, 1, (f-n)/n*f, 1/f }  
+float Linear01Depth(float depth, float4 zBufferParam)  
+{  
+    return 1.0 / (zBufferParam.x * depth + zBufferParam.y);  
+}
+
+// zBufferParam = { (f-n)/n, 1, (f-n)/n*f, 1/f }  
+float LinearEyeDepth(float depth, float4 zBufferParam)  
+{  
+    return 1.0 / (zBufferParam.z * depth + zBufferParam.w);  
+}
+```
 
 ## 从 NDC 空间中重建
 
 第一种方法是通过像素的屏幕坐标位置来计算。
 
-![](https://pic1.zhimg.com/v2-6a402152c64766f7aa47090eb43ad094_r.jpg)
+![[6471c3e36c9050bb5ad67495a3088a7b_MD5.png]]
 
 首先将屏幕空间坐标转换到 NDC 空间中。
 
@@ -14,13 +49,13 @@ float4 ndcPos = (o.screenPos / o.screenPos.w) * 2 - 1;
 然后将屏幕像素对应在摄像机远平面（Far plane）的点转换到剪裁空间（Clip space）。因为在 NDC 空间中远平面上的点的 z 分量为 1，所以可以直接乘以摄像机的 Far 值来将其转换到剪裁空间（实际就是反向透视除法）。
 
 ```c
-float far = _ProjectionParams.z; //z分量为远平面
+float far = _ProjectionParams.z;
 float3 clipVec = float3(ndcPos.x, ndcPos.y, 1.0) * far;
 ```
 
 接着通过逆投影矩阵（Inverse Projection Matrix）将点转换到观察空间（View space）。
 
-```
+```c
 float3 o.viewVec = mul(unity_CameraInvProjection, clipVec.xyzz).xyz;
 ```
 
@@ -28,26 +63,26 @@ float3 o.viewVec = mul(unity_CameraInvProjection, clipVec.xyzz).xyz;
 
 将向量乘以线性深度值，得到在深度缓冲中储存的值的观察空间位置。
 
-```
+```c
 float depth = UNITY_SAMPLE_DEPTH(tex2Dproj(_CameraDepthTexture, i.screenPos));
 float3 viewPos = i.viewVec * Linear01Depth(depth);
 ```
 
 最后将观察空间中的位置变换到世界空间中。
 
-```
+```c
 float3 worldPos = mul(UNITY_MATRIX_I_V, float4(viewPos, 1.0)).xyz;
 ```
 
 附上在 Shader Graph 中的实现。这里 Unity 有 bug 导致如果使用 Transformation Matrix 节点的 Inverse Projection 会报错，所以这里使用了一个 Custom Function 节点输出一个 4x4 矩阵 unity_CameraInvProjection。理论上效果是一样的。
 
-![](https://pic2.zhimg.com/v2-632cd8f496555b58a45f1ff40ce365e9_r.jpg)
+![[94472e125fcd056bf928bcf28d6ddd3e_MD5.png]]
 
 ## 在世界空间中重建
 
 第二种方法是利用在世界空间中从摄像机指向屏幕像素点的向量来计算。
 
-![](https://pic3.zhimg.com/v2-b5126328fc1731bb59342c8da4689dba_r.jpg)
+![[a2bb8d47bf027dec6e209f61cf7e0731_MD5.png]]
 
 首先构造在世界空间中从摄像机指向屏幕像素点的向量。
 
@@ -82,7 +117,7 @@ float3 worldPos = _WorldSpaceCameraPos + i.worldSpaceDir;
 
 附上在 Shader Graph 中的实现。
 
-![](https://pic4.zhimg.com/v2-0505d3271817ce40af8e6af8b9fe2dfb_r.jpg)
+![[053339cd6c7e8e3217cf385dd760a206_MD5.png]]
 
 ## 正交摄像机的情况
 
@@ -128,7 +163,7 @@ float ortho = (_ProjectionParams.z - _ProjectionParams.y) * (1 - rawDepth)
 depth =  lerp(eyeDepth, ortho, unity_OrthoParams.w) / _ProjectionParams.z;
 ```
 
-![](https://pic2.zhimg.com/v2-7552ce89819bedce47e363a80b1b5ee9_r.jpg)
+![[e69e9c0c0b080a15c527572d6751f125_MD5.png]]
 
 以上方法可以根据实际渲染的对象是在世界中物体（贴花）还是屏幕大小的四边形（后处理）来灵活使用。最后附上大神写的代码作为参考，这个项目通过后处理将深度缓冲转换成世界空间位置并可视化。
 
@@ -298,3 +333,9 @@ half4 frag(v2f i) : SV_Target
 }
 ```
 
+## 参考
+
+1.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_1_0) w is 1/FarPlane. [https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html](https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html)
+2.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_2_0)Unity's convention, where forward is the positive Z axis. [https://docs.unity3d.com/ScriptReference/Camera-worldToCameraMatrix.html](https://docs.unity3d.com/ScriptReference/Camera-worldToCameraMatrix.html)
+3.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_3_0)[https://www.jianshu.com/p/df878a386bec](https://www.jianshu.com/p/df878a386bec)
+4.  [^](https://zhuanlan.zhihu.com/p/92315967#ref_4_0)[https://forum.unity.com/threads/getting-scene-depth-z-buffer-of-the-orthographic-camera.601825/#post-4966334](https://forum.unity.com/threads/getting-scene-depth-z-buffer-of-the-orthographic-camera.601825/#post-4966334)

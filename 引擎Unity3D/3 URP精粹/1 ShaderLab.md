@@ -778,12 +778,16 @@ if (_MainTex_TexelSize.y < 0)
 
 在纹理坐标 (UV) 空间中渲染特殊效果或工具时，您可能需要调整着色器，以便在 Direct3D 类和 OpenGL 类系统之间进行一致渲染。您还可能需要在渲染到屏幕和渲染到纹理之间进行渲染调整。为进行此类调整，应上下翻转 Direct3D 类投影，使其坐标与 OpenGL 类投影坐标相匹配。
 
-内置变量`ProjectionParams.x` 包含值 `+1` 或 `–1`。`-1` 表示投影已上下翻转以匹配 OpenGL 类投影坐标，而 `+1` 表示尚未翻转。 您可以在着色器中检查此值，然后执行不同的操作。下面的示例将检查是否已翻转投影，如果已翻转，则再次进行翻转，然后返回 UV 坐标以便匹配。
+内置变量 `ProjectionParams.x` 包含值 `+1` 或 `–1`。
+`-1` 表示投影已上下翻转以匹配 OpenGL 类投影坐标，而 `+1` 表示尚未翻转。
+
+您可以在着色器中检查此值，然后执行不同的操作。下面的示例将检查是否已翻转投影，如果已翻转，则再次进行翻转，然后返回 UV 坐标以便匹配。
+
 `_ProjectionParams` ：
 `x`  是 1.0（如果当前使用[翻转投影矩阵](https://docs.unity3d.com/cn/2022.3/Manual/SL-PlatformDifferences.html)进行渲染，则为 –1.0）
-`y` 是摄像机的**近平面**
-`z` 是摄像机的**远平面**
-`w` 是远平面的倒数
+`y` 近平面$near$
+`z` 远平面$far$
+`w`  $\frac{1}{far}$ 
 ```c
 float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 {

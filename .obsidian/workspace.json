@@ -19,15 +19,9 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "a6325eaa5385aac2",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "8d715da3c644dc96",
+            "id": "ab185b434a95c4cd",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -38,8 +32,48 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8d715da3c644dc96",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "93254ea64436e838",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3ecebbfad3c93bea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -82,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 深度操作.md"
+                "file": "zBuffer/Unity 从深度缓冲重建世界空间位置.md"
               }
             }
           }
@@ -132,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 深度操作.md",
+                "file": "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 深度操作.md",
+                "file": "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -182,14 +216,20 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "8d715da3c644dc96",
+  "active": "93254ea64436e838",
   "lastOpenFiles": [
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "技术美术/1 渲染雅集/04 深度操作.md",
-    "zip/images/Pasted image 20230708183054.png",
     "图形学/0 3D数学/公式推导/03 深度计算.md",
     "zBuffer/Unity 从深度缓冲重建世界空间位置.md",
+    "技术美术/1 渲染雅集/04 深度操作.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "zip/images/e69e9c0c0b080a15c527572d6751f125_MD5.png",
+    "zip/images/053339cd6c7e8e3217cf385dd760a206_MD5.png",
+    "zip/images/a2bb8d47bf027dec6e209f61cf7e0731_MD5.png",
+    "zip/images/94472e125fcd056bf928bcf28d6ddd3e_MD5.png",
+    "zip/images/6471c3e36c9050bb5ad67495a3088a7b_MD5.png",
+    "zip/images/Pasted image 20230708183054.png",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
@@ -202,13 +242,8 @@
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/images/Pasted image 20230708142421.png",
     "zBuffer/(35 条消息) GAMES101 投影矩阵推导详解和分析_n5 的博客 - CSDN 博客.md",
-    "zip/images/Pasted image 20230708141516.png",
-    "zip/images/Pasted image 20230708141405.png",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "zip/images/Pasted image 20230708140626.png",
-    "zip/images/Pasted image 20230708140622.png",
     "图形学/1 图形系统/06 深度测试.md",
-    "zip/images/Pasted image 20230708130914.png",
     "图形学/0 3D数学/公式推导/04 光照向量.md",
     "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "zip/AI/论文/方向.md",
