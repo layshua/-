@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,7 +21,7 @@
             }
           },
           {
-            "id": "3bf136a4e19a72cf",
+            "id": "776bffcbf4b63a81",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,7 +34,20 @@
             }
           },
           {
-            "id": "76fa369f5a0b7fce",
+            "id": "020d83e838f722b0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3bf136a4e19a72cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -73,7 +86,40 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
+      },
+      {
+        "id": "b1841ce1e75de4ef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76fa369f5a0b7fce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "692efc17565b6945",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -116,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md"
+                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md"
               }
             }
           }
@@ -166,7 +212,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +229,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -216,12 +262,15 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "76fa369f5a0b7fce",
+  "active": "692efc17565b6945",
   "lastOpenFiles": [
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "DCC/02 Blender/1 操作指南.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "Math/LaTeX/常用语法.md",
     "zip/images/Pasted image 20230708142421.png",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "zBuffer/(35 条消息) GAMES101 投影矩阵推导详解和分析_n5 的博客 - CSDN 博客.md",
     "zip/images/Pasted image 20230708141516.png",
     "zip/images/Pasted image 20230708141405.png",
@@ -251,8 +300,6 @@
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
     "图形学/1 图形系统/07 混合和剔除.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
