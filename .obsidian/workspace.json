@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md"
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,13 +203,15 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "3bf136a4e19a72cf",
+  "active": "76fa369f5a0b7fce",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230708130914.png",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "zip/images/Pasted image 20230708140626.png",
+    "zip/images/Pasted image 20230708140622.png",
     "图形学/0 3D数学/公式推导/03 深度缓冲.md",
-    "Math/LaTeX/常用语法.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/1 图形系统/06 深度测试.md",
+    "zip/images/Pasted image 20230708130914.png",
+    "Math/LaTeX/常用语法.md",
     "图形学/0 3D数学/公式推导/04 光照向量.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
@@ -239,8 +241,6 @@
     "zip/images/57f269bc58db0d7a46c35ba31347b1b7_MD5.webp",
     "zip/images/00bfce6e7a584fe3953f5096df7d93c2_MD5.webp",
     "zip/images/296372eb07c4c0f77893acdf4c91417e_MD5.webp",
-    "zip/images/af9dc9b6f88651963e54f903681c490b_MD5.webp",
-    "zip/images/69a74153809c2d6850cb8a5014db7799_MD5.webp",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
