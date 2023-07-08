@@ -9,6 +9,14 @@
       "path": "图形学/0 3D数学/公式推导/03 深度缓冲.md"
     },
     {
+      "basename": "04 光照向量",
+      "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
       "basename": "04 深度操作",
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
     },
@@ -109,10 +117,6 @@
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
     },
     {
-      "basename": "04 光照向量",
-      "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
-    },
-    {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "34 SSPR屏幕空间平面反射",
       "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
     }
   ],
   "omittedPaths": [],
