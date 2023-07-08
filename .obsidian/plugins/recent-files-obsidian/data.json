@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "ShaderGraph",
+      "path": "引擎Unity3D/3 URP精粹/ShaderGraph.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "5 CommandBuffer",
@@ -195,10 +199,6 @@
     {
       "basename": "URP 渲染优化总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],
