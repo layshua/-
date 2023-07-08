@@ -823,7 +823,7 @@ cbuffer myConstantBuffer {
 
 ## 深度 (Z) 方向
 
-- ZBuffer 中存放的深度值即是 NDC 坐标的 Z 值
+- ZBuffer 中存放的深度值对应 NDC 坐标的 Z 值
 - 我们可以进行跨平台处理 [[1 ShaderLab#跨平台采样深度纹理]]，让所有平台的 ZBuffer 范围都是 $[0,1]$ 或 $[1,0]$
 
 > [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
