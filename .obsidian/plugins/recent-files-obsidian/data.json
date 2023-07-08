@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "05 烘焙光照",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
+    },
+    {
       "basename": "方向",
       "path": "zip/AI/论文/方向.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "04 深度操作",
       "path": "技术美术/1 渲染雅集/04 深度操作.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
     },
     {
       "basename": "04 定向阴影",
