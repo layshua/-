@@ -1,36 +1,3 @@
-在某些特定应用场景，比如说屏幕空间反射，会要求我们从深度缓冲中重建像素点的世界空间位置。本文介绍在 Unity 中如何从深度缓冲中重建世界空间位置。
-
-## 深度缓冲
-
-首先先来看看在 Unity 中怎么计算深度。
-
-UnityCG.cginc
-
-```
-#define COMPUTE_EYEDEPTH(o) o = -mul( UNITY_MATRIX_MV, v.vertex ).z
-#define COMPUTE_DEPTH_01 -(mul( UNITY_MATRIX_MV, v.vertex ).z * _ProjectionParams.w)
-```
-
-其中，_ProjectionParams.w 是 1 / FarPlane[[1]](https://zhuanlan.zhihu.com/p/92315967#ref_1)。
-
-符号取反的原因是在 Unity 的观察空间（View space）中 z 轴翻转了，摄像机的前向量就是 z 轴的正方向 [[2]](https://zhuanlan.zhihu.com/p/92315967#ref_2)。这是和 OpenGL 中不一样的一点。
-
-从上式可知，Unity 中的观察线性深度（Eye depth）就是顶点在观察空间（View space）中的 z 分量，而 01 线性深度（01 depth）就是观察线性深度通过除以摄像机远平面重新映射到 [0，1] 区间所得到的值。
-
-我们可以从深度缓冲中采样得到深度值，并使用 Unity 中内置的功能函数将原始数据转换成线性深度。
-
-UnityCG.cginc
-
-```
-// Z buffer to linear 0..1 depth (0 at eye, 1 at far plane)
-inline float Linear01Depth( float z ) {
-    return 1.0 / (_ZBufferParams.x * z + _ZBufferParams.y);
-}
-// Z buffer to linear depth
-inline float LinearEyeDepth( float z ) {
-    return 1.0 / (_ZBufferParams.z * z + _ZBufferParams.w);
-}
-```
 
 ## 从 NDC 空间中重建
 
@@ -40,13 +7,13 @@ inline float LinearEyeDepth( float z ) {
 
 首先将屏幕空间坐标转换到 NDC 空间中。
 
-```
+```c
 float4 ndcPos = (o.screenPos / o.screenPos.w) * 2 - 1;
 ```
 
 然后将屏幕像素对应在摄像机远平面（Far plane）的点转换到剪裁空间（Clip space）。因为在 NDC 空间中远平面上的点的 z 分量为 1，所以可以直接乘以摄像机的 Far 值来将其转换到剪裁空间（实际就是反向透视除法）。
 
-```
+```c
 float far = _ProjectionParams.z;
 float3 clipVec = float3(ndcPos.x, ndcPos.y, 1.0) * far;
 ```
