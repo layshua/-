@@ -3511,6 +3511,7 @@ outputpology
 outputcontrolpoints
 opaqueDesc
 ogMw
+ortho
 OneDrive
 Obsidian
 Office
@@ -16007,6 +16008,9 @@ gird
 gran
 geometrical
 glancing
+glOrtho
+glortho
+glPersp
 typora
 todo
 tooltip
@@ -50341,6 +50345,7 @@ UberPost
 UIRT
 UpdateDepthTexture
 UeDPUeAU
+URasterizer
 api
 ac
 app
@@ -63466,6 +63471,10 @@ MaxSize
 Mqypdx
 MotionBlur
 MaxDistance
+Mortho
+Mglortho
+Mpersp
+MglPersp
 Windows
 Win
 World
@@ -72382,6 +72391,7 @@ SobelOutline
 SurfaceShader
 ScanLine
 SimpleBlur
+Specify
 Programs
 POP
 PC
@@ -76590,6 +76600,7 @@ PostProcessCopy
 PropertyBlock
 PmQW
 PrintDepthMap
+Persp
 ContextMenuManager
 ClashVerge
 Clash
@@ -93254,6 +93265,7 @@ patchconstantfunc
 primID
 prezpass
 piplinesettings
+persp
 nodesCatch
 nobr
 navy
@@ -96942,6 +96954,9 @@ neutral
 nameID
 niose
 nxL
+nearer
+nearVal
+nxny
 bf
 bc
 black
@@ -104339,6 +104354,7 @@ finalBlit
 finalblit
 fight
 fallbacks
+farVal
 dd
 dcc
 data
@@ -121946,6 +121962,7 @@ sFloat
 strucutre
 skinedmeshrenderer
 setpasscall
+spacew
 local
 list
 left
@@ -184951,6 +184968,7 @@ ZUt
 Zzs
 ZZJU
 ZBuffer
+Zview
 Quote
 Quiet
 Quick
@@ -204764,6 +204782,7 @@ zSSm
 zcZ
 zHRP
 zhihu
+znf
 jpg
 just
 juLeSXlIAVEiJIzRbMP
