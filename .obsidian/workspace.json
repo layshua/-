@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -190,8 +189,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "3bf136a4e19a72cf",
+  "active": "3c2cdf88cb74f127",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230708123657.png",
     "图形学/1 图形系统/06 深度测试.md",
     "图形学/0 3D数学/公式推导/03 深度缓冲.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
@@ -220,7 +220,6 @@
     "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/57f269bc58db0d7a46c35ba31347b1b7_MD5.webp",
     "zip/images/00bfce6e7a584fe3953f5096df7d93c2_MD5.webp",
     "zip/images/296372eb07c4c0f77893acdf4c91417e_MD5.webp",
