@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "04 深度操作",
+      "path": "技术美术/1 渲染雅集/04 深度操作.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "03 深度计算",
+      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+    },
+    {
       "basename": "Unity 从深度缓冲重建世界空间位置",
       "path": "zBuffer/Unity 从深度缓冲重建世界空间位置.md"
     },
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "04 深度操作",
-      "path": "技术美术/1 渲染雅集/04 深度操作.md"
     },
     {
       "basename": "《GUI》",
@@ -23,14 +31,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "03 深度计算",
-      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
     },
     {
       "basename": "常用语法",
