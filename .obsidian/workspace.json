@@ -73,6 +73,32 @@
             }
           },
           {
+            "id": "1c83aaf4b8964ca8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fa7b1fa8f8adfa6f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "4ed75b90d2ff9d06",
             "type": "leaf",
             "state": {
@@ -86,7 +112,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 7
       },
       {
         "id": "b1841ce1e75de4ef",
@@ -162,7 +188,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -212,7 +238,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -229,7 +255,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 深度缓冲.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -262,15 +288,17 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "692efc17565b6945",
+  "active": "4ed75b90d2ff9d06",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/04 深度操作.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "Math/LaTeX/常用语法.md",
     "图形学/0 3D数学/公式推导/03 深度缓冲.md",
     "zip/images/Pasted image 20230708152930.png",
     "zip/images/Pasted image 20230708152153.png",
     "zip/images/Pasted image 20230708152129.png",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "DCC/02 Blender/1 操作指南.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/images/Pasted image 20230708142421.png",
@@ -283,9 +311,7 @@
     "图形学/1 图形系统/06 深度测试.md",
     "zip/images/Pasted image 20230708130914.png",
     "图形学/0 3D数学/公式推导/04 光照向量.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/images/Pasted image 20230708123806.png",
-    "技术美术/1 渲染雅集/04 深度操作.md",
     "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "zip/AI/论文/方向.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",

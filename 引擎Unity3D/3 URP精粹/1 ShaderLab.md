@@ -846,7 +846,7 @@ cbuffer myConstantBuffer {
 **如果想要各个平台Zbuffer从近到远都是 $[0,1]$：**
 
 ```c file:方法一
-float depth = tex2D(_CameraDepthTexture, uvSS);
+float depth = tex2D(_CameraDepthTexture, uvSS).r;
 # if defined(UNITY_REVERSED_Z)
     depth = 1.0f - depth;
 # endif
