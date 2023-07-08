@@ -4,62 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "1981cdcbfa311f10",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "50d7e372e7355399",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "cb7d8b795b525a9e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/04 深度操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7055c714ed38619a",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "31b921b1b2747b8a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b02cb7b27b1cc2c5",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
-      },
-      {
         "id": "af01975e70e73712",
         "type": "tabs",
         "children": [
@@ -108,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -159,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
+                "file": "技术美术/1 渲染雅集/04 深度操作.md"
               }
             }
           }
@@ -223,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -240,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
+                "file": "技术美术/1 渲染雅集/04 深度操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -268,13 +212,14 @@
   },
   "active": "5ff52c555b7a6bf0",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
     "zip/AI/论文/方向.md",
     "图形学/1 图形系统/07 混合和剔除.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "图形学/0 3D数学/公式推导/06 深度缓冲.md",
     "技术美术/1 渲染雅集/04 深度操作.md",
-    "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
@@ -300,7 +245,6 @@
     "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md",
     "技术美术/1 渲染雅集/05 空间.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "图形学/5 书籍/《RTR3》/第六章 · 纹理贴图及相关技术/README.md",
