@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）",
+      "path": "zBuffer/Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）.md"
+    },
+    {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
       "basename": "03 深度计算",
@@ -19,10 +31,6 @@
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -141,10 +149,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
       "basename": "Unity Shader - 深度图基础及应用 - 简书",
       "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "方向",
       "path": "zip/AI/论文/方向.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     }
   ],
   "omittedPaths": [],

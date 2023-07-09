@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
               }
             }
           }
@@ -191,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -208,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -243,25 +243,29 @@
   },
   "active": "8d715da3c644dc96",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230709170450.png",
     "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+    "zBuffer/Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）.md",
+    "zip/images/19bc5beabf3c97e76ffb71023a89e5d3_MD5.jpg",
+    "zip/images/d5a8db8e41e248d83e7f3b78045b4681_MD5.jpg",
+    "zip/images/5983e9c861b3e59b40bacf080efab663_MD5.jpg",
+    "zip/images/c7f766146f35549ae56a42c9a4b30e5f_MD5.jpg",
+    "zip/images/c206d921083b2a54f18eb8f007ec9401_MD5.jpg",
+    "zip/images/9e3ca507eff17520d73d381a3b2c9804_MD5.jpg",
+    "zip/images/8ecdedd73495996369077ee16ae78dc6_MD5.jpg",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "图形学/0 3D数学/公式推导/03 深度计算.md",
     "zip/images/Pasted image 20230709124513.png",
     "zip/images/Pasted image 20230709124046.png",
     "zip/images/Pasted image 20230709124035.png",
-    "zip/images/Pasted image 20230709123140.png",
-    "zip/images/Pasted image 20230709122334.png",
-    "zip/images/Pasted image 20230709121439.png",
-    "zip/images/Pasted image 20230709120957.png",
-    "zip/images/Pasted image 20230709120928.png",
     "图形学/3 软渲染器/软光栅/透视矫正插值.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "zip/images/Pasted image 20230709110556.png",
     "图形学/2 图形API/DX12/DirectXMath.md",
-    "zip/images/Pasted image 20230709104925.png",
     "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
@@ -275,9 +279,6 @@
     "图形学/1 图形系统/08 透明.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
-    "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
-    "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
