@@ -1,20 +1,44 @@
 {
   "recentFiles": [
     {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
       "path": "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
     },
     {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
     },
     {
       "basename": "31 镜头炫光 更好的广告牌算法",
       "path": "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/3 URP精粹/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "29 年轻人写的第一个 GPU 粒子",
@@ -27,10 +51,6 @@
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
       "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
     },
     {
       "basename": "24 Render Feature 制作特定模型外描边",
@@ -149,10 +169,6 @@
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "15 粒子",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/15 粒子.md"
-    },
-    {
-      "basename": "16 渲染缩放",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/16 渲染缩放.md"
     }
   ],
   "omittedPaths": [],
