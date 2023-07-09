@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "3 PBR 基本原理和实现",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+      "basename": "辐射度量学与渲染方程",
+      "path": "技术美术/7 PBR/辐射度量学与渲染方程.md"
     },
     {
-      "basename": "辐射度量学",
-      "path": "技术美术/7 PBR/辐射度量学.md"
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
+    },
+    {
+      "basename": "3 PBR 基本原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
     },
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
@@ -15,10 +19,6 @@
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
-    },
-    {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
     },
     {
       "basename": "2 基本认知和应用",
