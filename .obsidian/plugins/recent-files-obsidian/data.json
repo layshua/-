@@ -5,6 +5,14 @@
       "path": "技术美术/7 PBR/辐射度量学与渲染方程.md"
     },
     {
+      "basename": "04 光照向量",
+      "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
+    },
+    {
+      "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
+      "path": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
+    },
+    {
       "basename": "PBR总结",
       "path": "技术美术/7 PBR/PBR总结.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "24 Render Feature 制作特定模型外描边",
       "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
     }
   ],
   "omittedPaths": [],
