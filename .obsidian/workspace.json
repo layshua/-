@@ -98,8 +98,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 软渲染器/软光栅/透视矫正插值.md"
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md"
               }
             }
           }
@@ -192,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 软渲染器/软光栅/透视矫正插值.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -209,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 软渲染器/软光栅/透视矫正插值.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -242,13 +241,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "9ea9936255f05a8c",
+  "active": "8d715da3c644dc96",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230709123140.png",
+    "zip/images/Pasted image 20230709122334.png",
+    "zip/images/Pasted image 20230709121439.png",
+    "zip/images/Pasted image 20230709120957.png",
+    "zip/images/Pasted image 20230709120928.png",
+    "图形学/3 软渲染器/软光栅/透视矫正插值.md",
     "图形学/0 3D数学/公式推导/03 深度计算.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/3 软渲染器/软光栅/透视矫正插值.md",
     "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "zip/images/Pasted image 20230709110556.png",
@@ -274,12 +278,7 @@
     "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
     "zip/images/Pasted image 20230708195955.png",
-    "zip/images/Pasted image 20230708195945.png",
-    "zip/images/Pasted image 20230708195942.png",
-    "zip/images/e69e9c0c0b080a15c527572d6751f125_MD5.png",
-    "zip/images/053339cd6c7e8e3217cf385dd760a206_MD5.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
