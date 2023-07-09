@@ -1,20 +1,76 @@
 {
   "recentFiles": [
     {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "Unity Shader - 深度图基础及应用 - 简书",
+      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+    },
+    {
+      "basename": "基于物理的渲染算法研究【U3D】",
+      "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
+    },
+    {
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "辐射度量学",
+      "path": "技术美术/7 PBR/辐射度量学.md"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
+    },
+    {
+      "basename": "光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
+    },
+    {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "Unity Shader - 消融效果原理与变体 - 简书",
+      "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
+    },
+    {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-    },
-    {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
-      "basename": "Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）",
-      "path": "zBuffer/Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）.md"
     },
     {
       "basename": "LearnOpenGL",
@@ -38,7 +94,7 @@
     },
     {
       "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
     },
     {
       "basename": "02 视图变换",
@@ -50,7 +106,7 @@
     },
     {
       "basename": "25 色彩分离",
-      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
     },
     {
       "basename": "03 UV操作",
@@ -58,27 +114,11 @@
     },
     {
       "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
     },
     {
       "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
     },
     {
       "basename": "02 Draw Call",
@@ -98,43 +138,43 @@
     },
     {
       "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
     },
     {
       "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
       "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/3 URP精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
     },
     {
       "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
     },
     {
       "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/3 URP精粹/雪风/32 屏幕空间贴花.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
     },
     {
       "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
     },
     {
       "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/3 URP精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
     },
     {
       "basename": "28 ComputeShader",
-      "path": "引擎Unity3D/3 URP精粹/雪风/28 ComputeShader.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md"
     },
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
     },
     {
       "basename": "5 CommandBuffer",
@@ -149,10 +189,6 @@
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
-      "basename": "Unity Shader - 深度图基础及应用 - 简书",
-      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
-    },
-    {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     },
@@ -161,44 +197,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     },
     {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
-    },
-    {
-      "basename": "Unity Shader - 消融效果原理与变体 - 简书",
-      "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
-    },
-    {
       "basename": "10 屏幕后处理效果(Bloom)",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "10 SSAO",
-      "path": "技术美术/1 渲染雅集/10 SSAO.md"
-    },
-    {
-      "basename": "1 操作指南",
-      "path": "DCC/02 Blender/1 操作指南.md"
-    },
-    {
-      "basename": "04 光照向量",
-      "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
-    },
-    {
-      "basename": "方向",
-      "path": "zip/AI/论文/方向.md"
     }
   ],
   "omittedPaths": [],
