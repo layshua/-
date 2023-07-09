@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "03 深度计算",
+      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "5 着色基础",
+      "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
+    },
+    {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md"
     },
@@ -73,10 +93,6 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
     },
@@ -105,16 +121,8 @@
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     },
     {
-      "basename": "03 深度计算",
-      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
-    },
-    {
       "basename": "TA101",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
@@ -191,14 +199,6 @@
     {
       "basename": "04 定向阴影",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
     }
   ],
   "omittedPaths": [],
