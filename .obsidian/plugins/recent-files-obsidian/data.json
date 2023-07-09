@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
     },
@@ -183,10 +187,6 @@
     {
       "basename": "1 操作指南",
       "path": "DCC/02 Blender/1 操作指南.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
       "basename": "04 光照向量",
