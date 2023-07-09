@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md"
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/辐射度量学.md",
+                "file": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -198,22 +198,22 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "6458fb7210dbda84",
+  "active": "6391a1ce9b10f577",
   "lastOpenFiles": [
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
     "技术美术/7 PBR/辐射度量学.md",
-    "zip/images/Pasted image 20230709182107.png",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
     "技术美术/7 PBR/PBR总结.md",
+    "zip/images/Pasted image 20230709182107.png",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/06 溶解.md",

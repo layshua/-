@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "3 PBR 基本原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+    },
+    {
       "basename": "辐射度量学",
       "path": "技术美术/7 PBR/辐射度量学.md"
     },
     {
-      "basename": "3 PBR 基本原理和实现",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
     },
     {
       "basename": "PBR总结",
@@ -29,10 +37,6 @@
       "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
-    },
-    {
       "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
     },
@@ -47,10 +51,6 @@
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
     },
     {
       "basename": "01 三维旋转",
