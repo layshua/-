@@ -8,41 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3c2cdf88cb74f127",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "8d715da3c644dc96",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3ecebbfad3c93bea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cea881c2de442024",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -55,20 +21,32 @@
             }
           },
           {
-            "id": "414ae154959e8e01",
+            "id": "3d9417467b62070a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "279196c501d26be7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/2 图形API/DX12/DirectXMath.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md"
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md"
               }
             }
           }
@@ -161,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "file": "图形学/0 3D数学/公式推导/03 深度计算.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -213,16 +191,28 @@
   },
   "active": "8d715da3c644dc96",
   "lastOpenFiles": [
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "图形学/2 图形API/DX12/DirectXMath.md",
+    "图形学/0 3D数学/公式推导/03 深度计算.md",
+    "zip/images/Pasted image 20230709104925.png",
+    "zip/images/Pasted image 20230709104918.png",
+    "引擎Unity3D/3 URP精粹/后处理/4 后处理.md",
+    "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
+    "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md",
+    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/08 透明.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "zip/images/Pasted image 20230709102214.png",
     "zip/images/Pasted image 20230709102112.png",
-    "图形学/0 3D数学/公式推导/03 深度计算.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
-    "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/3 URP精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/3 URP精粹/雪风/34 SSPR屏幕空间平面反射.md",
@@ -230,25 +220,13 @@
     "引擎Unity3D/3 URP精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
     "引擎Unity3D/3 URP精粹/雪风/32 屏幕空间贴花.md",
     "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md",
-    "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md",
-    "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md",
-    "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/3 URP精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
-    "引擎Unity3D/3 URP精粹/雪风/28 ComputeShader.md",
-    "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
-    "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md",
-    "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zip/images/Pasted image 20230708195955.png",
     "zip/images/Pasted image 20230708195945.png",
     "zip/images/Pasted image 20230708195942.png",
     "zip/images/e69e9c0c0b080a15c527572d6751f125_MD5.png",
     "zip/images/053339cd6c7e8e3217cf385dd760a206_MD5.png",
     "zip/images/a2bb8d47bf027dec6e209f61cf7e0731_MD5.png",
-    "zip/images/94472e125fcd056bf928bcf28d6ddd3e_MD5.png",
-    "zip/images/6471c3e36c9050bb5ad67495a3088a7b_MD5.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",

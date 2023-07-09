@@ -643,7 +643,7 @@ CXMMATRIX M);      // 输入矩阵M
 //返回投影矩阵
 XMMATRIX XM_CALLCONV XMMatrixPerspectiveFovLH (
 float FovAngleY,//用弧度制表示的垂直视场角
-float Aspect,   //纵横比=宽度/高度
+float Aspect,   //横纵比=宽度/高度
 float NearZ,    //到近平面的距离
 float FarZ) ;   //到远平面的距离
 

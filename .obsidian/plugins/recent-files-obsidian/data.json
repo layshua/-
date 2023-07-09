@@ -1,8 +1,56 @@
 {
   "recentFiles": [
     {
+      "basename": "03 深度计算",
+      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+    },
+    {
+      "basename": "02 视图变换",
+      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
+    },
+    {
+      "basename": "DirectXMath",
+      "path": "图形学/2 图形API/DX12/DirectXMath.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
+    },
+    {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "02 Draw Call",
@@ -17,20 +65,12 @@
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "03 深度计算",
-      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
-    },
-    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "5 着色基础",
       "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/19 径向模糊.md"
     },
     {
       "basename": "36 造一个 PBR 的轮子",
@@ -61,18 +101,6 @@
       "path": "引擎Unity3D/3 URP精粹/雪风/26  制作 VEG 粒子特效.md"
     },
     {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/3 URP精粹/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/3 URP精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
       "basename": "29 年轻人写的第一个 GPU 粒子",
       "path": "引擎Unity3D/3 URP精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
     },
@@ -83,18 +111,6 @@
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
       "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/3 URP精粹/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -113,20 +129,12 @@
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/后处理/4 后处理.md"
-    },
-    {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     },
     {
       "basename": "Unity Shader - 深度图基础及应用 - 简书",
       "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
       "basename": "01 三维旋转",
@@ -189,16 +197,8 @@
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/3 URP精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
       "basename": "06 溶解",
       "path": "技术美术/1 渲染雅集/06 溶解.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     }
   ],
   "omittedPaths": [],
