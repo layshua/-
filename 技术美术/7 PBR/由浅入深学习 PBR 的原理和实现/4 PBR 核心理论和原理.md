@@ -1,16 +1,6 @@
 # **四. 进阶：PBR 核心理论和原理**
 
-上章主要介绍了 PBR 中 Cook-Torrance 的 BRDF 的两个部分：直接光照和 IBL。
 
-这章将深入介绍 PBR 核心部分的底层理论和原理，使读者对 PBR 的底层原理有更彻底的理解。本章部分内容在上一章已经有所涉及，但会更加深入。
-
-主要面向：
-
-*   进阶程序员
-*   对 PBR 底层原理感兴趣的人
-$$
-\lim_{x\to 0}\frac{\sin x}{x}=1
-$$
 ## **4.1 再论 PBR 核心理论**
 
 上章讲述了符合 PBR 必须满足以下 3 个条件：
@@ -448,7 +438,7 @@ $$\theta_\text{crit} = \text{arcsin} \left( \frac{n_2}{n_1}\text{sin}\theta_2 \r
 
 由于水的折射率 $n_1 = 1.333$，空气的折射率 $n_2 = 1.0$，折射角$\theta_2 = 90^\circ$，则根据上面的公式可以算出水相对空气折射的临界角：
 
-$$\theta_\text{crit_water2air} = \text{arcsin} \left( \frac{1.0}{1.333}\text{sin}90^\circ \right) = 48.6^\circ$$
+$$\theta \text{crit_water2air} = \text{arcsin} \left( \frac{1.0}{1.333}\text{sin}90^\circ \right) = 48.6^\circ$$
 
 ### **4.4.3 几何光学的其它定律**
 

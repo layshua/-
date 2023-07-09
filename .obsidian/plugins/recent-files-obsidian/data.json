@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "辐射度量学与渲染方程",
-      "path": "技术美术/7 PBR/辐射度量学与渲染方程.md"
+      "basename": "2 PBR理论",
+      "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
+      "basename": "1 辐射度量学",
+      "path": "技术美术/7 PBR/1 辐射度量学.md"
     },
     {
       "basename": "3 PBR 基本原理和实现",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
+    },
+    {
+      "basename": "4 PBR 核心理论和原理",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
+    },
+    {
+      "basename": "PBR疑问",
+      "path": "技术美术/7 PBR/PBR疑问.md"
+    },
+    {
+      "basename": "5 PBR 关联理论和推导1",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md"
     },
     {
       "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
@@ -35,10 +47,6 @@
     {
       "basename": "1 前言",
       "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md"
-    },
-    {
-      "basename": "4 PBR 核心理论和原理",
-      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
     },
     {
       "basename": "基于物理的渲染算法研究【U3D】",
@@ -141,10 +149,6 @@
       "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "PBR疑问",
-      "path": "技术美术/7 PBR/PBR疑问.md"
-    },
-    {
       "basename": "光照探针，反射探针，光照烘焙",
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
@@ -191,14 +195,6 @@
     {
       "basename": "DirectXMath",
       "path": "图形学/2 图形API/DX12/DirectXMath.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
     }
   ],
   "omittedPaths": [],
