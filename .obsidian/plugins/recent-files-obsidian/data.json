@@ -5,6 +5,18 @@
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
       "basename": "03 深度计算",
       "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "05 烘焙光照",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/05 烘焙光照.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "04 定向阴影",
-      "path": "引擎Unity3D/4 Catlike Coding/《SRP》/04 定向阴影.md"
     }
   ],
   "omittedPaths": [],

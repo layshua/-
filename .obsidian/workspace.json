@@ -110,7 +110,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
+              }
             }
           }
         ]
@@ -159,6 +161,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,6 +178,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -207,9 +211,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "8d715da3c644dc96",
   "lastOpenFiles": [
+    "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/1 图形系统/08 透明.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
+    "zip/images/Pasted image 20230709102214.png",
+    "zip/images/Pasted image 20230709102112.png",
     "图形学/0 3D数学/公式推导/03 深度计算.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/5 书籍/《RTR4》/5 着色基础.md",
@@ -232,9 +241,6 @@
     "引擎Unity3D/3 URP精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "引擎Unity3D/3 URP精粹/ShaderGraph.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
     "zip/images/Pasted image 20230708195955.png",
     "zip/images/Pasted image 20230708195945.png",
     "zip/images/Pasted image 20230708195942.png",
@@ -243,8 +249,6 @@
     "zip/images/a2bb8d47bf027dec6e209f61cf7e0731_MD5.png",
     "zip/images/94472e125fcd056bf928bcf28d6ddd3e_MD5.png",
     "zip/images/6471c3e36c9050bb5ad67495a3088a7b_MD5.png",
-    "zip/images/Pasted image 20230708183054.png",
-    "zip/images/Pasted image 20230708152930.png",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
