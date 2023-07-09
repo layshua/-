@@ -26,7 +26,33 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "zBuffer/Unity Shader - 阴影方案总结.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "95511858234987c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/09 阴影.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6391a1ce9b10f577",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zip/AI/深度学习/《鱼书》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -112,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -155,7 +181,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
+                "file": "zip/AI/深度学习/《鱼书》.md"
               }
             }
           }
@@ -205,7 +231,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "zip/AI/深度学习/《鱼书》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -222,7 +248,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "zip/AI/深度学习/《鱼书》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -255,45 +281,44 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "611ad4af16a426fd",
+  "active": "6391a1ce9b10f577",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/07 描边.md",
+    "zBuffer/在 shader 中实现五种描边方法.md",
+    "zip/images/43304e962aac52ea1de18183d092c485_MD5.jpg",
+    "zip/images/173a69a697743ca9581cb0ba15aa24f9_MD5.png",
+    "zip/images/5babaf79a82fcafdfc07dfa7529f2dcd_MD5.png",
+    "zip/images/789ac058cafd8e14085ab6653ea3336d_MD5.png",
+    "zip/images/3e6e46bd285c9a1d7ea8fceaf52133e3_MD5.png",
+    "zip/images/dae617ea28bf736d24c53f850d391047_MD5.png",
+    "zip/images/cd1e7434a594c30fdbe3fbcd1dd79fa6_MD5.jpg",
+    "zip/images/da52410af27e90ce474b47aecd9ccf06_MD5.png",
+    "zip/images/a61b10015edf8fe9a404e61593c279a5_MD5.png",
+    "zip/images/69e5ca4b45d2b6583d5424057fbc56e2_MD5.png",
+    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
+    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
+    "zBuffer/Unity Shader - 阴影方案总结.md",
+    "zBuffer/Unity Shader - 溶解方案总结.md",
+    "zBuffer/Unity Shader - 描边方案总结.md",
+    "技术美术/1 渲染雅集/06 溶解.md",
+    "图形学/5 书籍/《RTR4》/7 阴影.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/5 书籍/《RTR4》/15 非真实感渲染.md",
+    "图形学/5 书籍/《RTR4》/5 着色基础.md",
+    "图形学/5 书籍/《RTR4》/6 纹理化.md",
+    "图形学/5 书籍/《RTR4》/资源.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
-    "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md",
     "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
     "技术美术/7 PBR/PBR总结.md",
     "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/辐射度量学.md",
     "技术美术/7 PBR/PBR疑问.md",
-    "zip/images/5ba77f1888d4814e264cf04e4add8b8a_MD5.jpg",
-    "zip/images/0d90efe2bf79788695eb5ffe02cfbf49_MD5.jpg",
-    "zip/images/6adce0857305eca01514b37664773e3f_MD5.jpg",
-    "zip/images/c9358fdccdc08e95412889be10271d9a_MD5.jpg",
-    "zip/images/7881a4c4e4deb3f240f48661dc67832c_MD5.jpg",
-    "zip/images/729153f8dd315d6a06ef7a70d6377453_MD5.jpg",
-    "zip/images/ef460b93fbfbdf668abf5c76f2a2a09f_MD5.jpg",
-    "zip/images/8ae9bee1bb0cb72753535824f746b24f_MD5.jpg",
-    "zip/images/b0895a8eec821d052ec025f0e3e1ea4c_MD5.jpg",
-    "zip/images/2901414ab75573b47349133a7b50d616_MD5.jpg",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
-    "zBuffer/Unity 2022 BUG _BlitScaleBias 为 （0_0，0_0，0_0，0_0）.md",
-    "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/3 URP精粹/架构",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "图形学/0 3D数学/公式推导/03 深度计算.md",
-    "图形学/3 软渲染器/软光栅/透视矫正插值.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
     "技术美术/7 PBR/从0开始PBR",
