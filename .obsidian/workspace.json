@@ -54,19 +54,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "f8949a4e4410a18e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ]
       }
@@ -214,15 +201,16 @@
   },
   "active": "6511cc58835bbdc3",
   "lastOpenFiles": [
-    "图形学/0 3D数学/公式推导/04 光照向量.md",
-    "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "技术美术/7 PBR/辐射度量学与渲染方程.md",
     "技术美术/7 PBR/PBR总结.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
+    "技术美术/7 PBR/辐射度量学与渲染方程.md",
+    "zip/images/Pasted image 20230709222844.png",
+    "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
+    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
+    "图形学/0 3D数学/公式推导/04 光照向量.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
     "zip/images/Pasted image 20230709182107.png",
-    "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md",
     "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
@@ -248,8 +236,6 @@
     "zip/images/dae617ea28bf736d24c53f850d391047_MD5.png",
     "zip/images/cd1e7434a594c30fdbe3fbcd1dd79fa6_MD5.jpg",
     "zip/images/da52410af27e90ce474b47aecd9ccf06_MD5.png",
-    "zip/images/a61b10015edf8fe9a404e61593c279a5_MD5.png",
-    "zBuffer/Unity Shader - 溶解方案总结.md",
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
