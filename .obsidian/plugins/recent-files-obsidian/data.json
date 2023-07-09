@@ -1,32 +1,84 @@
 {
   "recentFiles": [
     {
-      "basename": "《鱼书》",
-      "path": "zip/AI/深度学习/《鱼书》.md"
+      "basename": "辐射度量学",
+      "path": "技术美术/7 PBR/辐射度量学.md"
     },
     {
-      "basename": "07 描边",
-      "path": "技术美术/1 渲染雅集/07 描边.md"
+      "basename": "3 PBR 基本原理和实现",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md"
     },
     {
-      "basename": "在 shader 中实现五种描边方法",
-      "path": "zBuffer/在 shader 中实现五种描边方法.md"
+      "basename": "PBR总结",
+      "path": "技术美术/7 PBR/PBR总结.md"
     },
     {
-      "basename": "Unity Shader - 深度图基础及应用 - 简书",
-      "path": "zBuffer/Unity Shader - 深度图基础及应用 - 简书.md"
+      "basename": "2 基本认知和应用",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md"
+    },
+    {
+      "basename": "1 前言",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md"
+    },
+    {
+      "basename": "4 PBR 核心理论和原理",
+      "path": "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/4 PBR 核心理论和原理.md"
+    },
+    {
+      "basename": "基于物理的渲染算法研究【U3D】",
+      "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(1)： 物理光照",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(0)：开篇",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "06 溶解",
+      "path": "技术美术/1 渲染雅集/06 溶解.md"
     },
     {
       "basename": "Unity Shader - 消融效果原理与变体 - 简书",
       "path": "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md"
     },
     {
-      "basename": "Unity Shader - 阴影方案总结",
-      "path": "zBuffer/Unity Shader - 阴影方案总结.md"
+      "basename": "07 描边",
+      "path": "技术美术/1 渲染雅集/07 描边.md"
     },
     {
-      "basename": "06 溶解",
-      "path": "技术美术/1 渲染雅集/06 溶解.md"
+      "basename": "03 深度计算",
+      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+    },
+    {
+      "basename": "《鱼书》",
+      "path": "zip/AI/深度学习/《鱼书》.md"
     },
     {
       "basename": "7 阴影",
@@ -77,20 +129,8 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
     },
     {
-      "basename": "基于物理的渲染算法研究【U3D】",
-      "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
-    },
-    {
-      "basename": "PBR总结",
-      "path": "技术美术/7 PBR/PBR总结.md"
-    },
-    {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
-      "basename": "辐射度量学",
-      "path": "技术美术/7 PBR/辐射度量学.md"
     },
     {
       "basename": "PBR疑问",
@@ -121,10 +161,6 @@
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
-      "basename": "03 深度计算",
-      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
-    },
-    {
       "basename": "透视矫正插值",
       "path": "图形学/3 软渲染器/软光栅/透视矫正插值.md"
     },
@@ -153,10 +189,6 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
     },
     {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
       "basename": "24 Render Feature 制作特定模型外描边",
       "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
     },
@@ -167,38 +199,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/4 Catlike Coding/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
     }
   ],
   "omittedPaths": [],
