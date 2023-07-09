@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "透视矫正插值",
+      "path": "图形学/3 软渲染器/软光栅/透视矫正插值.md"
+    },
+    {
       "basename": "03 深度计算",
       "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "22 科幻扫描效果前篇",
@@ -65,10 +81,6 @@
       "path": "图形学/1 图形系统/08 透明.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "5 着色基础",
       "path": "图形学/5 书籍/《RTR4》/5 着色基础.md"
     },
@@ -111,10 +123,6 @@
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
       "path": "引擎Unity3D/3 URP精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "5 CommandBuffer",
@@ -181,10 +189,6 @@
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
       "basename": "04 光照向量",
       "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "06 溶解",
-      "path": "技术美术/1 渲染雅集/06 溶解.md"
     }
   ],
   "omittedPaths": [],
