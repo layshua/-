@@ -5,6 +5,8 @@
 1. 基于物理的材质（Material）
 2. 基于物理的光照（Lighting）
 3. 基于物理的摄像机（Camera）
+![[0aacbee6a7db7477fc451dfab16366a9_MD5.jpg]]
+> SIGGRAPH 2014 《Moving Frostbite to PBR》
 
 物理渲染（Physical Rendering）是指跟真实世界完全一致的计算机渲染效果。基于现阶段的知识水平和硬件水平，还不能渲染跟真实世界完全一致的效果，只能一定程序上模拟接近真实世界的渲染画面，故而叫**基于物理的渲染**（**Physically Based Rendering**），而非**物理渲染**（**Physical Rendering**）。
 
@@ -64,7 +66,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 - $n$：$p$ 点法线
 - $w_i,w_o$：无限小的入射光（光源方向）和出射光（观察方向）的立体角，可以看作方向向量。方向由 $p$ 点指向光源或观察者眼睛
 - $(n\cdot w_i)$：入射光与法线的点乘，用来衡量入射光与平面法线夹角 $\cos \theta$ 对能量的影响
-- $f_r(p,\omega_i,\omega_o)$：BxDF，一般为 BRDF。描述了入射光反射后在各个方向如何分布
+- $f_r(p,\omega_i,\omega_o)$： BRDF。描述了入射光反射后在各个方向如何分布
 - $L_i(p,\omega_i)$ ：入射光辐射率
 - $L_o(p,\omega_o)=\int\limits_{\Omega} ... d\omega_i$：对所有光源方向积分，即从各个方向 $\omega_i$ 射入半球 $\Omega$ 并打中点 $p$ 的入射光，经过反射函数 $f_r$ 进入观察者眼睛的所有反射光 $L_o$ 的辐射率之和。因为计算了所有光源方向的单位立体角，所以**总辐射率=辐照度，即我们最终得到了 $p$ 点的辐照度。**
 
@@ -294,6 +296,78 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
 
 这个方程完整地定义了一个基于物理的渲染模型，也就是我们一般所说的基于物理的渲染（PBR）。
 
+
+## BxDF
+
+本节将讲述 BxDF 的主要类型。
+
+目前计算机图形渲染领域，基于物理的渲染方式主要有：
+
+*   **辐射度（Radiance）**：计算光源的镜面反射和漫反射占总的辐射能量的比例，从而算出颜色。在实时渲染领域，是最主流的渲染方式。BRDF 大多数都是基于此种方式，包括 Cook-Torrance。
+    
+*   **光线追踪（Ray Tracing）**：即光线追踪技术，它的做法是将摄像机的位置与渲染纹理的每个像素构造一条光线，从屏幕射出到虚拟世界，每遇到几何体就计算一次光照，同时损耗一定比例的能量，继续分拆成反射光线和折射光线，如此递归地计算，直到初始光线及其所有分拆的光线能量耗尽为止。
+    
+    ![[1679148482590.png]]
+    
+    由于这种方式开销非常大，特别是场景复杂度高的情况，所以常用于离线渲染，如影视制作、动漫制作、设计行业等。
+    
+    近年来，随着 NVIDIA 的 RTX 系列和 AMD 的 RX 系列显卡问世，它们的共同特点是硬件级别支持光线追踪，从而将高大上的光线追踪技术带入了实时渲染领域。
+    
+*   **路径追踪（Path Tracing）**：实际上路径追踪是光线追踪的一种改进方法。它与光线追踪不同的是，引入了蒙特卡洛方法，利用 BRDF 随机跟踪多条反射光线，随后根据这些光线的贡献计算该点的颜色值。
+    
+    这种方法更加真实（下图），但同时也更加耗时，通常用于离线渲染领域。
+    
+    ![[1679148482649.png]]
+    
+
+上章已经详细描述了基于辐射度的 Cook-Torrance 的 BRDF 模型的理论和实现。实际上，Cook-Torrance 模型在整个渲染体系中，只是冰山一角。下面是 BRDF 光照模型体系：
+
+![[1679148482675.png]]
+
+限于篇幅和本文主题，下面将介绍基于辐射度方式的 BxDF 光照模型。
+
+BxDF 可细分为以下几类：
+
+*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于非透明材质的光照计算。Cook-Torrance 就是 BRDF 的一种实现方式，上章详述过，不多说。
+    
+*   **BTDF**（双向透射分布函数，Bidirectional Transmission Distribution Function）：用于透明材质的光照计算。折射光穿透介质进入另外一种介质时的光照计算模型，只对有透明度的介质适用。
+    
+*   **BSDF**（双向散射分布函数，Bidirectional Scattering Distribution Function）：实际上是 BRDF 和 BTDF 的综合体：
+    
+    ![[1679148482726.png]]
+    
+    简单地用公式表达：**BSDF = BRDF + BTDF**。
+    
+*   **SVBRDF**（空间变化双向反射分布函数，Spatially Varying Bidirectional Reflectance Distribution Function）：将含有双参数的柯西分布替代常规高斯分布引入微面元双向反射分布函数 (BRDF) 模型，同时考虑了目标自身辐射强度的方向依赖性，在此基础上推导了长波红外偏振的数学模型，并在合理范围内对模型做简化与修正使之适用于仿真渲染。
+    
+*   **BTF**（双向纹理函数，Bidirectional Texture Function）：主要用于模拟非平坦表面，参数跟 SVBRDF 一致。但是，BTF 包含了非局部的散射效果，比如阴影、遮挡、相互反射、次表面散射等。用 BTF 给表面的每个点建模的方法被成为 **Apparent BRDFs**（表面双向反射分布函数）。
+    
+*   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术。下面是用 SSS 模拟的玉石效果图：
+    
+    ![[1679148482775.png]]
+    
+    关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。
+    
+*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于模拟透明材质，目前是主流技术。它和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：
+    
+    ![[1679148482799.png]]
+    
+
+从上面可以看出，BxDF 的形式多种多样，但由于它们都是基于辐射度的光照模型，所以最终可以用以下公式抽象出来：
+
+$$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
+
+用更简洁的方式描述，入射光 $\omega_i$ 在 $p$ 点的颜色的计算公式：
+
+$$\begin{eqnarray*} p点颜色 & = & 光源颜色 \times 材质颜色 \times 反射系数 \times 光照函数 \\ 光照函数 & = & f(n_{法线}, \omega_{光源方向}, v_{视点方向}) \end{eqnarray*}$$
+
+由于篇幅问题，本文不会对 BTDF、BSDF、SSS、BSSRDF 进行详细讨论，有兴趣的可以另外找资料了解。笔者以后也可能另外开辟专题探讨。
+
+本章末，值得一提的是，BRDF 最终的光照计算结果是几何函数和油墨算法（ink-selection）结合的结果。
+
+![[1679148483056.png]]
+
+其中油墨算法描述了如何计算各颜色分量的反射率，可参看论文 [《A Multi-Ink Color-Separation Algorithm Maximizing Color Constancy》](https://pdfs.semanticscholar.org/9e56/8b13ea51ca3c669186624566f672eb547857.pdf)。
 
 # 3 PBR 的光照实现
 
@@ -1050,3 +1124,96 @@ vec3 ambient = (kD * diffuse + specular) * ao;
 ![](1679148478048.png)
 
 IBL 的教程结束了，本节的代码可在[球体场景](https://learnopengl.com/code_viewer_gh.php?code=src/6.pbr/2.2.1.ibl_specular/ibl_specular.cpp)和[纹理场景](https://learnopengl.com/code_viewer_gh.php?code=src/6.pbr/2.2.2.ibl_specular_textured/ibl_specular_textured.cpp)中找到。
+
+
+
+# 4 PBR 的优化
+
+## 离线渲染优化
+
+[[#5.4 预计算技术|5.4 预计算技术]] 章节提到了一些离线渲染的加速技术，除此之外，常见的离线技术还有：
+
+*   局部静态光照烘焙
+*   全局光照烘焙
+
+还可以从以下小节中阐述的方法加速离线渲染部分。
+
+### 积分公式优化
+
+主要是利用 [[#5.1 微积分（Calculus）|5.1 微积分（Calculus）]] 描述的性质和定理对渲染公式进行优化：
+
+*   常量移出积分项外
+*   增加等效积分项
+*   分离积分项
+*   利用近似法替代复杂项
+
+具体例子可以参看 [[#5.4 预计算技术|5.4 预计算技术]]。
+
+###  硬件集成
+
+将渲染通用的逻辑集成硬件指令或内建接口，可以充分利用硬件的性能，从而为渲染加速。
+
+例如，将光线追踪算法集成进 GPU 显卡，而 nVidia 新一代 RTX20 系显卡已经集成了光线追踪技术，使得渲染效率更上一层楼。Unreal Engine 4.22 的版本也集成了这一特性。
+
+![[1679148484069.png]]
+
+### 并行渲染
+
+通过多线程、多进程、多设备的架构分摊消耗的帧渲染，使得每帧的渲染时间大大降低。这种技术在实时渲染领域也逐渐被普及。
+
+###  分布式渲染
+
+不同于并行渲染的小规模架构，分布式渲染通常以图形工作站、集群式渲染簇等中大型硬件架构为依托，以满足电影级别的离线渲染加速需求。
+
+下图是 [《A MultiAgent System for Physically based Rendering Optimization》](http://www.weiss-gerhard.info/publications/D02.pdf)提出的一种多代理的加速渲染架构：
+
+![[1679148484105.png]]
+
+## 实时渲染优化
+
+###  光照模型优化
+
+*   GGX 兰伯特光照计算
+*   Schlick 的 $F_0$ 近似法
+*   Smith 几何遮蔽函数混合
+*   迪斯尼原则的金属度线性插值
+
+以上都是本文前面章节描述过的加速算法，这对于性能敏感的实时渲染领域是非常有必要的。
+
+### 资源优化
+
+*   若干贴图合成一张蒙板图。将若干独立的 PBR 属性蒙板贴图合成一张：
+    
+    ![[1679148484125.png]]
+    
+    _使用同一张蒙板贴图同时控制 PBR 的颜色、金属度、粗糙度等属性。_
+    
+*   减少 PBR 标准参数的使用。例如，金属材质的漫反射大部分是黑色，所以无需额外的漫反射贴图。
+    
+*   其它资源优化：材质、模型、渲染参数、纹理、PBR 参数等等几乎都有优化的余地。
+    
+
+### 其它实时优化
+
+实时渲染领域还有很多优化方法值得尝试和应用，比如：
+
+*   [《Moving Frostbite to PBR》](https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf)提出的 IES 光照模拟。
+    ![[1679148484162.png]]
+    
+*   [《Applying Visual Analytics to Physically-Based Rendering》](http://cg.ivd.kit.edu/publications/2018/visual_analytics_pbr/preprint.pdf)提出的可视化分析优化。
+    
+    ![[1679148484238.png]]
+    
+
+###  移动端优化
+
+由于移动设备普遍的性能与 PC 机有一定的差距，所以要将 PBR 应用到移动端，性能优化的需求更加迫切。
+
+上一小节提到的实时渲染优化同样适用于移动端，此外，还可针对移动端做一些特殊的优化：
+
+*   简化光照模型。采用更少的样本采样数量，更简化的光照计算公式。
+*   简化 shader。通过少量的 shader 指令或简化的数学运算可达到优化的目的。
+*   启用引擎 Mobile 版本的资源和设置。Unity 和 Unreal Engine 都提供了移动版本的材质库和特殊的配置，在无特别需求下，尽量使用它们。
+*   分级策略。针对不同分级的设备启用不同复杂度的材质和资源，可以有效解决高中低画质的兼容问题。
+
+更多请参看 [《Optimizing PBR》](https://community.arm.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-20-66/siggraph2015_2D00_mmg_2D00_renaldas_2D00_slides.pdf)，还可参看笔者的另外一篇原创技术文章：[**《移动游戏性能优化通用技法》**](https://www.cnblogs.com/timlly/p/10463467.html)
