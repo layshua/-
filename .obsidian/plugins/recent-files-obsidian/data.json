@@ -5,8 +5,12 @@
       "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+    },
+    {
+      "basename": "为什么 BRDF 的漫反射项要除以π？",
+      "path": "技术美术/7 PBR/PBR推导/为什么 BRDF 的漫反射项要除以π？.md"
     },
     {
       "basename": "1 辐射度量学",
@@ -17,16 +21,16 @@
       "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
     },
     {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+    },
+    {
       "basename": "4 PBR推导",
       "path": "技术美术/7 PBR/4 PBR推导.md"
     },
     {
       "basename": "3 光学原理",
       "path": "技术美术/7 PBR/3 光学原理.md"
-    },
-    {
-      "basename": "为什么 BRDF 的漫反射项要除以π？",
-      "path": "技术美术/7 PBR/PBR推导/为什么 BRDF 的漫反射项要除以π？.md"
     },
     {
       "basename": "PBR疑问",
@@ -43,10 +47,6 @@
     {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/README.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
     },
     {
       "basename": "缴费",

@@ -1,3 +1,5 @@
+- ? 分母中出现 $\pi$ 的原因是入射光 $cos\theta_{i}$ 对半球积分结果为 $\pi$ ??? 是这样吗
+　　
 　　刚学 PBR 时，一下子要接受很多的光学物理量定义。 $E = \frac {d\phi}{dS}$ 、 $L = \frac {d^2 \phi}{dA_{\perp} d\omega}$ 、 $dA_{\perp} = dA \cdot max(\cos \theta, 0)$ …… 然后文档都是直接放公式，为什么 Lambert 光照模型的漫反射项要除以π呢？没作过多说明，这也是很多同学的疑惑。一言以蔽之， $\int _{\Omega} \cos \phi\, d\omega = \pi$ 。下面给出详细解说。
 
 ![[608b18b9383d930215355f1e6767b346_MD5.jpg]]
