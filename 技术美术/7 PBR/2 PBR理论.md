@@ -171,7 +171,7 @@ Cook-Torrance 镜面反射 BRDF 由 3 个函数（$D$，$F$，$G$）和一个标
 
 Epic Games 公司的 Brian Karis 对于这些函数的多种近似实现方式进行了大量的研究。这里将采用 Epic Games 在 Unreal Engine 4 中所使用的函数，其中 $D$ 使用 Trowbridge-Reitz GGX，$F$ 使用 Fresnel-Schlick 近似法 (Approximation)，而 $G$ 使用 Smith's Schlick-GGX。
 
-#### D：GGXTR
+#### D：GGX/TR
 对于微表面模型的一个重要性质即每个微平面都有自己的微平面法线 $m$ 。微平面法线的分布被称为表面的 **法线分布函数 (NDF, normal distribution function)** $D(m)$ 。
 
 ![[Pasted image 20221211101035.png]]
@@ -205,7 +205,7 @@ $$NDF_{GGX TR}(n, h, \alpha) = \frac{\alpha^2}{\pi((n \cdot h)^2 (\alpha^2 - 1) 
 
 
 ![](d9b94cd41cd6cea5cfe6c13c93784b69.png)
- >GGX 由有更好的高光渐变
+ >GGX 有更好的高光长尾
 
 使用不同的粗糙度作为参数，可以得到下面的效果：  
 
@@ -283,7 +283,7 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 
 ####  G：Schlick-GGX
 
-几何函数从统计学上近似的求得了微表面间相互遮蔽的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
+几何函数从统计学上近似的求得了微表面间相互遮蔽（自遮挡现象）的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
 
 ![](1679148476912.png)
 
@@ -318,7 +318,7 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 > 
 > 实际应用中，常用 **The Smith Shadow-Masking G2** 函数，它将 Shadowing 和 Masking 分开考虑。由于光路的可逆性，我们可以认为两种情况是近似等效的。
 > 
->  $G_{2}(l,v,m)=G_{1}(v,m)G_{1}(l,m)$
+>  $$G_{2}(l,v,m)=G_{1}(v,m)G_{1}(l,m)$$
 > 
 > 它建立在 Shadowing 和 Masking 不相关的基础上，但实际上它们是相关的。**使用这个 G2 会导致 BRDFs 结果偏暗。**
 > 
@@ -374,7 +374,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\om
 上面的方程并非完全数学意义上的正确。前面提到菲涅尔项 $F$ 代表光在表面的反射比率，它直接影响 $k_s$ 因子，意味着反射方程的镜面反射部分已经隐含了因子 $k_s$。因此，最终的 Cook-Torrance 反射方程如下（去掉了 $k_s$）：
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{D(n, h, \alpha)F(h, \omega_o, F_0)G(n, \omega_o, \omega_i, k)}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
->**分母 4(n·l)(n·v)** ：校正因子，作为微观几何的局部空间和整个宏观表面的局部空间之间变换的微平面量的校正。
+> ? G 项是法线参数是 n 还是 h？
 
 - 对于分母中的点积，仅仅避免负值是不够的，也必须避免零值。通常通过在常规的 clamp 或绝对值操作之后添加非常小的正值来完成。
 
@@ -448,45 +448,50 @@ $$\begin{eqnarray*} p点颜色 & = & 光源颜色 \times 材质颜色 \times 反
 *   Anisotropic GGX [2015]
 
 **业界主流的法线分布函数是 GGX**。
+![[Pasted image 20230710195651.png]]
+>红线 Backmann，绿线 GGX。右图，左边为 GGX，右边为Backmann
+#### Beckmann
 
-**Beckmann**
+Beckmann 是一种定义在坡度空间上的**类高斯分布**模型，这个函数**可以描述不同粗糙程度的表面，不同粗糙程度的意思是 NDF 中 lobe 是集中在一个点上，还是分布得比较开**。它的表达式为
 
-Beckmann 是一种定义在坡度空间上的类高斯分布模型，这个函数可以描述不同粗糙程度的表面，不同粗糙程度的意思是 NDF 中 lobe 是集中在一个点上，还是分布得比较开。它的表达式为
+ $$D_{Beckmann}(h)=\frac{e^{-\frac{tan^{2}\theta_{h}}{\alpha^{2}}}}{\pi\alpha^{2}cos^{4}\theta_{h}}$$
 
- $D_{Beckmann}(h)=\frac{e^{-\frac{tan^{2}\theta_{h}}{\alpha^{2}}}}{\pi\alpha^{2}cos^{4}\theta_{h}}$
-
-其中， $h$ 为半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。高斯分布函数 $X\sim N(\mu,\sigma^{2})=\frac{1}{\sqrt{2\pi}\sigma}^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$ 中， $\sigma$ 控制胖瘦程度，同样的，在 Beckmann 表达式中， $\alpha$ 控制胖瘦程度。
+ $h$ ：半程向量
+ $\alpha$ ：粗糙系数，粗糙程度这个值越小，表面就越光滑
+  $\theta_{h}=(\hat{n}\cdot \hat{m})$ ：半程向量与宏观法线的夹角
+  高斯分布函数 $X\sim N(\mu,\sigma^{2})=\frac{1}{\sqrt{2\pi}\sigma}^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$ 中， $\sigma$ 控制胖瘦程度，同样的，在 Beckmann 表达式中， $\alpha$ 控制胖瘦程度。
 
 ![[fb9c19a8c393df03c7975ec33c889e0e_MD5.jpg]]
 
-之所以幂的分子上使用 $tan\theta_{h}$ ，而不直接使用 $\theta_{h}$ 是因为 Beckmann 定义在坡度空间上，需要满足高斯部分的定义域无限大的性质，保证函数无论何时都具有对应的非负值，并且避免微表面出现法线朝下的问题 (但无法避免反射光朝下)。
+之所以幂的分子上使用 $tan\theta_{h}$ ，而不直接使用 $\theta_{h}$ 是因为 Beckmann 定义在**坡度空间**上，需要满足高斯部分的定义域无限大的性质，保证函数无论何时都具有对应的非负值，并且避免微表面出现法线朝下的问题 (但无法避免反射光朝下)。
 
 ![[ff979cf2a41139cb4a5100491c7ea536_MD5.jpg]]
+>如图，随着 $\theta$ 不断增大不断增大，红色的向量永远不会朝下
 
-**GGX**
+
+#### GGX
 
 GGX 模型的表达式为
 
- $D_{GGX}(h)=\frac{\alpha^{2}}{\pi(cos^{2}\theta_{h}(\alpha^{2}-1)+1)^{2}}$
+ $$D_{GGX}(h)=\frac{\alpha^{2}}{\pi(cos^{2}\theta_{h}(\alpha^{2}-1)+1)^{2}}$$
 
 其中， $h$ 为微观半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。 GGX 相对于 Beckmann 在工业界得到了更为广泛的应用，因为它具有更好的高光拖尾 (Long tail 性质，衰减更加柔和)。
 
 ![[b55bc08e7043ee7b754a3e565fbaf616_MD5.jpg]]
 
 这会带来两个好处：
-
 *   Beckmann 的高光会逐渐消失，而 GGX 的高光会减少而不会消失，这就意味着高光的周围我们看到一种光晕的现象。
 *   GGX 除了高光部分，其余部分会像 Diffuse 的感觉。
 
-![[3ab0674d6edfa19f799e1142e5ac8417_MD5.jpg]]
+![[Pasted image 20230710200154.png]]
 
-**GTR**
+#### GTR
+Generalized Trowbridge-Reitz (GGX/TR 模型增强版)
 
-GTR 是根据对 GGX 等分布的观察，提出的广义法线分布函数，其目标是允许更多地控制 NDF 的形状，特别是分布的尾部。它的表达式为：
+GTR 是根据对 GGX 等分布的观察，提出的**广义法线分布函数**，其目标是允许更多地控制 NDF 的形状，特别是分布的尾部。它的表达式为：
+ $$D_{GTR}(h)=\frac{c}{(1+cos^{2}\theta_{h}(\alpha^{2}-1))^{\gamma}}$$
 
- $D_{GTR}(h)=\frac{c}{(1+cos^{2}\theta_{h}(\alpha^{2}-1))^{\gamma}}$
-
-其中， $h$ 为微观半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。 $\gamma$ 参数用于控制尾部形状。当 $\gamma=2$ 时，GTR 等同于 GGX。随着 $\gamma$ 的值减小，分布的尾部变得更长。而随着 $\gamma$ 值的增加，分布的尾部变得更短。
+其中， $h$ 为微观半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。 $\gamma$ 参数用于控制尾部形状。当 $\gamma=2$ 时，GTR 等同于 GGX。随着 $\gamma$ 的值减小，分布的尾部变得更长。而随着 $\gamma$ 值的增加，分布的尾部变得更短。越来越接近Backmann
 
 ![[4a7b3f86070440b46ab2f2c113de242b_MD5.jpg]]
 
