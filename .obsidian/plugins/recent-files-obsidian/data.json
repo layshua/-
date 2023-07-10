@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "4 PBR推导",
-      "path": "技术美术/7 PBR/4 PBR推导.md"
-    },
-    {
       "basename": "2 PBR理论",
       "path": "技术美术/7 PBR/2 PBR理论.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
+    },
+    {
+      "basename": "4 PBR推导",
+      "path": "技术美术/7 PBR/4 PBR推导.md"
     },
     {
       "basename": "为什么 BRDF 的漫反射项要除以π？",
@@ -31,10 +35,6 @@
     {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
     },
     {
       "basename": "README",

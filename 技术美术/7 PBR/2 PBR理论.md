@@ -323,11 +323,8 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
     近年来，随着 NVIDIA 的 RTX 系列和 AMD 的 RX 系列显卡问世，它们的共同特点是硬件级别支持光线追踪，从而将高大上的光线追踪技术带入了实时渲染领域。
     
 *   **路径追踪（Path Tracing）**：实际上路径追踪是光线追踪的一种改进方法。它与光线追踪不同的是，引入了蒙特卡洛方法，利用 BRDF 随机跟踪多条反射光线，随后根据这些光线的贡献计算该点的颜色值。
-    
     这种方法更加真实（下图），但同时也更加耗时，通常用于离线渲染领域。
-    
-    ![[1679148482649.png]]
-    
+    ![[1679148482649.png|350]]
 
 上章已经详细描述了基于辐射度的 Cook-Torrance 的 BRDF 模型的理论和实现。实际上，Cook-Torrance 模型在整个渲染体系中，只是冰山一角。下面是 BRDF 光照模型体系：
 
@@ -335,29 +332,21 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
 
 限于篇幅和本文主题，下面将介绍基于辐射度方式的 BxDF 光照模型。
 
-BxDF 可细分为以下几类：
+**BxDF 可细分为以下几类：**
 
-*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于非透明材质的光照计算。Cook-Torrance 就是 BRDF 的一种实现方式，上章详述过，不多说。
+*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于**非透明**材质的光照计算。Cook-Torrance 就是 BRDF 的一种实现方式，上章详述过，不多说。
     
-*   **BTDF**（双向透射分布函数，Bidirectional Transmission Distribution Function）：用于透明材质的光照计算。折射光穿透介质进入另外一种介质时的光照计算模型，只对有透明度的介质适用。
+*   **BTDF**（双向透射分布函数，Bidirectional Transmission Distribution Function）：用于**透明材质**的光照计算。折射光穿透介质进入另外一种介质时的光照计算模型，只对有透明度的介质适用。
     
-*   **BSDF**（双向散射分布函数，Bidirectional Scattering Distribution Function）：实际上是 BRDF 和 BTDF 的综合体：
+*   **BSDF**（双向散射分布函数，Bidirectional Scattering Distribution Function）：实际上是 BRDF 和 BTDF 的综合体，简单地用公式表达：**BSDF = BRDF + BTDF**。
     
-    ![[1679148482726.png]]
-    
-    简单地用公式表达：**BSDF = BRDF + BTDF**。
-    
-*   **SVBRDF**（空间变化双向反射分布函数，Spatially Varying Bidirectional Reflectance Distribution Function）：将含有双参数的柯西分布替代常规高斯分布引入微面元双向反射分布函数 (BRDF) 模型，同时考虑了目标自身辐射强度的方向依赖性，在此基础上推导了长波红外偏振的数学模型，并在合理范围内对模型做简化与修正使之适用于仿真渲染。
-    
-*   **BTF**（双向纹理函数，Bidirectional Texture Function）：主要用于模拟非平坦表面，参数跟 SVBRDF 一致。但是，BTF 包含了非局部的散射效果，比如阴影、遮挡、相互反射、次表面散射等。用 BTF 给表面的每个点建模的方法被成为 **Apparent BRDFs**（表面双向反射分布函数）。
-    
-*   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术。下面是用 SSS 模拟的玉石效果图：
-    
-    ![[1679148482775.png]]
-    
+    ![[1679148482726.png|350]]
+*   **SVBRDF**（空间变化双向反射分布函数，Spatially Varying Bidirectional Reflectance Distribution Function）：**将含有双参数的柯西分布替代常规高斯分布**引入微面元双向反射分布函数 (BRDF) 模型，同时考虑了目标自身辐射强度的方向依赖性，在此基础上推导了长波红外偏振的数学模型，并在合理范围内对模型做简化与修正使之适用于仿真渲染。
+*   **BTF**（双向纹理函数，Bidirectional Texture Function）：主要用于**模拟非平坦表面**，参数跟 SVBRDF 一致。但是，BTF 包含了非局部的散射效果，比如阴影、遮挡、相互反射、次表面散射等。用 BTF 给表面的每个点建模的方法被成为 **Apparent BRDFs**（表面双向反射分布函数）。
+*   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是**模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术**。下面是用 SSS 模拟的玉石效果图：
+    ![[1679148482775.png|400]]
     关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。
-    
-*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于模拟透明材质，目前是主流技术。它和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：
+*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于**模拟透明材质**，目前是主流技术。它和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：
     
     ![[1679148482799.png]]
     
