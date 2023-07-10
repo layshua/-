@@ -5,8 +5,8 @@
       "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
     },
     {
-      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
@@ -21,16 +21,16 @@
       "path": "图形学/3 软渲染器/软光追/未命名.md"
     },
     {
+      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
+    },
+    {
       "basename": "GAMES101",
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "5 环境光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     },
     {
       "basename": "6 环境光照2",

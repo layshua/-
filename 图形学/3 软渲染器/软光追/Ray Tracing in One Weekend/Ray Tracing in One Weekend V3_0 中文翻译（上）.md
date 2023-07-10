@@ -4,13 +4,7 @@
 
 ## 1. 概述
 
-当大家提起 "光线追踪", 可能指的是很多不同的东西。我对这个词的描述是, **光线追踪就是一个路径追踪器**, 事实上大部分情况下这个词都是这个意思。光线追踪器的代码也是十分的简单 (写最简单的代码, 让电脑帮我们算去吧!)。当你看到你渲染的图片时, 你一定会感到高兴的。  
-
-我没把上面一段删了, 因为我的态度 180° 大转变太好玩了。读者们帮我修复了一些次要的编译错误, 这里还是请你亲手来敲一下代码吧! 但是你如果你想看看我的代码: [点击这里](https://github.com/RayTracing/raytracing.github.io/)  
-本书假定你有一定的向量运算的知识 (比如说点乘和叉乘)。如果你记不太清楚, 回顾一下就行。如果你需要回顾, 或者你是第一次听说这个东西, 你可以看我或者 Marschner 的图像教材, Foley, Van Dam 等也行。或者 McGuire 的 codex。  
-如果你遇到的麻烦, 或者你弄出了很 cooool 的东西想要分享给大家看, 请给我发邮件。我的邮箱是 ptrshrl@gmail.com  
-我会维护一个有关本书的博客网站, 网站里有一些拓展阅读和一些链接资源。网址是 [https://in1weekend.blogspot.com](https://in1weekend.blogspot.com)  
-好了不多 BB, 让我们开始吧!
+当大家提起 "光线追踪", 可能指的是很多不同的东西。我对这个词的描述是, **光线追踪就是一个路径追踪器**, 事实上大部分情况下这个词都是这个意思。
 
 ## 2. 输出你的图像
 
@@ -20,7 +14,7 @@
 
 我们来写一下输出这种图片格式的 C++ 代码:
 
-```
+```c
 #include <iostream>
 
 int main() {
@@ -28,12 +22,16 @@ int main() {
     const int image_height = 100;
 
     std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-
-    for (int j = image_height-1; j >= 0; --j) {
-        for (int i = 0; i < image_width; ++i) {
+    //从右往左
+    for (int j = image_height-1; j >= 0; --j) 
+    {
+        //从上到下
+        for (int i = 0; i < image_width; ++i) 
+        {
             auto r = double(i) / image_width;
             auto g = double(j) / image_height;
             auto b = 0.2;
+            //将颜色映射到0~1
             int ir = static_cast<int>(255.999 * r);
             int ig = static_cast<int>(255.999 * g);
             int ib = static_cast<int>(255.999 * b);
@@ -52,13 +50,13 @@ int main() {
 
 现在我们要把 cout 的输出流写入文件中。幸好我们有命令行操作符 > 来定向输出流。在 windows 操作系统中差不多这样的:
 
-```
+```c
 build\Release\inOneWeekend.exe > image.ppm
 ```
 
 在 Mac 或者 Linux 操作系统中, 大概是这个样子的
 
-```
+```c
 build/inOneWeekend > image.ppm
 ```
 
@@ -68,7 +66,7 @@ build/inOneWeekend > image.ppm
 
 好耶! 这便是图形学中的 "hello world" 了【吐槽：图形学的 hello world 不是三角形嘛】。如果你的图像看上去不是这样的, 用文本编辑器打开你的输出文件, 看看里面内容是啥样的。不出意外的话, 正确格式应该是这样的:
 
-```
+```c
 P3
 200 100
 0 253 51
@@ -89,7 +87,7 @@ P3
 在我们往下走之前, 我们先来加个输出的进度提示。对于查看一次长时间渲染的进度来说, 这不失为一种简便的做法。也可以通过这个进度来判断程序是否卡住或者进入一个死循环。  
 我们的程序将图片信息写入标准输出流 (std::cout), 所以我们不能用这个流输出进度。我们换用错误输出流(std::cerr) 来输出进度:
 
-```
+```c
 for (int j = image_height-1; j >= 0; --j) {
         std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {
@@ -111,7 +109,7 @@ std::cerr << "\nDone.\n";
 
 下面是我的 `vec3` 的头文件:
 
-```
+```c
 #include <iostream>
 
 class vec3 {
@@ -167,7 +165,7 @@ class vec3 {
 
 我们使用双精度浮点 double, 但是有些光线追踪器使用单精度浮点 float。这里其实都行, 你喜欢哪个就用那个。头文件的第二部分包括一些向量操作工具函数:
 
-```
+```c
 inline std::ostream& operator<<(std::ostream &out, const vec3 &v) {
     return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
 }
