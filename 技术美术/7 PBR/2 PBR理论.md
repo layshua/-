@@ -170,7 +170,7 @@ Cook-Torrance 镜面反射 BRDF 由 3 个函数（$D$，$F$，$G$）和一个标
 
 Epic Games 公司的 Brian Karis 对于这些函数的多种近似实现方式进行了大量的研究。这里将采用 Epic Games 在 Unreal Engine 4 中所使用的函数，其中 $D$ 使用 Trowbridge-Reitz GGX，$F$ 使用 Fresnel-Schlick 近似法 (Approximation)，而 $G$ 使用 Smith's Schlick-GGX。
 
-#### D
+#### D：GGXTR
 对于微表面模型的一个重要性质即每个微平面都有自己的微平面法线 $m$ 。微平面法线的分布被称为表面的 **法线分布函数 (NDF, normal distribution function)** $D(m)$ 。
 
 法线分布函数，从统计学上近似的表示了与某些（如中间向量 $h$）向量取向一致（即微平面法线 $n$ 与半角项链半角向量 $h$ 重合）的微表面在微观几何中的**密度**。
@@ -224,7 +224,7 @@ float DistributionGGX(vec3 N, vec3 H, float a) {
 }
 ```
 
-#### F
+#### F：Fresnel-Schlick
 **菲涅尔效应 (fresnel effect)** 指的是反射随着 **掠射角 (glancing angle, 入射光与表面的夹角)** 的增大而增强。
 ![[Pasted image 20230709222844.png|354]]
 当光线碰撞到一个表面的时候，**菲涅尔方程会根据观察角度告诉我们被反射的光线所占的百分比（即高光反射比例）。根据这个比例和能量守恒定律我们可以直接知道剩余的能量就是会被折射的能量。**
@@ -276,7 +276,7 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 
 其中 `cosTheta` 是表面法向量 $n$ 与观察方向 $v$ 的点乘的结果。
 
-####  G
+####  G：Schlick-GGX
 
 几何函数从统计学上近似的求得了微表面间相互遮蔽的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
 
@@ -309,7 +309,7 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 > 
 > ![[8c71e0b51185e84c583ab7a1df499b63_MD5.jpg]]
 > 
-> **为了考虑 Masking 对可见法线的影响，提出了 联合遮蔽 - 阴影函数 (joint masking-shadowing function) $G_{2}(l,v,m)$，也被称为 几何函数 (geometry function) 。**
+> **为了考虑 Masking 对可见法线的影响，提出了联合遮蔽 - 阴影函数 (joint masking-shadowing function) $G_{2}(l,v,m)$，也被称为几何函数 (geometry function) 。**
 > 
 > 实际应用中，常用 **The Smith Shadow-Masking G2** 函数，它将 Shadowing 和 Masking 分开考虑。由于光路的可逆性，我们可以认为两种情况是近似等效的。
 > 
@@ -328,14 +328,14 @@ $$\begin{eqnarray*} k_{direct} &=& \frac{(\alpha + 1)^2}{8} \\ k_{IBL} &=& \frac
 
 需要注意的是这里 $\alpha$ 的值取决于你的引擎怎么将粗糙度转化成 $\alpha$，在接下来的教程中我们将会进一步讨论如何和在什么地方进行这个转换。
 
-为了有效地模拟几何体，我们需要同时考虑两个视角，观察方向（几何遮挡）跟光源方向（几何阴影），我们可以用 **Smith 函数**将两部分放到一起：
+为了有效地模拟几何体，我们需要同时考虑两个视角，观察方向（几何遮挡）跟光源方向（几何阴影），我们可以用 **Smith G2 函数**将两部分放到一起：
 
-$$G(n, v, l, k) = G_{1}(n, v, k) G_{2}(n, l, k)$$
+$$G_2(n, v, l, k) = G_{1}(n, v, k) G_{1}(n, l, k)$$
 - $n$：法线
  - $v$ ：观察方向
  - $G_{1}(n, v, k)$ ：观察方向的几何遮挡
  - $l$ ：光源方向
- - $G_{2}(n, l, k)$ 表示光源方向的几何阴影。使用 Smith 函数与 Schlick-GGX 作为 $G_{sub}$ 可以得到如下所示不同粗糙度 R 的视觉效果：  
+ - $G_{1}(n, l, k)$ 表示光源方向的几何阴影。使用 Smith 函数与 Schlick-GGX 作为 $G_{1}$ 可以得到如下所示不同粗糙度 R 的视觉效果：  
 
 ![](1679148477023.png)
 >几何函数是一个值域为 $[0.0, 1.0]$ 的乘数，其中白色 (1.0) 表示没有微表面阴影，而黑色 (0.0) 则表示微表面彻底被遮蔽。
@@ -428,6 +428,104 @@ $$\begin{eqnarray*} p点颜色 & = & 光源颜色 \times 材质颜色 \times 反
 
 ![[1679148483056.png|500]]
 
+## 其他 DFG
+
+### 法线分布函数 D
+
+对于镜面反射 BRDF，法线分布函数 D 的常见模型可总结如下：
+
+*   Beckmann[1963]
+*   Blinn-Phong[1977]
+*   GGX [2007] / Trowbridge-Reitz[1975]
+*   Generalized-Trowbridge-Reitz (GTR) [2012]
+*   Anisotropic Beckmann[2012]
+*   Anisotropic GGX [2015]
+
+**业界主流的法线分布函数是 GGX**。
+
+**Beckmann**
+
+Beckmann 是一种定义在坡度空间上的类高斯分布模型，这个函数可以描述不同粗糙程度的表面，不同粗糙程度的意思是 NDF 中 lobe 是集中在一个点上，还是分布得比较开。它的表达式为
+
+ $D_{Beckmann}(h)=\frac{e^{-\frac{tan^{2}\theta_{h}}{\alpha^{2}}}}{\pi\alpha^{2}cos^{4}\theta_{h}}$
+
+其中， $h$ 为半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。高斯分布函数 $X\sim N(\mu,\sigma^{2})=\frac{1}{\sqrt{2\pi}\sigma}^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$ 中， $\sigma$ 控制胖瘦程度，同样的，在 Beckmann 表达式中， $\alpha$ 控制胖瘦程度。
+
+![[fb9c19a8c393df03c7975ec33c889e0e_MD5.jpg]]
+
+之所以幂的分子上使用 $tan\theta_{h}$ ，而不直接使用 $\theta_{h}$ 是因为 Beckmann 定义在坡度空间上，需要满足高斯部分的定义域无限大的性质，保证函数无论何时都具有对应的非负值，并且避免微表面出现法线朝下的问题 (但无法避免反射光朝下)。
+
+![[ff979cf2a41139cb4a5100491c7ea536_MD5.jpg]]
+
+**GGX**
+
+GGX 模型的表达式为
+
+ $D_{GGX}(h)=\frac{\alpha^{2}}{\pi(cos^{2}\theta_{h}(\alpha^{2}-1)+1)^{2}}$
+
+其中， $h$ 为微观半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。 GGX 相对于 Beckmann 在工业界得到了更为广泛的应用，因为它具有更好的高光拖尾 (Long tail 性质，衰减更加柔和)。
+
+![[b55bc08e7043ee7b754a3e565fbaf616_MD5.jpg]]
+
+这会带来两个好处：
+
+*   Beckmann 的高光会逐渐消失，而 GGX 的高光会减少而不会消失，这就意味着高光的周围我们看到一种光晕的现象。
+*   GGX 除了高光部分，其余部分会像 Diffuse 的感觉。
+
+![[3ab0674d6edfa19f799e1142e5ac8417_MD5.jpg]]
+
+**GTR**
+
+GTR 是根据对 GGX 等分布的观察，提出的广义法线分布函数，其目标是允许更多地控制 NDF 的形状，特别是分布的尾部。它的表达式为：
+
+ $D_{GTR}(h)=\frac{c}{(1+cos^{2}\theta_{h}(\alpha^{2}-1))^{\gamma}}$
+
+其中， $h$ 为微观半程向量； $\alpha$ 为粗糙系数，粗糙程度这个值越小，表面就越光滑； $\theta_{h}=(\hat{n}\cdot \hat{m})$ 是半程向量与宏观法线的夹角。 $\gamma$ 参数用于控制尾部形状。当 $\gamma=2$ 时，GTR 等同于 GGX。随着 $\gamma$ 的值减小，分布的尾部变得更长。而随着 $\gamma$ 值的增加，分布的尾部变得更短。
+
+![[4a7b3f86070440b46ab2f2c113de242b_MD5.jpg]]
+
+### 菲涅尔项 F
+
+对于镜面反射 BRDF，菲涅尔项 F 的常见模型可以总结如下：
+
+*   Cook-Torrance [1982]
+*   Schlick [1994]
+*   Gotanta [2014]
+
+**业界方案一般都采用 Schlick 的 Fresnel 近似**，因为计算成本低廉，而且精度足够：
+
+ $F_{S c h l i c k}({\mathbf{v},\mathbf{h}})=F_{0}+({\mathbf{l}}-F_{0}){\bigl(}{\textbf{l}}-(v\cdot h){\bigr)}^{5}$
+
+### 几何函数 G
+
+对于镜面反射 BRDF，几何函数 G 的常见模型可以总结如下：
+
+*   Smith [1967]
+*   Cook-Torrance [1982]
+*   Neumann [1999]
+*   Kelemen [2001]
+*   Implicit [2013]
+
+另外，Eric Heitz 在 [Heitz14] 中展示了 Smith 几何阴影函数是正确且更准确的 G 项，并将其拓展为 Smith 联合遮蔽阴影函数 (Smith Joint Masking-Shadowing Function)，该函数具有四种形式：
+
+*   分离遮蔽阴影型 (Separable Masking and Shadowing)
+*   高度相关掩蔽阴影型 (Height-Correlated Masking and Shadowing)
+*   方向相关掩蔽阴影型 (Direction-Correlated Masking and Shadowing)
+*   高度 - 方向相关掩蔽阴影型 (Height-Direction-Correlated Masking and Shadowing)
+
+目前较为常用的是其中最为简单的形式，分离遮蔽阴影 (Separable Masking and Shadowing Function)。
+
+该形式将几何项 G 分为两个独立的部分：光线方向 (light) 和视线方向 (view)，并对两者用相同的分布函数来描述。根据这种思想，结合法线分布函数 (NDF) 与 Smith 几何阴影函数，于是有了以下新的 Smith 几何项：
+
+*   Smith-GGX
+*   Smith-Beckmann
+*   Smith-Schlick
+*   Schlick-Beckmann
+*   Schlick-GGX
+
+其中 UE4 的方案是上面列举中的 **“Schlick-GGX”** ，即基于 Schlick 近似，将 k 映射为 k=a/2, 去匹配 GGX Smith 方程：
+
+$\begin{align} k&=\frac{\alpha}{2}\\ \alpha&=(\frac{roughness+1}{2})^{2}\\ G_{1}(v)&=\frac{n\cdot v}{(n\cdot v)(1-k)+k}\\ G(l,v,h)&=G_{1}(l)G_{1}v \end{align}$
 
 
 # 3 PBR 的光照实现
