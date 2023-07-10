@@ -45,8 +45,13 @@
             "id": "6f3e77e439ce6677",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "zip/留学/缴费.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ],
@@ -93,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+                "file": "zip/留学/缴费.md"
               }
             }
           }
@@ -143,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
+                "file": "zip/留学/缴费.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
+                "file": "zip/留学/缴费.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -193,12 +198,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "6391a1ce9b10f577",
+  "active": "6f3e77e439ce6677",
   "lastOpenFiles": [
+    "zip/留学/前往斯旺西.md",
+    "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/1 辐射度量学.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
@@ -222,7 +229,6 @@
     "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
     "技术美术/1 渲染雅集/07 描边.md",
     "zBuffer/Unity Shader - 阴影方案总结.md",
-    "图形学/0 3D数学/公式推导/03 深度计算.md",
     "zip/images/43304e962aac52ea1de18183d092c485_MD5.jpg",
     "zip/images/173a69a697743ca9581cb0ba15aa24f9_MD5.png",
     "zip/images/5babaf79a82fcafdfc07dfa7529f2dcd_MD5.png",
