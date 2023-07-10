@@ -135,7 +135,7 @@ $$f_{r}(w_{i}, w_{r})=\frac{dL_{r}(w_{r})}{dE_{i}(w_{i})}=\frac{dL_{r}(w_{r})}{L
 
 ![[9fada69e566c10e4ac9847dd065da360_MD5.jpg]]
 **BRDF 需要满足两个规则**
-1. **赫姆霍兹互易性**，即交换 BRDF 的两个输入向量，BRDF 的值不变。$f_r(\omega_i,\omega_o)=f_r(\omega_o,\omega_i)$
+1. **赫姆霍兹互逆性**，即交换 BRDF 的两个输入向量，BRDF 的值不变。$f_r(\omega_i,\omega_o)=f_r(\omega_o,\omega_i)$
 2. **能量守恒定律**。比如反射光能量总和永远不应该超过入射光。技术上来说，Blinn-Phong 光照模型跟 BRDF 一样使用了 $\omega_i$ 跟 $\omega_o$ 作为输入参数，但是没有像基于物理的渲染这样严格地遵守能量守恒定律。
 
 #### Cook-Torrance BRDF
@@ -173,6 +173,10 @@ Epic Games 公司的 Brian Karis 对于这些函数的多种近似实现方式�
 #### D：GGXTR
 对于微表面模型的一个重要性质即每个微平面都有自己的微平面法线 $m$ 。微平面法线的分布被称为表面的 **法线分布函数 (NDF, normal distribution function)** $D(m)$ 。
 
+![[Pasted image 20221211101035.png]]
+ >如果一个微表面法线分布集中我们认为他是 glossy 材质，如果分布分散则认为是漫反射材质
+ 
+ 
 法线分布函数，从统计学上近似的表示了与某些（如中间向量 $h$）向量取向一致（即微平面法线 $n$ 与半角项链半角向量 $h$ 重合）的微表面在微观几何中的**密度**。
 >只有当微平面的微平面法线 $n$ n是 $l$ 和 $v$ 的 **半程向量 (half vector)** $h=\frac{l+v}{||l+v||}$ 时，这个微平面才会将能量反射进眼睛，否则这个微平面的能量贡献为 0。
 
@@ -322,11 +326,11 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 
 $$G_{SchlickGGX}(n, v, k) = \frac{n \cdot v} {(n \cdot v)(1 - k) + k }$$
 
-这里的 $k$ 是使用粗糙度 $\alpha$ 计算而来的，用于直接光照和 IBL 光照的几何函数的参数：
+这里的 $k$ 是使用粗糙度 $\alpha$ 计算而来的，用于直接光照和 IBL 光照 (间接光)的几何函数的参数：
 
 $$\begin{eqnarray*} k_{direct} &=& \frac{(\alpha + 1)^2}{8} \\ k_{IBL} &=& \frac{\alpha^2}{2} \end{eqnarray*}$$
 
-需要注意的是这里 $\alpha$ 的值取决于你的引擎怎么将粗糙度转化成 $\alpha$，在接下来的教程中我们将会进一步讨论如何和在什么地方进行这个转换。
+需要注意的是这里 $\alpha$ 的值取决于你的引擎怎么将粗糙度转化成 $\alpha$。
 
 为了有效地模拟几何体，我们需要同时考虑两个视角，观察方向（几何遮挡）跟光源方向（几何阴影），我们可以用 **Smith G2 函数**将两部分放到一起：
 
@@ -368,7 +372,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\om
 
 上面的方程并非完全数学意义上的正确。前面提到菲涅尔项 $F$ 代表光在表面的反射比率，它直接影响 $k_s$ 因子，意味着反射方程的镜面反射部分已经隐含了因子 $k_s$。因此，最终的 Cook-Torrance 反射方程如下（去掉了 $k_s$）：
 
-$$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
+$$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{D(n, h, \alpha)F(h, \omega_o, F_0)G(n, \omega_o, \omega_i, k)}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
 >**分母 4(n·l)(n·v)** ：校正因子，作为微观几何的局部空间和整个宏观表面的局部空间之间变换的微平面量的校正。
 
 - 对于分母中的点积，仅仅避免负值是不够的，也必须避免零值。通常通过在常规的 clamp 或绝对值操作之后添加非常小的正值来完成。
@@ -1285,94 +1289,3 @@ vec3 ambient = (kD * diffuse + specular) * ao;
 IBL 的教程结束了，本节的代码可在[球体场景](https://learnopengl.com/code_viewer_gh.php?code=src/6.pbr/2.2.1.ibl_specular/ibl_specular.cpp)和[纹理场景](https://learnopengl.com/code_viewer_gh.php?code=src/6.pbr/2.2.2.ibl_specular_textured/ibl_specular_textured.cpp)中找到。
 
 
-
-# 4 PBR 的优化
-
-## 离线渲染优化
-
-[[#5.4 预计算技术|5.4 预计算技术]] 章节提到了一些离线渲染的加速技术，除此之外，常见的离线技术还有：
-
-*   局部静态光照烘焙
-*   全局光照烘焙
-
-还可以从以下小节中阐述的方法加速离线渲染部分。
-
-### 积分公式优化
-
-主要是利用 [[#5.1 微积分（Calculus）|5.1 微积分（Calculus）]] 描述的性质和定理对渲染公式进行优化：
-
-*   常量移出积分项外
-*   增加等效积分项
-*   分离积分项
-*   利用近似法替代复杂项
-
-具体例子可以参看 [[#5.4 预计算技术|5.4 预计算技术]]。
-
-###  硬件集成
-
-将渲染通用的逻辑集成硬件指令或内建接口，可以充分利用硬件的性能，从而为渲染加速。
-
-例如，将光线追踪算法集成进 GPU 显卡，而 nVidia 新一代 RTX20 系显卡已经集成了光线追踪技术，使得渲染效率更上一层楼。Unreal Engine 4.22 的版本也集成了这一特性。
-
-![[1679148484069.png]]
-
-### 并行渲染
-
-通过多线程、多进程、多设备的架构分摊消耗的帧渲染，使得每帧的渲染时间大大降低。这种技术在实时渲染领域也逐渐被普及。
-
-###  分布式渲染
-
-不同于并行渲染的小规模架构，分布式渲染通常以图形工作站、集群式渲染簇等中大型硬件架构为依托，以满足电影级别的离线渲染加速需求。
-
-下图是 [《A MultiAgent System for Physically based Rendering Optimization》](http://www.weiss-gerhard.info/publications/D02.pdf)提出的一种多代理的加速渲染架构：
-
-![[1679148484105.png]]
-
-## 实时渲染优化
-
-###  光照模型优化
-
-*   GGX 兰伯特光照计算
-*   Schlick 的 $F_0$ 近似法
-*   Smith 几何遮蔽函数混合
-*   迪斯尼原则的金属度线性插值
-
-以上都是本文前面章节描述过的加速算法，这对于性能敏感的实时渲染领域是非常有必要的。
-
-### 资源优化
-
-*   若干贴图合成一张蒙板图。将若干独立的 PBR 属性蒙板贴图合成一张：
-    
-    ![[1679148484125.png]]
-    
-    _使用同一张蒙板贴图同时控制 PBR 的颜色、金属度、粗糙度等属性。_
-    
-*   减少 PBR 标准参数的使用。例如，金属材质的漫反射大部分是黑色，所以无需额外的漫反射贴图。
-    
-*   其它资源优化：材质、模型、渲染参数、纹理、PBR 参数等等几乎都有优化的余地。
-    
-
-### 其它实时优化
-
-实时渲染领域还有很多优化方法值得尝试和应用，比如：
-
-*   [《Moving Frostbite to PBR》](https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf)提出的 IES 光照模拟。
-    ![[1679148484162.png]]
-    
-*   [《Applying Visual Analytics to Physically-Based Rendering》](http://cg.ivd.kit.edu/publications/2018/visual_analytics_pbr/preprint.pdf)提出的可视化分析优化。
-    
-    ![[1679148484238.png]]
-    
-
-###  移动端优化
-
-由于移动设备普遍的性能与 PC 机有一定的差距，所以要将 PBR 应用到移动端，性能优化的需求更加迫切。
-
-上一小节提到的实时渲染优化同样适用于移动端，此外，还可针对移动端做一些特殊的优化：
-
-*   简化光照模型。采用更少的样本采样数量，更简化的光照计算公式。
-*   简化 shader。通过少量的 shader 指令或简化的数学运算可达到优化的目的。
-*   启用引擎 Mobile 版本的资源和设置。Unity 和 Unreal Engine 都提供了移动版本的材质库和特殊的配置，在无特别需求下，尽量使用它们。
-*   分级策略。针对不同分级的设备启用不同复杂度的材质和资源，可以有效解决高中低画质的兼容问题。
-
-更多请参看 [《Optimizing PBR》](https://community.arm.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-20-66/siggraph2015_2D00_mmg_2D00_renaldas_2D00_slides.pdf)，还可参看笔者的另外一篇原创技术文章：[**《移动游戏性能优化通用技法》**](https://www.cnblogs.com/timlly/p/10463467.html)

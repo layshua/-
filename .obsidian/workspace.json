@@ -6,7 +6,6 @@
       {
         "id": "af01975e70e73712",
         "type": "tabs",
-        "dimension": 49.94588744588745,
         "children": [
           {
             "id": "0f05f4fb911b98b5",
@@ -27,88 +26,41 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4edc5adb61de65a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/ta101PBR.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b84f116e470f513f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "技术美术/7 PBR/2 PBR理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
-          },
-          {
-            "id": "13cce2097e7a2fd8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 1
-      },
-      {
-        "id": "b44ceac6e997703e",
-        "type": "tabs",
-        "dimension": 50.05411255411255,
-        "children": [
-          {
-            "id": "007cd31cf635c276",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4467f5f22319a80e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3fef688e48a76beb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "86b5eb2d38a768f1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/1 辐射度量学.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -151,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/1 辐射度量学.md"
+                "file": "技术美术/7 PBR/ta101PBR.md"
               }
             }
           }
@@ -202,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/1 辐射度量学.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/1 辐射度量学.md",
+                "file": "技术美术/7 PBR/ta101PBR.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -252,23 +204,25 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b5eb2d38a768f1",
+  "active": "4edc5adb61de65a3",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
     "技术美术/7 PBR/2 PBR理论.md",
-    "技术美术/7 PBR/4 PBR推导.md",
-    "技术美术/7 PBR/PBR相关/未命名.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
+    "技术美术/7 PBR/ta101PBR.md",
+    "技术美术/7 PBR/1 辐射度量学.md",
+    "技术美术/7 PBR/3 PBR推导.md",
+    "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md",
+    "技术美术/7 PBR/PBR相关/03 PBR优化.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
+    "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/PBR相关/01 光学原理.md",
     "技术美术/7 PBR/PBR相关/03 Albedo.md",
-    "技术美术/7 PBR/1 辐射度量学.md",
-    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
-    "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
     "zip/images/Pasted image 20230710142347.png",
     "zip/images/Pasted image 20230710141009.png",
     "技术美术/7 PBR/PBR相关",
-    "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
     "zip/images/Pasted image 20230710122922.png",
     "技术美术/7 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md",
     "技术美术/7 PBR/PBR白皮书/README.md",
@@ -282,9 +236,7 @@
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/1 前言.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/3 PBR 基本原理和实现.md",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/2 基本认知和应用.md",
-    "技术美术/7 PBR/PBR总结.md",
     "zip/images/Pasted image 20230709222844.png",
-    "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "zip/images/Pasted image 20230709182107.png",
     "zip/images/43304e962aac52ea1de18183d092c485_MD5.jpg",
     "zip/images/173a69a697743ca9581cb0ba15aa24f9_MD5.png",

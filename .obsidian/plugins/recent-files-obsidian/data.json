@@ -1,40 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "1 辐射度量学",
-      "path": "技术美术/7 PBR/1 辐射度量学.md"
-    },
-    {
       "basename": "2 PBR理论",
       "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
-      "basename": "4 PBR推导",
-      "path": "技术美术/7 PBR/4 PBR推导.md"
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
     },
     {
-      "basename": "未命名",
-      "path": "技术美术/7 PBR/PBR相关/未命名.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
-    },
-    {
-      "basename": "01 光学原理",
-      "path": "技术美术/7 PBR/PBR相关/01 光学原理.md"
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
     },
     {
+      "basename": "1 辐射度量学",
+      "path": "技术美术/7 PBR/1 辐射度量学.md"
+    },
+    {
+      "basename": "3 PBR推导",
+      "path": "技术美术/7 PBR/3 PBR推导.md"
+    },
+    {
       "basename": "02 漫反射项除以π",
       "path": "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md"
+    },
+    {
+      "basename": "03 PBR优化",
+      "path": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
     },
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
@@ -43,6 +43,14 @@
     {
       "basename": "基于物理的渲染算法研究【U3D】",
       "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
+    },
+    {
+      "basename": "01 光学原理",
+      "path": "技术美术/7 PBR/PBR相关/01 光学原理.md"
     },
     {
       "basename": "README",
@@ -149,10 +157,6 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
     },
     {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
       "basename": "光照探针，反射探针，光照烘焙",
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "02 视图变换",
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "DirectXMath",
-      "path": "图形学/2 图形API/DX12/DirectXMath.md"
     }
   ],
   "omittedPaths": [],
