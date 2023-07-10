@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "2 PBR理论",
-      "path": "技术美术/7 PBR/2 PBR理论.md"
-    },
-    {
       "basename": "11 PBR2",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md"
     },
     {
+      "basename": "2 PBR理论",
+      "path": "技术美术/7 PBR/2 PBR理论.md"
+    },
+    {
       "basename": "ta101PBR",
       "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "4 法线分布函数",
+      "path": "技术美术/7 PBR/PBR白皮书/4 法线分布函数.md"
+    },
+    {
+      "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
+      "path": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
+    },
+    {
+      "basename": "3 迪士尼原则的BRDF和BSDF",
+      "path": "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md"
     },
     {
       "basename": "04 利用 LTC 实现实时多边形面积光",
@@ -33,16 +45,8 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
-      "basename": "4 法线分布函数",
-      "path": "技术美术/7 PBR/PBR白皮书/4 法线分布函数.md"
-    },
-    {
       "basename": "0ca448a5d7b9a7d5fb237cca1a311e55",
       "path": "zip/images/0ca448a5d7b9a7d5fb237cca1a311e55.png"
-    },
-    {
-      "basename": "3 迪士尼原则的BRDF和BSDF",
-      "path": "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md"
     },
     {
       "basename": "2d6ab4c1432bec1539d4fd5941ba13e0",
@@ -131,10 +135,6 @@
     {
       "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
       "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
-      "path": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
     },
     {
       "basename": "04 光照向量",
