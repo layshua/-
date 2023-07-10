@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "光线追踪",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
+      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
     },
     {
       "basename": "未命名",
       "path": "图形学/3 软渲染器/软光追/未命名.md"
+    },
+    {
+      "basename": "光线追踪",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
       "basename": "基础介绍",
@@ -17,24 +33,8 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
     },
     {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
-    },
-    {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
       "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
-      "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
     },
     {
       "basename": "GAMES101",

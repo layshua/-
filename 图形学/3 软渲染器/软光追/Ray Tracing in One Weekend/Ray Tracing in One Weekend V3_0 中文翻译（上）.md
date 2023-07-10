@@ -685,7 +685,7 @@ bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& re
 ## 6.1. 一些 C++ 的新特性
 
 hittable_list 类用了两种 C++ 的特性: vector 和 shared_ptr, 如果你并不熟悉 C++, 你可能会感到有些困惑。  
-shared_ptr<type> 是指向一些已分配内存的类型的指针。每当你将它的值赋值给另一个智能指针时, 物体的引用计数器就会 + 1。当智能指针离开它所在的生存范围 (例如代码块或者函数外), 物体的引用计数器就会 - 1。一旦引用计数器为 0, 即没有任何智能指针指向该物体时, 该物体就会被销毁  
+`shared_ptr<type>` 是指向一些已分配内存的类型的指针。每当你将它的值赋值给另一个智能指针时, 物体的引用计数器就会 + 1。当智能指针离开它所在的生存范围 (例如代码块或者函数外), 物体的引用计数器就会 - 1。一旦引用计数器为 0, 即没有任何智能指针指向该物体时, 该物体就会被销毁  
 一般来说, 智能指针首先由一个刚刚新分配好内存的物体来初始化:
 
 ```
@@ -694,8 +694,8 @@ shared_ptr<vec3>   vec3_ptr   = make_shared<vec3>(1.414214, 2.718281, 1.618034);
 shared_ptr<sphere> sphere_ptr = make_shared<sphere>(vec3(0,0,0), 1.0);
 ```
 
-make_shared<thing>(thing_constructor_params ...) 为指定的类型分配一段内存, 使用你指定的构造函数与参数来创建这个类, 并返回一个智能指针 shared_ptr<thing>  
-使用 C++ 的 auto 类型关键字, 可以自动推断 make_shared<type> 返回的智能指针类型, 于是我们可以把上面的代码简化为:
+`make_shared<thing>(thing_constructor_params ...)` 为指定的类型分配一段内存, 使用你指定的构造函数与参数来创建这个类, 并返回一个智能指针 `shared_ptr<thing>  `
+使用 C++ 的 auto 类型关键字, 可以自动推断 `make_shared<type>` 返回的智能指针类型, 于是我们可以把上面的代码简化为:
 
 ```
 auto double_ptr = make_shared<double>(0.37);
@@ -704,7 +704,7 @@ auto sphere_ptr = make_shared<sphere>(vec3(0,0,0), 1.0);
 ```
 
 我们在代码中使用智能指针的目的是为了能让多个几何图元共享一个实例 (举个栗子, 一堆不同球体使用同一个纹理材质), 并且这样内存管理比起普通的指针更加的简单方便。  
-std::shared_ptr 在头文件 <memory> 中
+std::shared_ptr 在头文件 `<memory>` 中
 
 ```
 #include<memory>
@@ -712,7 +712,7 @@ std::shared_ptr 在头文件 <memory> 中
 
 第二个你可能不太熟悉的 C++ 特性是 std::vector。这是一个类似数组的结构类型, 可以存储任意指定的类型。在上面的代码中, 我们将 hittable 类型的智能指针存入 vector 中, 随着 objects.push_back(object) 的调用, object 被存入 vector 的末尾, 同时 vector 的储存空间会自动增加。
 
-std::vector 在头文件 <vector> 中
+std::vector 在头文件` <vector>` 中
 
 ```
 #include<vector>
@@ -821,7 +821,7 @@ int main() {
 
 真实世界中的摄像机拍摄出来的照片是没有像素状的锯齿的。因为边缘像素是由背景和前景混合而成的。我们也可以在程序中简单的对每个边缘像素多次采样取平均达到类似的效果。我们这里不会使用分层采样。尽管我自己常常在我的程序里使用这种有争议的方法。对某些光线追踪器来说分层采样是很关键的部分, 但是对于我们写的这个小光线追踪器并不会有什么很大的提升, 只会让代码更加丑陋。我们会在这里将摄像机类抽象一下, 以便于后续能有一个更酷的摄像机。  
 我们还需要一个能够返回真随机数的一个随机数生成器。默认来说这个函数应该返回 0≤r<1 的随机数。注意这个范围取不到 1 是很重要的。有时候我们能从这个特性中获得好处。  
-一个简单的实现方法是, 使用 <cstdlib> 中的 rand() 函数。这个函数会返回 0 到 RAND_MAX 中的一个任意整数。我们将下面的一小段代码加到 rtweekend.h 中, 就能得到我们想要的随机函数了:
+一个简单的实现方法是, 使用 `<cstdlib>` 中的 rand() 函数。这个函数会返回 0 到 RAND_MAX 中的一个任意整数。我们将下面的一小段代码加到 rtweekend.h 中, 就能得到我们想要的随机函数了:
 
 ```
 //rtweekend.h
@@ -839,7 +839,7 @@ inline double random_double(double min, double max) {
 }
 ```
 
-传统 C++ 并没有随机数生成器, 但是新版 C++ 中的 <random> 头实现了这个功能 (某些专家觉得这种方法不太完美)。如果你想使用这种方法, 你可以参照下面的代码:
+传统 C++ 并没有随机数生成器, 但是新版 C++ 中的` <random>` 头实现了这个功能 (某些专家觉得这种方法不太完美)。如果你想使用这种方法, 你可以参照下面的代码:
 
 ```
 //rtweekend.h

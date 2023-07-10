@@ -12450,6 +12450,8 @@ cgvAk
 corrected
 coooool
 computershader
+countBufferData
+countBuffer
 github
 grey
 green
@@ -16087,6 +16089,12 @@ glD
 gxxk
 gAjO
 groupshared
+groupId
+groupThreadId
+groupIndex
+groupThreadID
+grassMatrixBufferId
+grassMatrixBuffer
 typora
 todo
 tooltip
@@ -24153,6 +24161,10 @@ mclT
 mFM
 myN
 monobehaviour
+mRenderTexture
+mainTexture
+mParticleDataBuffer
+mParticleCount
 windows
 win
 width
@@ -39055,6 +39067,7 @@ ViNe
 VYDIB
 VYHtR
 Vassillen
+ViewPortCulling
 verge
 vPdIt
 vertical
@@ -50587,6 +50600,7 @@ UjAA
 UFZz
 UhZt
 Unordered
+UpdateParticle
 api
 ac
 app
@@ -67867,6 +67881,7 @@ Wjr
 WLEO
 WITH
 Wavefront
+WHITE
 Start
 StartAllBack
 Shadowrocket
@@ -76984,6 +76999,9 @@ Pqsj
 PHfb
 PJUZ
 PARS
+ParticleBuffer
+ParticleShader
+ParticleEffect
 ContextMenuManager
 ClashVerge
 Clash
@@ -93732,6 +93750,10 @@ peoW
 paf
 pbrbook
 pong
+pindex
+particleDatas
+particleData
+particleDataBuffer
 nodesCatch
 nobr
 navy
@@ -101166,6 +101188,7 @@ bbbn
 bXVl
 bfO
 blocked
+boxSize
 fe
 front
 fill
@@ -109132,6 +109155,9 @@ downhill
 defocus
 dispatch
 dstOffsetBytes
+dispatchThreadId
+dispatchThreadID
+dont
 TFvYZOKeHL
 TAB
 TeX
@@ -149425,6 +149451,7 @@ BRZ
 BqS
 Byte
 ByteAddressBuffer
+BLACK
 Fraktur
 Frame
 Foo
@@ -168908,6 +168935,7 @@ DuR
 DrawProceduralNow
 DecrementCounter
 DispatchIndirect
+DrawParticle
 LNK
 Log
 Linux
@@ -198016,6 +198044,7 @@ KdK
 KernelOne
 KernelTwo
 KernelIndex
+KernelFunction
 key
 kSC
 keaXj
@@ -202019,6 +202048,7 @@ kbL
 kqSDc
 kdTo
 kernelIndex
+kernelId
 zoom
 zw
 zaG
