@@ -5,7 +5,7 @@ aliases: []
 tags: []
 create_time: 2023-07-10 12:29
 uid: 202307101229
-banner: "![[Pasted image 20230710122922.png]]"
+banner: "![[Pasted image 20230710142347.png]]"
 ---
 
 **PBR 是指使用基于物理原理和微平面理论建模的着色/光照模型，以及使用从现实中测量的表面参数来准确表示真实世界材质的渲染理念。**
@@ -75,7 +75,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 - $n$：$p$ 点法线
 - $w_i,w_o$：无限小的入射光（光源方向）和出射光（观察方向）的立体角，可以看作方向向量。方向由 $p$ 点指向光源或观察者眼睛
 - $(n\cdot w_i)$：入射光与法线的点乘，用来衡量入射光与平面法线夹角 $\cos \theta$ 对能量的影响
-- $f_r(p,\omega_i,\omega_o)$： BRDF。描述了入射光反射后在各个方向如何分布
+- $f_r(p,\omega_i,\omega_o)$： BxDF（通常为 BRDF）。描述了入射光反射后在各个方向如何分布
 - $L_i(p,\omega_i)$ ：入射光辐射率
 - $L_o(p,\omega_o)=\int\limits_{\Omega} ... d\omega_i$：对所有光源方向积分，即从各个方向 $\omega_i$ 射入半球 $\Omega$ 并打中点 $p$ 的入射光，经过反射函数 $f_r$ 进入观察者眼睛的所有反射光 $L_o$ 的辐射率之和。因为计算了所有光源方向的单位立体角，所以**总辐射率=辐照度，即我们最终得到了 $p$ 点的辐照度。**
 
@@ -90,7 +90,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 
 入射光辐射度可以由光源处获得，此外还可以利用一个环境贴图来测算所有入射方向上的辐射度。
 
-至此，反射方程中，只剩下 $f_r$ 项未描述。$f_r$ 就是**双向反射分布函数** (Bidirectional Reflectance DistributionFunction, BRDF)，**它的作用是基于表面材质属性来对入射辐射度进行缩放或者加权。**
+至此，反射方程中，只剩下 $f_r$ 项未描述。$f_r$ 通常是**双向反射分布函数** (Bidirectional Reflectance DistributionFunction, BRDF)，**它的作用是基于表面材质属性来对入射辐射度进行缩放或者加权。** 后文将对其进行推导。
 
 
 > [!quote] 
@@ -117,9 +117,23 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 ### 双向反射分布函数（BRDF）
 **双向反射分布函数**（Bidirectional Reflectance Distribution Function，BRDF）是一个使用入射光方向 $\omega_i$ 作为输入参数的函数，输出参数为出射光 $\omega_o$，表面法线为 $n$，参数 $a$ 表示的是微平面的粗糙度。
 
-**BRDF 函数是近似的计算在一个给定了属性的不透明表面上每个单独的光线对最终的反射光的贡献量。** 
-![[Pasted image 20230703155918.png]]
+为了进一步建模，我们只考虑光线的 **局部反射 (local reflection)** 情况，即光线击中表面，然后从交点向外反射 包括表面的镜面反射和次表面散射）出来。**但在局部反射中，可以把它们统一看作从宏观表面交点反射出来的光线。**
+ 
+局部反射由 BRDF 量化，表示为 $f_r(\omega_i,\omega_o)$。BRDF 被定义在均匀表面 (uniform surfaces)，这意味着任意点的 BRDF 相同。并且假设给定波长的入射光以相同的波长反射。
 
+**光线沿 $\omega_i$ 打到表面上某一面积微元上后，光线的辐照度 $dE (\omega_i)$ 会在交点处沿不同方向辐射出辐射率 $dL_r(x,\omega_r)$。**
+![[3e8a79f380ab67ab4c698c65c66b1fd2_MD5.jpg]]
+
+反射光线的分布受到宏观表面的微观几何影响。当微观尺度越粗糙，反射 glossy 越分散，而微观尺度越平滑，反射 glossy 越集中。因此，BRDF 就是描述从不同方向入射后，反射光线的分布情况。具体来说，BRDF 为 **朝某个方向发出反射光辐射率 radiance 与入射光辐射度 irrandiance 的比值**。
+$$BRDF=\frac{反射光辐射率}{入射光辐射度}$$
+用数学式表达就是
+
+$$f_{r}(w_{i}, w_{r})=\frac{dL_{r}(w_{r})}{dE_{i}(w_{i})}=\frac{dL_{r}(w_{r})}{L_{i}(w_{i}cos\theta_{i}d\omega_{i})}~~[\frac{1}{sr}]$$
+
+![[9fada69e566c10e4ac9847dd065da360_MD5.jpg]]
+BRDF 需要满足两个规则
+1. **赫姆霍兹互易性 (helmholtz reciprocity)**，即交换 BRDF 的两个输入向量，BRDF 的值不变。$f_r(\omega_i,\omega_o)=f_r(\omega_o，\omega_i,)$
+2. 
 BRDF 对于材质的反射和折射属性的模拟基于之前讨论过的微平面理论，想要 BRDF 在物理上是合理的，就必须遵守能量守恒定律。比如反射光能量总和永远不应该超过入射光。技术上来说，Blinn-Phong 光照模型跟 BRDF 一样使用了 $\omega_i$ 跟 $\omega_o$ 作为输入参数，但是没有像基于物理的渲染这样严格地遵守能量守恒定律。
 
 BRDF 有好几种模拟表面光照的算法，然而，基本上所有的**实时**渲染管线使用的都是 **Cook-Torrance BRDF**。
@@ -306,9 +320,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
 这个方程完整地定义了一个基于物理的渲染模型，也就是我们一般所说的基于物理的渲染（PBR）。
 
 
-## BxDF
-
-本节将讲述 BxDF 的主要类型。
+### BxDF
 
 目前计算机图形渲染领域，基于物理的渲染方式主要有：
 
@@ -316,7 +328,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
     
 *   **光线追踪（Ray Tracing）**：即光线追踪技术，它的做法是将摄像机的位置与渲染纹理的每个像素构造一条光线，从屏幕射出到虚拟世界，每遇到几何体就计算一次光照，同时损耗一定比例的能量，继续分拆成反射光线和折射光线，如此递归地计算，直到初始光线及其所有分拆的光线能量耗尽为止。
     
-    ![[1679148482590.png]]
+    ![[1679148482590.png|500]]
     
     由于这种方式开销非常大，特别是场景复杂度高的情况，所以常用于离线渲染，如影视制作、动漫制作、设计行业等。
     
@@ -332,12 +344,10 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
 
 限于篇幅和本文主题，下面将介绍基于辐射度方式的 BxDF 光照模型。
 
-**BxDF 可细分为以下几类：**
+**BxDF 一般而言是对 BRDF、BTDF、BSDF、BSSRDF 等几种双向分布函数的一个统一的表示。可细分为以下几类：**
 
-*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于**非透明**材质的光照计算。Cook-Torrance 就是 BRDF 的一种实现方式，上章详述过，不多说。
-    
+*   **BRDF**（双向反射分布函数，Bidirectional Reflectance Distribution Function）：用于**非透明**材质的光照计算。**Cook-Torrance 就是 BRDF 的一种实现方式**。
 *   **BTDF**（双向透射分布函数，Bidirectional Transmission Distribution Function）：用于**透明材质**的光照计算。折射光穿透介质进入另外一种介质时的光照计算模型，只对有透明度的介质适用。
-    
 *   **BSDF**（双向散射分布函数，Bidirectional Scattering Distribution Function）：实际上是 BRDF 和 BTDF 的综合体，简单地用公式表达：**BSDF = BRDF + BTDF**。
     
     ![[1679148482726.png|350]]
@@ -346,12 +356,11 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega
 *   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是**模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术**。下面是用 SSS 模拟的玉石效果图：
     ![[1679148482775.png|400]]
     关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。
-*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于**模拟透明材质**，目前是主流技术。它和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：
+*   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于**模拟透明材质**，目前是主流技术。它**和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：**
     
-    ![[1679148482799.png]]
-    
+    ![[1679148482799.png|600]]
 
-从上面可以看出，BxDF 的形式多种多样，但由于它们都是基于辐射度的光照模型，所以最终可以用以下公式抽象出来：
+**从上面可以看出，BxDF 的形式多种多样，但由于它们都是基于辐射度的光照模型，所以最终可以用以下公式抽象出来：**
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
 
@@ -359,13 +368,11 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 
 $$\begin{eqnarray*} p点颜色 & = & 光源颜色 \times 材质颜色 \times 反射系数 \times 光照函数 \\ 光照函数 & = & f(n_{法线}, \omega_{光源方向}, v_{视点方向}) \end{eqnarray*}$$
 
-由于篇幅问题，本文不会对 BTDF、BSDF、SSS、BSSRDF 进行详细讨论，有兴趣的可以另外找资料了解。笔者以后也可能另外开辟专题探讨。
+值得一提的是，BRDF 最终的光照计算结果是几何函数和油墨算法（ink-selection）结合的结果。其中油墨算法描述了如何计算各颜色分量的反射率，可参看论文 [《A Multi-Ink Color-Separation Algorithm Maximizing Color Constancy》](https://pdfs.semanticscholar.org/9e56/8b13ea51ca3c669186624566f672eb547857.pdf)。
 
-本章末，值得一提的是，BRDF 最终的光照计算结果是几何函数和油墨算法（ink-selection）结合的结果。
+![[1679148483056.png|500]]
 
-![[1679148483056.png]]
 
-其中油墨算法描述了如何计算各颜色分量的反射率，可参看论文 [《A Multi-Ink Color-Separation Algorithm Maximizing Color Constancy》](https://pdfs.semanticscholar.org/9e56/8b13ea51ca3c669186624566f672eb547857.pdf)。
 
 # 3 PBR 的光照实现
 
