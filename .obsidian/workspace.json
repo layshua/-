@@ -9,19 +9,6 @@
         "dimension": 49.94588744588745,
         "children": [
           {
-            "id": "6391a1ce9b10f577",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0f05f4fb911b98b5",
             "type": "leaf",
             "state": {
@@ -40,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -48,7 +35,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "b44ceac6e997703e",
@@ -56,12 +43,12 @@
         "dimension": 50.05411255411255,
         "children": [
           {
-            "id": "35cf09df2c3df323",
+            "id": "007cd31cf635c276",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/PBR推导/为什么 BRDF 的漫反射项要除以π？.md",
+                "file": "技术美术/7 PBR/2 PBR理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -69,12 +56,25 @@
             }
           },
           {
-            "id": "007cd31cf635c276",
+            "id": "4467f5f22319a80e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/2 PBR理论.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3fef688e48a76beb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -94,8 +94,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/2 PBR理论.md"
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
               }
             }
           }
@@ -189,7 +188,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/2 PBR理论.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -206,7 +205,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/2 PBR理论.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -239,14 +238,15 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "007cd31cf635c276",
+  "active": "2b12292b6a276533",
   "lastOpenFiles": [
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/2 PBR理论.md",
-    "技术美术/7 PBR/PBR推导/为什么 BRDF 的漫反射项要除以π？.md",
-    "技术美术/7 PBR/1 辐射度量学.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
+    "技术美术/7 PBR/1 辐射度量学.md",
+    "技术美术/7 PBR/PBR推导/为什么 BRDF 的漫反射项要除以π？.md",
     "zip/images/Pasted image 20230710142347.png",
     "技术美术/7 PBR/4 PBR推导.md",
     "zip/images/Pasted image 20230710141009.png",
@@ -260,7 +260,6 @@
     "zip/留学/缴费.md",
     "zip/留学/前往斯旺西.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",

@@ -174,6 +174,7 @@ Epic Games 公司的 Brian Karis 对于这些函数的多种近似实现方式�
 对于微表面模型的一个重要性质即每个微平面都有自己的微平面法线 $m$ 。微平面法线的分布被称为表面的 **法线分布函数 (NDF, normal distribution function)** $D(m)$ 。
 
 法线分布函数，从统计学上近似的表示了与某些（如中间向量 $h$）向量取向一致（即微平面法线 $n$ 与半角项链半角向量 $h$ 重合）的微表面在微观几何中的**密度**。
+>只有当微平面的微平面法线 $n$ n是 $l$ 和 $v$ 的 **半程向量 (half vector)** $h=\frac{l+v}{||l+v||}$ 时，这个微平面才会将能量反射进眼睛，否则这个微平面的能量贡献为 0。
 
 > [!quote]  数学定义
 >
@@ -277,32 +278,47 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 
 ####  G
 
+几何函数从统计学上近似的求得了微表面间相互遮蔽的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
+
+![](1679148476912.png)
+
+
 > [!quote] 数学定义
 > 我们是使用的微表面理论，也就是说每个面单独计算互不干扰。但现实世界中，物体的表面的凹凸存在相互遮蔽的情况。主要受粗糙度影响。对于渲染来说，我们只关心可见的微表面。
 > 
 > 基于上述事实，我们可以提出另外一种统计微平面法线到视角垂平面的投影面积：**统计所有可见微平面法线到视角垂平面的投影面积**。如下图，我们只考虑可见的红线部分的投影贡献。
 > ![[22be779d5b79650eaf1533fe67a753df_MD5.jpg]]
 > 
-> 我们可以通过定义 **遮蔽函数 (masking function)** $G_{1}(m,v)$ 来数学的表示这一点，该函数给出法线为 $m$ 且沿视角 $v$ 可见的微平面比例。
+> 我们可以通过定义 **遮蔽函数 (masking function)** $G_{1}(m,v)$ 来数学的表示这一点，**该函数给出法线为 $m$ 且沿视角 $v$ 可见的微平面比例。**
 > 
 >  $\int_{m\in\Theta}G_{1}(m,v)D(m)(v\cdot m)^{+}dm=v\cdot n$
 > 
 > 其中， $(v\cdot m)^{+}$ 表示钳位到 0，它表示不可见的背微平面不会被计算。 $G_{1}(m,v)D(m)$ 为 **可见法线分布 (distrubition of visible normals)**。
 >
->我们将微平面总面积规定为 1，显然红线部分的投影面积就是我们要求的比例
-
-假设微平面总m
 
 对于给定法线分布函数 D (m)，可以有无数个遮蔽函数 G (m)。这是因为 D (m) 并没有完全指定微表面，它只告诉了微表面法线的分布，但不知道它们的排列。
 
-一个被广泛使用的 G1 遮蔽函数为 **The Smith G1** 函数，它最初是针对高斯正态分布推导出来的，后来推广到任意的 NDFs 上。
+> [!note]  Smith G1 和 Smith Shadow-Masking G2
+> 一个被广泛使用的 G1 遮蔽函数为 **The Smith G1** 函数，它最初是针对高斯正态分布推导出来的，后来推广到任意的 NDFs 上。
+> 
+>  $\begin{align} G_{1}(\mathbf{m},\mathbf{v})&={\frac{\chi^{+}(\mathbf{m}\cdot\mathbf{v})}{1+\Lambda(\mathbf{v})}},\\ \chi^{+}(x)&=\left\{\begin{matrix}1,~~where~x>0.\\0,~~where~x\leq 0.\end{matrix}\right. \end{align}$
+> 
+> 其中， $m$ 为微平面法线， $v$ 为观察向量， $\Lambda$ 函数视 NDF 而不同。
+> 
+> **正如上面讨论的那样，遮蔽函数 G1 只考虑了微表面对视线的遮挡，即 Masking。而还存在微表面对光线的遮挡，即 Shadowing。**
+> 
+> ![[8c71e0b51185e84c583ab7a1df499b63_MD5.jpg]]
+> 
+> **为了考虑 Masking 对可见法线的影响，提出了 联合遮蔽 - 阴影函数 (joint masking-shadowing function) $G_{2}(l,v,m)$，也被称为 几何函数 (geometry function) 。**
+> 
+> 实际应用中，常用 **The Smith Shadow-Masking G2** 函数，它将 Shadowing 和 Masking 分开考虑。由于光路的可逆性，我们可以认为两种情况是近似等效的。
+> 
+>  $G_{2}(l,v,m)=G_{1}(v,m)G_{1}(l,m)$
+> 
+> 它建立在 Shadowing 和 Masking 不相关的基础上，但实际上它们是相关的。**使用这个 G2 会导致 BRDFs 结果偏暗。**
+> 
 
-
-因此，几何函数从统计学上近似的求得了微表面间相互遮蔽的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
-
-![](1679148476912.png)
-
-类似 NDF，几何函数也使用粗糙度作为输入参数。几何函数使用由 GGX 和 Schlick-Beckmann 组合而成的模拟函数 Schlick-GGX（基于 Schlick-Beckmann 近似，将 k 映射为 k=a/2，去匹配 GGX Smith 方程）：
+类似 NDF，几何函数也使用粗糙度作为输入参数。几何函数使用由 GGX 和 Schlick-Beckmann 组合而成的模拟函数 Schlick-GGX：
 
 $$G_{SchlickGGX}(n, v, k) = \frac{n \cdot v} {(n \cdot v)(1 - k) + k }$$
 
@@ -314,12 +330,12 @@ $$\begin{eqnarray*} k_{direct} &=& \frac{(\alpha + 1)^2}{8} \\ k_{IBL} &=& \frac
 
 为了有效地模拟几何体，我们需要同时考虑两个视角，观察方向（几何遮挡）跟光源方向（几何阴影），我们可以用 **Smith 函数**将两部分放到一起：
 
-$$G(n, v, l, k) = G_{sub}(n, v, k) G_{sub}(n, l, k)$$
-
+$$G(n, v, l, k) = G_{1}(n, v, k) G_{2}(n, l, k)$$
+- $n$：法线
  - $v$ ：观察方向
- - $G_{sub}(n, v, k)$ ：观察方向的几何遮挡
+ - $G_{1}(n, v, k)$ ：观察方向的几何遮挡
  - $l$ ：光源方向
- - $G_{sub}(n, l, k)$ 表示光源方向的几何阴影。使用 Smith 函数与 Schlick-GGX 作为 $G_{sub}$ 可以得到如下所示不同粗糙度 R 的视觉效果：  
+ - $G_{2}(n, l, k)$ 表示光源方向的几何阴影。使用 Smith 函数与 Schlick-GGX 作为 $G_{sub}$ 可以得到如下所示不同粗糙度 R 的视觉效果：  
 
 ![](1679148477023.png)
 >几何函数是一个值域为 $[0.0, 1.0]$ 的乘数，其中白色 (1.0) 表示没有微表面阴影，而黑色 (0.0) 则表示微表面彻底被遮蔽。
@@ -344,7 +360,7 @@ float GeometrySmith(vec3 N, vec3 V, vec3 L, float k) {
 }
 ```
 
-#### Cook-Torrance 反射方程 
+#### Cook-Torrance 反射方程
 
 Cook-Torrance 反射方程中的每一个部分我们我们都用基于物理的 BRDF 替换，可以得到最终的反射方程：
 
@@ -353,6 +369,9 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\om
 上面的方程并非完全数学意义上的正确。前面提到菲涅尔项 $F$ 代表光在表面的反射比率，它直接影响 $k_s$ 因子，意味着反射方程的镜面反射部分已经隐含了因子 $k_s$。因此，最终的 Cook-Torrance 反射方程如下（去掉了 $k_s$）：
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
+>**分母 4(n·l)(n·v)** ：校正因子，作为微观几何的局部空间和整个宏观表面的局部空间之间变换的微平面量的校正。
+
+- 对于分母中的点积，仅仅避免负值是不够的，也必须避免零值。通常通过在常规的 clamp 或绝对值操作之后添加非常小的正值来完成。
 
 这个方程完整地定义了一个基于物理的渲染模型，也就是我们一般所说的基于物理的渲染（PBR）。
 
