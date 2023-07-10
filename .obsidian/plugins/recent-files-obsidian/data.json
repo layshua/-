@@ -1,20 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
+      "basename": "03 PBR优化",
+      "path": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
     },
     {
-      "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
-      "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
+      "basename": "3 PBR推导",
+      "path": "技术美术/7 PBR/3 PBR推导.md"
+    },
+    {
+      "basename": "2 PBR理论",
+      "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
       "basename": "10 PBR1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
+      "basename": "README",
+      "path": "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
       "basename": "7 全局光照1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
+      "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
+    },
+    {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
     },
     {
       "basename": "5 环境光照1",
@@ -29,36 +61,12 @@
       "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
     },
     {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "2 PBR理论",
-      "path": "技术美术/7 PBR/2 PBR理论.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
-    },
-    {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
       "basename": "1 辐射度量学",
       "path": "技术美术/7 PBR/1 辐射度量学.md"
     },
     {
-      "basename": "3 PBR推导",
-      "path": "技术美术/7 PBR/3 PBR推导.md"
-    },
-    {
       "basename": "02 漫反射项除以π",
       "path": "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md"
-    },
-    {
-      "basename": "03 PBR优化",
-      "path": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
     },
     {
       "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
@@ -107,10 +115,6 @@
     {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "06 溶解",
@@ -195,10 +199,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     }
   ],
   "omittedPaths": [],

@@ -8,44 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0f05f4fb911b98b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "2b12292b6a276533",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
-          },
-          {
-            "id": "4edc5adb61de65a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/ta101PBR.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
+          }
+        ]
+      },
+      {
+        "id": "351374a3fae99687",
+        "type": "tabs",
+        "children": [
           {
             "id": "b84f116e470f513f",
             "type": "leaf",
@@ -58,9 +38,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e13bbedc1c2adca4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/3 PBR推导.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "71c7ab63b1cc9e97",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/PBR相关/03 PBR优化.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,12 +109,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/留学/缴费.md"
+                "file": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -154,7 +159,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "技术美术/7 PBR/PBR相关/03 PBR优化.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "技术美术/7 PBR/PBR相关/03 PBR优化.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,9 +209,19 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "2b12292b6a276533",
+  "active": "71c7ab63b1cc9e97",
   "lastOpenFiles": [
+    "技术美术/7 PBR/3 PBR推导.md",
+    "技术美术/7 PBR/2 PBR理论.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
+    "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/README.md",
+    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
+    "技术美术/7 PBR/ta101PBR.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md",
+    "zip/留学/缴费.md",
     "zip/images/f008eef7f8c8576c9c3a986a3ec35a21_MD5.jpg",
     "zip/images/7ffa4e5ccda353bdd28399c9e4f4a0ba_MD5.jpg",
     "zip/images/8706813dfb6f7c96610fdd76ffe6f410_MD5.jpg",
@@ -217,17 +232,10 @@
     "zip/images/78207c62b8f6d7b08e0721ef393ac1f8_MD5.jpg",
     "zip/images/5545b0f09b2b65f28b44c12e7c00a276_MD5.jpg",
     "zip/images/f4a7f88175ee0b03fcd746c22b8ea248_MD5.jpg",
-    "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "技术美术/7 PBR/2 PBR理论.md",
-    "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md",
-    "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/1 辐射度量学.md",
-    "技术美术/7 PBR/3 PBR推导.md",
     "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md",
     "技术美术/7 PBR/PBR相关/03 PBR优化.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
@@ -239,9 +247,7 @@
     "技术美术/7 PBR/PBR相关",
     "技术美术/7 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md",
     "技术美术/7 PBR/PBR白皮书/README.md",
-    "zip/留学/缴费.md",
     "zip/留学/前往斯旺西.md",
-    "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
