@@ -1,62 +1,11 @@
 ## 写在前头:
 
-2020 年 3 月 23 日, 本书的全新版本 [V3.0](https://github.com/RayTracing/raytracing.github.io/pull/411) 上线啦, 当时笔者正好翻译完第二本书, 提 issue 的时候得知这个消息, 顿时心态崩了。浏览了一下 develop 分支下的新版本, 和旧版差的挺多。无奈只得返工。虽然关于本书的阅读与翻译, 网上已经有不少类似的工作:
-
-[undefined](https://zhuanlan.zhihu.com/p/41856529)[undefined](https://zhuanlan.zhihu.com/p/88369641)
-
-还有把代码搬上 Unity 的:
-
-[undefined](https://zhuanlan.zhihu.com/p/36238483)
-
-还有这位的博客, 写的十分不错:
-
-[林 - 兮 - 博客园](https://www.cnblogs.com/lv-anchoret/)
-
-但我还是想详尽的翻译一下, 一方面大家翻译的时候新版本没出, 另一方面也是锻炼一下自己的英语水平。
-
-## 为什么看这个版本？
-
-本文翻译自新版本 v3.0.1, 可以说是一次**相当大的更新**。大量的源码与书中的内容发生了变化。 相较之前的版本, 新版本改进了许多细节, 修复了一些 bug, 并对原来一些比较模糊的地方加以详细的阐释, 并使用了智能指针等 c++ 特性。我最直观的感受是，在旧版本中我踩过的坑，新版都修复了。  
-译者水平有限, 有些地方读起来难免会感到怪怪的, 还请各位见谅。如果你的英语水平尚可且时间充足, 这里建议你直接阅读 github 上持续更新的[原文](https://raytracing.github.io/books/RayTracingInOneWeekend.html), 如果在阅读的过程遇到什么问题, 首先很可能是翻译水平不足导致的, 请不要犹豫去阅读原文自救, 如果不是因此产生的问题, 欢迎你在下方的评论区留言, 我会尽我所能耐心的解答你的问题。如果我答不上来, 你还可以去 github 上提 issue 来问询。
-
-## 关于本书:
-
-《[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)》(一周末搞定光线追踪), 由 Peter Shirley(就是那本图形学虎书的作者) 所编写的的软渲光追三部曲第一本, 是一本非常好的入门级书籍, 篇幅不多, 一共只有 54 页, 适合新手学习。  
-剩下的两本为:  
-[Ray tracing: The next week(光线追踪: 下一周)](https://raytracing.github.io/books/RayTracingTheNextWeek.html)  
-[Ray tracing: The rest of your life(光线追踪: 余生)](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html)  
-该系列作者已将本书免费发布到公共领域 [cc0 协议](https://github.com/RayTracing/raytracing.github.io/blob/master/COPYING.txt)
-
-警告！本文包含以下内容, 可能会引起你的不适
-
-*   译文间或抖机灵
-*   煞风景的吐槽
-*   因水平限制引起的翻译错误
-
-你也可以移步我的博客来阅读本文, 排版会更好一些 :
-[https://oxine.github.io/Graphic/ray-tracing-in-one-weekend/](https://oxine.github.io/Graphic/ray-tracing-in-one-weekend/)
-
-## 目录
-
-[1. Overview 概述]  
-[2. Output a Image 输出你的图像]  
-[3. The vec3 Class vec3 向量类]  
-[4. Rays, a Simple Camera, and Background 光线, 简单摄像机, 以及背景]  
-[5. Adding a Sphere 加入球体]  
-[6. Suface Normals and Multiple Objects 面法相与复数物体]  
-[7. Antialiasing 反走样]  
-[8. Diffuse Material 漫反射材质]  
-[9. Metal 金属材质]  
-[10. Dielectric 绝缘体材质]  
-[11. Positionable Camera 可自定义位置的摄像机]  
-[12. Defocus Blur 散焦模糊]  
-[13. Where Next? 接下来学什么?]
+本文翻译自版本 v3.0.1,
 
 ## 1. 概述
 
-这些年来我 (Peter Shirley) 开过不少图形学的课。我常常把光线追踪作为课堂上的教学内容。因为对于光线追踪来说, 在不使用任何 API 的情况下, 你不得不被迫手撸全部的代码, 但你仍然能渲染出炫酷的图片。我决定将我的课堂笔记改写成本教程, 让你能尽可能快的实现一个炫酷的光线追踪器(ray tracer)。这并不是一个功能完备的光线追踪器。但是它却拥用让光线追踪在电影行业成为主流的非直接光照(indirect lighting)。跟随本教程循序渐进, 你的光线追踪器的代码构筑将会变得易于拓展。如果之后你对这方面燃起了兴趣, 你可以将它拓展成一个更加完备的光线追踪器。  
-当大家提起 "光线追踪", 可能指的是很多不同的东西。我对这个词的描述是, 光线追踪就是一个路径追踪器, 事实上大部分情况下这个词都是这个意思。光线追踪器的代码也是十分的简单 (写最简单的代码, 让电脑帮我们算去吧!)。当你看到你渲染的图片时, 你一定会感到高兴的。  
-接下来我会带你一步步的实现这个光线追踪, 并加入一些我的 debug 建议。最后你会得到一个能渲染出漂亮图片的光线追踪器。我认为你应该能在一个周末的时间内搞定。如果你花的时间比这长, 别担心, 也没太大问题。我使用 C++ 作为本光线追踪器的实现语言。你其实不必, 但我还是推荐你用 C++, 因为 C++ 快速, 平台移植性好, 并且大部分的工业级电影和游戏渲染器都是使用 C++ 编写的。注意这里我避免了大部分 C++ 的新特性。但是继承和重载运算符我们保留, 对光线追踪器来说这个太有用了。网上的那些代码不是我提供的, 但是这些代码是真的可以跑的。除了 vec3 类中的一些简单的操作, 我将所有的代码都公开了。我是 "学习编程要亲自动手敲代码" 派。但是如果有一份代码摆在我面前, 我可以直接用, 我还是会用的。所以我只在没代码用的时候, 我才奉行我刚刚说的话。好啦, 别提这个了!  
+当大家提起 "光线追踪", 可能指的是很多不同的东西。我对这个词的描述是, **光线追踪就是一个路径追踪器**, 事实上大部分情况下这个词都是这个意思。光线追踪器的代码也是十分的简单 (写最简单的代码, 让电脑帮我们算去吧!)。当你看到你渲染的图片时, 你一定会感到高兴的。  
+
 我没把上面一段删了, 因为我的态度 180° 大转变太好玩了。读者们帮我修复了一些次要的编译错误, 这里还是请你亲手来敲一下代码吧! 但是你如果你想看看我的代码: [点击这里](https://github.com/RayTracing/raytracing.github.io/)  
 本书假定你有一定的向量运算的知识 (比如说点乘和叉乘)。如果你记不太清楚, 回顾一下就行。如果你需要回顾, 或者你是第一次听说这个东西, 你可以看我或者 Marschner 的图像教材, Foley, Van Dam 等也行。或者 McGuire 的 codex。  
 如果你遇到的麻烦, 或者你弄出了很 cooool 的东西想要分享给大家看, 请给我发邮件。我的邮箱是 ptrshrl@gmail.com  
