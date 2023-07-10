@@ -19947,6 +19947,8 @@ tXzO
 tFAv
 tNIQ
 trf
+transformed
+tranform
 markdown
 matter
 mod
@@ -35435,6 +35437,7 @@ eeeyyy
 effv
 eeeQQ
 eor
+elliptic
 VPN
 Verge
 VS
@@ -54488,6 +54491,7 @@ ammmjj
 aTNv
 adh
 aJf
+anisotropy
 Roaming
 RegWorkshop
 Release
@@ -58992,6 +58996,7 @@ RJEM
 Rnv
 RPk
 Ran
+RGBAHalf
 Microsoft
 Menu
 MicaForEveryone
@@ -93685,6 +93690,7 @@ pyDff
 pXyU
 peoW
 paf
+pbrbook
 nodesCatch
 nobr
 navy
@@ -109077,6 +109083,7 @@ dQQQ
 dDiwU
 dvA
 dpkJ
+downhill
 TFvYZOKeHL
 TAB
 TeX
@@ -122503,6 +122510,8 @@ shaUf
 sfhb
 sDw
 sYy
+skewness
+steradiants
 local
 list
 left
@@ -172976,6 +172985,8 @@ LRRRZZZFF
 Lggg
 Lyxx
 LLLxx
+LTCs
+LTSDs
 Getx
 GetX
 GetName
@@ -185802,6 +185813,7 @@ ZZZps
 Zhhh
 ZVY
 ZdjV
+Zenith
 Quote
 Quiet
 Quick

@@ -1,12 +1,48 @@
 {
   "recentFiles": [
     {
-      "basename": "3 迪士尼原则的BRDF和BSDF",
-      "path": "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md"
+      "basename": "2 PBR理论",
+      "path": "技术美术/7 PBR/2 PBR理论.md"
+    },
+    {
+      "basename": "11 PBR2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "技术美术/7 PBR/ta101PBR.md"
+    },
+    {
+      "basename": "04 利用 LTC 实现实时多边形面积光",
+      "path": "技术美术/7 PBR/PBR相关/04 利用 LTC 实现实时多边形面积光.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
+    },
+    {
+      "basename": "3 PBR推导",
+      "path": "技术美术/7 PBR/3 PBR推导.md"
+    },
+    {
+      "basename": "03 PBR优化",
+      "path": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
+    },
+    {
+      "basename": "10 PBR1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
+    },
+    {
+      "basename": "4 法线分布函数",
+      "path": "技术美术/7 PBR/PBR白皮书/4 法线分布函数.md"
     },
     {
       "basename": "0ca448a5d7b9a7d5fb237cca1a311e55",
       "path": "zip/images/0ca448a5d7b9a7d5fb237cca1a311e55.png"
+    },
+    {
+      "basename": "3 迪士尼原则的BRDF和BSDF",
+      "path": "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md"
     },
     {
       "basename": "2d6ab4c1432bec1539d4fd5941ba13e0",
@@ -29,36 +65,12 @@
       "path": "技术美术/7 PBR/PBR白皮书/1 .PBR总览.md"
     },
     {
-      "basename": "2 PBR理论",
-      "path": "技术美术/7 PBR/2 PBR理论.md"
-    },
-    {
       "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
-    },
-    {
-      "basename": "ta101PBR",
-      "path": "技术美术/7 PBR/ta101PBR.md"
-    },
-    {
       "basename": "基于物理的渲染算法研究【U3D】",
       "path": "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md"
-    },
-    {
-      "basename": "3 PBR推导",
-      "path": "技术美术/7 PBR/3 PBR推导.md"
-    },
-    {
-      "basename": "10 PBR1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
-    },
-    {
-      "basename": "03 PBR优化",
-      "path": "技术美术/7 PBR/PBR相关/03 PBR优化.md"
     },
     {
       "basename": "README",
@@ -111,10 +123,6 @@
     {
       "basename": "01 光学原理",
       "path": "技术美术/7 PBR/PBR相关/01 光学原理.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/README.md"
     },
     {
       "basename": "前往斯旺西",
@@ -187,18 +195,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     }
   ],
   "omittedPaths": [],
