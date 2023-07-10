@@ -39,7 +39,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "38e2669bbbfa0c80",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -116,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
               }
             }
           }
@@ -167,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,15 +230,30 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7e59d133637ee343",
+  "active": "38e2669bbbfa0c80",
   "lastOpenFiles": [
-    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
-    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
+    "zip/images/Pasted image 20230710234910.png",
+    "图形学/3 软渲染器/软光追/未命名.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
+    "zip/images/c0376ec4fab822d39e8b5a7015a4c164_MD5.jpg",
+    "zip/images/b8e109ab19d0bbdeb9d26da207eda292_MD5.jpg",
+    "zip/images/fd578bdebc5ce9791f6347af3a77f6eb_MD5.jpg",
+    "zip/images/94c2a6a7ecb3384bf6197f87624531e5_MD5.jpg",
+    "zip/images/a225fdeaf3f4916cce31df8be34c5a93_MD5.jpg",
+    "zip/images/305231153243db246c2706285d17b589_MD5.jpg",
+    "zip/images/6118d44b007e8b1374f350795d0db702_MD5.jpg",
+    "zip/images/34cf27c42f2be8da8ff1b2c00ec00c0e_MD5.jpg",
+    "zip/images/0e272e6d68a27be458a5fda8fd5fd444_MD5.jpg",
+    "zip/images/0ab16d10e0f9c5c49f5a75d4ad8a86f0_MD5.jpg",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+    "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
-    "图形学/3 软渲染器/软光追/未命名.md",
-    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend",
+    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
+    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
     "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
+    "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md",
@@ -242,19 +270,6 @@
     "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/PBR白皮书/4 法线分布函数.md",
     "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "zip/images/Pasted image 20230710213136.png",
-    "技术美术/7 PBR/PBR相关/04 利用 LTC 实现实时多边形面积光.md",
-    "技术美术/7 PBR/PBR相关/LTC.md",
-    "zip/images/72311d089c8b68b7d85327e1ca41864a_MD5.jpg",
-    "zip/images/96e31d0c04f606811050e1f7a59c84cb_MD5.jpg",
-    "zip/images/9caa9b36b0e225c3fa4739b30a8b3303_MD5.jpg",
-    "zip/images/f5d290253412a6e2832201fcf3004d50_MD5.jpg",
-    "zip/images/eef7326e0a083227d4f86c07892d9437_MD5.jpg",
-    "zip/images/0031d39cebe5761331531e91077a738d_MD5.png",
-    "zip/images/7ac728704a08d35f1e99beb6c827e17d_MD5.jpg",
-    "zip/images/cfd5c1ef2e8ef3aeeff0cf127c79bc66_MD5.jpg",
-    "zip/images/Pasted image 20230710211040.png",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/PBR相关",
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
@@ -263,7 +278,6 @@
     "技术美术/6 NPR/原神",
     "test",
     "技术美术/2 空间技法",
-    "引擎Unity3D/1 Unity精粹/UI系统",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
