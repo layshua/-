@@ -1,16 +1,44 @@
 {
   "recentFiles": [
     {
+      "basename": "3 迪士尼原则的BRDF和BSDF",
+      "path": "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md"
+    },
+    {
+      "basename": "0ca448a5d7b9a7d5fb237cca1a311e55",
+      "path": "zip/images/0ca448a5d7b9a7d5fb237cca1a311e55.png"
+    },
+    {
+      "basename": "2d6ab4c1432bec1539d4fd5941ba13e0",
+      "path": "zip/images/2d6ab4c1432bec1539d4fd5941ba13e0.png"
+    },
+    {
+      "basename": "2. PBR核心理论与渲染光学原理总结",
+      "path": "技术美术/7 PBR/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
+    },
+    {
+      "basename": "0ad6564a495cd588a1b8574b35a46a57",
+      "path": "zip/images/0ad6564a495cd588a1b8574b35a46a57.png"
+    },
+    {
+      "basename": "001",
+      "path": "zip/images/001.jpg"
+    },
+    {
+      "basename": "1 .PBR总览",
+      "path": "技术美术/7 PBR/PBR白皮书/1 .PBR总览.md"
+    },
+    {
       "basename": "2 PBR理论",
       "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
-      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
-    },
-    {
       "basename": "从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导",
       "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF",
+      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
     },
     {
       "basename": "ta101PBR",
@@ -35,10 +63,6 @@
     {
       "basename": "README",
       "path": "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/1 .PBR总览/README.md"
     },
     {
       "basename": "03 UV操作",
@@ -87,10 +111,6 @@
     {
       "basename": "01 光学原理",
       "path": "技术美术/7 PBR/PBR相关/01 光学原理.md"
-    },
-    {
-      "basename": "README",
-      "path": "技术美术/7 PBR/PBR白皮书/content/2. PBR核心理论与渲染光学原理总结/README.md"
     },
     {
       "basename": "README",
@@ -179,26 +199,6 @@
     {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "光照探针，反射探针，光照烘焙",
-      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
-    },
-    {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
-      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     }
   ],
   "omittedPaths": [],

@@ -374,13 +374,36 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\om
 上面的方程并非完全数学意义上的正确。前面提到菲涅尔项 $F$ 代表光在表面的反射比率，它直接影响 $k_s$ 因子，意味着反射方程的镜面反射部分已经隐含了因子 $k_s$。因此，最终的 Cook-Torrance 反射方程如下（去掉了 $k_s$）：
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{D(n, h, \alpha)F(h, \omega_o, F_0)G(n, \omega_o, \omega_i, k)}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
-> ? G 项是法线参数是 n 还是 h？
+- ? G 项是法线参数是 n 还是 h？闫老师说是 h？
 
 - 对于分母中的点积，仅仅避免负值是不够的，也必须避免零值。通常通过在常规的 clamp 或绝对值操作之后添加非常小的正值来完成。
 
 这个方程完整地定义了一个基于物理的渲染模型，也就是我们一般所说的基于物理的渲染（PBR）。
+#### 能量补偿项
 
+通过包含 G2 函数，Microfacet BRDF 能够考虑遮蔽 (masking) 和阴影 (shadowing)，但依然没有考虑微平面之间的互反射 (interreflection)，或多表面反射 (multiple surface bounce)。而缺少微平面互反射 (interreflection) 是业界主流 Microfacet BRDF 的共有的限制。如图，虽然在小球上没有出现任何掠射角的问题，但随着粗糙度的变大，渲染的结果越来越暗。即使认为最左边是抛光，最右边的是哑光，这个结果也是错误的。如果对小球材质进行白炉测试 ( $F(i,h)\equiv 1$ ， $uniform irrdiance = 1$ 的天光，检测材质反射能量是否未 1)，这种现象更为明显。
+![[Pasted image 20230710202811.png]]
+出现这种问题的原因是标准 Microfacet BRDF 模型虽然能量守恒 (即不会产生任何能量)，但它们也不能在高粗糙度时维持能量 (即能量损失)。这是**由于建模微平面模型时所做出的单散射假设，没有模拟微表面上的多次散射，即缺少微平面互反射 (interreflection)。单散射的在高粗糙度时会有较大的能量损失，从而显得过暗。
 
+![[Pasted image 20230710202818.png]]
+
+对此，在实时渲染中常用的处理方法是对原先的模型添加一个**能量补偿项**来补足损失的能量。**核心思想**是将反射光看作两种情况：当不被遮挡时，这些光会被看到；当反射光被微表面遮挡时，这些遮挡住的光将会进行后续的弹射，直到能被看到。
+
+**【Kulla-Conty 近似】** 通过经验去补全多次反射丢失的能量，其实是创建了一个多次反射表面反射的附加 BRDF 波瓣，利用这个 BRDF 算出消失的能量作为能量补偿项。 
+**预计算出一张图表示 $E_{avg}$ ，代入 $f_{ms}$ 中，进而求出消失的能量 $E_{ms}$ 。**
+![[Pasted image 20230710203604.png|250]]
+
+![[Pasted image 20230710204205.png|700]]
+
+k 次间接反射的能量为 $F^{k}{avg}(1-E{avg})^{k}\cdot F_{avg}E_{avg}$ 将以上所有能量累加，得 $\frac{F_{avg}E_{avg}}{1-F_{avg}(1-E_{avg})}$ ，再与无色 $f_{ms}$ 相乘，即可得到有色的能量补偿项。
+
+最后，考虑了能量补偿项的渲染方程如下：
+
+ $L_{o}(p,\omega_{o})=\int_{\Omega^{+}}L_{i}(p,\omega_{i})(f_{r}(p,\omega_{i},\omega_{o})+f_{ms}(\omega_{i}.\omega_{o}))cos\theta_{i}d\omega_{i}$
+
+增加颜色项后的结果如下所示。
+
+![[Pasted image 20230710204422.png]]
 ### BxDF
 
 目前计算机图形渲染领域，基于物理的渲染方式主要有：

@@ -9,60 +9,6 @@
 
 本文的主要内容，便是对推动了这次基于物理的渲染革命的“迪士尼原则的BRDF（Disney Principled BRDF）”，以及随后2015年提出的“迪士尼BSDF（Disney BSDF）”进行深入的探讨、总结与提炼。
 
-全文主要内容脉络如下：
-
--   迪士尼与基于物理的渲染的发展
-
--   迪士尼采用的BRDF可视化方案与工具
-
--   迪士尼对测量材质数据库的观察结论
-
-    -   Diffuse项的观察结论
-
-    -   Specular D 项的观察结论
-
-    -   Specular F 项的观察结论
-
-    -   Specular G 项的观察结论
-
-    -   布料（Fabric）材质的观察结论
-
-    -   彩虹色（Iridescence）的观察结论
-
--   迪士尼原则的BRDF（Disney Principled BRDF）
-
-    -   Disney Principled BRDF的理念
-
-    -   Disney Principled BRDF的参数
-
-    -   Disney Principled BRDF的着色模型
-
-        -   核心BRDF模型
-
-        -   漫反射项（Diffuse）：Disney Diffuse
-
-        -   法线分布项（Specular D）：GTR
-
-        -   菲涅尔项（Specular F）：Schlick Fresnel
-
-        -   几何项（Specular G）：Smith-GGX
-
--   迪士尼原则的分层材质（Disney Principled Layers Material）
-
--   Disney Principled BRDF的实现代码
-
--   迪士尼BSDF（Disney BSDF）
-
-在文章开头，依然是首先放出总结了本文核心内容脉络的两张思维导图：
-
-![](d14f3ca5eaacb5257aabf828e0b41c86.png)
-
-![](8c2a369a71823ccc85df0aced1b46131.png)
-
-OK，让我们直接开始正文。
-
-
-
 # 一、迪士尼与基于物理的渲染的发展
 
 
@@ -78,7 +24,7 @@ OK，让我们直接开始正文。
 
 随后，迪士尼动画工作室的Brent Burley于SIGGRAPH 2012上进行了著名的talk《Physically-based shading at Disney》，正式提出了迪士尼原则的BRDF（Disney Principled BRDF），由于其高度的通用性，将材质复杂的物理属性，用非常直观的少量变量表达了出来（如金属度metallic和粗糙度roughness），在电影业界和游戏业界引起了不小的轰动。从此，基于物理的渲染正式进入大众的视野。
 
-![](技术美术/7%20PBR/PBR白皮书/content/3%20迪士尼原则的BRDF和BSDF/media/4747c17311dca6610243229defd4241f.png)
+![](4747c17311dca6610243229defd4241f%201.png)
 
 图 SIGGRAPH 2012《Physically-based shading at Disney》
 
