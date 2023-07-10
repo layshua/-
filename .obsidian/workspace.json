@@ -6,7 +6,7 @@
       {
         "id": "af01975e70e73712",
         "type": "tabs",
-        "dimension": 49.94588744588744,
+        "dimension": 49.94588744588745,
         "children": [
           {
             "id": "6391a1ce9b10f577",
@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -45,13 +45,8 @@
             "id": "6f3e77e439ce6677",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/7 PBR/1 辐射度量学.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -98,7 +93,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md"
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md"
               }
             }
           }
@@ -148,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
+                "file": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,11 +195,15 @@
   },
   "active": "6391a1ce9b10f577",
   "lastOpenFiles": [
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "技术美术/7 PBR/1 辐射度量学.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
-    "技术美术/7 PBR/2 PBR理论.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
     "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(0)：开篇.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(1)： 物理光照.md",
+    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
     "技术美术/7 PBR/3 光学原理.md",
+    "技术美术/7 PBR/2 PBR理论.md",
     "技术美术/7 PBR/基于物理的渲染算法研究【U3D】.md",
     "技术美术/7 PBR/未命名",
     "技术美术/7 PBR/由浅入深学习 PBR 的原理和实现/5 PBR 关联理论和推导1.md",
@@ -216,11 +215,7 @@
     "zip/images/Pasted image 20230709222844.png",
     "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
     "图形学/0 3D数学/公式推导/04 光照向量.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(5)：镜面反射 BRDF 和 Cook-Torrance BRDF 推导.md",
     "zip/images/Pasted image 20230709182107.png",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(4)：菲涅尔反射、微表面理论和宏观 BRDF.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
-    "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(2)：物理材质和物理相机.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/06 溶解.md",
