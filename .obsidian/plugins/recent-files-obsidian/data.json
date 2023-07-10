@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
+      "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
+      "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
+    },
+    {
       "basename": "10 PBR1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
@@ -79,10 +87,6 @@
     {
       "basename": "README",
       "path": "技术美术/7 PBR/PBR白皮书/README.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
     },
     {
       "basename": "前往斯旺西",
@@ -195,10 +199,6 @@
     {
       "basename": "3 Render Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     }
   ],
   "omittedPaths": [],
