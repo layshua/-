@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "光追理论",
+      "path": "技术美术/8 光线追踪/光追理论.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
+      "basename": "2 PBR理论",
+      "path": "技术美术/7 PBR/2 PBR理论.md"
+    },
+    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
       "path": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
-      "path": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
-    },
-    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
       "path": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
+      "path": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
     },
     {
       "basename": "资源",
@@ -23,10 +35,6 @@
     {
       "basename": "我的光追",
       "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
-    },
-    {
-      "basename": "2 PBR理论",
-      "path": "技术美术/7 PBR/2 PBR理论.md"
     },
     {
       "basename": "光线追踪",
@@ -87,10 +95,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "4 实时阴影2",
@@ -195,10 +199,6 @@
     {
       "basename": "001",
       "path": "zip/images/001.jpg"
-    },
-    {
-      "basename": "1 .PBR总览",
-      "path": "技术美术/7 PBR/PBR白皮书/1 .PBR总览.md"
     }
   ],
   "omittedPaths": [],

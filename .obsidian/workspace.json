@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4f11c8c3c2810994",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/7 PBR/2 PBR理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -115,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+                "file": "技术美术/8 光线追踪/光追理论.md"
               }
             }
           }
@@ -165,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,9 +230,12 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
-    "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
-    "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/8 光线追踪/光追理论.md",
+    "技术美术/7 PBR/2 PBR理论.md",
     "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "zip/images/Pasted image 20230711183814.png",
     "zip/images/Pasted image 20230711183803.jpg",
     "zip/images/Pasted image 20230711183753.png",
@@ -234,7 +250,6 @@
     "zip/images/4df01574a4e8194955607245a1f2730a_MD5.jpg",
     "zip/images/c3cc5878205d3a38a943ce37edc0c724_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/我的光追.md",
-    "技术美术/7 PBR/2 PBR理论.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -251,7 +266,6 @@
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
