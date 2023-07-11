@@ -5,20 +5,20 @@
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
-      "basename": "我的光追",
-      "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
-    },
-    {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+      "basename": "我的光追",
+      "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
     },
     {
       "basename": "微积分基础",
