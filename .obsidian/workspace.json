@@ -19,6 +19,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8193701a246c1bae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -165,12 +178,12 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "Math/微积分/微积分基础.md",
     "Math/线性代数/《线性代数的本质》.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md",

@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+    },
+    {
       "basename": "微积分基础",
       "path": "Math/微积分/微积分基础.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
       "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "基础介绍",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
     },
     {
       "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
