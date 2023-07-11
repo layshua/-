@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
     },
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
       "basename": "光线追踪",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "前往斯旺西",
       "path": "zip/留学/前往斯旺西.md"
-    },
-    {
-      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
-      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],

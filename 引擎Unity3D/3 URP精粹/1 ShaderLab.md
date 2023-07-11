@@ -695,9 +695,9 @@ float4 frag(Varyings input, float facing : VFACE) : SV_Target
 ENDHLSL
 ```
 
-#### 顶点 ID：SV_VertexID ID: SV_VertexID 
+#### 顶点 ID：SV_VertexID 
 
-**顶点着色器可以接收具有“顶点编号”（为无符号整数 `uint`）的变量**。当您想要从纹理或 [ComputeBuffers](https://docs.unity3d.com/cn/2022.3/Manual/class-ComputeShader.html) 中获取额外的每顶点数据时，这非常有用。
+**顶点着色器可以接收具有“顶点编号”（为无符号整数 `uint`）的变量**。当您想要从纹理或 [ComputeBuffers](https://docs.unity3d.com/cn/2022.3/Manual/class-ComputeShader.html) 中**获取额外的每顶点数据**时，这非常有用。
 
 此功能从 DX10（着色器模型 4.0）和 GLCore/OpenGL ES 3 开始才存在，因此着色器需要具有 `#pragma target 3.5` 编译指令。
 ![[Pasted image 20230701143251.png]]
