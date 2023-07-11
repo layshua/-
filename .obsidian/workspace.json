@@ -60,19 +60,6 @@
             }
           },
           {
-            "id": "2abfa6b8ed4f8df4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "1cd641866f2f8136",
             "type": "leaf",
             "state": {
@@ -86,12 +73,12 @@
             }
           },
           {
-            "id": "5e2f32fcf27ef712",
+            "id": "0e40936c6f255b02",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+                "file": "zBuffer/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -99,12 +86,12 @@
             }
           },
           {
-            "id": "0e40936c6f255b02",
+            "id": "8432cd340c52f613",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+                "file": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -133,7 +120,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -176,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
+                "file": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md"
               }
             }
           }
@@ -226,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+                "file": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+                "file": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -276,13 +263,27 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "0e40936c6f255b02",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
+    "zBuffer/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md",
+    "zBuffer/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md",
+    "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
+    "zip/images/b94de70e96175631963ae0c08c419135_MD5.gif",
+    "zip/images/063438998511d8a6c6eec37ec4f4b221_MD5.jpg",
+    "zip/images/93e8c8a20417e4bd0607379fa6949701_MD5.jpg",
+    "zip/images/70e12e14da377f61a6bc6128d8185c7d_MD5.jpg",
+    "zip/images/61429a9bd9c7b5587a7118e770359ac9_MD5.jpg",
+    "zip/images/45bfe9950427e413a266b174f28582f9_MD5.jpg",
+    "zip/images/cc2de5de437de602e0bf15d73e0c835a_MD5.jpg",
+    "zip/images/c5329e4e6d9221c0f4c35ce6c851a193_MD5.jpg",
+    "zip/images/cf2b8007c1efe009d2d0c48046ee51d1_MD5.jpg",
+    "zip/images/dea4282762bb290461886bd55b930a3f_MD5.gif",
     "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+    "图形学/2 图形API/DX12/龙书/DX12理论.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "图形学/1 图形系统/01 渲染管线.md",
-    "zip/images/Pasted image 20230711103955.png",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "图形学/3 软渲染器/软光追/资源.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
@@ -295,15 +296,6 @@
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
     "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
-    "zip/images/Pasted image 20230710234910.png",
-    "zip/images/c0376ec4fab822d39e8b5a7015a4c164_MD5.jpg",
-    "zip/images/b8e109ab19d0bbdeb9d26da207eda292_MD5.jpg",
-    "zip/images/fd578bdebc5ce9791f6347af3a77f6eb_MD5.jpg",
-    "zip/images/94c2a6a7ecb3384bf6197f87624531e5_MD5.jpg",
-    "zip/images/a225fdeaf3f4916cce31df8be34c5a93_MD5.jpg",
-    "zip/images/305231153243db246c2706285d17b589_MD5.jpg",
-    "zip/images/6118d44b007e8b1374f350795d0db702_MD5.jpg",
-    "zip/images/34cf27c42f2be8da8ff1b2c00ec00c0e_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
@@ -311,11 +303,6 @@
     "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md",
     "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
-    "技术美术/7 PBR/3 PBR推导.md",
-    "图形学/4 GAMES系列/202高质量实时渲染/11 PBR2.md",
-    "技术美术/7 PBR/PBR白皮书/3 迪士尼原则的BRDF和BSDF.md",
-    "技术美术/7 PBR/2 PBR理论.md",
-    "技术美术/7 PBR/ta101PBR.md",
     "技术美术/7 PBR/PBR相关",
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",

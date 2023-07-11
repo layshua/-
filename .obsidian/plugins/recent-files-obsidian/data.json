@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
+      "path": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md"
+    },
+    {
+      "basename": "【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）",
+      "path": "zBuffer/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md"
+    },
+    {
+      "basename": "Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）",
+      "path": "zBuffer/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md"
+    },
+    {
       "basename": "基础介绍",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
+    },
+    {
+      "basename": "DX12理论",
+      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -183,22 +199,6 @@
     {
       "basename": "1 辐射度量学",
       "path": "技术美术/7 PBR/1 辐射度量学.md"
-    },
-    {
-      "basename": "02 漫反射项除以π",
-      "path": "技术美术/7 PBR/PBR相关/02 漫反射项除以π.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
-      "path": "技术美术/7 PBR/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
-    },
-    {
-      "basename": "01 光学原理",
-      "path": "技术美术/7 PBR/PBR相关/01 光学原理.md"
-    },
-    {
-      "basename": "前往斯旺西",
-      "path": "zip/留学/前往斯旺西.md"
     }
   ],
   "omittedPaths": [],

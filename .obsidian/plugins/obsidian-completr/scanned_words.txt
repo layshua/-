@@ -12452,6 +12452,11 @@ coooool
 computershader
 countBufferData
 countBuffer
+cullResult
+consume
+cmrPos
+cmrDir
+cmrHalfFov
 github
 grey
 green
@@ -24165,6 +24170,7 @@ mRenderTexture
 mainTexture
 mParticleDataBuffer
 mParticleCount
+minD
 windows
 win
 width
@@ -46765,6 +46771,8 @@ AMMM
 Ance
 Address
 AppendStructuredBuffer
+AfterDepthTexture
+AfterForwardOpaque
 URL
 Utools
 Users
@@ -54523,6 +54531,8 @@ anisotropy
 ance
 attenuate
 aperture
+argsBuffer
+aabb
 Roaming
 RegWorkshop
 Release
@@ -72766,6 +72776,8 @@ SetCounterValue
 SetShaderParameters
 SKYBOX
 SetShaderParmeters
+SetGlobalXXX
+ShadowMapTexture
 Programs
 POP
 PC
@@ -77002,6 +77014,8 @@ PARS
 ParticleBuffer
 ParticleShader
 ParticleEffect
+ParticleDataBuffer
+ParticleCount
 ContextMenuManager
 ClashVerge
 Clash
@@ -81476,6 +81490,8 @@ CopyCount
 ComputerShader
 CreateRay
 ComputerShade
+CameraForward
+CameraEvent
 ImTip
 IMAP
 ID
@@ -85582,6 +85598,7 @@ IKKKHH
 IhAh
 IsK
 IncrementCounter
+InterlockedAdd
 qq
 qyi
 quad
@@ -93754,6 +93771,8 @@ pindex
 particleDatas
 particleData
 particleDataBuffer
+posAllBuffer
+posVisibleBuffer
 nodesCatch
 nobr
 navy
@@ -101189,6 +101208,8 @@ bXVl
 bfO
 blocked
 boxSize
+boundMin
+boundMax
 fe
 front
 fill
@@ -109158,6 +109179,8 @@ dstOffsetBytes
 dispatchThreadId
 dispatchThreadID
 dont
+depthGrass
+depthTexture
 TFvYZOKeHL
 TAB
 TeX
@@ -117847,6 +117870,9 @@ iiiH
 iHw
 iiih
 iGe
+instanceCount
+itemPos
+itemDir
 shift
 svg
 sf
@@ -122593,6 +122619,7 @@ snell
 structured
 supportsComputeShaders
 setupScene
+scWid
 local
 list
 left
@@ -133718,6 +133745,7 @@ hcWR
 hsssxx
 hbbbnn
 hEh
+hlod
 rgb
 right
 rm
@@ -149452,6 +149480,7 @@ BqS
 Byte
 ByteAddressBuffer
 BLACK
+BoxCollider
 Fraktur
 Frame
 Foo
@@ -168936,6 +168965,7 @@ DrawProceduralNow
 DecrementCounter
 DispatchIndirect
 DrawParticle
+DepthTextureGenerator
 LNK
 Log
 Linux
@@ -177705,6 +177735,7 @@ GXLta
 GRU
 GGq
 GDu
+GrassGenerator
 NULL
 Native
 NormalMap
@@ -205816,6 +205847,7 @@ znnn
 zEEE
 zbV
 zAX
+zprepass
 jpg
 just
 juLeSXlIAVEiJIzRbMP
