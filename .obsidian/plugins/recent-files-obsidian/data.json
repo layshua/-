@@ -5,6 +5,10 @@
       "path": "技术美术/8 光线追踪/光追理论.md"
     },
     {
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
       "basename": "06 射线相交",
       "path": "图形学/0 3D数学/公式推导/06 射线相交.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2. PBR核心理论与渲染光学原理总结",
       "path": "技术美术/7 PBR/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
-    },
-    {
-      "basename": "0ad6564a495cd588a1b8574b35a46a57",
-      "path": "zip/images/0ad6564a495cd588a1b8574b35a46a57.png"
     }
   ],
   "omittedPaths": [],
