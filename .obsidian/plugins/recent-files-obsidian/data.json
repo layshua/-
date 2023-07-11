@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "基础介绍",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
+    },
+    {
+      "basename": "光线追踪",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
+    },
+    {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
       "basename": "资源",
       "path": "图形学/3 软渲染器/软光追/资源.md"
     },
     {
       "basename": "GAMES101",
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "光线追踪",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
       "basename": "4 实时阴影2",
@@ -47,10 +59,6 @@
     {
       "basename": "看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样",
       "path": "图形学/3 软渲染器/软光追/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md"
-    },
-    {
-      "basename": "基础介绍",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
     },
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
@@ -191,14 +199,6 @@
     {
       "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
       "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "04 光照向量",
-      "path": "图形学/0 3D数学/公式推导/04 光照向量.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     }
   ],
   "omittedPaths": [],
