@@ -12457,6 +12457,8 @@ consume
 cmrPos
 cmrDir
 cmrHalfFov
+currentSamples
+converged
 github
 grey
 green
@@ -46773,6 +46775,7 @@ Address
 AppendStructuredBuffer
 AfterDepthTexture
 AfterForwardOpaque
+AddShader
 URL
 Utools
 Users
@@ -59044,6 +59047,10 @@ RayTracing
 RenderTexutre
 RayTracingShader
 RayTracingPass
+RayTracingMaster
+RayHit
+RayTracingObject
+RebuildMeshObjectBuffers
 Microsoft
 Menu
 MicaForEveryone
@@ -67894,6 +67901,7 @@ WLEO
 WITH
 Wavefront
 WHITE
+Willems
 Start
 StartAllBack
 Shadowrocket
@@ -72780,6 +72788,14 @@ SKYBOX
 SetShaderParmeters
 SetGlobalXXX
 ShadowMapTexture
+SkyboxTexture
+Spheres
+SetUpScene
+Shelter
+SphereSeed
+Simon
+SampleHemisphere
+Scratchapixel
 Programs
 POP
 PC
@@ -77018,6 +77034,8 @@ ParticleShader
 ParticleEffect
 ParticleDataBuffer
 ParticleCount
+PixelOffset
+Poulet
 ContextMenuManager
 ClashVerge
 Clash
@@ -81494,6 +81512,9 @@ CreateRay
 ComputerShade
 CameraForward
 CameraEvent
+Cape
+CreateRayHit
+Cory
 ImTip
 IMAP
 ID
@@ -85601,6 +85622,10 @@ IhAh
 IsK
 IncrementCounter
 InterlockedAdd
+InitRenderTexture
+IntersectSphere
+IntersectGroundPlane
+IntersectMeshObject
 qq
 qyi
 quad
@@ -101212,6 +101237,7 @@ blocked
 boxSize
 boundMin
 boundMax
+bestHit
 fe
 front
 fill
@@ -109183,6 +109209,7 @@ dispatchThreadID
 dont
 depthGrass
 depthTexture
+decimate
 TFvYZOKeHL
 TAB
 TeX
@@ -113323,6 +113350,7 @@ Tpm
 Texure
 TuongPhong
 Tarcing
+Typeless
 io
 ipad
 it
@@ -122622,6 +122650,7 @@ structured
 supportsComputeShaders
 setupScene
 scWid
+sdot
 local
 list
 left
@@ -149483,6 +149512,7 @@ Byte
 ByteAddressBuffer
 BLACK
 BoxCollider
+Bitbucket
 Fraktur
 Frame
 Foo
@@ -153840,6 +153870,7 @@ FzL
 FlN
 Fau
 FindKernel
+FindObjectOfType
 Element
 Entity
 Enity
@@ -168968,6 +168999,7 @@ DecrementCounter
 DispatchIndirect
 DrawParticle
 DepthTextureGenerator
+Dusk
 LNK
 Log
 Linux
@@ -177738,6 +177770,8 @@ GRU
 GGq
 GDu
 GrassGenerator
+Graffiti
+Grafitti
 NULL
 Native
 NormalMap
@@ -198079,6 +198113,7 @@ KernelOne
 KernelTwo
 KernelIndex
 KernelFunction
+Kiara
 key
 kSC
 keaXj

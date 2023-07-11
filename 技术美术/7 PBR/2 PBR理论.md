@@ -135,7 +135,7 @@ $$f_{r}(w_{i}, w_{r})=\frac{dL_{r}(w_{r})}{dE_{i}(w_{i})}=\frac{dL_{r}(w_{r})}{L
 
 ![[9fada69e566c10e4ac9847dd065da360_MD5.jpg]]
 **BRDF 材质 有三个特性：**
-1.  **可逆性**，即交换 BRDF 的两个输入向量，BRDF 的值不变。$f_r(\omega_i,\omega_o)=f_r(\omega_o,\omega_i)$
+1.  **可逆性**： [Helmholtz reciprocity](https://en.wikipedia.org/wiki/Helmholtz_reciprocity) 即交换 BRDF 的两个输入向量，BRDF 的值不变。（光追采用这个思想，反过来算） $f_r(\omega_i,\omega_o)=f_r(\omega_o,\omega_i)$
 2. **能量守恒**。比如反射光能量总和永远不应该超过入射光。技术上来说，Blinn-Phong 光照模型跟 BRDF 一样使用了 $\omega_i$ 跟 $\omega_o$ 作为输入参数，但是没有像基于物理的渲染这样严格地遵守能量守恒定律。
 3. **各向同性和各向异性**
 
