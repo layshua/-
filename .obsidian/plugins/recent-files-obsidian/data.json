@@ -5,6 +5,10 @@
       "path": "技术美术/8 光线追踪/光追理论.md"
     },
     {
+      "basename": "06 射线相交",
+      "path": "图形学/0 3D数学/公式推导/06 射线相交.md"
+    },
+    {
       "basename": "GAMES101",
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "0ad6564a495cd588a1b8574b35a46a57",
       "path": "zip/images/0ad6564a495cd588a1b8574b35a46a57.png"
-    },
-    {
-      "basename": "001",
-      "path": "zip/images/001.jpg"
     }
   ],
   "omittedPaths": [],
