@@ -104,7 +104,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -161,7 +161,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#部分",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -176,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md"
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
               }
             }
           }
@@ -226,7 +226,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +243,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -276,11 +276,12 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "0e40936c6f255b02",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230711103955.png",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "zip/images/Pasted image 20230711103955.png",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "图形学/3 软渲染器/软光追/资源.md",
     "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
@@ -302,7 +303,6 @@
     "zip/images/305231153243db246c2706285d17b589_MD5.jpg",
     "zip/images/6118d44b007e8b1374f350795d0db702_MD5.jpg",
     "zip/images/34cf27c42f2be8da8ff1b2c00ec00c0e_MD5.jpg",
-    "zip/images/0e272e6d68a27be458a5fda8fd5fd444_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
     "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
