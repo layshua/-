@@ -59042,6 +59042,8 @@ RWBuffer
 RWByteAddressBuffer
 RayTracing
 RenderTexutre
+RayTracingShader
+RayTracingPass
 Microsoft
 Menu
 MicaForEveryone

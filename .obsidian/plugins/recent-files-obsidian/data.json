@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "光线追踪",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
+    },
+    {
+      "basename": "我的光追",
+      "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
     },
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "微积分基础",
@@ -195,10 +199,6 @@
     {
       "basename": "README",
       "path": "图形学/5 书籍/《RTR3》/第七章 · 高级着色：BRDF及相关技术/README.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     }
   ],
   "omittedPaths": [],
