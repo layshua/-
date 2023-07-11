@@ -1,20 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
-      "path": "zBuffer/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md"
+      "basename": "光线追踪",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
-      "basename": "【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）",
-      "path": "zBuffer/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md"
+      "basename": "微积分基础",
+      "path": "Math/微积分/微积分基础.md"
     },
     {
-      "basename": "Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）",
-      "path": "zBuffer/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md"
+      "basename": "《线性代数的本质》",
+      "path": "Math/线性代数/《线性代数的本质》.md"
+    },
+    {
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
+    },
+    {
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
+      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
     },
     {
       "basename": "基础介绍",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/基础介绍.md"
+    },
+    {
+      "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md"
+    },
+    {
+      "basename": "Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md"
+    },
+    {
+      "basename": "【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md"
     },
     {
       "basename": "DX12理论",
@@ -23,10 +43,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "光线追踪",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
       "basename": "01 渲染管线",
@@ -63,14 +79,6 @@
     {
       "basename": "3 实时阴影1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/3 软渲染器/软光追/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
@@ -191,14 +199,6 @@
     {
       "basename": "缴费",
       "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "1 辐射度量学",
-      "path": "技术美术/7 PBR/1 辐射度量学.md"
     }
   ],
   "omittedPaths": [],
