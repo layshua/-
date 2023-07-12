@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
               }
             }
           }
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -216,13 +216,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "5bc76e55f8aa7e4c",
   "lastOpenFiles": [
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/1 图形系统/光线追踪/资源.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "图形学/1 图形系统/光线追踪/光追理论.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -242,7 +243,6 @@
     "图形学/0 3D数学/3D数学.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "Tools/Git/Unity Git.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "Math/概率论/大数定律与中心极限定理.md",
     "Math/概率论/蒙特卡洛积分/看懂蒙特卡洛积分 (一) 概率分布变换与随机采样.md",
     "Math/概率论/蒙特卡洛积分/看懂蒙特卡洛积分 (三) 低差异采样序列.md",
