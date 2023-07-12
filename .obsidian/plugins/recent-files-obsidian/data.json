@@ -5,12 +5,12 @@
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
-      "basename": "光追理论",
-      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
-    },
-    {
       "basename": "光线追踪",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
+    },
+    {
+      "basename": "光追理论",
+      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
     },
     {
       "basename": "06 射线相交",

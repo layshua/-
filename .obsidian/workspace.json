@@ -4,83 +4,62 @@
     "type": "split",
     "children": [
       {
-        "id": "5ff9bca225d87780",
-        "type": "split",
+        "id": "351374a3fae99687",
+        "type": "tabs",
         "children": [
           {
-            "id": "351374a3fae99687",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "02f493e1c88fd18d",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-                    "mode": "source",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              },
-              {
-                "id": "81b173ef3974693f",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
-                    "mode": "source",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              },
-              {
-                "id": "9ee3df9724609ad2",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "图形学/1 图形系统/光线追踪/光追理论.md",
-                    "mode": "source",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              },
-              {
-                "id": "5bc76e55f8aa7e4c",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
-                    "mode": "source",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
+            "id": "02f493e1c88fd18d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               }
-            ]
+            }
           },
           {
-            "id": "4845b97867f923e2",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "1c4a555c9a0b11e3",
-                "type": "leaf",
-                "state": {
-                  "type": "diagrams-net",
-                  "state": {}
-                }
+            "id": "81b173ef3974693f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               }
-            ]
+            }
+          },
+          {
+            "id": "9ee3df9724609ad2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5bc76e55f8aa7e4c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,11 +204,11 @@
   },
   "active": "02f493e1c88fd18d",
   "lastOpenFiles": [
-    "zip/images/Diagram 2.svg.xml",
-    "zip/images/Diagram 2.svg",
-    "图形学/1 图形系统/光线追踪/光追理论.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "图形学/1 图形系统/光线追踪/光追理论.md",
+    "zip/images/Diagram 2.svg.xml",
+    "zip/images/Diagram 2.svg",
     "图形学/0 3D数学/公式推导/06 射线相交.md",
     "图形学/1 图形系统/光线追踪/资源.md",
     "图形学/0 3D数学/3D数学.md",
@@ -270,7 +249,6 @@
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
     "引擎Unity3D/3 URP精粹/后处理",
-    "图形学/1 图形系统/PBR/从0开始PBR",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

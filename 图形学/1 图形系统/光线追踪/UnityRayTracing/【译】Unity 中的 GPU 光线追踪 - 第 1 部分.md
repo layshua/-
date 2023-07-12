@@ -286,18 +286,18 @@ void IntersectSphere(Ray ray, inout RayHit bestHit, float4 sphere) {
 
 要添加一个球体，只需从 Trace 调用这个函数，例如:
 
-```
+```cs
 // Add a floating unit sphere
 IntersectSphere(ray, bestHit, float4(0, 3.0f, 0, 1.0f));
 ```
 
 ## 抗锯齿
 
-当前方法存在一个问题：我们只测试每个像素的中心，所以你可以在结果中看到严重的锯齿效果（可怕的 “锯齿状”）。为了解决这个问题，我们将对每个像素进行多次光线追踪。每条光线在像素区域内获得一个随机偏移。为了保持可接受的帧率，我们进行逐步采样，这意味着如果相机没有移动，我们将在每帧中对每个像素追踪一条光线，并随着时间平均结果。每次相机移动（或其他参数如视场、场景几何或场景光照发生变化时），我们需要重新开始。
+当前方法存在一个问题：我们只测试每个像素的中心，所以你可以在结果中看到严重的锯齿效果（可怕的 “锯齿状”）。为了解决这个问题，**我们将对每个像素进行多次光线追踪。每条光线在像素区域内获得一个随机偏移。为了保持可接受的帧率，我们进行逐步采样，这意味着如果相机没有移动，我们将在每帧中对每个像素追踪一条光线，并随着时间平均结果。每次相机移动（或其他参数如视场、场景几何或场景光照发生变化时），我们需要重新开始。**
 
 让我们创建一个非常简单的图像效果着色器，用于将多个结果相加。将你的着色器命名为 AddShader，确保第一行为 Shader "Hidden/AddShader"。在 Cull Off ZWrite Off ZTest Always 之后添加 Blend SrcAlpha OneMinusSrcAlpha 以启用 Alpha 混合。接下来，用以下代码替换默认的 frag 函数：
 
-```
+```cs
 float _Sample;
 float4 frag (v2f i) : SV_Target
 {
@@ -309,14 +309,14 @@ float4 frag (v2f i) : SV_Target
 
 在脚本中，我们仍然需要计算样本数并使用新创建的图像效果着色器：
 
-```
+```cs
 private uint _currentSample = 0;
 private Material _addMaterial;
 ```
 
 在 InitRenderTexture 中重建渲染目标时，还应将 _currentSamples 重置为 0，并添加一个检测相机变换更改的 Update 函数：
 
-```
+```cs
 private void Update() {
     if (transform.hasChanged)
     {
@@ -328,7 +328,7 @@ private void Update() {
 
 要使用我们的自定义着色器，我们需要初始化一个材质，告诉它当前样本并在 Render 函数中将其用于屏幕上的涂抹：
 
-```
+```cs
 // Blit the result texture to the screen
 if (_addMaterial == null)
     _addMaterial = new Material(Shader.Find("Hidden/AddShader"));
