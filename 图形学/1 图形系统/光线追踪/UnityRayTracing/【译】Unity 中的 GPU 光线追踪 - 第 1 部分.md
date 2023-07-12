@@ -337,7 +337,7 @@ Graphics.Blit(_target, destination, _addMaterial);
 _currentSample++;
 ```
 
-现在我们进行了逐步采样，但仍然始终使用像素中心。在计算着色器中，定义一个 float2 _PixelOffset，并在 CSMain 中使用它，而不是硬 float2(0.5f, 0.5f) 偏移。回到脚本中，在 SetShaderParameters 中创建一个随机偏移：
+现在我们进行了逐步采样，但仍然始终使用像素中心。在计算着色器中，定义一个 `float2 _PixelOffset`，并在 CSMain 中使用它，而不是硬 `float2(0.5f, 0.5f)` 偏移。回到脚本中，在 SetShaderParameters 中创建一个随机偏移：
 
 ```
 RayTracingShader.SetVector("_PixelOffset", new Vector2(Random.value, Random.value));
