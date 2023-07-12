@@ -224,7 +224,7 @@ void IntersectGroundPlane(Ray ray, inout RayHit bestHit) {
 
 为了使用它，让我们添加一个 Trace 函数框架（我们将在一会儿对其进行扩展）：
 
-```
+```c
 RayHit Trace(Ray ray)
 {
     RayHit bestHit = CreateRayHit();
@@ -235,7 +235,7 @@ RayHit Trace(Ray ray)
 
 此外，我们需要一个基本的着色函数。同样，我们用 inout 传递 Ray——当我们讨论反射时，稍后会对其进行修改。为了调试目的，如果击中了几何体，我们返回法线，否则回退到我们的天空盒采样代码：
 
-```
+```c
 float3 Shade(inout Ray ray, RayHit hit) {
     if (hit.distance < 1.#INF)
     {
@@ -265,7 +265,7 @@ Result[id.xy] = float4(result, 1);
 
 一个平面并不是世界上最令人兴奋的东西，所以让我们立刻添加一个球体。线 - 球交点的数学公式可以在维基百科上找到。这次有两个光线击中候选点：入射点 p1 - p2 和出射点 p1 + p2。我们将首先检查入射点，仅当另一个点无效时才使用出射点。在我们的例子中，球体被定义为一个包含位置（xyz）和半径（w）的 float4。以下是代码：
 
-```
+```c
 void IntersectSphere(Ray ray, inout RayHit bestHit, float4 sphere) {
     // Calculate distance along the ray where the sphere is intersected
     float3 d = ray.origin - sphere.xyz;
