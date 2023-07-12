@@ -172,7 +172,7 @@ static const float PI = 3.14159265f;
 
 现在，我们将不再将方向作为颜色输出，而是采样天空盒。为此，我们将笛卡尔方向向量转换为球坐标，并将其映射到纹理坐标。用以下代码替换 CSMain 的最后一部分：
 
-```
+```c
 // Sample the skybox and write it
 float theta = acos(ray.direction.y) / -PI;
 float phi = atan2(ray.direction.x, -ray.direction.z) / -PI * 0.5f;
@@ -183,7 +183,7 @@ Result[id.xy] = _SkyboxTexture.SampleLevel(sampler_SkyboxTexture, float2(phi, th
 
 到目前为止，一切顺利。现在我们将进行实际的光线追踪。在数学上，我们将计算光线与场景几何体的交点，并存储击中参数（位置、法线和沿光线的距离）。如果我们的光线击中多个物体，我们将选择最近的一个。让我们在着色器中定义结构体 RayHit：
 
-```
+```c
 struct RayHit
 {
     float3 position;
@@ -209,7 +209,7 @@ RayHit CreateRayHit()
 
 在 HLSL 中，默认情况下，参数是按值传递的，而不是按引用传递，因此我们只能处理副本，而无法将更改传播给调用函数。我们用 inout 限定符传递 RayHit bestHit，以便能够修改原始结构。以下是着色器代码：
 
-```
+```cs
 void IntersectGroundPlane(Ray ray, inout RayHit bestHit) {
     // Calculate distance along the ray where the ground plane is intersected
     float t = -ray.origin.y / ray.direction.y;
