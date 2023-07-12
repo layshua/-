@@ -264,7 +264,7 @@ Result[id.xy] = float4(result, 1);
 ### 球体
 
 一个平面并不是世界上最令人兴奋的东西，所以让我们立刻添加一个球体。线 - 球交点的数学公式可以在维基百科上找到。这次有两个光线击中候选点：入射点 p1 - p2 和出射点 p1 + p2。我们将首先检查入射点，仅当另一个点无效时才使用出射点。在我们的例子中，球体被定义为一个包含位置（xyz）和半径（w）的 float4。以下是代码：
-
+![[zip/images/Diagram 2.svg]]
 ```c
 void IntersectSphere(Ray ray, inout RayHit bestHit, float4 sphere) {
     // Calculate distance along the ray where the sphere is intersected
