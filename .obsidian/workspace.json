@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/8 光线追踪/光追理论.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,26 +76,16 @@
             "id": "1c73ac55dd728a46",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
             "id": "cb35a11ae7db7134",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -154,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/8 光线追踪/光追理论.md"
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
               }
             }
           }
@@ -204,7 +194,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/8 光线追踪/光追理论.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -221,7 +211,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/8 光线追踪/光追理论.md",
+                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -256,12 +246,19 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/8 光线追踪/光追理论.md",
     "zip/images/Pasted image 20230712000356.png",
     "Math/LaTeX/常用语法.md",
-    "技术美术/8 光线追踪/光追理论.md",
     "图形学/0 3D数学/公式推导/06 射线相交.md",
     "zip/images/Pasted image 20230711235159.png",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "技术美术/7 PBR/2 PBR理论.md",
     "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "技术美术/8 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
@@ -277,7 +274,6 @@
     "zip/images/54c5579f9e8f4383c69fba6dc89ea966_MD5.jpg",
     "zip/images/8550c82de6890082a7e44385e5b1cf82_MD5.jpg",
     "zip/images/4acfe028df058fd83f996e9d40b61c76_MD5.jpg",
-    "zip/images/4df01574a4e8194955607245a1f2730a_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/我的光追.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
@@ -287,13 +283,7 @@
     "Math/线性代数/《线性代数的本质》.md",
     "技术美术/8 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
     "技术美术/8 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
-    "图形学/2 图形API/DX12/龙书/DX12理论.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/1 图形系统/01 渲染管线.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
     "技术美术/8 光线追踪/Ray Tracing in One Weekend",
     "技术美术/7 PBR/PBR相关",

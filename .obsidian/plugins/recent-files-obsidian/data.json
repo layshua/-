@@ -1,6 +1,38 @@
 {
   "recentFiles": [
     {
+      "basename": "9 全局光照3",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "8 全局光照2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md"
+    },
+    {
+      "basename": "7 全局光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "4 实时阴影2",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+    },
+    {
+      "basename": "3 实时阴影1",
+      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
       "basename": "光追理论",
       "path": "技术美术/8 光线追踪/光追理论.md"
     },
@@ -11,10 +43,6 @@
     {
       "basename": "06 射线相交",
       "path": "图形学/0 3D数学/公式推导/06 射线相交.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "2 PBR理论",
@@ -105,24 +133,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md"
-    },
-    {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
       "basename": "6 环境光照2",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md"
-    },
-    {
-      "basename": "7 全局光照1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md"
-    },
-    {
-      "basename": "3 实时阴影1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
@@ -139,14 +151,6 @@
     {
       "basename": "2 CG基础概述",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
-    },
-    {
-      "basename": "8 全局光照2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md"
     },
     {
       "basename": "3 PBR推导",
@@ -195,10 +199,6 @@
     {
       "basename": "2d6ab4c1432bec1539d4fd5941ba13e0",
       "path": "zip/images/2d6ab4c1432bec1539d4fd5941ba13e0.png"
-    },
-    {
-      "basename": "2. PBR核心理论与渲染光学原理总结",
-      "path": "技术美术/7 PBR/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
     }
   ],
   "omittedPaths": [],
