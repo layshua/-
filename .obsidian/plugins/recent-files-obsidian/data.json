@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+      "basename": "光线追踪",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
       "basename": "语法",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
     },
     {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "Unity Git",
@@ -135,10 +139,6 @@
     {
       "basename": "我的光追",
       "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
-    },
-    {
-      "basename": "光线追踪",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
     },
     {
       "basename": "《Unity Primer》",
