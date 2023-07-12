@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -144,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
+                "file": "技术美术/8 光线追踪/光追理论.md"
               }
             }
           }
@@ -194,7 +194,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -211,7 +211,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+                "file": "技术美术/8 光线追踪/光追理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -246,15 +246,15 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
-    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/8 光线追踪/光追理论.md",
     "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/7 全局光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "技术美术/8 光线追踪/光追理论.md",
     "zip/images/Pasted image 20230712000356.png",
     "Math/LaTeX/常用语法.md",
     "图形学/0 3D数学/公式推导/06 射线相交.md",

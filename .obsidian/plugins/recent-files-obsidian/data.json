@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "光追理论",
+      "path": "技术美术/8 光线追踪/光追理论.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
       "basename": "9 全局光照3",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md"
     },
@@ -27,14 +35,6 @@
     {
       "basename": "3 实时阴影1",
       "path": "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "光追理论",
-      "path": "技术美术/8 光线追踪/光追理论.md"
     },
     {
       "basename": "常用语法",
