@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "b221070b85b898c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/LaTeX/常用语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "5cb58f4bae197185",
             "type": "leaf",
             "state": {
@@ -246,8 +259,9 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "Math/LaTeX/常用语法.md",
     "技术美术/8 光线追踪/光追理论.md",
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
     "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
@@ -256,7 +270,6 @@
     "图形学/4 GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/4 GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "zip/images/Pasted image 20230712000356.png",
-    "Math/LaTeX/常用语法.md",
     "图形学/0 3D数学/公式推导/06 射线相交.md",
     "zip/images/Pasted image 20230711235159.png",
     "技术美术/7 PBR/2 PBR理论.md",
