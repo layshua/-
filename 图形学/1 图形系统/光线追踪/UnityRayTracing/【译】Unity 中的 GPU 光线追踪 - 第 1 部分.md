@@ -562,7 +562,7 @@ private void SetUpScene()
 
 new ComputeBuffer(spheres.Count, 40) 中的神奇数字 40 是我们缓冲区的跨距，即内存中一个球体的字节大小。要计算它，计算 Sphere 结构中的浮点数的数量并将其乘以 float 的字节大小（4 字节）。最后，在 SetShaderParameters 函数中为着色器设置缓冲区：
 
-```
+```c
 RayTracingShader.SetBuffer(0, "_Spheres", _sphereBuffer);
 ```
 
