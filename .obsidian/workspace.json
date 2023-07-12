@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a4c6e1ee49cc2ed3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -204,11 +217,21 @@
   },
   "active": "02f493e1c88fd18d",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
     "图形学/1 图形系统/光线追踪/光追理论.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "zip/images/5f1115d8e745c27f2e1b0bfabbb178df_MD5.jpg",
+    "zip/images/4fdea4a5c1cd5119d713ba5727ebff15_MD5.jpg",
+    "zip/images/d685dfac98a9285457949fff03007efd_MD5.png",
+    "zip/images/875b02123533255cce25af2d4e96300f_MD5.jpg",
+    "zip/images/9d575ab09e3cbb348ca4e408064f81a0_MD5.jpg",
+    "zip/images/e1e3eb9f7e74a8e6a6b2c778553eaf4b_MD5.jpg",
+    "zip/images/608853f3e27f9f3707474c34d52b4caa_MD5.jpg",
+    "zip/images/7ba31b5f72368f9c0f4e05110efd387f_MD5.jpg",
+    "zip/images/7679f144cdb3da3760eaa63e640dfa7c_MD5.jpg",
+    "zip/images/6c8259ae014e67925a5cb5164ce08cc7_MD5.jpg",
     "zip/images/Diagram 2.svg.xml",
-    "zip/images/Diagram 2.svg",
     "图形学/0 3D数学/公式推导/06 射线相交.md",
     "图形学/1 图形系统/光线追踪/资源.md",
     "图形学/0 3D数学/3D数学.md",
@@ -231,16 +254,6 @@
     "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/10 色彩.md",
     "图形学/1 图形系统/PBR/1 辐射度量学.md",
-    "图形学/1 图形系统/PBR/2 PBR理论.md",
-    "zip/images/Pasted image 20230712120618.png",
-    "zip/images/Pasted image 20230712115739.png",
-    "zip/images/Pasted image 20230712115734.png",
-    "zip/images/Pasted image 20230712112504.png",
-    "zip/images/Pasted image 20230712000356.png",
-    "zip/images/Pasted image 20230711235159.png",
-    "zip/images/Pasted image 20230711183814.png",
-    "zip/images/Pasted image 20230711183803.jpg",
-    "zip/images/Pasted image 20230711183753.png",
     "图形学/1 图形系统/光线追踪/UnityRayTracing",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
