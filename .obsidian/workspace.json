@@ -142,7 +142,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#部分",
+                "query": "tag:#对象划分",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -259,10 +259,12 @@
   },
   "active": "8432cd340c52f613",
   "lastOpenFiles": [
+    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
+    "技术美术/8 光线追踪/光追理论.md",
+    "zip/images/Pasted image 20230712115739.png",
+    "zip/images/Pasted image 20230712115734.png",
     "zip/images/Pasted image 20230712112504.png",
     "Math/LaTeX/常用语法.md",
-    "技术美术/8 光线追踪/光追理论.md",
-    "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "图形学/4 GAMES系列/202高质量实时渲染/9 全局光照3.md",
     "图形学/4 GAMES系列/202高质量实时渲染/12 实时光追1.md",
     "图形学/4 GAMES系列/202高质量实时渲染/8 全局光照2.md",
@@ -285,9 +287,6 @@
     "技术美术/8 光线追踪/UnityRayTracing",
     "zip/images/9b96c550cfb1350823865cc621985c54_MD5.jpg",
     "zip/images/ea39ed85e2d33f7e2215339551b655f0_MD5.jpg",
-    "zip/images/54c5579f9e8f4383c69fba6dc89ea966_MD5.jpg",
-    "zip/images/8550c82de6890082a7e44385e5b1cf82_MD5.jpg",
-    "zip/images/4acfe028df058fd83f996e9d40b61c76_MD5.jpg",
     "引擎Unity3D/2 Shader精粹/我的光追.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
