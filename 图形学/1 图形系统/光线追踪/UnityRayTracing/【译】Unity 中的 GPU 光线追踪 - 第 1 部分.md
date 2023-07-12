@@ -405,20 +405,20 @@ float3 Shade(inout Ray ray, RayHit hit) {
 
 首先，为了开始实现漫反射光照，让我们在 RayTracingMaster 脚本中添加一个公共的 Light DirectionalLight，并将场景的定向光指定给它。您可能还想在 Update 函数中检测光源的变换变化，就像我们已经为相机的变换做的那样。现在将以下几行添加到您的 SetShaderParameters 函数中：
 
-```
+```c
 Vector3 l = DirectionalLight.transform.forward;
 RayTracingShader.SetVector("_DirectionalLight", new Vector4(l.x, l.y, l.z, DirectionalLight.intensity));
 ```
 
-回到着色器中，定义 float4 _DirectionalLight。在 Shade 函数中，在镜面颜色下面定义漫反射颜色：
+回到着色器中，定义 `float4 _DirectionalLight`。在 Shade 函数中，在镜面颜色下面定义漫反射颜色：
 
-```
+```c
 float3 albedo = float3(0.8f, 0.8f, 0.8f);
 ```
 
 将之前的黑色返回值替换为简单的漫反射着色：
 
-```
+```c
 // Return a diffuse-shaded color
 return saturate(dot(hit.normal, _DirectionalLight.xyz) * -1) * _DirectionalLight.w * albedo;
 ```
@@ -427,7 +427,7 @@ return saturate(dot(hit.normal, _DirectionalLight.xyz) * -1) * _DirectionalLight
 
 为了让定向光产生阴影，我们将追踪一个阴影光线。它从所讨论的表面位置开始（再次使用非常小的位移以避免自阴影），并指向光线来自的方向。如果有任何东西阻挡了通往无穷远的道路，我们将不使用任何漫反射光。在漫反射返回语句之前添加这些行：
 
-```
+```c
 // Shadow test ray
 bool shadow = false;
 Ray shadowRay = CreateRay(hit.position + hit.normal * 0.001f, -1 * _DirectionalLight.xyz);

@@ -5,6 +5,10 @@
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md"
     },
     {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+    },
+    {
       "basename": "光线追踪 - 引擎",
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
       "basename": "光追理论",
