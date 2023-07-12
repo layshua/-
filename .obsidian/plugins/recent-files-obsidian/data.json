@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+    },
+    {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+    },
+    {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
+    },
+    {
       "basename": "大数定律与中心极限定理",
       "path": "Math/概率论/大数定律与中心极限定理.md"
     },
@@ -105,18 +125,6 @@
       "path": "图形学/0 3D数学/公式推导/06 射线相交.md"
     },
     {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
-    },
-    {
       "basename": "资源",
       "path": "图形学/1 图形系统/光线追踪/资源.md"
     },
@@ -127,10 +135,6 @@
     {
       "basename": "光线追踪",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/光线追踪.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -195,10 +199,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
       "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "2 CG基础概述",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/2 CG基础概述.md"
     }
   ],
   "omittedPaths": [],

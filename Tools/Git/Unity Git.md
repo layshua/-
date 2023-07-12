@@ -1,4 +1,4 @@
-# 官方支持
+# 插件
 https://unity.github.com/
 # Git 最佳实践
 
