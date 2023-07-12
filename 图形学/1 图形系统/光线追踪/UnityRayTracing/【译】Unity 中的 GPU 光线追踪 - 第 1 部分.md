@@ -506,7 +506,7 @@ private ComputeBuffer _sphereBuffer;
 
 在 OnEnable 中设置场景，并在 OnDisable 中释放缓冲区。这样，每次启用组件时都会生成一个随机场景。SetUpScene 函数将尝试在一定的半径内放置球体，并拒绝那些将与已存在的球体相交的球体。一半的球体是金属的（黑色反照率，彩色镜面），另一半是非金属的（彩色反照率，4% 镜面）：
 
-```
+```c
 private void OnEnable()
 {
     _currentSample = 0;

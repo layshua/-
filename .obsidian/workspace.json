@@ -72,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -115,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md"
               }
             }
           }
@@ -165,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,10 +216,10 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "02f493e1c88fd18d",
+  "active": "81b173ef3974693f",
   "lastOpenFiles": [
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "图形学/1 图形系统/光线追踪/光追理论.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
