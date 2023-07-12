@@ -450,7 +450,7 @@ if (shadowHit.distance != 1.#INF)
 
 为了在 CPU 和 GPU 上建立对球体的共同理解，同时在着色器和 C# 脚本中定义一个 Sphere 结构。在着色器方面，它是这样的：
 
-```
+```c
 struct Sphere
 {
     float3 position;
@@ -462,7 +462,7 @@ struct Sphere
 
 在着色器中，我们需要使 IntersectSphere 函数使用我们的自定义结构，而不是 float4。这很简单：
 
-```
+```c
 void IntersectSphere(Ray ray, inout RayHit bestHit, Sphere sphere) {
     // Calculate distance along the ray where the sphere is intersected
     float3 d = ray.origin - sphere.position;
@@ -487,7 +487,7 @@ void IntersectSphere(Ray ray, inout RayHit bestHit, Sphere sphere) {
 
 接下来，定义 `StructuredBuffer<Sphere> _Spheres`。这是 CPU 存储构成场景的所有球体的地方。从您的 Trace 函数中删除所有硬编码的球体，并添加以下行：
 
-```
+```c
 // Trace spheres
 uint numSpheres, stride;
 _Spheres.GetDimensions(numSpheres, stride);
@@ -497,7 +497,7 @@ for (uint i = 0; i < numSpheres; i++)
 
 现在我们将用一些生命填充场景。回到 C#，让我们添加一些公共参数来控制球体的放置和实际的计算缓冲区：
 
-```
+```c
 public Vector2 SphereRadius = new Vector2(3.0f, 8.0f);
 public uint SpheresMax = 100;
 public float SpherePlacementRadius = 100.0f;
