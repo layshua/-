@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+      "basename": "光线追踪 - 引擎",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "在野",
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md"
     },
     {
-      "basename": "光追理论",
-      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
+      "basename": "光追理论",
+      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
     },
     {
       "basename": "06 射线相交",
@@ -145,10 +153,6 @@
       "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
       "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
     }
   ],
   "omittedPaths": [],
