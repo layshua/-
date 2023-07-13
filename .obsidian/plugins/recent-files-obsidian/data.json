@@ -13,6 +13,14 @@
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
+      "basename": "03 光追理论",
+      "path": "图形学/3 全局光照GI/03 光追理论.md"
+    },
+    {
+      "basename": "GAMES101",
+      "path": "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md"
+    },
+    {
       "basename": "概率论与数理统计",
       "path": "Math/概率论/概率论与数理统计.md"
     },
@@ -23,10 +31,6 @@
     {
       "basename": "资源",
       "path": "图形学/3 全局光照GI/光追实战/资源.md"
-    },
-    {
-      "basename": "03 光追理论",
-      "path": "图形学/3 全局光照GI/03 光追理论.md"
     },
     {
       "basename": "基于物理的渲染算法研究【U3D】",
@@ -171,10 +175,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "9 全局光照3",
