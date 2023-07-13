@@ -20026,6 +20026,8 @@ tomatoTransform
 toveCounterSound
 targetScene
 timeScale
+targetFrameRate
+totals
 markdown
 matter
 mod
@@ -24235,6 +24237,8 @@ moveDirX
 moveDistance
 moveDirZ
 mixer
+makers
+marker
 windows
 win
 width
@@ -39146,6 +39150,7 @@ Vassillen
 ViewPortCulling
 VerticalLayoutGroup
 Visualize
+VBlank
 verge
 vPdIt
 vertical
@@ -42560,6 +42565,7 @@ vbmUiIGZpbGwtcnVsZT
 visualGameObject
 visualGameObjectArray
 validKitchenObjectSOList
+viewcontrol
 AA
 AppData
 AIRDyuVH
@@ -46859,6 +46865,10 @@ AnchorPresets
 AudioClipRefsSO
 AudioSouce
 ActionOnTimer
+Analyzer
+Allocation
+Auditor
+AssetBundle
 URL
 Utools
 Users
@@ -54626,6 +54636,7 @@ addshader
 albeo
 aWR
 aCBkPSJNMSwwIEwtMC
+animators
 Roaming
 RegWorkshop
 Release
@@ -59154,6 +59165,10 @@ RecipesDeliveredText
 Resume
 ResetStaticDataManager
 RebindBinding
+RenderCameraStack
+Reserved
+RenderTextures
+Razor
 Microsoft
 Menu
 MicaForEveryone
@@ -63923,6 +63938,10 @@ MainMenuUI
 MainMenu
 MusicButton
 MessageText
+MonoBehaivour
+Marker
+Monobehaviour
+Median
 Windows
 Win
 World
@@ -68019,6 +68038,11 @@ Warpping
 West
 Wall
 WaitingToStart
+WaitForTargetfps
+WaitForGfxCommandsFromMainThread
+Worker
+WaitForPresentOnGfxThread
+WaitForLastPresent
 Start
 StartAllBack
 Shadowrocket
@@ -72944,6 +72968,7 @@ SelectedColor
 StoveBurnWarningUI
 StoveBurnFlashBar
 StoveBurnFlashingBarUI
+Streamline
 Programs
 POP
 PC
@@ -77215,6 +77240,12 @@ Polish
 PlayerMovingParticles
 PlayWarningSound
 Popup
+Perfetto
+Present
+PostLateUpdate
+PresentFrame
+Playmode
+Pull
 ContextMenuManager
 ClashVerge
 Clash
@@ -81718,6 +81749,7 @@ Cancas
 CloseButton
 CountdownUI
 Condisions
+CollectGlobalStats
 ImTip
 IMAP
 ID
@@ -94045,6 +94077,7 @@ plateKitchenObject
 playClipAtPoint
 previousCountdownNumber
 publishers
+pdata
 nodesCatch
 nobr
 navy
@@ -113630,6 +113663,8 @@ TimerImage
 TutorialUI
 TestingEventSubscriber
 TestDelegate
+Totals
+Threads
 io
 ipad
 it
@@ -149848,6 +149883,7 @@ Burned
 Burger
 Bottom
 BackGround
+BehaviourUpdate
 Fraktur
 Frame
 Foo
@@ -154214,6 +154250,9 @@ Frying
 Fiiled
 Flash
 Flashing
+FindMainCamera
+FTrace
+FinishFrameRendering
 Element
 Entity
 Enity
@@ -169359,6 +169398,9 @@ DeliveryManagerUI
 DeliveryManagerSingleUI
 Deadzone
 DeliveryResultUI
+DRAM
+Debugge
+Depths
 LNK
 Log
 Linux
@@ -173516,6 +173558,9 @@ LoadingScene
 Loader
 LoadScene
 LoaderCallback
+LPDDR
+LateBehaviourUpdate
+Longest
 Getx
 GetX
 GetName
@@ -178172,6 +178217,10 @@ GamePauseUI
 GetFloat
 GetBindingText
 Grounp
+Getter
+GeometryJob
+GraphicsAPIName
+Galaxy
 NULL
 Native
 NormalMap

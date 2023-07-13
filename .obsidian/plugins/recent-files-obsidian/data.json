@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 01",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 04",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 03",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 03.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 02",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md"
+    },
+    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
@@ -175,30 +195,6 @@
     {
       "basename": "大数定律与中心极限定理",
       "path": "Math/概率论/大数定律与中心极限定理.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     }
   ],
   "omittedPaths": [],

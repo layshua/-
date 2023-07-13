@@ -13,11 +13,45 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
+            }
+          },
+          {
+            "id": "ad74a2b3f1ad39f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d0fe0c136e0c7fc2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6b82df9200b556cb",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
             }
           },
           {
@@ -85,7 +119,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -128,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
               }
             }
           }
@@ -179,7 +214,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +231,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,12 +264,29 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "21a03d7ff7e78358",
+  "active": "6b82df9200b556cb",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/我的光追.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
+    "zip/images/ee34438f02850e1706b9b3557b7b4843_MD5.png",
+    "zip/images/63fe21175539241682296b0e7129a882_MD5.png",
+    "zip/images/5072d04454cf7795bbac12858352ad8d_MD5.png",
+    "zip/images/9bf4351d701cae0a2df0f871148d7f4b_MD5.png",
+    "zip/images/ef2fb5b4e2af5908c7acbac56cd432d8_MD5.png",
+    "zip/images/e67ffb4b71197998f76cd0242e03200e_MD5.png",
+    "zip/images/1843113c583b39ed87e3e5ca31dbbb0d_MD5.png",
+    "zip/images/463cdf28e1b42fdd6a74b44ada3379ca_MD5.png",
+    "zip/images/95fead692b9186f2d467739ba6100b23_MD5.png",
+    "zip/images/fb496f69c0bb061abeb6b2958783c521_MD5.png",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 03.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "Tools/Git/git入门.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
@@ -248,26 +300,10 @@
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
     "blog/2019/harmonics.md",
-    "zip/images/Pasted image 20230713192818.png",
     "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "zip/images/Pasted image 20230713185739.png",
-    "zip/images/Pasted image 20230713183932.png",
-    "zip/images/Pasted image 20230713183624.png",
-    "zip/images/Pasted image 20230713175546.png",
     "Math/概率论/概率论与数理统计.md",
     "图形学/3 全局光照GI/光追实战/资源.md",
-    "zip/images/Pasted image 20230713172645.png",
-    "zip/images/Pasted image 20230713170852.png",
-    "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
-    "图形学/3 全局光照GI/PBR实战/3 PBR推导.md",
     "图形学/3 全局光照GI",
-    "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md",
-    "zBuffer/最通俗易懂的蒙特卡洛积分与重要性采样.md",
-    "zip/images/b5cc3bd7343bcd39a9e008194a1b62ca_MD5.jpg",
-    "zip/images/1adae84fc754337a10504aa892194069_MD5.png",
-    "zip/images/88d218d06f7eb94cc331e0e702c4ed80_MD5.png",
-    "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md",
-    "Math/LaTeX/常用语法.md",
     "图形学/1 图形系统/光栅化系统",
     "blog/2019",
     "blog",
@@ -276,7 +312,6 @@
     "Math/概率论/蒙特卡洛积分",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
-    "引擎Unity3D/2 Shader精粹/ComputeShader",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
