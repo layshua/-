@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "0d795059ab363cf2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/概率论/概率论与数理统计.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "89a412d4f742a655",
             "type": "leaf",
             "state": {
@@ -218,8 +231,9 @@
   },
   "active": "7ab971efd2e0a3ca",
   "lastOpenFiles": [
-    "图形学/1 图形系统/PBR/2 PBR理论.md",
     "图形学/1 图形系统/PBR/1 辐射度量学.md",
+    "Math/概率论/概率论与数理统计.md",
+    "图形学/1 图形系统/PBR/2 PBR理论.md",
     "图形学/1 图形系统/光线追踪/光追理论.md",
     "zip/images/Pasted image 20230713134117.png",
     "zip/images/Pasted image 20230713134045.png",

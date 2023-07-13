@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "光追理论",
-      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
+      "basename": "1 辐射度量学",
+      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
+    },
+    {
+      "basename": "概率论与数理统计",
+      "path": "Math/概率论/概率论与数理统计.md"
     },
     {
       "basename": "2 PBR理论",
       "path": "图形学/1 图形系统/PBR/2 PBR理论.md"
     },
     {
-      "basename": "1 辐射度量学",
-      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
+      "basename": "光追理论",
+      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
     },
     {
       "basename": "资源",
@@ -195,10 +199,6 @@
     {
       "basename": "我的光追",
       "path": "引擎Unity3D/2 Shader精粹/我的光追.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     }
   ],
   "omittedPaths": [],
