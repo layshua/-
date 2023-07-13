@@ -120,7 +120,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -218,6 +219,9 @@
   },
   "active": "7ab971efd2e0a3ca",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230713185739.png",
+    "zip/images/Pasted image 20230713183932.png",
+    "zip/images/Pasted image 20230713183624.png",
     "zip/images/Pasted image 20230713175546.png",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
@@ -240,9 +244,6 @@
     "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md",
     "Math/LaTeX/常用语法.md",
     "zip/images/Pasted image 20230713134117.png",
-    "zip/images/Pasted image 20230713134045.png",
-    "zip/images/Pasted image 20230713134034.png",
-    "zip/images/Pasted image 20230713132522.png",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
