@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md",
+                "file": "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -129,12 +129,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md"
+                "file": "图形学/6 光线追踪/光追理论.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -180,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md",
+                "file": "图形学/6 光线追踪/光追理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md",
+                "file": "图形学/6 光线追踪/光追理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,13 +229,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "4038f9446140843e",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "Math/概率论/概率论与数理统计.md",
     "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
     "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md",
-    "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md",
-    "Math/概率论/概率论与数理统计.md",
     "图形学/6 光线追踪/光追理论.md",
+    "zBuffer/最通俗易懂的蒙特卡洛积分与重要性采样.md",
+    "zip/images/b5cc3bd7343bcd39a9e008194a1b62ca_MD5.jpg",
+    "zip/images/1adae84fc754337a10504aa892194069_MD5.png",
+    "zip/images/88d218d06f7eb94cc331e0e702c4ed80_MD5.png",
+    "zip/images/0fae72070f0a20d849be27e2ba17f8b3_MD5.jpg",
+    "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md",
     "图形学/1 图形系统/PBR/2 PBR理论.md",
     "图形学/6 光线追踪/资源.md",
     "图形学/1 图形系统/PBR/1 辐射度量学.md",
@@ -264,14 +268,8 @@
     "blog",
     "图形学/6 光线追踪/UnityRayTracing/在野.md",
     "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
-    "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
-    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay",
     "zip/images/d4af5abd943e7b2834207e152371c01d_MD5.jpg",
-    "zip/images/49951deb5c7520b1fd633f49d1a43112_MD5.png",
-    "zip/images/c9a87fb3b04ba8a55c4980e9afbd68fc_MD5.png",
-    "zip/images/f7e42d075052de70d7b3431b2d7d8bbf_MD5.png",
-    "zip/images/0edb76da5ed43666674487f8208414e5_MD5.png",
     "zip/images/Diagram 2.svg.xml",
     "Math/概率论/蒙特卡洛积分",
     "图形学/6 光线追踪/UnityRayTracing",
