@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
+                "file": "图形学/6 光线追踪/光追理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -60,25 +60,12 @@
             }
           },
           {
-            "id": "89a412d4f742a655",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/PBR/2 PBR理论.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "424dac5fa280d472",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/资源.md",
+                "file": "图形学/6 光线追踪/资源.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -129,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/光追理论.md"
+                "file": "Math/概率论/概率论与数理统计.md"
               }
             }
           }
@@ -179,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
+                "file": "Math/概率论/概率论与数理统计.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
+                "file": "Math/概率论/概率论与数理统计.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,37 +216,38 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7ab971efd2e0a3ca",
+  "active": "0d795059ab363cf2",
   "lastOpenFiles": [
-    "图形学/1 图形系统/PBR/1 辐射度量学.md",
+    "图形学/6 光线追踪/光追理论.md",
     "Math/概率论/概率论与数理统计.md",
     "图形学/1 图形系统/PBR/2 PBR理论.md",
-    "图形学/1 图形系统/光线追踪/光追理论.md",
+    "Math/LaTeX/常用语法.md",
+    "图形学/1 图形系统/PBR/1 辐射度量学.md",
     "zip/images/Pasted image 20230713134117.png",
     "zip/images/Pasted image 20230713134045.png",
     "zip/images/Pasted image 20230713134034.png",
-    "图形学/1 图形系统/光线追踪/资源.md",
+    "图形学/6 光线追踪/资源.md",
     "zip/images/Pasted image 20230713132522.png",
     "zip/images/Pasted image 20230713131855.png",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-    "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
+    "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
+    "图形学/6 光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/1 图形系统/PBR/3 PBR推导.md",
     "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
+    "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
     "图形学/1 图形系统/光栅化系统",
-    "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
-    "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
+    "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
+    "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/笔记.md",
     "球坐标系.md",
     "blog/2019/harmonics.md",
     "blog/2019",
     "blog",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
+    "图形学/6 光线追踪/UnityRayTracing/在野.md",
+    "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
@@ -270,13 +258,12 @@
     "zip/images/c9a87fb3b04ba8a55c4980e9afbd68fc_MD5.png",
     "zip/images/f7e42d075052de70d7b3431b2d7d8bbf_MD5.png",
     "zip/images/0edb76da5ed43666674487f8208414e5_MD5.png",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/images/Diagram 2.svg.xml",
     "Math/概率论/蒙特卡洛积分",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing",
+    "图形学/6 光线追踪/UnityRayTracing",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
-    "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend",
+    "图形学/6 光线追踪/Ray Tracing in One Weekend",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

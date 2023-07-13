@@ -1,32 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "1 辐射度量学",
-      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
-    },
-    {
       "basename": "概率论与数理统计",
       "path": "Math/概率论/概率论与数理统计.md"
+    },
+    {
+      "basename": "光追理论",
+      "path": "图形学/6 光线追踪/光追理论.md"
     },
     {
       "basename": "2 PBR理论",
       "path": "图形学/1 图形系统/PBR/2 PBR理论.md"
     },
     {
-      "basename": "光追理论",
-      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
+      "basename": "常用语法",
+      "path": "Math/LaTeX/常用语法.md"
+    },
+    {
+      "basename": "1 辐射度量学",
+      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
     },
     {
       "basename": "资源",
-      "path": "图形学/1 图形系统/光线追踪/资源.md"
+      "path": "图形学/6 光线追踪/资源.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+      "path": "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
       "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
+      "path": "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
     },
     {
       "basename": "语法",
@@ -34,7 +38,7 @@
     },
     {
       "basename": "光线追踪 - 引擎",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
+      "path": "图形学/6 光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
     },
     {
       "basename": "3D数学",
@@ -50,15 +54,15 @@
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
+      "path": "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+      "path": "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
     },
     {
       "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
+      "path": "图形学/6 光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     },
     {
       "basename": "harmonics",
@@ -66,15 +70,15 @@
     },
     {
       "basename": "在野",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md"
+      "path": "图形学/6 光线追踪/UnityRayTracing/在野.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+      "path": "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
+      "path": "图形学/6 光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
     },
     {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
@@ -163,10 +167,6 @@
     {
       "basename": "GAMES101",
       "path": "图形学/4 GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
     },
     {
       "basename": "9 全局光照3",
