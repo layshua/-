@@ -19,7 +19,7 @@ banner: "![[Pasted image 20230710142347.png]]"
 
 物理渲染（Physical Rendering）是指跟真实世界完全一致的计算机渲染效果。基于现阶段的知识水平和硬件水平，还不能渲染跟真实世界完全一致的效果，只能一定程序上模拟接近真实世界的渲染画面，故而叫**基于物理的渲染**（**Physically Based Rendering**），而非**物理渲染**（**Physical Rendering**）。
 
-# 2 PBR 基础基础理论和推导
+# 1 PBR 基础基础理论
 满足以下条件的光照模型才能称之为 PBR 光照模型（基于物理的材质三大条件）：
 *   基于微表面理论的表面模型（Be based on the microfacet surface model）。
 *   能量守恒（Be energy conserving）。
@@ -129,8 +129,8 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 ![[Pasted image 20230713132522.png]]
 
 反射光线的分布受到宏观表面的微观几何影响。当微观尺度越粗糙，反射 glossy 越分散，而微观尺度越平滑，反射 glossy 越集中。
-- @ **因此，BRDF 就是描述从不同方向入射后，反射光线的分布情况。具体来说，BRDF 为朝某个方向发出反射光辐射率 radiance 与入射光辐照度 irrandiance 的比值**。
-$$BRDF=\frac{反射光辐射率(单方向反射)}{入射光辐照度(接收到的所有入射光)}$$
+- @ **因此，BRDF 就是描述光纤从不同方向入射后，反射光线的分布情况。具体来说，BRDF 为朝某个方向发出反射光辐射率 radiance 与入射光辐照度 irrandiance 的比值**。
+$$BRDF=\frac{反射光辐射率(单方向的反射光)}{入射光辐照度(所有方向入射光)}$$
 用数学式表达就是
 
 $$f_{r}(w_{i}, w_{r})=\frac{dL_{r}(w_{r})}{dE_{i}(w_{i})}=\frac{dL_{r}(w_{r})}{L_{i}(w_{i}cos\theta_{i}d\omega_{i})}~~[\frac{1}{sr}]$$
@@ -563,7 +563,8 @@ GTR 是根据对 GGX 等分布的观察，提出的**广义法线分布函数**�
 
 $\begin{align} k&=\frac{\alpha}{2}\\ \alpha&=(\frac{roughness+1}{2})^{2}\\ G_{1}(v)&=\frac{n\cdot v}{(n\cdot v)(1-k)+k}\\ G(l,v,h)&=G_{1}(l)G_{1}v \end{align}$
 
-# PBR 扩展
+# 2 PBR 扩展
+
 ## LTC 多边形光源渲染
 Linearly Transformed Cosines：线性变换余弦分布
 
@@ -656,7 +657,6 @@ Linearly Transformed Cosines：线性变换余弦分布
 **Disney's principle BRDF 的缺点:**
 1. 并不是完全基于物理的
 2. 巨大的参数空间使得拥有强大的表示能力, 但是会造成冗余现象.
-
 
 # 3 PBR 的光照实现
 

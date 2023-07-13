@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "光追理论",
+      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
+    },
+    {
       "basename": "2 PBR理论",
       "path": "图形学/1 图形系统/PBR/2 PBR理论.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
       "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "光追理论",
-      "path": "图形学/1 图形系统/光线追踪/光追理论.md"
     },
     {
       "basename": "语法",

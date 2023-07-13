@@ -34,6 +34,32 @@
             }
           },
           {
+            "id": "7ab971efd2e0a3ca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "89a412d4f742a655",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/PBR/2 PBR理论.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "424dac5fa280d472",
             "type": "leaf",
             "state": {
@@ -47,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/PBR/2 PBR理论.md"
+                "file": "图形学/1 图形系统/光线追踪/光追理论.md"
               }
             }
           }
@@ -140,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/PBR/2 PBR理论.md",
+                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/PBR/2 PBR理论.md",
+                "file": "图形学/1 图形系统/光线追踪/光追理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,16 +216,19 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "52fef927ea035256",
+  "active": "7ab971efd2e0a3ca",
   "lastOpenFiles": [
-    "图形学/1 图形系统/PBR/1 辐射度量学.md",
     "图形学/1 图形系统/PBR/2 PBR理论.md",
+    "图形学/1 图形系统/PBR/1 辐射度量学.md",
+    "图形学/1 图形系统/光线追踪/光追理论.md",
+    "zip/images/Pasted image 20230713134117.png",
+    "zip/images/Pasted image 20230713134045.png",
+    "zip/images/Pasted image 20230713134034.png",
+    "图形学/1 图形系统/光线追踪/资源.md",
     "zip/images/Pasted image 20230713132522.png",
     "zip/images/Pasted image 20230713131855.png",
-    "图形学/1 图形系统/光线追踪/资源.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
-    "图形学/1 图形系统/光线追踪/光追理论.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/0 3D数学/3D数学.md",
@@ -227,9 +256,6 @@
     "zip/images/c9a87fb3b04ba8a55c4980e9afbd68fc_MD5.png",
     "zip/images/f7e42d075052de70d7b3431b2d7d8bbf_MD5.png",
     "zip/images/0edb76da5ed43666674487f8208414e5_MD5.png",
-    "zip/images/2fb9124ba6da68bf3bfc86d07bdb667b_MD5.gif",
-    "zip/images/fc01cca4aa4deea225a506d26679262f_MD5.gif",
-    "zip/images/1bf19dd1b13793277684b6f0e700e1ee_MD5.gif",
     "zBuffer/光照探针，反射探针，光照烘焙.md",
     "zip/images/Diagram 2.svg.xml",
     "Math/概率论/蒙特卡洛积分",
