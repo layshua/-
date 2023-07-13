@@ -5,24 +5,28 @@
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
     {
-      "basename": "04 路径追踪",
-      "path": "图形学/3 全局光照GI/04 路径追踪.md"
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+      "basename": "光线追踪 - 引擎",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
+    },
+    {
+      "basename": "04 路径追踪",
+      "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
     {
       "basename": "01 辐射度量学",
       "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
-      "basename": "03 光追理论",
-      "path": "图形学/3 全局光照GI/03 光追理论.md"
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
+      "basename": "03 光追理论",
+      "path": "图形学/3 全局光照GI/03 光追理论.md"
     },
     {
       "basename": "1 概率分布变换与随机采样",
@@ -87,10 +91,6 @@
     {
       "basename": "常用语法",
       "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
       "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
