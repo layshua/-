@@ -85,8 +85,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -129,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md"
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
               }
             }
           }
@@ -180,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,16 +229,16 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "52fef927ea035256",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "Tools/Git/git入门.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
-    "图形学/3 全局光照GI/03 光追理论.md",
     "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
