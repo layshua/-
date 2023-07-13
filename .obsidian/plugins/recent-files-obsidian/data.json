@@ -1,32 +1,56 @@
 {
   "recentFiles": [
     {
+      "basename": "1 辐射度量学",
+      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
+    },
+    {
       "basename": "光追理论",
       "path": "图形学/1 图形系统/光线追踪/光追理论.md"
-    },
-    {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
-    },
-    {
-      "basename": "资源",
-      "path": "图形学/1 图形系统/光线追踪/资源.md"
     },
     {
       "basename": "2 PBR理论",
       "path": "图形学/1 图形系统/PBR/2 PBR理论.md"
     },
     {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+    },
+    {
+      "basename": "光线追踪 - 引擎",
+      "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
+    },
+    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
     {
-      "basename": "harmonics",
-      "path": "blog/2019/harmonics.md"
+      "basename": "3 PBR推导",
+      "path": "图形学/1 图形系统/PBR/3 PBR推导.md"
     },
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
+      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
+      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+    },
+    {
+      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
+      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
+    },
+    {
+      "basename": "资源",
+      "path": "图形学/1 图形系统/光线追踪/资源.md"
+    },
+    {
+      "basename": "harmonics",
+      "path": "blog/2019/harmonics.md"
     },
     {
       "basename": "在野",
@@ -117,10 +141,6 @@
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
@@ -131,10 +151,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "1 辐射度量学",
-      "path": "图形学/1 图形系统/PBR/1 辐射度量学.md"
     },
     {
       "basename": "GAMES101",
@@ -183,14 +199,6 @@
     {
       "basename": "微积分基础",
       "path": "Math/微积分/微积分基础.md"
-    },
-    {
-      "basename": "《线性代数的本质》",
-      "path": "Math/线性代数/《线性代数的本质》.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     }
   ],
   "omittedPaths": [],
