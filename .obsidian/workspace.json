@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "bbeddc0e5eca1c83",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Git/git入门.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a675f02e94f45e1c",
             "type": "leaf",
             "state": {
@@ -231,8 +244,9 @@
   },
   "active": "040f62b28bbf5d7b",
   "lastOpenFiles": [
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "Tools/Git/git入门.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
@@ -267,7 +281,6 @@
     "zip/images/88d218d06f7eb94cc331e0e702c4ed80_MD5.png",
     "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md",
     "Math/LaTeX/常用语法.md",
-    "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
     "图形学/1 图形系统/光栅化系统",
     "blog/2019",
     "blog",

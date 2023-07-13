@@ -175,7 +175,7 @@ bool metal = Random.value < 0.0f;
 
 对于几行代码（以及一些仔细的数学 - 我看到你们正在慢慢成为朋友）来说，这并不算太糟糕。让我们通过添加 Phong BRDF 来增加镜面反射效果。最初的 Phong 公式存在一些问题（不可逆，不守恒能量），但幸运的是，其他人解决了这些问题。修正后的 Phong BRDF 如下所示，其中 $ω⃗ r$ 是完全反射的光线方向，α是控制粗糙度的 Phong 指数：
 
-$$f_r(x,\vec{ω}_i,\vec{ω}_o) = k_s\frac{α+2}{2π}(\vec{ω}_r\cdot\vec{ω}_ o)^α \\$$
+$$f_r(x,\vec{ω}_i,\vec{ω}_o) = k_s\frac{α+2}{2π}(\vec{ω}_r\cdot\vec{ω}_ o)^α $$
 
  这里是一个小型的二维图，显示了α=15 时 Phong BRDF 在 45° 入射角时的样子。点击右下角可以自行更改α值。
 
@@ -183,11 +183,11 @@ $$f_r(x,\vec{ω}_i,\vec{ω}_o) = k_s\frac{α+2}{2π}(\vec{ω}_r\cdot\vec{ω}_ o)
 
 将其插入我们的蒙特卡罗渲染方程：
 
-$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_s(α+2)(\vec{ω}_r\cdot\vec{ω}_o)^α(\vec{ω}_i\cdot\vec{n})L(x,\vec{ω}_i) \\$$
+$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_s(α+2)(\vec{ω}_r\cdot\vec{ω}_o)^α(\vec{ω}_i\cdot\vec{n})L(x,\vec{ω}_i) $$
 
  最后，将其与我们已经拥有的 Lambert BRDF 相结合：
 
-$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}[2k_d+k_s(α+2)(\vec{ω}_r\cdot\vec{ω}_o)^α](\vec{ω}_i\cdot\vec{n})L(x,\vec{ω}_i) \\$$
+$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}[2k_d+k_s(α+2)(\vec{ω}_r\cdot\vec{ω}_o)^α](\vec{ω}_i\cdot\vec{n})L(x,\vec{ω}_i) $$
 
  这是与 Lambert 漫反射一起的代码：
 
@@ -260,13 +260,13 @@ float energy(float3 color) {
 
 让我们再次看一下基本的蒙特卡洛公式：
 
-$$F_N≈\frac{1}{N}\sum_{n=0}^{N}\frac{f(x_n)}{p(x_n)} \\$$
+$$F_N≈\frac{1}{N}\sum_{n=0}^{N}\frac{f(x_n)}{p(x_n)} $$
 
  如您所见，我们将每个样本的贡献除以选择这个特定样本的概率。到目前为止，我们在半球上使用均匀采样，因此具有恒定的 $p(ω)=\frac{1}{2π}$ 。正如我们之前看到的，这远非理想，例如在 Phong BRDF 中，它在非常窄的一组方向上具有很大的值。
 
 想象一下，我们可以找到一个与被积函数完全匹配的概率分布：p(x)=f(x)。这将发生什么：
 
-$$F_N≈\frac{1}{N}\sum_{n=0}^{N}1 \\$$
+$$F_N≈\frac{1}{N}\sum_{n=0}^{N}1 $$
 
  现在没有一个样本会获得很少的贡献。相反，这些样本将本质上以较低的概率被选择。这将大幅减少结果的方差并使渲染更快收敛。
 
@@ -296,7 +296,7 @@ float3 SampleHemisphere(float3 normal, float alpha) {
 
 首先，我们将改进我们的漫反射渲染。我们的均匀分布已经非常适合恒定的 Lambert BRDF，但通过包含余弦因子，我们可以做得更好。余弦采样（其中α=1）的概率分布为 $\frac{(\vec{ω}_i\cdot\vec{n})}{π}$ ，这简化了我们的漫反射蒙特卡洛公式：
 
-$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_dL(x,\vec{ω}_i) \\$$
+$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_dL(x,\vec{ω}_i) $$
 
 ```
 // Diffuse reflection
@@ -313,7 +313,7 @@ ray.energy *= (1.0f / diffChance) * hit.albedo;
 
 让我们将上述概率分布插入到我们的 Phong 方程中。详细推导可参见 Lafortune 和 Willems：使用修改的 Phong 反射模型进行物理基础渲染（1994）：
 
-$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_s\frac{α+2}{α+1}(\vec{ω}_ i\cdot\vec{n} )L(x,\vec{ω}_ i) \\$$
+$$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^{N}k_s\frac{α+2}{α+1}(\vec{ω}_ i\cdot\vec{n} )L(x,\vec{ω}_ i) $$
 
 ```
 // Specular reflection
