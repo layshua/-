@@ -8,6 +8,32 @@
         "type": "tabs",
         "children": [
           {
+            "id": "040f62b28bbf5d7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fd0ce18d93404cfe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/01 辐射度量学.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "28747f5b4d5dfa7d",
             "type": "leaf",
             "state": {
@@ -47,7 +73,7 @@
             }
           },
           {
-            "id": "018967e4f23504ce",
+            "id": "8a1f3e501950d949",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -58,35 +84,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "4038f9446140843e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0d795059ab363cf2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -129,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/04 路径追踪.md"
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
               }
             }
           }
@@ -180,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/04 路径追踪.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/04 路径追踪.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,12 +229,23 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "018967e4f23504ce",
+  "active": "040f62b28bbf5d7b",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/03 光追理论.md",
-    "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
+    "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
+    "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
+    "blog/2019/harmonics.md",
     "zip/images/Pasted image 20230713192818.png",
     "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "zip/images/Pasted image 20230713185739.png",
@@ -243,7 +253,6 @@
     "zip/images/Pasted image 20230713183624.png",
     "zip/images/Pasted image 20230713175546.png",
     "Math/概率论/概率论与数理统计.md",
-    "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
     "图形学/3 全局光照GI/光追实战/资源.md",
     "zip/images/Pasted image 20230713172645.png",
     "zip/images/Pasted image 20230713170852.png",
@@ -259,16 +268,7 @@
     "Math/LaTeX/常用语法.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
-    "图形学/0 3D数学/3D数学.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
     "图形学/1 图形系统/光栅化系统",
-    "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
-    "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md",
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/笔记.md",
-    "球坐标系.md",
     "blog/2019",
     "blog",
     "引擎Unity3D/4 GamePlay",

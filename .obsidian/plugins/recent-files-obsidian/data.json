@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+    },
+    {
       "basename": "04 路径追踪",
       "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
@@ -17,16 +21,48 @@
       "path": "图形学/3 全局光照GI/03 光追理论.md"
     },
     {
+      "basename": "光线追踪 - 引擎",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
+    },
+    {
+      "basename": "1 概率分布变换与随机采样",
+      "path": "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md"
+    },
+    {
+      "basename": "13 实时光追2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "9 全局光照3",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
+    },
+    {
+      "basename": "8 全局光照2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md"
+    },
+    {
+      "basename": "7 全局光照1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
+    },
+    {
       "basename": "GAMES101",
       "path": "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md"
     },
     {
       "basename": "概率论与数理统计",
       "path": "Math/概率论/概率论与数理统计.md"
-    },
-    {
-      "basename": "1 概率分布变换与随机采样",
-      "path": "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md"
     },
     {
       "basename": "资源",
@@ -65,10 +101,6 @@
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
     },
     {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
-    },
-    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
@@ -89,16 +121,8 @@
       "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
     },
     {
-      "basename": "harmonics",
-      "path": "blog/2019/harmonics.md"
-    },
-    {
       "basename": "在野",
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/在野.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
@@ -175,30 +199,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
-    },
-    {
-      "basename": "8 全局光照2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md"
-    },
-    {
-      "basename": "7 全局光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
-    },
-    {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     }
   ],
   "omittedPaths": [],

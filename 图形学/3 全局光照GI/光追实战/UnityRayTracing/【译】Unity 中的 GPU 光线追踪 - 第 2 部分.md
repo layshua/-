@@ -10,11 +10,10 @@ banner: "![[Pasted image 20230711183803.jpg]]"
 
 【原文】[GPU Path Tracing in Unity – Part 2](http://three-eyed-games.com/2018/05/12/gpu-path-tracing-in-unity-part-2/)
 
-## ！软件直译，尚未润色！
 
 没有什么比一个模糊概念的清晰形象更糟糕的了。——安塞尔 · 亚当斯
 
-在本系列的第一部分中，我们创建了一个 Whitted 光线追踪器，能够追踪完美反射和硬阴影。目前还缺少模糊效果：漫反射相互反射、光泽反射和柔和阴影。
+在本系列的第一部分中，我们创建了一个 Whitted 光线追踪器，能够追踪完美反射和硬阴影。**目前还缺少模糊效果：漫反射相互反射、光泽反射和柔和阴影。**
 
 基于我们已有的代码，我们将迭代地解决詹姆斯 · 卡吉亚 (James Kajiya) 在 1986 年提出的渲染方程，并将我们的渲染器转换为能够捕捉上述效果的路径追踪器。同样，我们将使用 C# 编写脚本，使用 HLSL 编写着色器。代码托管在 Bitbucket 上。
 
@@ -62,7 +61,7 @@ $$L(x,\vec{ω}_o)≈L_e(x,\vec{ω}_o)+\frac{1}{N}\sum_{n=0}^N2πf_r(x,\vec{ω} _
 
 ### 累积
 
-出于某种原因，Unity 在 OnRenderImage 中没有给我一个 HDR 纹理作为目标。对于我来说，格式是 R8G8B8A8_Typeless，因此精度很快就会不足以累积多个样本。为了解决这个问题，让我们在 C# 脚本中添加 private RenderTexture _converged。这将是我们在将结果显示在屏幕上之前以高精度累积结果的缓冲区。在 InitRenderTexture 函数中，与 _target 完全相同地初始化 / 释放此纹理。在 Render 函数中，将 blit 加倍：
+出于某种原因，Unity 在 OnRenderImage 中没有给我一个 HDR 纹理作为目标。对于我来说，格式是 `R8G8B8A8_Typeless`，因此精度很快就会不足以累积多个样本。为了解决这个问题，让我们在 C# 脚本中添加 `private RenderTexture _converged`。这将是我们在将结果显示在屏幕上之前以高精度累积结果的缓冲区。在 InitRenderTexture 函数中，与 _target 完全相同地初始化 / 释放此纹理。在 Render 函数中，将 blit 加倍：
 
 ```
 Graphics.Blit(_target, _converged, _addMaterial);
@@ -79,13 +78,13 @@ Random.InitState(SphereSeed);
 
 您现在可以手动设置场景的种子。输入任意数字，禁用 / 重新启用 RayTracingMaster 组件，直到找到您喜欢的场景。
 
-用于示例图像的设置为：Sphere Seed 1223832719，Sphere Radius [5，30]，Spheres Max 10000，Sphere Placement Radius 100。
+用于示例图像的设置为：`Sphere Seed 1223832719，Sphere Radius [5，30]，Spheres Max 10000，Sphere Placement Radius 100`。
 
 ### 着色器随机性
 
 在我们开始任何随机采样之前，我们需要在着色器中添加随机性。我正在使用我在网上找到的典型的一行代码，为了更方便进行了修改：
 
-```
+```c
 float2 _Pixel;
 float _Seed;
 float rand() {
@@ -97,7 +96,7 @@ float rand() {
 
 在 CSMain 中直接将 _Pixel 初始化为 _Pixel = id.xy，这样每个像素将使用不同的随机值。_Seed 是在 SetShaderParameters 函数中从 C# 初始化的。
 
-```
+```c
 RayTracingShader.SetFloat("_Seed", Random.value);
 ```
 
@@ -107,7 +106,7 @@ RayTracingShader.SetFloat("_Seed", Random.value);
 
 首先：我们需要在半球上均匀分布的随机方向。对于整个球体，这个非平凡的挑战在 Cory Simon 的这篇文章中详细描述。它很容易适应半球。以下是着色器代码：
 
-```
+```c
 float3 SampleHemisphere(float3 normal) {
     // Uniformly sample hemisphere direction
     float cosTheta = rand();
@@ -121,7 +120,7 @@ float3 SampleHemisphere(float3 normal) {
 
 这些方向是为围绕正 Z 生成的半球而生成的，因此我们需要将其转换为围绕我们需要的任何法线。为此，我们生成一个切线和副法线（两个与法线垂直且互相垂直的向量）。我们首先选择一个辅助向量来生成切线。我们选择正 X，仅当法线与 X 轴（近似）共线时才回退到正 Z。然后我们可以使用叉积来生成切线和副法线。
 
-```
+```c
 float3x3 GetTangentSpace(float3 normal) {
     // Choose a helper vector for the cross product
     float3 helper = float3(1, 0, 0);
