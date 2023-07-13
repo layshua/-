@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "24dddc9f97651db1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "42415f6e4a559802",
             "type": "leaf",
             "state": {
@@ -44,14 +57,6 @@
                 "backlinks": false,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "cb1ac041e682b174",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           },
           {
@@ -66,22 +71,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "5bc76e55f8aa7e4c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -124,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
               }
             }
           }
@@ -174,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
+                "file": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -224,28 +215,35 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "cb1ac041e682b174",
+  "active": "02f493e1c88fd18d",
   "lastOpenFiles": [
-    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md",
+    "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/1 图形系统/光线追踪/光追理论.md",
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md",
+    "引擎Unity3D/4 GamePlay",
+    "zip/images/d4af5abd943e7b2834207e152371c01d_MD5.jpg",
+    "zip/images/49951deb5c7520b1fd633f49d1a43112_MD5.png",
+    "zip/images/c9a87fb3b04ba8a55c4980e9afbd68fc_MD5.png",
+    "zip/images/f7e42d075052de70d7b3431b2d7d8bbf_MD5.png",
+    "zip/images/0edb76da5ed43666674487f8208414e5_MD5.png",
+    "zip/images/2fb9124ba6da68bf3bfc86d07bdb667b_MD5.gif",
+    "zip/images/fc01cca4aa4deea225a506d26679262f_MD5.gif",
+    "zip/images/1bf19dd1b13793277684b6f0e700e1ee_MD5.gif",
+    "zip/images/d5e96c1660250a39150d8484ed75fde2_MD5.gif",
+    "zip/images/ae0ad7859ce428c6a0a281edd7bb1534_MD5.png",
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
+    "zBuffer/Unity Shader - 消融效果原理与变体 - 简书.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "图形学/1 图形系统/光线追踪/资源.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zip/images/5f1115d8e745c27f2e1b0bfabbb178df_MD5.jpg",
-    "zip/images/4fdea4a5c1cd5119d713ba5727ebff15_MD5.jpg",
-    "zip/images/d685dfac98a9285457949fff03007efd_MD5.png",
-    "zip/images/875b02123533255cce25af2d4e96300f_MD5.jpg",
-    "zip/images/9d575ab09e3cbb348ca4e408064f81a0_MD5.jpg",
-    "zip/images/e1e3eb9f7e74a8e6a6b2c778553eaf4b_MD5.jpg",
-    "zip/images/608853f3e27f9f3707474c34d52b4caa_MD5.jpg",
-    "zip/images/7ba31b5f72368f9c0f4e05110efd387f_MD5.jpg",
-    "zip/images/7679f144cdb3da3760eaa63e640dfa7c_MD5.jpg",
-    "zip/images/6c8259ae014e67925a5cb5164ce08cc7_MD5.jpg",
     "zip/images/Diagram 2.svg.xml",
     "图形学/0 3D数学/公式推导/06 射线相交.md",
     "图形学/0 3D数学/3D数学.md",
@@ -257,13 +255,6 @@
     "Math/概率论/蒙特卡洛积分/看懂蒙特卡洛积分 (二) 蒙特卡洛估计与重要性采样.md",
     "Math/概率论/蒙特卡洛积分",
     "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/10 色彩.md",
     "图形学/1 图形系统/光线追踪/UnityRayTracing",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
     "引擎Unity3D/2 Shader精粹/ComputeShader",
@@ -271,7 +262,6 @@
     "图形学/1 图形系统/PBR/PBR相关",
     "引擎Unity3D/3 URP精粹/架构",
     "技术美术/7 PBR/PBR白皮书/bonus/[PBR-White-Paper] PBR-Material-F0-Quick-Reference-Chart.pdf",
-    "引擎Unity3D/3 URP精粹/后处理",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

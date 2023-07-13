@@ -1,10 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
-    },
-    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
@@ -13,12 +9,36 @@
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/在野.md"
     },
     {
+      "basename": "语法",
+      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
+    },
+    {
       "basename": "光线追踪 - 引擎",
       "path": "图形学/1 图形系统/光线追踪/UnityRayTracing/光线追踪 - 引擎.md"
     },
     {
       "basename": "光追理论",
       "path": "图形学/1 图形系统/光线追踪/光追理论.md"
+    },
+    {
+      "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
+      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
+    },
+    {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
+    },
+    {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
+      "basename": "CodeMonkey Unity 中的 C 委托 笔记整理",
+      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md"
+    },
+    {
+      "basename": "光照探针，反射探针，光照烘焙",
+      "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
@@ -179,26 +199,6 @@
     {
       "basename": "Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）",
       "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Unity 中使用 ComputeShader 做视锥剔除（View Frustum Culling）.md"
-    },
-    {
-      "basename": "【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md"
-    },
-    {
-      "basename": "DX12理论",
-      "path": "图形学/2 图形API/DX12/龙书/DX12理论.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "6 环境光照2",
-      "path": "图形学/4 GAMES系列/202高质量实时渲染/6 环境光照2.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/1 图形系统/光线追踪/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
     }
   ],
   "omittedPaths": [],

@@ -446,7 +446,7 @@ if (shadowHit.distance != 1.#INF)
 
 作为今天的高潮，让我们创建一些更复杂且丰富多彩的场景！为了提高灵活性，我们将在 C# 中定义场景，而不是在着色器中硬编码一切。
 
-首先，我们将在着色器中扩展 RayHit 结构。与其在 Shade 函数中全局定义材质属性，我们将为每个对象定义它们，并将它们存储在 RayHit 中。向结构添加 float3 albedo 和 float3 specular，并在 CreateRayHit 中将它们初始化为 float3(0.0f, 0.0f, 0.0f)。同时调整 Shade 函数以使用来自 hit 的这些值，而不是硬编码的值。
+首先，我们将在着色器中扩展 RayHit 结构。与其在 Shade 函数中全局定义材质属性，我们将为每个对象定义它们，并将它们存储在 RayHit 中。向结构添加 float3 albedo 和 float3 specular，并在 CreateRayHit 中将它们初始化为 float3(0.0f, 0.0f, 0.0f)。**同时调整 Shade 函数以使用来自 hit 的这些值**，而不是硬编码的值。
 
 为了在 CPU 和 GPU 上建立对球体的共同理解，同时在着色器和 C# 脚本中定义一个 Sphere 结构。在着色器方面，它是这样的：
 
