@@ -126,11 +126,11 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 局部反射由 BRDF 量化，表示为 $f_r(\omega_i,\omega_o)$。BRDF 被定义在均匀表面 (uniform surfaces)，这意味着任意点的 BRDF 相同。并且假设给定波长的入射光以相同的波长反射。
 
 **光线沿 $\omega_i$ 打到表面上某一面积微元上后，光线的辐照度 $dE (\omega_i)$ 会在交点处沿不同方向辐射出辐射率 $dL_r(x,\omega_r)$。**
-![[3e8a79f380ab67ab4c698c65c66b1fd2_MD5.jpg]]
+![[Pasted image 20230713132522.png]]
 
 反射光线的分布受到宏观表面的微观几何影响。当微观尺度越粗糙，反射 glossy 越分散，而微观尺度越平滑，反射 glossy 越集中。
-- @ **因此，BRDF 就是描述从不同方向入射后，反射光线的分布情况。具体来说，BRDF 为朝某个方向发出反射光辐射率 radiance 与入射光辐射度 irrandiance 的比值**。
-$$BRDF=\frac{反射光辐射率}{入射光辐射度}$$
+- @ **因此，BRDF 就是描述从不同方向入射后，反射光线的分布情况。具体来说，BRDF 为朝某个方向发出反射光辐射率 radiance 与入射光辐照度 irrandiance 的比值**。
+$$BRDF=\frac{反射光辐射率(单方向反射)}{入射光辐照度(接收到的所有入射光)}$$
 用数学式表达就是
 
 $$f_{r}(w_{i}, w_{r})=\frac{dL_{r}(w_{r})}{dE_{i}(w_{i})}=\frac{dL_{r}(w_{r})}{L_{i}(w_{i}cos\theta_{i}d\omega_{i})}~~[\frac{1}{sr}]$$
