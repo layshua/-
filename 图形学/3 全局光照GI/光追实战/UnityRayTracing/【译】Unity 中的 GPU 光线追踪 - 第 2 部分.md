@@ -135,13 +135,13 @@ float3x3 GetTangentSpace(float3 normal) {
 
 ## Lambert 漫反射
 
-现在我们有了统一的随机方向，可以开始实现第一个 BRDF。Lambert BRDF 是用于漫反射的最常用方法，其简单之处令人瞩目： $f_r(x,\vec{ω}_i,\vec{ω}_o)=\frac{kd}{π}$ ，其中 kd 是表面的反照率。让我们将其插入到我们的蒙特卡洛渲染方程中（我现在先去掉发射项），看看会发生什么：
+现在我们有了统一的随机方向，可以开始实现第一个 BRDF。Lambert BRDF 是用于漫反射的最常用方法，其简单之处令人瞩目： $f_r(x,\vec{ω}_i,\vec{ω}_o)=\frac{kd}{π}$ ，其中 $kd$ 是表面的反照率。让我们将其插入到我们的蒙特卡洛渲染方程中（我现在先去掉发射项），看看会发生什么：
 
 $$L(x,\vec{ω}_o)≈\frac{1}{N}\sum_{n=0}^N2k_d(\vec{ω}_i\cdot\vec{n} )L(x,\vec{ω}_i) $$
 
  现在，让我们将其放入我们的着色器中。在 Shade 函数中，将 if (hit.distance < 1.#INF) 子句内的代码替换为以下几行：
 
-```
+```c
 // Diffuse shading
 ray.origin = hit.position + hit.normal * 0.001f;
 ray.direction = SampleHemisphere(hit.normal);
