@@ -1,4 +1,4 @@
-![](图形学/5%20书籍/《RTR3》/第七章续%20·%20延迟渲染的前生今世/media/title.jpg)
+![](图形学/4%20书籍/《RTR3》/第七章续%20·%20延迟渲染的前生今世/media/title.jpg)
 
 # 【《Real-Time Rendering 3rd》 提炼总结】(七) 第七章续 · 延迟渲染(Deferred Rendering)的前生今世
 

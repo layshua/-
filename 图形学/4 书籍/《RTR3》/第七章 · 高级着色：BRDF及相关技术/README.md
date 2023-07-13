@@ -1,5 +1,5 @@
 
-![](图形学/5%20书籍/《RTR3》/第七章%20·%20高级着色：BRDF及相关技术/media/title.jpg)
+![](图形学/4%20书籍/《RTR3》/第七章%20·%20高级着色：BRDF及相关技术/media/title.jpg)
 
 
 # 【《Real-Time Rendering 3rd》 提炼总结】(六) 第七章 · 高级着色：BRDF及相关技术
