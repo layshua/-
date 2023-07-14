@@ -1,12 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md"
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "4 实时阴影2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+    },
+    {
+      "basename": "3 实时阴影1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "03 光追理论",
+      "path": "图形学/3 全局光照GI/03 光追理论.md"
+    },
+    {
+      "basename": "04 路径追踪",
+      "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
     {
       "basename": "GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog",
       "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md"
+    },
+    {
+      "basename": "GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md"
     },
     {
       "basename": "04-Rendering on Game Engine - Bo's Blog",
@@ -53,20 +81,8 @@
       "path": "zip/images/1680600826852.png"
     },
     {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
-    },
-    {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
-    },
-    {
       "basename": "Unity 游戏性能分析最终指南 01",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
@@ -133,20 +149,8 @@
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md"
     },
     {
-      "basename": "03 光追理论",
-      "path": "图形学/3 全局光照GI/03 光追理论.md"
-    },
-    {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
-    },
-    {
-      "basename": "04 路径追踪",
-      "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
     {
       "basename": "01 辐射度量学",
@@ -195,10 +199,6 @@
     {
       "basename": "2 蒙特卡洛估计与重要性采样",
       "path": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md"
-    },
-    {
-      "basename": "3  低差异采样序列",
-      "path": "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md"
     }
   ],
   "omittedPaths": [],
