@@ -5,6 +5,14 @@
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "编程/设计模式/工厂模式.md"
+    },
+    {
       "basename": "04 路径追踪",
       "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "04 纹理",
@@ -187,18 +191,6 @@
     {
       "basename": "9 全局光照3",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
-      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
-    },
-    {
-      "basename": "GAMES101",
-      "path": "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md"
-    },
-    {
-      "basename": "概率论与数理统计",
-      "path": "Math/概率论/概率论与数理统计.md"
     }
   ],
   "omittedPaths": [],
