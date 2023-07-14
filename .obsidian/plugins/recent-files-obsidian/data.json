@@ -1,28 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "3 实时阴影1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+      "basename": "05 环境光照IBL",
+      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
-      "basename": "03 光追理论",
-      "path": "图形学/3 全局光照GI/03 光追理论.md"
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "6 环境光照2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md"
     },
     {
       "basename": "04 路径追踪",
       "path": "图形学/3 全局光照GI/04 路径追踪.md"
+    },
+    {
+      "basename": "5 环境光照1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "3 实时阴影1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md"
+    },
+    {
+      "basename": "03 光追理论",
+      "path": "图形学/3 全局光照GI/03 光追理论.md"
     },
     {
       "basename": "4 实时阴影2",
@@ -187,18 +199,6 @@
     {
       "basename": "资源",
       "path": "图形学/3 全局光照GI/光追实战/资源.md"
-    },
-    {
-      "basename": "基于物理的渲染算法研究【U3D】",
-      "path": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md"
-    },
-    {
-      "basename": "3 PBR推导",
-      "path": "图形学/3 全局光照GI/PBR实战/3 PBR推导.md"
-    },
-    {
-      "basename": "2 蒙特卡洛估计与重要性采样",
-      "path": "Math/概率论/蒙特卡洛积分/2 蒙特卡洛估计与重要性采样.md"
     }
   ],
   "omittedPaths": [],
