@@ -11,13 +11,8 @@
             "id": "52fef927ea035256",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -39,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +80,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -228,15 +224,19 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "52fef927ea035256",
+  "active": "eb42ba7f3c5c2351",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/04 路径追踪.md",
+    "zip/images/Pasted image 20230714152944.png",
+    "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/09 阴影.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "zip/images/Pasted image 20230714151259.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
-    "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
-    "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "zip/images/Pasted image 20230714145946.png",
     "zip/images/Pasted image 20230714143656.png",
@@ -245,14 +245,11 @@
     "zip/images/Pasted image 20230714142349.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md",
     "zip/images/Pasted image 20230714135944.png",
-    "图形学/1 图形系统/04 纹理.md",
     "三线性插值.md",
     "zip/images/Pasted image 20230714135052.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "zip/images/Pasted image 20230714130125.png",
-    "zip/images/Pasted image 20230714130115.png",
-    "zip/images/Pasted image 20230714125722.png",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
@@ -264,8 +261,6 @@
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
-    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
