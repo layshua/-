@@ -47,14 +47,6 @@
             }
           },
           {
-            "id": "6b82df9200b556cb",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
-            }
-          },
-          {
             "id": "bbeddc0e5eca1c83",
             "type": "leaf",
             "state": {
@@ -120,7 +112,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -264,10 +256,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "6b82df9200b556cb",
+  "active": "d0fe0c136e0c7fc2",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/我的光追.md",
+    "zBuffer/蒙特 · 卡罗（Monte Carlo）法求定积分.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "引擎Unity3D/2 Shader精粹/我的光追.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
@@ -302,7 +295,6 @@
     "blog/2019/harmonics.md",
     "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md",
     "Math/概率论/概率论与数理统计.md",
-    "图形学/3 全局光照GI/光追实战/资源.md",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
     "blog/2019",
