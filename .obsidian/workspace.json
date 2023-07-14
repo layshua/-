@@ -34,7 +34,7 @@
             }
           },
           {
-            "id": "9abaefd5dd48ecf2",
+            "id": "53ed2649a0d33d7a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -86,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "图形学/3 全局光照GI/02 PBR理论.md"
               }
             }
           }
@@ -179,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,17 +229,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "4d33aeb49030efda",
+  "active": "eb42ba7f3c5c2351",
   "lastOpenFiles": [
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md",
+    "图形学/1 图形系统/09 阴影.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
-    "zip/images/Pasted image 20230714130125.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "zip/images/Pasted image 20230714130115.png",
-    "zip/images/Pasted image 20230714125722.png",
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "zip/images/Pasted image 20230714130125.png",
+    "zip/images/Pasted image 20230714130115.png",
+    "zip/images/Pasted image 20230714125722.png",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
     "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
@@ -254,7 +255,6 @@
     "zip/images/1680600825987.png",
     "zip/images/1680600826852.png",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
-    "图形学/1 图形系统/09 阴影.md",
     "zip/images/Pasted image 20230714114227.png",
     "zip/images/Pasted image 20230714114113.png",
     "zip/images/Pasted image 20230714113316.png",
