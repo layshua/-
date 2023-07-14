@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
@@ -35,10 +43,6 @@
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
