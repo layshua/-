@@ -5,6 +5,10 @@
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
     {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
       "basename": "8 全局光照2",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     }
   ],
   "omittedPaths": [],
