@@ -8,64 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "040f62b28bbf5d7b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ad74a2b3f1ad39f1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d0fe0c136e0c7fc2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bbeddc0e5eca1c83",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Git/git入门.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a675f02e94f45e1c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
+                "file": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -155,12 +102,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+                "file": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -206,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
+                "file": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -223,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
+                "file": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -256,45 +202,45 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "d0fe0c136e0c7fc2",
+  "active": "a675f02e94f45e1c",
   "lastOpenFiles": [
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
+    "Tools/Git/git入门.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md",
+    "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md",
+    "zip/images/1680600825987.png",
+    "zip/images/1680600826852.png",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "zip/images/Pasted image 20230714114227.png",
+    "zip/images/Pasted image 20230714114113.png",
     "zip/images/Pasted image 20230714113316.png",
     "zip/images/Pasted image 20230714113243.png",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "zip/images/Pasted image 20230714112418.png",
     "zip/images/Pasted image 20230714111756.png",
     "zip/images/Pasted image 20230714111554.png",
     "zip/images/Pasted image 20230714111349.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
-    "zip/images/Pasted image 20230714104506.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
     "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/ta101后处理.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
-    "Tools/Git/git入门.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "zBuffer/蒙特 · 卡罗（Monte Carlo）法求定积分.md",
-    "引擎Unity3D/2 Shader精粹/我的光追.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
-    "zip/images/ee34438f02850e1706b9b3557b7b4843_MD5.png",
-    "zip/images/63fe21175539241682296b0e7129a882_MD5.png",
-    "zip/images/5072d04454cf7795bbac12858352ad8d_MD5.png",
-    "zip/images/9bf4351d701cae0a2df0f871148d7f4b_MD5.png",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 03.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md",
-    "图形学/3 全局光照GI/03 光追理论.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
     "blog/2019",

@@ -1,8 +1,72 @@
 {
   "recentFiles": [
     {
+      "basename": "GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md"
+    },
+    {
+      "basename": "GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md"
+    },
+    {
+      "basename": "04-Rendering on Game Engine - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md"
+    },
+    {
+      "basename": "光线追踪 - 引擎",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 04",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md"
+    },
+    {
+      "basename": "07-Render Pipeline_ Post-process and Everything - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md"
+    },
+    {
+      "basename": "06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md"
+    },
+    {
+      "basename": "GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md"
+    },
+    {
+      "basename": "GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md"
+    },
+    {
+      "basename": "GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog",
+      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md"
+    },
+    {
+      "basename": "1680600825987",
+      "path": "zip/images/1680600825987.png"
+    },
+    {
+      "basename": "1680600826852",
+      "path": "zip/images/1680600826852.png"
+    },
+    {
       "basename": "5 环境光照1",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
+    },
+    {
+      "basename": "4 实时阴影2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+    },
+    {
+      "basename": "Unity 游戏性能分析最终指南 01",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
     },
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
@@ -27,10 +91,6 @@
     {
       "basename": "10 PBR1",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md"
-    },
-    {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     },
     {
       "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
@@ -61,20 +121,8 @@
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
     {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 01",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 04",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md"
     },
     {
       "basename": "Unity 游戏性能分析最终指南 03",
@@ -87,10 +135,6 @@
     {
       "basename": "03 光追理论",
       "path": "图形学/3 全局光照GI/03 光追理论.md"
-    },
-    {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
     },
     {
       "basename": "02 PBR理论",
@@ -155,50 +199,6 @@
     {
       "basename": "3  低差异采样序列",
       "path": "Math/概率论/蒙特卡洛积分/3  低差异采样序列.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（上）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/语法.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "Ray Tracing in One Weekend V3_0 中文翻译（下）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing in One Weekend V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "在野",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/在野.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
-    },
-    {
-      "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
-      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
     }
   ],
   "omittedPaths": [],
