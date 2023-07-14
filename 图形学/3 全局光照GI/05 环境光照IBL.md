@@ -23,12 +23,12 @@ $$
 $$
 ![[02 PBR理论#^ptjnu8]]
 
-由于  $f_r$  项作为 $g(x)$ 正好满足这个条件, 即 small support 或 Smooth integrand, 从而我们将渲染方程的 $L_i$ 项作为 $f(x)$ ，方程可拆分为： ^x7aaaa
+由于  $f_r$  项作为 $g(x)$ 正好满足这个条件, 即 small support 或 Smooth integrand, 从而我们将渲染方程的 $L_i$ 项作为 $f(x)$ ，方程可拆分为两部分： ^x7aaaa
 $$
 L_o(p,\omega_o)\approx\boxed{\frac{\int_{\Omega_{f_{r}}}L_i(p,\omega_i)\mathrm{~d}\omega_i}{\int_{\Omega_{f_r}}\mathrm{~d}\omega_i}}\cdot\int_{\Omega^+}f_r(p,\omega_i,\omega_o)\cos\theta_i\mathrm{~d}\omega_i
 $$
 
-## 拆分第一步：预滤波
+## 第一部分：预滤波
 
 **把 $L_i$ 项拆分出来, 然后将 brdf 范围内的 $L_i$ 积分起来并进行 normalize, 其实就是将 IBL 这张图给模糊了（即使用卷积核模糊图像）**
 
@@ -42,45 +42,50 @@ $$
 - ? 拆分就是为了做一个 Pre-filtering, 那么做 pre-filtering 是为了干什么?
 ![[Pasted image 20230714135944.png]]
 左图为 brdf 求 shading point 值时, 我们要以一定立体角的范围内进行多次采样再加权平均从而求出 shading point 的值.
-反过来想，如右图，对环境光照做 pre-filtering，这样图上任何一点都是周围范围内的加权平均值，**只需要采样一次**就能得到和多次采样加权平均相同的结果，不需要多次采样！
 
-## 拆分第二步：
+反过来思考，如右图，对环境光照做 pre-filtering。这样图上任何一点都是周围范围内的加权平均值，**只需要查询一次 IBL图** 就能得到和多次采样加权平均相同的结果，不需要多次采样！
+
+## 第二部分：预计算
 
 到此我们解决了拆分后的前半部分积分采样的问题, 那么接下来我们处理 BRDF 项采样的问题：
+$$
+L_o(p,\omega_o)\approx\frac{\int_{\Omega_{fr}}L_i(p,\omega_i)\mathrm{d}\omega_i}{\int_{\Omega_{fr}}\mathrm{d}\omega_i}\cdot\boxed{\int_{\Omega^+}f_r(p,\omega_i,\omega_o)\cos\theta_i\mathrm{d}\omega_i}
+$$
+**如何避免采样？**
+- % 接下来讲的方法并不是最优方法, 主要是为了学习方法背后的思想.
 
-![[4ee2a40a998a23168e390cb2d3392972_MD5.jpg]]
+**仍然可以用预计算来解决后半部分积分采样的问题**, 但是预计算的话我们需要将参数的所有可能性均考虑进去, 但是比较多，包括 roughness、color 等。考虑所有参数的话我们需要打印出一张五维或者更高的表格, 这样会拥有爆炸的存储量, 因此**我们需要想办法降低维度, 也就是减少参数量从而实现预计算。**
 
-接下来讲的方法并不是最优方法, 现如今已经有更简单方便的方法了, 但是本课我们主要是为了学习方法背后的思想.
+---
 
-![[d732c617cf59e831f8be11c2172cd720_MD5.jpg]]
+在 BRDF 中，考虑的是 DFG 项，由于此时暂时不考虑阴影，此处需要关注的是 F 项和 D 项。
+![[Pasted image 20230714142406.png]] 
 
-我们仍然可以用预计算来解决后半部分积分采样的问题, 但是预计算的话我们需要将参数的所有可能性均考虑进去, 但是比较多，包括 roughness、color 等。考虑所有参数的话我们需要打印出一张五维或者更高的表格, 这样会拥有爆炸的存储量, 因此我们需要想办法降低维度, 也就是减少参数量从而实现预计算.
 
-![[f7a880cd20315186e67f6394fb1969d8_MD5.jpg]]
+- F 项可以近似成一个和基础反射率 $R_0$ 、观察角度 $\theta$ 相关的**指数函数**
+- 法线发布函数（NDF）是一个一维的分布，其中有两个变量：
+    1. 粗糙度 $\alpha$，定义材质是 diffuse 还是 gloosy
+    2.  half vector 和法线中间的夹角，可以**近似成和观察角度 $\theta$ 相关的数**
 
-在 microfacet brdf 中中，考虑的是菲涅尔项、阴影项以及法线项，由于此时暂时不考虑阴影，此处需要关注的是 Fresnel term 和 distribution of normals。
+---
 
-![[f0f6a8efd002a3f75c2d1188055ba7ea_MD5.jpg]]
-
-Frenel term 可以近似成一个基础反射率 R0 和入射角度的指数函数
-
-法线发布函数（NDF）是一个一维的分布，其中有两个变量，一个变量定义是 diffuse 还是 gloosy，另一个是 half vector 和法线中间的夹角，可以近似成入射角度相关的数，这样就变成了 3 维的预计算。
-
-(PS: 在这里我们认为反射角, 入射角, half vector 可以用一个角 $\theta$ 代替).
-
-至此我们有了三个变量: 基础反射率 r0, roughness $\alpha$ 和角度 $\theta$ , 三维的预计算仍然是一个存储量爆炸的结果, 因此我们还要想办法减少参数量.
+至此我们有了三个变量: 基础反射率 $R_0$, 粗糙度 $\alpha$ 和观察角度 $\theta$ , 三维的预计算仍然是一个存储量爆炸的结果, 因此我们还要想办法减少参数量.
 
 所以我们通过将 Schlick 近似带入后半部分的积分中：
 
-![[92bac7e0c09ae9868a36833f06712d65_MD5.jpg]]
+$$
+\begin{aligned}
+\begin{aligned}\int_{\Omega^+}f_r(p,\omega_i,\omega_o)\cos\theta_i\mathrm{d}\omega_i\end{aligned}& \begin{aligned}\approx&R_0\int_{\Omega^+}\frac{f_r}{F}\left(1-(1-\cos\theta_i)^5\right)\cos\theta_i\mathrm{d}\omega_i+\end{aligned}  \\
+&\int_{\Omega^+}\frac{f_r}F(1-\cos\theta_i)^5\cos\theta_i\mathrm{d}\omega_i
+\end{aligned}
+$$
 
-基础反射 R0 被拆出积分式，需要预计算的两个量就只有 roughness $\alpha$ 和角度 $\theta$，可以将预计算结果绘制成一张纹理，在使用时进行查询即可。
+**基础反射率 $R_0$ 被拆出积分式，需要预计算的两个量就只有粗糙度粗糙度 $\alpha$ 和角度 $\theta$，可以将预计算结果绘制成一张 2D 纹理（横轴为 $\cos\theta_v$，纵轴为粗糙度），在使用时进行查询即可。不需要采样！**
+![[Pasted image 20230714143534.png|400]]
 
-![[89ab8044817bd3598a88a9bb973411aa_MD5.jpg]]
-
+通过预滤波和预计算，完全避免了采样
 我们可以看到, 最后产生的结果是十分满意的:
-
-![[af284f0e4f1c61b13a675710ddbff129_MD5.jpg]]
+![[Pasted image 20230714143656.png]]
 
 问题:
 
