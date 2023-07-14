@@ -1,8 +1,15 @@
 
-环境光照就是在场景中任意一点往四周看去可看到的光照（距离视为无限远）, 将其记录在一张图上存储。也叫做 **IBL (image-based lighing)**。
-通常我们用 Spherical Map 和 Cube Map 来存储环境光照.
-
+---
+title: 05 环境光照IBL
+aliases: []
+tags: []
+create_time: 2023-07-14 14:58
+uid: 202307141458
+banner: "![[Pasted image 20230714145946.png]]"
+---
 # 环境光照原理
+环境光照就是在场景中任意一点往四周看去可看到的光照（距离视为无限远）, 将其记录在一张图上存储。也叫做 **IBL (image-based lighing)**。
+通常我们用 Spherical Map 和 Cube Map 来存储环境光照。
 
 如果已知环境光照, 此时放置一个物体在场景中间, 在**不考虑阴影**时我们该如何去得到任何一物体上着色点的 shading 值呢?
 - @ **首先要先来看渲染方程**
@@ -10,6 +17,7 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 通用的解法是使用**蒙特卡洛积分**去解, 但是蒙特卡洛需要大量的样本才能让得出的结果足够接近, 如果我们对每个 shading point 都做一遍蒙特卡洛积分，那样的话太慢了。
 
 - @ **如何避免采样?**
+**通过预滤波和预计算，完全避免采样！**
 
 **brdf 分为两种情况:**
 1.  brdf 为 glossy 时, lobe 覆盖在球面上的范围很小
@@ -23,10 +31,22 @@ $$
 $$
 ![[02 PBR理论#^ptjnu8]]
 
-由于  $f_r$  项作为 $g(x)$ 正好满足这个条件, 即 small support 或 Smooth integrand, 从而我们将渲染方程的 $L_i$ 项作为 $f(x)$ ，方程可拆分为两部分： ^x7aaaa
+由于  $f_r$  项作为 $g(x)$ 正好满足这个条件, 即 small support 或 Smooth integrand, 从而我们将渲染方程的 $L_i$ 项作为 $f(x)$ ，方程可拆分为两部分，这种方法称为 `Split Intergral` ： ^x7aaaa
 $$
 L_o(p,\omega_o)\approx\boxed{\frac{\int_{\Omega_{f_{r}}}L_i(p,\omega_i)\mathrm{~d}\omega_i}{\int_{\Omega_{f_r}}\mathrm{~d}\omega_i}}\cdot\int_{\Omega^+}f_r(p,\omega_i,\omega_o)\cos\theta_i\mathrm{~d}\omega_i
 $$
+
+> [!NOTE] 实时渲染：Split Sum
+> 
+> 在实时渲染中，为了追求速度通常不会求积分，而是转换成求和，上述拆分方法用**求和式**描述如下：
+> $$
+> \boxed{\frac1N\sum_{k=1}^N\frac{L_i(\mathbf{l}_k)f(\mathbf{l}_k,\mathbf{v})\cos\theta_{\mathbf{l}_k}}{p(\mathbf{l}_k,\mathbf{v})}\approx\left(\frac1N\sum_{k=1}^NL_i(\mathbf{l}_k)\right)\left(\frac1N\sum_{k=1}^N\frac{f(\mathbf{l}_k,\mathbf{v})\cos\theta_{\mathbf{l}_k}}{p(\mathbf{l}_k,\mathbf{v})}\right)}
+> $$
+> 这种方法称为 `Split Sum`，且结果和直接采用差异不大：
+![[Pasted image 20230714143656.png]]
+>
+
+**下文为了讲述了 `Split Intergral` 方法的原理与推导，`Split Sum` 方法的原理与之类似**
 
 ## 第一部分：预滤波
 
@@ -83,48 +103,14 @@ $$
 **基础反射率 $R_0$ 被拆出积分式，需要预计算的两个量就只有粗糙度粗糙度 $\alpha$ 和角度 $\theta$，可以将预计算结果绘制成一张 2D 纹理（横轴为 $\cos\theta_v$，纵轴为粗糙度），在使用时进行查询即可。不需要采样！**
 ![[Pasted image 20230714143534.png|400]]
 
-通过预滤波和预计算，完全避免了采样
-我们可以看到, 最后产生的结果是十分满意的:
-![[Pasted image 20230714143656.png]]
-
-问题:
-
-1. renel 需要预计算吗
-
-frenel 项被拆开了，避免了对变量的依赖性
-
-2 这张预计算是固定的吗？
-
-是固定的。
-
-3 Microfacet 在 ggx 中会多参数吗
-
-不会
-
-4. 深度学习在实时渲染中有什么应用吗
-
-深度学习在实时渲染中并不成功，太慢了。
-
-
-
-# 球谐函数
+# 环境光照阴影
 主要内容：**在环境光照下利用 sh 计算出 diffuse 物体的 shading 和 shadow**
 
-本文是闫令琪教授所教授的 Games-202: Real-Time High Quality Rendrting 学习笔记的第六讲 Real-Time Environment Mapping 02，本人属于新手上路暂无驾照，有错误欢迎各位大佬指正.
+我们在上节课讲述了如何不采样去计算不考虑 shadow 时的 shading 值, 那么如果考虑阴影，如何去得到物体在环境光照射下生成的阴影呢?
 
-[GAMES202 - 高质量实时渲染_哔哩哔哩 (゜ - ゜) つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1YK4y1T7yY?p=6&spm_id_from=pageDriver)
-
-本课目录:
-
-![[878750a16af4e9eb91731533aab573f1_MD5.jpg]]
-
-我们在上节课讲述了如何不采样去计算不考虑 shadow 时的 shading 值, 那么在有了环境光照情况下如何去得到物体被环境光照射下生成的阴影呢?
-
-严格意义上来讲, 这是不可能完成的事, 因为以目前的技术来说是很难实现的, 要从两个考虑角度来说:
-
-1. many light 问题: 我们把环境光理解为很多个小的光源, 这种情况下去生成阴影的话, 需要在每个小光源下生成 shadow map, 因此会生成线性于光源数量的 shadow map, 这是十分高昂的代价.
-
-2. sampling 问题: 在任何一个 Shading point 上已知来自正半球方向的光照去接 rendering equation, 最简单的方法是采样空间中各方向上的不同光照, 可以做重要性采样, 虽然做了重要性采样但仍需要大量的样本, 因为最困难的是 visibility term. 由于 Shading point 不同方向上的遮挡是不相同的, 我们可以对环境光照进行重要性采样, 但一个 SP 周围的 visibility 项是未知的, 因此我们只能盲目的去采样 (我个人对盲目采样的理解是, 为了确保准确性需要对 sp 各个方向的遮挡进行采样, 因此仍然会生成大量的样本). 我们也无法提取出 visibility 项, 因为如果是 glossy brdf, 他是一个高频的, 且 Lighting 项的积分域是整个半球, 因此并不满足 smooth 或 small support, 因此无法提取出 visibility 项.
+环境光照阴影对实时渲染来说是很困难的, 可以从两个角度考虑:
+1. **Many Light 问题**：我们把环境光理解为很多个小的光源, 这种情况下去生成阴影的话, 需要在每个小光源下生成 shadow map, 因此会生成线性于光源数量的 shadow map, 这是十分高昂的代价。
+2. **Sampling 问题**：在任何一个 shading point 上已知来自正半球方向的光照去解渲染方程, 最简单的方法是采样空间中各方向上的不同光照, 可以做重要性采样, 虽然做了重要性采样但仍需要大量的样本, 因为最困难的是可见性测试项 $V_i (p,\omega _i)$ 。由于 Shading point 不同方向上的遮挡是不相同的, 我们可以对环境光照进行重要性采样, 但一个 Shading point 周围的遮挡情况是未知的，因此我们只能盲目的去采样 (我个人对盲目采样的理解是, 为了确保准确性需要对 sp 各个方向的遮挡进行采样, 因此仍然会生成大量的样本)。我们也无法提取出  $V_i (p,\omega _i)$  项, 因为如果是 glossy brdf, 他是一个高频的, 且 $L_i$ 项的积分域是整个半球, 因此并不满足 smooth 或 small support, 因此无法提取出   $V_i (p,\omega _i)$  项.
 
 在工业界中, 我们通常以环境光中最亮的那个作为主要光源, 也就是太阳, 只生成太阳为光源的 shadow.
 

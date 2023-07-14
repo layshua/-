@@ -118322,6 +118322,7 @@ implements
 iconTemplate
 iconTransform
 ihy
+ivisibility
 shift
 svg
 sf
