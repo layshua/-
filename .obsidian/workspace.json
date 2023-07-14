@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -155,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
               }
             }
           }
@@ -206,7 +206,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -223,7 +223,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -258,6 +258,18 @@
   },
   "active": "d0fe0c136e0c7fc2",
   "lastOpenFiles": [
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md",
+    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "Tools/Git/git入门.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/蒙特 · 卡罗（Monte Carlo）法求定积分.md",
@@ -277,24 +289,12 @@
     "zip/images/fb496f69c0bb061abeb6b2958783c521_MD5.png",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 03.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
-    "Math/概率论/蒙特卡洛积分/1 概率分布变换与随机采样.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
-    "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
-    "blog/2019/harmonics.md",
-    "图形学/4 书籍/GAMES系列/101现代计算机图形学入门/GAMES101.md",
-    "Math/概率论/概率论与数理统计.md",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
     "blog/2019",
