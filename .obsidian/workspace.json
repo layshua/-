@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0f4b9d894f6b8ad2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/参数化曲线.md",
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md"
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md"
               }
             }
           }
@@ -153,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/09 阴影.md",
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,8 +189,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "4d33aeb49030efda",
   "lastOpenFiles": [
+    "图形学/1 图形系统/09 阴影.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
@@ -223,7 +210,6 @@
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md",
     "图形学/1 图形系统/02 光栅化.md",
     "zip/images/Pasted image 20230714160043.png",
-    "图形学/1 图形系统/09 阴影.md",
     "编程/设计模式/工厂模式.md",
     "编程/编程.md",
     "图形学/1 图形系统/1 图形系统.md",
