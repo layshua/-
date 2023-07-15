@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
       "basename": "8 实时GI2",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 实时GI2.md"
     },
     {
-      "basename": "01 辐射度量学",
-      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+      "basename": "9 全局光照3",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
     },
     {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+      "basename": "01 辐射度量学",
+      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
       "basename": "4 实时阴影2",
@@ -47,10 +51,6 @@
     {
       "basename": "6 环境光照2",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
     },
     {
       "basename": "11 PBR2",
