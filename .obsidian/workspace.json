@@ -8,38 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4d33aeb49030efda",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b1555ce9626d033f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "4c4eac4da4ebb8ff",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md"
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
               }
             }
           }
@@ -152,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,10 +176,20 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "4d33aeb49030efda",
+  "active": "4c4eac4da4ebb8ff",
   "lastOpenFiles": [
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/2 CG基础概述.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md",
+    "图形学/3 全局光照GI/06 全局光照GI.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 实时GI3.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 实时GI2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md",
+    "zip/images/Pasted image 20230715190723.png",
     "zip/images/Pasted image 20230715184511.png",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "zip/images/Pasted image 20230715183952.png",
@@ -213,9 +197,6 @@
     "zip/images/Pasted image 20230715183339.png",
     "zip/images/Pasted image 20230715183123.png",
     "zip/images/Pasted image 20230715182911.png",
-    "图形学/3 全局光照GI/06 全局光照GI.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
     "zip/images/Pasted image 20230715173053.png",
@@ -224,17 +205,11 @@
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
     "zip/images/Pasted image 20230715162802.png",
-    "zip/images/Pasted image 20230715162643.png",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
     "图形学/1 图形系统/02 光栅化.md",
     "编程/设计模式/工厂模式.md",
     "编程/编程.md",

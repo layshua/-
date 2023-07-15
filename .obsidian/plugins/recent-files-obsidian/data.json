@@ -1,40 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+      "basename": "12 实时光追1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
     },
     {
-      "basename": "8 实时GI2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 实时GI2.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "01 辐射度量学",
-      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
-    },
-    {
-      "basename": "4 实时阴影2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
+      "basename": "13 实时光追2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md"
     },
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
+      "basename": "01 辐射度量学",
+      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+    },
+    {
       "basename": "04 路径追踪",
       "path": "图形学/3 全局光照GI/04 路径追踪.md"
-    },
-    {
-      "basename": "7 实时GI1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md"
-    },
-    {
-      "basename": "5 环境光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
     {
       "basename": "03 光追理论",
@@ -47,22 +35,6 @@
     {
       "basename": "05 环境光照IBL",
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
-    },
-    {
-      "basename": "6 环境光照2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md"
-    },
-    {
-      "basename": "11 PBR2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
-    },
-    {
-      "basename": "10 PBR1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
       "basename": "09 阴影",
@@ -81,10 +53,6 @@
       "path": "图形学/0 3D数学/常用噪声算法.md"
     },
     {
-      "basename": "13 实时光追2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md"
-    },
-    {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
@@ -95,10 +63,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "3 实时阴影1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md"
     },
     {
       "basename": "GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog",
