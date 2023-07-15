@@ -716,7 +716,7 @@ float G_Smith(float3 N, float3 V, float3 L, float Roughness)
 ![[Pasted image 20221029161549.png]]
 ![[Pasted image 20221101213507.png]]
 n代表介质的折射率，1为空气的折射率
-**v·h或v·n都可以，有两种形式，这里我才用毛星云白皮书里提到的v·h的方法。**
+
 **非金属的FO数值较小，金属FO的数值较大，出于简化计算的原因，通过金属度在一个预设的FO和自身颜色之间经行插值。**
 
 ```c
@@ -732,7 +732,7 @@ float3 F_FresnelSchlick(float VH, float3 F0)
 
 ![[Pasted image 20221101214427.png]]
 
-**真实材质F0数值表参考：**![[技术美术/PBR/PBR白皮书/bonus/PBR-Material-F0-Quick-Reference-Chart.png]]
+
 #### 代码
 ![[TA101_PBR_36.jpg]]
 ### 间接光（环境光）

@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md"
+                "file": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
               }
             }
           }
@@ -174,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
+                "file": "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -224,12 +224,12 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "482758195a08ed64",
+  "active": "1c223445ea5f01f0",
   "lastOpenFiles": [
-    "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "图形学/3 全局光照GI/01 辐射度量学.md",
     "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
+    "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/3 全局光照GI/PBR实战/3 PBR推导.md",
     "图形学/3 全局光照GI/PBR实战/PBR相关/02 漫反射项除以π.md",
