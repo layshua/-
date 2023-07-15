@@ -580,43 +580,33 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
     - lmportanto 以逐像素模式渲染，效果逼真，消耗大。仅将该模式用于最显著的视觉效果（例如，玩家汽车的前灯）。
     - Not lmportant：以逐顶点/对象模式渲染，便宜
 5. **Culling Mask**：剔除遮罩，可以选择性地排除对象组不受灯光影响
-
-**Shadow Type** **阴影类型**：
-Baked Shadow Angle/Radius：为光的软阴影边缘添加软化
-Strength 阴影暗度 0~1 之间，越大越黑
-Resolution 阴影贴图渲染分辨率
-Bias 阴影偏移，包括 depth bias 和 normal bias 
-Normal Bias 阴影投射面沿法线收缩距离
-Near Panel 渲染阴影的近裁剪面
-Custom Shadow Layers: [[2 URP#自定义 Shadow Layers]]
-
-**阴影图集设置**：URP Asset->Shadows
-![[Pasted image 20230630213031.png|450]]
-- 聚光灯渲染 1 张阴影贴图。
-- 点光源渲染 6 张阴影贴图（立方体贴图中的面数）
-- “平行光”为每个级联渲染 1 张阴影贴图，URP Asset->Shadows->Cascade Count 可以设置级联数量
-- URP 使用一个用于所有实时灯光的阴影图集（shadow atlas）来渲染实时阴影，可以指定阴影图集的分辨率。并且要根据项目决定
-    - 例如：如果场景有四个聚光灯和一个点光源；并且您希望每个阴影贴图的分辨率至少为256x256。场景需要渲染十个阴影贴图（每个聚光灯一个，点光源六个），每个贴图的分辨率为256x256。使用大小为512x512的阴影图集是不够的，因为它只能包含四个大小为256x256的贴图。因此，您应该使用大小为1024x1024的阴影图集，其中最多可以包含16个大小为256x256的贴图。
-      
+6. **Shadow Type** **阴影类型**：
+    - Baked Shadow Angle/Radius：为光的软阴影边缘添加软化
+    - Strength 阴影暗度 0~1 之间，越大越黑
+    - Resolution 阴影贴图渲染分辨率
+    - Bias 阴影偏移，包括 depth bias 和 normal bias 
+    - Normal Bias 阴影投射面沿法线收缩距离
+    - Near Panel 渲染阴影的近裁剪面
+    - Custom Shadow Layers: [[2 URP#自定义 Shadow Layers]]
+7. **阴影图集设置**：URP Asset->Shadows![[Pasted image 20230630213031.png|450]]
+    - 聚光灯渲染 1 张阴影贴图。
+    - 点光源渲染 6 张阴影贴图（立方体贴图中的面数）
+    - “平行光”为每个级联渲染 1 张阴影贴图，URP Asset->Shadows->Cascade Count 可以设置级联数量
+    - URP 使用一个用于所有实时灯光的阴影图集（shadow atlas）来渲染实时阴影，可以指定阴影图集的分辨率。并且要根据项目决定
+        - 例如：如果场景有四个聚光灯和一个点光源；并且您希望每个阴影贴图的分辨率至少为256x256。场景需要渲染十个阴影贴图（每个聚光灯一个，点光源六个），每个贴图的分辨率为256x256。使用大小为512x512的阴影图集是不够的，因为它只能包含四个大小为256x256的贴图。因此，您应该使用大小为1024x1024的阴影图集，其中最多可以包含16个大小为256x256的贴图。
+          
 ### Lighting 面板
 Windows-Rendering-Lighting
 
-
-![[Pasted image 20230605123417.png]]
-
-![[Pasted image 20230605123701.png]]
-
 ![[Pasted image 20230701161135.png|450]]
-实时 GI：[使用Enlighten-Unity的实时全球照明手册](https://docs.unity3d.com/cn/2022.3/Manual/realtime-gi-using-enlighten.html)
 
-**混合灯光设置：**
-Mixed Lighting ->**Lighting Mode**
-[光照模式 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/lighting-mode.html) ^gmojg3
-1. Baked Indirect：将实时直接照明与烘焙间接照明相结合。此模式提供具有实时阴影贴图的实时阴影。适用于中端硬件。
-2. Shadowmask：将实时直接照明与烘焙间接照明相结合。它支持远距离游戏对象的烘焙阴影（带阴影遮罩），并将其与实时阴影（阴影贴图）自动混合。此照明模式适用于高端或中端硬件。
-3. Subtractive：提供烘焙的直射和间接光照，**仅针对一个方向光渲染直接实时阴影**。适合于风格化的艺术效果或低端硬件。
-
-**光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
+1. **Realtime Lighting 实时 GI**：[使用Enlighten-Unity的实时全球照明手册](https://docs.unity3d.com/cn/2022.3/Manual/realtime-gi-using-enlighten.html)
+2. **Mixed Lighting 混合光照设置：**
+- Baked Global illumination：开始烘焙全局光照
+- **Lighting Mode**：设置场景中的所有混合灯光的[光照模式 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/lighting-mode.html) ^gmojg3
+     - <mark style="background: #FFB8EBA6;">Baked Indirect 烘焙间接光</mark>：Mixed Lights 提供提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。实时 shadow maps 提供实时阴影。适用于中端硬件。
+     - <mark style="background: #FFB8EBA6;">Shadowmask 阴影mask</mark>：Mixed Lights 提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。它支持远距离游戏对象的烘焙阴影（带阴影遮罩），并将其与实时阴影（shadowmap）自动混合。此照明模式适用于高端或中端硬件。
+     - <mark style="background: #FFB8EBA6;">Subtractive 减法</mark>：Mixed Lights 为静态对象提供烘焙的直接和间接照明，动态对象只接收定向光实时照明并投射阴影。适合于风格化的艺术效果或低端硬件。** Lightmapping Settings光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
 Progressive Lightmapper：渐进光照贴图程序是一种基于路径追踪的光照贴图系统
 
 ### 全局光照系统
