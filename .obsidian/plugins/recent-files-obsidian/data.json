@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
+      "basename": "05 环境光照IBL",
+      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
+    },
+    {
       "basename": "12 实时光追1",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
     },
     {
       "basename": "01 辐射度量学",
@@ -31,10 +35,6 @@
     {
       "basename": "14 工业界主流方法",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md"
-    },
-    {
-      "basename": "05 环境光照IBL",
-      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
       "basename": "09 阴影",
