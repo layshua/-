@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "FabDelicious",
+      "IbGraphicsAndDesign",
       "TiSchool",
       "TiFile",
-      "FabAmazonPay",
-      "SiUnity",
-      "TiBrandUnity"
+      "FabAmazonPay"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -29,7 +29,7 @@
   "Math": "SiMatrix",
   "zBuffer": "SiBuffer",
   "zip": "SiAmp",
-  "图形学": "SiTaichigraphics",
+  "图形学": "FabDelicious",
   "README.md": "LiGamepad2",
   "引擎Unity3D": "SiUnity",
   "zip/引擎Unreal": "SiUnrealengine",

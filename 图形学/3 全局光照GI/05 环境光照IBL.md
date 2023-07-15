@@ -7,8 +7,6 @@ create_time: 2023-07-14 14:58
 uid: 202307141458
 banner: "![[Pasted image 20230714145946.png]]"
 ---
-
-
 # 环境光照原理
 环境光照就是在场景中任意一点往四周看去可看到的光照（距离视为无限远）, 将其记录在一张图上存储。也叫做 **IBL (image-based lighing)**。
 通常我们用 Spherical Map 和 Cube Map 来存储环境光照。
