@@ -221,16 +221,16 @@ m
 Trowbridge-Reitz GGX 的 NDF 实现代码：
 
 ```c
-float DistributionGGX(vec3 N, vec3 H, float a) {
-    float a2     = a*a;
-    float NdotH  = max(dot(N, H), 0.0);
-    float NdotH2 = NdotH*NdotH;
-	
-    float nom    = a2;
-    float denom  = (NdotH2 * (a2 - 1.0) + 1.0);
-    denom        = PI * denom * denom;
-	
-    return nom / denom;
+//D法线分布函数：GGX/TR
+float D_GGXTR(float3 N, float3 H, float Roughness)
+{
+    float a2 = Roughness * Roughness;
+    float a4 = a2 * a2; //这里是参考的ue4，原公式使用a的二次方进行计算
+    float NdotH2 = pow(max(0,dot(N, H)), 2);
+
+    float nominator = a2; //分子
+    float denominator = PI * pow(NdotH2 * (a2 - 1) + 1, 2); //分母
+    return nominator / max(0.00001, denominator); //防止分母为0
 }
 ```
 
@@ -275,24 +275,32 @@ $$
 
 金属表面这些和电介质表面相比所独有的特性引出了所谓的金属工作流的概念。也就是我们需要额外使用一个被称为金属度 (Metalness) 的参数来参与编写表面材质。金属度用来描述一个材质表面是金属还是非金属的。
 
-通过预先计算物体的基础反射率的值，我们可以对两种类型的表面使用相同的Fresnel-Schlick近似，但是如果是金属表面的话就需要对基础反射率添加色彩。我们一般是按下面这个样子来实现的：
+**通过预先计算物体的基础反射率的值，我们可以对两种类型的表面使用相同的Fresnel-Schlick近似，但是如果是金属表面的话就需要对基础反射率添加色彩。我们一般是按下面这个样子来实现的：**
 
 ```c
-vec3 F0 = vec3(0.04);
-F0      = mix(F0, surfaceColor.rgb, metalness);
+//Fresnel F0：插值区分非金属和金属不同的F0值，非金属的FO数值较小，金属FO的数值较大
+float F0 = lerp(0.04,BaseColor,Metallic); 
 ```
 
-我们为大多数电介质表面定义了一个近似的基础反射率。$F_0$ 取最常见的电解质表面的平均值，这又是一个近似值。不过对于大多数电介质表面而言使用 0.04 作为基础反射率已经足够好了，而且可以在不需要输入额外表面参数的情况下得到物理可信的结果。**然后，基于金属表面特性，我们要么使用电介质的基础反射率要么就使用 $F_0$ 作来为表面颜色。因为金属表面会吸收所有折射光线而没有漫反射，所以我们可以直接使用表面颜色纹理来作为它们的基础反射率。**
+我们为大多数电介质表面定义了一个近似的基础反射率。$F_0$ 取最常见的电解质表面的平均值，这又是一个近似值。不过**对于大多数电介质表面而言使用 0.04 作为基础反射率已经足够好了**，而且可以在不需要输入额外表面参数的情况下得到物理可信的结果。**然后，基于金属表面特性，我们要么使用电介质的基础反射率要么就使用 $F_0$ 作来为表面颜色。因为金属表面会吸收所有折射光线而没有漫反射，所以我们可以直接使用表面颜色纹理来作为它们的基础反射率。**
 
-Fresnel Schlick 近似可以用 GLSL 代码实现：
+Fresnel Schlick 近似可以用 HLSL 代码实现：
 
 ```c
-vec3 fresnelSchlick(float cosTheta, vec3 F0) {
-    return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
+//F菲涅尔方程：Schlick近似
+//直接光部分 NV或VH均可
+float3 F_FresnelSchlick(float VdotH, float3 F0)
+{
+    return F0 + (1.0 - F0) * pow(1.0f - VdotH, 5.0);
+}
+
+//间接光部分 只能使用NV并引入粗糙度
+float3 F_SchlickRoughness(float NdotV,float3 F0,float Roughness)
+{
+    float smoothness = 1.0 - Roughness;
+    return F0 + (max(smoothness.xxx, F0) - F0) * pow(1.0 - NdotV, 5.0);
 }
 ```
-
-其中 `cosTheta` 是表面法向量 $n$ 与观察方向 $v$ 的点乘的结果。
 
 ####  G：Schlick-GGX+ Smith G2
 
@@ -361,20 +369,24 @@ $$G_2(n, v, l, k) = G_{1}(n, v, k) G_{1}(n, l, k)$$
 使用 GLSL 编写的几何函数代码如下：
 
 ```cs
-float GeometrySchlickGGX(float NdotV, float k) {
-    float nom   = NdotV;
-    float denom = NdotV * (1.0 - k) + k;
-	
-    return nom / denom;
+//G几何遮蔽函数:Schlick-GGX + SmithG2
+float G_SchlickGGX(float NdotV, float Roughness)
+{
+    float k_direct = pow(Roughness + 1, 2) / 8;
+    float noninator = NdotV;
+    float denominator = NdotV * (1 - k_direct) + k_direct;
+    return noninator / max(0.00001, denominator);
 }
-  
-float GeometrySmith(vec3 N, vec3 V, vec3 L, float k) {
-    float NdotV = max(dot(N, V), 0.0);
-    float NdotL = max(dot(N, L), 0.0);
-    float ggx1 = GeometrySchlickGGX(NdotV, k); // 视线方向的几何遮挡
-    float ggx2 = GeometrySchlickGGX(NdotL, k); // 光线方向的几何阴影
-	
-    return ggx1 * ggx2;
+
+float G_SmithG2(float3 N,float3 V,float3 L,float Roughness)
+{
+    float NdotV = max(0,dot(N, V));
+    float NdotL = max(0,dot(N, L));
+
+    float G1 = G_SchlickGGX(NdotV, Roughness); //观察方向的几何遮挡
+    float G2 = G_SchlickGGX(NdotL, Roughness); //光源方向的几何阴影
+
+    return G1*G2;
 }
 ```
 
@@ -387,11 +399,27 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\om
 上面的方程并非完全数学意义上的正确。前面提到菲涅尔项 $F$ 代表光在表面的反射比率，它直接影响 $k_s$ 因子，意味着反射方程的镜面反射部分已经隐含了因子 $k_s$。因此，最终的 Cook-Torrance 反射方程如下（去掉了 $k_s$）：
 
 $$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + \frac{D(n, h, \alpha)F(h, \omega_o, F_0)G(n, \omega_o, \omega_i, k)}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$
-- ? G 项是法线参数是 n 还是 h？闫老师说是 h？
 
 - 对于分母中的点积，仅仅避免负值是不够的，也必须避免零值。通常通过在常规的 clamp 或绝对值操作之后添加非常小的正值来完成。
 
 这个方程完整地定义了一个基于物理的渲染模型，也就是我们一般所说的基于物理的渲染（PBR）。
+```cs
+/* 直接光 */
+//Cook-Torrance BRDF
+//漫反射部分
+float3 Ks = F_FresnelSchlick(VdotH, F0); //菲涅尔项描述了光被反射的比例
+float3 Kd = (1 - Ks) * (1 - Metallic);   
+//float3 Diffuse = Kd * BaseColor / PI;
+float3 Diffuse = Kd * BaseColor; //unity内置的PBR没有除以 PI, 颜色亮一些
+
+//高光反射部分
+float D = D_GGXTR(N, H, Roughness);
+float3 F = Ks;
+float G = G_SmithG2(N, V, L, Roughness);
+float3 Specular = D * F * G / max(0.0001, 4 * NdotV * NdotL);
+
+float3 DirectLightColor = (Diffuse + Specular) * mainLight.color * NdotL;
+```
 #### 能量补偿项
 
 通过包含 G2 函数，Microfacet BRDF 能够考虑遮蔽 (masking) 和阴影 (shadowing)，但依然没有考虑微平面之间的互反射 (interreflection)，或多表面反射 (multiple surface bounce)。而缺少微平面互反射 (interreflection) 是业界主流 Microfacet BRDF 的共有的限制。如图，虽然在小球上没有出现任何掠射角的问题，但随着粗糙度的变大，渲染的结果越来越暗。即使认为最左边是抛光，最右边的是哑光，这个结果也是错误的。如果对小球材质进行白炉测试 ( $F(i,h)\equiv 1$ ， $uniform irrdiance = 1$ 的天光，检测材质反射能量是否未 1)，这种现象更为明显。
@@ -710,6 +738,6 @@ $$
 #  3 PBR 实现
 ![[Pasted image 20221101211713.png]]
 ![[Pasted image 20221102144938.png]]
-## 直接光
+
 
 

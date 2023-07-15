@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "ta101PBR",
-      "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
+      "basename": "05 环境光照IBL",
+      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "ta101PBR",
+      "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "基于物理的渲染算法研究【U3D】",
@@ -17,20 +25,12 @@
       "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "3 PBR推导",
       "path": "图形学/3 全局光照GI/PBR实战/3 PBR推导.md"
     },
     {
       "basename": "02 漫反射项除以π",
       "path": "图形学/3 全局光照GI/PBR实战/PBR相关/02 漫反射项除以π.md"
-    },
-    {
-      "basename": "05 环境光照IBL",
-      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
       "basename": "Metallic 与 Specular 流程",
