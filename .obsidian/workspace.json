@@ -6,28 +6,14 @@
       {
         "id": "351374a3fae99687",
         "type": "tabs",
-        "dimension": 49.11937377690802,
         "children": [
-          {
-            "id": "482758195a08ed64",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/02 PBR理论.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
           {
             "id": "773fb8c8a10b89ca",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -35,56 +21,20 @@
             }
           },
           {
-            "id": "f3a03ac55821459b",
+            "id": "d36f7bc1e0682952",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "d18f4db5a801cc7d",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "7f889ea8cfc4a2be",
-        "type": "tabs",
-        "dimension": 50.88062622309198,
-        "children": [
-          {
-            "id": "1c223445ea5f01f0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c8f81e49d923242b",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -127,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md"
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
               }
             }
           }
@@ -178,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -228,8 +178,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "773fb8c8a10b89ca",
+  "active": "d36f7bc1e0682952",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
@@ -239,7 +190,6 @@
     "图形学/3 全局光照GI/PBR实战/PBR相关/02 漫反射项除以π.md",
     "为什么 BRDF 的漫反射项要除以π？.md",
     "[为什么 BRDF 的漫反射项要除以π？.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
     "图形学/3 全局光照GI/06 全局光照GI.md",
     "图形学/3 全局光照GI/04 路径追踪.md",

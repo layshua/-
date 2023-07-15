@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "05 环境光照IBL",
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "ta101PBR",
       "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "基于物理的渲染算法研究【U3D】",
