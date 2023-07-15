@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,12 +102,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md"
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -153,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,9 +205,12 @@
   "active": "4d33aeb49030efda",
   "lastOpenFiles": [
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
+    "图形学/3 全局光照GI/06 全局光照GI.md",
+    "zip/images/Pasted image 20230715162230.png",
+    "zip/images/Pasted image 20230715161900.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "zip/images/Pasted image 20230715154419.png",
     "图形学/3 全局光照GI/03 光追理论.md",
     "zip/images/Pasted image 20230715153601.png",
@@ -223,8 +225,6 @@
     "zip/images/Pasted image 20230715145942.png",
     "zip/images/Pasted image 20230715145545.png",
     "zip/images/Pasted image 20230715144921.png",
-    "zip/images/Pasted image 20230715144432.png",
-    "zip/images/Pasted image 20230715144315.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/1 图形系统/09 阴影.md",
@@ -239,7 +239,6 @@
     "编程/编程.md",
     "图形学/1 图形系统/1 图形系统.md",
     "引擎Unity3D/引擎Unity3D.md",
-    "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
