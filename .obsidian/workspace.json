@@ -21,6 +21,32 @@
             }
           },
           {
+            "id": "08448ddc48d466bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/01 辐射度量学.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f5c6805965277ac6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/05 环境光照IBL.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "7ab971efd2e0a3ca",
             "type": "leaf",
             "state": {
@@ -191,16 +217,25 @@
   },
   "active": "4d33aeb49030efda",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230715144921.png",
+    "zip/images/Pasted image 20230715144432.png",
+    "zip/images/Pasted image 20230715144315.png",
+    "zip/images/Pasted image 20230715143935.png",
+    "zip/images/Pasted image 20230715143714.png",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
+    "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/3 全局光照GI/03 光追理论.md",
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "zip/images/Pasted image 20230715143417.png",
+    "zip/images/Pasted image 20230715143342.png",
+    "zip/images/Pasted image 20230715142919.png",
+    "zip/images/Pasted image 20230715142830.png",
     "zip/images/Pasted image 20230715142318.png",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
-    "图形学/3 全局光照GI/04 路径追踪.md",
-    "图形学/3 全局光照GI/03 光追理论.md",
-    "图形学/3 全局光照GI/01 辐射度量学.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
@@ -215,18 +250,9 @@
     "编程/编程.md",
     "图形学/1 图形系统/1 图形系统.md",
     "引擎Unity3D/引擎Unity3D.md",
-    "zip/images/Pasted image 20230714152944.png",
     "图形学/1 图形系统/04 纹理.md",
-    "zip/images/Pasted image 20230714151259.png",
-    "zip/images/Pasted image 20230714145946.png",
-    "zip/images/Pasted image 20230714143656.png",
-    "zip/images/Pasted image 20230714143534.png",
-    "zip/images/Pasted image 20230714142406.png",
-    "zip/images/Pasted image 20230714142349.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/3 实时阴影1.md",
-    "zip/images/Pasted image 20230714135944.png",
     "三线性插值.md",
-    "zip/images/Pasted image 20230714135052.png",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",

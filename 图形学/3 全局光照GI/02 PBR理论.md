@@ -80,8 +80,8 @@ $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i
 - $L_i(p,\omega_i)$ ：入射光辐射率
 - $L_o(p,\omega_o)=\int\limits_{\Omega} ... d\omega_i$：对所有光源方向的半球积分，即从各个方向 $\omega_i$ 射入半球 $\Omega$ 并打中点 $p$ 的入射光，经过反射函数 $f_r$ 进入观察者眼睛的所有反射光 $L_o$ 的辐射率之和。因为计算了所有光源方向的单位立体角，所以**总辐射率=辐照度，即我们最终得到了 $p$ 点的辐照度。**
 
->在涉及遮挡/阴影计算的方程中，还要添加**可见性测试项**，方程如下：
-> $$L_o(p,\omega_o) = \int\limits_{\Omega} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot V_i(p,\omega _i)\omega_i d\omega_i$$ $V_i (p,\omega _i)$：如果点 $P$ 可以被看见就返回1，否则返回0（也就是光线不被遮挡才能有贡献）。
+>在涉及遮挡阴影计算的方程中，还要添加**可见性测试项**，方程如下：
+> $$L_o(p,\omega_o) = \int\limits_{\Omega} V_i(p,\omega _i)f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$ $V_i (p,\omega _i)$：如果点 $P$ 可以被看见就返回1，否则返回0（也就是光线不被遮挡才能有贡献）。
 
 **反射方程计算了点 $p$ 在所有视线方向 $\omega_0$ 上被反射出来的辐射率 $L_o(p,\omega_o)$ 的总和。换言之：$L_0$ 计算的是在 $\omega_o$ 方向的眼睛观察到的 $p$ 点的辐照度。**
 
