@@ -5,6 +5,14 @@
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
+      "basename": "基于物理的渲染算法研究【U3D】",
+      "path": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md"
+    },
+    {
+      "basename": "01 辐射度量学",
+      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+    },
+    {
       "basename": "ta101PBR",
       "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
     },
@@ -25,16 +33,8 @@
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
-      "basename": "01 辐射度量学",
-      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
-    },
-    {
       "basename": "Metallic 与 Specular 流程",
       "path": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
-    },
-    {
-      "basename": "基于物理的渲染算法研究【U3D】",
-      "path": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md"
     },
     {
       "basename": "06 全局光照GI",

@@ -294,7 +294,7 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 
 其中 `cosTheta` 是表面法向量 $n$ 与观察方向 $v$ 的点乘的结果。
 
-####  G：Schlick-GGX
+####  G：Schlick-GGX+ Smith G2
 
 几何函数从统计学上近似的求得了微表面间相互遮蔽（自遮挡现象）的比率，这种相互遮蔽会损耗光线的能量。(除了被吸收，还有被遮蔽带来的能量损耗）
 
