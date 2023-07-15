@@ -7,7 +7,7 @@ create_time: 2023-07-14 14:58
 uid: 202307141458
 banner: "![[Pasted image 20230714145946.png]]"
 ---
-# 环境光照原理
+# 1 环境光照原理
 环境光照就是在场景中任意一点往四周看去可看到的光照（距离视为无限远）, 将其记录在一张图上存储。也叫做 **IBL (image-based lighing)**。
 通常我们用 Spherical Map 和 Cube Map 来存储环境光照。
 
@@ -103,7 +103,7 @@ $$
 **基础反射率 $R_0$ 被拆出积分式，需要预计算的两个量就只有粗糙度粗糙度 $\alpha$ 和角度 $\theta$，可以将预计算结果绘制成一张 2D 纹理（横轴为 $\cos\theta_v$，纵轴为粗糙度），在使用时进行查询即可。不需要采样！**
 ![[Pasted image 20230714143534.png|400]]
 
-# 环境光照阴影
+# 2 环境光照阴影
 主要内容：**在环境光照下利用 sh 计算出 diffuse 物体的 shading 和 shadow**
 
 我们在上节课讲述了如何不采样去计算不考虑 shadow 时的 shading 值, 那么如果考虑阴影，如何去得到物体在环境光照射下生成的阴影呢?
@@ -207,14 +207,14 @@ $$
 由于基函数的阶可以是无限个的，越高的阶可恢复的细节就越好, 但一方面是因为更多的系数会带来更大的存储压力、计算压力，而一般描述变化比较平滑的环境漫反射部分，用 3 阶 SH 的低频信息就足够了；另一方面则是因为 SH 的物理含义不是特别好理解，高阶 SH 容易出现各种花式 Artifact，美术同学一般都会认为这种表现属于 bug。
 
 
-## 不考虑阴影：环境光照下 diffuse 物体物体的着色
+# 3 不考虑阴影：环境光照下 diffuse 物体物体的着色
 $f (\omega)$ 可以是任何一个函数, 我们说过基函数可以重建任何一个球面函数, 那么我们这里的 $f (\omega)$ 就是环境光照, 由于环境光是来自于四面八方且都有值, 所以环境光照就是一个球面函数,, 我们可以把它投影到任何一个 SH 基函数基函数上, 可以投影很多阶, 但是只需要取前三阶的 SH 去恢复环境光就可以恢复出最低频的细节了, 这个在下文 RAVI 教授的结论有提到.
 
 **Ravi 教授等人在 01 年左右做过一些实验发现，diffuse BRDF 类似于一个低通滤波器，使用一些低频信息就可以恢复出原始内容。** 回忆一下，在本文之前的内容中曾说过：“**积分之后的频率取决于积分前最低的频率**”，当 diffuse BRDF 使用低频信息即可恢复内容时，也就意味着无论光照项是多么复杂，其本应该用多高频的基函数去表示，但我们希望得到的是其与 BRDF 之积的积分，所以可以使用比较低频的基函数去描述灯光。下面的实验结果意味着，遇到 diffuse 的物体时使用前 3 阶的球谐基函数就可以基本重建出正确率 99% 的结果。
 
 ![[Pasted image 20230715142919.png]]
 
-## 考虑阴影：PRT 预计算辐射率转移 
+# 4 考虑阴影：PRT 预计算辐射率转移 
 Precomputed Radiance Transfer
 
 在实时渲染中, 我们把渲染方程写成由三部分组成的积分:
@@ -225,11 +225,11 @@ Precomputed Radiance Transfer
 因此我们利用基函数的基本原理把一些东西先预计算出来, 从而节省开销.
 ![[Pasted image 20230715143935.png|750]]
 **PRT 的基本思想:**
-我们把 rendering equation 分为两部分, lighting 和 light transport
+我们把渲染方程分为两部分, lighting 和light transport
 1. **假设在渲染时场景中只有 lighting 项会发生变化 (旋转, 更换光照等), 由于 lighting 是一个球面函数, 因此可以用基函数来表示, 在预计算阶段计算出 lighting**：$L(\mathbf{i})\approx\sum l_{i}B_{i}(\mathbf{i})$
 2. 而 light transport (visibility 和 brdf) 是不变的, 因此相当于对任一 shading point 来说, light transport 项固定的, 可以认为是 shading point 自己的性质, light transport 总体来说还是一个球面函数, 因此也可以写成基函数形式, 是可以预计算出的。**（计算 light transport 时，考虑可见项 $V(i)$ 就能计算阴影了）**
 3. 我们分为两种情况, diffuse 和 glossy:
-#### diffuse
+## 预计算diffuse
 由于在 diffuse 情况下, brdf 几乎是一个常数, 因此我们把 brdf 提到外面。
 由于 lighting 项可以写成基函数的形式, 因此我们求和式把其代入积分中, 对于任何一个积分来说, 在 $B_i$ 的限制下, $l_i$ 此对积分来说是常数, 可以提出来
 ![[Pasted image 20230715144432.png]]
@@ -247,16 +247,139 @@ Precomputed Radiance Transfer
 我们将 lighting 这个球面函数, 通过 SH 的基函数用一堆系数 $l_i$ 来表示, 这些系数排成一行也就是组成了向量, 因此光照变成了一个向量。
 如果要重建原函数则只需要把这些系数乘以对应的基函数再加在一起即可。
 
-**预计算 Lighting transport部分：
+**预计算 Lighting transport 部分 ：
 ![[1b95c21b053249c9221814cb0190b315_MD5.jpg]]
 
 我们可以把 $Bi$ 理解为 lighting, 也就是说每个基函数所描述的环境光去照亮这个物体从而得到照亮之后的结果, 我个人理解预计算就是把每个基函数照亮得到的结果生成.
 
 ![[c97c488484872a02fea1e3365b32d170_MD5.jpg]]
 
-最后我们在计算 shading 和 shadow 时只需要进行向量 li 和 ti 的点乘即可得到结果.
+**最后我们在计算 shading 和 shadow 时只需要进行向量 $l_i$ 和 $t_i$ 的点乘即可得到结果.
 
-到此我们知道了如何再已知环境光的情况下, 通过使用 PRT 来计算出 diffuse 物体的 shading 和 Shadow 了.
+到此我们知道了如何再已知环境光的情况下, 通过使用 PRT 来计算出 diffuse 物体的 shading 和 Shadow 了.**
+### 另一种方法预计算 Light transport 
+首先我们从另外一个角度重新来看，怎么对 Light transport 做预计算:
+和上一节推导不同，我们这里直接把渲染方程中的 lighting 和 light transport，都用 sh 基函数表示
+![[Pasted image 20230715153512.png]]
+然后把两个都展开成求和，然后把求和符号拆出去，然后就变成了一个双重求和的结果, 每个求和要乘三样东西:
+1. 对应的两个系数
+2. 积分值 (**积分与实际场景无关, 是两个基函数的 product integral**)
+这样就会发现这样推导的结果与上一节课的结果不太一样  ：
+![[Pasted image 20230715153601.png]]
 
-### golssy
-下节课我们讲关于 glossy 和全局光照.
+如果基函数的个数为 $n$ 的话, 做一个向量点乘的复杂度应该是 $O (n)$, 为什么在这里是双重求和变成了 $O ( n^{2})$ 了呢?
+实际上，因为 SH 具有正交性, 也就是当 p=q 时候, $B_p(w_i)B_q(w_i)$ 才不为 0，也就是这个二维矩阵上只有对角线上有值, 因此只需要计算对角线上的值就行了, 所以算法复杂度仍然是 $O (n)$。
+
+## 预计算 golssy（没理解）
+
+Diffuse 和 glossy 的区别在于, diffuse 的 brdf 是一个常数, 而 glossy 的 brdf 是一个 4 维的 brdf (2 维的输入方向（前面提到过一个方向用两个角度表示）, 2 维的输出方向).
+
+如果仍然按照上面的办法投影到 sh 上会出现一些问题, 因为 light transport 包含 visibility 和 brdf, brdf 又是一个 4 维的函数 (关于 i 和 o 的函数), 给一个 O 就会有一个不同的 brdf, 给定一个任意的观察方向 O, light transport 都会投影出一组完全不同的向量, 且向量中的每一个元素都是一个 o 的函数.
+
+或者直观一点来说, glossy 物体有一个很重要的性质, 它是和视点有关的. diffuse 的物体不管视角如何旋转改变, 你看到的 Shading point 的 result 是不会改变的, 因为整个 Diffuse shading 和视角是无关的.
+
+但是 glossy 不是这样的, glossy 是和视角有关的, 不同的视角得到的 shading result 也是不一样的, 因此 O 不一样, L (O) 也不一样. 所以即使 light transport 即使投影到了 i 方向上的基函数, 所得到的仍然是一个关于 O 的函数而不是系数.
+
+![[Pasted image 20230715154419.png]]
+
+我们将 4D 的函数投影在 2D 上之后, 虽然得到的是一个关于 O 的函数, 但是现在这个函数也只是关于 O 了, 因此我们在 O 的方向上将其投影到 SH 基函数上.
+
+![[c1749010897ff2a894f8cd37080803f6_MD5.jpg]]
+
+![[7c0a3f056325931521d0ab844a808a52_MD5.jpg]]
+
+因此, light transport 上就不再认为得到的是向量了, 而是一个矩阵, 也就是对于任意一个 O 都会得到一串向量, 最后把所有不同 O 得到的向量摆在一起, 自然而然就形成了一个矩阵.
+
+或者这样理解, 我们最后得到的是不同方向上的 radiance, 自然而然是一个向量, 我们将 lighting 投影到 SH 上得到的是一个向量, 只有向量 * 矩阵得到的结果才是向量, 因此这里只能是矩阵.
+
+可想而知, 这样的话将会产生巨大的存储.
+
+![[7ca5cc47908a71915da9ea5a87be01ac_MD5.jpg]]
+
+**正常情况下人们会用多少阶的基函数呢？**
+基函数个数：9 个（三阶）16（四阶）25 个（五阶）
+
+**我们以四阶为例:**
+Diffuse 物体：每个点需要两个长度为 16 的向量点乘；(diffuse 情况下一般三阶就足够了)
+Glossy 物体：每个点需要 16 阶向量与 `16*16` 矩阵乘。(一般需要高阶一点)
+
+![[c4e184988c86b6dbbb4594ebee4398c3_MD5.jpg]]
+
+这里看出来 PRT Glossy 比 Diffuse 效率要差很多, 而当 Glossy 非常高频的时候, 也就是**接近镜面反射的情况的时候, PRT 就没有那么好用**，我们虽然可以采用更高阶的 SH 来描述高频信息, 但是使用 SH 甚至远不如直接采样方便。
+
+图二中脚下关于阴影的遮挡充分考虑了 visibility（也就是考虑了阴影）效果就非常好；
+
+图三考虑了多次光线 Bounce 的结果。
+
+**那么怎样考虑把多次 bounce 当作 Light transport 的一部分呢？**
+我们可以用一系列的表达式来描述不同光线传播的路径都是一种什么类。
+**区分材质区分为三种：**
+1.  Diffuse
+2.  Specular 镜面反射
+3.  Glossy 介于两者之间
+
+![[aacc4f6b9dfda6d4d9f5b7d812ccb1b4_MD5.jpg]]
+
+1.  LE：Light 直接到眼镜；
+2.  LGE：light 打到 Glossy 物体然后到眼镜。
+3.  LGGE：多 bounce 一次, 就是 light 先打到壶嘴, 在 bounce 到壶身, 最后到 eye。(L->glossy->glossy->eye)
+4.  L（D|G）E：Light 从光源出发, 打到一个物体, 可能是 diffuse 也可能是 glossy,* 表示 bounce 次数, 最后到达 EYE.
+5.  LS（D|G）*E：打到 Specular 面上，然后聚焦到 Diffuse 物体上, 最后被眼睛看到。也就是 caustics.
+
+![[cae43d8f03ed39c3f40b51e73b3f7693_MD5.jpg]]
+
+从上面可以看出所有路径开始都是 L 最后都是 E，因此我们在运用 PRT 时候，拆分为 light 和 light transport 之后, 不管中间 boucne 几次, 我们只需要预计算算出 Light transport 就行，不论多么复杂的 bounce, 我们只需要计算出 light transport 就能得出最后的 shading result。
+
+所以说，只要采用了 PRT 的思路，把 light 和 light transport, 不管 light transport 有多复杂, bounce 了多少次, 只要进行了预计算, 渲染时实际跑的时候是很简单的, 因为实际跑的时间是与 transport 的复杂度无关的.
+
+**overall, 这一页只是为了告诉我们, 可以把任意复杂的 light transport 给预计算出来, 只是 light transport 越复杂在预计算时花费的时间多而实际跑时候是很快的.**
+
+**那么怎么算呢?**
+
+![[5211396630d7ea7e196fd9d216f205c7_MD5.jpg]]
+
+理解方式 1：把 light transport 和 sh 基函数做了一个 **Product Integral**
+
+理解方式 2：把 light transport 的预计算看作是一个在一些奇怪 lighting 下做的渲染过程.
+
+如果我们把基函数看为 lighting 项, 那么这就是 rendering equation, 我们把 light transport 投影到 basis 上, 相当于用 basis 这个 Lighting 照亮物体, 每个 basis 得到一个渲染图, 最后我们进行重建从而得出最后的 shaing 值.
+
+下图是不同 BRDF 的渲染结果:
+
+*   各项异性的 BRDF
+*   普通的 BRDF
+*   不同位置 BRDF 不同的物体（BRDF 维度增加）。
+
+![[ebb722974b587f7c459174f45de8b3a1_MD5.jpg]]
+
+Sloan 在 02 年提出的这个方法（即 PRT），使用球谐函数估计光照和光线传输，将光照变成光照系数，将光线传输变成系数或者矩阵的形式，通过预计算和存储光线传输将渲染问题变为每个 vertex/shading point：点乘（diffuse 表面）、向量矩阵乘法（glossy 表面）。
+
+![[684d05b78a8d2801f3c550ea4351161a_MD5.jpg]]
+
+  
+但该方法也有其缺点：
+
+*   由于球谐函数的性质，该方法比较适合使用于低频的情况（可用于高频但不合适, 如图即使使用了 26*26 阶的 sh 仍然得不到比较好的效果）
+*   当改变场景或者材质时需要重新预计算 light transport，此外预计算的数据比较大。
+
+![[6daa4a332c22711406a2585283f39ee6_MD5.jpg]]
+
+**更多的基函数**
+
+此外，基函数除了可以使用球谐函数外，还有很多选择，比如 Wavelet、Zonal Harmonics、Spherical Gaussian、Piecewise Constant 等。
+
+![[5908515c0f9c57b31cf0f0f7ff421b2f_MD5.jpg]]
+
+这里以 Haar 小波为例，小波变换的过程就是投影过程，相比于球谐函数对低频内容友好（球谐函数使用少量的基去表示），小波变换可以全频率表示，但是只有很少的系数是非零的.
+
+![[0fb7468b6f90d043368609c6ee75db51_MD5.jpg]]
+
+由于小波是平面上的函数，为了防止变换后在球面上出现缝隙，所以采用了 Cubemap 来作为环境光而不是 sphereical map。
+
+从图中可以看到, 小波变化是把每张图的高频信息留在这张图的左下, 右上和右下三部分, 而把剩余的低频信息放在左上角, 左上角的信息可以继续进行小波变换, 我们会发现高频的东西很少, 对于绝大部分来说是 0, 不断地进行小波变换可以得到一个很不错的既保留了低频又保留了高频的压缩.
+
+![[5ab2cd5bcdc667c438b2bc3a616d5d74_MD5.jpg]]
+
+但是小波也有自己的缺陷：不支持旋转（使用球谐函数进行表示时，由于球谐函数具有 **simple rotation** 的性质，所以支持光源的旋转）。
+
+![[61c6d37378f1b355c791886163dd4c16_MD5.jpg]]

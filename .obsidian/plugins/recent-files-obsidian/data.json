@@ -5,20 +5,48 @@
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     },
     {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+      "basename": "6 环境光照2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md"
+    },
+    {
+      "basename": "7 全局光照1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
     },
     {
       "basename": "01 辐射度量学",
       "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
-      "basename": "04 路径追踪",
-      "path": "图形学/3 全局光照GI/04 路径追踪.md"
-    },
-    {
       "basename": "03 光追理论",
       "path": "图形学/3 全局光照GI/03 光追理论.md"
+    },
+    {
+      "basename": "9 全局光照3",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
+    },
+    {
+      "basename": "11 PBR2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md"
+    },
+    {
+      "basename": "12 实时光追1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
+    },
+    {
+      "basename": "10 PBR1",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md"
+    },
+    {
+      "basename": "8 全局光照2",
+      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md"
+    },
+    {
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "04 路径追踪",
+      "path": "图形学/3 全局光照GI/04 路径追踪.md"
     },
     {
       "basename": "09 阴影",
@@ -37,14 +65,6 @@
       "path": "图形学/0 3D数学/常用噪声算法.md"
     },
     {
-      "basename": "7 全局光照1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
-    },
-    {
-      "basename": "6 环境光照2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md"
-    },
-    {
       "basename": "5 环境光照1",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md"
     },
@@ -55,18 +75,6 @@
     {
       "basename": "13 实时光追2",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
-    },
-    {
-      "basename": "9 全局光照3",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md"
-    },
-    {
-      "basename": "8 全局光照2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/8 全局光照2.md"
     },
     {
       "basename": "02 光栅化",
@@ -147,14 +155,6 @@
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "11 PBR2",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md"
-    },
-    {
-      "basename": "10 PBR1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/10 PBR1.md"
     },
     {
       "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
