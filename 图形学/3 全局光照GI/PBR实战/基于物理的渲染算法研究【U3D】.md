@@ -1,5 +1,5 @@
 [Physically Based Rendering Algorithms In Unity - Jordan Stevens (jordanstevenstechart.com)](https://www.jordanstevenstechart.com/physically-based-rendering)
-在过去的几年中，基于物理的渲染 (PBR) 变得非常流行。Unity 5、Unreal Engine 4、Frostbite，甚至 ThreeJS，以及更多的游戏引擎都在使用它。随着 Marmoset Toolbag 和 Allegorithmic 的 Substance Suite 等流行工具的推出，许多 3D 建模工作室正在转向 “PBR Pipeline”。今天，很难找到不熟悉管道的艺术家，但仍然很难找到熟悉管道在幕后工作的工程师和技术艺术家。本教程旨在分解 PBR 着色的实现机制，并使潜在的 PBR 初学者尽可能容易理解。让我们开始吧。
+
 
 ## 1、是什么让 PBR 物理化？
 
