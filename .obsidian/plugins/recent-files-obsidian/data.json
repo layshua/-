@@ -9,16 +9,16 @@
       "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
       "basename": "4 实时阴影2",
       "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md"
     },
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
     },
     {
       "basename": "04 路径追踪",
