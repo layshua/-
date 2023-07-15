@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,12 +34,12 @@
             }
           },
           {
-            "id": "7ab971efd2e0a3ca",
+            "id": "b1555ce9626d033f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/03 光追理论.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +47,7 @@
             }
           },
           {
-            "id": "8a1f3e501950d949",
+            "id": "4c4eac4da4ebb8ff",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md"
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md"
               }
             }
           }
@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
+                "file": "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,15 +204,20 @@
   },
   "active": "4d33aeb49030efda",
   "lastOpenFiles": [
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
+    "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
+    "图形学/3 全局光照GI/03 光追理论.md",
+    "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
+    "zip/images/Pasted image 20230715162802.png",
+    "zip/images/Pasted image 20230715162643.png",
     "图形学/3 全局光照GI/06 全局光照GI.md",
     "zip/images/Pasted image 20230715162230.png",
     "zip/images/Pasted image 20230715161900.png",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 全局光照1.md",
-    "图形学/3 全局光照GI/01 辐射度量学.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "zip/images/Pasted image 20230715154419.png",
-    "图形学/3 全局光照GI/03 光追理论.md",
     "zip/images/Pasted image 20230715153601.png",
     "zip/images/Pasted image 20230715153512.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/9 全局光照3.md",
@@ -223,16 +228,12 @@
     "zip/images/Pasted image 20230715150258.png",
     "zip/images/Pasted image 20230715145947.png",
     "zip/images/Pasted image 20230715145942.png",
-    "zip/images/Pasted image 20230715145545.png",
-    "zip/images/Pasted image 20230715144921.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "图形学/3 全局光照GI/04 路径追踪.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/0 3D数学/常用噪声算法.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/14 工业界主流方法.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
     "图形学/1 图形系统/02 光栅化.md",
     "编程/设计模式/工厂模式.md",
