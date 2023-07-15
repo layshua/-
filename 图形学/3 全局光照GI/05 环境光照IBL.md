@@ -9,7 +9,11 @@ banner: "![[Pasted image 20230714145946.png]]"
 ---
 # 1 环境光照原理
 环境光照就是在场景中任意一点往四周看去可看到的光照（距离视为无限远）, 将其记录在一张图上存储。也叫做 **IBL (image-based lighing)**。
-通常我们用 Spherical Map 和 Cube Map 来存储环境光照，将 cubemap 的每个像素当成一个光源。
+通常我们用 Cube Map 和 Spherical Map 来存储环境光照，将贴图的每个像素当成一个光源。
+
+
+![|400](1679148477478.png) ![|300](1679148477522.png)
+>Cube Map（左）p 和 Spherical Map（右），它们是可以通过算法转换的
 
 ---
 
@@ -60,6 +64,7 @@ $$
 - 预生成一组滤波核不同的环境光照滤波器（类似 mipmap），当我们需要使用时直接查询即可
 - 其他滤波核尺寸的图可以通过 [[04 纹理#^s6etys|三线性插值]] 来近似。
 ![[Pasted image 20230714135052.png]]
+![](1679148477798.png)
 
 - ? 拆分就是为了做一个 Pre-filtering, 那么做 pre-filtering 是为了干什么?
 ![[Pasted image 20230714135944.png]]
