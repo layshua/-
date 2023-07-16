@@ -606,9 +606,10 @@ Windows-Rendering-Lighting
 - **Lighting Mode**：设置场景中的所有混合灯光的[光照模式 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/lighting-mode.html) ^gmojg3
      - <mark style="background: #FFB8EBA6;">Baked Indirect 烘焙间接光</mark>：Mixed Lights 提供提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。实时 shadow maps 提供实时阴影。适用于中端硬件。
      - <mark style="background: #FFB8EBA6;">Shadowmask 阴影mask</mark>：Mixed Lights 提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。它支持远距离游戏对象的烘焙阴影（带阴影遮罩），并将其与实时阴影（shadowmap）自动混合。此照明模式适用于高端或中端硬件。
-     - <mark style="background: #FFB8EBA6;">Subtractive 减法</mark>：Mixed Lights 为静态对象提供烘焙的直接和间接照明，动态对象只接收定向光实时照明并投射阴影。适合于风格化的艺术效果或低端硬件。** Lightmapping Settings光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
+     - <mark style="background: #FFB8EBA6;">Subtractive 减法</mark>：Mixed Lights 为静态对象提供烘焙的直接和间接照明，动态对象只接收定向光实时照明并投射阴影。适合于风格化的艺术效果或低端硬件。
+3.  **Lightmapping Settings 光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
 Progressive Lightmapper：渐进光照贴图程序是一种基于路径追踪的光照贴图系统
-
+[光照设置资源 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/class-LightingSettings.html)
 ### 全局光照系统
 全局光照是对直接和间接光照进行建模以提供逼真光照效果的一组技术。Unity 有两个全局光照系统，结合了直接光照和间接光照。
 1. **烘焙 GI 系统**：由 lightmaps，Light Probes 和 Reflection Probes 构成。使用 Progressive Lightmapper (CPU or GPU)烘焙，
