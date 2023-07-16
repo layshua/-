@@ -770,7 +770,7 @@ float4 frag(VertexOutput i): SV_Target
 `unity_SpecCube0` 定义在 UnityInput. hlsl，在 shader 中只需要声明采样器即可
 若没有设置反射探针，默认采样 SkyBox
 ```c file:采样skybbox
-//声明采样器采样Skybox
+//声明采样器采样反射探针
 SAMPLER(sampler_unity_SpecCube0);
 
 //片元着色器计算
