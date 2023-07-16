@@ -2,7 +2,7 @@
 
 官方 LITshader 和我的轮子近乎一样
 
-        作为一个 Bridge 重度用户，我在使用 hdrp 管线完全离不开它了，自带的上万个扫描级材质贴图，大大降低了 SP/SD 里绘制制作周期，当然它也可以当作 SD/SP 的素材进行二次编辑。随着我想在 URP 管线里充分使用 Bridge 的资源，URP 自带的 LIT 无法充分利用 Mask 图（它会额外多一次 AO 的采样的开销），这对于性能来说不太划算，我更希望的是像 hdrp 那样直接读取；还有个原因是我希望在后续能自由拓展 LITshader 的功能，目前 URP 不支持表面着色器虽然 Colin 神已经开源了一个 URP 的表面着色器（https://github.com/ColinLeung-NiloCat/UnityURP-SurfaceShaderSolution）有兴趣的可以去看看，但是表面着色器又和第一个原因冲突了。至此，打算自己造一个能直接使用 Bridge 的 PBR 的轮子，甚至后续支持 bridge 的基于 PBR 的 NPRshader 开发。
+作为一个 Bridge 重度用户，我在使用 hdrp 管线完全离不开它了，自带的上万个扫描级材质贴图，大大降低了 SP/SD 里绘制制作周期，当然它也可以当作 SD/SP 的素材进行二次编辑。随着我想在 URP 管线里充分使用 Bridge 的资源，URP 自带的 LIT 无法充分利用 Mask 图（它会额外多一次 AO 的采样的开销），这对于性能来说不太划算，我更希望的是像 hdrp 那样直接读取；还有个原因是我希望在后续能自由拓展 LITshader 的功能，目前 URP 不支持表面着色器虽然 Colin 神已经开源了一个 URP 的表面着色器（https://github.com/ColinLeung-NiloCat/UnityURP-SurfaceShaderSolution）有兴趣的可以去看看，但是表面着色器又和第一个原因冲突了。至此，打算自己造一个能直接使用 Bridge 的 PBR 的轮子，甚至后续支持 bridge 的基于 PBR 的 NPRshader 开发。
 
 ![[83ffb1d2b4c314d1772b423f16865340_MD5.webp]]
 

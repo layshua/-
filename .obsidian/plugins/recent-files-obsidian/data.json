@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
       "basename": "ta101PBR",
       "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
     },
@@ -179,14 +199,6 @@
     {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 03",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 03.md"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 02",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 02.md"
     }
   ],
   "omittedPaths": [],
