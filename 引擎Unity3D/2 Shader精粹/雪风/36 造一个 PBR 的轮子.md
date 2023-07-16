@@ -162,7 +162,7 @@ GIF
 
 ![[2d1d1e3cffdd90e3ed03bbc375620a41_MD5.webp]]
 
-        这张全景相机拍的图是 cube 类型，我们先计算反射射线的方向对 cube 进行采样。我们还需要根据不同的粗糙度进行采样不同的模糊度，粗糙度需要修改一下曲线去拟合，它并非线性；模糊度从 0-6 总共 7 个模糊等级，算法我是参考 URP 的源码 imageBasedLighting.hlsl 和 Lighting.hlsl 改改写写的。
+这张全景相机拍的图是 cube 类型，我们先计算反射射线的方向对 cube 进行采样。我们还需要根据不同的粗糙度进行采样不同的模糊度，粗糙度需要修改一下曲线去拟合，它并非线性；模糊度从 0-6 总共 7 个模糊等级，算法我是参考 URP 的源码 imageBasedLighting.hlsl 和 Lighting.hlsl 改改写写的。
 
 ![[da67c89115118c294d079d942ec7b29e_MD5.webp]]
 
