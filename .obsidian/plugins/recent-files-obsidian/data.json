@@ -5,6 +5,14 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -67,10 +75,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
     },
     {
       "basename": "4 后处理",
@@ -195,10 +199,6 @@
     {
       "basename": "04-Rendering on Game Engine - Bo's Blog",
       "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md"
-    },
-    {
-      "basename": "光线追踪 - 引擎",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
     }
   ],
   "omittedPaths": [],

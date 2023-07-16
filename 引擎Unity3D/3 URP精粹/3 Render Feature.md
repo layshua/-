@@ -346,7 +346,6 @@ static void RenderSingleCamera(...)
 ```
 这段代码在勾选这个设置后可以在FrameDebugger内显示不同的相机名。
 
-
 **手动创建过程：**
 1. 创建脚本，命名为 CustomRenderFeature. cs
 2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类

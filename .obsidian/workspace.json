@@ -21,38 +21,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "c5f23e05f7311764",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "bdb767a107862919",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ee9d13ff4adb18ff",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/PBR实战/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -99,8 +67,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -198,10 +165,12 @@
   },
   "active": "ca1c539b8242826f",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zip/images/Pasted image 20230716220203.png",
     "zip/images/Pasted image 20230716220142.png",
     "zip/images/Pasted image 20230716220055.png",
@@ -219,7 +188,6 @@
     "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "图形学/3 全局光照GI/PBR实战/PBR相关/03 利用 LTC 实现实时多边形面积光.md",
@@ -227,7 +195,6 @@
     "图形学/3 全局光照GI/PBR实战/PBR相关/ta101PBR.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
     "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
     "zip/images/Pasted image 20230716201254.png",
