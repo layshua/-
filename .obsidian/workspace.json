@@ -72,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+                "file": "图形学/3 全局光照GI/02 PBR理论.md"
               }
             }
           }
@@ -167,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,16 +216,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "bdb767a107862919",
+  "active": "3e5da88bd752108e",
   "lastOpenFiles": [
-    "图形学/3 全局光照GI/02 PBR理论.md",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
+    "图形学/3 全局光照GI/PBR实战/PBR相关/02 漫反射项除以π.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
     "zip/images/Pasted image 20230716201254.png",
     "zip/images/Pasted image 20230716201108.png",
     "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
-    "图形学/3 全局光照GI/01 辐射度量学.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
@@ -246,9 +247,7 @@
     "zip/images/Pasted image 20230716133244.png",
     "zip/images/Pasted image 20230716132938.png",
     "zip/images/Pasted image 20230716124926.png",
-    "zip/images/Pasted image 20230716124924.png",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
-    "图形学/3 全局光照GI/PBR实战/PBR相关/02 漫反射项除以π.md",
     "为什么 BRDF 的漫反射项要除以π？.md",
     "[为什么 BRDF 的漫反射项要除以π？.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
