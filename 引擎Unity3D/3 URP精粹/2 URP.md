@@ -565,12 +565,13 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 ### Light 组件
 ![[Pasted image 20230630210404.png|450]]
 
-1. **Mode**：光源模式（都是局部光照）
+1. **Mode**：光源模式
     - <mark style="background: #FFB8EBA6;">Realtime</mark>：实时光源。每帧计算一次，效果好，性能消耗大。只有直接光，光照不真实
     - <mark style="background: #FFB8EBA6;">Baked</mark>：烘焙光源到光照贴图或光照探针中，事先把光线经过多次反射（间接光）的效果计算在一张场景光照贴图（uv2）上，这张贴图作用于场景内的所有物体的表面。
         - 优点：光线模拟的效果真实，由于是在游戏开始前计算的，所以没有实时计算的开销
-        - 缺点：无法在运行时更改，不影响镜面反射光照，动态游戏对象不会接收来自烘焙光源的光线或阴影。
+        - 缺点：无法在运行时更改，**不影响镜面反射光照（如果想要镜面反射照明，则必须使用实时灯光）**，动态游戏对象不会接收来自烘焙光源的光线或阴影。
     - <mark style="background: #FFB8EBA6;">Mixed</mark>：混合光源，可在运行时更改混合光源的属性。这样做将**更新光源的实时光照，但不会更新烘焙光照**。有三种烘焙模式可选：[[2 URP#^gmojg3|混合灯光设置]]
+    - **实时和烘焙光源的区别**：实时有高光反射，无间接光。烘焙无高光反射，有间接光，因此 static 物体的颜色和自发光会影响周围物体
 2. **lndirect Multiplier 间接乘数**：改变间接光的强度，定义由全局照明（GI）系统计算的反弹光的亮度。
     - 低于 1，每次反弹会使光更暗
     - 大于 1，每次反弹会使光更亮
@@ -615,14 +616,15 @@ Progressive Lightmapper：
 1. **烘焙 GI 系统**：由 lightmaps，Light Probes 和 Reflection Probes 构成。使用 Progressive Lightmapper (CPU or GPU)烘焙，渐进光照贴图程序是一种基于路径追踪的光照贴图系统。
 2. **实时 GI 系统**：Enlighten Realtime Global Illumination
 
-#### 烘焙光照贴图
+### 烘焙光照贴图
 **光照贴图存储场景中静态物体 Mesh 表面的光照信息**
 
 ![[Pasted image 20230615003324.png]]
 
-1. 静态 static 对象才能接收光照贴图，灯光 Mode 必须为 static 或 mixed
-2. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开 [Mesh import settings](https://docs.unity3d.com/cn/2022.3/Manual/FBXImporter-Model.html) 开启生成光照贴图 UV ![[Pasted image 20230701163120.png|550]]
-3. **若要包含在光照贴图中，对象的 Renderer 必须满足以下条件：**
+1. 灯光 Mode 设置为 Backed 或 mixed
+2. 静态 static 对象才能接收光照贴图，灯光不需要设置为static
+3. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开 [Mesh import settings](https://docs.unity3d.com/cn/2022.3/Manual/FBXImporter-Model.html) 开启生成光照贴图 UV ![[Pasted image 20230701163120.png|550]]
+4. **若要包含在光照贴图中，对象的 Renderer 必须满足以下条件：**
   - 具有 **Mesh Renderer** 或 **Terrain** 组件
   - Mesh Renderer->Lighting->开启 **Contribute GI**
   - 材质有 **Meta Pass***（Unity内置材质都具有 Meta Pass）
@@ -634,7 +636,8 @@ Progressive Lightmapper：
 
 ![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|400]]
 
-#### 光照探针
+### 光照探针
+2. 因为烘焙有间接光，
 
 **光照探针存储光线在场景中穿过空白空间的信息。**
 
@@ -658,23 +661,95 @@ Ringing 振铃现象：
 1. Light Probe Group 组件中，启用 **Remove Ringing**，但是，这种方法通常会使光照探针不太准确，并会降低光线对比度，因此您必须检查视觉效果。
 2. 避免将直射光烘焙到光照探针中。直射光往往具有明显的不连续性（例如阴影边缘），因此不适合光照探针。仅烘焙间接光，请使用 Mixed Light Mode。
 
-#### 反射探针
-有游戏当中会有很多物体具有反射效果，像是一些金属材质、玻璃等等。只要一个物体具有镜面特征，就可以产生反射。
-但在游戏中实时的渲染反射的画面通常是一件性能消耗非常大的事情，为了减少运行时的性能消耗, Unity 提供了反射贴图技术，将这些反射的结果预存储在对应的反射贴图中, 在游戏进行时只需要加载即可实现反射的画面效果。和上文中讲解光照贴图时是一样的思路: 以空间换时间。
-
+## 反射探针 Reflcetion Probe 
 和光照探针的工作原理类似, 反射探针也是利用一些探针来记录环境中不同位置的信息。
-当使用反射探针在场景中的关键点对其中心点周围的视觉环境进行采样与烘培后, 这些采样得到的反射信息结果会**存储到一个立方体贴图**上。此立方体贴图的六个面分别记录了其周围六个方向上面的视觉信息，当一个物体靠近了反射探针之后，采样得到的反射效果就会被应用到物体上。**当场景中存在多个反射探针时，其不同反射探针对应的反射效果会进行插值计算。**
+当使用反射探针在场景中的关键点对其中心点周围的视觉环境进行采样与烘培后, 这些采样得到的反射信息结果会**存储到一个立方体贴图**上。此立方体贴图的六个面分别记录了其周围六个方向上面的视觉信息，当一个物体靠近了反射探针之后，采样得到的反射效果就会被应用到物体上。
 
 **注意点：**
-- 环境物体要设置为 static 才能被采集到
+- 环境物体要设置为 **static** 才能被采集到
 - 应该放置在反射对象外观发生明显变化的每个点上（例如，隧道、建筑物附近区域和地面颜色变化的地方）
-- 开启反射探针混合 URP Asset->Lighting
+- URP 开启反射探针混合和 Box Projection 功能 URP Asset->Lighting
 ![[Pasted image 20230630213444.png]]
 
+---
+每个反射探针都有一个Box体积。反射探针探针只影响 GameObject 在在 box 体积内的部分。当物体的像素在 box 体积之外时，Unity 使用 skybox 反射。
+在 URP 中，Unity 根据像素相对于探针体积边界的位置，评估每个探针对每个单独像素的贡献。
 
+![[Pasted image 20230716135225.png|450]]
+1. **Blend Distance 混合距离**：从 Box 的面到 Box 中心的距离。Unity 使用“混合距离”特性来确定反射探针的贡献。
+2. **当一个游戏对象在多个反射探测体积内时，最多两个探测可以影响游戏对象。** Unity 使用以下标准选择影响游戏对象的探测器：
+    1. UnitBoxy 选择两个 importance 值较高的探针，忽略其他探针。
+    2. 如果重要性值相同，Unity 会选择 Box 体积最小的探针
+    3. 如果 importance 值和 Box 体积相同，选择包含 Gameobject 的较大表面积的探针。
 
-## 镜头光斑 Lens Flare
-[Lens Flare (SRP) Data Asset | Universal RP | 14.0.8 --- 镜头光斑（SRP）数据资产|通用RP | 14.0.8 (unity3d.com)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/shared/lens-flare/lens-flare-asset.html)
+### 采样反射探针
+**默认不勾选 Box Projection：默认反射光来自无限远的地方，适合采样室外室外场景：**
+`unity_SpecCube0` 定义在 UnityInput. hlsl，在 shader 中只需要声明采样器即可
+若没有设置反射探针，默认采样 SkyBox
+```c file:采样skybbox
+//声明采样器采样Skybox
+SAMPLER(sampler_unity_SpecCube0);
+
+//片元着色器计算
+float3 R = normalize(reflect(-V, N)); 
+//用反射向量采样cubemap
+float4 environment = SAMPLE_TEXTURECUBE(unity_SpecCube0,sampler_unity_SpecCube0, R); 
+//立方体贴图包含高动态范围的颜色，这允许它包含大于1的亮度值。我们必须将样本从HDR格式转换为RGB格式。否则可能发生过曝
+//unity_SpecCube0_HDR为解码指令
+float3 envcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR); 
+```
+
+#### 采样自定义 CubeMap 
+采样 CubeMap 贴图步骤上上面一样：
+```c file:采样自定义CubeMap
+_CubeMap("CubeMap", CUBE) = "white" {}
+
+TEXTURECUBE(_CubeMap)
+SAMPLER(sampler_CubeMap);
+
+float3 R = normalize(reflect(-V, N)); 
+float4 cubeMap = SAMPLE_TEXTURECUBE(_CubeMap,sampler_CubeMa, R); 
+float3 cubeMapcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR); 
+```
+
+![[Pasted image 20230716115448.png|210]] ![[Pasted image 20230716115453.png|210]]
+>使用法线和反射方向采样
+
+### Box Projection
+启用 Box Projection，Unity 假定反射光来自探测器的盒子内部，适用于盒状的室内环境：
+![[Pasted image 20230716132938.png|500]]
+调整好 Box 体积后，使用 `BoxProjectedCubemapDirection` 函数计算反射向量再进行采样：
+```c h:3
+float3 R = normalize(reflect(-V, N));
+ 
+float3 Reflect = BoxProjectedCubemapDirection(R,i.positionWS,unity_SpecCube0_ProbePosition,unity_SpecCube0_BoxMin,unity_SpecCube0_BoxMax);
+
+float4 environment = SAMPLE_TEXTURECUBE(unity_SpecCube0,sampler_unity_SpecCube0, Reflect);  
+float3 envcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR);
+```
+
+### mipmap 级别
+
+我们可以使用 `UNITY_SAMPLE_TEXCUBE_LOD` 宏在特定的 mipmap 级别上对立方体贴图进行采样。环境立方体贴图使用三线性过滤，因此我们可以在相邻级别之间进行混合。这使我们可以**基于材质的粗糙度来选择 mipmap。**
+材质越粗糙，我们应该使用的 mipmap 级别就越高。
+
+当粗糙度从 0 到 1 时，我们必须根据我们使用的 mipmap 范围对其进行缩放。Unity 使用 `UNITY_SPECCUBE_LOD_steps` 宏（默认值为 6，为最后一个 mipmap 索引，共 0~6 七级 mipmap）来确定这个范围。
+
+实际上，粗糙度和 mipmap 水平之间的关系不是线性的。Unity 使用转换公式 $1.7r-0.7r^2$ ，其中 $r$ 是原始粗糙度。
+![[Pasted image 20230716124752.png|200]]
+>蓝色为转换曲线
+
+```c h:2,5
+float roughness = 0.5; //粗糙度范围0~1
+roughness *= 1.7 - 0.7 * roughness;
+float3 R = normalize(reflect(-V, N));
+
+float4 environment = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0,sampler_unity_SpecCube0, R, roughness * UNITY_SPECCUBE_LOD_STEPS);
+
+float3 envcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR);
+```
+
+![[Pasted image 20230716133244.png]]
 
 
 # Camera

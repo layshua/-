@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md"
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,8 +177,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "78d453acbbe54021",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
+    "zBuffer/光照探针，反射探针，光照烘焙.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "图形学/1 图形系统/04 纹理.md",
     "zip/images/Pasted image 20230716135225.png",
     "zip/images/Pasted image 20230716134831.png",
     "zip/images/Pasted image 20230716133809.png",
@@ -189,10 +192,6 @@
     "zip/images/Pasted image 20230716124917.png",
     "zip/images/Pasted image 20230716124752.png",
     "zip/images/Pasted image 20230716115453.png",
-    "zip/images/Pasted image 20230716115448.png",
-    "图形学/1 图形系统/04 纹理.md",
-    "zBuffer/光照探针，反射探针，光照烘焙.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
