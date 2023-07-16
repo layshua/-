@@ -238,7 +238,6 @@ struct InputData
 | ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)                                                                                                           | 应用阴影偏移          |
 
 
-
 ```cs
 struct Light
 {
@@ -251,14 +250,12 @@ struct Light
 ```
 
 *   采样光照贴图不支持实时 GI
-
 ```c
 half3 SampleLightmap(float2 lightmapUV, half3 normalWS);
 half3 SubtractDirectMainLightFromLightmap(Light mainLight, half3 normalWS, half3 bakedGI);
 ```
 
 *   混合实时光和 bakeGI
-
 ```c
 void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedGI)
 ```
