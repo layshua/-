@@ -743,5 +743,338 @@ $$
 ![[Pasted image 20221101211713.png]]
 ![[Pasted image 20221102144938.png]]
 
+直接光通常数量有限，使用反射方程计算将结果相加即可。
 
+间接光照数量无线，计算间接光要使用积分，但是实时渲染中出于性能的考虑，通常使用预计算方法—— IBL（Image-Based Lighting）。
 
+Cook-Torrance 反射方程：
+$$L_o(p,\omega_o) = \int\limits_{\Omega} (k_d\frac{c}{\pi} + k_s\frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}) L_i(p,\omega_i) n \cdot \omega_i d\omega_i$$ 将其拆开，分别为漫反射部分和高光反射部分：
+
+$$
+\begin{aligned}L_o(p,\omega_o)&=\int_\Omega(k_d\frac{c}{\pi})L_i(p,\omega_i)n\cdot\omega_id\omega_i+\int_\Omega(k_s\frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})L_i(p,\omega_i)n\cdot\omega_id\omega_i\end{aligned}
+$$
+ 
+## 间接光漫反射
+ 
+间接光照的漫反射本质是对**光照探针**进行采样，得到 $L_i(p,\omega_i)$
+Unity 使用光照探针采样环境光照信息，用球谐函数存储。
+得到 $L_i(p,\omega_i)$ 之后带入反射方程即可
+```c
+float3 Ks_Ami = F_SchlickRoughness(NdotV, F0, Roughness);
+float3 Kd_Ami = (1 - Ks_Ami) * (1 - Metallic);
+float3 SHcolor = SampleSH(N); //球谐函数计算环境光照Li
+float3 Diffuse_Ami = Kd_Ami/PI * BaseColor * SHcolor;
+```
+## 间接光照的高光反射
+ 
+间接光照的高光反射本质是对于**反射探针**生成的 CubeMap 进行采样。
+用 `SplitSum` 算法将高光反射部分拆开
+
+$$
+\int_\Omega(k_s\frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})L_i(p,\omega_i)n\cdot\omega_id\omega_i
+$$
+$$
+=\int_{\Omega}L_i(p,\omega_i)d\omega_i\cdot\int_{\Omega}(k_s\frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})n\cdot\omega_id\omega_i
+$$
+### part1 预过滤 IBL
+使用反射探针捕获场景信息，存储在 CubeMap 中，7 级 mipmap。
+```cs
+//采样反射探针
+float3 R = reflect(-V, N);
+float mipmapRoughness = Roughness*(1.7-0.7*Roughness);
+float4 cubemapMipmap = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, sampler_unity_SpecCube0, R,mipmapRoughness*UNITY_SPECCUBE_LOD_STEPS);
+// 根据材质的粗糙度,得到对应mip级别的预过滤环境贴图
+float3 EnvSpecularPrefilted = DecodeHDREnvironment(cubemapMipmap, unity_SpecCube0_HDR); //得到Li
+```
+
+### part2 预计算 LUT /实时数值拟合
+有两种方法，Unity 使用了数值拟合方法
+#### BRDF LUT
+将原公式结果离线生成出来。
+LUT：Look Up Table  查找表
+假设每个方向的入射光都是白色的 $L(p,x)= 1.0$，就可以在给定粗糙度，光线 $\omega_i$ 法线 $N$ 夹角 $N·\omega_i$ 的情况，预计算 BRDF 的响应结果。以 x 轴的法线与入射光的夹角（NL01），以 Y 轴为粗糙度，将计算的结果存储在一张 2D 贴图上（lut），该帖图称为为**BRDF 积分贴图**。积分的结果分别储存在贴图的**RG 通道**中。使用的时候直接采样该帖图即可。
+![[Pasted image 20221101234002.png|300]]
+
+![[Pasted image 20221101233948.png|450]]
+>参考： https://www.gamedevs.org/uploads/real-shading-in-unreal-engine-4.pdf
+
+#### 数值拟合
+**这里以使命召唤黑色行动 2 的函数拟合为例**
+如果输出该 float2 值，会发现和 Lut 贴图很相似。
+
+```c
+float2 BRDF_Ami = AmiBRDFApprox(i.uv.y, i.uv.x);  
+return pow(float4(BRDF_Ami,0,0),2.2);
+```
+
+![[Pasted image 20221102201016.png|300]]
+![[Pasted image 20221102143359.png]]
+>参考： https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf
+
+### 案例：PBR 头盔 
+
+![[Pasted image 20221102205521.png]]
+
+#### builtin 实现
+```c fold file:builtin实现
+Shader "Unlit/MyHelmet"
+{
+    Properties
+    {
+        _BRDFLUTTex ("BRDFLUT", 2D) = "white" {}
+        _BaseColorTex ("BaseColor", 2D) = "white" {}
+        _MetallicTex ("Metallic", 2D) = "white" {}
+        _RoughnessTex ("Roughness", 2D) = "white" {}
+        _EmissionTex ("Emission", 2D) = "white" {}
+        [HDR]_EmissionColor("Emission Color",Color)=(1,1,1,1)
+        _NormalTex ("Normal", 2D) = "black" {}
+        _AOTex ("AO", 2D) = "white" {}
+    }
+    SubShader
+    {
+        //LightMode 设置为ForwardBase，否则ShadeSH9()会出错。
+        Tags { "RenderType"="Opaque" "LightMode"="ForwardBase"}
+
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "UnityCG.cginc"
+            #include "UnityGlobalIllumination.cginc" //ShadeSH9()头文件
+            
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+                float3 normal : NORMAL;
+                float4 tangent : TANGENT;
+                
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float2 uv : TEXCOORD0;
+                float3 normal : TEXCOORD1;
+                float3 tangent : TEXCOORD2;
+                float3 bitangent : TEXCOORD3;
+                float3 worldPos : TEXCOORD4;
+            };
+
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+
+            float  _Value, _RangeValue;
+            float4 _Color, _BaseColor;
+
+            float _Metallic, _Roughness;
+            sampler2D _BRDFLUTTex;
+            // samplerCUBE _EnvCubeMap;
+
+            sampler2D _BaseColorTex, _MetallicTex, _RoughnessTex;
+            sampler2D _EmissionTex, _AOTex, _NormalTex;
+            float4 _EmissionColor;
+            
+            #define PI 3.14159265358979323846
+
+            /* D法线分布函数：GGX */
+            float D_DistributionGGX(float3 N, float3 H, float Roughness)
+            {
+                float a = Roughness * Roughness;
+                float a2 = a * a;  //为什么取a的四次方，这里是参考的ue4，也可以使用a的二次方进行计算
+                float NH =  max(0, dot(N,H));
+                float NH2 = NH * NH;
+                float nominator = a2; //分子
+                float denominator = (NH2*(a2-1.0)+1.0);  //分母
+                denominator = PI * denominator * denominator;  
+                return nominator / max(0.00001, denominator);  //防止分母为0
+            }
+            
+            /* G几何（遮蔽）函数 ：Schlick-GGX + Smith */
+            // G_SchlickGGX  
+            float G_SchlickGGX(float NV, float Roughness)  
+            {  
+                float a = Roughness + 1.0;  
+                float k = a * a / 8.0;  //直接光  
+                float nominator = NV;  
+                float denominator = NV * (1.0 - k) + k;  
+                
+                return nominator / max(0.00001, denominator); 
+             }
+            
+            // G_Smith  
+            float G_Smith(float3 N, float3 V, float3 L, float Roughness)  
+            {  
+                float NV = max(0, dot(N,V));  
+                float NL = max(0, dot(N,L)); 
+                
+                float GGX1 = G_SchlickGGX(NV, Roughness);  
+                float GGX2 = G_SchlickGGX(NL,Roughness);  
+              
+                return GGX1 * GGX2;  
+            }
+            
+            /* F菲涅尔方程：Schlick近似  */
+            // 直接光部分 NV或VH均可
+            float3 F_Schlick(float VH,float3 F0)
+            {
+                return F0 +(1.0 - F0)*pow(1.0-VH,5);
+            }
+            
+            //间接光部分 只能使用NV并引入粗糙度
+            float3 F_SchlickRoughness(float NV,float3 F0,float Roughness)
+            {
+                float smoothness = 1.0 - Roughness;
+                return F0 + (max(smoothness.xxx, F0) - F0) * pow(1.0 - NV, 5.0);
+            }
+
+            /* 数值拟合 */
+            // 使命召唤黑色行动2 的函数拟合
+            // float2 AmiBRDFApprox(float Roughness, float NV)
+            // {
+            //     float g = 1 -Roughness;
+            //     float4 t = float4(1/0.96, 0.475, (0.0275 - 0.25*0.04)/0.96, 0.25);
+            //     t *= float4(g, g, g, g);
+            //     t += float4(0, 0, (0.015 - 0.75*0.04)/0.96, 0.75);
+            //     float A = t.x * min(t.y, exp2(-9.28 * NV)) + t.z;
+            //     float B = t.w;
+            //     return float2 ( t.w-A,A);
+            // }
+            
+            // UE4 在黑色行动2 上的修改版本
+            float2 AmiBRDFApprox(float Roughness, float NoV )
+            {
+                // [ Lazarov 2013, "Getting More Physical in Call of Duty: Black Ops II" ]
+                // Adaptation to fit our G term.
+                const float4 c0 = { -1, -0.0275, -0.572, 0.022 };
+                const float4 c1 = { 1, 0.0425, 1.04, -0.04 };
+                float4 r = Roughness * c0 + c1;//mad:multiply add
+                float a004 = min( r.x * r.x, exp2( -9.28 * NoV ) ) * r.x + r.y;//mad
+                float2 AB = float2( -1.04, 1.04 ) * a004 + r.zw;//mad
+                return AB;
+            }
+
+            /* 色调映射 ToneMapping */
+            float3 ACESToneMapping(float3 x)
+            {
+                float a = 2.51f;
+                float b = 0.03f;
+                float c = 2.43f;
+                float d = 0.59f;
+                float e = 0.14f;
+                return saturate((x*(a*x+b))/(x*(c*x+d)+e));
+            }
+            
+            float4 ACESToneMapping(float4 x)
+            {
+                float a = 2.51f;
+                float b = 0.03f;
+                float c = 2.43f;
+                float d = 0.59f;
+                float e = 0.14f;
+                return saturate((x*(a*x+b))/(x*(c*x+d)+e));
+            }
+            
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                o.normal = UnityObjectToWorldNormal(v.normal);
+                o.tangent = UnityObjectToWorldDir(v.tangent);
+                o.bitangent = normalize(cross(o.normal, o.tangent) * v.tangent.w);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                
+                return o;
+            }
+
+            
+            fixed4 frag (v2f i) : SV_Target
+            {
+                // 纹理采样
+                float3 BaseColor = tex2D(_BaseColorTex, i.uv);
+                float3 NormalMap = UnpackNormal(tex2D(_NormalTex,i.uv));
+                float Roughness = tex2D(_RoughnessTex, i.uv).r;
+                float Metallic = tex2D(_MetallicTex, i.uv).r;
+                float3 Emission = tex2D(_EmissionTex, i.uv);
+                float3 AO = tex2D(_AOTex, i.uv);
+                
+                // 变量准备
+                float3 L = normalize(UnityWorldSpaceLightDir(i.worldPos));
+                float3 V = normalize(UnityWorldSpaceViewDir(i.worldPos));
+                float3 H = normalize(L + V);
+                float3x3 TBN = float3x3(i.tangent, i.bitangent, i.normal);
+                float3 N = normalize(mul(NormalMap, TBN));
+                
+                float VH = max(0, dot(V, H));
+                float NV = max(0, dot(N, V));
+                float NL = max(0,dot(N,L));
+                
+                float3 F0 = lerp(0.04, BaseColor, Metallic); //Fresnel F0：插值区分非金属和金属不同的F0值，非金属的FO数值较小，金属FO的数值较大
+                
+                /*  直接光（主光） */
+                // Cook-Torrance BRDF
+                // 漫反射部分
+                float3 Ks = F_Schlick(VH, F0); //菲涅尔描述了光被反射的比例
+                float3 Kd = (1-Ks) * (1 - Metallic);
+                float3 Diffuse = Kd * BaseColor / PI; 
+                //float3 Diffuse = Kd * BaseColor; //unity内置的PBR没有除以 PI, 颜色亮一些
+                
+                // 高光反射部分
+                float D = D_DistributionGGX(N, H, Roughness);
+                float3 F = Ks; 
+                float G = G_Smith(N, V, L, Roughness);
+                float3 Specular = D * F * G / max(0.0001, 4 * NV * NL);
+
+                float3 DirectLightColor = (Diffuse + Specular) * NL * _LightColor0.rgb; //NL在这里起到了阴影贴图的作用，背光处变暗
+                
+                /*  间接光（环境光ambient） */
+                // 漫反射部分
+                float3 Ks_Ami = F_SchlickRoughness(NV, F0, Roughness);
+                float3 Kd_Ami = (1 - Ks_Ami) * (1 - Metallic);
+                float3 irradiance =  ShadeSH9(float4(N, 1));  // 球谐函数
+                float3 Diffuse_Ami = irradiance * BaseColor * Kd_Ami / PI;
+                //float3 Diffuse_Ami = irradiance * BaseColor * Kd_Ami; //没有除以 PI
+                
+                // 高光反射部分
+                float3 F_Ami = Ks_Ami;
+                // PartOne
+                float3 R = reflect(-V, N);
+                //UNITY_SPECCUBE_LOD_STEPS在"UnityStandardConfig.cginc"中// #define UNITY_SPECCUBE_LOD_STEPS (6)
+                //根据材质的粗糙度，映射到某个粗糙度区间，然后把计算结果保存到不同的LOD等级中(Unity默认6级)
+                float mip = Roughness * (1.7 - 0.7 * Roughness) * UNITY_SPECCUBE_LOD_STEPS;
+                // 得到预过滤环境贴图 pre-filtered environment map
+                float4 rgb_mip = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, R, mip);
+                // 采样：光滑的地方采样清晰，粗造的地方采样模糊
+                float3 preFilteredEnvironmentMap = DecodeHDR(rgb_mip,unity_SpecCube0_HDR);
+
+                // PartTwo
+                //LUT采样
+                //float2 env_brdf = tex2D(_BRDFLUTTex, float2(NV, Roughness)).rg; //0.356
+                //float2 env_brdf = tex2D(_BRDFLUTTex, float2(lerp(0, 0.99, NV), lerp(0, 0.99, Roughness))).rg;
+                
+                // 数值拟合
+                float2 BRDF_Ami = AmiBRDFApprox(Roughness, NV);
+                // float2 BRDF_Ami = AmiBRDFApprox(i.uv.y,i.uv.x);
+                //  return pow(float4(BRDF_Ami,0,0),2.2);
+                
+                float3 Specular_Ami = preFilteredEnvironmentMap  * (F_Ami * BRDF_Ami.r + BRDF_Ami.g);
+
+                float3 AmbientLightColor = (Diffuse_Ami + Specular_Ami) * AO;
+
+                /*  颜色混合 */
+                float3 FinalColor = DirectLightColor + AmbientLightColor + (Emission * _EmissionColor);
+                
+                return float4(FinalColor,1);
+            }
+            ENDCG
+        }
+    }
+}
+```
+
+#### URP 实现
+```cc
+```

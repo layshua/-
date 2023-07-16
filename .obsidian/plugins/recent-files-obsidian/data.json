@@ -5,12 +5,8 @@
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "01 辐射度量学",
-      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+      "basename": "ta101PBR",
+      "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
     },
     {
       "basename": "05 环境光照IBL",
@@ -19,6 +15,14 @@
     {
       "basename": "基于物理的渲染算法研究【U3D】",
       "path": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md"
+    },
+    {
+      "basename": "01 辐射度量学",
+      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
@@ -47,10 +51,6 @@
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
       "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "ta101PBR",
-      "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
     },
     {
       "basename": "2 URP",
