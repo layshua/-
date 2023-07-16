@@ -824,7 +824,7 @@ float3 envcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR);
 
 ```c h:2,5
 float roughness = 0.5; //粗糙度范围0~1
-roughness *= 1.7 - 0.7 * roughness;
+roughness *= 1.7 - 0.7 * roughness; //注意这里是*=
 float3 R = normalize(reflect(-V, N));
 
 float4 environment = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0,sampler_unity_SpecCube0, R, roughness * UNITY_SPECCUBE_LOD_STEPS);
