@@ -967,7 +967,6 @@ queue.Enqueue("1");   、
 queue.Dequeue();
 
 //查
-
 queue.Peek();  //查看队列头元素但不会移除  
 queue.Contains("1"); //查看队列中是否包含某个元素  
 queue.Count;//队列长度  
@@ -1060,7 +1059,7 @@ while (enumerator2.MoveNext())
 
 ## 泛型数据结构类
 泛型数据结构类和集合类区别：
-1. 泛型数据结构类可以指定泛型类型
+1. 泛型数据结构类可以**指定泛型类型**，避免了装箱拆箱的性能损耗
 2. 集合类数据类型都是 Object 类型，有装箱拆箱的性能损耗
 ### List<>
 
@@ -1098,13 +1097,13 @@ list.Reverse(); //反转
 //使用迭代器遍历
 foreach (var item in list)  
 {  
-Console.WriteLine(item);  
+    Console.WriteLine(item);  
 }  
   
 //for循环遍历  
 for (int i = 0; i < list.Count; i++)  
 {  
-Console.WriteLine(list[i]);  
+    Console.WriteLine(list[i]);  
 }
 ```
 
@@ -1255,7 +1254,7 @@ class Program
 //40
 ```
 ### Dictionary<>
-字典，可以将 Dictionary 理解为拥有泛型的 Hashtable，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
+字典，可以将 `Dictionary` 理解为拥有**泛型的 `Hashtable`**，它也是基于键的哈希代码组织起来的键/值对，**键值对类型从 Hashtable 的 object 变为了可以自己制定的泛型**
 
 ```cs file:增删查改
 Dictionary<int,string> dictionary = new Dictionary<int, string>();
@@ -1316,8 +1315,8 @@ while (enumerator.MoveNext())
 ```
 
 ### LinkedList<> 和 LinkedListNode<>
-LinkedList 本质是一个**可变类型的泛型双向链表**
-LinkedListNode 是链表节点类
+`LinkedList` 本质是一个**可变类型的泛型双向链表**
+`LinkedListNode` 是**链表节点类**
 
 ```cs file:增删查改
 LinkedList<int> linkedList = new LinkedList<int>();  
@@ -1479,7 +1478,9 @@ pubilc static 返回值类型 函数名（参数列表）
 
 ## ref 和 out 参数  
 #ref #out
-他们使用的方式和效果都是一样，解决值类型和引用类型在函数内部改值或者重新声明能够影响外部传入的变量让其也被修改（使传入的参数在函数外也修改 ）
+他们使用的方式和效果都是一样：
+1. **解决值类型和引用类型在函数内部改值**
+2. 重新声明能够影响外部传入的变量，让其也被修改（使传入的参数在函数外也修改 ）
 
 
 **ref 和 out 的区别：**  
@@ -1497,7 +1498,7 @@ ChangeValue(b);
 //因为值传递的原因，b的值没有改变，我们想让b被改成20可以使用ref：
 
 //参数前添加 ref 修饰符 
-static void ChangeValue ( ref int a)
+static void ChangeValue (ref int a)
 {
     a=20;
 }
@@ -1528,8 +1529,7 @@ Test（nums,out max,out min,out sun,out avr）;
 ## params 可变参数
 
 - 可以输入不定的多个参数，并把这些参数存入数组。将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。
-
-- 在函数参数中只能最多出现一个 params 关键字且一定在形参列表最后  
+- 在函数参数中只能最多出现一个 `params` 关键字且一定在形参列表最后  
 
 ```cs
 // 未使用可变参数：
@@ -1569,7 +1569,7 @@ public static void Test (string name, params int[] score)
 }
 ```
 ## 可选参数
-有参数默认值的参数一般称为可选参数
+**有参数默认值的参数一般称为可选参数**
 作用是当调用函数时可以不传入参数，不传就会使用默认值作为参数的值
 ```cs
 static void Speak (string str == "hello")
@@ -1617,23 +1617,21 @@ public static string M(string s1,string s2)
 4. 警报音：`\a`
 5. 退格：`\b`
 6. 斜杠：`\\ `
-7.  `@` ：
-1. 取消转义符的作用（用来存路径）
+7.  `@` ：取消转义符的作用（用来存路径）/将字符串按照原格式输出
 
 ```cs
 string a = @"C：\mycode\a\文件.txt";
 ```
 
-2. 将字符串按照原格式输出
 ## 逻辑运算符
 逻辑与：&&
 逻辑或：||
 逻辑非：！
 
-优先级：
-1. 逻辑**非**优先级最高
+运算符优先级：
+1. **非**优先级最高
 2. 逻辑**与**优先级大于逻辑**或**
-3. **逻辑与**、**逻辑或**优先级低于算术运算符和条件运算符
+3. **逻辑与**、**逻辑或**优先级**低**于算术运算符和条件运算符
 ## 位运算符
 位运算符主要用数值类型进行计算，将数值转换为 2 进制，在进行位运算
 
@@ -1734,11 +1732,6 @@ class Point
 }
 ```
 
-### 可重载的运算符  
-
-
-### 不可重载的运算符  
-
 # 四、语句（控制流）
 
 ## 异常捕获
@@ -1779,7 +1772,7 @@ foreach 循环用于列举出集合中所有的元素，foreach 语句中的表�
 
 in 右边的项是集合名，in 左边的项是变量名，用来存放该集合中的每个元素。
 
-该循环的运行过程如下：每一次循环时，从集合中取出一个新的元素值。放到只读变量中去，如果括号中的整个表达式返回值为 true，foreach 块中的语句就能够执行。
+**该循环的运行过程**如下：每一次循环时，从集合中取出一个新的元素值。放到只读变量中去，如果括号中的整个表达式返回值为 true，foreach 块中的语句就能够执行。
 
 一旦集合中的元素都已经被访问到，整个表达式的值为 false，控制流程就转入到 foreach 块后面的执行语句。
 
@@ -1799,10 +1792,10 @@ foreach(数据类型 变量名 in 数组名)
 
 **foreach 语句仅能用于数组、字符串或集合类数据类型。**
 
-```cs
 【实例】在 Main 方法中创建一个 double 类型的数组，并在该数组中存入 5 名学生的考试成绩，计算总成绩和平均成绩。
+根据题目要求，使用 foreach 语句实现该功能，代码如下。
+```cs
 
-根据题目要求，使用foreach语句实现该功能，代码如下。
 class Program
 {
     static void Main(string[] args)

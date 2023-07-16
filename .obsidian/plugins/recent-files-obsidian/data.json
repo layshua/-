@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog",
       "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 09-Advanced Animation Technology - Bo's Blog.md"
-    },
-    {
-      "basename": "04-Rendering on Game Engine - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/04-Rendering on Game Engine - Bo's Blog.md"
     }
   ],
   "omittedPaths": [],
