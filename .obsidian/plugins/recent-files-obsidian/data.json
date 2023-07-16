@@ -1,28 +1,108 @@
 {
   "recentFiles": [
     {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "ta101PBR",
-      "path": "图形学/3 全局光照GI/PBR实战/ta101PBR.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
-      "basename": "05 环境光照IBL",
-      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
-      "basename": "基于物理的渲染算法研究【U3D】",
-      "path": "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md"
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
+      "basename": "01 BUG合集",
+      "path": "引擎Unity3D/1 Unity精粹/01 BUG合集.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+    },
+    {
+      "basename": "28 ComputeShader",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "Lit源码",
+      "path": "引擎Unity3D/3 URP精粹/架构/Lit源码.md"
+    },
+    {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "03 利用 LTC 实现实时多边形面积光",
+      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/03 利用 LTC 实现实时多边形面积光.md"
+    },
+    {
+      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
+      "path": "图形学/3 全局光照GI/PBR实战/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
     },
     {
       "basename": "01 辐射度量学",
       "path": "图形学/3 全局光照GI/01 辐射度量学.md"
     },
     {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+      "basename": "05 环境光照IBL",
+      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
+    },
+    {
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "05 PBR算法总结",
+      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/05 PBR算法总结.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
@@ -31,14 +111,6 @@
     {
       "basename": "19 径向模糊",
       "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
     },
     {
       "basename": "33 光线步进 RayMarch 第一节入门",
@@ -53,12 +125,8 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "3 PBR推导",
-      "path": "图形学/3 全局光照GI/PBR实战/3 PBR推导.md"
+      "basename": "04 PBR推导",
+      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/04 PBR推导.md"
     },
     {
       "basename": "06 全局光照GI",
@@ -131,70 +199,6 @@
     {
       "basename": "光线追踪 - 引擎",
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/光线追踪 - 引擎.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 04",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 04.md"
-    },
-    {
-      "basename": "07-Render Pipeline_ Post-process and Everything - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/07-Render Pipeline_ Post-process and Everything - Bo's Blog.md"
-    },
-    {
-      "basename": "06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/2 渲染系统/06-The Challenges and Fun of Rendering the Beautiful Mother Nature - Bo's Blog.md"
-    },
-    {
-      "basename": "GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/7 GamePlay/GAMES104 课程笔记 15-Gameplay Complexity and Building Blocks - Bo's Blog.md"
-    },
-    {
-      "basename": "GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 18-Online Gaming Architecture Fundamentals - Bo's Blog.md"
-    },
-    {
-      "basename": "GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/8 网络/GAMES104 课程笔记 19-Online Gaming Architecture Advanced Topics - Bo's Blog.md"
-    },
-    {
-      "basename": "1680600825987",
-      "path": "zip/images/1680600825987.png"
-    },
-    {
-      "basename": "1680600826852",
-      "path": "zip/images/1680600826852.png"
-    },
-    {
-      "basename": "Unity 游戏性能分析最终指南 01",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析/Unity 游戏性能分析最终指南 01.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/Compute Shader 进阶应用： 结合 Hi-Z 剔除海量草渲染.md"
-    },
-    {
-      "basename": "【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）",
-      "path": "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染/【Unity】使用 Compute Shader 实现 Hi-z 遮挡剔除（Occlusion Culling）.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
     }
   ],
   "omittedPaths": [],

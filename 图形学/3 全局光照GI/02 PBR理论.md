@@ -622,7 +622,7 @@ Linearly Transformed Cosines：线性变换余弦分布
 
 简单来说就行，将反射方程中原本需要采样才能计算的 BRDF (原始球面分布)通过一个 M 矩阵变换为余弦分布（新球面分布）（注意余弦分布不是常见的 cos，而是一个球面分布函数），而 M 可以**预计算**，余弦分布可以**解析计算**积分，所以能快速计算 BRDF 积分而避免了采样，这种方法就是线性变换余弦 (Linearly Transformed Cosines, LTCs)。
 
-代码实现: [[04 利用 LTC 实现实时多边形面积光]]
+代码实现: [[03 利用 LTC 实现实时多边形面积光]]
 
 ## **Disney's principle BRDF**
 
@@ -744,6 +744,23 @@ $$
 ![[Pasted image 20221102144938.png]]
 
 直接光通常数量有限，使用反射方程计算将结果相加即可。
+```cs
+float F0 = lerp(0.04, BaseColor, Metallic); //Fresnel F0
+/* Cook-Torrance BRDF */
+/* 直接光 */
+//漫反射部分
+float3 Ks = F_FresnelSchlick(VdotH, F0); //菲涅尔项描述了光被反射的比例
+float3 Kd = (1 - Ks) * (1-Metallic);
+float3 Diffuse = Kd/PI * BaseColor ;
+
+//高光反射部分
+float D = D_GGXTR(NdotH, Roughness);
+float3 F = Ks;
+float G = G_SmithG2_direct(NdotV,NdotL, Roughness);
+float3 Specular = D * F * G / 4 * NdotV * NdotL;
+
+float3 DirectLightColor = (Diffuse + Specular) * mainLight.color * NdotL;
+```
 
 间接光照数量无线，计算间接光要使用积分，但是实时渲染中出于性能的考虑，通常使用预计算方法—— IBL（Image-Based Lighting）。
 
@@ -759,6 +776,7 @@ $$
 间接光照的漫反射本质是对**光照探针**进行采样，得到 $L_i(p,\omega_i)$
 Unity 使用光照探针采样环境光照信息，用球谐函数存储。
 得到 $L_i(p,\omega_i)$ 之后带入反射方程即可
+
 ```c
 float3 Ks_Ami = F_SchlickRoughness(NdotV, F0, Roughness);
 float3 Kd_Ami = (1 - Ks_Ami) * (1 - Metallic);
@@ -777,6 +795,7 @@ $$
 =\int_{\Omega}L_i(p,\omega_i)d\omega_i\cdot\int_{\Omega}(k_s\frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})n\cdot\omega_id\omega_i
 $$
 ### part1 预过滤 IBL
+[[05 环境光照IBL#（1）预过滤IBL]]
 使用反射探针捕获场景信息，存储在 CubeMap 中，7 级 mipmap。
 ```cs
 //采样反射探针
@@ -790,7 +809,7 @@ float3 EnvSpecularPrefilted = DecodeHDREnvironment(cubemapMipmap, unity_SpecCube
 ### part2 预计算 LUT /实时数值拟合
 有两种方法，Unity 使用了数值拟合方法
 #### BRDF LUT
-将原公式结果离线生成出来。
+将原公式结果离线生成出来。[[05 环境光照IBL#（2）预计算 BRDF LUT]]
 LUT：Look Up Table  查找表
 假设每个方向的入射光都是白色的 $L(p,x)= 1.0$，就可以在给定粗糙度，光线 $\omega_i$ 法线 $N$ 夹角 $N·\omega_i$ 的情况，预计算 BRDF 的响应结果。以 x 轴的法线与入射光的夹角（NL01），以 Y 轴为粗糙度，将计算的结果存储在一张 2D 贴图上（lut），该帖图称为为**BRDF 积分贴图**。积分的结果分别储存在贴图的**RG 通道**中。使用的时候直接采样该帖图即可。
 ![[Pasted image 20221101234002.png|300]]
@@ -813,9 +832,9 @@ return pow(float4(BRDF_Ami,0,0),2.2);
 
 ### 案例：PBR 头盔 
 
-![[Pasted image 20221102205521.png]]
-
+![[Pasted image 20221102205521.png|450]]
 #### builtin 实现
+
 ```c fold file:builtin实现
 Shader "Unlit/MyHelmet"
 {
@@ -1076,5 +1095,267 @@ Shader "Unlit/MyHelmet"
 ```
 
 #### URP 实现
-```cc
+```c fold file:URP
+Shader "Custom/PBR"
+{
+    Properties
+    {
+        _BaseColorTex ("BaseColor", 2D) = "white" {}
+        _MetallicTex ("Metallic", 2D) = "white" {}
+        _RoughnessTex ("Roughness", 2D) = "white" {}
+        _EmissionTex ("Emission", 2D) = "white" {}
+        [HDR]_EmissionColor("Emission Color",Color)=(1,1,1,1)
+        [Normal] _NormalMap("NormalMap", 2D) = "bump" {}
+        _NormalScale("NormalScale", Float) = 1
+        _AOTex ("AO", 2D) = "white" {}
+        _BRDFLUTTex ("BRDFLUT", 2D) = "white" {}
+    }
+
+    HLSLINCLUDE
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
+    #include "CookTorrance.hlsl"
+
+    CBUFFER_START(UnityPerMateiral)
+    float4 _BaseColorTex_ST;
+    float _NormalScale;
+    float4 _EmissionColor;
+    CBUFFER_END
+
+    TEXTURE2D(_BaseColorTex);
+    SAMPLER(sampler_BaseColorTex);
+    TEXTURE2D(_MetallicTex);
+    SAMPLER(sampler_MetallicTex);
+    TEXTURE2D(_RoughnessTex);
+    SAMPLER(sampler_RoughnessTex);
+    TEXTURE2D(_EmissionTex);
+    SAMPLER(sampler_EmissionTex);
+    TEXTURE2D(_NormalMap);
+    SAMPLER(sampler_NormalMap);
+    TEXTURE2D(_AOTex);
+    SAMPLER(sampler_AOTex);
+    TEXTURE2D(_BRDFLUTTex);
+    SAMPLER(sampler_BRDFLUTTex);
+    SAMPLER(sampler_unity_SpecCube0);
+
+    struct Attributes
+    {
+        float4 positionOS : POSITION;
+        float4 color : COLOR;
+        float3 normalOS : NORMAL;
+        float4 tangentOS : TANGENT;
+        float2 uv : TEXCOORD0;
+    };
+
+    struct Varyings
+    {
+        float4 positionCS : SV_POSITION;
+        float4 color : COLOR0;
+        float2 uv : TEXCOORD0;
+        float3 positionWS: TEXCOORD1;
+        float3 normalWS : TEXCOORD2;
+        float4 tangentWS : TEXCOORD3;
+        float3 bitangentWS : TEXCOORD4;
+        float3 viewDirWS : TEXCOORD5;
+    };
+    ENDHLSL
+
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType"="Opaque"
+        }
+
+        Pass
+        {
+            Tags
+            {
+                "LightMode"="UniversalForward"
+            }
+
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            Varyings vert(Attributes i)
+            {
+                Varyings o = (Varyings)0;
+
+                o.positionCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.uv = i.uv.xy * _BaseColorTex_ST.xy + _BaseColorTex_ST.zw;
+                o.positionWS = TransformObjectToWorld(i.positionOS.xyz);
+                o.normalWS = TransformObjectToWorldNormal(i.normalOS);
+                o.tangentWS.xyz = TransformObjectToWorldDir(i.tangentOS.xyz);
+                o.viewDirWS = normalize(_WorldSpaceCameraPos.xyz - o.positionWS);
+
+                return o;
+            }
+
+            float4 frag(Varyings i) : SV_Target
+            {
+                //主光源
+                Light mainLight = GetMainLight();
+
+                //纹理采样
+                float3 BaseColor = SAMPLE_TEXTURE2D(_BaseColorTex, sampler_BaseColorTex, i.uv);
+                float3 normalMap = UnpackNormalScale(
+                    SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, i.uv), _NormalScale);
+                float Roughness = SAMPLE_TEXTURE2D(_RoughnessTex, sampler_RoughnessTex, i.uv).r;
+                float Metallic = SAMPLE_TEXTURE2D(_MetallicTex, sampler_MetallicTex, i.uv).r;
+                float3 Emission = SAMPLE_TEXTURE2D(_EmissionTex, sampler_EmissionTex, i.uv);
+                float AO = SAMPLE_TEXTURE2D(_AOTex, sampler_AOTex, i.uv).r;
+
+                //变量准备
+                float3x3 TBN = CreateTangentToWorld(i.normalWS, i.tangentWS.xyz, i.tangentWS.w);
+                float3 N = TransformTangentToWorld(normalMap, TBN, true);
+                float3 L = normalize(mainLight.direction);
+                float3 V = normalize(i.viewDirWS);
+                float3 H = normalize(L + V);
+                float NdotL = max(0,dot(N, L));
+                float NdotH = max(0,dot(N, H));
+                float NdotV = max(0,dot(N, V));
+                float VdotH = max(0,dot(V, H));
+                float F0 = lerp(0.04, BaseColor, Metallic); //Fresnel F0：插值区分非金属和金属不同的F0值，非金属的FO数值较小，金属FO的数值较大
+                /* Cook-Torrance BRDF */
+                /* 直接光 */
+                //漫反射部分
+                float3 Ks = F_FresnelSchlick(VdotH, F0); //菲涅尔项描述了光被反射的比例
+                float3 Kd = (1 - Ks) * (1-Metallic);
+                float3 Diffuse = Kd/PI * BaseColor ;
+                //float3 Diffuse = Kd * BaseColor; //unity内置的PBR没有除以 PI, 颜色亮一些
+                
+                //高光反射部分
+                float D = D_GGXTR(NdotH, Roughness);
+                float3 F = Ks;
+                float G = G_SmithG2_direct(NdotV,NdotL, Roughness);
+                float3 Specular = D * F * G / 4 * NdotV * NdotL;
+                
+                float3 DirectLightColor = (Diffuse + Specular) * mainLight.color * NdotL;
+                
+                /* 间接光 */
+                // 漫反射部分
+                float3 Ks_Ami = F_SchlickRoughness(NdotV, F0, Roughness);
+                float3 Kd_Ami = (1 - Ks_Ami) * (1 - Metallic);
+                float3 SHcolor = SampleSH(N); //球谐函数计算环境光照Li
+                float3 Diffuse_Ami = Kd_Ami/PI * BaseColor * SHcolor;
+                //float3 Diffuse_Ami = Kd_Ami * BaseColor * irradiance; //unity内置的PBR没有除以 PI, 颜色亮一些
+                
+                // 高光反射部分
+                float3 F_Ami = Ks_Ami;
+                //Part One
+                //采样反射探针
+                float3 R = reflect(-V, N);
+                float mipmapRoughness = Roughness*(1.7-0.7*Roughness);
+                float4 cubemapMipmap = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, sampler_unity_SpecCube0, R,mipmapRoughness*UNITY_SPECCUBE_LOD_STEPS);
+                // 根据材质的粗糙度,得到对应mip级别的预过滤环境贴图
+                float3 EnvSpecularPrefilted = DecodeHDREnvironment(cubemapMipmap, unity_SpecCube0_HDR); //得到Li
+                
+                //Part Two
+                //LUT采样
+                //float2 env_brdf = tex2D(_BRDFLUTTex, float2(NV, Roughness)).rg; //0.356
+                //float2 env_brdf = tex2D(_BRDFLUTTex, float2(lerp(0, 0.99, NV), lerp(0, 0.99, Roughness))).rg;
+
+                //数值拟合
+                float2 BRDF_Ami = AmiBRDFApprox(Roughness, NdotV);
+                
+                float3 Specular_Ami = EnvSpecularPrefilted * (F_Ami * BRDF_Ami.r + BRDF_Ami.g);
+                
+                float3 AmbientLightColor = (Diffuse_Ami + Specular_Ami) * AO;
+                float3 finalColor = DirectLightColor + AmbientLightColor + (Emission * _EmissionColor);
+
+                return float4(finalColor, 1);
+            }
+            ENDHLSL
+        }
+    }
+}
+```
+
+
+```c fold file:CookTorrance.hlsl
+#ifndef COOKTORRANCE_BRDF
+#define COOKTORRANCE_BRDF
+#define PI 3.14159265358979323846
+
+//D法线分布函数：GGX/TR
+float D_GGXTR(float NdotH, float Roughness)
+{
+    float a2 = Roughness * Roughness;
+    float NdotH2 = NdotH * NdotH;
+
+    float nominator = a2; //分子
+    float denominator = NdotH2 * (a2 - 1) + 1; //分母
+    denominator = denominator * denominator * PI; 
+    return nominator / denominator; //防止分母为0
+}
+
+//F菲涅尔方程：Schlick近似
+//直接光部分 NV或VH均可
+float3 F_FresnelSchlick(float VdotH, float3 F0)
+{
+    return F0 + (1.0 - F0) * pow(1.0f - VdotH, 5.0);
+}
+
+//间接光部分 只能使用NV并引入粗糙度
+float3 F_SchlickRoughness(float NdotV,float3 F0,float Roughness)
+{
+    float smoothness = 1.0 - Roughness;
+    return F0 + (max(smoothness.xxx, F0) - F0) * pow(1.0 - NdotV, 5.0);
+}
+
+//G几何遮蔽函数:Schlick-GGX + SmithG2
+float G_SchlickGGX(float NdotV, float k)
+{
+    float noninator = NdotV;
+    float denominator = NdotV * (1 - k) + k;
+    return noninator / denominator;
+}
+
+float G_SmithG2_direct(float NdotV,float NdotL,float Roughness)
+{
+    float k = (1+Roughness)*(1+Roughness)/8;
+    float G1 = G_SchlickGGX(NdotV, k); //观察方向的几何遮挡
+    float G2 = G_SchlickGGX(NdotL, k); //光源方向的几何阴影
+
+    return G1*G2;
+}
+
+float G_SmithG2_IBL(float NdotV,float NdotL,float Roughness)
+{
+    float k = Roughness*Roughness/2;
+    float G1 = G_SchlickGGX(NdotV, k); //观察方向的几何遮挡
+    float G2 = G_SchlickGGX(NdotL, k); //光源方向的几何阴影
+
+    return G1*G2;
+}
+
+/* 数值拟合 */
+// 使命召唤黑色行动2 的函数拟合
+// float2 AmiBRDFApprox(float Roughness, float NV)
+// {
+//     float g = 1 -Roughness;
+//     float4 t = float4(1/0.96, 0.475, (0.0275 - 0.25*0.04)/0.96, 0.25);
+//     t *= float4(g, g, g, g);
+//     t += float4(0, 0, (0.015 - 0.75*0.04)/0.96, 0.75);
+//     float A = t.x * min(t.y, exp2(-9.28 * NV)) + t.z;
+//     float B = t.w;
+//     return float2 ( t.w-A,A);
+// }
+            
+// UE4 在黑色行动2 上的修改版本
+float2 AmiBRDFApprox(float Roughness, float NoV)
+{
+    // [ Lazarov 2013, "Getting More Physical in Call of Duty: Black Ops II" ]
+    // Adaptation to fit our G term.
+    const float4 c0 = { -1, -0.0275, -0.572, 0.022 };
+    const float4 c1 = { 1, 0.0425, 1.04, -0.04 };
+    float4 r = Roughness * c0 + c1;//mad:multiply add
+    float a004 = min( r.x * r.x, exp2( -9.28 * NoV ) ) * r.x + r.y;//mad
+    float2 AB = float2( -1.04, 1.04 ) * a004 + r.zw;//mad
+    return AB;
+}
+
+#endif
 ```
