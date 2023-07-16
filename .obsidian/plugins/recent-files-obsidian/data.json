@@ -5,6 +5,10 @@
       "path": "zBuffer/光照探针，反射探针，光照烘焙.md"
     },
     {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "工厂模式",
       "path": "编程/设计模式/工厂模式.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog",
