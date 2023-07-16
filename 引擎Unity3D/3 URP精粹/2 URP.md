@@ -564,7 +564,7 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 
 1. **Mode**：光源模式
     - <mark style="background: #FFB8EBA6;">Realtime</mark>：实时光源。每帧计算一次，效果好，性能消耗大。只有直接光，光照不真实
-    - <mark style="background: #FFB8EBA6;">Baked</mark>：烘焙光源到光照贴图或光照探针中，事先把光线经过多次反射（间接光）的效果计算在一张场景光照贴图（uv2）上，这张贴图作用于场景内的所有物体的表面。
+    - <mark style="background: #FFB8EBA6;">Baked</mark>：将直接光照和间接光照全部烘焙到光照贴图（uv2）或光照探针中。
         - 优点：光线模拟的效果真实，由于是在游戏开始前计算的，所以没有实时计算的开销
         - 缺点：无法在运行时更改，**不影响镜面反射光照（如果想要镜面反射照明，则必须使用实时灯光）**，动态游戏对象不会接收来自烘焙光源的光线或阴影。
     - <mark style="background: #FFB8EBA6;">Mixed</mark>：混合光源，可在运行时更改混合光源的属性。这样做将**更新光源的实时光照，但不会更新烘焙光照**。有三种烘焙模式可选：[[2 URP#^gmojg3|混合灯光设置]]
@@ -633,18 +633,98 @@ Progressive Lightmapper：
 
 ![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|400]]
 
+采样光照贴图要添加一个关键字
+```cs
+#pragma multi_compile _ LIGHTMAP_ON  //关键字
+```
+
+用于对光照贴图进行采样的坐标存储在第二纹理坐标通道 TEXCOORD1 中
+```c h:10,20,28,29,51,60,67
+Shader "Custom/NormalMap"
+{
+    Properties
+    {
+    }
+    
+    HLSLINCLUDE
+
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
+
+    CBUFFER_START(UnityPerMateiral)
+    CBUFFER_END
+
+    struct Attributes
+    {
+        float4 positionOS : POSITION;
+        float3 normalOS : NORMAL;
+        float2 uv : TEXCOORD0;
+        float2 uvLM : TEXCOORD1;
+    };
+
+    struct Varyings
+    {
+        float4 positionCS : SV_POSITION;
+        float2 uv : TEXCOORD0;
+        float3 normalWS : TEXCOORD1;
+        float2 uvLM : TEXCOORD2;
+        float3 vertexSH : TEXCOORD3;
+    };
+    ENDHLSL
+    
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType"="Opaque" 
+        }
+
+        Pass
+        {
+            Tags
+            {
+                "LightMode"="UniversalForward"
+            }
+            
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile _ LIGHTMAP_ON //关键字
+            
+            Varyings vert(Attributes i)
+            {
+                Varyings o = (Varyings)0;
+
+                o.positionCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.uv = i.uv;
+                o.normalWS = TransformObjectToWorldNormal(i.normalOS);
+                OUTPUT_LIGHTMAP_UV(i.uvLM, unity_LightmapST, o.uvLM); 
+                return o;
+            }
+
+            float4 frag(Varyings i) : SV_Target
+            {
+                //颜色计算
+                half3 bakedGI = SAMPLE_GI(i.uvLM, i.vertexSH, i.normalWS);
+                return float4(bakedGI,1);
+            }
+            ENDHLSL
+        }
+    }
+}
+```
 ### 光照探针
-2. 因为烘焙有间接光，
 
-**光照探针存储光线在场景中穿过空白空间的信息。**
+**光照探针使用球面谐波存储光线在场景中穿过空白空间的信息。**
 
-在场景中，如果一个非静态物体不进行烘培，在实时模式系也可以接受部分光源的直接光的效果，只需要在对应光源的 Light 组件当中将其 Mode 设置为是 Mixed 或者 Realtime 即可。但这种方法依然只能接受直接光，**如果想让场景中的非静态物体在没有光照贴图的情况下依然可以接收到场景的间接光, 就可以使用光照探针来达成。**
+在场景中，如果一个非静态物体不进行烘培，在实时模式系也可以接受部分光源的直接光的效果，只需要在对应光源的 Light 组件当中将其 Mode 设置为是 Mixed 或者 Realtime 即可。但这种方法依然只能接受直接光，**如果想让场景中的动态对象在没有光照贴图的情况下依然可以接收到场景的间接光, 就可以使用光照探针来达成。**
 
 ![[Pasted image 20230615164846.png|550]]
 光照探针技术的核心，就是通过存储光线在空间中的关键信息，来插值计算出每个点的光照。
 
 **注意点：**
-- 光源设置为静态
+- 光源设置为static
 - 物体设置为 mixed 或者 realtime
 - 探针通过复制可以扩大范围
 - 尽可能少放置探针，**在具有复杂或高对比度光线的区域**（光照变化大）周围可提高光照探针的放置密度，而在光线没有显著变化的区域可降低它们的放置密度。
@@ -658,6 +738,12 @@ Ringing 振铃现象：
 1. Light Probe Group 组件中，启用 **Remove Ringing**，但是，这种方法通常会使光照探针不太准确，并会降低光线对比度，因此您必须检查视觉效果。
 2. 避免将直射光烘焙到光照探针中。直射光往往具有明显的不连续性（例如阴影边缘），因此不适合光照探针。仅烘焙间接光，请使用 Mixed Light Mode。
 
+```c file:光照探针
+float4 frag(VertexOutput i): SV_Target 
+{
+    return  SampleSH(i.normalWS);
+}
+```
 ## 反射探针 Reflcetion Probe 
 和光照探针的工作原理类似, 反射探针也是利用一些探针来记录环境中不同位置的信息。
 当使用反射探针在场景中的关键点对其中心点周围的视觉环境进行采样与烘培后, 这些采样得到的反射信息结果会**存储到一个立方体贴图**上。此立方体贴图的六个面分别记录了其周围六个方向上面的视觉信息，当一个物体靠近了反射探针之后，采样得到的反射效果就会被应用到物体上。
