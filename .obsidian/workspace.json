@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -219,6 +219,10 @@
   },
   "active": "bdb767a107862919",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
+    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+    "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
@@ -252,10 +256,6 @@
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/13 实时光追2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/6 环境光照2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/2 CG基础概述.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/4 实时阴影2.md",
-    "图形学/4 书籍/GAMES系列/202高质量实时渲染/11 PBR2.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",

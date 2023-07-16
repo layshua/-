@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
+    },
+    {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
       "basename": "17 Kawase 高性能模糊",
       "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
     },
@@ -15,10 +31,6 @@
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
       "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
     {
       "basename": "ta101PBR",
@@ -187,18 +199,6 @@
     {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
-      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
-    },
-    {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     }
   ],
   "omittedPaths": [],
