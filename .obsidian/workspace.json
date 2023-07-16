@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
+                "file": "zBuffer/光照探针，反射探针，光照烘焙.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/光照探针，反射探针，光照烘焙.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,12 +166,13 @@
   },
   "active": "78d453acbbe54021",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/Catlike Coding/Mesh Basics",
     "zip/images/Pasted image 20230716100935.png",
     "zip/images/Pasted image 20230716100627.png",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/PBR实战/ta101PBR.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/3 全局光照GI/PBR实战/基于物理的渲染算法研究【U3D】.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
     "图形学/3 全局光照GI/PBR实战/3 PBR推导.md",
@@ -200,7 +201,6 @@
     "zip/images/Pasted image 20230715182911.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/7 实时GI1.md",
     "zip/images/Pasted image 20230715173053.png",
-    "zip/images/Pasted image 20230715172836.png",
     "图形学/4 书籍/GAMES系列/202高质量实时渲染/5 环境光照1.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
@@ -211,7 +211,6 @@
     "zip/images/Diagram 2.svg.xml",
     "Math/概率论/蒙特卡洛积分",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing",
-    "引擎Unity3D/2 Shader精粹/ComputeShader/草地渲染",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
