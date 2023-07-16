@@ -607,39 +607,35 @@ Windows-Rendering-Lighting
      - <mark style="background: #FFB8EBA6;">Baked Indirect 烘焙间接光</mark>：Mixed Lights 提供提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。实时 shadow maps 提供实时阴影。适用于中端硬件。
      - <mark style="background: #FFB8EBA6;">Shadowmask 阴影mask</mark>：Mixed Lights 提供实时直接照明，Unity 将间接光源烘焙到光照贴图和光照探针中。它支持远距离游戏对象的烘焙阴影（带阴影遮罩），并将其与实时阴影（shadowmap）自动混合。此照明模式适用于高端或中端硬件。
      - <mark style="background: #FFB8EBA6;">Subtractive 减法</mark>：Mixed Lights 为静态对象提供烘焙的直接和间接照明，动态对象只接收定向光实时照明并投射阴影。适合于风格化的艺术效果或低端硬件。
-3.  **Lightmapping Settings 光照贴图设置：**[渐进光照贴图程序 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/progressive-lightmapper.html)
-Progressive Lightmapper：渐进光照贴图程序是一种基于路径追踪的光照贴图系统
+3.  **Lightmapping Settings 光照贴图设置：
+Progressive Lightmapper：
 [光照设置资源 - Unity 手册 (unity3d.com)](https://docs.unity3d.com/cn/2022.3/Manual/class-LightingSettings.html)
 ### 全局光照系统
 全局光照是对直接和间接光照进行建模以提供逼真光照效果的一组技术。Unity 有两个全局光照系统，结合了直接光照和间接光照。
-1. **烘焙 GI 系统**：由 lightmaps，Light Probes 和 Reflection Probes 构成。使用 Progressive Lightmapper (CPU or GPU)烘焙，
+1. **烘焙 GI 系统**：由 lightmaps，Light Probes 和 Reflection Probes 构成。使用 Progressive Lightmapper (CPU or GPU)烘焙，渐进光照贴图程序是一种基于路径追踪的光照贴图系统。
 2. **实时 GI 系统**：Enlighten Realtime Global Illumination
 
 #### 烘焙光照贴图
-Unity 提供了两种不同的技术来**预先计算全局光照 (GI)和反射光照**，它们分别是:
-1. 烘焙光 (全称: Baked Global lllumination，烘焙全局光照)：作用在静态物体上
-2. 预计算光 (全称: Precomputed Realtime Global Illumination，预计算实时全局光照)：作用在动态物体上
-
-Unity 的 Enlighten 光照系统提供了这两种技术的解决方案，这两种技术都需要一个技术流程——**烘焙**
+**光照贴图存储场景中静态物体 Mesh 表面的光照信息**
 
 ![[Pasted image 20230615003324.png]]
 
 1. 静态 static 对象才能接收光照贴图，灯光 Mode 必须为 static 或 mixed
 2. 导入的模型要确保有光照 uv，否则烘焙时模型不会受影响。也可以打开 [Mesh import settings](https://docs.unity3d.com/cn/2022.3/Manual/FBXImporter-Model.html) 开启生成光照贴图 UV ![[Pasted image 20230701163120.png|550]]
-3. 若要包含在光照贴图中，对象的 Renderer 必须满足以下条件：
+3. **若要包含在光照贴图中，对象的 Renderer 必须满足以下条件：**
   - 具有 **Mesh Renderer** 或 **Terrain** 组件
   - Mesh Renderer->Lighting->开启 Contribute GI
-  - 材质有 Meta Pass 
+  - 材质有 **Meta Pass***（Unity内置材质都具有 Meta Pass）
 
 **烘焙模型有硬边缘接缝**：勾选 Stitch Seams
-![[Pasted image 20230615004644.png|250]] ![[Pasted image 20230615004712.png|400]]
+![[Pasted image 20230615004644.png|250]] ![[Pasted image 20230615004712.png|350]]
 
-**烘焙后模型有小点**：由于渲 103 染精度太低造成，提高以下两个值即可
+**烘焙后模型有小点**：由于渲染精度太低造成，提高以下两个值即可
 
-![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|450]]
+![[Pasted image 20230615005019.png|250]] ![[Pasted image 20230615005145.png|400]]
 
 #### 光照探针
-光照贴图会记录场景中静态物体 Mesh 表面的光照信息，并将这些信息存储在光照贴图当中。
+
 光照探针与光照贴图的相同点是, 两者都是对场景的光照信息进行的记录，但**光照探针记录的是是光线在场景中穿过空白区域后，其在场景中的信息。**
 
 在场景中，如果一个非静态物体不进行烘培，在实时模式系也可以接受部分光源的直接光的效果，只需要在对应光源的 Light 组件当中将其 Mode 设置为是 Mixed 或者 Realtime 即可。但这种方法依然只能接受直接光，**如果想让场景中的非静态物体在没有光照贴图的情况下依然可以接收到场景的间接光, 就可以使用光照探针来达成。**

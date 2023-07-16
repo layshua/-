@@ -4,35 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "351374a3fae99687",
+        "id": "c6c01081c22e690b",
         "type": "tabs",
         "children": [
           {
-            "id": "773fb8c8a10b89ca",
+            "id": "78d453acbbe54021",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "d36f7bc1e0682952",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "2d9f301eb059ecde",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -176,7 +164,7 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "2d9f301eb059ecde",
+  "active": "78d453acbbe54021",
   "lastOpenFiles": [
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
