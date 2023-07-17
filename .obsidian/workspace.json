@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
+                "file": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md"
+                "file": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
+                "file": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
+                "file": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -192,16 +192,16 @@
   },
   "active": "9f35244d1986874f",
   "lastOpenFiles": [
-    "zBuffer/URP 管线 PBR 源码剖析（下）.md",
-    "zBuffer/URP 管线 PBR 源码剖析（上）.md",
+    "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
+    "引擎Unity3D/3 URP精粹/源码/URP PBR 源码剖析.md",
+    "引擎Unity3D/3 URP精粹/源码/URP 管线 PBR 源码剖析（下）.md",
     "zBuffer/开发者心得：解耦合的哲学.md",
     "zip/images/f2cb97c58a08caa135b771b4a8b2066a_MD5.jpg",
     "zip/images/431897aa5219b6645ed49d6781bd8ccd_MD5.jpg",
-    "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+    "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
     "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
