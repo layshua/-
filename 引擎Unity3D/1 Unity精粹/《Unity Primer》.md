@@ -153,7 +153,7 @@ private void TestFun()
 ![[Pasted image 20230603144922.png]]
 
 ## 4 生命周期函数
-游戏的本质就是一个死循环，每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环 。
+游戏的本质就是一个死循环（Tick），每一次循环处理游戏逻辑就会更新一次画面，一帧就是执行一次循环。
 Unity 底层已经帮助我们做好了死循环，我们需要学习 Unity 的生命周期函数，利用它做好的规则来执行我们的游戏逻辑就行了。
 
 > [!NOTE] 生命周期函数的概念
@@ -204,7 +204,7 @@ void OnDestroy()
 
 **激活对象**：![[Pasted image 20230603133828.png]]
 `
-**设置固定时间步长：**
+**设置物理帧固定时间步长：**
 ![[Pasted image 20230603134654.png]]
 
 ## 5 随机数
@@ -222,7 +222,8 @@ float randomNum = Random.Range(0.0f, 100.0f);
 
 ```cs file:cs中的随机数
 System.Random r = new System.Random();  
-r.Next(0, 100);
+r.Next(); //生成一个非负的随机数  
+r.Next(100); //生成[0,99)的随机数 
 ```
 
 ## 6 委托
@@ -251,6 +252,7 @@ public event UnityAction clickEvent;
 
 Math 是中封装好的用于数学计算的工具**类**，位于 system 命名空间中
 **Mathf** 是 unity 中封装好的用于数学计算的工具**结构体**，位于 UnityEngine 命名空间中，Mathf 更适合游戏开发，功能更多
+
 ### 常用运算函数
 `PI`
 `Abs` 取绝对值
