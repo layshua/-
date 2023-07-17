@@ -1027,6 +1027,21 @@ print(this.transform.forward); //局部空间的z轴方向，注意和Vector3.fo
 print(this.transform.right);   //局部空间的x轴方向
 print(this.transform.up);      //局部空间的y轴方向
 ```
+
+> [!NOTE] 理解 this.transform.forward 和 Vector3.forward 的区别
+> 现在新建一个物体，假设它的世界坐标系是这样的：（刚刚创建的物体本地坐标系也和世界坐标系重合）
+> 
+![[Pasted image 20230717115734.png]]
+现在将物体绕 y 轴顺时针旋转一定角度。
+![[Pasted image 20230717115742.png]]
+**现在黑色坐标系是世界坐标系，红色坐标系是物体旋转后的本地坐标系**（因为是绕 y 轴转所以 y 轴不动，就不标红了）。
+>
+`this.transform.forward` 是指对象局部空间的朝向，即图中红 `Z`
+`Vector3.forward` 是指向量 $(0,0,1)$，和图中黑 `Z` 方向一致
+**这两个向量虽然指向的相对位置不同，但是得到的数值都是相对于世界坐标下的！**`this.transform.forward` 虽然是指对象局部空间的朝向，红 Z 在局部空间为（0）
+
+
+
 #### 位移
 实现位移的四种方式：
 ![[Pasted image 20230605154644.png]]
@@ -1042,11 +1057,12 @@ this.transform.position += Vector3.forward * (1 * Time.deltaTime);  //朝世界�
 
 //方式二：API
 //参数一:表示位移多少路程=方向*速度*时间
-//参数二:表示相对坐标系 ,默认该参数是自身局部空间
-this.transform.Translate(Vector3.forward* (1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
-this.transform.Translate(Vector3.forward(1 * Time.deltaTime),Space.Self);  //始终朝向局部空间Z轴移动
+//参数二:表示相对哪个坐标系移动 ,默认该参数是自身局部空间Space.Self
+this.transform.Translate(Vector3.forward*(1 * Time.deltaTime),Space.Self);  //始终朝向局部空间Z轴移动
+this.transform.Translate(this.transform.forward*(1 * Time.deltaTime), Space.World); //始终朝向局部空间Z轴移动
+this.transform.Translate(Vector3.forward*(1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
 this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误   
-this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.World); //始终朝向局部空间Z轴移动
+
 
 //实际上我们就是想用始终朝向局部空间Z轴的移动，无非就是两种情况：
 //1. 局部空间的（0，0，1）
