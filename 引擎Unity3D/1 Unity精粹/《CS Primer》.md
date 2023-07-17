@@ -6,7 +6,6 @@ tags: []
 create_time: 2023-05-26 12:41
 uid: 202305261241
 banner: "![[Pasted image 20230526124440.png]]"
-banner_y: 0.5
 ---
 
 # 零、特性
@@ -3662,7 +3661,7 @@ class Program
 ```
 # 十一、反射和特性
 ## 程序集和元数据
-**程序集**是经由编译器编译得到的，供进一步编译执行的那个中间产物，在 WINDOwS 系统中，它一般表现为**后缀为 `.dll` (库文件）或者是 `.exe` (可执行文件)** 的格式
+**程序集**是经由编译器编译得到的，供进一步编译执行的那个中间产物，在 windows 系统中，它一般表现为**后缀为 `.dll` (库文件）或者是 `.exe` (可执行文件)** 的格式
 程序集就是我们写的一个代码集合，我们现在写的所有代码最终都会被编译器翻译为一个程序集供别人使用，比如一个代码库文件 (d11)或者一个可执行文件 (exe)
 
 **元数据（metadata）** 就是用来描述数据的数据，这个概念不仅仅用于程序上，在别的领域也有元数据。
@@ -3899,7 +3898,7 @@ print(types[1]); //1对应第二个泛型类型，返回float
 
 ```cs
 //1.获得要创建实例的类的类名
-var className = " (命名空间 namespace). ClassName";
+var className = " (命名空间 namespace).ClassName";
 
 //2.得到当前类的类型
 var classType = Type.GetType (className);
@@ -3913,7 +3912,8 @@ var args = new object[] { object1, object2, object3...};
 var classInstance = Activator.CreateInstance (classType, args);
 ```
 
-Activator.CreateInstance 方法的第一个参数是要创建的类型，第二个参数是可选的，用于指定构造函数的参数。如果要创建的类型没有默认构造函数，那么必须传递构造函数所需的参数。如果要创建的类型有默认构造函数，那么第二个参数可以为空。此外，Activator.CreateInstance 方法返回的是 object 类型，需要进行强制类型转换。
+`Activator.CreateInstance` 方法的第一个参数是要创建的类型，第二个参数是可选的，用于指定构造函数的参数。如果要创建的类型没有默认构造函数，那么必须传递构造函数所需的参数。如果要创建的类型有默认构造函数，那么第二个参数可以为空。
+此外，`Activator.CreateInstance` 方法返回的是 `object` 类型，需要进行强制类型转换。
 
 
 ```cs
@@ -3922,7 +3922,9 @@ Activator.CreateInstance 方法的第一个参数是要创建的类型，第二�
 var classInstance = classType.InvokeMember ("", BindingFlags. CreateInstance, null, null, null);
 ```
 
-InvokeMember 方法的第一个参数是空字符串，因为我们要调用的是构造函数，而不是方法、属性或字段。第二个参数是 BindingFlags. CreateInstance 标志，表示创建对象实例；第三个参数是绑定器，用于指定成员查找的方式；第四个参数是目标对象，因为我们要创建的是对象实例，所以目标对象为 null；第五个参数是构造函数参数，用于传递给构造函数的参数
+`InvokeMember` 方法的第一个参数是空字符串，因为我们要调用的是构造函数，而不是方法、属性或字段。
+第二个参数是 `BindingFlags. CreateInstance` 标志，表示创建对象实例；
+第三个参数是绑定器，用于指定成员查找的方式；第四个参数是目标对象，因为我们要创建的是对象实例，所以目标对象为 null；第五个参数是构造函数参数，用于传递给构造函数的参数
 
 ```cs
 //5.得到要执行的方法
@@ -3935,13 +3937,13 @@ return  classType .InvokeMember ("MathodName", BindingFlags. InvokeMethod | Bind
 ```
 
 `Invoke` 和 `InvokeMember` 都是反射中用于调用方法的方法，但它们有一些区别：
-- 参数列表不同：Invoke 方法的第二个参数是 object[] 类型的数组，用于传递方法的参数；而 InvokeMember 方法的第三个参数是 BindingFlags 枚举类型，用于指定方法的访问权限、搜索方式等信息。
-- 访问权限不同：Invoke 方法可以调用 public、protected、private 等所有访问权限的方法，而 InvokeMember 方法需要指定对应的 BindingFlags，才能调用对应访问权限的方法。
-- 安全性不同：Invoke 方法可以执行非托管代码，因此需要受到安全性限制；而 InvokeMember 方法只能执行托管代码，因此相对更安全。
+- 参数列表不同：`Invoke` 方法的第二个参数是 `object[]` 类型的数组，用于传递方法的参数；而 `InvokeMember` 方法的第三个参数是 `BindingFlags` 枚举类型，用于指定方法的访问权限、搜索方式等信息。
+- 访问权限不同：`Invoke` 方法可以调用 public、protected、private 等所有访问权限的方法，而 `InvokeMember` 方法需要指定对应的 `BindingFlags`，才能调用对应访问权限的方法。
+- 安全性不同：`Invoke` 方法可以执行非托管代码，因此需要受到安全性限制；而 `InvokeMember` 方法只能执行托管代码，因此相对更安全。
 
 ## 特性 Attribute
 1. 特性是一种**允许我们向程序的程序集添加元数据的语言结构，它是用于保存程序结构信息的某种特殊类型的类**
-2. 特性提供功能强大的方法以将声明信息与代码 （类型、方法、属性等）相关联。特性与程序实体关联后，即可在运行时使用反射查询特性信息
+2. 特性提供功能强大的方法以将声明信息与代码 （类型、方法、属性等）相关联。特性与程序实体关联后，即可**在运行时使用反射查询特性信息**
 3. 特性的目的是**告诉编译器把程序结构的某组元数据嵌入程序集中**，它可以放置在几乎所有的声明中 (类、变量、函数等等申明)
 
 说人话:
@@ -4186,7 +4188,8 @@ public static extern int Add(int a, int b);  //使用Test.dll包里的方法
 命名空间:` using system. collections;`
 可以通过同时继承 `IEnumerable` 和 `IEnumerator` 实现其中的方法
 
-```cs
+`foreach` 本质：
+```cs file:使用迭代器实现List数据结构
 class CustomList : IEnumerable,IEnumerator
 {
     private int[] list;
@@ -4214,7 +4217,7 @@ class CustomList : IEnumerable,IEnumerator
         return position < list.Length;
     }
 
-    //reset是重置光标位置一般写在获取1Enumerator对象这个函数中//用于第一次重置光标位置
+    //reset是重置光标位置一般写在获取IEnumerator对象这个函数中//用于第一次重置光标位置
     public void Reset()
     {
        position = -1;
@@ -4252,6 +4255,7 @@ class Program
 语法糖主要作用就是将复杂逻辑简单化，可以增加程序的可读性从而减少程序代码出错的机会
 关键接口: `IEnumerable`
 命名空间: `using System. collections;`
+
 让想要通过 `foreach` 遍历的自定义类实现接口中的方法 `GetEnumerator` 即可
 
 **使用 yield return 实现和上一节相同的功能：**
@@ -4436,7 +4440,7 @@ Console.WriteLine(d.GetValueOrDefault());
 Console.WriteLine(d.GetValueOrDefault(5));
 ```
 
-**语法糖：自动判断是否为空**
+**语法糖：自动判断是否为`null`**
 ```cs
 object o = "hello world";
 if(o!=null)
