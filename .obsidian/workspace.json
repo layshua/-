@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,11 +63,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -113,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -165,20 +166,25 @@
   },
   "active": "ca1c539b8242826f",
   "lastOpenFiles": [
-    "zBuffer/开发者心得：解耦合的哲学.md",
-    "编程/C++/《C++ Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+    "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+    "zBuffer/开发者心得：解耦合的哲学.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "编程/C++/《C++ Primer》.md",
     "引擎Unity3D/3 URP精粹/3 Render Feature.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "zip/images/Pasted image 20230716220203.png",
     "zip/images/Pasted image 20230716220142.png",
     "zip/images/Pasted image 20230716220055.png",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "zip/images/Pasted image 20230716220008.png",
-    "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
     "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
@@ -190,11 +196,6 @@
     "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "图形学/3 全局光照GI/PBR实战/PBR相关/03 利用 LTC 实现实时多边形面积光.md",
-    "图形学/3 全局光照GI/PBR实战/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md",
-    "图形学/3 全局光照GI/PBR实战/PBR相关/ta101PBR.md",
     "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
     "zip/images/Pasted image 20230716201254.png",

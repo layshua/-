@@ -1,6 +1,38 @@
 {
   "recentFiles": [
     {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
+      "basename": "CodeMonkey Unity 中的 C 委托 笔记整理",
+      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md"
+    },
+    {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
+    },
+    {
+      "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
+      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
       "basename": "开发者心得：解耦合的哲学",
       "path": "zBuffer/开发者心得：解耦合的哲学.md"
     },
@@ -11,10 +43,6 @@
     {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "3 Render Feature",
@@ -29,16 +57,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
     },
     {
       "basename": "01 BUG合集",
@@ -179,26 +199,6 @@
     {
       "basename": "参数化曲线",
       "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "常用噪声算法",
-      "path": "图形学/0 3D数学/常用噪声算法.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "工厂模式",
-      "path": "编程/设计模式/工厂模式.md"
-    },
-    {
-      "basename": "GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog",
-      "path": "图形学/4 书籍/GAMES系列/104现代游戏引擎：从入门到实践/3 动画系统/GAMES104 课程笔记 08-Basics of Animation Technology - Bo's Blog.md"
     }
   ],
   "omittedPaths": [],

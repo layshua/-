@@ -259,7 +259,7 @@ public class GameInput : MonoBehaviour
 
   
 在 Settings 文件夹下右键 ->Create->Input Actions 创建 PlayerInputActions.inputactions  
-双击打开该窗口，创建一个 Action Map，创建一个 Move Action，将 Action Type 改为 Value，Control Type 改为 Vector2，删除 Move 下面的 <No Binding>，点击右边的加号选择 Add Up\Down\Left\Right Composite
+双击打开该窗口，创建一个 Action Map，创建一个 Move Action，将 Action Type 改为 Value，Control Type 改为 Vector2，删除 Move 下面的 `<No Binding>`，点击右边的加号选择 Add Up\Down\Left\Right Composite
 
 ![](<images/1689211705930.png>)
 
@@ -3125,7 +3125,7 @@ public class PlatesCounterVisual : MonoBehaviour
 ![](<images/1689211723545.png>)
 
   
-接下来让角色可以拿起来盘子，我们需要在 PlatesCounter.cs 中实现一下 Interact() 接口，当角色拿起盘子符合条件时将盘子 Spawn 给角色，同时触发 EventHandler 委托，该委托调用的函数写在 PlateCounterVisual.cs 中，该函数移除掉存放 Plater_Visual 的 List 的最后一个对象
+>接下来让角色可以拿起来盘子，我们需要在 PlatesCounter.cs 中实现一下 Interact() 接口，当角色拿起盘子符合条件时将盘子 Spawn 给角色，同时触发 EventHandler 委托，该委托调用的函数写在 PlateCounterVisual.cs 中，该函数移除掉存放 Plater_Visual 的 List 的最后一个对象
 
 ```
 // PlatesCounter.cs
