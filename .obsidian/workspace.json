@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -77,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,10 +179,12 @@
   },
   "active": "f6081530f85011e0",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zip/images/Pasted image 20230717115742.png",
     "zip/images/Pasted image 20230717115734.png",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
     "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
@@ -209,12 +211,10 @@
     "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md",
     "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
-    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
     "zip/images/Pasted image 20230716201254.png",
     "zip/images/Pasted image 20230716201108.png",
-    "zip/images/Pasted image 20230716135225.png",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",

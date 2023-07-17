@@ -1062,13 +1062,11 @@ this.transform.Translate(Vector3.forward*(1 * Time.deltaTime),Space.Self);  //�
 this.transform.Translate(this.transform.forward*(1 * Time.deltaTime), Space.World); //始终朝向局部空间Z轴移动
 this.transform.Translate(Vector3.forward*(1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
 this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误，因为this.transform.forward的值是世界空间下的，并不是(0,0,1)
-
-
 ```
 #### 角度和旋转
 ```cs file:角度
 //和角度设置一样，不能单独设置x,y,z
-        
+
 //inspector界面上显示的Rotation是欧拉角
 print(this.transform.eulerAngles); //该方法返回欧拉角,
 print(this.transform.localEulerAngles);

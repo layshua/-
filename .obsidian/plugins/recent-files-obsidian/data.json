@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Lit.shader源码",
+      "path": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -101,10 +113,6 @@
       "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
-      "basename": "Lit源码",
-      "path": "引擎Unity3D/3 URP精粹/架构/Lit源码.md"
-    },
-    {
       "basename": "URP 代码结构以及 GPU 架构（万字长文）",
       "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
     },
@@ -115,14 +123,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
       "basename": "03 利用 LTC 实现实时多边形面积光",

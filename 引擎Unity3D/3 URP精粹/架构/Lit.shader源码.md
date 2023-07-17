@@ -1,10 +1,8 @@
 
-# Lit. shader 解析
-
 > [!NOTE] 版本
 > Unity2022.3.0f1c1：URP14.0
 
-## SubShader
+# SubShader
 Lit. shader 只有一个 SubShader，SubShader 的 Tags 如下：
 
 ```c
@@ -25,7 +23,7 @@ FallBack "Hidden/Universal Render Pipeline/FallbackError"  //显示错误紫色
 CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader" //ShaderGUI
 ```
 
-## Pass
+# Pass
 
 ### ForwardLit
 前向渲染 Pass，在一个 Pass 中计算所有光照，包括全局光照 GI，自发光 Emission，雾效 Fog。
