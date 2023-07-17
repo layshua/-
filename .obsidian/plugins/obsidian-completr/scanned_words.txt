@@ -178385,6 +178385,8 @@ GDRB
 GaQ
 Glkr
 GLnz
+GetViewForwardDir
+GetObjectSpaceNormalizeViewDir
 NULL
 Native
 NormalMap

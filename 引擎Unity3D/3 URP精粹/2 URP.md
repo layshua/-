@@ -146,6 +146,8 @@ real3 SafeNormalize(float3 inVec)
 |UnityInput |包含了大量可以直接使用的全局变量和变换矩阵|
 
 ### Core
+
+
 ```cs
 // Structs  
 struct VertexPositionInputs  
@@ -171,12 +173,16 @@ struct VertexNormalInputs
 |---------------------------------------------------------------------|----------------|
 | GetVertexPositionInputs(float3 positionOS)                          |获取顶点坐标信息|
 | GetVertexNormalInputs(float3 normalOS, float4 tangentOS)            |获取顶点法线信息TBN|
-| GetScaledScreenParams ()                                             |获取 `ScaledScreenParams` |
-|GetCameraPositionWS()|获取 `ScaledScreenParams`|
-|NormalizeNormalPerVertex(real3 normalWS)| 逐顶点法线正交        |
-| NormalizeNormalPerPixel(real3 normalWS)                             | 逐像素法线正交        |
-| ComputeScreenPos(float4 positionCS)                                 | 计算屏幕坐标信息       |
-| （real）ComputeFogFactor(float z)                                     | 计算雾参数          |
+|GetScaledScreenParams ()|获取 `_ScaledScreenParams` |
+|GetCameraPositionWS () |获取 `_WorldSpaceCameraPos` |
+|GetViewForwardDir() |获取世界空间向前的视图方向|
+|GetWorldSpaceViewDir (float3 positionWS) |获取世界空间观察方向 V|
+|GetWorldSpaceNormalizeViewDir(float3 positionOS)|获取归一化世界空间观察方向 V |
+|GetObjectSpaceNormalizeViewDir(float3 positionOS)|获取归一化局部空间观察方向 V|
+|NormalizeNormalPerVertex(real3 normalWS)|逐顶点法线归一化，兼容长度为0的向量|
+| NormalizeNormalPerPixel (real3 normalWS)                             |逐像素法线归一化，兼容长度为 0 的向量|
+|GetNormalizedScreenSpaceUV(float2 positionCS)|获取归一化屏幕UV|
+|（real）ComputeFogFactor(float z)| 计算雾参数          |
 | （real）ComputeFogIntensity(real fogFactor)                           | 计算雾强度          |
 | （half3）MixFogColor(real3 fragColor, real3 fogColor, real fogFactor) | 混合雾颜色          |
 | （half3）MixFog(real3 fragColor, real fogFactor)                      | 混合雾            |
@@ -205,9 +211,9 @@ struct InputData
 
 |变量名称|说明|
 |:--|:--|
-|`half4 _GlossyEnvironmentColor`|环境的反射颜色|
+|`half4 _GlossyEnvironmentColor` |环境的反射颜色|
 |`half4 _SubtractiveShadowColor`|阴影颜色|
-|`float4 _MainLightPosition`|主光源位置|
+|`float4 _MainLightPosition` |主光源位置|
 |`half4 _MainLightColor`|主光源颜色|
 
 变换矩阵宏定义
@@ -230,13 +236,21 @@ struct InputData
 #else
 ```
 ### Lighting
+```cs
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/BRDF.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Debug/Debugging3D.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GlobalIllumination.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RealtimeLights.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/AmbientOcclusion.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
+```
 
 |函数|说明|
 |:--|:--|
 |Light **GetMainLight**()|获取主光源|
-| `_MainLightColor` |主光源颜色|
+|`_MainLightColor`|主光源颜色|
 |`_MainLightPosition`|主光源位置|
-|int **GetAdditionalLightsCount**();|获取其他光源数量|
+|int **GetAdditionalLightsCount**(); |获取其他光源数量|
 |Light **GetAdditionalLight**(int index, float3 WS_Pos)|获取其他的光源|
 |half3 **SampleSH**(half3 normalWS)|环境光函数|
 |half3  `_GlossyEnvironmentColor`|Unity 内置环境光 |

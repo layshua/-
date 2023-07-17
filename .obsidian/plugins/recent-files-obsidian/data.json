@@ -9,12 +9,12 @@
       "path": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md"
     },
     {
-      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
-      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md"
     },
     {
       "basename": "03 UV操作",
