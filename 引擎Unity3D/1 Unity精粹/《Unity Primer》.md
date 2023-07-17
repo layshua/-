@@ -54,7 +54,7 @@ Unity 有一套自己识别处理它的机制，本质就是把场景对象相�
 `[ExecuteAlways]`：令脚本在编辑模式下运行
 `[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]`：自动添加需要的组件作为依赖项。
 `[CreateAssetMenu (menuName ="Rendering/CreateCustomRenderPipeline")]`：该标签会让你在 Project 下右键->Create 菜单中添加一个新的子菜单
-`[DisallowMultipleComponent] `
+`[DisallowMultipleComponent]`：不允许在一个对象上挂相同组件
 ## 3 Inspector 窗口
 ### 可编辑的变量
 
@@ -227,6 +227,7 @@ r.Next(100); //生成[0,99)的随机数
 ```
 
 ## 6 委托
+[[《CS Primer》#八、委托 delegate]] 
 Unity 的委托和 cs 的 Action 委托使用方法类似
 ```cs file:Unity自带委托
 UnityAction ac1 = () => { print("test1"); };  //无参无返回值  
@@ -572,7 +573,7 @@ Camera.main.screenToViewportPoint
 >当我们把脚本拖到 GameObject 上时，引擎会根据文件名通过反射得到对应的类，如果该类继承了 MonoBehaviour，则允许挂载。
 2. 继承了 MonoBehavior 的脚本不能 new ，**只能挂载**！
 3. 继承了 MonnBehavior 的脚本不要去写构造函数，因为我们不会去 new 它，写构造函数没有任何意义
-4. 继承了 MonoBehavior 的脚本可以在一个对象上挂多个 (如果没有加 DisallowMultipleComponent 特性)
+4. 继承了 MonoBehavior 的脚本可以在一个对象上挂多个 (如果没有加 `DisallowMultipleComponent` 特性)
    ![[Pasted image 20230603130352.png]]
 5. 继承 MonoBehavior 的类也可以再次被继承，遵循面向对象继承多态的规则
 
@@ -582,12 +583,11 @@ Camera.main.screenToViewportPoint
 3. **一般是单例模式的类（用于管理模块）或者数据结构类（ 用于存储数据）**
 4. 不用保留默认出现的几个函数
 
-
 > [!info] this
 > this 代表脚本对象
-> this. component 代表脚本挂载的 GameObject 
-> this. transform 代表脚本挂载的 GameObject 的位置信息
-> 等价写法：this.component.transform
+> this.gameobject 代表脚本挂载的 GameObject 
+> this.transform 代表脚本挂载的 GameObject 的位置信息
+> 等价写法：this. gameobject.transform
 
 ### 调试打印
 在 Unity 中打印信息的两种方式
