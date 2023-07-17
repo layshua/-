@@ -649,7 +649,7 @@ void Start()
 如何得到依附的 GameObject 对象上挂载的其它脚本?
 
 1. **得到 GameObject 挂载的单个脚本**
-```cs file:得到自己挂载的单个脚本
+```cs file:得到自己挂载的单个脚本 h:8
 //根据脚本名获取，较少使用
 TestScript t1 = this.GetComponent("TestScript") as TestScript; 
 
@@ -689,7 +689,7 @@ List<MyScript> scriptList = new List<MyScript>(); //定义一个存放MyScript�
 this.GetComponents<MyScript>(scriptList); //将找到的结果存在List中
 ```
 
-3. **得到 GameObject 子孙对象挂载的脚本**（默认会找本 GameObject 对象是否挂载该脚本）
+3. **得到 GameObject 子孙对象挂载的脚本**（默认会先找本 GameObject 对象是否挂载该脚本）
 ```cs
 //得到子孙对象挂载的单个脚本：
 MyScript s1 = this.GetComponentInChildren<MyScript>(); //如果脚本失活，则无法找到
@@ -703,7 +703,7 @@ List<MyScript> ss2 = new List<MyScript>();
 this.GetComponentsInChildren<MyScript>(true, ss2);
 ```
 
-4. **得到 GameObject 长辈（包括父，爷爷...）对象挂载的脚本**（默认会找本 GameObject 对象是否挂载该脚本）
+4. **得到 GameObject 长辈（包括父，爷爷...）对象挂载的脚本**（默认会先找本 GameObject 对象是否挂载该脚本）
 ```cs
 //得到单个脚本
 MyScript s3 = this.GetComponentInParent<MyScript>();
