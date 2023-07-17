@@ -87,7 +87,6 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 | Core                                                                                      | Unity.cginc     | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl     |
 | Light                                                                                     | AutoLight.cginc | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl |
 | Shadow                                                                                    | AutoLight.cginc | Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl  |
-| 表面着色器                                                                                     | Lighting.cginc  | URP内没有，可以参考项目：在此处                                                         |
 
 其他有用的包括：
 - [Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl](https://github.com/Unity-Technologies/Graphics/tree/master/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl)
@@ -104,7 +103,7 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 
 |文件名称|描述|
 |:--|:--|
-|Common|定义了新的数据类型 real 和一些通用的函数|
+|Common |定义了新的数据类型 real 和一些通用的函数|
 |CommonLighting |定义了灯光计算的通用函数|
 |CommonMaterial|定义了粗糙度的计算函数和一些纹理叠加混合的计算函数|
 |EntityLighting|定义了光照贴图采样和环境光解码相关操作的函数 |
@@ -247,52 +246,28 @@ struct InputData
 
 |函数|说明|
 |:--|:--|
-|Light **GetMainLight**()|获取主光源|
+|Light **GetMainLight**()|获取主光源信息|
 |`_MainLightColor`|主光源颜色|
 |`_MainLightPosition`|主光源位置|
 |int **GetAdditionalLightsCount**(); |获取其他光源数量|
 |Light **GetAdditionalLight**(int index, float3 WS_Pos)|获取其他的光源|
-|half3 **SampleSH**(half3 normalWS)|环境光函数|
-|half3  `_GlossyEnvironmentColor`|Unity 内置环境光 |
+|half3 **SampleSH**(half3 normalWS)|采样光照探针球谐函数|
+|half3  `_GlossyEnvironmentColor` |Unity 内置环境光 |
 |half3 **LightingLambert**|Lambert  |
 |half3 **LightingSpecular**|BlinnPhong|
-|  |  |
 
 
 | 名称                                                                                                                                                                                   | 说明              |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | GetMainLightShadowStrength()                                                                                                                                                         | 获取主光源阴影强度       |
 | GetAdditionalLightShadowStrenth(int lightIndex)                                                                                                                                      | 获取额外光源阴影强度      |
-| SampleScreenSpaceShadowmap(float4 shadowCoord)                                                                                                                                       | 屏幕空间阴影贴图        |
+|SampleScreenSpaceShadowmap(float4 shadowCoord)| 屏幕空间阴影贴图        |
 | SampleShadowmap(float4 shadowCoord, TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), ShadowSamplingData samplingData, half shadowStrength, bool isPerspectiveProjection = true) | 阴影贴图            |
 | TransformWorldToShadowCoord(float3 positionWS)                                                                                                                                       | 把顶点的世界坐标转换到阴影坐标 |
 | MainLightRealtimeShadow(float4 shadowCoord)                                                                                                                                          | 主光源实时阴影         |
 | AdditionalLightRealtimeShadow(int lightIndex, float3 positionWS)                                                                                                                     | 额外光源实时阴影        |
 | GetShadowCoord(VertexPositionInputs vertexInput)                                                                                                                                     | 获取阴影坐标信息        |
 | ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)                                                                                                           | 应用阴影偏移          |
-
-
-```cs
-struct Light
-{
-    half3   direction;
-    half3   color; //主光源颜色*强度
-    float   distanceAttenuation;  //距离衰减
-    half    shadowAttenuation;    //阴影衰减
-    uint    layerMask;
-};
-```
-
-*   采样光照贴图不支持实时 GI
-```c
-half3 SampleLightmap(float2 lightmapUV, half3 normalWS);
-half3 SubtractDirectMainLightFromLightmap(Light mainLight, half3 normalWS, half3 bakedGI);
-```
-
-*   混合实时光和 bakeGI
-```c
-void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedGI)
-```
 
 ### Shadows
 
@@ -307,7 +282,6 @@ void MixRealtimeAndBakedGI(inout Light light, half3 normalWS, inout half3 bakedG
 | AdditionalLightRealtimeShadow(int lightIndex, float3 positionWS)                                                                                                                     | 额外光源实时阴影        |
 | GetShadowCoord(VertexPositionInputs vertexInput)                                                                                                                                     | 获取阴影坐标信息        |
 | ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)                                                                                                           | 应用阴影偏移          |
-
 
 
 表明该 Pass 选择阴影渲染模式
