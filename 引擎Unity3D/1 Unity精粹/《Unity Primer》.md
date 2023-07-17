@@ -315,6 +315,7 @@ v1.z = 10;
 
 Vector3 v2 = new Vector3(10, 10, 10);
 
+//对应世界空间位置
 Vector3 v3 = Vector3.zero; // (0, 0, 0)
 Vector3 v4 = Vector3.one; // (1, 1, 1)
 Vector3 v5 = Vector3.right; // (1, 0, 0)
