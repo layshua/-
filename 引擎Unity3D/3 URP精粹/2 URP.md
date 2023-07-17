@@ -121,7 +121,7 @@ Packages/Universal RP: `com.unity.render-pipelines.universal/ShaderLibrary`
 |:--|:--|
 |real DegToRad(real deg) |角度转弧度|
 |real RadToDeg(real rad)|弧度转角度|
-|float Length2(float3 v)|返回向量长度的平方：dot(v,v)|
+|float Length2(float3 v) |返回向量长度的平方：dot(v,v)|
 |real3 SafeNormalize(float3 inVec)|返回标准化向量，与Normalize()不同的是，本函数会兼容长度为0的向量|
 |real SafeDiv(real numer, real denom)|返回相处之后的商，不同于直接进行除法运算，当两个数值同时为无穷大或者0时，函数返回1|
 
