@@ -708,7 +708,7 @@ float3 ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection
 ```
 
 ### GBUFFER
-待补充
+延迟渲染
 
 ### DepthOnly
 计算摄像机的深度信息

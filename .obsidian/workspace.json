@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md"
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,10 +190,11 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "9f35244d1986874f",
+  "active": "7d3d781331886d82",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
@@ -223,7 +224,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "zip/images/Pasted image 20230716220008.png",
     "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
-    "图形学/1 图形系统/10 色彩.md",
     "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
     "zip/images/Pasted image 20230716201254.png",

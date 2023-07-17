@@ -146,14 +146,34 @@ real3 SafeNormalize(float3 inVec)
 |UnityInput |包含了大量可以直接使用的全局变量和变换矩阵|
 
 ### Core
+```cs
+// Structs  
+struct VertexPositionInputs  
+{  
+    float3 positionWS; // World space position  
+    float3 positionVS; // View space position  
+    float4 positionCS; // Homogeneous clip space position  
+    float4 positionNDC;// Homogeneous normalized device coordinates  
+};  
+  
+struct VertexNormalInputs  
+{  
+    real3 tangentWS;  
+    real3 bitangentWS;  
+    float3 normalWS;  
+};
+
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl"  
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Deprecated.hlsl"
+```
 
 | 名称                                                                  | 说明             |
 |---------------------------------------------------------------------|----------------|
-| GetVertexPositionInputs(float3 positionOS)                          | 获取输入顶点坐标信息     |
-| GetVertexNormalInputs(float3 normalOS)                              | 获取输入顶点法线信息     |
-| GetVertexNormalInputs(float3 normalOS, float4 tangentOS)            | 获取输入顶点法线信息（重载） |
-| GetScaledScreenParams()                                             | 获取屏幕缩放参数信息     |
-| NormalizeNormalPerVertex(real3 normalWS)                            | 逐顶点法线正交        |
+| GetVertexPositionInputs(float3 positionOS)                          |获取顶点坐标信息|
+| GetVertexNormalInputs(float3 normalOS, float4 tangentOS)            |获取顶点法线信息TBN|
+| GetScaledScreenParams ()                                             |获取 `ScaledScreenParams` |
+|GetCameraPositionWS()|获取 `ScaledScreenParams`|
+|NormalizeNormalPerVertex(real3 normalWS)| 逐顶点法线正交        |
 | NormalizeNormalPerPixel(real3 normalWS)                             | 逐像素法线正交        |
 | ComputeScreenPos(float4 positionCS)                                 | 计算屏幕坐标信息       |
 | （real）ComputeFogFactor(float z)                                     | 计算雾参数          |
@@ -519,43 +539,6 @@ half4 n = SAMPLE_TEXTURE2D(_textureName, sampler_textureName, uv)
 | UNITY_DECLARE_SHADOWMAP（tex）     | TEXTURE2D_SHADOW_PARAM（textureName，samplerName）                      |
 | UNITY_SAMPLE_SHADOW（tex，uv）      | SAMPLE_TEXTURE2D_SHADOW（textureName，samplerName，coord3）              |
 | UNITY_SAMPLE_SHADOW_PROJ（tex，uv） | SAMPLE_TEXTURE2D_SHADOW（textureName，samplerName，coord4.xyz/coord4.w） |
-
-# 其他
-## 辅助函数
-
-屏幕空间辅助函数
-
-|内置管线| URP                                        |
-|---------------------------------------------|--------------------------------------------|
-| float4 ComputeScreenPos(float4 clipPos)     |float4 ComputeScreenPos（float4 positionCS）|
-| float4 ComputeGrabScreenPos(float4 clipPos) |移除了|
-
-通用
-
-| 内置管线                                                    | URP                                                                           |
-|---------------------------------------------------------|-------------------------------------------------------------------------------|
-| float3 WorldSpaceViewDir（float4 v）                      | float3 GetWorldSpaceViewDir（float3 positionWS）                                |
-| float3 ObjSpaceViewDir（float4 v）                        | 移除了，可以使用TransformWorldToObject(GetCameraPositionWS()) - objectSpacePosition ; |
-| float2 ParallaxOffset（half h，half height，half3 viewDir） | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| fixed Luminance（fixed3 c）                               | real Luminance（real3 linearRgb）                                               |
-| fixed3 DecodeLightmap（fixed4 color）                     | real3 DecodeLightmap(real4 encodedIlluminance, real4 decodeInstructions)      |
-| float4 EncodeFloatRGBA（float v）                         | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| float DecodeFloatRGBA（float4 enc）                       | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| float2 EncodeFloatRG（float v）                           | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| float DecodeFloatRG（float2 enc）                         | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| float2 EncodeViewNormalStereo（float3 n）                 | 移除了。可以从UnityCG.cginc复制过来                                                      |
-| float3 DecodeViewNormalStereo（float4 enc4）              | 移除了。可以从UnityCG.cginc复制过来                                                      |
-
-
-## 雾
-
-有关雾的更多信息，“Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl”
-
-|内置管线|URP|
-|---|---|
-|**UNITY_FOG_COORDS**(_x_)|移除了。DIY，例如`float fogCoord : TEXCOORD0;`|
-|**UNITY_TRANSFER_FOG**(o*, outpos)|_o.fogCoord_ = **ComputeFogFactor**(_clipSpacePosition.z_);|
-|**UNITY_APPLY_FOG**(_coord_, _col_)|_color_ = **MixFog**(_color_, _i.fogCoord_);|
 
 
 #  Lighting
