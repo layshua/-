@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客",
+      "path": "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "Lit.shader源码",
+      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
     },
     {
       "basename": "URP 渲染优化总结",
@@ -19,10 +31,6 @@
     {
       "basename": "python for Maya",
       "path": "DCC/03 Maya/python for Maya.md"
-    },
-    {
-      "basename": "Lit.shader源码",
-      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
     },
     {
       "basename": "02 顶点动画",
@@ -191,14 +199,6 @@
     {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
     }
   ],
   "omittedPaths": [],
