@@ -1038,7 +1038,7 @@ print(this.transform.up);      //局部空间的y轴方向
 >
 `this.transform.forward` 是指对象局部空间的朝向，即图中红 `Z`
 `Vector3.forward` 是指向量 $(0,0,1)$，和图中黑 `Z` 方向一致
-**这两个向量虽然指向的相对位置不同，但是得到的数值都是相对于世界坐标下的！**`this.transform.forward` 虽然是指对象局部空间的朝向，红 Z 在局部空间为（0）
+**这两个向量虽然指向的相对位置不同，但是得到的数值都是相对于世界坐标下的！**`this.transform.forward` 虽然是指对象局部空间的朝向，红 `Z` 在局部空间为 $(0,0,1)$，但我们得到的数值是转换到世界空间的数值！
 
 
 
@@ -1047,7 +1047,7 @@ print(this.transform.up);      //局部空间的y轴方向
 ![[Pasted image 20230605154644.png]]
 
 需要联动 [[《Unity Primer》#5 Input 类]]
-```cs file:位移
+```cs file:位移 h:11,12
 //理解坐标系下的位移计算公式
 //路程–方向*速度*时间
 //方式一：自己计算
@@ -1055,18 +1055,15 @@ print(this.transform.up);      //局部空间的y轴方向
 this.transform.position += this.transform.forward * (1 * Time.deltaTime);  //朝对象局部空间的z轴前进
 this.transform.position += Vector3.forward * (1 * Time.deltaTime);  //朝世界空间Z轴前进
 
-//方式二：API
+//方式二：API,一般使用前两种
 //参数一:表示位移多少路程=方向*速度*时间
 //参数二:表示相对哪个坐标系移动 ,默认该参数是自身局部空间Space.Self
 this.transform.Translate(Vector3.forward*(1 * Time.deltaTime),Space.Self);  //始终朝向局部空间Z轴移动
 this.transform.Translate(this.transform.forward*(1 * Time.deltaTime), Space.World); //始终朝向局部空间Z轴移动
 this.transform.Translate(Vector3.forward*(1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
-this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误   
+this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误，因为this.transform.forward的值是世界空间下的，并不是(0,0,1)
 
 
-//实际上我们就是想用始终朝向局部空间Z轴的移动，无非就是两种情况：
-//1. 局部空间的（0，0，1）
-//2. 局部空间的（0，0，1）在世界空间中的坐标，即this.transform.forward
 ```
 #### 角度和旋转
 ```cs file:角度
