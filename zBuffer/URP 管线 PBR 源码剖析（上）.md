@@ -1,212 +1,245 @@
-URP 管线本身跟 PBR 算法并无关系，但是为了体现新版本，我还是用了 URP 打头。新版本的 PBR 代码结构和算法较之前有了大幅的改动，本篇分析下 URP 管线下的内置 PBR 着色器，看看和 BuildIn 时期的 PBR 算法有什么区别。
-
-这篇东西一来是为自己新版本的学习做下记录，二来也方便同学们碰到问题可以查找。由于本人水平有限，欢迎大家留言讨论，纠正文中错误。
-
-本次代码版本是 Unity2020.3，我们忽略应用阶段传入的顶点数据和 PBR 参数的初始化，主要研究 PBR 算法的实现，即 UniversalFragmentPBR( ) 函数的实现，剖析分三步走：
+# UniversalFragmentPBR
 
 一、梳理 UniversalFragmentPBR 函数的功能分布和代码结构。
-
 二、通用 PBR 算法剖析
-
 三、ClearCoatPBR 算法剖析
 
-## 一、梳理 UniversalFragmentPBR 函数的功能分布和代码结构
+## 函数功能分布和代码结构
 
-首先来分析下 UniversalFragmentPBR 函数展开后的功能框架，主要有两大块：
+首先来分析下 UniversalFragmentPBR 函数展开后的功能框架，主要有两大块：数据准备、光照计算
 
-（一）、数据准备
-
-（二）、光照计算
-
-## **（一）、数据准备**
+### 数据准备
 
 数据准备又分成 6 个部分。
 
 1、“高光开关” 状态切换
-
 2、初始化通用 BRDF 数据
-
 3、初始化 “ClearCoat” 的 BRDF 数据
-
 4、定义 shadowMask
-
 5、获取主光源数据
-
 6、定义 SSAO 下的 lightColor 和 occlusion
-
 7、混合 BakedGI 和 realtimeShadow
 
-**1、“高光开关” 状态切换**
-
+#### 1 高光开关状态切换
 这个很简单，仅仅是面板上高光开关状态的切换。
-
+```c
+#if defined(_SPECULARHIGHLIGHTS_OFF)
+bool specularHighlightsOff = true;
+#else
+bool specularHighlightsOff = false;
+#endif
 ```
-#ifdef _SPECULARHIGHLIGHTS_OFF
-        bool specularHighlightsOff = true;
-    #else
-        bool specularHighlightsOff = false;
-    #endif
-```
 
-**2、初始化通用 BRDF 数据**
+#### 2 初始化通用 BRDF 数据
+所谓通用，就是适合大部分的 PBR 材质，这里是相对 ClearCoatPBR 而言的。代码中使用 `InitializeBRDFData` 函数，这些和 BRDF 计算相关的变量，具体含义后面会细说。
 
-所谓通用，就是适合大部分的 PBR 材质，这里是相对 ClearCoatPBR 而言的。代码中使用 InitializeBRDFData 函数，初始化了 diffuse（漫反射颜色）、specular（高光颜色）、reflectivity（反射率）、perceptualRoughness（直观的粗糙度）、roughness（粗糙度）、roughness2（粗糙度平方）、grazingTerm（掠射角项）、normalizationTerm（roughness*4+2）、roughness2MinusOne（roughtness^2 - 1）这些和 BRDF 计算相关的变量，具体含义后面会细说。
-
-```
+```c
 // 初始化BRDF的数据
-    BRDFData brdfData;
-    InitializeBRDFData(surfaceData.albedo, surfaceData.metallic, surfaceData.specular, surfaceData.smoothness, surfaceData.alpha, brdfData);
-```
+BRDFData brdfData;
+// NOTE: can modify "surfaceData"...
+InitializeBRDFData(surfaceData, brdfData);
 
-**3、初始化 “ClearCoat” 的 BRDF 数据**
-
-在 2020 版本中，新增加了 ClearCoat（双层材质，底层为基础材质，上层为清漆材质）材质的 BRDF 算法，可以渲染被清漆包裹着的双层材质感觉，例如车漆。使用 InitializeBRDFDataClearCoat 函数初始化 BRDF 数据。
-
-```
-// 初始化“CLEARCOAT_PBR”的BRDF数据
-    BRDFData brdfDataClearCoat = (BRDFData)0;
-    #if defined(_CLEARCOAT) || defined(_CLEARCOATMAP)
-        InitializeBRDFDataClearCoat(surfaceData.clearCoatMask, surfaceData.clearCoatSmoothness, brdfData, brdfDataClearCoat);
-    #endif
-```
-
-**4、定义 shadowMask**
-
-增加了 shadowMask 属性，作为阴影蒙版，用来剔除不想要的阴影。因为它在旧的着色器中不存在，为了确保向后兼容性，我们必须做好分支判断。
-
-```
-#if defined(SHADOWS_SHADOWMASK) && defined(LIGHTMAP_ON)
-        half4 shadowMask = inputData.shadowMask;
-    #elif !defined(LIGHTMAP_ON)
-        half4 shadowMask = unity_ProbesOcclusion;
-    #else
-        half4 shadowMask = half4(1, 1, 1, 1);
-    #endif
-```
-
-**5、获取主光源数据**
-
-新版本使用 GetMainLight 函数封装了主光源的方向、颜色、衰减等数据。
-
-```
-// 获取主光源数据
-    Light mainLight = GetMainLight(inputData.shadowCoord, inputData.positionWS, shadowMask);
-```
-
-GetMainLight 函数实现如下所示。
-
-```
-Light GetMainLight()
+//初始化以下结构体
+struct BRDFData
 {
-    Light light;
-    light.direction = _MainLightPosition.xyz;
-    light.distanceAttenuation = unity_LightData.z; 
-    light.shadowAttenuation = 1.0;
-    light.color = _MainLightColor.rgb;
+    half3 albedo; //反照率
+    half3 diffuse; //漫反射颜色
+    half3 specular;//高光颜色
+    half reflectivity; //反射率
+    half perceptualRoughness; //直观的粗糙度
+    half roughness;//粗糙度
+    half roughness2;//粗糙度平方
+    half grazingTerm; //掠射角项
 
-    return light;
+    // 我们保存一些不变的 BRDF 项，这样就不必在灯光循环中重新计算
+    // Take a look at DirectBRDF function for detailed explaination.
+    half normalizationTerm;     // roughness * 4.0 + 2.0
+    half roughness2MinusOne;    // roughness^2 - 1.0
+};
+```
+
+#### 3 初始化 ClearCoat BRDF 数据
+ ClearCoat（双层材质，底层为基础材质，上层为清漆材质）材质的 BRDF 算法，可以渲染被清漆包裹着的双层材质感觉，例如车漆。使用 `InitializeBRDFDataClearCoat` 函数初始化 BRDF 数据。
+
+```c
+// 初始化“CLEARCOAT_PBR”的BRDF数据
+BRDFData CreateClearCoatBRDFData(SurfaceData surfaceData, inout BRDFData brdfData)
+{
+    BRDFData brdfDataClearCoat = (BRDFData)0;
+
+    #if defined(_CLEARCOAT) || defined(_CLEARCOATMAP)
+    // base brdfData is modified here, rely on the compiler to eliminate dead computation by InitializeBRDFData()
+    InitializeBRDFDataClearCoat(surfaceData.clearCoatMask, surfaceData.clearCoatSmoothness, brdfData, brdfDataClearCoat);
+    #endif
+
+    return brdfDataClearCoat;
 }
 ```
 
-**6、定义 SSAO 下的 lightColor 和 occlusion**
+#### 4 定义 shadowMask
+增加了 shadowMask 属性，作为阴影蒙版，用来剔除不想要的阴影。因为它在旧的着色器中不存在，为了确保向后兼容性，我们必须做好分支判断。
 
-新增加 SSAO 效果。代码中使用分支判断，如果定义了 SSAO，则重新赋值 LightColor 和 occlusion
-
-```
-#if defined(_SCREEN_SPACE_OCCLUSION)
-        AmbientOcclusionFactor aoFactor = GetScreenSpaceAmbientOcclusion(inputData.normalizedScreenSpaceUV);
-        mainLight.color *= aoFactor.directAmbientOcclusion;
-        surfaceData.occlusion = min(surfaceData.occlusion, aoFactor.indirectAmbientOcclusion);
+```c
+half4 CalculateShadowMask(InputData inputData)
+{
+    // To ensure backward compatibility we have to avoid using shadowMask input, as it is not present in older shaders
+    #if defined(SHADOWS_SHADOWMASK) && defined(LIGHTMAP_ON)
+    half4 shadowMask = inputData.shadowMask;
+    #elif !defined (LIGHTMAP_ON)
+    half4 shadowMask = unity_ProbesOcclusion;
+    #else
+    half4 shadowMask = half4(1, 1, 1, 1);
     #endif
+
+    return shadowMask;
+}
 ```
 
-**7、混合 BakedGI 和 realtimeShadow**
+#### 5 计算 AO 因子因子
 
-使用 MixRealtimeAndBakedGI 函数来混合全局光照和阴影。
+ SSAO 
 
+```c
+AmbientOcclusionFactor CreateAmbientOcclusionFactor(float2 normalizedScreenSpaceUV, half occlusion)
+{
+    AmbientOcclusionFactor aoFactor = GetScreenSpaceAmbientOcclusion(normalizedScreenSpaceUV);
+
+    aoFactor.indirectAmbientOcclusion = min(aoFactor.indirectAmbientOcclusion, occlusion);
+    return aoFactor;
+}
 ```
+
+#### 6  获取主光源数据
+新版本使用 `GetMainLight` 函数封装了主光源的方向、颜色、衰减等数据。
+
+```c
+// 获取主光源数据
+ Light mainLight = GetMainLight(inputData, shadowMask, aoFactor);
+```
+
+
+#### 7 混合 BakedGI 和 realtimeShadow
+
+使用 `MixRealtimeAndBakedGI` 函数来混合全局光照和阴影。
+
+```c
+//AO不需要参与GI计算，而是在下面的光照计算中完成
 MixRealtimeAndBakedGI(mainLight, inputData.normalWS, inputData.bakedGI);
 ```
 
-## （二）、光照计算
+### 光照计算
 
 数据准备好后，进入 PBR 光照计算，我们都知道，PBR 光照最终颜色由 4 部分组成。
 
-**最终颜色 = 直接光漫反射 + 直接光高光反射 + 间接光（GI）漫反射 + 间接光（GI）镜面反射**
+**最终颜色 = 直接光漫反射 + 直接光高光反射 + 间接光（GI）漫反射 + 间接光（GI）高光反射**
 
-其中的高光反射和镜面反射是一个词，只是从不同角度来说而已。
-
-代码中分成了间接光和直接光 2 个部分，而直接光又可以分 4 个部分，如下所示：
-
-1、GI（间接光）计算
-
-2、直接光计算
-
-（1）、主光光照计算
-
-（2）、额外像素光照计算
-
-（3）、额外顶点光照计算
-
-（4）、自发光计算
+**代码中分成了间接光和直接光 2 个部分，而直接光又可以分 4 个部分，如下所示：**
+1. GI（间接光）计算
+2. 直接光计算
+    - 主光光照计算
+    - 额外像素光照计算
+    - 额外顶点光照计算
+    - 自发光计算
 
 下面来分步说明：
 
-**1、GI（间接光）计算**
+#### 1. 获取灯光信息
+```cs
+LightingData CreateLightingData(InputData inputData, SurfaceData surfaceData)
+{
+    LightingData lightingData;
 
-使用 GlobalIllumination 函数用来计算 GI 间接光的 BRDF。
+    lightingData.giColor = inputData.bakedGI;
+    lightingData.emissionColor = surfaceData.emission;
+    lightingData.vertexLightingColor = 0;
+    lightingData.mainLightColor = 0;
+    lightingData.additionalLightsColor = 0;
+
+    return lightingData;
+}
+```
+#### 2 GI（间接光）计算
+
+使用 `GlobalIllumination` 函数用来计算 GI 间接光的 BRDF。
 
 ```
-half3 color = GlobalIllumination(brdfData, brdfDataClearCoat, surfaceData.clearCoatMask,
-    inputData.bakedGI, surfaceData.occlusion,
-    inputData.normalWS, inputData.viewDirectionWS);
+lightingData.giColor = GlobalIllumination(
+    brdfData, 
+    brdfDataClearCoat, 
+    surfaceData.clearCoatMask,
+    inputData.bakedGI, aoFactor.indirectAmbientOcclusion,
+    inputData.positionWS,
+    inputData.normalWS, inputData.viewDirectionWS,
+    inputData.normalizedScreenSpaceUV);
 ```
 
-**2、直接光计算**
+#### 3 直接光计算
 
-**（1）、主光光照计算**
+##### 主光光照计算
 
-LightingPhysicallyBased 函数用来计算主光的 BRDF，然后再和 GI 光照相加，得到主光 + GI 效果。
+`LightingPhysicallyBased` 函数用来计算主光的 BRDF
 
-```
-color += LightingPhysicallyBased1(brdfData, brdfDataClearCoat,
+```c
+lightingData.mainLightColor = LightingPhysicallyBased(
+    brdfData, brdfDataClearCoat,
     mainLight,
     inputData.normalWS, inputData.viewDirectionWS,
     surfaceData.clearCoatMask, specularHighlightsOff);
 ```
 
-**（2）、额外像素光照计算**
+##### 额外像素光照计算
 
 URP 版本中，所有光照计算都被放在一个 pass 中，并且可以遍历每一盏额外灯，将他们的光照贡献相加。
 
-```
-#ifdef _ADDITIONAL_LIGHTS
-        uint pixelLightCount = GetAdditionalLightsCount();
-        for (uint lightIndex = 0u; lightIndex < pixelLightCount; ++lightIndex)
+```c
+#if defined(_ADDITIONAL_LIGHTS)
+    uint pixelLightCount = GetAdditionalLightsCount();
+
+    #if USE_FORWARD_PLUS
+    for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
+    {
+        FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
+
+        Light light = GetAdditionalLight(lightIndex, inputData, shadowMask, aoFactor);
+
+    #ifdef _LIGHT_LAYERS
+        if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+    #endif
         {
-            Light light = GetAdditionalLight(lightIndex, inputData.positionWS, shadowMask);
-            #if defined(_SCREEN_SPACE_OCCLUSION)
-                light.color *= aoFactor.directAmbientOcclusion;
-            #endif
-            color += LightingPhysicallyBased1(brdfData, brdfDataClearCoat,
-            light,
-            inputData.normalWS, inputData.viewDirectionWS,
-            surfaceData.clearCoatMask, specularHighlightsOff);
+            lightingData.additionalLightsColor += LightingPhysicallyBased(brdfData, brdfDataClearCoat, light,
+                                                                          inputData.normalWS, inputData.viewDirectionWS,
+                                                                          surfaceData.clearCoatMask, specularHighlightsOff);
         }
+    }
+    #endif
+
+    LIGHT_LOOP_BEGIN(pixelLightCount)
+        Light light = GetAdditionalLight(lightIndex, inputData, shadowMask, aoFactor);
+
+    #ifdef _LIGHT_LAYERS
+        if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+    #endif
+        {
+            lightingData.additionalLightsColor += LightingPhysicallyBased(brdfData, brdfDataClearCoat, light,
+                                                                          inputData.normalWS, inputData.viewDirectionWS,
+                                                                          surfaceData.clearCoatMask, specularHighlightsOff);
+        }
+    LIGHT_LOOP_END
     #endif
 ```
 
-**（3）、额外顶点光照**
+##### 额外顶点光照
 
 然后是额外的顶点光照。
 
-```
-#ifdef _ADDITIONAL_LIGHTS_VERTEX
-        color += inputData.vertexLighting * brdfData.diffuse;
+```c
+#if defined(_ADDITIONAL_LIGHTS_VERTEX)
+    lightingData.vertexLightingColor += inputData.vertexLighting * brdfData.diffuse;
     #endif
+
 ```
 
-**（4）、自发光计算**
+##### 自发光计算
 
 自发光比较简单，直接加上 emission 即可。
 
