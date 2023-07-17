@@ -391,7 +391,7 @@ VertexNormalInputs GetVertexNormalInputs(float3 normalOS)
     return tbn;
 }
 
-//输入模型空间法线和切线，获取TBN矩阵及其分量
+//输入模型空间法线和切线，获取TBN分量
 VertexNormalInputs GetVertexNormalInputs(float3 normalOS, float4 tangentOS)
 {
     VertexNormalInputs tbn;
