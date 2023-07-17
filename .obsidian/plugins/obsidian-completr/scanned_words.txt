@@ -3542,6 +3542,7 @@ objectName
 outputKitchenObjectSO
 ountdownToStart
 orefab
+occlusionMap
 OneDrive
 Obsidian
 Office
@@ -12514,6 +12515,7 @@ cjtM
 chDCC
 cDG
 cyclic
+complexLit
 github
 grey
 green
@@ -16164,6 +16166,7 @@ gfYy
 gQZW
 gsP
 golssy
+grazingTerm
 typora
 todo
 tooltip
@@ -24260,6 +24263,7 @@ makers
 marker
 mNgN
 mMNj
+metalic
 windows
 win
 width
@@ -59230,6 +59234,7 @@ RSD
 RYsR
 Ringing
 Reflcetion
+Reflctivity
 Microsoft
 Menu
 MicaForEveryone
@@ -64005,6 +64010,8 @@ Monobehaviour
 Median
 Mnnf
 MjCf
+MinusOne
+MipLevel
 Windows
 Win
 World
@@ -73037,6 +73044,7 @@ SThq
 Sdf
 SRq
 Sword
+SmithJoint
 Programs
 POP
 PC
@@ -81824,6 +81832,10 @@ CountdownUI
 Condisions
 CollectGlobalStats
 CXr
+ClearCoatPBR
+ClearCoatBRDF
+ClearCoatBRD
+ConvertF
 ImTip
 IMAP
 ID
@@ -85963,6 +85975,8 @@ IVJ
 IREw
 ICgbH
 IInteractable
+InitializeBRDFDataClearCoat
+InitializeBRDFDataDirect
 qq
 qyi
 quad
@@ -97873,6 +97887,7 @@ nowrap
 nPjwvZz
 newbing
 nmx
+normalizationTerm
 bf
 bc
 black
@@ -101621,6 +101636,8 @@ burned
 bwz
 bzG
 bQO
+brdfDiffuse
+brdfSpecular
 fe
 front
 fill
@@ -109609,6 +109626,8 @@ dirFromCamera
 deadzone
 dPL
 decent
+dielectricSpec
+diffuseTerm
 TFvYZOKeHL
 TAB
 TeX
@@ -123098,6 +123117,8 @@ spaceCount
 sDnP
 sknBB
 sFQT
+specularAlbedo
+specularTerm
 local
 list
 left
@@ -138474,6 +138495,9 @@ rCeY
 rTl
 reaching
 retargeting
+realtimeShadow
+roughtness
+reflctivity
 XXXXXX
 XXX
 XML
@@ -150015,6 +150039,8 @@ BqP
 BGzf
 Bnz
 Backed
+BakedGI
+BRDFspec
 Fraktur
 Frame
 Foo
@@ -154393,6 +154419,7 @@ Fsddq
 FmN
 FABRIK
 FACS
+ForClearCoat
 Element
 Entity
 Enity
@@ -158912,6 +158939,8 @@ EWg
 EYv
 ETDz
 EamJ
+EnvironmentBRDFSpecular
+EnvironmentBRDFClearCoat
 xmlns
 xyz
 xy
@@ -169558,6 +169587,9 @@ DQgc
 DEm
 DvC
 DbjR
+DisneyBRDF
+DirectBRDFSpecular
+DesinyBRDF
 LNK
 Log
 Linux
@@ -173721,6 +173753,7 @@ Longest
 LJG
 LERP
 Leaking
+LambertBRDF
 Getx
 GetX
 GetName
@@ -202771,6 +202804,7 @@ kitchenObjectSOGameObject
 kQPi
 kqa
 kBl
+kDieletricSpec
 zoom
 zw
 zaG

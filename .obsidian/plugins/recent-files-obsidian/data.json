@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+      "basename": "URP 管线 PBR 源码剖析（上）",
+      "path": "zBuffer/URP 管线 PBR 源码剖析（上）.md"
+    },
+    {
+      "basename": "URP 管线 PBR 源码剖析（下）",
+      "path": "zBuffer/URP 管线 PBR 源码剖析（下）.md"
     },
     {
       "basename": "Lit.shader源码",
       "path": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md"
+    },
+    {
+      "basename": "python for Maya",
+      "path": "DCC/03 Maya/python for Maya.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "《CS Primer》",
@@ -79,10 +91,6 @@
     {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "开发者心得：解耦合的哲学",
-      "path": "zBuffer/开发者心得：解耦合的哲学.md"
     },
     {
       "basename": "《C++ Primer》",
@@ -187,18 +195,6 @@
     {
       "basename": "Metallic 与 Specular 流程",
       "path": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
-    },
-    {
-      "basename": "04 路径追踪",
-      "path": "图形学/3 全局光照GI/04 路径追踪.md"
-    },
-    {
-      "basename": "03 光追理论",
-      "path": "图形学/3 全局光照GI/03 光追理论.md"
-    },
-    {
-      "basename": "12 实时光追1",
-      "path": "图形学/4 书籍/GAMES系列/202高质量实时渲染/12 实时光追1.md"
     }
   ],
   "omittedPaths": [],

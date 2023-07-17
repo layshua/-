@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "DCC/03 Maya/python for Maya.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
+                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/URP 管线 PBR 源码剖析（上）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -190,9 +190,15 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7d3d781331886d82",
+  "active": "9f35244d1986874f",
   "lastOpenFiles": [
+    "zBuffer/URP 管线 PBR 源码剖析（下）.md",
+    "zBuffer/URP 管线 PBR 源码剖析（上）.md",
+    "zBuffer/开发者心得：解耦合的哲学.md",
+    "zip/images/f2cb97c58a08caa135b771b4a8b2066a_MD5.jpg",
+    "zip/images/431897aa5219b6645ed49d6781bd8ccd_MD5.jpg",
     "引擎Unity3D/3 URP精粹/架构/Lit.shader源码.md",
+    "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/3 URP精粹/架构/URP 代码结构以及 GPU 架构（万字长文）.md",
@@ -214,20 +220,13 @@
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "zBuffer/开发者心得：解耦合的哲学.md",
     "编程/C++/《C++ Primer》.md",
-    "引擎Unity3D/3 URP精粹/3 Render Feature.md",
-    "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "zip/images/Pasted image 20230716220203.png",
     "zip/images/Pasted image 20230716220142.png",
     "zip/images/Pasted image 20230716220055.png",
-    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "zip/images/Pasted image 20230716220008.png",
-    "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
     "zip/images/Pasted image 20230716204102.png",
     "zip/images/Pasted image 20230716201259.png",
-    "zip/images/Pasted image 20230716201254.png",
-    "zip/images/Pasted image 20230716201108.png",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
