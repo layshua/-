@@ -639,7 +639,7 @@ Progressive Lightmapper：
 ```
 
 用于对光照贴图进行采样的坐标存储在第二纹理坐标通道 TEXCOORD1 中
-```c h:10,20,28,29,51,60,67
+```c h:10,20,29,51,59,60,68
 Shader "Custom/NormalMap"
 {
     Properties
@@ -659,7 +659,8 @@ Shader "Custom/NormalMap"
         float4 positionOS : POSITION;
         float3 normalOS : NORMAL;
         float2 uv : TEXCOORD0;
-        float2 uvLM : TEXCOORD1;
+        float2 staticLightmapUV : TEXCOORD1; //静态光照贴图UV(用于烘焙光照)
+       
     };
 
     struct Varyings
@@ -667,8 +668,7 @@ Shader "Custom/NormalMap"
         float4 positionCS : SV_POSITION;
         float2 uv : TEXCOORD0;
         float3 normalWS : TEXCOORD1;
-        float2 uvLM : TEXCOORD2;
-        float3 vertexSH : TEXCOORD3;
+        DECLARE_LIGHTMAP_OR_SH(staticLightmapUV, vertexSH, 2); //光照贴图纹理坐标，光照贴图名称，球谐光照名称，纹理坐标索引
     };
     ENDHLSL
     
@@ -695,18 +695,19 @@ Shader "Custom/NormalMap"
             Varyings vert(Attributes i)
             {
                 Varyings o = (Varyings)0;
-
                 o.positionCS = TransformObjectToHClip(i.positionOS.xyz);
                 o.uv = i.uv;
                 o.normalWS = TransformObjectToWorldNormal(i.normalOS);
-                OUTPUT_LIGHTMAP_UV(i.uvLM, unity_LightmapST, o.uvLM); 
+                OUTPUT_LIGHTMAP_UV(i.staticLightmapUV, unity_LightmapST, o.staticLightmapUV);
+                OUTPUT_SH(o.normalWS, o.vertexSH);
+                
                 return o;
             }
 
             float4 frag(Varyings i) : SV_Target
             {
                 //颜色计算
-                half3 bakedGI = SAMPLE_GI(i.uvLM, i.vertexSH, i.normalWS);
+                half3 bakedGI = SAMPLE_GI(i.staticLightmapUV, i.vertexSH, i.normalWS);
                 return float4(bakedGI,1);
             }
             ENDHLSL
