@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Lit.shader源码",
-      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "03 深度计算",
-      "path": "图形学/0 3D数学/公式推导/03 深度计算.md"
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "Lit.shader源码",
+      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
+    },
+    {
+      "basename": "python for Maya",
+      "path": "DCC/03 Maya/python for Maya.md"
     },
     {
       "basename": "URP 代码结构以及 GPU 架构（万字长文）",
@@ -19,10 +23,6 @@
     {
       "basename": "URP PBR 源码剖析",
       "path": "引擎Unity3D/3 URP精粹/源码/URP PBR 源码剖析.md"
-    },
-    {
-      "basename": "python for Maya",
-      "path": "DCC/03 Maya/python for Maya.md"
     },
     {
       "basename": "2 URP",
