@@ -5,6 +5,10 @@
       "path": "DCC/02 Blender/辣椒酱.md"
     },
     {
+      "basename": "浩克肥虫",
+      "path": "DCC/02 Blender/浩克肥虫.md"
+    },
+    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "05 PBR算法总结",
       "path": "图形学/3 全局光照GI/PBR实战/PBR相关/05 PBR算法总结.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     }
   ],
   "omittedPaths": [],
