@@ -5,16 +5,48 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
+      "basename": "URP 渲染优化总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "python for Maya",
+      "path": "DCC/03 Maya/python for Maya.md"
     },
     {
       "basename": "Lit.shader源码",
       "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
     },
     {
-      "basename": "python for Maya",
-      "path": "DCC/03 Maya/python for Maya.md"
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "DrawCall，Batches，SetPass calls",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md"
+    },
+    {
+      "basename": "3 OverDraw",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
+    },
+    {
+      "basename": "2 GPU Instance深入浅出",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md"
+    },
+    {
+      "basename": "1 批处理总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     },
     {
       "basename": "URP 代码结构以及 GPU 架构（万字长文）",
@@ -27,14 +59,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -175,30 +199,6 @@
     {
       "basename": "33 光线步进 RayMarch 第一节入门",
       "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "04 PBR推导",
-      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/04 PBR推导.md"
-    },
-    {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "Metallic 与 Specular 流程",
-      "path": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
     }
   ],
   "omittedPaths": [],
