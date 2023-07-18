@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "URP 下用 RenderFeature 实现高斯模糊",
+      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "28 ComputeShader",
       "path": "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md"
-    },
-    {
-      "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
     }
   ],
   "omittedPaths": [],
