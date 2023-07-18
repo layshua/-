@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "URP 渲染优化总结",
