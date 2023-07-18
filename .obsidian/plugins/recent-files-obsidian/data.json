@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "17 Kawase 高性能模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
       "basename": "辣椒酱",
       "path": "DCC/02 Blender/辣椒酱.md"
     },
@@ -19,10 +39,6 @@
     {
       "basename": "python for Maya",
       "path": "DCC/03 Maya/python for Maya.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "Lit.shader源码",
@@ -153,14 +169,6 @@
       "path": "引擎Unity3D/1 Unity精粹/01 BUG合集.md"
     },
     {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "17 Kawase 高性能模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
-    },
-    {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "05 环境光照IBL",
       "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
-    },
-    {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "05 PBR算法总结",
-      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/05 PBR算法总结.md"
     }
   ],
   "omittedPaths": [],
