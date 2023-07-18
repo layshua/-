@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "URP _ 后处理 - 模糊算法总结 - 哔哩哔哩",
-      "path": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md"
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
+      "basename": "01 模糊算法",
+      "path": "技术美术/3 后处理/01 模糊算法.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "URP 渲染优化总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
     },
     {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
     },
     {
       "basename": "10 色彩",
@@ -23,14 +31,6 @@
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "01 模糊算法",
-      "path": "技术美术/3 后处理/01 模糊算法.md"
     },
     {
       "basename": "02 光栅化",
