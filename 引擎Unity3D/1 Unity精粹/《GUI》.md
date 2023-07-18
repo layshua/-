@@ -484,7 +484,7 @@ Rect Transform 意思是矩形变换
     - UI Camera 的 Culling Mask 只选择 UI，**Clear Flags**设置为 Depth Only（只画该层，背景透明，这样才不会让 UI 遮挡后面的内容）
 3. 如果需要在 UI 上显示 3D 模型，直接在 Canvas 上创建即可，Layer 要设置成 UI
 4. 通过设置 Sorting Layer，也可以对 Canvas 进行排序，后面的层覆盖前面的层。
-Order in Layer，适用于相同 Layer 中进行排序
+5. Order in Layer，适用于相同 Layer 中进行排序
 
 ##### Screen Space - Camera
 3D 模式，可以把 UI 对象像 3D 物体一样处理，常用于 VR 或者 AR
@@ -503,7 +503,7 @@ Order in Layer，适用于相同 Layer 中进行排序
 1. Constant Pixel Size（恒定像素模式)∶
 无论屏幕大小如何，U 始终保持相同像素大小
 
-2. Scale With Screen Size (随屏幕尺寸缩放模式)∶
+2. <mark style="background: #ADCCFFA6;">Scale With Screen Size (随屏幕尺寸缩放模式)∶</mark>
 根据屏幕尺寸进行缩放，随着屏幕尺寸放大缩小
 
 3. Constant Physical Size（恒定物理模式)：
