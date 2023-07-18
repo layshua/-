@@ -1,118 +1,18 @@
-# 4.1 Bloom
-## 一、什么是 Bloom 算法
-### 1、首先看一下 Bloom 效果长什么样
-![[Pasted image 20221209110858.png]]
-![[Pasted image 20221209110901.png]]
-![[Pasted image 20221209110903.png]]
-### 2、什么是 Bloom
+# 1  Bloom
 
--   Bloom，也称辉光，是一种常见的屏幕效果
--   模拟摄像机的一种图像效果，让画面中较亮的区域“扩散”到周围的区域中，造成一种朦胧的效果
--   可以让物体具有真实的明亮效果
--   可以实现光晕效果
+Bloom 是游戏开发中最常用的一种全屏后处理特效，它可以模拟真实相机的一种图像效果，让画面中较亮的区域扩散到周围区域中，造成一种朦胧的效果。
+## 实现原理
 
-### 3、Bloom 的实现原理
-#### ①Bloom 实现原理
+思路：
+1. 根据一个设定阈值提取图像中较亮区域，把它们存储到一张 RT 中
+2. 利用模糊算法对这张纹理进行模糊处理
+3. 与原图混合/叠加
+![[Pasted image 20221209110919.png]]
 
--   实现思路：
 
--   1. 提取原图较亮区域（利用阈值）
--   2. 模糊该图像
--   3. 与原图混合/叠加
-- ![[Pasted image 20221209110919.png]]
-- //在 HDR 和 LDR 的那节课中也提到过 bloom，我直接把当时的作的一张流程图摘过来以供参考
- ![[Pasted image 20221209111030.png]]
-#### ②前置知识 1：HDR 和 LDR
-[[2 光照基础#2.7 LDR和HDR]]
--   HDR 和 LDR 分别是是高动态范围和低动态范围的缩写
--   **LDR**
--   jpg、png 格式图片
--   RGB 范围在[0,1]
-
--   **HDR**
--   HDR、EXR 格式图片
--   可以超过 1
-
--   因为自然界中的亮度差异是很大的（比如蜡烛的光强度约为 15，而太阳的强度约为 10w），只用 LDR 的话很多效果完全表现不出来
--   //其他具体细节参考 2.7 节
-
-#### ③前置知识 2：高斯模糊
-
--   实现图像模糊的一种方式
--   **高斯模糊：**
--   <font color="#ff0000">利用高斯核进行卷积运算，得到模糊的图像</font>
-![[Pasted image 20221209111419.png]]
--   高斯核：通过高斯函数定义的**卷积核**
--   核中心：(0,0)
--   核大小：3x3
--   标准方差σ（sei ge ma）：1.5
-
--   计算步骤：
-	- 将（x，y）带入公式中，计算出权重值，**（权重值代表当前处理像素的影响程度，离中心越近权重越大，影响程度越大）**
-	- 为了保证卷积后图像不变暗，需要对高斯核进行归一化处理（每个权重除以所有权重的和）
-	- ![[Pasted image 20221209111535.png]]
-
-**二维高斯核的特点**
--   计算量大，N×N 的高斯核需要 N * N * W * H 次纹理采样（图像的宽度和高度分别为 W、H）。
-
-**二维高斯核的可分离性**
--   二维高斯核可以拆成两个一维高斯核
--   利用可分离性，我们就可以优化算法
-	-   我们可以用两个一维高斯核先后对图像进行两次卷积操作
-	-   这样一来，结果一样，采样次数变为了 2 * N * W * H
--   再进一步
-	-   一维高斯核中包括了很多重复的权重，即对称性（下例中 0.0545，0.02442）
-	-   下例中大小为 5 的高斯核，<font color="#ff0000">实际上只需要记录三个权重值即可（0.0545、0.2442、0.4026）</font>
-
-![[Pasted image 20221209111755.png]]
-
-#### 卷积
-
--   **课程内容**
--   是一种图像操作
--   利用“卷积核”对图像的每个像素进行一系列操作
-
--   **卷积核**：
-	-   通常是由四方形网格结构，该区域内每个放个都有一个权重值
-	-   当我们对图像中的像素进行卷积时：
-	-   会把卷积核的中心放置在该像素上
-	-   翻转核之后再依次计算核中每个元素和其覆盖的图像像素值的乘积并求和
-	-   得到的结果就是该位置的新像素值
-
--   一个例子：
-![[卷积.gif]]
--   计算步骤：先水平反转卷积核，再将位置一一对应求和
-
--   **补充：**
--   参考：GAMES101-L6 内容
--   **滤波（Filtering）**
-	-   滤波就是抹掉特殊频率的东西
-	-   不同滤波的效果：
-		-   高通滤波 = 边界
-		-   低通滤波 = 模糊
-![[Pasted image 20221209112711.png]]
--   **滤波（Filtering）=卷积（Convolution）=平均（Averaging）**
--   **卷积操作的定义**
--   ①原始信号的任意一个位置，取其周围的平均
--   ②作用在一个信号上，用一种滤波操作，得到一个结果 Result
-
-![[Pasted image 20221209112739.png]]
--   **卷积定理**
--   时域上的卷积就是频域上的乘积（时域上的乘积=频域上的卷积）
-
--   根据卷积定理，我们实现一个卷积操作可以有两种方法：
--   方法 1：图和滤波器直接在时域上做卷积操作
--   方法 2：先把图傅里叶变换，变换到频域上，把滤波器变到频域上，两者相乘；乘完之后再逆傅里叶变换到时域上
-- ![[Pasted image 20221209113030.png]]
-### 4、总结
-
-①我们想用 bloom 实现什么效果？
+**我们想用 bloom 实现什么效果？**
 -   自然界中亮度差异较大的效果，LDR 不能表现的，光晕的效果
 
-②实现 bloom 效果的步骤？
--   先利用阈值提取图像中较亮的区域
--   对这个区域做模糊
--   将模糊后的高亮部分叠加回原图
 
 ## 二、用 Unity 实现 Bloom 算法
 ![[1 4.gif]]
@@ -836,23 +736,3 @@ Shader "Unlit/GodRay"
 ④用模板测试
 ⑤ 直接用 Mask 图（简单情况下）
 
-### 其他资料扩展/同学笔记
--   十种图像模糊像算法的总结与实现-------毛星云
--   [https://zhuanlan.zhihu.com/p/125744132](https://zhuanlan.zhihu.com/p/125744132)
-
--   SRP 做 Mask---by 丷葉丷
--   [https://quaint-author-3ce.notion.site/Bloom-1b2f32f3502c471a867a4ca07d27306d](https://quaint-author-3ce.notion.site/Bloom-1b2f32f3502c471a867a4ca07d27306d)
-
--   CommandBufffer 做 Mask-------by 清盐
--   [https://www.yuque.com/qingyan-bng85/zagg8x/epl3qs](https://www.yuque.com/qingyan-bng85/zagg8x/epl3qs)
-## 五、Reference
-
--   图片参考：· [https://unsplash.com/·](https://unsplash.com/·)
--   自行拍摄项目参考：· [https://github.com/keijiro/KinoBloom·](https://github.com/keijiro/KinoBloom·) [https://github.com/MarcusXie3D/FastBloomForMobiles](https://github.com/MarcusXie3D/FastBloomForMobiles)
--   资料参考：
-
--   learnopengl：[https://learnopengl.com/Advanced-Lighting/Bloom·](https://learnopengl.com/Advanced-Lighting/Bloom·)
--   Unity Shader 入门精要：12.5 Bloom 效果·
--   [ https://en.wikipedia.org/wiki/Bloom_ (shader_effect)]( https://en.wikipedia.org/wiki/Bloom_ (shader_effect)·)
--   [https://en.wikipedia.org/wiki/High_dynamic_range](https://en.wikipedia.org/wiki/High_dynamic_range·)
--   [https://zhuanlan.zhihu.com/p/76505536](https://zhuanlan.zhihu.com/p/76505536)

@@ -73,6 +73,19 @@
             }
           },
           {
+            "id": "392f625ea4cc0829",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "8bc6446fc572046e",
             "type": "leaf",
             "state": {
@@ -86,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       },
       {
         "id": "29edc78dfdeab99b",
@@ -98,7 +111,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -148,11 +161,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -198,7 +212,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -215,7 +229,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -248,8 +262,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "392f625ea4cc0829",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/01 模糊算法.md",
+    "图形学/1 图形系统/02 光栅化.md",
+    "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
@@ -273,14 +293,8 @@
     "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
     "引擎Unity3D/3 URP精粹/源码/URP PBR 源码剖析.md",
-    "引擎Unity3D/3 URP精粹/源码/URP 管线 PBR 源码剖析（下）.md",
-    "zBuffer/开发者心得：解耦合的哲学.md",
     "zip/images/f2cb97c58a08caa135b771b4a8b2066a_MD5.jpg",
     "zip/images/431897aa5219b6645ed49d6781bd8ccd_MD5.jpg",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zip/images/Pasted image 20230717115742.png",
     "zip/images/Pasted image 20230717115734.png",
     "zip/images/Pasted image 20230716220203.png",

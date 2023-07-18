@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Render Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+    },
+    {
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "01 模糊算法",
+      "path": "技术美术/3 后处理/01 模糊算法.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
     },
@@ -97,10 +121,6 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -153,10 +173,6 @@
       "path": "编程/C++/《C++ Primer》.md"
     },
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
       "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
-    },
-    {
-      "basename": "03 利用 LTC 实现实时多边形面积光",
-      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/03 利用 LTC 实现实时多边形面积光.md"
-    },
-    {
-      "basename": "从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程",
-      "path": "图形学/3 全局光照GI/PBR实战/从0开始PBR/从零开始的基于物理的渲染 (PBR)(3)：BRDF 和反射方程.md"
-    },
-    {
-      "basename": "01 辐射度量学",
-      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
-    },
-    {
-      "basename": "05 环境光照IBL",
-      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
     }
   ],
   "omittedPaths": [],
