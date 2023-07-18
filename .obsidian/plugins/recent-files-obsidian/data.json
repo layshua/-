@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
@@ -115,10 +119,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "5 CommandBuffer",

@@ -78,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -180,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -232,10 +232,10 @@
   },
   "active": "8bc6446fc572046e",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/01 模糊算法.md",
     "技术美术/3 后处理/02 Bloom.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "zip/images/b6a3c0bf5e103dc4aaed1043607192a9_MD5.gif",
     "zip/images/5e521d9fce1475d4a235b85f67334f93_MD5.gif",
     "zip/images/057c64a81ce91934b7c784eccae025be_MD5.gif",
