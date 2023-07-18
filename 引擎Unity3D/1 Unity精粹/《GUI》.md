@@ -431,7 +431,6 @@ UGUI 是 Unity 引擎内自带的 UI 系统官方称之为: Unity Ul
 `Canvas Scaler`：画布分辨率自适应组件，主要用于分辨率自适应  
 `Graphic Raycaster`：射线事件交互组件，主要用于控制射线响应相关  
 
-
 **EventSystem 对象上依附的:**
 `Event System` ：玩家输入事件响应系统，主要用于监听玩家操作 
 `Standalone Input Module` ：独立输入模块组件，主要用于监听玩家操作 
@@ -464,7 +463,7 @@ Rect Transform 意思是矩形变换
 - 它主要负责渲染自己的所有 UI 子对象
 - 如果 UI 控件对象不是 Canvas 的子对象，那么控件将不能被渲染
 - 我们可以通过修改 Canvas 组件上的参数修改渲染方式
-- 场景中可以有多个 Canvas 对象，可以分别管理不同画布的渲染方式，分辨率适应方式等等参数。如果没有特殊需求，—般情况场景上一个 Canvas 即可。
+- 场景中可以有多个 Canvas 对象，可以分别管理不同画布的渲染方式，分辨率适应方式等等参数。**如果没有特殊需求，—般情况场景上一个 Canvas 即可。**
 
 #### RenderMode 渲染模式
 ![[Pasted image 20230616160333.png]]
