@@ -87,6 +87,25 @@
           }
         ],
         "currentTab": 4
+      },
+      {
+        "id": "29edc78dfdeab99b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f3a0787e81e16d7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/10 色彩.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -133,7 +152,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -229,7 +249,7 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "32ed2e4db359ff47",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
