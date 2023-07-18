@@ -1,7 +1,7 @@
 
 
 ---
-title: 3 Render Feature
+title: 3 Renderer Feature
 aliases: []
 tags: []
 create_time: 2023-07-02 14:00

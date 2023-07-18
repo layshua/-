@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "3 Render Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+      "basename": "URP _ 后处理 - 模糊算法总结 - 哔哩哔哩",
+      "path": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "URP 渲染优化总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "4 后处理",
@@ -19,14 +35,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "22 科幻扫描效果前篇",
@@ -67,10 +75,6 @@
     {
       "basename": "Lit.shader源码",
       "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "URP 渲染优化总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md"
     },
     {
       "basename": "《CS Primer》",
@@ -195,10 +199,6 @@
     {
       "basename": "29 年轻人写的第一个 GPU 粒子",
       "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     }
   ],
   "omittedPaths": [],

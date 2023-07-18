@@ -65,20 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "392f625ea4cc0829",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -91,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
+                "file": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -100,25 +87,6 @@
           }
         ],
         "currentTab": 5
-      },
-      {
-        "id": "29edc78dfdeab99b",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f3a0787e81e16d7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -161,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md"
+                "file": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md"
               }
             }
           }
@@ -212,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -229,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Render Feature.md",
+                "file": "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -262,14 +230,27 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "392f625ea4cc0829",
+  "active": "8bc6446fc572046e",
   "lastOpenFiles": [
+    "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
+    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "zip/images/51752aa35d915f989b2f0d83dc9b1d58_MD5.webp",
+    "zip/images/ffee0769e3a1180ae0f2ff3d29e952d5_MD5.webp",
+    "zip/images/bb14b2b3bf038c3a965a1cbf8ff32d23_MD5.webp",
+    "zip/images/0484c35a83947d642ec049a7140b47fc_MD5.webp",
+    "zip/images/19ceb989da6739ec919303f6460bb9c8_MD5.webp",
+    "zip/images/63a240c0335f9988b2f26fabf71f0e02_MD5.webp",
+    "zip/images/8bbb9437fdc543b288caa9698854d58b_MD5.webp",
+    "zip/images/19c6d33015cc7aba5fee754026ab509b_MD5.webp",
+    "zip/images/63a1c9e311be358e759498ae4708a853_MD5.webp",
+    "zip/images/3e605568242edc3b2719b2109fae9ceb_MD5.webp",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/01 模糊算法.md",
     "图形学/1 图形系统/02 光栅化.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
@@ -279,27 +260,13 @@
     "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "DCC/03 Maya/python for Maya.md",
-    "zip/images/Pasted image 20230717225316.png",
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
-    "zip/images/Pasted image 20230717212229.png",
-    "zip/images/Pasted image 20230717212059.png",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
-    "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
-    "引擎Unity3D/3 URP精粹/源码/URP PBR 源码剖析.md",
-    "zip/images/f2cb97c58a08caa135b771b4a8b2066a_MD5.jpg",
-    "zip/images/431897aa5219b6645ed49d6781bd8ccd_MD5.jpg",
-    "zip/images/Pasted image 20230717115742.png",
-    "zip/images/Pasted image 20230717115734.png",
-    "zip/images/Pasted image 20230716220203.png",
-    "zip/images/Pasted image 20230716220142.png",
-    "zip/images/Pasted image 20230716220055.png",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
