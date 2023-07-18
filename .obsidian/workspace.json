@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
               }
             }
           }
@@ -179,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,8 +229,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "32ed2e4db359ff47",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
@@ -266,7 +267,6 @@
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
-    "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",

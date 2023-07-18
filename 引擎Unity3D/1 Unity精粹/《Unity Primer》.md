@@ -510,7 +510,7 @@ Screen.height
 //上图中的P即为Vector3.forward
 this.transform.InverseTransformPoint(Vector3.forward);
 
-//世界坐标系的向量转换为本地坐标系的向量
+//世界坐标系的向量转换为局部坐标系的向量
 //不受缩放影响
 this.transform.InverseTransformDirection(Vector3.forward);
 //受缩放影响
@@ -1416,7 +1416,6 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
 Screen.SetResolution(1920, 1080, true); //第三个参数是是否全屏
 ```
 
-
 ## 8 场景
 ![[Pasted image 20230609131650.png|500]]
 
@@ -1459,17 +1458,17 @@ if (SceneManager.GetActiveScene().name == "StartMenu")
 ```cs file:通过事件回调函数异步加载
 private void Start()
 {
-   AsyncOperation ao =  SceneManager.LoadSceneAsync("Scenename");
-   //当场景异步加载结束后就会自动调用该事件函数，我们如果希望在加载结束后做一些事情，那么就可以在该函数中，写处理逻辑
-   
-   //普通形式
-   ao.completed += LoadOver;
-   
-   //等价，lambda表达式形式
-   ao.completed += (a) =>
-   {
+    AsyncOperation ao =  SceneManager.LoadSceneAsync("Scenename");
+    //当场景异步加载结束后就会自动调用该事件函数，我们如果希望在加载结束后做一些事情，那么就可以在该函数中，写处理逻辑
+    
+    //普通形式
+    ao.completed += LoadOver;
+    
+    //等价，lambda表达式形式
+    ao.completed += (a) =>
+    {
        print("加载结束");
-   };
+    };
 }
 
 private void LoadOver(AsyncOperation ao)
