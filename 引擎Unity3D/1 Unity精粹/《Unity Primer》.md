@@ -375,7 +375,7 @@ Untiy 欧拉角常用顺规：YXZ（Yaw-pitch-Roll）
 #### Unity 中的四元数
 ```cs file:Unity中的四元数初始化方法
 //方法一：
-//绕轴（3，4，5）旋转30度  
+//绕轴（3，4，5）旋转30度，注意要转弧度
 Quaternion q = new Quaternion(Mathf.Sin(30/2 * Mathf.Deg2Rad)*3, Mathf.Sin(30/2 * Mathf.Deg2Rad)*4, Mathf.Sin(30/2 * Mathf.Deg2Rad)*5,Mathf.Cos(30/2 * Mathf.Deg2Rad));  
 
 //方法二：更方便！推荐！

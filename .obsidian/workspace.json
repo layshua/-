@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,12 +129,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -180,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,11 +229,13 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "32ed2e4db359ff47",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
     "zip/images/0790072802812eb8fa387847abd38320_MD5.png",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/01 模糊算法.md",
@@ -248,7 +249,6 @@
     "zip/images/30ba61418947053d9e2dc3ddf6216cc2_MD5.png",
     "zip/images/475cb189991392600adc3b454ca260d4_MD5.png",
     "zip/images/72a93531e1b32cdabb3925e64a67bde1_MD5.gif",
-    "zip/images/6d6be69ae1b2a81e62089ed3f2e17950_MD5.gif",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
     "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
     "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
@@ -261,7 +261,6 @@
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/浩克肥虫.md",
-    "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
