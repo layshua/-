@@ -849,7 +849,7 @@ print("状态改变" + isOn);
 
 ### InputField  输入字段
 **输入字段组件**
-是 uG 中用于**处理玩家文本输入相关交互**的关键组件
+是 UGUI 中用于**处理玩家文本输入相关交互**的关键组件
 
 默认创建的 InputField 由 3 个对象组成
 父对象：InputField 组件依附对象，以及同时在其上挂载了一个 Image 作为背景图
@@ -876,7 +876,7 @@ input.text = "123123123123";
 
 默认创建的 Slider 由 4 组对象组成
 父对象：Slider 组件依附的对象
-子对象：背景图、进度图、滑动块三组鸡象
+子对象：背景图、进度图、滑动块三组对象
 
 ![[Pasted image 20230617234615.png]]
 
@@ -946,27 +946,28 @@ dropdown.options.Add(new Dropdown.OptionData("新增选项"));
 **自动布局控制组件**：unity 提供了很多用于自动布局的管理性质的组件用于布局
 **布局元素**： 具备布局属性的对象们，这里主要是指具备 RectTransform 的 UI 组件
 
-**要参与自动布局的布局元素必须包含布局属性，布局属性主要有以下几条**
-`Minmum width`: 该布局元素应具有的最小宽度
-`Minmum height`: 该布局元素应具有的最小高度
-
-`Preferred width`: 在分配额外可用宽度之前，此布局元素应具有的宽度
-`Preferred height`: 在分配额外可用高度之前，此布局元素应具有的高度。
-
-`Flexible width`: 此布局元素应相对于其同级而填充的额外可用宽度的相对量 
-`Flexible height`: 此布局元素应相对于其同级而填充的额外可用高度的相对量
-
-**在进行自动布局时都会通过计算布局元素中的这 6 个属性得到控件的大小位置**
-- ! **一般情况下我们不会去手动修改他们**，但是如果你有这些需求，可以手动添加一个 `LayoutElement` 组件，可以修改这些布局属性。
-![[Pasted image 20230618205443.png]]
->控件 Insepctor 最下方可以查看布局属性
-
-在布局时，**布局元素大小设置的基本规则：**
-1. 首先分配最小大小 `Minmum width` 和 `Minmum height`
-2. 如果父类容器中有足够的可用空间，则分配 `Preferred width` 和 `Preferred height`
-3. 如果上面两条分配完成后还有额外空间，则分配 `Flexible width` 和 `Flexible height`
-
-一般情况下布局元素的这些属性都是 0，但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
+> [!quote] 布局属性
+> **要参与自动布局的布局元素必须包含布局属性，布局属性主要有以下几条**
+> `Minmum width`: 该布局元素应具有的最小宽度
+> `Minmum height`: 该布局元素应具有的最小高度
+> 
+> `Preferred width`: 在分配额外可用宽度之前，此布局元素应具有的宽度
+> `Preferred height`: 在分配额外可用高度之前，此布局元素应具有的高度。
+> 
+> `Flexible width`: 此布局元素应相对于其同级而填充的额外可用宽度的相对量 
+> `Flexible height`: 此布局元素应相对于其同级而填充的额外可用高度的相对量
+> 
+> **在进行自动布局时都会通过计算布局元素中的这 6 个属性得到控件的大小位置**
+> - ! **一般情况下我们不会去手动修改他们**，但是如果你有这些需求，可以手动添加一个 `LayoutElement` 组件，可以修改这些布局属性。
+> ![[Pasted image 20230618205443.png]]
+> >控件 Insepctor 最下方可以查看布局属性
+> 
+> 在布局时，**布局元素大小设置的基本规则：**
+> 1. 首先分配最小大小 `Minmum width` 和 `Minmum height`
+> 2. 如果父类容器中有足够的可用空间，则分配 `Preferred width` 和 `Preferred height`
+> 3. 如果上面两条分配完成后还有额外空间，则分配 `Flexible width` 和 `Flexible height`
+> 
+> 一般情况下布局元素的这些属性都是 0，但是特定的 UI 组件依附的对象布局属性会被改变，比如 Image 和 Text
 
 #### 水平垂直组件
 **组件名**：Horizontal Layout Group 和 Vertical Layout Group
