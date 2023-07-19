@@ -5,10 +5,6 @@
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "01 模糊算法",
-      "path": "技术美术/3 后处理/01 模糊算法.md"
-    },
-    {
       "basename": "URP 下用 RenderFeature 实现高斯模糊",
       "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
     },

@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 模糊算法.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -190,7 +190,7 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7d30db59b2714cf9",
+  "active": "bab83f90e56726d3",
   "lastOpenFiles": [
     "技术美术/3 后处理/01 模糊算法.md",
     "技术美术/3 后处理/01 图像模糊.md",
