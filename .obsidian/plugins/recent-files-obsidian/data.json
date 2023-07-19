@@ -5,8 +5,24 @@
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "03 定向光",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
+    },
+    {
+      "basename": "02 Draw Call",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md"
+    },
+    {
       "basename": "URP 下用 RenderFeature 实现高斯模糊",
       "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
     },
     {
       "basename": "3D数学",
@@ -15,6 +31,10 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
       "basename": "01 三维旋转",
@@ -179,22 +199,6 @@
     {
       "basename": "CodeMonkey Unity 中的 C 委托 笔记整理",
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
-    },
-    {
-      "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
-      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],

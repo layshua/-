@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bab83f90e56726d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -40,6 +27,19 @@
               "type": "markdown",
               "state": {
                 "file": "技术美术/3 后处理/01 图像模糊.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "93dca7cd73094578",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -190,13 +190,18 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "bab83f90e56726d3",
+  "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
-    "技术美术/3 后处理/01 模糊算法.md",
-    "技术美术/3 后处理/01 图像模糊.md",
+    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
+    "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
+    "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md",
     "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "技术美术/3 后处理/01 图像模糊.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "技术美术/3 后处理/01 模糊算法.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "DCC/02 Blender/辣椒酱.md",
@@ -223,11 +228,6 @@
     "zip/images/72a93531e1b32cdabb3925e64a67bde1_MD5.gif",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
     "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
-    "图形学/1 图形系统/10 色彩.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
