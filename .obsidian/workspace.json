@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "图形学/0 3D数学/3D数学.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "图形学/0 3D数学/3D数学.md"
               }
             }
           }
@@ -168,7 +168,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "图形学/0 3D数学/3D数学.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +185,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "图形学/0 3D数学/3D数学.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -220,6 +220,10 @@
   },
   "active": "ca1c539b8242826f",
   "lastOpenFiles": [
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/浩克肥虫.md",
     "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
@@ -252,10 +256,6 @@
     "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "DCC/02 Blender/辣椒酱.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
