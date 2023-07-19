@@ -1,8 +1,12 @@
 {
   "recentFiles": [
     {
+      "basename": "图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com",
+      "path": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md"
+    },
+    {
       "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
-      "path": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
     },
     {
       "basename": "动画",
@@ -195,10 +199,6 @@
     {
       "basename": "DrawCall，Batches，SetPass calls",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md"
-    },
-    {
-      "basename": "3 OverDraw",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
     }
   ],
   "omittedPaths": [],

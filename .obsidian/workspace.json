@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
+                "file": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,11 +116,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+                "file": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -166,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
+                "file": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
+                "file": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -216,21 +217,21 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7d30db59b2714cf9",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
-    "zip/images/455584e431e41899c93b2cc691ecac79_MD5.jpg",
-    "zip/images/1e39ffd1d3f30c3876f1fd69e65cba7b_MD5.jpg",
-    "zip/images/b3842061bc4ec1234682be0dc609c9a8_MD5.jpg",
-    "zip/images/76077cd24bf524429ee5882a89810c5e_MD5.jpg",
-    "zip/images/13946fed62ebf87c801dae7d622def0a_MD5.jpg",
-    "zip/images/ca52fddedf6b8e2ea0b0abd1d0483637_MD5.jpg",
-    "zip/images/505247d17a1f8df021b55607cb7bb525_MD5.jpg",
-    "zip/images/08d3888ee8a14be3df1ba19f481c3a3b_MD5.jpg",
-    "zip/images/77d73431213a1f786dce2f609b31a803_MD5.jpg",
-    "zip/images/58788891561f42fa0195771090a04db4_MD5.jpg",
-    "zip/images/2a704d13707cb4d8446fc7595fe312f2_MD5.jpg",
+    "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
+    "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md",
+    "zip/images/9c37f7d201cfb222699e6e3d04c0fcf7_MD5.png",
+    "zip/images/80705f155d83a686dd1e07541bf7e311_MD5.png",
+    "zip/images/db98b5bf18173f830b6636512c1fb80f_MD5.png",
+    "zip/images/07efb2b0fe8f33ccd3ab2e1bd99fe8cf_MD5.png",
+    "zip/images/8e78c88e1667bed67d885920bae95ca0_MD5.jpg",
+    "zip/images/4e75a6af2607c1f1c010325e6c7e14ba_MD5.png",
+    "zip/images/73b1329d0d03a16889f26f514ff5e4da_MD5.png",
+    "zip/images/2ebffae667d588a0d922898258d2fecf_MD5.png",
+    "zip/images/958e34d3c855b962e10bb7afe99e6d93_MD5.png",
+    "zip/images/1d871362f805c528a2cdc1d02b53e9ce_MD5.png",
     "引擎Unity3D/1 Unity精粹/动画.md",
-    "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
@@ -253,7 +254,6 @@
     "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md",
     "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
-    "图形学/0 3D数学/3D数学.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
