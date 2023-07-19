@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
+      "basename": "浩克肥虫",
+      "path": "DCC/02 Blender/浩克肥虫.md"
+    },
+    {
       "basename": "URP 下用 RenderFeature 实现高斯模糊",
       "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
     },
@@ -83,14 +91,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "浩克肥虫",
-      "path": "DCC/02 Blender/浩克肥虫.md"
     },
     {
       "basename": "03 UV操作",

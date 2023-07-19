@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+                "file": "DCC/02 Blender/辣椒酱.md"
               }
             }
           }
@@ -168,7 +168,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +185,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -220,12 +220,13 @@
   },
   "active": "ca1c539b8242826f",
   "lastOpenFiles": [
+    "DCC/02 Blender/浩克肥虫.md",
+    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
     "zip/images/0790072802812eb8fa387847abd38320_MD5.png",
@@ -254,7 +255,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/浩克肥虫.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
