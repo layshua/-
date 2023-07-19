@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "01 模糊算法",
+      "path": "技术美术/3 后处理/01 模糊算法.md"
+    },
+    {
+      "basename": "URP 下用 RenderFeature 实现高斯模糊",
+      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+    },
+    {
       "basename": "3D数学",
       "path": "图形学/0 3D数学/3D数学.md"
     },
@@ -23,10 +35,6 @@
     {
       "basename": "浩克肥虫",
       "path": "DCC/02 Blender/浩克肥虫.md"
-    },
-    {
-      "basename": "URP 下用 RenderFeature 实现高斯模糊",
-      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
     },
     {
       "basename": "02 Unity操作指南",
@@ -59,14 +67,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "01 模糊算法",
-      "path": "技术美术/3 后处理/01 模糊算法.md"
     },
     {
       "basename": "02 Bloom",

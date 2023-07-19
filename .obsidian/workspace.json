@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "7d3d781331886d82",
+            "id": "bab83f90e56726d3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/03 Maya/python for Maya.md",
+                "file": "技术美术/3 后处理/01 模糊算法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,48 +34,20 @@
             }
           },
           {
-            "id": "9f35244d1986874f",
+            "id": "7d30db59b2714cf9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "e15da4dec34a01e1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "32ed2e4db359ff47",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "8bc6446fc572046e",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -118,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -168,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/3D数学.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,14 +190,17 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "ca1c539b8242826f",
+  "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 模糊算法.md",
+    "技术美术/3 后处理/01 图像模糊.md",
+    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+    "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/浩克肥虫.md",
-    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -236,8 +211,6 @@
     "zip/images/0790072802812eb8fa387847abd38320_MD5.png",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/3 后处理/01 图像模糊.md",
-    "技术美术/3 后处理/01 模糊算法.md",
     "技术美术/3 后处理/02 Bloom.md",
     "zip/images/b6a3c0bf5e103dc4aaed1043607192a9_MD5.gif",
     "zip/images/5e521d9fce1475d4a235b85f67334f93_MD5.gif",
@@ -255,7 +228,6 @@
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "图形学/1 图形系统/02 光栅化.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
