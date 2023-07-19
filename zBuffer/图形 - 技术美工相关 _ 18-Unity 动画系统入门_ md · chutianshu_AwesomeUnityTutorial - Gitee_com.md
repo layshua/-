@@ -95,14 +95,3 @@ Unity 中，可以自建较为简单的动画剪辑，也支持导入外部动�
 ## 导入素材时材质或纹理丢失问题解决
 
 导入素材到 Unity 中时，一般来说，其中的材质和纹理需要配置一下，否则导入的会是白模（无材质、纹理）。大多数情况，都可以通过解压材质、纹理，修复材质方式解决。
-
-参考资料：
-
-*   [CC 动画 教程 官方文档](https://gitee.com/link?target=https%3A%2F%2Flearn.unity.com%2Ftutorial%2Fcreate-your-first-3d-animations)
-*   [Unity 动画系统 - Unity 官方文档](https://gitee.com/link?target=https%3A%2F%2Fdocs.unity3d.com%2Fcn%2F2022.1%2FManual%2FAnimationSection.html)
-
-配套视频教程： [https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912](https://gitee.com/link?target=https%3A%2F%2Fspace.bilibili.com%2F43644141%2Fchannel%2Fseriesdetail%3Fsid%3D299912)
-
-文章也同时同步微信公众号，喜欢使用手机观看文章的可以关注
-
-![[8e78c88e1667bed67d885920bae95ca0_MD5.jpg]]

@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "图形 - 技术美工相关 _ 19-Unity 中的动画曲线_ md · chutianshu_AwesomeUnityTutorial - 码云 - 开源中国",
+      "path": "zBuffer/图形 - 技术美工相关 _ 19-Unity 中的动画曲线_ md · chutianshu_AwesomeUnityTutorial - 码云 - 开源中国.md"
+    },
+    {
       "basename": "图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com",
       "path": "zBuffer/图形 - 技术美工相关 _ 18-Unity 动画系统入门_ md · chutianshu_AwesomeUnityTutorial - Gitee_com.md"
     },
     {
-      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
-      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+      "basename": "图形 - 技术美工相关 _ 20-Unity 动画控制器_ md · chutianshu_AwesomeUnityTutorial - 码云 - 开源中国",
+      "path": "zBuffer/图形 - 技术美工相关 _ 20-Unity 动画控制器_ md · chutianshu_AwesomeUnityTutorial - 码云 - 开源中国.md"
     },
     {
       "basename": "动画",
       "path": "引擎Unity3D/1 Unity精粹/动画.md"
+    },
+    {
+      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
+      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
     },
     {
       "basename": "《GUI》",
@@ -191,14 +199,6 @@
     {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "DrawCall，Batches，SetPass calls",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/DrawCall，Batches，SetPass calls.md"
     }
   ],
   "omittedPaths": [],
