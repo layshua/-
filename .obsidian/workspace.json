@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
               }
             }
           }
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,6 +218,19 @@
   },
   "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
+    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md",
+    "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
+    "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md",
+    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "图形学/1 图形系统/04 纹理.md",
@@ -231,20 +244,7 @@
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "技术美术/3 后处理/01 模糊算法.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/浩克肥虫.md",
-    "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "zBuffer/(37 条消息) 【Unity UPR】造个获取深度法线纹理的轮子_unity urp 深度纹理_九九 345 的博客 - CSDN 博客.md",
     "zip/images/0790072802812eb8fa387847abd38320_MD5.png",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/3 后处理/02 Bloom.md",
     "zip/images/b6a3c0bf5e103dc4aaed1043607192a9_MD5.gif",
     "zip/images/5e521d9fce1475d4a235b85f67334f93_MD5.gif",
     "zip/images/057c64a81ce91934b7c784eccae025be_MD5.gif",

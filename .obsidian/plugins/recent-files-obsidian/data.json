@@ -1,12 +1,68 @@
 {
   "recentFiles": [
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "24 Render Feature 制作特定模型外描边",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "19 径向模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
     },
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
       "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "04 纹理",
@@ -65,14 +121,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -113,14 +161,6 @@
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
     {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
@@ -159,46 +199,6 @@
     {
       "basename": "1 批处理总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
-    },
-    {
-      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
-      "path": "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md"
-    },
-    {
-      "basename": "URP PBR 源码剖析",
-      "path": "引擎Unity3D/3 URP精粹/源码/URP PBR 源码剖析.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
-      "path": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
-    },
-    {
-      "basename": "可微渲染、NeRF 相关技术概念急速入门",
-      "path": "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
-    },
-    {
-      "basename": "方向",
-      "path": "zip/AI/论文/方向.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "CodeMonkey Unity 中的 C 委托 笔记整理",
-      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md"
     }
   ],
   "omittedPaths": [],
