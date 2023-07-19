@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ea8cb9547c49ca05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -153,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,9 +218,10 @@
   },
   "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "技术美术/3 后处理/01 图像模糊.md",
-    "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+    "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md",
@@ -240,7 +254,6 @@
     "zip/images/30ba61418947053d9e2dc3ddf6216cc2_MD5.png",
     "zip/images/475cb189991392600adc3b454ca260d4_MD5.png",
     "zip/images/72a93531e1b32cdabb3925e64a67bde1_MD5.gif",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
