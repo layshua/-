@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
+      "path": "zBuffer/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+    },
+    {
+      "basename": "动画",
+      "path": "引擎Unity3D/1 Unity精粹/动画.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "3 OverDraw",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/3 OverDraw.md"
-    },
-    {
-      "basename": "2 GPU Instance深入浅出",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/2 GPU Instance深入浅出.md"
-    },
-    {
-      "basename": "1 批处理总结",
-      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     }
   ],
   "omittedPaths": [],
