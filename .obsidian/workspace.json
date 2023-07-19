@@ -26,6 +26,19 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c5bca3e87fe58708",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
@@ -90,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md"
               }
             }
           }
@@ -140,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -192,12 +205,13 @@
   },
   "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/17 Kawase 高性能模糊.md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md",
     "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "图形学/0 3D数学/3D数学.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
@@ -227,7 +241,6 @@
     "zip/images/475cb189991392600adc3b454ca260d4_MD5.png",
     "zip/images/72a93531e1b32cdabb3925e64a67bde1_MD5.gif",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/URP 渲染优化总结.md",
-    "zBuffer/URP _ 后处理 - 模糊算法总结 - 哔哩哔哩.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",

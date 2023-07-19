@@ -1,4 +1,3 @@
-        unity 里，对于模糊的处理有非常多的算法，这里有一篇文章总得了十种常见的模糊算法，非常硬核，建议收藏，链接如下：https://blog.csdn.net/poem_qianmo/article/details/105350519
 
 这里介绍其中的一种模糊算法：Kawase 模糊。这个在 unity 官方 URP 管线下自带的 volume 使用的 bloom，就是将此 Kawase 模糊采样过程中降升采样精度，得到的名为 “双重模糊” 的算法，这个在下一篇会在讲到。
 
@@ -6,7 +5,7 @@
 
 模糊效果
 
-    先构建一个自定义 renderfeather，他要继承 ScriptableRendererFeature 类。然后再定义一个设置的类，方便我们调整参数。
+先构建一个自定义 renderfeather，他要继承 ScriptableRendererFeature 类。然后再定义一个设置的类，方便我们调整参数。
 
 ![[a83f7585598732a38fb94ba1324fc633_MD5.webp]]
 
@@ -48,13 +47,13 @@ setup 函数
 
 Execute 函数
 
-         然后自定义一个 shader 用来处理图像。shader 非常简单，对目标像素和周围斜四个对角的像素的值进行采样，然后取均值即可。采样范围可以自定义调节。如果对 Kawase 模糊的算法不理解的可以看看文章首提到的链接。
+然后自定义一个 shader 用来处理图像。shader 非常简单，对目标像素和周围斜四个对角的像素的值进行采样，然后取均值即可。采样范围可以自定义调节。如果对 Kawase 模糊的算法不理解的可以看看文章首提到的链接。
 
 ![[7f6dd5f2fe8c5c5cd619fc0e90fb685c_MD5.webp]]
 
 shader 里的采样
 
-    完成之后，我们可以在对不同的 renderevent 插入我们的 pass。
+完成之后，我们可以在对不同的 renderevent 插入我们的 pass。
 
 ![[56492e7c043165e2f2a48d7865aca152_MD5.webp]]
 
