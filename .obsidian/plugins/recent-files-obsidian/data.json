@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "URP 下用 RenderFeature 实现高斯模糊",
+      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -11,10 +23,6 @@
     {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "URP 下用 RenderFeature 实现高斯模糊",
-      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
@@ -97,10 +105,6 @@
       "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
@@ -171,10 +175,6 @@
     {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
     },
     {
       "basename": "《C++ Primer》",
