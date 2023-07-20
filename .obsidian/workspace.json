@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
               }
             }
           }
@@ -141,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,8 +190,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "ee2f475a8239a4f8",
+  "active": "ea8cb9547c49ca05",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
@@ -217,7 +217,6 @@
     "引擎Unity3D/1 Unity精粹/动画.md",
     "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
