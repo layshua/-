@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "《CS Primer》",
@@ -119,10 +123,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "03 定向光",
