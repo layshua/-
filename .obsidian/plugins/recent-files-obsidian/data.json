@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
