@@ -30,15 +30,15 @@
 
 升采样 pass
 
-      shader 是开胃菜，而自定义的 render feather 才是真正的麻烦（各位程序大大请轻喷，本人只是个小美术，对美术摸 urp 的新东西确实挺头疼的）。下面本人说明一下 render feather 的内容。
+  shader 是开胃菜，而自定义的 render feather 才是真正的麻烦（各位程序大大请轻喷，本人只是个小美术，对美术摸 urp 的新东西确实挺头疼的）。下面本人说明一下 render feather 的内容。
 
-      第二步，自定义 render feather。先定义一个 setting，这个大家都懂。
+  第二步，自定义 render feather。先定义一个 setting，这个大家都懂。
 
 ![[36d688e4fd9977276cf85c9d89f0b41b_MD5.webp]]
 
 定义 seting
 
-        初始化和传参数的函数。之前专栏里说了多次，也不多讲了。
+初始化和传参数的函数。之前专栏里说了多次，也不多讲了。
 
 ![[52b71987969f4a8761b99f9a4f7bfc04_MD5.webp]]
 

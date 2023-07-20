@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 1 部分",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
+    },
+    {
+      "basename": "【译】Unity 中的 GPU 光线追踪 - 第 3 部分",
+      "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
+      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
+    },
+    {
+      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
+      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
+    },
+    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
@@ -79,10 +103,6 @@
     {
       "basename": "19 径向模糊",
       "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
       "basename": "01 图像模糊",
@@ -179,26 +199,6 @@
     {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "python for Maya",
-      "path": "DCC/03 Maya/python for Maya.md"
-    },
-    {
-      "basename": "Lit.shader源码",
-      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     }
   ],
   "omittedPaths": [],
