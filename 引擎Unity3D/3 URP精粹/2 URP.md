@@ -995,6 +995,18 @@ Unity 可以在一帧中多次渲染叠加摄影机的视图，或者是因为�
 3. 当仅对“正向渲染路径”中的灯光使用 Rendering Layers 时，性能影响很小。  
 4. 当“Rendering Layers”计数超过8的倍数时，性能影响会更显著。例如：将层数从8层增加到9层比将层数从9层增加到10层具有更大的相对影响。 
 
+# URP Data 设置
+![[Pasted image 20230720235903.png|500]]
+
+1. **Depth Priming 深度启动**：即 **Pre-Z  pass**，仅 Forward 渲染路径可用
+    - <mark style="background: #FFB8EBA6;">Auto</mark>：如果有一个 Render Pass 需要 Depth Prepass，Unity 将将执行 **Depth Prepass** 和 Depth Priming
+    - <mark style="background: #FFB8EBA6;">Force</mark>: Untiy 总是总是执行 Depth Priming，并为每个 Render Pass 执行执行 Depth Prepass
+    -  在 Android、iOS 和 Apple TV 上，Unity 仅在 Force 模式下执行深度启动。在这些平台常见的 tiled GPUs 上，深度启动与 MSAA 结合可能会降低性能。
+2. **Depth Texture Mode**：指定渲染管线将场景深度复制到深度纹理的阶段
+    - <mark style="background: #FFB8EBA6;">After Opaques</mark>
+    - <mark style="background: #FFB8EBA6;">After Transparents</mark>
+    - <mark style="background: #FFB8EBA6;">Force Prepass</mark>：强制执行 Depth Prepass 以生成场景深度纹理
+    - 在移动设备上，After Transparents 选项可以显著提高内存带宽。这是因为 Copy Depth 会导致渲染目标在 Opaque pass 和 Transparents pass 之间切换。发生这种情况时，Unity 会将“颜色缓冲区”的内容存储在主内存中，然后在 Copy Depth完成后再次加载。当启用MSAA时，影响会显著增加，因为Unity还必须将MSAA数据与颜色缓冲区一起存储和加载。
 # 多光源阴影
 
 > [!bug] 

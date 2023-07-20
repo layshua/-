@@ -78,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
+                "file": "图形学/1 图形系统/06 深度测试.md"
               }
             }
           }
@@ -192,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -209,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -244,12 +244,14 @@
   },
   "active": "0b65e4181608c1d8",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "zip/images/Pasted image 20230720235903.png",
+    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
@@ -268,7 +270,6 @@
     "zip/images/fd03db004c8740c4ef6210cfac49240a_MD5.gif",
     "zip/images/167178c176b41fcb51202c7f0764f74d_MD5.png",
     "zip/images/a62ab4c02a138d705925458704b793e7_MD5.png",
-    "zip/images/62050c86146a1263adfcd34aaa2db26f_MD5.png",
     "引擎Unity3D/1 Unity精粹/动画.md",
     "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
@@ -279,7 +280,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md",
     "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
     "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md",
-    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
