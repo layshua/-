@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "Unity 动画控制器",
       "path": "zBuffer/Unity 动画控制器.md"
     },
@@ -135,10 +139,6 @@
     {
       "basename": "02 Unity操作指南",
       "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《Unity设计模式》",

@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Unity 动画控制器.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Unity 动画控制器.md"
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Unity 动画控制器.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Unity 动画控制器.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -219,8 +219,8 @@
   },
   "active": "7d30db59b2714cf9",
   "lastOpenFiles": [
-    "zBuffer/动画曲线.md",
     "zBuffer/Unity 动画控制器.md",
+    "zBuffer/动画曲线.md",
     "zBuffer/Unity 动画系统入门.md",
     "zip/images/Pasted image 20230719230631.png",
     "zip/images/84912012907292b72a609fbc7263a216_MD5.png",
