@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
