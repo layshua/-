@@ -8,32 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ca1c539b8242826f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7d30db59b2714cf9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ea8cb9547c49ca05",
             "type": "leaf",
             "state": {
@@ -47,25 +21,12 @@
             }
           },
           {
-            "id": "c5bca3e87fe58708",
+            "id": "8e55c2901b3ffd45",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "技术美术/3 后处理/01 图像模糊.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "93dca7cd73094578",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -167,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,8 +178,9 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "7d30db59b2714cf9",
+  "active": "8e55c2901b3ffd45",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
@@ -254,7 +216,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
-    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
