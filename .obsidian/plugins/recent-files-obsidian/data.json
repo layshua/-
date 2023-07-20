@@ -5,12 +5,16 @@
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -39,10 +43,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
       "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "Unity 动画控制器",
