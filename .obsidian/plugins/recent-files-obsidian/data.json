@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
@@ -55,10 +59,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "35 屏幕空间平面反射 SSPR 补充",
