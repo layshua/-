@@ -1,24 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
-      "basename": "URP框架搭建",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP框架搭建.md"
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
     },
     {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
-      "basename": "【Unity】 为了更好用的后处理——扩展 URP 后处理踩坑记录 - 简书",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/【Unity】 为了更好用的后处理——扩展 URP 后处理踩坑记录 - 简书.md"
+      "basename": "08 SSAO",
+      "path": "技术美术/3 后处理/08 SSAO.md"
     },
     {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
+      "basename": "URP14后处理框架搭建",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
+    },
+    {
+      "basename": "扩展 URP 后处理踩坑记录",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
     },
     {
       "basename": "01 图像模糊",
@@ -43,10 +47,6 @@
     {
       "basename": "辣椒酱",
       "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "08 SSAO",
-      "path": "技术美术/3 后处理/08 SSAO.md"
     },
     {
       "basename": "03 深度法线纹理",
