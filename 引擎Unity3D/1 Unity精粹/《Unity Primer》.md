@@ -1718,9 +1718,10 @@ audioClip.GetData(f, 0);
 ### (1) 碰撞检测
 物理信息的更新和 FixedTime 相关
 
- **碰撞产生的必要条件：**
-- 两个物体都有碰撞器 Collider
-- 至少一个物体有刚体 Rigidbody
+> [!bug]  碰撞产生的必要条件：
+> 
+> - 两个物体都有碰撞器 Collider
+> - 至少一个物体有刚体 Rigidbody
 
 ![[Pasted image 20230605124248.png]]
 
@@ -1745,7 +1746,7 @@ Continuous Dynamic > Continuous Speculativec > Continuous > Discrete
 ![[Pasted image 20230605125839.png]]
 ![[Pasted image 20230605130129.png]]
 
-异形物体使用多种碰撞器组合，刚体对象的子对象碰撞器信息参与碰撞检测（即我们可以给父对象添加刚体，碰撞器则添加到每个子对象上）
+**异形物体使用多种碰撞器组合，刚体对象的子对象碰撞器信息参与碰撞检测（即我们可以给父对象添加刚体，碰撞器则添加到每个子对象上）**
 
 **不常用的碰撞器：**
 Mesh Colider网格碰撞器，根据网格生成碰撞体，消耗较大，较为精确
@@ -1759,7 +1760,7 @@ Terrain Colider：地形碰撞器
 右键 Create 
 ![[Pasted image 20230605132408.png|500]]
 #### 碰撞检测函数
-- 碰撞和触发响应函数属于特殊的生命周期函数，位于 FixedUpdate 和 Update 之间，也是通过反射调用
+- **碰撞和触发响应函数属于特殊的生命周期函数，位于 FixedUpdate 和 Update 之间，也是通过反射调用**
 - 如果是一个异形物体，刚体在父对象上，如果你想通过子对象上挂脚本检测碰撞是不行的必须挂载到这个刚体父对象上才行。
 - 碰撞和触发器函数都可以写成虚函数，在子类去重写逻辑
 
@@ -1842,7 +1843,7 @@ rigidBody = this.GetComponent<Rigidbody>();
 //2.添加力
 //加力过后对象是否停止移动是由阻力决定的，没有阻力就不会停
 //相对世界坐标
-rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); //第二个参数时
+rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); //力的模式
 //相对本地坐标
 rigidBody.AddRelativeForce(Vector3.forward * 10);
 
@@ -1866,9 +1867,9 @@ rigidBody.AddExplosionForce(100,Vector3.zero,10,10);
 ```
 
 ##### 力的模式
-上面添加力的方法其实有第二个参数，用来指定计算力的模式 ForceMode
+上面添加力的方法其实有第二个参数，用来指定计算力的模式 `ForceMode`
 ```cs
-rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); //第二个参数时
+rigidBody.AddForce(Vector3.forward * 10,ForceMode.Acceleration); 
 ```
 
 动量定理 ： 
@@ -1907,7 +1908,8 @@ if(rigidBody.IsSleeping())
 类似这种并没有实体物体只想要检测在指定某一范围是否让敌方受到伤害时，便可以使用范围判断。
 简而言之，在指定位置进行范围判断我们可以得到处于指定范围内的对象，目的是对对象进行处理，比如受伤减血等等
 
-**必备条件：想要被范围检测到的对象必须具备碰撞器**
+> [!bug] 范围检测必备条件
+> **想要被范围检测到的对象必须具备碰撞器**
 
 注意点：
 1. 范围检测相关 API 只有当执行该句代码时进行一次范围检测，它是瞬时的 

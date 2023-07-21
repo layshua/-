@@ -80,7 +80,7 @@ transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * r
   
 接下来我们创建 PlayerAnimator.cs 脚本管理角色的动画，添加到 PlayerVisual 上；在 Player.cs 中设置 IsWalking 的值，当角色移动向量不为 0 时则为 true；在 Player.Animator.cs 中更新 Animator 中设置的参数
 
-```
+```cs
 // Player.cs中
 ...
 public class Player : MonoBehaviour
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 }
 ```
 
-```
+```cs
 // PlayerAnimator.cs中
 using UnityEngine;
 
@@ -139,7 +139,7 @@ public class PlayerAnimator : MonoBehaviour
 首先将处理玩家输入得到移动向量的部分代码分离  
 创建 GameInput.cs，并在 Hierachy 创建一个 GameInput 对象，将脚本挂载到对象上；将原先 Player.cs 中处理输入的部分拿出来，放到 GameInput.cs 中，调整完的代码如下
 
-```
+```cs
 // Player.cs中
 using UnityEngine;
 
@@ -168,7 +168,7 @@ public class Player : MonoBehaviour
 }
 ```
 
-```
+```cs
 // GameInput.cs中
 using UnityEngine;
 
@@ -225,7 +225,7 @@ Input System 可以通过 Add Component 添加对应的脚本，但是这里我�
   
 修改 GameInput.cs，替换为将原来的方法替换为使用 Input System（归一化的操作也可以在. inputactions 文件中添加 processor）
 
-```
+```cs
 // GameInput.cs中
 using UnityEngine;
 
@@ -270,8 +270,6 @@ public class GameInput : MonoBehaviour
 想要添加其他的输入方式，可以在. inputactions 文件面板添加新的 Action，比如这里添加了一个用方向键控制移动的 Action
 
 ![](<images/1689211706663.png>)
-
-
 
 ### 3.5 碰撞检测 Collision Detection
 
