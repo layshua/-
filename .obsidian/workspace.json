@@ -89,7 +89,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "zBuffer/01 我的世界学习（学习归纳）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -153,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "zBuffer/01 我的世界学习（学习归纳）.md"
               }
             }
           }
@@ -203,7 +203,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "zBuffer/01 我的世界学习（学习归纳）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -220,7 +220,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "zBuffer/01 我的世界学习（学习归纳）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -255,13 +255,24 @@
   },
   "active": "d3a9aa0a2bc6f42c",
   "lastOpenFiles": [
+    "zip/images/8d56a4e6afec3d91e26ccba06c666f77_MD5.gif",
+    "zip/images/88f1585dcd191c5ea8bb37a148cdb646_MD5.gif",
+    "zip/images/bce88204e82e1ac009da248e174d5d58_MD5.png",
+    "zip/images/dd05de4e556ad13c28c9cc76598b3510_MD5.png",
+    "zip/images/377aa875e06859eb356bfff753dbebe8_MD5.png",
+    "zip/images/0045c963f62477020fb80cea4ecafd21_MD5.png",
+    "zip/images/b2855faad21d257e440ba2af2fe70a25_MD5.png",
+    "zip/images/c23f0c9de1f12478e3cb6f663251679d_MD5.png",
+    "zip/images/8ac316c4310d465d98cf2118140b3190_MD5.png",
+    "zip/images/236842b2d000b13035161415d5be82f4_MD5.png",
+    "zip/images/17a0c7e7a0d08019903f4902a4c2af58_MD5.png",
+    "DCC/02 Blender/辣椒酱.md",
+    "zBuffer/01 我的世界学习（学习归纳）.md",
     "DCC/02 Blender/浩克肥虫.md",
     "技术美术/3 后处理/08 SSAO.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zip/images/Pasted image 20230721002807.png",
     "图形学/1 图形系统/06 深度测试.md",
-    "zip/images/Pasted image 20230720235903.png",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
@@ -277,20 +288,9 @@
     "zBuffer/Unity 动画控制器.md",
     "zBuffer/动画曲线.md",
     "zBuffer/Unity 动画系统入门.md",
-    "zip/images/Pasted image 20230719230631.png",
-    "zip/images/84912012907292b72a609fbc7263a216_MD5.png",
-    "zip/images/0414411a3f8ce3c5c39de49e2ae29e3f_MD5.png",
-    "zip/images/759a48c70ab552174a1102a49a1c4c5f_MD5.png",
-    "zip/images/1d2357ecbdbb2441b1616c3ce7514529_MD5.png",
-    "zip/images/debb0ab36a028031599d694cee0d7d07_MD5.png",
-    "zip/images/fd03db004c8740c4ef6210cfac49240a_MD5.gif",
-    "zip/images/167178c176b41fcb51202c7f0764f74d_MD5.png",
     "引擎Unity3D/1 Unity精粹/动画.md",
     "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
-    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
