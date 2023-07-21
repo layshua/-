@@ -1,8 +1,40 @@
 {
   "recentFiles": [
     {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
+    },
+    {
+      "basename": "URP框架搭建",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP框架搭建.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "【Unity】 为了更好用的后处理——扩展 URP 后处理踩坑记录 - 简书",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/【Unity】 为了更好用的后处理——扩展 URP 后处理踩坑记录 - 简书.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
+    },
+    {
+      "basename": "10 屏幕后处理效果(Bloom)",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
+    },
+    {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "01 我的世界学习（学习归纳）",
@@ -37,16 +69,8 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
@@ -175,30 +199,6 @@
     {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
     }
   ],
   "omittedPaths": [],

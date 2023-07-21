@@ -8,20 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8e55c2901b3ffd45",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "2af09d9e4005bffb",
+            "id": "ee2f475a8239a4f8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -29,20 +21,12 @@
             }
           },
           {
-            "id": "0537a08b3a9af11d",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "ee2f475a8239a4f8",
+            "id": "72b515d6c12364fc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "Tools/Git/Unity Git.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -110,7 +94,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
+                "file": "Tools/Git/Unity Git.md"
               }
             }
           }
@@ -203,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "Tools/Git/Unity Git.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -220,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "Tools/Git/Unity Git.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -253,19 +237,28 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "d3a9aa0a2bc6f42c",
+  "active": "72b515d6c12364fc",
   "lastOpenFiles": [
+    "引擎Unity3D/收藏夹/URP后处理扩展/URP框架搭建.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
+    "引擎Unity3D/收藏夹/URP后处理扩展/【Unity】 为了更好用的后处理——扩展 URP 后处理踩坑记录 - 简书.md",
+    "引擎Unity3D/收藏夹/URP后处理扩展",
+    "zip/images/88081715b08710ef03ae5de6dc10d547_MD5.webp",
+    "zip/images/b106202cf903d71c0c4fe3a485b5d162_MD5.webp",
+    "zip/images/479b7d4e587f5f82bcd7ee24287bca33_MD5.webp",
+    "zip/images/33645742dd504c5bdd4b399aa636e83f_MD5.webp",
+    "zip/images/37aac0953bb56f6ccfc076c408abb658_MD5.webp",
+    "zip/images/7f982c13b9dbb97d78fdbd74eee9bfcd_MD5.webp",
+    "zip/images/353969d293c281a340ddbf7407d9fe73_MD5.webp",
+    "zip/images/91e479f861f40e716adf3c82c2e14630_MD5.webp",
+    "zip/images/05526b2eca6ae6f797ee2ddb993641b1_MD5.webp",
+    "zip/images/c02ebaa7733142c5418ad09aa972c0c8_MD5.webp",
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/01 图像模糊.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
+    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "zBuffer/01 我的世界学习（学习归纳）.md",
-    "zip/images/8d56a4e6afec3d91e26ccba06c666f77_MD5.gif",
-    "zip/images/88f1585dcd191c5ea8bb37a148cdb646_MD5.gif",
-    "zip/images/bce88204e82e1ac009da248e174d5d58_MD5.png",
-    "zip/images/dd05de4e556ad13c28c9cc76598b3510_MD5.png",
-    "zip/images/377aa875e06859eb356bfff753dbebe8_MD5.png",
-    "zip/images/0045c963f62477020fb80cea4ecafd21_MD5.png",
-    "zip/images/b2855faad21d257e440ba2af2fe70a25_MD5.png",
-    "zip/images/c23f0c9de1f12478e3cb6f663251679d_MD5.png",
-    "zip/images/8ac316c4310d465d98cf2118140b3190_MD5.png",
-    "zip/images/236842b2d000b13035161415d5be82f4_MD5.png",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/浩克肥虫.md",
     "技术美术/3 后处理/08 SSAO.md",
@@ -273,11 +266,8 @@
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
@@ -286,10 +276,6 @@
     "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md",
     "zBuffer/Unity 动画控制器.md",
     "zBuffer/动画曲线.md",
-    "zBuffer/Unity 动画系统入门.md",
-    "引擎Unity3D/1 Unity精粹/动画.md",
-    "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
@@ -299,7 +285,6 @@
     "引擎Unity3D/4 GamePlay",
     "zip/images/Diagram 2.svg.xml",
     "Math/概率论/蒙特卡洛积分",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
