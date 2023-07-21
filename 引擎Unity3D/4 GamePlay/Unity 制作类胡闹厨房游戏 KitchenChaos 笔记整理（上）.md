@@ -321,7 +321,7 @@ bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vec
   
 我们可以多增加一些逻辑来让角色有其他方向的速度向量时仍然移动
 
-```
+```cs
 // Player.cs中
 ...
 float moveDistance = moveSpeed * Time.deltaTime;  
@@ -380,7 +380,7 @@ if (canMove)
   
 要解决这个问题，需要改动以下语句（注意这里`moveDir.x != 0`和`moveDir.z != 0`的加入也给更后面的手柄输入带来了一定问题，在最后的时候作者改为了`(moveDir.x < -0.5f || moveDir.x > 0.5f)`和 `(moveDir.z < -0.5f || moveDir.z> 0.5f)）
 
-```
+```cs
 // Player.cs中
 ...
 if (!canMove)
