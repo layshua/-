@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -153,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,13 +202,14 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "d7de7b1574479f55",
+  "active": "ee2f475a8239a4f8",
   "lastOpenFiles": [
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/01 图像模糊.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
+    "Tools/Git/Unity Git.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "Tools/Git/Unity Git.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "技术美术/3 后处理/08 SSAO.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
@@ -225,7 +225,6 @@
     "zip/images/91e479f861f40e716adf3c82c2e14630_MD5.webp",
     "zip/images/05526b2eca6ae6f797ee2ddb993641b1_MD5.webp",
     "zip/images/c02ebaa7733142c5418ad09aa972c0c8_MD5.webp",
-    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",

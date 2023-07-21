@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
@@ -9,16 +13,16 @@
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
     {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
     },
     {
       "basename": "4 后处理",
@@ -35,10 +39,6 @@
     {
       "basename": "扩展 URP 后处理踩坑记录",
       "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "ta101后处理",

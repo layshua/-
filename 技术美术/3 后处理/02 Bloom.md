@@ -9,15 +9,25 @@ Bloom 是游戏开发中最常用的一种全屏后处理特效，它可以模�
 3. 与原图混合/叠加
 ![[Pasted image 20221209110919.png]]
 
-## 二、用 Unity 实现 Bloom 算法
+## Unity 实现
 ![[1 4.gif]]
-### 1、C #脚本部分
+
+**脚本部分思路：**
 -   定义 shader 中的相关参数
 -   高斯模糊迭代次数
 -   高斯模糊范围（blurSpread）
 -   下采样系数（downSample，downSample 控制渲染纹理大小）
 -   阈值：`luminanceThreshold`
 
+-   **shader 部分思路**
+-   使用 4 个 pass 完成 bloom 效果，对应 bloom 的实现步骤
+-   pass1：提取亮部区域
+-   pass2：实现竖直方向的高斯模糊
+-   pass3：实现水平方向的高斯模糊
+-   pass4：模糊后的高亮区域的 RT 作为纹理属性传给 shader，叠加到原图
+
+
+### 脚本
 -   OnRenderImage 函数部分
 -   OnRenderImage 是官方提供的函数，可以使用这个函数获取当前的屏幕图像（得到渲染纹理）
 -   实现内容：
@@ -130,14 +140,7 @@ public class DS_Bloom : PostEffectsBase
 
 ```
 
-### 2、shader 部分
-
--   **基本思路**
--   使用 4 个 pass 完成 bloom 效果，对应 bloom 的实现步骤
--   pass1：提取亮部区域
--   pass2：实现竖直方向的高斯模糊
--   pass3：实现水平方向的高斯模糊
--   pass4：模糊后的高亮区域的RT作为纹理属性传给 shader，叠加到原图
+### shader 
 
 -   **整理一下其中需要注意的几点**
 -   **亮度如何获取？**
@@ -151,7 +154,7 @@ public class DS_Bloom : PostEffectsBase
     -   在顶点着色器中计算纹理坐标可以减少运算提高性能
     -   而且由于顶点到片元的插值是线性的，因此不会影响纹理坐标的计算结果
 
-## 三、 Bloom 算法的应用
+## 应用
 
 ### 1、配合自发光贴图
 ![[Pasted image 20221209114223.png]]
@@ -160,20 +163,13 @@ public class DS_Bloom : PostEffectsBase
 ### 3、配合 ToneMapping
 -   bloom 效果和 ToneMapping 结合可以较好的保留暗部和亮部的细节
 ![[Pasted image 20221209114250.png]]
-### 4、GoodRay (体积光)效果
+### 4、GodRay 效果
 -   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果
 ![[Pasted image 20221209114329.png]]
 -   GoodRay 配合 ToneMapping
 ![[Pasted image 20221209114348.png]]
 -   可以看到 ToneMapping 解决了**过曝**的问题
-#### ①径向模糊介绍及原理
--   径向模糊（Radial Blur）可以给画面带来很好的速度感，是各类游戏中后处理的常客，也常用于 Sun Shaft 等后处理特效中作为光线投射的模拟。
-![[Pasted image 20221209114607.png]]
-**径向模糊的原理：**
--   首先选取一个**径向轴心**（Radial Center）
--   然后**将每一个采样点的 uv 基于此径向轴心进行偏移**（offset）
--   并进行一定次数的**迭代采样**
--   最终将采样得到的 RGB 值累加，并除以迭代次数。
+
 #### ②实现过程
 相比 Bloom 效果的高斯模糊，这里我们使用径向模糊来代替它
 ![[1 5.gif]]
@@ -454,9 +450,9 @@ Shader "Unlit/GodRay"
 }
 
 ```
-## 四、扩展/课后作业
-### 如何实现 bloom 的 mask 功能
-
+# Bloom  Mask 
+之前实现的 Bloom 是对全屏作用，我们想要对局部作用，就要进行遮罩。
+方法：
 ①用 Alpha 通道
 -   参考：[https://blog.csdn.net/SnoopyNa2Co3/article/details/88075047](https://blog.csdn.net/SnoopyNa2Co3/article/details/88075047)
 ②用 SRP 渲染一张 Mask 图
