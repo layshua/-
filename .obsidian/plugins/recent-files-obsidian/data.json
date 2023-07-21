@@ -5,6 +5,18 @@
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
+      "basename": "HLSL语法",
+      "path": "图形学/2 图形API/DX12/HLSL语法.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
       "basename": "Unity Git",
       "path": "Tools/Git/Unity Git.md"
     },
@@ -51,10 +63,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "06 深度测试",
@@ -191,14 +199,6 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "01 三维旋转",
-      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     }
   ],
   "omittedPaths": [],

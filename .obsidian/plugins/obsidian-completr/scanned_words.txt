@@ -12517,6 +12517,7 @@ chDCC
 cDG
 cyclic
 complexLit
+colorThreshold
 github
 grey
 green
@@ -16168,6 +16169,8 @@ gQZW
 gsP
 golssy
 grazingTerm
+godRayShader
+godRayMaterial
 typora
 todo
 tooltip
@@ -20054,6 +20057,8 @@ tUqq
 tajourney
 transaction
 tiled
+targetCamera
+thresholdColor
 markdown
 matter
 mod
@@ -39198,6 +39203,7 @@ VIi
 Volueme
 VolumeStack
 VolumeMangager
+ViewPortLightPos
 verge
 vPdIt
 vertical
@@ -42614,6 +42620,9 @@ visualGameObjectArray
 validKitchenObjectSOList
 viewcontrol
 vKWU
+viewPortLightPos
+vertRadialBlur
+vertGodRay
 AA
 AppData
 AIRDyuVH
@@ -59250,6 +59259,7 @@ Ringing
 Reflcetion
 Reflctivity
 RTDownScale
+RADIAL
 Microsoft
 Menu
 MicaForEveryone
@@ -68133,6 +68143,7 @@ WaitForLastPresent
 Wxd
 Wreckless
 Woods
+WorldToViewportPoint
 Start
 StartAllBack
 Shadowrocket
@@ -77351,6 +77362,7 @@ PnPbA
 Pkd
 Photography
 Priming
+PowFactor
 ContextMenuManager
 ClashVerge
 Clash
@@ -81870,6 +81882,8 @@ Checked
 CustomVolumeComponent
 CustomPostProcessRenderPass
 CustomPostProcessRendererFeature
+CheckShaderAndCreateMaterial
+ColorThreshold
 ImTip
 IMAP
 ID
@@ -101678,6 +101692,8 @@ bQO
 brdfDiffuse
 brdfSpecular
 blendTree
+blurIteration
+blurOffset
 fe
 front
 fill
@@ -105394,6 +105410,11 @@ fsj
 fVWW
 fIfM
 facial
+fExtractBright
+fRadialBlur
+fGodRay
+fragRadialBlur
+fragGodRay
 dd
 dcc
 data
@@ -109668,6 +109689,8 @@ dPL
 decent
 dielectricSpec
 diffuseTerm
+distFromLight
+distanceControl
 TFvYZOKeHL
 TAB
 TeX
@@ -123170,6 +123193,8 @@ smoothing
 spiral
 startkit
 shaderName
+samplerScale
+samplerOffset
 local
 list
 left
@@ -126901,6 +126926,10 @@ lAQJ
 lCmS
 lYGF
 layered
+lightFactor
+lightTransform
+lightRadius
+lightPowFactor
 YAML
 You
 YEBAYGhURFRofHx
@@ -173822,6 +173851,8 @@ LambertBRDF
 LightTag
 Libray
 LoopTime
+LightRadius
+LightFactor
 Getx
 GetX
 GetName
@@ -178495,6 +178526,7 @@ Grainy
 Gauusian
 Grident
 Gonzalez
+GodRay
 NULL
 Native
 NormalMap
