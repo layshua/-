@@ -7,44 +7,6 @@ B 站搬运教程地址：[https://www.bilibili.com/video/BV1gT411Z7bL/?share_so
 下篇：
 [undefined](https://zhuanlan.zhihu.com/p/612951943)
 
-## 1 项目初始设置
-
-该项目使用的 unity 2022.2.2f1c1 的 3d（urp）模板进行创建
-
-![](<images/1689211704619.png>)
-
-  
-在 Project Setting 中 Quality 面板只保留 High Fidelity 等级，同时项目 Setting 目录中也只保留 High Fidelity 的设置
-
-![](<images/1689211704785.png>)
-
-![](<images/1689211704854.png>)
-
-  
-下载提供的[素材](https://unitycodemonkey.com/download.php?dt=kitchenChaosProjectFiles&lecture=Assets)后双击或拖入 unity 编辑器导入引擎
-
-  
-目前为止的[工程文件](https://unitycodemonkey.com/kitchenchaoscourse.php#importingAssets)
-
-## 2 后处理 Post Processing
-
-一般在开发时在应该在中后期再添加后处理，但在本课中为了一开始就有比较好的视觉效果，所以第一步就先进行了后处理  
-我们会使用自动创建好的 SampleScene 作为最终游戏场景，所以将其重命名为 GameScene  
-添加地面、人物和一些游戏物品，调整相机位置，进入 Game 窗口，在 Global Volume 上添加 override，依次添加 Tonemapping、Color Adjustments、Bloom、Vignette，调整后的配置被保存在了 Global Volume Profile 中，可以点击右方的 clone 保存文件
-
-![](<images/1689211704958.png>)
-
-  
-在 Main Camera 中可以设置 anti-aliasing，同时在 Setting/URP-HighFidelity 中也可以设置 MSAA，这里设置为 MSAA 8x  
-URP-HighFidelity-Renderer 中自带了一个 Screen Space Ambient Occlusion 的 render feature，这里保留并稍作调整  
-Window->Rendering->Lighting 可以调出来 Lighting 面板调整关于灯光的参数，这里保留默认
-
-![](<images/1689211705060.png>)
-
-![](<images/1689211705148.png>)
-
-  
-目前为止的[工程文件](https://unitycodemonkey.com/kitchenchaoscourse.php#postProcessing)
 
 ## 3 角色控制器与动画 Character Controller & Animations
 
