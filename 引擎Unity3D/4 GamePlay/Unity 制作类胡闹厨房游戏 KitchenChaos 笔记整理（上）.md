@@ -126,7 +126,7 @@ public class PlayerAnimator : MonoBehaviour
 
 ### 3.3 Cinemachine
 
-接着我们使用 Cinemachine 在角色移动的时候添加一些简单的摄像机动画，首先在 Package Manager 里安装 Cinemachine 的包，然后 GameObject->Cinemachine->Virtual Camera 创建一个摄像机，这样创建一个 Virtual Camera 会在 Main Camera 上加上一个 CinemachineBrain 组件，我们需要在 Virtual Camera 中去控制相机  
+接着我们使用 Cinemachine 在角色移动的时候添加一些**简单的摄像机动画**，首先在 Package Manager 里安装 Cinemachine 的包，然后 GameObject->Cinemachine->Virtual Camera 创建一个摄像机，这样创建一个 Virtual Camera 会在 Main Camera 上加上一个 CinemachineBrain 组件，我们需要在 Virtual Camera 中去控制相机  
 在 Virtual Camera 的 Inspector 面板中，将 Body->Binding Mode 设为 World Space，将 Follow 和 Look At 都设为之前创建的 Player，调整 Follow Offset，就可以得到一个简单的跟随相机（还可以创建多个 Cinemachine，通过设置 priority 确定相机控制权，如果控制权从一个相机到了另一个相机，Cinemachine 还会自动对相机位置进行插值）
 
 ![](<images/1689211705603.png>)
