@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": "#bfbfbf",
     "recentlyUsedIcons": [
+      "SiBlender",
       "TiGraph",
       "🖼",
       "FabDelicious",
-      "IbGraphicsAndDesign",
-      "TiSchool"
+      "IbGraphicsAndDesign"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -34,5 +34,6 @@
   "引擎Unity3D": "SiUnity",
   "zip/引擎Unreal": "SiUnrealengine",
   "zip/AI": "SiPython",
-  "zip/留学": "TiSchool"
+  "zip/留学": "TiSchool",
+  "DCC/02 Blender": "SiBlender"
 }

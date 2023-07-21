@@ -995,14 +995,16 @@ Unity 可以在一帧中多次渲染叠加摄影机的视图，或者是因为�
 3. 当仅对“正向渲染路径”中的灯光使用 Rendering Layers 时，性能影响很小。  
 4. 当“Rendering Layers”计数超过8的倍数时，性能影响会更显著。例如：将层数从8层增加到9层比将层数从9层增加到10层具有更大的相对影响。 
 
-# URP Data 设置
+# URP Data 深度功能
 ![[Pasted image 20230720235903.png|500]]
 
-1. **Depth Priming 深度启动**：即 **Pre-Z  pass**，仅 Forward 渲染路径可用
+![[Pasted image 20230721002807.png]]
+1. **Depth Priming 深度启动**：即 **Pre-Z  pass、DepthPrepass**，仅 Forward 渲染路径可用，shader 需要添加 **DepthOnly Pass** ^4wccdt
     - <mark style="background: #FFB8EBA6;">Auto</mark>：如果有一个 Render Pass 需要 Depth Prepass，Unity 将将执行 **Depth Prepass** 和 Depth Priming
     - <mark style="background: #FFB8EBA6;">Force</mark>: Untiy 总是总是执行 Depth Priming，并为每个 Render Pass 执行执行 Depth Prepass
+    - 场景不复杂，Overdraw 不是造成不是造成 GPU 效率的瓶颈时，没必要开启。
     -  在 Android、iOS 和 Apple TV 上，Unity 仅在 Force 模式下执行深度启动。在这些平台常见的 tiled GPUs 上，深度启动与 MSAA 结合可能会降低性能。
-2. **Depth Texture Mode**：指定渲染管线将场景深度复制到深度纹理的阶段
+2. **Depth Texture Mode**：指定渲染管线 Copy Depth Pass 执行阶段（场景深度复制到深度纹理）
     - <mark style="background: #FFB8EBA6;">After Opaques</mark>
     - <mark style="background: #FFB8EBA6;">After Transparents</mark>
     - <mark style="background: #FFB8EBA6;">Force Prepass</mark>：强制执行 Depth Prepass 以生成场景深度纹理
