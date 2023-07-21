@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
 将素材文件中的人物模型 PlayerVisual 放到空物体 Player 下面，删除之前的胶囊体，这时再操控角色可以正常移动，但是角色的朝向不会变，只需要在上面的脚本中最后加上以下代码即可实现（使用 slerp 球形插值处理转向角度变化）
 
-```cs
+```cs 
 float rotateSpeed = 10f;  
 transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
 ```

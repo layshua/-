@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "f6958ce473f5bcd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "bc33139ab58aee86",
             "type": "leaf",
             "state": {
@@ -46,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
               }
             }
           }
@@ -139,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -189,12 +203,12 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "d7de7b1574479f55",
+  "active": "f6958ce473f5bcd2",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230721203142.png",
-    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "zip/images/Pasted image 20230721203142.png",
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zBuffer/01 我的世界学习（学习归纳）.md",
@@ -222,7 +236,6 @@
     "zip/images/353969d293c281a340ddbf7407d9fe73_MD5.webp",
     "zip/images/91e479f861f40e716adf3c82c2e14630_MD5.webp",
     "zip/images/05526b2eca6ae6f797ee2ddb993641b1_MD5.webp",
-    "zip/images/c02ebaa7733142c5418ad09aa972c0c8_MD5.webp",
     "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
