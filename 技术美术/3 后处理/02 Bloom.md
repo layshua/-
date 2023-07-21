@@ -153,7 +153,7 @@ public class DS_Bloom : PostEffectsBase
     -   在顶点着色器中计算纹理坐标可以减少运算提高性能
     -   而且由于顶点到片元的插值是线性的，因此不会影响纹理坐标的计算结果
 
-```c
+```
 Shader "Unlit/DS_Bloom"
 {
     Properties
@@ -357,7 +357,6 @@ Shader "Unlit/DS_Bloom"
 	FallBack Off
 }
 ```
-```
 
 ## 三、 Bloom 算法的应用
 
@@ -386,6 +385,9 @@ Shader "Unlit/DS_Bloom"
 相比 Bloom 效果的高斯模糊，这里我们使用径向模糊来代替它
 ![[1 5.gif]]
 ##### C #脚本
+
+
+
 ```C#
 using System.Collections;
 using System.Collections.Generic;
