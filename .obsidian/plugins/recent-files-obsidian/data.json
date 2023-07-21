@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
+      "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
+      "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
+    },
+    {
+      "basename": "01 我的世界学习（学习归纳）",
+      "path": "zBuffer/01 我的世界学习（学习归纳）.md"
+    },
+    {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "Unity 动画系统入门",
+      "path": "zBuffer/Unity 动画系统入门.md"
+    },
+    {
+      "basename": "Unity 动画控制器",
+      "path": "zBuffer/Unity 动画控制器.md"
+    },
+    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
@@ -53,10 +77,6 @@
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "01 我的世界学习（学习归纳）",
-      "path": "zBuffer/01 我的世界学习（学习归纳）.md"
-    },
-    {
       "basename": "辣椒酱",
       "path": "DCC/02 Blender/辣椒酱.md"
     },
@@ -105,16 +125,8 @@
       "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
     },
     {
-      "basename": "Unity 动画控制器",
-      "path": "zBuffer/Unity 动画控制器.md"
-    },
-    {
       "basename": "动画曲线",
       "path": "zBuffer/动画曲线.md"
-    },
-    {
-      "basename": "Unity 动画系统入门",
-      "path": "zBuffer/Unity 动画系统入门.md"
     },
     {
       "basename": "动画",
@@ -187,18 +199,6 @@
     {
       "basename": "02 Draw Call",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md"
-    },
-    {
-      "basename": "URP 下用 RenderFeature 实现高斯模糊",
-      "path": "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     }
   ],
   "omittedPaths": [],

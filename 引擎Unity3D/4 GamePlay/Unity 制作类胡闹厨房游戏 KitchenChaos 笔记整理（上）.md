@@ -1,23 +1,10 @@
-![](<images/1689211704562.png>)
-
-本文章是油管上 CodeMonkey 的一个 unity 项目 KitchenChaos 的笔记整理，学习并整理这个项目主要是因为终于看到了一个比较完整地用到了 unity 的各种功能、风格较为清爽的、代码结构清晰的同时比较新的项目。在学习之后也确实有很大的收获，首先通过该教程第一次走完了一个小游戏的全部流程，之前也零零散散地学过一些 unity 教程和渲染方面的东西，但是流程一直都不太完整：有些项目的视觉表现实在不太感兴趣，看到了拖沓的动画和过时的画面就没有想学的欲望；有些项目不注重代码的扩展性，导致只能停留在一个小 demo 的阶段；有些项目在游戏逻辑上很复杂，导致学到一半自己已经不太能跟得上。但是本教程在工程上比较讲究，注重代码的整理和解耦，在游戏逻辑上并没有那么复杂，在一些功能的实现上拥抱引擎提供的工具，CodeMonkey 本身逻辑也非常清晰，个人认为很适合学习
-
-  
-任何教程都有前置知识，视频中在前面也有提及，如果想要学习本项目，还是需要了解 unity 的基本操作和 c# 基础，我个人觉得这个教程首先需要有面向对象语言的基础，然后特别地要理解 C# 中委托和事件的使用，比较浅比较直接的理解可以去看 CodeMonkey 的 C# 的事件和委托的讲解，我也写了笔记放在了[同一个专栏下](https://www.zhihu.com/column/c_1617567436496216064)，但是如果想要知道委托实际上类似于函数指针、事件模型有各种组成部分和实现形式等更深的知识推荐看[刘铁猛老师的 C# 课程](https://www.bilibili.com/video/BV13b411b7Ht?p=19&vd_source=c01a7b5440706d76efa61acaf26acff7)
-
-  
-另外该文章只是一些大概的笔记，具体操作还要去跟原教程去学习，但是和视频不同的是，写成图文的形式可以让别人在学习前能大概浏览一下这个项目都干了什么，并且能够在学习过后很方便地回顾某一步具体干了什么，希望对大家有帮助
-
 原教程地址：[https://youtu.be/AmGSEH7QcDg](https://youtu.be/AmGSEH7QcDg)
 
 B 站搬运教程地址：[https://www.bilibili.com/video/BV1gT411Z7bL/?share_source=copy_web&vd_source=10f4d7fd9e763a87da08cd00452bc8a4](https://www.bilibili.com/video/BV1gT411Z7bL/?share_source=copy_web&vd_source=10f4d7fd9e763a87da08cd00452bc8a4)
 
 该笔记的语雀链接：
-
 [https://www.yuque.com/wocaibuqinamochangdemingzi/akh7w4/ka1o8oxb7723ndg9?singleDoc#](https://www.yuque.com/wocaibuqinamochangdemingzi/akh7w4/ka1o8oxb7723ndg9?singleDoc#)
-
 下篇：
-
 [undefined](https://zhuanlan.zhihu.com/p/612951943)
 
 ## 1 项目初始设置

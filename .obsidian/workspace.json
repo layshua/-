@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,13 +205,19 @@
   },
   "active": "d7de7b1574479f55",
   "lastOpenFiles": [
+    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+    "zBuffer/01 我的世界学习（学习归纳）.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "zBuffer/Unity 动画系统入门.md",
+    "zBuffer/URP 下用 RenderFeature 实现高斯模糊.md",
+    "zBuffer/Unity 动画控制器.md",
+    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "Tools/Git/Unity Git.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
     "技术美术/3 后处理/08 SSAO.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
@@ -229,7 +235,6 @@
     "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "zBuffer/01 我的世界学习（学习归纳）.md",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/浩克肥虫.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
@@ -237,11 +242,6 @@
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
-    "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
