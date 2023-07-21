@@ -12,15 +12,15 @@ B 站搬运教程地址：[https://www.bilibili.com/video/BV1gT411Z7bL/?share_so
 
 ### 3.1 旧的角色控制方法
 
-如果想要组织好一个游戏，应该永远将视觉效果与逻辑分开，在创建角色时，我们不直接创建一个胶囊体然后修改缩放、偏移等属性，三轴不相等的缩放或一些位置的偏移可能会让原本的代码逻辑出现问题，所以这里我们创建一个空物体，之后会在空物体上写逻辑，然后在空物体之下再创建一个胶囊体作为我们的角色，之后会在这个子物体上做视觉的修改
+如果想要组织好一个游戏，应该永远将视觉效果与逻辑分开，在创建角色时，我们不直接创建一个胶囊体然后修改缩放、偏移等属性，三轴不相等的缩放或一些位置的偏移可能会让原本的代码逻辑出现问题，所以这里我们创建一个空物体，之后会**在空物体上写逻辑**，然后在空物体之下再创建一个胶囊体作为我们的角色，之后会在这个子物体上做视觉的修改
 
 ![](<images/1689211705184.png>)
 
   
 接下来开始代码的编写，创建 Scripts 文件夹，创建 Player.cs  
-目前 Unity 中有两种实现角色控制的方法，一个是旧的 input manager，一个是新的 input system，旧的 input manager 很易用，适合做原型开发，但是复杂的项目最好用新的 input system 来做，在这个项目中我们会先用旧的 input manager 做出原型，然后替换为新的 input system
+**目前 Unity 中有两种实现角色控制的方法，一个是旧的 input manager，一个是新的 input system，旧的 input manager 很易用，适合做原型开发，但是复杂的项目最好用新的 input system 来做，在这个项目中我们会先用旧的 input manager 做出原型，然后替换为新的 input system**
 
-```
+```cs
 // Player.cs中
 public class Player : MonoBehaviour
 {
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
 将素材文件中的人物模型 PlayerVisual 放到空物体 Player 下面，删除之前的胶囊体，这时再操控角色可以正常移动，但是角色的朝向不会变，只需要在上面的脚本中最后加上以下代码即可实现（使用 slerp 球形插值处理转向角度变化）
 
-```
+```cs
 float rotateSpeed = 10f;  
 transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
 ```

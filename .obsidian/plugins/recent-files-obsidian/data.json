@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
+    },
+    {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "01 我的世界学习（学习归纳）",
@@ -91,14 +103,6 @@
     {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
@@ -195,10 +199,6 @@
     {
       "basename": "03 定向光",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 Draw Call",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/02 Draw Call.md"
     }
   ],
   "omittedPaths": [],

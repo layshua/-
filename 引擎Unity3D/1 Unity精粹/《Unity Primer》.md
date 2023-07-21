@@ -1274,7 +1274,7 @@ Input.mouseScrollDelta
 ```cs file:键盘输入
 //键盘按下
 //方法一(推荐)
-Input.GetKeyDown(KeyCode.W)
+Input.GetKeyDown(KeyCode.W) //本质上是按W时返回true
 
 
 //方法二：传入字符串的重载
