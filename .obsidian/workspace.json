@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -102,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "引擎Unity3D/3 URP精粹/4 后处理.md"
               }
             }
           }
@@ -152,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/3 URP精粹/4 后处理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,7 +203,7 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "ee2f475a8239a4f8",
+  "active": "d7de7b1574479f55",
   "lastOpenFiles": [
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/01 图像模糊.md",

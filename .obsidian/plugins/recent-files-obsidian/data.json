@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "HLSL语法",
@@ -23,10 +27,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
       "basename": "08 SSAO",
