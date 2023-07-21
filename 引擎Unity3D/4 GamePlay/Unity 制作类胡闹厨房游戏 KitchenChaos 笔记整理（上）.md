@@ -200,14 +200,14 @@ public class GameInput : MonoBehaviour
 }
 ```
 
-接下来去 Package Manager 中安装 Input System，安装完后会提示我们激活 input system，我们可以选择 no 然后在 Edit->Project Setting->Player->Other Settings 手动激活，我们在下拉菜单中选择 Both
+接下来去 Package Manager 中安装 Input System，安装完后会提示我们激活 input system，我们可以选择 no 然后在 Edit->Project Setting->Player->Other Settings **手动激活**，我们在下拉菜单中选择 Both
 
 ![](<images/1689211705688.png>)
+![[Pasted image 20230721214625.png]]
+>还有 both 选项，新旧系统同时开启
 
-![](<images/1689211705859.png>)
 
-  
-在 Settings 文件夹下右键 ->Create->Input Actions 创建 PlayerInputActions.inputactions  
+在 Settings 文件夹下右键 ->Create->Input Actions（最下面） 创建 PlayerInputActions.inputactions  
 双击打开该窗口，创建一个 Action Map，创建一个 Move Action，将 Action Type 改为 Value，Control Type 改为 Vector2，删除 Move 下面的 `<No Binding>`，点击右边的加号选择 Add Up\Down\Left\Right Composite
 
 ![](<images/1689211705930.png>)
@@ -271,8 +271,7 @@ public class GameInput : MonoBehaviour
 
 ![](<images/1689211706663.png>)
 
-  
-目前为止的[工程文件](https://unitycodemonkey.com/kitchenchaoscourse.php#inputSystemRefactor)
+
 
 ### 3.5 碰撞检测 Collision Detection
 
