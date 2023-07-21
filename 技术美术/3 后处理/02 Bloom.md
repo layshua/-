@@ -41,7 +41,7 @@ Bloom 是游戏开发中最常用的一种全屏后处理特效，它可以模�
 -   将模糊后的 buffer0 作为纹理传入 shader
 -   用“Graphics. Blit”方法调用最后一个 pass，将模糊后的图像和原图混合叠加，作为最终结果输出
 
-```c
+```c fold
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -133,9 +133,7 @@ public class DS_Bloom : PostEffectsBase
 ### 2、shader 部分
 
 -   **基本思路**
-
 -   使用 4 个 pass 完成 bloom 效果，对应 bloom 的实现步骤
-
 -   pass1：提取亮部区域
 -   pass2：实现竖直方向的高斯模糊
 -   pass3：实现水平方向的高斯模糊
@@ -153,211 +151,6 @@ public class DS_Bloom : PostEffectsBase
     -   在顶点着色器中计算纹理坐标可以减少运算提高性能
     -   而且由于顶点到片元的插值是线性的，因此不会影响纹理坐标的计算结果
 
-```
-Shader "Unlit/DS_Bloom"
-{
-    Properties
-    {
-        // _MainTex为渲染纹理，变量名固定不能改变
-        //模糊结果、阈值、模糊半径的变量名与C#脚本中的对应
-        _MainTex ("Texture", 2D) = "white" {}
-        _Bloom ("Bloom (RGB)", 2D) = "black" {} //高斯模糊后的结果
-		_LuminanceThreshold ("Luminance Threshold", Float) = 0.5 //阈值
-		_BlurSize ("Blur Size", Float) = 1.0 //模糊半径
-    }
-    SubShader
-    {
-        //用CGINCLUDE和ENDCG
-        //Unity会把它们之间的代码插入到每一个pass中，已达到声明一遍，多次使用的目的。
-        CGINCLUDE
-        #include "UnityCG.cginc"
-
-        //声明属性和C#脚本中用到的变量
-        sampler2D _MainTex;
-		half4 _MainTex_TexelSize;//纹素大小
-		sampler2D _Bloom;
-		float _LuminanceThreshold;
-		float _BlurSize;
-
-        //########第1个pass使用########
-        //输出结构
-        struct v2fExtractBright {
-			float4 pos : SV_POSITION; 
-			half2 uv : TEXCOORD0;
-		};
-        
-        //顶点着色器
-        v2fExtractBright vertExtractBright(appdata_img v) {
-        	//appdata_img是官方提供的输入结构，只包含图像处理时必须的顶点坐标和uv等变量
-			v2fExtractBright o;
-			o.pos = UnityObjectToClipPos(v.vertex);
-			o.uv = v.texcoord;	 
-			return o;
-		}
-        
-        // 明亮度公式
-		fixed luminance(fixed4 color) {
-        	//计算得到像素的亮度值
-			return  0.2125 * color.r + 0.7154 * color.g + 0.0721 * color.b; 
-		}
-        
-        //片元着色器->提取高亮区域
-        fixed4 fragExtractBright(v2fExtractBright i) : SV_Target {
-        	fixed4 c = tex2D(_MainTex, i.uv);// 贴图采样
-			
-			fixed val = clamp(luminance(c) - _LuminanceThreshold, 0.0, 1.0);
-        	// 调用luminance得到采样后像素的亮度值，再减去阈值
-			// 使用clamp函数将结果截取在[0,1]范围内
-        	
-			return c * val;
-        	// 将val与原贴图采样得到的像素值相乘，得到提取后的亮部区域
-		}
-
-        
-        //########第2、3个pass使用########
-        //输出结构
-        struct v2fBlur {
-			float4 pos : SV_POSITION;
-        	half2 uv[5]: TEXCOORD0;
-			// 此处定义5维数组用来计算5个纹理坐标
-        	// 由于卷积核大小为5x5的二维高斯核可以拆分两个大小为5的一维高斯核
-        	// uv[0]存储了当前的采样纹理
-        	// uv[1][2][3][4]为高斯模糊中对邻域采样时使用的纹理坐标
-		};
-        
-        //顶点着色器->计算竖直方向进行高斯模糊的uv
-        v2fBlur vertBlurVertical(appdata_img v) {
-			
-			v2fBlur o;
-			o.pos = UnityObjectToClipPos(v.vertex);//将顶点从模型空间变换到裁剪空间下
-			half2 uv = v.texcoord;
-			o.uv[0] = uv;
-        	//uv[0]就是（0,0）
-        	//对竖直方向进行模糊
-			//对应到邻域就是下边的情况
-        	//uv[1]，向上挪动1个单位(0, 1)
-        	//uv[2]，向下挪动1个单位(0, -1)
-        	//uv[3]，向上挪动2个单位(0, 2)
-        	//uv[3]，向下挪动2个单位(0, -2)
-        	//最后乘上模糊半径作为参数控制
-			o.uv[1] = uv + float2 (0.0, _MainTex_TexelSize. y * 1.0) * _BlurSize;
-			o.uv[2] = uv - float2 (0.0, _MainTex_TexelSize. y * 1.0) * _BlurSize;
-			o.uv[3] = uv + float2(0.0, _MainTex_TexelSize.y * 2.0) * _BlurSize;
-			o.uv[4] = uv - float2(0.0, _MainTex_TexelSize.y * 2.0) * _BlurSize;
-					 
-			return o;
-		}
-        
-        //顶点着色器->计算水平方向进行高斯模糊的uv
-        v2fBlur vertBlurHorizontal(appdata_img v) {
-			v2fBlur o;
-			o.pos = UnityObjectToClipPos(v.vertex);
-			half2 uv = v.texcoord;
-        	o.uv[0] = uv;
-        	//uv[0]就是（0,0）
-        	//对水平方向进行模糊
-			//同理，uv[1]到[4]分别对应(1, 0)、(-1, 0)、(2, 0)、(-2, 0)
-			o.uv[1] = uv + float2(_MainTex_TexelSize.x * 1.0, 0.0) * _BlurSize;
-			o.uv[2] = uv - float2(_MainTex_TexelSize.x * 1.0, 0.0) * _BlurSize;
-			o.uv[3] = uv + float2(_MainTex_TexelSize.x * 2.0, 0.0) * _BlurSize;
-			o.uv[4] = uv - float2(_MainTex_TexelSize.x * 2.0, 0.0) * _BlurSize;
-					 
-			return o;
-		}
-        //片元着色器->进行高斯模糊
-        fixed4 fragBlur(v2fBlur i) : SV_Target {
-			
-			float weight[3] = {0.4026, 0.2442, 0.0545};
-        	// 因为二维高斯核具有可分离性，而分离得到的一维高斯核具有对称性
-			// 所以只需要在数组存放三个高斯权重即可
-			
-			fixed3 sum = tex2D(_MainTex, i.uv[0]).rgb * weight[0];
-        	// 结果值sum初始化为当前的像素值乘以它对应的权重值
-
-        	// 进行卷积运算，根据对称性完成两次循环
-				// 第一次循环计算第二个和第三个格子内的结果
-				// 第二次循环计算第四个和第五个格子内的结果
-			for (int it = 1; it < 3; it++) {
-				sum += tex2D(_MainTex, i.uv[it*2-1]).rgb * weight[it];
-				sum += tex2D(_MainTex, i.uv[it*2]).rgb * weight[it];
-			}
-			
-			return fixed4(sum, 1.0);// 返回滤波后的结果
-		}
-
-        
-        //########第4个pass使用########
-        //输出结构
-        struct v2fBloom {
-			float4 pos : SV_POSITION; 
-			half4 uv : TEXCOORD0;
-		};
-
-        //顶点着色器
-        v2fBloom vertBloom(appdata_img v) {
-			v2fBloom o;
-			o.pos = UnityObjectToClipPos (v.vertex);
-			
-			o.uv.xy = v.texcoord; //xy分量为_MainTex的纹理坐标		
-			o.uv.zw = v.texcoord; //zw分量为_Bloom的纹理坐标
-			
-			// 平台差异化处理
-        	//判断y是否小于0，如果是就进行翻转处理
-			#if UNITY_UV_STARTS_AT_TOP			
-			if (_MainTex_TexelSize.y < 0.0)
-				o.uv.w = 1.0 - o.uv.w;
-			#endif
-			return o; 
-		}
-
-        //片元着色器->混合亮部和原图
-        fixed4 fragBloom(v2fBloom i) : SV_Target {
-		    // 把这两张纹理的采样结果相加即可得到最终效果
-			return tex2D(_MainTex, i.uv.xy) + tex2D(_Bloom, i.uv.zw);
-		}
-    	ENDCG
-    	
-        // 开启深度测试，关闭剔除和深度写入
-        ZTest Always 
-    	Cull Off 
-    	ZWrite Off
-        
-    	//第一个pass，提取较亮区域
-        Pass{
-            CGPROGRAM
-			#pragma vertex vertExtractBright
-			#pragma fragment fragExtractBright
-            ENDCG
-        }
-	    
-    	//第二个 pass，进行竖直方向高斯模糊
-    	Pass{
-            CGPROGRAM
-			#pragma vertex vertBlurVertical
-			#pragma fragment fragBlur
-            ENDCG
-        }
-    	
-    	//第三个 pass，进行水平方向高斯模糊
-    	Pass{
-            CGPROGRAM
-			#pragma vertex vertBlurHorizontal
-			#pragma fragment fragBlur
-            ENDCG
-        }
-    	
-    	//第四个pass，混合高亮区域和原图
-    	Pass{
-            CGPROGRAM
-			#pragma vertex vertBloom
-			#pragma fragment fragBloom
-            ENDCG
-        }
-    }
-	FallBack Off
-}
-```
-
 ## 三、 Bloom 算法的应用
 
 ### 1、配合自发光贴图
@@ -367,7 +160,7 @@ Shader "Unlit/DS_Bloom"
 ### 3、配合 ToneMapping
 -   bloom 效果和 ToneMapping 结合可以较好的保留暗部和亮部的细节
 ![[Pasted image 20221209114250.png]]
-### 4、GoodRay 效果
+### 4、GoodRay (体积光)效果
 -   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果
 ![[Pasted image 20221209114329.png]]
 -   GoodRay 配合 ToneMapping
@@ -385,8 +178,6 @@ Shader "Unlit/DS_Bloom"
 相比 Bloom 效果的高斯模糊，这里我们使用径向模糊来代替它
 ![[1 5.gif]]
 ##### C #脚本
-
-
 
 ```C#
 using System.Collections;
