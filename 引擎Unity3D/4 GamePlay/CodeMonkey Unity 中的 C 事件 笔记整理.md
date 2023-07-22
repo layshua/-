@@ -4,7 +4,7 @@
 
 ### 1 介绍
 
-使用事件意味着说我可以让一件事发生而不关心是谁订阅了它，事件模型中有 publishers 和 subscribers，其中 publishers 触发事件，所有的 subscribers 都会收到事件被触发的通知。因为 publishers 并不关心是谁订阅了它，之后又发生了什么，所以使用事件模型可以使我们的代码解耦
+使用事件意味着说我可以让一件事发生而不关心是谁订阅了它，事件模型中有 publishers 和 subscribers，其中 publishers 触发事件，所有的 subscribers 都会收到事件被触发的通知。因为 **publishers 并不关心是谁订阅了它，之后又发生了什么，所以使用事件模型可以使我们的代码解耦**
 
 ![[6bd258fb8a085e4a5f7e2bb56aadef7a_MD5.png]]
 
@@ -22,7 +22,7 @@
 
 现在我们创建一个名为 OnSpacePressed 的 EventHandler 对象，使用事件应该尽量使用 "On" 开头的命名，如 OnEnemyKilled、OnPlayWin 等等，创建完成之后我们在 Update() 中触发这个事件，事件源 sender 我们传入 this，EventArgs 我们这里不需要传递任何额外信息，所以使用 EventArgs.Empty
 
-```
+```cs
 using System;
 using UnityEngine;
 
@@ -44,13 +44,8 @@ public class TestingEvents : MonoBehaviour
 }
 ```
 
-现在我们挂载脚本后运行，会得到一个 error，因为此时我们并没有 subscriber 去订阅这个事件，所以 OnSpacePressed 的值是 null
 
-![[6c529bc8a10995dbed2640eeaf6adbe8_MD5.png]]
-
-要避免这样的错误，我们需要先判断这个事件是否为空，我们可以使用 if 来判断，也可以使用 "?" 运算符简化代码
-
-```
+```cs
 using System;
 using UnityEngine;
 
@@ -66,20 +61,16 @@ public class TestingEvents : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+           
             OnSpacePressed?.Invoke(this, EventArgs.Empty);
-            // 使用了"?"运算符，与下面的代码相同
-            // if (OnSpacePressed != null)
-            // {
-            //     OnSpacePressed(this, EventArgs.Empty);
-            // }
         }
     }
 }
 ```
 
-接下来我们写一个函数用来订阅事件，这个函数的形参需要与我们的委托相同，在 Start() 中使用 += 订阅事件
+接下来我们写一个函数用来订阅事件，这个函数的形参需要与我们的委托相同，在 Start() 中使用 `+=` 订阅事件
 
-```
+```cs
 using System;
 using UnityEngine;
 
@@ -100,6 +91,8 @@ public class TestingEvents : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //若没有订阅，OnSpacePressed 的值是 null
+            //EventArgs 我们这里不需要传递任何额外信息，所以使用 EventArgs.Empty
             OnSpacePressed?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -112,7 +105,7 @@ public class TestingEvents : MonoBehaviour
 
 现在我们都是在同一个脚本、同一个类中去触发和监听事件，但使用事件模型的好处是我们可以从其他地方去监听，所以接下来我们新创建一个脚本 TestingEventSubscriber.cs，将上面的监听事件的过程放到这个脚本中
 
-```
+```cs
 // TestingEventSubscriber.cs中
 using System;
 using UnityEngine;

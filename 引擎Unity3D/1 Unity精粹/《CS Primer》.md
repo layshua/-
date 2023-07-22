@@ -3228,6 +3228,7 @@ class Program
 
         //del -= DelegateMethod1; // -= 移除委托
         //del = null;             // = null 清空委托
+        //del = DelegateMethod1;  //🚨弊端：这样会清空之前追加的委托，只保留=后的委托
 
         if (del != null)
         {
@@ -3251,6 +3252,8 @@ class Program
 //第二个Hello World
 
 ```
+
+
 ## 4 内置委托类型
 Action 和 Func 的区别是有无返回值
 Action 无返回值
@@ -3465,7 +3468,7 @@ class Program
 2. 委托怎么用，事件就怎么用
 
 **事件相对于委托的区别:**
-1. 不能在类外部使用 `=`  赋值，但可以在类外追加减少 `+=`   `-=` 委托
+1. **不能在<mark style="background: #FF5582A6;">类外部</mark>使用 `=`  赋值，但可以在类外追加减少 `+=`   `-=` 委托**
 2. 不能在类外部调用
 3. 事件只能作为成员存在于类和接口以及结构体中，而委托可以作为临时变量在函数中使用。
 
@@ -3521,7 +3524,64 @@ class Program
 
 
 ```
+## EventHandler
+是一个多播委托类型
+```cs
+//定义：
+//@sender: 引发事件的对象
+//@e: 传递的参数
+public delegate void EventHandler(object sender, EventArgs e);
 
+//使用
+public event EventHandler m_event;  //修改自定义委托类型为EventHandler
+```
+
+```cs
+public class TestingEvents : MonoBehaviour
+{
+    public event EventHandler OnSpacePressed;
+    
+    private void Start()
+    {
+        OnSpacePressed += Testing_OnSpacePressed; //订阅事件
+    }
+
+    private void Testing_OnSpacePressed(object sender, EventArgs e)
+    {
+        Debug.Log("Space Pressed");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //若没有订阅，OnSpacePressed 的值是 null
+            //EventArgs 我们这里不需要传参数，所以使用 EventArgs.Empty
+            OnSpacePressed?.Invoke(this, EventArgs.Empty);
+        }
+    }
+}
+```
+
+现在我们都是在同一个脚本、同一个类中去触发和监听事件，但使用事件模型的好处是我们可以从其他地方去监听，所以接下来我们新创建一个脚本 TestingEventSubscriber. cs，将上面的监听事件的过程放到这个脚本中
+
+```cs file:TestingEventSubscriber.cs
+public class TestingEventSubscriber : MonoBehaviour
+{
+    private void Start()
+    {
+        TestingEvents testingEvents = GetComponent<TestingEvents>();
+        testingEvents.OnSpacePressed += TestingEvents_OnSpacePressed;
+    }
+
+    private void TestingEvents_OnSpacePressed(object sender, EventArgs e)
+    {
+        Debug.Log("Space Pressed");
+    }
+}
+```
+
+将脚本挂载到同一个物体上，运行游戏，按下空格，和之前的效果相同
 # 十、匿名函数
 - 顾名思义，就是没有名字的函数
 - 匿名函数的使用主要是配合委托和事件进行使用
