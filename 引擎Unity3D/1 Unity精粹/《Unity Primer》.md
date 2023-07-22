@@ -663,20 +663,25 @@ TestScript t3 = this.GetComponent<TestScript>();
 //只要你能得到场景中对象或者对象依附的脚本，那你就可以获取到它所有信息
 ```
 
-安全的获取脚本，加一个判断：
+**安全的获取脚本**，加一个判断：
 ```cs
 //方法一：
 MyScript s1 = this.GetComponent<MyScript>();
 if (s1 != null)
 {
-    //do something
+    s1.dosomething();
 }
 
 //方法二：
 MyScript s2;
 if(this.TryGetComponent<MyScript>(out s2))
 {
-    //do something
+    s2.dosomething();
+
+//等价，这样写更简便
+if(this.TryGetComponent<MyScript>(out MyScript s2))
+{
+    s2.dosomething();
 }
 ```
 
@@ -1974,7 +1979,8 @@ if(num != 0)
 >- 我们需要通过编号左移 `<<` 构建二进制数，这样每一个编号的层级都是对应位为 1 的 2 进制数，我们通过位运算可以选择想要检测层级
 >- 好处：一个 int 就可以表示所有想要检测的层级信息
 >
->![[Pasted image 20230611164535.png|700]]
+> ![[Pasted image 20230611164535.png|700]]
+>**也可以直接声明一个 LayerMask 类型的变量，可以开放到 inspector 方便方便调整**
 
 #### 球体范围检测
 - **参数一：** 球体中心点
