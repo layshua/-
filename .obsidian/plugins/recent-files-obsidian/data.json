@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "Shader HLSL",
+      "path": "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
+    },
+    {
+      "basename": "PBR全流程",
+      "path": "DCC/PBR全流程.md"
+    },
+    {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
     },
@@ -13,20 +41,8 @@
       "path": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md"
     },
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
       "basename": "08 SSAO",
       "path": "技术美术/3 后处理/08 SSAO.md"
-    },
-    {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
     },
     {
       "basename": "21 和散景模糊——实践篇",
@@ -63,10 +79,6 @@
     {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
-      "basename": "PBR全流程",
-      "path": "DCC/PBR全流程.md"
     },
     {
       "basename": "python for Maya",
@@ -121,14 +133,6 @@
       "path": "Tools/Git/Unity Git.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
       "basename": "URP14后处理框架搭建",
       "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
     },
@@ -151,10 +155,6 @@
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",

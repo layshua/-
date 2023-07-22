@@ -101704,6 +101704,7 @@ brdfSpecular
 blendTree
 blurIteration
 blurOffset
+bloomRT
 fe
 front
 fill
