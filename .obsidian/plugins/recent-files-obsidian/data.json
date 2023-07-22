@@ -1,12 +1,60 @@
 {
   "recentFiles": [
     {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "04 景深",
+      "path": "技术美术/3 后处理/04 景深.md"
+    },
+    {
+      "basename": "08 SSAO",
+      "path": "技术美术/3 后处理/08 SSAO.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
+      "basename": "PBR全流程",
+      "path": "DCC/PBR全流程.md"
+    },
+    {
+      "basename": "python for Maya",
+      "path": "DCC/03 Maya/python for Maya.md"
+    },
+    {
+      "basename": "Unity 动画系统入门",
+      "path": "zBuffer/Unity 动画系统入门.md"
+    },
+    {
+      "basename": "Unity 动画控制器",
+      "path": "zBuffer/Unity 动画控制器.md"
+    },
+    {
+      "basename": "动画曲线",
+      "path": "zBuffer/动画曲线.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "辣椒酱",
@@ -33,24 +81,8 @@
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
-      "basename": "Unity 动画系统入门",
-      "path": "zBuffer/Unity 动画系统入门.md"
-    },
-    {
-      "basename": "Unity 动画控制器",
-      "path": "zBuffer/Unity 动画控制器.md"
-    },
-    {
       "basename": "4 后处理",
       "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "HLSL语法",
@@ -67,10 +99,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "08 SSAO",
-      "path": "技术美术/3 后处理/08 SSAO.md"
     },
     {
       "basename": "URP14后处理框架搭建",
@@ -91,10 +119,6 @@
     {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "06 深度测试",
@@ -127,10 +151,6 @@
     {
       "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
       "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "动画曲线",
-      "path": "zBuffer/动画曲线.md"
     },
     {
       "basename": "动画",
@@ -179,22 +199,6 @@
     {
       "basename": "22 科幻扫描效果前篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "19 径向模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
     }
   ],
   "omittedPaths": [],

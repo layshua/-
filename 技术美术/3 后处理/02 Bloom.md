@@ -154,16 +154,7 @@ public class DS_Bloom : PostEffectsBase
     -   在顶点着色器中计算纹理坐标可以减少运算提高性能
     -   而且由于顶点到片元的插值是线性的，因此不会影响纹理坐标的计算结果
 
-## 应用
-
-### 1、配合自发光贴图
-![[Pasted image 20221209114223.png]]
-### 2、配合特效
-![[Pasted image 20221209114240.png]]
-### 3、配合 ToneMapping
--   bloom 效果和 ToneMapping 结合可以较好的保留暗部和亮部的细节
-![[Pasted image 20221209114250.png]]
-### 4、GodRay 效果
+# GodRay 效果
 -   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果
 ![[Pasted image 20221209114329.png]]
 -   GoodRay 配合 ToneMapping
