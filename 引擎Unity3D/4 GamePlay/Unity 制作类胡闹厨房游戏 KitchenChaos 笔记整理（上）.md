@@ -708,7 +708,7 @@ public class GameInput : MonoBehaviour
 
 ### 6.1 添加带有选中效果的模型
 
-我们可以将柜台视觉效果的改变写在 Player.cs 中最后 clearCounter.Interact() 中，然而这样在写角色逻辑的代码中处理柜台的视觉效果，会使视觉效果与交互逻辑的代码耦合，所以这里我们要使用其他的方法去改变柜台的视觉效果  
+我们可以将柜台视觉效果的改变写在 Player.cs 中最后 clearCounter.Interact() 中，然而这样在写角色逻辑的代码中处理柜台的视觉效果，会使视觉效果与交互逻辑的代码耦合，所以这里我们要使用其他的方法去改变柜台的视觉效果  .
 在 ClearCounter.perfab 中，复制 ClearCounter_Visual 并重命名为 Selected，选择下面的模型，将 Material 换为 CounterSelected，在 Scripts 文件夹中新建 SelectCounterVisual.cs 并将该脚本添加到 Selected 上，这样当我们在打开 Selected 的显示时就能得到一个选中效果的柜台
 
 ![](<images/1689211709631.png>)
@@ -720,9 +720,9 @@ public class GameInput : MonoBehaviour
 
 ### 6.2 为柜台增加选中的效果
 
-我们在 Player.cs 中增加一个 selectedCounter 变量，用于获取当前被选中的柜台，在 HandleInteractions() 中随着投射出的光线击中的物体改变而改变当前 selectedCounter 为哪一个柜台，然后在 GameInput_OnInteractAction() 中调用 selectedCounter.Interact() 实现交互
+我们在 Player.cs 中增加一个 `selectedCounter` 变量，用于获取当前被选中的柜台，在 `HandleInteractions()` 中随着投射出的光线击中的物体改变而改变当前 `selectedCounter` 为哪一个柜台，然后在 `GameInput_OnInteractAction()` 中调用 `selectedCounter.Interact()` 实现交互
 
-```
+```cs
 // Player.cs中
 ...
 public class Player : MonoBehaviour
@@ -790,7 +790,7 @@ public class Player : MonoBehaviour
 第二种方式的好处是它更加方便，控制视觉效果的代码不会经过处理逻辑的脚本，坏处是可能会存在性能问题，因为所有的柜台都在订阅由角色发送的事件，但是我们的项目体量比较小，这样的方法并不会带来性能瓶颈，所以我们选择使用这一种方法。并且由于我们要完成的游戏只有一个角色，使用这一种方法还可以使用单例模式  
 在 Player.cs 中，添加一个 [EventHandler](https://learn.microsoft.com/en-us/dotnet/api/system.eventargs?view=net-7.0) 委托，并使用 EventArgs 传递选中的柜台信息，在 Update() 中触发事件，这里由于要使用到多次 OnSelectedCounterChanged，所以这里把它单独放在了一个函数中
 
-```
+```cs
 // Player.cs中
 ...
 public class Player : MonoBehaviour
