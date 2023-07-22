@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md"
+                "file": "技术美术/3 后处理/故障Glitch.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -198,8 +198,26 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "a12c7ff556c0b163",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "zip/images/bb3ae5779a380fe3a0a3637fd1815446_MD5.gif",
+    "zip/images/46f551688659a115896e2d2833dbf3a6_MD5.gif",
+    "zip/images/8f22dc6e6b952797f643e31f25aa795b_MD5.gif",
+    "zip/images/80fc307b6e840047d14cb3552c831354_MD5.gif",
+    "zip/images/37aa0df86a6071ef320435b0d538be58_MD5.gif",
+    "zip/images/3227c4df253e50eb3b18ffd94480465b_MD5.gif",
+    "zip/images/c75560ef3fbe81b8dc1c11f0657f91ab_MD5.gif",
+    "zip/images/518cb54c6962b0c556486a4c53eb7846_MD5.gif",
+    "zip/images/44cc9296374935cd97a807a3617eb900_MD5.gif",
+    "zip/images/5899ddf6a1dc75919c2a00243f87fe3f_MD5.gif",
+    "zip/images/1c2765a3978bf7c75209c8c44c1f9729_MD5.gif",
+    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
+    "技术美术/3 后处理/故障Glitch.md",
+    "zBuffer/liuke101 _ 毛星云 - Gitee_com.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "技术美术/3 后处理/08 SSAO.md",
+    "技术美术/3 后处理/04 景深.md",
+    "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
@@ -210,33 +228,15 @@
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "zip/images/e74ac731-6482-4c89-afd5-4daa4621ca1f.gif",
-    "zip/images/14ccdabf-0107-4578-9f96-499d6b148b68.gif",
-    "zip/images/Pasted image 20230722162445.png",
-    "zip/images/Pasted image 20230722162441.png",
-    "zip/images/81eca9b4-aad0-4f54-8a82-3755725bccfd.gif",
     "zBuffer/4_1 Bloom.md",
-    "zip/images/4a757ffdf5b5f2224cb22b58855a2f56_MD5.png",
-    "zip/images/41a508fcf65a44d8d73590d218a19f55_MD5.png",
-    "zip/images/7307ef972790e7989db9544390955826_MD5.png",
-    "zip/images/62e253e47107394b32aa57e11172ec99_MD5.png",
-    "zip/images/b27529756d9cc28f7bf9a0cf6af0c42c_MD5.png",
-    "技术美术/3 后处理/08 SSAO.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
-    "技术美术/3 后处理/04 景深.md",
     "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md",
     "引擎Unity3D/2 Shader精粹/雪风/19 径向模糊.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "DCC/03 Maya/python for Maya.md",
-    "zBuffer/Unity 动画系统入门.md",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
