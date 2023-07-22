@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8295573c16140de6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -152,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,24 +191,24 @@
   },
   "active": "a12c7ff556c0b163",
   "lastOpenFiles": [
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "zip/images/Pasted image 20230722233412.png",
+    "zip/images/Pasted image 20230722233410.png",
+    "zip/images/Pasted image 20230722233401.png",
+    "zip/images/Pasted image 20230722233358.png",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md",
     "zip/images/Pasted image 20230722195935.png",
     "zip/images/Pasted image 20230722195917.png",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "技术美术/3 后处理/故障Glitch.md",
     "zip/images/bb3ae5779a380fe3a0a3637fd1815446_MD5.gif",
     "zip/images/46f551688659a115896e2d2833dbf3a6_MD5.gif",
     "zip/images/8f22dc6e6b952797f643e31f25aa795b_MD5.gif",
     "zip/images/80fc307b6e840047d14cb3552c831354_MD5.gif",
-    "zip/images/37aa0df86a6071ef320435b0d538be58_MD5.gif",
-    "zip/images/3227c4df253e50eb3b18ffd94480465b_MD5.gif",
-    "zip/images/c75560ef3fbe81b8dc1c11f0657f91ab_MD5.gif",
-    "zip/images/518cb54c6962b0c556486a4c53eb7846_MD5.gif",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "zBuffer/liuke101 _ 毛星云 - Gitee_com.md",
     "技术美术/3 后处理/ta101后处理.md",
@@ -239,7 +226,6 @@
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "zBuffer/4_1 Bloom.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",

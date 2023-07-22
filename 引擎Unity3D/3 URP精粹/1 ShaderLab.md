@@ -738,6 +738,21 @@ float4 frag(Varyings input) : SV_Target
 }
 ENDHLSL
 ```
+
+## 函数
+`ddx`，`ddy` 的定义  
+GPU在像素化的基本单位是2x2，那么在这个2x2像素块当中，右侧的像素对应的fragment的x坐标减去左侧的像素对应的fragment的x坐标就是ddx；下侧像素对应的fragment的坐标y减去上侧像素对应的fragment的坐标y就是ddy。  
+ddx 和 ddy 代表了相邻两个像素在设备坐标系当中的距离，据此可以判断应该使用哪一层的贴图 LOD（如果贴图支持 LOD，也就是 MIPS）。
+**常见使用：**  
+**边缘突出**  
+ddx(v) = 该像素点右边的v值 - 该像素点的v值  
+ddy(v) = 该像素点下面的v值 - 该像素点的v值
+![[Pasted image 20230722233358.png]]
+![[Pasted image 20230722233401.png]]
+**边缘亮化**  
+fwidth（v） = abs( ddx(v) )+ abs(ddy(v))
+![[Pasted image 20230722233410.png]]
+![[Pasted image 20230722233412.png]]
 # 图形 API 平台差异 
 Unity 默认是以 OpenGL 的标准体系进行描述的：左手坐标系、屏幕坐标系左下角为（0,0）等。为了确保统一性，所有非OpenGL 的平台的特性，Unity 会做出转换，使得该特性能够以 OpenGL 的标准来描述。
 
