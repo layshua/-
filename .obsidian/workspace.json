@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md"
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md"
               }
             }
           }
@@ -147,7 +147,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -164,7 +164,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/02 Bloom.md",
+                "file": "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,6 +199,11 @@
   },
   "active": "5ae1d3ee77483c69",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
+    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
+    "技术美术/3 后处理/01 图像模糊.md",
+    "技术美术/3 后处理/02 Bloom.md",
     "zip/images/e74ac731-6482-4c89-afd5-4daa4621ca1f.gif",
     "zip/images/14ccdabf-0107-4578-9f96-499d6b148b68.gif",
     "zip/images/Pasted image 20230722162445.png",
@@ -210,10 +215,7 @@
     "zip/images/7307ef972790e7989db9544390955826_MD5.png",
     "zip/images/62e253e47107394b32aa57e11172ec99_MD5.png",
     "zip/images/b27529756d9cc28f7bf9a0cf6af0c42c_MD5.png",
-    "zip/images/665e5ad22b8293048bdec90a5ab2fba7_MD5.png",
-    "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/08 SSAO.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/3 URP精粹/4 后处理.md",
     "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
@@ -234,8 +236,6 @@
     "zBuffer/Unity 动画控制器.md",
     "zBuffer/动画曲线.md",
     "DCC/02 Blender/建模原理.md",
-    "zBuffer/01 我的世界学习（学习归纳）.md",
-    "DCC/02 Blender/辣椒酱.md",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",

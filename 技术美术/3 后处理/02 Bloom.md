@@ -187,10 +187,15 @@ fixed4 fragBloom(v2fBloom i) : SV_Target {
 $lerp (a, b, w)$ 根据 $w$ 返回 $a$ 到 b 之间的插值，由此可见当 w=0 时返回a.当 w = 1时返回b.
 
 即渲染纹理中，alpha=1 的部分将输出原图像，而 alpha=0 的部分将输出叠加后的 bloom 图像
-## 用 SRP 渲染一张 Mask 图
+## 模板测试
+核心就是在渲染时，使用 depth buffer
+- 通过深度图绘制 bloomRT
+- 缺点: 深度带来的问题
+
+## SRP RenderFeature
 设置 Layer 渲染
 
-# GodRay 
+# GodRay 效果
 -   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果，实现很简单，将高斯 Bloom 中的模糊 pass 改成径向模糊即可。
 ![[Pasted image 20221209114329.png]]
 
