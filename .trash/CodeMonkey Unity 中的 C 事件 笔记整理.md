@@ -3,6 +3,17 @@
 原教程地址：[https://youtu.be/OuZrhykVytg](https://youtu.be/OuZrhykVytg)
 
 ### 1 介绍
+
+使用事件意味着说我可以让一件事发生而不关心是谁订阅了它，事件模型中有 publishers 和 subscribers，其中 publishers 触发事件，所有的 subscribers 都会收到事件被触发的通知。因为 **publishers 并不关心是谁订阅了它，之后又发生了什么，所以使用事件模型可以使我们的代码解耦**
+
+![[6bd258fb8a085e4a5f7e2bb56aadef7a_MD5.png]]
+
+### 2 使用事件将逻辑和视觉代码分离
+
+通常我们不希望逻辑代码与视觉代码耦合在一起，我们希望不管有没有视觉组件，逻辑都能够单独运行，而视觉组件只关心逻辑代码运行时造成的具体的视觉变化
+
+![[e6f02ebd69b652045c9266b8df4813c1_MD5.png]]
+
 首先我们需要将我们的事件设为 public，然后使用 event 关键字，接下来我们需要定义类型，.net 中有一个多播委托类型 [EventHandler](https://learn.microsoft.com/en-us/dotnet/api/system.eventargs?view=net-7.0)，要使用这个类型，我们需要加上 using System 引入 System 命名空间，这个类型有两个字段，一个是事件源 sender，一个是 EventArgs
 
 ![[9b2db9a0ded1bf88fd14248d5bdf2bb7_MD5.png]]

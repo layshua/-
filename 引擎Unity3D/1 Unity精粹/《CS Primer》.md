@@ -3453,6 +3453,16 @@ class Program
 ```
 
 # 九、事件 event
+## 使用事件将逻辑和视觉代码分离
+使用事件意味着说我可以让一件事发生而不关心是谁订阅了它，事件模型中有 publishers 和 subscribers，其中 publishers 触发事件，所有的 subscribers 都会收到事件被触发的通知。因为 **publishers 并不关心是谁订阅了它，之后又发生了什么，所以使用事件模型可以使我们的代码解耦**
+
+![[6bd258fb8a085e4a5f7e2bb56aadef7a_MD5.png|500]]
+
+通常我们不希望逻辑代码与视觉代码耦合在一起，**我们希望不管有没有视觉组件，逻辑都能够单独运行，而视觉组件只关心逻辑代码运行时造成的具体的视觉变化**
+
+![[e6f02ebd69b652045c9266b8df4813c1_MD5.png|500]]
+
+## 事件的使用
 - 事件是基于委托的存在
 - 事件是委托的安全包裹
 - 让委托的使用更具有安全性
@@ -3562,10 +3572,15 @@ public class TestingEvents : MonoBehaviour
     }
 }
 ```
+行游戏，按下空格，我们就可以看到该事件触发的函数。
 
-现在我们都是在同一个脚本、同一个类中去触发和监听事件，但使用事件模型的好处是我们可以从其他地方去监听，所以接下来我们新创建一个脚本 TestingEventSubscriber. cs，将上面的监听事件的过程放到这个脚本中
+现在我们都是在同一个脚本、同一个类中去触发和监听事件，但**使用事件模型的好处是我们可以从其他地方去监听**，所以接下来我们新创建一个脚本 TestingEventSubscriber. cs，将上面的监听事件的过程放到这个脚本中
 
-```cs file:TestingEventSubscriber.cs
+```cs
+// TestingEventSubscriber.cs中
+using System;
+using UnityEngine;
+
 public class TestingEventSubscriber : MonoBehaviour
 {
     private void Start()
@@ -3579,9 +3594,80 @@ public class TestingEventSubscriber : MonoBehaviour
         Debug.Log("Space Pressed");
     }
 }
+// TestingEvents.cs中
+using System;
+using UnityEngine;
+
+public class TestingEvents : MonoBehaviour
+{
+    public event EventHandler OnSpacePressed;
+    private void Start()
+    {
+
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnSpacePressed?.Invoke(this, EventArgs.Empty);
+        }
+    }
+}
+```
+将脚本挂载到同一个物体上，运行游戏，按下空格，和之前的效果相同
+###  参数 `EventArgs e`
+EventHandler 的另一个参数 EventArgs e 可以通过事件传递更多信息，**要使用 EventArgs，我们首先需要使用泛型，然后定义一个派生自 EventArgs 的类**，比如这里我们想要传递一个 int 类型的 spaceCount 记录按下空格的次数，在调整了 EventArgs 之后两个脚本如下
+
+```cs h:26,41
+// TestingEventSubscriber.cs中
+using System;
+using UnityEngine;
+
+public class TestingEventSubscriber : MonoBehaviour
+{
+    private void Start()
+    {
+        TestingEvents testingEvents = GetComponent<TestingEvents>();
+        testingEvents.OnSpacePressed += TestingEvents_OnSpacePressed;
+    }
+
+    private void TestingEvents_OnSpacePressed(object sender, TestingEvents.OnSpacePressEventArgs e)
+    {
+        Debug.Log("Space Pressed" + e.spaceCount);
+    }
+}
+
+// TestingEvents.cs中
+using System;
+using UnityEngine;
+
+public class TestingEvents : MonoBehaviour
+{
+    public event EventHandler<OnSpacePressEventArgs> OnSpacePressed;
+    public class OnSpacePressEventArgs : EventArgs
+    {
+        public int spaceCount;
+    }
+    private int _spaceCount;
+
+    private void Start()
+    {
+
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            spaceCount++;
+            OnSpacePressed?.Invoke(this, new OnSpacePressEventArgs { spaceCount = _spaceCount });
+        }
+    }
+}
 ```
 
-将脚本挂载到同一个物体上，运行游戏，按下空格，和之前的效果相同
+运行游戏，可以看到控制台显示出了按下空格的次数
+
+
 # 十、匿名函数
 - 顾名思义，就是没有名字的函数
 - 匿名函数的使用主要是配合委托和事件进行使用
