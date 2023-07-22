@@ -164,8 +164,31 @@ public class DS_Bloom : PostEffectsBase
 ③用 Command-Buffer
 ④用模板测试
 ⑤ 直接用 Mask 图（简单情况下）
-
 ## Alpha 通道
+**思路：利用 alpha 值Lerp插值来选取 bloom 的区域**
+
+在原 shader 的基础上，增加这个 mask 函数，并修改 pass 3 即最终叠加图像的片元着色器：
+```cs
+//src为原图颜色 color为叠加后颜色        
+//for bloom mask
+fixed4 mask(fixed4 src,fixed4 color)
+{
+    return lerp(src,color,1.0-src.a);
+}
+
+fixed4 fragBloom(v2fBloom i) : SV_Target {
+    //return tex2D(_Bloom, i.uv.zw);//for debug 仅输出处理后图像
+    fixed4 orgin_img = tex2D(_MainTex, i.uv.xy); 
+    fixed4 blur_img = tex2D(_Bloom, i.uv.zw);
+    fixed4 result=orgin_img+blur_img;
+    return mask(orgin_img,result);//原图与模糊图叠加
+}
+```
+$lerp (a, b, w)$ 根据 $w$ 返回 $a$ 到 b 之间的插值，由此可见当 w=0 时返回a.当 w = 1时返回b.
+
+即渲染纹理中，alpha=1 的部分将输出原图像，而 alpha=0 的部分将输出叠加后的 bloom 图像
+## 用 SRP 渲染一张 Mask 图
+设置 Layer 渲染
 
 # GodRay 
 -   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果，实现很简单，将高斯 Bloom 中的模糊 pass 改成径向模糊即可。

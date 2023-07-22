@@ -5,20 +5,36 @@
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
+      "basename": "08 SSAO",
+      "path": "技术美术/3 后处理/08 SSAO.md"
+    },
+    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+      "basename": "4 后处理",
+      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
+    },
+    {
+      "basename": "21 和散景模糊——实践篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "04 景深",
       "path": "技术美术/3 后处理/04 景深.md"
     },
     {
-      "basename": "08 SSAO",
-      "path": "技术美术/3 后处理/08 SSAO.md"
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
     {
       "basename": "03 深度法线纹理",
@@ -85,10 +101,6 @@
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
-      "basename": "4 后处理",
-      "path": "引擎Unity3D/3 URP精粹/4 后处理.md"
-    },
-    {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
     },
@@ -131,10 +143,6 @@
     {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
-    },
-    {
-      "basename": "18 性能拔尖的模糊 - 双重 Kasase 模糊",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/18 性能拔尖的模糊 - 双重 Kasase 模糊.md"
     },
     {
       "basename": "【译】Unity 中的 GPU 光线追踪 - 第 2 部分",
@@ -187,18 +195,6 @@
     {
       "basename": "26  制作 VEG 粒子特效",
       "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "24 Render Feature 制作特定模型外描边",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md"
-    },
-    {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
     }
   ],
   "omittedPaths": [],
