@@ -1,8 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "展UV",
-      "path": "DCC/02 Blender/展UV.md"
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
     },
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
@@ -91,10 +95,6 @@
     {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
-    },
-    {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
     },
     {
       "basename": "03 深度法线纹理",

@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/展UV.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/展UV.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/展UV.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/展UV.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,8 +200,12 @@
   },
   "active": "f6958ce473f5bcd2",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230722103211.png",
+    "zip/images/Pasted image 20230722102818.png",
+    "zip/images/Pasted image 20230722102720.png",
+    "DCC/02 Blender/辣椒酱.md",
+    "DCC/02 Blender/建模原理.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-    "DCC/02 Blender/展UV.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
@@ -230,13 +234,9 @@
     "zip/images/33645742dd504c5bdd4b399aa636e83f_MD5.webp",
     "zip/images/37aac0953bb56f6ccfc076c408abb658_MD5.webp",
     "zip/images/7f982c13b9dbb97d78fdbd74eee9bfcd_MD5.webp",
-    "zip/images/353969d293c281a340ddbf7407d9fe73_MD5.webp",
-    "zip/images/91e479f861f40e716adf3c82c2e14630_MD5.webp",
     "技术美术/3 后处理/ta101后处理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/浩克肥虫.md",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
