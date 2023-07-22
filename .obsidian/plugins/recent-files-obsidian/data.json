@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "展UV",
+      "path": "DCC/02 Blender/展UV.md"
+    },
+    {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
     }
   ],
   "omittedPaths": [],
