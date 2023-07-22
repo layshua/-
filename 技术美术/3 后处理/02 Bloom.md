@@ -1,4 +1,4 @@
-# 1  Bloom
+# Bloom
 
 Bloom 是游戏开发中最常用的一种全屏后处理特效，它可以模拟真实相机的一种图像效果，让画面中较亮的区域扩散到周围区域中，造成一种朦胧的效果。
 ## 实现原理
@@ -154,12 +154,6 @@ public class DS_Bloom : PostEffectsBase
     -   在顶点着色器中计算纹理坐标可以减少运算提高性能
     -   而且由于顶点到片元的插值是线性的，因此不会影响纹理坐标的计算结果
 
-# GodRay 效果
--   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果，实现很简单，将高斯 Bloom 中的模糊 pass 改成径向模糊即可。
-![[Pasted image 20221209114329.png]]
--   GoodRay 配合 ToneMapping
-![[Pasted image 20221209114348.png]]
--   可以看到 ToneMapping 解决了**过曝**的问题
 
 # Bloom  Mask 
 之前实现的 Bloom 是对全屏作用，我们想要对局部作用，就要进行遮罩。
@@ -170,4 +164,10 @@ public class DS_Bloom : PostEffectsBase
 ③用 Command-Buffer
 ④用模板测试
 ⑤ 直接用 Mask 图（简单情况下）
+
+## Alpha 通道
+
+# GodRay 
+-   使用**径向模糊**代替高斯模糊，模拟光线往某个方向扩散的效果，实现很简单，将高斯 Bloom 中的模糊 pass 改成径向模糊即可。
+![[Pasted image 20221209114329.png]]
 
