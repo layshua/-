@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -37,13 +37,8 @@
             "id": "fac38730e822f345",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -90,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md"
+                "file": "DCC/02 Blender/辣椒酱.md"
               }
             }
           }
@@ -140,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/3_72 command buffer 及 urp 概述.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -192,6 +187,8 @@
   },
   "active": "59fcedc38a579d56",
   "lastOpenFiles": [
+    "DCC/02 Blender/建模原理.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -226,8 +223,6 @@
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
-    "zBuffer/4_1 Bloom.md",
-    "引擎Unity3D/2 Shader精粹/雪风/21 和散景模糊——实践篇.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
