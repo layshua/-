@@ -850,7 +850,7 @@ public class Player : MonoBehaviour
 我们需要在 SelectCounterVisual.cs 中订阅该事件，由于我们只有一个 Player，所以我们可以使用单例模式  
 依然是在 Player.cs 中，我们定义一个 public 的、static 的 Player 的实例，并且设置为只读（public 是为了其他类能够访问到，static 是让该实例与类无关，让程序中只有始终只有一个 Player 实例），我们必须确保游戏中只有一个 Player，所以我们需要在 Awake() 中进行检查
 
-```
+```cs
 // Player.cs中
 ...
 public class Player : MonoBehaviour
@@ -872,7 +872,7 @@ public class Player : MonoBehaviour
 
 在 SelectCounterVisual.cs 中，订阅这个实例上的事件控制选中效果模型的显示与隐藏，由于我们在 Player.cs 中使用了 Awake() 设置了单例模式中的实例，而 Awake() 会在 Start() 之前执行，所以程序可以正常运行，如果我们这里也使用 Awake()，则可能会导致单例设置前该脚本就已经执行（如果都使用 Awake()，还可以在 Edit->Project Settings->Script Execution Order 中规定脚本的执行顺序）
 
-```
+```cs
 // SelectCounterVisual.cs中
 using UnityEngine;
 

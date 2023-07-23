@@ -50,6 +50,24 @@ public class Singleton
 1. 它是线程安全的。
 2. 不过这个可能会导致该类的实例过早地被加载出来，从而占据内存空间。
 
+CodeMonkey 写的一种实现方法：限制单个Player
+```cs
+public class Player : MonoBehaviour
+{
+    public static Player Instance { get;private set;}
+
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one Player instance");
+        }
+        Instance = this;
+    }
+}
+
+```
 ## 懒汉模式
 
 ### 经典版
