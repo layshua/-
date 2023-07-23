@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -220,8 +220,17 @@
   },
   "active": "b8f5740bded75792",
   "lastOpenFiles": [
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "zip/images/Pasted image 20230723235733.png",
+    "zip/images/Pasted image 20230723235211.png",
+    "zip/images/Pasted image 20230723234312.png",
+    "zip/images/Pasted image 20230723234310.png",
+    "zip/images/Pasted image 20230723234306.png",
+    "zip/images/Pasted image 20230723234229.png",
+    "zip/images/Pasted image 20230723234213.png",
+    "DCC/02 Blender/辣椒酱.md",
+    "DCC/02 Blender/建模原理.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/Pasted image 20230723222635.png",
     "zip/images/Pasted image 20230723222217.png",
@@ -231,13 +240,7 @@
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
-    "zip/images/Pasted image 20230723162619.png",
     "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
-    "zip/images/Pasted image 20230723153544.png",
-    "zip/images/Pasted image 20230723153215.png",
-    "zip/images/Pasted image 20230723152815.png",
-    "zip/images/Pasted image 20230723152400.png",
-    "zip/images/Pasted image 20230723152354.png",
     "技术美术/2 着色器/SS.md",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/01 图像模糊.md",
@@ -253,8 +256,6 @@
     "技术美术/2 着色器/曲面细分与几何着色器.md",
     "技术美术/2 着色器/各向异性.md",
     "DCC/01 百人计划美术向/硬表面基础.md",
-    "DCC/01 百人计划美术向/美术理论基础一 & 二.md",
-    "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
