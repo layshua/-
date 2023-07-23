@@ -870,8 +870,10 @@ public class Player : MonoBehaviour
 ...
 ```
 
-在 SelectCounterVisual.cs 中，订阅这个实例上的事件控制选中效果模型的显示与隐藏，由于我们在 Player.cs 中使用了 Awake() 设置了单例模式中的实例，而 Awake() 会在 Start() 之前执行，所以程序可以正常运行，如果我们这里也使用 Awake()，则可能会导致单例设置前该脚本就已经执行（如果都使用 Awake()，还可以在 Edit->Project Settings->Script Execution Order 中规定脚本的执行顺序）
+在 SelectCounterVisual.cs 中，订阅这个实例上的事件控制选中效果模型的显示与隐藏，由于我们在 Player.cs 中使用了 Awake() 设置了单例模式中的实例，而 Awake() 会在 Start() 之前执行，所以程序可以正常运行，如果我们这里也使用 Awake()，则可能会导致单例设置前该脚本就已经执行（如果都使用 Awake()，还可以在 Edit->Project Settings->Script Execution Order 中规定脚本的执行顺序），但这是没有其他方法的时候的选择。
+![[Pasted image 20230723213340.png|500]]
 
+这里我们将事件订阅放在 Start (), 这样先后顺序就正确了。
 ```cs
 // SelectCounterVisual.cs中
 using UnityEngine;
