@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
+                "file": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/2 着色器/SS.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -217,27 +217,28 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "418f4b4f02f4fae2",
+  "active": "9726bdb2efedf835",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230723145824.png",
-    "zip/images/Pasted image 20230723145357.png",
-    "zip/images/Pasted image 20230723145227.png",
+    "zip/images/Pasted image 20230723153215.png",
+    "zip/images/Pasted image 20230723152815.png",
+    "zip/images/Pasted image 20230723152400.png",
+    "zip/images/Pasted image 20230723152354.png",
     "技术美术/2 着色器/SS.md",
+    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
+    "zip/images/2efb3427214a022355608cc5499d0ba5_MD5.png",
+    "zip/images/6bfe7a13e4dbe212d288efee7f67d902_MD5.png",
+    "zip/images/acb04d4a45d99f5b74ddd95baea592c4_MD5.png",
+    "zip/images/033b9430a336883d39bfde12d74d41a6_MD5.png",
+    "zip/images/d32bad603647122d535d1f6ff4d6a813_MD5.png",
+    "zip/images/456e2b4f207552e095aa76ddcaf1415f_MD5.png",
+    "zip/images/987164fb9a813b1f7a99a76ffc60837a_MD5.png",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/01 图像模糊.md",
-    "zip/images/Pasted image 20230723144233.png",
-    "zip/images/Pasted image 20230723144138.png",
     "技术美术/2 着色器/次表面散射SSS.md",
     "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md",
     "技术美术/2 着色器/布料.md",
     "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md",
-    "zip/images/v2-c82d91a4c303bc275418def4fe0712f2_1440w.webp",
-    "zip/images/Pasted image 20230723143505.png",
-    "zip/images/3c974e7fba06cace6044d51ca5a5bc15_MD5.png",
-    "zip/images/da7dd174778008ac8c26c31cc3b56af2_MD5.svg",
-    "zip/images/410dbcc5a2353eb7b4744509d1576118_MD5.svg",
-    "zip/images/05c6a4cae1c47ec968f751cd6c9f08a9_MD5.svg",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/1 图形系统/10 色彩.md",
     "技术美术/3 后处理/故障Glitch.md",
@@ -254,7 +255,6 @@
     "DCC/01 百人计划美术向/场景设计精要.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "DCC/02 Blender/建模原理.md",
-    "DCC/02 Blender/辣椒酱.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
