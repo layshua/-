@@ -936,7 +936,7 @@ public class SelectCounterVisual : MonoBehaviour
   
 接下来在 ClearCounter.cs 中，接收 tomatoPrefab 与 counterTopPoint，并在 Interact() 中实例化一个番茄
 
-```
+```cs
 // ClearCounter.cs中
 using UnityEngine;
 
@@ -965,10 +965,10 @@ public class ClearCounter : MonoBehaviour
 
 ### 7.2 Scriptable Objects
 
-Scriptable Object 可以很方便地定义一个类的多种不同实例，如多种武器、多种装备、多种食物等等  
+**Scriptable Object 可以很方便地定义一个类的多种不同实例，如多种武器、多种装备、多种食物等等**  
 首先在 Scripts 文件夹新建 KitchenObjectSO.cs，注意这里不是继承自 MonoBehaviour，而是 ScriptableObject，要创建 Scriptable Object，还需要在类前面加上 Unity 为我们准备的 [CreateAssetMenu()]，这样我们就可以在 Unity 编辑器中使用这个脚本创建对象
 
-```
+```cs
 // KitchenObjectSO.cs中
 using UnityEngine;
 
@@ -988,7 +988,7 @@ public class KitchenObjectSO : ScriptableObject
   
 在 ClearCounter.cs 中，修改对应部分，使其通过 kitchenObjectSO 对象调用对应 prefab
 
-```
+```cs
 // ClearCounter.cs中
 using UnityEngine;
 
@@ -1013,7 +1013,7 @@ public class ClearCounter : MonoBehaviour
 ![](<images/1689211711490.png>)
 
   
-我们需要让柜台知道在其上方放置的物品是什么，但是由于 Script Object 不是继承自 Monobehaviour 的类，所以不能作为一个组件添加到物体上，所以我们需要在 Scripts 文件夹下创建一个 KitchenObject.cs，将它添加到我们已经创建的两个 prefab 上并将对应的 Tomato.asset 和 CheeseBlock.asset 拖动到脚本上
+**我们需要让柜台知道在其上方放置的物品是什么，但是由于 Script Object 不是继承自 Monobehaviour 的类，所以不能作为一个组件添加到物体上，所以我们需要在 Scripts 文件夹下创建一个 KitchenObject.cs**，将它添加到我们已经创建的两个 prefab 上并将对应的 Tomato.asset 和 CheeseBlock.asset 拖动到脚本上
 
 ```
 // KitchenObject.cs中

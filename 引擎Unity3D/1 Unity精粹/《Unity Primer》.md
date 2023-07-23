@@ -1048,8 +1048,9 @@ public class GameObjectTransformTesting : MonoBehaviour
 1. 任何对象都必须有 Transform 组件
 2. ⭐**我们可以使用 transform. gameobject 来获取 Gameobject 对象，也可以用 gameobject. transform 来获取 Transfrom 组件**
 3. `Instantiate ()` 是泛型函数，参数填什么类型就返回什么类型 ![[Pasted image 20230723222635.png]]
-从第二点就可以看出来，它门可以相互转换，所以实际上用谁区别不大，都可以拿到我们想要的数据。
+**从第二点就可以看出来，它门可以相互转换，所以实际上用谁区别不大，都可以拿到我们想要的数据。**
 通常我们会对对象进行位置变换，可以优先使用 Transfrom，这样就可以避免 gameobject. transfrom 这一步。
+涉及对对象本身的设置，如激活、销毁，就优先用 gameobject。
 ```cs
 public class GameObjectTransformTesting : MonoBehaviour
 {
@@ -1060,7 +1061,9 @@ public class GameObjectTransformTesting : MonoBehaviour
         if ( 工nput.GetKeyDown( Keycode.T)) 
         {
             Transform prefabTransform = Instantiate(prefab);
+            //Gameobject prefabGameobject = Instantiate(prefab);
             prefabTransform.position = Vector3.zero;
+            //prefabGameobject.transform.position = Vector3.zero;
             ...
         }
     }

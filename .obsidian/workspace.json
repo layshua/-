@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,14 +205,14 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "1024538a81b1ceee",
+  "active": "b8f5740bded75792",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/Pasted image 20230723222635.png",
     "zip/images/Pasted image 20230723222217.png",
     "zip/images/Pasted image 20230723222136.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/Pasted image 20230723213340.png",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
@@ -226,7 +226,6 @@
     "zip/images/Pasted image 20230723152400.png",
     "zip/images/Pasted image 20230723152354.png",
     "技术美术/2 着色器/SS.md",
-    "zip/images/2efb3427214a022355608cc5499d0ba5_MD5.png",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/2 着色器/次表面散射SSS.md",
