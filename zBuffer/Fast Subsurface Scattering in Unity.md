@@ -16,7 +16,6 @@ BSSRDF：
 
 **次表面散射**：当光照射到半透明材质的表面时，一部分在内部传播，在分子之间反弹，直到找到出路。这通常会导致在特定点被吸收的光在其他地方再次射出。
 次表面散射会产生漫射辉光，这种辉光可以在皮肤、大理石和牛奶等材质中看到。
-<iframe width="700" height="394" src="https://www.youtube.com/embed/1K9kQi9UZM0" title="Stanford dragon subsurface scattering test with Blender" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **半透明昂贵的原因：**
 1. 它需要模拟光线在材质内部的散射。每条光线可以分成多条，在一种材质内反射数百甚至数千次。
@@ -41,14 +40,15 @@ BSSRDF：
 数学建模：红点在 “黑暗” 一侧，它应该被 $- L$ 照亮。
 ![[Pasted image 20230723145227.png]]
 作为第一个近似值 (approximation)，我们可以说由半透明度引起的背光照明量 $I_{back}$ 与 $(V\cdot-L)$ 成正比。在传统的漫反射着色器中，这将是 $(N\cdot L)$ 。我们可以看到，**我们没有在计算中包括法线，因为光线只是从材质中出来，而不是反射在材质上。**
-
+![[Pasted image 20230723162619.png]]
+>光线从背后照射时，效果很平，因为法线没有参与运算
 ## 次表面扰动/扭曲
 
-表面法线应该对光离开材质的角度有微小的影响。该技术的作者引入了一个称为**次表面扰动的参数** $\delta$ ，该参数强制向量 $- L$ 趋向 $N$。从物理上讲， **$\delta$ 控制了法线偏转出射背光的强度**。根据提出的解决方案，背面半透明部分的强度变为：
+**法线应该对光离开材质的角度有微小的影响**。该技术的作者引入了一个称为**次表面扰动的参数** $\delta$ ，该参数强制向量 $- L$ 趋向 $N$。从物理上讲， **$\delta$ 控制了法线偏转出射背光的强度**。根据提出的解决方案，背面半透明部分的强度变为：
  $$I_{back} = V\cdot-(L+N\delta)=V\cdot -H$$ .
 当 $\delta$ = 0，我们得到 $(V\cdot-L)$ 和前边推导的一样。但是，当 $\delta=1$ 时，我们计算的是观察方向 $V$ 和 $-(L+N)$ 之间的点积。
 
-$L+N$ 即半程向量 $H$（注意，和 BlinnPhong 的半程向量定义不同，BlinnPhong 中为 $H=\frac{L+V}{{|L+V|}}$）
+$L+N$ 即半程向量 $H$（注意，和 BlinnPhong 的半程向量定义不同，BlinnPhong 中为 $H=\frac{L+V}{{|L+V|}}$），不需要单位化
 ![[Pasted image 20230723145357.png]]
 
 **从几何学上讲， $\delta$ 从 $0$ 到 $1$ 导致光 $L$ 的感知方向的变化。粉色阴影区域显示背光源的方向范围。在下图中您可以看到， $\delta=0$ 对象似乎是从紫色光源照亮的。当 $\delta$ 朝向 1 移动时，感知的光源方向向紫色方向移动。**
@@ -86,7 +86,7 @@ $\delta$ **目的是模拟某些半透明材质以不同强度散射背光的趋
 总而言之，基本思想是创建一个新的 **surface shader**，并用自定义着色器替换其 **lighting function**。在那里，我们将调用原始_Standard lighting function_，以获取使用 Unity 的 PBR 着色器渲染的材质。  
 一旦我们有了这个，我们就可以计算出背光的贡献，并将它与标准照明功能提供的原始颜色混合。为了一个很好的近似，你可以在这里找到一个很好的起点：
 
-```
+```cs
 #pragma surface surf StandardTranslucent fullforwardshadows
 #pragma target 3.0
 
