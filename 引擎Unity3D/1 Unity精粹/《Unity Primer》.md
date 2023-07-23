@@ -1009,8 +1009,65 @@ private void FixedUpdate()
 
 ## 4 Transform 类
 游戏对象（Gameobject）位移、旋转、缩放、父子关系、坐标转换等相关操作都由它处理，它是 unity 提供的极其重要的类
+### Transform 和 GameObject 的区别
 
-#### 位置
+当我们使用 `Instantiate()` 创建 prefab 对象时，有如下两种方法，都可以创建出对象。区别在哪？
+1. **使用 GameObject**![[Pasted image 20230723222136.png]]
+```cs
+//使用Gameobject
+public class GameObjectTransformTesting : MonoBehaviour
+{
+    [serializeField] private Gameobject prefab;
+    private void Update( ) 
+    {
+        if ( 工nput.GetKeyDown( Keycode.T)) 
+        {
+            Instantiate(prefab);
+        }
+    }
+}
+
+```
+2. **使用 Transfrom**![[Pasted image 20230723222217.png]]
+```cs
+//使用Transform
+public class GameObjectTransformTesting : MonoBehaviour
+{
+    [serializeField] private Transform prefab;
+    private void Update( ) 
+    {
+        if ( 工nput.GetKeyDown( Keycode.T)) 
+        {
+            Instantiate(prefab);
+        }
+    }
+}
+```
+
+注意：
+1. 任何对象都必须有 Transform 组件
+2. ⭐**我们可以使用 transform. gameobject 来获取 Gameobject 对象，也可以用 gameobject. transform 来获取 Transfrom 组件**
+3. `Instantiate ()` 是泛型函数，参数填什么类型就返回什么类型 ![[Pasted image 20230723222635.png]]
+从第二点就可以看出来，它门可以相互转换，所以实际上用谁区别不大，都可以拿到我们想要的数据。
+通常我们会对对象进行位置变换，可以优先使用 Transfrom，这样就可以避免 gameobject. transfrom 这一步。
+```cs
+public class GameObjectTransformTesting : MonoBehaviour
+{
+    [serializeField] private Transform prefab;
+    //[serializeField] private Gameobject prefab;
+    private void Update( ) 
+    {
+        if ( 工nput.GetKeyDown( Keycode.T)) 
+        {
+            Transform prefabTransform = Instantiate(prefab);
+            prefabTransform.position = Vector3.zero;
+            ...
+        }
+    }
+}
+```
+
+### 位置
 > [!NOTE] Inspector 面板上的 Transfrom 信息
 > 对于父对象来说，positon 是世界空间位置
 > 对于子对象来说，position 是相对于父对象的位置，即在父对象为原点的局部空间中位置
@@ -1047,7 +1104,7 @@ print(this.transform.up);      //局部空间的y轴方向
 
 
 
-#### 位移
+### 位移
 实现位移的四种方式：
 ![[Pasted image 20230605154644.png]]
 
@@ -1068,7 +1125,7 @@ this.transform.Translate(this.transform.forward*(1 * Time.deltaTime), Space.Worl
 this.transform.Translate(Vector3.forward*(1 * Time.deltaTime), Space.World); //始终朝向世界空间Z轴移动
 this.transform.Translate(this.transform.forward(1 * Time.deltaTime), Space.Self);  //方向错误，因为this.transform.forward的值是世界空间下的，并不是(0,0,1)
 ```
-#### 角度和旋转
+### 角度和旋转
 ```cs file:角度
 //和角度设置一样，不能单独设置x,y,z
 

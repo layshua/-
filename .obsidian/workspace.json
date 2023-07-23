@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,11 +103,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -153,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,13 +205,16 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "b8f5740bded75792",
+  "active": "1024538a81b1ceee",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230723213340.png",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zip/images/Pasted image 20230723222635.png",
+    "zip/images/Pasted image 20230723222217.png",
+    "zip/images/Pasted image 20230723222136.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zip/images/Pasted image 20230723213340.png",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
@@ -223,9 +227,6 @@
     "zip/images/Pasted image 20230723152354.png",
     "技术美术/2 着色器/SS.md",
     "zip/images/2efb3427214a022355608cc5499d0ba5_MD5.png",
-    "zip/images/6bfe7a13e4dbe212d288efee7f67d902_MD5.png",
-    "zip/images/acb04d4a45d99f5b74ddd95baea592c4_MD5.png",
-    "zip/images/033b9430a336883d39bfde12d74d41a6_MD5.png",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/2 着色器/次表面散射SSS.md",
