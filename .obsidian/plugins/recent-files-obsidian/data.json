@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼",
-      "path": "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md"
+      "basename": "Fast Subsurface Scattering in Unity",
+      "path": "zBuffer/Fast Subsurface Scattering in Unity.md"
+    },
+    {
+      "basename": "SS",
+      "path": "技术美术/2 着色器/SS.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "次表面散射SSS",
@@ -13,24 +25,8 @@
       "path": "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md"
     },
     {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "SS",
-      "path": "技术美术/2 着色器/SS.md"
-    },
-    {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "Fast Subsurface Scattering in Unity",
-      "path": "zBuffer/Fast Subsurface Scattering in Unity.md"
     },
     {
       "basename": "10 色彩",

@@ -13,8 +13,6 @@ BSSRDF：
 SSS=背光+扰动+扩散+...
 
 ## 背光
-![[Pasted image 20230723135132.png]]
-> $dot (N,+L)$ 是正光，$dot (V,-L)$ 是背光
 
 ## 表面扰动
 ![[Pasted image 20230723140545.png]]
