@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -187,6 +187,8 @@
   },
   "active": "59fcedc38a579d56",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230723102838.png",
+    "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/建模原理.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
@@ -221,8 +223,6 @@
     "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
     "DCC/PBR全流程.md",
     "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 3 部分.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 1 部分.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
