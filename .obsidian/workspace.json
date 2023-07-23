@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a12c7ff556c0b163",
+            "id": "dc593592b4dfabdf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "ba682c55256e8284",
+            "id": "1024538a81b1ceee",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/ta101后处理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,51 +34,12 @@
             }
           },
           {
-            "id": "418f4b4f02f4fae2",
+            "id": "7c40828e8ca2c689",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9726bdb2efedf835",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5d354dd672cf02dc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e6f407239acdc1f8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -129,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
               }
             }
           }
@@ -179,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,10 +191,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "9726bdb2efedf835",
+  "active": "7c40828e8ca2c689",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "zip/images/Pasted image 20230723162619.png",
     "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
     "zip/images/Pasted image 20230723153544.png",
@@ -265,8 +229,6 @@
     "DCC/01 百人计划美术向/角色设计精要.md",
     "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
     "DCC/01 百人计划美术向/场景设计精要.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "DCC/02 Blender/建模原理.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",

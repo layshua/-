@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "Fast Subsurface Scattering in Unity",
       "path": "zBuffer/Fast Subsurface Scattering in Unity.md"
     },
@@ -105,14 +117,6 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Unity 动画系统入门",
       "path": "zBuffer/Unity 动画系统入门.md"
-    },
-    {
-      "basename": "Unity 动画控制器",
-      "path": "zBuffer/Unity 动画控制器.md"
     }
   ],
   "omittedPaths": [],
