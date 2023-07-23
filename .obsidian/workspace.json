@@ -39,7 +39,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/2 着色器/SS.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e6f407239acdc1f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/2 着色器/SS.md"
+                "file": "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md"
               }
             }
           }
@@ -140,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/2 着色器/SS.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/2 着色器/SS.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -192,17 +205,25 @@
   },
   "active": "418f4b4f02f4fae2",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230723135132.png",
-    "图形学/3 全局光照GI/02 PBR理论.md",
-    "技术美术/3 后处理/ta101后处理.md",
-    "技术美术/3 后处理/01 图像模糊.md",
-    "技术美术/2 着色器/SS.md",
-    "zip/images/Pasted image 20230723134543.png",
     "技术美术/2 着色器/次表面散射SSS.md",
+    "zBuffer/Fast Subsurface Scattering in Unity (Part 1) - Alan Zucconi --- Unity 中的快速次表面散射（上）-Alan ZucconiUnity中的快速亚表面散射（上）——Alan Zucconi——Unity中的快速次表面散射(上）-艾伦·祖科尼.md",
+    "zip/images/3c974e7fba06cace6044d51ca5a5bc15_MD5.png",
+    "zip/images/da7dd174778008ac8c26c31cc3b56af2_MD5.svg",
+    "zip/images/410dbcc5a2353eb7b4744509d1576118_MD5.svg",
+    "zip/images/05c6a4cae1c47ec968f751cd6c9f08a9_MD5.svg",
+    "zip/images/5eff21c228bf24ccad0cf9832e9bca51_MD5.svg",
+    "zip/images/418302b2701d3908854aab294af5ba8c_MD5.png",
+    "zip/images/bac4e4acfb1e3ab7893fa4c6b2c420a6_MD5.svg",
+    "zip/images/3a8afad22c8964cae762a4502d073895_MD5.svg",
+    "zip/images/64ceea966e694f8f5a1b7636ddcb027f_MD5.svg",
+    "zip/images/5ddf21469c28af4c04473ba8e1914c79_MD5.svg",
+    "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "技术美术/2 着色器/SS.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "技术美术/3 后处理/01 图像模糊.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "图形学/1 图形系统/10 色彩.md",
-    "zip/images/Pasted image 20230723133508.png",
-    "zip/images/Pasted image 20230723133314.png",
     "技术美术/3 后处理/故障Glitch.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "技术美术/3 后处理/02 Bloom.md",
@@ -218,16 +239,7 @@
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/辣椒酱.md",
-    "zip/images/Pasted image 20230723105754.png",
-    "zip/images/Pasted image 20230723102838.png",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zip/images/Pasted image 20230722233412.png",
-    "zip/images/Pasted image 20230722233410.png",
-    "zip/images/Pasted image 20230722233401.png",
-    "zip/images/Pasted image 20230722233358.png",
-    "zip/images/Pasted image 20230722195935.png",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",

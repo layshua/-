@@ -12520,6 +12520,7 @@ cDG
 cyclic
 complexLit
 colorThreshold
+clipboard
 github
 grey
 green
@@ -16175,6 +16176,7 @@ godRayShader
 godRayMaterial
 glitch
 greyScale
+gyroscope
 typora
 todo
 tooltip
@@ -35591,6 +35593,7 @@ eRTV
 eSZU
 eALFH
 etys
+encrypted
 VPN
 Verge
 VS
@@ -54725,6 +54728,9 @@ aRew
 adR
 aaaa
 averages
+accelerometer
+autoplay
+allowfullscreen
 Roaming
 RegWorkshop
 Release
@@ -73096,6 +73102,7 @@ Shake
 StandardTranslucent
 SurfaceOutputStandard
 Scatting
+Stanford
 Programs
 POP
 PC
@@ -105448,6 +105455,7 @@ fGodRay
 fragRadialBlur
 fragGodRay
 fdcb
+frameborder
 dd
 dcc
 data
@@ -109726,6 +109734,7 @@ distFromLight
 distanceControl
 dVmRAbEajUh
 displaceNoise
+dragon
 TFvYZOKeHL
 TAB
 TeX
