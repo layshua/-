@@ -99,6 +99,158 @@ $\delta$ **目的是模拟某些半透明材质以不同强度散射背光的趋
 
 我们现在知道我们需要考虑材质的局部厚度。最简单的方法是提供我们可以采样的纹理贴图。虽然在物理上不准确，但它可以产生可信的结果。此外，局部厚度的编码方式允许艺术家保持对效果的完全控制。
 
+# 代码实现
+```cs
+Shader "Custom/SSS"
+{
+    Properties
+    {
+        _MainTex ("MainTex", 2D) = "white" {}
+        _BaseColor("BaseColor", Color) = (1,1,1,1)
+        [Normal] _NormalMap("NormalMap", 2D) = "bump" {}
+        _NormalScale("NormalScale", Range(0, 10)) = 1
 
+        [Header(Specular)]
+        _SpecularPower("SpecularPower", Range(1, 128)) = 32
+        _SpecularScale("SpecularScale", Range(0, 10)) = 1
+        _SpecularColor("SpecularColor", Color) = (1,1,1,1)
+        
+        [Header(SSS)]
+        _Distortion("Distortion", Range(0, 1)) = 0
+         //次表面扰动
+        _BackLightPower("BackLightPower", Range(0, 5)) = 1
+        //背光扩散
+        _BackLightScale("BackLightScale", Range(0, 5)) = 1
+        _BackLightColor("BackLightColor", Color) = (1,1,1,1)
+        //局部厚度
+        _ThicknessMap("ThicknessMap", 2D) = "white" {}
+        
+    }
+    
+    HLSLINCLUDE
+
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
+
+    CBUFFER_START(UnityPerMateiral)
+    float4 _MainTex_ST;
+    float4 _BaseColor;
+    float _NormalScale;
+    float _SpecularPower;
+    float _SpecularScale;
+    float4 _SpecularColor;
+    float _Distortion;
+    float _BackLightPower;
+    float _BackLightScale;
+    float4 _BackLightColor;
+    CBUFFER_END
+
+    TEXTURE2D(_MainTex);
+    SAMPLER(sampler_MainTex);
+    TEXTURE2D(_NormalMap);
+    SAMPLER(sampler_NormalMap);
+    TEXTURE2D(_ThicknessMap);
+    SAMPLER(sampler_ThicknessMap);
+    
+    struct Attributes
+    {
+        float4 positionOS : POSITION;
+        float4 color : COLOR;
+        float3 normalOS : NORMAL;
+        float4 tangentOS : TANGENT;
+        float2 uv : TEXCOORD0;
+    };
+
+    struct Varyings
+    {
+        float4 positionCS : SV_POSITION;
+        float4 color : COLOR0;
+        float2 uv : TEXCOORD0;
+        float3 positionWS: TEXCOORD1;
+        float3 normalWS : TEXCOORD2;
+        float4 tangentWS : TEXCOORD3;
+        float3 bitangentWS : TEXCOORD4;
+        float3 viewDirWS : TEXCOORD5;
+        float3 lightDirWS : TEXCOORD6;
+    };
+    ENDHLSL
+    
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType"="Opaque" 
+        }
+
+        Pass
+        {
+            Tags
+            {
+                "LightMode"="UniversalForward"
+            }
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            
+            Varyings vert(Attributes i)
+            {
+                Varyings o = (Varyings)0;
+        
+                VertexPositionInputs vertexInput = GetVertexPositionInputs(i.positionOS.xyz);
+                VertexNormalInputs normalInput = GetVertexNormalInputs(i.normalOS, i.tangentOS);
+
+                o.uv = TRANSFORM_TEX(i.uv, _MainTex);
+                o.positionCS = vertexInput.positionCS;
+                o.positionWS = vertexInput.positionWS;
+
+                //TBN
+                o.normalWS = normalInput.normalWS;
+                real sign = i.tangentOS.w * GetOddNegativeScale();
+                o.tangentWS = float4(normalInput.tangentWS.xyz, sign);
+                o.bitangentWS = normalInput.bitangentWS;
+                
+                o.viewDirWS = GetWorldSpaceNormalizeViewDir(o.positionWS);
+                
+                return o;
+            }
+
+            float4 frag(Varyings i) : SV_Target
+            {
+                //纹理采样
+                float4 MainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                float3 normalMap = UnpackNormalScale(
+                    SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, i.uv), _NormalScale);
+                float thickness = SAMPLE_TEXTURE2D(_ThicknessMap, sampler_ThicknessMap, i.uv).r;
+
+                //向量计算
+                float3x3 TBN = float3x3(i.tangentWS.xyz, i.bitangentWS.xyz, i.normalWS.xyz);
+                float3 N = TransformTangentToWorld(normalMap, TBN, true);
+                float3 L = normalize(_MainLightPosition.xyz);
+                float3 V = normalize(i.viewDirWS);
+                float3 H = normalize(L + V); //正面光照的半角向量
+                float3 H_back = L + N*_Distortion;  //背面光照的半角向量
+                float NdotL = dot(N, L);
+                float NdotH = dot(N, H);
+                float VdotNegativeH = dot(V, -H_back);
+                
+                //正面光照
+                float3 diffuse = (0.5 * NdotL + 0.5) * _BaseColor.rgb * _MainLightColor.rgb;
+                float3 specular = pow(max(0, NdotH), _SpecularPower) * _SpecularScale * _SpecularColor.rgb * _MainLightColor.rgb;
+                float4 frontColor = MainTex * float4((diffuse + _GlossyEnvironmentColor.rgb) + specular, 1);
+                
+
+                //背面光照
+                float4 backColor = float4(pow(saturate(VdotNegativeH), _BackLightPower) * _BackLightScale * _BackLightColor.rgb * thickness,1);
+
+                return frontColor+backColor;
+            }
+            ENDHLSL
+        }
+    }
+    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
+}
+```
 # 思考
 ![[Pasted image 20230723153544.png]]

@@ -86,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+                "file": "zBuffer/Fast Subsurface Scattering in Unity.md"
               }
             }
           }
@@ -179,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,8 +230,9 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "5d354dd672cf02dc",
+  "active": "9726bdb2efedf835",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "zip/images/Pasted image 20230723162619.png",
     "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
@@ -254,7 +255,6 @@
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/1 图形系统/10 色彩.md",
     "技术美术/3 后处理/故障Glitch.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/08 SSAO.md",
     "技术美术/2 着色器/曲面细分与几何着色器.md",
