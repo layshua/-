@@ -1,16 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
+      "basename": "SS",
+      "path": "技术美术/2 着色器/SS.md"
+    },
+    {
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
     },
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
+      "basename": "次表面散射SSS",
+      "path": "技术美术/2 着色器/次表面散射SSS.md"
+    },
+    {
+      "basename": "Fast Subsurface Scattering in Unity",
+      "path": "zBuffer/Fast Subsurface Scattering in Unity.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "故障Glitch",
@@ -35,10 +51,6 @@
     {
       "basename": "各向异性",
       "path": "技术美术/2 着色器/各向异性.md"
-    },
-    {
-      "basename": "次表面散射",
-      "path": "技术美术/2 着色器/次表面散射.md"
     },
     {
       "basename": "硬表面基础",
@@ -187,18 +199,6 @@
     {
       "basename": "HLSL语法",
       "path": "图形学/2 图形API/DX12/HLSL语法.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
-    },
-    {
-      "basename": "URP14后处理框架搭建",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
-    },
-    {
-      "basename": "扩展 URP 后处理踩坑记录",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
     }
   ],
   "omittedPaths": [],

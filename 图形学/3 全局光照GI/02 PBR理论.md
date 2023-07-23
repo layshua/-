@@ -484,10 +484,10 @@ k 次间接反射的能量为 $F^{k}{avg}(1-E{avg})^{k}\cdot F_{avg}E_{avg}$ 将
 *   **BTF**（双向纹理函数，Bidirectional Texture Function）：主要用于**模拟非平坦表面**，参数跟 SVBRDF 一致。但是，BTF 包含了非局部的散射效果，比如阴影、遮挡、相互反射、次表面散射等。用 BTF 给表面的每个点建模的方法被成为 **Apparent BRDFs**（表面双向反射分布函数）。
 *   **SSS**（次表面散射，也称 3S，Subsurface Scattering）：它是**模拟光进入半透明或者有一定透明深度的材质（皮肤、玉石、大理石、蜡烛等）后，在内部散射开来，然后又通过表面反射出来的光照模拟技术**。下面是用 SSS 模拟的玉石效果图：
     ![[1679148482775.png|400]]
-    关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。
+    关于次表面散射方面的研究，比较好的是 Jensen 的文章《A Practical Model for Subsurface Light Transport》，该文提出了一个较为全面的 SSS 模型，将它建模成一个双向表面散射反射分布函数 (BSSRDF)。 ^c36ln4
 *   **BSSRDF**（双向表面散射分布函数，Bidirectional Surface Scattering Reflectance Distribution Function）：它常用于**模拟透明材质**，目前是主流技术。它**和 BRDF 的不同之处在于，BSSRDF 可以再现光线透射材质的效果，还可以指定不同的光线入射位置和出射位置：**
     
-    ![[1679148482799.png|600]]
+    ![[1679148482799.png|600]] ^lxo1ef
 
 **从上面可以看出，BxDF 的形式多种多样，但由于它们都是基于辐射度的光照模型，所以最终可以用以下公式抽象出来：**
 

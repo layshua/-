@@ -54724,6 +54724,7 @@ aESG
 aRew
 adR
 aaaa
+averages
 Roaming
 RegWorkshop
 Release
@@ -73092,6 +73093,9 @@ SobelFilter
 Sculpting
 Stripe
 Shake
+StandardTranslucent
+SurfaceOutputStandard
+Scatting
 Programs
 POP
 PC
@@ -81902,6 +81906,7 @@ CustomPostProcessRendererFeature
 CheckShaderAndCreateMaterial
 ColorThreshold
 Cimage
+ColinBarr
 ImTip
 IMAP
 ID
@@ -113887,6 +113892,7 @@ Transaction
 Thresholds
 TestVolumeComponent
 TestingEvents
+Thickness
 io
 ipad
 it
@@ -123227,6 +123233,7 @@ shaderName
 samplerScale
 samplerOffset
 sided
+surf
 local
 list
 left
@@ -126963,6 +126970,7 @@ lightTransform
 lightRadius
 lightPowFactor
 loli
+lightning
 YAML
 You
 YEBAYGhURFRofHx
@@ -173905,6 +173913,7 @@ LoopTime
 LightRadius
 LightFactor
 Logo
+LocalThickness
 Getx
 GetX
 GetName
