@@ -60,6 +60,19 @@
             }
           },
           {
+            "id": "5d354dd672cf02dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "e6f407239acdc1f8",
             "type": "leaf",
             "state": {
@@ -73,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -116,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md"
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
               }
             }
           }
@@ -166,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Fast Subsurface Scattering in Unity.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,11 +230,11 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "9726bdb2efedf835",
+  "active": "5d354dd672cf02dc",
   "lastOpenFiles": [
+    "zBuffer/Fast Subsurface Scattering in Unity.md",
     "zip/images/Pasted image 20230723162619.png",
     "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
-    "zBuffer/Fast Subsurface Scattering in Unity.md",
     "zip/images/Pasted image 20230723153544.png",
     "zip/images/Pasted image 20230723153215.png",
     "zip/images/Pasted image 20230723152815.png",
@@ -232,7 +245,6 @@
     "zip/images/6bfe7a13e4dbe212d288efee7f67d902_MD5.png",
     "zip/images/acb04d4a45d99f5b74ddd95baea592c4_MD5.png",
     "zip/images/033b9430a336883d39bfde12d74d41a6_MD5.png",
-    "zip/images/d32bad603647122d535d1f6ff4d6a813_MD5.png",
     "技术美术/3 后处理/ta101后处理.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/2 着色器/次表面散射SSS.md",

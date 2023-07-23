@@ -63,119 +63,14 @@ $\delta$ **目的是模拟某些半透明材质以不同强度散射背光的趋
 
 有两种主要方法可以使用。第一个依赖于纹理。如果你想对光在材质中漫射的方式进行全面的艺术控制，你应该 clamp $I_{back}$ 在 0 和 1 之间，并用它来采样背光的最终强度。不同的 ramp textures 将模拟不同材质内的光传输。我们将在本教程的下一部分中看到如何使用它来显著更改此着色器的结果。
 
-然而，**该技术的作者使用的方法不依赖于纹理。它仅使用 Cg 代码创建曲线**： $I_{back} = saturate(V\cdot-(L+N\delta))^{p}\cdot s$
+然而，**该技术的作者使用的方法不依赖于纹理。它仅使用 Cg 代码创建曲线**：增加两个新参数 p (power) 和 s (scale) 用于更改曲线的属性。
 
-两个新参数 p(power) 和 s(scale) 用于更改曲线的属性。
-
-# 编程
-
-我们得出了一个依赖于观察方向的方程来模拟背光的反射率： $$I_{back} = saturate(V\cdot-(L+N\delta))^{p}\cdot s$$
+我们得出了一个依赖于观察方向的方程来模拟背光的反射率： $$I_{back} = (saturate(V\cdot-(L+N\delta)))^{p}\cdot s$$
 * $L$是光源方向
 * $V$ 是观察方向
 * $N$ 是法线
 * $\delta$ ，改变背光的感知方向，使其更符合法线
  - $p$ 和 $s$（代表 power 和 scale）确定背光如何传播，类似高光反射中的参数
-
-
-## Extending the Standard Shader（扩展标准着色器）
-
-如前所述，我们希望这种效果尽可能真实。我们最好的选择是扩展 Unity 的 Standard Shader，它已经为非半透明材质提供了非常好的结果。
-
-怎么拓展 Standard Shader？  
-如果您不熟悉该过程，则本博客中已广泛介绍了向标准着色器添加功能的具体主题。两个很好的开始教程是 [3D Printer Shader Effect](https://www.alanzucconi.com/2016/10/02/3d-printer-shader-effect-part-1/) 和 [CD-ROM Shader: Diffraction Grating](https://www.alanzucconi.com/2017/07/15/cd-rom-shader-1/)。  
-总而言之，基本思想是创建一个新的 **surface shader**，并用自定义着色器替换其 **lighting function**。在那里，我们将调用原始_Standard lighting function_，以获取使用 Unity 的 PBR 着色器渲染的材质。  
-一旦我们有了这个，我们就可以计算出背光的贡献，并将它与标准照明功能提供的原始颜色混合。为了一个很好的近似，你可以在这里找到一个很好的起点：
-
-```cs
-#pragma surface surf StandardTranslucent fullforwardshadows
-#pragma target 3.0
-
-sampler2D _MainTex;
-
-struct Input {
-	float2 uv_MainTex;
-};
-
-half _Glossiness;
-half _Metallic;
-fixed4 _Color;
-
-#include "UnityPBSLighting.cginc"
-inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi) {
-	// Original colour
-	fixed4 pbr = LightingStandard(s, viewDir, gi);
-	
-	// ...
-	// Alter "pbr" here to include the new light
-	// ...
-
-	return pbr;
-}
-
-void LightingStandardTranslucent_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi) {
-	LightingStandard_GI(s, data, gi);		
-}
-
-void surf (Input IN, inout SurfaceOutputStandard o) {
-	// Albedo comes from a texture tinted by color
-	fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-	o.Albedo = c.rgb;
-	// Metallic and smoothness come from slider variables
-	o.Metallic = _Metallic;
-	o.Smoothness = _Glossiness;
-	o.Alpha = c.a;
-}
-```
-
-让我们调用新的 lighting function 来用于此效果 StandardTranslucent。背光将具有与原始光相同的颜色。我们可以控制的是它的强度 I ：
-
-```
-#pragma surface surf StandardTranslucent fullforwardshadows
-
-#include "UnityPBSLighting.cginc"
-inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi) {
-	// Original colour
-	fixed4 pbr = LightingStandard(s, viewDir, gi);
-	
-	// Calculate intensity of backlight (light translucent)
-	float I = ... 
-	pbr.rgb = pbr.rgb + gi.light.color * I;
-
-	return pbr;
-}
-```
-
-为什么 pbr 没有 clamped?  
-当将两种颜色加在一起时，应该注意不要超越 1。这通常通过 saturate 完成，该功能简单地将每个颜色分量夹在 0 和 1 之间。  
-如果您使用的相机设置为支持 HDR（**high-dynamic range**），则超过 1 的值将用于后期处理效果，例如 bloom。在这个特定的着色器中，我们不会 saturate 最终颜色，因为 bloom filter 将应用于最终渲染。
-
-## Back Lighting
-
-按照本教程第一部分中描述的等式，我们可以继续编写以下代码：
-
-```
-inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
-{
-	// Original colour
-	fixed4 pbr = LightingStandard(s, viewDir, gi);
-	
-	// --- Translucency ---
-	float3 L = gi.light.dir;
-	float3 V = viewDir;
-	float3 N = s.Normal;
-
-	float3 H = normalize(L + N * _Distortion);
-	float I = pow(saturate(dot(V, -H)), _Power) * _Scale;
-
-	// Final add
-	pbr.rgb = pbr.rgb + gi.light.color * I;
-	return pbr;
-}
-```
-
-上面的代码是本文第一部分中方程式的直接翻译。产生的半透明效果是可信的（下图），但确实与材质的厚度（thickness of the material）没有任何关系。这使得它很难控制。
-
-![](https://pic3.zhimg.com/v2-4192619644aeece6b32a999ef9d5dade_r.jpg)
 
 ## 效果增强：局部厚度
 
@@ -204,53 +99,6 @@ inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDi
 
 我们现在知道我们需要考虑材质的局部厚度。最简单的方法是提供我们可以采样的纹理贴图。虽然在物理上不准确，但它可以产生可信的结果。此外，局部厚度的编码方式允许艺术家保持对效果的完全控制。
 
-在此实现中，在 **surf** 函数中采样的附加纹理的红色通道中提供局部厚度：
-
-```c
-float thickness;
-
-void surf (Input IN, inout SurfaceOutputStandard o) {
-	// Albedo comes from a texture tinted by color
-	fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-	o.Albedo = c.rgb;
-	// Metallic and smoothness come from slider variables
-	o.Metallic = _Metallic;
-	o.Smoothness = _Glossiness;
-	o.Alpha = c.a;
-
-	thickness = tex2D (_LocalThickness, IN.uv_MainTex).r;
-}
-```
-
-为什么不在 lightning function 中采样纹理？  
-我已选择将此值存储在名为 thickness 的变量中，稍后将由 lighting function 访问该变量。作为个人喜好，每次我必须对照明功能稍后需要的纹理进行采样时，我倾向于这样做。  
-如果您愿意，可以直接在 lighting function 中对纹理进行采样。在这种情况下，您需要传递 UV 坐标（可能扩展 SurfaceOutputStandard）并使用 tex2Dlod 而不是 tex2D。该函数需要两个额外的坐标; 对于此特定应用程序，您可以将它们都设置为零：thickness = tex2Dlod (_LocalThickness, fixed4(uv, 0, 0)).r;
-
-Colin and Mark 提出了一个稍微不同的方程来计算背光的最终强度。这考虑了厚度（thickness）和附加衰减参数（attenuation）。此外，它们还允许始终存在的其他环境组件：
-
-```c
-inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
-{
-	// Original colour
-	fixed4 pbr = LightingStandard(s, viewDir, gi);
-	
-	// --- Translucency ---
-	float3 L = gi.light.dir;
-	float3 V = viewDir;
-	float3 N = s.Normal;
-
-	float3 H = normalize(L + N * _Distortion);
-	float VdotH = pow(saturate(dot(V, -H)), _Power) * _Scale;
-	float3 I = _Attenuation * (VdotH + _Ambient) * thickness;
-
-	// Final add
-	pbr.rgb = pbr.rgb + gi.light.color * I;
-	return pbr;
-}
-```
-
-最终结果：
-![[Pasted image 20230723153215.png]]
 
 # 思考
 ![[Pasted image 20230723153544.png]]
