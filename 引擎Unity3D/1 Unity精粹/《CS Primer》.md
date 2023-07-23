@@ -3094,6 +3094,7 @@ class Program
 }
 ```
 ## 3 泛型约束
+#where
 **让泛型的类型有一定的限制**
 关键字:`where`
 
@@ -3601,10 +3602,7 @@ using UnityEngine;
 public class TestingEvents : MonoBehaviour
 {
     public event EventHandler OnSpacePressed;
-    private void Start()
-    {
-
-    }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -3618,7 +3616,7 @@ public class TestingEvents : MonoBehaviour
 ###  参数 `EventArgs e`
 EventHandler 的另一个参数 EventArgs e 可以通过事件传递更多信息，**要使用 EventArgs，我们首先需要使用泛型，然后定义一个派生自 EventArgs 的类**，比如这里我们想要传递一个 int 类型的 spaceCount 记录按下空格的次数，在调整了 EventArgs 之后两个脚本如下
 
-```cs h:26,41
+```cs h:25-30,41
 // TestingEventSubscriber.cs中
 using System;
 using UnityEngine;
@@ -3649,11 +3647,7 @@ public class TestingEvents : MonoBehaviour
         public int spaceCount;
     }
     private int _spaceCount;
-
-    private void Start()
-    {
-
-    }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

@@ -787,7 +787,7 @@ public class Player : MonoBehaviour
   
 **接下来我们处理选中的视觉效果，这里我们有两种思路可以选择。**
 - 一种是让当前 selectedCounter 发送选中的事件，在处理视觉表现的脚本中订阅该事件写选中时视觉效果的变化，也就是在 ClearCounter.cs 中发送事件，在 SeletedCounterVisual.cs 中订阅该事件；
-- 另一种思路是让当前操作的角色发送事件，在处理视觉表现的脚本中订阅该事件写选中时视觉效果的变化。  
+- **另一种思路是让当前操作的角色发送事件，在处理视觉表现的脚本中订阅该事件写选中时视觉效果的变化。**  
 第一种方式的好处是 SeletedCounterVisual.cs 只会订阅当前选中柜台的事件，并且如果我们需要选中时添加其他效果也可以很方便地添加，坏处是控制视觉效果的代码又经过了专门处理逻辑的 ClearCounter.cs 的脚本中，会造成代码的耦合。
 第二种方式的好处是它更加方便，控制视觉效果的代码不会经过处理逻辑的脚本，坏处是可能会存在性能问题，因为所有的柜台都在订阅由角色发送的事件，但是我们的项目体量比较小，这样的方法并不会带来性能瓶颈，所以我们选择使用这一种方法。并且由于我们要完成的游戏只有一个角色，使用这一种方法还可以使用单例模式  
 在 Player.cs 中，添加一个 [EventHandler](https://learn.microsoft.com/en-us/dotnet/api/system.eventargs?view=net-7.0) 委托，并使用 EventArgs 传递选中的柜台信息，在 Update() 中触发事件，这里由于要使用到多次 OnSelectedCounterChanged，所以这里把它单独放在了一个函数中

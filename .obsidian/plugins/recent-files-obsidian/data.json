@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
     {
       "basename": "Fast Subsurface Scattering in Unity",
@@ -97,10 +105,6 @@
       "path": "DCC/01 百人计划美术向/场景设计精要.md"
     },
     {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -115,10 +119,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
-      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     },
     {
       "basename": "1 ShaderLab",

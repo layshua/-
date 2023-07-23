@@ -27,7 +27,7 @@ banner: "![[]]"
 **单例模式的实现分为饿汉模式与懒汉模式。**  
 根据刚刚介绍的思路，我们用代码来分别实现。
 
-## 🔍饿汉模式
+## 饿汉模式
 
 ```cs
 public class Singleton
@@ -46,15 +46,15 @@ public class Singleton
 }
 ```
 
-饿汉模式就有种 “这个类饥渴难耐地想要被实例化” 的意思。这个类被加载时，就会自动实例化这个类。
+<mark style="background: #FF5582A6;">饿汉模式</mark>：**这个类饥渴难耐地想要被实例化**。这个类被加载时，就会自动实例化这个类。
 1. 它是线程安全的。
 2. 不过这个可能会导致该类的实例过早地被加载出来，从而占据内存空间。
 
-## 🔍懒汉模式
+## 懒汉模式
 
-### ⭐经典版
+### 经典版
 
-```
+```cs
 public class Singleton
 {
     private static Singleton instance;
@@ -73,12 +73,12 @@ public class Singleton
 }
 ```
 
-懒汉模式就有种 “该类的实例懒得一开始就被加载” 的意思，只有别人伸手要了，它才会出动。这个时候，只有我们第一次调用 Singleton.Instance 去获取该类的实例时才会被实例化。也就是**需要使用时才会创建实例**。  
-不过这种写法并不是线程安全的。可能出现两个线程同时去获取 instance 实例，且此时 instance 仍为 null，那么就会出现两个线程分别创建了 instance，违反了单例规则。
+<mark style="background: #FF5582A6;">懒汉模式</mark>：**该类的实例懒得一开始就被加载，只有别人伸手要了，它才会出动。** 这个时候，只有我们第一次调用 Singleton.Instance 去获取该类的实例时才会被实例化。也就是**需要使用时才会创建实例**。  
+不是线程安全的。可能出现两个线程同时去获取 instance 实例，且此时 instance 仍为 null，那么就会出现两个线程分别创建了 instance，违反了单例规则。
 
-### ⭐多线程加锁版
+### 多线程加锁版
 
-```
+```cs
 public class Singleton
 {
     private static Singleton instance;
@@ -99,12 +99,12 @@ public class Singleton
 }
 ```
 
-通过把 locker 锁住可以挂起其他线程，保证只有当前一个线程能够执行 lock 包裹的代码块。执行完毕后，之前挂起的其他线程中又会有一个线程被唤醒，执行 lock 内的代码，但是这个时候 instance 变量已经在第一次就被实例化了，所以它会直接返回之前创建好的那个实例，这就解决了懒汉模式线程不安全的问题。  
-不过这么写仍有一个弊端：我只需要在第一次创建实例时才用加锁，因为之后想获取该类的实例就直接返回创建好的那个实例了，无需再次 lock，造成性能消耗。
+**通过把 locker 锁住可以挂起其他线程，保证只有当前一个线程能够执行 lock 包裹的代码块**。执行完毕后，之前挂起的其他线程中又会有一个线程被唤醒，执行 lock 内的代码，但是这个时候 instance 变量已经在第一次就被实例化了，所以它会直接返回之前创建好的那个实例，这就**解决了懒汉模式线程不安全的问题。**  
+不过这么写仍有一个**弊端**：我只需要在第一次创建实例时才用加锁，因为之后想获取该类的实例就直接返回创建好的那个实例了，无需再次 lock，造成性能消耗。
 
-### ⭐加锁改进版
+### 加锁改进版
 
-```
+```cs
 public class Singleton
 {
     private static Singleton instance;
@@ -133,16 +133,15 @@ public class Singleton
 内层的 if 保证了第一次获取 instance 只能有一个线程进入[实例化对象](https://so.csdn.net/so/search?q=%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1&spm=1001.2101.3001.7020)的语句块，其他同时进入的线程要先被锁住，等到对象实例化完毕后再释放，但这时 instance 已经被创建好了，因此不会重复创建实例，而是直接执行 return instance。  
 外层的 if 保证只有第一次获取 instance 才需要加锁，因为此时还未创建实例，要避免线程安全问题。之后再次获取就直接执行 return instance，节省了加锁的性能开销。
 
-# 📕单例基类
+## 单例基类
 
 一个项目中可能会有多个类需要应用到单例模式，如果每个类都重复写一遍单例的思路，会显得很繁琐。**为了提高代码的复用性，我们可以把单例的思路封装成一个基类，然后让需要实现单例模式的类继承这个单例基类**。  
 那基类的 instance 类型要设成什么呢？我们要保证这个类型能够适配任何类型，因此需要用上泛型来实现。
 
-## 🔍普通单例基类
+### 普通单例基类
 
-基于懒汉模式：
-
-```
+**基于懒汉模式：**
+```cs
 public class SingletonBase<T> where T : new()
 {
     private static T instance;
@@ -168,15 +167,15 @@ public class SingletonBase<T> where T : new()
 几个注意点：
 
 1.  我们要用 where T:new() 对泛型做个约束，保证是能够被实例化的类型。
-2.  这里没有设置私有构造器是因为这个基类要用于继承，那么设置私有构造器就没有意义了。虽然这种单例类仍然可以通过 new 的方式不停地创建实例。但实际上我们看到一个类是单例模块时也不会闲着没事干去随便实例化。😂
+2.  这里没有设置私有构造器是因为这个基类要用于继承，那么设置私有构造器就没有意义了。虽然这种单例类仍然可以通过 new 的方式不停地创建实例。但实际上我们看到一个类是单例模块时也不会闲着没事干去随便实例化。
 
-## 🔍继承自 MonoBehaviour 的单例基类（手动添加到游戏对象上）
+### 继承自 MonoBehaviour 的单例基类（手动添加到游戏对象上）
 
 unity 中的游戏脚本要继承自 MonoBehaviour，然后可以去调用如 Start()，Update() 之类的一些生命周期函数和 MonoBehaviour 类提供的一些函数。**继承自 MonoBehaviour 的类不能通过 new 的方式去实例化**。而是**先把脚本手动拖给游戏物体或者调用 AddComponent 方法附加给游戏物体**，之后 unity 会自动帮我们实例化。所以这个时候不能使用刚刚介绍的单例基类。我们要创建一个继承于 MonoBehaviour 的单例基类，那么继承于该基类的类也会继承于 MonoBehaviour 。
 
 类似于饿汉模式：
 
-```
+```cs
 public class SingletonMonoBase<T> : MonoBehaviour where T:MonoBehaviour
 {
     private static T instance;
@@ -210,7 +209,7 @@ public class SingletonMonoBase<T> : MonoBehaviour where T:MonoBehaviour
 
 继承于此单例基类的脚本示例：
 
-```
+```cs
 //虽然这个类没继承 MonoBehaviour ，但是它的父类继承了
 public class SingleTest : SingletonMonoBase<SingleTest> {
 //如果要扩展父类的 Awake 方法要这么写
@@ -273,7 +272,7 @@ public class SingleTest : SingletonMonoBase<SingleTest> {
 1）手动添加可能会因疏忽而出错，比如不小心把单例模块挂到多个物体上。  
 2）可能得考虑脚本执行顺序（Awake 顺序）的问题。
 
-## 🔍继承自 MonoBehaviour 的单例基类（自动添加到游戏对象上）
+### 继承自 MonoBehaviour 的单例基类（自动添加到游戏对象上）
 
 调用此单例基类的子类时会将子类的脚本挂在自动创建的物体上，无需我们手动挂载。  
 基于懒汉模式：
