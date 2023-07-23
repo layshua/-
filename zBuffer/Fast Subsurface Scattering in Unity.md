@@ -251,3 +251,6 @@ inline fixed4 LightingStandardTranslucent(SurfaceOutputStandard s, fixed3 viewDi
 
 最终结果：
 ![[Pasted image 20230723153215.png]]
+
+# 思考
+![[Pasted image 20230723153544.png]]
