@@ -1,6 +1,74 @@
 {
   "recentFiles": [
     {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "ta101后处理",
+      "path": "技术美术/3 后处理/ta101后处理.md"
+    },
+    {
+      "basename": "故障Glitch",
+      "path": "技术美术/3 后处理/故障Glitch.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "08 SSAO",
+      "path": "技术美术/3 后处理/08 SSAO.md"
+    },
+    {
+      "basename": "曲面细分与几何着色器",
+      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
+    },
+    {
+      "basename": "各向异性",
+      "path": "技术美术/2 着色器/各向异性.md"
+    },
+    {
+      "basename": "次表面散射",
+      "path": "技术美术/2 着色器/次表面散射.md"
+    },
+    {
+      "basename": "硬表面基础",
+      "path": "DCC/01 百人计划美术向/硬表面基础.md"
+    },
+    {
+      "basename": "美术理论基础一 & 二",
+      "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
+    },
+    {
+      "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
+      "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
+    },
+    {
+      "basename": "角色设计精要",
+      "path": "DCC/01 百人计划美术向/角色设计精要.md"
+    },
+    {
+      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
+      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "DCC/01 百人计划美术向/场景设计精要.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -25,10 +93,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     },
@@ -41,32 +105,12 @@
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
     },
     {
-      "basename": "故障Glitch",
-      "path": "技术美术/3 后处理/故障Glitch.md"
-    },
-    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "08 SSAO",
-      "path": "技术美术/3 后处理/08 SSAO.md"
-    },
-    {
       "basename": "04 景深",
       "path": "技术美术/3 后处理/04 景深.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "3 Renderer Feature",
@@ -155,50 +199,6 @@
     {
       "basename": "扩展 URP 后处理踩坑记录",
       "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
-    },
-    {
-      "basename": "10 屏幕后处理效果(Bloom)",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/10 屏幕后处理效果(Bloom).md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（下）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（下）.md"
-    },
-    {
-      "basename": "Ray Tracing： The Next Week V3_0 中文翻译（上）",
-      "path": "图形学/3 全局光照GI/光追实战/Ray Tracing in One Weekend/Ray Tracing： The Next Week V3_0 中文翻译（上）.md"
-    },
-    {
-      "basename": "动画",
-      "path": "引擎Unity3D/1 Unity精粹/动画.md"
-    },
-    {
-      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
-      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
     }
   ],
   "omittedPaths": [],

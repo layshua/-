@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "59fcedc38a579d56",
+            "id": "ba682c55256e8284",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "技术美术/3 后处理/ta101后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -34,15 +34,20 @@
             }
           },
           {
-            "id": "fac38730e822f345",
+            "id": "418f4b4f02f4fae2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/10 色彩.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md"
+                "file": "图形学/1 图形系统/10 色彩.md"
               }
             }
           }
@@ -135,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -185,43 +190,44 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false
     }
   },
-  "active": "59fcedc38a579d56",
+  "active": "418f4b4f02f4fae2",
   "lastOpenFiles": [
-    "DCC/02 Blender/辣椒酱.md",
+    "zip/images/Pasted image 20230723133314.png",
+    "技术美术/3 后处理/01 图像模糊.md",
+    "技术美术/3 后处理/ta101后处理.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "技术美术/3 后处理/故障Glitch.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/08 SSAO.md",
+    "技术美术/2 着色器/曲面细分与几何着色器.md",
+    "技术美术/2 着色器/各向异性.md",
+    "技术美术/2 着色器/次表面散射.md",
+    "DCC/01 百人计划美术向/硬表面基础.md",
+    "DCC/01 百人计划美术向/美术理论基础一 & 二.md",
+    "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
+    "DCC/01 百人计划美术向/角色设计精要.md",
+    "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md",
+    "DCC/01 百人计划美术向/场景设计精要.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/辣椒酱.md",
     "zip/images/Pasted image 20230723105754.png",
     "zip/images/Pasted image 20230723102838.png",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "zip/images/Pasted image 20230722233412.png",
     "zip/images/Pasted image 20230722233410.png",
     "zip/images/Pasted image 20230722233401.png",
     "zip/images/Pasted image 20230722233358.png",
-    "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 委托 笔记整理.md",
     "zip/images/Pasted image 20230722195935.png",
     "zip/images/Pasted image 20230722195917.png",
-    "技术美术/3 后处理/故障Glitch.md",
     "zip/images/bb3ae5779a380fe3a0a3637fd1815446_MD5.gif",
     "zip/images/46f551688659a115896e2d2833dbf3a6_MD5.gif",
-    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "zBuffer/liuke101 _ 毛星云 - Gitee_com.md",
-    "技术美术/3 后处理/ta101后处理.md",
-    "技术美术/3 后处理/08 SSAO.md",
-    "技术美术/3 后处理/04 景深.md",
-    "技术美术/3 后处理/02 Bloom.md",
-    "技术美术/3 后处理/01 图像模糊.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/4 后处理.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
-    "DCC/PBR全流程.md",
-    "图形学/3 全局光照GI/光追实战/UnityRayTracing/【译】Unity 中的 GPU 光线追踪 - 第 2 部分.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
