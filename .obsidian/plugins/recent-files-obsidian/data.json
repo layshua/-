@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
@@ -11,10 +23,6 @@
     {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
-    },
-    {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
@@ -43,10 +51,6 @@
     {
       "basename": "故障Glitch",
       "path": "技术美术/3 后处理/故障Glitch.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "02 Bloom",
@@ -131,10 +135,6 @@
     {
       "basename": "辣椒酱",
       "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     },
     {
       "basename": "SS",

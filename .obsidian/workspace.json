@@ -21,32 +21,16 @@
             }
           },
           {
-            "id": "b472d897ad578857",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "aa3cf0b463caf9b6",
+            "id": "0d9900e449f8b146",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "c7f1b9a675ebc570",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ],
@@ -93,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -143,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,12 +178,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "b472d897ad578857",
+  "active": "0d9900e449f8b146",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "zip/images/Pasted image 20230724215213.png",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/CodeMonkey Unity 中的 C 事件 笔记整理.md",
