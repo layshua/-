@@ -1,12 +1,60 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "04 景深",
+      "path": "技术美术/3 后处理/04 景深.md"
+    },
+    {
+      "basename": "故障Glitch",
+      "path": "技术美术/3 后处理/故障Glitch.md"
+    },
+    {
+      "basename": "ta101卡渲",
+      "path": "技术美术/6 NPR/ta101卡渲.md"
+    },
+    {
+      "basename": "NPR渲染管线概述",
+      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
+    },
+    {
+      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
+      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
       "basename": "6 脚本",
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客",
+      "path": "zBuffer/(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客.md"
     },
     {
       "basename": "01 自定义渲染管线",
@@ -31,18 +79,6 @@
     {
       "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
       "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
-    },
-    {
-      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
-    },
-    {
-      "basename": "ta101卡渲",
-      "path": "技术美术/6 NPR/ta101卡渲.md"
-    },
-    {
-      "basename": "NPR渲染管线概述",
-      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -77,10 +113,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -95,10 +127,6 @@
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "TA101",
@@ -117,10 +145,6 @@
       "path": "技术美术/3 后处理/ta101后处理.md"
     },
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
       "basename": "01 光学原理",
       "path": "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md"
     },
@@ -131,14 +155,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "故障Glitch",
-      "path": "技术美术/3 后处理/故障Glitch.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
       "basename": "08 SSAO",
@@ -181,24 +197,8 @@
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     },
     {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
-    },
-    {
-      "basename": "04 景深",
-      "path": "技术美术/3 后处理/04 景深.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "Shader HLSL",
-      "path": "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
     }
   ],
   "omittedPaths": [],

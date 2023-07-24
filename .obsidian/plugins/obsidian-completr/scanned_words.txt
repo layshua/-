@@ -24283,6 +24283,8 @@ mNgN
 mMNj
 metalic
 manifold
+materil
+materaial
 windows
 win
 width
@@ -35595,6 +35597,7 @@ eSZU
 eALFH
 etys
 encrypted
+edtor
 VPN
 Verge
 VS
@@ -123245,6 +123248,8 @@ samplerScale
 samplerOffset
 sided
 surf
+sharemateril
+sharematerial
 local
 list
 left

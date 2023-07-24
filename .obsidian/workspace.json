@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md"
+                "file": "技术美术/3 后处理/01 图像模糊.md"
               }
             }
           }
@@ -149,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
+                "file": "技术美术/3 后处理/01 图像模糊.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,8 +202,19 @@
   },
   "active": "e96c3ea3c026a2bf",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "技术美术/3 后处理/02 Bloom.md",
+    "技术美术/3 后处理/04 景深.md",
+    "技术美术/3 后处理/故障Glitch.md",
+    "技术美术/6 NPR/ta101卡渲.md",
+    "技术美术/6 NPR/NPR渲染管线概述.md",
+    "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zBuffer/(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客.md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
@@ -216,9 +227,6 @@
     "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
     "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
     "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
-    "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
-    "技术美术/6 NPR/ta101卡渲.md",
-    "技术美术/6 NPR/NPR渲染管线概述.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
@@ -226,18 +234,10 @@
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "DCC/02 Blender/建模原理.md",
-    "DCC/02 Blender/辣椒酱.md",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
     "zip/images/Pasted image 20230723234312.png",
     "zip/images/Pasted image 20230723234310.png",
-    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
