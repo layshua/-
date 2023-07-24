@@ -1191,10 +1191,10 @@ public class KitchenObject : MonoBehaviour
 ![](<images/1689211712203.png>)
 
   
-我们有两个途径可以解决这个问题，第一种是在 ClearCounter.cs 中设置 kitchenObject 的父级后让新的父级去更新一下对应变量，第二种是在 KitchenObject.cs 中当该物体被设置到新的父级上时自己去更新父级，这里教程中用了第二种，作者认为让物体去更新父级的代码写在物体对应的脚本中更合理一些  
+我们有两个途径可以解决这个问题，第一种是在 ClearCounter.cs 中设置 kitchenObject 的父级后让新的父级去更新一下对应变量，第二种是在 KitchenObject.cs 中当该物体被设置到新的父级上时自己去更新父级，这里教程中用了第二种，作者认为让物体去更新父级的代码写在物体对应的脚本中更合理一些。
 为了在 KitchenObject.cs 中更新父级，还需要在 ClearCounter.cs 中增加获取、设置、清空当前柜子下物体和判断当前柜子上是否有物体的方法，然后在 KitchenObject.cs 的 SetClearCounter() 中更新父级，当我们把更新父级的逻辑写在 KitchenObject.cs 的 SetClearCounter() 后，原来 KitchenObject.cs 的 Interact() 中的逻辑就可以不用了，直接 SetKitchenObjectParent() 即可
 
-```
+```cs
 // ClearCounter.cs中
 public class ClearCounter : MonoBehaviour
 {
@@ -1236,7 +1236,7 @@ public class ClearCounter : MonoBehaviour
 }
 ```
 
-```
+```cs
 // KitchenObject.cs中
 ...
 public class KitchenObject : MonoBehaviour
