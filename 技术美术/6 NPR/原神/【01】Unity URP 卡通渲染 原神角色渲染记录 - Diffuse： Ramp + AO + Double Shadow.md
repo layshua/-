@@ -1,28 +1,4 @@
-点击下面链接，B 站上传了实际 Game 窗口效果，视频有压缩，实际运行效果更好些~
 
-[【1080P 高码率】Unity URP 管线，仿原神渲染，第 6 弹，人物展示场景更新_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV15T411w7zG)
-
-系列一共 5 篇：
-
-【01 | 当前浏览】Unity URP 卡通渲染 原神角色记录 - Diffuse: Ramp + AO + Double Shadow
-
-[张洋铭 Ocean：【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse: Ramp + AO + Double Shadow](https://zhuanlan.zhihu.com/p/551104542)
-
-【02】Unity URP 卡通渲染 原神角色记录 - Specular: Metal + Non-Metal
-
-[张洋铭 Ocean：【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular: Metal + Non-Metal](https://zhuanlan.zhihu.com/p/552097073)
-
-【03】Unity URP 卡通渲染 原神角色记录 - Function-Based Light and Shadow: Emission + SDF 脸部阴影
-
-[张洋铭 Ocean：【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow: Emission + SDF 脸部阴影](https://zhuanlan.zhihu.com/p/552097741)
-
-【04】Unity URP 卡通渲染 原神角色记录 - Depth-Based Effect: 7Spaces + 屏幕空间等距深度边缘光 Rim Light
-
-[张洋铭 Ocean：【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect: 7Spaces + 屏幕空间等距深度边缘光 Rim Light](https://zhuanlan.zhihu.com/p/552098339)
-
-【05】Unity URP 卡通渲染 原神角色记录 - Double Pass Effect: Render Feature + 平滑法线 Outline
-
-[张洋铭 Ocean：【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect: Render Feature + 平滑法线 Outline](https://zhuanlan.zhihu.com/p/552098653)
 
 ## 1. 贴图种类
 
