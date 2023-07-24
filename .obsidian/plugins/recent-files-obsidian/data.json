@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "01 自定义渲染管线",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
+    },
+    {
       "basename": "猫都能看懂的 URP RenderFeature 使用及自定义方法",
       "path": "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md"
     },
@@ -179,10 +183,6 @@
     {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
       "path": "引擎Unity3D/4 GamePlay/CodeMonkey Unity 中的 C 事件 笔记整理.md"
-    },
-    {
-      "basename": "01 自定义渲染管线",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
       "basename": "04 景深",
