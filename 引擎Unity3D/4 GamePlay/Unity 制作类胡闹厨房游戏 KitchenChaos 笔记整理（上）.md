@@ -1086,7 +1086,7 @@ public class KitchenObject : MonoBehaviour
 
 在 ClearCounter.cs 中，用变量 kitchenObject 来保存当前柜子上放置的物品，并用 if else 避免柜子上放置多个物体
 
-```
+```cs
 // ClearCounter.cs中
 using UnityEngine;
 
@@ -1115,9 +1115,9 @@ public class ClearCounter : MonoBehaviour
 ```
 
 接下来我们先来测试一下如何改变物体的父级，最终我们要让物品可以成为成为任意柜子的子级，也可以成为角色的子级，我们先来实现按 T 键物品就可以从一个柜子的子级变为另一个柜子的子级，并且位置从一个柜子移动到另一个柜子上的逻辑  
-在 ClearCounter.cs 中，增加 secondClearCounter 参数获取另一个柜子，增加叫 testing 的布尔值方便测试，在 Update() 中检测如果按下了 T 键则将当前柜子上的物品的父级设为另一个柜子，为了将位置也移动过去，我们新增了一个 GetKitchenObjectFollowTransform() 方法用来获取柜子上放置物品的位置，并在 KitchenObject.cs 中的 SetClearCounter() 中加上设置位置的代码
+在 ClearCounter.cs 中，增加 secondClearCounter 参数获取另一个柜子，增加叫 testing 的布尔值方便测试，在 Update() 中检测如果按下了 T 键则将当前柜子上的物品的父级设为另一个柜子，为了将位置也移动过去，我们新增了一个 `GetKitchenObjectFollowTransform()` 方法用来获取柜子上放置物品的位置，并在 KitchenObject.cs 中的 SetClearCounter() 中加上设置位置的代码
 
-```
+```cs
 // ClearCounter.cs中
 using UnityEngine;
 
@@ -1163,7 +1163,7 @@ public class ClearCounter : MonoBehaviour
 }
 ```
 
-```
+```cs
 // KitchenObject.cs中
 ...
 public class KitchenObject : MonoBehaviour
@@ -1191,7 +1191,7 @@ public class KitchenObject : MonoBehaviour
 ![](<images/1689211712203.png>)
 
   
-我们有两个途径可以解决这个问题，第一种是在 ClearCounter.cs 中设置 kitchenObject 的父级后让新的父级去更新一下对应变量，第二种是在 KitchenObject.cs 中当该物体被设置到新的父级上时自己去更新父级，这里教程中用了第二种，作者认为让物体去更新父级的代码写在物体对应的脚本中更合理一些。
+我们有两个途径可以解决这个问题，第一种是在 ClearCounter.cs 中设置 kitchenObject 的父级后让新的父级去更新一下对应变量，**第二种是在 KitchenObject.cs 中当该物体被设置到新的父级上时自己去更新父级，这里教程中用了第二种，作者认为让物体去更新父级的代码写在物体对应的脚本中更合理一些。**
 为了在 KitchenObject.cs 中更新父级，还需要在 ClearCounter.cs 中增加获取、设置、清空当前柜子下物体和判断当前柜子上是否有物体的方法，然后在 KitchenObject.cs 的 SetClearCounter() 中更新父级，当我们把更新父级的逻辑写在 KitchenObject.cs 的 SetClearCounter() 后，原来 KitchenObject.cs 的 Interact() 中的逻辑就可以不用了，直接 SetKitchenObjectParent() 即可
 
 ```cs
@@ -1272,11 +1272,11 @@ public class KitchenObject : MonoBehaviour
 
 ## 8 角色拿取物品与 C# 接口 Player Pick Up & C# Interfaces
 
-我们已经实现了物品从一个柜子上转移到另一个柜子上，同时切换了物品的父级，我们同样也可以将物品从一个柜子上转移到角色身上，同时切换物品的父级为角色，然而，我们现有的逻辑都是针对 ClearCounter 类写的，因此我们可以把这部分逻辑抽象成一个接口，让 Player 类与 ClearCounter 都继承自这个接口，这部分基本上是提取接口、修改变量名的过程，所以笔记就简单写了
+我们已经实现了物品从一个柜子上转移到另一个柜子上，同时切换了物品的父级，我们同样也可以将物品从一个柜子上转移到角色身上，同时切换物品的父级为角色，然而，我们现有的逻辑都是针对 ClearCounter 类写的，因此我们可以把这部分逻辑抽象成一个接口，**让 Player 类与 ClearCounter 都继承自这个接口**，这部分基本上是提取接口、修改变量名的过程，所以笔记就简单写了
 
 我们可以抽象出来接口 IkitchenObjectParent，让所有可以成为物品父级的对象都继承自这个接口，这个接口中要实现的方法就和之前 ClearCounter.cs 中的获取、设置、删除物品等方法相同，在 Scripts 文件夹新建 c# 脚本，重命名为 IkitchenObjectParent.cs
 
-```
+```cs
 // IkitchenObjectParent.cs中
 using UnityEngine;
 
