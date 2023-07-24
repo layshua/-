@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "git入门",
       "path": "Tools/Git/git入门.md"
     },
@@ -35,10 +47,6 @@
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -191,10 +199,6 @@
     {
       "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
       "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
-    },
-    {
-      "basename": "场景设计精要",
-      "path": "DCC/01 百人计划美术向/场景设计精要.md"
     }
   ],
   "omittedPaths": [],

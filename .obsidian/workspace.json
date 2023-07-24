@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -77,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Git/git入门.md"
+                "file": "编程/C++/《C++ Primer》.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,6 +180,10 @@
   },
   "active": "0d9900e449f8b146",
   "lastOpenFiles": [
+    "编程/C++/C++原理.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "编程/C++/《C++ Primer》.md",
+    "Tools/Git/git入门.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
@@ -190,7 +194,6 @@
     "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客.md",
@@ -205,9 +208,6 @@
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "zip/images/445aa015c0d135f15add7cad058c34f3_MD5.jpg",
     "zip/images/36eff526d3b6a4707bf547f33130d39c_MD5.gif",
     "zip/images/4e95ba6a64aeb79a7d500292aead1001_MD5.png",
