@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "技术美术/3 后处理/故障Glitch.md"
               }
             }
           }
@@ -149,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/故障Glitch.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,6 +202,7 @@
   },
   "active": "e96c3ea3c026a2bf",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/3 后处理/故障Glitch.md",
@@ -233,7 +234,6 @@
     "技术美术/2 着色器/次表面散射SSS.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
     "zip/images/Pasted image 20230723234312.png",
