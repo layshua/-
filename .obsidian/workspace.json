@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md"
+                "file": "DCC/02 Blender/辣椒酱.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,6 +215,7 @@
   },
   "active": "b8f5740bded75792",
   "lastOpenFiles": [
+    "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
     "zip/images/Pasted image 20230723234312.png",
@@ -223,7 +224,6 @@
     "zip/images/Pasted image 20230723234229.png",
     "zip/images/Pasted image 20230723234213.png",
     "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/建模原理.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -231,7 +231,6 @@
     "zip/images/Pasted image 20230723222217.png",
     "zip/images/Pasted image 20230723222136.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "zip/images/Pasted image 20230723213340.png",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "zBuffer/Fast Subsurface Scattering in Unity.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
