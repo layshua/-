@@ -312,3 +312,13 @@ git branch -D master
 
 注意这里强推报错： Failed to connect to github. com port 443: Timed out  
 使用 git bash 窗口试试，亲测可以！
+
+
+# 开发期间添加 gitignore
+有时候在项目开发过程中，突然心血来潮想把某些目录或文件加入忽略规则，按照上述方法定义后发现并未生效，原因是. gitignore 只能忽略那些原来没有被 track 的文件，如果某些文件已经被纳入了版本管理中，则修改. gitignore 是无效的。那么解决方法就是先把本地缓存删除（改变成未 track 状态），然后再提交：
+
+```c
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```

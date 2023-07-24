@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -77,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,6 +180,7 @@
   },
   "active": "0d9900e449f8b146",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
@@ -196,7 +197,6 @@
     "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md",
     "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
     "技术美术/3 后处理/故障Glitch.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/6 NPR/ta101卡渲.md",
