@@ -1241,6 +1241,11 @@ Ignore Parent Groups: 是否忽略父级 CanvasGroup 的作用
 DoTween—缓动插件，可以制作一些缓动效果
 
 TextMeshPro: 一文本网格插件，可以制作更多的特效文字
+## 13 实战
+
+![[Pasted image 20230724215213.png]]
+
+
 
 # ShaderGUI
 **ShaderGUI 分为两种，一种是 Drawer 一种是 GUI，当然可以把 GUI 集成后用 Drawer 的形式写。**
