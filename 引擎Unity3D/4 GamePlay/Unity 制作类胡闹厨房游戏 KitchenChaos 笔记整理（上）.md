@@ -1274,7 +1274,7 @@ public class KitchenObject : MonoBehaviour
 
 我们已经实现了物品从一个柜子上转移到另一个柜子上，同时切换了物品的父级，我们同样也可以将物品从一个柜子上转移到角色身上，同时切换物品的父级为角色，然而，我们现有的逻辑都是针对 ClearCounter 类写的，因此我们可以把这部分逻辑抽象成一个接口，**让 Player 类与 ClearCounter 都继承自这个接口**，这部分基本上是提取接口、修改变量名的过程，所以笔记就简单写了
 
-我们可以抽象出来接口 IkitchenObjectParent，让所有可以成为物品父级的对象都继承自这个接口，这个接口中要实现的方法就和之前 ClearCounter.cs 中的获取、设置、删除物品等方法相同，在 Scripts 文件夹新建 c# 脚本，重命名为 IkitchenObjectParent.cs
+**我们可以抽象出来接口 `IkitchenObjectParent`，让所有可以成为物品父级的对象都继承自这个接口**，这个接口中要实现的方法就和之前 ClearCounter.cs 中的获取、设置、删除物品等方法相同，在 Scripts 文件夹新建 c# 脚本，重命名为 IkitchenObjectParent.cs
 
 ```cs
 // IkitchenObjectParent.cs中
@@ -1294,9 +1294,9 @@ public interface IKitchenObjectParent
 }
 ```
 
-在 ClearCounter.cs 中，我们要继承接口实现方法，并且要实现让 Inertct()方法实现 “当按下交互键时，如果柜子上有物品，就将物品转移到角色上” 的逻辑，所以需要传入 Player 类的实例作为参数，在 else 部分调用 SetKitchenObjectParent(player)实现转移的逻辑，以下是实现了对应逻辑并且根据接口进行改名的脚本
+在 ClearCounter.cs 中，我们要继承接口实现方法，并且要实现让 `Inertct()`方法实现 “当按下交互键时，如果柜子上有物品，就将物品转移到角色上” 的逻辑，所以需要传入 Player 类的实例作为参数，在 else 部分调用 SetKitchenObjectParent(player)实现转移的逻辑，以下是实现了对应逻辑并且根据接口进行改名的脚本
 
-```
+```cs
 // ClearCounter.cs中
 using UnityEngine;
 
@@ -1351,7 +1351,7 @@ public class ClearCounter : MonoBehaviour, IKitchenObjectParent
 
 在 Player.cs 中，同样需要继承接口实现方法，并且由于调用了 Interact()，经过上面的修改之后 Interact() 需要传入参数，所以调用的时候要传入 this
 
-```
+```cs
 // Player.cs
 ...
 public class Player : MonoBehaviour, IKitchenObjectParent

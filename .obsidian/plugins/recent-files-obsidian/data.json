@@ -5,6 +5,18 @@
       "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
     },
     {
+      "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）",
+      "path": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
@@ -61,10 +73,6 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "01 自定义渲染管线",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
@@ -107,10 +115,6 @@
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "《GUI》",

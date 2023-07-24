@@ -34,12 +34,25 @@
             }
           },
           {
-            "id": "7c40828e8ca2c689",
+            "id": "aa3cf0b463caf9b6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c7f1b9a675ebc570",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -194,8 +207,11 @@
   },
   "active": "b472d897ad578857",
   "lastOpenFiles": [
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
     "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客.md",
     "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md",
@@ -211,7 +227,6 @@
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "zip/images/445aa015c0d135f15add7cad058c34f3_MD5.jpg",
@@ -224,8 +239,6 @@
     "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
     "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "zBuffer/Fast Subsurface Scattering in Unity.md",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
     "zip/images/Pasted image 20230723234312.png",
