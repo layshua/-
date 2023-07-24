@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
+                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -207,8 +207,10 @@
   },
   "active": "b472d897ad578857",
   "lastOpenFiles": [
-    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
-    "引擎Unity3D/4 GamePlay/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
+    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/胡闹厨房/CodeMonkey Unity 中的 C 事件 笔记整理.md",
+    "引擎Unity3D/4 GamePlay/胡闹厨房",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
@@ -238,7 +240,6 @@
     "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
     "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
     "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
     "zip/images/Pasted image 20230723234312.png",
@@ -252,7 +253,6 @@
     "blog/2019",
     "blog",
     "引擎Unity3D/4 GamePlay",
-    "zip/images/Diagram 2.svg.xml",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
