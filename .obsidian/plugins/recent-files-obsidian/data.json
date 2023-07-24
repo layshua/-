@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/Catlike Coding/《SRP》/01 自定义渲染管线.md"
     },
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
       "basename": "猫都能看懂的 URP RenderFeature 使用及自定义方法",
       "path": "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md"
     },
@@ -175,10 +179,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "CodeMonkey Unity 中的 C 事件 笔记整理",
