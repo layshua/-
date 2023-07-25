@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
+      "basename": "Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客",
+      "path": "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
@@ -11,14 +27,6 @@
     {
       "basename": "git入门",
       "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "10 色彩",
@@ -177,10 +185,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
       "basename": "《编辑器扩展》",
       "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "ta101卡渲",
-      "path": "技术美术/6 NPR/ta101卡渲.md"
     }
   ],
   "omittedPaths": [],

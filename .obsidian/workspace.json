@@ -21,6 +21,32 @@
             }
           },
           {
+            "id": "9c96f540425d510a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/05 模板测试.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bc07322f53b569d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2ff9f715295b0354",
             "type": "leaf",
             "state": {
@@ -72,7 +98,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -115,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md"
+                "file": "图形学/1 图形系统/05 模板测试.md"
               }
             }
           }
@@ -165,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/1 图形系统/05 模板测试.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/1 图形系统/05 模板测试.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -216,29 +243,30 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "dc593592b4dfabdf",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
+    "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
+    "zip/images/3f106474b6e69426ec99d0e8d45a5c6f_MD5.png",
+    "zip/images/259dc239aafdb72d497bf1c408867f1c_MD5.png",
+    "zip/images/c3933ee315a5aa323bf1e6aabd3e3363_MD5.png",
+    "zip/images/a5ed32890776026ea1cc8b80094929fd_MD5.png",
+    "zip/images/9f9de8465e47213581a87a5e2abe562a_MD5.png",
+    "zip/images/a9e3cbfba8e201e05ed5bfe77526cace_MD5.png",
+    "zip/images/b9fbca675fa607c43ccc4ed9c2ee2a9f_MD5.png",
+    "zip/images/60e95f131768e67ac4e3fc979a01a586_MD5.png",
+    "图形学/1 图形系统/05 模板测试.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "技术美术/常用HLSL函数.md",
+    "技术美术/1 渲染雅集/05 描边.md",
     "zip/images/Pasted image 20230725171335.png",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "Tools/Git/git入门.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "技术美术/1 渲染雅集/05 描边.md",
-    "技术美术/常用HLSL函数.md",
     "zip/images/Pasted image 20230725161022.png",
     "图形学/1 图形系统/10 色彩.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "zip/images/Pasted image 20230725155830.png",
-    "zip/images/Pasted image 20230725153729.png",
-    "zip/images/Pasted image 20230725153711.png",
-    "zip/images/Pasted image 20230725153708.png",
-    "zip/images/Pasted image 20230725153611.png",
-    "zip/images/Pasted image 20230725153404.png",
-    "zip/images/Pasted image 20230725153338.png",
     "zip/images/Diagram 3.svg.xml",
-    "zip/images/Diagram 3.svg",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "zip/images/Pasted image 20230725150628.jpg",
     "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
     "zBuffer/常用 Shader 内置函数及使用总结 (持续更新).md",
     "图形学/2 图形API/DX12/HLSL语法.md",
@@ -253,8 +281,6 @@
     "引擎Unity3D/收藏夹/TA 之路.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
-    "技术美术/3 后处理/08 SSAO.md",
-    "技术美术/3 后处理/04 景深.md",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
