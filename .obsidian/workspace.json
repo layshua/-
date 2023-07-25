@@ -98,8 +98,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md"
+                "file": "技术美术/1 渲染雅集/05 描边.md"
               }
             }
           }
@@ -192,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -209,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -243,11 +242,11 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "9c96f540425d510a",
+  "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/05 描边.md",
     "图形学/1 图形系统/05 模板测试.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
+    "技术美术/1 渲染雅集/05 描边.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
     "zip/images/3f106474b6e69426ec99d0e8d45a5c6f_MD5.png",
