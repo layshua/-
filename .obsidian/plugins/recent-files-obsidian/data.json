@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "笔记",
+      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
       "basename": "C++补充",
       "path": "编程/C++/C++补充.md"
     },
@@ -141,10 +149,6 @@
       "path": "技术美术/2 着色器/次表面散射SSS.md"
     },
     {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
-    },
-    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "美术理论基础一 & 二",
       "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
-    },
-    {
-      "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
-      "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
     }
   ],
   "omittedPaths": [],

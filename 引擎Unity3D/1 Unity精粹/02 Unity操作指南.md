@@ -9,7 +9,7 @@
 
 Move to view：ctrl+alt+F   ，让物体移动到 Scene 视角中心
 Align with View：ctrl+shift+F，选中摄像机后使用，可以让摄像机视角变为 Scene 中的视角
-
+V: 顶点吸附
 
 # 资源类型
 ![[Pasted image 20230602232944.png|450]]
