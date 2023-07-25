@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
+    },
+    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "NPR渲染管线概述",
       "path": "技术美术/6 NPR/NPR渲染管线概述.md"
-    },
-    {
-      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
     }
   ],
   "omittedPaths": [],
