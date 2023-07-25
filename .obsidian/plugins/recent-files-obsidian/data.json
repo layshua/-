@@ -1,8 +1,80 @@
 {
   "recentFiles": [
     {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "死亡搁浅扫描特效",
+      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
+    },
+    {
+      "basename": "Unity3D Shader： 科幻风线框渲染",
+      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
+    },
+    {
+      "basename": "Unity 几何着色器详解",
+      "path": "技术美术/2 着色器/Unity 几何着色器详解.md"
+    },
+    {
+      "basename": "Unity 曲面细分着色器详解",
+      "path": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "实时渲染高级特性开发",
+      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
+    },
+    {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "08 SSAO",
+      "path": "技术美术/3 后处理/08 SSAO.md"
+    },
+    {
+      "basename": "04 景深",
+      "path": "技术美术/3 后处理/04 景深.md"
+    },
+    {
+      "basename": "故障Glitch",
+      "path": "技术美术/3 后处理/故障Glitch.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "11 HDR",
+      "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
       "basename": "M_Studio 教程",
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
@@ -61,14 +133,6 @@
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
-    },
-    {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
@@ -89,16 +153,8 @@
       "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
     },
     {
-      "basename": "故障Glitch",
-      "path": "技术美术/3 后处理/故障Glitch.md"
-    },
-    {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "04 景深",
-      "path": "技术美术/3 后处理/04 景深.md"
     },
     {
       "basename": "ta101卡渲",
@@ -143,62 +199,6 @@
     {
       "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
       "path": "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
-    },
-    {
-      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
-      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "次表面散射SSS",
-      "path": "技术美术/2 着色器/次表面散射SSS.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "SS",
-      "path": "技术美术/2 着色器/SS.md"
-    },
-    {
-      "basename": "ta101后处理",
-      "path": "技术美术/3 后处理/ta101后处理.md"
-    },
-    {
-      "basename": "01 光学原理",
-      "path": "图形学/3 全局光照GI/PBR实战/PBR相关/01 光学原理.md"
-    },
-    {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "08 SSAO",
-      "path": "技术美术/3 后处理/08 SSAO.md"
-    },
-    {
-      "basename": "曲面细分与几何着色器",
-      "path": "技术美术/2 着色器/曲面细分与几何着色器.md"
-    },
-    {
-      "basename": "各向异性",
-      "path": "技术美术/2 着色器/各向异性.md"
     }
   ],
   "omittedPaths": [],
