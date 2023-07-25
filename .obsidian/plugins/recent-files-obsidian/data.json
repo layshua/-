@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "C++补充",
+      "path": "编程/C++/C++补充.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "美术工作者如何点亮 TA 的技术（Technical ）技能树？",
       "path": "DCC/01 百人计划美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md"
-    },
-    {
-      "basename": "角色设计精要",
-      "path": "DCC/01 百人计划美术向/角色设计精要.md"
-    },
-    {
-      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
-      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
     }
   ],
   "omittedPaths": [],
