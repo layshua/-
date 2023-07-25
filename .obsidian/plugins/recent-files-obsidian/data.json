@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "笔记",
       "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     },
@@ -63,10 +67,6 @@
     {
       "basename": "Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）",
       "path": "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "3_72 command buffer 及 urp 概述",
