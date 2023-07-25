@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/常用HLSL函数.md"
+                "file": "技术美术/1 渲染雅集/05 描边.md"
               }
             }
           }
@@ -166,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/常用HLSL函数.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/常用HLSL函数.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,8 +216,15 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "2ff9f715295b0354",
+  "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230725161022.png",
+    "技术美术/常用HLSL函数.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "zip/images/Pasted image 20230725155830.png",
     "zip/images/Pasted image 20230725153729.png",
     "zip/images/Pasted image 20230725153711.png",
     "zip/images/Pasted image 20230725153708.png",
@@ -228,19 +234,14 @@
     "zip/images/Diagram 3.svg.xml",
     "zip/images/Diagram 3.svg",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/常用HLSL函数.md",
     "zip/images/Pasted image 20230725150628.jpg",
     "zip/images/Pasted image 20230725150542.jpg",
-    "zip/images/Pasted image 20230725150202.jpg",
-    "zip/images/Pasted image 20230725145910.jpg",
     "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-    "图形学/1 图形系统/10 色彩.md",
     "zBuffer/常用 Shader 内置函数及使用总结 (持续更新).md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/1 渲染雅集/05 描边.md",
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
@@ -254,8 +255,6 @@
     "技术美术/3 后处理/故障Glitch.md",
     "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md",
-    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
