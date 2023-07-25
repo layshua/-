@@ -226,7 +226,7 @@ r.Next(); //生成一个非负的随机数
 r.Next(100); //生成[0,99)的随机数 
 ```
 
-## 6 委托
+## 6 委托/事件
 [[《CS Primer》#八、委托 delegate]] 
 Unity 的委托和 cs 的 Action 委托使用方法类似
 ```cs file:Unity自带委托
@@ -249,6 +249,15 @@ System.Func<int, float, string> ac4 = (i, f) => { return "test3"; };//有参有�
 public event UnityAction clickEvent;
 ```
 
+自定义事件类继承 `UnityEvent`：
+```cs
+[Serializable]  
+public class EventVector3 : UnityEvent<Vector3>  //<Vector3> 是该事件的参数
+{  
+
+}
+```
+![[Pasted image 20230725105715.png]]
 ## 7 数学 Mathf 
 
 Math 是中封装好的用于数学计算的工具**类**，位于 system 命名空间中
@@ -2831,4 +2840,3 @@ GC.Collect();
 ```
 
 
-# 六 材质

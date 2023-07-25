@@ -32,9 +32,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "210e5827a90c5345",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
               }
             }
           }
@@ -127,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,8 +191,10 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "0d9900e449f8b146",
+  "active": "210e5827a90c5345",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "zip/images/Pasted image 20230725105715.png",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/4 GamePlay/maco",
@@ -199,7 +214,6 @@
     "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "zBuffer/(38 条消息) unity C 脚本控制 Material、Shader 的方法 以及问题解决_unity 脚本控制 shader_千年奇葩的博客 - CSDN 博客.md",
     "zBuffer/猫都能看懂的 URP RenderFeature 使用及自定义方法.md",
@@ -208,7 +222,6 @@
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/04 景深.md",
     "技术美术/6 NPR/ta101卡渲.md",
-    "技术美术/6 NPR/NPR渲染管线概述.md",
     "zip/images/445aa015c0d135f15add7cad058c34f3_MD5.jpg",
     "zip/images/36eff526d3b6a4707bf547f33130d39c_MD5.gif",
     "zip/images/4e95ba6a64aeb79a7d500292aead1001_MD5.png",
@@ -217,7 +230,6 @@
     "zip/images/c19413bb4b6f492fa56919bbacd1832e_MD5.jpg",
     "zip/images/Pasted image 20230723235733.png",
     "zip/images/Pasted image 20230723235211.png",
-    "zip/images/Pasted image 20230723234312.png",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",

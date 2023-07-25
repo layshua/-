@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -147,10 +151,6 @@
     {
       "basename": "次表面散射SSS",
       "path": "技术美术/2 着色器/次表面散射SSS.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
     {
       "basename": "建模原理",
