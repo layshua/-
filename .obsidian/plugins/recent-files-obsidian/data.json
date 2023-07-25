@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
+      "basename": "05 模板测试",
+      "path": "图形学/1 图形系统/05 模板测试.md"
     },
     {
       "basename": "常用HLSL函数",
@@ -161,10 +169,6 @@
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "ta101卡渲",
       "path": "技术美术/6 NPR/ta101卡渲.md"
-    },
-    {
-      "basename": "NPR渲染管线概述",
-      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
     }
   ],
   "omittedPaths": [],

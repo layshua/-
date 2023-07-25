@@ -622,7 +622,7 @@ Shader "Custom/NormalMap"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
 
-    CBUFFER_START(UnityPerMateiral)
+    CBUFFER_START(UnityPerMaterial)
     CBUFFER_END
 
     struct Attributes
@@ -1123,7 +1123,7 @@ Shader "Custom/MultipleLightingShadows URP Shader"
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
-            CBUFFER_START(UnityPerMateiral)
+            CBUFFER_START(UnityPerMaterial)
             float4 _MainTex_ST;
             float4 _BaseColor;
             float _NormalScale;

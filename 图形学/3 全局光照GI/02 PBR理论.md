@@ -1116,7 +1116,7 @@ Shader "Custom/PBR"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
     #include "CookTorrance.hlsl"
 
-    CBUFFER_START(UnityPerMateiral)
+    CBUFFER_START(UnityPerMaterial)
     float4 _BaseColorTex_ST;
     float _NormalScale;
     float4 _EmissionColor;

@@ -50748,7 +50748,7 @@ UnpackNormalScale
 UVoffset
 UntiyShader
 UniversalMetaPass
-UnityPerMateiral
+UnityPerMaterial
 UniversalMaterialType
 UniversalFragmentPBR
 URPAsset

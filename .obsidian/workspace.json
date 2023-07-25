@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "901898ac63b04318",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "2ff9f715295b0354",
             "type": "leaf",
             "state": {
@@ -85,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -129,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md"
+                "file": "技术美术/1 渲染雅集/05 描边.md"
               }
             }
           }
@@ -179,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -230,10 +216,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "901898ac63b04318",
+  "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/05 描边.md",
+    "zip/images/Pasted image 20230725171335.png",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "Tools/Git/git入门.md",
     "图形学/1 图形系统/05 模板测试.md",
+    "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/常用HLSL函数.md",
     "zip/images/Pasted image 20230725161022.png",
     "图形学/1 图形系统/10 色彩.md",
@@ -266,9 +255,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/3 后处理/08 SSAO.md",
     "技术美术/3 后处理/04 景深.md",
-    "技术美术/3 后处理/故障Glitch.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",

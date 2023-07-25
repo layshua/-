@@ -49,7 +49,7 @@ Properties
 
 在 URP 中声明对应变量
 ```c
-CBUFFER_START(UnityPerMateiral)
+CBUFFER_START(UnityPerMaterial)
 int _Int;
 float _Float;
 float _Range;

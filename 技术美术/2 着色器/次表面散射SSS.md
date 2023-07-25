@@ -139,7 +139,7 @@ Shader "Custom/SSS"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/lighting.hlsl"
 
-    CBUFFER_START(UnityPerMateiral)
+    CBUFFER_START(UnityPerMaterial)
     float4 _MainTex_ST;
     float4 _BaseColor;
     float _NormalScale;
