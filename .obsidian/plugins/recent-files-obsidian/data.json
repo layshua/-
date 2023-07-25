@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+      "basename": "01 BUG合集",
+      "path": "引擎Unity3D/1 Unity精粹/01 BUG合集.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
+      "basename": "(38 条消息) 3D RPG 核心功能 (学习笔记 全) (M_Studio 教程)_gamemanager 丢失 characterstats_我是刘咩咩阿的博客 - CSDN 博客",
+      "path": "引擎Unity3D/4 GamePlay/maco/(38 条消息) 3D RPG 核心功能 (学习笔记 全) (M_Studio 教程)_gamemanager 丢失 characterstats_我是刘咩咩阿的博客 - CSDN 博客.md"
     },
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
-      "basename": "笔记",
-      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
     {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+      "basename": "笔记",
+      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     },
     {
       "basename": "C++补充",
@@ -191,14 +199,6 @@
     {
       "basename": "各向异性",
       "path": "技术美术/2 着色器/各向异性.md"
-    },
-    {
-      "basename": "硬表面基础",
-      "path": "DCC/01 百人计划美术向/硬表面基础.md"
-    },
-    {
-      "basename": "美术理论基础一 & 二",
-      "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
     }
   ],
   "omittedPaths": [],
