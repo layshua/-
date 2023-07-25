@@ -21,32 +21,6 @@
             }
           },
           {
-            "id": "0d9900e449f8b146",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bb11c08346bab6e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/3 后处理/04 景深.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "2ff9f715295b0354",
             "type": "leaf",
             "state": {
@@ -65,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -129,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md"
+                "file": "图形学/2 图形API/DX12/HLSL语法.md"
               }
             }
           }
@@ -179,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -196,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/DX12/HLSL语法.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -232,6 +206,10 @@
   },
   "active": "af8796aadbd05335",
   "lastOpenFiles": [
+    "技术美术/常用HLSL函数.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
@@ -254,7 +232,6 @@
     "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
     "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/1690255179640.png",
     "zip/images/1690255179557.png",
     "zip/images/1690255179450.png",
@@ -265,10 +242,7 @@
     "zip/images/1690255179061.png",
     "zip/images/1690255178975.png",
     "zip/images/1690255178912.png",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/maco",
-    "编程/C++/C++补充.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",

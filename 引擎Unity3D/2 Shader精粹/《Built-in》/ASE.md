@@ -98,7 +98,7 @@ void clip(x，alpha，threshold)
 对应透明度测试代码段中的`clip(texColor.a - _Cutoff)`，即对噪声纹理的采样结果和控制消融程度的阈值比较，如果小于阈值，就裁剪掉。
 ## step(x, y)
 ```c
-void clip(float x,float y)
+void step(float x,float y)
 {
 	if(x<=y)
 		return 1;
