@@ -536,7 +536,7 @@ struct Attributes
 //顶点着色器输出结构
 struct Varyings
 {
-    float4 positionoCS : SV_POSITION;
+    float4 positionCS : SV_POSITION;
     float2 uv : TEXCOORD0;
 };
         

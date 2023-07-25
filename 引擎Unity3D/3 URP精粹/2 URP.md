@@ -1110,7 +1110,7 @@ Shader "Custom/MultipleLightingShadows URP Shader"
 
             struct Varyings
             {
-                float4 positionoCS : SV_POSITION;
+                float4 positionCS : SV_POSITION;
                 float4 color : COLOR0;
                 float2 uv : TEXCOORD0;
                 float3 positionWS: TEXCOORD1;
@@ -1143,7 +1143,7 @@ Shader "Custom/MultipleLightingShadows URP Shader"
                 UNITY_SETUP_INSTANCE_ID(i);
                 UNITY_TRANSFER_INSTANCE_ID(i, o);
 
-                o.positionoCS = TransformObjectToHClip(i.positionOS.xyz);
+                o.positionCS = TransformObjectToHClip(i.positionOS.xyz);
                 o.uv = i.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
                 o.positionWS = TransformObjectToWorld(i.positionOS.xyz);
                 o.normalWS = TransformObjectToWorldNormal(i.normalOS);
