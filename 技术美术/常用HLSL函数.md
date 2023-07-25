@@ -81,40 +81,72 @@ floor 函数向下取整，0~1 部分取为 0，显示为黑色。1~4 取为1
 
 
 # fmod，frac
-fmod (x, y): 返回 x / y 的小数部分. 如: x = i * y + f
-frac (x): 返回 x 的小数部分.
+`fmod (x, y)`: 返回 x / y 的小数部分. 如: x = i * y + f
+`frac (x)`: 返回 x 的小数部分.
 # step，lerp，smoothstep 
 
 `step(x,y):` 如果x<=y，则输出 1，否则输出 0
 `lerp(x,y,a)` ：插值 `x*(1-a) + y*a`
-`smoothstep (min, max, x)`: 用来生成 0 到 1 的平滑过渡值，也叫平滑阶梯函数.
 
-公式定义:
+`smoothstep (min, max, x)`: 用来生成 0 到 1 的平滑过渡值，也叫平滑阶梯函数.
+**公式定义:**
 ```c
 float smoothstep (float min, float max, float x)
 {
+    //值限制在0~1之间的原因是因为clamp函数的限制
     x = clamp ((x - min) / (max - min), 0, 1);
     return x * x * (3 - 2 *x);
 }
 ```
-函数曲线:
-
-1.  当 min < max
-
+**函数曲线:**
+- 当 $min < max$ 时，
+    - $x=min$ 时 $y=0$
+    - $x=max$ 时 $y=1$
 ![[08ff83d421adfc01c4b17008f463ebe0_MD5.jpg]]
 
-1.  当 min > max
-
+- 当 $min > max$
+    - $x=min$ 时，$y=0$
+    - $x=max$ 时，$y=1$
 ![[df365600ecaefb116a098f55c9aebeea_MD5.png]]
 
-应用举例:
+**应用举例:**
+可以通过多个 smoothstep 叠加 / 相减，构造一些波形曲线。
 
-可以通过多个 smoothstep 叠加 / 相减，构造一些波形曲线.
+假设式子（1）为：`smoothstep(1, 2, x)`；
+（2）为：`smoothstep(2, 3, x)`;
+（3）为：`smoothstep(3, 4, x)`
+- （1）减（2）结果：在x的值为2时达到了峰值，并会往两边递减。
+![[Pasted image 20230725145910.jpg|500]]
+- （1）减（3）结果：同样的，峰值依旧会在第一个 smoothstep 中的 max 值与第二个 smoothstep 中的 min值之间产生，并随之会往两边递减。
+ ![[Pasted image 20230725150202.jpg|500]]
 
-如 smoothstep (0,1, x) -smoothstep (1,2, x) 的波形
+> [!NOTE] 重要结论
+> 两个` smoothstep (min, max, x) `函数相减，峰值会在第一个 smoothstep 中的 max 值与第二个 smoothstep 中的 min 值之间产生，并随之会往两边递减。
 
-![[0ace704966b5b4ba1fb1a8a52a0a8717_MD5.png]]
+**圆环实现：**
+```cs
+fixed4 frag (v2f i) : SV_Target
+{
+   // 先把uv坐标原点从左下角移至中心位置
+   // 通过length计算点（uv.x，uv.y）到原点的距离
+   // x大于等于t1=0.5时，结果为0
+   // x小于等于t2=0.2时，结果为1
+   return smoothstep(0.5, 0.2, length(i.uv - 0.5));
+ }
+```
+![[Pasted image 20230725150542.jpg|500]]
 
+
+```cs
+fixed4 frag (v2f i) : SV_Target
+{
+    half l = length(i.uv - 0.5);
+    float s1 = smoothstep(0.2, 0.3, l);
+    float s2 = smoothstep(0.3, 0.4, l);
+    return s1 - s2;
+}
+```
+![[Pasted image 20230725150628.jpg|450]]
 # reflect，refract
 
 `reflect(i,n)`: 计算反射向量 (i 和 n 必须是归一化的)，使用公式 i - 2*n*dot (i, n)
@@ -129,9 +161,9 @@ ddx , ddy 的计算规则如下图（注: dFdx, dFdy 是 GLSL 里的叫法）
 
 ![[842872b87359c92a610ee9f99bba8127_MD5.png|450]]
 1. **`ddx，ddy` 反映了相邻像素在屏幕空间 x 和 y 方向上的距离（变化率）**
-注：ddx (常量) = 0; 因为没有差值变化
-- ddx (v) = 该像素点右边的 v 值 - 该像素点的 v 值  
-- ddy (v) = 该像素点下面的 v 值 - 该像素点的 v 值
+    - `ddx(v)` = 该像素点右边的 v 值 - 该像素点的 v 值  
+    - `ddy(v)` = 该像素点下面的 v 值 - 该像素点的 v 值
+    - `ddx(常量) = 0`，因为没有差值变化
 1.  `fwidth(v) = abs(ddx(v) + ddy(v))`：**fwidth 反映了相邻像素在屏幕空间上的距离差值**.
     - `fwidth (pos)`：相邻像素位置的差值
     - `fwidth (normal)`：相邻像素法线的差值
@@ -158,32 +190,27 @@ $∂u/∂x$ 是 $u$ 对 $x$ 的偏微分 (也就是 $u$ 沿 $x$ 轴的变化率)
 
 ![[b5f733798149019e66cd179c37beec6d_MD5.png]]
 
-
-
 ### 边缘处理
 
-让颜色边缘突出:
+**边缘突出**  
+```c
+Color += (ddx(Color) + ddy(Color)) * _Intensity;
+```
+![[Pasted image 20230722233401.png]]
 
-finalColor += (ddx (finalColor) + ddy (finalColor )) * _Intensity;
+**边缘亮化**  
+```c
+Color += fwidth(Color) * _Intensity;
+```
+![[Pasted image 20230722233412.png]]
 
-或 finalColor += fwidth (finalColor) * _Intensity;
 
-3. **计算表面法线**
+### 计算表面法线
 
-normal = normalize (cross (ddy (IN. worldPos), ddx (IN. worldPos)));
-
+```c
+normal = normalize(cross(ddy(i.worldPos), ddx(i.worldPos)));
+```
 ![[189df4a6706aa9f8085c04bbfb6df2c6_MD5.png]]
 
 
-# ddx, ddy
 
-**常见使用：**  
-**边缘突出**  
-ddx (v) = 该像素点右边的 v 值 - 该像素点的 v 值  
-ddy (v) = 该像素点下面的 v 值 - 该像素点的 v 值
-![[Pasted image 20230722233358.png]]
-![[Pasted image 20230722233401.png]]
-**边缘亮化**  
-
-![[Pasted image 20230722233410.png]]
-![[Pasted image 20230722233412.png]]

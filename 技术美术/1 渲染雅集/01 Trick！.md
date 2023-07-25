@@ -5,6 +5,14 @@
 
 # 遮罩
 ## 1 UV 坐标系转换成笛卡尔直角坐标系
+```cs
+float4 frag(Varyings i) : SV_Target  
+{  
+    i.uv = (i.uv - 0.5)*2;
+    //或
+    i.uv = i.uv * 2 - 1;
+}
+```
 ![[Pasted image 20221215123919.png]]
 ![[Pasted image 20221215123942.png]]
 ## 2 圆形遮罩

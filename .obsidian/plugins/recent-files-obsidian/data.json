@@ -5,6 +5,10 @@
       "path": "技术美术/常用HLSL函数.md"
     },
     {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     }
   ],
   "omittedPaths": [],
