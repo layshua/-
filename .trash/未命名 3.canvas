@@ -1,9 +1,0 @@
-{
-	"nodes":[
-		{"id":"2bfa3b44b49767af","x":-53,"y":-144,"width":250,"height":60,"type":"text","text":"阿斯顿"},
-		{"id":"fffd91bfe7946976","x":-60,"y":20,"width":250,"height":60,"type":"text","text":""}
-	],
-	"edges":[
-		{"id":"2af91594a09a50c3","fromNode":"2bfa3b44b49767af","fromSide":"bottom","toNode":"fffd91bfe7946976","toSide":"top"}
-	]
-}
