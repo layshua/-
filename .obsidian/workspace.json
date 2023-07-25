@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/01 BUG合集.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,10 +191,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "0d9900e449f8b146",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
+    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/1 Unity精粹/01 BUG合集.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
-    "引擎Unity3D/4 GamePlay/maco/(38 条消息) 3D RPG 核心功能 (学习笔记 全) (M_Studio 教程)_gamemanager 丢失 characterstats_我是刘咩咩阿的博客 - CSDN 博客.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "zip/images/1690255179640.png",
     "zip/images/1690255179557.png",
@@ -220,8 +223,6 @@
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
-    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
-    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房/CodeMonkey Unity 中的 C 事件 笔记整理.md",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
