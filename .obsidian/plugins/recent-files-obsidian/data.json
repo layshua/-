@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
       "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
     }
   ],
   "omittedPaths": [],

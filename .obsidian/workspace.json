@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -199,7 +199,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -216,7 +216,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -252,8 +252,8 @@
   },
   "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/05 描边.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/1 图形系统/05 模板测试.md",
     "技术美术/常用HLSL函数.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
