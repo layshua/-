@@ -8,38 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6cc2df8c1744138e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/Unity-Outline 法线外拓描边.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f1aa4feabb72b00d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a3e2a2d6d76b7b16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/02 顶点动画.md",
+                "file": "技术美术/2 着色器/次表面散射SSS.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Unity-Outline 法线外拓描边.md"
+                "file": "技术美术/2 着色器/次表面散射SSS.md"
               }
             }
           }
@@ -153,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Unity-Outline 法线外拓描边.md",
+                "file": "技术美术/2 着色器/次表面散射SSS.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Unity-Outline 法线外拓描边.md",
+                "file": "技术美术/2 着色器/次表面散射SSS.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,9 +177,27 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "a3e2a2d6d76b7b16",
   "lastOpenFiles": [
+    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
+    "引擎Unity3D/收藏夹/动画系统/动画曲线.md",
+    "引擎Unity3D/收藏夹/动画系统",
+    "引擎Unity3D/1 Unity精粹/动画.md",
+    "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
+    "zBuffer/卡通描边粗细坑 && 解决方案.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
+    "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
+    "zBuffer/Unity-Outline 法线外拓描边.md",
+    "zip/images/1690372589993.png",
+    "zip/images/1690372587481.png",
+    "zip/images/1690372587620.png",
+    "zip/images/1690372587687.png",
+    "zip/images/1690372587866.png",
+    "zip/images/1690372587817.png",
+    "zip/images/1690372588116.png",
+    "zip/images/1690372587991.png",
+    "zip/images/1690372587933.png",
+    "zip/images/1690372588174.png",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/07 草.md",
     "技术美术/1 渲染雅集/06 雾.md",
@@ -223,25 +214,8 @@
     "图形学/1 图形系统/05 模板测试.md",
     "技术美术/2 着色器/SS.md",
     "技术美术/3 后处理/04 SSAO.md",
-    "zBuffer/Unity-Outline 法线外拓描边.md",
     "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md",
     "zip/留学/缴费.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zBuffer/卡通描边粗细坑 && 解决方案.md",
-    "zip/images/376c11d3477511c8181c2383b85a5ae7_MD5.jpg",
-    "zip/images/da4bff1c945dd342f6a73da19b015f35_MD5.jpg",
-    "zip/images/6919279c4f518d580bc69f4d13d92833_MD5.jpg",
-    "zip/images/3855d666eb9609e1252ae36f9345a20e_MD5.jpg",
-    "zip/images/7b27a0af6c7bfa4c715f261fb097bb33_MD5.jpg",
-    "zip/images/6051af478121a79f27447e8ed65c7950_MD5.jpg",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zBuffer/动画曲线.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "zip/images/Pasted image 20230726155053.png",
-    "zip/images/Pasted image 20230726153538.png",
-    "zip/images/431108acfa16e9066c8e086f03b67f5b_MD5.jpg",
-    "zip/images/ac6d05b087f05dee4aed45f3050f6107_MD5.jpg",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
@@ -251,7 +225,6 @@
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
     "图形学/1 图形系统/光栅化系统",
-    "blog/2019",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

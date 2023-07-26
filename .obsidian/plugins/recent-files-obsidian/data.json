@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity-Outline 法线外拓描边",
-      "path": "zBuffer/Unity-Outline 法线外拓描边.md"
+      "basename": "次表面散射SSS",
+      "path": "技术美术/2 着色器/次表面散射SSS.md"
     },
     {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
+      "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
+      "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
+    },
+    {
+      "basename": "动画曲线",
+      "path": "引擎Unity3D/收藏夹/动画系统/动画曲线.md"
+    },
+    {
+      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
+      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
     },
     {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
       "basename": "03 深度法线纹理",
@@ -81,16 +93,8 @@
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
-      "basename": "卡通描边粗细坑 && 解决方案",
-      "path": "zBuffer/卡通描边粗细坑 && 解决方案.md"
-    },
-    {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "动画曲线",
-      "path": "zBuffer/动画曲线.md"
     },
     {
       "basename": "《GUI》",
@@ -119,10 +123,6 @@
     {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客",
-      "path": "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md"
     },
     {
       "basename": "git入门",
