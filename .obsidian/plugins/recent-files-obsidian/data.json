@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
@@ -9,8 +13,20 @@
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "卡通描边粗细坑 && 解决方案",
+      "path": "zBuffer/卡通描边粗细坑 && 解决方案.md"
+    },
+    {
+      "basename": "动画曲线",
+      "path": "zBuffer/动画曲线.md"
     },
     {
       "basename": "《GUI》",
@@ -49,10 +65,6 @@
       "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
@@ -63,10 +75,6 @@
     {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
-    },
-    {
-      "basename": "常用 Shader 内置函数及使用总结 (持续更新)",
-      "path": "zBuffer/常用 Shader 内置函数及使用总结 (持续更新).md"
     },
     {
       "basename": "HLSL语法",
@@ -191,14 +199,6 @@
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "3_72 command buffer 及 urp 概述",
-      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
     }
   ],
   "omittedPaths": [],

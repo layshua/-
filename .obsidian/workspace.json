@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6cc2df8c1744138e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -53,6 +66,32 @@
               "type": "markdown",
               "state": {
                 "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e03baf501222c63e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/动画曲线.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "41554f853feca220",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/卡通描边粗细坑 && 解决方案.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md"
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
               }
             }
           }
@@ -152,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,43 +244,42 @@
   },
   "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/05 描边.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "zip/images/Pasted image 20230726155053.png",
+    "zip/images/Pasted image 20230726153538.png",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "zBuffer/卡通描边粗细坑 && 解决方案.md",
+    "zip/images/431108acfa16e9066c8e086f03b67f5b_MD5.jpg",
+    "zip/images/ac6d05b087f05dee4aed45f3050f6107_MD5.jpg",
+    "zip/images/2768aebc45af89f0f50b3f6eda7fe7b1_MD5.jpg",
+    "zip/images/2fe12f4370b131d1b842d693bb5e4dc2_MD5.jpg",
+    "zip/images/fe7ab9fbc65105f10d7813d397053860_MD5.jpg",
+    "zip/images/5217b250b750575752edd12a55ef2319_MD5.jpg",
+    "zBuffer/常用 Shader 内置函数及使用总结 (持续更新).md",
+    "zBuffer/动画曲线.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "zip/images/Pasted image 20230726142301.png",
     "zip/images/Pasted image 20230726142144.png",
-    "zip/images/Pasted image 20230726142103.png",
-    "zip/images/Pasted image 20230726131850.png",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "DCC/02 Blender/建模原理.md",
-    "zip/images/Pasted image 20230725235704.png",
-    "zip/images/Pasted image 20230725235647.png",
-    "zip/images/Pasted image 20230725225029.png",
-    "zip/images/Pasted image 20230725224923.png",
-    "zip/images/Pasted image 20230725222930.png",
-    "zip/images/Pasted image 20230725222316.png",
     "图形学/1 图形系统/05 模板测试.md",
     "技术美术/常用HLSL函数.md",
     "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
     "Tools/Git/git入门.md",
     "图形学/1 图形系统/10 色彩.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "zip/images/Diagram 3.svg.xml",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-    "zBuffer/常用 Shader 内置函数及使用总结 (持续更新).md",
     "图形学/2 图形API/DX12/HLSL语法.md",
     "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
     "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
-    "技术美术/2 着色器/Unity 几何着色器详解.md",
-    "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
