@@ -85,7 +85,7 @@ single-pass 并不是指 URP 的 shader 只能单 Pass 执行，而是指**一�
 `Tags{ "LightMode" = "SRPDefaultUnlit" }`
 这样才能让第二个 Pass 生效
 
-- @ **方法二：使用 RenderObjects 实现多 Pass**
+- @ **方法二：使用 RenderObjects 实现多 Pass，可以自定义LightModeTag命名**
 ![[Pasted image 20230726131850.png]]
 **我们可以很方便的点击+号添加自定义的 LightMode，在 shader 中实现多 Pass**。
 比如我们第一个 Pass 的 Lightmode 设置为 Test1，第二个 Pass 的设置为 Test2，第三个设置为 Test3，将材质赋予对象。RenderObject 设置如下：
