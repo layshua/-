@@ -74,16 +74,17 @@ uniform float4 packedArray[3]；
 static float unpackedArray[12] =（float[12]）packedArray；
 ```
 
-## 理解 single-pass
+## 理解 single-pass 
 single-pass 并不是指 URP 的 shader 只能单 Pass 执行，而是指**一次遍历所有灯光完成计算**。
-**注意URP 下的 Single-Pass 渲染，相同的 Tags 标签，只会被执行一次，而不是说一个 shader 里面只能有一个 Pass 块。**
+**注意 URP 下的 Single-Pass 渲染，相同的 Tags 标签，只会被执行一次，而不是说一个 shader 里面只能有一个 Pass 块。**
 
+## 多 Pass 写法
 - @ **方法一：URP 默认有 6个 [[1 ShaderLab#LightMode|LightMode]]，如果我们要写双 Pass ，操作如下：**
 在第一个 pass 添加：
-`Tags{ "LightMode" = "UniversalForward" }
-第二个pass添加：
 `Tags{ "LightMode" = "SRPDefaultUnlit" }`
-这样才能让第二个 Pass 生效
+第二个pass添加：
+`Tags{ "LightMode" = "UniversalForward" }
+这样就能实现双 Pass，注意 SRPDefaultUnlit 始终先执行。
 
 - @ **方法二：使用 RenderObjects 实现多 Pass，可以自定义LightModeTag命名**
 ![[Pasted image 20230726131850.png]]
