@@ -50830,6 +50830,7 @@ UnitBoxy
 Unchecked
 UnityStereoTransformScreenSpaceTex
 UnpackNormalRGBNoScale
+UniversalForwardOnly
 api
 ac
 app
@@ -73178,6 +73179,7 @@ SubtractiveShadowColor
 SCALE
 SPECCUBE
 STEPS
+ShaderTagIdList
 Programs
 POP
 PC
@@ -123368,6 +123370,7 @@ scaler
 stencildepth
 scissor
 skybbox
+shaderTags
 local
 list
 left
