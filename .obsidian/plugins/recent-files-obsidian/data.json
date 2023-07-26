@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "1 批处理总结",
+      "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
     },
     {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "05 模板测试",
@@ -19,10 +27,6 @@
     {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "《GUI》",
@@ -195,10 +199,6 @@
     {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
-      "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
     }
   ],
   "omittedPaths": [],

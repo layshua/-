@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,85 +21,12 @@
             }
           },
           {
-            "id": "6c6474ae47f2e6c1",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "9c96f540425d510a",
+            "id": "3ddd45d6a099cb05",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/05 模板测试.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bc07322f53b569d1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2ff9f715295b0354",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/常用HLSL函数.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d997d8e2f2e783a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "35722707151ec707",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/2 图形API/DX12/HLSL语法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "210e5827a90c5345",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -149,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md"
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
               }
             }
           }
@@ -199,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -216,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -252,6 +179,11 @@
   },
   "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230725235704.png",
     "zip/images/Pasted image 20230725235647.png",
     "zip/images/Pasted image 20230725225029.png",
@@ -261,15 +193,11 @@
     "zip/images/Pasted image 20230725221607.png",
     "zip/images/Pasted image 20230725213207.png",
     "zip/images/Pasted image 20230725213149.png",
-    "技术美术/1 渲染雅集/05 描边.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/1 图形系统/05 模板测试.md",
     "技术美术/常用HLSL函数.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
     "zip/images/3f106474b6e69426ec99d0e8d45a5c6f_MD5.png",
-    "zip/images/259dc239aafdb72d497bf1c408867f1c_MD5.png",
     "Tools/Git/git入门.md",
     "图形学/1 图形系统/10 色彩.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
@@ -288,7 +216,6 @@
     "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
     "引擎Unity3D/收藏夹/TA 之路.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",

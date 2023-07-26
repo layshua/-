@@ -8048,6 +8048,7 @@ OnSpacePressEventArgs
 OnStateUpdate
 OnMouseClicked
 OGL
+OptimizeProjectionMatrix
 codeup
 clash
 ctrl
@@ -12527,6 +12528,11 @@ clipboard
 characterData
 convex
 castthing
+clampU
+cubeMap
+cubeMapcolor
+cameraStack
+cameraOutput
 github
 grey
 green
@@ -16185,6 +16191,7 @@ greyScale
 gyroscope
 getComponent
 gameManager
+glstate
 typora
 todo
 tooltip
@@ -20078,6 +20085,7 @@ testingEvents
 transfrom
 terrian
 transistion
+targetTexture
 markdown
 matter
 mod
@@ -24299,6 +24307,10 @@ mouseManager
 monobehavior
 maxHealth
 mashk
+mirrorV
+myOverlayCamera
+myUniversalAdditionalCameraData
+myRenderTexture
 windows
 win
 width
@@ -27942,6 +27954,8 @@ wLjQsMTAuNiBMMSwxMiBMNyw
 waPl
 wccdt
 walkable
+wrapU
+wrapV
 utools
 url
 unresolved
@@ -35614,6 +35628,7 @@ etys
 encrypted
 edtor
 eventSystem
+envcolor
 VPN
 Verge
 VS
@@ -46968,6 +46983,7 @@ Attack
 AttackData
 AttackTarget
 Anbsp
+AmbientOcclusion
 URL
 Utools
 Users
@@ -50812,6 +50828,8 @@ UIH
 UWNf
 UnitBoxy
 Unchecked
+UnityStereoTransformScreenSpaceTex
+UnpackNormalRGBNoScale
 api
 ac
 app
@@ -54757,6 +54775,8 @@ autoplay
 allowfullscreen
 awake
 agent
+albedoAlpha
+albedoAlphaMap
 Roaming
 RegWorkshop
 Release
@@ -59304,6 +59324,7 @@ RADIAL
 RequireCompoment
 Rocks
 Rock
+RealtimeLights
 Microsoft
 Menu
 MicaForEveryone
@@ -64091,6 +64112,10 @@ MonoBehvaior
 Manger
 MIPS
 Miss
+MatrixV
+MatrixInvV
+MatrixPreviousM
+MatrixPreviousMI
 Windows
 Win
 World
@@ -73147,6 +73172,12 @@ SaveManager
 SceneFader
 StencilPerPassOutline
 StencilOutline
+Structs
+ScaledScreenParams
+SubtractiveShadowColor
+SCALE
+SPECCUBE
+STEPS
 Programs
 POP
 PC
@@ -77440,6 +77471,8 @@ Patrol
 PlayerStats
 PipelineSettings
 PolygonsBeta
+PREV
+ProbePosition
 ContextMenuManager
 ClashVerge
 Clash
@@ -81969,6 +82002,9 @@ CharactorData
 CharacterStates
 Collisions
 CinemaChine
+CubeMa
+CameraRenderType
+CameraOutput
 ImTip
 IMAP
 ID
@@ -101800,6 +101836,7 @@ blockLayer
 blockLine
 braking
 bufferOpenGLUnity
+bumpScale
 fe
 front
 fill
@@ -105524,6 +105561,7 @@ fragGodRay
 fdcb
 frameborder
 fearture
+filer
 dd
 dcc
 data
@@ -113977,6 +114015,7 @@ Throw
 TakeDamage
 ToJson
 TwoPassReflection
+TEXCUBE
 io
 ipad
 it
@@ -123328,6 +123367,7 @@ serialised
 scaler
 stencildepth
 scissor
+skybbox
 local
 list
 left
@@ -138720,6 +138760,7 @@ randomNoise
 rescue
 rigibody
 review
+renderType
 XXXXXX
 XXX
 XML
@@ -150281,6 +150322,11 @@ Broken
 Biologically
 Berlin
 BuffersMark
+BUILTIN
+BUMP
+BoxProjectedCubemapDirection
+BoxMin
+BoxMax
 Fraktur
 Frame
 Foo
@@ -169862,6 +169908,7 @@ Dizzy
 DriveType
 DestinationPoint
 DepthFailBeta
+Deprecated
 LNK
 Log
 Linux
@@ -178716,6 +178763,8 @@ GameManager
 Grunt
 Golem
 GetCurrentAnimatorStateInfo
+GetShadowPositionHClips
+GetUniversalAdditionalCameraData
 NULL
 Native
 NormalMap
