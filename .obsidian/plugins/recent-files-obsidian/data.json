@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "1 批处理总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
       "basename": "建模原理",

@@ -108,7 +108,6 @@ DrawingSettings drawingSettings = CreateDrawingSettings(m_shaderTagIdList, ref r
 ```
 ![[Pasted image 20230726131850.png]]
 **我们可以很方便的点击+号添加自定义的 LightMode，在 shader 中实现多 Pass**
-
 注意:最多只允许16个 ShaderTag （存疑？）
 # 文件
 **内置 Shader 文件路径**：Packages/Universal RP/Shaders
