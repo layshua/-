@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -180,10 +180,13 @@
   "active": "dc593592b4dfabdf",
   "lastOpenFiles": [
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zip/images/Pasted image 20230726131850.png",
+    "zip/images/Pasted image 20230726142301.png",
+    "zip/images/Pasted image 20230726142144.png",
+    "zip/images/Pasted image 20230726142103.png",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "技术美术/1 渲染雅集/05 描边.md",
+    "zip/images/Pasted image 20230726131850.png",
+    "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md",
     "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230725235704.png",
     "zip/images/Pasted image 20230725235647.png",
@@ -191,9 +194,6 @@
     "zip/images/Pasted image 20230725224923.png",
     "zip/images/Pasted image 20230725222930.png",
     "zip/images/Pasted image 20230725222316.png",
-    "zip/images/Pasted image 20230725221607.png",
-    "zip/images/Pasted image 20230725213207.png",
-    "zip/images/Pasted image 20230725213149.png",
     "图形学/1 图形系统/05 模板测试.md",
     "技术美术/常用HLSL函数.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",

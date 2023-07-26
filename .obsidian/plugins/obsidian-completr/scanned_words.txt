@@ -123371,6 +123371,8 @@ stencildepth
 scissor
 skybbox
 shaderTags
+shaderTagIdList
+sortingCriteria
 local
 list
 left
@@ -174086,6 +174088,7 @@ LocalThickness
 LevelUp
 LoadSceneAsync
 LookAtPoint
+LightModeTag
 Getx
 GetX
 GetName

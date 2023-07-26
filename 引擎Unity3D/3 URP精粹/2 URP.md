@@ -76,39 +76,25 @@ static float unpackedArray[12] =（float[12]）packedArray；
 
 ## 理解 single-pass
 single-pass 并不是指 URP 的 shader 只能单 Pass 执行，而是指**一次遍历所有灯光完成计算**。
-**URP 下的 Single-Pass 的渲染方式，应该指的是，相同的 Tags 标签，只会被执行一次，而不是说一个 shader 里面只能有一个 Pass 块。**
+**注意URP 下的 Single-Pass 渲染，相同的 Tags 标签，只会被执行一次，而不是说一个 shader 里面只能有一个 Pass 块。**
 
-- URP 默认有 6个 [[1 ShaderLab#LightMode|LightMode]]，如果我们要写双 Pass ，操作如下：
+- @ **方法一：URP 默认有 6个 [[1 ShaderLab#LightMode|LightMode]]，如果我们要写双 Pass ，操作如下：**
 在第一个 pass 添加：
 `Tags{ "LightMode" = "UniversalForward" }
 第二个pass添加：
 `Tags{ "LightMode" = "SRPDefaultUnlit" }`
-这样才能让第二个 Pass 生效，单 Pass 都不用加，默认为 `UniversalForward`。
+这样才能让第二个 Pass 生效
 
-- 使用 RenderFeatue 可以定制管线，比如 RenderObjects 的源码：
-```cs
-if (shaderTags != null && shaderTags.Length > 0)
-{
-    //将自定义的LightModeTag加入到列表
-    foreach (var passName in shaderTags)
-        m_ShaderTagIdList.Add(new ShaderTagId(passName));
-}
-else
-{
-    m_ShaderTagIdList.Add(new ShaderTagId("SRPDefaultUnlit"));
-    m_ShaderTagIdList.Add(new ShaderTagId("UniversalForward"));
-    m_ShaderTagIdList.Add(new ShaderTagId("UniversalForwardOnly"));
-}
-
-//...
-
-//设置渲染的Shader Pass和渲染排序  
-DrawingSettings drawingSettings = CreateDrawingSettings(m_shaderTagIdList, ref renderingData, sortingCriteria);  
-#endregion
-```
+- @ **方法二：使用 RenderObjects 实现多 Pass**
 ![[Pasted image 20230726131850.png]]
-**我们可以很方便的点击+号添加自定义的 LightMode，在 shader 中实现多 Pass**
-注意:最多只允许16个 ShaderTag （存疑？）
+**我们可以很方便的点击+号添加自定义的 LightMode，在 shader 中实现多 Pass**。
+比如我们第一个 Pass 的 Lightmode 设置为 Test1，第二个 Pass 的设置为 Test2，第三个设置为 Test3，将材质赋予对象。RenderObject 设置如下：
+![[Pasted image 20230726142103.png]]
+这样就可以看到三个 Pass 在一个 SRPBatcher 中渲染：
+![[Pasted image 20230726142144.png]]
+
+踩坑：多 pass 不要使用 overide 材质，override 的材质指能选择一个 pass：![[Pasted image 20230726142301.png]]
+**注意:最多只允许16个 ShaderTag （未验证？）**
 # 文件
 **内置 Shader 文件路径**：Packages/Universal RP/Shaders
 
