@@ -35629,6 +35629,7 @@ encrypted
 edtor
 eventSystem
 envcolor
+eyeDepth
 VPN
 Verge
 VS
@@ -64117,6 +64118,8 @@ MatrixV
 MatrixInvV
 MatrixPreviousM
 MatrixPreviousMI
+MeshEditor
+MultiPass
 Windows
 Win
 World
@@ -68223,6 +68226,7 @@ Wreckless
 Woods
 WorldToViewportPoint
 WjgN
+WorkFlow
 Start
 StartAllBack
 Shadowrocket
@@ -73180,6 +73184,8 @@ SCALE
 SPECCUBE
 STEPS
 ShaderTagIdList
+SubMesh
+ScriptableRenderFeature
 Programs
 POP
 PC
@@ -98080,6 +98086,7 @@ noiseX
 noiseY
 noiseZ
 navmeshagent
+nangent
 bf
 bc
 black
@@ -118587,6 +118594,7 @@ ivisibility
 isKinematic
 isGravity
 isDone
+invlerp
 shift
 svg
 sf
@@ -154719,6 +154727,7 @@ FoundPlayer
 Freelook
 FlyToTarget
 Fixedtimestep
+FBXExporter
 Element
 Entity
 Enity
@@ -159247,6 +159256,7 @@ Enemies
 EnemyController
 Extension
 EditorApplication
+EWSmoothNormalGenerator
 xmlns
 xyz
 xy

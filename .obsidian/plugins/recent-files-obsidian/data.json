@@ -1,8 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
+      "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
+    },
+    {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "卡通描边粗细坑 && 解决方案",
+      "path": "zBuffer/卡通描边粗细坑 && 解决方案.md"
+    },
+    {
+      "basename": "Unity-Outline 法线外拓描边",
+      "path": "zBuffer/Unity-Outline 法线外拓描边.md"
     },
     {
       "basename": "01 图像模糊",
@@ -15,10 +35,6 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "动画曲线",
@@ -35,10 +51,6 @@
     {
       "basename": "LearnOpenGL",
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "卡通描边粗细坑 && 解决方案",
-      "path": "zBuffer/卡通描边粗细坑 && 解决方案.md"
     },
     {
       "basename": "《编辑器扩展》",
@@ -187,18 +199,6 @@
     {
       "basename": "C++补充",
       "path": "编程/C++/C++补充.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "C++原理",
-      "path": "编程/C++/C++原理.md"
     }
   ],
   "omittedPaths": [],
