@@ -59,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -102,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -152,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,12 +204,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "c1af8b2b803d42a8",
+  "active": "d7e788dd860424c3",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "图形学/0 3D数学/参数化曲线.md",
     "图形学/1 图形系统/06 深度测试.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
