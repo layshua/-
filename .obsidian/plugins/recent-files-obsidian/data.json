@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
       "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
     },
@@ -115,10 +119,6 @@
     {
       "basename": "1 批处理总结",
       "path": "引擎Unity3D/2 Shader精粹/《渲染优化》/1 批处理总结.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "常用HLSL函数",
