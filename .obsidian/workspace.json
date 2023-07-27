@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,8 +204,9 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "f9c0450fce4de521",
+  "active": "5c01d5f5a7010658",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
@@ -223,7 +224,6 @@
     "zip/images/89e7efe38e507926cb4ab949ebb4075a_MD5.gif",
     "技术美术/1 渲染雅集/04 溶解.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
