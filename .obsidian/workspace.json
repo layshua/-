@@ -32,8 +32,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f9c0450fce4de521",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c158557cabaa2d10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -76,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
               }
             }
           }
@@ -126,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,10 +204,11 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "a3e2a2d6d76b7b16",
+  "active": "f9c0450fce4de521",
   "lastOpenFiles": [
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/3 后处理/01 图像模糊.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/3 后处理/03 景深.md",
     "zip/images/756b5b3a39cd7db19ded32416f757521_MD5.gif",
@@ -215,7 +243,6 @@
     "技术美术/2 着色器/Unity 几何着色器详解.md",
     "技术美术/2 着色器/曲面细分与几何着色器.md",
     "技术美术/2 着色器/各向异性.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
