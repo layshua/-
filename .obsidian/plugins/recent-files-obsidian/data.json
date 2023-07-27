@@ -1,24 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "笔记",
+      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
+    },
+    {
+      "basename": "参数化曲线",
+      "path": "图形学/0 3D数学/参数化曲线.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
       "basename": "02 视图变换",
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "04 纹理映射",
+      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
     },
     {
       "basename": "05 描边",
@@ -33,10 +65,6 @@
       "path": "技术美术/1 渲染雅集/04 溶解.md"
     },
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
@@ -47,10 +75,6 @@
     {
       "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
       "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
@@ -175,30 +199,6 @@
     {
       "basename": "死亡搁浅扫描特效",
       "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
-    },
-    {
-      "basename": "Unity3D Shader： 科幻风线框渲染",
-      "path": "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
     }
   ],
   "omittedPaths": [],
