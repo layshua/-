@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/03 景深.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "技术美术/3 后处理/03 景深.md"
               }
             }
           }
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/03 景深.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/3 后处理/03 景深.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,6 +166,7 @@
   },
   "active": "a3e2a2d6d76b7b16",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/1 渲染雅集/04 溶解.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "图形学/1 图形系统/06 深度测试.md",
@@ -202,7 +203,6 @@
     "技术美术/2 着色器/各向异性.md",
     "技术美术/3 后处理/06 ta101后处理.md",
     "技术美术/3 后处理/05 故障Glitch.md",
-    "技术美术/3 后处理/03 景深.md",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
