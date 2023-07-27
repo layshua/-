@@ -1,16 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
+      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
+    },
+    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
       "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
-    },
-    {
-      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
-      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
     },
     {
       "basename": "次表面散射SSS",
@@ -23,18 +55,6 @@
     {
       "basename": "动画曲线",
       "path": "引擎Unity3D/收藏夹/动画系统/动画曲线.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "07 草",
@@ -75,10 +95,6 @@
     {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
       "basename": "05 模板测试",
@@ -137,10 +153,6 @@
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
       "basename": "ASE",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/ASE.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "TA101",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     }
   ],
   "omittedPaths": [],
