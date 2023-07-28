@@ -19,48 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "7292d02f57f51b86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2cce5c8086c302c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4e9449120105db42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/05 描边.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
@@ -153,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,11 +164,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "7292d02f57f51b86",
+  "active": "c1af8b2b803d42a8",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/05 描边.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "技术美术/1 渲染雅集/05 描边.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/3 后处理/01 图像模糊.md",
@@ -241,7 +202,6 @@
     "图形学/3 全局光照GI/06 全局光照GI.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
-    "图形学/3 全局光照GI/03 光追理论.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
