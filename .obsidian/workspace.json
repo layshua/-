@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/1 渲染雅集/06 雾.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -155,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "技术美术/1 渲染雅集/06 雾.md"
               }
             }
           }
@@ -205,7 +205,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/1 渲染雅集/06 雾.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -222,7 +222,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/1 渲染雅集/06 雾.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -258,10 +258,12 @@
   },
   "active": "4e9449120105db42",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
+    "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/07 草.md",
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
@@ -292,8 +294,6 @@
     "图形学/3 全局光照GI/03 光追理论.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
