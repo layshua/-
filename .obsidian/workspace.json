@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/3 后处理/01 图像模糊.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,8 +204,10 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "d7e788dd860424c3",
   "lastOpenFiles": [
+    "图形学/1 图形系统/06 深度测试.md",
+    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/3 后处理/06 ta101后处理.md",
     "技术美术/3 后处理/05 故障Glitch.md",
     "技术美术/3 后处理/04 SSAO.md",
@@ -235,10 +237,8 @@
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "图形学/0 3D数学/参数化曲线.md",
-    "图形学/1 图形系统/06 深度测试.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
