@@ -5,16 +5,16 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "笔记",
       "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
       "basename": "03 UV操作",
