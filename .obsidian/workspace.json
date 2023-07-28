@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "图形学/1 图形系统/10 色彩.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,8 +206,17 @@
   },
   "active": "d7e788dd860424c3",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zip/images/Pasted image 20230727235440.png",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "图形学/3 全局光照GI/06 全局光照GI.md",
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "图形学/3 全局光照GI/04 路径追踪.md",
+    "图形学/3 全局光照GI/03 光追理论.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "图形学/0 3D数学/参数化曲线.md",
@@ -233,16 +242,7 @@
     "zip/images/89e7efe38e507926cb4ab949ebb4075a_MD5.gif",
     "技术美术/1 渲染雅集/04 溶解.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
-    "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md",
-    "技术美术/2 着色器/次表面散射SSS.md",
-    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
-    "引擎Unity3D/收藏夹/动画系统/动画曲线.md",
     "引擎Unity3D/收藏夹/动画系统",
-    "引擎Unity3D/1 Unity精粹/动画.md",
-    "zBuffer/卡通描边粗细坑 && 解决方案.md",
-    "zBuffer/Unity Shader： 理解 Stencil buffer 并将它用于一些实战案例（描边，多边形填充，反射区域限定，阴影体 shadow volume 阴影渲染）_unity shader stencil_liu_if_else 的博客 - CSDN 博客.md",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
