@@ -12534,6 +12534,8 @@ cubeMapcolor
 cameraStack
 cameraOutput
 cloth
+coeff
+cocHis
 github
 grey
 green
@@ -24312,6 +24314,8 @@ mirrorV
 myOverlayCamera
 myUniversalAdditionalCameraData
 myRenderTexture
+maxCoC
+maxCoc
 windows
 win
 width
@@ -46988,6 +46992,7 @@ Anbsp
 AmbientOcclusion
 Ajustments
 Accumulation
+Aperture
 URL
 Utools
 Users
@@ -59330,6 +59335,7 @@ RequireCompoment
 Rocks
 Rock
 RealtimeLights
+RcpMaxCoC
 Microsoft
 Menu
 MicaForEveryone
@@ -64124,6 +64130,8 @@ MatrixPreviousMI
 MeshEditor
 MultiPass
 Matcap
+MaxCoc
+MaxCoC
 Windows
 Win
 World
@@ -73192,6 +73200,7 @@ SubMesh
 ScriptableRenderFeature
 SkinSSSDarkBound
 SkinSSSBrightBound
+SetSourceSize
 Programs
 POP
 PC
@@ -77489,6 +77498,8 @@ PREV
 ProbePosition
 ProBuilder
 Polybrush
+PostProcessUtils
+Postfilter
 ContextMenuManager
 ClashVerge
 Clash
@@ -94382,6 +94393,7 @@ probuilder
 progrid
 playerController
 polygons
+premultiply
 nodesCatch
 nobr
 navy
@@ -105581,6 +105593,9 @@ fdcb
 frameborder
 fearture
 filer
+farColor
+focal
+focusDistance
 dd
 dcc
 data
@@ -109863,6 +109878,8 @@ dragon
 dalao
 damage
 destinationTag
+dstAlpha
+dstColor
 TFvYZOKeHL
 TAB
 TeX
@@ -114037,6 +114054,7 @@ TwoPassReflection
 TEXCUBE
 TsinH
 TangentMap
+TaaParams
 io
 ipad
 it
@@ -123393,6 +123411,10 @@ skybbox
 shaderTags
 shaderTagIdList
 sortingCriteria
+sampCoC
+scaledFilmHeight
+scaleFilmHeight
+sheet
 local
 list
 left
@@ -154742,6 +154764,11 @@ FlyToTarget
 Fixedtimestep
 FBXExporter
 FaceShadowMap
+FarStart
+FarEnd
+Focuse
+FilmHeight
+Foucs
 Element
 Entity
 Enity
@@ -169939,6 +169966,7 @@ DestinationPoint
 DepthFailBeta
 Deprecated
 DirectionMap
+Disance
 LNK
 Log
 Linux
@@ -174115,6 +174143,7 @@ LoadSceneAsync
 LookAtPoint
 LightModeTag
 LWGUI
+LensCoeff
 Getx
 GetX
 GetName
@@ -178797,6 +178826,7 @@ Golem
 GetCurrentAnimatorStateInfo
 GetShadowPositionHClips
 GetUniversalAdditionalCameraData
+Gama
 NULL
 Native
 NormalMap
@@ -203197,6 +203227,7 @@ kBl
 kDieletricSpec
 keng
 killPoint
+kDiskKernell
 zoom
 zw
 zaG

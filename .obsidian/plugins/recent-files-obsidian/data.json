@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "06 ta101后处理",
+      "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "05 故障Glitch",
+      "path": "技术美术/3 后处理/05 故障Glitch.md"
+    },
+    {
+      "basename": "04 SSAO",
+      "path": "技术美术/3 后处理/04 SSAO.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
+      "basename": "03 景深",
+      "path": "技术美术/3 后处理/03 景深.md"
+    },
+    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -69,10 +93,6 @@
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
@@ -87,10 +107,6 @@
     {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "03 景深",
-      "path": "技术美术/3 后处理/03 景深.md"
     },
     {
       "basename": "04 溶解",
@@ -149,24 +165,8 @@
       "path": "技术美术/2 着色器/各向异性.md"
     },
     {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
-      "basename": "05 故障Glitch",
-      "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
       "basename": "05 模板测试",
       "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "04 SSAO",
-      "path": "技术美术/3 后处理/04 SSAO.md"
     },
     {
       "basename": "缴费",
