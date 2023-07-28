@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,9 +206,19 @@
   },
   "active": "d7e788dd860424c3",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230728100306.png",
+    "zip/images/Pasted image 20230728100300.png",
+    "zip/images/Pasted image 20230728095822.png",
+    "zip/images/Pasted image 20230728095818.png",
+    "zip/images/Pasted image 20230728095750.png",
+    "zip/images/Pasted image 20230728095444.png",
+    "zip/images/Pasted image 20230728095425.png",
+    "zip/images/Pasted image 20230728095412.png",
+    "zip/images/Pasted image 20230728094553.png",
+    "zip/images/Pasted image 20230728093537.png",
+    "图形学/1 图形系统/10 色彩.md",
     "zip/images/Pasted image 20230727235440.png",
     "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/10 色彩.md",
     "图形学/3 全局光照GI/06 全局光照GI.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "图形学/3 全局光照GI/04 路径追踪.md",
@@ -230,16 +240,6 @@
     "图形学/0 3D数学/公式推导/04 纹理映射.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/3 后处理/03 景深.md",
-    "zip/images/756b5b3a39cd7db19ded32416f757521_MD5.gif",
-    "zip/images/523be508961b77461fa8dfb6d35be161_MD5.gif",
-    "zip/images/d3372f550a79721e50271eb511e75212_MD5.gif",
-    "zip/images/ead2aa3487019cad29c8ec8c16423dd2_MD5.gif",
-    "zip/images/89799a49ce55b91c550fabcb91f21d9d_MD5.png",
-    "zip/images/6886e77a6367cfa9487be1d649061802_MD5.png",
-    "zip/images/f533ae52e3a14844e46c46b048c9bb77_MD5.png",
-    "zip/images/8b5e03398055a07d445b69dc82ba5ec4_MD5.png",
-    "zip/images/62deea589217c519c988c52b0649e807_MD5.gif",
-    "zip/images/89e7efe38e507926cb4ab949ebb4075a_MD5.gif",
     "技术美术/1 渲染雅集/04 溶解.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "引擎Unity3D/收藏夹/动画系统",

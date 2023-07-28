@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
     },
@@ -71,10 +75,6 @@
     {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "03 深度法线纹理",
