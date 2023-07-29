@@ -5,16 +5,20 @@
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "23 科幻扫描效果后篇",
@@ -195,10 +199,6 @@
     {
       "basename": "动画曲线",
       "path": "引擎Unity3D/收藏夹/动画系统/动画曲线.md"
-    },
-    {
-      "basename": "Unity 曲面细分着色器详解",
-      "path": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
     }
   ],
   "omittedPaths": [],
