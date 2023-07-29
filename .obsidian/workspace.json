@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/进度.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "DCC/02 Blender/进度.md"
               }
             }
           }
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/进度.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "DCC/02 Blender/进度.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,8 +166,10 @@
   },
   "active": "c1af8b2b803d42a8",
   "lastOpenFiles": [
-    "DCC/02 Blender/建模原理.md",
+    "zip/images/Pasted image 20230729121928.png",
     "DCC/02 Blender/辣椒酱.md",
+    "DCC/02 Blender/进度.md",
+    "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
     "zip/images/529863ccfb20d311b5a50f5d0059948f_MD5.jpg",
@@ -200,7 +202,6 @@
     "技术美术/3 后处理/04 SSAO.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
-    "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
