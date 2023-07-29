@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
               }
             }
           }
@@ -153,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,12 +203,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "0c42e88113d118b7",
+  "active": "c1af8b2b803d42a8",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "灵感.md",
     "README.md",
