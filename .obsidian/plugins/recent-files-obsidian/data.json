@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+    },
+    {
+      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
+    },
+    {
       "basename": "M_Studio 教程",
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
@@ -71,10 +87,6 @@
     {
       "basename": "03 景深",
       "path": "技术美术/3 后处理/03 景深.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "10 色彩",
@@ -187,18 +199,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],

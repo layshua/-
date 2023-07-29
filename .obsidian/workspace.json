@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+                "file": "DCC/02 Blender/辣椒酱.md"
               }
             }
           }
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -166,42 +166,41 @@
   },
   "active": "c1af8b2b803d42a8",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+    "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
+    "zip/images/529863ccfb20d311b5a50f5d0059948f_MD5.jpg",
+    "zip/images/9e6dce84a2ff033e3bc071b5b843f5a8_MD5.jpg",
+    "zip/images/a765fca302e1de396151846cbbfd577a_MD5.jpg",
+    "zip/images/47a399e13a949454462ca11e90dc653e_MD5.jpg",
+    "zip/images/853b5638594ec27c752f71313df7d7ea_MD5.jpg",
+    "zip/images/df7261e534e98bac1f43a97b1757694c_MD5.jpg",
+    "zip/images/1341d623cf175832d3f19e1b694b4941_MD5.jpg",
+    "zip/images/e64104a88c0d85f4c974f5290601935b_MD5.jpg",
+    "zip/images/055fa3c12d9a9c9667e53f55b435b2b6_MD5.jpg",
+    "zip/images/43847ea1411cb9260665ddec50678c3e_MD5.jpg",
+    "DCC/02 Blender/辣椒酱.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "zip/images/Pasted image 20230728195227.png",
-    "zip/images/Pasted image 20230728173213.png",
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/07 草.md",
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "zip/images/Pasted image 20230728155817.png",
-    "zip/images/Pasted image 20230728155159.png",
     "图形学/1 图形系统/06 深度测试.md",
     "技术美术/3 后处理/06 ta101后处理.md",
     "技术美术/3 后处理/05 故障Glitch.md",
     "技术美术/3 后处理/04 SSAO.md",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
-    "DCC/02 Blender/建模原理.md",
-    "zip/images/Pasted image 20230728105942.png",
-    "zip/images/Pasted image 20230728105217.png",
-    "zip/images/Pasted image 20230728105052.png",
-    "zip/images/Pasted image 20230728103328.png",
-    "zip/images/Pasted image 20230728102211.png",
-    "zip/images/Pasted image 20230728101334.png",
     "图形学/1 图形系统/10 色彩.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/3 全局光照GI/06 全局光照GI.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
-    "图形学/3 全局光照GI/04 路径追踪.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
