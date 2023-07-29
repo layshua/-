@@ -5,16 +5,16 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "23 科幻扫描效果后篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "22 科幻扫描效果前篇",
