@@ -73203,6 +73203,7 @@ SkinSSSBrightBound
 SetSourceSize
 Squared
 Squares
+SetupRenderPasses
 Programs
 POP
 PC
@@ -82036,6 +82037,7 @@ CameraRenderType
 CameraOutput
 Charolic
 Cage
+ConfigureInput
 ImTip
 IMAP
 ID
