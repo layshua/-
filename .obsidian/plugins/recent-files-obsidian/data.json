@@ -5,12 +5,24 @@
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
-      "basename": "6 脚本",
-      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
     },
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
       "basename": "2 URP",
@@ -19,14 +31,6 @@
     {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "README",
@@ -195,10 +199,6 @@
     {
       "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
       "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
-    },
-    {
-      "basename": "动画曲线",
-      "path": "引擎Unity3D/收藏夹/动画系统/动画曲线.md"
     }
   ],
   "omittedPaths": [],
