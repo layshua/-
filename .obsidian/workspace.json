@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -204,12 +204,13 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "0c42e88113d118b7",
+  "active": "95b89657673a15aa",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "README.md",
+    "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
+    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "灵感.md",
@@ -241,7 +242,6 @@
     "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",

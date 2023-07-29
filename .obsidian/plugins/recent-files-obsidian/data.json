@@ -5,16 +5,20 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "URP14后处理框架搭建",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
+    },
+    {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "23 科幻扫描效果后篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "22 科幻扫描效果前篇",
@@ -195,10 +199,6 @@
     {
       "basename": "Unity 曲面细分着色器详解",
       "path": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
-    },
-    {
-      "basename": "Unity 几何着色器详解",
-      "path": "技术美术/2 着色器/Unity 几何着色器详解.md"
     }
   ],
   "omittedPaths": [],
