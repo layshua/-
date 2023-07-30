@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "笔记",
+      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
       "basename": "02 光栅化",
       "path": "图形学/1 图形系统/02 光栅化.md"
     },
@@ -27,10 +43,6 @@
     {
       "basename": "23 科幻扫描效果后篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "6 脚本",
@@ -81,16 +93,8 @@
       "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
     },
     {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "笔记",
-      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     },
     {
       "basename": "01 图像模糊",
@@ -195,10 +199,6 @@
     {
       "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
       "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
-    },
-    {
-      "basename": "工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】",
-      "path": "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md"
     }
   ],
   "omittedPaths": [],

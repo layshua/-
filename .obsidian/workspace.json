@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -71,7 +71,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
@@ -165,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,7 +204,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "omnisearch:Omnisearch": true,
       "canvas:新建白板": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": true,
@@ -213,18 +212,22 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
-      "pdf-to-markdown-plugin:PDF to Markdown": false
+      "pdf-to-markdown-plugin:PDF to Markdown": false,
+      "omnisearch:Omnisearch": false
     }
   },
-  "active": "80a3d93639c36a63",
+  "active": "f84cd03b6f518b86",
   "lastOpenFiles": [
+    "引擎Unity3D/4 GamePlay/maco/笔记.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "README.md",
@@ -247,13 +250,10 @@
     "zip/images/1341d623cf175832d3f19e1b694b4941_MD5.jpg",
     "zip/images/e64104a88c0d85f4c974f5290601935b_MD5.jpg",
     "zip/images/055fa3c12d9a9c9667e53f55b435b2b6_MD5.jpg",
-    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
