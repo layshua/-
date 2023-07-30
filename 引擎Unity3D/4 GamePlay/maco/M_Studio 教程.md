@@ -771,7 +771,7 @@ public class CharacterData_SO : ScriptableObject
 
 ![](<images/1690255171493.png>)
 
-因为史莱姆是 fbx 包含了动画，所以是只读，无法编辑插入事件，需要手动复制一个动画出来才能编辑，选中 fbx 下面的动画 ctrl + D，复制一份就可以编辑了，需要在 Animator 窗口重新把之前的两个战斗 Animation 修改一下。  
+**因为史莱姆是 fbx 包含了动画，所以是只读，无法编辑插入事件，需要手动复制一个动画出来才能编辑，选中 fbx 下面的动画 ctrl + D，复制一份就可以编辑了，需要在 Animator 窗口重新把之前的两个战斗 Animation 修改一下。**  
 
 ![](<images/1690255171585.png>)
 
