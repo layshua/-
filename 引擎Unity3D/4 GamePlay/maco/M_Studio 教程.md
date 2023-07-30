@@ -801,7 +801,7 @@ guard 目标拉脱之后，回到位置，需要调整朝向。
 ![](<images/1690255171709.png>)
 
   
-死亡动画从任何状态都可以开始播放，因此从 any state 开始连接，，，另外要取消勾选 can transistion to self，不然会持续播放  
+死亡动画从任何状态都可以开始播放，因此从 any state 开始连接，，，另**外要取消勾选 can transistion to self，不然会持续播放**  
 
 # 19: 泛型单例模式 Singleton
 
