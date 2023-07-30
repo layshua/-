@@ -1,28 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
-    },
-    {
-      "basename": "6 脚本",
-      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
     },
     {
       "basename": "11 HDR",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
     },
     {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
       "basename": "06 雾",
