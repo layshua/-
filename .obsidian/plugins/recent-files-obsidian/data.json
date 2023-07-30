@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "22 科幻扫描效果前篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+    },
+    {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
@@ -79,10 +87,6 @@
     {
       "basename": "URP14后处理框架搭建",
       "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
-    },
-    {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
     },
     {
       "basename": "灵感",
@@ -195,10 +199,6 @@
     {
       "basename": "02 顶点动画",
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     }
   ],
   "omittedPaths": [],
