@@ -5,6 +5,14 @@
       "path": "DCC/02 Blender/建模原理.md"
     },
     {
+      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
+    },
+    {
+      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
@@ -111,14 +119,6 @@
     {
       "basename": "辣椒酱",
       "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
     },
     {
       "basename": "01 图像模糊",
