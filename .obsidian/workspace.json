@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -231,23 +231,26 @@
   },
   "active": "f84cd03b6f518b86",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "技术美术/1 渲染雅集/04 溶解.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "引擎Unity3D/3 URP精粹/6 脚本.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
-    "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "README.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
-    "技术美术/1 渲染雅集/05 描边.md",
     "灵感.md",
     "DCC/02 Blender/进度.md",
     "zip/images/Pasted image 20230729121928.png",
@@ -264,9 +267,6 @@
     "zip/images/1341d623cf175832d3f19e1b694b4941_MD5.jpg",
     "zip/images/e64104a88c0d85f4c974f5290601935b_MD5.jpg",
     "zip/images/055fa3c12d9a9c9667e53f55b435b2b6_MD5.jpg",
-    "技术美术/3 后处理/01 图像模糊.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",

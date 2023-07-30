@@ -819,7 +819,7 @@ GameManager 默认齿轮图标
 
 创建泛型单例脚本，放在 Tools 文件夹
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -837,7 +837,7 @@ public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
 
 虚函数的讲解
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -888,7 +888,7 @@ public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
 其他还有一些像抽象工厂、模板模式等等因为自己理解不太够和在开发中遇到的不够就不细说**  
 通常单例模式不希望在切换场景的时候被销毁，通常重写 Awake，使用 override 和 base 关键词
 
-```
+```cs
 //[System.Serializable]
 //public class EventVector3 : UnityEvent<Vector3> { }  //继承了vector3类型
 //继承SingleTon<>类型，并传入了一个属于SingleTon类的子类MouseManager
