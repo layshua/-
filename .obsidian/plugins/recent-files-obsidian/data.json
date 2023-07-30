@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "庄懂AP01",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
+    },
+    {
+      "basename": "URP14后处理框架搭建",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
+    },
+    {
       "basename": "23 科幻扫描效果后篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
     },
@@ -19,10 +35,6 @@
     {
       "basename": "11 HDR",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "6 脚本",
@@ -81,16 +93,8 @@
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "URP14后处理框架搭建",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
     },
     {
       "basename": "灵感",
@@ -195,10 +199,6 @@
     {
       "basename": "参数化曲线",
       "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "04 纹理映射",
-      "path": "图形学/0 3D数学/公式推导/04 纹理映射.md"
     }
   ],
   "omittedPaths": [],

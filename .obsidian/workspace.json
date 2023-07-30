@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -193,8 +193,11 @@
   },
   "active": "f84cd03b6f518b86",
   "lastOpenFiles": [
-    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md",
+    "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/常用HLSL函数.md",
     "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md",
@@ -212,14 +215,11 @@
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "README.md",
-    "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
     "灵感.md",
     "DCC/02 Blender/进度.md",
     "zip/images/Pasted image 20230729121928.png",
     "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/建模原理.md",
     "zip/images/529863ccfb20d311b5a50f5d0059948f_MD5.jpg",
     "zip/images/9e6dce84a2ff033e3bc071b5b843f5a8_MD5.jpg",
     "zip/images/a765fca302e1de396151846cbbfd577a_MD5.jpg",
