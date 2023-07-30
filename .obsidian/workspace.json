@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "3f3061f4c9ec2488",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "95b89657673a15aa",
             "type": "leaf",
             "state": {
@@ -218,8 +231,9 @@
   },
   "active": "f84cd03b6f518b86",
   "lastOpenFiles": [
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "图形学/1 图形系统/01 渲染管线.md",
@@ -250,7 +264,6 @@
     "zip/images/1341d623cf175832d3f19e1b694b4941_MD5.jpg",
     "zip/images/e64104a88c0d85f4c974f5290601935b_MD5.jpg",
     "zip/images/055fa3c12d9a9c9667e53f55b435b2b6_MD5.jpg",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/3 后处理/01 图像模糊.md",
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
