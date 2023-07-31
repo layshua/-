@@ -5,16 +5,20 @@
       "path": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
     },
     {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "灵感",
+      "path": "灵感.md"
+    },
+    {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "建模原理",
@@ -115,10 +119,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "灵感",
-      "path": "灵感.md"
     },
     {
       "basename": "进度",

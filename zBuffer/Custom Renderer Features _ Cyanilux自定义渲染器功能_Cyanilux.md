@@ -821,40 +821,6 @@ Cyan objects are on separate Layer, not used by feature’s LayerMask setting. N
 Another similar example is [this Horizon Zero Dawn inspired highlight/glitch effect](https://twitter.com/Cyanilux/status/1575877789403815940) I made a while ago.  
 另一个类似的例子是我不久前制作的受地平线零点黎明启发的亮点/故障效果。
 
-## Setting values on features at Runtime  
-在运行时设置功能的值
-
-For some effects, you may want to set public or serialised fields/properties on a feature, from a C# Script at runtime.  
-对于某些效果，您可能希望在运行时从C#脚本设置功能的公共或串行字段/属性。
-
-If this is only for a **specific** instance of a feature on a single Renderer asset, you should be able to do this quite easily by exposing a public field in your MonoBehaviour. e.g.  
-如果这只是针对单个渲染器资源上某个功能的特定实例，那么通过在MonoPhavior中公开一个公共字段，应该可以很容易地做到这一点。例如。
-
-```
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-
-public class SomeScript : MonoBehaviour {
-
-    public CustomRendererFeature feature;
-    // This feature uses the same "Settings class" example as shown in other sections
-    // If you set public fields on the feature directly, that won't update the pass (unless you call Dispose and Create)
-
-    // Call this method to set Override Material used by feature
-    void SetMaterial(Material material, int passIndex){
-        feature.settings.overrideMaterial = material;
-        feature.settings.overrideMaterialPass = passIndex;
-    }
-
-}
-```
-
-If you need to do this for **multiple** instances of a feature, you can use an array of those features instead (so `HighlightRendererFeature[]` in this example). Another method could be to use a ScriptableObject to hold the Settings data, which the feature/pass and our SomeScript would have a reference to.  
-如果需要对一个功能的多个实例执行此操作，则可以使用这些功能的数组（因此在本例中为 `HighlightRendererFeature[]` ）。另一种方法可以是使用ScriptableObject来保存设置数据，功能/过程和SomeScript将引用这些数据。
-
-You could also try to get the Renderer Asset and loop through the features. But those aren’t public, so might require Reflection, not ideal.  
-您也可以尝试获取渲染器资源并循环使用这些功能。但这些都不是公开的，所以可能需要反思，这并不理想。
 
 ## Connecting a feature to a URP Volume  
 将功能连接到URP卷
@@ -866,7 +832,7 @@ I won’t be including an example here as [Febucci already has good tutorial of 
 我不会在这里包括一个例子，因为Febucci已经有了很好的教程（不过请注意，通行证的代码使用RenderTargetIdentifier，应该在2022+中转换为RTHandles）
 
 The next section may also provide a small improvement to this, as we can get the ScriptableRenderPass to run without even needing a Renderer Feature. The example below is for a MonoBehaviour but maybe the same thing could work for VolumeComponent.OnEnable/OnDisable.  
-下一节还可能对此进行一些小的改进，因为我们甚至可以在不需要渲染器功能的情况下运行ScriptableRenderPass。下面的例子是针对MonoBehavior的，但可能同样的事情也适用于VolumeComponent.OnEnable/OnDisable。
+下一节还可能对此进行一些小的改进，因为我们甚至可以在不需要 Renderer Feature.的情况下运行 ScriptableRenderPass。下面的例子是针对 MonoBehavior 的，但可能同样的事情也适用于 VolumeComponent.OnEnable/OnDisable。
 
 ## RenderPipelineManager 渲染管线管理器
 
@@ -935,7 +901,3 @@ Note that while the pass is enqueued at the beginning of the camera render, the 
 Of course the script here would still need to be put onto an GameObject in the scene - but that could be considered easier than adding a Renderer Feature? 🤷  
 当然，这里的脚本仍然需要放在场景中的游戏对象上，但这可以被认为比添加渲染器功能更容易吗？🤷  
 
-## Thanks for reading! 感谢阅读！
-
-If this post helped, consider sharing a link with others!  
-如果这篇文章有帮助，可以考虑与其他人共享链接！
