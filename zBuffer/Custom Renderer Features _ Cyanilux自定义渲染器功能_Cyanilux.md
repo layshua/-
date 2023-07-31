@@ -85,13 +85,9 @@ The github links here are for the “master” branch so may not be accurate to 
 
 ### RenderPassEvent RenderPassEvent
 
-Also in this Create method (or the constructor of the render pass) we typically set the `renderPassEvent` field of the pass. This configures when the render pass will run.  
-此外，在这个Create方法（或渲染过程的构造函数）中，我们通常设置过程的 `renderPassEvent` 字段。这会配置渲染过程何时运行。
-
-It uses the `RenderPassEvent` enum, which contains these entries/values :  
 它使用 `RenderPassEvent` 枚举，其中包含以下条目/值：
 
-```
+```c
 BeforeRendering = 0
 BeforeRenderingShadows = 50
 AfterRenderingShadows = 100
@@ -112,13 +108,8 @@ AfterRenderingPostProcessing = 600
 AfterRendering = 1000
 ```
 
-Be aware that **camera matrices and stereo rendering** is not set up until the `BeforeRenderingPrePasses` event (value of 150).  
-请注意，在 `BeforeRenderingPrePasses` 事件（值为150）之前，不会设置摄影机矩阵和立体渲染。
+请注意，在 `BeforeRenderingPrePasses` 事件（值为150）之前，不会设置摄影机矩阵和 stereo rendering。
 
-More enum entries may be added in newer versions. Can find it’s declaration in [ScriptableRenderPass.cs](https://github.com/Unity-Technologies/Graphics/blob/master/Packages/com.unity.render-pipelines.universal/Runtime/Passes/ScriptableRenderPass.cs).  
-在较新版本中可能会添加更多枚举条目。可以在ScriptableRenderPass.cs中找到它的声明。
-
-Typically you’ll set the field using the enum itself :  
 通常，您将使用枚举本身设置字段：
 
 ```
@@ -129,7 +120,6 @@ m_ScriptablePass.renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
 For passes with the same renderPassEvent value, the order should be the same as it appears on the Renderer Features list (or order of EnqueuePass if enqueuing multiple passes in a single feature).  
 对于具有相同renderPassEvent值的过程，顺序应与“渲染器功能”列表上显示的顺序相同（如果在单个功能中对多个过程进行排队，则为EnqueuePass的顺序）。
 
-If you need to specify a pass to run at a particular point inbetween other passes, you can also provide an offset to the values. For example the following would run after any passes with just `RenderPassEvent.BeforeRenderingPostProcessing` (value of 550) :  
 如果需要指定在其他过程之间的特定点运行的过程，也可以提供值的偏移。例如，以下内容将在只有 `RenderPassEvent.BeforeRenderingPostProcessing` （值550）的任何传递之后运行：
 
 ```
@@ -137,7 +127,6 @@ m_ScriptablePass.renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing
 // (aka value of 551)
 ```
 
-Just don’t make that offset too high, BeforeRenderingPostProcessing has a value of 550 in the enum. So doing `BeforeRenderingPostProcessing + 50` would then be equivalent to `AfterRenderingPostProcessing`.  
 只是不要使偏移量太高，BeforeRenderingPostProcessing在枚举中的值为550。因此，这样做 `BeforeRenderingPostProcessing + 50` 就相当于 `AfterRenderingPostProcessing` 。
 
 ## Dispose 处置
@@ -148,7 +137,7 @@ While not a part of the template, we can add a Dispose method to the feature. Th
 In editor, the method is called when removing features, recompling scripts, entering/exiting play mode. (Not too sure when it gets called in builds, probably when changing scenes?)  
 在编辑器中，当删除功能、重新编译脚本、进入/退出播放模式时，会调用该方法。（不太确定它何时在构建中被调用，可能是在更改场景时？）
 
-```
+```c
 public Shader shader; // expose a Shader field
 
 private Material material;
@@ -182,16 +171,15 @@ Unity很可能会自动清理一些未使用的资源（例如，在场景更改
 
 ## AddRenderPasses AddRenderPass
 
-This method is responsible for injecting/enqueuing ScriptableRenderPasses with URP’s Renderer. By default it’ll already have `renderer.EnqueuePass(m_ScriptablePass)` and that may be all we need here. But it is possible to enqueue multiple passes if required.  
+
 此方法负责将ScriptableRenderPass与URP的Renderer注入/排队。默认情况下，它已经有 `renderer.EnqueuePass(m_ScriptablePass)` 了，这可能就是我们在这里所需要的。但是，如果需要，可以将多个通行证排队。
 
-The comment in the template mentions this method is called once for each camera, but be aware this is also **every frame/update**, so avoid creating/instantiating anything in here (can use the Create method for that).  
-模板中的注释提到，每个相机调用一次该方法，但请注意，这也是每个帧/更新，因此避免在此处创建/实例化任何内容（可以使用Create方法）。
+**模板中的注释提到，每个相机调用一次该方法，但请注意，这也是每个帧/更新，因此避免在此处创建/实例化任何内容（可以使用Create方法）。**
 
 Also note that by default it would enqueue the pass for _all_ cameras - including ones used by the Unity Editor. In order to avoid this, we can test the camera type and return before enququeing (or can check later during Execute to prevent that function running, if you prefer).  
-还要注意，默认情况下，它会将所有相机的通行证排队，包括Unity Editor使用的相机。为了避免这种情况，我们可以在查询之前测试相机类型并返回（如果您愿意，也可以稍后在执行过程中检查以阻止该函数运行）。
+**还要注意，默认情况下，它会将所有相机的通行证排队**，包括Unity Editor使用的相机。为了避免这种情况，我们可以在查询之前测试相机类型并返回（如果您愿意，也可以稍后在执行过程中检查以阻止该函数运行）。
 
-```
+```c
 public bool showInSceneView;
 
 public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
@@ -213,9 +201,9 @@ public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingD
 ```
 
 As shown, we can also test against `Camera.main` if you only want the feature to run on the Main Camera. If you only want it to run on a different specific camera you could potentially set a Camera field at runtime (can’t during editor as assets can’t serialise scene references).  
-如图所示，如果您只想在主摄像头上运行该功能，我们也可以针对 `Camera.main` 进行测试。如果只希望它在不同的特定摄影机上运行，则可以在运行时设置“摄影机”字段（在编辑器期间不能设置，因为资源无法序列化场景引用）。  
+如图所示，如果您只想在主摄像头上运行该功能，我们也可以针对 `Camera.main` 进行测试。如果只希望它在不同的特定摄影机上运行，则可以在运行时设置“摄影机”字段（**在编辑器期间不能设置，因为资源无法序列化场景引用**）。  
 Though a better way to handle these would be to create multiple “Renderer” assets (e.g. Universal Renderers), assign them to the list on the **URP Asset(s)** (may have multiple per quality setting), then use the **Renderer** dropdown on each **Camera** component to select which index it should use. That way, you can choose which renderer features are used on a per-camera basis (without it being hardcoded).  
-虽然处理这些问题的更好方法是创建多个“渲染器”资源（例如通用渲染器），将它们分配到URP资源上的列表中（可能有多个每个质量的设置），然后使用每个相机组件上的“渲染器（Renderer）”下拉列表来选择应该使用的索引。这样，您就可以选择在每个摄影机的基础上使用哪些渲染器功能（而无需对其进行硬编码）。
+虽然处理这些问题的更好方法是创建多个 URP Assets，将它们分配到 URP 资源上的列表中（可能有多个每个质量的设置），然后使用每个相机组件上的“渲染器（Renderer）”下拉列表来选择应该使用的索引。这样，您就可以选择在每个摄影机的基础上使用哪些渲染器功能（而无需对其进行硬编码）。
 
 In 2021.2+ you should avoid accessing camera targets here (e.g. `cameraColorTargetHandle` / `cameraDepthTargetHandle`, or older `cameraColorTarget` / `cameraDepthTarget` on the `ScriptableRenderer` param) as these may not have been allocated yet! We can either obtain those targets directly in the passes Execute method, or add the SetupRenderPasses method (see below)  
 在2021.2+中，您应该避免访问此处的相机目标（例如，#4参数上的 `cameraColorTargetHandle` / `cameraDepthTargetHandle` 或旧的 `cameraColorTarget` / `cameraDepthTarget` ），因为这些目标可能尚未分配！我们可以直接在passesExecute方法中获得这些目标，也可以添加SetupRenderPass方法（见下文）
@@ -237,13 +225,13 @@ We can also call `ConfigureInput` in this method, which allows us to request URP
     *   Make URP generate `_MotionVectorTexture` and `_MotionVectorDepthTexture`  
         使URP生成 `_MotionVectorTexture` 和 `_MotionVectorDepthTexture`
 
-This appears to only work for the Universal Renderer. The 2D Renderer seems to ignore it.  
+
 这似乎只适用于通用渲染器。2D渲染器似乎忽略了它。
 
 These textures are generated at usual events, so won’t necessarily be ready for the event the pass is enqueued at. `_CameraOpaqueTexture` would only be used in the BeforeRenderingTransparents event or later for example.  
-这些纹理是在通常的事件中生成的，因此不一定为过程排队的事件做好准备。例如， `_CameraOpaqueTexture` 只会在BeforeRenderingTransparents事件或更高版本中使用。  
+这些纹理是在通常的事件中生成的，因此不一定为过程排队的事件做好准备。例如， `_CameraOpaqueTexture` 只会在 BeforeRenderingTransparents 事件或更早使用。  
 However the depth texture will be generated using a DepthPrepass if using the BeforeRenderingOpaques event and CopyDepth when using AfterRenderingOpaques (assuming it isn’t already using a prepass for other reasons). Can always check the [Frame Debugger window](https://docs.unity3d.com/2022.2/Documentation/Manual/frame-debugger-window.html) to see the order of everything!  
-但是，如果使用BeforeRenderingOpaques事件，则深度纹理将使用DepthPrepass生成，如果使用AfterRenderingOpaques事件，将使用CopyDepth生成（假设由于其他原因尚未使用预处理）。可以随时查看“框架调试器”窗口以查看所有内容的顺序！
+**但是，如果使用BeforeRenderingOpaques事件，则深度纹理将使用DepthPrepass生成，如果使用AfterRenderingOpaques事件，将使用CopyDepth生成（假设由于其他原因尚未使用预处理）。可以随时查看“框架调试器”窗口以查看所有内容的顺序！**
 
 If you need multiple of these inputs, don’t call `ConfigureInput` multiple times (that will just override the value). As the enum has the `[Flags]` attribute, you can use the `|` operator to combine them instead. Example below.  
 如果您需要这些输入中的多个，请不要多次调用 `ConfigureInput` （这只会覆盖值）。由于枚举具有 `[Flags]` 属性，因此可以使用 `|` 运算符来组合它们。以下示例。
@@ -261,40 +249,7 @@ public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingD
 }
 ```
 
-## SetupRenderPasses SetupRenderPass
 
-This method was added in Unity 2021.2 (URP v12). It doesn’t exist in the template, but it can be added inside the feature class. If your feature requires accessing the camera targets, you should do it inside this method rather than AddRenderPasses.  
-Unity 2021.2（URP v12）中添加了此方法。它不存在于模板中，但可以添加到要素类中。如果你的功能需要访问相机目标，你应该在这个方法而不是AddRenderPass中进行。
-
-For example : 例如：
-
-```
-// in feature
-public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData) {
-    RTHandle color = renderer.cameraColorTargetHandle;
-    RTHandle depth = renderer.cameraDepthTargetHandle;
-    m_ScriptablePass.Setup(color, depth);
-    // For versions prior to 2022, use RenderTargetIdentifier type instead,
-    // with renderer.cameraColorTarget / renderer.cameraDepthTarget
-}
-
-// in pass
-private RTHandle rtDestinationColor;
-private RTHandle rtDestinationDepth;
-
-public void Setup(RTHandle destColor, RTHandle destDepth){
-    rtDestinationColor = destColor;
-    rtDestinationDepth = destDepth
-}
-```
-
-Personally I usually access targets directly in Execute which also works (though I guess that is more hardcoded). Accessing them here and passing them into the pass may make the pass more flexible.  
-就我个人而言，我通常直接在Execute中访问目标，这也有效（尽管我想这是更硬编码的）。在这里访问它们并将它们传递到通行证中可能会使通行证更加灵活。
-
-To be clear, `Setup` here could be named anything, it would just be a method inside the pass that is used to pass the RTHandle through. The destination RTHandles would then be used by the pass. (For example, could be used to configure the target in OnCameraSetup or used in a blit call in Execute.  
-需要明确的是，这里的 `Setup` 可以命名为任何名称，它只是用于传递RTHandle的传递中的一个方法。目标RTHandles随后将由传递使用。（例如，可以用于在OnCameraSetup中配置目标，也可以用于Execute中的blit调用。  
-Later sections will explain these). This way, the same ScriptableRenderPass could potentially be used in multiple features with different destinations.  
-后面的部分将对此进行解释）。这样，同一个ScriptableRenderPass可能会用于具有不同目的地的多个功能。
 
 ## OnCameraSetup OnCamera设置
 
@@ -309,7 +264,7 @@ But in the cases that we want to specify our **own targets**, we can use one of 
 RTHandles are the way to handle render targets in Unity 2022+. Typically we allocate one inside OnCameraSetup using `RenderingUtils.ReAllocateIfNeeded` :  
 RTHandles是在Unity 2022+中处理渲染目标的方法。通常，我们使用 `RenderingUtils.ReAllocateIfNeeded` 在OnCameraSetup中分配一个：
 
-```
+```c
 // To create a Color Target :
 var colorDesc = renderingData.cameraData.cameraTargetDescriptor;
 colorDesc.depthBufferBits = 0; // must set to 0 to specify a colour target
@@ -343,7 +298,7 @@ There are also Alloc overrides to create an RTHandle from a RenderTargetIdentifi
 RTHandles also need to be released when they are no longer needed (by calling `.Release();` on it). You may want to do this in a function called by the Dispose function of the feature. e.g.  
 RTHandles在不再需要时也需要释放（通过调用它的 `.Release();` ）。您可能希望在功能的Dispose函数调用的函数中执行此操作。例如。
 
-```
+```cs
 public class CustomRendererFeature : ScriptableRendererFeature {
     class CustomRenderPass : ScriptableRenderPass {
         ...
@@ -372,7 +327,7 @@ These take either one or two parameters, the first being the colour target (like
 These parameters need to be of the type `RTHandle` (or `RenderTargetIdentifier` but those functions are deprecated as of Unity 2022).  
 这些参数的类型需要为 `RTHandle` （或 `RenderTargetIdentifier` ，但自Unity 2022以来，这些函数已被弃用）。
 
-```
+```c
 private RTHandle colorTarget, depthTarget;
 
 public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData) {
@@ -412,7 +367,7 @@ public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderin
 ```
 
 The first param of `ConfigureTarget` can also be an _array_ of colour targets, which sets up what is known as Multi-Target Rendering (MRT) assuming the target platform supports it. That allows you to render objects into multiple buffers at the same time by having the fragment shader use `SV_Target0`, `SV_Target1`, `SV_Target2`, etc in the fragment shader output (rather than just `SV_Target`). An example of this is Deferred Rendering, which sets up multiple “gbuffer” targets and configures them using this.  
-`ConfigureTarget` 的第一个参数也可以是一组颜色目标，假设目标平台支持，它会设置所谓的多目标渲染（MRT）。这允许您通过让片段着色器在片段着色器输出中使用 `SV_Target0` 、 `SV_Target1` 、 `SV_Target2` 等（而不仅仅是#4），同时将对象渲染到多个缓冲区中。延迟渲染就是一个例子，它设置了多个“gbuffer”目标，并使用它进行配置。
+**`ConfigureTarget` 的第一个参数也可以是一组颜色目标，假设目标平台支持，它会设置所谓的多目标渲染（MRT）。这允许您通过让片段着色器在片段着色器输出中使用 `SV_Target0` 、 `SV_Target1` 、 `SV_Target2` 等（而不仅仅是 #4 ），同时将对象渲染到多个缓冲区中。** 延迟渲染就是一个例子，它设置了多个“gbuffer”目标，并使用它进行配置。
 
 ### ConfigureClear ConfigureClear
 
@@ -459,7 +414,7 @@ We do not need to call `ScriptableRenderContext.Submit` as URP handles this for 
 To properly title things in the [Profiler](https://docs.unity3d.com/Manual/ProfilerWindow.html) & [Frame Debugger](https://docs.unity3d.com/2022.2/Documentation/Manual/frame-debugger-window.html) windows, the usual way to set up the Execute function is like this :  
 要在Profiler和Frame Debugger窗口中正确命名，设置Execute函数的常用方法如下：
 
-```
+```cs
 // (in Pass)
 private ProfilingSampler m_ProfilingSampler;
 ...
