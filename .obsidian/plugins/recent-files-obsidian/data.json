@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客",
-      "path": "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md"
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "02 PBR理论",
@@ -11,18 +19,6 @@
     {
       "basename": "04 溶解",
       "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     },
     {
       "basename": "23 科幻扫描效果后篇",

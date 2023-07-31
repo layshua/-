@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,38 +47,12 @@
             }
           },
           {
-            "id": "c285226ca9a54576",
+            "id": "93c13d9aa073a396",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/常用HLSL函数.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "86649599dd0e5832",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2911e5774899c8e5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -99,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -142,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md"
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
               }
             }
           }
@@ -193,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -210,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -244,8 +218,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "2911e5774899c8e5",
+  "active": "93c13d9aa073a396",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+    "zip/images/Pasted image 20230731225948.png",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
     "zip/images/e0d21e096207e9bddbe499f78df6287e_MD5.gif",
     "zip/images/ee508c0391b6894eccbc9eff71b991e1_MD5.gif",
     "zip/images/d23522377f23fbab42ac6593ddb5c375_MD5.gif",
@@ -255,14 +235,7 @@
     "zip/images/33e01f352d91078361eca85ce521b81a_MD5.png",
     "zip/images/1305ee80657137c89fbaefbb6d9fcb38_MD5.png",
     "zip/images/38fecbc590a045564dd8c09f34b01c2b_MD5.gif",
-    "zip/images/f67cca779e9af6f80e0a8999a27985f1_MD5.png",
-    "zip/images/51abec5f071cfe1f281b12f6b291cba1_MD5.png",
-    "图形学/3 全局光照GI/02 PBR理论.md",
-    "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
     "技术美术/1 渲染雅集/04 溶解.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
