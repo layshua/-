@@ -454,17 +454,14 @@ Before moving on, it’s very important to understand a few things :
 在继续之前，了解以下几点非常重要：
 
 *   These rendering commands **do not happen straight away** - we are instead queueing up calls that URP will execute later.  
-    这些呈现命令并不是立即发生的，而是在排队等待URP稍后执行的调用。
-    *   This means for example, you cannot edit properties in a material and then call rendering commands and change the properties again - It’ll just use the last values you set. You can however, set global values through `CommandBuffer.SetGlobalX` functions (not through `Shader` class!)  
-        这意味着，例如，您不能编辑材质中的特性，然后调用渲染命令并再次更改特性——它将只使用您设置的最后一个值。但是，您可以通过 `CommandBuffer.SetGlobalX` 函数设置全局值（而不是通过 `Shader` 类！）
+    **这些渲染命令并不是立即发生的，而是在排队等待 URP 稍后执行的调用。**
+- 这意味着，例如，您不能编辑材质中的 properties，然后调用渲染命令并再次更改 properties——它将只使用您设置的最后一个值。但是，您可以通过 `CommandBuffer.SetGlobalX` 函数设置全局值（而不是通过 `Shader` 类！）
 *   After using command buffer functions. We must then **use `context.ExecuteCommandBuffer(cmd)` to let the feature actually know about them**. If something isn’t working, the first thing is to check that you’re actually executing it!  
-    使用命令缓冲区功能后。然后我们必须使用 `context.ExecuteCommandBuffer(cmd)` 让功能真正了解它们。如果某个东西不起作用，第一件事就是检查你是否真的在执行它！
+    使用 command buffer 函数 s 后。然后我们必须使用 `context.ExecuteCommandBuffer(cmd)` 让功能真正了解它们。如果某个东西不起作用，第一件事就是检查你是否真的在执行它！
 *   **Order is important**. If you want command buffer functions to run _before_ a ScriptableRenderContext function (e.g. DrawRenderers), you must `ExecuteCommandBuffer` first. (And ideally `Clear()` it, so you don’t end up calling those commands twice if you execute again later!)  
-    秩序很重要。如果希望命令缓冲区函数在ScriptableRenderContext函数（例如DrawRenderers）之前运行，则必须先 `ExecuteCommandBuffer` 。（理想情况下是 `Clear()` ，这样，如果以后再次执行，就不会调用这些命令两次！）
-    *   Even if you don’t call a function on the CommandBuffer object specifically (e.g. `cmd.Blit`), keep an eye on any functions that you need to pass the CommandBuffer into as a parameter, such as `Blit(cmd, ...)`. This means it’s going to be adding commands to it still!  
-        即使您没有专门调用CommandBuffer对象上的函数（例如 `cmd.Blit` ），也要关注需要将CommandBuffer作为参数传递到的任何函数，例如 `Blit(cmd, ...)` 。这意味着它仍将向其中添加命令！
-    *   Also related & commented in the above code too, always try to **call `ExecuteCommandBuffer` at least once before using ScriptableRenderContext functions** (e.g. DrawRenderers) and again **outside the using ProfilingScope**.  
-        在上面的代码中也有相关和注释，在使用ScriptableRenderContext函数（例如DrawRenderers）之前，请尝试至少调用 `ExecuteCommandBuffer` 一次，并在使用ProfileScope之外再次调用。
+    顺序很重要。如果希望命令缓冲区函数在 ScriptableRenderContext 函数（例如 DrawRenderers）之前运行，则必须先 `ExecuteCommandBuffer` 。（理想情况下是 `Clear()` ，这样，如果以后再次执行，就不会调用这些命令两次！）
+    * 即使您没有专门调用CommandBuffer对象上的函数（例如 `cmd.Blit` ），也要关注需要将CommandBuffer作为参数传递到的任何函数，例如 `Blit(cmd, ...)` 。这意味着它仍将向其中添加命令！
+
 
 ## DrawRenderers DrawRenderers
 
@@ -480,7 +477,7 @@ Can see which properties are available in the Unity docs for [DrawingSettings](h
 *   A commonly used one is specifying an `overrideMaterial`. This will override the material completely, including previous property values.  
     一个常用的方法是指定 `overrideMaterial` 。这将完全覆盖材质，包括以前的特性值。
 *   In 2022.2+ we can now specify an `overrideShader`, which is similar to the concept of [Replacement Shaders](https://docs.unity3d.com/Manual/SL-ShaderReplacement.html) in the Built-in RP. Existing property values won’t be overridden. However, note that it does not support SRPBatcher and BatchRendererGroups so will be more expensive.  
-    在2022.2+中，我们现在可以指定 `overrideShader` ，这类似于内置RP中的替换着色器的概念。现有属性值不会被覆盖。但是，请注意，它不支持SRPBatcher和BatchRendererGroups，因此成本会更高。
+    在2022.2+中，我们现在可以指定 `overrideShader` ，这类似于内置RP中的替换着色器的概念。现有属性值不会被覆盖。但是，**请注意，它不支持SRPBatcher和BatchRendererGroups，因此成本会更高。**
 
 Unity will automatically get renderers from the cullResults, but we can specify filters in the **FilteringSettings** struct parameter. For creating this, see the [FilteringSettings constructor](https://docs.unity3d.com/ScriptReference/Rendering.FilteringSettings-ctor.html). If you don’t want to filter anything, can use `FilteringSettings.defaultValue`.  
 Unity将自动从cullResults中获取渲染器，但我们可以在FilteringSettings结构参数中指定过滤器。有关创建此项的信息，请参阅FilteringSettings构造函数。如果您不想过滤任何内容，可以使用 `FilteringSettings.defaultValue` 。
@@ -488,10 +485,9 @@ Unity将自动从cullResults中获取渲染器，但我们可以在FilteringSett
 Below is an example of using DrawRenderers to render any **opaque** objects, filtered by a LayerMask and specifying an Override Material (& pass index). Settings is a serialised class in the feature, as set up in the [Create section](#create).  
 以下是使用DrawRenderers渲染任何不透明对象的示例，这些对象由LayerMask过滤并指定“覆盖材质”（&pass索引）。Settings是功能中的一个串行类，如在Create部分中所设置的。
 
-If drawing **transparent** objects instead, you’d want to use `RenderQueueRange.transparent` and `SortingCriteria.CommonTransparent`. (And the RenderPassEvent would likely be set to at least AfterRenderingSkybox)  
 如果改为绘制透明对象，则需要使用 `RenderQueueRange.transparent` 和 `SortingCriteria.CommonTransparent` 。（RenderPassEvent可能至少设置为AfterRenderingSkybox）
 
-```
+```cs
 // in pass
 private Settings settings;
 private FilteringSettings filteringSettings;
@@ -583,12 +579,12 @@ For older versions, these methods are available :
 ### Example 实例
 
 When rendering we need to make sure we do not _read_ and _write_ to the same texture/target as this can cause “unintended behaviour” (to quote the `CommandBuffer.Blit` documentation). Because of this, if the source/destination needs to be the same, we actually need to instead use **two blits** with an additional target in-between.  
-渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个blit，中间有一个额外的目标。
+**渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个blit，中间有一个额外的目标。**
 
 In older versions this would typically be a “Temporary Render Texture” but with the change to RTHandles that’s not really used anymore. But I’ve still named it temp, and by using `RenderingUtils.ReAllocateIfNeeded`, the texture won’t be set up multiple times if the feature is used multiple times (or if other features use the same `_TemporaryColorTexture` reference) - so in a way, it still acts as a temporary texture, kinda.  
 在旧版本中，这通常是一个“临时渲染纹理”，但随着对RTHandles的更改，它不再真正使用。但我仍然将其命名为temp，通过使用 `RenderingUtils.ReAllocateIfNeeded` ，如果该功能被多次使用（或者如果其他功能使用相同的 `_TemporaryColorTexture` 引用），则纹理不会被多次设置，因此在某种程度上，它仍然充当临时纹理。
 
-```
+```cs
 // In pass :
 private RTHandle rtTemp;
 ...
@@ -625,14 +621,14 @@ A blit could also be used to copy the camera colour target to a custom one (init
 blit也可以用于将相机颜色目标复制到自定义目标（初始化类似于上面的 `rtTemp` ，但已重命名）。
 
 This would be similar to what the Opaque Texture does (used by **Scene Color** node), but that always occurs AfterRenderingSkybox so won’t contain transparent objects. With a custom blit feature, we could copy the screen during different events, such as AfterRenderingTransparents.  
-这与“不透明纹理”（Opaque Texture）的作用类似（由“场景颜色”（Scene Color）节点使用），但它总是在渲染Skybox之后发生，因此不会包含透明对象。通过自定义blit功能，我们可以在不同的事件期间复制屏幕，例如AfterRenderingTransparents。  
+这与“不透明纹理”（Opaque Texture）的作用类似（由“场景颜色”（Scene Color）节点使用），但它总是在渲染Skybox之后发生，因此不会包含透明对象。**通过自定义blit功能，我们可以在不同的事件期间复制屏幕，例如AfterRenderingTransparents。  
 That way, the texture contains anything rendered in the normal transparent queue.  
-这样，纹理包含在正常透明队列中渲染的任何内容。
+这样，纹理包含在正常透明队列中渲染的任何内容。**
 
 In this case you likely wouldn’t specify a material, and since the targets are different only a single call is needed :  
 在这种情况下，您可能不会指定材质，并且由于目标不同，因此只需要调用一次：
 
-```
+```c
 Blitter.BlitCameraTexture(cmd, rtCamera, rtCustom, Vector2.one);
 
 // Pass as global shader texture
