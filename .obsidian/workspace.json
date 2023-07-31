@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "ad03f4b7f25a9b96",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c285226ca9a54576",
             "type": "leaf",
             "state": {
@@ -58,9 +71,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "00e1f92cddeb451c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -103,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md"
+                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
               }
             }
           }
@@ -154,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
+                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
+                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,13 +231,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "fb6e3e6ffa65f808",
+  "active": "00e1f92cddeb451c",
   "lastOpenFiles": [
-    "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "引擎Unity3D/3 URP精粹/6 脚本.md",
+    "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md",
     "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
     "技术美术/常用HLSL函数.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "灵感.md",
     "zip/images/Pasted image 20230731164055.png",
     "zip/images/f5a164e2d020933148c213d44ba29e9e_MD5.png",
@@ -234,7 +261,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md",
-    "引擎Unity3D/3 URP精粹/6 脚本.md",
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/1 渲染雅集/04 溶解.md",

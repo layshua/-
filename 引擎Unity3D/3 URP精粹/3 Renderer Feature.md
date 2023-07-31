@@ -214,10 +214,24 @@ public class URPCallbackExample : MonoBehaviour
 视频：[Unlocking The Power Of Unity's Scriptable Render Pipeline - YouTube](https://www.youtube.com/watch?v=9fa4uFm1eCE)
 教程：[Custom Renderer Features | Cyanilux](https://www.cyanilux.com/tutorials/custom-renderer-features/)
 
-创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
-> [!NOTE] 创建 RenderFeature 脚本更简单的方法
-> 右键->Rendering->URP Render Feature
+> [!NOTE] Blit
+>block transfer (块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
+
+> [!bug] 
+> 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
+> **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
+
+```cs
+Blitter.BlitCameraTexture(cmd, src,dest,material,passindex); 
+//1 使用BlitTexture方法将src传入_BlitTexture纹理，源码：
+//s_PropertyBlock.SetVector(BlitShaderIDs._BlitScaleBias, scaleBias);  
+//s_PropertyBlock.SetTexture(BlitShaderIDs._BlitTexture, source);
+
+//2 复制src到dest，并将dest设为渲染目标
+```
+
+**渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个 blit，中间有一个额外的目标。**
 
 - @ **`CustomRenderFeature` 自定义 RF**
 1. **`Create` ：Unity 对以下事件调用此方法：**
@@ -522,173 +536,6 @@ URP 允许使用 FullScreenPass RF 创建自定义后处理效果
    ![[Pasted image 20230702145615.png|329]]
 4. 自定义一些后处理算法后，保存并创建 **Material** 
 5. 然后将创建的材质添加到 FullPassScreen RF 中的 **Pass Material** 即可
-   
-## 自定义 Render Feature
-
-
-> [!NOTE] Blit
->block transfer (块传输)， **blit 操作是将源纹理复制到目标纹理的过程。**
-
-> [!bug] 
-> 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
-> **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
-
-```cs
-Blitter.BlitCameraTexture(cmd, src,dest,material,passindex); 
-//1 使用BlitTexture方法将src传入_BlitTexture纹理，源码：
-//s_PropertyBlock.SetVector(BlitShaderIDs._BlitScaleBias, scaleBias);  
-//s_PropertyBlock.SetTexture(BlitShaderIDs._BlitTexture, source);
-
-//2 复制src到dest，并将dest设为渲染目标
-```
-
-**渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个 blit，中间有一个额外的目标。**
-
-以下为官网案例：全屏 Blit
-自定义后处理系统实现： [[#创建后处理系统#例子：ColorBlit]]
-![[Pasted image 20230704134749.png]]
-
-```cs file:ColorBlitRendererFeature.cs
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-
-internal class ColorBlitRendererFeature : ScriptableRendererFeature
-{
-    public Shader m_Shader;
-    public float m_Intensity;
-
-    Material m_Material;
-    //render pass
-    ColorBlitPass m_RenderPass = null;
-
-    //render pass 入队
-    public override void AddRenderPasses(ScriptableRenderer renderer,
-        ref RenderingData renderingData)
-    {
-        if (renderingData.cameraData.cameraType == CameraType.Game)
-            renderer.EnqueuePass(m_RenderPass);
-    }
-
-    public override void SetupRenderPasses(ScriptableRenderer renderer,
-        in RenderingData renderingData)
-    {
-        if (renderingData.cameraData.cameraType == CameraType.Game)
-        {
-            // 使用ScriptableRenderPassInput.Color参数调用ConfigureInput
-            // 确保不透明纹理可用于渲染过程
-            m_RenderPass.ConfigureInput(ScriptableRenderPassInput.Color);
-            m_RenderPass.SetTarget(renderer.cameraColorTargetHandle, m_Intensity);
-        }
-    }
-
-    public override void Create()
-    {
-        //使用shader创建材质
-        m_Material = CoreUtils.CreateEngineMaterial(m_Shader);
-        //材质传给renderpass
-        m_RenderPass = new ColorBlitPass(m_Material);
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        CoreUtils.Destroy(m_Material);
-    }
-}
-```
-
-```cs file:ColorBlitPass.cs
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-
-internal class ColorBlitPass : ScriptableRenderPass
-{
-    ProfilingSampler m_ProfilingSampler = new ProfilingSampler("ColorBlit");
-    Material m_Material;
-    RTHandle m_CameraColorTarget;
-    float m_Intensity;
-
-    public ColorBlitPass(Material material)
-    {
-        m_Material = material;
-        renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
-    }
-
-    public void SetTarget(RTHandle colorHandle, float intensity)
-    {
-        m_CameraColorTarget = colorHandle;
-        m_Intensity = intensity;
-    }
-
-    public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
-    {
-        ConfigureTarget(m_CameraColorTarget);
-    }
-
-    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-    {
-        var cameraData = renderingData.cameraData;
-        if (cameraData.camera.cameraType != CameraType.Game)
-            return;
-
-        if (m_Material == null)
-            return;
-
-        CommandBuffer cmd = CommandBufferPool.Get();
-        using (new ProfilingScope(cmd, m_ProfilingSampler))
-        {
-            m_Material.SetFloat("_Intensity", m_Intensity);
-            Blitter.BlitCameraTexture(cmd, m_CameraColorTarget, m_CameraColorTarget, m_Material, 0);
-        }
-        context.ExecuteCommandBuffer(cmd);
-        cmd.Clear();
-
-        CommandBufferPool.Release(cmd);
-    }
-}
-```
-
-注意这里引用了 `#include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"`
-这是一个专用于 Blit 的 hlsl 文件文件，我们只需要实现片元着色器即可
-```cs file:ColorBlit.shader
-Shader "CustomPostProcessing/ColorBlit"
-{
-        SubShader
-    {
-        Tags { "RenderType"="Opaque" "RenderPipeline" = "UniversalPipeline"}
-        LOD 100
-        ZWrite Off Cull Off
-        Pass
-        {
-            Name "ColorBlitPass"
-
-            HLSLPROGRAM
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-            // The Blit.hlsl file provides the vertex shader (Vert),
-            // input structure (Attributes) and output strucutre (Varyings)
-            #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
-
-            #pragma vertex Vert
-            #pragma fragment frag
-
-            TEXTURE2D_X(_CameraOpaqueTexture);
-            SAMPLER(sampler_CameraOpaqueTexture);
-
-            float _Intensity;
-
-            half4 frag (Varyings input) : SV_Target
-            {
-                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-                float4 color = SAMPLE_TEXTURE2D_X(_CameraOpaqueTexture, sampler_CameraOpaqueTexture, input.texcoord);
-                return color * float4(0, _Intensity, 0, 1);
-            }
-            ENDHLSL
-        }
-    }
-}
-```
-
 
 ## Volume 扩展
 
