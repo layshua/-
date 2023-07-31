@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
       "basename": "03 定向光",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "M_Studio 教程",

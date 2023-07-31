@@ -78,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -180,7 +180,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -197,7 +197,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -233,6 +233,7 @@
   },
   "active": "00e1f92cddeb451c",
   "lastOpenFiles": [
+    "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
@@ -268,7 +269,6 @@
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
