@@ -3553,6 +3553,7 @@ overloads
 overridden
 optionally
 occur
+overdarw
 OneDrive
 Obsidian
 Office
@@ -8060,6 +8061,7 @@ OGL
 OptimizeProjectionMatrix
 Older
 OnCamera
+Ogre
 codeup
 clash
 ctrl
@@ -16219,6 +16221,7 @@ glstate
 guess
 gbuffer
 glitchy
+glClipControl
 typora
 todo
 tooltip
@@ -20114,6 +20117,7 @@ terrian
 transistion
 targetTexture
 tend
+transorm
 markdown
 matter
 mod
@@ -47041,6 +47045,7 @@ Ameye
 Allows
 AddRenderPass
 Alternative
+AGH
 URL
 Utools
 Users
@@ -59396,6 +59401,7 @@ RealtimeLights
 RcpMaxCoC
 RenderObjectsPass
 Resulting
+Raplacement
 Microsoft
 Menu
 MicaForEveryone
@@ -64196,6 +64202,7 @@ Might
 MeshRenderers
 MonoBehaviours
 MonoPhavior
+Mental
 Windows
 Win
 World
@@ -73278,6 +73285,8 @@ SetupRenderPass
 SomeReference
 Similar
 SomeScript
+ScreenSpaceShadowMap
+Secrets
 Programs
 POP
 PC
@@ -82118,6 +82127,11 @@ ConfigureInput
 CopyDepth
 CoreBlit
 CustomRendererFeature
+CameraDepthMode
+ClearDepthBuffer
+COC
+CryENGINE
+CryTech
 ImTip
 IMAP
 ID
@@ -86273,6 +86287,7 @@ IPad
 Inverted
 Internally
 Ignoring
+InverseProjectionMatrix
 qq
 qyi
 quad
@@ -94488,6 +94503,8 @@ purposes
 particular
 practice
 passesExecute
+perBit
+preBit
 nodesCatch
 nobr
 navy
@@ -150525,6 +150542,7 @@ BoxMin
 BoxMax
 BatchRendererGroups
 BlitRenderer
+BindTexture
 Fraktur
 Frame
 Foo
@@ -170131,6 +170149,16 @@ DecadeScreenSpaceRenderPass
 DeferredLight
 DeferredRendering
 Draws
+DepthFormat
+DepthNormalMap
+DpehtTexture
+DepthAttachment
+DepthBuffer
+DepthTexuter
+DepthNormalTexture
+DepthTextue
+DepthClear
+DepthBufferParam
 LNK
 Log
 Linux
@@ -174312,6 +174340,9 @@ LightShadowCasterPass
 LightShadowCaster
 Later
 Likely
+LinearDepth
+Linearize
+Logarithmic
 Getx
 GetX
 GetName
@@ -187214,6 +187245,8 @@ ZSgtMjYwLjAwMDAwMCwgLTkwLjAwMDAwMCkiPjxnIGlkPSJjaGV
 ZSgyNjAuNTAwMDAwLCA
 ZdAQ
 ZhUWfJ
+ZFighting
+ZCheck
 Quote
 Quiet
 Quick
