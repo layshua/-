@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
+                "file": "技术美术/常用HLSL函数.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -218,11 +218,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "93c13d9aa073a396",
+  "active": "0859b57f5e8f6f7d",
   "lastOpenFiles": [
+    "技术美术/常用HLSL函数.md",
+    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "zip/images/Pasted image 20230731225948.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
@@ -244,7 +245,6 @@
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md",
     "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
-    "技术美术/常用HLSL函数.md",
     "灵感.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
