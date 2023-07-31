@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "23 科幻扫描效果后篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
@@ -49,10 +61,6 @@
       "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
     },
     {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
@@ -61,16 +69,8 @@
       "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
     },
     {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
       "basename": "22 科幻扫描效果前篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "11 HDR",
