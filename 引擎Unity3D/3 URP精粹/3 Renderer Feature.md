@@ -228,7 +228,7 @@ Blitter.BlitCameraTexture(cmd, src,dest,material,passindex);
 //s_PropertyBlock.SetVector(BlitShaderIDs._BlitScaleBias, scaleBias);  
 //s_PropertyBlock.SetTexture(BlitShaderIDs._BlitTexture, source);
 
-//2 复制src到dest，并将dest设为渲染目标
+//2 材质渲染结果输出到dest，并将dest设为渲染目标
 ```
 
 **渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个 blit，中间有一个额外的目标。**
