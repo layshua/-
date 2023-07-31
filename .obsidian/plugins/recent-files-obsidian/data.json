@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux",
+      "path": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
@@ -137,10 +145,6 @@
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
       "basename": "06 ta101后处理",
       "path": "技术美术/3 后处理/06 ta101后处理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "参数化曲线",
-      "path": "图形学/0 3D数学/参数化曲线.md"
     }
   ],
   "omittedPaths": [],

@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "b58fad80be0560d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c285226ca9a54576",
             "type": "leaf",
             "state": {
@@ -55,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
               }
             }
           }
@@ -149,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,18 +213,25 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "fb6e3e6ffa65f808",
+  "active": "b58fad80be0560d6",
   "lastOpenFiles": [
+    "zip/images/f5a164e2d020933148c213d44ba29e9e_MD5.png",
+    "zip/images/bb65d14ecac981b7318cf3db0e6c1c72_MD5.png",
+    "zip/images/d077d86ce14e1ca2440f50821d68e42b_MD5.png",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
+    "图形学/1 图形系统/06 深度测试.md",
+    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "zip/images/Pasted image 20230731144802.png",
+    "zip/images/Pasted image 20230731144624.png",
+    "zip/images/Pasted image 20230731144506.png",
+    "zip/images/Pasted image 20230731144433.png",
     "zip/images/Pasted image 20230731144321.png",
     "zip/images/Pasted image 20230731144249.png",
     "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "zip/images/Pasted image 20230731144150.png",
     "zip/images/Pasted image 20230731144009.png",
-    "zip/images/Pasted image 20230731143810.png",
-    "zip/images/Pasted image 20230731141908.png",
     "DCC/02 Blender/建模原理.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
@@ -231,13 +251,6 @@
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "zip/images/Pasted image 20230729121928.png",
-    "zip/images/529863ccfb20d311b5a50f5d0059948f_MD5.jpg",
-    "zip/images/9e6dce84a2ff033e3bc071b5b843f5a8_MD5.jpg",
-    "zip/images/a765fca302e1de396151846cbbfd577a_MD5.jpg",
-    "zip/images/47a399e13a949454462ca11e90dc653e_MD5.jpg",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",

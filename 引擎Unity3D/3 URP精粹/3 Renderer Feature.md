@@ -32,7 +32,7 @@ Render Feature 是一种 Asset，用于向 URP 渲染器添加额外的 Render P
 URP 在 DrawOpaqueObjects 和 DrawTransparentObjects Pass 中绘制对象。您可能需要在帧渲染的不同点绘制对象，或者以其他方式解释和写入渲染数据（如 depth 和 stencil）。
 Render Objects RF 允许通过特定的重载（overides）在指定的图层、指定的时间来自定义 Draw Objects。
 
-## 透视效果
+## 透视效果 X-Ray
 **实战**：当角色在GameObjects后面时，用不同的材质绘制角色轮廓。
 ![[character-goes-behind-object.gif]]
 
@@ -211,6 +211,8 @@ public class URPCallbackExample : MonoBehaviour
 ```
 
 ## 自定义 Render Feature
+视频：[Unlocking The Power Of Unity's Scriptable Render Pipeline - YouTube](https://www.youtube.com/watch?v=9fa4uFm1eCE)
+
 创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
 > [!NOTE] 创建 RenderFeature 脚本更简单的方法
@@ -762,4 +764,15 @@ Ubershader 负责处理 Volume 设置
 
 Volume 传入Execute
 ![[Pasted image 20230731144009.png]]
-访问变量![[Pasted image 20230731144150.png]]
+访问变量 ![[Pasted image 20230731144150.png]]
+
+乒乓blit
+![[Pasted image 20230731144433.png]]
+
+RT 存入 shader
+![[Pasted image 20230731144506.png]]
+将 Volume 同步变量传入 shader
+![[Pasted image 20230731144802.png]]
+
+descriptor 设置
+![[Pasted image 20230731144624.png]]
