@@ -1,8 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux",
-      "path": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
+    },
+    {
+      "basename": "02 对象种类",
+      "path": "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md"
     },
     {
       "basename": "3 Renderer Feature",
@@ -63,10 +67,6 @@
     {
       "basename": "11 HDR",
       "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "6 脚本",
-      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
       "basename": "06 雾",

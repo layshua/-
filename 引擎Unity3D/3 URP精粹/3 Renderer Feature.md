@@ -212,6 +212,7 @@ public class URPCallbackExample : MonoBehaviour
 
 ## 自定义 Render Feature
 视频：[Unlocking The Power Of Unity's Scriptable Render Pipeline - YouTube](https://www.youtube.com/watch?v=9fa4uFm1eCE)
+教程：[Custom Renderer Features | Cyanilux](https://www.cyanilux.com/tutorials/custom-renderer-features/)
 
 创建可编程的 RF，并实现用于配置 `ScriptableRenderPass` 实例并将其注入可编程渲染器的方法。
 
@@ -289,81 +290,6 @@ public class CustomRenderFeature : ScriptableRendererFeature
     {
         //入队渲染队列
         renderer.EnqueuePass(m_ScriptablePass);
-    }
-}
-```
-
-![[Pasted image 20230704154156.png]]
-打开了管线设置中的 Debug Level 后；可以通过这个参数看见更多的调试信息
-![[Pasted image 20230704154208.jpg]]
-
-如 UniversalRenderPipeline.cs 的 `RenderSingleCamera` 方法里：
-```c
-static void RenderSingleCamera(...)  
-{  
-   ...  
-   asset.debugLevel >= PipelineDebugLevel.Profiling ? ...
-
-```
-这段代码在勾选这个设置后可以在FrameDebugger内显示不同的相机名。
-
-**手动创建过程：**
-1. 创建脚本，命名为 CustomRenderFeature. cs
-2. `using UnityEngine.Rendering.Universal;` 继承 `ScriptableRendererFeature` 类
-3. 该脚本类必须实现以下方法：
-    -  **`Create` ：Unity 对以下事件调用此方法：**
-        - 首次加载 RF 时
-        - 启用或禁用 RF 时
-        - 在 RF 的 Inspector 中更改属性时
-    - **`AddRenderPasses` ：Unity 每台相机每帧调用一次此方法**。使用此方法可以将 `ScriptableRenderPass` 实例注入到可编程的渲染器中。
-4. 将创建的 RF 添加到 URP Asset 中。可以看到 Add  Render Feature 多了一个选项 ![[Pasted image 20230702151355.png|250]]
-
-### 可编程 Render Pass
-
-**创建可编程 Render Pass，并将其实例入队（enqueue）渲染队列**
-
-1. 在 `CustomRenderFeature` 类中，声明 `CustomRenderPass` 类并继承 `ScriptableRenderPass` 类
-2. 必须实现 `Execute` 方法：Unity 每帧运行 Execute 方法。使用此方法，可以实现自定义渲染功能。我们**在 `Execute` 方法中实现渲染命令**
-3. 在 `CustomRenderFeature` 类中，声明一个私有的 `CustomRenderPass` 字段
-4. 在 `Create` 方法中，实例化 `_customRenderPass` 对象
-5. 在 `AddRenderPasses` 方法中，使用 `renderer. EnqueuePass` 方法将 `_customRenderPass` 放入渲染队列。现在 `CustomRenderFeature` 正在 `CustomRenderPass` 中执行 `Execute` 方法
-6. 在 `Execute` 方法中创建 `CommandBuffer` 类型的对象，此对象包含要执行的渲染命令的列表。
-```cs file:CustomRenderFeature. cs
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-//自定义Render Feature
-public class CustomRenderFeature : ScriptableRendererFeature
-{
-    //自定义Render Pass
-    private class CustomRenderPass : ScriptableRenderPass
-    {
-        //每帧执行
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-        {
-            //获取新的命令缓冲区并为其指定一个名称
-            CommandBuffer cmd = CommandBufferPool.Get(name: "CustomRenderPass");
-            
-            //执行命令缓冲区中的命令
-            context.ExecuteCommandBuffer(cmd);
-            
-            //释放命令缓冲区
-            CommandBufferPool.Release(cmd);
-        }
-    }
-
-    private CustomRenderPass _customRenderPass;
-    
-    public override void Create()
-    {
-        //创建CustomRenderPass实例
-        _customRenderPass = new CustomRenderPass();
-    }
-
-    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
-    {
-        //入队
-        renderer.EnqueuePass(_customRenderPass);
     }
 }
 ```
@@ -615,6 +541,8 @@ Blitter.BlitCameraTexture(cmd, src,dest,material,passindex);
 
 //2 复制src到dest，并将dest设为渲染目标
 ```
+
+**渲染时，我们需要确保不会对同一纹理/目标进行读取和写入，因为这可能会导致“意外行为”（引用 `CommandBuffer.Blit` 文档）。因此，如果源/目的地需要相同，我们实际上需要使用两个 blit，中间有一个额外的目标。**
 
 以下为官网案例：全屏 Blit
 自定义后处理系统实现： [[#创建后处理系统#例子：ColorBlit]]
