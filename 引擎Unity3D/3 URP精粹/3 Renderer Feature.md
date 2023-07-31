@@ -608,9 +608,12 @@ URP 允许使用 FullScreenPass RF 创建自定义后处理效果
 > **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
 
 ```cs
-Blitter.BlitCameraTexture(cmd, src,dest,material,); 
-//1复制RT
-//2将src传入_BlitTexture纹理
+Blitter.BlitCameraTexture(cmd, src,dest,material,passindex); 
+//1 使用BlitTexture方法将src传入_BlitTexture纹理，源码：
+//s_PropertyBlock.SetVector(BlitShaderIDs._BlitScaleBias, scaleBias);  
+//s_PropertyBlock.SetTexture(BlitShaderIDs._BlitTexture, source);
+
+//2 复制src到dest，并将dest设为渲染目标
 ```
 
 以下为官网案例：全屏 Blit
@@ -759,8 +762,8 @@ Shader "CustomPostProcessing/ColorBlit"
 ```
 
 
-# Pass 文件夹
-![[Pasted image 20230731141908.png]]
+## Volume 扩展
+
 
 Ubershader 负责处理 Volume 设置
 
@@ -780,5 +783,3 @@ RT 存入 shader
 将 Volume 同步变量传入 shader
 ![[Pasted image 20230731144802.png]]
 
-descriptor 设置
-![[Pasted image 20230731144624.png]]
