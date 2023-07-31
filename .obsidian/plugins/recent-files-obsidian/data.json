@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux",
-      "path": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
-    },
-    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
-      "basename": "灵感",
-      "path": "灵感.md"
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
+      "basename": "Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux",
+      "path": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
     },
     {
       "basename": "03 UV操作",
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "灵感",
+      "path": "灵感.md"
     },
     {
       "basename": "06 深度测试",
@@ -55,10 +59,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "11 HDR",

@@ -45,7 +45,7 @@ Render Objects RF 允许通过特定的重载（overides）在指定的图层、
 **当模型复杂时，这样设置可能会发生自透视：**
 ![[character-depth-test-greater.gif|449]]
 
-## 创建额外的 RF 避免自透视
+### 创建额外的 RF 避免自透视
 RF1 的 Event 属性默认为 AfterRenderingOpaques ，Event 属性定义 Unity 从 Render Object RF 注入渲染过程的注入点。在该 RF1 进行渲染之前已经进行了不透明物体的渲染，并将深度值写入了深度缓冲区。执行 RF1 时，Unity 使用“深度测试”属性中指定的条件执行深度测试。
 
 1. Universal Renderer 的 Filtering > Opaque Layer Mask，清除 Character 层旁边的复选标记。![[Pasted image 20230702110513.png|500]]
@@ -606,6 +606,12 @@ URP 允许使用 FullScreenPass RF 创建自定义后处理效果
 > [!bug] 
 > 避免在 URP 项目中使用 [ Rendering.CommandBuffer.Blit](https://docs.unity3d.com/2022.1/Documentation/ScriptReference/Rendering.CommandBuffer.Blit.html) API。
 > **应该使用使用 [Blitter](https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@14.0/api/UnityEngine.Rendering.Blitter.html) API **
+
+```cs
+Blitter.BlitCameraTexture(cmd, src,dest,material,); 
+//1复制RT
+//2将src传入_BlitTexture纹理
+```
 
 以下为官网案例：全屏 Blit
 自定义后处理系统实现： [[#创建后处理系统#例子：ColorBlit]]

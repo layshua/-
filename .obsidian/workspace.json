@@ -50,12 +50,17 @@
             "id": "86649599dd0e5832",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -98,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
               }
             }
           }
@@ -149,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,13 +205,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "fb6e3e6ffa65f808",
+  "active": "86649599dd0e5832",
   "lastOpenFiles": [
+    "技术美术/常用HLSL函数.md",
+    "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "灵感.md",
     "zip/images/Pasted image 20230731164055.png",
-    "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "zip/images/f5a164e2d020933148c213d44ba29e9e_MD5.png",
     "zip/images/bb65d14ecac981b7318cf3db0e6c1c72_MD5.png",
     "zip/images/d077d86ce14e1ca2440f50821d68e42b_MD5.png",
@@ -226,7 +232,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/常用HLSL函数.md",
     "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "技术美术/1 渲染雅集/06 雾.md",
