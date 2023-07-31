@@ -50840,6 +50840,7 @@ Unchecked
 UnityStereoTransformScreenSpaceTex
 UnpackNormalRGBNoScale
 UniversalForwardOnly
+Ubershader
 api
 ac
 app

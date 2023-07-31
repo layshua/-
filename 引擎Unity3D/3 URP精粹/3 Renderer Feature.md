@@ -453,6 +453,10 @@ public class CustomRenderPass : ScriptableRenderPass
 ```
 
 # RTHandle 系统
+
+> [!NOTE] Title
+> 本质上是一种特殊类型的 RT，它会随着摄像机大小自动缩放，从而在使用不同相机进行那个渲染时获得更好的性能和更少的内存消耗
+
 Render Target 管理是任何渲染管道的重要组成部分。在复杂的渲染管道中，有许多相互依赖的 Rendr Pass 使用许多不同的 RT，因此重要的是要有一个可维护和可扩展的系统，以便轻松管理内存。 
 最大的问题之一是当渲染管道使用许多不同的摄影机，每个摄影机都有自己的分辨率时。例如，离屏摄像头或实时反射探针。在这种情况下，如果系统为每个摄影机独立分配 RT，则内存总量将增加到无法管理的级别。
 这对于使用许多中间 RT 的复杂渲染管道来说尤其糟糕。Unity 可以使用临时临时渲染纹理 temporary render textures，但不幸的是，它们不适合这种情况，因为只有当新渲染纹理使用完全相同的属性和分辨率时，临时渲染纹理才能重用内存。这意味着，当使用两种不同的分辨率进行渲染时，Unity 使用的内存总量是所有分辨率的总和。
@@ -745,3 +749,17 @@ Shader "CustomPostProcessing/ColorBlit"
     }
 }
 ```
+
+
+# Pass 文件夹
+![[Pasted image 20230731141908.png]]
+
+Ubershader 负责处理 Volume 设置
+
+试试 Alloc 来创建 RT ，再创建临时RT ![[Pasted image 20230731143810.png]]
+![[Pasted image 20230731144249.png]]
+![[Pasted image 20230731144321.png]]
+
+Volume 传入Execute
+![[Pasted image 20230731144009.png]]
+访问变量![[Pasted image 20230731144150.png]]
