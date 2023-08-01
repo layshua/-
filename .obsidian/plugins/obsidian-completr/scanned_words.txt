@@ -73291,6 +73291,7 @@ ScreenPositin
 SurfaceNoiseScroll
 SMOOTHSTEP
 ScreenUV
+Screenpos
 Programs
 POP
 PC
@@ -94509,6 +94510,8 @@ practice
 passesExecute
 perBit
 preBit
+posNDC
+posSS
 nodesCatch
 nobr
 navy
@@ -159480,6 +159483,7 @@ EditorApplication
 EWSmoothNormalGenerator
 Existing
 EventAfter
+EyeDepth
 xmlns
 xyz
 xy

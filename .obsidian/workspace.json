@@ -34,32 +34,6 @@
             }
           },
           {
-            "id": "fb6e3e6ffa65f808",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/6 脚本.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ad03f4b7f25a9b96",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "93c13d9aa073a396",
             "type": "leaf",
             "state": {
@@ -125,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -168,12 +142,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md"
+                "file": "技术美术/5 水体渲染/卡通水.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -219,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -236,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -270,13 +243,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "74827b069c26509b",
+  "active": "93c13d9aa073a396",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "引擎Unity3D/3 URP精粹/6 脚本.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/5 水体渲染/卡通水.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "zip/images/Pasted image 20230801151519.png",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "引擎Unity3D/3 URP精粹/6 脚本.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "zip/images/Pasted image 20230801143415.png",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
@@ -300,14 +275,11 @@
     "zip/images/a4d266298d3d13b985d02e5011b8b4ff_MD5.gif",
     "zip/images/ee1d1c38a47aff51ae0e2230649ad884_MD5.gif",
     "zip/images/7d1b3e09b95b3db0759373172f67808d_MD5.gif",
-    "zip/images/33e01f352d91078361eca85ce521b81a_MD5.png",
     "技术美术/1 渲染雅集/04 溶解.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
     "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md",
-    "zBuffer/Custom Renderer Features _ Cyanilux自定义渲染器功能_Cyanilux.md",
-    "灵感.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
