@@ -73287,6 +73287,10 @@ Similar
 SomeScript
 ScreenSpaceShadowMap
 Secrets
+ScreenPositin
+SurfaceNoiseScroll
+SMOOTHSTEP
+ScreenUV
 Programs
 POP
 PC
@@ -110004,6 +110008,7 @@ docs
 destinations
 deprecated
 documented
+depthDifference
 TFvYZOKeHL
 TAB
 TeX
@@ -123564,6 +123569,8 @@ sent
 serialise
 sections
 sharing
+surfacenoise
+surfaceNoiseSample
 local
 list
 left
@@ -154941,6 +154948,7 @@ Flares
 FullscreenRenderPass
 FullscreenPass
 Febucci
+FoamDistance
 Element
 Entity
 Enity
@@ -170159,6 +170167,7 @@ DepthNormalTexture
 DepthTextue
 DepthClear
 DepthBufferParam
+DIstance
 LNK
 Log
 Linux

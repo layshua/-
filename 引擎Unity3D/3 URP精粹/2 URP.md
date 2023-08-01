@@ -1021,16 +1021,16 @@ Unity 可以在一帧中多次渲染叠加摄影机的视图，或者是因为�
 ![[Pasted image 20230720235903.png|500]]
 
 ![[Pasted image 20230721002807.png]]
-1. **Depth Priming 深度启动**：即 **Pre-Z  pass、DepthPrepass**，仅 Forward 渲染路径可用，shader 需要添加 **DepthOnly Pass** ^4wccdt
+1. **Depth Priming 深度启动**：即 **Pre-Z  pass、DepthPrepass**，仅 Forward 渲染路径可用，**shader 需要添加 DepthOnly Pass** ^4wccdt
     - <mark style="background: #FFB8EBA6;">Auto</mark>：如果有一个 Render Pass 需要 Depth Prepass，Unity 将将执行 **Depth Prepass** 和 Depth Priming
     - <mark style="background: #FFB8EBA6;">Force</mark>: Untiy 总是总是执行 Depth Priming，并为每个 Render Pass 执行执行 Depth Prepass
     - 场景不复杂，Overdraw 不是造成不是造成 GPU 效率的瓶颈时，没必要开启。
     -  在 Android、iOS 和 Apple TV 上，Unity 仅在 Force 模式下执行深度启动。在这些平台常见的 tiled GPUs 上，深度启动与 MSAA 结合可能会降低性能。
-2. **Depth Texture Mode**：指定渲染管线 Copy Depth Pass 执行阶段（场景深度复制到深度纹理）
-    - <mark style="background: #FFB8EBA6;">After Opaques</mark>
-    - <mark style="background: #FFB8EBA6;">After Transparents</mark>
+2. **Depth Texture Mode**：指定渲染管线 Copy Depth Pass 执行阶段（场景深度**复制到深度纹理**）
+    - <mark style="background: #FFB8EBA6;">After Opaques</mark>：
+    - <mark style="background: #FFB8EBA6;">After Transparents</mark>：<mark style="background: #FF5582A6;">可以将半透明物体渲染到深度图！</mark>
     - <mark style="background: #FFB8EBA6;">Force Prepass</mark>：强制执行 Depth Prepass 以生成场景深度纹理
-    - 在移动设备上，After Transparents 选项可以显著提高内存带宽。这是因为 Copy Depth 会导致渲染目标在 Opaque pass 和 Transparents pass 之间切换。发生这种情况时，Unity 会将“颜色缓冲区”的内容存储在主内存中，然后在 Copy Depth完成后再次加载。当启用MSAA时，影响会显著增加，因为Unity还必须将MSAA数据与颜色缓冲区一起存储和加载。
+    - 在移动设备上，After Transparents 选项可以显著占用内存带宽。这是因为 Copy Depth 会导致渲染目标在 Opaque pass 和 Transparents pass 之间切换。发生这种情况时，Unity 会将“颜色缓冲区”的内容存储在主内存中，然后在 Copy Depth 完成后再次加载。当启用 MSAA 时，影响会显著增加，因为 Unity 还必须将 MSAA 数据与颜色缓冲区一起存储和加载。
 # 多光源阴影
 
 > [!bug] 
