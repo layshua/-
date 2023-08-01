@@ -5,6 +5,10 @@
       "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
       "basename": "02 视图变换",
       "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
     },
@@ -67,10 +71,6 @@
     {
       "basename": "05 故障Glitch",
       "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "TA101",
