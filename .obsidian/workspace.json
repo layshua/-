@@ -47,7 +47,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,6 +215,8 @@
   },
   "active": "93c13d9aa073a396",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230801103959.png",
     "技术美术/3 后处理/02 Bloom.md",
@@ -225,7 +227,6 @@
     "技术美术/常用HLSL函数.md",
     "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "zip/images/Pasted image 20230731225948.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
