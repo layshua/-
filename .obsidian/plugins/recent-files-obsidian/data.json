@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
@@ -81,10 +89,6 @@
       "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
       "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
       "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
     },
@@ -155,10 +159,6 @@
     {
       "basename": "进度",
       "path": "DCC/02 Blender/进度.md"
-    },
-    {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
     },
     {
       "basename": "01 图像模糊",
