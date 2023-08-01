@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "2f7011cb5abe5ae6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "58ed41987e271f19",
             "type": "leaf",
             "state": {
@@ -220,10 +233,12 @@
   },
   "active": "93c13d9aa073a396",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/5 水体渲染/卡通水.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
+    "zip/images/202308012045.gif",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
+    "技术美术/5 水体渲染/卡通水.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
     "图形学/1 图形系统/04 纹理.md",
     "zip/images/Pasted image 20230801151519.png",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
@@ -254,8 +269,6 @@
     "技术美术/1 渲染雅集/04 溶解.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md",
-    "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
