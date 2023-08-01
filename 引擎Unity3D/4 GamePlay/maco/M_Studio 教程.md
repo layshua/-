@@ -955,7 +955,7 @@ public class Avatar : MonoBehavior, IKillable, IDamageable<float>
 接口的方式使用观察者订阅和广播的方法  
 在 Tools 文件夹下面创建 IEndGameObserver 的 C# 脚本，I 表示接口
 
-```
+```c
 //using那些命名空间也可以删掉
 //class改成interface
 //因为不是class，不需要继承monobehavior
@@ -978,7 +978,7 @@ public interface IEndGameObserver
 4.  **实现类在实例化的时候注册到 Manager 的列表，销毁的时候从列表删除**
 5.  **一个物体在某个时刻触发 Manager 的广播方法，这样所有注册到 Manager 列表的实现类都受到了广播**
 
-```
+```c
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

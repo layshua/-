@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "笔记",
+      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
       "basename": "卡通水",
       "path": "技术美术/5 水体渲染/卡通水.md"
     },
@@ -145,20 +157,8 @@
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
     },
     {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "笔记",
-      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
-    },
-    {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
