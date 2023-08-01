@@ -1006,7 +1006,7 @@ public class GameManager : SingleTon<GameManager>
 }
 ```
 
-```
+```cs
 void Update() {
         isDead = characterStats.characterData.currentHealth == 0;
         //player如果死亡就调用manager的广播事件，广播告诉所有注册的enemy
@@ -1018,7 +1018,7 @@ void Update() {
     }
 ```
 
-```
+```cs
 void OnEnable()
     {
         GameManager.Instance.AddObserver(this);
