@@ -8,32 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f84cd03b6f518b86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 UV操作.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "74827b069c26509b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "93c13d9aa073a396",
             "type": "leaf",
             "state": {
@@ -47,59 +21,19 @@
             }
           },
           {
-            "id": "c702640bb181c87f",
+            "id": "137905f3c636ca8d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/常用HLSL函数.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2f7011cb5abe5ae6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "58ed41987e271f19",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/公式推导/02 视图变换.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c3de3e074b805d75",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -146,8 +80,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -246,6 +179,8 @@
   },
   "active": "93c13d9aa073a396",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "技术美术/5 水体渲染/卡通水.md",
@@ -280,8 +215,6 @@
     "zip/images/d23522377f23fbab42ac6593ddb5c375_MD5.gif",
     "zip/images/a4d266298d3d13b985d02e5011b8b4ff_MD5.gif",
     "zip/images/ee1d1c38a47aff51ae0e2230649ad884_MD5.gif",
-    "技术美术/1 渲染雅集/04 溶解.md",
-    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",

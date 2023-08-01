@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "笔记",
       "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "06 ta101后处理",
       "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
     }
   ],
   "omittedPaths": [],
