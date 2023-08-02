@@ -1,36 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "23 科幻扫描效果后篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md"
-    },
-    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "6 脚本",
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
-      "basename": "22 科幻扫描效果前篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md"
+      "basename": "06 ta101后处理",
+      "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
+      "basename": "TA101",
+      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
     },
     {
       "basename": "卡通水",
@@ -67,10 +67,6 @@
     {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "02 视图变换",
@@ -195,10 +191,6 @@
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "07 草",
-      "path": "技术美术/1 渲染雅集/07 草.md"
     }
   ],
   "omittedPaths": [],
