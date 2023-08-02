@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Moopapa",
+      "path": "DCC/03 Maya/Moopapa.md"
+    },
+    {
+      "basename": "python for Maya",
+      "path": "DCC/03 Maya/python for Maya.md"
+    },
+    {
       "basename": "M_Studio 教程",
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "07 草",
       "path": "技术美术/1 渲染雅集/07 草.md"
-    },
-    {
-      "basename": "Lit.shader源码",
-      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
     }
   ],
   "omittedPaths": [],

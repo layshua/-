@@ -21,19 +21,28 @@
             }
           },
           {
-            "id": "137905f3c636ca8d",
+            "id": "d157bf5f38a5125a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/03 Maya/Moopapa.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
+          },
+          {
+            "id": "137905f3c636ca8d",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+                "file": "DCC/03 Maya/Moopapa.md"
               }
             }
           }
@@ -126,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "DCC/03 Maya/Moopapa.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "DCC/03 Maya/Moopapa.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,8 +186,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "93c13d9aa073a396",
+  "active": "d157bf5f38a5125a",
   "lastOpenFiles": [
+    "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
@@ -209,7 +219,6 @@
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/images/Pasted image 20230731225948.png",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "zBuffer/(39 条消息) Unity Shader - 深度相关知识总结与效果实现（LinearDepth，Reverse Z，世界坐标重建，软粒子，高度雾，运动模糊，扫描线效果）_linear01depth_puppet_master 的博客 - CSDN 博客.md",
     "zip/images/e0d21e096207e9bddbe499f78df6287e_MD5.gif",
     "zip/images/ee508c0391b6894eccbc9eff71b991e1_MD5.gif",
     "zip/images/d23522377f23fbab42ac6593ddb5c375_MD5.gif",
