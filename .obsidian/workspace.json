@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -54,8 +54,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -148,7 +147,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +164,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,8 +198,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "0d15a414565969c7",
+  "active": "93c13d9aa073a396",
   "lastOpenFiles": [
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
+    "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "zip/images/Pasted image 20230802141427.png",
     "zip/images/Pasted image 20230802141356.png",
     "zip/images/Pasted image 20230802141329.png",
@@ -211,7 +214,6 @@
     "zip/images/7f61f8342f9dad41146f6d41d8b12b5c_MD5.gif",
     "zip/images/e4d5bac9d42d1688771e3b830b177ba4_MD5.gif",
     "zip/images/0eb24f31b8f6dd4dd7c96b25d5d4e80b_MD5.gif",
-    "zip/images/d71558de32377863358341a23ffcec16_MD5.gif",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/建模原理.md",
@@ -221,10 +223,8 @@
     "DCC/03 Maya/Moopapa.md",
     "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "技术美术/5 水体渲染/卡通水.md",
     "技术美术/常用HLSL函数.md",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
@@ -236,7 +236,6 @@
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
     "技术美术/3 后处理/02 Bloom.md",
-    "技术美术/3 后处理/03 景深.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
