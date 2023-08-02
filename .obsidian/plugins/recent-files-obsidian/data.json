@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+    },
+    {
+      "basename": "25 色彩分离",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "28 ComputeShader",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "26  制作 VEG 粒子特效",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
+    },
+    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
@@ -9,12 +33,12 @@
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
-      "basename": "6 脚本",
-      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
-    },
-    {
       "basename": "06 ta101后处理",
       "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
       "basename": "M_Studio 教程",
@@ -175,22 +199,6 @@
     {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
     }
   ],
   "omittedPaths": [],

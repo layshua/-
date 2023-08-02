@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,15 +206,21 @@
   },
   "active": "42172735d667b8d0",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
+    "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
+    "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md",
+    "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "引擎Unity3D/2 Shader精粹/雪风/24 Render Feature 制作特定模型外描边.md",
+    "技术美术/3 后处理/06 ta101后处理.md",
+    "技术美术/1 渲染雅集/01 Trick！.md",
     "zip/images/Pasted image 20230802162032.png",
     "zip/images/Pasted image 20230802161949.png",
     "zip/images/Pasted image 20230802161805.png",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/2 Shader精粹/雪风/22 科幻扫描效果前篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/23 科幻扫描效果后篇.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "DCC/02 Blender/辣椒酱.md",
     "技术美术/常用HLSL函数.md",
@@ -227,7 +233,6 @@
     "zip/images/8c71359a0845ad35f2e8feb8b31a627a_MD5.gif",
     "zip/images/100235deb9fad05e85d13a2a4dd19645_MD5.gif",
     "zip/images/b93368e3870a9f010d1d8f24b7e41f39_MD5.gif",
-    "zip/images/7f61f8342f9dad41146f6d41d8b12b5c_MD5.gif",
     "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
@@ -237,11 +242,6 @@
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "图形学/0 3D数学/公式推导/02 视图变换.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",

@@ -57,18 +57,6 @@ UE 材质中的 Sine 函数，取值范围是-1~1，周期为 1（不是 2pai）
 ![[Pasted image 20221215133053.png]]
 ![[Pasted image 20221215145815.png]]
 
-## 4 世界坐标 mask
-
-![[042402eab80e213473b1cba5fbad412b_MD5.webp]]
-
-```cs
-//x方向
-float mask = saturate(pow(abs(frac(rebuildPosWS.x*_ScanSpace-_Time.y*_TimeSpeed)),_ScanPower))*_ScanScale;
-//y方向
-float mask = saturate(pow(abs(frac(rebuildPosWS.y*_ScanSpace-_Time.y*_TimeSpeed)),_ScanPower))*_ScanScale;
-//z方向
-float mask = saturate(pow(abs(frac(rebuildPosWS.z*_ScanSpace-_Time.y*_TimeSpeed)),_ScanPower))*_ScanScale;
-```
 
 # 扫线
 
@@ -78,26 +66,6 @@ float mask = saturate(pow(abs(frac(rebuildPosWS.z*_ScanSpace-_Time.y*_TimeSpeed)
 float flow=saturate(pow(1-abs(frac(i.positionWS.y*0.3-_Time.y*0.2)-0.5),10)*0.3);  
 float4 flowcolor=flow*_FlowLightColor;
 ```
-
-## 世界坐标画线
-重建的世界坐标取小数+取余数，即可
-
-得到世界坐标后，因为我们的坐标轴取值范围是从 -∞到 +∞，而颜色的范围只是 0-1 之间，如果对世界坐标使用 frac 取小数就可以得到只在 0-0.99 的值了
-```c
-return float4(frac(rebuildPosWS),1);
-```
-
-![[61fb3efd59dc2c6cf9b00ff81ee5c9b4_MD5.webp]]
-
-取余数
-
-对于在 0-1 之间均匀变换的我们想得到它的边界位置，所以直接来个 step 函数，我们只取 0.98 到 1.0 之间的值为 1，其他的值为 0，我们把它输出出来。是不是有那味了，线框就直接出来了。
-
-![[89da9b0159e843562f581518306b433d_MD5.webp]]
-
-但是这个线框的颜色红蓝绿（为什么是红蓝绿？是因为它对应 XYZ 三个轴向）很乱而且不好看，我们想要自由控制颜色，我们定义三个颜色，去分别控制 XYZ 方向的线框颜色，并把它输出。
-
-![[248dd835198f5ef05b6c64552a6603ca_MD5.webp]]
 
 
 
