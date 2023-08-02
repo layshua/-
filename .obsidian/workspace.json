@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/留学/前往斯旺西.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "208b3d431205c46e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/留学/前往斯旺西.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
@@ -126,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/留学/前往斯旺西.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/留学/前往斯旺西.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -179,13 +166,17 @@
   },
   "active": "93c13d9aa073a396",
   "lastOpenFiles": [
+    "引擎Unity3D/4 GamePlay/maco/笔记.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "zip/留学/前往斯旺西.md",
+    "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
+    "zBuffer/URP 核心知识点～（1）常用 Shader 代码段总结.md",
+    "zip/images/874b919323ed5dc19a417f3215af0f45_MD5.jpg",
     "zip/留学/租房注意事项.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/缴费.md",
     "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md",
-    "zip/留学/前往斯旺西.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
-    "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
     "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
     "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
@@ -202,9 +193,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
-    "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
     "zip/images/Pasted image 20230802162032.png",
     "zip/images/Pasted image 20230802161949.png",
     "zip/images/Pasted image 20230802161805.png",
@@ -214,7 +202,6 @@
     "zip/images/Pasted image 20230802141120.png",
     "zip/images/8c71359a0845ad35f2e8feb8b31a627a_MD5.gif",
     "zip/images/100235deb9fad05e85d13a2a4dd19645_MD5.gif",
-    "zip/images/b93368e3870a9f010d1d8f24b7e41f39_MD5.gif",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
