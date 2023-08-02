@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+    },
+    {
+      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "Moopapa",
       "path": "DCC/03 Maya/Moopapa.md"
     },
@@ -77,10 +89,6 @@
       "path": "DCC/02 Blender/辣椒酱.md"
     },
     {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
       "basename": "02 Bloom",
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
@@ -133,14 +141,6 @@
       "path": "灵感.md"
     },
     {
-      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
-    },
-    {
       "basename": "庄懂AP01",
       "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
     },
@@ -187,10 +187,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "进度",
-      "path": "DCC/02 Blender/进度.md"
     },
     {
       "basename": "01 图像模糊",

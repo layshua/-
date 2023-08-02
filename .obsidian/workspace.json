@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/03 Maya/Moopapa.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/03 Maya/Moopapa.md"
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/03 Maya/Moopapa.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/03 Maya/Moopapa.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,6 +188,10 @@
   },
   "active": "d157bf5f38a5125a",
   "lastOpenFiles": [
+    "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
+    "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/进度.md",
+    "DCC/03 Maya/Moopapa.md",
     "DCC/03 Maya/python for Maya.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
@@ -209,16 +213,12 @@
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
     "DCC/02 Blender/辣椒酱.md",
-    "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230801103959.png",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
     "技术美术/3 后处理/04 SSAO.md",
     "技术美术/3 后处理/05 故障Glitch.md",
-    "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/images/Pasted image 20230731225948.png",
-    "图形学/3 全局光照GI/02 PBR理论.md",
     "zip/images/e0d21e096207e9bddbe499f78df6287e_MD5.gif",
     "zip/images/ee508c0391b6894eccbc9eff71b991e1_MD5.gif",
     "zip/images/d23522377f23fbab42ac6593ddb5c375_MD5.gif",
