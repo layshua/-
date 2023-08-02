@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+                "file": "DCC/02 Blender/辣椒酱.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/辣椒酱.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,8 +188,9 @@
   },
   "active": "d157bf5f38a5125a",
   "lastOpenFiles": [
-    "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
     "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+    "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
     "DCC/02 Blender/进度.md",
     "DCC/03 Maya/Moopapa.md",
     "DCC/03 Maya/python for Maya.md",
@@ -217,7 +218,6 @@
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
     "技术美术/3 后处理/04 SSAO.md",
-    "技术美术/3 后处理/05 故障Glitch.md",
     "zip/images/Pasted image 20230731225948.png",
     "zip/images/e0d21e096207e9bddbe499f78df6287e_MD5.gif",
     "zip/images/ee508c0391b6894eccbc9eff71b991e1_MD5.gif",
