@@ -1,6 +1,94 @@
 {
   "recentFiles": [
     {
+      "basename": "租房注意事项",
+      "path": "zip/留学/租房注意事项.md"
+    },
+    {
+      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
+      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
+      "basename": "前往斯旺西",
+      "path": "zip/留学/前往斯旺西.md"
+    },
+    {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "扩展 URP 后处理踩坑记录",
+      "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
+    },
+    {
+      "basename": "实时渲染高级特性开发",
+      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
+    },
+    {
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "死亡搁浅扫描特效",
+      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "06 ta101后处理",
+      "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
     },
@@ -29,20 +117,8 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
       "basename": "6 脚本",
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
     {
       "basename": "辣椒酱",
@@ -123,82 +199,6 @@
     {
       "basename": "06 深度测试",
       "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "02 Bloom",
-      "path": "技术美术/3 后处理/02 Bloom.md"
-    },
-    {
-      "basename": "03 景深",
-      "path": "技术美术/3 后处理/03 景深.md"
-    },
-    {
-      "basename": "04 SSAO",
-      "path": "技术美术/3 后处理/04 SSAO.md"
-    },
-    {
-      "basename": "05 故障Glitch",
-      "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
-    },
-    {
-      "basename": "03 定向光",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/03 定向光.md"
-    },
-    {
-      "basename": "02 对象种类",
-      "path": "引擎Unity3D/Catlike Coding/15 Object管理/02 对象种类.md"
-    },
-    {
-      "basename": "灵感",
-      "path": "灵感.md"
-    },
-    {
-      "basename": "庄懂AP01",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/庄懂AP01.md"
-    },
-    {
-      "basename": "URP14后处理框架搭建",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/URP14后处理框架搭建.md"
-    },
-    {
-      "basename": "11 HDR",
-      "path": "引擎Unity3D/Catlike Coding/《SRP》/11 HDR.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     }
   ],
   "omittedPaths": [],
