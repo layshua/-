@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "技术美术/5 水体渲染/卡通水.md"
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,6 +201,18 @@
   },
   "active": "0d15a414565969c7",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230802141427.png",
+    "zip/images/Pasted image 20230802141356.png",
+    "zip/images/Pasted image 20230802141329.png",
+    "zip/images/Pasted image 20230802141120.png",
+    "zip/images/8c71359a0845ad35f2e8feb8b31a627a_MD5.gif",
+    "zip/images/100235deb9fad05e85d13a2a4dd19645_MD5.gif",
+    "zip/images/b93368e3870a9f010d1d8f24b7e41f39_MD5.gif",
+    "zip/images/7f61f8342f9dad41146f6d41d8b12b5c_MD5.gif",
+    "zip/images/e4d5bac9d42d1688771e3b830b177ba4_MD5.gif",
+    "zip/images/0eb24f31b8f6dd4dd7c96b25d5d4e80b_MD5.gif",
+    "zip/images/d71558de32377863358341a23ffcec16_MD5.gif",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
@@ -214,29 +226,17 @@
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/常用HLSL函数.md",
-    "zip/images/202308012045.gif",
     "图形学/0 3D数学/公式推导/02 视图变换.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "图形学/1 图形系统/04 纹理.md",
-    "zip/images/Pasted image 20230801151519.png",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "zip/images/Pasted image 20230801143415.png",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "zip/images/Pasted image 20230801103959.png",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
-    "技术美术/3 后处理/04 SSAO.md",
-    "zip/images/Pasted image 20230731225948.png",
-    "zip/images/e0d21e096207e9bddbe499f78df6287e_MD5.gif",
-    "zip/images/ee508c0391b6894eccbc9eff71b991e1_MD5.gif",
-    "zip/images/d23522377f23fbab42ac6593ddb5c375_MD5.gif",
-    "zip/images/a4d266298d3d13b985d02e5011b8b4ff_MD5.gif",
-    "zip/images/ee1d1c38a47aff51ae0e2230649ad884_MD5.gif",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
