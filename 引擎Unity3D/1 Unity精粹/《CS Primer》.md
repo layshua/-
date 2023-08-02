@@ -2225,6 +2225,27 @@ static class Tools
 ```
 
 也可以为类类型添加拓展方法，当拓展方法名和类成员函数重名时，只会调用类成员函数。
+
+例：Unity 拓展 Transfrom 类判断朝向
+```cs h:8
+public static class ExtensionMethod
+{
+    private static float s_DotThreshold = 0.5f;
+    //this是要扩展的类，
+    //逗号之后，第二个参数是扩展方法的参数
+    
+    //夹角小于60°，返回true
+    public static bool IsFacingTarget(this Transform transform, Transform target)
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        float dot = Vector3.Dot(direction, transform.forward);  
+        return dot>s_DotThreshold; 
+    }
+}
+
+//调用
+transform.IsFacingTarget(m_attackTarget.transform)
+```
 ## 6 构造函数
 
 **作用**：在实例化对象时（new 时），会调用用于初始化的函数，如果不写默认存在一个无参构造函数。
