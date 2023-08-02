@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "0d15a414565969c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "137905f3c636ca8d",
             "type": "leaf",
             "state": {
@@ -42,7 +55,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -135,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/辣椒酱.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -186,8 +199,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d157bf5f38a5125a",
+  "active": "0d15a414565969c7",
   "lastOpenFiles": [
+    "DCC/02 Blender/辣椒酱.md",
     "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
@@ -213,7 +227,6 @@
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "DCC/02 Blender/辣椒酱.md",
     "zip/images/Pasted image 20230801103959.png",
     "技术美术/3 后处理/02 Bloom.md",
     "技术美术/3 后处理/03 景深.md",
