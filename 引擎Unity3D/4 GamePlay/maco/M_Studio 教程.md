@@ -1246,7 +1246,7 @@ public static class ExtensionMethod
 
 ![](<images/1690255172801.png>)
 
-```
+```c
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
