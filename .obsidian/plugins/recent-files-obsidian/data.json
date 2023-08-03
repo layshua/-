@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "课程",
+      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
+    },
+    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     },
@@ -67,10 +79,6 @@
     {
       "basename": "06 ta101后处理",
       "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
     },
     {
       "basename": "01 Trick！",
@@ -191,14 +199,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     }
   ],
   "omittedPaths": [],

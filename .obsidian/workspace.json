@@ -52,7 +52,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e0a1e9e82176d774",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+                "file": "技术美术/1 渲染雅集/04 溶解.md"
               }
             }
           }
@@ -153,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,6 +219,11 @@
   },
   "active": "1ed4cccd079d3b51",
   "lastOpenFiles": [
+    "图形学/1 图形系统/10 色彩.md",
+    "技术美术/1 渲染雅集/04 溶解.md",
+    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
+    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+    "引擎Unity3D/4 GamePlay/战斗系统",
     "zip/留学/前往斯旺西.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
@@ -226,13 +244,9 @@
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "技术美术/3 后处理/06 ta101后处理.md",
-    "技术美术/1 渲染雅集/04 溶解.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "图形学/1 图形系统/08 透明.md",
-    "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
-    "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "zip/images/Pasted image 20230802162032.png",
     "zip/images/Pasted image 20230802161949.png",
     "zip/images/Pasted image 20230802161805.png",
@@ -251,7 +265,6 @@
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
     "图形学/3 全局光照GI",
-    "图形学/1 图形系统/光栅化系统",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
