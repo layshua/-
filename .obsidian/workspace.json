@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,8 +217,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "1ed4cccd079d3b51",
+  "active": "9f645ab9465c76f0",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/04 溶解.md",
     "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
@@ -227,7 +229,6 @@
     "zip/留学/前往斯旺西.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
@@ -246,7 +247,6 @@
     "技术美术/3 后处理/06 ta101后处理.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/1 图形系统/08 透明.md",
     "zip/images/Pasted image 20230802162032.png",
     "zip/images/Pasted image 20230802161949.png",
     "zip/images/Pasted image 20230802161805.png",
