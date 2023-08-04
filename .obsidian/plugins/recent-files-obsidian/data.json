@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!",
+      "path": "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md"
+    },
+    {
+      "basename": "UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）",
+      "path": "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md"
+    },
+    {
+      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
+      "path": "zip/引擎Unreal/06 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "zip/引擎Unreal/05 Gameplay/GamePlay架构.md"
+    },
+    {
+      "basename": "ARPG",
+      "path": "zip/引擎Unreal/05 Gameplay/ARPG.md"
+    },
+    {
+      "basename": "宝藏",
+      "path": "zip/引擎Unreal/05 Gameplay/宝藏.md"
+    },
+    {
+      "basename": "06 ta101后处理",
+      "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "05 故障Glitch",
+      "path": "技术美术/3 后处理/05 故障Glitch.md"
+    },
+    {
+      "basename": "03 景深",
+      "path": "技术美术/3 后处理/03 景深.md"
+    },
+    {
+      "basename": "04 SSAO",
+      "path": "技术美术/3 后处理/04 SSAO.md"
+    },
+    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -19,10 +63,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
     },
     {
       "basename": "10 色彩",
@@ -87,10 +127,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
     },
     {
       "basename": "01 Trick！",
@@ -163,42 +199,6 @@
     {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "TA101",
-      "path": "引擎Unity3D/2 Shader精粹/《Built-in》/TA101.md"
-    },
-    {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
-    },
-    {
-      "basename": "Moopapa",
-      "path": "DCC/03 Maya/Moopapa.md"
-    },
-    {
-      "basename": "python for Maya",
-      "path": "DCC/03 Maya/python for Maya.md"
-    },
-    {
-      "basename": "02 视图变换",
-      "path": "图形学/0 3D数学/公式推导/02 视图变换.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     }
   ],
   "omittedPaths": [],

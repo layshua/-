@@ -8,72 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "93c13d9aa073a396",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "9f645ab9465c76f0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c30245cf0ce2e394",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1ed4cccd079d3b51",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《GUI》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e0a1e9e82176d774",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md"
+                "file": "技术美术/1 渲染雅集/04 溶解.md"
               }
             }
           }
@@ -166,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "技术美术/1 渲染雅集/04 溶解.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -219,11 +166,31 @@
   },
   "active": "9f645ab9465c76f0",
   "lastOpenFiles": [
-    "DCC/02 Blender/辣椒酱.md",
+    "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md",
+    "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
+    "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
+    "zip/images/97534239511a5b1988fc1e21cd025bd6_MD5.jpg",
+    "zip/images/802526a107c5d946e4709247d6adb9a6_MD5.jpg",
+    "zip/images/dd8531edfaa5f20a15da048686eb57e7_MD5.jpg",
+    "zip/images/93f586b752a7af67d3630edb677d8512_MD5.jpg",
+    "zip/images/1ea3a06eb569a3d02f3836ed6dd9f5a8_MD5.jpg",
+    "zip/images/e0e11dc5a8dc415cf287d91a1f7b14bf_MD5.jpg",
+    "zip/images/7d40ea65cf0c9c6f31b837e32e1fe0f6_MD5.jpg",
+    "zip/images/d7f087db6967cbea78701d0d432b4cd6_MD5.jpg",
+    "技术美术/1 渲染雅集/04 溶解.md",
+    "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md",
+    "zip/引擎Unreal/06 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
+    "zip/引擎Unreal/05 Gameplay/GamePlay架构.md",
+    "zip/引擎Unreal/05 Gameplay/ARPG.md",
+    "zip/引擎Unreal/05 Gameplay/宝藏.md",
+    "技术美术/3 后处理/06 ta101后处理.md",
+    "技术美术/3 后处理/05 故障Glitch.md",
+    "技术美术/3 后处理/03 景深.md",
+    "技术美术/3 后处理/04 SSAO.md",
     "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/辣椒酱.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "技术美术/1 渲染雅集/04 溶解.md",
     "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
@@ -235,27 +202,6 @@
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
     "zBuffer/URP 核心知识点～（1）常用 Shader 代码段总结.md",
-    "zip/images/874b919323ed5dc19a417f3215af0f45_MD5.jpg",
-    "zip/留学/租房注意事项.md",
-    "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
-    "zip/留学/缴费.md",
-    "zip/留学/工行星座卡 VISA 卡（学生版）使用答疑【大学生信用卡 + visa 卡使用注意事项】.md",
-    "引擎Unity3D/收藏夹/实时渲染高级特性开发.md",
-    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
-    "引擎Unity3D/收藏夹/Unity3D Shader： 科幻风线框渲染.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
-    "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
-    "zip/images/Pasted image 20230802162032.png",
-    "zip/images/Pasted image 20230802161949.png",
-    "zip/images/Pasted image 20230802161805.png",
-    "zip/images/Pasted image 20230802141427.png",
-    "zip/images/Pasted image 20230802141356.png",
-    "zip/images/Pasted image 20230802141329.png",
-    "zip/images/Pasted image 20230802141120.png",
-    "zip/images/8c71359a0845ad35f2e8feb8b31a627a_MD5.gif",
-    "zip/images/100235deb9fad05e85d13a2a4dd19645_MD5.gif",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
