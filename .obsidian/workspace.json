@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 溶解.md",
+                "file": "技术美术/1 渲染雅集/06 雾.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "737d5f72c1bf9b05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -33,7 +46,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 溶解.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -126,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 溶解.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/04 溶解.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,10 +191,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "9f645ab9465c76f0",
+  "active": "737d5f72c1bf9b05",
   "lastOpenFiles": [
-    "技术美术/常用HLSL函数.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/1 渲染雅集/04 溶解.md",
+    "技术美术/常用HLSL函数.md",
     "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
@@ -214,8 +230,6 @@
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
-    "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md",
-    "zBuffer/URP 核心知识点～（1）常用 Shader 代码段总结.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
