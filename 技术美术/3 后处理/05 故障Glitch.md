@@ -184,7 +184,7 @@ half4 Frag(VaryingsDefault i) : SV_Target
 
 ## 2.3 进阶版的错位图块故障（Image Block Glitch）
 
-进阶版的 Image Block Glitch，核心要点在于双层 blockLayer 的生成，以及配合噪声生成函数 randomNoise 进行双层强度的二次筛选，对应的实现代码如下：
+**进阶版的 Image Block Glitch，核心要点在于双层 blockLayer 的生成，以及配合噪声生成函数 randomNoise 进行双层强度的二次筛选**，对应的实现代码如下：
 
 ```
 float2 blockLayer1 = floor(uv * float2(_BlockLayer1_U, _BlockLayer1_V));
