@@ -24,8 +24,13 @@
             "id": "9f645ab9465c76f0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "DCC/02 Blender/建模原理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
@@ -111,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -161,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -214,6 +219,8 @@
   },
   "active": "9f645ab9465c76f0",
   "lastOpenFiles": [
+    "DCC/02 Blender/辣椒酱.md",
+    "DCC/02 Blender/建模原理.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/04 溶解.md",
@@ -240,8 +247,6 @@
     "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "技术美术/3 后处理/06 ta101后处理.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/images/Pasted image 20230802162032.png",
     "zip/images/Pasted image 20230802161949.png",
     "zip/images/Pasted image 20230802161805.png",

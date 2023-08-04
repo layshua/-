@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "辣椒酱",
+      "path": "DCC/02 Blender/辣椒酱.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -153,10 +161,6 @@
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
     },
     {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
-    },
-    {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
     },
@@ -167,10 +171,6 @@
     {
       "basename": "卡通水",
       "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
