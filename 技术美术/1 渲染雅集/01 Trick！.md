@@ -16,6 +16,10 @@ float4 frag(Varyings i) : SV_Target
 ![[Pasted image 20221215123919.png]]
 ![[Pasted image 20221215123942.png]]
 ## 2 圆形遮罩
+**简单方法：**
+笛卡尔坐标系求据中心的距离, 用 length 或 distance 函数即可
+![[Pasted image 20230804173348.png]]
+
 **方法一：**
 ![[Pasted image 20221215130852.png]]
 不能用 power 节点代替 multiply，因为 power 节点不支持负数运算，小于 0 的数都会被 clamp 到0。
@@ -74,3 +78,18 @@ float4 flowcolor=flow*_FlowLightColor;
 xyz 面分别显示对应图片，此时-x-y-z 面颜色值为-1黑色
 ![[Pasted image 20221003172541.png|300]] ![[Pasted image 20221003172610.png]]
 六面显示 ![[Pasted image 20221003174221.png]]
+# 噪音算法
+## 白噪音
+方法一：floor
+![[Pasted image 20221024171946.png]]
+方法二：frac
+![[Pasted image 20221024172429.png]]
+
+## 动态噪音
+使用了两种算法，区别仅在于输出值
+#### RandomNoise float1
+![[Pasted image 20221024220434.png]]
+#### RandomNoise vector2
+![[Pasted image 20221024220602.png]]
+### 噪音
+![[Pasted image 20221024221000.png]]
