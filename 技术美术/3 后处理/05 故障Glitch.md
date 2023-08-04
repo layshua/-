@@ -114,7 +114,7 @@ half2 block = randomNoise(floor(i.texcoord * _BlockSize));
 
 ![[3dd6454386d54e915634b801feecd602_MD5.gif]]
 
-第二步，基于第一步得到的均匀 Block 图块强度值做强度的二次筛选，增加随机性，代码如下：
+**第二步，基于第一步得到的均匀 Block 图块强度值做强度的二次筛选，增加随机性**，代码如下：
 
 ```
 half displaceNoise = pow(block.x, 8.0) * pow(block.x, 3.0);
@@ -124,7 +124,7 @@ half displaceNoise = pow(block.x, 8.0) * pow(block.x, 3.0);
 
 ![[4e011097d288b0981c686ac13edecfaf_MD5.gif]]
 
-第三步，将经过强度二次筛选的 Block 图块强度值，作为噪声强度的系数，分别对 G 和 B 颜色通道进行采样。实现如下：
+**第三步，将经过强度二次筛选的 Block 图块强度值，作为噪声强度的系数，分别对 G 和 B 颜色通道进行采样**。实现如下：
 
 ```
 half ColorR = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord).r;
@@ -138,15 +138,11 @@ return half4(ColorR, ColorG, ColorB, 1.0);
 
 ![[82cc960375e7cc06da5b80035a402138_MD5.gif]]
 
-以上基础版本的错位图块故障（Image Block Glitch）实现的完整源代码可见：
-
-[QianMo/X-PostProcessing-Library](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchImageBlockV3)
-
 ## 2.2 结合 RGB Split 的错位图块故障（Image Block Glitch）
 
 另外，也可以加上 RGB Split 的元素，得到更丰富的渲染表现，实现代码如下：
 
-```
+```c
 inline float randomNoise(float2 seed)
 {
     return frac(sin(dot(seed * floor(_Time.y * _Speed), float2(17.13, 3.71))) * 43758.5453123);
