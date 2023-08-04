@@ -5,6 +5,22 @@
       "path": "技术美术/3 后处理/05 故障Glitch.md"
     },
     {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md"
+    },
+    {
+      "basename": "Lit.shader源码",
+      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
@@ -169,10 +185,6 @@
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
       "basename": "08 透明",
       "path": "图形学/1 图形系统/08 透明.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "34 SSPR屏幕空间平面反射",
       "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
     }
   ],
   "omittedPaths": [],

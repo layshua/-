@@ -10,7 +10,7 @@ banner: "![[1ccf2fbd50ec1b0bff73725e95e3ba02_MD5.gif]]"
 
 故障艺术（Glitch Art），作为赛博朋克（Cyberpunk）艺术风格的核心元素之一，是一种是将数字设备的软硬件故障引起的破碎变形图像，经过艺术加工而成的一种先锋视觉艺术表现形式。近年来，故障艺术已经成为了赛博朋克风格的电影和游戏作品中主要的艺术风格之一。
 
-## 一、RGB 颜色分离故障（RGB Split Glitch）
+# 1 RGB 颜色分离故障（RGB Split Glitch）
 
 RGB 颜色分离故障（RGB Split Glitch），也称颜色偏移故障（Color Shift Glitch），是故障艺术中比较常见的表达形式之一。
 
@@ -24,16 +24,15 @@ float randomNoise(float x, float y)
 {
     return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
 }
-
-half4 Frag_Horizontal(VaryingsDefault i) : SV_Target
+        
+float4 frag(Varyings i) : SV_Target
 {
-    float splitAmount = _Intensity * randomNoise(_TimeX, 2);
-
-    half4 ColorR = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, float2(i.texcoord.x + splitAmount, i.texcoord.y));
-    half4 ColorG = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
-    half4 ColorB = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, float2(i.texcoord.x - splitAmount, i.texcoord.y));
-
-    return half4(ColorR.r, ColorG.g, ColorB.b, 1);
+    float splitIntensity = randomNoise(_TimeX,2)* _SplitIntensity;
+    float4 colorR = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x+splitIntensity,i.uv.y));
+    float4 colorG = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x,i.uv.y));
+    float4 colorB = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x-splitIntensity,i.uv.y));
+    
+    return float4(colorR.r,colorG.g,colorB.b,1);
 }
 ```
 
@@ -43,40 +42,33 @@ half4 Frag_Horizontal(VaryingsDefault i) : SV_Target
 
 ![[1906c75509099ec4095ccb777851dbd0_MD5.gif]]
 
-详细实现源码可见：
-
-[X-PostProcessing/GlitchRGBSplitV4](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchRGBSplitV4)
 
 另外，可以基于三角函数和 pow 方法控制抖动的间隔、幅度，以及抖动的曲线：
 
-```
-half4 Frag_Horizontal(VaryingsDefault i): SV_Target
+```c
+float4 frag(Varyings i) : SV_Target
 {
-    float splitAmout = (1.0 + sin(_TimeX * 6.0)) * 0.5;
-    splitAmout *= 1.0 + sin(_TimeX * 16.0) * 0.5;
-    splitAmout *= 1.0 + sin(_TimeX * 19.0) * 0.5;
-    splitAmout *= 1.0 + sin(_TimeX * 27.0) * 0.5;
-    splitAmout = pow(splitAmout, _Amplitude);
-    splitAmout *= (0.05 * _Amount);
+    //基于三角函数和pow方法控制抖动
+    float splitIntensity = (1.0 + sin(_Time.y * 6.0)) * 0.5;
+     splitIntensity *= 1.0 + sin(_Time.y * 16.0) * 0.5;
+     splitIntensity *= 1.0 + sin(_Time.y * 19.0) * 0.5;
+     splitIntensity *= 1.0 + sin(_Time.y * 27.0) * 0.5;
+     splitIntensity = pow(splitIntensity, _Amplitude);
+    splitIntensity*= (0.05*_SplitIntensity);
 
-    half3 finalColor;
-    finalColor.r = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, fixed2(i.texcoord.x + splitAmout, i.texcoord.y)).r;
-    finalColor.g = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord).g;
-    finalColor.b = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, fixed2(i.texcoord.x - splitAmout, i.texcoord.y)).b;
-
-    finalColor *= (1.0 - splitAmout * 0.5);
-
-    return half4(finalColor, 1.0);
+    float3 finalColor;
+    finalColor.r = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x+splitIntensity,i.uv.y)).r;
+    finalColor.g = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x,i.uv.y)).g;
+    finalColor.b = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, float2(i.uv.x-splitIntensity,i.uv.y)).b;
+    finalColor *= (1.0 - splitIntensity * 0.5);
+    
+    return float4(finalColor.rgb,1);
 }
 ```
 
 得到的渲染表现如下：
 
 ![[a47d6a5237f86cf7eab650ac1d4ff90c_MD5.webp]]
-
-此版本的实现源码可见：
-
-[X-PostProcessing/GlitchRGBSplitV2](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchRGBSplitV2)
 
 另外，在 XPL（X-PostProcessing-Library）中供实现了 5 种不同版本的 Glitch RGB Split 后处理特效，以满足不同情形下 RGB 颜色抖动风格的需要。除了上文提到了两种，剩余三种的更多细节，篇幅原因这里就不展开了。以下整理了一个汇总列表，若有需要，可以直接转到 XPL 查看具体渲染表现以及源码:
 
@@ -103,17 +95,18 @@ half4 Frag_Horizontal(VaryingsDefault i): SV_Target
 
 ![[19719f9292fad59a1193be71cb118e90_MD5.webp]]
 
-## 二、错位图块故障（Image Block Glitch）
+# 2 错位图块故障（Image Block Glitch）
 
-错位图块故障（Image Block Glitch）的核心要点在于生成随机强度且横纵交错的图块，随后基于图块的强度，进行 uv 的抖动采样，并可以加上 RGB Split 等元素提升渲染表现。
+**核心要点：生成随机强度且横纵交错的图块，随后基于图块的强度，进行 uv 的抖动采样，并可以加上 RGB Split 等元素提升渲染表现。**
 
 ![[954f6fca25cd56786ffbf45af22b1a97_MD5.png]]
 
 ## 2.1 基础版本的错位图块故障（Image Block Glitch）
 
-对于基础版本的实现，第一步，基于 uv 和噪声函数生成方格块。可以使用 floor 方法（对输入参数向下取整）以及低成本的噪声生成函数 randomNoise 进行实现，代码仅需一句：
+**第一步，基于 uv 和噪声函数生成方格块**。
+可以使用 floor 方法（对输入参数向下取整）以及低成本的噪声生成函数 randomNoise 进行实现，代码仅需一句：
 
-```
+```c
 half2 block = randomNoise(floor(i.texcoord * _BlockSize));
 ```
 
@@ -234,7 +227,7 @@ float lineNoise = lineNoise1 * lineNoise2 * _Offset  - RGBSplitNoise;
 *   **Glitch Image Block V4**：[https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchImageBlockV4](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchImageBlockV4)  
     
 
-## 三、错位线条故障（Line Block Glitch）
+# 三、错位线条故障（Line Block Glitch）
 
 错位线条故障（Line Block Glitch）具有较强的表现力，在 Glitch 系列特效中的出镜率也较高。
 
@@ -329,7 +322,7 @@ XPL 中实现的错位线条故障（Line Block Glitch）后处理，有 7 个�
 
 [X-PostProcessing/GlitchLineBlock](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchLineBlock)
 
-## 四、图块抖动故障（Tile Jitter Glitch）
+# 四、图块抖动故障（Tile Jitter Glitch）
 
 图块抖动故障 (Tile Jitter Glitch) 模拟了屏幕信号的块状抖动故障。
 
@@ -383,7 +376,7 @@ half4 sceneColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
 
 [X-PostProcessing/GlitchTileJitter](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchTileJitter)
 
-## 五、扫描线抖动故障（Scan Line Jitter Glitch）
+# 五、扫描线抖动故障（Scan Line Jitter Glitch）
 
 扫描线抖动故障（Scan Line Jitter Glitch）算法较简单，但是得到的渲染表现却非常具有冲击力：
 
@@ -421,7 +414,7 @@ half4 Frag_Horizontal(VaryingsDefault i): SV_Target
 
 [X-PostProcessing/GlitchScanLineJitter](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchScanLineJitter)
 
-## 六、数字条纹故障（Digital Stripe Glitch）
+# 六、数字条纹故障（Digital Stripe Glitch）
 
 数字条纹故障（Digital Stripe Glitch）同样是出镜率较高的 Glitch 系后处理特效之一。例如在《赛博朋克 2077》的 gameplay 中，就可以到它的身影：
 
@@ -489,7 +482,7 @@ half4 Frag(VaryingsDefault i): SV_Target
 
 [QianMo/X-PostProcessing-Library](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchDigitalStripe)
 
-## 七、模拟噪点故障（Analog Noise Glitch）
+# 七、模拟噪点故障（Analog Noise Glitch）
 
 ![[8ed3ebfbdfe1cc98cff9d38b7ee7a3e9_MD5.webp]]
 
@@ -527,7 +520,7 @@ if (randomNoise(float2(_TimeX * _Speed, _TimeX * _Speed)) > _LuminanceJitterThre
 
 [QianMo/X-PostProcessing-Library](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchAnalogNoise)
 
-## 八、屏幕跳跃故障（Screen Jump Glitch）
+# 八、屏幕跳跃故障（Screen Jump Glitch）
 
 ![[518cb54c6962b0c556486a4c53eb7846_MD5.gif]]
 
@@ -615,7 +608,7 @@ half4 Frag_Vertical(VaryingsDefault i): SV_Target
 
 [QianMo/X-PostProcessing-Library](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchScreenShake)
 
-## 十、波动抖动故障（Wave Jitter Glitch）
+# 十、波动抖动故障（Wave Jitter Glitch）
 
 波动抖动故障（Wave Jitter Glitch）相较于上述的 9 种 Glitch 算法而言，用到了更为复杂的噪声生成函数。
 
@@ -711,7 +704,7 @@ float4 Frag_Horizontal(VaryingsDefault i): SV_Target
 
 [QianMo/X-PostProcessing-Library](https://github.com/QianMo/X-PostProcessing-Library/tree/master/Assets/X-PostProcessing/Effects/GlitchWaveJitter)
 
-## 总结
+# 总结
 
 故障艺术追求 “故障” 带来的独特美感。近年来，故障艺术已经成为了赛博朋克风格电影和游戏作品中的核心艺术风格之一。而随着各种相关影视作品和游戏作品的不断发布，故障艺术的表现风格也引起了电商、综艺、快消等行业的广泛效仿。
 
