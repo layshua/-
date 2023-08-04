@@ -12,13 +12,14 @@ banner: "![[1ccf2fbd50ec1b0bff73725e95e3ba02_MD5.gif]]"
 
 ## 一、RGB 颜色分离故障（RGB Split Glitch）
 
-RGB 颜色分离故障（RGB Split Glitch），也称颜色偏移故障（Color Shift Glitch），是故障艺术中比较常见的表达形式之一。例如，抖音短视频 App 的 Icon，即是 RGB 颜色分离故障艺术风格影响下的作品，给整体产品带来了潮流与年轻的气息：
+RGB 颜色分离故障（RGB Split Glitch），也称颜色偏移故障（Color Shift Glitch），是故障艺术中比较常见的表达形式之一。
 
-![[a65b69e9f52a496762e91ff098080b68_MD5.jpg]]
+**实现思路：
+1. RGB 三通道采用不同的 uv 偏移值进行分别采样。
+2. 一般而言，会在 RGB 三个颜色通道中，选取一**个通道采用原始 uv 值，另外两个通道进行 uv 抖动后再进行采样**。
 
-RGB 颜色分离故障（RGB Split Glitch），实现算法的主要要点在于红绿蓝三个通道采用不同的 uv 偏移值进行分别采样。一般而言，会在 RGB 三个颜色通道中，选取一个通道采用原始 uv 值，另外两个通道进行 uv 抖动后再进行采样。一个经过性能优化的实现版本 Shader 代码如下：
-
-```
+一个经过性能优化的实现版本 Shader 代码如下：
+```c
 float randomNoise(float x, float y)
 {
     return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
@@ -26,7 +27,7 @@ float randomNoise(float x, float y)
 
 half4 Frag_Horizontal(VaryingsDefault i) : SV_Target
 {
-    float splitAmount = _Indensity * randomNoise(_TimeX, 2);
+    float splitAmount = _Intensity * randomNoise(_TimeX, 2);
 
     half4 ColorR = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, float2(i.texcoord.x + splitAmount, i.texcoord.y));
     half4 ColorG = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);

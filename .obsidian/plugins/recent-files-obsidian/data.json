@@ -1,20 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+      "basename": "05 故障Glitch",
+      "path": "技术美术/3 后处理/05 故障Glitch.md"
+    },
+    {
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "06 ta101后处理",
+      "path": "技术美术/3 后处理/06 ta101后处理.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
       "basename": "06 雾",
       "path": "技术美术/1 渲染雅集/06 雾.md"
     },
     {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
+      "basename": "07 草",
+      "path": "技术美术/1 渲染雅集/07 草.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
       "basename": "04 溶解",
       "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "常用HLSL函数",
@@ -45,14 +81,6 @@
       "path": "zip/引擎Unreal/05 Gameplay/宝藏.md"
     },
     {
-      "basename": "06 ta101后处理",
-      "path": "技术美术/3 后处理/06 ta101后处理.md"
-    },
-    {
-      "basename": "05 故障Glitch",
-      "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
       "basename": "03 景深",
       "path": "技术美术/3 后处理/03 景深.md"
     },
@@ -75,10 +103,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "课程",
@@ -175,30 +199,6 @@
     {
       "basename": "31 镜头炫光 更好的广告牌算法",
       "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
-      "basename": "25 色彩分离",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md"
-    },
-    {
-      "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
-    },
-    {
-      "basename": "28 ComputeShader",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/28 ComputeShader.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "26  制作 VEG 粒子特效",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/26  制作 VEG 粒子特效.md"
     }
   ],
   "omittedPaths": [],

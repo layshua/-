@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/06 雾.md",
+                "file": "技术美术/3 后处理/06 ta101后处理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,38 @@
             }
           },
           {
-            "id": "737d5f72c1bf9b05",
+            "id": "c5523b14ce1f1ab2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "技术美术/3 后处理/05 故障Glitch.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ddec0bd3aa33557b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/3 后处理/05 故障Glitch.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9f016540f0a505ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/10 色彩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "技术美术/3 后处理/05 故障Glitch.md"
               }
             }
           }
@@ -140,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "技术美术/3 后处理/05 故障Glitch.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "技术美术/3 后处理/05 故障Glitch.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,11 +217,21 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "737d5f72c1bf9b05",
+  "active": "ddec0bd3aa33557b",
   "lastOpenFiles": [
+    "技术美术/3 后处理/01 图像模糊.md",
+    "技术美术/3 后处理/05 故障Glitch.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "技术美术/3 后处理/06 ta101后处理.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/05 描边.md",
+    "技术美术/1 渲染雅集/07 草.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/04 溶解.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "技术美术/1 渲染雅集/09 体积云.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/常用HLSL函数.md",
     "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
@@ -213,23 +249,13 @@
     "zip/引擎Unreal/05 Gameplay/GamePlay架构.md",
     "zip/引擎Unreal/05 Gameplay/ARPG.md",
     "zip/引擎Unreal/05 Gameplay/宝藏.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
-    "技术美术/3 后处理/05 故障Glitch.md",
     "技术美术/3 后处理/03 景深.md",
     "技术美术/3 后处理/04 SSAO.md",
     "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/辣椒酱.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unity3D/4 GamePlay/战斗系统",
-    "zip/留学/前往斯旺西.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
     "引擎Unity3D/4 GamePlay/maco",
