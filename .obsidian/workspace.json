@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3b8fe22cf465d6bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -93,7 +106,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -136,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+                "file": "图形学/1 图形系统/06 深度测试.md"
               }
             }
           }
@@ -187,7 +201,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +218,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
+                "file": "图形学/1 图形系统/06 深度测试.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -238,8 +252,21 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "9f645ab9465c76f0",
+  "active": "3b8fe22cf465d6bb",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "技术美术/5 水体渲染/卡通水.md",
+    "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
+    "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
+    "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md",
+    "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
+    "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
+    "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
+    "技术美术/1 渲染雅集/04 溶解.md",
+    "技术美术/1 渲染雅集/09 体积云.md",
+    "技术美术/1 渲染雅集/06 雾.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
@@ -247,26 +274,13 @@
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
     "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "技术美术/常用HLSL函数.md",
-    "技术美术/5 水体渲染/卡通水.md",
     "技术美术/3 后处理/03 景深.md",
     "技术美术/3 后处理/05 故障Glitch.md",
     "技术美术/3 后处理/04 SSAO.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "技术美术/1 渲染雅集/09 体积云.md",
-    "技术美术/1 渲染雅集/04 溶解.md",
-    "技术美术/1 渲染雅集/07 草.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/3 后处理/06 ta101后处理.md",
     "zip/images/Pasted image 20230804173348.png",
-    "图形学/1 图形系统/10 色彩.md",
-    "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
-    "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
     "zip/images/97534239511a5b1988fc1e21cd025bd6_MD5.jpg",

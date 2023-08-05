@@ -1,6 +1,58 @@
 {
   "recentFiles": [
     {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
+    },
+    {
+      "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
+      "path": "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
+    },
+    {
+      "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
+      "path": "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
+    },
+    {
+      "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
+      "path": "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
+    },
+    {
+      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
+      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
+    },
+    {
+      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
+      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
+    },
+    {
+      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
+      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
+    },
+    {
+      "basename": "06 雾",
+      "path": "技术美术/1 渲染雅集/06 雾.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
     },
@@ -41,10 +93,6 @@
       "path": "技术美术/常用HLSL函数.md"
     },
     {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
       "basename": "03 景深",
       "path": "技术美术/3 后处理/03 景深.md"
     },
@@ -65,24 +113,8 @@
       "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
       "basename": "07 草",
       "path": "技术美术/1 渲染雅集/07 草.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
       "basename": "10 色彩",
@@ -107,10 +139,6 @@
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -171,34 +199,6 @@
     {
       "basename": "遇到的问题",
       "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
-      "basename": "笔记",
-      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
-    },
-    {
-      "basename": "扩展 URP 后处理踩坑记录",
-      "path": "引擎Unity3D/收藏夹/URP后处理扩展/扩展 URP 后处理踩坑记录.md"
-    },
-    {
-      "basename": "租房注意事项",
-      "path": "zip/留学/租房注意事项.md"
-    },
-    {
-      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
-      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "实时渲染高级特性开发",
-      "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
     }
   ],
   "omittedPaths": [],
