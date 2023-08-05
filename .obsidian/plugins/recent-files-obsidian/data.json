@@ -1,12 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
+      "basename": "02 空间变换",
+      "path": "图形学/0 3D数学/公式推导/02 空间变换.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "常用噪声算法",
+      "path": "图形学/0 3D数学/常用噪声算法.md"
+    },
+    {
+      "basename": "05 故障Glitch",
+      "path": "技术美术/3 后处理/05 故障Glitch.md"
+    },
+    {
+      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
+      "path": "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "01 三维旋转",
+      "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
+    },
+    {
+      "basename": "Shader HLSL",
+      "path": "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md"
     },
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "06 深度测试",
+      "path": "图形学/1 图形系统/06 深度测试.md"
     },
     {
       "basename": "卡通水",
@@ -97,10 +137,6 @@
       "path": "技术美术/3 后处理/03 景深.md"
     },
     {
-      "basename": "05 故障Glitch",
-      "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
       "basename": "04 SSAO",
       "path": "技术美术/3 后处理/04 SSAO.md"
     },
@@ -109,32 +145,12 @@
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
       "basename": "07 草",
       "path": "技术美术/1 渲染雅集/07 草.md"
     },
     {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "URP 代码结构以及 GPU 架构（万字长文）",
-      "path": "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md"
-    },
-    {
       "basename": "Lit.shader源码",
       "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "01 图像模糊",
@@ -183,22 +199,6 @@
     {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "课程",
-      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "前往斯旺西",
-      "path": "zip/留学/前往斯旺西.md"
-    },
-    {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     }
   ],
   "omittedPaths": [],

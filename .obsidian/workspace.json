@@ -34,20 +34,12 @@
             }
           },
           {
-            "id": "0913ba61dcb068cd",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "c5523b14ce1f1ab2",
+            "id": "0641641b0e94f384",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/05 故障Glitch.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -55,12 +47,12 @@
             }
           },
           {
-            "id": "ddec0bd3aa33557b",
+            "id": "f5c3638ec0be556d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/3 后处理/05 故障Glitch.md",
+                "file": "图形学/0 3D数学/公式推导/02 空间变换.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -68,38 +60,12 @@
             }
           },
           {
-            "id": "1b2ef24163dba2f4",
+            "id": "fd32a53e47607ed7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9f016540f0a505ce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/10 色彩.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ca28c272f6e8b294",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/常用HLSL函数.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -107,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -150,12 +116,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md"
+                "file": "图形学/0 3D数学/公式推导/02 空间变换.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -201,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "图形学/0 3D数学/公式推导/02 空间变换.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -218,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/06 深度测试.md",
+                "file": "图形学/0 3D数学/公式推导/02 空间变换.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -252,9 +217,20 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "3b8fe22cf465d6bb",
+  "active": "f5c3638ec0be556d",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "图形学/0 3D数学/公式推导/02 空间变换.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "图形学/0 3D数学/常用噪声算法.md",
+    "技术美术/3 后处理/05 故障Glitch.md",
+    "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "图形学/1 图形系统/06 深度测试.md",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
     "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
@@ -269,17 +245,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
-    "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
-    "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
-    "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/雪风/25 色彩分离.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "技术美术/常用HLSL函数.md",
-    "技术美术/3 后处理/03 景深.md",
-    "技术美术/3 后处理/05 故障Glitch.md",
-    "技术美术/3 后处理/04 SSAO.md",
     "zip/images/Pasted image 20230804173348.png",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",

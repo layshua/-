@@ -740,7 +740,7 @@ ENDHLSL
 ```
 
 # 图形 API 平台差异 
-Unity 默认是以 OpenGL 的标准体系进行描述的：左手坐标系、屏幕坐标系左下角为（0,0）等。为了确保统一性，所有非OpenGL 的平台的特性，Unity 会做出转换，使得该特性能够以 OpenGL 的标准来描述。
+**Unity 默认是以 OpenGL 的标准体系进行描述的：左手坐标系、屏幕坐标系左下角为（0,0）等。为了确保统一性，所有非OpenGL 的平台的特性，Unity 会做出转换，使得该特性能够以 OpenGL 的标准来描述。**
 
 在某些情况下，不同图形 API 之间的图形渲染行为方式存在差异。大多数情况下，Unity 编辑器会隐藏这些差异，**但在某些情况下，编辑器无法为您执行此操作。下面列出了这些情况以及发生这些情况时需要采取的操作。**
 ## 渲染纹理坐标
@@ -802,16 +802,6 @@ float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
 }
 ```
 
-## 裁剪空间坐标
-
-与纹理坐标类似，裁剪空间坐标（也称为投影后空间坐标）在 Direct3D 类和 OpenGL 类平台之间有所不同：
-
-- **Direct3D **：裁剪空间深度为 $[near,0]$。
-- **OpenGL **：裁剪空间深度为$[-near, far]$。
-
-- **在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**`UNITY_NEAR_CLIP_VALUE` 定义为近剪裁平面的值。 Direct3D 为1.0，OpenGL 为–1.0
-- 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
-
 ## 缓冲区数据结构
 
 执行以下操作以确保所有图形 API 编译具有相同数据布局的缓冲区：
@@ -827,6 +817,16 @@ cbuffer myConstantBuffer {
     float arrayIndex;
 }
 ```
+
+## 裁剪空间深度值 
+
+与纹理坐标类似，裁剪空间坐标（也称为投影后空间坐标）在 Direct3D 类和 OpenGL 类平台之间有所不同：
+
+- **Direct3D **：裁剪空间深度值为 $[1,0]$。
+- **OpenGL **：裁剪空间深度为 $[-1, 1]$。
+
+- **在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**`UNITY_NEAR_CLIP_VALUE` 定义为近剪裁平面的值。 Direct3D 为 1.0，OpenGL 为–1.0
+- 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
 
 ## 深度 (Z) 方向
 
