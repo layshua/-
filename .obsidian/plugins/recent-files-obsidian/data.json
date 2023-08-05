@@ -1,6 +1,78 @@
 {
   "recentFiles": [
     {
+      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+    },
+    {
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
+    },
+    {
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
+    },
+    {
+      "basename": "03 景深",
+      "path": "技术美术/3 后处理/03 景深.md"
+    },
+    {
+      "basename": "05 故障Glitch",
+      "path": "技术美术/3 后处理/05 故障Glitch.md"
+    },
+    {
+      "basename": "04 SSAO",
+      "path": "技术美术/3 后处理/04 SSAO.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
       "basename": "07 草",
       "path": "技术美术/1 渲染雅集/07 草.md"
     },
@@ -11,14 +83,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "05 故障Glitch",
-      "path": "技术美术/3 后处理/05 故障Glitch.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
       "basename": "10 色彩",
@@ -45,32 +109,12 @@
       "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
-    },
-    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!",
@@ -95,14 +139,6 @@
     {
       "basename": "宝藏",
       "path": "zip/引擎Unreal/05 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "03 景深",
-      "path": "技术美术/3 后处理/03 景深.md"
-    },
-    {
-      "basename": "04 SSAO",
-      "path": "技术美术/3 后处理/04 SSAO.md"
     },
     {
       "basename": "建模原理",
@@ -163,38 +199,6 @@
     {
       "basename": "实时渲染高级特性开发",
       "path": "引擎Unity3D/收藏夹/实时渲染高级特性开发.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "死亡搁浅扫描特效",
-      "path": "引擎Unity3D/收藏夹/死亡搁浅扫描特效.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
     }
   ],
   "omittedPaths": [],
