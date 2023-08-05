@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md"
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,12 +218,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21a03d7ff7e78358",
+  "active": "0457c94064a1ac1b",
   "lastOpenFiles": [
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "图形学/0 3D数学/公式推导/02 空间变换.md",
     "技术美术/5 水体渲染/卡通水.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "图形学/0 3D数学/公式推导/02 空间变换.md",
     "zip/images/Pasted image 20230805154127.png",
     "zip/images/Pasted image 20230805153639.png",
     "技术美术/5 水体渲染/真实感水体渲染.md",
