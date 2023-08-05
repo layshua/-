@@ -32,6 +32,32 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b31c89eff112ee5c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "776ed18cf6843798",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/02 空间变换.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -81,7 +107,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -180,13 +207,15 @@
   },
   "active": "703a3954930b0ddd",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230805154127.png",
+    "zip/images/Pasted image 20230805153639.png",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "图形学/0 3D数学/公式推导/02 空间变换.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "图形学/0 3D数学/公式推导/02 空间变换.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
-    "技术美术/5 水体渲染/卡通水.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/0 3D数学/常用噪声算法.md",
     "技术美术/3 后处理/05 故障Glitch.md",
@@ -205,7 +234,6 @@
     "技术美术/1 渲染雅集/06 雾.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md",
     "zip/images/Pasted image 20230804173348.png",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
@@ -215,7 +243,6 @@
     "zip/images/93f586b752a7af67d3630edb677d8512_MD5.jpg",
     "zip/images/1ea3a06eb569a3d02f3836ed6dd9f5a8_MD5.jpg",
     "zip/images/e0e11dc5a8dc415cf287d91a1f7b14bf_MD5.jpg",
-    "zip/images/7d40ea65cf0c9c6f31b837e32e1fe0f6_MD5.jpg",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
