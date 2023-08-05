@@ -1,4 +1,3 @@
-
 # ShaderLab 语法基础
 ## 1 组织结构
 Shader 中可以编写多个子着色器（SubShader），但至少需要一个。
@@ -818,98 +817,6 @@ cbuffer myConstantBuffer {
 }
 ```
 
-## 裁剪空间深度值 
-
-与纹理坐标类似，裁剪空间坐标（也称为投影后空间坐标）在 Direct3D 类和 OpenGL 类平台之间有所不同：
-
-- **Direct3D **：裁剪空间深度值为 $[1,0]$。
-- **OpenGL **：裁剪空间深度为 $[-1, 1]$。
-
-- **在着色器代码内，可使用内置宏 `UNITY_NEAR_CLIP_VALUE` 来获取基于平台的近平面值。**`UNITY_NEAR_CLIP_VALUE` 定义为近剪裁平面的值。 Direct3D 为 1.0，OpenGL 为–1.0
-- 在脚本代码内，使用 `GL.GetGPUProjectionMatrix` 将 Unity 的坐标系（遵循 OpenGL 类约定）转换为 Direct3D 类坐标（如果这是平台所期望的）。
-
-## 深度 (Z) 方向
-
-- ZBuffer 中存放的深度值对应 NDC 坐标的 Z 值
-- 我们可以进行跨平台处理 [[1 ShaderLab#跨平台采样深度纹理]]，让所有平台的 ZBuffer 范围都是 $[0,1]$ 或 $[1,0]$
-
-> [!hint] 现代平台 ：使用了 [[06 深度测试#^9bb785|Reversed direction技术]]，相比传统平台翻转了 Z 值
-> **DirectX 11，DirectX12，PS4，Xbox One，和Metal:** 
-> - ZBuffer 在近平面处为 1.0，在远平面处减小到 0.0。
-> - 裁剪空间的 Z 值范围是 $[near,0]$（near 表示近平面距离，在远平面处减小到 0.0）。
-> - **NDC 的 Z 值范围为 $[1,0]$，NDC 的 Z 值即是我们常说的深度值，存储在 ZBuffer 上。**
-> - Unity 定义了 `UNITY_REVERSED_Z` 宏定义，用于判断是否是使用翻转 z 方向的平台
-> - `_CameraDepthTexture` 用于获取深度图（ZBuffer），近平面为 1，近白远黑。
-
-> [!quote] 传统平台
-> - ZBuffer在近平面处为 0.0，在远平面处为 1.0。
-> - 裁剪空间的 Z 值取决于具体平台：
->     - 在旧版 Direct3D 类平台上，范围是 $[0,far]$（表示在近平面处为 0.0，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[0,1]$
->     - 在 OpenGL 类平台上，范围是 $[-near,far]$（表示在近平面处为负的近平面距离，在远平面处增加到远平面距离）。对应 NDC 的 Z 值值范围为 $[-1,1]$。由于深度值应该是 0~1 的数，所以 Unity 对其将其转换为$[0,1]$存入ZBuffer
-
-### 跨平台采样深度纹理
-
-我们做东西肯定要考虑跨平台，前面提到了不同平台生成的深度图是不同的，如 DirctX 近到远是 1 到 0，OpenGL 近到远是 0 到 1，那么怎么统一采样的值呢？根据前面的介绍我们知道 DirctX 等平台之所以是 1 到 0 是因为 unity 为其做了反转，那么我们再把它们转回来不就得了么。而对于这些进行了深度反转的平台，unity 都定义了名为 **UNITY_REVERSED_Z** 的宏，
-**如果想要各个平台Zbuffer从近到远都是 $[0,1]$：**
-
-```c file:方法一
-float depth = tex2D(_CameraDepthTexture, uvSS).r;
-# if defined(UNITY_REVERSED_Z)
-    depth = 1.0f - depth;
-# endif
-```
-
-**如果想要各平台 Zbuffer从远到近都是 $[1,0]$：**
-```c file:方法二
-#if UNITY_REVERSED_Z
-    // 具有 REVERSED_Z 的平台（如 D3D）的情况。
-    real depth = SampleSceneDepth(uvSS);
-#else
-    // 没有 REVERSED_Z 的平台（如 OpenGL）的情况。
-    // 调整 Z 以匹配 OpenGL 的 NDC
-    real depth = lerp(UNITY_NEAR_CLIP_VALUE, 1, SampleSceneDepth(uvSS));
-#endif
-```
-### 使用裁剪空间
-
-如果要手动使用裁剪空间 (Z) 深度，则可能还需要使用以下宏来抽象化平台差异：
-
-```c
-float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);
-```
-
-**注意**：此宏不会改变 OpenGL 或 OpenGL ES 平台上的裁剪空间，因此在这些平台上，此宏返回“-near”1（近平面）到 far（远平面）之间的值。
-
-### 投影矩阵
-
-如果处于深度 (Z) 发生反转的平台上，则 `GL.GetGPUProjectionMatrix()` 返回一个还原了 z 的矩阵。 但是，如果要手动从投影矩阵中进行合成（例如，对于自定义阴影或深度渲染），您需要通过脚本按需自行还原深度 (Z) 方向。
-
-以下是执行此操作的示例：
-
-```cs
-var shadowProjection = Matrix4x4.Ortho(...); //阴影摄像机投影矩阵
-var shadowViewMat = ...     //阴影摄像机视图矩阵
-var shadowSpaceMatrix = ... //从裁剪空间到阴影贴图纹理空间
-    
-//当引擎通过摄像机投影计算设备投影矩阵时，
-//"m_shadowCamera.projectionMatrix"被隐式反转
-m_shadowCamera.projectionMatrix = shadowProjection; 
-
-//"shadowProjection"在连接到"m_shadowMatrix"之前被手动翻转，
-//因为它被视为着色器的其他矩阵。
-if(SystemInfo.usesReversedZBuffer) 
-{
-    shadowProjection[2, 0] = -shadowProjection[2, 0];
-    shadowProjection[2, 1] = -shadowProjection[2, 1];
-    shadowProjection[2, 2] = -shadowProjection[2, 2];
-    shadowProjection[2, 3] = -shadowProjection[2, 3];
-}
-    m_shadowMatrix = shadowSpaceMatrix * shadowProjection * shadowViewMat;
-```
-
-### 深度 (Z) 方向检查工具
-
-- 使用`SystemInfo.usesReversedZBuffer` 可确认所在平台是否使用反转深度 (Z)。
 # 变体
 ## 变体基础
 ![[Pasted image 20230628192002.png]]
