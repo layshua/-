@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "0457c94064a1ac1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "b31c89eff112ee5c",
             "type": "leaf",
             "state": {
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md"
+                "file": "技术美术/1 渲染雅集/03 UV操作.md"
               }
             }
           }
@@ -154,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "技术美术/1 渲染雅集/03 UV操作.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,17 +218,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "703a3954930b0ddd",
+  "active": "0457c94064a1ac1b",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230805154127.png",
-    "zip/images/Pasted image 20230805153639.png",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "图形学/0 3D数学/公式推导/02 空间变换.md",
     "技术美术/5 水体渲染/卡通水.md",
+    "技术美术/1 渲染雅集/03 UV操作.md",
+    "zip/images/Pasted image 20230805154127.png",
+    "zip/images/Pasted image 20230805153639.png",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/0 3D数学/常用噪声算法.md",
     "技术美术/3 后处理/05 故障Glitch.md",
@@ -242,7 +255,6 @@
     "zip/images/dd8531edfaa5f20a15da048686eb57e7_MD5.jpg",
     "zip/images/93f586b752a7af67d3630edb677d8512_MD5.jpg",
     "zip/images/1ea3a06eb569a3d02f3836ed6dd9f5a8_MD5.jpg",
-    "zip/images/e0e11dc5a8dc415cf287d91a1f7b14bf_MD5.jpg",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",

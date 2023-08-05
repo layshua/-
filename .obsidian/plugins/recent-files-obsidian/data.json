@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "03 深度法线纹理",
@@ -11,6 +11,10 @@
     {
       "basename": "02 空间变换",
       "path": "图形学/0 3D数学/公式推导/02 空间变换.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -23,10 +27,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
     },
     {
       "basename": "2 URP",
