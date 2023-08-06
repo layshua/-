@@ -29,6 +29,19 @@
             }
           },
           {
+            "id": "8ffbf44c7e3d158a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/1 图形系统/07 混合和剔除.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "0457c94064a1ac1b",
             "type": "leaf",
             "state": {
@@ -218,9 +231,10 @@
   },
   "active": "78f7445f5d013b9b",
   "lastOpenFiles": [
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "zip/images/Pasted image 20230806163259.png",
     "图形学/1 图形系统/10 色彩.md",
-    "技术美术/5 水体渲染/卡通水.md",
     "zip/images/Pasted image 20230806161355.png",
     "zip/images/Pasted image 20230806161202.png",
     "zip/images/Pasted image 20230806160324.png",
@@ -253,7 +267,6 @@
     "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
     "技术美术/1 渲染雅集/04 溶解.md",
     "zip/images/Pasted image 20230804173348.png",
-    "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
