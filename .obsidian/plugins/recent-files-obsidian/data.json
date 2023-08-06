@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+      "basename": "Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散",
+      "path": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md"
+    },
+    {
+      "basename": "灵感",
+      "path": "灵感.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
     },
     {
       "basename": "《GUI》",
@@ -191,14 +199,6 @@
     {
       "basename": "ARPG",
       "path": "zip/引擎Unreal/05 Gameplay/ARPG.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "zip/引擎Unreal/05 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     }
   ],
   "omittedPaths": [],

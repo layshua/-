@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/卡通水.md",
+                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -140,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
+                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md"
               }
             }
           }
@@ -191,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -208,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -242,10 +242,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "78f7445f5d013b9b",
+  "active": "703a3954930b0ddd",
   "lastOpenFiles": [
-    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "灵感.md",
+    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
     "技术美术/5 水体渲染/卡通水.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
@@ -269,9 +272,6 @@
     "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
     "技术美术/1 渲染雅集/04 溶解.md",
     "技术美术/1 渲染雅集/09 体积云.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/05 描边.md",
-    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "zip/images/Pasted image 20230804173348.png",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
