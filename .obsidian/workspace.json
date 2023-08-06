@@ -16,38 +16,12 @@
             }
           },
           {
-            "id": "703a3954930b0ddd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c2b8277a2e5d8441",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "78f7445f5d013b9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -140,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md"
+                "file": "技术美术/5 水体渲染/卡通水.md"
               }
             }
           }
@@ -191,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -208,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
+                "file": "技术美术/5 水体渲染/卡通水.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -242,20 +216,22 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "703a3954930b0ddd",
+  "active": "78f7445f5d013b9b",
   "lastOpenFiles": [
-    "灵感.md",
-    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
-    "技术美术/5 水体渲染/卡通水.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "zip/images/Pasted image 20230806145901.png",
+    "zip/images/Pasted image 20230806145250.png",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
+    "灵感.md",
+    "技术美术/5 水体渲染/卡通水.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "图形学/0 3D数学/公式推导/02 空间变换.md",
     "zip/images/Pasted image 20230805154127.png",
     "zip/images/Pasted image 20230805153639.png",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "图形学/0 3D数学/常用噪声算法.md",
@@ -271,7 +247,6 @@
     "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
     "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
     "技术美术/1 渲染雅集/04 溶解.md",
-    "技术美术/1 渲染雅集/09 体积云.md",
     "zip/images/Pasted image 20230804173348.png",
     "zip/images/407fdbed179bef6fb20248c870c52021_MD5.gif",
     "zip/images/95a03e8fad7fba340ee68c5c10f4ae6b_MD5.jpg",
@@ -279,7 +254,6 @@
     "zip/images/802526a107c5d946e4709247d6adb9a6_MD5.jpg",
     "zip/images/dd8531edfaa5f20a15da048686eb57e7_MD5.jpg",
     "zip/images/93f586b752a7af67d3630edb677d8512_MD5.jpg",
-    "zip/images/1ea3a06eb569a3d02f3836ed6dd9f5a8_MD5.jpg",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
