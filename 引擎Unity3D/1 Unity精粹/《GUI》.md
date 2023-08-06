@@ -673,7 +673,9 @@ img.sprite = Resources.Load<Sprite>( "EmojiOne");
 - Text (TMP)，基于 TextMeshPro
 - Text (Legacy)，旧版
 #### Text (TMP)
-
+```cs
+public TMP_Text text;  //声明
+```
 #### Text (Legacy)
 ![[Pasted image 20230616222442.png|450]]
 ![[Pasted image 20230616222359.png]]
