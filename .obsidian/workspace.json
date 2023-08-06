@@ -42,6 +42,19 @@
             }
           },
           {
+            "id": "78f7445f5d013b9b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "0457c94064a1ac1b",
             "type": "leaf",
             "state": {
@@ -84,7 +97,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -127,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md"
               }
             }
           }
@@ -178,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -229,8 +242,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c2b8277a2e5d8441",
+  "active": "78f7445f5d013b9b",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/5 水体渲染/卡通水.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
@@ -241,7 +255,6 @@
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/0 3D数学/常用噪声算法.md",
     "技术美术/3 后处理/05 故障Glitch.md",
     "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",

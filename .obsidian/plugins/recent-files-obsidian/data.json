@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "03 光照向量",
+      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
+    },
+    {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
-      "basename": "辣椒酱",
-      "path": "DCC/02 Blender/辣椒酱.md"
     }
   ],
   "omittedPaths": [],
