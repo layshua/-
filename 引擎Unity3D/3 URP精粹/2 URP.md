@@ -781,12 +781,12 @@ float3 envcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR);
 ```c file:采样自定义CubeMap
 _CubeMap("CubeMap", CUBE) = "white" {}
 
-TEXTURECUBE(_CubeMap)
+TEXTURECUBE(_CubeMap);
 SAMPLER(sampler_CubeMap);
 
 float3 R = normalize(reflect(-V, N)); 
-float4 cubeMap = SAMPLE_TEXTURECUBE(_CubeMap,sampler_CubeMa, R); 
-float3 cubeMapcolor = DecodeHDREnvironment(environment, unity_SpecCube0_HDR); 
+float4 cubeMap = SAMPLE_TEXTURECUBE(_CubeMap,sampler_CubeMap, R); 
+float3 cubeMapcolor = DecodeHDREnvironment(cubeMap, unity_SpecCube0_HDR); 
 ```
 
 ![[Pasted image 20230716115448.png|210]] ![[Pasted image 20230716115453.png|210]]

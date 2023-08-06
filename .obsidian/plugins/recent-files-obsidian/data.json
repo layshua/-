@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "卡通水",
       "path": "技术美术/5 水体渲染/卡通水.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "常用噪声算法",
