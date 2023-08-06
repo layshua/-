@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "灵感",
+      "path": "灵感.md"
+    },
+    {
       "basename": "卡通水",
       "path": "技术美术/5 水体渲染/卡通水.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散",
       "path": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md"
-    },
-    {
-      "basename": "灵感",
-      "path": "灵感.md"
     },
     {
       "basename": "《GUI》",
