@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,8 +178,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "32109cda51fcbdc1",
   "lastOpenFiles": [
+    "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
+    "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
+    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
+    "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md",
     "zip/images/8f6a6de48019b46848090794d1f85c16_MD5.jpg",
     "zip/images/23cb57b5ccd376b311506204ad879295_MD5.png",
     "zip/images/7ce4480e826c5cae63a46c0bcab52ba4_MD5.jpg",
@@ -190,7 +194,6 @@
     "zip/images/57d85b9f2fa11e92b4484a91460fd07f_MD5.jpg",
     "zip/images/57a8d20eb45a8ef4ecc00e237af02044_MD5.jpg",
     "技术美术/6 NPR/【游戏开发实战】下载原神模型，PMX 转 FBX，导入到 Unity 中，卡通渲染，绑定人形动画（附 Demo 工程）_林新发的博客 - CSDN 博客.md",
-    "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md",
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
     "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
@@ -200,7 +203,6 @@
     "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md",
     "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
     "Tools/工具流.md",
-    "zip/images/22d3b14898cef5e6a13a9afcc077403a_MD5.png",
     "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
     "技术美术/6 NPR/NPR渲染管线概述.md",
     "技术美术/6 NPR/卡渲学习.md",
@@ -213,9 +215,7 @@
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/卡通水.md",
-    "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
-    "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",

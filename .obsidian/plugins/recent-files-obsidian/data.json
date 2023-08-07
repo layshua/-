@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "课程",
+      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
+    },
+    {
       "basename": "【Unity 技术美术】 原神 Shader 渲染还原解析",
       "path": "技术美术/6 NPR/原神/【Unity 技术美术】 原神 Shader 渲染还原解析.md"
     },
@@ -89,16 +105,8 @@
       "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
-      "basename": "29 年轻人写的第一个 GPU 粒子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
     },
     {
       "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
@@ -191,14 +199,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "02 空间变换",
-      "path": "图形学/0 3D数学/公式推导/02 空间变换.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
     }
   ],
   "omittedPaths": [],
