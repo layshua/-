@@ -1973,7 +1973,7 @@ public bool canTrans;
     }
 ```
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -2034,7 +2034,7 @@ SerializeField 是强制对私有字段序列化，当 Unity 对脚本进行序�
 设置 Portal 的 destination type 为 different Scene，destination tag 设置为 Enter，然后设置要去的目标场景的 Portal 的 DestinationPoint 的 destinationTag 为 enter  
 场景转换，需要使用协程，并且 Api 选择异步加载场景 LoadSceneAsync
 
-```
+```cs
 switch(transitionPoint.transitionType)
         {
             case TransitionPoint.TransitionType.SameScene:
