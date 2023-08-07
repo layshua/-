@@ -1,3 +1,4 @@
+[【如何将原神的角色导入Unity】全网最细致教程，全程干货。不使用任何收费插件，使用Spring Bone对头发和衣服进行物理模拟。_原神 (bilibili.com)](https://www.bilibili.com/video/BV1G34y127e6/?spm_id_from=333.337.search-card.all.click&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
 # 原神模型导入Unity
 
 ### 三、pmx 转 fbx
@@ -123,33 +124,8 @@
 
 ![[5bb43960fd8cdce25d738011734f4019_MD5.png]]
 
-#### 2、从 fbx 中导出材质球
-
-上面我们看到，模型的材质效果不是 **卡通渲染风格**，当你去定位模型的材质的时候，会发现材质是嵌在`fbx`文件里的，  
-
-![[c80c0257858bcbe60e8c48aa6fb49870_MD5.gif]]
-
-  
-我们并不能对`fbx`内的材质进行编辑，  
-
-![[315e129e7b9529e771a387d3d58ec793_MD5.png]]
-
-  
-没关系，我们把材质导出来。  
-选中`fbx`文件，在`Inspector`窗口中点击`Materials`，设置`Location`为`Use External Materials (Legacy)`，然后点击`Apply`按钮，  
-
-![[0faa50c9560dcbf6e2f3467914c11e1e_MD5.png]]
-
-  
-此时材质球就会从`fbx`文件中导出来了，  
-
-![[ee567aa809274e07b92055c650d53560_MD5.png]]
-
-  
-接下来我们就可以修改材质球的`shader`了，默认是`Standard`，  
-
-![[7def839f79ea61867ab22e2669794f47_MD5.png]]
-
+#### 2 提取材质
+![[Pasted image 20230807170534.png]]
 #### 3、卡通渲染
 
 卡通渲染不像 `PBR`那样有标准流程和衡量准则，可以说卡通渲染是人们主观审美 + 现实环境抽象的结合，不同人对卡通渲染的理解理念不同，不过随着卡通渲染的不断发展，也形成了一套固定思路。
