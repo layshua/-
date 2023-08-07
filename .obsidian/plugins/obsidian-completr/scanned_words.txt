@@ -59426,6 +59426,9 @@ Resulting
 Raplacement
 Reconstructing
 RenderTargetBufferSystem
+RampColor
+RampRange
+RampRangeMap
 Microsoft
 Menu
 MicaForEveryone
@@ -64228,6 +64231,13 @@ MonoBehaviours
 MonoPhavior
 Mental
 MainLightShadowmapTexture
+MaterialMap
+MetalColor
+MetalFactor
+MetalDir
+MetalRadius
+MetalMap
+MetalIntensity
 Windows
 Win
 World
@@ -102036,6 +102046,7 @@ blits
 blurs
 blocking
 backBuffer
+blinnPhong
 fe
 front
 fill
@@ -134791,6 +134802,7 @@ hardcoded
 helps
 handled
 harsh
+hari
 rgb
 right
 rm
@@ -146837,6 +146849,10 @@ Highlighting
 Head
 Helldivers
 Heath
+HalfLmabert
+HariSpecRadius
+HariSpecDir
+HariSpecular
 Bbb
 Bear
 Base
