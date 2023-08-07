@@ -2421,7 +2421,7 @@ Timeline, 可以用来制作 castthing，比如一个场景触发，播放动画
   
 然后需要编写函数让他在点击开始游戏才播放动画，不然一点运行自动开始
 
-```
+```cs
 //需要使用命名空间来操作Playables
 using UnityEngine.Playables;
 
