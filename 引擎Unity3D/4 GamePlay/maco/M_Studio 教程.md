@@ -2023,11 +2023,6 @@ public class SceneController : SingleTon<SceneController>
 
 传送的时候需要关闭人物的 Agent 移动  
 
-# 附加：Unity 中 的 Serializable 和 SerializeField
-
-Serializable 序列化的是可序列化的类或结构。并且只能序列化非抽象非泛型的自定义的类  
-SerializeField 是强制对私有字段序列化，当 Unity 对脚本进行序列化时，仅对公共字段进行序列化。 如果还需要 Unity 对私有字段进行序列化， 可以将 SerializeField 属性添加到这些字段。  
-在 Unity3d 中 Unity3D 中提供了非常方便的功能可以帮助用户将 成员变量 在 Inspector 中显示，并且定义 Serialize 关系。也就是说凡是显示在 Inspector 中的属性都同时具有 Serialize 功能 (序列化的意思是说再次读取 Unity 时序列化的变量是有值的，不需要你再次去赋值，因为它已经被保存下来)。
 
 # 32:Different Scene 跨场景传送
 
@@ -2085,7 +2080,7 @@ switch(transitionPoint.transitionType)
   
 直接传送会出错，因为新场景中没有 SceneController 等 Manager
 
-```
+```c
 protected override void Awake()
     {
         base.Awake();
@@ -2107,7 +2102,7 @@ if(sceneName != SceneManager.GetActiveScene().name)
 **发现个小问题，OnDestroy 设置了 t，实际运行的时候不完全是准确的 t 就销毁物体了**  
 **此时切换场景后无法移动，是因为 playerController 的 MoveToTarget 订阅了 MouseManager 的 OnMouseClicked，而 Player 在转换场景的时候，被销毁了，所以需要重新注册**
 
-```
+```c
 private void OnEnable() {
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.OnEnemyClicked += EventAttack;
