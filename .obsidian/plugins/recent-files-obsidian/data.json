@@ -1,6 +1,38 @@
 {
   "recentFiles": [
     {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "32 屏幕空间贴花",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+    },
+    {
+      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
+    },
+    {
+      "basename": "29 年轻人写的第一个 GPU 粒子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md"
+    },
+    {
+      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
+    },
+    {
+      "basename": "常用噪声算法",
+      "path": "图形学/0 3D数学/常用噪声算法.md"
+    },
+    {
       "basename": "模型基础",
       "path": "DCC/01 百人计划美术向/模型基础.md"
     },
@@ -105,10 +137,6 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
-      "basename": "常用噪声算法",
-      "path": "图形学/0 3D数学/常用噪声算法.md"
-    },
-    {
       "basename": "05 故障Glitch",
       "path": "技术美术/3 后处理/05 故障Glitch.md"
     },
@@ -165,40 +193,12 @@
       "path": "技术美术/1 渲染雅集/05 描边.md"
     },
     {
-      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
       "basename": "20 景深和散景模糊——数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     }
   ],
   "omittedPaths": [],
