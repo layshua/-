@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "模型基础",
+      "path": "DCC/01 百人计划美术向/模型基础.md"
+    },
+    {
+      "basename": "美术理论基础一 & 二",
+      "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
+    },
+    {
+      "basename": "模型常见问题及其规范",
+      "path": "DCC/01 百人计划美术向/模型常见问题及其规范.md"
+    },
+    {
+      "basename": "角色设计精要",
+      "path": "DCC/01 百人计划美术向/角色设计精要.md"
+    },
+    {
+      "basename": "技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记",
+      "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "DCC/01 百人计划美术向/场景设计精要.md"
+    },
+    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "03 景深",
-      "path": "技术美术/3 后处理/03 景深.md"
-    },
-    {
-      "basename": "04 SSAO",
-      "path": "技术美术/3 后处理/04 SSAO.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "07 草",
-      "path": "技术美术/1 渲染雅集/07 草.md"
-    },
-    {
-      "basename": "Lit.shader源码",
-      "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
     }
   ],
   "omittedPaths": [],
