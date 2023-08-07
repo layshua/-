@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
+                "file": "技术美术/1 渲染雅集/05 描边.md"
               }
             }
           }
@@ -141,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +158,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
+                "file": "技术美术/1 渲染雅集/05 描边.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -194,11 +194,16 @@
   },
   "active": "32109cda51fcbdc1",
   "lastOpenFiles": [
+    "技术美术/6 NPR/卡渲学习.md",
+    "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
+    "技术美术/6 NPR/NPR渲染管线概述.md",
+    "技术美术/6 NPR/ta101卡渲.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/卡通水.md",
     "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
@@ -216,12 +221,7 @@
     "灵感.md",
     "zip/images/Pasted image 20230807100138.png",
     "技术美术/7 真实感人物/未命名.md",
-    "zBuffer/3_72 command buffer 及 urp 概述.md",
     "技术美术/7 真实感人物",
-    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
-    "引擎Unity3D/3 URP精粹/源码/URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）.md",
-    "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md",
-    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
     "zip/images/ecbda491a6355fe79196937d259c518c_MD5.jpg",
     "zip/images/0a98c174d45d0a7f3ca9070e765ed65f_MD5.jpg",
     "zip/images/Pasted image 20230806163259.png",

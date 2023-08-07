@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "卡渲学习",
+      "path": "技术美术/6 NPR/卡渲学习.md"
+    },
+    {
+      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
+      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
+    },
+    {
+      "basename": "NPR渲染管线概述",
+      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
+    },
+    {
+      "basename": "ta101卡渲",
+      "path": "技术美术/6 NPR/ta101卡渲.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
       "path": "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
-    },
-    {
-      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
-      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
-    },
-    {
-      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
-    },
-    {
-      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
-      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
     }
   ],
   "omittedPaths": [],
