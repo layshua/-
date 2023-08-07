@@ -62,7 +62,7 @@ The way this bounding box mask works is by relying on the fact that the position
 By multiplying our output with this bounding box mask, we can limit the caustics to only be rendered where needed.  
 通过将输出与此边界框遮罩相乘，我们可以将焦散限制为仅在需要的地方渲染。
 
-![](https://ameye.dev/notes/realtime-caustics/bounding-box-mask.png-400w.jpeg)
+![[0a98c174d45d0a7f3ca9070e765ed65f_MD5.jpg]]
 
 Bounding box mask. 边界框遮罩。
 
@@ -86,7 +86,7 @@ half4x4 _MainLightDirection;TEXTURE2D(_CausticsTexture);SAMPLER(sampler_Caustics
 In the code above, we use the main light direction to influence the UVs that we use to sample the caustics texture. By doing this, the caustics follow the direction of light and appear to be projected onto the scene.  
 在上面的代码中，我们使用主灯光方向来影响用于对焦散纹理进行采样的UV。通过执行此操作，焦散将跟随灯光的方向，并看起来像是投影到场景上。
 
-![](https://ameye.dev/notes/realtime-caustics/mapping.png-400w.jpeg)
+![[ecbda491a6355fe79196937d259c518c_MD5.jpg]]
 
 Mapping caustics to the scene geometry.  
 将焦散映射到场景几何体。

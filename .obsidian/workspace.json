@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "DCC/02 Blender/建模原理.md"
               }
             }
           }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "DCC/02 Blender/建模原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -167,6 +167,16 @@
   },
   "active": "658ded9e633cbd2c",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230807100138.png",
+    "技术美术/7 真实感人物/未命名.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "技术美术/7 真实感人物",
+    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
+    "引擎Unity3D/3 URP精粹/源码/URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）.md",
+    "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md",
+    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
+    "zip/images/ecbda491a6355fe79196937d259c518c_MD5.jpg",
+    "zip/images/0a98c174d45d0a7f3ca9070e765ed65f_MD5.jpg",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "灵感.md",
     "技术美术/5 水体渲染/卡通水.md",
@@ -182,13 +192,11 @@
     "zip/images/Pasted image 20230806145250.png",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "技术美术/1 渲染雅集/03 UV操作.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "图形学/0 3D数学/公式推导/02 空间变换.md",
     "zip/images/Pasted image 20230805154127.png",
-    "zip/images/Pasted image 20230805153639.png",
     "图形学/1 图形系统/06 深度测试.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "图形学/0 3D数学/常用噪声算法.md",
@@ -196,13 +204,6 @@
     "引擎Unity3D/3 URP精粹/源码/URP 代码结构以及 GPU 架构（万字长文）.md",
     "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "zip/引擎Unreal/03 材质 & 渲染/Shader HLSL.md",
-    "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
-    "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
-    "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md",
-    "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md",
-    "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
-    "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md",
-    "zip/images/Pasted image 20230804173348.png",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
@@ -212,7 +213,6 @@
     "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/2 Shader精粹/《渲染优化》/性能分析",
-    "图形学/3 全局光照GI",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

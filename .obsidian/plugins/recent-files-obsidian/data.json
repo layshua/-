@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "技术美术/7 真实感人物/未命名.md"
+    },
+    {
+      "basename": "3_72 command buffer 及 urp 概述",
+      "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
+    },
+    {
+      "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
+      "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
+    },
+    {
+      "basename": "URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）",
+      "path": "引擎Unity3D/3 URP精粹/源码/URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -35,10 +55,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散",
-      "path": "zBuffer/Rendering realtime caustics --- 渲染实时焦散Rendering realtime caustics --- 渲染实时焦散.md"
     },
     {
       "basename": "《GUI》",
@@ -183,22 +199,6 @@
     {
       "basename": "Lit.shader源码",
       "path": "引擎Unity3D/3 URP精粹/源码/Lit.shader源码.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!",
-      "path": "zBuffer/Unity 技术分享 _《Trifox》中的遮挡处理和溶解着色器 - TA_Shader _ 文件 - 微元素 -  Element3ds_com!.md"
-    },
-    {
-      "basename": "UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）",
-      "path": "zip/引擎Unreal/09 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md"
-    },
-    {
-      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
-      "path": "zip/引擎Unreal/06 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
     }
   ],
   "omittedPaths": [],
