@@ -26,6 +26,19 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "32ea616cae870a3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "mode": "source",
                 "backlinks": false,
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -204,8 +217,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "3fb45bdf7f3e7b66",
+  "active": "32ea616cae870a3a",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/maco/笔记.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
@@ -240,8 +255,6 @@
     "图形学/1 图形系统/09 阴影.md",
     "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md",
     "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
-    "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",

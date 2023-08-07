@@ -2121,7 +2121,7 @@ private void OnEnable() {
 
 切换场景时，摄像机跟随也会丢失，需要通过 GameManager 在第一时间把 Player 的 LookAtPoint 传给 CinemaChine
 
-```
+```c
 private CinemachineFreeLook followCamera;
 
 public void RigisterPlayer(CharacterStats player)
@@ -2164,7 +2164,7 @@ public void RigisterPlayer(CharacterStats player)
   
 把 json 写的漂亮点。就是竖排格式
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -2218,7 +2218,7 @@ public class SaveManager : SingleTon<SaveManager>
 }
 ```
 
-```
+```cs
 IEnumerator Transition(string sceneName,TransitionDestination.DestinationTag destinationTag)
         {
             //TODO:保存角色数值

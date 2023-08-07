@@ -5,6 +5,10 @@
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
     {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
       "basename": "笔记",
       "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2 URP",
       "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     }
   ],
   "omittedPaths": [],
