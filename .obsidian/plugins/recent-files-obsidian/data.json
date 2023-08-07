@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
@@ -159,14 +167,6 @@
     {
       "basename": "URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）",
       "path": "引擎Unity3D/3 URP精粹/源码/URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "真实感水体渲染",

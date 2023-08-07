@@ -21,6 +21,32 @@
             }
           },
           {
+            "id": "3fb45bdf7f3e7b66",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c648dee63ac72a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "232ca84e4d2ac0ae",
             "type": "leaf",
             "state": {
@@ -33,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,12 +103,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -127,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -178,8 +204,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "32109cda51fcbdc1",
+  "active": "3fb45bdf7f3e7b66",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/2 Shader精粹/雪风/29 年轻人写的第一个 GPU 粒子.md",
     "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md",
     "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
@@ -213,9 +242,6 @@
     "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md",
     "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md",
     "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md",
-    "技术美术/5 水体渲染/FFT海洋.md",
-    "技术美术/5 水体渲染/卡通水.md",
-    "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
