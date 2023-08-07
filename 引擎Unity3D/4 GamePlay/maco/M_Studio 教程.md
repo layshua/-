@@ -2296,7 +2296,7 @@ public Transform GetEntrance()
     }
 ```
 
-```
+```cs
 public void TransitionToFirstLevel()
     {
         StartCoroutine(LoadLevel("GameScene_01_Forest"));
