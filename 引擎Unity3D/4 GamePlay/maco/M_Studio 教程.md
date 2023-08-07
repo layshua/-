@@ -2472,7 +2472,7 @@ public class MainMenu : MonoBehaviour
 ![](<images/1690255179061.png>)
 
 ，，，，，可以使用图片α值调整淡入淡出  
-这里使用 Canvas 添加 Canvas Group 脚本来实现  
+这里使用 Canvas 添加 Canvas Group 脚本 来实现  
 
 ![](<images/1690255179153.png>)
 
