@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+      "basename": "TA 之路",
+      "path": "引擎Unity3D/收藏夹/TA 之路.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
+      "basename": "课程",
+      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
     },
     {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
     {
       "basename": "笔记",
@@ -31,10 +47,6 @@
     {
       "basename": "34 SSPR屏幕空间平面反射",
       "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "课程",
-      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
     },
     {
       "basename": "【Unity 技术美术】 原神 Shader 渲染还原解析",
@@ -187,18 +199,6 @@
     {
       "basename": "07 混合和剔除",
       "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     }
   ],
   "omittedPaths": [],
