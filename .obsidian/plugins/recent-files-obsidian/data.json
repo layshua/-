@@ -1,20 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
     {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "31 镜头炫光 更好的广告牌算法",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
     },
     {
       "basename": "32 屏幕空间贴花",
       "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
     },
     {
-      "basename": "31 镜头炫光 更好的广告牌算法",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
+      "basename": "33 光线步进 RayMarch 第一节入门",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
+    },
+    {
+      "basename": "FFT海洋",
+      "path": "技术美术/5 水体渲染/FFT海洋.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "引擎Unity3D/2 Shader精粹/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
@@ -87,10 +103,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -187,18 +199,6 @@
     {
       "basename": "06 雾",
       "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "36 造一个 PBR 的轮子",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     }
   ],
   "omittedPaths": [],
