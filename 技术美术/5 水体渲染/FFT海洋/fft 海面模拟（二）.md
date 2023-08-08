@@ -8,7 +8,7 @@
 
 FFT：Fast Fourier Transformation（快速傅里叶变换），是计算 DFT 的快速方法，而且能在 gpu 上实现。
 
-**一，递归形式的 FFT 算法及复杂度**
+# **一，递归形式的 FFT 算法及复杂度**
 
 对于如下标准 DFT：
 
@@ -94,7 +94,7 @@ C(N)=2*C(N/2 )+N
 
 ![[4b22f31edce441ea56ec897896e1eb76_MD5.gif]]
 
-**二，蝶形网络（**butterfly diagram**）**
+# **二，蝶形网络（**butterfly diagram**）**
 
 用上一节的递归电路计算 4 point DFT，完整展开如下图所示：
 
@@ -124,7 +124,7 @@ C(N)=2*C(N/2 )+N
 
 上图中还标出了 stage。使用蝶形网络计算 FFT，是按 stage 推进的：N 个输入经过第一个 stage 得到 N 个中间结果，再输入第二个 stage... 直至得到最终 N 个输出。N point FFT 有 $log_2N$ 个 stage。
 
-**三，bitreverse 算法**
+# **三，bitreverse 算法**
 
 注意到蝶形网络的 N 个输入的顺序是打乱的，以 8 point 蝶形网络为例，可以看到：
 
@@ -152,7 +152,7 @@ x(0) 在 0 号位，x(1) 在 4 号位，x(2) 在 2 号位，x(3) 在 6 号位，
 
 以上就是用于快速计算 DFT 的 FFT 算法。
 
-**四，IFFT**
+# **四，IFFT**
 
 回到海面模型，遗憾的是它并非 DFT 而是 IDFT，所以无法套用 FFT 算法。
 

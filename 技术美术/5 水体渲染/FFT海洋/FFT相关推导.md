@@ -336,6 +336,7 @@ $J_{xz}=\frac{\partial x'}{\partial z}=\lambda\frac{\partial D_x(\vec{x},t)}{\pa
 
 
 # 二重积分换元法、雅可比行列式
+[[二重积分换元法、雅可比行列式]]
 
 二重积分换元法同济高数下册有讲，当时没细看证明，近来用到搜了一下，感觉下面这样推比较直观：
 
@@ -361,3 +362,5 @@ $=\binom{\frac{\partial x}{\partial u}du}{\frac{\partial y}{\partial u}du}\times
 
 $=\begin{vmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\ \frac{\partial y}{\partial u}& \frac{\partial y}{\partial v} \end{vmatrix}dudv$
 
+**雅可比行列式的绝对值就是换元前后微元面积的比值。**
+$dxdy=|J|dudv$

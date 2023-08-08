@@ -22,19 +22,6 @@
             }
           },
           {
-            "id": "f6efdf76caec14c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "fd31c3f28f3b291c",
             "type": "leaf",
             "state": {
@@ -46,48 +33,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "384c1bc01d643b33",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e910d471c73c7d12",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c94629f3f0804b4c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/0 3D数学/参数化曲线.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "9e4e30b2e4e241ef",
@@ -95,7 +43,7 @@
         "dimension": 50,
         "children": [
           {
-            "id": "b3a003050bdb08dd",
+            "id": "58316275824b74eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -108,32 +56,20 @@
             }
           },
           {
-            "id": "0e26c11d3abda33f",
+            "id": "f6efdf76caec14c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/微积分/微积分基础.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5524ac1495668988",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -176,11 +112,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -226,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -277,31 +214,32 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "b3a003050bdb08dd",
+  "active": "fd31c3f28f3b291c",
   "lastOpenFiles": [
+    "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
     "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md",
+    "技术美术/5 水体渲染/未命名.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
+    "Math/微积分/微积分基础.md",
+    "图形学/1 图形系统/02 光栅化.md",
     "zBuffer/二重积分换元法、雅可比行列式.md",
     "zBuffer/生成服从标准正态分布的随机数.md",
-    "Math/微积分/微积分基础.md",
+    "zBuffer/超强换元法，二重积分计算的核武器！（雅可比行列式超通俗讲解）.md",
+    "zip/images/5ffd70bccaeab7b805f842af465013c0_MD5.jpg",
+    "zip/images/e8121f870d114e6a81e4b818377c523c_MD5.jpg",
+    "zip/images/cef946149110f8ed133a5ce5df4e014c_MD5.png",
+    "zip/images/6a01e492e5ab6dcd80bdc4dcdfb51237_MD5.png",
+    "zip/images/fb7bf1f3318d321ed2e3331437c07a4f_MD5.png",
+    "zip/images/f40cce3b79721c90554c26acf50c15a5_MD5.png",
     "图形学/1 图形系统/10 色彩.md",
     "zip/images/dcfa47b288ff779b3e0f287006004b2b_MD5.jpg",
-    "图形学/1 图形系统/02 光栅化.md",
     "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
-    "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md",
     "zip/images/ec8bfac4a42ff55bfdc02bb7b2981528_MD5.jpg",
     "zip/images/e5d32f5644c3f48d33bddadd0f998ed7_MD5.jpg",
     "zip/images/ca4d4c422010f9f1d4d954dfbebe1c06_MD5.jpg",
-    "zip/images/1689fa1e1bea27448cd3fc3656a39922_MD5.jpg",
-    "zip/images/d0bec6fccc75882b3acc21e347a3dd04_MD5.jpg",
-    "zip/images/8a9948b56f2caab9325be91e846d76b3_MD5.jpg",
-    "zip/images/c5380bea1e7514aa43ecc7ae6ede5c30_MD5.jpg",
-    "zip/images/2b09a1ef4db8a29516d63f497cf88004_MD5.jpg",
-    "zip/images/ad47e20c67d33b2e2d2d39ac4e862460_MD5.jpg",
-    "技术美术/5 水体渲染/未命名.md",
     "图形学/0 3D数学/参数化曲线.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "Math/Others/振幅、周期、相移和频率.md",
@@ -314,8 +252,6 @@
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/2 着色器/Unity 几何着色器详解.md",
     "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "技术美术/2 着色器/曲面细分与几何着色器.md",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",

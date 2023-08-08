@@ -265,7 +265,7 @@ $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-
     -  $g$ 是重力加速度 $=9.8m/sec^2$
 4. $\tilde{h}_{0}(\vec{k})=\frac{1}{\sqrt{2}}(\xi_{r}+i\xi_{i})\sqrt{P_{h}(\vec{k})}$
     - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）。随机数的生成方法：[[FFT相关推导#生成服从标准生成分布的随机数]]
-    - $P_{h}(\vec{k})$ 是我们的**方向波谱**，方向波谱一般描述为 $S(\omega,\theta)$ , 这和我们前面的参数不太一样，其实他们之间可以相互转换，有兴趣可以看 Empirical Directional Wave Spectra for Computer Graphics 这篇论文。
+    - $P_{h}(\vec{k})$ 是即**菲利普波谱**，一般描述为 $S(\omega,\theta)$
         - 方向波谱 $S(\omega,\theta)$ 是非定向波谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
         - $\omega$ 是我们前面提到的角频率
         -  $\theta$ 是波矢量相对于风向的角度
@@ -309,6 +309,29 @@ $=normalize(-\nabla h_x(\vec{x},t),1,-\nabla h_z(\vec{x},t))$
 ### 浪尖泡沫
 泡沫的计算可以使用雅可比列行列式得到
 
+在 gerstner wave 中，为了表现波峰尖角，使用下面公式在 xz 平面内进行挤压（红框中部分）：
+
+![[46e4202e2b55209453431d647a793bbb_MD5.jpg]]
+此处 IDFT 海面，同样需要类似挤压操作，公式为：
+
+$\vec{D}(\vec{x},t)=\sum_{\vec{k}}^{}{-i\frac{\vec{k}}{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
+
+$\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$
+
+不难看出，两者虽然写法不同，含义是一样的：**即对 sin 波进行 cos 挤压，对 cos 波进行 sin 挤压。**
+
+**当 xz 平面内挤压过头时，就会出现刺穿（如图所示）。恰好对应浪尖破碎形成泡沫的区域。**
+
+![[544cbe481f20abfeeedfbcd9777dea24_MD5.jpg]]
+
+当发生刺穿时，局部发生翻转，表现在数学上，即面元有向面积变为负值。
+
+**那么如何求面元有向面积呢？** 二重积分换元法->雅可比行列式 
+
+推导结果如下：
+
+$J(\vec{x})=\begin{vmatrix} J_{xx} &J_{xz} \\ J_{zx} & J_{zz} \end{vmatrix}$
+
 $J=J_{xx}J_{zz}-J_{xz}J_{zx}$
 
 $J_{xx}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
@@ -317,8 +340,9 @@ $J_{zz}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
 
 $J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
 
-当 $J<0$ 时代表波浪重叠，生成泡沫。
-$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
+-  $J$ 为雅各比行列式
+- 当 $J<0$ 时代表波浪重叠，生成泡沫。
+-  $\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
 
 [[FFT相关推导#浪尖泡沫推导]]
 
@@ -336,7 +360,7 @@ $\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可�
 
 ![[081c29e7b614f0b355443056a51a1646_MD5.jpg]]
 
-1. **首先根据公式生成 Phillips 方向频谱，这并不难直接套用公式就可以。然后在计算两个相互独立服从均值为 0，标准差为 1 的高斯随机数。然后根据公式结合，就完成了第一步，我们得到了一个初始的频谱 ${h}_{0}(\vec{k})$。**
+1. **首先根据公式生成菲利普频谱，这并不难直接套用公式就可以。然后在计算两个相互独立服从均值为 0，标准差为 1 的高斯随机数。然后根据公式结合，就完成了第一步，我们得到了一个初始的频谱 ${h}_{0}(\vec{k})$。**
 这个频谱只需要计算一次就好，因为并没有时间去影响他，有的只有风。如果你的风每帧的是变动的话，那他就需要每帧计算了，但是随机数只需要计算一次就好。
 
 ![[f8e29a6bae16241d4b653b05be05a87c_MD5.jpg]]
@@ -349,8 +373,6 @@ $\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可�
 
 什么？你感觉第二步比较简单，只要进行相乘累加就可以了。确实，如果是直接进行计算的话，他并不复杂。但是那样的效率太低了。
 
-## 3.5 FFT 推导
-
 首先我们来看直接进行计算效率为什么会非常低。首先看我们的海洋公式
 
 $h(\vec{x},t)=\sum_{k}{\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
@@ -362,12 +384,83 @@ $h(\vec{x},t)=\sum_{k}{\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
 $h(x,z,t)=\sum_{m=-\frac{M}{2}}^{\frac{M}{2}-1}\sum_{n=-\frac{N}{2}}^{\frac{N}{2}-1}{\tilde{h}(\frac{2\pi n}{L_{x}},\frac{2\pi m}{L_{z}},t) e^{i(\frac{2\pi n}{L_{x}}x+\frac{2\pi m}{L_{z}}z)}}$
 
 这里的展开并不难，只需要把 $\vec{x}$ 和 $\vec{k}$ 带进去就可以得到。可以看到当我们只计算一个位置的海面时，时间复杂度是 $O(NM)$ ，如果是串行计算所有位置的海面时，时间复杂度是 $O(N^2M^2)$ , 可见我们计算一个海面就要在每帧执行 $N^2M^2$ 次 for 循环，这是什么概念呢，如果我们要计算一个 512x512 的海面，我们需要执行 $512^4$ ,680 多亿次 for 循环, 电脑会被气炸的... 所以我们要优化这个算法。
+## 3.5 FFT 推导
+IDFT 如果用暴力求和的方法来计算会卡成翔，需要使用 FFT 来搞。
 
-说了半天也没说 FFT 到底是什么，现在终于轮到他出场了。
+**快速傅里叶变换 (Fast Fourier Transform, 简称 FFT)，是计算 DFT 的快速方法，可以高度进行并行运算，而且能在 gpu 上实现。**
+>注意：我们实际用的是**快速傅里叶逆变换 (IFFT)**, 然而我们一般都会说 FFT 海洋啥的，这里 FFT 主要指的是算法思想，并不是指的正变换。
 
-**快速傅里叶变换 (Fast Fourier Transform, 简称 FFT)**
+### 递归形式的 FFT 算法及复杂度
+对于如下标准 DFT：
 
-一听名字就感觉十分的快速。这里需要注意一下我们用的是快速傅里叶逆变换 (IFFT), 然而我们一般都会说 FFT 海洋啥的，这里 FFT 主要指的是算法思想，并不是指的正变换。**FFT 还有一个好处就是他可以高度进行并行运算，在加上 GPU 强大的并行运算能力，简直是量身定做。**
+$X(k)=\sum_{n=0}^{N-1}{x(n)e^{-i\frac{2\pi k}{N}n}},k\in{\{0,1,...,N-1\}}$
+
+可以看作是 N 个输入和 N 个输出的电器元件（N point DFT calculator），如图：
+
+![[d298c92acb3550bf819c3cf47c960fb9_MD5.jpg]]
+
+如果直接按 DFT 定义式暴力计算，每一个输出都需要计算 N 次乘法，故 N 个输出共需乘法 $N*N$ 次，即算法复杂度为 $O (N*N)$，是比较高的。
+
+快速傅里叶变换则是使用**分治思想**对 DFT 进行计算，可有效降低算法复杂度。
+>**注：FFT 只用于计算 N 为 2 的幂的 DFT。**
+
+考虑如何用两个 N/2 point DFT calculator 去构造出一个 N point DFT calculator（N 为 2 的幂）。
+如果将序号为偶数的输入给到第一个 N/2 point DFT calculator，序号为奇数的输入给到第二个 N/2 point DFT calcuator，如下图所示：
+![[d10163011519a4bcd8b6c396c47e8b72_MD5.jpg]]
+则有：
+
+$G(k)=\sum_{n=0}^{\frac{N}{2}-1}{g(n)e^{-i\frac{2\pi k}{\frac{N}{2}}n}}=\sum_{n=0}^{\frac{N}{2}-1}{x(2n)e^{-i\frac{2\pi k}{\frac{N}{2}}n}},k\in{\{0,1,...,\frac{N}{2}-1\}}$
+
+$H(k)=\sum_{n=0}^{\frac{N}{2}-1}{h(n)e^{-i\frac{2\pi k}{\frac{N}{2}}n}}=\sum_{n=0}^{\frac{N}{2}-1}{x(2n+1)e^{-i\frac{2\pi k}{\frac{N}{2}}n}},k\in{\{0,1,...,\frac{N}{2}-1\}}$
+
+如何用 G (k) 和 H (k) 得到 X (k) 呢？
+
+结论是：
+
+$X(k)=\left\{\begin{matrix} G(k)+W_{N}^kH(k) &,k\in{\{0,1,...,\frac{N}{2}-1\}} \\ G(k-\frac{N}{2})+W_{N}^kH(k-\frac{N}{2}) & ,k\in{\{\frac{N}{2},\frac{N}{2}+1,...,N-1\}} \end{matrix}\right.$
+
+根据上面 X 与 H、G 的关系，可补全电路图如下：
+
+![[6d847cbec5e094e4924d8765717e4400_MD5.jpg]]
+
+至此完成了用两个 N/2 point DFT calculator 构造 N point DFT calculator。
+
+以上就是递归形式的 FFT 算法。但递归形式一般效率不佳，尤其是不适合在 gpu 上实现，所以经典的 FFT 算法并不是采用这种形式，而是采用展平的形式，所谓**蝶形网络**（见下一节）。
+无论是递归形式还是蝶形网络，算法复杂度的量级是一样的。算法复杂度为 $O(N*log_2N)$ 。
+
+# **二，蝶形网络（**butterfly diagram**）**
+
+用上一节的递归电路计算 4 point DFT，完整展开如下图所示：
+
+![[42c5dfc1b5db553f865d115d6393bd0d_MD5.jpg]]
+
+简化得：
+
+![[da56d42a6d926f9ba6992c87ae359ef7_MD5.jpg]]
+
+此即 4 point FFT 的蝶形网络。
+
+另外可以利用公式 $W_{N}^{k+\frac{N}{2}}=-W_N^k$ 对蝶形网络权重作如下变形：
+
+![[65a63a5edecffd23525808aeef1eab0f_MD5.jpg]]
+
+得：
+
+![[4e7bbf0ee22e22e1fa188f27f8d72a7c_MD5.jpg]]
+
+这是 4 point FFT 蝶形网络的另一种形式。
+
+类似的，8 point FFT 蝶形网络（第二种形式）为：
+
+![[cc2328b46dc54fd98d819dd0d6547aa4_MD5.jpg]]
+
+对于给定的 point 数，蝶形网络是固定，可预计算。在 fft 的 gpu 实现中，通常将其生成为 lut。
+
+上图中还标出了 stage。使用蝶形网络计算 FFT，是按 stage 推进的：N 个输入经过第一个 stage 得到 N 个中间结果，再输入第二个 stage... 直至得到最终 N 个输出。N point FFT 有 $log_2N$ 个 stage。
+
+
+
+
 
 为了便于后面的计算和推导，我们需要做一些规定。
 
@@ -393,7 +486,7 @@ $k_z=\frac{2\pi(m'-\frac{M}{2})}{L_z}=\frac{2\pi m'-\pi M}{L_z}$
 
 $h'(x,z,t)=\sum_{m'=0}^{M-1}\sum_{n'=0}^{N-1}{\tilde{h}'(n',m',t) e^{\frac{ix(2\pi n'-\pi N)}{L_{x}}+\frac{iz(2\pi m'-\pi M)}{L_{z}}}}$
 
-对于 $\tilde{h}'(n',m',t)$ 的推导，你可以自己直接带入就可以了，或者参考这篇文章 [Ocean simulation part one: using the discrete Fourier transform](https://www.keithlantz.net/2011/10/ocean-simulation-part-one-using-the-discrete-fourier-transform/)
+对于 $\tilde{h}'(n',m',t)$ 的推导，你可以自己直接带入就可以了。
 
 我们之前说过这是一个二维的 IDFT，需要进行两次一维的 IDFT。这么看不是很直观，我们可以重新排列一下这个方程。
 
