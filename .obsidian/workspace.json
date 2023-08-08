@@ -61,6 +61,25 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "9e4e30b2e4e241ef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b3a003050bdb08dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,7 +223,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "f6efdf76caec14c1",
+  "active": "b3a003050bdb08dd",
   "lastOpenFiles": [
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
