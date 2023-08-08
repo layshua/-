@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md"
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,8 +204,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e910d471c73c7d12",
+  "active": "f6efdf76caec14c1",
   "lastOpenFiles": [
+    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
     "图形学/1 图形系统/02 光栅化.md",
     "技术美术/5 水体渲染/未命名.md",
@@ -226,7 +227,6 @@
     "图形学/0 3D数学/3D数学.md",
     "Math/Others/三角函数.md",
     "zBuffer/振幅、周期、相移和频率.md",
-    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/FFT海洋",
     "图形学/1 图形系统/11 曲线曲面几何.md",
