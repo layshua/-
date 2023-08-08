@@ -28004,6 +28004,7 @@ walls
 wanted
 wherever
 wavelength
+wangHash
 utools
 url
 unresolved
@@ -64238,6 +64239,7 @@ MetalDir
 MetalRadius
 MetalMap
 MetalIntensity
+Muller
 Windows
 Win
 World
@@ -73333,6 +73335,9 @@ SetupCullingParameters
 ScreenSpaceAmbientOcclusion
 ScreenSpaceShadows
 SwapBuffer
+Spectra
+Stockham
+Seamless
 Programs
 POP
 PC
@@ -86342,6 +86347,8 @@ Inverted
 Internally
 Ignoring
 InverseProjectionMatrix
+IDFT
+IFFT
 qq
 qyi
 quad
@@ -94567,6 +94574,7 @@ pmxfbx
 parametric
 polynomials
 patches
+phillips
 nodesCatch
 nobr
 navy
@@ -142638,6 +142646,7 @@ XwOE
 XWkB
 XNoiseLibrary
 XCom
+Xorshift
 HTML
 HasPtr
 Hello
@@ -150640,6 +150649,7 @@ BlitRenderer
 BindTexture
 Brecht
 Bypass
+Banner
 Fraktur
 Frame
 Foo
@@ -170268,6 +170278,8 @@ DIstance
 DecalRendererFeature
 DeferredLights
 Derivatives
+Dispersio
+Donelan
 LNK
 Log
 Linux
@@ -195654,6 +195666,7 @@ Junliang
 JxerBd
 Jump
 Jackson
+Jerry
 Ke
 KjpKWmp
 KYW

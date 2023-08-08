@@ -8,38 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "32109cda51fcbdc1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/2 着色器/Unity 几何着色器详解.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "5a149fa5b188db3d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/11 曲线与曲面.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "01dc8c8fdf361eb8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
+                "file": "Math/Others/振幅、周期、相移和频率.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "9c2d4b3e72ccb5ba",
@@ -122,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
+                "file": "Math/Others/振幅、周期、相移和频率.md"
               }
             }
           }
@@ -172,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
+                "file": "Math/Others/振幅、周期、相移和频率.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
+                "file": "Math/Others/振幅、周期、相移和频率.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -223,25 +196,33 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "01dc8c8fdf361eb8",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "Math/Others/三角函数.md",
+    "Math/Others/振幅、周期、相移和频率.md",
+    "图形学/0 3D数学/参数化曲线.md",
+    "图形学/0 3D数学/3D数学.md",
+    "zBuffer/振幅、周期、相移和频率.md",
+    "zip/images/b5aecdf262b5bbe1758cf642dfa2b45c_MD5.svg",
+    "zip/images/ca9f58389e42428d0337ec33391c3cf6_MD5.svg",
+    "zip/images/0ebe5e6125127b5817f1725333aaece8_MD5.svg",
+    "zip/images/a95371e3ff488c053ab7455f2801bf18_MD5.svg",
+    "zip/images/2a9fb6980154519d1a128d980b11ffee_MD5.svg",
+    "zip/images/d79ec3499d643bc8ccccaeeb39a61b40_MD5.svg",
+    "zip/images/96dd33653dd84ae74cc6e2b9363ea089_MD5.svg",
+    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
+    "技术美术/5 水体渲染/FFT海洋.md",
+    "技术美术/5 水体渲染/FFT海洋",
+    "zip/images/d061062eb3c228ae4517ec9af942c048_MD5.jpg",
+    "zip/images/24b43e36aaf530e9c13d673ed4789c92_MD5.jpg",
+    "zip/images/3fd8dfa62f69f4d6cad981fab033bd7f_MD5.jpg",
+    "图形学/1 图形系统/11 曲线曲面几何.md",
     "图形学/1 图形系统/01 渲染管线.md",
+    "技术美术/2 着色器/Unity 几何着色器详解.md",
     "技术美术/2 着色器/Unity 曲面细分着色器详解.md",
-    "图形学/1 图形系统/11 曲线与曲面.md",
     "图形学/1 图形系统/09 阴影.md",
     "图形学/1 图形系统/10 色彩.md",
-    "zip/images/Pasted image 20230808133603.png",
-    "图形学/0 3D数学/参数化曲线.md",
-    "zip/images/34a5fa3ae5ef0669991f06e72f312b60_MD5.jpg",
-    "zip/images/030a136c1b03f3d5c7197cff63efd8c1_MD5.jpg",
-    "zip/images/ddccc1225d07d395c661f05bb6d0b121_MD5.jpg",
-    "zip/images/1b6d96c7e3c569672b2cf29ca59d9d9b_MD5.jpg",
-    "zip/images/5c534229cea65ecf6a323a86d25a11a1_MD5.jpg",
-    "zip/images/fb10740fe3b073ef42e8faa5eda183a7_MD5.jpg",
-    "zip/images/9cef64cf0b436748a1f7f520a261d15a_MD5.jpg",
-    "zip/images/7640bd2fd2ee3fe360454317287a95fc_MD5.jpg",
-    "zip/images/865720b2550811e624dab0ec9e646c67_MD5.jpg",
-    "技术美术/2 着色器/Unity 几何着色器详解.md",
     "技术美术/2 着色器/曲面细分与几何着色器.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md",
@@ -255,13 +236,6 @@
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/收藏夹/TA 之路.md",
-    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
-    "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
-    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（上）.md",
-    "引擎Unity3D/4 GamePlay/胡闹厨房/Unity 制作类胡闹厨房游戏 KitchenChaos 笔记整理（下）.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
@@ -270,7 +244,6 @@
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
     "引擎Unity3D/收藏夹/URP后处理扩展",
-    "引擎Unity3D/Catlike Coding/Mesh Basics",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

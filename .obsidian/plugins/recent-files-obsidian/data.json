@@ -1,16 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity 曲面细分着色器详解",
-      "path": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
+      "basename": "振幅、周期、相移和频率",
+      "path": "Math/Others/振幅、周期、相移和频率.md"
+    },
+    {
+      "basename": "三角函数",
+      "path": "Math/Others/三角函数.md"
+    },
+    {
+      "basename": "参数化曲线",
+      "path": "图形学/0 3D数学/参数化曲线.md"
+    },
+    {
+      "basename": "3D数学",
+      "path": "图形学/0 3D数学/3D数学.md"
+    },
+    {
+      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
+      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
+    },
+    {
+      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇",
+      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md"
+    },
+    {
+      "basename": "FFT海洋",
+      "path": "技术美术/5 水体渲染/FFT海洋.md"
+    },
+    {
+      "basename": "11 曲线曲面几何",
+      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
     },
     {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "11 曲线与曲面",
-      "path": "图形学/1 图形系统/11 曲线与曲面.md"
     },
     {
       "basename": "09 阴影",
@@ -19,14 +43,6 @@
     {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "参数化曲线",
-      "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "Unity 几何着色器详解",
-      "path": "技术美术/2 着色器/Unity 几何着色器详解.md"
     },
     {
       "basename": "2.5 模型常见问题及其规范",
@@ -179,26 +195,6 @@
     {
       "basename": "31 镜头炫光 更好的广告牌算法",
       "path": "引擎Unity3D/2 Shader精粹/雪风/31 镜头炫光 更好的广告牌算法.md"
-    },
-    {
-      "basename": "32 屏幕空间贴花",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/32 屏幕空间贴花.md"
-    },
-    {
-      "basename": "33 光线步进 RayMarch 第一节入门",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/33 光线步进 RayMarch 第一节入门.md"
-    },
-    {
-      "basename": "FFT海洋",
-      "path": "技术美术/5 水体渲染/FFT海洋.md"
-    },
-    {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
-      "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
     }
   ],
   "omittedPaths": [],
