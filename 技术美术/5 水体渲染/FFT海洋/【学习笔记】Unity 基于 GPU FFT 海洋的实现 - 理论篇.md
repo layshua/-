@@ -226,8 +226,8 @@ $h(\vec{x},t)=\sum_{k}{\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
     - 这里频谱 $\tilde{h}(\vec{k},t)$ 较前文多了个参数 t，表示此频谱会随时间变化，相应地高度函数 $h(\vec{x},t)$ 就也变成随时间变化的了，所以也加参数 t。
 - $\vec{k}$ 为**频域坐标**，定义为 $\vec{k}=(k_{x},k_{z})=(\frac{2\pi n}{L_{x}},\frac{2\pi m}{L_{z}})$
     - $k_x, k_z$ 均为频率
-    - $L_{x}$ 和 $L_{z}$ 是海平面的大小
-    -  $-\frac{N}{2}\leq n <\frac{N}{2}$，$-\frac{M}{2}\leq m <\frac{M}{2}$
+    - $L_{x}$ 和 $L_{z}$ 是海平面的大小（**对应我们的 RT 大小**）
+    -  $-\frac{N}{2}\leq n <\frac{N}{2}$，$-\frac{M}{2}\leq m <\frac{M}{2}$，nm（**nm 对应像素 id. xy**）
     - $N$ 和 $M$ 是我们采样离散点的数量。当然 $N$ 和 $M$ 取值越大我们得到的波形就更加细节 (叠加的波就更多)，当然计算时间也会大大的增加。
     - 求和是对所有频域坐标点 $\vec{k}$ 进行。
 - 另外注意 $e^{i\vec{k}\cdot \vec{x}}$ 中 $\vec{k}$ 与 $\vec{x}$ 是点乘，即 $e^{i(k_{x}x+k_{z}z)}$ ，表示：固定 z，只让 x 变化时频率为 $k_{x}$ ；固定 x，只让 z 变化时频率为 $k_{z}$ 。
@@ -258,24 +258,28 @@ $\vec{x}$ 在 xz 平面上以原点为中心每隔 $\frac{L}{N}$ 取一个点，
 $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-\vec{k})e^{-i\omega(k)t}$
 
 1. $\tilde{h}^{*}_{0}$ 是 $\tilde{h}_{0}$ 的共轭复数
-2.  $k$ 是 $\vec{k}$ 的模。
-3.  $\omega(k)$ 是角频率 $\omega$ 和波长 $k$ 的 Dispersion 关系，这个关系取决于重力、海洋深度和其他物理参数。这里只给出了深水的关系，其他的可以去 Simulating Ocean Water 上找到
+2.  $k$ 是 $\vec{k}$ 的模，即**波长（波的周期）**
+3.  $\omega(k)$ 是角频率 $\omega$ 和波长 $k$ 的弥散 (Dispersion) 关系，这个关系取决于重力、海洋深度和其他物理参数。这里只给出了深水的关系，其他的可以去 Simulating Ocean Water 上找到
     -  $\omega^2 = gk$
     -  $\omega(k) = \sqrt{gk}$
     -  $g$ 是重力加速度 $=9.8m/sec^2$
 4. $\tilde{h}_{0}(\vec{k})=\frac{1}{\sqrt{2}}(\xi_{r}+i\xi_{i})\sqrt{P_{h}(\vec{k})}$
     - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）随机数。随机数的生成方法：[[FFT相关推导#生成服从标准生成分布的随机数]]
-    - $P_{h}(\vec{k})$ 是即**菲利普斯波谱**，一般描述为 $S(\omega,\theta)$
-        - 方向波谱 $S(\omega,\theta)$ 是非定向波谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
+    - $P_{h}(\vec{k})$ 是即**菲利普斯频谱**，一般描述为 $S(\omega,\theta)$
+        - 方向频谱 $S(\omega,\theta)$ 是非定向频谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
         - $\omega$ 是我们前面提到的角频率
         -  $\theta$ 是波矢量相对于风向的角度
-        - 在 Simulating Ocean Water-Jerry Tessendorf 中使用到的非定向波谱为 $A\frac{e^{-1/(kL)^2}}{k^4}$ , 而方向拓展函数为 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ , **他们的乘积就是** $P_{h}(\vec{k})=A\frac{e^{-1/(kL)^2}}{k^4}\left| \vec{k}\cdot\vec{\omega} \right|^2$
+        - 在 Simulating Ocean Water-Jerry Tessendorf 中使用到的非定向频谱为 $A\frac{e^{-1/(kL)^2}}{k^4}$ , 而方向拓展函数为 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ , **他们的乘积就是** $P_{h}(\vec{k})=A\frac{e^{-1/(kL)^2}}{k^4}\left| \vec{k}\cdot\vec{\omega} \right|^2$
             - $L=V^2/g$ （注意，这个 L 不是上一节使用的代表海平面大小的L）
             -  $V$ 是风速
             -  $\vec{\omega}$ 是风向
             - **在我们的实现中风向拓展函数使用的不是** $\left| \vec{k}\cdot\vec{\omega} \right|^2$ ，而是 **Donelan-Banner 定向传播**，**Donelan-Banner 方向拓展公式为**
             ![[d061062eb3c228ae4517ec9af942c048_MD5.jpg]]
-            图截取自 Empirical Directional Wave Spectra for Computer Graphics， $\omega$ 角频率， $\theta$ 是波相对于风的角度， $\omega_p$ 是峰值频率 $=0.855g/U$ , $g$ 是重力加速度， $U$ 是平均风速。
+            图截取自 Empirical Directional Wave Spectra for Computer Graphics，  $\omega$ 角频率
+             $\theta$ 是波相对于风的角度
+             $\omega_p$ 是峰值频率 $=0.855g/U$ 
+             $g$ 是重力加速度
+             $U$ 是平均风速。
 
 
 ### 水平偏移频谱公式
