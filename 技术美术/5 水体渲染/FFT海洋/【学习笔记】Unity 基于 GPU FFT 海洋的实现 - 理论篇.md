@@ -264,7 +264,7 @@ $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-
     -  $\omega(k) = \sqrt{gk}$
     -  $g$ 是重力加速度 $=9.8m/sec^2$
 4. $\tilde{h}_{0}(\vec{k})=\frac{1}{\sqrt{2}}(\xi_{r}+i\xi_{i})\sqrt{P_{h}(\vec{k})}$
-    - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）。随机数的生成方法：[杨超：生成服从标准正态分布的随机数](https://zhuanlan.zhihu.com/p/67776340)
+    - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）。随机数的生成方法：[[FFT相关推导#生成服从标准生成分布的随机数]]
     - $P_{h}(\vec{k})$ 是我们的**方向波谱**，方向波谱一般描述为 $S(\omega,\theta)$ , 这和我们前面的参数不太一样，其实他们之间可以相互转换，有兴趣可以看 Empirical Directional Wave Spectra for Computer Graphics 这篇论文。
         - 方向波谱 $S(\omega,\theta)$ 是非定向波谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
         - $\omega$ 是我们前面提到的角频率
@@ -303,48 +303,10 @@ $\vec{N}=normalize((0,1,0)-(\nabla h_x(\vec{x},t),0,\nabla h_z(\vec{x},t)))$
 
 $=normalize(-\nabla h_x(\vec{x},t),1,-\nabla h_z(\vec{x},t))$
 
-
-#### 推导
-用差分就可以求法线，但那样求出来的不是很精确。最精确的方法是直接推出法线的解析式。
+[[FFT相关推导#法线的解析式推导]]
 
 
-差分方法：假设我们想要计算点 $M_0$ 处的法线，我们需要计算两个切向量 $T_x$ 和 $T_y$ ，然后两者叉积就可以得到我们的法线。**对于求切向量就是对曲面方程求偏导就可以得到，因为我们这都是离散的点，可以直接取 $M_0$ 两侧的点，做差就可以求到。
-![[a0c4e435a42580c72c32e743c3526dd2_MD5.jpg|450]]
-
-
-**推解析式：**
-因为高度是：
-
-$h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
-
-其空间梯度为：
-
-$\triangledown h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)\triangledown e^{i\vec{k}\cdot\vec{x}}}$ （因为 $\tilde{h}(\vec{k},t)$ 并不包含空间变元，故可从梯度符号内移出）
-
-而其中
-
-$\triangledown e^{i\vec{k}\cdot\vec{x}}=(\frac{\partial e^{i(k_x*x+k_z*z)}}{\partial x},\frac{\partial e^{i(k_x*x+k_z*z)}}{\partial z})$
-
-$=(e^{i(k_x*x+k_z*z)}*ik_x,e^{i(k_x*x+k_z*z)}*ik_z)$
-
-$=e^{i(k_x*x+k_z*z)}*i(k_x,k_z)$
-
-$=i\vec{k}e^{i\vec{k}\cdot\vec{x}}$
-
-所以
-
-$\triangledown h(\vec{x},t)=\sum_{\vec{k}}^{}{i\vec{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
-
-又梯度向量、up 向量、法向量三者具有下图所示几何关系：
-
-![[83cffe3c57011f127bc4444be5b1d538_MD5.jpg]]
-
-所以有（注意，normalize 是必要的）：
-
-$\vec{N}=normalize((0,1,0)-(\triangledown {h}_x(\vec{x},t),0,\triangledown{h}_z(\vec{x},t)))$
-
-$=normalize(-\triangledown {h}_x(\vec{x},t),1,-\triangledown {h}_z(\vec{x},t))$
-### 泡沫
+### 浪尖泡沫
 泡沫的计算可以使用雅可比列行列式得到
 
 $J=J_{xx}J_{zz}-J_{xz}J_{zx}$
@@ -355,56 +317,10 @@ $J_{zz}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
 
 $J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
 
-对于公式的推导同样可以参照杨超大佬的文章，当 $J<0$ 时代表波浪重叠，生成泡沫。$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
+当 $J<0$ 时代表波浪重叠，生成泡沫。
+$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
 
-#### 推导
-在 gerstner wave 中，为了表现波峰尖角，使用下面公式在 xz 平面内进行挤压（红框中部分）：
-
-![[46e4202e2b55209453431d647a793bbb_MD5.jpg]]
-
-此处 IDFT 海面，同样需要类似挤压操作，公式为：
-
-$\vec{D}(\vec{x},t)=\sum_{\vec{k}}^{}{-i\frac{\vec{k}}{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
-
-$\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$
-
-不难看出，两者虽然写法不同，含义是一样的：即对 sin 波进行 cos 挤压，对 cos 波进行 sin 挤压。
-
-当 xz 平面内挤压过头时，就会出现刺穿（如图所示）。恰好对应浪尖破碎形成泡沫的区域。
-
-![[544cbe481f20abfeeedfbcd9777dea24_MD5.jpg]]
-
-当发生刺穿时，局部发生翻转，表现在数学上，即面元有向面积变为负值。
-
-那么如何求面元有向面积呢？同济高数下册里学过：二重积分换元法，雅可比行列式。
-
-（找不到高数书的也可看这个：[杨超：二重积分换元法、雅可比行列式](https://zhuanlan.zhihu.com/p/65953562)）
-
-因为 x'和 z'均为以 x, z 为变元的二元函数，即 x'=x' (x, z), z'=z' (x, z)，由二重积分换元法知变换后面积元为：
-
-$dA=\vec{dx'}\times \vec{dz'}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}dxdz$
-
-由于 dxdz 必定为正数，所以 dA 的正负就取决于雅可比行列式
-
-$J(\vec{x})=\begin{vmatrix} J_{xx} &J_{xz} \\ J_{zx} & J_{zz} \end{vmatrix}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}$
-
-的正负。
-
-由于 $\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$ ，所以：
-
-$J_{xx}=\frac{\partial x'}{\partial x}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
-
-$J_{zz}=\frac{\partial z'}{\partial z}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
-
-$J_{zx}=\frac{\partial z'}{\partial x}=\lambda\frac{\partial D_z(\vec{x},t)}{\partial x}$
-
-$J_{xz}=\frac{\partial x'}{\partial z}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}$
-
-由于我们有 $\vec{D}(\vec{x},t)$ 的表达式，所以其实上面各偏导数都是可以求出来的。
-
-如果真的去求，我们会发现 $J_{xz}=J_{zx}$，亦即 $\frac{\partial D_z(\vec{x},t)}{\partial x}=\frac{\partial D_x(\vec{x},t)}{\partial z}$ ，验证如下：
-
-![[290e778049f1613a582f1da2442ca948_MD5.jpg]]
+[[FFT相关推导#浪尖泡沫推导]]
 
 ## 3.4 公式的计算流程
 

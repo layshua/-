@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "FFT相关推导",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
+    },
+    {
       "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
       "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
     },
     {
       "basename": "fft 海面模拟 (一)",
       "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md"
+    },
+    {
+      "basename": "二重积分换元法、雅可比行列式",
+      "path": "zBuffer/二重积分换元法、雅可比行列式.md"
+    },
+    {
+      "basename": "生成服从标准正态分布的随机数",
+      "path": "zBuffer/生成服从标准正态分布的随机数.md"
+    },
+    {
+      "basename": "微积分基础",
+      "path": "Math/微积分/微积分基础.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "02 光栅化",
@@ -63,10 +83,6 @@
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
       "basename": "2.5 模型常见问题及其规范",
@@ -183,22 +199,6 @@
     {
       "basename": "【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影",
       "path": "技术美术/6 NPR/原神/【03】Unity URP 卡通渲染 原神角色渲染记录 - Function-Based Light and Shadow： Emission + SDF 脸部阴影.md"
-    },
-    {
-      "basename": "【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal",
-      "path": "技术美术/6 NPR/原神/【02】Unity URP 卡通渲染 原神角色渲染记录 - Specular： Metal + Non-Metal.md"
-    },
-    {
-      "basename": "工具流",
-      "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "少前 2 克罗丽科 NPR+PBR 渲染小试",
-      "path": "技术美术/6 NPR/少前 2 克罗丽科 NPR+PBR 渲染小试.md"
-    },
-    {
-      "basename": "NPR渲染管线概述",
-      "path": "技术美术/6 NPR/NPR渲染管线概述.md"
     }
   ],
   "omittedPaths": [],
