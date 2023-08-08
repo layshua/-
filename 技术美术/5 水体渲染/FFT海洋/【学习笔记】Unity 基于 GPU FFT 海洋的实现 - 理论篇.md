@@ -145,13 +145,15 @@ Gerstner 波还有另一种形式，可以模拟近海岸的潮水......
 
 ## 3.2 理解傅里叶变换公式
 
-这部分内容并不是必须的，只是帮助你理解傅里叶变换公式.... 看不懂也并没有影响....
+> [!NOTE] 傅里叶逆变换与海面模拟的关系
+> 如果将开放海域的波浪高度看作定义在 XZ 平面上的空间域信号 $h(x,z)$ ，根据经验，这个信号天然地就很接近大量正弦信号的叠加。如果我们知道了其频谱 $\tilde{h}(\omega_{x},\omega_{z})$ ，则使用傅里叶逆变换，就可以求出 $h(x,z)$ ，即得到海面的高度场。
+>
+由于计算机不能处理连续或无限的事物，所以海面模拟里用的傅里叶逆变换是离散傅里叶逆变换（Inverse Discrete Fourier Transform（IDFT)）。注：周期信号的频谱必定是离散的，但未必有限。
+![[8e572af1a14c01e95ef231e9068ecadc_MD5.jpg]]
 
 在计算机中只能处理离散的点，我们所说的也都是离散的。
-
-离散傅里叶变换 (Discrete Fourier Transform，缩写为 DFT)
-
-逆离散傅里叶变换 (Inverse Discrete Fourier Transform, 缩写为 IDFT)
+- 离散傅里叶变换 (Discrete Fourier Transform，缩写为 DFT)
+- 逆离散傅里叶变换 (Inverse Discrete Fourier Transform, 缩写为 IDFT)
 ### 离散傅里叶变换 DFT
 我们先来看下 DFT 的公式, 如果 $f(x)$ 为一个长度为 $N$ 的数字序列，则其 DFT $F(\mu)$ 为
 
@@ -159,7 +161,7 @@ $F(\mu)=\sum_{x=0}^{N-1}{f(x)}e^{-i\frac{2\pi\mu x}{N}}$
 
 这只是第一个公式，差点就有点接受不住。先来看下每个参数的含义， $F(\mu)$ 为转换后的频域函数， $\mu$ 是**频率**。**可以看上面的图，我们将一个复杂的波形展开成多个正弦波，在将正弦波按照频率大小依次排列，频率和振幅就组成了频域图像。** 频域图像的横坐标为频率，纵坐标为振幅。
 
-$f(x)$ 是我们时域的函数， $e^{-i\frac{2\pi\mu x}{N}}$ 是一个复数。
+$f(x)$ 是我们时域的函数， $e^{-i\frac{2\pi\mu x}{N}}$ 是一个复指数，i 为虚数单位。
 
 这样还是什么都看不懂，我们将后面的复数用欧拉公式展开
 
@@ -196,8 +198,10 @@ $F(\mu)=\sum_{x=0}^{N-1}{f(x)}cos(\frac{2\pi\mu x}{N})-i\sum_{x=0}^{N-1}{f(x)}si
 $F(\mu)=\sum_{x=0}^{N-1}{f(x)}cos(\frac{2\pi\mu x}{N})-i\sum_{x=0}^{N-1}{f(x)}sin(\frac{2\pi\mu x}{N})$
 
 输入想要求的频率，时域 $f(x)$ 会进行两个检波器的检测， $\sum_{x=0}^{N-1}{f(x)}cos(\frac{2\pi\mu x}{N})$ 代表着检波器 B, 在离散处理中积分就是累加。可以看到我们到**最后得到了一个复数，复数的模就是我们想要频率的振幅**。
+>由于 $e^{i\omega x}$ 是复数，所以频谱 $F (\mu)$也是复数。
 
 你也可以看 b 站上这个视频来理解 [离散傅里叶变换零基础入门 - 中文 1（针对工科生，无需连续傅立叶变换知识）](https://www.bilibili.com/video/av44600709?from=search&seid=17408625534542082014)
+
 
 ### 逆离散傅里叶变换公式 IDFT
 **逆离散傅里叶变换公式 IDFT, 可以由 DFT 推导得到**
@@ -216,34 +220,60 @@ $h(\vec{x},t)=\sum_{k}{\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
 
 可以看到这个式子和我们上面公式给出的逆离散傅里叶变换那么的像，其实就是将 $\tilde{h}(\vec{k},t)$ 来进行 IDFT。
 
-- $\vec{x}=(x,z)$ 是我们水平方向的坐标
+- $\vec{x}=(x,z)$ 是我们水平方向的坐标（**时域/空间域坐标**）
 - $t$ 是时间
-- $\vec{k}$ 被定义为 $\vec{k}=(k_{x},k_{z})=(\frac{2\pi n}{L_{x}},\frac{2\pi m}{L_{z}})$
-    - $\vec{k}$ 为波矢量
+- $\tilde{h}(\vec{k},t)$ 为频谱
+    - 这里频谱 $\tilde{h}(\vec{k},t)$ 较前文多了个参数 t，表示此频谱会随时间变化，相应地高度函数 $h(\vec{x},t)$ 就也变成随时间变化的了，所以也加参数 t。
+- $\vec{k}$ 为**频域坐标**，定义为 $\vec{k}=(k_{x},k_{z})=(\frac{2\pi n}{L_{x}},\frac{2\pi m}{L_{z}})$
+    - $k_x, k_z$ 均为频率
     - $L_{x}$ 和 $L_{z}$ 是海平面的大小
-    -     - $-\frac{N}{2}\leq n <\frac{N}{2}$
-    - $-\frac{M}{2}\leq m <\frac{M}{2}$
+    -  $-\frac{N}{2}\leq n <\frac{N}{2}$，$-\frac{M}{2}\leq m <\frac{M}{2}$
     - $N$ 和 $M$ 是我们采样离散点的数量。当然 $N$ 和 $M$ 取值越大我们得到的波形就更加细节 (叠加的波就更多)，当然计算时间也会大大的增加。
+    - 求和是对所有频域坐标点 $\vec{k}$ 进行。
+- 另外注意 $e^{i\vec{k}\cdot \vec{x}}$ 中 $\vec{k}$ 与 $\vec{x}$ 是点乘，即 $e^{i(k_{x}x+k_{z}z)}$ ，表示：固定 z，只让 x 变化时频率为 $k_{x}$ ；固定 x，只让 z 变化时频率为 $k_{z}$ 。
 
+---
+
+$\vec{k}$ 在频率平面上以原点为中心每隔 $\frac{2\pi}{L}$ （L 为海面 patch 尺寸）取一个点，共 $N\times N$ 个点：
+
+-  $k_x=\frac{2\pi n}{L}，n \in{\{-\frac{N}{2},-\frac{N}{2}+1,...,\frac{N}{2}-1\}}$
+-  $k_z=\frac{2\pi m}{L}，m \in{\{-\frac{N}{2},-\frac{N}{2}+1,...,\frac{N}{2}-1\}}$
+
+$\vec{x}$ 在 xz 平面上以原点为中心每隔 $\frac{L}{N}$ 取一个点，也是共 $N\times N$ 个点：
+
+-  $x=\frac{uL}{N}，u \in{\{-\frac{N}{2},-\frac{N}{2}+1,...,\frac{N}{2}-1\}}$
+-  $z=\frac{vL}{N}，v \in{\{-\frac{N}{2},-\frac{N}{2}+1,...,\frac{N}{2}-1\}}$
+
+下图红点为频域点，蓝点为空间域点：
+![[3942578c6c95cd10e0b16718165be066_MD5.jpg]]
+
+**对于游戏而言，通常取 N=64 就够用了**，即 64^2=4096 个频率点，亦即 4096 个不同频率正弦信号叠加，这个叠加数量比一般 gerstner wave 多多了，所以细节更丰富。
+
+另外可以验证，在 N 为偶数的情况下，以上所有频率值 k 对应的周期 T= $\frac{2\pi}{k}$ 均为 L 的约数，所以 $h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$ 横向和纵向均以 L 为周期，也就是说**海面 patch 是可以无缝 tiling 的**。
 ### 高度频谱公式
+通常采用**菲利普频谱（Phillips spectrum）**
+
 **我们只需要计算出频谱然后按照 $h(\vec{x},t)$ 函数就可以得到我们海面的高度, 现在我们来看一下频谱公式 $\tilde{h}(\vec{k},t)$**
 
 $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-\vec{k})e^{-i\omega(k)t}$
 
-1. $\tilde{h}^{*}_{0}$ 是 $\tilde{h}_{0}$ 的共轭复数，本文称作初始频谱
+1. $\tilde{h}^{*}_{0}$ 是 $\tilde{h}_{0}$ 的共轭复数
 2.  $k$ 是 $\vec{k}$ 的模。
 3.  $\omega(k)$ 是角频率 $\omega$ 和波长 $k$ 的 Dispersion 关系，这个关系取决于重力、海洋深度和其他物理参数。这里只给出了深水的关系，其他的可以去 Simulating Ocean Water 上找到
     -  $\omega^2 = gk$
     -  $\omega(k) = \sqrt{gk}$
-    -  $g$ 是引力常数 $=9.8m/sec^2$
+    -  $g$ 是重力加速度 $=9.8m/sec^2$
 4. $\tilde{h}_{0}(\vec{k})=\frac{1}{\sqrt{2}}(\xi_{r}+i\xi_{i})\sqrt{P_{h}(\vec{k})}$
-    - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的**高斯随机数**。对于随机数的生成我们会在实践篇说到。
+    - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）。随机数的生成方法：[杨超：生成服从标准正态分布的随机数](https://zhuanlan.zhihu.com/p/67776340)
     - $P_{h}(\vec{k})$ 是我们的**方向波谱**，方向波谱一般描述为 $S(\omega,\theta)$ , 这和我们前面的参数不太一样，其实他们之间可以相互转换，有兴趣可以看 Empirical Directional Wave Spectra for Computer Graphics 这篇论文。
-        - 方向波谱 $S(\omega,\theta)$ 是非定向波普 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积$S(\omega,\theta)=S(\omega)D(\omega,\theta)$
-    - $\omega$ 是我们前面提到的角频率， $\theta$ 是波矢量相对于风向的角度
-    - 在 Simulating Ocean Water-Jerry Tessendorf 中使用到的非定向波谱为 $A\frac{e^{-1/(kL)^2}}{k^4}$ , 而方向拓展函数为 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ , 他们的乘积就是 $P_{h}(\vec{k})=A\frac{e^{-1/(kL)^2}}{k^4}\left| \vec{k}\cdot\vec{\omega} \right|^2$
-        - $L=V^2/g$ , $V$ 是风速， $\vec{\omega}$ 是风向。
-        - 在我们的实现中风向拓展函数使用的不是 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ ，而是 Donelan-Banner 定向传播，这里就先不贴这个公式了，免得显得公式太多....
+        - 方向波谱 $S(\omega,\theta)$ 是非定向波谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
+        - $\omega$ 是我们前面提到的角频率
+        -  $\theta$ 是波矢量相对于风向的角度
+        - 在 Simulating Ocean Water-Jerry Tessendorf 中使用到的非定向波谱为 $A\frac{e^{-1/(kL)^2}}{k^4}$ , 而方向拓展函数为 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ , **他们的乘积就是** $P_{h}(\vec{k})=A\frac{e^{-1/(kL)^2}}{k^4}\left| \vec{k}\cdot\vec{\omega} \right|^2$
+            - $L=V^2/g$ （注意，这个 L 不是上一节使用的代表海平面大小的L）
+            -  $V$ 是风速
+            -  $\vec{\omega}$ 是风向
+            - **在我们的实现中风向拓展函数使用的不是** $\left| \vec{k}\cdot\vec{\omega} \right|^2$ ，而是 Donelan-Banner 定向传播，这里就先不贴这个公式了，免得显得公式太多....
 
 
 ### 水平偏移频谱公式
@@ -262,6 +292,119 @@ $D_z(\vec{x},t)=\sum_{k}{-i\frac{k_{z}}{k}\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\
 公式都是前辈大佬们通过海洋上的数据检测.... 巴拉巴拉.... 得到的，简单来说直接用，不要多想，想也不懂，懂也不会调，调也不会对 (说给我这种弱鸡听的.... 大佬请无视....)
 
 以上就是海洋的所有 (大部分) 公式，那我们面临着一个问题，公式到手依然是满脸迷茫不知道该从哪里下手。
+### 法线
+用 IDFT 得到海面高度以后，用差分就可以求法线，但那样求出来的不是很精确。最精确的方法是直接推出法线的解析式。
+
+**推导结果如下：**
+
+空间梯度 ：$\nabla h(\vec{x},t)=\sum_{k}{i\vec{k}\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
+
+$\vec{N}=normalize((0,1,0)-(\nabla h_x(\vec{x},t),0,\nabla h_z(\vec{x},t)))$
+
+$=normalize(-\nabla h_x(\vec{x},t),1,-\nabla h_z(\vec{x},t))$
+
+
+#### 推导
+用差分就可以求法线，但那样求出来的不是很精确。最精确的方法是直接推出法线的解析式。
+
+
+差分方法：假设我们想要计算点 $M_0$ 处的法线，我们需要计算两个切向量 $T_x$ 和 $T_y$ ，然后两者叉积就可以得到我们的法线。**对于求切向量就是对曲面方程求偏导就可以得到，因为我们这都是离散的点，可以直接取 $M_0$ 两侧的点，做差就可以求到。
+![[a0c4e435a42580c72c32e743c3526dd2_MD5.jpg|450]]
+
+
+**推解析式：**
+因为高度是：
+
+$h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
+
+其空间梯度为：
+
+$\triangledown h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)\triangledown e^{i\vec{k}\cdot\vec{x}}}$ （因为 $\tilde{h}(\vec{k},t)$ 并不包含空间变元，故可从梯度符号内移出）
+
+而其中
+
+$\triangledown e^{i\vec{k}\cdot\vec{x}}=(\frac{\partial e^{i(k_x*x+k_z*z)}}{\partial x},\frac{\partial e^{i(k_x*x+k_z*z)}}{\partial z})$
+
+$=(e^{i(k_x*x+k_z*z)}*ik_x,e^{i(k_x*x+k_z*z)}*ik_z)$
+
+$=e^{i(k_x*x+k_z*z)}*i(k_x,k_z)$
+
+$=i\vec{k}e^{i\vec{k}\cdot\vec{x}}$
+
+所以
+
+$\triangledown h(\vec{x},t)=\sum_{\vec{k}}^{}{i\vec{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
+
+又梯度向量、up 向量、法向量三者具有下图所示几何关系：
+
+![[83cffe3c57011f127bc4444be5b1d538_MD5.jpg]]
+
+所以有（注意，normalize 是必要的）：
+
+$\vec{N}=normalize((0,1,0)-(\triangledown {h}_x(\vec{x},t),0,\triangledown{h}_z(\vec{x},t)))$
+
+$=normalize(-\triangledown {h}_x(\vec{x},t),1,-\triangledown {h}_z(\vec{x},t))$
+### 泡沫
+泡沫的计算可以使用雅可比列行列式得到
+
+$J=J_{xx}J_{zz}-J_{xz}J_{zx}$
+
+$J_{xx}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
+
+$J_{zz}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
+
+$J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
+
+对于公式的推导同样可以参照杨超大佬的文章，当 $J<0$ 时代表波浪重叠，生成泡沫。$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
+
+#### 推导
+在 gerstner wave 中，为了表现波峰尖角，使用下面公式在 xz 平面内进行挤压（红框中部分）：
+
+![[46e4202e2b55209453431d647a793bbb_MD5.jpg]]
+
+此处 IDFT 海面，同样需要类似挤压操作，公式为：
+
+$\vec{D}(\vec{x},t)=\sum_{\vec{k}}^{}{-i\frac{\vec{k}}{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
+
+$\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$
+
+不难看出，两者虽然写法不同，含义是一样的：即对 sin 波进行 cos 挤压，对 cos 波进行 sin 挤压。
+
+当 xz 平面内挤压过头时，就会出现刺穿（如图所示）。恰好对应浪尖破碎形成泡沫的区域。
+
+![[544cbe481f20abfeeedfbcd9777dea24_MD5.jpg]]
+
+当发生刺穿时，局部发生翻转，表现在数学上，即面元有向面积变为负值。
+
+那么如何求面元有向面积呢？同济高数下册里学过：二重积分换元法，雅可比行列式。
+
+（找不到高数书的也可看这个：[杨超：二重积分换元法、雅可比行列式](https://zhuanlan.zhihu.com/p/65953562)）
+
+因为 x'和 z'均为以 x, z 为变元的二元函数，即 x'=x' (x, z), z'=z' (x, z)，由二重积分换元法知变换后面积元为：
+
+$dA=\vec{dx'}\times \vec{dz'}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}dxdz$
+
+由于 dxdz 必定为正数，所以 dA 的正负就取决于雅可比行列式
+
+$J(\vec{x})=\begin{vmatrix} J_{xx} &J_{xz} \\ J_{zx} & J_{zz} \end{vmatrix}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}$
+
+的正负。
+
+由于 $\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$ ，所以：
+
+$J_{xx}=\frac{\partial x'}{\partial x}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
+
+$J_{zz}=\frac{\partial z'}{\partial z}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
+
+$J_{zx}=\frac{\partial z'}{\partial x}=\lambda\frac{\partial D_z(\vec{x},t)}{\partial x}$
+
+$J_{xz}=\frac{\partial x'}{\partial z}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}$
+
+由于我们有 $\vec{D}(\vec{x},t)$ 的表达式，所以其实上面各偏导数都是可以求出来的。
+
+如果真的去求，我们会发现 $J_{xz}=J_{zx}$，亦即 $\frac{\partial D_z(\vec{x},t)}{\partial x}=\frac{\partial D_x(\vec{x},t)}{\partial z}$ ，验证如下：
+
+![[290e778049f1613a582f1da2442ca948_MD5.jpg]]
 
 ## 3.4 公式的计算流程
 
@@ -282,7 +425,7 @@ $D_z(\vec{x},t)=\sum_{k}{-i\frac{k_{z}}{k}\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\
 
 ![[f8e29a6bae16241d4b653b05be05a87c_MD5.jpg]]
 
-2. **我们拿到初始频谱 ${h}_{0}(\vec{k})$ 后，就可以使用他来计算高度频谱 $\tilde{h}(\vec{k},t)$ , 使用高度频谱就可以轻易的计算出两个偏移频谱 $D_x(\vec{x},t)$ 和 $D_z(\vec{x},t)$ 。然后第一步生成频谱就结束了，是不是很简单。**
+2. **我们拿到菲利普频谱 ${h}_{0}(\vec{k})$ 后，就可以使用他来计算高度频谱 $\tilde{h}(\vec{k},t)$ , 使用高度频谱就可以轻易的计算出两个偏移频谱 $D_x(\vec{x},t)$ 和 $D_z(\vec{x},t)$ 。然后第一步生成频谱就结束了，是不是很简单。**
 
 3. 然后就到了第二步，当我们**拿到这些频谱后，分别对他们进行 IDFT**，就会得到水平 $x$ 、 $z$ 以及高度 $y$ 的偏移图 (注意上图中的 $z$ 为高度)。第二步就此结束。
 
@@ -560,35 +703,3 @@ FFT(x,N, m, input)
 
 **我们首先计算频谱，将得到的频谱进行横向 FFT，每一个红色的箭头代表着一次一维的 FFT，将每一行做为 FFT 的输入数据，然后在进行纵向 FFT。**
 
-## 4. 法线和泡沫的计算
-### 法线
-对于法线的计算，可以由公式直接获得。
-
-$\nabla h(\vec{x},t)=\sum_{k}{i\vec{k}\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
-
-$\vec{N}=normalize((0,1,0)-(\nabla h_x(\vec{x},t),0,\nabla h_z(\vec{x},t)))$
-
-$=normalize(-\nabla h_x(\vec{x},t),1,-\nabla h_z(\vec{x},t))$
-
-公式的推导可以看杨超大佬的文章，[fft 海面模拟 (一)](https://zhuanlan.zhihu.com/p/64414956)
-
-可以看见这里也需要进行一次 FFT，我们也可以使用差分方法来求法线，虽然这样得出来并不是很精确。这里简单说明一下
-
-![[a0c4e435a42580c72c32e743c3526dd2_MD5.jpg]]
-
-图截取自《高等数学 第七版 下册》同济大学。
-
-假设我们想要计算点 $M_0$ 处的法线，我们需要计算两个切向量 $T_x$ 和 $T_y$ ，然后两者叉积就可以得到我们的法线。**对于求切向量就是对曲面方程求偏导就可以得到，因为我们这都是离散的点，可以直接取 $M_0$ 两侧的点，做差就可以求到。**
-
-### 泡沫
-泡沫的计算可以使用雅可比列行列式得到
-
-$J=J_{xx}J_{zz}-J_{xz}J_{zx}$
-
-$J_{xx}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
-
-$J_{zz}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
-
-$J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
-
-对于公式的推导同样可以参照杨超大佬的文章，当 $J<0$ 时代表波浪重叠，生成泡沫。$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。

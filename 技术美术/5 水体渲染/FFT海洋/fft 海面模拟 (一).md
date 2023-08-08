@@ -6,7 +6,7 @@
 自变量为 $x$ 的函数 $f(x)$ 可看作一个随空间变化的信号（空间域信号），只要满足一定条件，它就可以表示为一堆不同频率的随空间变化的正弦信号（空间域正弦信号）的线性组合（或积分）。
 >注：是求和还是积分，取决于信号是否具有周期性。
 
-这些正弦信号（称为基底）的频率构成频域。如果将频域作为定义域，相应频率基底的振幅和相位作为函数值，则得到一个新函数 F(ω)。称为信号 f(x) 的频谱。
+这些正弦信号（称为基底）的频率构成频域。如果将频域作为定义域，相应频率基底的振幅和相位作为函数值，则得到一个新函数 F(ω)。称为信号 $f(x)$ 的频谱。
 
 >注：频域（Frequency Domain），空间域（Space Domain），时域（Time Domain）。**其中空间域和时域在数学上是一个意思，不同仅在于自变量用 x 还是 t**。对于本文应用场景而言，用空间域说法更恰当。
 
@@ -16,11 +16,10 @@
 
 由频谱 $F(ω)$ 求 $f(x)$，称为傅里叶逆变换。
 
-实际傅里叶变换 / 逆变换不是以正弦信号为基底，而是以**复指数**信号 $e^{i\omega x}$ 为基底，频谱也相应地变成了复数。
+**实际傅里叶变换 / 逆变换不是以正弦信号为基底**，而是以**复指数**信号 $e^{i\omega x}$ 为基底（i 为虚数单位），**频谱也相应地变成了复数**。
 
 # **二，从三角形式到复数形式**
 
-本节对文章目标意义不大，可略过，我只是因为看到傅里叶变换带复数比较懵逼，所以尝试捋了一下。
 
 信号分解为基信号的线性组合（即傅里叶逆变换）有无数种方法，取决于基底形式的选择。不同基底形式导致不同的频谱形式。
 
@@ -40,7 +39,7 @@ $f(x)=\sum_{\omega}^{}{(A_{1}(\omega)*cos(\omega x)+A_{2}(\omega)*sin(\omega x))
 
 此时频谱需要给出两个振幅 A1 和 A2，形式为 $F(\omega)=(A_{1}(\omega),A_{2}(\omega))$ 。
 
-（三）以复指数信号作为基底：
+（三）**以复指数信号作为基底：**
 
 使用欧拉恒等式 $cos(\omega x)=\frac{e^{i\omega x}+e^{-i\omega x}}{2},sin(\omega x)=\frac{e^{i\omega x}-e^{-i\omega x}}{2i}$ 对（二）作变形，得：
 
@@ -214,53 +213,6 @@ $=normalize(-\triangledown {h}_x(\vec{x},t),1,-\triangledown {h}_z(\vec{x},t))$
 
 # **六，尖浪（**Choppy Waves**）**
 
-在 gerstner wave 中，为了表现波峰尖角，使用下面公式在 xz 平面内进行挤压（红框中部分）：
-
-![[46e4202e2b55209453431d647a793bbb_MD5.jpg]]
-
-此处 IDFT 海面，同样需要类似挤压操作，公式为：
-
-$\vec{D}(\vec{x},t)=\sum_{\vec{k}}^{}{-i\frac{\vec{k}}{k}\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$
-
-$\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$
-
-不难看出，两者虽然写法不同，含义是一样的：即对 sin 波进行 cos 挤压，对 cos 波进行 sin 挤压。
-
-当 xz 平面内挤压过头时，就会出现刺穿（如图所示）。恰好对应浪尖破碎形成泡沫的区域。
-
-![[544cbe481f20abfeeedfbcd9777dea24_MD5.jpg]]
-
-当发生刺穿时，局部发生翻转，表现在数学上，即面元有向面积变为负值。
-
-那么如何求面元有向面积呢？同济高数下册里学过：二重积分换元法，雅可比行列式。
-
-（找不到高数书的也可看这个：[杨超：二重积分换元法、雅可比行列式](https://zhuanlan.zhihu.com/p/65953562)）
-
-因为 x'和 z'均为以 x,z 为变元的二元函数，即 x'=x'(x,z),z'=z'(x,z)，由二重积分换元法知变换后面积元为：
-
-$dA=\vec{dx'}\times \vec{dz'}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}dxdz$
-
-由于 dxdz 必定为正数，所以 dA 的正负就取决于雅可比行列式
-
-$J(\vec{x})=\begin{vmatrix} J_{xx} &J_{xz} \\ J_{zx} & J_{zz} \end{vmatrix}= \begin{vmatrix} \frac{\partial x'}{\partial x} & \frac{\partial x'}{\partial z}\\ \frac{\partial z'}{\partial x}& \frac{\partial z'}{\partial z} \end{vmatrix}$
-
-的正负。
-
-由于 $\vec{x}^{,}=\vec{x}+\lambda \vec{D}(\vec{x},t)$ ，所以：
-
-$J_{xx}=\frac{\partial x'}{\partial x}=1+\lambda\frac{\partial D_x(\vec{x},t)}{\partial x}$
-
-$J_{zz}=\frac{\partial z'}{\partial z}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
-
-$J_{zx}=\frac{\partial z'}{\partial x}=\lambda\frac{\partial D_z(\vec{x},t)}{\partial x}$
-
-$J_{xz}=\frac{\partial x'}{\partial z}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}$
-
-由于我们有 $\vec{D}(\vec{x},t)$ 的表达式，所以其实上面各偏导数都是可以求出来的。
-
-如果真的去求，我们会发现 $J_{xz}=J_{zx}$，亦即 $\frac{\partial D_z(\vec{x},t)}{\partial x}=\frac{\partial D_x(\vec{x},t)}{\partial z}$ ，验证如下：
-
-![[290e778049f1613a582f1da2442ca948_MD5.jpg]]
 
 # **七，快速傅里叶变换（FFT）**
 
