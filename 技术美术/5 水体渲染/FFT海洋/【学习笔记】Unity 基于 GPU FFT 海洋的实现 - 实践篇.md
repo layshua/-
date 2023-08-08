@@ -142,11 +142,7 @@ float dispersion(float2 k) {
 }
 ```
 
-这里并没有什么好说的，基本就是照着公式抄 ==。Donelan-Banner 方向拓展公式为
-
-![[d061062eb3c228ae4517ec9af942c048_MD5.jpg]]
-
-图截取自 Empirical Directional Wave Spectra for Computer Graphics， $\omega$ 角频率， $\theta$ 是波相对于风的角度， $\omega_p$ 是峰值频率 $=0.855g/U$ , $g$ 是重力加速度， $U$ 是平均风速。
+这里并没有什么好说的，基本就是照着公式抄 
 
 得到了高度频谱，就可以使用他来计算我们的偏移频谱
 
