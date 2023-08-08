@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "2.2 模型基础",
+      "path": "DCC/01 百人计划美术向/2.2 模型基础.md"
+    },
+    {
+      "basename": "2.1 DCC 工具链与引擎工具链",
+      "path": "DCC/01 百人计划美术向/2.1 DCC 工具链与引擎工具链.md"
+    },
+    {
+      "basename": "技术向",
+      "path": "图形学/面经/技术向.md"
+    },
+    {
+      "basename": "Metallic 与 Specular 流程",
+      "path": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
+    },
+    {
+      "basename": "场景设计精要",
+      "path": "DCC/01 百人计划美术向/场景设计精要.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "TA 之路",
       "path": "引擎Unity3D/收藏夹/TA 之路.md"
     },
@@ -31,14 +59,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
       "basename": "29 年轻人写的第一个 GPU 粒子",
@@ -149,10 +169,6 @@
       "path": "图形学/0 3D数学/常用噪声算法.md"
     },
     {
-      "basename": "模型基础",
-      "path": "DCC/01 百人计划美术向/模型基础.md"
-    },
-    {
       "basename": "美术理论基础一 & 二",
       "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
     },
@@ -169,10 +185,6 @@
       "path": "DCC/01 百人计划美术向/技术美术百人计划 - 美术 3_6 unity 的动作融合及动画机 笔记.md"
     },
     {
-      "basename": "场景设计精要",
-      "path": "DCC/01 百人计划美术向/场景设计精要.md"
-    },
-    {
       "basename": "建模原理",
       "path": "DCC/02 Blender/建模原理.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "《GPU Gems》第 16 章：对次表面散射的实时近似",
       "path": "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md"
-    },
-    {
-      "basename": "URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）",
-      "path": "引擎Unity3D/3 URP精粹/源码/URP 源码学习：速通框架，只讲重点（含 URP 后处理例子）.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
     }
   ],
   "omittedPaths": [],
