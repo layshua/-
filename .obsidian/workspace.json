@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Math/Others/振幅、周期、相移和频率.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Math/Others/振幅、周期、相移和频率.md"
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Math/Others/振幅、周期、相移和频率.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Math/Others/振幅、周期、相移和频率.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -196,27 +196,28 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "5a149fa5b188db3d",
   "lastOpenFiles": [
-    "Math/Others/三角函数.md",
-    "Math/Others/振幅、周期、相移和频率.md",
-    "图形学/0 3D数学/参数化曲线.md",
-    "图形学/0 3D数学/3D数学.md",
-    "zBuffer/振幅、周期、相移和频率.md",
-    "zip/images/b5aecdf262b5bbe1758cf642dfa2b45c_MD5.svg",
-    "zip/images/ca9f58389e42428d0337ec33391c3cf6_MD5.svg",
-    "zip/images/0ebe5e6125127b5817f1725333aaece8_MD5.svg",
-    "zip/images/a95371e3ff488c053ab7455f2801bf18_MD5.svg",
-    "zip/images/2a9fb6980154519d1a128d980b11ffee_MD5.svg",
-    "zip/images/d79ec3499d643bc8ccccaeeb39a61b40_MD5.svg",
-    "zip/images/96dd33653dd84ae74cc6e2b9363ea089_MD5.svg",
+    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+    "zip/images/869ea7985c19b382002c5ea42a6c58a4_MD5.png",
+    "zip/images/10865acc37f63dc597229397738febf8_MD5.png",
+    "zip/images/a46bc3dacf6f4a762aa06ed90f34e867_MD5.png",
+    "zip/images/102bce8e51c42debca43b9153ba57cce_MD5.png",
+    "zip/images/24295946c431f1af19e65fd4ca79283b_MD5.png",
+    "zip/images/4bde59f781bd401d9e9f30907677fd31_MD5.png",
+    "zip/images/824f39c15412e86ce01616f70281feab_MD5.png",
+    "zip/images/0578884ec038fba68620d1903aa99a05_MD5.png",
+    "zip/images/6fb031264efb80713d7d74e6ca8b68a7_MD5.jpg",
+    "zip/images/8eeacb0cac8e16dabe0f9a116550bef8_MD5.png",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+    "Math/Others/振幅、周期、相移和频率.md",
+    "图形学/0 3D数学/3D数学.md",
+    "图形学/0 3D数学/参数化曲线.md",
+    "Math/Others/三角函数.md",
+    "zBuffer/振幅、周期、相移和频率.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/FFT海洋",
-    "zip/images/d061062eb3c228ae4517ec9af942c048_MD5.jpg",
-    "zip/images/24b43e36aaf530e9c13d673ed4789c92_MD5.jpg",
-    "zip/images/3fd8dfa62f69f4d6cad981fab033bd7f_MD5.jpg",
     "图形学/1 图形系统/11 曲线曲面几何.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/2 着色器/Unity 几何着色器详解.md",
@@ -234,8 +235,6 @@
     "DCC/01 百人计划美术向/二、模型/2.1 DCC 工具链与引擎工具链.md",
     "图形学/面经/技术向.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
-    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
