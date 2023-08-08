@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "Unity 曲面细分着色器详解",
+      "path": "技术美术/2 着色器/Unity 曲面细分着色器详解.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "11 曲线与曲面",
+      "path": "图形学/1 图形系统/11 曲线与曲面.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "参数化曲线",
+      "path": "图形学/0 3D数学/参数化曲线.md"
+    },
+    {
+      "basename": "Unity 几何着色器详解",
+      "path": "技术美术/2 着色器/Unity 几何着色器详解.md"
+    },
+    {
       "basename": "2.5 模型常见问题及其规范",
       "path": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md"
     },
@@ -141,10 +169,6 @@
       "path": "技术美术/6 NPR/ta101卡渲.md"
     },
     {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
       "basename": "36 造一个 PBR 的轮子",
       "path": "引擎Unity3D/2 Shader精粹/雪风/36 造一个 PBR 的轮子.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "30  矩阵的拆解与证明 --- 广告牌算法数学篇",
       "path": "引擎Unity3D/2 Shader精粹/雪风/30  矩阵的拆解与证明 --- 广告牌算法数学篇.md"
-    },
-    {
-      "basename": "27 ComputeShader 入门 实现 RendererFeature 后处理",
-      "path": "引擎Unity3D/2 Shader精粹/雪风/27 ComputeShader 入门 实现 RendererFeature 后处理.md"
-    },
-    {
-      "basename": "常用噪声算法",
-      "path": "图形学/0 3D数学/常用噪声算法.md"
-    },
-    {
-      "basename": "美术理论基础一 & 二",
-      "path": "DCC/01 百人计划美术向/美术理论基础一 & 二.md"
-    },
-    {
-      "basename": "角色设计精要",
-      "path": "DCC/01 百人计划美术向/角色设计精要.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
-      "basename": "灵感",
-      "path": "灵感.md"
     }
   ],
   "omittedPaths": [],

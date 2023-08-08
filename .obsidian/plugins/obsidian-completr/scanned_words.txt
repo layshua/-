@@ -82185,6 +82185,7 @@ ChangeRedGreen
 ChangeRedGreenRendererFeature
 ChangeRedGreenPass
 Cats
+Casteljau
 ImTip
 IMAP
 ID
@@ -94563,6 +94564,9 @@ posSS
 panner
 prominent
 pmxfbx
+parametric
+polynomials
+patches
 nodesCatch
 nobr
 navy
@@ -102047,6 +102051,9 @@ blurs
 blocking
 backBuffer
 blinnPhong
+bernstein
+bezier
+biquadratic
 fe
 front
 fill
@@ -170260,6 +170267,7 @@ DepthBufferParam
 DIstance
 DecalRendererFeature
 DeferredLights
+Derivatives
 LNK
 Log
 Linux
