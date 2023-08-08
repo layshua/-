@@ -12566,6 +12566,8 @@ controlling
 causing
 cutoffs
 conclusion
+calculator
+calcuator
 github
 grey
 green
@@ -16230,6 +16232,7 @@ gbuffer
 glitchy
 glClipControl
 greatly
+gerstner
 typora
 todo
 tooltip
@@ -82195,6 +82198,7 @@ ChangeRedGreenPass
 Cats
 Casteljau
 CenterHeight
+Choppy
 ImTip
 IMAP
 ID
@@ -102067,6 +102071,8 @@ blinnPhong
 bernstein
 bezier
 biquadratic
+butterfly
+bitreverse
 fe
 front
 fill
@@ -110089,6 +110095,7 @@ destinations
 deprecated
 documented
 depthDifference
+dxdz
 TFvYZOKeHL
 TAB
 TeX

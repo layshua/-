@@ -514,13 +514,13 @@ $=a(0,m',t)W_{8}^{0}+a(1,m',t)W_{8}^{4u}$
 
 我们现在已经知道 FFT 是怎么来的了，并且迫不及待地想使用他，那我们干怎么做呢。
 
-可以看上图，我们需要一个阶段一个阶段的计算。第一阶段将原始频谱作为输入，然后计算输出 ( $A$ 、 $B$ 、 $C$ 和 $D$ )，第一阶段全部计算完后，再开始进行第二阶段，第二阶段将第一阶段的输出作为输入进行计算，依次类推，直到把所有的阶段计算完，最后得到的就是我们想要的结果。
+**可以看上图，我们需要一个阶段一个阶段的计算。第一阶段将原始频谱作为输入，然后计算输出 ( $A$ 、 $B$ 、 $C$ 和 $D$ )，第一阶段全部计算完后，再开始进行第二阶段，第二阶段将第一阶段的输出作为输入进行计算，依次类推，直到把所有的阶段计算完，最后得到的就是我们想要的结果。**
 
-我们可以看到每一个阶段计算时，他们里面都是相互独立的，并没有相互影响。以第一阶段来说$A(0,m',t)$ ， $A(1,m',t)$.... $D(1,m',t)$ ，他们之间没有任何关系，是可以并行计算的，再加上 GPU 强大的并行计算能力，可以上我们的效率更上一层楼。
+我们可以看到每一个阶段计算时，他们里面都是相互独立的，并没有相互影响。以第一阶段来说$A(0,m',t)$ ， $A(1,m',t)$.... $D(1,m',t)$ ，他们之间没有任何关系，是**可以并行计算**的，再加上 GPU 强大的并行计算能力，可以上我们的效率更上一层楼。
 
-总结一句话就是，分阶段计算，阶段内部并行计算 (当然也可以串行计算)。
+**总结一句话就是，分阶段计算，阶段内部并行计算 (当然也可以串行计算)。**
 
-再给出实现之前，我们还需要注意一件事。眼尖的你已经发现了，对于上面的蝶形图。最左侧我们频谱的输入顺序是 (0,4,2,6,1,5,3,7) 是倒序输入，而输出是 (0,1,2,3,4,5,6,7) 是顺序输出。当然如果你的输入时顺序输入，那么在输出时必然是倒序输出。这里解释一下倒序是什么，将一个十进制转换成二进制，再将二进制码位倒序，在转成十进制，得到的就是那个十进制的倒序。
+再给出实现之前，我们还需要注意一件事。眼尖的你已经发现了，**对于上面的蝶形图。最左侧我们频谱的输入顺序是 (0,4,2,6,1,5,3,7) 是倒序输入，而输出是 (0,1,2,3,4,5,6,7) 是顺序输出**。当然如果你的输入时顺序输入，那么在输出时必然是倒序输出。这里解释一下倒序是什么，将一个十进制转换成二进制，再将二进制码位倒序，在转成十进制，得到的就是那个十进制的倒序。
 
 ![[6dbc0d8099aaeb128e55f5f2824f8a7e_MD5.jpg]]
 
@@ -532,7 +532,8 @@ $=a(0,m',t)W_{8}^{0}+a(1,m',t)W_{8}^{4u}$
 
 接下来给出在 GPU 上并行计算的伪代码
 
-```
+Stockham 算法：
+```c
 FFT(x,N, m, input)
 {
 	Ns = pow(2,m-1);
@@ -548,16 +549,19 @@ FFT(x,N, m, input)
 }
 ```
 
-这里的 $N$ 和我们上面的是一样的，代表的是几点的 FFT。 $m$ 表示的是第几阶段。接下来我们简单的说下这代码的思路。对于每一个输出，他都是由两个输入复数，和一个权值 $W$ 构成。对于两个输入，我们只需要找到第一个输入的位置索引 index 就好，第二个复数的索引就是第一个索引再加 $\frac{N}{2}$ ，所以在一开始计算 index 就比较重要。原本是打算想说明白的，但是写了半天连自己都不知道在写什么，算了，只可意会不可言传。
+ $N$ 和我们上面的是一样的，代表的是几点的 FFT。
+  $m$ 表示的是第几阶段。
+  
++对于每一个输出，他都是由两个输入复数，和一个权值 $W$ 构成。对于两个输入，我们只需要找到第一个输入的位置索引 index 就好，第二个复数的索引就是第一个索引再加 $\frac{N}{2}$ ，所以在一开始计算 index 就比较重要。原本是打算想说明白的，但是写了半天连自己都不知道在写什么，算了，只可意会不可言传。
 
 这个是一维的，我们看看我们的二维频谱是怎么进行 FFT 的。
 
 ![[866bd10f21a9c58b09571c98f1098901_MD5.jpg]]
 
-我们首先计算频谱，将得到的频谱进行横向 FFT，每一个红色的箭头代表着一次一维的 FFT，将每一行做为 FFT 的输入数据，然后在进行纵向 FFT。
+**我们首先计算频谱，将得到的频谱进行横向 FFT，每一个红色的箭头代表着一次一维的 FFT，将每一行做为 FFT 的输入数据，然后在进行纵向 FFT。**
 
 ## 4. 法线和泡沫的计算
-
+### 法线
 对于法线的计算，可以由公式直接获得。
 
 $\nabla h(\vec{x},t)=\sum_{k}{i\vec{k}\tilde{h}(\vec{k},t)}e^{i\vec{k}\cdot\vec{x}}$
@@ -574,8 +578,9 @@ $=normalize(-\nabla h_x(\vec{x},t),1,-\nabla h_z(\vec{x},t))$
 
 图截取自《高等数学 第七版 下册》同济大学。
 
-假设我们想要计算点 $M_0$ 处的法线，我们需要计算两个切向量 $T_x$ 和 $T_y$ ，然后两者叉积就可以得到我们的法线。对于求切向量就是对曲面方程求偏导就可以得到，因为我们这都是离散的点，可以直接取 $M_0$ 两侧的点，做差就可以求到。
+假设我们想要计算点 $M_0$ 处的法线，我们需要计算两个切向量 $T_x$ 和 $T_y$ ，然后两者叉积就可以得到我们的法线。**对于求切向量就是对曲面方程求偏导就可以得到，因为我们这都是离散的点，可以直接取 $M_0$ 两侧的点，做差就可以求到。**
 
+### 泡沫
 泡沫的计算可以使用雅可比列行列式得到
 
 $J=J_{xx}J_{zz}-J_{xz}J_{zx}$
@@ -587,27 +592,3 @@ $J_{zz}=1+\lambda\frac{\partial D_z(\vec{x},t)}{\partial z}$
 $J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
 
 对于公式的推导同样可以参照杨超大佬的文章，当 $J<0$ 时代表波浪重叠，生成泡沫。$\lambda$ 是我们海洋的偏移程度 (挤压程度)，这里的偏导也可以像我们求法线那样求出。
-
-## 5. 参考文献
-
-1.  [高等数学（五）_中国大学 MOOC(慕课)](https://www.icourse163.org/learn/NUDT-42003#/learn/content?type=detail&id=1211144133&cid=1213681417)
-2.  [Heinrich：傅里叶分析之掐死教程（完整版）更新于 2014.06.06](https://zhuanlan.zhihu.com/p/19763358)
-3.  [如何理解傅里叶变换公式？](https://www.zhihu.com/question/19714540/answer/514107420)
-4.  [傅里叶变换就是这么简单，你学会了吗?](http://k.sina.com.cn/article_6367168142_17b83468e001004j89.html?sudaref=graph.qq.com&display=0&retcode=0)
-5.  [离散傅里叶变换零基础入门 - 中文 1（针对工科生，无需连续傅立叶变换知识）](https://www.bilibili.com/video/av44600709?from=search&seid=16620842320666378522)
-6.  [Quick And Easy GPU Random Numbers In D3D11](http://www.reedbeta.com/blog/quick-and-easy-gpu-random-numbers-in-d3d11/#wide-and-deep)
-7.  《精通 Visual C++ 数字图像处理典型算法及实现 (第二版)》
-8.  [基于 GPU 的连续波雷达频谱分析与谱峰搜索技术研究](http://www.doc88.com/p-4129257053463.html?tdsourcetag=s_pcqq_aiomsg)
-9.  [杨超：fft 海面模拟 (一)](https://zhuanlan.zhihu.com/p/64414956)
-10.  [杨超：fft 海面模拟（二）](https://zhuanlan.zhihu.com/p/64726720)
-11.  [杨超：fft 海面模拟（三）](https://zhuanlan.zhihu.com/p/65156063)
-12.  [音速键盘猫：Shader 相册第 6 期 --- 实时水面模拟与渲染 (一)](https://zhuanlan.zhihu.com/p/31670275)
-13.  [Ocean simulation part one: using the discrete Fourier transform](https://www.keithlantz.net/2011/10/ocean-simulation-part-one-using-the-discrete-fourier-transform/)
-14.  [Ocean simulation part two: using the fast Fourier transform](https://www.keithlantz.net/2011/11/ocean-simulation-part-two-using-the-fast-fourier-transform/)
-15.  [《GPU Gems 1》](https://developer.nvidia.com/gpugems/GPUGems/gpugems_pref01.html)
-16.  [《GPU Gems 3》](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_pref01.html)
-17.  Simulating Ocean Water_Tessendorf
-18.  Ocean Surface Simulation
-19.  Empirical Directional Wave Spectra for Computer Graphics
-20.  Realtime GPGPU FFT Ocean Water Simulation
-21.  [GX-EncinoWaves](https://github.com/speps/GX-EncinoWaves)
