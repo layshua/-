@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇",
+      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md"
+    },
+    {
       "basename": "语法",
       "path": "引擎Unity3D/3 URP精粹/ComputeShader/语法.md"
     },
     {
-      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇",
-      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md"
+      "basename": "未命名",
+      "path": "技术美术/5 水体渲染/未命名.md"
+    },
+    {
+      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
+      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
+    },
+    {
+      "basename": "概率论与数理统计",
+      "path": "Math/概率论/概率论与数理统计.md"
     },
     {
       "basename": "FFT相关推导",
@@ -17,20 +29,12 @@
       "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md"
     },
     {
-      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
-      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
-    },
-    {
       "basename": "fft 海面模拟（二）",
       "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md"
     },
     {
       "basename": "fft 海面模拟 (一)",
       "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md"
-    },
-    {
-      "basename": "未命名",
-      "path": "技术美术/5 水体渲染/未命名.md"
     },
     {
       "basename": "微积分基础",
