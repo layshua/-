@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/01 百人计划美术向/2.2 模型基础.md",
+                "file": "DCC/01 百人计划美术向/2.3 硬表面基础.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/01 百人计划美术向/2.2 模型基础.md"
+                "file": "DCC/01 百人计划美术向/2.3 硬表面基础.md"
               }
             }
           }
@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/01 百人计划美术向/2.2 模型基础.md",
+                "file": "DCC/01 百人计划美术向/2.3 硬表面基础.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/01 百人计划美术向/2.2 模型基础.md",
+                "file": "DCC/01 百人计划美术向/2.3 硬表面基础.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -203,13 +203,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "32109cda51fcbdc1",
   "lastOpenFiles": [
+    "DCC/01 百人计划美术向/场景设计精要.md",
+    "DCC/01 百人计划美术向/2.3 硬表面基础.md",
+    "zip/images/Pasted image 20230808095435.png",
+    "DCC/01 百人计划美术向/2.2 模型基础.md",
     "DCC/01 百人计划美术向/2.1 DCC 工具链与引擎工具链.md",
     "图形学/面经/技术向.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
-    "DCC/01 百人计划美术向/2.2 模型基础.md",
-    "DCC/01 百人计划美术向/场景设计精要.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/收藏夹/TA 之路.md",
@@ -238,9 +240,6 @@
     "zBuffer/3_72 command buffer 及 urp 概述.md",
     "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md",
     "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md",
-    "zip/images/Pasted image 20230807170534.png",
-    "技术美术/1 渲染雅集/05 描边.md",
-    "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
