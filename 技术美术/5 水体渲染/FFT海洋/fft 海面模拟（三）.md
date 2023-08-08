@@ -120,12 +120,3 @@ $C(u',m',t)=\sum_{n'=0}^{N-1}D(n',m',t)e^{i\frac{2 \pi n'u'}{N}}$ ...(2)
 
 关于实现和优化细节也有一些技巧值得一说，例如 “蝶形 lut 生成”、“stage 乒乓”、“分帧插值”，或许以后再另写一篇。本系列重在原理，就先这样了。
 
-参考文章：
-
-[http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.9102&rep=rep1&type=pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.9102&rep=rep1&type=pdf)
-
-[http://www.keithlantz.net/2011/10/ocean-simulation-part-one-using-the-discrete-fourier-transform/](http://www.keithlantz.net/2011/10/ocean-simulation-part-one-using-the-discrete-fourier-transform/)
-
-[http://www.keithlantz.net/2011/11/ocean-simulation-part-two-using-the-fast-fourier-transform/](http://www.keithlantz.net/2011/11/ocean-simulation-part-two-using-the-fast-fourier-transform/)
-
-[OpenStax CNX](https://cnx.org/contents/zmcmahhR@7/Decimation-in-time-DIT-Radix-2-FFT)
