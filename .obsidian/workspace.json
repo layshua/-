@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
+                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,6 +215,9 @@
   },
   "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
+    "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
+    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
     "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
@@ -239,7 +242,6 @@
     "zip/images/f40cce3b79721c90554c26acf50c15a5_MD5.png",
     "图形学/1 图形系统/10 色彩.md",
     "zip/images/dcfa47b288ff779b3e0f287006004b2b_MD5.jpg",
-    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
     "zip/images/ec8bfac4a42ff55bfdc02bb7b2981528_MD5.jpg",
     "zip/images/e5d32f5644c3f48d33bddadd0f998ed7_MD5.jpg",
     "图形学/0 3D数学/参数化曲线.md",
@@ -250,8 +252,6 @@
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/FFT海洋",
     "图形学/1 图形系统/11 曲线曲面几何.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "技术美术/2 着色器/Unity 几何着色器详解.md",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
