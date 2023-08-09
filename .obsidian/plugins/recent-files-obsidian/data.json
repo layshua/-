@@ -1,16 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "fft 海面模拟（二）",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md"
+      "basename": "一波江水动京城：游戏水面渲染与互动",
+      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
+    },
+    {
+      "basename": "概率论与数理统计",
+      "path": "Math/概率论/概率论与数理统计.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
+      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
     },
     {
       "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇",
       "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md"
     },
     {
-      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
-      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
+      "basename": "fft 海面模拟 (一)",
+      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md"
+    },
+    {
+      "basename": "fft 海面模拟（二）",
+      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md"
+    },
+    {
+      "basename": "fft 海面模拟（三）",
+      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md"
+    },
+    {
+      "basename": "FFT相关推导",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
     },
     {
       "basename": "未命名",
@@ -19,22 +43,6 @@
     {
       "basename": "语法",
       "path": "引擎Unity3D/3 URP精粹/ComputeShader/语法.md"
-    },
-    {
-      "basename": "概率论与数理统计",
-      "path": "Math/概率论/概率论与数理统计.md"
-    },
-    {
-      "basename": "FFT相关推导",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "fft 海面模拟（三）",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md"
-    },
-    {
-      "basename": "fft 海面模拟 (一)",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md"
     },
     {
       "basename": "微积分基础",
@@ -49,16 +57,8 @@
       "path": "图形学/1 图形系统/10 色彩.md"
     },
     {
-      "basename": "一波江水动京城：游戏水面渲染与互动",
-      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
-    },
-    {
       "basename": "参数化曲线",
       "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
       "basename": "3D数学",
