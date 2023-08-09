@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "DCC/RizomUV.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+                "file": "DCC/RizomUV.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "DCC/RizomUV.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "DCC/RizomUV.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,6 +215,9 @@
   },
   "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230809101826.png",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "DCC/RizomUV.md",
     "zip/images/c03965f6157e5a7dfa78218b3ddfef83_MD5.gif",
     "zip/images/d0d1500b576e3798ed25f9257fd50d56_MD5.gif",
     "zip/images/2a514f3c8585983e356c55f7b1697c04_MD5.gif",
@@ -225,9 +228,7 @@
     "zip/images/b23508864e7c08b9e096cdd86c8826c7_MD5.gif",
     "zip/images/eaa3e17e84a72460b112425c43000598_MD5.gif",
     "zip/images/733172e6518637caf77231cce1f0db54_MD5.gif",
-    "zip/images/e3b06c45320b46c6e62db5ea90625223_MD5.png",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
@@ -250,7 +251,6 @@
     "图形学/0 3D数学/参数化曲线.md",
     "Math/Others/振幅、周期、相移和频率.md",
     "图形学/0 3D数学/3D数学.md",
-    "Math/Others/三角函数.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",

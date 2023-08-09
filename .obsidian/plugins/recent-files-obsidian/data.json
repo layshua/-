@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "RizomUV",
+      "path": "DCC/RizomUV.md"
+    },
+    {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
       "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
       "path": "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
     }
   ],
   "omittedPaths": [],
