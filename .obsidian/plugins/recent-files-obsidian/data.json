@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
+      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+    },
+    {
       "basename": "Metallic 与 Specular 流程",
       "path": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "05 描边",
       "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light",
-      "path": "技术美术/6 NPR/原神/【04】Unity URP 卡通渲染 原神角色渲染记录 - Depth-Based Effect： 7Spaces + 屏幕空间等距深度边缘光 Rim Light.md"
     }
   ],
   "omittedPaths": [],

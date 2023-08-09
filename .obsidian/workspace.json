@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
+                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md"
+                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
+                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
+                "file": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,6 +215,19 @@
   },
   "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
+    "zip/images/c03965f6157e5a7dfa78218b3ddfef83_MD5.gif",
+    "zip/images/d0d1500b576e3798ed25f9257fd50d56_MD5.gif",
+    "zip/images/2a514f3c8585983e356c55f7b1697c04_MD5.gif",
+    "zip/images/4dccb759ede128ac73710fc57449d975_MD5.gif",
+    "zip/images/d8ed8f7b37e51878c0eaac149521fec4_MD5.gif",
+    "zip/images/f72c2a73f73870c33a4acf516aaa6cd6_MD5.gif",
+    "zip/images/4abe21f27d72ee9a157d187f5339f125_MD5.gif",
+    "zip/images/b23508864e7c08b9e096cdd86c8826c7_MD5.gif",
+    "zip/images/eaa3e17e84a72460b112425c43000598_MD5.gif",
+    "zip/images/733172e6518637caf77231cce1f0db54_MD5.gif",
+    "zip/images/e3b06c45320b46c6e62db5ea90625223_MD5.png",
+    "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
@@ -228,30 +241,17 @@
     "技术美术/5 水体渲染/未命名.md",
     "引擎Unity3D/3 URP精粹/ComputeShader/语法.md",
     "Math/概率论/概率论与数理统计.md",
-    "zip/images/Pasted image 20230808182016.png",
     "Math/微积分/微积分基础.md",
     "图形学/1 图形系统/02 光栅化.md",
     "zBuffer/二重积分换元法、雅可比行列式.md",
     "zBuffer/生成服从标准正态分布的随机数.md",
     "zBuffer/超强换元法，二重积分计算的核武器！（雅可比行列式超通俗讲解）.md",
-    "zip/images/5ffd70bccaeab7b805f842af465013c0_MD5.jpg",
-    "zip/images/e8121f870d114e6a81e4b818377c523c_MD5.jpg",
-    "zip/images/cef946149110f8ed133a5ce5df4e014c_MD5.png",
-    "zip/images/6a01e492e5ab6dcd80bdc4dcdfb51237_MD5.png",
-    "zip/images/fb7bf1f3318d321ed2e3331437c07a4f_MD5.png",
-    "zip/images/f40cce3b79721c90554c26acf50c15a5_MD5.png",
     "图形学/1 图形系统/10 色彩.md",
-    "zip/images/dcfa47b288ff779b3e0f287006004b2b_MD5.jpg",
-    "zip/images/ec8bfac4a42ff55bfdc02bb7b2981528_MD5.jpg",
-    "zip/images/e5d32f5644c3f48d33bddadd0f998ed7_MD5.jpg",
     "图形学/0 3D数学/参数化曲线.md",
     "Math/Others/振幅、周期、相移和频率.md",
     "图形学/0 3D数学/3D数学.md",
     "Math/Others/三角函数.md",
-    "zBuffer/振幅、周期、相移和频率.md",
-    "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/FFT海洋",
-    "图形学/1 图形系统/11 曲线曲面几何.md",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
