@@ -1,12 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "课程",
+      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
+    },
+    {
+      "basename": "FT 在图形渲染中的应用：基于 FFT 的海洋模拟",
+      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
+    },
+    {
       "basename": "FFT理论",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
     },
     {
-      "basename": "FT 在图形渲染中的应用：基于 FFT 的海洋模拟",
-      "path": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
+      "basename": "概率论与数理统计",
+      "path": "Math/概率论/概率论与数理统计.md"
     },
     {
       "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
@@ -69,10 +93,6 @@
       "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md"
     },
     {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
       "basename": "RizomUV",
       "path": "DCC/RizomUV.md"
     },
@@ -83,10 +103,6 @@
     {
       "basename": "2.5 模型常见问题及其规范",
       "path": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md"
-    },
-    {
-      "basename": "概率论与数理统计",
-      "path": "Math/概率论/概率论与数理统计.md"
     },
     {
       "basename": "fft 海面模拟（二）",
@@ -165,10 +181,6 @@
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
     {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
       "basename": "TA 之路",
       "path": "引擎Unity3D/收藏夹/TA 之路.md"
     },
@@ -177,20 +189,8 @@
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
-      "basename": "课程",
-      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
-    },
-    {
       "basename": "《数据持久化》",
       "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
-      "basename": "笔记",
-      "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
     }
   ],
   "omittedPaths": [],

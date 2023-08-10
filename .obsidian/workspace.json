@@ -4,59 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "61d117a87c976425",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "6fff6403c2b3b69c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "21fbc95b519c137a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/4 GamePlay/遇到的问题.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7db637aa960ab50b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Math/概率论/概率论与数理统计.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2ded34b6b77f859f",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
-      },
-      {
         "id": "502474c1e66dc464",
         "type": "tabs",
         "children": [
@@ -66,7 +13,33 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "352f0d4883d13d9d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f943d9d1fc9ecbc7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,12 +89,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -167,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,10 +190,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "80d9b9b5babcab75",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
+    "引擎Unity3D/4 GamePlay/maco/笔记.md",
+    "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
+    "引擎Unity3D/4 GamePlay/遇到的问题.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
+    "技术美术/5 水体渲染/FFT海洋/理论解析/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
     "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+    "Math/概率论/概率论与数理统计.md",
     "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
@@ -252,14 +231,7 @@
     "技术美术/5 水体渲染/网格生成",
     "技术美术/5 水体渲染/真实感水体渲染",
     "技术美术/5 水体渲染/卡通水.md",
-    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md",
-    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析",
-    "zBuffer/C 指南 - stylegguide 中文文档.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "DCC/RizomUV.md",
-    "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
-    "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",

@@ -122,7 +122,7 @@ progrid 可以现实更多参考线，移动物体时，按照设置的默认移
 想要点击控制，其实就是创建一个**事件**  
 **通过创建一个事件，获取鼠标点击的 vector3 类型值，然后传递给事件指定的 gameobject 的 component 的 navmeshagent.destination 的目标地点**
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -225,54 +225,6 @@ case "Ground":
     break;
 ```
 
-# 附加：Resources 学习
-
-可以不通过拖拽的方式，加载图片，，，、  
-直接通过 Resources.load<> 直接加载，，，，注意，加载路径只能在 resources 文件夹下面  
-
-![](<images/1690255166917.png>)
-
-# 附加：action 学习
-
-创建一个 event Action 函数，设置一个条件（函数）来激活这个函数。  
-创建一个函数再 Start 中注册到这个 Action
-
-```
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
-
-public class action : MonoBehaviour
-{
-    public bool trigger;
-    public Action<string> TriggerAction;
-    // Start is called before the first frame update
-    void Start() {
-        TriggerAction += DebugLogPrint;
-    }
-
-    // Update is called once per frame
-    void Update() {
-        TriggerIsTrue();
-    }
-
-    void TriggerIsTrue() {
-        if (trigger == true)
-        {
-            TriggerAction("trigger changed");
-            trigger = false;
-        }
-
-    }
-
-    void DebugLogPrint(string ActionString) {
-        Debug.Log(ActionString);
-    }
-}
-//点击一次trigger按键，就触发一次订阅函数DebugLogPrint的输出
-```
-
 # 07:Cinemachine & Post Processing 摄像机跟踪和后处理
 
 ![](<images/1690255167046.png>)
@@ -282,19 +234,6 @@ public class action : MonoBehaviour
 
 ![](<images/1690255167113.png>)
 
-  
-urp 后处理 volume
-
-![](<images/1690255167199.png>)
-
-需要打开 post-processing 和 camera 的 post-processing  
-如果调用 volume 还是没有反应说明渲染管线没有开启  
-
-![](<images/1690255167260.png>)
-
-![](<images/1690255167377.png>)
-
-电影渲染深度设置。  
 
 # 08:Animator 动画控制器
 
@@ -313,7 +252,7 @@ urp 后处理 volume
 
 ![](<images/1690255167858.png>)
 
-```
+```c
 private NavMeshAgent agent;
 
     private Animator anim;
@@ -388,7 +327,7 @@ add renderer fearture - renderer objects 添加渲染物体
 前后两个状态应用的材质不同，在前面的时候才不会自己遮挡自己，显示遮挡材质  
 **人物移动到树后面，没有办法点击树后面的地面，因此需要修改遮挡问题：两个办法：**
 
-1、所有树 - layer-Ignore raycast 取消射线遮挡  
+1、所有树 - layer-Ignore raycast **取消射线遮挡**  
 
 ![](<images/1690255168895.png>)
 
