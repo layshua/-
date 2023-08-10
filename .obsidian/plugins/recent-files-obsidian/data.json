@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "ComputeShader语法",
+      "path": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md"
+    },
+    {
       "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
       "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "遇到的问题",
+      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
     },
     {
       "basename": "RizomUV",
@@ -63,10 +71,6 @@
     {
       "basename": "未命名",
       "path": "技术美术/5 水体渲染/未命名.md"
-    },
-    {
-      "basename": "语法",
-      "path": "引擎Unity3D/3 URP精粹/ComputeShader/语法.md"
     },
     {
       "basename": "微积分基础",
@@ -153,10 +157,6 @@
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
-      "basename": "遇到的问题",
-      "path": "引擎Unity3D/4 GamePlay/遇到的问题.md"
-    },
-    {
       "basename": "课程",
       "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
     },
@@ -195,10 +195,6 @@
     {
       "basename": "3_72 command buffer 及 urp 概述",
       "path": "zBuffer/3_72 command buffer 及 urp 概述.md"
-    },
-    {
-      "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
-      "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
     }
   ],
   "omittedPaths": [],

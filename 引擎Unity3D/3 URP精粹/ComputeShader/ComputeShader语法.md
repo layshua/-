@@ -6,7 +6,7 @@
 2. 每个线程组中又是由 $n$ 个线程组成的，由 numthreads 定义
 3. `numthreads (tX, tY, tZ)`：一个线程组中可以被执行的线程总数量为 `tX*tY*tZ` ，应设置为 64 的倍数，默认 `8*8*1`
 4.  先 `numthreads` 定义好每个核函数对应线程组里线程的数量（`tX*tY*tZ`），再用 `Dispatch` 定义用多少线程组 (`gX*gY*gZ`) 来处理这个核函数。
-5. 
+
 
 # Unity 中默认的 Compute Shader
 
@@ -237,7 +237,7 @@ void Thread(int x, int y) {
 
 那么我们在 Unity 中怎么调用核函数，又怎么 dispatch 线程组以及使用的 RWTexture 又怎么来呢？这里就要回到我们 C# 的部分了。
 
-# 脚本
+# 相关脚本
 
 以往的 Vertex & Fragment shader 我们都是给它关联到 Material 上来使用的，但是 CS 不一样，它是**由脚本来驱动**的。
 
