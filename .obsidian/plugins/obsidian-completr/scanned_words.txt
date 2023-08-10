@@ -12581,6 +12581,8 @@ churn
 callsite
 constraint
 clarifies
+caustic
+cameraDepthTex
 github
 grey
 green
@@ -16247,6 +16249,7 @@ glClipControl
 greatly
 gerstner
 guidance
+gXgYgZ
 typora
 todo
 tooltip
@@ -28031,6 +28034,8 @@ wherever
 wavelength
 wangHash
 whereas
+wavehegiht
+waveHeight
 utools
 url
 unresolved
@@ -54908,6 +54913,7 @@ autofit
 acronyms
 acceptable
 advantages
+advection
 Roaming
 RegWorkshop
 Release
@@ -59467,6 +59473,7 @@ RampRange
 RampRangeMap
 RightHeight
 RESET
+RefractionTexture
 Microsoft
 Menu
 MicaForEveryone
@@ -64278,6 +64285,7 @@ MetalMap
 MetalIntensity
 Muller
 Mixing
+Minimalist
 Windows
 Win
 World
@@ -68385,6 +68393,9 @@ Woods
 WorldToViewportPoint
 WjgN
 WorkFlow
+WaveSpectrum
+WaterRender
+WangHash
 Start
 StartAllBack
 Shadowrocket
@@ -73377,6 +73388,7 @@ Spectra
 Stockham
 Seamless
 Sides
+SetXXX
 Programs
 POP
 PC
@@ -77680,6 +77692,8 @@ Pases
 Personally
 ProfileScope
 Published
+PhillipsSpectrum
+PhotonMapping
 ContextMenuManager
 ClashVerge
 Clash
@@ -98341,6 +98355,7 @@ nangent
 necessarily
 nstead
 nullable
+ndotv
 bf
 bc
 black
@@ -105845,6 +105860,7 @@ focusDistance
 foldout
 fowarender
 frontBuffer
+frenelterm
 dd
 dcc
 data
@@ -110139,6 +110155,7 @@ depthDifference
 dxdz
 dMAX
 describing
+dispath
 TFvYZOKeHL
 TAB
 TeX
@@ -123718,6 +123735,7 @@ showWindow
 shdowmap
 speedtree
 supplied
+singleScattering
 local
 list
 left
@@ -150724,6 +150742,7 @@ BindTexture
 Brecht
 Bypass
 Banner
+BumpedNormal
 Fraktur
 Frame
 Foo
@@ -155126,6 +155145,8 @@ FoamDistance
 Firaxis
 ForwardLights
 Faces
+FFTOceanCS
+FFTOcean
 Element
 Entity
 Enity
@@ -170357,6 +170378,7 @@ Dispersio
 Donelan
 DownHeight
 Dsmax
+Dirichlet
 LNK
 Log
 Linux
@@ -174543,6 +174565,8 @@ Linearize
 Logarithmic
 Lecluyse
 LeftHeight
+LODMesh
+LookupTable
 Getx
 GetX
 GetName
@@ -179229,6 +179253,10 @@ Gama
 Glowfish
 GBufferPass
 GbufferAttachments
+GeometryClipmaps
+GeometricNormal
+GPUGens
+GPUGems
 NULL
 Native
 NormalMap
@@ -211585,6 +211613,7 @@ jKID
 jZNB
 jTzL
 jOQ
+jitter
 ÄjZU
 ÄJ
 Ät
