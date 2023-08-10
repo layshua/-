@@ -5,9 +5,11 @@ aliases: []
 tags: []
 create_time: 2023-08-10 15:09
 uid: 202308101509
-banner: "![[]]"
+banner: ""
 ---
 
+基于物理的水体渲染分为两部分：网格 + 着色
+FFT 是生成网格的一种方法
 ## 0 振幅、周期、相移和频率
 有些函数（像[正弦和余弦](https://www.shuxuele.com/algebra/trig-sin-cos-tan-graphs.html)） 永远重复，它们叫**周期函数。**
 
@@ -262,7 +264,6 @@ $\vec{x}$ 在 xz 平面上以原点为中心每隔 $\frac{L}{N}$ 取一个点，
 
 另外可以验证，在 N 为偶数的情况下，以上所有频率值 k 对应的周期 T= $\frac{2\pi}{k}$ 均为 L 的约数，所以 $h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$ 横向和纵向均以 L 为周期，也就是说**海面 patch 是可以无缝 tiling 的**。
 ### 高度频谱公式
-通常采用**菲利普斯频谱（Phillips spectrum）**
 
 **我们只需要计算出频谱然后按照 $h(\vec{x},t)$ 函数就可以得到我们海面的高度, 现在我们来看一下频谱公式 $\tilde{h}(\vec{k},t)$**
 
@@ -276,7 +277,7 @@ $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-
     -  $g$ 是重力加速度 $=9.8m/sec^2$
 4. $\tilde{h}_{0}(\vec{k})=\frac{1}{\sqrt{2}}(\xi_{r}+i\xi_{i})\sqrt{P_{h}(\vec{k})}$
     - $\xi_r$ 和 $\xi_i$ 是两个相互独立服从均值为 0，标准差为 1 的正态分布（高斯分布）随机数。随机数的生成方法：[[FFT相关推导#生成服从标准生成分布的随机数]]
-    - $P_{h}(\vec{k})$ 是即**菲利普斯频谱**，一般描述为 $S(\omega,\theta)$
+    - $P_{h}(\vec{k})$ 是通常采用**菲利普斯频谱（Phillips spectrum）****，一般描述为 $S(\omega,\theta)$
         - 方向频谱 $S(\omega,\theta)$ 是非定向频谱 $S(\omega)$ 和方向拓展函数 $D(\omega,\theta)$ 的乘积 $S(\omega,\theta)=S(\omega)D(\omega,\theta)$
         - $\omega$ 是我们前面提到的角频率
         -  $\theta$ 是波矢量相对于风向的角度

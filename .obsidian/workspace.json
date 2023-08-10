@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/百人计划.md",
+                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/百人计划.md",
+                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "457e40566bf7c5bc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,7 +94,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -124,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/百人计划.md"
+                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md"
               }
             }
           }
@@ -175,7 +188,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/百人计划.md",
+                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -192,7 +205,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/百人计划.md",
+                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -226,24 +239,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6fff6403c2b3b69c",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230810160757.png",
-    "zip/images/Pasted image 20230810160411.png",
-    "zip/images/Pasted image 20230810160224.png",
-    "zip/images/Pasted image 20230810160117.png",
-    "zip/images/Pasted image 20230810160054.png",
-    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
-    "技术美术/5 水体渲染/百人计划.md",
-    "zip/images/Pasted image 20230810155206.png",
-    "zip/images/Pasted image 20230810154638.png",
-    "zip/images/Pasted image 20230810154216.png",
-    "zip/images/Pasted image 20230810154004.png",
-    "zip/images/Pasted image 20230810153522.png",
-    "zip/images/Pasted image 20230810152344.png",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/5 水体渲染/未命名.md",
+    "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
+    "zip/images/Pasted image 20230810163410.png",
+    "zip/images/Pasted image 20230810163346.png",
+    "zip/images/Pasted image 20230810163329.png",
+    "zip/images/Pasted image 20230810163224.png",
+    "zip/images/Pasted image 20230810163144.png",
+    "zip/images/Pasted image 20230810162728.png",
+    "zip/images/Pasted image 20230810162610.png",
+    "zip/images/Pasted image 20230810162545.png",
+    "zip/images/Pasted image 20230810162535.png",
+    "zip/images/Pasted image 20230810162149.png",
+    "技术美术/5 水体渲染/卡通水.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
     "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md",
@@ -264,7 +277,6 @@
     "图形学/1 图形系统/02 光栅化.md",
     "zBuffer/二重积分换元法、雅可比行列式.md",
     "zBuffer/生成服从标准正态分布的随机数.md",
-    "zBuffer/超强换元法，二重积分计算的核武器！（雅可比行列式超通俗讲解）.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
