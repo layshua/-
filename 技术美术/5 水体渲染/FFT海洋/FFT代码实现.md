@@ -1,13 +1,8 @@
-本文是继[【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇](https://zhuanlan.zhihu.com/p/95482541) 的实现。
-
-这是最后得到的结果
 
 ![[24b43e36aaf530e9c13d673ed4789c92_MD5.jpg]]
 
-00:20
-
 对于实现的话就比较简单了，只需要照着公式抄一遍就可以了。在本次实现中我们将使用 Compute Shader 在计算频谱和 FFT。为了理清思路和便于 debug，整个工程代码写得比较野蛮 == 其中很多计算是可以放到一起的，也创建了很多的 RenderTexture(实际并用不了那么多)，同时还使用了比较大的数据类型等。
-
+# 高斯随机数
 首先我们需要先生成高斯随机数
 
 ```c
@@ -63,6 +58,7 @@ $u_0$ 和 $u_1$ 是两个相互独立的均匀分布的随机数， $r_0$ 和 $r
 
 随机数只需要计算一次就好了，然后我们在计算高度频谱
 
+# 计算高度频谱
 ```c
 //生成高度频谱
 [numthreads(8, 8, 1)]
@@ -88,7 +84,7 @@ void CreateHeightSpectrum(uint3 id: SV_DispatchThreadID) {
 }
 ```
 
-phillips 谱
+## phillips 谱
 
 ```c
 //计算phillips谱
@@ -111,7 +107,7 @@ float phillips(float2 k) {
 }
 ```
 
-Donelan-Banner 方向拓展
+## Donelan-Banner 方向拓展
 
 ```c
 //Donelan-Banner方向拓展
@@ -146,6 +142,7 @@ float dispersion(float2 k) {
 
 得到了高度频谱，就可以使用他来计算我们的偏移频谱
 
+# 计算偏移频谱
 ```c
 //生成偏移频谱
 [numthreads(8, 8, 1)]
@@ -165,6 +162,7 @@ void CreateDisplaceSpectrum(uint3 id: SV_DispatchThreadID)
 
 至此就得到了我们想要的所有频谱，然后分别来对他们进行 FFT 就可以了
 
+# FFT
 ```c
 //横向FFT计算,只针对第m-1阶段，最后一阶段需要特殊处理
 [numthreads(8, 8, 1)]
@@ -185,6 +183,7 @@ void FFTHorizontal(uint3 id: SV_DispatchThreadID)
 
 这里只截取了一个，对于最后一个阶段和纵向 FFT，代码大同小异，其实也可以写到一起。
 
+# 生成偏移纹理
 当 FFT 计算完后，就可以生成我们的偏移纹理，这里使用了几个参数来控制他的偏移程度。
 
 ```c
@@ -203,6 +202,7 @@ void TextureGenerationDisplace(uint3 id: SV_DispatchThreadID)
 }
 ```
 
+# 计算法线和泡沫
 最后根据偏移纹理，来计算法线和泡沫，计算方法就和我们上一节所讲的那样。
 
 ```c
@@ -251,7 +251,8 @@ void TextureGenerationNormalBubbles(uint3 id: SV_DispatchThreadID)
 }
 ```
 
-这样我们就有了所有的数据，接下来进行渲染就可以了。在顶点着色器根据偏移纹理 进行顶点偏移。片源着色器就进行了简单的灯光计算，如果想要更真实的物理效果可以参考这篇论文 Real-time Realistic Ocean Lighting using Seamless Transitions from Geometry to BRDF
+# 着色
+这样我们就有了所有的数据，接下来进行渲染就可以了。**在顶点着色器根据偏移纹理 进行顶点偏移**。片源着色器就进行了简单的灯光计算，如果想要更真实的物理效果可以参考这篇论文 Real-time Realistic Ocean Lighting using Seamless Transitions from Geometry to BRDF
 
 ```c
 v2f vert(appdata v)

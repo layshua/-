@@ -8,51 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5a149fa5b188db3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5dfa22f3f3ebf1a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "6fff6403c2b3b69c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "457e40566bf7c5bc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -93,8 +54,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -239,53 +199,53 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
-    "技术美术/5 水体渲染/未命名.md",
+    "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
+    "zBuffer/【UnityShader】屏幕空间全息扫描效果_MrASL 的博客 - CSDN 博客.md",
+    "zip/images/937be0f46c2a9ec3422f5e3c188575a9_MD5.gif",
+    "zip/images/a4d26fffd2cda69751733da131e54d72_MD5.gif",
+    "zip/images/5134ac9c38cfd98a6679dda23dc185f8_MD5.gif",
+    "zip/images/f6dcd8f5d283f93eee5dcbf5acb63ae0_MD5.gif",
+    "zip/images/131b1cd05052fcd108f193f6d9f3fc03_MD5.gif",
+    "zip/images/f3087e46780d087a9d71ebfeb863ba9d_MD5.jpg",
+    "技术美术/5 水体渲染/收藏/未命名.md",
+    "技术美术/5 水体渲染/收藏",
+    "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
+    "技术美术/5 水体渲染/未命名.md",
+    "技术美术/5 水体渲染/网格生成/移动端生成.md",
+    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
+    "技术美术/5 水体渲染/网格生成",
+    "技术美术/5 水体渲染/真实感水体渲染",
     "zip/images/Pasted image 20230810163410.png",
     "zip/images/Pasted image 20230810163346.png",
     "zip/images/Pasted image 20230810163329.png",
     "zip/images/Pasted image 20230810163224.png",
-    "zip/images/Pasted image 20230810163144.png",
-    "zip/images/Pasted image 20230810162728.png",
-    "zip/images/Pasted image 20230810162610.png",
-    "zip/images/Pasted image 20230810162545.png",
-    "zip/images/Pasted image 20230810162535.png",
-    "zip/images/Pasted image 20230810162149.png",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析",
-    "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
-    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "zBuffer/C 指南 - stylegguide 中文文档.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "DCC/RizomUV.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（二）.md",
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "zBuffer/二重积分换元法、雅可比行列式.md",
-    "zBuffer/生成服从标准正态分布的随机数.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
     "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/收藏夹/动画系统",
     "zip/images/Diagram 3.svg.xml",
-    "引擎Unity3D/4 GamePlay/maco",
-    "引擎Unity3D/4 GamePlay/胡闹厨房",
-    "技术美术/百人计划作业",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
