@@ -5,12 +5,16 @@
       "path": "技术美术/5 水体渲染/百人计划.md"
     },
     {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
       "basename": "FFT理论",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
+    },
+    {
+      "basename": "FFT相关推导",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
       "basename": "未命名",
@@ -19,10 +23,6 @@
     {
       "basename": "FFT代码实现",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
-    },
-    {
-      "basename": "FFT相关推导",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
     },
     {
       "basename": "fft 海面模拟 (一)",
