@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/未命名.md",
+                "file": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "fd31c3f28f3b291c",
+            "id": "5dfa22f3f3ebf1a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -124,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
               }
             }
           }
@@ -175,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -192,7 +192,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -226,10 +226,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "fd31c3f28f3b291c",
+  "active": "5dfa22f3f3ebf1a3",
   "lastOpenFiles": [
-    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
+    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md",
+    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md",
+    "技术美术/5 水体渲染/FFT海洋/理论解析",
     "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
+    "技术美术/5 水体渲染/未命名.md",
     "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "zBuffer/C 指南 - stylegguide 中文文档.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
@@ -249,13 +256,7 @@
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
-    "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md",
-    "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md",
-    "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md",
-    "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
-    "技术美术/5 水体渲染/未命名.md",
+    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（二）.md",
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
     "图形学/1 图形系统/02 光栅化.md",
@@ -263,7 +264,6 @@
     "zBuffer/生成服从标准正态分布的随机数.md",
     "zBuffer/超强换元法，二重积分计算的核武器！（雅可比行列式超通俗讲解）.md",
     "图形学/1 图形系统/10 色彩.md",
-    "图形学/0 3D数学/参数化曲线.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
@@ -273,7 +273,6 @@
     "引擎Unity3D/4 GamePlay/maco",
     "引擎Unity3D/4 GamePlay/胡闹厨房",
     "技术美术/百人计划作业",
-    "引擎Unity3D/收藏夹/URP后处理扩展",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

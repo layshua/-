@@ -1,16 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇",
-      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 理论篇.md"
+      "basename": "FFT理论",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
     },
     {
-      "basename": "【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇",
-      "path": "技术美术/5 水体渲染/FFT海洋/【学习笔记】Unity 基于 GPU FFT 海洋的实现 - 实践篇.md"
+      "basename": "FFT代码实现",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "FFT相关推导",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
+    },
+    {
+      "basename": "fft 海面模拟 (一)",
+      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md"
+    },
+    {
+      "basename": "fft 海面模拟（三）",
+      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md"
     },
     {
       "basename": "ComputeShader语法",
       "path": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "技术美术/5 水体渲染/未命名.md"
     },
     {
       "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
@@ -49,28 +69,8 @@
       "path": "Math/概率论/概率论与数理统计.md"
     },
     {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "fft 海面模拟 (一)",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟 (一).md"
-    },
-    {
       "basename": "fft 海面模拟（二）",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（二）.md"
-    },
-    {
-      "basename": "fft 海面模拟（三）",
-      "path": "技术美术/5 水体渲染/FFT海洋/fft 海面模拟（三）.md"
-    },
-    {
-      "basename": "FFT相关推导",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "技术美术/5 水体渲染/未命名.md"
+      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（二）.md"
     },
     {
       "basename": "微积分基础",
