@@ -353,16 +353,11 @@ enemy 需要添加 layer 和 tag 用于遮挡剔除和点击操作
 
   
 直接创建 Action 并注册，直接在注册到事件时写一个函数名，，，然后点击前面的灯泡，自动创建一个函数  
-人物移动到敌人面前，需要不断判断距离是否小于攻击距离，，不能直接用 while，需要用一个协程
+**人物移动到敌人面前，需要不断判断距离是否小于攻击距离，，不能直接用 while，需要用一个协程**
 
-协程在当前主程序运行时, 开启另一段逻辑处理, 协程主要用于代码等待
-
-Unity 中的协程方法通过 yield 这个特殊的属性可以在任何位置、任意时刻暂停。也可以在指定的时间或事件后继续执行，而不影响上一次执行的就结果，提供了极大地便利性和实用性。  
-协程在每次执行时都会新建一个（伪）新线程来执行，而不会影响主线程的执行情况。  
-** 值得注意的是，协程并不会在 Unity 中开辟新的线程来执行，其执行仍然发生在主线程中。当我们有较为耗时的操作时，可以将该操作分散到几帧或者几秒内完成，而不用在一帧内等这个操作完成后再执行其他操作。 **  
 **yield return null 也可以写成 yield return 0 或 yield return 1，，作用是暂缓一帧，下一帧接着往下处理，后面的数字不起作用，无论是几，都是下一帧接着处理**
 
-```
+```cs
 IEnumerator CaculateResult()
 {
     for (int i = 0; i < 10000; i++)
@@ -384,7 +379,7 @@ IEnumerator CaculateResult()
   
 创建好了动画，在代码中根据 CD 时间和距离通过协程赋值 trigger 触发。
 
-```
+```cs
 private void EventAttack(GameObject target)
     {
         if (target != null)
@@ -427,12 +422,9 @@ private void EventAttack(GameObject target)
 ![](<images/1690255169310.png>)
 
   
-插入一个 Freelook 相机，用于实现普遍的视角调整相机  
-三个圈创建了一个空间范围，摄像机可以自由移动
 
 ![](<images/1690255169405.png>)
 
-  
 可以查看很多输入方法，比如鼠标的 x、y 值  
 设置敌人在视野范围内追踪 player，，如果用 distance 其实对于物体很多的时候消耗很大，不如使用触发器  
 
@@ -492,7 +484,7 @@ prefab variant：新建的 prefab 和原来的 prefab 部分关联。新建的 P
 
 ![](<images/1690255170291.png>)
 
-```
+```c
 void GetNewWayPoint()
     {
         remainLookAtTime = lookAtTime;
@@ -513,15 +505,15 @@ void GetNewWayPoint()
 
 合理命名，看文件就知道是干什么
 
-关于脚本**是否要继承 MonoBehavior**
-
-```
-想这个问题前先考虑你的脚本是用来干嘛。是用来挂载到物体上的组件？还是普通类
-    如果只是用来定义class，**靠继承来管理 Enemy（敌人）类及其子类的各种数据，则不需要继承MonoBehaviour**。 
-    如果是写一个脚本组件，而且需要**挂到物体上使用的，那一定要继承MonoBehaviour**。所有通过组件扩展功能的都必然要继承MonoBehaviour，否则无法挂上去。
-    只要想清楚了每一个class属于功能组件还是单纯的、独立的类，就可以很好的处理这个问题。
-    能用单纯脚本实现的功能，尽量不要和Unity扯上关系，即避免继承MonoBehavior，保持纯粹性。
-```
+> [!NOTE] 关于脚本**是否要继承 MonoBehavior**
+> 
+> 
+> 想这个问题前先考虑你的脚本是用来干嘛。是用来挂载到物体上的组件？还是普通类
+> 如果只是用来定义class，**靠继承来管理 Enemy（敌人）类及其子类的各种数据，则不需要继承MonoBehaviour**。 
+> 如果是写一个脚本组件，而且需要**挂到物体上使用的，那一定要继承MonoBehaviour**。所有通过组件扩展功能的都必然要继承MonoBehaviour，否则无法挂上去。
+> 只要想清楚了每一个 class 属于功能组件还是单纯的、独立的类，就可以很好的处理这个问题。
+> 能用单纯脚本实现的功能，尽量不要和Unity扯上关系，即避免继承MonoBehavior，保持纯粹性。
+> 
 
 关于 **ScriptableObject 类**
 
