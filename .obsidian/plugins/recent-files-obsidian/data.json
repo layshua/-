@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "FT 在图形渲染中的应用：基于 FFT 的海洋模拟",
-      "path": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
-    },
-    {
       "basename": "FFT理论",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
+    },
+    {
+      "basename": "FT 在图形渲染中的应用：基于 FFT 的海洋模拟",
+      "path": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
     },
     {
       "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",

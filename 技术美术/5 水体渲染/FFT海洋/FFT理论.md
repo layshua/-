@@ -100,29 +100,7 @@ $F(\mu)=\sum_{x=0}^{N-1}{f(x)}cos(\frac{2\pi\mu x}{N})-i\sum_{x=0}^{N-1}{f(x)}si
 $f(x)=\frac{1}{N}\sum_{\mu=0}^{N-1}{F(\mu)}e^{i\frac{2\pi\mu x}{N}}$
 **频域转空间域**
 
-### 二维 IDFT
-既然任意连续且收敛的函数 $f(x)$ 都可以分解为无数个不同频率、不同幅值的正、余弦信号，且这个性质可以扩展到二维，即任意一个二维图像都可以分解为无数个复平面波 $e^{-i 2 \pi(u x+v y)}$ 的叠加
 
-$F(u, v)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) e^{-i 2 \pi(u x+v y)} d x d y$
-
-![[34a6579351486bbd55c58689800d8cf5_MD5.jpg]]
-
-那么海浪作为 “波” 的典型，是否也可以将其拆成任意方向不同频率强度的基波的叠加？当然没有问题：令 $h(\vec{x}, t)$ 为 $t$ 时刻，位置 $\vec{x}=(x,z)$ 上海面的高度，其构建公式就为  
-$h(\vec{x}, t)=\sum_k \tilde{h}(\vec{k}, t) e^{i \vec{k} \cdot \vec{x}}$
-
-可以看出，**这正是二维离散傅里叶变换的逆变换 (IDFT) 版本**，只不过多了一个量度即时间，考虑到 DFT 形式下任意 $\vec{k}$ 将对应所有可能的复平面波 $e^{-i 2 \pi(n x+m z)}$ ，就能顺理成章的推出波矢量
-
-$\vec{k}=\left(k, l\right)=\left(\frac{2 \pi k}{L}, \frac{2 \pi l}{L}\right)$
-
-其中常量 $L$ 为海平面大小，采样点 $k, l$ 满足 $-N / 2 \leq k, l$ ，N 为采样点数量，当然也可以做个变换，即将范围映射到 $0<k, l<N-1$ ，此时
-
-$\vec{k}=\left(\frac{2 \pi k-\pi N}{L}, \frac{2 \pi l-\pi N}{L}\right)$ 本质不变
-
-代入上面的海洋方程，并将所有向量全部展开，为方便可以直接任 $N=L$ 就有
-
-$h(x, z, t)=\frac{1}{N^2} \sum_{k=0}^{N-1} \sum_{l=0}^{N-1} \tilde{h}(k, l, t)e^{i \frac{2 \pi k x-\pi N x}{N}}e^{ i \frac{2 \pi l z-\pi N z}{N}} \\ =\frac{1}{N^2} \sum_{k=0}^{N-1} \sum_{l=0}^{N-1} \tilde{h}(k, l, t)(-1)^x e^{ i \frac{2 \pi kx}{N}}(-1)^z e^{i \frac{2 \pi lz}{N}} \\ \frac{1}{N^2}(-1)^x \sum_{k=0}^{N-1}\left[(-1)^z \sum_{l=0}^{N-1} \tilde{h}(k, l, t) e^{i \frac{2 \pi lz}{N}}\right] e^{i \frac{2 \pi kx}{N}}$
-
-当然也可以任 $N\neq L$ ，这在计算方式上是相同的
 # 3 FFT 海洋公式
 
 通过上面的讲述我们应当知道了，如果我们想要得到一个复杂的海面，**我们需要生成一个频谱 (也就是上面的频域)，然后在通过逆离散傅里叶变换 (IDFT)，我们就可以得到由很多不同频率、振幅的波所叠加出来的复杂海面 (也就是上面的空间域)**。频谱直接决定了我们的海面形状，那么频谱的生成就变得尤为重要。
@@ -167,7 +145,7 @@ $\vec{x}$ 在 xz 平面上以原点为中心每隔 $\frac{L}{N}$ 取一个点，
 另外可以验证，在 N 为偶数的情况下，以上所有频率值 k 对应的周期 T= $\frac{2\pi}{k}$ 均为 L 的约数，所以 $h(\vec{x},t)=\sum_{\vec{k}}^{}{\tilde{h}(\vec{k},t)e^{i\vec{k}\cdot\vec{x}}}$ 横向和纵向均以 L 为周期，也就是说**海面 patch 是可以无缝 tiling 的**。
 ## 高度频谱公式
 
-**我们只需要计算出频谱然后按照 $h(\vec{x},t)$ 函数就可以得到我们海面的高度, 现在我们来看一下频谱公式 $\tilde{h}(\vec{k},t)$**
+**我们只需要计算出频谱然后按照 $h(\vec{x},t)$ 函数就可以得到我们初始海面的高度（t=0 时的振幅）, 现在我们来看一下频谱公式 $\tilde{h}(\vec{k},t)$**
 
 $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-\vec{k})e^{-i\omega(k)t}$
 
@@ -184,7 +162,7 @@ $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-
         - $\omega$ 是我们前面提到的角频率
         -  $\theta$ 是波矢量相对于风向的角度
         - 在 Simulating Ocean Water-Jerry Tessendorf 中使用到的非定向频谱为 $A\frac{e^{-1/(kL)^2}}{k^4}$ , 而方向拓展函数为 $\left| \vec{k}\cdot\vec{\omega} \right|^2$ , **他们的乘积就是** $P_{h}(\vec{k})=A\frac{e^{-1/(kL)^2}}{k^4}\left| \vec{k}\cdot\vec{\omega} \right|^2$
-            - $L=V^2/g$ （注意，这个 L 不是上一节使用的代表海平面大小的L）
+            - $L=\frac{V^2}{g}$ （注意，这个 L 不是上一节使用的代表海平面大小的 L）
             -  $V$ 是风速
             -  $\vec{\omega}$ 是风向
             - **在我们的实现中风向拓展函数使用的不是** $\left| \vec{k}\cdot\vec{\omega} \right|^2$ ，而是 **Donelan-Banner 定向传播**，**Donelan-Banner 方向拓展公式为**
@@ -195,6 +173,8 @@ $\tilde{h}(\vec{k},t) =\tilde{h}_{0}(\vec{k})e^{i\omega(k)t}+\tilde{h}^{*}_{0}(-
              $g$ 是重力加速度
              $U$ 是平均风速。
 
+- 非定向能量波谱 (Energy Spectrum) $S(\omega)=A\frac{e^{-1 /(k L)^2}}{k^4}$ ，由海洋统计分析得出，其描述了具有特定频率的波浪有多凶猛，与波的方向无关
+- 方向扩展函数 (Directional Spread) $D(\omega, \theta)=|\vec{k} \cdot \vec{\omega}|^2$ ，体现的是风向对波最终幅值的贡献，很明显：垂直于风向的波浪几乎不易察觉，而方向与风向一致的波浪往往异常凶猛
 
 ## 水平偏移频谱公式
 
@@ -268,16 +248,13 @@ $J_{xz}=\lambda\frac{\partial D_x(\vec{x},t)}{\partial z}=J_{zx}$
 
 **生成频谱 (打开冰箱门) $\rightarrow$ 逆离散傅里叶变换 (把大象塞进去) $\rightarrow$ 生成高度图、渲染等 (关上冰箱门)**
 
-嗯，可以看到公式最多的那一步 (生成频谱) 其实是最简单的，因为公式都给你写好了，照着抄就可以了(就像冰箱大佬们已经给你造好了，你不需要自己在造个冰箱)。
-
-最难的就是 IDFT 那一步了，当然如果你使用第三方的库，自己生成频谱直接丢给他，他就会给你返回一个高度图(就像你请人把大象塞进去样)。
-
-我们来看看 Ocean Surface Simulation NV 给的流程图，来让我们更直观的看公式是如何进行计算的
-
 ![[081c29e7b614f0b355443056a51a1646_MD5.jpg]]
 
 1. **首先根据公式生成菲利普斯频谱（phillips Spectrum），这并不难直接套用公式就可以。然后在计算两个相互独立服从均值为 0，标准差为 1 的高斯分布随机数。然后根据公式结合，就完成了第一步，我们得到了一个初始的频谱 ${h}_{0}(\vec{k})$。**
+
 这个频谱只需要计算一次就好，因为并没有时间去影响他，有的只有风。如果你的风每帧的是变动的话，那他就需要每帧计算了，但是随机数只需要计算一次就好。
+游戏中我们不太可能每帧去改变风向，因此风向 $\vec{\omega}$ 也可以视作常量（由美术或策划去配置），**在这种情况下** $P_h(\vec{k})$ **的计算理论可以离线或者只在风向改变时做一次，不需要每帧去重复计算**
+
 ![[1cb3d14ab4d525fb3ef01250b0409cc5.png]]
 2. **我们拿到菲利普斯频谱 ${h}_{0}(\vec{k})$ 后，就可以使用他来计算高度频谱 $\tilde{h}(\vec{k},t)$ , 使用高度频谱就可以轻易的计算出两个偏移频谱 $D_x(\vec{x},t)$ 和 $D_z(\vec{x},t)$ 。然后第一步生成频谱就结束了，是不是很简单。**
 
@@ -423,11 +400,10 @@ $x(n)=\frac{1}{N}\sum_{k=0}^{N-1}{X(k)e^{i\frac{2\pi kn}{N}}},n\in{\{0,1,...,N-1
 
 则有：
 
-$G(n)=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{g(k)e^{i\frac{2\pi kn}{\frac{N}{2}}}}=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{x(2k)e^{i\frac{2\pi kn}{\frac{N}{2}}}},n\in{\{0,1,...,\frac{N}{2}-1\}}$
+$$G(n)=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{g(k)e^{i\frac{2\pi kn}{\frac{N}{2}}}}=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{x(2k)e^{i\frac{2\pi kn}{\frac{N}{2}}}},n\in{\{0,1,...,\frac{N}{2}-1\}}$$
+$$H(n)=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{h(k)e^{i\frac{2\pi kn}{\frac{N}{2}}}}=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{x(2k+1)e^{i\frac{2\pi kn}{\frac{N}{2}}}},n\in{\{0,1,...,\frac{N}{2}-1\}}$$
 
-$H(n)=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{h(k)e^{i\frac{2\pi kn}{\frac{N}{2}}}}=\frac{1}{N}\sum_{k=0}^{\frac{N}{2}-1}{x(2k+1)e^{i\frac{2\pi kn}{\frac{N}{2}}}},n\in{\{0,1,...,\frac{N}{2}-1\}}$
-
-如何用 G (n) 和 H (n) 得到 x (n) 呢？
+如何用 $G (n)$ 和 $H (n)$ 得到 $x (n)$ 呢？
 
 与前面类似方法可推得：
 

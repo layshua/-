@@ -163,7 +163,7 @@ $\tilde{h}(\vec{k}, t)=\tilde{h}_0(\vec{k}) e^{i \omega(k) t}+\tilde{h}_0^*(-\ve
 
 不管多复杂，就一个字：抄！**这一部分也可以离线计算**
 
-```
+```c
 //----------------------------------------------- Hasselmann Directional Spreading D(w,/theta) -----------------------------------------------
 float NormalisationFactor(float s) {
     float s2 = s * s;

@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
+                "file": "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,10 +218,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6fff6403c2b3b69c",
+  "active": "80d9b9b5babcab75",
   "lastOpenFiles": [
-    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
     "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
     "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
