@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
+                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md"
+                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
               }
             }
           }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
+                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
+                "file": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -220,6 +220,15 @@
   },
   "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
+    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
+    "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
+    "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+    "zBuffer/3_72 command buffer 及 urp 概述.md",
+    "zBuffer/【UnityShader】屏幕空间全息扫描效果_MrASL 的博客 - CSDN 博客.md",
+    "zBuffer/《GPU Gems》第 16 章：对次表面散射的实时近似.md",
+    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "zip/images/33936e626df2468ea2f198e0760846cd_MD5.png",
     "zip/images/24460393b2310a58aeea9757e1c091a4_MD5.png",
     "zip/images/9eea6baeed0038c40e9a7b86a7523eed_MD5.png",
@@ -230,23 +239,16 @@
     "zip/images/b833615ee312fefd0b01a8badc609e9d_MD5.png",
     "zip/images/3da73baac7e508aee71d827b0bbd3355_MD5.png",
     "zip/images/13d50a368ffc295013f295833d2fce10_MD5.png",
-    "zip/images/55ccf9c8916c9d405b3c2b0d7bb606b8_MD5.png",
-    "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
-    "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
     "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
     "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
-    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
-    "zBuffer/【UnityShader】屏幕空间全息扫描效果_MrASL 的博客 - CSDN 博客.md",
     "技术美术/5 水体渲染/收藏/未命名.md",
     "技术美术/5 水体渲染/收藏",
     "技术美术/5 水体渲染/未命名.md",
     "技术美术/5 水体渲染/网格生成/移动端生成.md",
-    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "技术美术/5 水体渲染/网格生成",
     "技术美术/5 水体渲染/真实感水体渲染",
     "技术美术/5 水体渲染/卡通水.md",
@@ -256,10 +258,8 @@
     "zBuffer/C 指南 - stylegguide 中文文档.md",
     "引擎Unity3D/4 GamePlay/遇到的问题.md",
     "DCC/RizomUV.md",
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
-    "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（二）.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",

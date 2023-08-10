@@ -1,10 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
-      "path": "zBuffer/图形引擎实战：浅谈移动端无尽海面的网格生成.md"
-    },
-    {
       "basename": "FT 在图形渲染中的应用：基于 FFT 的海洋模拟",
       "path": "zBuffer/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
     },
@@ -13,16 +9,28 @@
       "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
     },
     {
+      "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
+      "path": "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md"
+    },
+    {
+      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
+      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "一波江水动京城：游戏水面渲染与互动",
+      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
+    },
+    {
+      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
+      "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
+    },
+    {
       "basename": "FFT代码实现",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
     },
     {
       "basename": "FFT相关推导",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "一波江水动京城：游戏水面渲染与互动",
-      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
     },
     {
       "basename": "百人计划水体渲染【乱】",
@@ -41,20 +49,12 @@
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
-      "basename": "【UnityShader】屏幕空间全息扫描效果_MrASL 的博客 - CSDN 博客",
-      "path": "zBuffer/【UnityShader】屏幕空间全息扫描效果_MrASL 的博客 - CSDN 博客.md"
-    },
-    {
       "basename": "未命名",
       "path": "技术美术/5 水体渲染/收藏/未命名.md"
     },
     {
       "basename": "移动端生成",
       "path": "技术美术/5 水体渲染/网格生成/移动端生成.md"
-    },
-    {
-      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
-      "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
     },
     {
       "basename": "卡通水",
@@ -75,10 +75,6 @@
     {
       "basename": "RizomUV",
       "path": "DCC/RizomUV.md"
-    },
-    {
-      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
-      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
     },
     {
       "basename": "Metallic 与 Specular 流程",
@@ -195,10 +191,6 @@
     {
       "basename": "笔记",
       "path": "引擎Unity3D/4 GamePlay/maco/笔记.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     }
   ],
   "omittedPaths": [],
