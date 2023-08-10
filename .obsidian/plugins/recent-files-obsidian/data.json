@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
+      "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
+    },
+    {
       "basename": "RizomUV",
       "path": "DCC/RizomUV.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow",
       "path": "技术美术/6 NPR/原神/【01】Unity URP 卡通渲染 原神角色渲染记录 - Diffuse： Ramp + AO + Double Shadow.md"
-    },
-    {
-      "basename": "【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline",
-      "path": "技术美术/6 NPR/原神/【05】Unity URP 卡通渲染 原神角色渲染记录 - Double Pass Effect： Render Feature + 平滑法线 Outline.md"
     }
   ],
   "omittedPaths": [],

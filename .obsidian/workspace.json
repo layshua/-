@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/RizomUV.md",
+                "file": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/RizomUV.md"
+                "file": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/RizomUV.md",
+                "file": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/RizomUV.md",
+                "file": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,19 +215,20 @@
   },
   "active": "6fff6403c2b3b69c",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230810110054.png",
-    "zip/images/Pasted image 20230810105457.png",
-    "zip/images/Pasted image 20230810105435.png",
-    "zip/images/Pasted image 20230810105036.png",
-    "zip/images/Pasted image 20230810104737.png",
-    "zip/images/Pasted image 20230810103907.png",
-    "zip/images/Pasted image 20230810102544.png",
-    "zip/images/Pasted image 20230810102431.png",
-    "zip/images/Pasted image 20230810102357.png",
-    "zip/images/Pasted image 20230810102258.png",
-    "zip/images/Pasted image 20230810100422.png",
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "zip/images/a08cf884ddeb1e54c489a7e3b065ca1e_MD5.webp",
+    "zip/images/fa1d01c67f82ac209ee2a861bf1c1d05_MD5.webp",
+    "zip/images/6782c17dba7b4f2c3ab960d379ed87d1_MD5.webp",
+    "zip/images/ab7005ee7394c296ac2df5f0767783f1_MD5.webp",
+    "zip/images/1f522c1da84743e7c3ebf6e3eaf4ed54_MD5.webp",
+    "zip/images/267afe4826319e848da7db72b3f90c93_MD5.webp",
+    "zip/images/9d9349ab07b68d49e177c0ed0f124b1e_MD5.webp",
+    "zip/images/1f816f1c5e92e42ba82560bb0b310ad3_MD5.webp",
+    "zip/images/55a36d36346d3f642ea955799438745e_MD5.webp",
+    "zip/images/9d67e531b436ce0f4fe666a7a98d8b90_MD5.webp",
+    "zip/images/398740e256b00207ed2f0547c8cbec9e_MD5.webp",
     "DCC/RizomUV.md",
+    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/Metallic 与 Specular 流程.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
@@ -250,7 +251,6 @@
     "图形学/1 图形系统/10 色彩.md",
     "图形学/0 3D数学/参数化曲线.md",
     "Math/Others/振幅、周期、相移和频率.md",
-    "图形学/0 3D数学/3D数学.md",
     "技术美术/5 水体渲染/FFT海洋",
     "DCC/01 百人计划美术向/二、模型",
     "技术美术/7 真实感人物",
