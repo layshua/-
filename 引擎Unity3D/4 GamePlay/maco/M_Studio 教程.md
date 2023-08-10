@@ -533,7 +533,7 @@ void GetNewWayPoint()
 *   可以被放到. asset 文件中，也就是说我们可以自定义 asset 的类型。Unity 内置的 asset 资源有材质、贴图、音频等等，现在依靠 ScriptableObject 我们可以自定义新的资源类型，来存储我们自己的数据
 *   可以解决某些多态问题
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -568,7 +568,7 @@ public class CharactoreData_SO : ScriptableObject
 可以创建继承 monobehavior 的脚本管理数值，并且可以发现能够读取 CharactorData_SO 的类型  
 因为不希望逐级访问：CharacterStats.characterData.maxHealth，所以我们需要用 properties 属性方法
 
-```
+```cs
 //这样通过CharacterData.MaxHealth可以直接读到characterData的数据
 public class CharacterStats : MonoBehaviour
 {
@@ -676,7 +676,7 @@ public class CharacterData_SO : ScriptableObject
 
 # 17:Execute Attack 实现攻击数值计算
 
-```
+```cs
 //需要计算攻击减掉防御，因此需要传入两个CharacterStats变量。
     public void TakeDamage(CharacterStats attacker, CharacterStats defender) {
         int damage = Mathf.Max(attacker.CurrentDamage() - defender.CurrentDefence, 1);//如果是攻击低于防御，则产生负数伤害，需要跟1比较，产生一个最低1点的伤害
@@ -764,8 +764,6 @@ public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
 }
 ```
 
-，，，，找” **通用** “那节课
-
 虚函数的讲解
 
 ```cs
@@ -848,7 +846,7 @@ public class MouseManager : SingleTon<MouseManager>
 **接口的声明通常在大写字母 I 开头后面跟另一个大写字母开头的名称**  
 **接口通常描述实现类具备的某种功能，因此名称结尾多是 able**
 
-```
+```c
 //实现IKillable接口的任何类，必须有一个与这个签名匹配的公共函数
 public interface IKillalbe {
     void kill();
@@ -991,7 +989,7 @@ public void EndNotify()
 如果每一个敌人都使用 Enemy Data Asset 的话，其实是共享数值  
 需要通过 ScriptableObject 复制出多个数值文件
 
-```
+```c
 public CharacterData_SO templateData;
     
     public CharacterData_SO characterData;
@@ -1029,7 +1027,7 @@ public CharacterData_SO templateData;
 因为动画不同，所以要设置不同的攻击逻辑，例如当 player 要穿过时，吧人物推开，然后在攻击  
 Grunt 继承 EnemyController
 
-```
+```cs
 public class Grunt : EnemyController
 {
     [Header("Skill")]
@@ -1068,7 +1066,7 @@ public class Grunt : EnemyController
   
 默认自带的状态机
 
-```
+```cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
