@@ -2,19 +2,23 @@
   "recentFiles": [
     {
       "basename": "平面和线框着色",
-      "path": "zBuffer/平面和线框着色.md"
-    },
-    {
-      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
-      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
+      "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md"
     },
     {
       "basename": "11 曲线曲面几何",
       "path": "图形学/1 图形系统/11 曲线曲面几何.md"
     },
     {
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
+    },
+    {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
+      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
     },
     {
       "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
@@ -191,14 +195,6 @@
     {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
-    },
-    {
-      "basename": "TA 之路",
-      "path": "引擎Unity3D/收藏夹/TA 之路.md"
-    },
-    {
-      "basename": "Unity URP ColorGradingLut 分析与实现",
-      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     }
   ],
   "omittedPaths": [],
