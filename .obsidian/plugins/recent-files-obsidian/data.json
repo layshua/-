@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
       "basename": "《GUI》",
       "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "曲面细分着色器",
       "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "体积雾",
