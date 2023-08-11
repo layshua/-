@@ -1,20 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "平面和线框着色",
-      "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md"
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
+    },
+    {
+      "basename": "8 雪地渲染",
+      "path": "技术美术/8 雪地渲染.md"
+    },
+    {
+      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
+      "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
       "basename": "11 曲线曲面几何",
       "path": "图形学/1 图形系统/11 曲线曲面几何.md"
     },
     {
-      "basename": "常用HLSL函数",
-      "path": "技术美术/常用HLSL函数.md"
+      "basename": "平面和线框着色",
+      "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md"
     },
     {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
+      "basename": "常用HLSL函数",
+      "path": "技术美术/常用HLSL函数.md"
     },
     {
       "basename": "Unity 渲染基础：URP 下曲面细分的实现",
@@ -59,10 +71,6 @@
     {
       "basename": "RizomUV",
       "path": "DCC/RizomUV.md"
-    },
-    {
-      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
-      "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
     },
     {
       "basename": "地形编辑Terrain",
@@ -191,10 +199,6 @@
     {
       "basename": "技术向",
       "path": "图形学/面经/技术向.md"
-    },
-    {
-      "basename": "1 ShaderLab",
-      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     }
   ],
   "omittedPaths": [],
