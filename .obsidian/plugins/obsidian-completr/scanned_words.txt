@@ -3560,6 +3560,8 @@ operand
 ownership
 outputtopology
 overwrite
+outputting
+objective
 OneDrive
 Obsidian
 Office
@@ -12593,6 +12595,11 @@ cyou
 comparing
 compare
 cheapest
+clipped
+cut
+complain
+coded
+calculates
 github
 grey
 green
@@ -16260,6 +16267,7 @@ greatly
 gerstner
 guidance
 gXgYgZ
+gaps
 typora
 todo
 tooltip
@@ -20165,6 +20173,8 @@ thick
 thinner
 topological
 transitioning
+tessellated
+told
 markdown
 matter
 mod
@@ -24404,6 +24414,8 @@ matVPInverse
 matters
 measured
 multiples
+minuscule
+midpoint
 windows
 win
 width
@@ -31888,6 +31900,8 @@ unexposed
 underwater
 unimportant
 unmodified
+unnoticeable
+undesirable
 everything
 ea
 ede
@@ -35754,6 +35768,7 @@ embedded
 ensures
 extrapolated
 extracting
+equivalents
 VPN
 Verge
 VS
@@ -47133,6 +47148,7 @@ ANGLE
 ARGBFloat
 AfterTessVertProgram
 Adjusted
+Apparently
 URL
 Utools
 Users
@@ -54953,6 +54969,8 @@ advantages
 advection
 aeccac
 acce
+advantage
+apparently
 Roaming
 RegWorkshop
 Release
@@ -64333,6 +64351,8 @@ MyFlatWireframe
 Mostly
 Minimum
 Maybe
+MyTessellation
+MyPatchConstantFunction
 Windows
 Win
 World
@@ -73451,6 +73471,12 @@ Spreading
 SpreadBlend
 Short
 Splitting
+Subdividing
+Subdivide
+Simply
+Stretched
+Same
+Something
 Programs
 POP
 PC
@@ -94722,6 +94748,9 @@ possibility
 piece
 processes
 prevented
+parallelize
+prioritizes
+parallelization
 nodesCatch
 nobr
 navy
@@ -98442,6 +98471,7 @@ nstead
 nullable
 ndotv
 nonlinearly
+nonsensical
 bf
 bc
 black
@@ -105951,6 +105981,10 @@ fowarender
 frontBuffer
 frenelterm
 faceted
+feed
+forming
+factoring
+forked
 dd
 dcc
 data
@@ -110253,6 +110287,11 @@ dely
 derive
 deriving
 discontinuous
+decreases
+deformed
+decides
+demonstrates
+deform
 TFvYZOKeHL
 TAB
 TeX
@@ -119035,6 +119074,9 @@ incorrectly
 inserting
 interpolators
 inclusion
+isosceles
+isolines
+influences
 shift
 svg
 sf
@@ -123854,6 +123896,14 @@ stylish
 supplying
 subtracting
 smoothed
+splitting
+subdivided
+specifies
+stub
+stitch
+subdivisions
+scales
+surely
 local
 list
 left
@@ -139284,6 +139334,8 @@ regardless
 resembles
 rewire
 reveals
+responsibilities
+ripped
 XXXXXX
 XXX
 XML
@@ -147094,6 +147146,8 @@ Higgins
 HullProgram
 HUll
 HEVC
+Hulls
+Heuristics
 Bbb
 Bear
 Base
@@ -155280,6 +155334,7 @@ ForwardLights
 Faces
 FFTOceanCS
 FFTOcean
+Fractional
 Element
 Entity
 Enity
@@ -159818,6 +159873,7 @@ ExecuteDeferredPass
 ExecuteNativeRenderPass
 Exposing
 Extra
+Effectively
 xmlns
 xyz
 xy
@@ -170518,6 +170574,7 @@ DeviceId
 DomainLocation
 Deriving
 Determine
+Domains
 LNK
 Log
 Linux
@@ -174708,6 +174765,7 @@ LODMesh
 LookupTable
 Laptop
 Longuet
+Logically
 Getx
 GetX
 GetName

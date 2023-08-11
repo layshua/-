@@ -11,13 +11,13 @@
 
 2. 使用细分时的最低着色器目标级别为 4.6。如果我们不手动设置，Unity 将发出警告并自动使用该级别
 
-```
+```c
 #pragma target 4.6
 ```
 
-3. 使用 #pragma 声明相关的着色器方法
+3. 使用 `#pragma` 声明相关的着色器方法
 
-```
+```c
 #pragma vertex BeforeTessVertProgram
 #pragma hull HullProgram
 #pragma domain DomainProgram
@@ -26,9 +26,9 @@
 
 4. 顶点着色器
 
-顶点着色器不再像以前那样负责把顶点坐标从 ObjectSpace 转换到 ClipSpace，或是贴图 UV 转换等工作，此处只是简单得将 Attributes 中的数据传递给曲面细分阶段
+**顶点着色器不再像以前那样负责把顶点坐标从 ObjectSpace 转换到 ClipSpace，或是贴图 UV 转换等工作，此处只是简单得将 Attributes 中的数据传递给曲面细分阶段**
 
-```
+```c
 // 顶点着色器，此时只是将Attributes里的数据递交给曲面细分阶段
 ControlPoint BeforeTessVertProgram(Attributes v) {
      ControlPoint p;
@@ -44,7 +44,7 @@ ControlPoint BeforeTessVertProgram(Attributes v) {
 
 ControlPoint 的结构如下：
 
-```
+```c
 struct ControlPoint
 {
      float4 vertex : INTERNALTESSPOS;
@@ -56,7 +56,7 @@ struct ControlPoint
 
 可以和 Attributes 的结构比较一下
 
-```
+```c
 struct Attributes
 {
      float4 vertex : POSITION;
@@ -66,22 +66,22 @@ struct Attributes
 };
 ```
 
-可见两个结构几乎相同的，只是 ControlPoint 中的 vertex 使用 INTERNALTESSPOS 代替 POSITION 语意，否则编译器会报位置语义的重用
+可见两个结构几乎相同的，只是 ControlPoint 中的 vertex 使用 **`INTERNALTESSPOS` 代替 `POSITION` 语义**，否则编译器会报位置语义的重用
 
-5.Hull 着色器
+5. Hull 着色器
 
 细分阶段非常灵活，可以处理三角形，四边形或等值线。我们必须告诉它必须使用什么表面并提供必要的数据。这是 hull 程序的工作。
 
-```
+```c
 ControlPoint HullProgram(InputPatch<ControlPoint, 3> patch, uint id : SV_OutputControlPointID)
 {
      return patch[id];
 }
 ```
 
-InputPatch 参数是向 Hull 程序传递曲面补丁的参数。Patch 是网格顶点的集合。必须指定顶点的数据格式。现在，我们将使用 ControlPoint 结构。在处理三角形时，每个补丁将包含三个顶点，此数量必须指定为 InputPatch 的第二个模板参数，所以第二个参数设置为 3。
+`InputPatch` 参数是向 Hull 程序传递曲面 Patch 的参数。Patch 是网格顶点的集合。必须指定顶点的数据格式。现在，我们将使用 ControlPoint 结构。在处理三角形时，每个Patch将包含三个顶点，此数量必须指定为 InputPatch 的第二个模板参数，所以第二个参数设置为 3。
 
-Hull 程序的工作是将所需的顶点数据传递到细分阶段。尽管向其提供了整个补丁，但该函数一次仅应输出一个顶点。补丁中的每个顶点都会调用一次它，并带有一个附加参数，该参数指定应该使用哪个控制点（顶点）。该参数是具有 SV_OutputControlPointID 语义的无符号整数。
+Hull 程序的工作是将所需的顶点数据传递到细分阶段。尽管向其提供了整个Patch，但该函数一次仅应输出一个顶点。Patch中的每个顶点都会调用一次它，并带有一个附加参数，该参数指定应该使用哪个控制点（顶点）。该参数是具有 `SV_OutputControlPointID` 语义的无符号整数。
 
 仅仅是这样的函数声明是不行的，编译器会报错，要求我们指定详细的参数，具体如下：
 
@@ -95,7 +95,7 @@ domain: 指定 patch 的类型，可选的有：tri(三角形)、quad（四边�
 [outputcontrolpoints(3)]
 ```
 
-outputcontrolpoints：输出的控制点的数量（每个图元），不一定与输入数量相同，也可以新增控制点。此处设置为 3，是明确地告诉编译器每个补丁输出三个控制点
+outputcontrolpoints：输出的控制点的数量（每个图元），不一定与输入数量相同，也可以新增控制点。此处设置为 3，是明确地告诉编译器每个Patch输出三个控制点
 
 ```
 [outputtopology("triangle_cw")]
@@ -107,15 +107,15 @@ outputtopology：输出拓扑结构。当 GPU 创建新三角形时，它需要�
 [partitioning("fractional_odd")]
 ```
 
-partitioning：分割模式，起到告知 GPU 应该如何分割补丁的作用呢，共有三种：integer，fractional_even，fractional_odd。
+partitioning：分割模式，起到告知 GPU 应该如何分割Patch的作用呢，共有三种：integer，fractional_even，fractional_odd。
 
 ```
 [patchconstantfunc("MyPatchConstantFunction")]
 ```
 
-patchconstantfunc：指定补丁常数函数。GPU 必须知道应将补丁切成多少部分。这不是一个恒定值，每个补丁可能有所不同。必须提供一个评估此值的函数，称为补丁常数函数（Patch Constant Functions）
+patchconstantfunc：指定Patch常数函数。GPU 必须知道应将Patch切成多少部分。这不是一个恒定值，每个Patch可能有所不同。必须提供一个评估此值的函数，称为Patch常数函数（Patch Constant Functions）
 
-6.Patch Constant Function(补丁常数函数)
+6.Patch Constant Function(Patch常数函数)
 
 Patch Constant Function 决定 Patch 的属性是如何细分的。这意味着它每个 Patch 仅被调用一次，而不是每个控制点被调用一次。这就是为什么它被称为常量函数，在整个 Patch 中都是常量的原因。
 
@@ -155,7 +155,7 @@ struct TessellationFactors
 
 3.Domain 着色器
 
-HUll 着色器只是使曲面细分工作所需的一部分。一旦细分阶段确定了应如何细分补丁，则由 Domain 着色器来评估结果并生成最终三角形的顶点。对于每个顶点，都会调用一次 Domain 着色器。一般来讲，这里会涉及到大量的计算，所有的顶点信息都会在这里重新计算，最后会将顶点坐标转换到投影空间。
+HUll 着色器只是使曲面细分工作所需的一部分。一旦细分阶段确定了应如何细分Patch，则由 Domain 着色器来评估结果并生成最终三角形的顶点。对于每个顶点，都会调用一次 Domain 着色器。一般来讲，这里会涉及到大量的计算，所有的顶点信息都会在这里重新计算，最后会将顶点坐标转换到投影空间。
 
 ```
 [domain("tri")]//Hull着色器和Domain着色器都作用于相同的域，即三角形。我们通过domain属性再次发出信号
@@ -199,13 +199,13 @@ Varyings AfterTessVertProgram (Attributes v)
 
 参数说明：
 
-1. TessellationFactors ：由 Patch Constant Function(补丁常数函数) 输入，细分参数。
+1. TessellationFactors ：由 Patch Constant Function(Patch常数函数) 输入，细分参数。
 
 2. OutputPatch：由 Hull 着色器传入的 patch 数据，尖括号的第二个参数与 Hull 着色器中的 InputPatch 对应。
 
 3. SV_DomainLocation：由曲面细分阶段阶段传入的顶点位置信息。
 
-Hull 着色器确定补丁的细分方式时，不会产生任何新的顶点。相反，它会为这些顶点提供重心坐标。使用这些坐标来导出最终顶点取决于 Domain 着色器。为了使之成为可能，每个顶点都会调用一次域函数，并为其提供重心坐标。
+Hull 着色器确定Patch的细分方式时，不会产生任何新的顶点。相反，它会为这些顶点提供重心坐标。使用这些坐标来导出最终顶点取决于 Domain 着色器。为了使之成为可能，每个顶点都会调用一次域函数，并为其提供重心坐标。
 
 现在，我们有了一个新的顶点，该顶点将在此阶段之后发送到几何程序或插值器。但是这些程序需要 Varyings 数据，而不是 Attributes。为了解决这个问题，我们让 Domain 着色器接管了原始顶点程序的职责。这是通过调用其中的 AfterTessVertProgram 并返回其结果来完成的。
 
@@ -361,17 +361,17 @@ Shader "V/URP/Tessellation"
             }
 
             //细分阶段非常灵活，可以处理三角形，四边形或等值线。我们必须告诉它必须使用什么表面并提供必要的数据。
-            //这是 hull 程序的工作。Hull 程序在曲面补丁上运行，该曲面补丁作为参数传递给它。
+            //这是 hull 程序的工作。Hull 程序在曲面Patch上运行，该曲面Patch作为参数传递给它。
             //我们必须添加一个InputPatch参数才能实现这一点。Patch是网格顶点的集合。必须指定顶点的数据格式。
-            //现在，我们将使用ControlPoint结构。在处理三角形时，每个补丁将包含三个顶点。此数量必须指定为InputPatch的第二个模板参数
-            //Hull程序的工作是将所需的顶点数据传递到细分阶段。尽管向其提供了整个补丁，
-            //但该函数一次仅应输出一个顶点。补丁中的每个顶点都会调用一次它，并带有一个附加参数，
+            //现在，我们将使用ControlPoint结构。在处理三角形时，每个Patch将包含三个顶点。此数量必须指定为InputPatch的第二个模板参数
+            //Hull程序的工作是将所需的顶点数据传递到细分阶段。尽管向其提供了整个Patch，
+            //但该函数一次仅应输出一个顶点。Patch中的每个顶点都会调用一次它，并带有一个附加参数，
             //该参数指定应该使用哪个控制点（顶点）。该参数是具有SV_OutputControlPointID语义的无符号整数。
             [domain("tri")]//明确地告诉编译器正在处理三角形，其他选项：
-            [outputcontrolpoints(3)]//明确地告诉编译器每个补丁输出三个控制点
+            [outputcontrolpoints(3)]//明确地告诉编译器每个Patch输出三个控制点
             [outputtopology("triangle_cw")]//当GPU创建新三角形时，它需要知道我们是否要按顺时针或逆时针定义它们
-            [partitioning("fractional_odd")]//告知GPU应该如何分割补丁，现在，仅使用整数模式
-            [patchconstantfunc("MyPatchConstantFunction")]//GPU还必须知道应将补丁切成多少部分。这不是一个恒定值，每个补丁可能有所不同。必须提供一个评估此值的函数，称为补丁常数函数（Patch Constant Functions）
+            [partitioning("fractional_odd")]//告知GPU应该如何分割Patch，现在，仅使用整数模式
+            [patchconstantfunc("MyPatchConstantFunction")]//GPU还必须知道应将Patch切成多少部分。这不是一个恒定值，每个Patch可能有所不同。必须提供一个评估此值的函数，称为Patch常数函数（Patch Constant Functions）
             ControlPoint HullProgram(InputPatch<ControlPoint, 3> patch, uint id : SV_OutputControlPointID)
             {
                 return patch[id];
@@ -387,10 +387,10 @@ Shader "V/URP/Tessellation"
                 return o;
 			}
 
-            //HUll着色器只是使曲面细分工作所需的一部分。一旦细分阶段确定了应如何细分补丁，
+            //HUll着色器只是使曲面细分工作所需的一部分。一旦细分阶段确定了应如何细分Patch，
             //则由Domain着色器来评估结果并生成最终三角形的顶点。
-            //Domain程序将获得使用的细分因子以及原始补丁的信息，原始补丁在这种情况下为OutputPatch类型。
-            //细分阶段确定补丁的细分方式时，不会产生任何新的顶点。相反，它会为这些顶点提供重心坐标。
+            //Domain程序将获得使用的细分因子以及原始Patch的信息，原始Patch在这种情况下为OutputPatch类型。
+            //细分阶段确定Patch的细分方式时，不会产生任何新的顶点。相反，它会为这些顶点提供重心坐标。
             //使用这些坐标来导出最终顶点取决于域着色器。为了使之成为可能，每个顶点都会调用一次域函数，并为其提供重心坐标。
             //它们具有SV_DomainLocation语义。
             //在Demain函数里面，我们必须生成最终的顶点数据。

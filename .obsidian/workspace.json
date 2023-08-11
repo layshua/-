@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "30bfc7b78e5a7bec",
+            "id": "2536b55eb515d0d3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/11 曲线曲面几何.md",
+                "file": "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "2536b55eb515d0d3",
+            "id": "73808283c63293b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/01 渲染管线.md",
+                "file": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/09 体积云.md",
+                "file": "技术美术/体积渲染/体积雾.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#INF，代表的是无限大",
+                "query": "tag:#pragma",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/09 体积云.md"
+                "file": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
               }
             }
           }
@@ -161,7 +161,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/09 体积云.md",
+                "file": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +178,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/09 体积云.md",
+                "file": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -212,29 +212,35 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "技术美术/未命名",
-    "未命名",
-    "技术美术/8 雪地渲染.md",
-    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
-    "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
+    "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md",
     "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md",
+    "zip/images/7d9aa83cc6ff091186e2c5b85326c1ef_MD5.png",
+    "zip/images/1e7b87d69dbf65bb5f145323c8de585c_MD5.png",
+    "zip/images/a73f280d9af9b98eb8a6890621f0f29b_MD5.png",
+    "zip/images/00e15607c9fb7f3b42bff604c82d86d5_MD5.png",
+    "zip/images/911e873a2ffd65c672436f293f6afcf2_MD5.png",
+    "zip/images/ee9dc1b671656ddace7db1adcf591642_MD5.png",
+    "zip/images/e34a6705a55aed8348274188a611e79b_MD5.png",
+    "zip/images/08298a1b510c692929191452d65e6346_MD5.png",
+    "zip/images/624aff64815bfae3e94b02ab6eaa6897_MD5.png",
+    "zip/images/d2a30107cd36a290cf3d6c9ba44aa31e_MD5.png",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
+    "rendering-the-wireframe",
+    "技术美术/体积渲染/体积雾.md",
+    "技术美术/雪地渲染",
+    "技术美术/1 渲染雅集/09 体积云.md",
+    "技术美术/体积渲染",
+    "未命名",
+    "技术美术/雪地渲染/8 雪地渲染.md",
+    "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "技术美术/常用HLSL函数.md",
-    "zip/images/Pasted image 20230811144106.png",
     "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
     "zBuffer/untitled.md",
     "引擎Unity3D/Catlike Coding/Advanced Rendering",
-    "zip/images/Pasted image 20230811141808.png",
-    "zip/images/c462048526c48fda33e56315340192c2_MD5.png",
-    "zip/images/2604d70844881d2b03d7b88b5b82c264_MD5.png",
-    "zip/images/77d9e9ccdf775dc751811144517dc293_MD5.png",
-    "zip/images/ed1f9dced5fdd3e013305ea938d6646d_MD5.png",
-    "zip/images/d99a1e429910b2932882ea23baefdd32_MD5.png",
-    "zip/images/9c2c20f3ee4f499376c804d6978ed0fe_MD5.png",
-    "zip/images/466b2bfc74b70f767b2794c1235d9192_MD5.png",
-    "zip/images/ad450ea17d151c851778a4e0a58b3a10_MD5.png",
     "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
     "技术美术/5 水体渲染/网格生成/移动端生成.md",
     "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
@@ -248,18 +254,11 @@
     "引擎Unity3D/1 Unity精粹/地形编辑Terrain.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "引擎Unity3D/4 GamePlay/maco/笔记.md",
-    "引擎Unity3D/4 GamePlay/遇到的问题.md",
-    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
     "技术美术/5 水体渲染/收藏",
     "技术美术/5 水体渲染/网格生成",
     "技术美术/5 水体渲染/真实感水体渲染",
     "技术美术/5 水体渲染/FFT海洋/理论解析",
     "技术美术/5 水体渲染/FFT海洋",
-    "DCC/01 百人计划美术向/二、模型",
-    "技术美术/7 真实感人物",
-    "引擎Unity3D/4 GamePlay/战斗系统",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
