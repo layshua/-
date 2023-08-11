@@ -4,7 +4,7 @@
 ![[136b9af1a24ccc1c359f187dfd31c172_MD5.jpg]]
 
 下面开始一步步实现 Tessellation 的 URP Shader。
-
+# 声明
 1. 首先，需要一个 URP 下的基础 Shader，如下：
 
 [https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.2/manual/writing-shaders-urp-basic-unlit-structure.html](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.2/manual/writing-shaders-urp-basic-unlit-structure.html)
@@ -24,7 +24,7 @@
 #pragma fragment FragmentProgram
 ```
 
-4. 顶点着色器
+# 顶点着色器
 
 **顶点着色器不再像以前那样负责把顶点坐标从 ObjectSpace 转换到 ClipSpace，或是贴图 UV 转换等工作，此处只是简单得将 Attributes 中的数据传递给曲面细分阶段**
 
@@ -68,7 +68,7 @@ struct Attributes
 
 可见两个结构几乎相同的，只是 ControlPoint 中的 vertex 使用 **`INTERNALTESSPOS` 代替 `POSITION` 语义**，否则编译器会报位置语义的重用
 
-5. Hull 着色器
+# Hull 着色器
 
 细分阶段非常灵活，可以处理三角形，四边形或等值线。我们必须告诉它必须使用什么表面并提供必要的数据。这是 hull 程序的工作。
 
@@ -83,65 +83,66 @@ ControlPoint HullProgram(InputPatch<ControlPoint, 3> patch, uint id : SV_OutputC
 
 Hull 程序的工作是将所需的顶点数据传递到细分阶段。尽管向其提供了整个Patch，但该函数一次仅应输出一个顶点。Patch中的每个顶点都会调用一次它，并带有一个附加参数，该参数指定应该使用哪个控制点（顶点）。该参数是具有 `SV_OutputControlPointID` 语义的无符号整数。
 
-仅仅是这样的函数声明是不行的，编译器会报错，要求我们指定详细的参数，具体如下：
+**仅仅是这样的函数声明是不行的，编译器会报错，要求我们指定详细的参数，具体如下：**
 
-```
+```c
 [domain("tri")]
 ```
 
-domain: 指定 patch 的类型，可选的有：tri(三角形)、quad（四边形）、isoline（线段，苹果的 metal api 不支持：2018/8/21）。不同的 patch 类型，细分的方式也有差别，此处指定为三角形类型
+`domain`: 指定 patch 的类型，可选的有：tri(三角形)、quad（四边形）、isoline（线段，苹果的 metal api 不支持：2018/8/21）。不同的 patch 类型，细分的方式也有差别，此处指定为三角形类型
 
-```
+```c
 [outputcontrolpoints(3)]
 ```
 
-outputcontrolpoints：输出的控制点的数量（每个图元），不一定与输入数量相同，也可以新增控制点。此处设置为 3，是明确地告诉编译器每个Patch输出三个控制点
+`outputcontrolpoints`：输出的控制点的数量（每个图元），不一定与输入数量相同，也可以新增控制点。此处设置为 3，是明确地告诉编译器每个Patch输出三个控制点
 
-```
+```c
 [outputtopology("triangle_cw")]
 ```
 
-outputtopology：输出拓扑结构。当 GPU 创建新三角形时，它需要知道我们是否要按顺时针或逆时针定义它们。有三种：triangle_cw（顺时针环绕三角形）、triangle_ccw（逆时针环绕三角形）、line（线段）。
+`outputtopology`：输出拓扑结构。当 GPU 创建新三角形时，它需要知道我们是否要按顺时针或逆时针定义它们。有三种：triangle_cw（顺时针环绕三角形）、triangle_ccw（逆时针环绕三角形）、line（线段）。
 
-```
+```c
 [partitioning("fractional_odd")]
 ```
 
-partitioning：分割模式，起到告知 GPU 应该如何分割Patch的作用呢，共有三种：integer，fractional_even，fractional_odd。
+`partitioning`：分割模式，起到告知 GPU 应该如何分割Patch的作用呢，共有三种：integer，fractional_even，fractional_odd。
 
-```
+```c
 [patchconstantfunc("MyPatchConstantFunction")]
 ```
 
-patchconstantfunc：指定Patch常数函数。GPU 必须知道应将Patch切成多少部分。这不是一个恒定值，每个Patch可能有所不同。必须提供一个评估此值的函数，称为Patch常数函数（Patch Constant Functions）
+`patchconstantfunc`：指定Patch常数函数。GPU 必须知道应将Patch切成多少部分。这不是一个恒定值，每个Patch可能有所不同。必须提供一个评估此值的函数，称为Patch常数函数（Patch Constant Functions）
 
-6.Patch Constant Function(Patch常数函数)
+## Patch常数函数
+Patch Constant function
+**Patch 常数函数决定 Patch 的属性是如何细分的**。这意味着它每个 Patch 仅被调用一次，而不是每个控制点被调用一次。这就是为什么它被称为常量函数，在整个 Patch 中都是常量的原因。
 
-Patch Constant Function 决定 Patch 的属性是如何细分的。这意味着它每个 Patch 仅被调用一次，而不是每个控制点被调用一次。这就是为什么它被称为常量函数，在整个 Patch 中都是常量的原因。
-
-```
+```c
 TessellationFactors MyPatchConstantFunction(InputPatch<ControlPoint, 3> patch) {
-                float minDist = _MinTessDistance;
-                float maxDist = _MaxTessDistance;
-            
-                TessellationFactors f;
-            
-                float edge0 = CalcDistanceTessFactor(patch[0].vertex, minDist, maxDist, _Tess);
-                float edge1 = CalcDistanceTessFactor(patch[1].vertex, minDist, maxDist, _Tess);
-                float edge2 = CalcDistanceTessFactor(patch[2].vertex, minDist, maxDist, _Tess);
-            
-                // make sure there are no gaps between different tessellated distances, by averaging the edges out.
-                f.edge[0] = (edge1 + edge2) / 2;
-                f.edge[1] = (edge2 + edge0) / 2;
-                f.edge[2] = (edge0 + edge1) / 2;
-                f.inside = (edge0 + edge1 + edge2) / 3;
-                return f;
+    float minDist = _MinTessDistance;
+    float maxDist = _MaxTessDistance;
+
+    TessellationFactors f;
+
+    float edge0 = CalcDistanceTessFactor(patch[0].vertex, minDist, maxDist, _Tess);
+    float edge1 = CalcDistanceTessFactor(patch[1].vertex, minDist, maxDist, _Tess);
+    float edge2 = CalcDistanceTessFactor(patch[2].vertex, minDist, maxDist, _Tess);
+
+    // make sure there are no gaps between different tessellated distances, by averaging the edges out.
+    f.edge[0] = (edge1 + edge2) / 2;
+    f.edge[1] = (edge2 + edge0) / 2;
+    f.edge[2] = (edge0 + edge1) / 2;
+    f.inside = (edge0 + edge1 + edge2) / 3;
+    return f;
 }
 ```
 
-为了确定如何细分三角形，GPU 使用了四个细分因子。三角形面片的每个边缘都有一个因数。三角形的内部也有一个因素。三个边缘向量必须作为具有 SV_TessFactor 语义的 float 数组传递。内部因素使用 SV_InsideTessFactor 语义
+**为了确定如何细分三角形，GPU 使用了四个细分因子。三角形面片的每个边缘都有一个因数。三角形的内部也有一个因素。** 
+三个边缘向量必须作为具有 `SV_TessFactor` 语义的 float 数组传递。内部因素使用 `SV_InsideTessFactor` 语义
 
-```
+```c
 struct TessellationFactors
 {
      float edge[3] : SV_TessFactor;
@@ -149,15 +150,15 @@ struct TessellationFactors
 };
 ```
 
-实际上，此功能是与 HullProgram 并行运行的子阶段。
+实际上，**此功能是与 HullProgram 并行运行的子阶段。**
 
 ![[957ebed4a6a6f7dfabae62a878af584f_MD5.jpg]]
 
-3.Domain 着色器
+# Domain 着色器
 
-HUll 着色器只是使曲面细分工作所需的一部分。一旦细分阶段确定了应如何细分Patch，则由 Domain 着色器来评估结果并生成最终三角形的顶点。对于每个顶点，都会调用一次 Domain 着色器。一般来讲，这里会涉及到大量的计算，所有的顶点信息都会在这里重新计算，最后会将顶点坐标转换到投影空间。
+HUll 着色器只是使曲面细分工作所需的一部分。**一旦细分阶段确定了应如何细分Patch，则由 Domain 着色器来评估结果并生成最终三角形的顶点。对于每个顶点，都会调用一次 Domain 着色器**。一般来讲，这里会涉及到大量的计算，所有的顶点信息都会在这里重新计算，最后会将顶点坐标转换到投影空间。
 
-```
+```c
 [domain("tri")]//Hull着色器和Domain着色器都作用于相同的域，即三角形。我们通过domain属性再次发出信号
 Varyings DomainProgram(TessellationFactors factors, OutputPatch<ControlPoint, 3> patch, float3 barycentricCoordinates : SV_DomainLocation)
 {
@@ -195,23 +196,20 @@ Varyings AfterTessVertProgram (Attributes v)
 }
 ```
 
-[domain("tri")]->Hull 着色器和 Domain 着色器都作用于相同的域，即三角形。我们通过 domain 属性再次发出信号。
+`[domain("tri")]`->Hull 着色器和 Domain 着色器都作用于相同的域，即三角形。我们通过 domain 属性再次发出信号。
 
 参数说明：
-
-1. TessellationFactors ：由 Patch Constant Function(Patch常数函数) 输入，细分参数。
-
-2. OutputPatch：由 Hull 着色器传入的 patch 数据，尖括号的第二个参数与 Hull 着色器中的 InputPatch 对应。
-
-3. SV_DomainLocation：由曲面细分阶段阶段传入的顶点位置信息。
+1. `TessellationFactors` ：由 Patch Constant Function(Patch常数函数) 输入，细分参数。
+2. `OutputPatch`：由 Hull 着色器传入的 patch 数据，尖括号的第二个参数与 Hull 着色器中的 InputPatch 对应。
+3. `SV_DomainLocation`：由曲面细分阶段阶段传入的顶点位置信息。
 
 Hull 着色器确定Patch的细分方式时，不会产生任何新的顶点。相反，它会为这些顶点提供重心坐标。使用这些坐标来导出最终顶点取决于 Domain 着色器。为了使之成为可能，每个顶点都会调用一次域函数，并为其提供重心坐标。
 
-现在，我们有了一个新的顶点，该顶点将在此阶段之后发送到几何程序或插值器。但是这些程序需要 Varyings 数据，而不是 Attributes。为了解决这个问题，我们让 Domain 着色器接管了原始顶点程序的职责。这是通过调用其中的 AfterTessVertProgram 并返回其结果来完成的。
+现在，我们有了一个新的顶点，该顶点将在此阶段之后发送到几何程序或插值器。但是这些程序需要 Varyings 数据，而不是 Attributes。为了解决这个问题，我们**让 Domain 着色器接管了原始顶点程序的职责**。这是通过调用其中的 AfterTessVertProgram 并返回其结果来完成的。
 
 最后，完整的 Shader 代码如下：
 
-```
+```c
 Shader "V/URP/Tessellation"
 {
     Properties
@@ -399,9 +397,6 @@ Shader "V/URP/Tessellation"
             {
                 Attributes v;
         
-                //为了找到该顶点的位置，我们必须使用重心坐标在原始三角形范围内进行插值。
-                //X，Y和Z坐标确定第一，第二和第三控制点的权重。
-                //以相同的方式插值所有顶点数据。让我们为此定义一个方便的宏，该宏可用于所有矢量大小。
                 #define DomainInterpolate(fieldName) v.fieldName = \
                         patch[0].fieldName * barycentricCoordinates.x + \
                         patch[1].fieldName * barycentricCoordinates.y + \
@@ -413,10 +408,6 @@ Shader "V/URP/Tessellation"
                     DomainInterpolate(color)
                     DomainInterpolate(normal)
                     
-                    //现在，我们有了一个新的顶点，该顶点将在此阶段之后发送到几何程序或插值器。
-                    //但是这些程序需要Varyings数据，而不是Attributes。为了解决这个问题，
-                    //我们让域着色器接管了原始顶点程序的职责。
-                    //这是通过调用其中的AfterTessVertProgram（与其他任何函数一样）并返回其结果来完成的。
                     return AfterTessVertProgram(v);
             }
             

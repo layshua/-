@@ -5,12 +5,12 @@
       "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
     },
     {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
       "basename": "曲面细分着色器",
       "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md"
+    },
+    {
+      "basename": "11 曲线曲面几何",
+      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
     },
     {
       "basename": "平面和线框着色",
