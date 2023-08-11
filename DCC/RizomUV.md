@@ -11,7 +11,7 @@ Maya/C4D/ZB 不加后缀，3dMAX 和 Blender 要加。
 缩放 UV：空格+左键
 旋转 UV：空格+右键
 改变组大小： ![[Pasted image 20230810105036.png]] 
-独立显示：
+独立显示：I
 # 步骤
 ## 按材质 ID 展开
 1. 首先在 DCC 软件中制作材质 ID
