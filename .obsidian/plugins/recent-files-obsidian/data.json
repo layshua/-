@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "RizomUV",
+      "path": "DCC/RizomUV.md"
+    },
+    {
       "basename": "地形编辑Terrain",
       "path": "引擎Unity3D/1 Unity精粹/地形编辑Terrain.md"
     },
@@ -95,10 +99,6 @@
     {
       "basename": "fft 海面模拟（三）",
       "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md"
-    },
-    {
-      "basename": "RizomUV",
-      "path": "DCC/RizomUV.md"
     },
     {
       "basename": "Metallic 与 Specular 流程",

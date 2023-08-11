@@ -50961,6 +50961,7 @@ UniversalRenderer
 Unknown
 UnlitTexture
 UnityToonShader
+UDIM
 api
 ac
 app
@@ -77724,6 +77725,7 @@ PhotonMapping
 PlayerVersion
 Pierson
 Peak
+Pack
 ContextMenuManager
 ClashVerge
 Clash
