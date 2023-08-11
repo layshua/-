@@ -368,7 +368,7 @@ Shader "V/URP/Tessellation"
             [domain("tri")]//明确地告诉编译器正在处理三角形，其他选项：
             [outputcontrolpoints(3)]//明确地告诉编译器每个Patch输出三个控制点
             [outputtopology("triangle_cw")]//当GPU创建新三角形时，它需要知道我们是否要按顺时针或逆时针定义它们
-            [partitioning("fractional_odd")]//告知GPU应该如何分割Patch，现在，仅使用整数模式
+            [partitioning("fractional_odd")]//告知GPU应该如何分割Patch
             [patchconstantfunc("MyPatchConstantFunction")]//GPU还必须知道应将Patch切成多少部分。这不是一个恒定值，每个Patch可能有所不同。必须提供一个评估此值的函数，称为Patch常数函数（Patch Constant Functions）
             ControlPoint HullProgram(InputPatch<ControlPoint, 3> patch, uint id : SV_OutputControlPointID)
             {
