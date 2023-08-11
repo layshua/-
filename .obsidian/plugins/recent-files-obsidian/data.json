@@ -1,6 +1,58 @@
 {
   "recentFiles": [
     {
+      "basename": "平面和线框着色",
+      "path": "zBuffer/平面和线框着色.md"
+    },
+    {
+      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
+      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
+    },
+    {
+      "basename": "11 曲线曲面几何",
+      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
+      "path": "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md"
+    },
+    {
+      "basename": "移动端生成",
+      "path": "技术美术/5 水体渲染/网格生成/移动端生成.md"
+    },
+    {
+      "basename": "一波江水动京城：游戏水面渲染与互动",
+      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
+    },
+    {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "FFT海洋",
+      "path": "技术美术/5 水体渲染/FFT海洋.md"
+    },
+    {
+      "basename": "卡通水",
+      "path": "技术美术/5 水体渲染/卡通水.md"
+    },
+    {
+      "basename": "百人计划水体渲染【乱】",
+      "path": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md"
+    },
+    {
+      "basename": "FFT理论",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
+    },
+    {
+      "basename": "FFT相关推导",
+      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
+    },
+    {
       "basename": "RizomUV",
       "path": "DCC/RizomUV.md"
     },
@@ -37,36 +89,16 @@
       "path": "技术美术/5 水体渲染/FFT海洋/理论解析/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md"
     },
     {
-      "basename": "FFT理论",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
-    },
-    {
       "basename": "概率论与数理统计",
       "path": "Math/概率论/概率论与数理统计.md"
-    },
-    {
-      "basename": "图形引擎实战：浅谈移动端无尽海面的网格生成",
-      "path": "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md"
     },
     {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
       "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
     },
     {
-      "basename": "一波江水动京城：游戏水面渲染与互动",
-      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
-    },
-    {
       "basename": "FFT代码实现",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
-    },
-    {
-      "basename": "FFT相关推导",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "百人计划水体渲染【乱】",
-      "path": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md"
     },
     {
       "basename": "ComputeShader语法",
@@ -77,20 +109,8 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
       "basename": "未命名",
       "path": "技术美术/5 水体渲染/收藏/未命名.md"
-    },
-    {
-      "basename": "移动端生成",
-      "path": "技术美术/5 水体渲染/网格生成/移动端生成.md"
-    },
-    {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
     },
     {
       "basename": "fft 海面模拟 (一)",
@@ -137,18 +157,6 @@
       "path": "Math/Others/三角函数.md"
     },
     {
-      "basename": "FFT海洋",
-      "path": "技术美术/5 水体渲染/FFT海洋.md"
-    },
-    {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "Unity URP ColorGradingLut 分析与实现",
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "《数据持久化》",
-      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
     }
   ],
   "omittedPaths": [],
