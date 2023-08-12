@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/展UV/笔记.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/展UV/笔记.md"
+                "file": "DCC/展UV/RizomUV.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/展UV/笔记.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/展UV/笔记.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,10 +206,14 @@
   },
   "active": "719ad38a0f312361",
   "lastOpenFiles": [
-    "DCC/展UV/RizomUV.md",
     "DCC/展UV/笔记.md",
-    "DCC/展UV",
+    "DCC/展UV/RizomUV.md",
+    "zip/images/Pasted image 20230812093533.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zip/images/Pasted image 20230812093519.png",
+    "zip/images/Pasted image 20230812093516.png",
+    "zip/images/Pasted image 20230812093455.png",
+    "DCC/展UV",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
     "引擎Unity3D/5 粒子系统",
@@ -225,10 +229,6 @@
     "zip/images/00e15607c9fb7f3b42bff604c82d86d5_MD5.png",
     "zip/images/911e873a2ffd65c672436f293f6afcf2_MD5.png",
     "zip/images/ee9dc1b671656ddace7db1adcf591642_MD5.png",
-    "zip/images/e34a6705a55aed8348274188a611e79b_MD5.png",
-    "zip/images/08298a1b510c692929191452d65e6346_MD5.png",
-    "zip/images/624aff64815bfae3e94b02ab6eaa6897_MD5.png",
-    "zip/images/d2a30107cd36a290cf3d6c9ba44aa31e_MD5.png",
     "图形学/1 图形系统/01 渲染管线.md",
     "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
     "rendering-the-wireframe",
@@ -248,7 +248,6 @@
     "技术美术/5 水体渲染/FFT海洋.md",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
     "技术美术/5 水体渲染/收藏",
     "技术美术/5 水体渲染/网格生成",
     "技术美术/5 水体渲染/真实感水体渲染",
