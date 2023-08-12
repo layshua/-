@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "01 粒子系统概述",
+      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+    },
+    {
+      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
+      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
+    },
+    {
       "basename": "RizomUV",
       "path": "DCC/展UV/RizomUV.md"
     },
@@ -11,18 +31,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "01 粒子系统概述",
-      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
-    },
-    {
-      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
-      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
     },
     {
       "basename": "曲面细分着色器",
@@ -47,10 +55,6 @@
     {
       "basename": "rendering-the-wireframe.unitypackage",
       "path": "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md"
-    },
-    {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
     },
     {
       "basename": "8 雪地渲染",
@@ -141,10 +145,6 @@
       "path": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md"
     },
     {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
       "basename": "未命名",
       "path": "技术美术/5 水体渲染/收藏/未命名.md"
     },
@@ -195,10 +195,6 @@
     {
       "basename": "09 阴影",
       "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "2.4 UV原理",
-      "path": "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md"
     }
   ],
   "omittedPaths": [],
