@@ -1432,15 +1432,6 @@ Shader 关键词格式为：`property name_enum name`，属性名称+“下画�
 在 Shader 文件的属性设置面板中可以查看到本 Shader 生成的变体数量，如图 11-2 所示，通过开启“Skip unused shader_features”选项可以只查看使用关键词的变体数量，也可以关闭“Skip unused shader_features”选项查看所有关键词的变体数量。如果需要确定具体的关键词是哪些，可以单击“Show”查看。
 ![[Pasted image 20230615175748.png]]
 
-#### PowerSlider
-指数滑动条（PowerSlider）会将范围型数值的属性显示为非线性对应的滑动条。滑动条上的数值不再按照线性关系进行对应，而是以指数的方式。
-这是一个以 3 为指数对应关系的滑动条，其中，括号内的数值为指数
-```c
-[ PowerSlider (3.0) ]_Brightness ("Brightness", Range (0.01,1)) = 0.1
-```
-#### IntRange
-
-以滑动条的形式在材质属性面板上显示，Int 类型
 
 ### 内置枚举 UI 汇总
 ZWriteMode 是没有内置的，实际上也只有 on 和 off 两个状态，所以用 Toogle 其实也可以，这里是直接用 `[Enum(Off, 0, On, 1)]` 这样的写法声明了个新的自定义 Enum 
