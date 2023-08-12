@@ -8,32 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2536b55eb515d0d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "719ad38a0f312361",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "03843b08893a995c",
             "type": "leaf",
             "state": {
@@ -59,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md"
               }
             }
           }
@@ -153,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
+                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,12 +177,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "719ad38a0f312361",
+  "active": "86b0a46618d8ba0a",
   "lastOpenFiles": [
-    "zBuffer/一波江水动京城：游戏水面渲染与互动.md",
+    "Tools/Git/git入门.md",
+    "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
+    "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
+    "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
@@ -242,8 +217,6 @@
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "引擎Unity3D/5 粒子系统.md",
-    "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md",
-    "技术美术/体积渲染/体积雾.md",
     "rendering-the-wireframe",
     "技术美术/雪地渲染",
     "技术美术/体积渲染",

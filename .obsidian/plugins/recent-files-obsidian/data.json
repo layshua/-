@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "真实感水体渲染",
+      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
       "basename": "FFT代码实现",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
     },
     {
       "basename": "一波江水动京城：游戏水面渲染与互动",
-      "path": "zBuffer/一波江水动京城：游戏水面渲染与互动.md"
+      "path": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md"
     },
     {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
@@ -15,10 +23,6 @@
     {
       "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
       "path": "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
     {
       "basename": "卡通水",
@@ -99,10 +103,6 @@
     {
       "basename": "01 渲染管线",
       "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "rendering-the-wireframe.unitypackage",
-      "path": "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md"
     },
     {
       "basename": "8 雪地渲染",
