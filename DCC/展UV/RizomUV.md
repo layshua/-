@@ -76,8 +76,9 @@ Maya/C4D/ZB 不加后缀，3dMAX 和 Blender 要加。
 ... 设置脚本
 S0 运行脚本
 ![[Pasted image 20230812105214.png]]
-## reset. lua
-将模型 UV 变为整洁的初始 UV
+## 重置UV
+reset. lua
+将模型 UV 重置为整洁的初始 UV
 ![[Pasted image 20230812105307.png]]
 全选后运行脚本：
 ![[Pasted image 20230812105317.png]]
@@ -86,3 +87,7 @@ S0 运行脚本
 ![[Pasted image 20230812105452.png]]
 
 对于部分红色蓝色，单独选择再次使用马赛克工具切割和展开
+
+## UV 堆砌随机分布
+StackSplitter. lua
+适合随机分布草模型的 UV，草全部打一组里不能区分颜色变化，用该将本将一组草分为多组
