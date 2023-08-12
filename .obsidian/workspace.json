@@ -21,6 +21,32 @@
             }
           },
           {
+            "id": "4c8096137458ef02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f3b9cfba3b8edf13",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a152a83523700926",
             "type": "leaf",
             "state": {
@@ -33,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -76,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -126,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/真实感水体渲染.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,15 +204,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "f3b9cfba3b8edf13",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
+    "技术美术/5 水体渲染/真实感水体渲染.md",
     "Tools/Git/git入门.md",
     "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
     "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
     "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
-    "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
@@ -198,7 +227,6 @@
     "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
     "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
     "技术美术/5 水体渲染/FFT海洋.md",
-    "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
     "zBuffer/Unity 自定义 Shader GUI.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/09 体积云.md",
@@ -213,7 +241,6 @@
     "zip/images/Pasted image 20230812100528.png",
     "zip/images/Pasted image 20230812100453.png",
     "DCC/展UV/笔记.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "引擎Unity3D/5 粒子系统.md",

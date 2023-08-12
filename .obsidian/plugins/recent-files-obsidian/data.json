@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
+      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
+    },
+    {
       "basename": "真实感水体渲染",
       "path": "技术美术/5 水体渲染/真实感水体渲染.md"
     },
@@ -65,10 +77,6 @@
       "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
     },
     {
-      "basename": "Unity 渲染基础：URP 下曲面细分的实现",
-      "path": "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md"
-    },
-    {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
@@ -79,10 +87,6 @@
     {
       "basename": "笔记",
       "path": "DCC/展UV/笔记.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
     {
       "basename": "曲面细分着色器",
@@ -119,10 +123,6 @@
     {
       "basename": "M_Studio 教程",
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "遇到的问题",
