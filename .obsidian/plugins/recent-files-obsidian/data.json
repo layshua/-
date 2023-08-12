@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "笔记",
+      "path": "DCC/展UV/笔记.md"
+    },
+    {
+      "basename": "RizomUV",
+      "path": "DCC/展UV/RizomUV.md"
+    },
+    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
     },
@@ -91,10 +99,6 @@
     {
       "basename": "FFT相关推导",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "RizomUV",
-      "path": "DCC/RizomUV.md"
     },
     {
       "basename": "地形编辑Terrain",
@@ -195,10 +199,6 @@
     {
       "basename": "2.4 UV原理",
       "path": "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md"
-    },
-    {
-      "basename": "2.3 硬表面基础",
-      "path": "DCC/01 百人计划美术向/二、模型/2.3 硬表面基础.md"
     }
   ],
   "omittedPaths": [],

@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "DCC/展UV/笔记.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+                "file": "DCC/展UV/笔记.md"
               }
             }
           }
@@ -153,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "DCC/展UV/笔记.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "DCC/展UV/笔记.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,13 +206,16 @@
   },
   "active": "719ad38a0f312361",
   "lastOpenFiles": [
+    "DCC/展UV/RizomUV.md",
+    "DCC/展UV/笔记.md",
+    "DCC/展UV",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
     "引擎Unity3D/5 粒子系统",
     "引擎Unity3D/5 粒子系统.md",
     "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
     "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/体积渲染/体积雾.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
     "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md",
@@ -246,12 +249,9 @@
     "技术美术/5 水体渲染/卡通水.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
-    "DCC/RizomUV.md",
     "技术美术/5 水体渲染/收藏",
     "技术美术/5 水体渲染/网格生成",
     "技术美术/5 水体渲染/真实感水体渲染",
-    "技术美术/5 水体渲染/FFT海洋/理论解析",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
