@@ -138,9 +138,9 @@ Varyings vert(Attributes IN)
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
 
                  clipPos = float4(IN.uv * 2 - 1.0, 1.0, 1.0);
-                float4 viewRay = mul(unity_CameraInvProjection, clipPos);
+                float4 ScreenUV = mul(unity_CameraInvProjection, clipPos);
                 //归一化设备坐标
-                OUT.viewRay = viewRay.xyz / viewRay.w;
+                OUT.ScreenUV = ScreenUV.xyz / ScreenUV.w;
                
                 return OUT;
             }
@@ -150,7 +150,7 @@ Varyings vert(Attributes IN)
                 half4 mainTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv);
                
 
-                float3 viewNormal = DecodeViewNormalStereo(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, IN.uv));
+                float3 ScreenNormal = DecodeScreenNormalStereo(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, IN.uv));
                 
                //解码得到Linear01Depth和观察空间下的法线值
                 float4 depthnormalTex = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, IN.uv);
@@ -161,14 +161,14 @@ Varyings vert(Attributes IN)
 
 
                 //重建观察空间下点的坐标
-                float3 positionVS = linear01Depth *IN.viewRay;
+                float3 positionVS = linear01Depth *IN.ScreenUV;
 
-                viewNormal = normalize(viewNormal);
+                ScreenNormal = normalize(ScreenNormal);
                 float3 viewDir = normalize(positionVS);
 
                 float2 hitScreenPos = float2(0, 0);
                 //计算反射方向
-                float3 reflectDir =normalize(reflect(viewDir, viewNormal));
+                float3 reflectDir =normalize(reflect(viewDir, ScreenNormal));
                 
                 float4 reflectTexMap = (0, 0, 0, 0);
 
@@ -561,7 +561,7 @@ public class ReflectionSettings {
 
 把 Mask 绘制在一张 RT 上，不需要画的物体为原始黑色，需要画的为白色，传入 Shader 中
 
-```
+```c
 public override void Configure(CommandBuffer cmd,RenderTextureDescriptor cameraTextureDescriptor)
     {
             RenderTextureDescriptor desc = cameraTextureDescriptor;
@@ -598,7 +598,7 @@ public override void Configure(CommandBuffer cmd,RenderTextureDescriptor cameraT
 
 MaskShaderPass：
 
-```
+```c
 Pass//写入场景物体深度Pass2
             {
                 Name "SceneDepthOnly"
@@ -697,13 +697,13 @@ Pass//写入场景物体深度Pass2
 
 注意 MainTex 加上完 Reflect 会造成过曝情况，所以这里将 MainTex 的值映射回 0~1
 
-```
+```c
 lerp(sourTex, reflectTex, reflectTex);
 ```
 
 Pass4
 
-```
+```c
 Pass{
 
          Name"Mix"//Pass4
