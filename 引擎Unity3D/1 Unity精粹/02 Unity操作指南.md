@@ -89,3 +89,10 @@ _这里如果不选 Is Global 可以为局部场景添加后处理效果。_
 
 # built-in 升级 URP
 window->rendering->Render pipleline converter
+
+
+# 崩溃恢复
+unit 有时会遇到 unity 崩溃后，辛辛苦苦做的场景就这么没了的情况，这种情况非常忧伤的，其实 unity 是提供了一种拯救场景的措施的；
+**首先 unity 崩溃后不要重新打开 unity，切记，不然就之前的成果就找不回来了**；打开你的工程所在目录，找到 Temp 文件夹（该文件夹正常情况下在工程里是没有的，只有崩溃后才出现，重新打开 unity，该文件夹就会消失），在其中找到_Backupscenes 文件夹，然后打开_Backupscenes 文件夹，找到其中的 0. backup 文件，没错，就是它，将 backup 后缀改成a.unity，然后将文件存放到其他地方去（非 Temp 文件夹）。然后重新打开 unity，将a.unity 文件拖到 unity 中即可；
+![[Pasted image 20230814230242.png]]
+![[Pasted image 20230814230245.png]]

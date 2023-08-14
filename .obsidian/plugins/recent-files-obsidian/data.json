@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "ComputeShader语法",
       "path": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md"
-    },
-    {
-      "basename": "fft 海面模拟 (一)",
-      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md"
     }
   ],
   "omittedPaths": [],
