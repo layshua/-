@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md"
+                "file": "DCC/展UV/RizomUV.md"
               }
             }
           }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -207,8 +207,14 @@
   },
   "active": "f3b9cfba3b8edf13",
   "lastOpenFiles": [
-    "技术美术/常用HLSL函数.md",
+    "zip/images/Pasted image 20230814094450.png",
+    "zip/images/Pasted image 20230814094432.png",
+    "zip/images/Pasted image 20230814092838.png",
+    "zip/images/Pasted image 20230814092741.png",
+    "zip/images/Pasted image 20230814092725.png",
+    "zip/images/Pasted image 20230814092510.png",
     "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+    "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
     "zBuffer/Unity 渲染基础：URP 下曲面细分的实现.md",
@@ -232,17 +238,11 @@
     "技术美术/5 水体渲染/FFT海洋.md",
     "zBuffer/Unity 自定义 Shader GUI.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/1 渲染雅集/09 体积云.md",
     "zip/images/Pasted image 20230812105452.png",
     "zip/images/Pasted image 20230812105425.png",
     "zip/images/Pasted image 20230812105317.png",
     "zip/images/Pasted image 20230812105307.png",
     "zip/images/Pasted image 20230812105214.png",
-    "zip/images/Pasted image 20230812101103.png",
-    "zip/images/Pasted image 20230812101048.png",
-    "zip/images/Pasted image 20230812100656.png",
-    "zip/images/Pasted image 20230812100528.png",
-    "zip/images/Pasted image 20230812100453.png",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
