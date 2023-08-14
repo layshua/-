@@ -46,31 +46,9 @@ MaskID;
 
 既然已经 5 个 Pass 了，咱也不敢在手机上跑一跑~ 就充当课后娱乐吧~ 追求高质量为先~ 反正 RayMarching 也不能用在手机上~
 
-![[810729b4eb3bd7412330ed7de4f9d6e3_MD5.jpg]]
-
-  
-先放效果（工程在结尾）
-
-![[38b1b23cc1e6325e82bc73d62862e718_MD5.jpg]]
-
-![[f5bf909ebd77f1986b885dddab6ee8ce_MD5.jpg]]
-
-![[d1165d15317ed83e6d43db6256283e30_MD5.jpg]]
-
-主要参考文章：
-
-[https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html](https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html)
-
 ## raymarching 光线步进
 
-随便上个后处理方便处理效果，这里用一个万能的：（也可不用后处理，以后有时间会优化下）
-
-[Edge Detection Outlines](https://alexanderameye.github.io/notes/edge-detection-outlines/)
-
 定义两个函数：
-
-具体原理可以参考：[Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）](https://blog.csdn.net/puppet_master/article/details/80808486)
-
 *   判断光线是否与物体相交，如果相交，且在屏幕之内，并且在视线的正方向，小于一定的深度阙值，便判定为相交。（深度阙值最好用物体厚度图，不然厚度不一放在场景里就很尴尬）
 
 ```c
