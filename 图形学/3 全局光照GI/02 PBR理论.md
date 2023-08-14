@@ -708,7 +708,7 @@ Linearly Transformed Cosines：线性变换余弦分布
 
 **在实时渲染中, 我们只关心近似约等, 我们不考虑不等的情况, 因此我们将这些不等式当约等式来使用。**
 
-**在 RTR 中一个重要的近似：**
+**在 RTR 中一个重要的近似式：**
 
 $$
 \int_\Omega f(x)g(x)\mathrm{~d}x\approx\frac{\int_\Omega f(x)\mathrm{~d}x}{\int_\Omega\mathrm{~d}x}\cdot\int_\Omega g(x)\mathrm{~d}x

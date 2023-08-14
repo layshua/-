@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
     {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+      "basename": "20 景深和散景模糊——数学篇",
+      "path": "技术美术/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "05 环境光照IBL",
@@ -23,10 +27,6 @@
     {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "技术美术/雪风/20 景深和散景模糊——数学篇.md"
     },
     {
       "basename": "01 图像模糊",
