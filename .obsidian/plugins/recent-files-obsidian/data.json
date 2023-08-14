@@ -1,20 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客",
-      "path": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
+      "basename": "36 造一个 PBR 的轮子",
+      "path": "技术美术/雪风/36 造一个 PBR 的轮子.md"
     },
     {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "技术美术/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客",
+      "path": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
     },
     {
       "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
       "path": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
     },
     {
-      "basename": "图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客",
-      "path": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客",
+      "path": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
     },
     {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
@@ -31,22 +51,6 @@
     {
       "basename": "03 光照向量",
       "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
-    },
-    {
-      "basename": "02 PBR理论",
-      "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "34 SSPR屏幕空间平面反射",
-      "path": "技术美术/雪风/34 SSPR屏幕空间平面反射.md"
-    },
-    {
-      "basename": "35 屏幕空间平面反射 SSPR 补充",
-      "path": "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md"
     },
     {
       "basename": "06 全局光照GI",
@@ -195,10 +199,6 @@
     {
       "basename": "fft 海面模拟 (一)",
       "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟 (一).md"
-    },
-    {
-      "basename": "fft 海面模拟（三）",
-      "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（三）.md"
     }
   ],
   "omittedPaths": [],
