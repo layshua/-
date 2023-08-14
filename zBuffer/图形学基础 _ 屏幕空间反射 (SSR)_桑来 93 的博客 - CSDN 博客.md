@@ -98,11 +98,11 @@
 
 1.  需要全屏深度和全屏法线，延迟渲染管线中是可以免费拿到的！但是前向渲染的话，需要额外渲染一遍 DepthNormalMap。
 2.  Shader 中需要进行 RayMarching，对于 GPU 的负载较大，且步进是有一定步长的，它本身不可能非常精确。
-3.  效果存在自身缺陷，由于只有屏幕可见的物体信息，不在屏幕内的，就完全不会反射。这属于技术本身的瓶颈。
+3.  效果存在自身缺陷，由于只有屏幕可见的物体信息，不在屏幕内的，就完全不会反射。这属于屏幕空间技术本身的瓶颈。
 
-## 三、SSR（Screen-Space Reflection）实现
+# 三、SSR（Screen-Space Reflection）实现
 
-### 3.1 Efficient GPU Screen-Space Ray Tracing
+## 3.1 Efficient GPU Screen-Space Ray Tracing
 
 2.4.1 中介绍了屏幕空间反射的基本原理：
 
@@ -113,52 +113,43 @@
 问题 1：**为什么要用屏幕空间的光线步进代替三维空间的光线步进呢**？
 
 三维空间的光线步进过程如下（以世界空间为例）：
-
-1.  对于着色点 x x x，根据其法线和视角方向，计算得到反射方向 R R R；
-2.  以着色点 x x x 为起点，沿着反射方向 R R R，每次步进一定距离，得到一个新的点，记作 x i x_i xi​， x i = x + i ∗ Δ p x_i = x + i * \Delta p xi​=x+i∗Δp。
+1.  对于着色点 $x$，根据其法线和观察方向，计算得到反射方向 $R$；
+2.  以着色点 $x$ 为起点，沿着反射方向 R ，每次步进一定距离，得到一个新的点，记作 $x_i$ ， $x_ i = x + i ∗ Δ p$
 3.  将这个新的点投影到屏幕空间，得到其 UV 坐标；
-4.  有了 UV 坐标之后，采样深度缓存，得到深度 S a m p l e D e p t h SampleDepth SampleDepth，将深度转换到世界空间与 x i x_i xi​的深度进行比较。
+4.  有了 UV 坐标之后，采样深度缓存，得到深度  SampleDepth，将深度转换到世界空间与 $x_i​$ 的深度进行比较。
 
 但上面的步骤存在以下的问题，如图所示。蓝色小格子代表一个一个的像素，红色代表该点所对应的像素。
 
-可以看到，非常多的点 x i x_i xi​ 对应的是同一个像素，这就导致了一些区域**过采样**。
+可以看到，非常多的点 $x _i$ 对应的是同一个像素，这就导致了一些区域**过采样**。
 
 ![[f384f2d8ab333b96ca5d97f576875921_MD5.jpg]]
 
-又有下图的情况， x i x_i xi​之间的间隔又比较大（跳过了一些像素），这就导致一些区域**欠采样**。
+又有下图的情况， $x _i$ 之间的间隔又比较大（跳过了一些像素），这就导致一些区域**欠采样**。
 
 ![[5de36769261acd81c3a8a4576c31f935_MD5.jpg]]
 
 因此，[Efficient GPU Screen-Space Ray Tracing](http://jcgt.org/published/0003/04/04/) 文章提供了在屏幕空间进行光线步进的方法！
 
 相比于基于 3D 空间的算法来说，有以下 4 点改进：
-
 1.  像素采样点是连续的；
 2.  每个像素采样点不会出现重复计算；
 3.  ray 的取样范围会被限制在 view frustum 内；
 4.  算法内高效利用 GPU 特性，例如减少寄存器使用量、分支判断和耗时的内置函数；
 
 问题 2：**如何在屏幕空间中进行光线步进**？
-
 在屏幕空间中步进，其实就是在屏幕空间画直线！
 
 在做软光栅时，曾了解过两个经典的[画直线算法](https://blog.csdn.net/qjh5606/article/details/88903067)，即 DDA 和 Bresenham 算法。
 
-其中，DDA 画线算法是最简单的一种画线算法，它由公式 y = k x + b y=kx+b y=kx+b 推导得到。
+其中，DDA 画线算法是最简单的一种画线算法，它由公式 $y = k x + b$ 推导得到。
 
 关键之处在于如何设定**单位步进**，**即一个方向的步进为单位步进，即 1**，另一个方向的步进必然是小于 1。
 
-如图所示，已知点 A 为 ( x , y ) (x,y) (x,y)，那么下一个点 P 0 P_0 P0​为 ( x + Δ x , y + Δ y ) (x+\Delta x,y+\Delta y) (x+Δx,y+Δy)，再下一步则为 P 1 = P 0 + ( Δ x , Δ y ) P_1=P_0+(\Delta x,\Delta y) P1​=P0​+(Δx,Δy)。
+如图所示，已知点 A 为$( x , y )$ ，那么下一个点  $P_0$为 $( x + Δ x , y + Δ y )$ ，再下一步则为 $P 1 = P 0 + ( Δ x , Δ y )$。
 
 主方向的步进单位一直为 1，另一个方向的步进距离则为小于 1 的斜率，即：
 
-{ Δ x = 1 Δ y = y B − y A x B − x A \left\{
-
 $$\begin{matrix} \Delta x & = 1 \\ \Delta y & = \frac{y_B-y_A}{x_B-x_A} \end{matrix}$$
-
-\right.
-
-{ΔxΔy​=1=xB​−xA​yB​−yA​​​
 
 ![[2d4d978a2bd40014a2e27791e885efef_MD5.jpg]]
 
@@ -168,7 +159,7 @@ $$\begin{matrix} \Delta x & = 1 \\ \Delta y & = \frac{y_B-y_A}{x_B-x_A} \end{mat
 
 伪代码如下：
 
-```
+```c
 // 为了代码的简洁则可以交换x和y
 if(abs(xB - xA) < abs(yB -yA))
     swap(A,B);
@@ -181,7 +172,6 @@ for A to B
 ```
 
 通过上述 DDA 算法实现的屏幕空间步进，可以明显地看出其与 3D 空间步进的区别：
-
 *   3D 空间中均匀步进后的采样点坐标投射到 2D 屏幕空间中，点与点之间的步长却是不均匀的，会出现跳过某些屏幕区域甚至在某些点处重复计算。如下图左所示，红色点标记的为过采样区域。
 *   屏幕空间的步进可以保证：像素采样点是连续的，并且每个像素采样点不会出现重复计算。如下图右所示。
 
@@ -193,7 +183,7 @@ for A to B
 
 **屏幕空间步进起点和方向**
 
-```
+```c
 float3 Screen0 = float3(Tex, Depth);
 // 恢复世界坐标
 float3 World0 = UnprojectScreen(Screen0);
@@ -212,7 +202,7 @@ float3 StepScreen = normalize(Screen1 - Screen0);
 
 **步进与相交测试**
 
-```
+```c
 for (int i = 0; i < MaxLinearStep; ++i)
 {
     // 光线步进
@@ -257,7 +247,7 @@ for (int i = 0; i < MaxLinearStep; ++i)
 
 采用了 UE4 中的重要性采样方法生成反射方向。
 
-```
+```c
 // UE4 Random.ush
 // 3D random number generator inspired by PCGs (permuted congruential generator).
 uint3 Rand3DPCG16(int3 p) {
@@ -434,7 +424,7 @@ HiZ 要求 Buffer 是严格的 aligned quad tree（对齐四叉树），这样�
 
 GPU PRO5 提供了 HiZTrace 相应的 Shader 代码：
 
-```
+```c
 // starting level to traverse from 
 // 从Level=0开始
 level = 0 
@@ -492,7 +482,7 @@ UE4 实现的方式如下：
 
 计算的代码如下：
 
-```
+```c
 int32_t NumMipsX = std::max((int32_t)std::ceil(std::log2(ScreenWidth) - 1.0), 1);
 int32_t NumMipsY = std::max((int32_t)std::ceil(std::log2(ScreenHeight) - 1.0), 1);
 int32_t HZBWidth = 1 << NumMipsX;
@@ -503,7 +493,7 @@ int32_t HZBHeight = 1 << NumMipsY;
 
 这里采用 ComputeShader 实现 HiZBuffer 的创建：
 
-```
+```c
 void Gather4(float2 BufferUV, out float4 MinZ)
 {
     // 偏移一点，点采样周围4个像素
@@ -540,7 +530,7 @@ void CS_BuildHZB(uint2 GroupId : SV_GroupID,
 
 结合 GPU PRO5 提供的代码，笔者的代码如下：
 
-```
+```c
 float3 IntersectDepthPlane(float3 RayOrigin, float3 RayDir, float t) {
 	return RayOrigin + RayDir * t;
 }

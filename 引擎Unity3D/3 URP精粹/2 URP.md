@@ -768,7 +768,7 @@ float4 frag(VertexOutput i): SV_Target
 SAMPLER(sampler_unity_SpecCube0);
 
 //片元着色器计算
-float3 R = normalize(reflect(-V, N)); 
+float3 R = normalize(reflect(-V, N));  //要求V和N都是单位向量
 //用反射向量采样cubemap
 float4 environment = SAMPLE_TEXTURECUBE(unity_SpecCube0,sampler_unity_SpecCube0, R); 
 //立方体贴图包含高动态范围的颜色，这允许它包含大于1的亮度值。我们必须将样本从HDR格式转换为RGB格式。否则可能发生过曝

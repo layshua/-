@@ -2,11 +2,8 @@
 
 利用屏幕空间的深度，法线进行 RayMarching，得到反射的采样在屏幕上的颜色。
 
-首先，需要法线图 -> 计算入射光线被平面反射之后的角度
-
-然后需要深度图 -> 对屏幕上的像素计算每一个反射光线，从视空间的点出发进行 RayMarching，计算射线是否与物体相交，如果大于深度图且在屏幕之内，就将该点的位置再次变换到屏幕空间进行采样
-
-（屏幕空间重建视空间下的坐标 -> 进行 raymarching-> 打到物体将视空间坐标点转换为屏幕上的 UV 值，采样）。
+1. 首先，需要**法线图** -> 计算入射光线被平面反射之后的角度
+2. 然后需要**深度图** -> 对屏幕上的像素计算每一个反射光线，从观察空间的点出发进行 RayMarching，计算射线是否与物体相交，如果大于深度图且在屏幕之内，就将该点的位置再次变换到屏幕空间进行采样（屏幕空间重建观察空间下的坐标 -> 进行 raymarching-> 打到物体将观察空间坐标点转换为屏幕上的 UV 值，采样）。
 
 屏幕空间反射只能计算屏幕中的像素的反射。
 
@@ -64,38 +61,6 @@ MaskID;
 
 [https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html](https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html)
 
-## 题外（可以不看）
-
-在 URP 里得到法线深度图和自定义后处理还是挺麻烦（Disgust）的，毕竟在内置管线一个
-
-camera.depthMode = DepthTextureMode.DepthNormal 和
-
-OnRenderImage
-
-就可以做出来。（冯乐乐《UnityShader 入门精要》13.1 章）
-
-不过还是在这里贴出一个结合了两者麻烦之处的屏幕空间反射效果，虽然移动端现在有了个更新的方法：SSPR, 屏幕空间平面反射，（只能用于平面反射）但还是想做 SSR，毕竟题主喜欢光追，也相信真正的物理模拟才是未来，况且移动端的 Gpu 也在变好（Vivo 的自研芯片都出来了，），所以做出光追就好好地优化，根据 Nvidia 最新发布的 Omniverse 可以看到 着色技术 + RTCORE + 神经网络降噪可以将 90ms 渲染降低到 20ms，降噪不是什么难事，再加上 BVH 加速结构等等，尽量使算法更加优化吧~
-
-![[ae8ab672d3144e15e01fb8f7b2c6c372_MD5.jpg]]
-
-[http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/](http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/)[Screen Space Planar Reflections in Ghost Recon Wildlands](http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/)
-
-## DepthNormalsTexture
-
-在 urp 管线中，depthNormalTexture 无法一下获得，我们要利用 RenderFeature 重写一下原来的 depthNormaltexture 的 shader：
-
-![[2c55b5287121ffddf53a1d4875e47670_MD5.jpg]]
-
-在 Windows->Analysis->FrameDebug 中可以看到输出的图片
-
-![[632bd5f2a3d82d83215d7d2937a0baf0_MD5.jpg]]
-
-![[efa8e605024892f57913281982f7638e_MD5.jpg]]
-
-[Unity URP RenderFeature 自定义后效](https://blog.csdn.net/enk_2/article/details/109081930)
-
-![[f36b01c980b3be6b78dce69086b2522e_MD5.jpg]]
-
 ## raymarching 光线步进
 
 随便上个后处理方便处理效果，这里用一个万能的：（也可不用后处理，以后有时间会优化下）
@@ -108,28 +73,29 @@ OnRenderImage
 
 *   判断光线是否与物体相交，如果相交，且在屏幕之内，并且在视线的正方向，小于一定的深度阙值，便判定为相交。（深度阙值最好用物体厚度图，不然厚度不一放在场景里就很尴尬）
 
+```c
+bool checkDepthCollision(float3 viewPos, out float2 screenPos,inout float depthDistance)
+{
+    //将观察空间的值变换到裁剪空间，计算屏幕空间的采样位置
+    float4 clipPos = mul(unity_CameraProjection, float4(viewPos, 1.0));
+     //裁剪空间齐次除法
+     clipPos = clipPos / clipPos.w;
+
+     //变换到屏幕空间
+     screenPos = float2(clipPos.x, clipPos.y) * 0.5 + 0.5;
+
+     float4 depthnormalTex = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, screenPos);
+     
+     float4 depthcolor = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, sampler_CameraDepthTexture,screenPos);
+     float depth = LinearEyeDepth(depthcolor, _ZBufferParams)+ 0.2;
+    
+     return screenPos.x > 0 && screenPos.y > 0 && screenPos.x < 1.0 && screenPos.y < 1.0 && (depth < -viewPos.z) && depth+_depthThickness>-viewPos.z;
+}
 ```
-bool checkDepthCollision(float3 viewPos, out float2 screenPos,inout float depthDistance) {
-                //将视空间的值变换到裁剪空间，计算屏幕空间的采样位置
-                float4 clipPos = mul(unity_CameraProjection, float4(viewPos, 1.0));
-                 //裁剪空间齐次除法
-                 clipPos = clipPos / clipPos.w;
 
-                 //变换到屏幕空间
-                 screenPos = float2(clipPos.x, clipPos.y) * 0.5 + 0.5;
+*   从观察空间的像素点发出光线（这里是已经有了加速结构的）
 
-                 float4 depthnormalTex = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, screenPos);
-                 
-                 float4 depthcolor = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, sampler_CameraDepthTexture,screenPos);
-                 float depth = LinearEyeDepth(depthcolor, _ZBufferParams)+ 0.2;
-                
-                 return screenPos.x > 0 && screenPos.y > 0 && screenPos.x < 1.0 && screenPos.y < 1.0 && (depth < -viewPos.z) && depth+_depthThickness>-viewPos.z;
-           }
-```
-
-*   从视空间的像素点发出光线（这里是已经有了加速结构的）
-
-```
+```c
 bool viewSpaceRayMarching(float3 rayOri, float3 rayDir,float currentRayMarchingStepSize,inout float depthDistance,inout float3 currentViewPos,inout float2 hitScreenPos,float2 ditherUV) {
                 float2 offsetUV = fmod(floor(ditherUV),4.0);
                 float ditherValue = SAMPLE_TEXTURE2D(_ditherMap, sampler_ditherMap,offsetUV * 0.25).a;
@@ -155,7 +121,7 @@ bool viewSpaceRayMarching(float3 rayOri, float3 rayDir,float currentRayMarchingS
 
 ## 加速结构：
 
-```
+```c
 //搜索法
  bool binarySearchRayMarching(float3 rayOri,float3 rayDir,inout float2 hitScreenPos) {
      float currentStepSize = _rayMarchingStepSize;
@@ -185,7 +151,7 @@ bool viewSpaceRayMarching(float3 rayOri, float3 rayDir,float currentRayMarchingS
 
 然后在片源和顶点着色器中实现：
 
-```
+```c
 Varyings vert(Attributes IN)
             {
                 Varyings OUT;
@@ -208,7 +174,7 @@ Varyings vert(Attributes IN)
 
                 float3 viewNormal = DecodeViewNormalStereo(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, IN.uv));
                 
-               //解码得到Linear01Depth和视空间下的法线值
+               //解码得到Linear01Depth和观察空间下的法线值
                 float4 depthnormalTex = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, IN.uv);
                
                 float4 depthcolor = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, sampler_CameraDepthTexture, IN.uv);
@@ -216,7 +182,7 @@ Varyings vert(Attributes IN)
        
 
 
-                //重建视空间下点的坐标
+                //重建观察空间下点的坐标
                 float3 positionVS = linear01Depth *IN.viewRay;
 
                 viewNormal = normalize(viewNormal);

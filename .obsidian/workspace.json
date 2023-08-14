@@ -21,6 +21,32 @@
             }
           },
           {
+            "id": "da2f04721565e73f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "91ab2139ae5add63",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/0 3D数学/公式推导/03 光照向量.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a8c15f05254b27d6",
             "type": "leaf",
             "state": {
@@ -46,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
+                "file": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
               }
             }
           }
@@ -140,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
+                "file": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
+                "file": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -191,23 +218,27 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4c8096137458ef02",
+  "active": "da2f04721565e73f",
   "lastOpenFiles": [
     "引擎Unity3D/3 URP精粹/2 URP.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
+    "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
     "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
-    "技术美术/5 水体渲染/SSR屏幕空间反射",
-    "zip/images/3ccaddb0cf796f3d46284fc8bad92645_MD5.png",
-    "zip/images/63b0d2424b14a5c108da960975ef6593_MD5.gif",
-    "zip/images/2c7a5cf7103c943267b0908de0880db6_MD5.png",
-    "zip/images/2a057d4b5427253fbd6ba5fc31aa50d5_MD5.png",
-    "zip/images/fdff9a48cf6ee1c89335a86df0135cd1_MD5.png",
-    "zip/images/9cef3b10cdc71304ee405b4abf5ffb83_MD5.png",
-    "zip/images/ee6f55d9868f2ceb082b8749ce59d496_MD5.png",
-    "zip/images/0c4dbd86959c28c1abfe4c8fd20ca7c5_MD5.png",
-    "zip/images/b416980a57b25219a477f5b842680f94_MD5.png",
-    "zip/images/b0c977be01642913469b3501949da384_MD5.png",
+    "图形学/0 3D数学/公式推导/03 光照向量.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "zBuffer/URP 下屏幕空间平面反射（ScreenSpacePlanarReflection）学习笔记 _ 登峰造极者，殊途亦同归。.md",
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
+    "zip/images/1692014251391.png",
+    "zip/images/1692014251264.png",
+    "zip/images/1692014251208.png",
+    "zip/images/1692014251161.png",
+    "zip/images/1692014251015.png",
+    "zip/images/1692014250964.png",
+    "zip/images/1692014250899.png",
+    "zip/images/1692014250850.png",
+    "zip/images/1692014250686.png",
+    "zip/images/1692014250623.png",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "技术美术/5 水体渲染/SSR屏幕空间反射",
     "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "图形学/3 全局光照GI/06 全局光照GI.md",
@@ -219,7 +250,6 @@
     "技术美术/3 后处理/01 图像模糊.md",
     "DCC/展UV/RizomUV.md",
     "DCC/展UV/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
@@ -227,9 +257,6 @@
     "Tools/Git/git入门.md",
     "技术美术/5 水体渲染/真实感水体渲染.md",
     "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md",
-    "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
-    "技术美术/5 水体渲染/卡通水.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
