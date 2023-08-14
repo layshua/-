@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4db80e7d143dd40a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md"
+                "file": "图形学/3 全局光照GI/02 PBR理论.md"
               }
             }
           }
@@ -153,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
+                "file": "图形学/3 全局光照GI/02 PBR理论.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,8 +218,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4c8096137458ef02",
+  "active": "4db80e7d143dd40a",
   "lastOpenFiles": [
+    "图形学/3 全局光照GI/06 全局光照GI.md",
+    "图形学/3 全局光照GI/05 环境光照IBL.md",
+    "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "技术美术/雪风/20 景深和散景模糊——数学篇.md",
@@ -223,7 +240,6 @@
     "zip/images/Pasted image 20230814094432.png",
     "zip/images/Pasted image 20230814092838.png",
     "zip/images/Pasted image 20230814092741.png",
-    "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
@@ -240,8 +256,6 @@
     "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
     "技术美术/5 水体渲染/FFT海洋/理论解析/FT 在图形渲染中的应用：基于 FFT 的海洋模拟.md",
     "技术美术/5 水体渲染/FFT海洋/FFT理论.md",
-    "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
-    "技术美术/5 水体渲染/FFT海洋.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
