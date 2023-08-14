@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+      "basename": "图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客",
+      "path": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
+      "path": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
+    },
+    {
+      "basename": "34 SSPR屏幕空间平面反射",
+      "path": "技术美术/雪风/34 SSPR屏幕空间平面反射.md"
+    },
+    {
+      "basename": "35 屏幕空间平面反射 SSPR 补充",
+      "path": "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md"
+    },
+    {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
     },
     {
       "basename": "20 景深和散景模糊——数学篇",
@@ -179,26 +199,6 @@
     {
       "basename": "fft 海面模拟（二）",
       "path": "技术美术/5 水体渲染/FFT海洋/理论解析/fft 海面模拟（二）.md"
-    },
-    {
-      "basename": "微积分基础",
-      "path": "Math/微积分/微积分基础.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "参数化曲线",
-      "path": "图形学/0 3D数学/参数化曲线.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
     }
   ],
   "omittedPaths": [],

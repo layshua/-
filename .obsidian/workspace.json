@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a8c15f05254b27d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md"
+                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
               }
             }
           }
@@ -127,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/3 全局光照GI/06 全局光照GI.md",
+                "file": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -180,13 +193,25 @@
   },
   "active": "4c8096137458ef02",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230814160404.png",
-    "zip/images/Pasted image 20230814155612.png",
-    "zip/images/Pasted image 20230814155334.png",
-    "zip/images/Pasted image 20230814155202.png",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "技术美术/雪风/20 景深和散景模糊——数学篇.md",
+    "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
+    "技术美术/5 水体渲染/SSR屏幕空间反射",
+    "zip/images/3ccaddb0cf796f3d46284fc8bad92645_MD5.png",
+    "zip/images/63b0d2424b14a5c108da960975ef6593_MD5.gif",
+    "zip/images/2c7a5cf7103c943267b0908de0880db6_MD5.png",
+    "zip/images/2a057d4b5427253fbd6ba5fc31aa50d5_MD5.png",
+    "zip/images/fdff9a48cf6ee1c89335a86df0135cd1_MD5.png",
+    "zip/images/9cef3b10cdc71304ee405b4abf5ffb83_MD5.png",
+    "zip/images/ee6f55d9868f2ceb082b8749ce59d496_MD5.png",
+    "zip/images/0c4dbd86959c28c1abfe4c8fd20ca7c5_MD5.png",
+    "zip/images/b416980a57b25219a477f5b842680f94_MD5.png",
+    "zip/images/b0c977be01642913469b3501949da384_MD5.png",
+    "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
+    "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
+    "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "图形学/3 全局光照GI/06 全局光照GI.md",
+    "技术美术/雪风/20 景深和散景模糊——数学篇.md",
     "图形学/3 全局光照GI/05 环境光照IBL.md",
     "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/雪风/21 和散景模糊——实践篇.md",
@@ -195,13 +220,6 @@
     "DCC/展UV/RizomUV.md",
     "DCC/展UV/RizomUV 常见问题解决手册 - 哔哩哔哩.md",
     "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
-    "zip/images/Pasted image 20230814110225.png",
-    "zip/images/Pasted image 20230814101217.png",
-    "zip/images/Pasted image 20230814100440.png",
-    "zip/images/Pasted image 20230814100222.png",
-    "zip/images/Pasted image 20230814095845.png",
-    "zip/images/Pasted image 20230814095811.png",
-    "zip/images/Pasted image 20230814094450.png",
     "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/百人计划水体渲染【乱】.md",
     "图形学/1 图形系统/11 曲线曲面几何.md",
@@ -212,10 +230,6 @@
     "rendering-the-wireframe/rendering-the-wireframe.unitypackage.md",
     "技术美术/5 水体渲染/卡通水.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "技术美术/5 水体渲染/网格生成/图形引擎实战：浅谈移动端无尽海面的网格生成.md",
-    "技术美术/5 水体渲染/网格生成/移动端生成.md",
-    "技术美术/5 水体渲染/收藏/未命名.md",
-    "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
@@ -225,7 +239,6 @@
     "引擎Unity3D/Catlike Coding/Advanced Rendering",
     "技术美术/5 水体渲染/收藏",
     "技术美术/5 水体渲染/网格生成",
-    "技术美术/5 水体渲染/真实感水体渲染",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
