@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
       "basename": "36 造一个 PBR 的轮子",
       "path": "技术美术/雪风/36 造一个 PBR 的轮子.md"
     },
@@ -99,10 +103,6 @@
     {
       "basename": "git入门",
       "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
     {
       "basename": "真实感水体渲染",
