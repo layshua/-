@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -75,10 +79,6 @@
     {
       "basename": "工具流",
       "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
     },
     {
       "basename": "36 造一个 PBR 的轮子",
