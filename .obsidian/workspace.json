@@ -8,58 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4c8096137458ef02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/雪风/36 造一个 PBR 的轮子.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f9cd3e945de6ef16",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1eb379c21b72534b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d7004f71db5a8c6a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DCC/展UV/RizomUV.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a7ebc8b45486f448",
             "type": "leaf",
             "state": {
@@ -73,12 +21,12 @@
             }
           },
           {
-            "id": "887d19bba9812a82",
+            "id": "431f44f38e8c203f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/建模原理.md",
+                "file": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,20 +34,19 @@
             }
           },
           {
-            "id": "1bcef269f6dd37b6",
+            "id": "b9a1b44d8d7cc9cc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -245,9 +192,18 @@
   },
   "active": "a7ebc8b45486f448",
   "lastOpenFiles": [
+    "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
+    "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
+    "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
+    "zBuffer/SSPR.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
+    "技术美术/3 后处理/SSAO/Unity URP 实现 HBAO.md",
+    "技术美术/3 后处理/04 SSAO.md",
+    "技术美术/3 后处理/SSAO",
+    "技术美术/3 后处理/SSAO/Unity URP 实现 SSAO.md",
     "图形学/1 图形系统/10 色彩.md",
     "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
-    "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
     "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
     "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",
     "zip/images/005ff9c8beaed084f165f9829367e484_MD5.jpg",
@@ -258,10 +214,7 @@
     "zip/images/8f1ef29cb4a8d4723d2386057ff9c9d7_MD5.jpg",
     "zip/images/01d2127e39bee464998be7d163634f53_MD5.jpg",
     "zip/images/dd52df44c23d9068afad302a12ee1f2e_MD5.jpg",
-    "zBuffer/Unity URP 实现 HBAO.md",
-    "zBuffer/Unity URP 实现 SSAO.md",
     "DCC/展UV/RizomUV.md",
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md",
     "DCC/02 Blender/建模原理.md",
@@ -272,15 +225,10 @@
     "技术美术/雪风/36 造一个 PBR 的轮子.md",
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
-    "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
-    "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
     "技术美术/常用HLSL函数.md",
-    "zBuffer/SSPR.md",
-    "图形学/0 3D数学/公式推导/03 光照向量.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
@@ -290,7 +238,6 @@
     "未命名",
     "引擎Unity3D/Catlike Coding/Advanced Rendering",
     "技术美术/5 水体渲染/收藏",
-    "技术美术/5 水体渲染/网格生成",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
@@ -299,4 +246,7 @@
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
-    "Tools/系统安全/未�
+    "Tools/系统安全/未命名.canvas",
+    "虚幻UE/4 特效/月神3/未命名.canvas"
+  ]
+}

@@ -5,6 +5,34 @@
       "path": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
     },
     {
+      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
+      "path": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
+    },
+    {
+      "basename": "Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客",
+      "path": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "SSPR",
+      "path": "zBuffer/SSPR.md"
+    },
+    {
+      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
+      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "Unity URP 实现 HBAO",
+      "path": "技术美术/3 后处理/SSAO/Unity URP 实现 HBAO.md"
+    },
+    {
+      "basename": "04 SSAO",
+      "path": "技术美术/3 后处理/04 SSAO.md"
+    },
+    {
+      "basename": "Unity URP 实现 SSAO",
+      "path": "技术美术/3 后处理/SSAO/Unity URP 实现 SSAO.md"
+    },
+    {
       "basename": "10 色彩",
       "path": "图形学/1 图形系统/10 色彩.md"
     },
@@ -13,20 +41,8 @@
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
     },
     {
-      "basename": "Unity URP 实现 HBAO",
-      "path": "zBuffer/Unity URP 实现 HBAO.md"
-    },
-    {
-      "basename": "Unity URP 实现 SSAO",
-      "path": "zBuffer/Unity URP 实现 SSAO.md"
-    },
-    {
       "basename": "RizomUV",
       "path": "DCC/展UV/RizomUV.md"
-    },
-    {
-      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
-      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
     },
     {
       "basename": "2.5 模型常见问题及其规范",
@@ -69,14 +85,6 @@
       "path": "技术美术/雪风/34 SSPR屏幕空间平面反射.md"
     },
     {
-      "basename": "图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客",
-      "path": "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
-      "path": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
-    },
-    {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
     },
@@ -89,16 +97,8 @@
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     },
     {
-      "basename": "Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客",
-      "path": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
-    },
-    {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "SSPR",
-      "path": "zBuffer/SSPR.md"
     },
     {
       "basename": "03 光照向量",
@@ -195,10 +195,6 @@
     {
       "basename": "曲面细分着色器",
       "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md"
-    },
-    {
-      "basename": "体积雾",
-      "path": "技术美术/体积渲染/体积雾.md"
     }
   ],
   "omittedPaths": [],

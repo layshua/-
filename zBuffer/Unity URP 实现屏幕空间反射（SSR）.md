@@ -2,7 +2,7 @@ Unity 版本：2022
 
 URP 版本：14.0
 
-基础 SSR 很简单，更重要的是如何对其进行优化和应用。在本文中，首先完成了在视空间的 SSR，然后优化到屏幕光栅空间 SSR，最后加上二分和 Dither。
+基础 SSR 很简单，更重要的是如何对其进行优化和应用。在本文中，首先完成了在观察空间的 SSR，然后优化到屏幕光栅空间 SSR，最后加上二分和 Dither。
 
 ## SSR
 
@@ -12,7 +12,7 @@ SSR 大致可以分为两步，第一步是求光线与屏幕空间的 “壳”
 
 在本文中，我们只讨论 specular 反射的情况。所以只需要关注光线与屏幕空间求交即可。
 
-由于在屏幕空间进行，所以我们需要用到深度图和法线图。利用法线图计算出着色点反射光线，从视角空间出发进行 raymarching，如果步近深度大于表面深度（深度图采样），则认为当前点与物体相交。并将着色点颜色赋为交点颜色。
+由于在屏幕空间进行，所以我们需要用到深度图和法线图。利用法线图计算出着色点反射光线，从观察空间出发进行 raymarching，如果步近深度大于表面深度（深度图采样），则认为当前点与物体相交。并将着色点颜色赋为交点颜色。
 
 ![[e4cc8d4a9129d8b433ba13cecb957d13_MD5.jpg]]
 
@@ -30,7 +30,7 @@ SSR 需要全屏深度图和法线图，并且还需要在 GPU 上进行光追�
 
 尽管如此，由于 SSR 算法可以带来实时的反射效果，并且可以很快的实现质量较好反射效果，它的应用也是蒸蒸日上的。
 
-在下文中，我们会先在视角空间中做一个最基础的 SSR，然后按照[这篇论文](https://jcgt.org/published/0003/04/04/paper.pdf)的方法将其投影到屏幕空间中进行 DDA 光线追踪，然后再将其优化为二分（感觉对于屏幕空间的二分优化程度并不明显），最后添加对屏幕光追优化最明显的 jitter dither raymarching。具体原理编写变叙述吧。
+在下文中，我们会先在观察空间中做一个最基础的 SSR，然后按照[这篇论文](https://jcgt.org/published/0003/04/04/paper.pdf)的方法将其投影到屏幕空间中进行 DDA 光线追踪，然后再将其优化为二分（感觉对于屏幕空间的二分优化程度并不明显），最后添加对屏幕光追优化最明显的 jitter dither raymarching。具体原理编写变叙述吧。
 
 ## C# 脚本
 
@@ -42,7 +42,7 @@ C# 脚本就是最基本的绘制全屏后处理，使用 RendererFeature 在渲
 
 代码如下，这里直接全部给出来了，最重要的还是 Shader。
 
-```
+```cs
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -274,23 +274,23 @@ namespace SSR{
 }
 ```
 
-## 视角空间光线追踪
+## 观察空间光线追踪
 
-虽然说是在视角空间，但这里为了方便，我们选择的是**世界空间中相对相机坐标**（即在世界空间中，从从相机到顶点的偏移向量）。这样就不用将法线图的法线再进行一次空间转换。在本节中，我们统称视角空间。
+虽然说是在观察空间，但这里为了方便，我们选择的是**世界空间中相对相机坐标**（即在世界空间中，从从相机到顶点的偏移向量）。这样就不用将法线图的法线再进行一次空间转换。在本节中，我们统称观察空间。
 
 因为这是最基础的做法， 所以做的也很粗糙看看效果，最后都要全部优化掉。
 
-### 重建视角空间
+### 重建观察空间
 
-从深度图中重建视角空间的方法有很多，可以在 GPU 中利用逆矩阵从 NDC 空间中变换到视角空间，也可以通过 C# 发送的相机射线来辅助还原。这里使用精度更高，计算更少的第二种方法。
+从深度图中重建观察空间的方法有很多，可以在 GPU 中利用逆矩阵从 NDC 空间中变换到观察空间，也可以通过 C# 发送的相机射线来辅助还原。这里使用精度更高，计算更少的第二种方法。
 
 具体的做法讨论可以参考：
 
 [undefined](https://zhuanlan.zhihu.com/p/648793922)
 
-再重复一下，为了避免对法线的空间转换，这里我们将视角空间当作是世界空间中，顶点到相机的偏移位置。
+再重复一下，为了避免对法线的空间转换，这里我们将观察空间当作是世界空间中，顶点到相机的偏移位置。
 
-```
+```cs
 public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData) {
     // 发送参数
     Matrix4x4 view = renderingData.cameraData.GetViewMatrix();
@@ -337,7 +337,7 @@ public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderin
 }
 ```
 
-```
+```cs
 float4 _ProjectionParams2; 
 float4 _CameraViewTopLeftCorner; 
 float4 _CameraViewXExtent; 
@@ -359,14 +359,14 @@ half3 ReconstructViewPos(float2 uv, float linearEyeDepth) {
 
 ### 还原 UV 及深度
 
-除此之外，我们还需要从视角空间顶点中还原屏幕空间 uv 和深度。只需要将顶点变换到裁剪空间下，此时的 w 分量就是片元深度，再将裁剪空间的 xy 映射到 [0,1] 即可。
+除此之外，我们还需要从观察空间顶点中还原屏幕空间 uv 和深度。只需要将顶点变换到裁剪空间下，此时的 w 分量就是片元深度，再将裁剪空间的 xy 映射到 [0,1] 即可。
 
 具体原理可参考：
 
 [undefined](https://zhuanlan.zhihu.com/p/648793922)
 
-```
-// 从视角空间坐标片元uv和深度 
+```cs
+// 从观察空间坐标片元uv和深度 
 void ReconstructUVAndDepth(float3 wpos, out float2 uv, out float depth) {  
     float4 cpos = mul(UNITY_MATRIX_VP, wpos);  
     uv = float2(cpos.x, cpos.y * _ProjectionParams.x) / cpos.w * 0.5 + 0.5;  
@@ -376,7 +376,7 @@ void ReconstructUVAndDepth(float3 wpos, out float2 uv, out float depth) {
 
 ### 光线追踪
 
-有了上面两个辅助函数，就可以正式开始光追了。首先通过深度图还原出视角空间着色点 x，通过法线图采样法线 n。
+有了上面两个辅助函数，就可以正式开始光追了。首先通过深度图还原出观察空间着色点 x，通过法线图采样法线 n。
 
 ![[8f1ef29cb4a8d4723d2386057ff9c9d7_MD5.jpg]]
 
@@ -387,9 +387,9 @@ void ReconstructUVAndDepth(float3 wpos, out float2 uv, out float depth) {
 *   计算新点 xi 的深度和 uv，并用 uv 采样深度图得到表面深度
 *   如果新点 xi 的深度大于表面深度，则认为点 xi 为反射光线与物体交点 P，将 x 颜色赋为 P 颜色
 
-注意 for 循环时一定要开 UNITY_LOOP，否则循环次数是静态的，步数上去了编译展开可能会超过指令数量。
+**注意 for 循环时一定要开 UNITY_LOOP，否则循环次数是静态的，步数上去了编译展开可能会超过指令数量。**
 
-```
+```cs
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl" 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl" 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl" 
@@ -406,20 +406,20 @@ half4 GetSource(half2 uv) {
 half4 SSRPassFragment(Varyings input) : SV_Target { 
     float rawDepth = SampleSceneDepth(input.texcoord); 
     float linearDepth = LinearEyeDepth(rawDepth, _ZBufferParams); 
-    float3 vpos = ReconstructViewPos(input.texcoord, linearDepth); 
-    float3 vnormal = SampleSceneNormals(input.texcoord); 
-    float3 vDir = normalize(vpos); 
-    float3 rDir = normalize(reflect(vDir, vnormal)); 
+    float3 viewPos = ReconstructViewPos(input.texcoord, linearDepth); 
+    float3 viewNormal = SampleSceneNormals(input.texcoord); 
+    float3 viewDir = normalize(viewPos); 
+    float3 reflectDir = normalize(reflect(viewDir, viewNormal)); 
 
     float2 uv; 
     float depth;
 
     UNITY_UNROLL  
     for (int i = 0; i < STEP_COUNT; i++) { 
-    float3 vpos2 = vpos + rDir * STEPSIZE * i; 
+    float3 viewPos2 = viewPos + reflectDir * STEPSIZE * i; 
     float2 uv2; 
     float stepDepth; 
-    ReconstructUVAndDepth(vpos2, uv2, stepDepth); 
+    ReconstructUVAndDepth(viewPos2, uv2, stepDepth); 
     float stepRawDepth = SampleSceneDepth(uv2); 
     float stepSurfaceDepth = LinearEyeDepth(stepRawDepth, _ZBufferParams); 
     if (stepSurfaceDepth < stepDepth && stepDepth < stepSurfaceDepth + THICKNESS) 
@@ -472,33 +472,33 @@ for A to B
 
 ### Efficient GPU Screen-Space Ray Tracing
 
-我们上文是通过视空间进行 RayMarching 的，三维空间有一个很大的性质就是近大远小，就是所谓的透视效果，那么我们在视空间步进一步，光栅化后对应到屏幕空间，可能就不一定是一个像素了。即在远处可能我们步进一步或者几步结果只对应到一个像素，这就浪费了计算；而到近处时，可能我们在视空间步进一个单位，就已经跨过好多个像素了，这又涉及到了采样不足，可能效果不好。
+我们上文是通过观察空间进行 RayMarching 的，三维空间有一个很大的性质就是近大远小，就是所谓的透视效果，那么我们在观察空间步进一步，光栅化后对应到屏幕空间，可能就不一定是一个像素了。即在远处可能我们步进一步或者几步结果只对应到一个像素，这就浪费了计算；而到近处时，可能我们在观察空间步进一个单位，就已经跨过好多个像素了，这又涉及到了采样不足，可能效果不好。
 
-如下图，非常多的视空间点对应的是同一个像素，这就导致了一些区域过采样。
+如下图，非常多的观察空间点对应的是同一个像素，这就导致了一些区域过采样。
 
 ![[3869beffa93b1265f11460d60cbec153_MD5.jpg]]
 
-如下图，视空间点之间所采样的深度可能有比较大的间隔，这就导致了一些区域低采样。
+如下图，观察空间点之间所采样的深度可能有比较大的间隔，这就导致了一些区域低采样。
 
 ![[c6e5348d3517a9d7df2c1181c7414ba8_MD5.jpg]]
 
-因此[这篇论文](https://jcgt.org/published/0003/04/04/paper.pdf)的作者提出，将着色点从视空间投影到屏幕空间。
+因此[这篇论文](https://jcgt.org/published/0003/04/04/paper.pdf)的作者提出，将着色点从观察空间投影到屏幕空间。
 
-我们希望在屏幕空间可以保证沿着反射光线方向进行步进，不漏掉一个像素，也不重复采样一个像素。其实也就是光栅化的方式。于是我们可以将视空间的起点 $Q_{0}$ 和终点 $Q_{1}$ 投影到屏幕光栅空间 $H_{0},~H_{1}$ 。然后再从 $H_{0}$ 到 $H_{1}$ 进行 DDA 画线法采样。这样的好处就在于**绝不会重复采样，也保证会连续采样**。
+我们希望在屏幕空间可以保证沿着反射光线方向进行步进，不漏掉一个像素，也不重复采样一个像素。其实也就是光栅化的方式。于是我们可以将观察空间的起点 $Q_{0}$ 和终点 $Q_{1}$ 投影到屏幕光栅空间 $H_{0},~H_{1}$ 。然后再从 $H_{0}$ 到 $H_{1}$ 进行 DDA 画线法采样。这样的好处就在于**绝不会重复采样，也保证会连续采样**。
 
-由于屏幕空间丢失了 z 值信息，我们需要单独记录屏幕空间 $H_{0},~H_{1}$ 对应视空间的深度。
+由于屏幕空间丢失了 z 值信息，我们需要单独记录屏幕空间 $H_{0},~H_{1}$ 对应观察空间的深度。
 
-在 DDA 算法中，我们记录屏幕空间的 $\Delta x,~\Delta y$ ，在每步进一步时，对当前屏幕坐标点 $P$ 进行线性偏移。但是当屏幕空间的点进行一次线性步近时，并不能将其映射到视空间的等长线性步近。究其原因还是投影变换是非线性变换。
+在 DDA 算法中，我们记录屏幕空间的 $\Delta x,~\Delta y$ ，在每步进一步时，对当前屏幕坐标点 $P$ 进行线性偏移。但是当屏幕空间的点进行一次线性步近时，并不能将其映射到观察空间的等长线性步近。究其原因还是投影变换是非线性变换。
 
-如下图， $H_{0},~H_{1}$ 是视角空间顶点 $Q_{0},~Q_{1}$ 投影到屏幕空间的对应点。当屏幕空间点 $H$ 等长线性步近时，视角空间点 $Q$ 的步近是非等长的。
+如下图， $H_{0},~H_{1}$ 是观察空间顶点 $Q_{0},~Q_{1}$ 投影到屏幕空间的对应点。当屏幕空间点 $H$ 等长线性步近时，观察空间点 $Q$ 的步近是非等长的。
 
 ![[0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg]]
 
-而我们需要做的就是利用 w 分量的线性增长通过齐次除法将屏幕空间和视角空间连接起来。
+而我们需要做的就是利用 w 分量的线性增长通过齐次除法将屏幕空间和观察空间连接起来。
 
 $\begin{align} V&=ProjectionMatrix\times Q\\ k&=V.w\\ V&/=V.w \end{align}$
 
-其中， $Q$ 为视角空间顶点， $V$ 为经过齐次除法的视角空间顶点，此时 $V$ 的增长和屏幕空间就呈线性关系了。当从 $H_{0}$ 变换到 $H_{1}$ 的时候，不再变换 $Q$ ，而是变换 $V$ 。
+其中， $Q$ 为观察空间顶点， $V$ 为经过齐次除法的观察空间顶点，此时 $V$ 的增长和屏幕空间就呈线性关系了。当从 $H_{0}$ 变换到 $H_{1}$ 的时候，不再变换 $Q$ ，而是变换 $V$ 。
 
 同时为了将顶点 $V_{0},~V_{1}$ 还原回 $Q_{0},~Q_{1}$ ，还需要将 k 从 $k_{0}$ 变化到 $k_{1}$ 。
 
@@ -550,8 +550,8 @@ half3 ReconstructViewPos(float2 uv, float linearEyeDepth) {
 }  
 
 // 从世界空间坐标转片元uv和深度 
-float4 TransformViewToHScreen(float3 vpos, float2 screenSize) { 
-    float4 cpos = mul(UNITY_MATRIX_P, vpos); 
+float4 TransformViewToHScreen(float3 viewPos, float2 screenSize) { 
+    float4 cpos = mul(UNITY_MATRIX_P, viewPos); 
     cpos.xy = float2(cpos.x, cpos.y * _ProjectionParams.x) * 0.5 + 0.5 * cpos.w; 
     cpos.xy *= screenSize; 
     return cpos; 
@@ -562,20 +562,20 @@ float4 _SourceSize;
 half4 SSRPassFragment(Varyings input) : SV_Target { 
     float rawDepth = SampleSceneDepth(input.texcoord); 
     float linearDepth = LinearEyeDepth(rawDepth, _ZBufferParams); 
-    float3 vpos = ReconstructViewPos(input.texcoord, linearDepth); 
+    float3 viewPos = ReconstructViewPos(input.texcoord, linearDepth); 
     float3 normal = SampleSceneNormals(input.texcoord); 
-    float3 vDir = normalize(vpos); 
-    float3 rDir = TransformWorldToViewDir(normalize(reflect(vDir, normal))); 
+    float3 viewDir = normalize(viewPos); 
+    float3 reflectDir = TransformWorldToViewDir(normalize(reflect(viewDir, normal))); 
 
     float magnitude = MAXDISTANCE; 
 
-    // 视空间坐标 
-    vpos = _WorldSpaceCameraPos + vpos; 
-    float3 startView = TransformWorldToView(vpos); 
-    float end = startView.z + rDir.z * magnitude; 
+    // 观察空间坐标 
+    viewPos = _WorldSpaceCameraPos + viewPos; 
+    float3 startView = TransformWorldToView(viewPos); 
+    float end = startView.z + reflectDir.z * magnitude; 
     if (end > -_ProjectionParams.y) 
-        magnitude = (-_ProjectionParams.y - startView.z) / rDir.z; 
-    float3 endView = startView + rDir * magnitude; 
+        magnitude = (-_ProjectionParams.y - startView.z) / reflectDir.z; 
+    float3 endView = startView + reflectDir * magnitude; 
 
     // 齐次屏幕空间坐标 
     float4 startHScreen = TransformViewToHScreen(startView, _SourceSize.xy); 
@@ -668,7 +668,7 @@ STRIDE=30, STEPCOUNT=12, BINARYCOUNT = 1
 
 ## 二分搜索
 
-一种线性搜索的经典优化方式就是二分搜索。但感觉在屏幕空间的二分优化效果并不像在视空间那样明显，但这里都写了还是提一下。
+一种线性搜索的经典优化方式就是二分搜索。但感觉在屏幕空间的二分优化效果并不像在观察空间那样明显，但这里都写了还是提一下。
 
 我们首先给定一个较大的步长，然后进行光追：
 
@@ -720,13 +720,13 @@ bool ScreenSpaceRayMarching(inout float2 P, inout float3 Q, inout float K, float
     return false;
 }
 
-bool BinarySearchRaymarching(float3 startView, float3 rDir, inout float2 hitUV) {
+bool BinarySearchRaymarching(float3 startView, float3 reflectDir, inout float2 hitUV) {
     float magnitude = MAXDISTANCE;
 
-    float end = startView.z + rDir.z * magnitude;
+    float end = startView.z + reflectDir.z * magnitude;
     if (end > -_ProjectionParams.y)
-        magnitude = (-_ProjectionParams.y - startView.z) / rDir.z;
-    float3 endView = startView + rDir * magnitude;
+        magnitude = (-_ProjectionParams.y - startView.z) / reflectDir.z;
+    float3 endView = startView + reflectDir * magnitude;
 
     // 齐次屏幕空间坐标
     float4 startHScreen = TransformViewToHScreen(startView, _SourceSize.xy);
@@ -833,7 +833,7 @@ static half dither[16] = {
     0.937, 0.437, 0.812, 0.312
 };
 
-bool BinarySearchRaymarching(float3 startView, float3 rDir, inout float2 hitUV) {
+bool BinarySearchRaymarching(float3 startView, float3 reflectDir, inout float2 hitUV) {
     ...
 
     UNITY_LOOP
