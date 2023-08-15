@@ -8,38 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a7ebc8b45486f448",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "02b2793afbacbb1c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "e830a4117557bde5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -47,25 +21,12 @@
             }
           },
           {
-            "id": "be45599081dbe44f",
+            "id": "9446d4313d00fb7d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "805d54653b99d96a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -73,7 +34,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -116,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
               }
             }
           }
@@ -166,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,11 +178,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "9446d4313d00fb7d",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "zBuffer/SSPR.md",
-    "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
@@ -255,7 +217,6 @@
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
