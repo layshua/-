@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
+      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -43,10 +55,6 @@
     {
       "basename": "Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客",
       "path": "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
-      "path": "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
     },
     {
       "basename": "常用HLSL函数",
@@ -103,10 +111,6 @@
     {
       "basename": "11 曲线曲面几何",
       "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
     },
     {
       "basename": "真实感水体渲染",
@@ -195,10 +199,6 @@
     {
       "basename": "概率论与数理统计",
       "path": "Math/概率论/概率论与数理统计.md"
-    },
-    {
-      "basename": "ComputeShader语法",
-      "path": "引擎Unity3D/3 URP精粹/ComputeShader/ComputeShader语法.md"
     }
   ],
   "omittedPaths": [],
