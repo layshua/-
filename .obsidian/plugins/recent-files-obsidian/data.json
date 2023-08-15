@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "RizomUV",
+      "path": "DCC/展UV/RizomUV.md"
+    },
+    {
       "basename": "2.5 模型常见问题及其规范",
       "path": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md"
     },
@@ -107,10 +111,6 @@
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "RizomUV",
-      "path": "DCC/展UV/RizomUV.md"
     },
     {
       "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",

@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "d7004f71db5a8c6a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DCC/展UV/RizomUV.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "887d19bba9812a82",
             "type": "leaf",
             "state": {
@@ -73,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -116,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md"
+                "file": "DCC/展UV/RizomUV.md"
               }
             }
           }
@@ -166,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
+                "file": "DCC/展UV/RizomUV.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,8 +230,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "d7004f71db5a8c6a",
   "lastOpenFiles": [
+    "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md",
     "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230815100329.png",
@@ -255,7 +269,6 @@
     "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
     "技术美术/雪风/21 和散景模糊——实践篇.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "技术美术/3 后处理/01 图像模糊.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
