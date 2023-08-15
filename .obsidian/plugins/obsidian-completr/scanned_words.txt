@@ -39393,6 +39393,7 @@ VolumeMangager
 ViewPortLightPos
 VideoBuffered
 Vivo
+VIsibility
 verge
 vPdIt
 vertical
@@ -73502,6 +73503,9 @@ SSSRStochastic
 SampleDepth
 SSRTRelections
 SSSR
+STRIDE
+STEP
+STEPCOUNT
 Programs
 POP
 PC
@@ -114522,6 +114526,7 @@ TessFactor
 TessellationFactors
 Thicker
 Thief
+THICKNESS
 io
 ipad
 it
@@ -150980,6 +150985,9 @@ BeaverJoe
 BoundingBox
 BoxProjectionCubeMap
 BAP
+BINARYCOUNT
+BINARY
+BIANRYCOUNT
 Fraktur
 Frame
 Foo

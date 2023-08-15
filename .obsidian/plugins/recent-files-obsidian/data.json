@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "Unity URP 实现屏幕空间反射（SSR）",
+      "path": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "Unity URP ColorGradingLut 分析与实现",
+      "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
+    },
+    {
+      "basename": "Unity URP 实现 HBAO",
+      "path": "zBuffer/Unity URP 实现 HBAO.md"
+    },
+    {
+      "basename": "Unity URP 实现 SSAO",
+      "path": "zBuffer/Unity URP 实现 SSAO.md"
+    },
+    {
       "basename": "RizomUV",
       "path": "DCC/展UV/RizomUV.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "体积雾",
       "path": "技术美术/体积渲染/体积雾.md"
-    },
-    {
-      "basename": "平面和线框着色",
-      "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/平面和线框着色.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "8 雪地渲染",
-      "path": "技术美术/雪地渲染/8 雪地渲染.md"
-    },
-    {
-      "basename": "地形编辑Terrain",
-      "path": "引擎Unity3D/1 Unity精粹/地形编辑Terrain.md"
-    },
-    {
-      "basename": "M_Studio 教程",
-      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     }
   ],
   "omittedPaths": [],

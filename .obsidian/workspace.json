@@ -65,7 +65,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/展UV/RizomUV.md",
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/展UV/RizomUV.md"
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
               }
             }
           }
@@ -192,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/展UV/RizomUV.md",
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -209,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/展UV/RizomUV.md",
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -245,17 +245,29 @@
   },
   "active": "a7ebc8b45486f448",
   "lastOpenFiles": [
-    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md",
+    "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
+    "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
+    "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",
+    "zip/images/005ff9c8beaed084f165f9829367e484_MD5.jpg",
+    "zip/images/e8821b07a685aeaabdde98d3cf970f75_MD5.jpg",
+    "zip/images/c0c4ea485e32af60cd9c6c3d104a8a49_MD5.jpg",
+    "zip/images/acf3db294bc5cab9dc287428c383d291_MD5.jpg",
+    "zip/images/59b29454e6bd04f0ddad7ebe6e066d9c_MD5.jpg",
+    "zip/images/8f1ef29cb4a8d4723d2386057ff9c9d7_MD5.jpg",
+    "zip/images/01d2127e39bee464998be7d163634f53_MD5.jpg",
+    "zip/images/dd52df44c23d9068afad302a12ee1f2e_MD5.jpg",
+    "zBuffer/Unity URP 实现 HBAO.md",
+    "zBuffer/Unity URP 实现 SSAO.md",
     "DCC/展UV/RizomUV.md",
+    "zBuffer/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
     "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md",
     "DCC/02 Blender/建模原理.md",
-    "zip/images/Pasted image 20230815100329.png",
     "Tools/Git/git入门.md",
     "Tools/工具流.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
-    "zip/images/Pasted image 20230814230245.png",
-    "zip/images/Pasted image 20230814230242.png",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/雪风/36 造一个 PBR 的轮子.md",
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
@@ -269,19 +281,7 @@
     "技术美术/常用HLSL函数.md",
     "zBuffer/SSPR.md",
     "图形学/0 3D数学/公式推导/03 光照向量.md",
-    "zip/images/1692014251391.png",
-    "zip/images/1692014251264.png",
-    "zip/images/1692014251208.png",
-    "zip/images/1692014251161.png",
-    "zip/images/1692014251015.png",
-    "zip/images/1692014250964.png",
-    "zip/images/1692014250899.png",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
-    "图形学/3 全局光照GI/06 全局光照GI.md",
-    "技术美术/雪风/20 景深和散景模糊——数学篇.md",
-    "图形学/3 全局光照GI/05 环境光照IBL.md",
-    "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md",
-    "技术美术/雪风/21 和散景模糊——实践篇.md",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
     "rendering-the-wireframe",
@@ -299,7 +299,4 @@
     "testt.canvas",
     "Tools/Excalidraw/未命名.canvas",
     "Software/未命名.canvas",
-    "Tools/系统安全/未命名.canvas",
-    "虚幻UE/4 特效/月神3/未命名.canvas"
-  ]
-}
+    "Tools/系统安全/未�
