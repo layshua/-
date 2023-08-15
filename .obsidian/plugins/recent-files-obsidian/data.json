@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "Unity URP 实现屏幕空间反射（SSR）",
       "path": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "02 PBR理论",
       "path": "图形学/3 全局光照GI/02 PBR理论.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "常用HLSL函数",
