@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md"
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
               }
             }
           }
@@ -153,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/2 URP.md",
+                "file": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -204,8 +203,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "02b2793afbacbb1c",
+  "active": "a7ebc8b45486f448",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/2 URP.md",
     "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "zBuffer/SSPR.md",
@@ -241,7 +241,6 @@
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
     "图形学/3 全局光照GI/02 PBR理论.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "技术美术/常用HLSL函数.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
