@@ -288,7 +288,7 @@ namespace SSR{
 
 [undefined](https://zhuanlan.zhihu.com/p/648793922)
 
-再重复一下，为了避免对法线的空间转换，这里我们将观察空间当作是世界空间中，顶点到相机的偏移位置。
+**再重复一下，为了避免对法线的空间转换，这里我们将观察空间当作是世界空间中，顶点到相机的偏移位置。**
 
 ```cs
 public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData) {
