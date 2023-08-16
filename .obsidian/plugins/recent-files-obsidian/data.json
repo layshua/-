@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
+    },
+    {
+      "basename": "C++补充",
+      "path": "编程/C++/C++补充.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -19,10 +31,6 @@
     {
       "basename": "ue操作指南",
       "path": "zip/引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
-      "basename": "C++补充",
-      "path": "编程/C++/C++补充.md"
     },
     {
       "basename": "3 Renderer Feature",
@@ -191,14 +199,6 @@
     {
       "basename": "FFT代码实现",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
-    },
-    {
-      "basename": "卡通水",
-      "path": "技术美术/5 水体渲染/卡通水.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     }
   ],
   "omittedPaths": [],
