@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "蓝图开发最佳实践",
       "path": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "C++补充",
       "path": "编程/C++/C++补充.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "3 Renderer Feature",
