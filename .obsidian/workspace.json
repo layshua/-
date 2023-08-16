@@ -34,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md"
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/04 纹理.md",
+                "file": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,6 +188,7 @@
   },
   "active": "d1613e037e80422f",
   "lastOpenFiles": [
+    "图形学/1 图形系统/04 纹理.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
@@ -224,7 +225,6 @@
     "Tools/工具流.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/雪风/36 造一个 PBR 的轮子.md",
-    "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
