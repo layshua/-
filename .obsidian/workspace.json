@@ -34,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/C++补充.md",
+                "file": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/C++补充.md"
+                "file": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/C++补充.md",
+                "file": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/C++补充.md",
+                "file": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -188,6 +188,12 @@
   },
   "active": "d1613e037e80422f",
   "lastOpenFiles": [
+    "zip/引擎Unreal/02 蓝图 & U++/U++.md",
+    "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
+    "zip/引擎Unreal/02 蓝图 & U++/101 蓝图.md",
+    "zip/引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
+    "zip/引擎Unreal/01 指南/ue操作指南.md",
+    "编程/C++/C++补充.md",
     "编程/C++/《C++ Primer》.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "图形学/1 图形系统/04 纹理.md",
@@ -220,11 +226,6 @@
     "zip/images/dd52df44c23d9068afad302a12ee1f2e_MD5.jpg",
     "DCC/展UV/RizomUV.md",
     "DCC/01 百人计划美术向/二、模型/2.5 模型常见问题及其规范.md",
-    "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md",
-    "DCC/02 Blender/建模原理.md",
-    "Tools/Git/git入门.md",
-    "Tools/工具流.md",
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
@@ -233,7 +234,6 @@
     "技术美术/体积渲染",
     "未命名",
     "引擎Unity3D/Catlike Coding/Advanced Rendering",
-    "技术美术/5 水体渲染/收藏",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
