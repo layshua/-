@@ -34,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/C++原理.md"
+                "file": "编程/C++/《Effective C++ 3th》.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "编程/C++/《Effective C++ 3th》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -186,11 +186,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d1613e037e80422f",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
-    "编程/C++/C++补充.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/《C++ Primer》.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/C++原理.md",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
     "zip/引擎Unreal/02 蓝图 & U++/U++.md",
     "zip/引擎Unreal/02 蓝图 & U++/101 蓝图.md",
@@ -225,7 +226,6 @@
     "zip/images/8f1ef29cb4a8d4723d2386057ff9c9d7_MD5.jpg",
     "zip/images/01d2127e39bee464998be7d163634f53_MD5.jpg",
     "zip/images/dd52df44c23d9068afad302a12ee1f2e_MD5.jpg",
-    "DCC/展UV/RizomUV.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
