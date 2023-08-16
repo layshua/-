@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "C++补充",
+      "path": "编程/C++/C++补充.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "3 Renderer Feature",
       "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "FFT相关推导",
       "path": "技术美术/5 水体渲染/FFT海洋/FFT相关推导.md"
-    },
-    {
-      "basename": "FFT理论",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT理论.md"
-    },
-    {
-      "basename": "01 粒子系统概述",
-      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
     }
   ],
   "omittedPaths": [],
