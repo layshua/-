@@ -34,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+                "file": "图形学/1 图形系统/04 纹理.md"
               }
             }
           }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
+                "file": "图形学/1 图形系统/04 纹理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -186,16 +186,18 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "d1613e037e80422f",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unity3D/3 URP精粹/6 脚本.md",
+    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
+    "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "zBuffer/SSPR.md",
     "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
     "zBuffer/图形学基础 _ 屏幕空间反射 (SSR)_桑来 93 的博客 - CSDN 博客.md",
     "技术美术/3 后处理/SSAO/Unity URP 实现 HBAO.md",
@@ -223,8 +225,6 @@
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "技术美术/雪风/36 造一个 PBR 的轮子.md",
     "技术美术/雪风/35 屏幕空间平面反射 SSPR 补充.md",
-    "技术美术/雪风/34 SSPR屏幕空间平面反射.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",

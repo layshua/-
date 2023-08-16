@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
@@ -11,10 +31,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "3 Renderer Feature",
-      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
     },
     {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
@@ -35,10 +51,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "Unity URP 实现 HBAO",
@@ -187,18 +199,6 @@
     {
       "basename": "01 粒子系统概述",
       "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
-    },
-    {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
-    },
-    {
-      "basename": "笔记",
-      "path": "DCC/展UV/笔记.md"
-    },
-    {
-      "basename": "曲面细分着色器",
-      "path": "引擎Unity3D/Catlike Coding/Advanced Rendering/曲面细分着色器.md"
     }
   ],
   "omittedPaths": [],
