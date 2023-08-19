@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "M_Studio 教程",
+      "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
+    },
+    {
+      "basename": "课程",
+      "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
+    },
+    {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "11 曲线曲面几何",
       "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "真实感水体渲染",
-      "path": "技术美术/5 水体渲染/真实感水体渲染.md"
-    },
-    {
-      "basename": "FFT代码实现",
-      "path": "技术美术/5 水体渲染/FFT海洋/FFT代码实现.md"
     }
   ],
   "omittedPaths": [],

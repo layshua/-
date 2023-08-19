@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
               }
             }
           }
@@ -139,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +156,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+                "file": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -192,8 +192,9 @@
   },
   "active": "066d8cffbc59a94c",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+    "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/《C++ Primer》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
@@ -219,7 +220,6 @@
     "技术美术/3 后处理/SSAO/Unity URP 实现 HBAO.md",
     "技术美术/3 后处理/04 SSAO.md",
     "技术美术/3 后处理/SSAO",
-    "技术美术/3 后处理/SSAO/Unity URP 实现 SSAO.md",
     "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
     "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",
     "zip/images/005ff9c8beaed084f165f9829367e484_MD5.jpg",
