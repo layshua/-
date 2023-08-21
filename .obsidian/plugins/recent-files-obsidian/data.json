@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+    },
+    {
       "basename": "01 粒子系统概述",
       "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
       "path": "DCC/展UV/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "百人计划水体渲染【乱】",
-      "path": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md"
     }
   ],
   "omittedPaths": [],
