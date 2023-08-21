@@ -5,6 +5,10 @@
       "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
     },
     {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
       "basename": "01 粒子系统概述",
       "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
     },
@@ -135,10 +139,6 @@
     {
       "basename": "2.4 UV原理",
       "path": "DCC/01 百人计划美术向/二、模型/2.4 UV原理.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "git入门",

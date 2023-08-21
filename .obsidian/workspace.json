@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "a69238a891248749",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DCC/02 Blender/建模原理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "edbe888922f066d5",
             "type": "leaf",
             "state": {
@@ -192,6 +205,8 @@
   },
   "active": "066d8cffbc59a94c",
   "lastOpenFiles": [
+    "DCC/02 Blender/建模原理.md",
+    "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "zip/images/Pasted image 20230821093726.png",
     "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
@@ -218,7 +233,6 @@
     "zBuffer/SSPR.md",
     "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "zBuffer/Unity Shader - 反射效果（CubeMap，Reflection Probe，Planar Reflection，Screen Space Reflection）_unity shader 反射_puppet_master 的博客 - CSDN 博客.md",
     "技术美术/3 后处理/SSAO",
     "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
     "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",
@@ -229,7 +243,6 @@
     "zip/images/59b29454e6bd04f0ddad7ebe6e066d9c_MD5.jpg",
     "zip/images/8f1ef29cb4a8d4723d2386057ff9c9d7_MD5.jpg",
     "zip/images/01d2127e39bee464998be7d163634f53_MD5.jpg",
-    "zip/images/dd52df44c23d9068afad302a12ee1f2e_MD5.jpg",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
