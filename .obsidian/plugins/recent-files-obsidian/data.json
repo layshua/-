@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
+      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
+    },
+    {
       "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
       "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "01 图像模糊",
       "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "RizomUV 常见问题解决手册 - 哔哩哔哩",
-      "path": "DCC/展UV/RizomUV 常见问题解决手册 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],

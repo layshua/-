@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
               }
             }
           }
@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,8 +205,8 @@
   },
   "active": "066d8cffbc59a94c",
   "lastOpenFiles": [
-    "DCC/02 Blender/建模原理.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
+    "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230821093726.png",
     "引擎Unity3D/5 粒子系统/01 粒子系统概述.md",
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
