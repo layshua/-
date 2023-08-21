@@ -30,7 +30,6 @@
   "obsidian-banners",
   "omnisearch",
   "obsidian-icon-folder",
-  "codeblock-customizer",
   "obsidian-hider",
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-git",
@@ -41,5 +40,6 @@
   "markdown-table-editor",
   "cmdr",
   "obsidian-focus-mode",
-  "pdf-to-markdown-plugin"
+  "pdf-to-markdown-plugin",
+  "codeblock-customizer"
 ]

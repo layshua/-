@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
+      "basename": "《Unity Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
       "path": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "建模原理",
+      "path": "DCC/02 Blender/建模原理.md"
+    },
+    {
+      "basename": "《GUI》",
+      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
     },
     {
       "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
@@ -15,10 +27,6 @@
     {
       "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
       "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
     },
     {
       "basename": "01 粒子系统概述",
@@ -37,16 +45,8 @@
       "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
     },
     {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
       "basename": "《CS Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "《Effective C++ 3th》",
