@@ -209,7 +209,7 @@
         "enablePrintToPDFStyling": false,
         "forceCurrentColorUse": false
       },
-      "enableEditorActiveLineHighlight": true
+      "enableEditorActiveLineHighlight": false
     },
     "colors": {
       "dark": {
