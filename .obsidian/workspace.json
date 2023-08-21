@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
+                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
+                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
               }
             }
           }
@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
+                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
+                "file": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -205,6 +205,7 @@
   },
   "active": "066d8cffbc59a94c",
   "lastOpenFiles": [
+    "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md",
     "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md",
     "DCC/02 Blender/建模原理.md",
     "zip/images/Pasted image 20230821093726.png",
@@ -232,7 +233,6 @@
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "zBuffer/SSPR.md",
     "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/3 后处理/SSAO",
     "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
     "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",
