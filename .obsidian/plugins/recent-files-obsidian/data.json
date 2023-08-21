@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "01 粒子系统概述",
+      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
+    },
+    {
+      "basename": "02 Unity操作指南",
+      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
+    },
+    {
       "basename": "M_Studio 教程",
       "path": "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md"
     },
@@ -27,10 +35,6 @@
     {
       "basename": "C++补充",
       "path": "编程/C++/C++补充.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
     },
     {
       "basename": "C++原理",
@@ -195,10 +199,6 @@
     {
       "basename": "百人计划水体渲染【乱】",
       "path": "技术美术/5 水体渲染/百人计划水体渲染【乱】.md"
-    },
-    {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
     }
   ],
   "omittedPaths": [],
