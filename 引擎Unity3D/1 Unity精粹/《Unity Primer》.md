@@ -182,7 +182,7 @@ void Start()
 
 //进行物理帧更新  
 //固定间隔执行，间隔时间可以设置  
-void FixedUpdate()
+void FixedUpdate()C
 
 // 逻辑帧执行，每帧执行
 // 处理游戏核心逻辑更新

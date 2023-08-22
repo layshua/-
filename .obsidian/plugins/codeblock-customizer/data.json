@@ -182,18 +182,18 @@
     "settings": {
       "codeblock": {
         "enableLineNumbers": true,
-        "enableActiveLineHighlight": true,
-        "enableDeleteCodeButton": false,
+        "enableActiveLineHighlight": false,
+        "enableDeleteCodeButton": true,
         "codeBlockBorderStylingPosition": "disable"
       },
       "header": {
-        "boldText": false,
+        "boldText": true,
         "italicText": false,
-        "collapseIconPosition": "hide",
+        "collapseIconPosition": "middle",
         "collapsedCodeText": "",
         "codeblockLangBoldText": true,
         "codeblockLangItalicText": true,
-        "alwaysDisplayCodeblockLang": false,
+        "alwaysDisplayCodeblockLang": true,
         "alwaysDisplayCodeblockIcon": false,
         "displayCodeBlockLanguage": true,
         "displayCodeBlockIcon": false
@@ -217,7 +217,10 @@
           "activeLineColor": "--color-base-30",
           "backgroundColor": "--code-background",
           "highlightColor": "--text-highlight-bg",
-          "alternateHighlightColors": {},
+          "alternateHighlightColors": {
+            "h": "#59BDD7",
+            "error": "#9F78D0"
+          },
           "languageBorderColors": {}
         },
         "header": {
@@ -241,14 +244,17 @@
       "light": {
         "codeblock": {
           "activeLineColor": "--color-base-30",
-          "backgroundColor": "--code-background",
+          "backgroundColor": "#FFFFFF",
           "highlightColor": "--text-highlight-bg",
-          "alternateHighlightColors": {},
+          "alternateHighlightColors": {
+            "h": "#676088",
+            "error": "#880202"
+          },
           "languageBorderColors": {}
         },
         "header": {
-          "backgroundColor": "--code-background",
-          "textColor": "--text-normal",
+          "backgroundColor": "#FFFFFF",
+          "textColor": "#090000",
           "lineColor": "--color-base-30",
           "codeBlockLangTextColor": "--code-comment",
           "codeBlockLangBackgroundColor": "--code-background"
