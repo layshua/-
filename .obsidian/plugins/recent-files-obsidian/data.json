@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "水体渲染",
+      "path": "引擎Unreal/08 案例/水体渲染.md"
+    },
+    {
+      "basename": "交互雪",
+      "path": "引擎Unreal/08 案例/交互雪.md"
+    },
+    {
+      "basename": "交互草",
+      "path": "引擎Unreal/08 案例/交互草.md"
+    },
+    {
+      "basename": "[译文]UE 基础—蓝图 VS_ C++",
+      "path": "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
+    },
+    {
+      "basename": "ue操作指南",
+      "path": "引擎Unreal/01 指南/ue操作指南.md"
+    },
+    {
+      "basename": "光照设置",
+      "path": "引擎Unreal/01 指南/光照设置.md"
+    },
+    {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
     },
@@ -66,19 +90,15 @@
     },
     {
       "basename": "蓝图开发最佳实践",
-      "path": "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
+      "path": "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
     },
     {
       "basename": "U++",
-      "path": "zip/引擎Unreal/02 蓝图 & U++/U++.md"
+      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
     },
     {
       "basename": "101 蓝图",
-      "path": "zip/引擎Unreal/02 蓝图 & U++/101 蓝图.md"
-    },
-    {
-      "basename": "ue操作指南",
-      "path": "zip/引擎Unreal/01 指南/ue操作指南.md"
+      "path": "引擎Unreal/02 蓝图 & U++/101 蓝图.md"
     },
     {
       "basename": "3 Renderer Feature",
@@ -179,26 +199,6 @@
     {
       "basename": "常用HLSL函数",
       "path": "技术美术/常用HLSL函数.md"
-    },
-    {
-      "basename": "03 光照向量",
-      "path": "图形学/0 3D数学/公式推导/03 光照向量.md"
-    },
-    {
-      "basename": "06 全局光照GI",
-      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
-    },
-    {
-      "basename": "20 景深和散景模糊——数学篇",
-      "path": "技术美术/雪风/20 景深和散景模糊——数学篇.md"
-    },
-    {
-      "basename": "05 环境光照IBL",
-      "path": "图形学/3 全局光照GI/05 环境光照IBL.md"
-    },
-    {
-      "basename": "一波江水动京城：游戏水面渲染与互动",
-      "path": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md"
     }
   ],
   "omittedPaths": [],
