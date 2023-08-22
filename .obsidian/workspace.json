@@ -6,18 +6,9 @@
       {
         "id": "502474c1e66dc464",
         "type": "tabs",
-        "dimension": 99.99999999999999,
         "children": [
           {
             "id": "066d8cffbc59a94c",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "a69238a891248749",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -64,7 +55,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -107,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+                "file": "Tools/Obsidian/插件流.md"
               }
             }
           }
@@ -157,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "file": "Tools/Obsidian/插件流.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -208,46 +199,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "floating": {
-    "id": "5685743669e1eb27",
-    "type": "floating",
-    "children": [
-      {
-        "id": "69cf7ec009d105f4",
-        "type": "window",
-        "children": [
-          {
-            "id": "97e9776ded9cc626",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "edbe888922f066d5",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-                    "mode": "source",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": -884,
-        "y": 248,
-        "width": 604,
-        "height": 1116,
-        "maximize": true,
-        "zoom": -0.5
-      }
-    ]
-  },
-  "active": "6eb0f78eca757928",
+  "active": "c08a707b64ab6e03",
   "lastOpenFiles": [
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer》.md",
@@ -262,7 +216,6 @@
     "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md",
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/C++补充.md",
     "编程/C++/C++原理.md",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
