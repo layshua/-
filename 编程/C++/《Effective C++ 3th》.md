@@ -85,7 +85,7 @@ public:
 
 C++没有接口，**本书中的接口指的是一般性的设计概念**，如：
 - 函数的签名（signature）
-- class的可访问元素（例如class的“public接口”“private接口”等）、
+- class的可访问元素（例如class的“public接口”“private接口”等）
 - 针对某template类型参数需为有效的一个表达式（条款41）
 
 ## 本书命名习惯

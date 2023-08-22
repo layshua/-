@@ -55,7 +55,7 @@ int main() {
 
 4. 宏的用法之一：**宏是可以发送参数的**
 
-```c++
+```c++ title:t
 #include <iostream>
 #define log(x) std::cout << x << std::endl
 

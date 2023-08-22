@@ -42,8 +42,10 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
 }
 
 /* codeblock 去除圆角 */
-body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblock-bg
+/*body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblock-bg
 {
     border-radius: 0;
+}*/
+.markdown-source-view .codeblock-customizer-line-number {
+    background-color: #1F232A;
 }
-

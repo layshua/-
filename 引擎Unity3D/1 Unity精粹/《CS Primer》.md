@@ -25,7 +25,7 @@ banner: "![[Pasted image 20230526124440.png]]"
 #endregion
 ```
 
-```cs
+```cs 
 #define  //定义一个符号，类似一个没有值的变量
 #undef //取消define定义的符号，让其失效
 

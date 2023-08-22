@@ -6,6 +6,7 @@
       {
         "id": "502474c1e66dc464",
         "type": "tabs",
+        "dimension": 99.99999999999999,
         "children": [
           {
             "id": "066d8cffbc59a94c",
@@ -19,26 +20,8 @@
             "id": "a69238a891248749",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "edbe888922f066d5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -60,7 +43,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "Tools/Obsidian/插件流.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6eb0f78eca757928",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -111,7 +107,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md"
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
               }
             }
           }
@@ -161,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +174,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -212,10 +208,50 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c08a707b64ab6e03",
+  "floating": {
+    "id": "5685743669e1eb27",
+    "type": "floating",
+    "children": [
+      {
+        "id": "69cf7ec009d105f4",
+        "type": "window",
+        "children": [
+          {
+            "id": "97e9776ded9cc626",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "edbe888922f066d5",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                    "mode": "source",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": -884,
+        "y": 248,
+        "width": 604,
+        "height": 1116,
+        "maximize": true,
+        "zoom": -0.5
+      }
+    ]
+  },
+  "active": "6eb0f78eca757928",
   "lastOpenFiles": [
-    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "Tools/Obsidian/插件流.md",
     "编程/C++/《C++ Primer》.md",
+    "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
     "DCC/02 Blender/建模原理.md",
     "引擎Unity3D/1 Unity精粹/《GUI》.md",
@@ -227,7 +263,6 @@
     "引擎Unity3D/4 GamePlay/maco/M_Studio 教程.md",
     "引擎Unity3D/4 GamePlay/战斗系统/课程.md",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/C++补充.md",
     "编程/C++/C++原理.md",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
@@ -241,7 +276,6 @@
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
-    "zBuffer/SSPR.md",
     "技术美术/3 后处理/SSAO",
     "zip/images/0fc5bc8e202474cd66f45bda8b68f5e9_MD5.jpg",
     "zip/images/3869beffa93b1265f11460d60cbec153_MD5.jpg",

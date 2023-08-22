@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "《CS Primer》",
+      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -43,14 +55,6 @@
     {
       "basename": "课程",
       "path": "引擎Unity3D/4 GamePlay/战斗系统/课程.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
     },
     {
       "basename": "C++补充",
@@ -195,10 +199,6 @@
     {
       "basename": "一波江水动京城：游戏水面渲染与互动",
       "path": "技术美术/5 水体渲染/一波江水动京城：游戏水面渲染与互动.md"
-    },
-    {
-      "basename": "21 和散景模糊——实践篇",
-      "path": "技术美术/雪风/21 和散景模糊——实践篇.md"
     }
   ],
   "omittedPaths": [],
