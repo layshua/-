@@ -1875,18 +1875,13 @@ auto b = pf("hello","world")
 
 ```c++
 typedef int (*FuncPtr)(int, int);
-using FuncPtr = int(*)(int, int);
-```
-
-```c++
-typedef int (*FuncPtr)(int, int);
 using FuncPtr = int(*)(int, int);  //等价
 
 int calculate(int a, int b, FuncPtr operation)
 {
- int result;
- result = operation(a, b); // 运算
- return result;
+     int result;
+     result = operation(a, b); // 运算
+     return result;
 }
 
 ```
