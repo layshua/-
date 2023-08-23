@@ -5,6 +5,10 @@
       "path": "编程/C++/《C++ Primer》.md"
     },
     {
+      "basename": "STL",
+      "path": "编程/C++/STL.md"
+    },
+    {
       "basename": "《Effective C++ 3th》",
       "path": "编程/C++/《Effective C++ 3th》.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Unity URP ColorGradingLut 分析与实现",
       "path": "引擎Unity3D/收藏夹/Unity URP ColorGradingLut 分析与实现.md"
-    },
-    {
-      "basename": "RizomUV",
-      "path": "DCC/展UV/RizomUV.md"
     }
   ],
   "omittedPaths": [],
