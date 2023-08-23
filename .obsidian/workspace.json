@@ -42,6 +42,19 @@
             }
           },
           {
+            "id": "f5d4ee6178caff98",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "6eb0f78eca757928",
             "type": "leaf",
             "state": {
@@ -201,8 +214,9 @@
   },
   "active": "c08a707b64ab6e03",
   "lastOpenFiles": [
-    "引擎Unreal/05 Gameplay/丁书凯FPS.md",
+    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/《C++ Primer》.md",
+    "引擎Unreal/05 Gameplay/丁书凯FPS.md",
     "引擎Unreal/05 Gameplay/宝藏.md",
     "README.md",
     "灵感.md",
@@ -218,7 +232,6 @@
     "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/01 指南/光照设置.md",
     "Tools/Obsidian/插件流.md",
-    "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
