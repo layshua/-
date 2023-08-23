@@ -2113,8 +2113,8 @@ void fcn3()
 class Screen
 {
 public:
-    typedef std::string::size type pos;
-    char get cursor() const { return contents[cursor]; }
+    typedef std::string::size_type pos;
+    char get_cursor() const { return contents[cursor]; }
     char get() const;
     char get(pos ht, pos wd) const;
 private:
@@ -2124,7 +2124,7 @@ private:
 };
 ```
 ##### 数据成员指针
-成员指针包含成员所属的类。再 * 之前添加classname::表示指针可以指向classname的成员：
+成员指针包含成员所属的类。再 `*` 之前添加`classname::`表示指针可以指向`classname`的成员：
 ```c++
 //pdata可以指向一个常量（非常量）Screen对象的string成员
 const string Screen::*pdata;
@@ -2134,11 +2134,11 @@ pdata = &Screen::contents;  //指向某个非特定Screen对象的contents成员
 auto pdata = &Screen::contents;
 ```
 
-与成员访问运算符.和->类似，也有两种成员指针访问运算符：·* 和->* ，这两个运算符使得我们可以解引用指针并获得该对象的成员：
+与成员访问运算符`.`和`->`类似，也有两种成员指针访问运算符：`·*` 和`->*` ，这两个运算符使得我们可以解引用指针并获得该对象的成员：
 ```c++
 Screen myScreen;
 *pScreen = &myScreen;
-//,*解引用pdata以获得myScreen对象的contents成员
+//*解引用pdata以获得myScreen对象的contents成员
 auto s = myScreen.*pdata;
 //->*解引用pdata以获得pScreen所指对象的contents成员
 s = pScreen->*pdata;
@@ -2176,7 +2176,7 @@ char c2 (myScreen.*pmf2)(0,0);
 //Action是一种可以指向Screen成员函数的指针，它接受两个pos实参，返回一个char
 using Action = char (Screen::*)(Screen::pos,Screen::pos)const;
 
-Action get = &Screen:get;  //get指向Screen的get成员
+Action get = &Screen::get;  //get指向Screen的get成员
 ```
 
 ##### 成员指针函数表
@@ -2194,7 +2194,7 @@ public:
 		Screen& down ()
 			
 		//Action是一个指针，可以用任意一个光标移动函数对其赋值
-		using Action = Screen&(Screen:*)()
+		using Action = Screen&(Screen::*)()
 		//指定具体要移动的方向
 		enum Directions { HOME,FORWARD,BACK,UP,DOWN )
 		//定义一个move函数，使其可以调用上述任意光标函数
@@ -2235,7 +2235,7 @@ find_if(svec.begin(), svec.end(), fp);
 **从指向成员函数的指针获取可调用对象**
 **方法一：** 是使用标准模板库[[#【C++11】function类型]]
 ```c++
-vector<string*> pvec
+vector<string*> pvec;
 function<bool (const string*)> fp = &string::empty;
 //fp接受一个指向string的指针，然后使用->*调用empty
 find_if(svec.begin(), svec.end(), fp);
@@ -2283,10 +2283,10 @@ P746
 在实际编程的过程中，因为局部类的成员必须完整定义在类的内部，所以成员函数的复杂性不可能太高。局部类的成员函数一般只有几行代码，否则我们就很难读懂它了。
 类似的，**在局部类中也不允许声明静态数据成员**，因为我们没法定义这样的成员。
 
-**局部类不能使用函数作用域中的变量：**‘
+**局部类不能使用函数作用域中的变量：**
 局部类只能访问外层作用域定义的类型名、静态变量、枚举成员。
 ```c++
-int a,val;
+int a, val;
 void foo(int val)
 {
 		static int si;
@@ -2297,10 +2297,10 @@ void foo(int val)
 		{
 			Loc locVal;  //正确：使用一个局部类型名
 			int barVal;
-			void fooBar(Loc 1 a)  //正确：默认实参是Loc::a
+			void fooBar(Loc::a)  //正确：默认实参是Loc::a
 			{
 				barVal val;  //错误：val是foo的局部变量
-				barVal =:val;  //正确：使用一个全局对象
+				barVal = val;  //正确：使用一个全局对象
 				barVal si;  //正确：使用一个静态局部对象
 				locVal b;  //正确：使用一个枚举成员
 			}
@@ -2337,10 +2337,10 @@ union可以定义包括构造函数和析构函数在内的成员函数。但是
 // Token类型的对象只有一个成员，该成员的类型可能是下列类型中的任意一种
 union Token
 {
-		//默认情况下成员是公有的
-		char cval;
-		int ival;
-		double dval;
+    //默认情况下成员是公有的
+    char cval;
+    int ival;
+    double dval;
 };
 
 // 显式初始化
@@ -2418,7 +2418,6 @@ private:
 
 更多细节P751
 
-
 ## 1 封装
 封装的意义：
 -   将属性和行为作为一个整体，表现生活中的事物
@@ -2427,10 +2426,11 @@ private:
 ### 成员访问控制
 三种访问说明符，控制外部访问成员的权限
 
-|private |声明为 private 的类成员只能由类的成员函数和友元（类或函数）使用。|
+|说明符 |含义|
 |-----------|-----------------------------------------------------------|
-|protected|声明为 protected 的类成员可由类的成员函数和友元（类或函数）使用。 此外，它们还可由派生类使用。|
-| public    | 声明为 public 的类成员可由任意函数使用。                                  |
+|private|声明为 private 的类成员只能由类的成员函数和友元（类或函数）使用。|
+|protected|声明为 protected 的类成员可由类的成员函数和友元（类或函数）使用。 此外，它们还可由派生类使用。 |
+| public    |声明为 public 的类成员可由任意函数使用。|
 
 > [!NOTE] 建议：基类的成员访问控制：
 > public：基类的接口成员
@@ -2459,7 +2459,6 @@ struct Vec2
 
 ### 友元friend
 类允许其他类或者函数访问它的非public成员，方法是令其他类或者函数称为它的友元。
-
 
 成员函数和友元函数区别：
 - 成员函数有this指针，友元函数没有
