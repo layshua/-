@@ -2819,11 +2819,11 @@ public:
 //Base::operator=(const Base&)  不会被自动调用
 D &D::operator=(const D &rhs)
 {
-		Base::operator=(rhs);//为基类部分赋值
-		//按照过去的方式为派生类的成员赋值
-		//酌情处理自赋值及释放已有资源等情况
-		return *this;
-	}
+    Base::operator=(rhs);//为基类部分赋值
+    //按照过去的方式为派生类的成员赋值
+    //酌情处理自赋值及释放已有资源等情况
+    return *this;
+}
 ```
 #### 派生类析构函数
 在析构函数体执行完成后，对象的成员会被隐式销毁。类似的，对象的基类部分也是隐式销毁的。
@@ -2831,8 +2831,8 @@ D &D::operator=(const D &rhs)
 ```c++
 class D:public Base
 public:
-		//Base::~Base被自动调用执行
-		~D() {/*该处由用户定义清除派生类成员的操作*/}
+    //Base::~Base被自动调用执行
+    ~D() {/*该处由用户定义清除派生类成员的操作*/}
 }；
 ```
 **对象销毁的顺序正好与其创建的顺序相反：** 派生类析构函数首先执行，然后是基类的析构函数，以此类推，沿着继承体系的反方向直至最后。
@@ -2847,8 +2847,8 @@ public:
 class Bulk quote : public Disc_quote
 {
 public:
-		using Disc_quote::Disc_quote;  //继承Disc_quote的构造函数
-		......
+    using Disc_quote::Disc_quote;  //继承Disc_quote的构造函数
+    ......
 }
 ```
 
@@ -2887,7 +2887,7 @@ Panda::Panda(std::string name, bool onExhibit)
 Panda::Panda() : Endangered (Endangered::critical){
 ```
 初始化顺序：
-1. ZooAnima1是整个继承体系的最终基类，Bear是Panda的直接基类，ZooAnimal是Bear的基类，所以首先初始化ZooAnimal。
+1. ZooAnima是整个继承体系的最终基类，Bear是Panda的直接基类，ZooAnimal是Bear的基类，所以首先初始化ZooAnimal。
 2. 接下来初始化Panda的第一个直接基类Bear。
 3. 然后初始化Panda的第二个直接基类Endangered。
 4. 最后初始化Panda。
@@ -2896,9 +2896,9 @@ Panda::Panda() : Endangered (Endangered::critical){
 ```c++
 struct Base1
 {
-		Basel()=default;
-		Basel(const std::string&);
-		Basel(std:shared ptr<int>);
+		Base1()=default;
+		Base1(const std::string&);
+		Base1(std:shared ptr<int>);
 };
 struct Base2
 {
@@ -2917,7 +2917,7 @@ struct D1 : public Base1,public Base2
 //正确：如果一个类从它的多个基类中继承了相同的构造函数，则这个类必须为该构造函数定义它自己的版本：
 struct D2 : public Base1,public Base2
 {
-		using Basel::Basel;  //从Base1继承构造函数
+		using Base1::Basel;  //从Base1继承构造函数
 		using Base2::Base2;  //从Base2继承构造函数
 		//D2必须自定义一个接受string的构造函数
 		D2(const string &s) : Base1(s),Base2(s)  {}
@@ -2926,8 +2926,8 @@ struct D2 : public Base1,public Base2
 ```
 
 ### 虚继承
-派生类可以通过多个直接寄类多次继承同一个间接基类。比如ZooAnimal的子类有Bear、Raccoon，Panda继承于Bear、Raccoon，这时Panda继承了两次ZooAnimal。
-有时候我们不想让D多次继承，通过虚继承来实现。
+派生类可以通过多个直接基类多次继承同一个间接基类。比如 ZooAnimal 的子类有 Bear、Raccoon，Panda 继承于 Bear、Raccoon，这时 Panda 继承了两次 ZooAnimal。
+有时候我们不想让 ZooAnimal 被重复继承，通过虚继承来实现。
 ![[Pasted image 20230302232604.png]]
 **虚继承的目的是令某个类做出声明，承诺愿意共享它的基类**。其中，共享的基类子对象称为**虚基类(virtual base class)**。在这种机制下，**不论虚基类在继承体系中出现了多少次，在派生类中都只包含唯一一个共享的虚基类子对象。**
 
@@ -2946,7 +2946,7 @@ class Panda : public Bear,public Raccoon,public Endangered
 ```
 
 **虚继承的对象的构造方式**
-含有虚基类的对象的构造顺序与一般的顺序稍有区别：首先使用提供给最低层派生类构造函数的初始值初始化该对象的虚基类子部分，接下来按照直接基类在派生列表中出现的次序依次对其进行初始化。
+**含有虚基类的对象的构造顺序与一般的顺序稍有区别**：首先使用提供给最低层派生类构造函数的初始值初始化该对象的虚基类子部分，接下来按照直接基类在派生列表中出现的次序依次对其进行初始化。
 例如，当我们创建一个Panda对象时：
 - 首先使用Panda的构造函数初始值列表中提供的初始值构造虚基类ZooAnimal部分。
 - 接下来构造Bear部分。
@@ -3119,12 +3119,12 @@ virtual void funtion() = 0;
 virtual std::string GetName() = 0;
 ```
 
-*   C++ 中的纯虚函数本质上与其他语言（bi 如 Java 或 C#）中的抽象方法或接口相同。
+*   在面向对象程序设计中，创建一个只包含未实现方法然后交由子类去实际实现功能的类是非常普遍的, 这通常被称为接口。**接口就是一个只包含未实现的方法并作为一个模板的类**。并且由于此**接口类**实际上不包含方法实现，所以我们**无法实例化**这个类。
+*   C++ 中的纯虚函数本质上与其他语言（如 C#）中的接口相同。实际上，其他语言有 interface 关键字而不是叫 class，但 C++ 没有。接口只是 C++ 的类而已。
 *   纯虚函数与虚函数的区别在于，纯虚函数的基类中的`virtual`函数，只定义了，但不实现。实现交给派生类来做。
 *   **只能实例化一个实现了所有纯虚函数的类**。**纯虚函数必须被实现**，然后我们才能创建这个类的实例。
 *   纯虚函数允许我们在基类中定义一个没有实现的函数，然后**强制子类**去实现该函数。
-*   实际上，其他语言有 interface 关键字而不是叫 class，但 C++ 没有。接口只是 C++ 的类而已。
-*   在面向对象程序设计中，创建一个只包含未实现方法然后交由子类去实际实现功能的类是非常普遍的, 这通常被称为接口。**接口就是一个只包含未实现的方法并作为一个模板的类**。并且由于此**接口类**实际上不包含方法实现，所以我们**无法实例化**这个类。
+
 
 例子：
 
@@ -3226,13 +3226,13 @@ class Player : public OtherClass,Printable  //加逗号，添加接口Printable
 class Quote
 {
 public:
-		//如果我们删除的是一个指向派生类对象的基类指针，则需要虚析构函数
-		virtual ~Quote() = default;  //动态绑定析构函数
+    //如果我们删除的是一个指向派生类对象的基类指针，则需要虚析构函数
+    virtual ~Quote() = default;  //动态绑定析构函数
 };
 
 Quote *itemp = new Quote;  //静态类型与动态类型一致
 delete itemP;  //调用Quote的析构函数
-itemP = new Bulk quote;  //静态类型与动态类型不一致
+Quote *itemp = new Bulk_quote;  //静态类型与动态类型不一致
 delete itemP;  //调用Bulk quote的析构函数
 ```
 
@@ -3243,8 +3243,6 @@ delete itemP;  //调用Bulk quote的析构函数
 虚析构语法：`virtual ~类名(){}`
 
 纯虚析构语法：`virtual ~类名() = 0;`  
-
-
 
 析构调用过程：
 基类中只要定义了虚析构,在编译器角度来讲，那么由此基类派生出的所有子类地析构均为对基类的虚析构的重写，当多态发生时，用父类引用，引用子类实例时，此时的虚指针保存的子类虚表的地址，该函数指针数组中的第一元素永远留给虚析构函数指针。所以当 delete 父类引用时，即第一个调用子类虚表中的子类重写的虚析构函数此为第一阶段。然后进入第二阶段：（二阶段纯为内存释放而触发的逐级析构与虚析构就没有半毛钱关系了）而当子类发生析构时，子类内存开始释放，因内存包涵关系，触发父类析构执行，层层向上递进，至到子类所包涵的所有内存释放完成。
@@ -3394,7 +3392,6 @@ void PrintEntity(const Entity& e);
       //print something
   }
 ```
-
 
 ## 5 static静态
 #static
