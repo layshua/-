@@ -3999,11 +3999,11 @@ public:
 - **析构函数**：定义当此类型销毁时做什么
 
 > [!NOTE] 
->如果一个类没有定义这些拷贝控制成员，编译器会自动为它定义缺失地操作，但有时这不是我们想要的，所以才要自己定义。
+>如果一个类没有定义这些拷贝控制成员，编译器会自动为它定义缺失的操作，但有时这不是我们想要的，所以才要自己定义。
 
 ### 7.1 拷贝构造函数
 **如果一个构造函数的第一个参数是自身类类型的引用，且任何额外参数都有默认值，则此构造函数是拷贝构造函数。**
-拷贝构造函数的第一个参数必须是一个引用类型，且通常时隐式地使用
+拷贝构造函数的第一个参数必须是一个引用类型，且通常是隐式地使用
 
 拷贝构造函数的格式：
 ```c++
@@ -4046,7 +4046,7 @@ private:
 //原理：这个自定义的拷贝构造函数地等价于默认拷贝构造函数
 Sales_data::Sales_data(const Sales_data &orig):
 		bookNo (orig.bookNo),  //使用string的拷贝构造函数
-		units sold(orig.units sold),//orig.units sold
+		units sold(orig.units_sold),//orig.units_sold
 		revenue(orig.revenue)  //拷贝orig.revenue
 		{}  //空函数体
 ```
@@ -4081,78 +4081,78 @@ string nines = string(100,9); //拷贝初始化
 
 **示例：**
 ```c++
- class Person 
- {  
- public:  
-     //无参（默认）构造函数  
-     Person() 
-     {  
-         cout << "无参构造函数!" << endl;  
-     } 
-      
-     //有参构造函数  
-     Person(int age ,int height) 
-     {  
-           
-         cout << "有参构造函数!" << endl;  
- ​  
-         m_age = age;  
-         m_height = new int(height);  //开辟堆区空间
-           
-     }  
-
-		//默认拷贝构造函数的等价实现
-		//Person(const Person& p) 
-     //{  
-     //    m_age = p.m_age;
-     //}
- 
-     //自定义拷贝构造函数，解决浅拷贝带来的问题    
-     Person(const Person& p) 
-     {  
-         cout << "拷贝构造函数!" << endl;  
-         //如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题  
-         m_age = p.m_age;  
-         m_height = new int(*p.m_height);  
-           
-     }  
- ​  
-     //析构函数：将堆区开辟的数据做释放  
-     ~Person()
-     {  
-         cout << "析构函数!" << endl;  
-         if (m_height != NULL)  
-         {  
-             delete m_height;  
-             m_height = NULL;
-         }  
-     }  
-     
- public:  
-     int m_age;  
-     int* m_height;  
- };  
- ​  
- void test01()  
- {  
-     Person p1(18, 180);  
- ​  
-     Person p2(p1);  
- ​  
-     cout << "p1的年龄： " << p1.m_age << " 身高： " << *p1.m_height << endl;  
- ​  
-     cout << "p2的年龄： " << p2.m_age << " 身高： " << *p2.m_height << endl;  
- }  
- ​  
- int main() 
- {  
- ​  
-     test01();  
- ​  
-     system("pause");  
- ​  
-     return 0;  
- }
+class Person 
+{  
+public:  
+    //无参（默认）构造函数  
+    Person() 
+    {  
+     cout << "无参构造函数!" << endl;  
+    } 
+    
+    //有参构造函数  
+    Person(int age ,int height) 
+    {  
+       
+     cout << "有参构造函数!" << endl;  
+    ​  
+     m_age = age;  
+     m_height = new int(height);  //开辟堆区空间
+       
+    }  
+    
+    //默认拷贝构造函数的等价实现
+    //Person(const Person& p) 
+    //{  
+    //    m_age = p.m_age;
+    //}
+    
+    //自定义拷贝构造函数，解决浅拷贝带来的问题    
+    Person(const Person& p) 
+    {  
+     cout << "拷贝构造函数!" << endl;  
+     //如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题  
+     m_age = p.m_age;  
+     m_height = new int(*p.m_height);  
+       
+    }  
+    ​  
+    //析构函数：将堆区开辟的数据做释放  
+    ~Person()
+    {  
+     cout << "析构函数!" << endl;  
+     if (m_height != NULL)  
+     {  
+         delete m_height;  
+         m_height = NULL;
+     }  
+    }  
+ 
+public:  
+    int m_age;  
+    int* m_height;  
+};  
+​  
+void test01()  
+{  
+    Person p1(18, 180);  
+    ​  
+    Person p2(p1);  
+    ​  
+    cout << "p1的年龄： " << p1.m_age << " 身高： " << *p1.m_height << endl;  
+    ​  
+    cout << "p2的年龄： " << p2.m_age << " 身高： " << *p2.m_height << endl;  
+}  
+​  
+int main() 
+{  
+​  
+    test01();  
+    ​  
+    system("pause");  
+    ​  
+    return 0;  
+}
 
 ```
 > 总结：如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的问题
@@ -4186,90 +4186,6 @@ int main()
 `b` 和 `obj2` 都是以拷贝的方式初始化的，具体来说，就是**将 `a` 和 `obj1` 所在内存中的数据按照二进制位（Bit）复制到 `b` 和 `obj2` 所在的内存，这种默认的拷贝行为就是<font color="#ff0000">浅拷贝</font>
 
 对于简单的类，默认的拷贝构造函数一般就够用了，我们也没有必要再显式地定义一个功能类似的拷贝构造函数。**但是当类持有其它资源时，例如动态分配的内存、指向其他数据的指针等，默认的拷贝构造函数就不能拷贝这些资源了，我们必须显式地定义拷贝构造函数，以完整地拷贝对象的所有数据。**
-
-下面我们通过自定义的 Array 类来实现变长数组。
-
-```c++
-#include <iostream>
-#include <cstdlib>
-using namespace std;
-
-//变长数组类
-class Array
-{
-public:
-    Array(int len);
-    Array(const Array &arr);  //拷贝构造函数
-    ~Array();
-public:
-    int operator[](int i) const { return m_p[i]; }  //获取元素（读取）
-    int &operator[](int i) { return m_p[i]; }  //获取元素（写入）
-    int length() const { return m_len; }
-private:
-    int m_len;
-    int *m_p;
-};
-
-Array::Array(int len): m_len(len){
-    m_p = (int*)calloc( len, sizeof(int) );
-}
-
-Array::Array(const Array &arr){  //拷贝构造函数
-    this->m_len = arr.m_len;
-    this->m_p = (int*)calloc( this->m_len, sizeof(int) );
-    memcpy( this->m_p, arr.m_p, m_len * sizeof(int) );
-}
-
-Array::~Array(){ free(m_p); }
-
-//打印数组元素
-void printArray(const Array &arr){
-    int len = arr.length();
-    for(int i=0; i<len; i++){
-        if(i == len-1){
-            cout<<arr[i]<<endl;
-        }else{
-            cout<<arr[i]<<", ";
-        }
-    }
-}
-
-int main(){
-    Array arr1(10);
-    for(int i=0; i<10; i++)
-    {
-        arr1[i] = i;
-    }
-   
-    Array arr2 = arr1;
-    arr2[5] = 100;
-    arr2[3] = 29;
-   
-    printArray(arr1);
-    printArray(arr2);
-   
-    return 0;
-}
-```
-
-运行结果：  
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9  
-0, 1, 2, 29, 4, 100, 6, 7, 8, 9
-
-本例中**我们显式地定义了拷贝构造函数，它除了会将原有对象的所有成员变量拷贝给新对象，还会为新对象再分配一块内存，并将原有对象所持有的内存也拷贝过来。这样做的结果是，原有对象和新对象所持有的动态内存是相互独立的，更改一个对象的数据不会影响另外一个对象**，本例中我们更改了 arr2 的数据，就没有影响 arr1。
-
-**这种将对象所持有的其它资源一并拷贝的行为叫做<font color="#ff0000">深拷贝</font>，我们必须显式地定义拷贝构造函数才能达到深拷贝的目的。
-
-**标准模板库（STL）中的 string、vector、stack、set、map 等也都必须使用深拷贝。**
-
-读者如果希望亲眼目睹不使用深拷贝的后果，可以将上例中的拷贝构造函数删除，那么运行结果将变为：
-
-0, 1, 2, 29, 4, 100, 6, 7, 8, 9  
-0, 1, 2, 29, 4, 100, 6, 7, 8, 9
-
-可以发现，更改 arr2 的数据也影响到了 arr1。这是因为，在创建 arr2 对象时，默认拷贝构造函数将 arr1.m_p 直接赋值给了 arr2.m_p，导致 arr2.m_p 和 arr1.m_p 指向了同一块内存，所以会相互影响。
-
-另外需要注意的是，printArray() 函数的形参为引用类型，这样做能够避免在传参时调用拷贝构造函数；又因为 printArray() 函数不会修改任何数组元素，所以我们添加了 const 限制，以使得语义更加明确。
 
 #### 使用浅拷贝还是深拷贝
 
@@ -4356,15 +4272,12 @@ public:
 
 Sales_data& Sales_data::operator=(const Sales_data &rhs)
 {
-		bookNo rhs.bookNo;  //调用string::operator=
+		bookNo =rhs.bookNo;  //调用string::operator=
 		units_sold=rhs.units_sold;  //使用内置的int赋值
-		revenue rhs.revenue;  //使用内置的double赋值
+		revenue =rhs.revenue;  //使用内置的double赋值
 		return *this;  //返回一个此对象的引用
 	}
 ```
-
-
-
 
 ### 7.3 析构函数
 执行与构造函数相反的操作，释放对象使用的资源，并销毁对象的非static数据成员。
@@ -4407,8 +4320,6 @@ public:
 > C++primer p446结尾说到：
 > 认识到**析构函数体自身**并不**直接销毁成员**是非常重要的。 **成员**是在**析构函数体**之后隐含的 **析构**阶段 中被**销毁**的。 在整个对象**销毁**过程中，**析构函数体**是作为**成员销毁**步骤之外的另一部分而进行的
 > 不太理解
-
-
 
 例子：
 
@@ -4493,14 +4404,12 @@ gender: f
 
 > [!NOTE] 三法则
 > - 如果一个类需要自定义析构函数，那么它一定也需要自定义拷贝赋值运算符和拷贝构造函数
+> - 如果一个类需要一个拷贝构造函数，那么肯定也需要一个拷贝赋值运算符，反之成立。
+> - 如果一个函数需要拷贝构造运算符或者拷贝赋值运算符，不必然意味着需要析构函数
 > > [!NOTE] 特例
 > 基类的析构函数不遵循该原则，如果基类将析构函数设定为虚函数，此时该析构函数内容为空，我们无法由此判断该基类还需要赋值运算符或拷贝构造函数
 > > >
 
-
-**补充：**
-- 如果一个类需要一个拷贝构造函数，那么肯定也需要一个拷贝赋值运算符，反之成立。
-- 如果一个函数需要拷贝构造运算符或者拷贝赋值运算符，不必然意味着需要析构函数
 
 如何理解三法则，通常，若一个类需要析构函数，则代表其合成的析构函数不足以释放类所拥有的资源，其中最典型的就是指针成员。所以，我们需要自己写析构函数来释放给指针所分配的内存来防止内存泄露。
 
@@ -4835,11 +4744,11 @@ std::move显式地将一个左值对象转换为对应的右值引用类型，�
 ```c++
 int &&rr = std::move(i); //正确
 ```
-调用std::move就意味着承诺：除了对i赋值或销毁它外，我们将不再使用它。
+调用`std::move`就意味着承诺：除了对i赋值或销毁它外，我们将不再使用它。
 
 **原理P610**
 
-【C++11】可以使用static_cast显示的将一个左值转换为一个右值引用，不安全，还是用std::move比较好
+【C++11】可以使用`static_cast`显示的将一个左值转换为一个右值引用，不安全，还是用`std::move`比较好
 #### 移动构造函数和移动赋值运算符
 ```c++
 //移动构造函数，引用参数使用了右值引用符号&&
