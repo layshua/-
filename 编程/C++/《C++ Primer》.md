@@ -847,13 +847,28 @@ enum intvalues : unsigned long long;//不限定作用域的，必须指定成员
 enum class open modes;  //限定作用域的枚举类型可以使用默认成员类型int
 ```
 
-**枚举的定义**:
+#### 枚举的定义和初始化
 可利用新的枚举类型 **example** 声明这种类型的变量 example Dd，可以在定义枚举类型时定义枚举变量：
-```c++
+```c++ file:三种等价实现
+//普通定义+初始化
 enum  example 
 {
      Aa, Bb, Cc
-}Dd;
+}
+example Dd = Aa;
+
+//在声明枚举的时候直接定义了枚举变量Dd,并初始化为Aa 
+enum  example 
+{
+     Aa, Bb, Cc
+}Dd = Aa; 
+
+//只定义Dd而不初始化
+enum  example 
+{
+     Aa, Bb, Cc
+}Dd
+Dd=Aa
 ```
 
 与基本变量类型不同的地方是，**在不进行强制转换的前提下**，只能将定义的**枚举量**赋值给该种枚举的变量 (非绝对的，可用强制类型转换将其他类型值赋给**枚举变量**)
@@ -889,7 +904,7 @@ Dd = Cc
 Dd = example(10); //结果将是不确定的，这么做不会出错，但得不到想要的结果
 ```
 
-**枚举应用**:
+#### 枚举应用
 **枚举**和 **switch** 是最好的搭档：
 
 ```c++
@@ -941,11 +956,12 @@ string *p2 = nums; //等价于p2 = &nums[0]
 ```
 当使用decltype关键字时，转换不会发生：
 ```c++
-//返回的是数组类型
+//返回的仍是数组类型
 decltype（nums） num =  {"one","two"."three"};
 ```
 
-数组的下标是size_t无符号类型，定义在cstddef头文件中，内置的下标运算符所用的索引值是有符号类型，可以处理负值，这一点与vector和string不一样。？？？这里有点矛盾
+数组的下标是 `size_t` 无符号类型，定义在 cstddef 头文件中，内置的下标运算符所用的索引值是有符号类型，可以处理负数下标，只是我们用负数作为下标的情况比较少。
+而标准库类型限定使用下标必须是无符号类型
 ### 【C++11】标准库函数begin和end
 数组的指针也是迭代器。数组的begin和end函数与容器中的begin和end成员函数类似，但数组不是类，所以这里的begin和end不是成员函数，直接调用即可
 ```c++
@@ -958,22 +974,22 @@ cout << *beg << endl; //返回1
 
 两个指针相减的结果是一种名为`ptrdiff_t`的带符号类型。
 
-
 ### 栈数组和堆数组
 *   不能把栈上分配的数组（字符串）作为返回值，**除非**你传入的参数是一个内存地址。
 *   如果你想返回的是在函数内新创建的数组，那你就要用 new 关键字来创建。
 *   栈数组`int example[5];` 堆数组`int* another = new int[5];`
 
 ```c++
-int main() {
- int example[5]; //这个是创建在栈上的，它会在跳出这个作用域时被销毁
- for (int i = 0; i< 5;i++) //5个元素全部设置为2
+int main()
+{
+    int example[5]; //这个是创建在栈上的，它会在跳出这个作用域时被销毁
+    for (int i = 0; i< 5;i++) //5个元素全部设置为2
     example[i] = 2; 
     int* another = new int[5];//这行代码和之前的是同一个意思，但是它们的生存期是不同的.因为这个是创建在堆上的,实际上它会一直存活到直到我们把它销毁或者程序结束。所以你需要用delete关键字来删除它。
- for (int i = 0; i< 5;i++) //5个元素全部设置为2
+    for (int i = 0; i< 5;i++) //5个元素全部设置为2
     another[i] = 2; 
- delete[] another;
- std::cin.get();
+    delete[] another;
+    std::cin.get();
 }
 ```
 
@@ -981,59 +997,8 @@ int main() {
 那为什么要使用 new 关键字来动态分配，而不是在栈上创建它们呢？**最大的原因是因为生存期**, 因为 new 分配的内存，会一直存在，直到你手动删除它。  
 如果你有个函数要**返回新创建的数组**，那么你**必须要使用 new 来分配**，**除非**你传入的参数是一个内存地址。
 
-### memory indirection（内存间接寻址）
-
-意思是，有个指针，指针指向另一个保存着我们实际数组的内存块（p-> p-> array），这会产生一些内存碎片和缓存丢失。
-
-```c++
-class Entity
-{
-public:
-    int example[5]; //栈数组
-    Entity()  //创建一个构造函数，用来初始化所有值为2
-    {
-        for (int i = 0; i< 5;i++) 
-             example[i] = 2;   
-    }
-};
-
-int main() {
-    Entity e; 
-    //实例化一个对象。如果我们查看Entity e的内存地址，可以看到Entity的内存上实际就是一行，包含了数组中所有的2，所有的数据都在这儿
-
-    std::cin.get();
-}
-```
-
-但是如果我在这里使用 new 关键字在堆上创建，运行相同的代码  
-这时我们查看 Entity e 的内存地址，可以看到这里的内存根本没有 2。我看到另一个内存地址，其实这就是个指针。我可以复制该地址然后粘贴查找（因为 endian（字节序）的原因我必须要反转它们），然后就可以看到我真正的数据。这就是 **memory indirection（内存间接寻址）**。
-
-```c++
-class Entity
-{
-public:
-    int* example = new int[5];  //堆数组
-    Entity()  
-    {
-        for (int i = 0; i< 5;i++) 
-             example[i] = 2;   
-    }
-};
-
-int main() {
-    Entity e; //这时我们查看Entity e的内存地址，可以看到这里的内存根本没有2。我看到另一个内存地址，其实这就是个指针。我可以复制该地址然后粘贴查找（因为endian（字节序）的原因我必须要反转它们），然后就可以看到我真正的数据。这就是memory indirection（内存间接寻址）
-
-    std::cin.get();
-}
-```
-
-我们在 e 地址上实际上得到的另一个地址，这个地址指向我们实际的数组。这意味着如果我们要访问这个数组，我们基本上要在代码里跳来跳去，先找到 Entity，然后再找到数组。
-
-如果可以你应该在**栈**上**创建数组来避免这种情况**。因为像这样在内存里跳跃肯定会影响性能
-
-
 ##  字符串
-**char**
+#char 
 - 字符型变量用于显示**单个字符**
 - 字符型变量并不是把字符本身放到内存中存储，而是将对应的ASCII编码放入到存储单元
 
@@ -1052,7 +1017,6 @@ int main() {
 }
 ```
 
-
 c++中的string是字符串类，const char * 是字符串常量指针。
 ### c_str()
 虽然 C++ 提供了 string 类来替代C语言中的字符串，但是在实际编程中，有时候必须要使用C风格的字符串（例如打开文件时的路径），为此，string 类为我们提供了一个转换函数 `c_str()`，该函数能够将 string 字符串转换为C风格的字符串，并返回该字符串的 const 指针（const char*）。请看下面的代码：
@@ -1065,11 +1029,8 @@ FILE *fp = fopen(path.c_str(), "rt");
 ###  C++ 字符串字面量
 
 *   字符串字面量就是双引号中的内容。  
-    
 *   字符串字面量是存储在**内存**的**只读部分**的，不可对只读内存进行写操作。  
-    
 *   C++11 以后，默认为`const char*`, 否则会报错。  
-    
 
 ```c++
 char* name = "cherno";//Error!
@@ -1093,7 +1054,7 @@ name[2] = 'a'; //OK
 
 *   别的一些字符串
 
-基本上，char 是一个字节的字符，char16_t 是两个字节的 16 个比特的字符（utf16），char32_t 是 32 比特 4 字节的字符（utf32），const char 就是 utf8. 那么 wchar_t 也是两个字节，和 char16_t 的区别是什么呢？事实上宽字符的大小，实际上是由编译器决定的，可能是一个字节也可能是两个字节也可能是 4 个字节，实际应用中通常不是 2 个就是 4 个（Windows 是 2 个字节，Linux 是 4 个字节），所以这是一个变动的值。如果要两个字节就用 char16_t，它总是 16 个比特的。
+基本上，`char` 是一个字节的字符，`char16_t` 是两个字节的 16 个比特的字符（utf16），`char32_t` 是 32 比特 4 字节的字符（utf32），`const char` 就是 utf8. 那么 `wchar_t` 也是两个字节，和 `char16_t` 的区别是什么呢？事实上宽字符的大小，实际上是由编译器决定的，可能是一个字节也可能是两个字节也可能是 4 个字节，实际应用中通常不是 2 个就是 4 个（Windows 是 2 个字节，Linux 是 4 个字节），所以这是一个变动的值。如果要两个字节就用 char16_t，它总是 16 个比特的。
 
 ```c++
 const char* name = "lk";
@@ -1103,7 +1064,7 @@ const char32_t* name4 = U"lk";
 const char* name5 = u8"lk";
 ```
 
-**string_literals**
+**`string_literals`**
 
 ```c++
 #include <iostream>
@@ -1173,7 +1134,7 @@ int main() {
 
 5. 右值引用的优势：**优化**
 
-如果我们知道传入的是一个临时对象的话，那么我们就不需要担心它们是否活着，是否完整，是否拷贝。我们可以简单地偷它的资源，给到特定的对象，或者其他地方使用它们。因为我们知道它是暂时的，它不会存在很长时间 而如果如上使用 const string& str，虽然可以兼容右值，但是却不能从这个字符串中窃取任何东西！因为这个 str 可能会在很多函数中使用，不可乱修改！（所以才加了 const）
+如果我们知道传入的是一个临时对象的话，那么我们就不需要担心它们是否活着，是否完整，是否拷贝。我们可以简单地偷它的资源，给到特定的对象，或者其他地方使用它们。因为我们知道它是暂时的，它不会存在很长时间 而如果如上使用 `const string& str`，虽然可以兼容右值，但是却不能从这个字符串中窃取任何东西！因为这个 str 可能会在很多函数中使用，不可乱修改！（所以才加了 const）
 
 6. 在给函数形参列表传参时，有四种情况：
 
@@ -1200,46 +1161,6 @@ int main() {
     std::cin.get();
 ```
 
-7.cherno 的演示代码如下：
-
-```c++
-#include <iostream>
-
-int &GetValue() { // 左值引用
-    static int value = 10;
-    return value;
-}
-
-void SetValue(int value) {}
-
-void PrintName(std::string &name) { // 非const的左值引用只接受左值
-    std::cout << "[lvalue]" << name << std::endl;
-}
-
-void PrintName(const std::string &&name) { // 右值引用不能绑定到左值
-    std::cout << "[rvalue]" << name << std::endl;
-}
-
-int main() {
-    int i = GetValue();
-    GetValue() = 5;
-
-    SetValue(i);  // 左值参数调用
-    SetValue(10); // 右值参数调用，当函数被调时，这个右值会被用来创建一个左值
-
-    // 关于const，const引用可以同时接受左值和右值
-    // int& a = 10; // 不能用左值作为右值的引用
-    const int &a = 10; // 通过创建一个左值实现
-
-    std::string firstName = "Yan";
-    std::string lastName = "Chernikov";
-    std::string fullname = firstName + lastName;
-    PrintName(fullname);             // 接受左值
-    PrintName(firstName + lastName); // 接受右值
-
-    return 0;
-}
-```
 
 ## 2 递增递减运算符
 
