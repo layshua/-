@@ -2458,32 +2458,32 @@ struct Vec2
 若要实现很多功能的类，则选用 class
 
 ### 友元friend
-类允许其他类或者函数访问它的非public成员，方法是令其他类或者函数称为它的友元。
+类允许其他类或者函数访问它的**非public成员**，方法是令其他类或者函数称为它的友元。
 
 成员函数和友元函数区别：
 - 成员函数有this指针，友元函数没有
 - 友元不具备传递性，a的友元是b，b的友元是c，但是c不能访问a的非public成员。
 - 友元不能继承
 
- #### 全局函数做友元 
+#### 全局函数做友元 
 ```c++
 class Building
 {
-		//告诉编译器 goodGay全局函数 是 Building类的好朋友，可以访问类中的私有内容
-		friend void goodGay(Building *building);
+    //告诉编译器 goodGay全局函数 是 Building类的好朋友，可以访问类中的私有内容
+    friend void goodGay(Building *building);
 
 public:
-		Building()
-		{
-			this->m_SittingRoom = "客厅";
-			this->m_BedRoom = "卧室";
-		}
+    Building()
+    {
+        this->m_SittingRoom = "客厅";
+        this->m_BedRoom = "卧室";
+    }
 
 public:
-		string m_SittingRoom; //客厅
+    string m_SittingRoom; //客厅
 
 private:
-		string m_BedRoom; //卧室
+    string m_BedRoom; //卧室
 };
 
 //复制到public上面，加上 friend
@@ -2508,7 +2508,7 @@ class goodGay
 public:
 		goodGay()
 		{
-			building = new Building;
+			building = new Building();
 		}
 		void visit()
 		{
@@ -2554,15 +2554,14 @@ public:
 
 goodGay()
 {
-		building = new Building;
-    //building指针指向new的Building这个对象（堆区）
+	building = new Building();
 }
 
 //让visit函数作为Building的好朋友，可以发访问Building中私有内容
 void visit()
 {
-		cout << "好基友正在访问" << building->m_SittingRoom << endl;
-		cout << "好基友正在访问" << building->m_BedRoom << endl;
+    cout << "好基友正在访问" << building->m_SittingRoom << endl;
+    cout << "好基友正在访问" << building->m_BedRoom << endl;
 } 
 
 private:
@@ -2572,20 +2571,20 @@ private:
 
 class Building
 {
-		//告诉编译器  goodGay类中的visit成员函数 是Building好朋友，可以访问私有内容
-		friend void goodGay::visit();
+    //告诉编译器  goodGay类中的visit成员函数 是Building好朋友，可以访问私有内容
+    friend void goodGay::visit();
 
 public:
-Building()
-{
-		this->m_SittingRoom = "客厅";
-		this->m_BedRoom = "卧室";
-}
+    Building()
+    {
+        this->m_SittingRoom = "客厅";
+        this->m_BedRoom = "卧室";
+    }
 
 public:
-		string m_SittingRoom; //客厅
+    string m_SittingRoom; //客厅
 private:
-		string m_BedRoom;//卧室
+    string m_BedRoom;//卧室
 };
 
 
@@ -2664,34 +2663,40 @@ class Player : public Entity; //错误
 
 
 ###  继承与静态成员
-如果基类定义了一个静态成员，则在整个继承体系中只存在该成员的唯一定义。不论从基类中派生出来多少个派生类，对于每个静态成员来说都只存在唯一的实例。
+**如果基类定义了一个静态成员，则在整个继承体系中只存在该成员的唯一定义。不论从基类中派生出来多少个派生类，对于每个静态成员来说都只存在唯一的实例。**
+
 ```c++
 class Base
 {
 public:
-		static void statmem();
+    static void statmem();
 }
 
 class Derived : public Base
 {
-		void f(const Derived&);
+    void f(const Derived&);
 };
 ```
-静态成员遵循通用的访问控制规则，如果基类中的成员是private的，则派生类无权访问它。假设某静态成员是可访问的，则我们既能通过基类使用它也能通过派生类使用它：
+
+**静态成员遵循通用的访问控制规则，如果基类中的成员是 private 的，则派生类无权访问它。**
+
+假设某静态成员是可访问的，则我们既能通过基类使用它也能通过派生类使用它：
+
 ```c++
 void Derived::f(const Derived &derived obj)
 {
-		Base::statmem();  //正确：Base定义了statmem
-		Derived::statmem();  //正确：Derived继承了statmem 
-		
-		//正确: 派生类的对象能访问基类的静态成员
-		derived_obj.statmem();  //通过Derived对象访问
-		statmem();  //通过this对象访问
+    Base::statmem();  //正确：Base定义了statmem
+    Derived::statmem();  //正确：Derived继承了statmem 
+    
+    //正确: 派生类的对象能访问基类的静态成员
+    derived_obj.statmem();  //通过Derived对象访问
+    statmem();  //通过this对象访问
 }
 ```
 
-### 【C++11】防止继承final
-对于一个类，我们不想其他类继承它，或者不想考虑他是否适合作为一个基类，可以在类名后跟一个关键字final：
+### 【C++11】防止继承 final
+#final
+对于一个类，我们不想其他类继承它，或者不想考虑他是否适合作为一个基类，可以在类名后跟一个关键字`final`：
 ```c++
 class NoDerived final{/* */}  //NoDerived不能作为基类
 
@@ -2700,7 +2705,7 @@ class Last final : Base {/*/} //Last是final的；我们不能继承Last
 ```
 
 ### using改变访问权限
-使用 using 关键字可以改变基类成员在派生类中的访问权限，例如将 public 改为 private、将 protected 改为 public。
+**使用 `using` 关键字可以改变基类成员在派生类中的访问权限**，例如将 public 改为 private、将 protected 改为 public。
 
 注意：using 只能改变基类中 public 和 protected 成员的访问权限，**不能改变 private 成员的访问权限**。因为基类中 private 成员在派生类中是不可见的。
 ```c++
@@ -2796,12 +2801,11 @@ class Base {/*...*/};
 class D:public Base
 {
 public:
-		//默认情况下，基类的默认构造函数初始化对象的基类部分
-		//要想使用拷贝或移动构造函数，我们必须在构造函数初始值列表中
-		//显式地调用该构造函数
-		D(const D& d) : Base(d) {/*...*/}  //拷贝基类成员
-						
-		D(D&& d) : Base(std::move(d)) {/*...*/}  //移动基类成员
+    //默认情况下，基类的默认构造函数初始化对象的基类部分
+    //要想使用拷贝或移动构造函数，我们必须在构造函数初始值列表中显式地调用该构造函数
+    D(const D& d) : Base(d) {/*...*/}  //拷贝基类成员
+                    
+    D(D&& d) : Base(std::move(d)) {/*...*/}  //移动基类成员
 		
 }
 ```
