@@ -1955,7 +1955,6 @@ auto f = [] { return 42;}  //auto为int型
 
 //调用方式和普通函数相同，注意要使用调用运算符()
 cout<<f()<<endl; //输出42
-
 ```
 
 ### 指定lambda返回类型
@@ -2014,7 +2013,7 @@ transform(v.begin(), v.end(), v.begin(),
 ```c++
 struct S2 
 { 
-		void f(int i); 
+	void f(int i); 
 };
 
 void S2::f(int i)
@@ -2114,15 +2113,15 @@ void fcn3()
 class Screen
 {
 public:
-		typedef std::string::size type pos;
-		char get cursor() const { return contents[cursor]; }
-		char get() const;
-		char get(pos ht, pos wd) const;
-	private:
-		std::string contents;
-		pos cursor;
-		pos height, width;
-	};
+    typedef std::string::size type pos;
+    char get cursor() const { return contents[cursor]; }
+    char get() const;
+    char get(pos ht, pos wd) const;
+private:
+    std::string contents;
+    pos cursor;
+    pos height, width;
+};
 ```
 ##### 数据成员指针
 成员指针包含成员所属的类。再 * 之前添加classname::表示指针可以指向classname的成员：
