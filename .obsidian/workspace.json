@@ -34,7 +34,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "编程/C++/《C++ Primer》.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -240,6 +240,11 @@
   },
   "active": "c08a707b64ab6e03",
   "lastOpenFiles": [
+    "引擎Unreal/02 蓝图 & U++/U++.md",
+    "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
+    "01 学习大纲.md",
+    "README.md",
+    "灵感.md",
     "zip/images/Pasted image 20230823224850.png",
     "zip/images/Pasted image 20230823224749.png",
     "zip/images/Pasted image 20230823224531.png",
@@ -257,8 +262,6 @@
     "zip/images/Pasted image 20230823162816.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unreal/05 Gameplay/宝藏.md",
-    "README.md",
-    "灵感.md",
     "引擎Unreal/05 Gameplay/GamePlay架构.md",
     "引擎Unreal/05 Gameplay/ARPG.md",
     "引擎Unreal/06 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
@@ -273,9 +276,6 @@
     "Tools/Obsidian/插件流.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
     "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md",
-    "DCC/02 Blender/建模原理.md",
-    "引擎Unity3D/1 Unity精粹/《GUI》.md",
-    "zip/images/Pasted image 20230821093726.png",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "技术美术/3 后处理/SSAO",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
