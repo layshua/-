@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "宝藏",
       "path": "引擎Unreal/05 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "灵感",
