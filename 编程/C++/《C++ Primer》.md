@@ -538,7 +538,8 @@ const int d = get_size(); //d不是，因为初始值get_size()必须在运行�
 	
 ```
 
-##### 【C++11】constexpr变量
+##### 【C++11】constexpr 变量
+#constexpr
 将变量声明为 constexpr 类型，由编译器来验证变量的值是否是一个常量表达式。声明为 constexpr 的变量一定是一个常量，而且必须用常量表达式初始化
 
 ```c++
@@ -7454,31 +7455,7 @@ template <typename T> inline T min (const T&,const T&);
 > - 在一个类模板的作用域内，我们可以直接使用模板名而不必指定模板实参（简化书写：`Array`等价于`Array<N>`）
 
 与函数模板不同，**编译器不能为类模板推断模板参数类型**。我们必须在模板名后的尖括号中提供额外信息，用来代替模板参数的模板实参列表。
-
-```c++
-template<int N> class Array
-{
-private:
-    //在栈上分配一个数组，而为了知道它的大小，要用模板传一个数字N过来
-    int m_Array[N];
-};
-
-
-
-int main() 
-{
-    Array<5> array;  //实例化生成一个类
-    //用尖括号给模板传递构造的规则。惊了，看起来尖括号就是对模板进行操作的好东西
-}
-```
-
-类模板外定义成员函数:
-```c++
-//要先在模板内声明
-template<int N> 
-return-type Array<N>::memberfunc(parm-list) {};
-```
-
+类模板外定义成员函数要先在模板内声明
 传多个规则给模板，**用逗号隔开就行**
 ```c++
 //可以传类型，也可以传数字，功能太强大了
@@ -7486,12 +7463,13 @@ return-type Array<N>::memberfunc(parm-list) {};
 template<typename T, int size> class Array 
 {
 private:
-    T m_Array[size];
+    T m_Array[size]; //在栈上分配一个数组，而为了知道它的大小，要用模板传一个数字N过来
 };
 
 int main() 
 {
-    Array<int, 5> array;
+    ////用尖括号给模板传递构造的规则
+    Array<int, 5> array;  //实例化生成一个类
 }
 ```
 
@@ -7502,7 +7480,7 @@ template<typename T> class BlobPtr;  //前置声明
 
 template<typename T> class Blob
 {
-		friend class BlobPtr<T>;  //友元
+	friend class BlobPtr<T>;  //友元
 }
 
 Blob<char> ca; //BlobPtr<char>是ca的友元
@@ -7551,7 +7529,7 @@ private:
 一个类（无论是普通类还是类模板）可以包含本身是模板的成员函数。这种成员被称为**成员模板**。
 **成员模板不能是虚函数**
 #### 普通类的成员模板
-$$ \begin{pmatrix} 1& a_1&a_1^2&\cdots&a_1^n\\ 1&a_2&a_2^2&\cdots&a_2^n\\ \vdots&\vdots&\vdots&\ddots&\vdots\\ 1&a_m&a_m^2&\cdots&a_m^n\\ \end{pmatrix} $$
+
 ```c++
 //函数对象类，对给定指针执行delete
 class DebugDelete
@@ -7661,7 +7639,7 @@ template class Blob<string>;  //实例化类模板的所有成员
 ```c++
 template<typename T> T fobj(T,T);  //实参被拷贝
 template <typename T> T fref(const T&,const T&);  //引用
-string sl("a value");
+string s1("a value");
 const string s2("another value");
 fobj(s1,s2);  //调用fobj(string,string); 顶层const被忽略
 fref(s1,s2);  //调用fref(const string&,const string&)
@@ -7795,8 +7773,7 @@ template <typename T> void f3(T&&);
 f3(42);  //实参是一个int类型的右值；模板参数T是int
 ```
 
-#### 引用折叠和右值引用参数
-
+**引用折叠和右值引用参数:**
 假设 i 是一个 int 对象，则它是一个左值，C++允许我们这样调用：f3(i)
 很奇怪，f3形参是右值引用类型吗，怎么能绑定到左值上呢？这是因为C++在正常绑定规则之外定义了两个例外规则，允许这种绑定：
 当我们调用f3(i)时，编译器推断模板类型参数为**实参的左值引用类型**。即编译器推断T为int&而不是int。
@@ -7812,7 +7789,7 @@ f3(42);  //实参是一个int类型的右值；模板参数T是int
 > 2. 如果一个函数参数是指向模板参数类型的右值引用（如，T&&),则可以传递给它任意类型的实参。如果将一个左值传递给这样的参数，则函数参数被实例化为一个普通的左值引用(T&)。
 
 ## 7 转发
-**某些函数需要将其一个或多个实参连同类型不变地转发给其他函数。** 我们需要哦保持被转发实参的所有性质，包括实参类型是否是const以及实参是左值还是右值。
+**某些函数需要将其一个或多个实参连同类型不变地转发给其他函数。** 我们需要保持被转发实参的所有性质，包括实参类型是否是const以及实参是左值还是右值。
 
 ```c++
 //接受一个可调用对象和另外两个参数的模板
@@ -7821,13 +7798,13 @@ f3(42);  //实参是一个int类型的右值；模板参数T是int
 template <typename F, typename T1, typename T2>
 void flip1(F f,T1 t1,T2 t2)
 {
-		f(t2,t1);
+	f(t2,t1);
 }
 
 //这个函数一般情况下工作得很好，但当我们希望用它调用一个接受引用参数的函数时就会出现问题：
 void f(int v1,int &v2) //注意v2是一个引用
 {
-		cout << vl << "" << ++v2 << end1;
+	cout << vl << "" << ++v2 << end1;
 }
 
 f(42,i)  //直接调用f改变了实参i
@@ -7981,7 +7958,7 @@ void fun(Args&& ... args)//将Args扩展为一个右值引用的列表
 由于fun的参数是右值引用，因此我们可以传递给它任意类型的实参；由于我们使用std::forward传递这些实参，因此它们的所有类型信息在调用work时都会得到保持。
 ## 10 模板特例化
 一个特例化版本就是模板的一个独立的定义，在其中一个或多个模板参数被指定为特定的类型。
-当我们特例化一个函数模板时，**必须为原模板中的每个模板参数都提供实参**。为了指出我们正在实例化一个模板，应使用关键字template后跟一个空尖括号对(<>)。空尖括号指出我们将为原模板的所有模板参数提供实参。
+当我们特例化一个函数模板时，**必须为原模板中的每个模板参数都提供实参**。为了指出我们正在实例化一个模板，应使用关键字 template 后跟一个空尖括号对(`< >`)。空尖括号指出我们将为原模板的所有模板参数提供实参。
 
 理解此特例化版本的困难之处是函数参数类型。当我们定义一个特例化版本时，函数参数类型必须与一个先前声明的模板中对应的类型匹配。本例中我们特例化：
 ```c++
@@ -7994,7 +7971,7 @@ template <>
 int compare(const char* const &p1,const char* const &p2)
 {
 		return strcmp(p1,p2);
-	}
+}
 
 //函数调用时，匹配一致情况下的优先级别：非模板版本>特例化模板>普通模板
 compare ("hi","mom");  //调用特例化版本
