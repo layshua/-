@@ -32,7 +32,6 @@ playstart方法
 2. 修改world settings的GameMode
 
 
-
 直接放置pawn方法
 
 1. 放置pawn到场景中
@@ -144,15 +143,6 @@ Engine->General Settings
 ![[Pasted image 20230112181346.png]]
 
 
-# 基本概念
-关卡蓝图：每个关卡只有一个
-类蓝图：多个（模块化）
-编译：编译后即可运行
-保存：不保存会有星号
-
-红色为事件，蓝色为函数
-
-![[Pasted image 20221213162905.png]]
 
 # 常用快捷键
 ![[Pasted image 20221213161143.png]]
@@ -192,13 +182,6 @@ ShowFlag.PostProcessing —— 开关后期盒子效果
 r.AOSpecularOcclusionMode —— 可以让 skylight 产生的 DFAO 产生更准确的高光（0关闭，1打开）
 ## 游戏类
 slomo —— 游戏运行速度（运行速度）
-
-
-
-
-
-
- 
 
 # 迁移资产
 **资源类型**
