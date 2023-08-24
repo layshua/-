@@ -1,4 +1,1 @@
-# 事件
-
-聚焦（点击 ui 控件就进入聚焦，点击空白处就退出聚焦），仅适用于可交互控件
-![[Pasted image 20230824204544.png]]
+**虚幻示意图形界面设计器** (Unreal Motion Graphics Ul Designer)简称 UMG，用于实现游戏中的 HUD 元素和前端菜单等UI 功能
