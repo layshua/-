@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
+      "basename": "行李",
+      "path": "zip/留学/行李.md"
+    },
+    {
+      "basename": "前往斯旺西",
+      "path": "zip/留学/前往斯旺西.md"
+    },
+    {
+      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
+      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "租房注意事项",
+      "path": "zip/留学/租房注意事项.md"
+    },
+    {
       "basename": "UMG",
       "path": "引擎Unreal/02 蓝图 & U++/UMG.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "6 脚本",
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
-    },
-    {
-      "basename": "5 CommandBuffer",
-      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
-      "path": "zBuffer/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
-    },
-    {
-      "basename": "SSPR",
-      "path": "zBuffer/SSPR.md"
-    },
-    {
-      "basename": "Unity URP 实现屏幕空间反射（SSR）",
-      "path": "zBuffer/Unity URP 实现屏幕空间反射（SSR）.md"
     }
   ],
   "omittedPaths": [],
