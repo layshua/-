@@ -5338,7 +5338,6 @@ int main() {
     printarray(data);
     printarray2(data);
 }
-//代码参考：https://github.com/UrsoCN/NotesofCherno/blob/main/Cherno57.cpp
 ```
 
 ## vector
@@ -5352,23 +5351,15 @@ int main() {
 > 
 > **确保下标合法的一种有效手段就是尽可能使用范围for语句。**
 
-
-vector 本质上是一个动态数组, 内存连续存储。
-假定容器中元素是连续存储的，且容器的大小是可变的，考虑向vector或string
-中添加元素会发生什么：如果没有空间容纳新元素，容器不可能简单地将它添加到内存中
-其他位置一因为元素必须连续存储。容器必须分配新的内存空间来保存已有元素和新元
-素，将已有元素从旧位置移动到新空间中，然后添加新元素，释放旧存储空间。如果我们
-每添加一个新元素，vector就执行一次这样的内存分配和释放操作，性能会慢到不可
-接受。
-为了避免这种代价，标准库实现者采用了可以减少容器空间重新分配次数的策略。当
 ### 内存空间增长策略
-Vector对象是如何增长的？
+vector 本质上是一个动态数组, 内存连续存储。
+
+**Vector对象是如何增长的？**
 假定容器中元素是连续存储的，且容器的大小是可变的，考虑向vector或string中添加元素会发生什么：如果没有空间容纳新元素，容器不可能简单地将它添加到内存中其他位置，因为元素必须连续存储。容器必须分配新的内存空间来保存已有元素和新元素，将已有元素从旧位置移动到新空间中，然后添加新元素，释放旧存储空间。
 如果我们每添加一个新元素，vector就执行一次这样的内存分配和释放操作，性能会慢到不可接受。
 为了避免这种代价，标准库实现者采用了可以减少容器空间重新分配次数的策略。**当不得不获取新的内存空间时，vector和string的实现通常会分配比新的空间需求更大的内存空间。容器预留这些空间作为备用，可用来保存更多的新元素。这样，就不需要每次添加新元素都重新分配容器的内存空间了。**
 
 vs编辑器每次扩容1.5倍：[C++vector的动态扩容，为何是1.5倍或者是2倍](https://blog.csdn.net/qq_44918090/article/details/120583540)
-
 
 ![[Pasted image 20230211234640.png]]
 
@@ -5582,10 +5573,10 @@ string b = "Hello World"
 string c = "Hiya"
 ```
 a < b
-      c > a且c > b
-	
+c > a且c > b
+
 #### 字面值和string相加
-当爸string对象和字符字面值以及字符串字面值混在一条语句中使用时，要确保每个+运算符两侧的运算对象至少有一个是string：
+当string对象和字符字面值以及字符串字面值混在一条语句中使用时，要确保每个+运算符两侧的运算对象至少有一个是string：
 ```c++
 string s1 = "Hello"
 string s2 = s1 + "World"; //正确，string+字面值 
@@ -5617,7 +5608,6 @@ string s5 = s.substr(12);  //抛出一个out_of_range异常
 #### string搜索操作
 ![[Pasted image 20230212154657.png]]
 ![[Pasted image 20230212154705.png]]
-
 
 > [!warning] 
 > string搜索函数返回string:size_type值，该类型是一个unsigned类型。因此，用一个int或其他带符号类型来保存这些函数的返回值不是一个好主意。
@@ -5677,7 +5667,7 @@ stack只要求push back、pop back和back操作，因此可以使用除array和f
 >
 queue适配器要求back、push_back、front和push_front,因此它可以构造于list或deque之上，但不能基于vector构造。
 >
-priority_.queue除了front、push_back和pop_back操作之外还要求随机访问能力，因此它可以构造于vector或deque之上，但不能基于list构造。
+priority_queue除了front、push_back和pop_back操作之外还要求随机访问能力，因此它可以构造于vector或deque之上，但不能基于list构造。
 
 
 ### 栈适配器
