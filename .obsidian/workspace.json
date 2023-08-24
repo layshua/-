@@ -21,20 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/《Effective C++ 3th》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c08a707b64ab6e03",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/01 指南/问题汇总.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -94,7 +81,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -137,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md"
+                "file": "引擎Unreal/01 指南/问题汇总.md"
               }
             }
           }
@@ -187,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/01 指南/问题汇总.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/01 指南/问题汇总.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -238,18 +225,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c08a707b64ab6e03",
+  "active": "d1613e037e80422f",
   "lastOpenFiles": [
+    "引擎Unreal/02 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
+    "引擎Unreal/02 蓝图 & U++/U++.md",
+    "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "引擎Unreal/02 蓝图 & U++/史蒂芬多人TPS/未命名.md",
+    "引擎Unreal/02 蓝图 & U++/史蒂芬多人TPS/assets/wps1.jpg",
+    "引擎Unreal/01 指南/ue操作指南.md",
+    "引擎Unreal/01 指南/光照设置.md",
+    "引擎Unreal/01 指南/问题汇总.md",
+    "README.md",
+    "01 学习大纲.md",
+    "编程/C++/《C++ Primer》.md",
     "zip/images/Pasted image 20230824095050.png",
     "编程/C++/C++原理.md",
     "编程/C++/Cherno剩余.md",
-    "编程/C++/《C++ Primer》.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "编程/C++/STL.md",
-    "引擎Unreal/02 蓝图 & U++/U++.md",
-    "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
-    "01 学习大纲.md",
-    "README.md",
     "灵感.md",
     "zip/images/Pasted image 20230823224850.png",
     "zip/images/Pasted image 20230823224749.png",
@@ -259,9 +252,7 @@
     "zip/images/Pasted image 20230823224458.png",
     "zip/images/Pasted image 20230823224404.png",
     "zip/images/Pasted image 20230823223924.png",
-    "zip/images/Pasted image 20230823223917.png",
     "引擎Unreal/05 Gameplay/丁书凯FPS.md",
-    "zip/images/Pasted image 20230823162816.png",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "引擎Unreal/05 Gameplay/宝藏.md",
     "引擎Unreal/05 Gameplay/GamePlay架构.md",
@@ -272,10 +263,6 @@
     "引擎Unreal/08 案例/交互雪.md",
     "引擎Unreal/08 案例/交互草.md",
     "引擎Unreal/08 案例/水体渲染.md",
-    "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
-    "引擎Unreal/01 指南/光照设置.md",
-    "Tools/Obsidian/插件流.md",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "技术美术/3 后处理/SSAO",
     "技术美术/5 水体渲染/SSR屏幕空间反射",

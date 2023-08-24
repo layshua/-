@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "问题汇总",
+      "path": "引擎Unreal/01 指南/问题汇总.md"
+    },
+    {
+      "basename": "虚幻引擎蓝图编程要点 - 哔哩哔哩",
+      "path": "引擎Unreal/02 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "U++",
+      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
+    },
+    {
+      "basename": "蓝图开发最佳实践",
+      "path": "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "ue操作指南",
+      "path": "引擎Unreal/01 指南/ue操作指南.md"
+    },
+    {
+      "basename": "光照设置",
+      "path": "引擎Unreal/01 指南/光照设置.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "01 学习大纲",
+      "path": "01 学习大纲.md"
+    },
+    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
@@ -13,28 +49,8 @@
       "path": "编程/C++/Cherno剩余.md"
     },
     {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
       "basename": "STL",
       "path": "编程/C++/STL.md"
-    },
-    {
-      "basename": "U++",
-      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
-    },
-    {
-      "basename": "蓝图开发最佳实践",
-      "path": "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "01 学习大纲.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "丁书凯FPS",
@@ -83,14 +99,6 @@
     {
       "basename": "[译文]UE 基础—蓝图 VS_ C++",
       "path": "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
-    },
-    {
-      "basename": "ue操作指南",
-      "path": "引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
-      "basename": "光照设置",
-      "path": "引擎Unreal/01 指南/光照设置.md"
     },
     {
       "basename": "插件流",
@@ -187,18 +195,6 @@
     {
       "basename": "Unity URP 实现 HBAO",
       "path": "技术美术/3 后处理/SSAO/Unity URP 实现 HBAO.md"
-    },
-    {
-      "basename": "04 SSAO",
-      "path": "技术美术/3 后处理/04 SSAO.md"
-    },
-    {
-      "basename": "Unity URP 实现 SSAO",
-      "path": "技术美术/3 后处理/SSAO/Unity URP 实现 SSAO.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
     }
   ],
   "omittedPaths": [],
