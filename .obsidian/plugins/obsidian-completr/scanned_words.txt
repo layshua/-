@@ -151100,6 +151100,7 @@ Backupscenes
 Blaster
 Bone
 BlasterGamestate
+BaseEngine
 Fraktur
 Frame
 Foo
@@ -160052,6 +160053,7 @@ Emitters
 Efw
 EquippedWeapon
 Effector
+ENGINEVERSIONAGNOSTICUSERDIR
 xmlns
 xyz
 xy
@@ -170756,6 +170758,7 @@ Domains
 Disgust
 DitherMap
 DissolveMaterial
+DerivedDataCache
 LNK
 Log
 Linux
@@ -179648,6 +179651,7 @@ GenerateBody
 GameFrameWork
 Gamemodebase
 GameModeBase
+GAMEDIR
 NULL
 Native
 NormalMap
