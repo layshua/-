@@ -5669,8 +5669,7 @@ queue适配器要求back、push_back、front和push_front,因此它可以构造�
 >
 priority_queue除了front、push_back和pop_back操作之外还要求随机访问能力，因此它可以构造于vector或deque之上，但不能基于list构造。
 
-
-### 栈适配器
+### 栈适配器 stack 
 
 ```c++
 #include <stack> //头文件
@@ -5696,7 +5695,7 @@ int main()
 
 ![[Pasted image 20230212164240.png]]
 
-### 队列适配器
+### 队列适配器 queue
 queue使用先入先出（FIFO）策略
 priority_queue允许我们为队列中的元素建立优先级，新加入的元素会排在所有优先级比他低的已有元素之前。
 
@@ -5824,7 +5823,7 @@ unique后：![[Pasted image 20230212174447.png]]
 ### 谓词：向算法传递函数
 
 > [!NOTE] 谓词
-> 谓词是一个可调用的表达式，其返回结果是一个能用作条件的值。
+> **谓词是一个可调用的表达式，其返回结果是一个能用作条件的值。**
 > 
 > 标准库算法所使用的谓词分为两类：
 > 一元谓词(unary predicate,意味着它们只接受单一参数)
@@ -5972,14 +5971,15 @@ cout<<endl;
 ### 【C++11】参数绑定 bind 函数
 #bind
 #### 绑定普通函数
-接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
+可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
+
 ```c++
 //调用bind的一般形式：
 auto newCallable = bind (callable, arg_list);
 
 //newCallable本身是一个可调用对象
 //arg_list是一个逗号分隔的参数列表，对应给定的callable的参数。
-//当我们调用newCallable时，newCallable会调用callable,并传递给它arg list中的参数。
+//即当我们调用newCallable时，newCallable会调用callable,并传递给它arg list中的参数。
 ```
 `arg_list`中的参数可能包含形如`_n`的名字，其中n是一个整数。这些参数是“占位符”,表示newCallable的参数，它们占据了传递给newCallable的参数的“位置”。
 数值n表示生成的可调用对象中参数的位置：`_1`为newCallable的第一个参数，`_2`为第二个参数，依此类推。
@@ -5993,7 +5993,7 @@ class Test
 public:
     int funs(int val)
     {
-        std::cout << "hello world " << val << std::endl;
+        std::cout << "hello world" << val << std::endl;
         return val;
     }
 };
@@ -7296,16 +7296,17 @@ struct divide
 > ****
 我们可能希望使用这些可调用对象构建一个简单的桌面计算器。为了实现这一目的，需要定义一个**函数表**用于存储指向这些可调用对象的“指针”。当程序需要执行某个特定的操作时，从表中查找该调用的函数。
 
-### 【C++11】function类型
+### 【C++11】function 类型
+#function
 常用function类型来定义函数表。
 ![[Pasted image 20230221224156.png]]
 ```c++
 //在这里我们声明了一个function类型，它可以表示接受两个int、返回一个int的可调用对象。因此，我们可以用这个新声明的类型表示任意一种桌面计算器用到的类型；
-function<int (int,int)>
+function<int(int,int)>
 
-function<int(int,int)>f1 = add;  //函数指针
-function<int (int,int)>f2 = divide();  //函数对象类的对象
-function<int (int,int)>f3 = [](int i,int j){ return i*j; }; //lambda
+function<int(int,int)> f1 = add;  //函数指针
+function<int (int,int)> f2 = divide();  //函数对象类的对象
+function<int (int,int)> f3 = [](int i,int j){ return i*j; }; //lambda
 
 cout<<f1(4,2)<<end1:  //打印6
 cout<<f2(4,2)<<end1:  //打印2

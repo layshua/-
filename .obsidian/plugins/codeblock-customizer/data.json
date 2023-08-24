@@ -277,7 +277,7 @@
       "codeblock": {
         "enableLineNumbers": true,
         "enableActiveLineHighlight": true,
-        "enableDeleteCodeButton": true,
+        "enableDeleteCodeButton": false,
         "codeBlockBorderStylingPosition": "right"
       },
       "header": {
