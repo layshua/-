@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "zip/留学/清单.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/留学/缴费.md"
+                "file": "zip/留学/清单.md"
               }
             }
           }
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "zip/留学/清单.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/留学/缴费.md",
+                "file": "zip/留学/清单.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -193,11 +193,12 @@
   },
   "active": "195474104bea299e",
   "lastOpenFiles": [
+    "zip/留学/缴费.md",
+    "zip/留学/清单.md",
     "zip/留学/行李.md",
     "zip/留学/租房注意事项.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/images/Pasted image 20230825141556.png",
-    "zip/留学/缴费.md",
     "zip/留学/前往斯旺西.md",
     "编程/C++/STL.md",
     "编程/C++/《C++ Primer》.md",
