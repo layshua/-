@@ -745,8 +745,7 @@ for (vector<T>::iterator it = v.begin(); it != v.end(); it++)
 ```
 
 ### 使用迭代器逆序遍历
-```
-
+```c++
 for (vector<T>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
 {
     cout << *it << endl;
@@ -757,9 +756,9 @@ for (vector<T>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
 */
 ```
 
-```c++
-判断迭代器是否能随机访问的方法
+### 判断迭代器是否能随机访问的方法
 用多了自然就背上了，下面给出一种现场测试的方法。
+```c++
 iterator++；
 iterator--；
 //通过编译，至少是双向迭代器
@@ -767,36 +766,47 @@ iterator--；
 iterator = iterator + 1；
 //通过编译，则是随机访问迭代器
 ```
-vector 数据结构
-vector采用的数据结构非常简单，线性连续空间，它以两个迭代器_Myfirst和_Mylast分别指向配置得来的连续空间中已被使用的范围，并以迭代器Myend指向整块连续内存空间的尾端。
-为了降低空间配置时的成本，vector实际配置的大小可能比用户端需求大一些，以备将来可能的扩充，这便是容量的概念。
-一个vector容器的容量永远大于等于其大小，一旦容量等于大小，便是满载，下次再有新增元素，整个vector容器就得另觅居所。
-所谓动态增加大小，并不是在原空间之后续接新空间（因为无法保证原空间之后尚有可配置的空间），而是一块更大的内存空间，然后将原数据拷贝新空间，并释放原空间。
-因此，对vector的任何操作，一旦引起空间的重新配置，指向原vector的所有迭代器就都失效了。
-vector常用API操作
-API = Applicational Programming Interface
-vector 构造函数
+
+
+## vector常用API操作
+### vector 构造函数
+```c++
 vector<T> v; // 采用模版类实现，默认构造函数
 vector<T> v(T* v1.begin(), T* v1.end()); // 将v1[begin(), end())区间中的元素拷贝给本身
 vector<T> v(int n, T elem); // 将n个elem拷贝给本身
 vector<T> v(const vector<T> v1); // 拷贝构造函数
+```
 下面对于第二种构造方式给出一个特殊的例子：
+```c++
 int array[5] = {1, 2, 3, 4, 5};
 vector<int> v(array, array + sizeof(array) / sizeof(int));
 // 联系我们之前提到的vector迭代器本质上是指针就不难理解了
-vector 常用赋值操作
-由于vector采用模版类实现，其完整的函数声明会稍显复杂，下面方法的演示会省略类型界定。
+```
+
+### vector 常用赋值操作
+由于 vector 采用模版类实现，其完整的函数声明会稍显复杂，下面方法的演示会省略类型界定。
+
+```c++
 assign(beg, end); // 将[beg, end)区间中的数据拷贝复制给本身
 assign(n, elem); // 将n个elem拷贝给本身
 vector& operator=(const vector& vec); // 重载赋值操作符
+```
+
 互换操作也可视为一种特殊的赋值：
+```c++
 swap(vec); //将vec与本身的元素互换
-巧用swap来收缩空间：
+```
+
+**巧用swap来收缩空间：**
+```c++
 vector<int>(v).swap(v);
 // vector<int>(v): 利用拷贝构造函数初始化匿名对象
 // swap(v): 交换的本质其实只是互换指向内存的指针
 // 匿名对象指针指向的内存会由系统自动释放
-vector 大小操作
+```
+
+### vector 大小操作
+```c++
 int size(); // 返回容器中的元素个数
 bool empty(); // 判断容器是否为空
 ​
@@ -810,13 +820,19 @@ void resize(int num, T elem);
 int capacity(); // 返回容器的容量
 void reserve(int len); 
 // 容器预留len个元素长度，预留位置不初始化，元素不可访问
-vector 数据存取操作
+```
+
+### vector 数据存取操作
+```c++
 T& at(int idx); // 返回索引idx所指的数据，如果idx越界，抛出out_of_range异常
 T& operator[](int idx); // 返回索引idx所指的数据，如果idx越界，运行直接报错
 ​
 T& front(); // 返回首元素的引用
 T& back(); // 返回尾元素的引用
-vector插入和删除操作
+```
+
+### vector 插入和删除操作
+```c++
 insert(const_iterator pos, T elem); // 在pos位置处插入元素elem
 insert(const_iterator pos, int n, T elem); // 在pos位置插入n个元素elem
 insert(pos, beg, end); // 将[beg, end)区间内的元素插到位置pos
@@ -827,4 +843,260 @@ erase(const_iterator start, const_iterator end); // 删除区间[start, end)内�
 erase(const_iterator pos); // 删除位置pos的元素
 ​
 clear(); // 删除容器中的所有元素
-至此，读者应当对vector的特点及基本操作有了较为全面的认识，使用时API记不清可以回头多看。
+```
+
+# deque - 双向队列
+STL中deque类的详细介绍
+## duque 容器基本概念
+vector 容器是单向开口的连续内存空间，deque 则是一种双向开口的连续线性空间。
+所谓的双向开口，意思是可以在头尾两端分别做元素的插入和删除操作
+vector 虽然也能在头尾插入元素，但是在头部插入元素的效率很低，需要大量进行移位操作
+![[Pasted image 20230825103846.jpg]]
+## deque 容器和 vector 最大的差异
+deque **允许使用常数项时间在头部插入或删除元素**
+deque 没有容量的概念，因为它是由动态的分段连续空间组合而成，随时可以增加一块新的空间并链接起来
+虽然deque也提供了 Random Access Iterator，但其实现相比于vector要复杂得多，所以**需要随机访问的时候最好还是用vector**。
+## deque 容器实现原理
+![[Pasted image 20230825103917.jpg]]
+## deque 的遍历
+基本的遍历方式同 vector，不做赘述。这里提一下如何在遍历的时候防止内容被修改: 用 const_iterator 指向常量容器
+```c++
+#include <deque>
+using namespace std;
+​
+const deque<T> d;
+for (deque<T>::const_iterator it = d.begin(); it != d.end(); it++) 
+// 要用const_iterator指向常量容器
+{
+  	// 如果在此处修改it指向空间的值，编译器会报错
+  	cout << *it << endl;
+}
+​
+/**
+  * iterator 普通迭代器
+  * reverse_iterator 反转迭代器
+  * const_iteratoe 只读迭代器
+*/
+```
+
+## deque 常用 API
+### deque 构造函数
+```c++
+deque<T> deqT; // 默认构造函数
+deque(beg, end); // 构造函数将[beg, end)区间中的元素拷贝给本身
+deque(int n, T elem); // 构造函数将n个elem拷贝给本身
+deque(const deque& deq); // 拷贝构造函数
+```
+### deque 赋值操作
+```c++
+assign(beg, end); // 将[beg, end)区间中的元素拷贝赋值给本身
+assign(int n, T elem); // 将n个元素elem拷贝赋值给本身
+​
+deque& operator=(const deque& deq); // 重载赋值操作符
+​
+swap(deq); // 将deq与本身的元素互换
+```
+### deque 大小操作
+```c++
+int size(); // 返回容器中元素的个数
+bool empty(); // 判断容器是否为空
+​
+void resize(int num); 
+// 重新指定容器的长度为num，若容器变长，则以默认值填充新位置，
+// 如果容器变短，则末尾超出容器长度的元素被删除
+void resize(int num, T elem);
+// 重新指定容器的长度为num，若容器变长，则以elem填充新位置，
+// 如果容器变短，则末尾超出容器长度的元素被删除
+```
+### deque 的双端插入和删除操作
+```c++
+push_back(T elem); // 在容器尾部添加一个元素
+push_front(T elem); // 在容器头部插入一个元素
+​
+pop_back(); // 删除容器最后一个数据
+pop_front(); // 删除容器第一个数据
+```
+
+### deque 的数据存取
+```c++
+T& at(int idx); // 返回索引idx所指的数据，如果idx越界，抛出out_of_range异常
+T& operator[](int idx); // 返回索引idx所指的数据，如果idx越界，运行直接报错
+​
+T& front(); // 返回首元素的引用
+T& back(); // 返回尾元素的引用
+```
+
+### deque 插入操作
+```c++
+const_iterator insert(const_iterator pos, T elem); 
+// 在pos位置处插入元素elem的拷贝，返回新数据的位置
+void insert(const_iterator pos, int n, T elem); 
+// 在pos位置插入n个元素elem，无返回值
+void insert(pos, beg, end);
+// 将[beg, end)区间内的元素插到位置pos，无返回值
+```
+### deque 删除操作
+```c++
+clear(); // 移除容器的所有数据
+iterator erase(iterator beg, iterator end);
+// 删除区间[beg, end)的数据，返回下一个数据的位置
+iterator erase(iterator pos)；
+// 删除pos位置的数据，返回下一个数据的位置
+```
+
+# stack - 栈
+## stack 容器基本概念
+stack 是一种先进后出（First In Last Out, FILO）的数据结构，它只有一个出口。
+stack 容器允许新增元素、移除元素、取得栈顶元素，但是除了最顶端外，没有任何其他方法可以存取stack的其他元素。
+**换言之，stack 不允许有遍历行为。**
+![[Pasted image 20230825104239.jpg]]
+## stack 没有迭代器
+不允许遍历行为，自然也就不提供迭代器了。
+## stack 常用API
+### stack 构造函数
+```c++
+stack<T> stkT; // 默认构造函数，stack采用模版类实现
+stack(const stack& stk); // 拷贝构造函数
+```
+### stack 赋值操作
+```c++
+stack& operator=(const stack& stk); // 重载赋值操作符
+```
+### stack 数据存取操作
+```c++
+void push(T elem); // 向栈顶添加元素
+void pop(); // 从栈顶移除第一个元素
+T& top(); // 返回栈顶元素
+```
+### stack 大小操作
+```c++
+bool empty(); // 判断堆栈是否为空
+int size(); // 返回栈的大小
+```
+
+# queue - 队列
+## queue 容器基本概念
+queue 是一种**先进先出**(First In First Out, FIFO)的数据结构，它有两个出口，queue 容器允许从一端新增元素，从另一端移除元素。
+![[Pasted image 20230825104341.jpg]]
+## queue 没有迭代器
+只有queue的顶端元素，才有机会被外界去用。queue不提供遍历功能，也不提供迭代器。
+## queue 常用API
+### queue 构造函数
+```c++
+queue<T> queT; // queue对象的默认构造函数形式，采用模版类实现
+queue(const queue& que); // 拷贝构造函数
+```
+### queue 存取、插入和删除操作
+```c++
+void push(T elem); // 往队尾添加元素
+void pop(); // 从队头移除第一个元素
+T& back(); // 返回最后一个元素
+T& front(); // 返回第一个元素
+```
+### queue 赋值操作
+```c++
+queue& operator=(const queue& que); // 重载赋值操作符
+```
+### queue 大小操作
+```c++
+bool empty(); // 判断队列是否为空
+int size(); // 返回队列的大小
+```
+
+
+# list - 链表
+## list 容器基本概念
+链表是一种物理存储单元上非连、续非顺序的储存结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。
+- 链表由一系列结点（链表中每一个元素称为结点）组成
+- 结点可以在运行时动态生成
+- 每个结点包括两个部分
+    - 储存数据元素的数据域
+    - 储存下一个结点地址的指针域
+    - 链表灵活，但是空间和时间的额外消耗会比较大。
+
+
+相较于vector的连续线性空间，list就显得复杂许多。
+- 它的好处是每次插入或者删除一个元素，就是配置或者释放一个元素的空间
+- 因此，list 对于空间的运用有绝对的精准，一点也不浪费
+- 而且，list 对于任何位置插入或删除元素都是常数项时间
+
+list 容器是一个双向链表：
+![[Pasted image 20230825104451.jpg]]
+
+## list 容器的迭代器
+list 容器不能像vector一样以普通指针作为迭代器，因其节点不能保证在同一块连续的内存空间上。
+list 迭代器必须有能力指向list的结点，并有能力进行正确的递增、递减、取值、成员存取操作。
+由于 list 是一个双向链表，迭代器必须能够具备前移、后移的能力，所以 list 容器提供的是**双向迭代器**。
+
+**list 有一个重要的性质，插入和删除操作都不会造成原有 list 迭代器的失效**。这在 vector 是不成立的，因为 vector 的插入操作可能会造成内存的重新配置，导致原有的迭代器全部失效
+**而 list 元素的删除只会使得被删除元素的迭代器失效**
+
+## list 容器的顺序遍历
+```c++
+for(list<T>::iterator it = lst.begin(); it != lst.end(); it++)
+{
+    cout << *it << endl;
+}
+```
+## list 容器的逆序遍历
+```
+for(list<T>::reverse_iterator it = lst.rbegin(); it != lst.rend(); it++)
+{
+    cout << *it << endl;
+}
+```
+list 容器的数据结构
+list不仅仅是一个双向链表，而且是一个循环的双向链表。
+list 常用API
+list 构造函数
+list<T> lstT; // 默认构造形式，list采用模版类实现
+list(beg, end); // 构造函数将[beg, end)区间内的元素拷贝给本身
+list(int n, T elem); // 构造函数将n个elem拷贝给本身
+list(const list& lst); // 拷贝构造函数
+list 数据元素插入和删除操作
+void push_back(T elem); // 在容器尾部加入一个元素
+void pop_back(); // 删除容器中最后一个元素
+​
+void push_front(T elem); // 在容器开头插入一个元素
+void pop_front(); // 从容器开头移除第一个元素
+​
+insert(iterator pos, elem); // 在pos位置插入elem元素的拷贝，返回新数据的位置
+insert(iterator pos, n, elem); // 在pos位置插入n个elem元素的拷贝，无返回值
+insert(iterator pos, beg, end); // 在pos位置插入[beg, end)区间内的数据，无返回值
+​
+void clear(); // 移除容器的所有数据
+​
+erase(beg, end); // 删除[beg, end)区间内的所有数据，返回下一个数据的位置
+erase(pos); // 删除pos位置的数据，返回下一个数据的位置
+​
+remove(elem); // 删除容器中所有与elem匹配的元素
+list 大小操作
+int size(); // 返回容器中元素的个数
+bool empty(); // 判断容器是否为空
+​
+void resize(int num);
+// 重新制定容器的长度为num，若容器变长，则以默认值填充新位置；
+// 若容器变短，则末尾超出容器长度的元素被删除
+void resize(int num, T elem);
+// 重新制定容器的长度为num，若容器变长，则以elem填充新位置；
+// 若容器变短，则末尾超出容器长度的元素被删除
+list 赋值操作
+assign(beg, end); // 将[beg, end)区间中的数据拷贝赋值给本身
+assign(n, elem); // 将n个elem拷贝赋值给本身
+​
+list& operator=(const list& lst); // 重载等号操作符
+​
+swap(lst); // 将lst与本身的元素互换
+list 数据的存取
+T& front(); // 返回第一个元素
+T& back(); // 返回最后一个元素
+list 反转排序
+void reverse(); // 反转链表
+​
+void sort(); // 默认list排序，规则为从小到大
+void sort(bool (*cmp)(T item1, T item2)); // 指定排序规则的list排序
+​
+// 不能用sort(lst.begin(), lst.end())
+// 因为所有系统提供的某些算法（比如排序），其迭代器必须支持随机访问
+// 不支持随机访问的迭代器的容器，容器本身会对应提供相应的算法的接口
+至此，读者应当对list的特点及基本操作有了较为全面的认识，使用时API记不清可以回头多看。
