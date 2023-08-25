@@ -91,7 +91,8 @@ General->Performance
 General->SourceCode
 ![[Pasted image 20230112174507.png]]
 # 项目设置
-## 缓冲位置
+## 缓存位置
+### 项目缓存
 把"D:\Program Files\Epic Games\UE_5.0\Engine\Config\BaseEngine.ini"文件
 
 里面的：Path="%ENGINEVERSIONAGNOSTICUSERDIR%DerivedDataCache"
@@ -99,7 +100,12 @@ General->SourceCode
 替换为：Path="%GAMEDIR%DerivedDataCache"
 
 以后每次创建项目都会在“项目名称”的目录下自动生成一个“DerivedDataCache”文件夹
+### 库缓存目录
+打开 epic 客户端，左下角设置
+![[Pasted image 20230825232148.png]]
 
+ 
+ 
 ## 默认map/gamemode
 Project->Maps&Modes
 ![[Pasted image 20230112175527.png]]
