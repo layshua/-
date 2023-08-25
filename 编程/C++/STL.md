@@ -108,6 +108,32 @@ STL中包含了很多种容器，虽然这些容器提供了一些相同的操�
 >     - 重载小于操作符（<） 对容器进行的一些操作中可能要进行元素比较运算。
 
 
+## 容器特点总结
+
+|容器|vector |deque|list|set|multiset|map|multimap|
+|---|---|---|---|---|---|---|---|
+|典型内存结构|单端数组|双端数组|双向链表|二叉树|二叉树|二叉树|二叉树|
+|可随机存储|是|是|否|否|否|对 key 而言，不是|否|
+|元素搜索速度|慢|慢|非常慢|快|快|对 key 而言，快|对 key 而言，快|
+|元素安插移除|尾端|头尾两端|任何位置|-|-|-|-|
+
+## 使用场景
+
+vector 可以涵盖其他所有容器的功能，只不过实现特殊功能时效率没有其他容器高。但如果只是简单存储，vector 效率是最高的。
+
+deque 相比于 vector 支持头端元素的快速增删。
+
+**vector 与 deque 的比较**
+
+- `vector.at()` 比 `deque.at()` 的效率高
+    - 比如 `vector.at(0)` 是固定的，`deque` 的开始位置是不固定的
+
+- 如果有大量释放操作的话，`vector` 花的时间更少
+- `deque` 支持头部的快速插入与快速删除，这是 `deque` 的优点
+
+list 支持频繁的不确定位置元素的移除插入。
+set 会自动排序。
+map 是元素为键值对组并按键排序的 set。
 # 关于迭代器
 
 ## 迭代器-Iterator
@@ -1039,21 +1065,24 @@ for(list<T>::iterator it = lst.begin(); it != lst.end(); it++)
 }
 ```
 ## list 容器的逆序遍历
-```
+```c++
 for(list<T>::reverse_iterator it = lst.rbegin(); it != lst.rend(); it++)
 {
     cout << *it << endl;
 }
 ```
-list 容器的数据结构
-list不仅仅是一个双向链表，而且是一个循环的双向链表。
-list 常用API
-list 构造函数
+## list 容器的数据结构
+**list不仅仅是一个双向链表，而且是一个循环的双向链表。**
+## list 常用API
+### list 构造函数
+```c++
 list<T> lstT; // 默认构造形式，list采用模版类实现
 list(beg, end); // 构造函数将[beg, end)区间内的元素拷贝给本身
 list(int n, T elem); // 构造函数将n个elem拷贝给本身
 list(const list& lst); // 拷贝构造函数
-list 数据元素插入和删除操作
+```
+### list 数据元素插入和删除操作
+```c++
 void push_back(T elem); // 在容器尾部加入一个元素
 void pop_back(); // 删除容器中最后一个元素
 ​
@@ -1070,7 +1099,9 @@ erase(beg, end); // 删除[beg, end)区间内的所有数据，返回下一个�
 erase(pos); // 删除pos位置的数据，返回下一个数据的位置
 ​
 remove(elem); // 删除容器中所有与elem匹配的元素
-list 大小操作
+```
+### list 大小操作
+```c++
 int size(); // 返回容器中元素的个数
 bool empty(); // 判断容器是否为空
 ​
@@ -1080,17 +1111,23 @@ void resize(int num);
 void resize(int num, T elem);
 // 重新制定容器的长度为num，若容器变长，则以elem填充新位置；
 // 若容器变短，则末尾超出容器长度的元素被删除
-list 赋值操作
+```
+### list 赋值操作
+```c++
 assign(beg, end); // 将[beg, end)区间中的数据拷贝赋值给本身
 assign(n, elem); // 将n个elem拷贝赋值给本身
 ​
 list& operator=(const list& lst); // 重载等号操作符
 ​
 swap(lst); // 将lst与本身的元素互换
-list 数据的存取
+```
+#### list 数据的存取
+```c++
 T& front(); // 返回第一个元素
 T& back(); // 返回最后一个元素
-list 反转排序
+```
+#### list 反转排序
+```c++
 void reverse(); // 反转链表
 ​
 void sort(); // 默认list排序，规则为从小到大
@@ -1099,4 +1136,567 @@ void sort(bool (*cmp)(T item1, T item2)); // 指定排序规则的list排序
 // 不能用sort(lst.begin(), lst.end())
 // 因为所有系统提供的某些算法（比如排序），其迭代器必须支持随机访问
 // 不支持随机访问的迭代器的容器，容器本身会对应提供相应的算法的接口
-至此，读者应当对list的特点及基本操作有了较为全面的认识，使用时API记不清可以回头多看。
+```
+
+# set / multiset - 集合
+
+STL中set/multiset类的详细介绍
+
+## set/multiset 容器基本概念
+
+### set 容器基本概念
+
+set的特性是，所有的容器都会根据元素自身的键值进行自动被排序。
+
+set的元素不像map那样可以同时拥有实值和键值，**set的元素既是实值又是键值**。
+
+- set 不允许两个元素有相同的键值
+- 我们不可以通过 set 的迭代器改变 set 元素的值。因为其元素值就是键值，任意改变会严重破坏set的组织
+- 换句话说，set的iterator是一种const_iterator
+
+set和list拥有某些相同的性质，当对容器中的元素进行插入操作或者删除操作的时候，除了被删除的元素之外，操作之前的所有迭代器，操作之后仍然有效。
+
+### multiset 基本概念
+
+- multiset特性及用法和set完全相同，唯一的差别在于它允许键值重复。
+- set和multiset的底层实现是**红黑树**，红黑树为平衡二叉树的一种
+
+> 注意，multiset和set共用一个头文件。
+
+
+## set 的遍历
+```c++
+for (set<T>::iterator it = s.begin(); it != s.end(); it++)
+{
+  	cout << *it << endl;
+}
+```
+## set 常用API
+### set 构造函数
+```c++
+set<T> st; // set 默认构造函数
+multiset<T> mst; // multiset 默认构造函数
+set(const set& st); // 拷贝构造函数
+```
+### set 赋值操作
+```c++
+set& operator=(const set& st); // 重载等号操作符
+
+swap(st); // 交换两个集合容器
+```
+### set 大小操作
+```c++
+int size(); // 返回容器中元素的数目
+bool empty(); // 判断容器是否为空
+```
+### set 插入和删除操作
+```c++
+pair<iterator, bool> insert(T elem); 
+// 在容器中插入元素，返回插入位置的迭代器（不成功则返回end()）和是否插入成功
+// 如果是multiset，则返回值只有iterator
+clear(); // 清除所有元素
+iterator erase(pos); // 删除pos迭代器所指的元素，返回下一个元素的迭代器
+iterator erase(beg, end); // 删除区间[beg, end)内的所有元素，返回下一个元素的迭代器
+erase(T elem); // 删除容器中值为elem的元素
+```
+插入之前可以指定排序规则：
+```c++
+//利用仿函数 指定set容器的排序规则
+class MyCompare
+{
+public:
+    bool operator()(int v1, int v2)
+    {
+        return v1 > v2;
+    }
+};
+
+set<int, MyCompare> s;
+
+//模版类也是可以有默认值的，第二个模版参数的默认值为less
+```
+自定义的数据类型需要指出排序规则。
+当然，也可以通过重载小于操作符的方式指出。
+## set 查找操作
+```c++
+iterator find(T key); 
+// 查找键key是否存在，若存在，返回该键的元素的迭代器；若不存在，返回set.end();
+int count(T key);
+// 查找键key的元素个数
+iterator lower_bound(T keyElem);
+// 返回第一个key>=keyElem元素的迭代器
+iterator upper_bound(T keyElem);
+// 返回第一个key>keyElem元素的迭代器
+pair<iterator, iterator> equal_range(T keyElem);
+// 返回容器中key与keyElem上相等的两个上下限迭代器
+```
+
+上述几个方法若不存在，返回值都是尾迭代器。
+对组的构造和使用：
+
+```c++
+//构造
+pair<T1, T2> p(k, v);
+//另一种构造方式
+pair<T1, T2> p = make_pair(k, v);
+//使用
+cout << p.first << p.second << endl;
+```
+
+# map / multimap - 映射
+## map / multimap 基本概念
+map 的特性是，所有的元素都会根据元素的键值自动排序；
+map 的所有元素都是`pair`，同时拥有实值和键值。
+- pair 的第一元素被视为键值，第二元素被视为实值；
+- map 不允许两个元素有相同的键值；
+**和set类似的原因，我们不能通过迭代器改变map的键值，但我们可以任意修改实值。**
+map和list在增删元素的时候具有相似的性质。
+map和multimap的操作类似，唯一的区别是multimap键值可重复。
+map和multimap都是以**红黑树**作为底层实现机制。
+map 和 multimap 包含在同一个头文件中。
+
+## map 的遍历
+```c++
+for (map<T1, T2>::iterator it = m.begin(); it != m.end(); it++)
+{
+    cout << "key = " << it->first << " value = " << it->second << endl;
+}
+```
+## map/multimap 常用API
+### map 构造函数
+```c++
+map<T1, T2> mapTT; // map默认构造函数
+map(const map& mp); // 拷贝构造函数
+```
+### map 赋值操作
+```c++
+map& operator=(const map& mp); // 重载等号操作符
+swap(mp); // 交换两个集合容器
+```
+### map 大小操作
+```c++
+int size(); // 返回容器中元素的数目
+bool empty(); // 判断容器是否为空
+```
+### map 插入元素操作
+```c++
+pair<iterator, bool> insert(pair<T1, T2> p); // 通过pair的方式插入对象
+/*
+1. 参数部分可以用pair的构造函数创建匿名对象
+2. 也可以使用make_pair创建pair对象
+3. 还可以用map<T1, T2>::value_type(key, value)来实现
+*/
+​
+T2& operator[](T1 key); // 通过下标的方式插入值
+// 如果通过下标访问新的键却没有赋值，会自动用默认值填充
+```
+map指定排序规则的方式和set类似，都是利用functor在模版类型表的最后一个参数处指定。
+### map 删除操作
+```c++
+void clear(); // 删除所有元素
+iterator erase(iterator pos); // 删除pos迭代器所指的元素，返回下一个元素的迭代器
+iterator erase(beg, end); // 删除区间[beg, end)内的所有元素，返回下一个元素的迭代器
+erase(keyElem); // 删除容器中key为keyElem的对组
+```
+### map 查找操作
+```c++
+iterator find(T1 key); 
+// 查找键key是否存在，若存在，返回该键的元素的迭代器；若不存在，返回map.end()
+int count(T1 keyElem);
+// 返回容器中key为keyElem的对组个数，对map来说只可能是0或1，对于multimap可能大于1
+​
+iterator lower_bound(T keyElem);
+// 返回第一个key>=keyElem元素的迭代器
+iterator upper_bound(T keyElem);
+// 返回第一个key>keyElem元素的迭代器
+pair<iterator, iterator> equal_range(T keyElem);
+// 返回容器中key与keyElem上相等的两个上下限迭代器
+```
+
+
+# 仿函数(Functor)
+
+在详细讲常用的算法之前补充一下函数对象的相关内容，后面会用到。
+
+## 
+
+函数对象 / 仿函数[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#han-shu-dui-xiang-fang-han-shu)
+
+- 1.**重载函数调用操作符的类，其对象**常称为**函数对象(function object)**，也叫**仿函数(functor)**，使得类对象可以像函数那样调用。
+
+- 2.STL提供的算法往往有两个版本，一种是按照我们常规默认的运算来执行，另一种允许用户自己定义一些运算或操作，通常通过回调函数或模版参数的方式来实现，此时functor便派上了用场，特别是作为模版参数的时候，只能传类型。
+    
+
+- 3.  函数对象超出了普通函数的概念，其内部可以拥有自己的状态(其实也就相当于函数内的static变量)，可以通过成员变量的方式被记录下来。
+    
+
+- 4.
+    
+    函数对象可以作为函数的参数传递。
+    
+
+- 5.
+    
+    函数对象通常不定义构造和析构函数，所以在构造和析构时不会发生任何问题，避免了函数调用时的运行时问题。
+    
+
+- 6.
+    
+    模版函数对象使函数对象具有通用性，这也是它的优势之一。
+    
+
+- 7.
+    
+    STL需要我们提供的functor通常只有一元和二元两种。
+    
+
+- 8.
+    
+    lambda 表达式的内部实现其实也是仿函数
+    
+
+![](https://images.unsplash.com/photo-1509475826633-fed577a2c71b?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxOTcwMjR8MHwxfHNlYXJjaHw2fHxmdW5jdGlvbnxlbnwwfHx8fDE2NDQ1MDcxMTk&ixlib=rb-1.2.1&q=85)
+
+## 
+
+谓词[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#wei-ci)
+
+返回值为`bool`的普通函数或者函数对象，也就是我们离散数学中学习的predictor，比较常用的是一元谓词和二元谓词。
+
+> 在概述中有提到过，这里再重复一下。
+
+## 
+
+内建函数对象[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#nei-jian-han-shu-dui-xiang)
+
+> 使用时需要包含头文件`<functional>`
+
+STL 内建了一些函数对象，分为：
+
+- 算术类函数对象
+    
+
+- 关系运算类函数对象
+    
+
+- 逻辑运算类函数对象
+    
+
+### 
+
+算术类函数对象[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#suan-shu-lei-han-shu-dui-xiang)
+
+template<class T> T plus<T>; // 加法仿函数
+
+template<class T> T minus<T>; // 减法仿函数
+
+template<class T> T multiplies<T>; // 乘法仿函数
+
+template<class T> T divides<T>; // 除法仿函数
+
+template<class T> T modulus<T>; // 取模仿函数
+
+template<class T> T negate<T>; // 取反函数
+
+> negate 是一元运算，其他都是二元运算。
+
+### 
+
+关系运算类函数对象[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#guan-xi-yun-suan-lei-han-shu-dui-xiang)
+
+template<class T> bool equal_to<T>; // 等于
+
+template<class T> bool not_equal_to<T>; // 不等于
+
+template<class T> bool greater<T>; // 大于
+
+template<class T> bool greater_equal<T>; // 大于等于
+
+template<class T> bool less<T>; // 小于
+
+template<class T> bool less_equal<T>; // 小于等于
+
+### 
+
+逻辑运算类运算函数[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#luo-ji-yun-suan-lei-yun-suan-han-shu)
+
+template<class T> bool logical_and<T>; // 逻辑与
+
+template<class T> bool logical_or<T>; // 逻辑或
+
+template<class T> bool logical_not<T>; // 逻辑非
+
+## 
+
+适配器[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#kuo-pei-qi)
+
+为了方便理解，我们以例子的形式来讲述这个部分的内容。
+
+### 
+
+函数对象适配器[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#han-shu-dui-xiang-kuo-pei-qi)
+
+#### 
+
+**原程序**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#yuan-cheng-xu)
+
+#include <iostream>
+
+#inlcude <algorithm>
+
+#include <vector>
+
+using namespace std;
+
+​
+
+class myPrint
+
+{
+
+public:
+
+void operator()(int val) { cout << val << endl; }
+
+}
+
+​
+
+int main()
+
+{
+
+vector<int> v;
+
+for (int i = 0; i < 10; i++) v.push_back(i);
+
+for_each(v.begin(), v.end(), myPrint());
+
+return 0;
+
+}
+
+#### 
+
+**新需求**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#xin-xu-qiu)
+
+我们希望在每个数据输出的时候加上一个基值，并且该基值由用户输入。
+
+#### 
+
+**使用函数适配器做的改进**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#shi-yong-han-shu-kuo-pei-qi-zuo-de-gai-jin)
+
+#include <iostream>
+
+#inlcude <algorithm>
+
+#include <vector>
+
+#include <functional>
+
+using namespace std;
+
+​
+
+class myPrint: public binary_function<int, int, void>
+
+// 2.做继承 参数1类型 + 参数2类型 + 返回值类型 binary_function
+
+{
+
+public:
+
+void operator()(int val, int base) const // 3. 加const, 和父类保持一致
+
+{
+
+cout << val + base << endl;
+
+}
+
+}
+
+​
+
+int main()
+
+{
+
+vector<int> v;
+
+for (int i = 0; i < 10; i++) v.push_back(i);
+
+int n;
+
+cin >> n;
+
+for_each(v.begin(), v.end(), bind2nd(myPrint(), n));
+
+// 1. 将参数进行绑定 bind2nd
+
+// bind1st 功能类似，不过n会被绑定到第一个参数中
+
+return 0;
+
+};
+
+### 
+
+取反适配器[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#qu-fan-kuo-pei-qi)
+
+#### 
+
+**原程序**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#yuan-cheng-xu-1)
+
+#include <iostream>
+
+#include <algorithm>
+
+#include <vector>
+
+using namespace std;
+
+​
+
+class GreaterThanFive
+
+{
+
+public:
+
+bool operator()(int val) { return val > 5; }
+
+}
+
+​
+
+int main()
+
+{
+
+vector<int> v;
+
+for (int i = 0; i < 10; i++) v.push_back(i);
+
+vector<int>::iterator pos = find_if(v.begin(), v.end(), GreaterThanFive());
+
+if (pos != v.end()) cout << *pos << endl;
+
+return 0;
+
+}
+
+#### 
+
+**新需求**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#xin-xu-qiu-1)
+
+我们希望找第一个不大于5的数，但又不想再写一个LessEqualThanFive。
+
+#### 
+
+**使用取反适配器做的改进**[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#shi-yong-qu-fan-kuo-pei-qi-zuo-de-gai-jin)
+
+#include <iostream>
+
+#include <algorithm>
+
+#include <vector>
+
+using namespace std;
+
+​
+
+class GreaterThanFive: public unary_function<int, bool>
+
+// 2. 做继承 参数类型 + 返回值类型 unary_function
+
+{
+
+public:
+
+bool operator()(int val) const // 3.加 const
+
+{
+
+return val > 5;
+
+}
+
+}
+
+​
+
+int main()
+
+{
+
+vector<int> v;
+
+for (int i = 0; i < 10; i++) v.push_back(i);
+
+vector<int>::iterator pos = find_if(v.begin(), v.end(), not1(GreaterThanFive())); //1. 一元取反 not1
+
+if (pos != v.end()) cout << *pos << endl;
+
+return 0;
+
+}
+
+其实综合前面的内容会有更简便的方法：
+
+vector<int>::iterator pos = find_if(v.begin(), v.end(), not1(bind2nd(greater<int>(), 5)));
+
+这一行代码如果还半知半解的话还请驻足思考一番，思考透彻了上述内容才算是真的懂了。
+
+### 
+
+函数指针适配器[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#han-shu-zhi-zhen-kuo-pei-qi)
+
+沿用函数对象适配器的例子，假设`myPrint`是一个全局函数
+
+for_each(v.begin(), v.end(), bind2nd(ptr_fun(myPrint), n));
+
+// 函数指针适配器 ptr_fun 将函数指针适配成仿函数
+
+### 
+
+成员函数适配器[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#cheng-yuan-han-shu-kuo-pei-qi)
+
+我们假设有一个`Dog`类，`Dog`类内部有一个`bark()`成员方法，有一个装满了`Dog`的`vector`叫做`v`。
+
+for_each(v.begin(), v.end(), mem_fun_ref(&Dog::bark));
+
+// 成员函数适配器 mem_fun_ref
+
+// 如果容器中存放的不是对象实体，而是对象指针时，则需使用 ptr_fun
+
+## 
+
+偏函数[](https://cui-jiacai.gitbook.io/c++-stl-tutorial/fang-han-shu-functor#pian-han-shu)
+
+对于一个多参数的函数，在某些应用场景下，它的一些参数往往取固定值，可以针对这样的函数，生成一个新函数，该新函数不包含原函数中已指定固定值的参数。（partial function application, 偏函数）
+
+- 偏函数可缩小一个函数的适用范围，提高函数的针对性
+    
+
+例如，对于下面的print函数：
+
+void print(int n, int base); // 按base进制来输出n
+
+由于它常常用来按十进制输出，因此，可以基于print生成一个新函数print10，只接受一个参数n，base固定为10：
+
+#include <functional>
+
+using namespace std;
+
+using namespace std::placeholders;
+
+​
+
+function<void(int)> print10 = bind(print, _1, 10);
+
+print10(23); //相当于 print(23, 10)
+
+`function`类和`bind`的使用需要`c++11`标准
+
+至此，读者应当对于仿函数/函数对象有了一个稍微深入一点的理解了。如果还觉得有些云里雾里的话也没关系，以后熟悉了就好了。

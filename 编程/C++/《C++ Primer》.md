@@ -7176,7 +7176,6 @@ class StrBlobptr
 
 ## 7 函数对象（仿函数）与函数调用运算符()
 #函数对象 #仿函数
-[ C++中的仿函数有点难，这篇文章却讲的通俗易懂！_cpp 仿函数](https://blog.csdn.net/toby54king/article/details/105103111)
 
 仿函数（Functor）又称为函数对象（Function Object）是一个**能行使函数功能的类**。
 
