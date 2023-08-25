@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/UMG.md",
+                "file": "编程/C++/STL.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "195474104bea299e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/UMG.md"
+                "file": "编程/C++/《C++ Primer》.md"
               }
             }
           }
@@ -113,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/UMG.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/UMG.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -164,8 +178,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "98627abbd1406190",
+  "active": "195474104bea299e",
   "lastOpenFiles": [
+    "编程/C++/STL.md",
+    "zBuffer/【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客.md",
+    "编程/C++/《C++ Primer》.md",
+    "编程/C++/C++补充.md",
+    "编程/C++/《Effective C++ 3th》.md",
+    "引擎Unreal/02 蓝图 & U++/UMG.md",
     "zip/images/Pasted image 20230825002126.png",
     "zip/images/Pasted image 20230825001837.png",
     "zip/images/Pasted image 20230825001608.png",
@@ -179,14 +199,11 @@
     "zip/留学/前往斯旺西.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/租房注意事项.md",
-    "引擎Unreal/02 蓝图 & U++/UMG.md",
     "zip/images/Pasted image 20230824204544.png",
     "zip/images/Pasted image 20230824203626.png",
     "zip/images/Pasted image 20230824203616.png",
     "引擎Unreal/02 蓝图 & U++/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
-    "编程/C++/《C++ Primer》.md",
     "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
-    "zip/images/Pasted image 20230824201029.png",
     "zBuffer/虚幻 4 基础：String 的操作_weixin_42111061 的博客 - CSDN 博客.md",
     "引擎Unreal/02 蓝图 & U++/U++.md",
     "引擎Unreal/03 材质 & 渲染/101 材质大师.md",
@@ -194,14 +211,11 @@
     "引擎Unreal/01 指南/问题汇总.md",
     "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/02 蓝图 & U++/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "引擎Unreal/02 蓝图 & U++/史蒂芬多人TPS/未命名.md",
     "README.md",
     "01 学习大纲.md",
     "编程/C++/C++原理.md",
     "编程/C++/Cherno剩余.md",
-    "编程/C++/STL.md",
-    "灵感.md",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "技术美术/3 后处理/SSAO",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
