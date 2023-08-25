@@ -12610,6 +12610,7 @@ calculates
 caab
 cTL
 combatComponent
+cctype
 github
 grey
 green
@@ -20187,6 +20188,8 @@ transitioning
 tessellated
 told
 tickRate
+tolower
+toupper
 markdown
 matter
 mod
@@ -55012,6 +55015,10 @@ ahQ
 abcabc
 asdf
 abcdegf
+atoi
+atol
+atoll
+atof
 Roaming
 RegWorkshop
 Release
@@ -77902,6 +77909,7 @@ PostEditProperty
 ProjectileRewind
 PlayController
 Percent
+Pred
 ContextMenuManager
 ClashVerge
 Clash
@@ -98609,6 +98617,7 @@ ndotv
 nonlinearly
 nonsensical
 notLocally
+npos
 bf
 bc
 black
@@ -124072,6 +124081,14 @@ steam
 setPickupWidget
 spine
 simulateProxy
+stoi
+stol
+stoll
+stoul
+stoull
+stof
+stod
+stold
 local
 list
 left
@@ -139511,6 +139528,7 @@ rbmax
 rbmin
 rtX
 retarget
+rfind
 XXXXXX
 XXX
 XML
@@ -151121,6 +151139,9 @@ Bone
 BlasterGamestate
 BaseEngine
 BidIt
+BinPred
+BinOp
+BinFun
 Fraktur
 Frame
 Foo

@@ -5138,20 +5138,6 @@ array<int, 10>
 ![[Pasted image 20230211213826.png]]
 ![[Pasted image 20230211214254.png]]
 
-
-### 类型别名
-通过类型别名`<type>`，我们可以在不了解容器中元素类型的情况下使用它。
-如果需要元素类型，可以使用容器的 `value_type`。 
-如果需要元素类型的一个引用，可以使用 `reference` 或 `const_reference`。这些元素相关的类型别名在**泛型编程**中非常有用，我们将在16章中介绍相关内容。 
-
-**使用类型别名，我们必须显式使用其类名：**
-```c++
-//iter是通过list<string>定义的一个迭代器类型
-list<string>::iterator iter;
-//count是通过vector<int>定义的一个difference_type类型
-vector<int>::difference_type count;
-```
-
 ### swap和assign
 ![[Pasted image 20230211221941.png]]
 

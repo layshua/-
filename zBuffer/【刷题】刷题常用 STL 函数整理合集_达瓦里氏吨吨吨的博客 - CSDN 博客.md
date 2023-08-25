@@ -40,32 +40,33 @@ heap
 
 ### 1.【string】字符串类型
 
-```
-1.插入操作： 
+```c++
+//1.插入操作： 
 str.insert(pos,str)；                       //在下标pos处插入字符串str 
 
-2.删除操作：
+//2.删除操作：
 (1) 删除单个元素 str.erase(iter);            //删除迭代器iter指定的元素 
 (2) 删除区间元素：
 ① str.erase(first_iter, last_iter)          //删除迭代器[first,second)之间的元素
 ② str.erase(pos,length)                     //删除下标pos开始的长度为length的区间元素 
 
-3.截取字符串： 
+//3.截取字符串： 
 string newstr = str.substr(pos,length)；    //截取从下标pos开始的长度为length的子串 
 
-4.查找操作： 
+//4.查找操作： 
 1)str.find(str2)；               //如果str2是str的子串，则返回str2在str中首次出现的位置；否则，返回string::npos，这个值是-1 
 2)str.find(str2,pos)             //从str下标为pos的位置开始匹配sr2 
 
-注意，如果我在字符串str="3.1415"中查询小数点出现的位置，应该写成 str.find(".") 而不是 str.find('.') ，后者查找的是char型字符，而不是string型，是没有这种写法的！
+//注意，如果我在字符串str="3.1415"中查询小数点出现的位置，应该写成 str.find(".") 而不是 str.find('.') ，后者查找的是char型字符，而不是string型，是没有这种写法的！
 
-5.字符串转数字函数： 
+//5.字符串转数字函数： 
 stoi()；          //如string str="123"，可以int val=stoi(str)；
 
-6.string类型支持下标访问和迭代器访问，不过一般就用下标[]访问，和C的写法一样 。
+//6.string类型支持下标访问和迭代器访问，不过一般就用下标[]访问，和C的写法一样 。
 另外，C++11之后，如果要完整遍历一个string，还可以用下面的写法。
 
-7.数字转字符串函数：to_string();
+//7.数字转字符串函数：
+to_string();
 ```
 
 ```
