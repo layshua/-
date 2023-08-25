@@ -13,7 +13,7 @@
 ![[Pasted image 20230825001600.png]]
 
 方法一：在蓝图中直接引用变量进行修改：
-![[Pasted image 20230825001837.png]]
+![[Pasted image 20230825001837.png|500]]
 
 方法二：创建 Bind 函数，外部可以通过修改新建的 Percent 变量来控制百分比
-![[Pasted image 20230825002126.png]]
+![[Pasted image 20230825002126.png|500]]
