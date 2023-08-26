@@ -93,7 +93,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -190,7 +191,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "f7029ad6cb1ecda1",
+  "active": "21a03d7ff7e78358",
   "lastOpenFiles": [
     "zip/images/0373df02883ba7ef2855694b2d997626_MD5.jpg",
     "zip/images/47dbb9ed69b8e8601e913aa90c304f74_MD5.jpg",
