@@ -59627,6 +59627,7 @@ RayCast
 RayTrace
 ReactToTrigger
 Regex
+Rich
 Microsoft
 Menu
 MicaForEveryone
@@ -183788,6 +183789,7 @@ NewObject
 NotifyActorBeginOverlap
 NotifyActorEndOverlap
 Nullptr
+Named
 ZooAnima
 ZooAnimal
 ZTest

@@ -292,66 +292,56 @@ const TArray<FString>* const GetSomeArray();
 
 你应该始终使用 `nullptr` 而不是C样式的 `NULL` 宏。
 
-在C++/CX版本（例如Xbox One的版本）中使用 `nullptr` 是一个例外。在此情况下， `nullptr` 的使用实际上是受管的null引用类型。除了类型和一些模板实例化上下文之外，它与原生C++中的 `nullptr` 大体兼容，因此你应该使用 `TYPE_OF_NULLPTR` 宏而不是更常用的 `decltype(nullptr)` ，以便兼容。
-
 ### Auto
 
-你不应该使用C++代码中的 `auto` ，但下面列出的少数例外情况除外。始终明确指出你要初始化的类型。这意味着，类型必须对阅读者显而易见。此规则还适用于C#中 `var` 关键字的使用。
+你不应该使用C++代码中的 `auto` ，但下面列出的少数例外情况除外。始终明确指出你要初始化的类型。这意味着，类型必须对阅读者显而易见。
 
 C++17的结构化绑定功能也不应该使用，因为它实际上相当于参数个数可变的 `auto` 。
 
 可接受的 `auto` 用法：
-
 - 当你需要将lambda绑定到变量时，因为lambda类型无法在代码中表达。
-    
 - 对于迭代器变量，但仅在迭代器类型冗长并且会损害可读性的情况下。
-    
 - 在模板代码中，其中表达式的类型无法轻松辨别。这是一种高级情况。
     
-
-务必确保类型对代码阅读者清晰可辨。尽管一些IDE能够推断类型，但这样做依赖于代码处于可编译的状态。它也不会辅助merge/diff工具的用户，或者孤立查看单独的源文件时（例如在GitHub上）也不起作用。
-
-如果你确信自己是以可接受的方式使用 `auto` ，始终记住正确使用 `const` 、 `&` 、 `*` ，就像使用类型名称那样。使用 `auto` ，这会迫使推断的类型为你需要的类型。
-
 ### 基于范围的For
 
 这对于使代码更易于理解、更好维护而言非常有利。当你迁移使用旧 `TMap` 迭代器的代码时，请注意，旧 `Key()` 和 `Value()` 函数过去是迭代器类型的方法，现在就是底层键值 `TPair` 的 `Key` 和 `Value` 字段。
 
 示例：
 
-```
+```c++
 TMap<FString, int32> MyMap;
 
-    // 旧样式
-    for (auto It = MyMap.CreateIterator(); It; ++It)
-    {
-        UE_LOG(LogCategory, Log, TEXT("Key: %s, Value: %d"), It.Key(), *It.Value());
-    }
+// 旧样式
+for (auto It = MyMap.CreateIterator(); It; ++It)
+{
+    UE_LOG(LogCategory, Log, TEXT("Key: %s, Value: %d"), It.Key(), *It.Value());
+}
 
-    // 新样式
-    for (TPair<FString, int32>& Kvp : MyMap)
-    {
-        UE_LOG(LogCategory, Log, TEXT("Key: %s, Value: %d"), *Kvp.Key, Kvp.Value);
-    }
+// 新样式
+for (TPair<FString, int32>& Kvp : MyMap)
+{
+    UE_LOG(LogCategory, Log, TEXT("Key: %s, Value: %d"), *Kvp.Key, Kvp.Value);
+}
 ```
 
 我们还将一些独立的迭代器类型替换为范围样式。
 
 示例：
 
-```
-    // 旧样式
-    for (TFieldIterator<UProperty> PropertyIt(InStruct, EFieldIteratorFlags::IncludeSuper); PropertyIt; ++PropertyIt)
-    {
-        UProperty* Property = *PropertyIt;
-        UE_LOG(LogCategory, Log, TEXT("Property name: %s"), *Property->GetName());
-    }
+```c++
+// 旧样式
+for (TFieldIterator<UProperty> PropertyIt(InStruct, EFieldIteratorFlags::IncludeSuper); PropertyIt; ++PropertyIt)
+{
+    UProperty* Property = *PropertyIt;
+    UE_LOG(LogCategory, Log, TEXT("Property name: %s"), *Property->GetName());
+}
 
-    // 新样式
-    for (UProperty* Property : TFieldRange<UProperty>(InStruct, EFieldIteratorFlags::IncludeSuper))
-    {
-        UE_LOG(LogCategory, Log, TEXT("Property name: %s"), *Property->GetName());
-    }
+// 新样式
+for (UProperty* Property : TFieldRange<UProperty>(InStruct, EFieldIteratorFlags::IncludeSuper))
+{
+    UE_LOG(LogCategory, Log, TEXT("Property name: %s"), *Property->GetName());
+}
 ```
 
 ### Lambda和匿名函数
@@ -359,8 +349,7 @@ TMap<FString, int32> MyMap;
 Lambda可以自由使用。最好的lambda应该最多一两行语句，尤其是在用作更大表达式或语句的一部分时，例如作为通用算法中的谓词。
 
 示例：
-
-```
+```c++
 // 找到其名称包含单词"Hello"的第一个事物
 
 Thing* HelloThing = ArrayOfThings.FindByPredicate([](const Thing& Th){ return Th.GetName().Contains(TEXT("Hello")); });
@@ -373,80 +362,76 @@ Algo::Sort(ArrayOfThings, [](const Thing& Lhs, const Thing& Rhs){ return Lhs.Get
 
 #### 捕获和返回类型
 
-应该使用显式捕获而不是自动捕获（ `[&]` 和 `[=]` ）。这对于提高可读性、可维护性和性能非常重要，尤其是在用于大型lambda和延迟执行时。
+**应该使用显式捕获而不是自动捕获（ `[&]` 和 `[=]` ）**。这对于提高可读性、可维护性和性能非常重要，尤其是在用于大型lambda和延迟执行时。
 
 显式捕获可声明创建者的意图，因此，审核代码时会发现错误。不正确的捕获可能造成负面后果，随着代码的逐渐维护，这更有可能带来问题。就lambda捕获而言，还有一些额外的事项需要注意：
-
 - 如果lambda的执行延迟，指针的按引用捕获和按值捕获（包括 `this` 指针）可能导致意外悬空的引用。
-    
 - 按值捕获如果为非延迟lambda创建不必要的副本，可能会造成性能问题。
-    
 - 意外捕获的UObject指针对垃圾回收器不可见。如果引用了成员变量，自动捕获会隐式捕捉 `this` ，尽管 `[=]` 会让人以为lambda对一切都有自己的副本。
-    
 
 显式返回类型应该用于大型lambda，或在你返回另一个函数调用的结果时使用。这些应该按照与 `auto` 关键字相同的方式考虑：
 
 ### 强类型枚举
 
-枚举类可取代旧样式命名空间的枚举，对于普通枚举和 `UENUM` 都是如此。例如：
+**枚举类可取代旧样式命名空间的枚举**，对于普通枚举和 `UENUM` 都是如此。例如：
 
-```
-  // 旧枚举
-    UENUM()
-    namespace EThing
-    {
-        enum Type
-        {
-            Thing1,
-            Thing2
-        };
-    }
-
-    // 新枚举
-    UENUM()
-    enum class EThing : uint8
+```c++
+// 旧枚举
+UENUM()
+namespace EThing
+{
+    enum Type
     {
         Thing1,
         Thing2
-    }
+    };
+}
+
+// 新枚举
+UENUM()
+enum class EThing : uint8
+{
+    Thing1,
+    Thing2
+}
 ```
 
 枚举作为 `UPROPERTY` 受支持，并取代旧的 `TEnumAsByte<>` 变通方案。枚举属性也可以是任意大小，不仅仅是字节：
 
-```
- // 旧属性
-   UPROPERTY()
-   TEnumAsByte<EThing::Type> MyProperty;
+```c++
+// 旧属性
+UPROPERTY()
+TEnumAsByte<EThing::Type> MyProperty;
 
-   // 新属性
-   UPROPERTY()
-   EThing MyProperty;
-```
-
-公开给蓝图的枚举必须继续基于 `uint8` 。
-
-用作标记的枚举类可以利用 `ENUM_CLASS_FLAGS(EnumType)` 宏自动定义所有按位运算符：
-
-```
-  enum class EFlags
-    {
-        None = 0x00,
-        Flag1 = 0x01,
-        Flag2 = 0x02,
-        Flag3 = 0x04
-    };
-
-    ENUM_CLASS_FLAGS(EFlags)
+// 新属性
+UPROPERTY()
+EThing MyProperty;
 ```
 
-在 _事实_ 上下文中使用标记是一个例外，这是语言的局限性。相反，所有枚举标记都应该有一个名为 `None` 的枚举器，设置为0以进行比较：
+**公开给蓝图的枚举必须继续基于 `uint8` 。**
 
+**用作标记的枚举类可以利用 `ENUM_CLASS_FLAGS(EnumType)` 宏自动定义所有按位运算符：**
+
+```c++
+enum class EFlags
+{
+    None = 0x00,
+    Flag1 = 0x01,
+    Flag2 = 0x02,
+    Flag3 = 0x04
+};
+
+ENUM_CLASS_FLAGS(EFlags)
 ```
-   // 旧
-    if (Flags & EFlags::Flag1)  
 
-    // 新
-    if ((Flags & EFlags::Flag1) != EFlags::None) 
+在 事实上下文中使用标记是一个例外，这是语言的局限性。相反，所有枚举标记都应该有一个名为 `None` 的枚举器，设置为0以进行比较：
+
+```c++
+// 旧
+if (Flags & EFlags::Flag1)  
+
+// 新
+if ((Flags & EFlags::Flag1) != EFlags::None) 
 ```
 
 ### 移动语义
@@ -459,52 +444,44 @@ Algo::Sort(ArrayOfThings, [](const Thing& Lhs, const Thing& Rhs){ return Lhs.Get
 
 默认成员初始化器可用于在类本身中定义类的默认值：
 
-```
-    UCLASS()
-    class UTeaOptions : public UObject
-    {
-        GENERATED_BODY()
+```c++
+UCLASS()
+class UTeaOptions : public UObject
+{
+    GENERATED_BODY()
 
-    public:
-        UPROPERTY()
-        int32 MaximumNumberOfCupsPerDay = 10;
+public:
+    UPROPERTY()
+    int32 MaximumNumberOfCupsPerDay = 10;
 
-        UPROPERTY()
-        float CupWidth = 11.5f;
+    UPROPERTY()
+    float CupWidth = 11.5f;
 
-        UPROPERTY()
-        FString TeaType = TEXT("Earl Grey");
+    UPROPERTY()
+    FString TeaType = TEXT("Earl Grey");
 
-        UPROPERTY()
-        EDrinkingStyle DrinkingStyle = EDrinkingStyle::PinkyExtended;
-    };
+    UPROPERTY()
+    EDrinkingStyle DrinkingStyle = EDrinkingStyle::PinkyExtended;
+};
 ```
 
 像这样编写的代码有以下优势：
 
 - 它不需要在多个构造函数之间复制初始化器。
-    
 - 初始化顺序和声明顺序不会搞混。
-    
 - 成员类型、属性标记和默认值全都在一个地方。这有助于提高可读性和可维护性。
-    
 
 但是，也有一些不利的地方：
-
 - 更改默认值就需要重新编译所有依赖项文件。
-    
 - 头文件无法在引擎的补丁版本中更改，所以此样式会限制可能的修复种类。
-    
 - 一些事项无法以这种方式初始化，例如基类、 `UObject` 子对象、前向声明的类型的指针、从构造函数参数推断的值，以及通过多个步骤初始化的成员。
-    
 - 将一些初始化器放在头文件中，而将其余初始化器放在.cpp文件中的构造函数中，可能会降低可读性和可维护性。
-    
 
 在决定是否使用默认成员初始化器时，请自行做出最佳判断。 根据经验，默认成员初始化器用在游戏内代码中比用在引擎代码中更有意义。考虑将配置文件用于默认值。
 
 ## 第三方代码
 
-每当你修改我们在引擎中所用库的代码时，请务必使用//@UE5注释标记你的更改，同时说明更改原因。这样就可以更轻松地将更改合并到该库的新版本中，并确保持证人可以轻松找到我们做出的修改。
+每当你修改我们在引擎中所用库的代码时，请务必使用`//@UE5`注释标记你的更改，同时说明更改原因。这样就可以更轻松地将更改合并到该库的新版本中，并确保持证人可以轻松找到我们做出的修改。
 
 引擎中包含的所有第三方代码都应该使用注释标记，注释应采用可轻松搜索的格式。例如：
 
@@ -528,20 +505,19 @@ Algo::Sort(ArrayOfThings, [](const Thing& Lhs, const Thing& Rhs){ return Lhs.Get
 始终将大括号包含在单语句块中。例如：
 
 ```
-    if (bThing)
+if (bThing)
+{
 
-    {
+    return;
 
-        return;
-
-    }
+}
 ```
 
 ### If - Else
 
 一个if-else语句中每个执行块都应该放在大括号中。这有助于防止编辑错误。不使用大括号时，有人可能会无意中向某个if块添加另一行。额外的行不受if表达式控制，这是很糟糕的。当有条件编译的项导致if/else语句中断时，也会带来糟糕的结果。所以始终使用大括号。
 
-```
+```c++
 if (bHaveUnrealLicense)
 {
     InsertYourGameHere();
@@ -554,61 +530,50 @@ else
 
 多路if语句应该缩进显示，每个 `else if` 缩进数量与第一个 `if` 相同；这样结构更清晰易读：
 
+```c++
+if (TannicAcid < 10)
+{
+    UE_LOG(LogCategory, Log, TEXT("Low Acid"));
+}
+else if (TannicAcid < 100)
+{
+    UE_LOG(LogCategory, Log, TEXT("Medium Acid"));
+}
+else
+{
+    UE_LOG(LogCategory, Log, TEXT("High Acid"));
+}
 ```
-    if (TannicAcid < 10)
-    {
-        UE_LOG(LogCategory, Log, TEXT("Low Acid"));
-    }
-    else if (TannicAcid < 100)
-    {
-        UE_LOG(LogCategory, Log, TEXT("Medium Acid"));
-    }
-    else
-    {
-        UE_LOG(LogCategory, Log, TEXT("High Acid"));
-    }
-```
-
-### 制表符和缩进
-
-下面是代码缩进的一些标准。
-
-- 按执行块缩进代码。
-    
-- 使用制表符表示行首的空白，而不使用空格。将制表符大小设置为4个字符。请注意，有时为使代码保持对齐，空格是必要和允许的，无论制表符中的空格数量是多少。例如，当你要对齐的代码采用非制表符字符时。
-    
-- 如果你使用C#编写代码，也请使用制表符，而不是空格。这样做的原因是，程序员常常在C#和C++之间切换，大部分人偏好为制表符使用一致的设置。Visual Studio默认将空格用于C#文件，因此你需要记住在虚幻引擎代码上工作时更改此设置。
-    
 
 ### Switch语句
 
 除了空case（多个case有相同的代码）之外，switch case语句应该显式标注一个case通达下一个case。要么包括一个break，要么在每个case中包括"falls through"注释。其他代码控制-传输命令（return、continue等）也可接受。
 
-始终要有默认case。 包括一个break，以防有人在默认case之后添加新的case。
+**始终要有默认case。 包括一个break，以防有人在默认case之后添加新的case。**
 
-```
+```c++
 switch (condition)
-    {
-        case 1:
-            ...
-            // falls through
+{
+    case 1:
+        ...
+        // falls through
 
-        case 2:
-            ...
-            break;
+    case 2:
+        ...
+        break;
 
-        case 3:
-            ...
-            return;
+    case 3:
+        ...
+        return;
 
-        case 4:
-        case 5:
-            ...
-            break;
+    case 4:
+    case 5:
+        ...
+        break;
 
-        default:
-            break;
-    }
+    default:
+        break;
+}
 ```
 
 ## 命名空间
@@ -616,97 +581,60 @@ switch (condition)
 你可以使用命名空间来相应整理你的类、函数和变量。如果确实要使用它们，请遵守下面的规则。
 
 - 大部分UE代码当前未封装在全局命名空间中。
-    
     - 仔细避免全局范围内的冲突，尤其是在使用或包括第三方代码时。
-        
-- UnrealHeaderTool不支持命名空间。
-    
+- `UnrealHeaderTool` 不支持命名空间。
     - 定义 `UCLASS` 、 `USTRUCT` 等时，不应该使用命名空间。
-        
 - 不是 `UCLASS` 、 `USTRUCT` 等的新API应该放在 `UE::` 命名空间中，最好是嵌套的命名空间中，例如 `UE::Audio::` 。  
-    
     - 若命名空间用于保存不属于面向公众的API的实现细节，应该放在 `Private` 命名空间中，例如 `UE::Audio::Private::` 。
-        
 - `Using` 声明：
-    
     - 禁止将 `using` 声明放在全局范围内，即使是在.cpp文件中（这会导致我们的"unity"编译系统出现问题）。
-        
 - 将 `using` 声明放在另一个命名空间中或函数主体中是可接受的。
-    
 - 如果你将 `using` 声明放在命名空间中，这会结转到相同转换单元中该命名空间的其他发生情况只要你保持一致，都是可以接受的。
-    
 - 只有遵守以上规则，才能在头文件中安全地使用 `using` 声明。
-    
 
-*前向声明的类型需要在其相应的命名空间中声明。
-
-```
-* 如果不这样做，你会收到链接错误。
-```
+- 前向声明的类型需要在其相应的命名空间中声明。如果不这样做，你会收到链接错误。
 
 - 如果你在命名空间中声明大量类或类型，可能很难在其他全局范围的类中使用这些类型（例如，函数签名将需要在类声明中出现时使用显式命名空间）。
     
 - 你只能使用 `using` 声明对你所在范围的命名空间中的特定变量设定别名。
-    
     - 例如，使用 `Foo::FBar` 。但是，我们通常不会在虚幻引擎代码中那样做。
         
 - 宏不能放在命名空间中。
-    
     - 它们应该带上前缀 `UE_` ，而不是放在命名空间中，例如 `UE_LOG` 。
         
-
 ## 物理依赖性
 
 - 文件名应该尽可能不带前缀。
-    
     - 例如，采用 `Scene.cpp` 而不是 `UScene.cpp` 。这样会减少识别你想要的文件所需的字母数量，可以轻松使用Workspace Whiz或Visual Assist的Open File in Solution等工具。
         
 - 所有头文件都应该防止带有 `#pragma once` 指令的多个include语句。
-    
     - 请注意，我们使用的所有编译器都支持 `#pragma once` 。
-        
-
-```
+ 
+```c++
 #pragma once
-        //<file contents>
+//<file contents>
 ```
 
 - 尽量减少物理耦合。
-    
     - 尤其是，避免包括来自其他头文件的标准库头文件。
         
 - 前向声明比包括头文件更好。
     
 - 包括头文件时，尽可能精细。
-    
     - 例如，不要包括 `Core.h` 。相反，你应该包括Core中你需要其中定义的特定头文件。
-        
 - 尽量直接包括你需要的每个头文件，以便更轻松地包括精细的内容。
-    
 - 不要依赖你包括的另一个头文件所间接包括的头文件。
-    
 - 不要依赖通过另一个头文件包括的任何内容。包括你需要的一切内容。
-    
 - 模块有私有和公共源文件目录。
-    
     - 其他模块需要的所有定义都必须在公共目录中的头文件中。其他一切都应该在私有目录中。在旧版虚幻引擎模块中，这些目录可能仍称为"Src"和"Inc"，但这些目录旨在以相同方式分隔私有和公共代码，并非用于分隔头文件和源文件。
-        
 - 不用费心为预编译的头文件生成而设置头文件。
-    
     - UnrealBuildTool可以比你更好地完成这项工作。
-        
 - 将大型函数拆分为多个逻辑子函数。
-    
     - 编译器优化的一个方面是消除了常见的子表达式。函数越大，编译器就要执行越多的工作来识别它们。这会大幅提高编译时间。
-        
 - 不要使用大量内联函数。
-    
     - 使用内联函数，就会迫使系统在并不使用它们的文件中也进行重新编译。内联函数只应该用于不重要的访问器，以及在分析表明这样做有利的情况下。
-        
 - 谨慎使用 `FORCEINLINE` 。
-    
     - 所有代码和局部变量都将扩展到调用函数中。这会导致大型函数所导致的相同编译时间问题。
-        
 
 # 封装
 
@@ -714,7 +642,7 @@ switch (condition)
 
 如果特定字段应该仅供派生类使用，请将其设为private并提供protected访问器。
 
-如果你的类不允许继续派生，请使用final。
+如果你的类不允许继续派生，请使用`final`。
 
 ## 一般样式问题
 
@@ -732,211 +660,163 @@ switch (condition)
     
     - 编译器警告消息表明出了问题。修复编译器向你警告的情况。如果你完全无法加以解决，使用 `#pragma` 消除警告，但这应该仅作为最后的办法。
         
-- 在文件末尾保留一个空白行。
-    
-    *所有.cpp和.h文件应该包括一个空白行，以与gcc协调。
+- 在文件末尾保留一个空白行。所有.cpp和.h文件应该包括一个空白行，以与gcc协调。
     
 - 调试代码应该要么有用、完美，要么不检入。
-    
     - 若调试代码与其他代码混杂在一起，会使其他代码更难阅读。
         
 - 始终将字符串字面值括在 `TEXT()` 宏内。
-    
     - 如果没有 `TEXT()` 宏，从字面值构造 `FString` 的代码会造成意外的字符串转换过程。
         
 - 避免在循环中冗余地重复相同操作。
-    
     - 将常见子表达式移出循环，避免冗余计算。在一些情况下利用static，避免函数调用之间全局冗余的运算，例如从字符串字面值构造 `FName` 。
         
 - 留意热重载。
-    
     - 尽量减少依赖性，缩短迭代时间。不要将内联或模板用于在重新加载时很可能会更改的函数。仅将static用于预期在重新加载时会保持不变的事项。
         
 - 使用中间变量，简化复杂的表达式。
-    
     - 如果你有复杂的表达式，将其分拆为多个子表达式并赋给中间变量，用名称说明子表达式在父表达式中的含义，这样更容易理解。例如：
-        
     
-    ```
-        if ((Blah->BlahP->WindowExists->Etc && Stuff) &&
-            !(bPlayerExists && bGameStarted && bPlayerStillHasPawn &&
-            IsTuesday())))
-        {
-            DoSomething();
-        }
-    ```
+```c++
+if ((Blah->BlahP->WindowExists->Etc && Stuff) &&
+    !(bPlayerExists && bGameStarted && bPlayerStillHasPawn &&
+    IsTuesday())))
+{
+    DoSomething();
+}
+```
+
+应该替换为：
     
-    应该替换为：
+```c++
+const bool bIsLegalWindow = Blah->BlahP->WindowExists->Etc && Stuff;
+const bool bIsPlayerDead = bPlayerExists && bGameStarted && bPlayerStillHasPawn && IsTuesday();
+if (bIsLegalWindow && !bIsPlayerDead)
+{
+    DoSomething();
+}
+```
     
-    ```
-       const bool bIsLegalWindow = Blah->BlahP->WindowExists->Etc && Stuff;
-        const bool bIsPlayerDead = bPlayerExists && bGameStarted && bPlayerStillHasPawn && IsTuesday();
-        if (bIsLegalWindow && !bIsPlayerDead)
-        {
-            DoSomething();
-        }
-    ```
-    
-- 指针和引用应该仅在指针或引用右侧有一个空格。
-    
+- **指针和引用应该仅在指针或引用右侧有一个空格。**
     - 这样就可轻松快速地将 **在文件中查找（Find in Files）** 用于特定类型的所有指针或引用。例如：
-        
     
-    ```
-    // 使用这些
+```c++
+// 使用这些
+
+FShaderType* Ptr
+
+*// 不要使用这些：*
+
+FShaderType *Ptr
+FShaderType * Ptr
+```
     
-         FShaderType* Ptr
-    
-        *// 不要使用这些：*
-    
-            FShaderType *Ptr
-            FShaderType * Ptr
-    ```
-    
-- 不允许影子变量。
-    
-    - C++允许变量从外层范围投影，但这样会使人读起来有歧义。例如，以下成员函数中有三个可使用的 `Count` 变量：
-        
-    
-    ```
-     class FSomeClass
-            {
-            public:
-                void Func(const int32 Count)
-                {
-                    for (int32 Count = 0; Count != 10; ++Count)
-                    {
-                        // 使用Count
-                    }
-                }
-    
-            private:
-                int32 Count;
-            }
-    ```
-    
+
 - 避免在函数调用中使用匿名字面值。
-    
     - 首选说明其含义的命名常量。这样阅读者一眼就能看出意图，不必查阅函数声明即可理解。
         
-    
-    ```
-    // 旧样式
-            Trigger(TEXT("Soldier"), 5, true);.
-    
-            // 新样式
-            const FName ObjectName                = TEXT("Soldier");
-            const float CooldownInSeconds         = 5;
-            const bool bVulnerableDuringCooldown  = true;
-            Trigger(ObjectName, CooldownInSeconds, bVulnerableDuringCooldown);
-    ```
+```c++
+// 旧样式
+Trigger(TEXT("Soldier"), 5, true);.
+
+// 新样式
+const FName ObjectName                = TEXT("Soldier");
+const float CooldownInSeconds         = 5;
+const bool bVulnerableDuringCooldown  = true;
+Trigger(ObjectName, CooldownInSeconds, bVulnerableDuringCooldown);
+```
     
 - 避免在头文件中定义重要的static变量。
-    
     - 重要的static变量会导致实例编译到包括该头文件的每个转换单元中。
-        
-    
-    ```
-    // SomeModule.h
-            static const FString GUsefulNamedString = TEXT("String");
-    
-    // 应该替换为
-    
-            // SomeModule.h
-            extern SOMEMODULE_API const FString GUsefulNamedString;
-    
-            // SomeModule.cpp
-            const FString GUsefulNamedString = TEXT("String");    
-    ```
+```c++
+// SomeModule.h
+static const FString GUsefulNamedString = TEXT("String");
+
+// 应该替换为
+
+// SomeModule.h
+extern SOMEMODULE_API const FString GUsefulNamedString;
+
+// SomeModule.cpp
+const FString GUsefulNamedString = TEXT("String");    
+```
     
 
 ## API设计准则
 
 - 应该避免布尔值函数参数。
-    
-    - 尤其是，对于传递到函数的标记，应该避免布尔值参数。这些会带来与前面所述相同的匿名字面值问题，但随着API扩展更多行为，它们也往往会与日俱增。相反，首选枚举（请参阅[强类型枚举](https://docs.unrealengine.com/5.2/zh-CN/epic-cplusplus-coding-standard-for-unreal-engine#%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE)小节中关于使用枚举作为标记的建议）：
-        
-    
-    ```
-      // 旧样式
-            FCup* MakeCupOfTea(FTea* Tea, bool bAddSugar = false, bool bAddMilk = false, bool bAddHoney = false, bool bAddLemon = false);
-            FCup* Cup = MakeCupOfTea(Tea, false, true, true);
-    
-            // 新样式
-            enum class ETeaFlags
-            {
-                None,
-                Milk  = 0x01,
-                Sugar = 0x02,
-                Honey = 0x04,
-                Lemon = 0x08
-            };
-            ENUM_CLASS_FLAGS(ETeaFlags)
-    
-            FCup* MakeCupOfTea(FTea* Tea, ETeaFlags Flags = ETeaFlags::None);
-            FCup* Cup = MakeCupOfTea(Tea, ETeaFlags::Milk | ETeaFlags::Honey);
-    ```
-    
+- 尤其是，对于传递到函数的标记，应该避免布尔值参数。这些会带来与前面所述相同的匿名字面值问题，但随着API扩展更多行为，它们也往往会与日俱增。相反，首选枚举（请参阅[强类型枚举](https://docs.unrealengine.com/5.2/zh-CN/epic-cplusplus-coding-standard-for-unreal-engine#%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE)小节中关于使用枚举作为标记的建议）：
+
+```c++
+// 旧样式
+FCup* MakeCupOfTea(FTea* Tea, bool bAddSugar = false, bool bAddMilk = false, bool bAddHoney = false, bool bAddLemon = false);
+FCup* Cup = MakeCupOfTea(Tea, false, true, true);
+
+// 新样式
+enum class ETeaFlags
+{
+    None,
+    Milk  = 0x01,
+    Sugar = 0x02,
+    Honey = 0x04,
+    Lemon = 0x08
+};
+ENUM_CLASS_FLAGS(ETeaFlags)
+
+FCup* MakeCupOfTea(FTea* Tea, ETeaFlags Flags = ETeaFlags::None);
+FCup* Cup = MakeCupOfTea(Tea, ETeaFlags::Milk | ETeaFlags::Honey);
+```
+
 - 这种格式可防止标记意外转置，避免从指针和整型参数意外转换，不必重复冗余的默认值，并且效率更高。  
-    
+
 - 如果参数是要传递到setter等函数的完整状态，使用 `bool` 作为参数是可接受的，例如 `void FWidget::SetEnabled(bool bEnabled)` 。但如果这发生更改，请考虑重构。
-    
+
 - 避免过长的函数参数列表。
-    
     - 如果函数采用许多参数，请考虑改为传递专用结构体：
-        
-    
-    ```
-        // 旧样式
-        TUniquePtr<FCup[]> MakeTeaForParty(const FTeaFlags* TeaPreferences, uint32 NumCupsToMake, FKettle* Kettle, ETeaType TeaType = ETeaType::EnglishBreakfast, float BrewingTimeInSeconds = 120.0f);
-    
-        // 新样式
-        struct FTeaPartyParams
-        {
-            const FTeaFlags* TeaPreferences       = nullptr;
-            uint32           NumCupsToMake        = 0;
-            FKettle*         Kettle               = nullptr;
-            ETeaType         TeaType              = ETeaType::EnglishBreakfast;
-            float            BrewingTimeInSeconds = 120.0f;
-        };
-        TUniquePtr<FCup[]> MakeTeaForParty(const FTeaPartyParams& Params);
-    ```
-    
+
+```c++
+// 旧样式
+TUniquePtr<FCup[]> MakeTeaForParty(const FTeaFlags* TeaPreferences, uint32 NumCupsToMake, FKettle* Kettle, ETeaType TeaType = ETeaType::EnglishBreakfast, float BrewingTimeInSeconds = 120.0f);
+
+// 新样式
+struct FTeaPartyParams
+{
+    const FTeaFlags* TeaPreferences       = nullptr;
+    uint32           NumCupsToMake        = 0;
+    FKettle*         Kettle               = nullptr;
+    ETeaType         TeaType              = ETeaType::EnglishBreakfast;
+    float            BrewingTimeInSeconds = 120.0f;
+};
+TUniquePtr<FCup[]> MakeTeaForParty(const FTeaPartyParams& Params);
+```
+
 - 避免使用 `bool` 和 `FString` 来重载函数。
-    
     - 这可能带来意外的行为：
-        
-    
-    ```
-        void Func(const FString& String);
-            void Func(bool bBool);
-    
-            Func(TEXT("String")); // 调用布尔重载！|
-    ```
+```c++
+void Func(const FString& String);
+void Func(bool bBool);
+
+Func(TEXT("String")); // 调用布尔重载！|
+```
     
 - 接口类应该始终为抽象类。 '
-    
-    - 接口类要带上前缀"I"，不得包含成员变量。接口可以包含非pure virtual的方法，并可以包含非virtual或static的方法，只要它们是内联实现的即可。
-        
-- 声明重写方法时，请使用 `virtual` 和 `override` 关键字。
-    
+    - 接口类要带上前缀"`I`"，不得包含成员变量。接口可以包含非 pure virtual 的方法，并可以包含非 virtual 或 static 的方法，只要它们是内联实现的即可。
 
+- 声明重写方法时，请使用 `virtual` 和 `override` 关键字。
 在重写父类中的virtual函数的派生类中声明virtual函数时，你必须同时使用 `virtual` 和 `override` 关键字。例如：
 
-```
-~~~  
-     class A
-        {
-        public:
-            virtual void F() {}
-        };
+```c++
+class A
+{
+public:
+    virtual void F() {}
+};
 
-        class B : public A
-        {
-        public:
-            virtual void F() override;
-        }
-~~~ 
+class B : public A
+{
+public:
+    virtual void F() override;
+}
 ```
 
 有许多现有代码还没有遵守这一点，因为 `override` 关键字是最近添加的。`override` 关键字应该在方便的时候添加到该代码中。
@@ -945,17 +825,17 @@ switch (condition)
 
 特定于平台的代码应该在恰当命名的子目录中特定于平台的源文件中抽象和实现，例如：
 
-```
-    Engine/Platforms/[PLATFORM]/Source/Runtime/Core/Private/[PLATFORM]PlatformMemory.cpp
+```c++
+Engine/Platforms/[PLATFORM]/Source/Runtime/Core/Private/[PLATFORM]PlatformMemory.cpp
 ```
 
 一般来说，你应该避免添加 `PLATFORM_[PLATFORM]` 的用法。例如，避免将 `PLATFORM_XBOXONE` 添加到名为 `[PLATFORM]` 的目录之外的代码中。相反，扩展硬件抽象层以添加一个static函数，例如在FPlatformMisc中：
 
-```
-   FORCEINLINE static int32 GetMaxPathLength()
-    {
-        return 128;
-    }
+```c++
+FORCEINLINE static int32 GetMaxPathLength()
+{
+    return 128;
+}
 ```
 
 接着，平台可以重写此函数，返回特定于平台的常量值，甚至也可以使用平台API确定结果。如果你强制将函数变为内联，性能特征与使用define相同。
