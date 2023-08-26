@@ -51064,6 +51064,9 @@ UMyObject
 UCLASS
 UPrimitiveComponent
 USphereComponent
+UObjects
+UStruct
+UnrealHeaderTool
 api
 ac
 app
@@ -59621,6 +59624,7 @@ Rewind
 RanIt
 RayCast
 RayTrace
+ReactToTrigger
 Microsoft
 Menu
 MicaForEveryone
@@ -64463,6 +64467,7 @@ MyObject
 Mytag
 MyGameObject
 MyPlayerController
+MyProject
 Windows
 Win
 World
@@ -77958,6 +77963,8 @@ Params
 PlayerCameraManager
 PhysicalComp
 Platforms
+Pointers
+PendingKill
 ContextMenuManager
 ClashVerge
 Clash
@@ -86706,6 +86713,7 @@ IdeDPY
 IsE
 Into
 InIt
+IsValid
 qq
 qyi
 quad
@@ -114712,6 +114720,7 @@ ToLower
 TActorIterator
 TObjectIterator
 TriggerCollider
+Ticking
 io
 ipad
 it
@@ -151214,6 +151223,8 @@ BinFun
 BODY
 BindAction
 BindAxis
+BlueprintImplementableEvent
+BlueprintNativeEvent
 Fraktur
 Frame
 Foo
@@ -170887,6 +170898,7 @@ DissolveMaterial
 DerivedDataCache
 Delemiter
 Departure
+DependsOn
 LNK
 Log
 Linux
