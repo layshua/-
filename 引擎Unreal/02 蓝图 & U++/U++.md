@@ -14,7 +14,223 @@
 - [接口](https://docs.unrealengine.com/5.2/zh-CN/interfaces-in-unreal-engine) 提供可以在多个或不同的类中实现函数和额外的游戏行为。 你的玩家角色可以与世界中的各种Actor互动。 每个这些互动都能引起对一个事件的不同反应。
 - [Metadata说明符](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine)控制类、接口、结构体、列举、函数，或属性与引擎和编辑器各方面的交互方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
 - [UFUNCTION](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)，以及 [UPROPERTY](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties) 宏使 UE 注意到新的类、函数和变量。这些宏由引擎进行垃圾收集。在说明宏时, 你可以在虚幻编辑器中编辑和显示它们。
+# 属性
+## 属性声明
 
+属性使用标准的C++变量语法声明，前面用UPROPERTY宏来定义属性元数据和变量说明符。
+
+```c++
+UPROPERTY([specifier, specifier, ...], [meta(key=value, key=value, ...)])
+Type VariableName;
+```
+
+## 核心数据类型
+
+### 整数
+
+整数数据类型转换是"int"或"uint"后跟位大小。
+
+|变量类型|说明|
+|---|---|
+|**uint8**|8位无符号|
+|**uint16**|16位无符号|
+|**uint32**|32位无符号|
+|**uint64**|64位无符号|
+|**int8**|8位有符号|
+|**int16**|16位有符号|
+|**int32**|32位有符号|
+|**int64**|64位有符号|
+
+#### 作为位掩码
+##### 整数属性位掩码
+整数属性现在可**以位掩码形式公开给编辑器**。要将整数属性标记为位掩码，只需在 meta 分段中添加 `Bitmask` 即可，如下所示：
+
+```c++
+/*~ BasicBits appears as a list of generic flags in the editor, instead of an integer field. */
+//BasicBits在编辑器中显示为一个通用flag标志列表，而不是一个整数字段
+UPROPERTY(EditAnywhere, Meta = (Bitmask))
+int32 BasicBits;
+```
+
+添加此元标记将使整数作为下拉列表形式可供编辑，它们使用笼统命名标记（"Flag 1"、"Flag 2"、"Flag 3"等等），可以 单独打开或关闭。
+
+![[cd2166f5df34fcddfa25e7e5196ce3a7_MD5.jpg]]
+##### 蓝图整数位掩码
+**也可以让蓝图可调用函数的整型参数表现为位掩码**，方法是在参数的 `UPARAM` 指定器上添加 `Bitmask` 元标签（不需要值）。
+
+```c++
+/*~ You can set MyFunction using a generic list of flags instead of typing in an integer value. */
+//你可以使用一个通用的flag标志列表来设置MyFunction，而不是输入一个整数值。
+UFUNCTION(BlueprintCallable)
+void MyFunction(UPARAM(meta=(Bitmask)) int32 BasicBitsParam)
+```
+##### 自定义位标记名称
+**自定义位标记名称**，首先必须使用`Bitflags`元标记来创建 `UENUM`：
+
+```c++
+UENUM(Meta = (Bitflags))
+enum class EColorBits
+{
+    ECB_Red,
+    ECB_Green,
+    ECB_Blue
+};
+```
+
+比特掩码枚举类型的范围是0到31，包括0和31。其对应于32位整型变量的位数（从第0位开始）。在上面的例子中，第0位是 `ECB_Red`，第1位是 `ECB_Green`，第2位是 `ECB_Blue`。
+
+作为**另一种声明方式，你可以使用 `ENUM_CLASS_FLAGS` 在定义完枚举类型后，将其变成一个位掩码。** 为了在编辑器中使用标志选择器（flag selector），我们还必须添加元字段 `UseEnumValuesAsMaskValuesInEditor` 并将其设置为 `true`。关键的区别在于，这个方法直接使用掩码值，而不是比特数。使用此方法制作的等效枚举类型看起来像这样：
+
+```c++
+UENUM(Meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
+enum class EColorBits
+{
+    ECB_Red = 0x01,
+    ECB_Green = 0x02,
+    ECB_Blue = 0x04
+};
+
+ENUM_CLASS_FLAGS(EColorBits);
+```
+
+**创建该UENUM后，可以使用`BitmaskEnum`元标记来引用它**，如：
+
+```c++
+/*~ This property lists flags matching the names of values from EColorBits. */
+//这个属性列出了与EColorBits中值的名称相匹配的标志
+UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "EColorBits"))
+int32 ColorFlags;
+```
+
+完成这个更改后，下拉框中列出的位标记将使用列举类条目的名称和值。在上述示例中， ECB_Red 值为0，表示它被选中时将激活位0（将ColorFlags增加1）。ECB_Green对应于位1（将ColorFlags增加2），ECB_Blue 对应于位2（将ColorFlags增加4）。
+
+![[47dbb9ed69b8e8601e913aa90c304f74_MD5.jpg]]
+
+同样，你可以在 `UPARAM` 标签的meta部分添加 `BitmaskEnum` 和对应的枚举类型名称来定制它。
+
+```c++
+/*~ MyOtherFunction shows flags named after the values from EColorBits. */
+UFUNCTION(BlueprintCallable)
+void MyOtherFunction(UPARAM(meta=(Bitmask, BitmaskEnum = "EColorBits")) int32 ColorFlagsParam)
+```
+
+虽然列举类型包含超过32个条目，但在属性编辑器UI中，位掩码关联中只会看到前32个值。同样，虽然可接受显式值条目，但显式值介于0-31的条目不会包含在下拉列表中。
+
+### 浮点类型
+
+虚幻使用标准C++浮点类型、浮点和双精度。
+
+### 布尔类型
+
+布尔类型可以使用C++ ool关键字表示或表示为位域。
+
+```
+    uint32 bIsHungry : 1;
+    bool bIsThirsty;
+```
+
+### 字符串
+
+虚幻引擎4支持三种核心类型的字符串。
+
+- FString是典型的"动态字符数组"字符串类型。
+    
+- FName是对全局字符串表中不可变且不区分大小写的字符串的引用。相较于FString，它的大小更小，更能高效的传递，但更难以操控。
+    
+- FText是指定用于处理本地化的更可靠的字符串表示。
+    
+
+对于大多数情况下，虚幻依靠TCHAR类型来表示字符。TEXT()宏可用于表示TCHAR文字。
+
+```
+    MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
+```
+
+有关这三种字符串类型、何时使用哪个类型以及如何使用它们的更多信息，请参阅[字符串处理文档](https://docs.unrealengine.com/5.2/zh-CN/string-handling-in-unreal-engine)。
+
+## 属性说明符
+
+声明属性时，**属性说明符** 可被添加到声明，以控制属性与引擎和编辑器诸多方面的相处方式。
+
+|属性标签|效果|
+|---|---|
+|`AdvancedDisplay`|属性将被放置在其出现的任意面板的高级（下拉）部分中。|
+|`AssetRegistrySearchable`|`AssetRegistrySearchable` 说明符说明此属性与其值将被自动添加到将此包含为成员变量的所有资源类实例的资源注册表。不可在结构体属性或参数上使用。|
+|`BlueprintAssignable`|只能与组播委托共用。公开属性在蓝图中指定。|
+|`BlueprintAuthorityOnly`|此属性必须为一个组播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。|
+|`BlueprintCallable`|仅用于组播委托。应公开属性在蓝图代码中调用。|
+|`BlueprintGetter=GetterFunctionName`|此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。|
+|`BlueprintReadOnly`|此属性可由蓝图读取，但不能被修改。此说明符与 `BlueprintReadWrite` 说明符不兼容。|
+|`BlueprintReadWrite`|可从蓝图读取或写入此属性。此说明符与 `BlueprintReadOnly` 说明符不兼容。|
+|`BlueprintSetter=SetterFunctionName`|此属性拥有一个自定义编译函数，被隐式标记为 `BlueprintReadWrite`。注意：必须对变异函数进行命名，并为相同类的一部分。|
+|`Category="TopCategory\|SubCategory\|..."`|指定在蓝图编辑工具中显示时的属性类别。使用 \| 运算符定义嵌套类目。|
+|`Config`|此属性将被设为可配置。当前值可被存入与类相关的 `.ini` 文件中，创建后将被加载。无法在默认属性中给定一个值。暗示为 `BlueprintReadOnly`。|
+|`DuplicateTransient`|说明在任意类型的复制中（复制/粘贴、二进制复制等），属性的值应被重设为类默认值。|
+|`EditAnywhere`|说明此属性可通过属性窗口在原型和实例上进行编辑。此说明符与所有"可见"说明符均不兼容。|
+|`EditDefaultsOnly`|说明此属性可通过属性窗口进行编辑，但只能在原型上进行。此说明符与所有"可见"说明符均不兼容。|
+|`EditFixedSize`|只适用于动态数组。这能防止用户通过虚幻编辑器属性窗口修改数组长度。|
+|`EditInline`|允许用户在虚幻编辑器的属性查看器中编辑此属性所引用的Object的属性（只适用于Object引用，包括Object引用的数组）。|
+|`EditInstanceOnly`|说明此属性可通过属性窗口进行编辑，但只能在实例上进行，不能在原型上进行。此说明符与所有"可见"说明符均不兼容。|
+|`Export`|只适用于Object属性（或Object数组）。说明Object被复制时（例如复制/粘贴操作）指定到此属性的Object应整体导出为一个子Object块，而非只是输出Object引用本身。|
+|`GlobalConfig`|工作原理与 `Config` 相似，不同点是无法在子类中进行覆盖。无法在默认属性中对其给定一个值。暗示为 `BlueprintReadOnly`。|
+|`Instanced`|仅限Object（`UCLASS`）属性。此类的一个实例创建时，其将被给定一个Object的特殊副本，指定到默认项中的此属性。用于实例化类默认属性中定义的子Object。暗示为 `EditInline` 和 `Export`。|
+|`Interp`|说明值可随时间由Sequencer中的一个轨道驱动。|
+|`Localized`|此属性的值将拥有一个定义的本地化值。多用于字符串。暗示为 `ReadOnly`。|
+|`Native`|属性为本地：C++代码负责对其进行序列化并公开到[垃圾回收](https://docs.unrealengine.com/5.2/zh-CN/unreal-object-handling-in-unreal-engine)。|
+|`NoClear`|阻止从编辑器将此Object引用设为空。隐藏编辑器中的清除（和浏览）按钮。|
+|`NoExport`|只适用于本地类。此属性不应包含在自动生成的类声明中。|
+|`NonPIEDuplicateTransient`|属性将在复制中被重设为默认值，除非其被复制用于PIE会话。|
+|`NonTransactional`|说明对此属性值的修改不会包含在编辑器的撤销/重新执行历史中。|
+|`NotReplicated`|跳过复制。这只会应用到服务请求函数中的结构体成员和参数。|
+|`Replicated`|属性应随网络进行复制。|
+|`ReplicatedUsing=FunctionName`|`ReplicatedUsing` 说明符指定一个回调函数，其在属性通过网络更新时执行。|
+|`RepRetry`|只适用于结构体属性。如果此属性未能完全发送（举例而言：Object引用尚无法通过网络进行序列化），则重新尝试对其的复制。对简单引用而言，这是默认选择；但对结构体而言，这会产生带宽开销，并非优选项。因此在指定此标签之前其均为禁用状态。|
+|`SaveGame`|此说明符可简便地将域显式包含，用于属性关卡中的检查点/保存系统。应在作为游戏存档一部分的所有域上设置此标签，并使用代理归档器对其进行读写。|
+|`SerializeText`|本地属性应被序列化为文本（`ImportText`、`ExportText`）。|
+|`SkipSerialization`|此属性不会被序列化，但仍能导出为一个文本格式（例如用于复制/粘贴操作）。|
+|`SimpleDisplay`|出现在 **细节** 面板中的可见或可编辑属性，无需打开"高级"部分即可见。|
+|`TextExportTransient`|此属性将不会导出为一个文本格式（因此其无法用于复制/粘贴操作）。|
+|`Transient`|属性为临时，意味着其无法被保存或加载。以此方法标记的属性将在加载时被零填充。|
+|`VisibleAnywhere`|说明此属性在所有属性窗口中可见，但无法被编辑。此说明符与"Edit"说明符不兼容。|
+|`VisibleDefaultsOnly`|说明此属性只在原型的属性窗口中可见，无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
+|`VisibleInstanceOnly`|说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
+
+#### 元数据说明符
+
+声明类、接口、结构体、列举、列举值、函数，或属性时，可添加 **元数据说明符** 来控制其与引擎和编辑器各方面的相处方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
+
+Metadata只存在于编辑器中。请不要编写能够访问到Metadata的游戏逻辑。
+
+|属性元标签|效果|
+|---|---|
+|`AllowAbstract="true/false"`|用于 `Subclass` 和 `SoftClass` 属性。说明抽象类属性是否应显示在类选取器中。|
+|`AllowedClasses="Class1, Class2, .."`|用于 `FSoftObjectPath` 属性。逗号分隔的列表，表明要显示在资源选取器中的资源类类型。|
+|`AllowPreserveRatio`|用于 `Fvector` 属性。在细节面板中显示此属性时将添加一个比率锁。|
+|`ArrayClamp="ArrayProperty"`|用于整数属性。将可在UI中输入的有效值锁定在0和命名数组属性的长度之间。|
+|`AssetBundles`|用于 `SoftObjectPtr` 或 `SoftObjectPath` 属性。主数据资源中使用的束列表命名，指定此引用属于哪个束的一部分。|
+|`BlueprintBaseOnly`|用于 `Subclass` 和 `SoftClass` 属性。说明蓝图类是否应显示在类选取器中。|
+|`BlueprintCompilerGeneratedDefaults`|属性默认项由蓝图编译器生成，`CopyPropertiesForUnrelatedObjects` 在编译后调用时将不会被复制。|
+|`ClampMin="N"`|用于浮点和整数属性。指定可在属性中输入的最小值 `N`。|
+|`ClampMax="N"`|用于浮点和整数属性。指定可在属性中输入的最大值 `N`。|
+|`ConfigHierarchyEditable`|此属性被序列化为一个配置（`.ini`）文件，可在配置层级中的任意处进行设置。|
+|`ContentDir`|由 `FDirectoryPath` 属性使用。说明将使用 `Content` 文件夹中的Slate风格目录选取器来选取路径。|
+|`DisplayAfter="PropertyName"`|在蓝图编辑器中，名为 `PropertyName` 的属性后即刻显示此属性。前提是两个属性属于同一类别，则忽略其在源代码中的顺序进行显示。如多个属性有相同的 `DisplayAfter` 值和相同的 `DisplayPriority` 值，将在指定属性之后，按照自身在标头文件中声明的顺序显示。|
+|`DisplayName="Property Name"`|此属性显示的命名，不显示代码生成的命名。|
+|`DisplayPriority="N"`|如两个属性有相同的 `DisplayAfter` 值，或属于同一类别且无 `DisplayAfter` 元标签，则此属性将决定其顺序。最高优先级值为1，表示 `DisplayPriority` 值为1的属性将在 `DisplayProirity` 值为2的属性之上显示。如多个属性有相同的 `DisplayAfter` 值，其将按照在标头文件中声明的顺序显示。|
+|`DisplayThumbnail="true"`|说明属性是一个资源类型，其应显示选中资源的缩略图。|
+|`EditCondition="BooleanPropertyName"`|对一个布尔属性进行命名，此属性用于说明此属性的编辑是否被禁用。将"!"放置在属性命名前可颠倒测试。|
+|`EditFixedOrder`|使排列的元素无法通过拖拽来重新排序。<br><br>EditCondition元标签不再仅限于单个布尔属性。它现在由完全成熟的算式解析器计算，意味着可以包含一个完整的C++表达式。|
+|`ExactClass="true"`|结合 `AllowedClasses` 用于 `FSoftObjectPath` 属性。说明是否只能使用 `AllowedClasses` 中指定的准确类，或子类是否同样有效。|
+|`ExposeFunctionCategories="Category1, Category2, .."`|在蓝图编辑器中编译一个函数列表时，指定其函数应被公开的类目的列表。|
+|`ExposeOnSpawn="true"`|指定此属性是否应在此类类型的一个Spawn Actor节点上公开。|
+|`FilePathFilter="FileType"`|由 `FFilePath` 属性使用。说明在文件选取器中显示的路径过滤器。常规值包括"uasset"和"umap"，但这些并非唯一可能的值。|
+|`GetByRef`|使该属性的"Get"蓝图节点返回对属性的常量引用，而不是其值的副本。只对稀疏类数据生效，只能在不存在 `NoGetter` 时使用。|
+|`HideAlphaChannel`|用于 `Fcolor` 和 `FLinearColor` 属性。说明详细显示属性控件时 `Alpha` 属性应为隐藏状态。|
+|`HideViewOptions`|用于 `Subclass` 和 `SoftClass` 属性。隐藏在类选取器中修改显示选项的功能。|
+|`InlineEditConditionToggle`|表示出布尔属性只内联显示为其他属性中的一个编辑条件切换，不应显示在其自身的行上。|
+|`LongPackageName`|由 `FDirectoryPath` 属性使用。将路径转换为一个长的包命名。|
+|`MakeEditWidget`|用于变换或旋转体属性，或变换/旋转体的排列。说明属性应在视口中公开为一个可移动控件。|
+|`NoGetter`|防止蓝图为该属性生成一个"get"节点。只对稀疏类数据生效。|
 # 对象
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
 
