@@ -1361,6 +1361,98 @@ template<class T> bool logical_and<T>; // 逻辑与
 template<class T> bool logical_or<T>; // 逻辑或
 template<class T> bool logical_not<T>; // 逻辑非
 ```
+
+## Bind 函数
+### 说明
+
+`bind1st()` 和 `bind2nd()`，在 C++11 里已经 deprecated 了，建议使用新标准的 `bind()`。  
+下面先说明 `bind1st()` 和 `bind2nd()` 的用法，然后在说明 `bind()` 的用法。
+
+### 头文件
+
+`#include <functional>`
+
+### 作用
+
+`bind1st()` 和 `bind2nd()` 都是把二元函数转化为一元函数，方法是绑定其中一个参数。  
+`bind1st()` 是绑定第一个参数。  
+`bind2nd()` 是绑定第二个参数。
+
+### 例子
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind2nd(less<int>(), 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind1st(less<int>(), 40));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+
+结果:
+
+```c++
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
+分析  
+`less()` 是一个二元函数，`less(a, b)` 表示判断 `a<b` 是否成立。
+
+所以 `bind2nd(less<int>(), 40)` 相当于 `x<40` 是否成立, 用于判定那些小于 40 的元素。
+
+`bind1st(less<int>(), 40)` 相当于 `40<x` 是否成立, 用于判定那些大于 40 的元素。
+
+### bind ()
+
+`bind1st()` 和 `bind2nd()`，在 C++11 里已经 deprecated 了. `bind()` 可以替代他们，且用法更灵活更方便。
+
+上面的例子可以写成下面的形式：
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), std::placeholders::_1, 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), 40, std::placeholders::_1));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+
+结果:
+
+```
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
+`std::placeholders::_1` 是占位符，标定这个是要传入的参数。  
+所以 `bind()` 不仅可以用于二元函数，还可以用于多元函数，可以绑定多元函数中的多个参数，不想绑定的参数使用占位符表示。  
+此用法更灵活，更直观，更便捷。
+
 ## 适配器
 为了方便理解，我们以例子的形式来讲述这个部分的内容。
 ### 函数对象适配器

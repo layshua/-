@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "STL",
-      "path": "编程/C++/STL.md"
-    },
-    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },
     {
+      "basename": "STL",
+      "path": "编程/C++/STL.md"
+    },
+    {
       "basename": "清单",
       "path": "zip/留学/清单.md"
+    },
+    {
+      "basename": "C++ STL bind1st  bind2nd bind 的使用 - 简书",
+      "path": "zBuffer/C++ STL bind1st  bind2nd bind 的使用 - 简书.md"
     },
     {
       "basename": "【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客",
@@ -195,10 +199,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     }
   ],
   "omittedPaths": [],
