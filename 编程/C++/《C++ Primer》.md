@@ -7303,6 +7303,7 @@ struct divide
 我们可能希望使用这些可调用对象构建一个简单的桌面计算器。为了实现这一目的，需要定义一个**函数表**用于存储指向这些可调用对象的“指针”。当程序需要执行某个特定的操作时，从表中查找该调用的函数。
 
 ### 【C++11】function 类型
+又称偏函数（partial function）
 #function
 常用function类型来定义函数表。
 ![[Pasted image 20230221224156.png]]
@@ -7318,7 +7319,17 @@ cout<<f1(4,2)<<end1:  //打印6
 cout<<f2(4,2)<<end1:  //打印2
 cout<<f3(4,2)<<end1;  //打印8
 ```
- 
+
+```c++
+#include <functional>
+using namespace std;
+using namespace std::placeholders;
+
+void print(int n, int base); // 按 base 进制来输出 n
+​
+function<void(int)> print10 = bind(print, _1, 10);
+print10(23); //相当于 print(23, 10)
+```
 ## 9 类型转换运算符
 P514 慎用
 > [!NOTE] Title

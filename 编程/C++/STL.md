@@ -1588,17 +1588,298 @@ for_each(v.begin(), v.end(), mem_fun_ref(&Dog::bark));
 // 成员函数适配器 mem_fun_ref
 // 如果容器中存放的不是对象实体，而是对象指针时，则需使用 ptr_fun
 ```
-## 偏函数
+## 偏函数/function 类型
 对于一个多参数的函数，在某些应用场景下，它的一些参数往往取固定值，可以针对这样的函数，生成一个新函数，该新函数不包含原函数中已指定固定值的参数。（partial function application, 偏函数）
 偏函数可缩小一个函数的适用范围，提高函数的针对性
 例如，对于下面的print函数：
+```c++
 void print(int n, int base); // 按base进制来输出n
+```
 由于它常常用来按十进制输出，因此，可以基于print生成一个新函数print10，只接受一个参数n，base固定为10：
+```c++
 #include <functional>
 using namespace std;
 using namespace std::placeholders;
 ​
 function<void(int)> print10 = bind(print, _1, 10);
 print10(23); //相当于 print(23, 10)
-function类和bind的使用需要c++11标准
+```
+function 类和 bind 的使用需要 c++11标准
+
 至此，读者应当对于仿函数/函数对象有了一个稍微深入一点的理解了。如果还觉得有些云里雾里的话也没关系，以后熟悉了就好了。
+
+# 算法(Algorithm)
+对于STL中各种类型的算法的详细介绍
+## 算法概述
+算法主要由头文件`<algorithm><functional><numeric>`组成
+- `<algorithm>` 是所有 STL 头文件中最大的一个，其中常用的功能涉及到比较、交换、查找、遍历、复制、修改、反转、排序、合并等
+- `<numeric>` 体积很小，只包括在几个序列容器上进行简单运算的模版函数
+- `<functional>` 定义了一些模版类，用以声明函数对象
+自定义的类如果想要直接使用算法库，则需补全默认构造函数、拷贝构造函数、析构函数、赋值操作符、小于操作符、等于操作符。
+## 常用遍历算法
+### for_each
+```c++
+/**
+  * 遍历算法 遍历容器元素
+  * @param beg 开始迭代器
+  * @param end 结束迭代器
+  * @param _callback 函数回调或者函数对象
+  * @return 函数对象
+*/
+for_each(iterator beg, iterator end, _callback);
+
+```
+
+### transform
+```c++
+/**
+  * transform算法 将指定容器内的元素搬运到另一个容器中
+  * 注意：transform不会给目标容器分配内存，所以需要我们提前分配好内存
+  * @param beg1 源容器开始迭代器
+  * @param end1 源容器结束迭代器
+  * @param beg2 目标容器开始迭代器
+  * @param _callback 回调函数或者函数对象
+  * @return 返回目标容器迭代器
+*/
+iterator transform(iterator beg1, iterator end1, iterator beg2, _callback);
+```
+注意：目标容器一定要提前分配好内存。
+## 常用查找算法
+### find
+```c++
+/**
+  * find 算法 查找元素
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param value 查找的元素
+  * @return 返回查找元素的位置
+*/
+iterator find(iterator beg, iterator end, value);
+```
+### find_if
+```c++
+/**
+  * find_if 算法 条件查找
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param _callback 回调函数或者谓词(返回 bool 类型的函数对象)
+  * @return 返回查找元素的位置
+*/
+iterator find_if(iterator beg, iterator end, _callback);
+```
+利用`find_if`实现自定义类的`find`操作的时候，之前的函数适配器可能会派上用场。
+### adjacent_find
+```c++
+/**
+  * adjacent_find 算法 查找相邻重复元素
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param _callback 回调函数或者谓词(返回 bool 类型的函数对象)
+  * @return 返回相邻元素的第一个位置的迭代器
+*/
+iterator adjacent_find(iterator beg, iterator end, _callback);
+```
+### binary_search
+```c++
+/**
+  * binary_search 算法 二分法查找
+  * 注意：在无序序列中不可用
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param value 查找的元素
+  * @return bool 查找返回true，否则false
+*/
+bool binary_search(iterator beg, iterator end, value);
+```
+### count
+```c++
+/**
+  * count 算法 统计元素出现次数
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param value 待计数的元素
+  * @return int 返回元素个数
+*/
+int count(iterator beg, iterator end, value);
+```
+### count_if
+```c++
+/**
+  * count_if 算法 统计元素出现次数
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param _callback 回调函数或者谓词
+  * @return int 返回元素个数
+*/
+int count_if(iterator beg, iterator end, _callback);
+```
+## 常用排序算法
+### merge
+```c++
+/**
+  * merge 算法 容器元素合并，并储存到另一个容器中
+  * 注意：两个容器必须是有序的
+  * @param beg1 容器1开始迭代器
+  * @param end1 容器1结束迭代器
+  * @param beg2 容器2开始迭代器
+  * @param end2 容器2结束迭代器
+  * @param dest 目标容器开始迭代器
+*/
+merge(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);
+```
+### sort
+```c++
+/**
+  * sort 算法 容器元素排序
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param _callback 回调函数或者谓词
+*/
+sort(iterator beg, iterator end, _callback);
+```
+### random_shuffle
+```c++
+/**
+  * random_shuffle 洗牌算法 对指定范围内的元素随机调整次序
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+*/
+random_shuffle(iterator beg, iterator end);
+```
+如果想要每次打乱不同，需要自己设置随机数种子：
+```c++
+#include <ctime>
+using namespace std;
+​
+int main()
+{
+    srand((unsigned int)time(NULL));
+    ......//random_shuffle
+}
+```
+
+### reverse
+```c++
+/**
+  * reverse 算法 反转指定范围的元素
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+*/
+reverse(iterator beg, iterator end);
+```
+## 常用拷贝和替换算法
+### copy
+```c++
+/**
+  * copy算法 将容器内指定范围的元素拷贝到另一容器当中
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param dest 目标容器开始迭代器
+*/
+copy(iterator beg, iterator end, iterator dest);
+
+//使用copy算法快速打印容器：
+vector<int> v = {1, 2, 3, 4, 5};
+for_each(v.begin(), v.end(), [](int val){cout << val << " ";});
+// 等价于
+copy(v.begin(), v.end(), ostream_iterator<int>(cout, " "));
+// 需要#include <iterator>
+```
+其实第一种方法已经够用了，不过为了提升一下逼格，不妨也了解一下第二种。
+### replace
+```c++
+/**
+  * replace算法 将容器内指定范围的旧元素修改为新元素
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param oldvalue 旧元素
+  * @param newvalue 新元素
+*/
+replace(inerator beg, iterator end, oldvalue, newvalue);
+```
+### replace_if
+```c++
+/**
+  * replace_if 算法 将容器内指定范围满足条件的元素替换为新元素
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param _callback 回调函数或者谓词（返回bool类型的函数对象）
+  * @param newvalue 新元素
+*/
+replace_if(inerator beg, inerator end, _callback, newvalue);
+```
+### swap
+```c++
+/**
+  * swap 算法 互换两个容器元素
+  * @param c1 容器1
+  * @param c2 容器2
+*/
+swap(container c1, container c2);
+```
+## 常用算数生成算法
+### accumulate
+```c++
+#include <numeric> // 注意头文件不是algorithm了
+/**
+  * accumulate 算法 计算容器元素累计总和
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param value 起始累加值
+*/
+accumulate(iterator beg, iterator end, value);
+```
+
+### fill
+```c++
+/**
+  * fill 算法
+  * @param beg 容器开始迭代器
+  * @param end 容器结束迭代器
+  * @param value 填充元素
+*/
+fill(iterator beg, iterator end, value);
+```
+## 常用集合算法
+### set_intersection
+```c++
+/**
+  * set_intersection 算法 求两个set集合的交集
+  * 注意：两个集合必须是有序序列
+  * @param beg1 容器1开始迭代器
+  * @param end1 容器1结束迭代器
+  * @param beg2 容器2开始迭代器
+  * @param end2 容器2结束迭代器
+  * @param dest 目标容器开始迭代器
+  * @return 目标容器最后一个元素的迭代器地址
+*/
+set_intersection(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);
+```
+### set_union
+```c++
+/**
+  * set_union 算法 求两个set集合的并集
+  * 注意：两个集合必须是有序序列
+  * @param beg1 容器1开始迭代器
+  * @param end1 容器1结束迭代器
+  * @param beg2 容器2开始迭代器
+  * @param end2 容器2结束迭代器
+  * @param dest 目标容器开始迭代器
+  * @return 目标容器最后一个元素的迭代器地址
+*/
+set_union(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);
+```
+### set_difference
+```c++
+/**
+  * set_difference 算法 求两个set集合的差集
+  * 注意：两个集合必须是有序序列
+  * @param beg1 容器1开始迭代器
+  * @param end1 容器1结束迭代器
+  * @param beg2 容器2开始迭代器
+  * @param end2 容器2结束迭代器
+  * @param dest 目标容器开始迭代器
+  * @return 目标容器最后一个元素的迭代器地址
+*/
+set_difference(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);
+```
