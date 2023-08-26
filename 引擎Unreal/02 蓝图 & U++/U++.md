@@ -8,7 +8,7 @@
 
 - 虚幻中对象的基类是 [UObject](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine)。每个类都新定义了一个用于[Actor](https://docs.unrealengine.com/5.2/zh-CN/actors-in-unreal-engine)或对象（Object）的模板。
 - 你可以**使用 `UCLASS` 宏来标记从 `Uobject` 派生的类**，以便[UObject处理系统](https://docs.unrealengine.com/5.2/zh-CN/unreal-object-handling-in-unreal-engine)可以注意到这些类。
-- [TSubclassOf](https://docs.unrealengine.com/5.2/zh-CN/typed-object-pointer-properties-in-unreal-engine)是模板类，提供 `Uclass` 类型保险。 它在分配从特定类型派生出来的类时很有效。例如，你可以把这个变量公开给蓝图，设计者可以为玩家角色指定生成的武器类别。
+- [TSubclassOf](https://docs.unrealengine.com/5.2/zh-CN/typed-object-pointer-properties-in-unreal-engine)是模板类，提供 `Uclass` 类型保险。 它**在分配从特定类型派生出来的类时很有效**。例如，你可以把这个变量公开给蓝图，设计者可以为玩家角色指定生成的武器类别。
 - 类可以包含[结构体](https://docs.unrealengine.com/5.2/zh-CN/structs-in-unreal-engine)。结构体是帮助组织和操控其相关相关属性的数据结构。**结构体可以使用 `USTRUCT()` 宏来单独定义。**
 - [虚幻智能指针库](https://docs.unrealengine.com/5.2/zh-CN/smart-pointers-in-unreal-engine)为C++11智能指针的自定义实现，旨在减轻内存分配和追踪的负担。该实现包括行业标准[共享指针](https://docs.unrealengine.com/5.2/zh-CN/shared-pointers-in-unreal-engine)，[弱指针](https://docs.unrealengine.com/5.2/zh-CN/weak-pointers-in-unreal-engine)，**唯一指针（Unique Pointers）**，和[共享引用](https://docs.unrealengine.com/5.2/zh-CN/shared-references-in-unreal-engine)，此类引用的行为与不可为空的共享指针相同。
 - [接口](https://docs.unrealengine.com/5.2/zh-CN/interfaces-in-unreal-engine) 提供可以在多个或不同的类中实现函数和额外的游戏行为。 你的玩家角色可以与世界中的各种Actor互动。 每个这些互动都能引起对一个事件的不同反应。
@@ -106,7 +106,7 @@ int32 ColorFlags;
 
 ![[47dbb9ed69b8e8601e913aa90c304f74_MD5.jpg]]
 
-同样，你可以在 `UPARAM` 标签的meta部分添加 `BitmaskEnum` 和对应的枚举类型名称来定制它。
+**同样，你可以在 `UPARAM` 标签的meta部分添加 `BitmaskEnum` 和对应的枚举类型名称来定制它。**
 
 ```c++
 /*~ MyOtherFunction shows flags named after the values from EColorBits. */
@@ -122,25 +122,21 @@ void MyOtherFunction(UPARAM(meta=(Bitmask, BitmaskEnum = "EColorBits")) int32 Co
 
 ### 布尔类型
 
-布尔类型可以使用C++ ool关键字表示或表示为位域。
-
-```
-    uint32 bIsHungry : 1;
-    bool bIsThirsty;
+布尔类型可以使用 C++ bool 关键字表示或表示为位域。
+```c++
+uint32 bIsHungry : 1;
+bool bIsThirsty;
 ```
 
 ### 字符串
 
 虚幻引擎4支持三种核心类型的字符串。
 
-- FString是典型的"动态字符数组"字符串类型。
-    
-- FName是对全局字符串表中不可变且不区分大小写的字符串的引用。相较于FString，它的大小更小，更能高效的传递，但更难以操控。
-    
-- FText是指定用于处理本地化的更可靠的字符串表示。
-    
+- `FString`是典型的"动态字符数组"字符串类型。
+- `FName`是**对全局字符串表中不可变且不区分大小写的字符串的引用**。相较于FString，它的大小更小，更能高效的传递，但更难以操控。
+- `FText`是指定**用于处理本地化的更可靠的字符串表示**。
 
-对于大多数情况下，虚幻依靠TCHAR类型来表示字符。TEXT()宏可用于表示TCHAR文字。
+对于大多数情况下，虚幻依靠`TCHAR`类型来表示字符。`TEXT()`宏可用于表示`TCHAR`文字。
 
 ```
     MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
@@ -195,42 +191,6 @@ void MyOtherFunction(UPARAM(meta=(Bitmask, BitmaskEnum = "EColorBits")) int32 Co
 |`VisibleDefaultsOnly`|说明此属性只在原型的属性窗口中可见，无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
 |`VisibleInstanceOnly`|说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
 
-#### 元数据说明符
-
-声明类、接口、结构体、列举、列举值、函数，或属性时，可添加 **元数据说明符** 来控制其与引擎和编辑器各方面的相处方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
-
-Metadata只存在于编辑器中。请不要编写能够访问到Metadata的游戏逻辑。
-
-|属性元标签|效果|
-|---|---|
-|`AllowAbstract="true/false"`|用于 `Subclass` 和 `SoftClass` 属性。说明抽象类属性是否应显示在类选取器中。|
-|`AllowedClasses="Class1, Class2, .."`|用于 `FSoftObjectPath` 属性。逗号分隔的列表，表明要显示在资源选取器中的资源类类型。|
-|`AllowPreserveRatio`|用于 `Fvector` 属性。在细节面板中显示此属性时将添加一个比率锁。|
-|`ArrayClamp="ArrayProperty"`|用于整数属性。将可在UI中输入的有效值锁定在0和命名数组属性的长度之间。|
-|`AssetBundles`|用于 `SoftObjectPtr` 或 `SoftObjectPath` 属性。主数据资源中使用的束列表命名，指定此引用属于哪个束的一部分。|
-|`BlueprintBaseOnly`|用于 `Subclass` 和 `SoftClass` 属性。说明蓝图类是否应显示在类选取器中。|
-|`BlueprintCompilerGeneratedDefaults`|属性默认项由蓝图编译器生成，`CopyPropertiesForUnrelatedObjects` 在编译后调用时将不会被复制。|
-|`ClampMin="N"`|用于浮点和整数属性。指定可在属性中输入的最小值 `N`。|
-|`ClampMax="N"`|用于浮点和整数属性。指定可在属性中输入的最大值 `N`。|
-|`ConfigHierarchyEditable`|此属性被序列化为一个配置（`.ini`）文件，可在配置层级中的任意处进行设置。|
-|`ContentDir`|由 `FDirectoryPath` 属性使用。说明将使用 `Content` 文件夹中的Slate风格目录选取器来选取路径。|
-|`DisplayAfter="PropertyName"`|在蓝图编辑器中，名为 `PropertyName` 的属性后即刻显示此属性。前提是两个属性属于同一类别，则忽略其在源代码中的顺序进行显示。如多个属性有相同的 `DisplayAfter` 值和相同的 `DisplayPriority` 值，将在指定属性之后，按照自身在标头文件中声明的顺序显示。|
-|`DisplayName="Property Name"`|此属性显示的命名，不显示代码生成的命名。|
-|`DisplayPriority="N"`|如两个属性有相同的 `DisplayAfter` 值，或属于同一类别且无 `DisplayAfter` 元标签，则此属性将决定其顺序。最高优先级值为1，表示 `DisplayPriority` 值为1的属性将在 `DisplayProirity` 值为2的属性之上显示。如多个属性有相同的 `DisplayAfter` 值，其将按照在标头文件中声明的顺序显示。|
-|`DisplayThumbnail="true"`|说明属性是一个资源类型，其应显示选中资源的缩略图。|
-|`EditCondition="BooleanPropertyName"`|对一个布尔属性进行命名，此属性用于说明此属性的编辑是否被禁用。将"!"放置在属性命名前可颠倒测试。|
-|`EditFixedOrder`|使排列的元素无法通过拖拽来重新排序。<br><br>EditCondition元标签不再仅限于单个布尔属性。它现在由完全成熟的算式解析器计算，意味着可以包含一个完整的C++表达式。|
-|`ExactClass="true"`|结合 `AllowedClasses` 用于 `FSoftObjectPath` 属性。说明是否只能使用 `AllowedClasses` 中指定的准确类，或子类是否同样有效。|
-|`ExposeFunctionCategories="Category1, Category2, .."`|在蓝图编辑器中编译一个函数列表时，指定其函数应被公开的类目的列表。|
-|`ExposeOnSpawn="true"`|指定此属性是否应在此类类型的一个Spawn Actor节点上公开。|
-|`FilePathFilter="FileType"`|由 `FFilePath` 属性使用。说明在文件选取器中显示的路径过滤器。常规值包括"uasset"和"umap"，但这些并非唯一可能的值。|
-|`GetByRef`|使该属性的"Get"蓝图节点返回对属性的常量引用，而不是其值的副本。只对稀疏类数据生效，只能在不存在 `NoGetter` 时使用。|
-|`HideAlphaChannel`|用于 `Fcolor` 和 `FLinearColor` 属性。说明详细显示属性控件时 `Alpha` 属性应为隐藏状态。|
-|`HideViewOptions`|用于 `Subclass` 和 `SoftClass` 属性。隐藏在类选取器中修改显示选项的功能。|
-|`InlineEditConditionToggle`|表示出布尔属性只内联显示为其他属性中的一个编辑条件切换，不应显示在其自身的行上。|
-|`LongPackageName`|由 `FDirectoryPath` 属性使用。将路径转换为一个长的包命名。|
-|`MakeEditWidget`|用于变换或旋转体属性，或变换/旋转体的排列。说明属性应在视口中公开为一个可移动控件。|
-|`NoGetter`|防止蓝图为该属性生成一个"get"节点。只对稀疏类数据生效。|
 # 对象
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
 
@@ -248,9 +208,42 @@ Metadata只存在于编辑器中。请不要编写能够访问到Metadata的游�
 > [!NOTE]
 > `UObject` 类还可包括仅限本地的属性，这些属性没有用 `UFUNCTION` 或者 `UPROPERTY` 指定器标记用于反射。**只有用指定器宏标记过的函数和属性会列举在它们对应的 `UCLASS` 中。**
 
-> [!NOTE] Title
-> Contents
+### TSubclassOf
+**`TSubclassOf`** 是提供 `UClass` 类型安全性的模板类。例如您在创建一个投射物类，允许设计者指定伤害类型。您可只创建一个 `UClass` 类型的 `UPROPERTY`，让设计者指定派生自 `UDamageType` 的类；或者您可使用 `TSubclassOf` 模板强制要求此选择。以下示例代码展示了不同之处：
 
+```c++
+/** type of damage */
+UPROPERTY(EditDefaultsOnly, Category=Damage)
+UClass* DamageType;
+```
+
+Vs.
+
+```c++
+/** type of damage */
+UPROPERTY(EditDefaultsOnly, Category=Damage)
+TSubclassOf<UDamageType> DamageType;
+```
+
+在第二个声明中，模板类告知编辑器的属性窗口只列出派生自 UDamageType 的类（作为属性选择）。在第一个声明中可选择任意 UClass。下图对此进行了说明。
+
+![[0373df02883ba7ef2855694b2d997626_MD5.jpg]]
+>策略游戏投射物蓝图的范例
+
+除 `UPROPERTY` 安全外，您还能获得 C++ 层级上的类型安全。**如尝试进行不兼容 `TSubclassOf` 类型的相互指定，将出现编译错误。** 
+尝试指定泛型 `UClass` 时，它将执行一个运行时检查，以确定它可执行指定。如运行时检查失败，结果数值为 nullptr。
+
+```c++
+UClass* ClassA = UDamageType::StaticClass();
+
+TSubclassOf<UDamageType> ClassB;
+
+ClassB = ClassA; // Performs a runtime check
+
+TSubclassOf<UDamageType_Lava> ClassC;
+
+ClassB = ClassC; // Performs a compile time check
+```
 ## 2 属性和函数类型
 
 `UObjects` 可拥有成员变量（称作属性）或任意类型的函数。然而，为便于虚幻引擎识别并操控这些变量或函数，它们必须以特殊的宏进行标记，并符合一定类型的标准。如需了解这些标准的细节，请查阅 [属性](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties)和[UFunction](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)参考页面。
@@ -483,7 +476,53 @@ Actor 及其组件通常属于例外情况，因为 Actor 通常被链接回到�
 
 `UProperties`可以标记为告诉引擎[在网络游戏期间复制数据](making-interactive-experiences/network-multiplayer/Actors/Properties/)。常见模型是一个变量在服务器上发生更改，引擎检测到这个更改，并将其可靠地发送到所有客户端。当变量通过复制发生更改时，客户端可以选择性接收回调函数。
 
-`UFunctions`也可以标记为[在远程机器上执行](https://docs.unrealengine.com/5.2/zh-CN/rpcs-in-unreal-engine)。例如，"server"函数在客户端上调用时，将会在服务器上执行这个函数以获取服务器版本的Actor。而另一方面，"client"函数可以从服务器调用，并在拥有这个函数的客户端版本的对应Actor上运行。
+`UFunctions` 也可以标记为[在远程机器上执行](https://docs.unrealengine.com/5.2/zh-CN/rpcs-in-unreal-engine)。例如，"server"函数在客户端上调用时，将会在服务器上执行这个函数以获取服务器版本的 Actor。而另一方面，"client"函数可以从服务器调用，并在拥有这个函数的客户端版本的对应 Actor 上运行。
+
+# 结构体
+**结构体（Struct）** 是一种数据结构，帮助你组织和操作相关属性。在虚幻引擎中，结构体会被引擎的反射系统识别为 **`UStruct`**，但**不属于 [UObject](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine) 生态圈,且不能在[UClasses]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/UClass "UClass")的内部使用。**
+
+- 在相同的数据布局下， `UStruct` 比 `UObject` 能更快创建。
+- `UStruct`支持`UProperty`, 但它不由垃圾回收系统管理，不能提供`UFunction`
+
+## 实现UStruct
+
+要把一个结构体变成 `UStruct`，请遵循以下步骤：
+
+1. 打开你要定义结构体的 **header (.h)** 文件。
+2. 要定义你的C++结构体，请将 `USTRUCT` 宏放在结构体定义的上方。
+3. 将 `GENERATED_BODY()` 宏作为定义的第一行。
+
+其结果应该与下面的的例子一致：
+
+```c++
+USTRUCT([Specifier, Specifier, ...])
+struct FStructName
+{
+    GENERATED_BODY()
+};
+```
+
+你可以用`UPROPERTY`来标记结构体的相关变量，使它们在虚幻反射系统和蓝图脚本中可见。
+
+## 结构体说明符
+
+**结构体说明符** 提供元数据，控制你的结构在引擎和编辑器中各方面的表现。
+
+-  `Atomic` ：表示该结构体应始终被序列化为一个单元。将不会为该类创建自动生成的代码。标头仅用于解析元数据。
+-  `BlueprintType`： 将此结构体作为一种类型公开，可用于蓝图中的变量。
+-  `NoExport` ：将不会为该类创建自动生成的代码。标头仅用于解析元数据。
+
+## 最佳做法与技巧
+
+下面是一些使用 `UStruct` 时需要记住的有用提示：
+
+1. `UStruct` 可以使用虚幻引擎的[智能指针](https://docs.unrealengine.com/5.2/zh-CN/smart-pointers-in-unreal-engine)和垃圾回收系统来防止垃圾回收删除 `UObjects`。
+2. 结构体最好用于简单数据类型。对于你的项目中更复杂的交互，也许可以使用 `UObject` 或 `AActor` 子类来代替。
+3. `UStructs` **不可以** 用于复制。但是 `UProperty` 变量 **可以** 用于复制。
+4. 虚幻引擎可以自动为结构体创建Make和Break函数。
+    1. Make函数出现在任何带有 `BlueprintType` 标签的 `Ustruct` 中。
+    2. 如果在UStruct中至少有一个 `BlueprintReadOnly` 或 `BlueprintReadWrite` 属性，Break函数就会出现。
+    3. Break函数创建的纯节点为每个标记为 `BlueprintReadOnly` 或 `BlueprintReadWrite` 的资产提供一个输出引脚。
 # 接口
 接口类用于确保一组可能不相关的类实现一组公共的函数。在一些游戏功能可能由原本不相似的大型复杂类共享的情况下，这很有用。
 
@@ -687,3 +726,239 @@ AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空�
 
 标记为 ` BlueprintImplementableEvent` 的函数仍然可以被调用，但不能被重载。你将无法从蓝图访问所有其他函数。
 
+# UFunction
+## UFunction 声明
+
+**UFunction** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFunction`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
+宏将支持 **函数说明符** 更改虚幻引擎解译和使用函数的方式。
+
+```c++
+UFUNCTION([specifier1=setting1, specifier2, ...], [meta(key1="value1", key2, ...)])
+ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1, ParameterN2=DefaultValueN2]) [const];
+```
+
+可利用函数说明符将`UFunction`对[蓝图可视化脚本](https://docs.unrealengine.com/5.2/zh-CN/blueprints-visual-scripting-in-unreal-engine)图表公开，以便开发者从蓝图资源调用或扩展`UFunction`，而无需更改C++代码。
+
+在类的默认属性中，`UFunction`可绑定到[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)，从而能够执行一些操作（例如将操作与用户输入相关联）。它们还可以充当网络回调，这意味着当某个变量受网络更新影响时，用户可以将其用于接收通知并运行自定义代码。
+
+用户甚至可创建自己的控制台命令（通常也称 _debug_ 、 _configuration_ 或 _cheat code_ 命令），并能在开发版本中从游戏控制台调用这些命令，或将拥有自定义功能的按钮添加到关卡编辑器中的游戏对象。
+
+### 函数说明符
+
+声明函数时，可以为声明添加 **函数说明符**，以控制函数相对于引擎和编辑器的各个方面的行为方式。
+
+|函数说明符|效果|
+|---|---|
+|`BlueprintAuthorityOnly`|如果在具有网络权限的机器上运行（服务器、专用服务器或单人游戏），此函数将仅从蓝图代码执行。|
+|`BlueprintCallable`|此函数可在蓝图或关卡蓝图图表中执行。|
+|`BlueprintCosmetic`|此函数为修饰性的，无法在专用服务器上运行。|
+|`BlueprintImplementableEvent`|此函数可在蓝图或关卡蓝图图表中实现。|
+|`BlueprintNativeEvent`|此函数旨在被蓝图覆盖掉，但是也具有默认原生实现。用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`，是写入代码的位置。如果未找到任何蓝图覆盖，该自动生成的代码将调用`_ Implementation` 方法。|
+|`BlueprintPure`|此函数不对拥有它的对象产生任何影响，可在蓝图或关卡蓝图图表中执行。|
+|`CallInEditor`|可通过细节（Details）面板`中的按钮在编辑器中的选定实例上调用此函数。|
+|`Category = "TopCategory\|SubCategory\|Etc"`|在蓝图编辑工具中显示时指定函数的类别。使用 \| 运算符定义嵌套类别。|
+|`Client`|此函数仅在拥有在其上调用此函数的对象的客户端上执行。用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`。必要时，此自动生成的代码将调用`_ Implementation` 方法。|
+|`CustomThunk`|`UnrealHeaderTool` 代码生成器将不为此函数生成thunk，用户需要自己通过 `DECLARE_FUNCTION` 或 `DEFINE_FUNCTION` 宏来提供thunk。|
+|`Exec`|此函数可从游戏内控制台执行。仅在特定类中声明时，Exec命令才有效。|
+|`NetMulticast`|此函数将在服务器上本地执行，也将复制到所有客户端上，无论该Actor的 `NetOwner` 为何。|
+|`Reliable`|此函数将通过网络复制，并且一定会到达，即使出现带宽或网络错误。仅在与`Client`或`Server`配合使用时才有效。|
+|`SealedEvent`|无法在子类中覆盖此函数。``SealedEvent`关键词只能用于事件。对于非事件函数，请将它们声明为`static`或`final``，以密封它们。|
+|`ServiceRequest`|此函数为RPC（远程过程调用）服务请求。这意味着 `NetMulticast` 和 `Reliable`。|
+|`ServiceResponse`|此函数为RPC服务响应。这意味着 `NetMulticast` 和 `Reliable`。|
+|`Server`|此函数仅在服务器上执行。用于声明名称与主函数相同的附加函数，但是末尾添加了 `_Implementation`，是写入代码的位置。必要时，此自动生成的代码将调用 `_Implementation` 方法。|
+|`Unreliable`|此函数将通过网络复制，但是可能会因带宽限制或网络错误而失败。仅在与`Client`或`Server`配合使用时才有效。|
+|`WithValidation`|用于声明名称与主函数相同的附加函数，但是末尾需要添加`_Validate`。此函数使用相同的参数，但是会返回`bool`，以指示是否应继续调用主函数。|
+
+### 函数参数说明符
+
+|参数说明符|描述|
+|---|---|
+|Out|声明由引用传递的参数，使函数对其进行修改。|
+|Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
+
+## 委托
+
+**委托（Delegates）** 可以通过通用、类型安全的方式对C++对象调用成员函数。**委托可以动态绑定到任意对象的成员函数，在未来对对象调用函数，即使调用者不知道对象的类型也可以。**
+
+## 定时器
+
+**定时器** 可用于在一段延迟后执行某个动作，或在一段时间内执行动作。比如，你可以让玩家在获得某个物品后保持无敌10秒，并在10秒后失去无敌效果。或者，让玩家在进入毒气场景后每秒受到伤害。这类效果都可以通过定时器实现。
+
+请参见[Gameplay定时器](https://docs.unrealengine.com/5.2/zh-CN/gameplay-timers-in-unreal-engine)页面查看更多参考和使用信息。
+# 元数据说明符
+文档：
+[虚幻引擎元数据说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine/)
+
+声明类、接口、结构体、列举、列举值、函数，或属性时，可添加 **元数据说明符** 来控制其与引擎和编辑器各方面的相处方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
+
+> [!warning] 
+> Metadata 只存在于编辑器中。请不要编写能够访问到 Metadata 的游戏逻辑。
+
+**要添加元数据说明符，需使用单词 `meta`，后接说明符列表**。如有必要，可以将它们的值添加到 `UCLASS`、`UENUM`、`UINTERFACE`、`USTRUCT`、`UFUNCTION` 或 `UPROPERTY` 宏，如下所示：
+
+```c++
+{UCLASS/UENUM/UINTERFACE/USTRUCT/UFUNCTION/UPROPERTY}(SpecifierX, meta=(MetaTag1="Value1", MetaTag2, ..), SpecifierY)
+```
+
+**要添加元数据说明符到列举值，可将 `UMETA` 标签添加到值本身。如果存在用于分隔的逗号，则要添加到逗号之前，如下所示：**
+
+```c++
+UENUM()
+enum class EMyEnum : uint8
+{
+    // DefaultValue Tooltip
+    DefaultValue = 0 UMETA(MetaTag1="Value1", MetaTag2, ..),
+
+    // ValueWithoutMetaSpecifiers Tooltip
+    ValueWithoutMetaSpecifiers,
+
+    // ValueWithMetaSpecifiers Tooltip
+    ValueWithMetaSpecifiers UMETA((MetaTag1="Value1", MetaTag2, ..),
+
+    // FinalValue Tooltip
+    FinalValue (MetaTag1="Value1", MetaTag2, ..)
+};
+```
+
+# 智能指针
+**虚幻智能指针库** 为 C++11智能指针的自定义实现，旨在减轻内存分配和追踪的负担。该实现包括行业标准 **共享指针**、**弱指针** 和 **唯一指针**。其还可添加 **共享引用**，此类引用的行为与不可为空的共享指针相同。
+**虚幻 Objects 使用更适合游戏代码的单独内存追踪系统，因此这些类无法与 `UObject` 系统同时使用。**
+
+## 智能指针类型
+
+智能指针可影响其包含或引用对象的寿命。不同智能指针对对象有不同的限制和影响。下表可用于协助决定各类型智能指针的适用情况：
+
+|智能指针类型|适用情形|
+|---|---|
+|**[共享指针](https://docs.unrealengine.com/5.2/zh-CN/shared-pointers-in-unreal-engine)**（`TSharedPtr`）|共享指针拥有其引用的对象，无限防止该对象被删除，并在无共享指针或共享引用（见下文）引用其时，最终处理其的删除。共享指针可为空白，意味其不引用任何对象。任何非空共享指针都可对其引用的对象生成共享引用。|
+|**[共享引用](https://docs.unrealengine.com/5.2/zh-CN/shared-references-in-unreal-engine)**（`TSharedRef`）|共享引用的行为与共享指针类似，即其拥有自身引用的对象。对于空对象而言，其存在不同；共享引用须固定引用非空对象。共享指针无此类限制，因此共享引用可固定转换为共享指针，且该共享指针固定引用有效对象。要确认引用的对象是非空，或者要表明共享对象所有权时，请使用共享引用。 |
+|**[弱指针](https://docs.unrealengine.com/5.2/zh-CN/weak-pointers-in-unreal-engine)**（`TWeakPtr`）|弱指针类与共享指针类似，但不拥有其引用的对象，因此不影响其生命周期。此属性中断引用循环，因此十分有用，但也意味弱指针可在无预警的情况下随时变为空。因此，弱指针可生成指向其引用对象的共享指针，确保程序员能对该对象进行安全临时访问。|
+|**唯一指针**（`TUniquePtr`）|唯一指针仅会显式拥有其引用的对象。仅有一个唯一指针指向给定资源，因此唯一指针可转移所有权，但无法共享。复制唯一指针的任何尝试都将导致编译错误。唯一指针超出范围时，其将自动删除其所引用的对象。|
+
+**对唯一指针引用的对象进行共享指针或共享引用的操作十分危险**。即使其他智能指针继续引用该对象，此操作不会取消唯一指针自身被销毁时删除该对象的行为。
+**同样，不应为共享指针或共享引用引用的对象创建唯一指针。**
+
+## 智能指针
+
+|优点|描述|
+|---|---|
+|**防止内存泄漏**|共享引用不存在时，智能指针（弱指针除外）会自动删除对象。|
+|**弱引用**|弱指针会中断引用循环并阻止悬挂指针。|
+|**可选择的线程安全**）|虚幻智能指针库包括线程安全代码，可跨线程管理引用计数。如无需线程安全，可用其换取更好性能。|
+|**运行时安全**|共享引用从不为空，可固定随时取消引用。|
+|**授予意图**|可轻松区分对象所有者和观察者。|
+|**内存**|智能指针在64位下仅为C++指针大小的两倍（加上共享的16字节引用控制器）。唯一指针除外，其与C++指针大小相同。|
+
+## 助手类和函数
+
+虚幻智能指针库提供多个助手类和函数，以便使用智能指针时更加容易、直观。
+
+|助手类|描述|
+|---|---|
+|`TSharedFromThis` |在添加 `AsShared` 或 `SharedThis` 函数的 `TSharedFromThis` 中衍生类。利用此类函数可获取对象的 `TSharedRef`。|
+|**函数** |   |  |
+|`MakeShared` 和 `MakeShareable`|在常规C++指针中创建共享指针。`MakeShared` 会在单个内存块中分配新的对象实例和引用控制器，但要求对象提交公共构造函数。`MakeShareable` 的效率较低，但即使对象的构造函数为私有，其仍可运行。利用此操作可拥有非自己创建的对象，并在删除对象时支持自定义行为。|
+|`StaticCastSharedRef` 和 `StaticCastSharedPtr`|静态投射效用函数，通常用于向下投射到衍生类型。|
+|`ConstCastSharedRef` 和 `ConstCastSharedPtr`|将 `const` 智能引用或智能指针分别转换为 `mutable` 智能引用或智能指针。|
+
+## 智能指针实现细节
+
+在功能和效率方面，虚幻智能指针库中的智能指针具有一些共同特征。
+
+### 速度
+
+要使用智能指针时，始终考虑性能。智能指针非常适合某些高级系统、资源管理或工具编程。**但部分智能指针类型比原始C++指针更慢，这种开销使得其在低级引擎代码（如渲染）中用处不大。**
+
+智能指针的部分一般**性能优势**包括：
+- 所有运算均为常量时间。
+- 取消引用多数智能指针的速度和原始C++指针的相同（在发布版本中）。
+- 复制智能指针永不会分配内存。
+- 线程安全智能指针是无锁的。
+    
+
+智能指针的**性能缺陷**包括：
+- 创建和复制智能指针比创建和复制原始C++指针需要更多开销。
+- 保持引用计数增加基本运算的周期。
+- 部分智能指针占用的内存比原始的C++更多。
+- 引用控制器有两个堆分配。使用 `MakeShared` 代替 `MakeShareable` 可避免二次分配，并可提高性能。
+    
+
+### 侵入性访问器
+
+共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。此通常是可以接受的，但在某些情况下，可能要将对象作为共享引用或共享指针进行访问。为此，使用对象的类作为模板参数，在 `TSharedFromThis` 衍生对象的类。`TSharedFromThis` 提供两个函数：`AsShared` 和 `SharedThis`，可将对象转换为共享引用（并从共享引用转换为共享指针）。使用固定返回共享引用的类factory时，或需将对象传到需要共享引用或共享指针的系统时，此操作十分有用。`AsShared` 会将类返回为最初作为模板参数传到 `TSharedFromThis` 的类型返回，其可能是调用对象的父类型，而 `SharedThis` 将直接从该类型衍生类型，并返回引用该类型对象的智能指针。以下范例代码中演示这两种函数：
+
+```
+    class FRegistryObject;
+    class FMyBaseClass: public TSharedFromThis<FMyBaseClass>
+    {
+        virtual void RegisterAsBaseClass(FRegistryObject* RegistryObject)
+        {
+            // 访问对"this"的共享引用。
+            // 直接继承自< TSharedFromThis >，因此AsShared()和SharedThis(this)会返回相同的类型。
+            TSharedRef<FMyBaseClass> ThisAsSharedRef = AsShared();
+            // RegistryObject需要 TSharedRef<FMyBaseClass>，或TSharedPtr<FMyBaseClass>。TSharedRef可被隐式转换为TSharedPtr.
+            RegistryObject->Register(ThisAsSharedRef);
+        }
+    };
+    class FMyDerivedClass : public FMyBaseClass
+    {
+        virtual void Register(FRegistryObject* RegistryObject) override
+        {
+            // 并非直接继承自TSharedFromThis<>，因此AsShared()和SharedThis(this)不会返回相同类型。
+            // 在本例中，AsShared()会返回在TSharedFromThis<> - TSharedRef<FMyBaseClass>中初始指定的类型。
+            // 在本例中，SharedThis(this)会返回具备"this"类型的TSharedRef - TSharedRef<FMyDerivedClass>。
+            // SharedThis()函数仅在与 'this'指针相同的范围内可用。
+            TSharedRef<FMyDerivedClass> AsSharedRef = SharedThis(this);
+            // FMyDerivedClass是FMyBaseClass的一种类型，因此RegistryObject将接受TSharedRef<FMyDerivedClass>。
+            RegistryObject->Register(ThisAsSharedRef);
+        }
+    };
+    class FRegistryObject
+    {
+        // 此函数将接受到FMyBaseClass或其子类的TSharedRef或TSharedPtr。
+        void Register(TSharedRef<FMyBaseClass>);
+    };
+```
+
+不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言。
+
+### 投射
+
+可通过虚幻智能指针库包含的多个支持函数投射共享指针(和共享引用)。Up-casting是隐式的，与C++指针相同。可使用 `ConstCastSharedPtr` 函数进行常量投射，使用 `StaticCastSharedPtr` 进行静态投射（通常是向下投射到衍生类指针）。无run-type类型的信息（RTTI），因此不支持动态转换；应使用静态投射，如以下代码所示：
+
+```
+    // 假设通过其他方式验证了FDragDropOperation实际为FAssetDragDropOp。
+    TSharedPtr<FDragDropOperation> Operation = DragDropEvent.GetOperation();
+    //现在可使用StaticCastSharedPtr进行投射。
+    TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(Operation);
+```
+
+### 线程安全
+
+通常仅在单线程上访问智能指针的操作才是安全的。如需访问多线程，请使用智能指针类的线程安全版本：
+
+- `TSharedPtr<T, ESPMode::ThreadSafe>`
+    
+- `TSharedRef<T, ESPMode::ThreadSafe>`
+    
+- `TWeakPtr<T, ESPMode::ThreadSafe>`
+    
+- `TSharedFromThis<T, ESPMode::ThreadSafe>`
+    
+
+由于原子引用计数，此类线程安全版本比默认版本稍慢，但其行为与常规C++指针一致：
+
+- 读取和复制固定为线程安全。
+    
+- 写入和重置须同步后才安全。
+    
+
+如了解多线程永不访问指针，可通过避免使用线程安全版本获得更好性能。
+
+## 提示和限制
+
+- 避免将数据作为 `TSharedRef` 或 `TSharedPtr` 参数传到函数，此操作将因取消引用和引用计数而产生开销。相反，建议将引用对象作为 `const &` 进行传递。
+    
+- 可将共享指针向前声明为不完整类型。
+    
+- 共享指针与虚幻对象(`UObject` 及其衍生类)不兼容。引擎具有 `UObject` 管理的单独内存管理系统（[对象处理](https://docs.unrealengine.com/5.2/zh-CN/unreal-object-handling-in-unreal-engine)文档），两个系统未互相重叠。
