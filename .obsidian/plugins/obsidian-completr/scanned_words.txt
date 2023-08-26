@@ -51067,6 +51067,7 @@ USphereComponent
 UObjects
 UStruct
 UnrealHeaderTool
+UnrealBuildTool
 api
 ac
 app
@@ -59625,6 +59626,7 @@ RanIt
 RayCast
 RayTrace
 ReactToTrigger
+Regex
 Microsoft
 Menu
 MicaForEveryone
@@ -68589,6 +68591,7 @@ Wildlands
 WorldContextObject
 WIDGETS
 Wildcard
+Whiz
 Start
 StartAllBack
 Shadowrocket
@@ -77965,6 +77968,7 @@ PhysicalComp
 Platforms
 Pointers
 PendingKill
+PascalCase
 ContextMenuManager
 ClashVerge
 Clash
@@ -114721,6 +114725,7 @@ TActorIterator
 TObjectIterator
 TriggerCollider
 Ticking
+Typedef
 io
 ipad
 it
@@ -119322,6 +119327,7 @@ iyJ
 itnj
 instigator
 isTrigger
+interop
 shift
 svg
 sf
@@ -139603,6 +139609,7 @@ rtX
 retarget
 rfind
 rigidbody
+regex
 XXXXXX
 XXX
 XML
@@ -155646,6 +155653,7 @@ FindGOCameraIsLookingAt
 FindPawnCameraIsLookingAt
 FCollisionQueryParams
 FHitResult
+FPlatformMisc
 Element
 Entity
 Enity
@@ -160191,6 +160199,7 @@ EquippedWeapon
 Effector
 ENGINEVERSIONAGNOSTICUSERDIR
 ECollisionEnabled
+Else
 xmlns
 xyz
 xy
@@ -183778,6 +183787,7 @@ Numeric
 NewObject
 NotifyActorBeginOverlap
 NotifyActorEndOverlap
+Nullptr
 ZooAnima
 ZooAnimal
 ZTest
@@ -196341,6 +196351,7 @@ JOPNSWAP
 Johanson
 JwKu
 JMh
+JavaDoc
 Ke
 KjpKWmp
 KYW

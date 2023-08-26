@@ -963,7 +963,7 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 - 可将共享指针向前声明为不完整类型。
 - 共享指针与虚幻对象(`UObject` 及其衍生类)不兼容。引擎具有 `UObject` 管理的单独内存管理系统（[对象处理](https://docs.unrealengine.com/5.2/zh-CN/unreal-object-handling-in-unreal-engine)文档），两个系统未互相重叠。
 
-# 共享指针 TSharedPtr
+##  TSharedPtr
 
 **共享指针（Shared Pointers）** 是指既健壮、又能为空指针的智能指针。**共享指针沿袭了普通智能指针的所有优点**，它能避免出现内存泄漏、悬挂指针，还能避免指针指向未初始化的内存。
 
@@ -983,7 +983,7 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 **共享指针类似于共享引用，<font color="#ff0000">主要区别在于共享引用不可为空，因此会始终引用有效对象</font>。**
 **在共享引用和共享指针之间进行选择时，除非需要空对象或可为空的对象，否则建议你优先选择共享引用。**
 
-## 声明和初始化
+### 声明和初始化
 
 因为共享指针可为空，所以无论有无数据对象，都可以对它们进行初始化。以下是创建共享指针的一些示例：
 
@@ -1029,7 +1029,7 @@ PointerOne = MoveTempIfPossible(PointerTwo);
 
 `MoveTemp` 和 `MoveTempIfPossible` 的唯一不同之处在于 `MoveTemp` 包含静态断言，强制其只能在非常量左值（lvalue）上执行。
 
-## 共享指针与共享引用转换
+### 共享指针与共享引用转换
 
 在共享指针与共享引用之间进行转换是一种常见的做法。**共享引用隐式地转换为共享指针，并提供新的共享指针将引用有效对象的额外保证**。转换由普通语法处理：
 
@@ -1047,7 +1047,7 @@ if (MySharedPointer.IsValid())
 }
 ```
 
-## 对比
+### 对比
 
 **你可以测试共享指针彼此间的相等性**。在此情境中，相等被定义为两个共享指针引用同一对象。
 
@@ -1077,7 +1077,7 @@ if (Node.Get() != nullptr)
 }
 ```
 
-## 解引用和访问
+### 解引用和访问
 
 你可以像使用普通C++指针那样解引用，调用方法和访问成员。你也可以像使用其他C++指针那样，通过调用 `IsValid` 函数或使用重载的 `bool` 运算符，在取消引用之前执行空检查。
 
@@ -1092,7 +1092,7 @@ if (Node)
 }
 ```
 
-## 自定义删除器
+### 自定义删除器
 
 **共享指针和共享引用支持对它们引用的对象使用自定义删除器**。如需运行自定义删除代码，请**提供lambda函数**，作为创建智能指针时使用的参数，就像这样：
 
@@ -1106,3 +1106,138 @@ TSharedRef<FMyObjectType> NewReference(new FMyObjectType(), [](FMyObjectType* Ob
 
 TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
 ```
+
+## TSharedRef
+**共享引用** 是一类强大且不可为空的 **智能指针**，其被用于引擎的 `Uobject` 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至**未拥有 `IsValid` 方法**。在共享引用和 **[共享指针](https://docs.unrealengine.com/5.2/zh-CN/shared-pointers-in-unreal-engine)** 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。
+
+**与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。**
+
+### 声明和初始化
+
+**共享引用不可为空，因此初始化需要数据对象**。在无有效对象的情况下尝试创建的共享引用将不会编译，并尝试将共享引用初始化为空指针变量。
+
+```c++
+//创建新节点的共享引用
+TSharedRef<FMyObjectType> NewReference = MakeShared<FMyObjectType>();
+```
+
+在无有效对象的情况下尝试创建的共享引用将不会编译：
+
+```c++
+//以下两者均不会编译：
+TSharedRef<FMyObjectType> UnassignedReference;
+TSharedRef<FMyObjectType> NullAssignedReference = nullptr;
+//以下会编译，但如NullObject实际为空则断言。
+TSharedRef<FMyObjectType> NullAssignedReference = NullObject;
+```
+
+### 共享指针和共享引用间的转换
+
+**共享指针和共享引用间的转换十分常见。共享引用会隐式转换为共享指针，并为新共享指针引用有效对象提供额外保证。使用普通语法处理转换：**
+
+```c++
+TSharedPtr<FMyObjectType> MySharedPointer = MySharedReference;
+```
+
+**如共享指针引用非空对象，即可使用 `共享指针` 函数 `ToSharedRef`，在共享指针中创建共享引用。** 尝试在空共享指针中创建共享引用，将导致程序断言。
+
+```c++
+//在取消引用前，确保共享指针为有效，避免潜在断言。
+If (MySharedPointer.IsValid())
+{
+    MySharedReference = MySharedPointer.ToSharedRef();
+}
+```
+
+### 比较
+
+可测试共享引用彼此是否相等。在此情况下，相等表示引用相同对象。
+
+```c++
+    TSharedRef<FMyObjectType> ReferenceA, ReferenceB;
+    if (ReferenceA == ReferenceB)
+    {
+        // ...
+    }
+```
+
+## TWeakPtr
+**弱指针** 存储对象的弱引用。与 **共享指针** 或 **共享引用** 不同，弱指针不会阻止其引用的对象被销毁。
+
+**在访问弱指针引用的对象前，应使用 `Pin` 函数生成共享指针。此操作确保使用该对象时其将继续存在。**
+
+如只需要确定弱指针是否引用对象，可将其与 `nullptr` 比较，或在之上调用 `IsValid`。
+
+弱指针的使用有助于授予意图——弱指针表明对引用对象的观察，而无需所有权，同时不控制其生命周期。
+
+### 声明、初始化和分配
+
+**可创建空白弱指针，或在共享引用、共享指针或其他弱指针中进行。**
+
+```c++
+//分配新的数据对象，并创建对其的强引用。
+TSharedRef<FMyObjectType> ObjectOwner = MakeShared<FMyObjectType>();
+//创建指向新数据对象的弱指针。
+TWeakPtr<FMyObjectType> ObjectObserver(ObjectOwner);
+```
+
+弱指针不会阻止对象被销毁。在范例中，无论 `ObjectOwner` 是否在范围内，重置 `ObjectOwner` 都将销毁对象：
+
+```c++
+//假设ObjectOwner是其对象的唯一拥有者，ObjectOwner停止引用该对象时，该对象将被销毁。
+ObjectOwner.Reset();
+//ObjectOwner引用空对象，因此Pin()生成的共享指针将也将为空。被视为布尔时，空白共享指针的值为false。
+if (ObjectObserver.Pin())
+{
+    //只当ObjectOwner非对象的唯一拥有者时，此代码才会运行。
+    check(false);
+}
+```
+
+与共享指针相同，弱指针是否引用有效对象，均可进行安全复制：
+
+```c++
+TWeakPtr<FMyObjectType> AnotherObjectObserver = ObjectObserver;
+```
+
+使用完弱指针后，可进行重置。
+
+```c++
+//可通过将弱指针设为nullptr进行重置。
+ObjectObserver = nullptr;
+//也可使用重置函数。
+AnotherObjectObserver.Reset();
+```
+
+### 转换为共享指针
+
+**`Pin` 函数将创建指向弱指针对象的共享指针。** 只要共享指针在范围内且引用对象，则该对象将持续有效。此外，共享指针（包括由 `Pin` 函数返回的指针）可在条件句中作为 `布尔` 类型进行求值，其中 `true` 表示有效对象。
+
+以下代码模式检查弱指针是否引用有效对象。如是，至少在共享指针（由 `Pin` 函数创建）超出范围或被显式清除前，将保证其持续有效。
+
+```c++
+    //获取弱指针中的共享指针，并检查其是否引用有效对象。
+    if (TSharedPtr<FMyObjectType> LockedObserver = ObjectObserver.Pin())
+    {
+        //共享指针仅在此范围内有效。
+        //该对象已被验证为存在，而共享指针阻止其被删除。
+        LockedObserver->SomeFunction();
+    }
+```
+
+### 取消引用和访问
+
+要访问弱指针的对象，首需使用 `Pin` 函数，将其提升为共享指针。然后可通过共享指针或弱指针上的 `Get` 函数进行访问。此方法可确保使用该对象时，其将持续有效。
+
+### 打破引用循环
+
+两个或多个对象使用智能指针保持彼此间的强引用时，将出现引用循环。在此类情况下，对象间会相互保护以免被删除。各对象固定被另一对象引用，因此对象无法在另一对象存在时被删除。
+
+如外部对象未对引用循环中对象进行引用，其实际上将出现泄漏。**弱指针不会保留自身引用的对象，因此其可中断此类引用循环。** 要在未拥有对象时对其进行引用，并延长其寿命时，可使用软指针。
+
+### 使用警告
+
+如不想保证数据对象会持续存在时，弱指针将非常有用，但该属性可能会变得异常危险。在以下情况中请谨慎使用弱指针：
+
+- **在[Set](https://docs.unrealengine.com/5.2/zh-CN/set-containers-in-unreal-engine)或[Map](https://docs.unrealengine.com/5.2/zh-CN/map-containers-in-unreal-engine)中用作键。弱指针可能会在未通知容器的情况下随时无效，因此共享指针或共享引用更适用于充当键。可安全地将弱指针用作数值。
+- 虽然弱指针提供 `IsValid` 函数，但是检查 `IsValid` 无法保证对象在任何时间长度内均可持续有效。线程安全共享指针可能会因另一线程上的活动而随时无效，因此使用线程安全共享指针应尤其注意。`Pin` 返回的共享指针将使对象在代码将其清除或其超出范围前保持活跃状态，**因此 `Pin` 函数是用于检查的首选方法，此类检查会导致取消引用或访问存储对象。**
