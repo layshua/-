@@ -127,7 +127,7 @@
   "file-tree-alternative-plugin@@oz-fta-folder-icon-color": "#B3B2B2",
   "file-tree-alternative-plugin@@oz-fta-folder-indendation-guide-color": "#E4E4E5",
   "file-tree-alternative-plugin@@oz-fta-folder-pane-file-name-color": "#7D7A7A",
-  "CodeMirror Options@@cm-wrap-lines": "pre-wrap",
   "minimal-style@@tab-stacked-pane-width": 700,
-  "CodeMirror Options@@cm-active-line-background-color@@light": "#353A50"
+  "CodeMirror Options@@cm-active-line-background-color@@light": "#353A50",
+  "CodeMirror Options@@cm-wrap-lines": "pre-wrap"
 }

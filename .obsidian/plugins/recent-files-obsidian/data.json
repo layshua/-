@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "U++",
+      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
+    },
+    {
       "basename": "功能",
       "path": "引擎Unreal/02 蓝图 & U++/功能.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "宝藏",
       "path": "引擎Unreal/05 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "U++",
-      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
     },
     {
       "basename": "[译文]UE 基础—蓝图 VS_ C++",
