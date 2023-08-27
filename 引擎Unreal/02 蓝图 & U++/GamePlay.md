@@ -85,7 +85,7 @@ UMyObject* NewObj = ConstructObject<UMyObject>();
 ```
 
 ### AActor 和 SpawnActor
-
+[Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
 Actor 使用 World（C++ 中的 `UWorld`）对象上的 `SpawnActor` 方法生成。一些 UObject 提供了 `GetWorld` 方法（例如，所有 Actor 都如此）。你会采用此方法获取 World 对象。
 
 请注意，在下面的示例中，我们传入了我们想生成的 Actor 的类，而不是传入另一个 Actor。在我们的示例中，该类可以是 AMyEnemy 的任意子类。

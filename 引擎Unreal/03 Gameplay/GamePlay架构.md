@@ -62,13 +62,152 @@ Actor 支持拥有一个 SceneComponent 的层级。每个 Actor 也拥有一个
 
 ### 生命周期
 
-查看[Actor生命周期](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-actor-lifecycle)文档，了解如何在游戏中创建和移除Actor的更多信息。
+此文档是 **Actor** 生命周期的高级概述：Actor 如何被实例化（**生成**）到关卡中，以及如何被移除（**销毁**）。
 
-### 复制
+以下流程图展示了 Actor 被实例的三种主要路径。无论 Actor 的创建方式如何，销毁路径均相同。
+
+#### 生命周期详解
+
+[![[363deeb792195fa4b90c00bbd9f8b116_MD5.jpg]]]( https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/interactive-framework/actors/actor-lifecycle/ActorLifeCycle1.png )
+
+#### 从磁盘加载
+
+已位于关卡中的 Actor 使用此路径，如 LoadMap 发生时、或 AddToWorld（从流关卡或子关卡）被调用时。
+
+1. 包/关卡中的 Actor 从磁盘中进行加载。
+    
+2. **PostLoad** - 在序列化 Actor 从磁盘加载完成后被调用。在此处可执行自定义版本化和修复操作。PostLoad 与 **PostActorCreated** 互斥。
+    
+3. **InitializeActorsForPlay**
+    
+4. 为未初始化的 Actor 执行 **RouteActorInitialize**（包含无缝行程携带）
+    
+    1. **PreInitializeComponents** - 在 Actor 的组件上调用 InitializeComponent 之前进行调用。
+        
+    2. **InitializeComponent** - Actor 上定义的每个组件的创建辅助函数。
+        
+    3. **PostInitializeComponents** - Actor 的组件初始化后调用。
+        
+5. **BeginPlay** - 关卡开始后调用。
+    
+
+#### Play in Editor
+
+Play in Editor 路径与 Load from Disk 十分相似，然而 Actor 却并非从磁盘中加载，而是从编辑器中复制而来。
+
+1. 编辑器中的 Actor 被复制到新场景中。
+    
+2. **PostDuplicate** 被调用。
+    
+3. **InitializeActorsForPlay**
+    
+4. 为未初始化的 Actor 执行 **RouteActorInitialize**（包含无缝行程携带）。
+    
+    1. **PreInitializeComponents** - 在 Actor 的组件上调用 InitializeComponent 之前进行调用。
+        
+    2. **InitializeComponent** - Actor 上定义的每个组件的创建辅助函数。
+        
+    3. **PostInitializeComponents** - Actor 的组件初始化后调用。
+        
+5. **BeginPlay** - 关卡开始后调用。
+    
+
+#### 生成
+
+这是生成（实例）Actor 时的路径。
+
+1. **SpawnActor** 被调用。
+    
+2. **PostSpawnInitialize**
+    
+3. **PostActorCreated** - 创建后即被生成的 Actor 调用，构建函数类行为在此发生。PostActorCreated 与 PostLoad 互斥。
+    
+4. **ExecuteConstruction**：
+    
+    - **OnConstruction** - Actor 的构建。蓝图 Actor 的组件在此处创建，蓝图变量在此处初始化
+        
+5. **PostActorConstruction**：
+    
+    1. **PreInitializeComponents** - 在 Actor 的组件上调用 InitializeComponent 之前进行调用。
+        
+    2. **InitializeComponent** - Actor 上定义的每个组件的创建辅助函数。
+        
+    3. **PostInitializeComponents** - Actor 的组件初始化后调用。
+        
+6. **OnActorSpawned** 在 UWorld 上播放。
+    
+7. **BeginPlay** 被调用。
+    
+
+#### 延迟生成
+
+将任意属性设为"Expose on Spawn"即可延迟 Actor 的生成。
+
+1. **SpawnActorDeferred** - 生成程序化 Actor，在蓝图构建脚本之前进行额外设置。
+    
+2. SpawnActor 中的所有操作发生；PostActorCreated 之后发生以下操作：
+    
+    1. 通过一个有效但不完整的 Actor 实例设置/调用多个"初始化函数"。
+        
+    2. **FinishSpawningActor** -调用后对 Actor 进行最终化，在 Spawn Actor 行中选取 ExecuteConstruction。
+        
+
+#### 生命走向终点
+
+销毁 Actor 的方式有许多种，但终结其存在的方式始终如一。
+
+##### 在游戏Gameplay期间
+
+它们完全为任选，因为许多 Actor 在游戏进程中不会实际消亡。
+
+**Destroy** - 游戏在 Actor 需要被移除时手动调用，但游戏进程仍在继续。Actor 被标记为等待销毁并从关卡的 Actor 阵列中移除。
+
+**EndPlay** - 在数个地方调用，保证 Actor 的生命走向终点。在游戏过程中，如包含流关卡的 Actor 被卸载，Destroy 将发射此项和关卡过渡。调用 EndPlay 的全部情形：
+
+- 对 Destroy 显式调用。
+    
+- Play in Editor 终结。
+    
+- 关卡过渡（无缝行程或加载地图）。 包含 Actor 的流关卡被卸载。
+    
+- Actor 的生命期已过。
+    
+- 应用程序关闭（全部 Actor 被销毁）。
+    
+
+无论这些情形出现的方式如何，Actor 都将被标记为 RF_PendingKill，因此在下个垃圾回收周期中它将被解除分配。此外，可以考虑使用更整洁的 `FWeakObjectPtr<AActor>` 代替手动检查"等待销毁"。
+
+**OnDestroy** - 这是对 Destroy 的旧有反应。也许应该将这里的所有内容移到 EndPlay，因为它被关卡过渡和其他游戏清理函数调用。
+
+#### 垃圾回收
+
+一个对象被标记待销毁的一段时间后，垃圾回收会将其从内存中实际移除，释放其使用的资源。
+
+在对象的销毁过程中，以下函数将被调用：
+
+1. **BeginDestroy** - 对象可利用此机会释放内存并处理其他多线程资源（即为图像线程代理对象）。与销毁相关的大多数游戏性功能理应在 `EndPlay` 中更早地被处理。
+    
+2. **IsReadyForFinishDestroy** - 垃圾回收过程将调用此函数，以确定对象是否可被永久解除分配。返回 `false`，此函数即可延迟对象的实际销毁，直到下一个垃圾回收过程。
+    
+3. **FinishDestroy** - 最后对象将被销毁，这是释放内部数据结构的另一个机会。这是内存释放前的最后一次调用。
+    
+
+##### 高级垃圾回收
+
+**虚幻引擎** 中的垃圾回收过程将构建共同被销毁对象的集群。较之于单个删除对象，集群可减少垃圾回收相关的总体时间和整体内存流失。可能随对象的加载创建子对象。将对象与其子对象组合到垃圾回收器的单个集群后，引擎可延迟释放集群使用的资源，直到整个对象可被释放时一次性释放全部资源。
+
+多数项目中无需对垃圾回收进行配置或修改，但存在一些特定情况 - 可以如下方式对垃圾回收器的"集群"行为进行调整，以提高效率：
+
+- **Clustering** - 关闭集群。在 **Project Settings** 中的 **Garbage Collection** 部分下，可将 **Create Garbage Collector UObject Clusters** 选项设为 false。对多数项目而言，此操作将导致垃圾回收效率降低，因此只建议在性能测试证明其绝对有益的情况下使用。
+[![[08be5c512c7d1e7e6f3fdd9d48f96b20_MD5.jpg]]](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/interactive-framework/actors/actor-lifecycle/AdvancedGC.png)
+
+垃圾回收的集群合并选项位于项目设置菜单中。
+
+#### 复制
 
 **复制** 用于在处理联网多人游戏时对场景中的Actor进行同步。属性值和函数调用均可被复制， 以便对客户端上游戏的状态进行完整控制。
 
-### 销毁Actor
+#### 销毁Actor
 
 Actor 通常不会被垃圾回收，因为场景对象保存一个 Actor 引用的列表。调用 `Destroy()` 即可显式销毁 Actor。这会将其从关卡中移除，并将其标记为"待销毁"，这说明其在下次垃圾回收中被清理之前都将存在。
 

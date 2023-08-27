@@ -2904,7 +2904,8 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 `CountBytes` 和 `GetAllocatedSize` 函数用于估计内部数组的当前内存使用情况。`CountBytes` 接受 `FArchive` 参数，而 `GetAllocatedSize` 则不接受。这些函数常用于统计报告。
 
 `Dump` 函数接受 `FOutputDevice` 并写出关于集合内容的实现信息。还有一个名为 `DumpHashElements` 的函数，可列出来自所有散列条目的所有元素。这些函数常用于调试。
-
+# 字符串
+[虚幻引擎中的字符串处理 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/string-handling-in-unreal-engine/)
 # 委托
 **委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。虚幻引擎共支持三种类型的委托：
 
