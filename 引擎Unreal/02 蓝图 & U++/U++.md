@@ -3,6 +3,176 @@
 3.  [技术宅阿棍儿](https://link.zhihu.com/?target=https%3A//space.bilibili.com/92060300/video)（大标题直击要领，很棒）
 4.  [来自程序员的暴击：虚幻四C++入坑指南合集版](https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV14K411J7v2)
 
+# 游戏性架构
+使用 C++ 代码进行游戏性元素编程时，每个模块会包含许多 C++ 类。
+
+![[Pasted image 20230827161330.png]]
+每个类定义新 Actor 或对象的模板。类头文件中声明了类、类[函数](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)和类[属性](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties)。 类还包括[结构体](https://docs.unrealengine.com/5.2/zh-CN/structs-in-unreal-engine)这种有助于进行相关属性组织和操作的数据结构。结构也可被自行定义。 通过[接口](https://docs.unrealengine.com/5.2/zh-CN/interfaces-in-unreal-engine)可以使不同的类应用额外的游戏性行为。
+
+在虚幻引擎中进行编程时，可使用标准 C++ 类、函数和变量。可使用标准 C++ 语法对它们进行定义。然而，`UCLASS()`、`UFUNCTION()` 和 `UPROPERTY()` 宏可使虚幻引擎识别新的类、函数和变量。
+`UPROPERTY()` 宏作为声明序言的变量可被引擎执行垃圾回收，也可在虚幻编辑器中显示和编辑。
+`UINTERFACE()` 和 `USTRUCT()` 宏， 以及用于指定 [类](https://docs.unrealengine.com/5.2/zh-CN/class-specifiers)、函数、属性、 接口或 结构体 在虚幻引擎和虚幻编辑器中行为的每个宏关键词。
+`UPARAM()` 宏，主要用于将 C++ 代码公开到蓝图。在 [向蓝图公开游戏逻辑内容](https://docs.unrealengine.com/5.2/zh-CN/exposing-gameplay-elements-to-blueprints-visual-scripting-in-unreal-engine) 文档中可查看 UPARAM() 的使用范例。
+## 断言
+在 C 和 C++编程中，`assert` 可在开发期间帮助检测和诊断不正常或无效的运行时条件。这些条件通常检查是否指针为非空、除数为非零、函数并非递归运行，或代码要求的其他重要假设。但**每次检查会使得效率十分低下**。某些情况下，`assert` 会在延迟崩溃发生之前发现导致该崩溃的 bug，例如删除未来 tick 所需的对象，协助开发人员发现引起崩溃的根本原因。
+**`assert` 的关键特性之一是不存在于发布代码中，这意味着不但不会影响发布产品的性能，也没有任何副作用**。**对 `assert` 最简单的理解就是："断言"必须一律为 true，否则程序会停止运行。**
+
+虚幻引擎提供 `assert` 等同项的三个不同族系：`check`、`verify` 和 `ensure`。若要检查这些功能背后的代码，可在 `Engine/Source/Runtime/Core/Public/Misc/AssertionMacros.h` 中找到相关的宏。各个功能的行为略有不同，但它们都是开发期间使用的诊断工具，目标大致相同。
+
+### Check
+
+Check族系最接近基础 `assert`，因为当第一个参数得出的值为false时，此族系的成员会停止执行，且默认不会在发布版本中运行。以下Check宏可用：
+
+|宏|参数|行为|
+|---|---|---|
+|`check` 或 `checkSlow`|`Expression`|若 `Expression` 为false，停止执行|
+|`checkf` 或 `checkfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
+|`checkCode`|`Code`|在运行一次的do-while循环结构中执行 `Code`；主要用于准备另一个Check所需的信息|
+|`checkNoEntry`|（无）|若此行被hit，则停止执行，类似于 `check(false)`，但主要用于应不可到达的代码路径|
+|`checkNoReentry`|（无）|若此行被hit超过一次，则停止执行|
+|`checkNoRecursion`|（无）|若此行被hit超过一次而未离开作用域，则停止执行|
+|`unimplemented`|（无）|若此行被hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数|
+
+检查宏在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中运行（以"Slow"结尾的宏除外，其仅在调试（Debug）版本中运行）。定义 `USE_CHECKS_IN_SHIPPING` 以保留一个true值（通常为 `1`），使Check宏可在所有版本中运行。此法在以下情况中十分实用：怀疑Check宏中的代码正在修改值；发现了仅存在于在发布版本中且难以追踪的bug，但认为现有Check宏能找到这些bug。项目发布时应将 `USE_CHECKS_IN_SHIPPING` 设为默认值 `0`。
+
+### Verify
+
+在大部分版本中，Verify族系的行为与Check族系相同。但即便在禁用Check宏的版本中，Verify宏也会计算其表达式的值。这意味着仅当该表达式需要独立于诊断检查之外运行时，才应使用Verify宏。举例而言，若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用Verify而非Check来确保该操作成功。因为在发布版本中Verify将忽略返回值，但仍将执行操作。而Check在发布版本中根本不调用该函数，所以行为才会有所不同。
+
+|宏|参数|行为|
+|---|---|---|
+|`verify` 或 `verifySlow`|`Expression`|若 `Expression` 为false，停止执行|
+|`verify` 或 `verifyfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
+
+验证宏在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中完整运行（以"Slow"结尾的宏除外，其仅在调试（Debug）版本中运行）。定义 `USE_CHECKS_IN_SHIPPING` 来保留一个true值（通常为 `1`），从而覆盖此行为。在所有其他情况下，Verify宏将计算其表达式，但不会停止执行或将文本输出到日志。
+
+### Ensure
+
+Ensure族系类似于Verify族系，但可在出现非致命错误时使用。这意味着，若Ensure宏的表达式计算得出的值为false，引擎将通知崩溃报告器，但仍会继续运行。为避免崩溃报告器收到太多通知，Ensure宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要Ensure宏在每次表达式计算得值为false时都报告一次，则使用"Always"版本的宏。
+
+|宏|参数|行为|
+|---|---|---|
+|`ensure`|`Expression`|`Expression` 首次为false时通知崩溃报告器|
+|`ensureMsgf`|`Expression`、`FormattedText`、`...`|`Expression` 首次为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
+|`ensureAlways`|`Expression`|`Expression` 为false时通知崩溃报告器|
+|`ensureAlwaysMsgf`|`Expression`, `FormattedText`, `...`|`Expression` 为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
+
+Ensure宏在所有版本中计算其表达式的值，但仅在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中联系崩溃报告器。
+
+### 用例
+
+以下假设情况展示了一些用例，其中Check、Verify和Ensure可帮助理清代码或协助调试。
+
+```c++
+// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
+void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
+{
+    check(JumpTarget != nullptr);
+    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
+}
+```
+
+```c++
+// 这将设置Mesh的值，并预计为非空值。若之后Mesh的值为空，则停止程序。
+// 使用Verify而非Check，因为表达式存在副作用（设置网格体）。
+verify((Mesh = GetRenderMesh()) != nullptr);
+```
+
+```c++
+// 这行代码捕获了在产品发布版本中可能出现的小错误。
+// 此错误较小，无需停止执行便可解决。
+// 虽然该bug已修复，但开发者仍然希望了解之前是否曾经出现过此bug。
+void AMyActor::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    // 确保bWasInitialized为true，然后再继续。若为false，则在日志中记录该bug尚未修复。
+    if (ensureMsgf(bWasInitialized, TEXT("%s ran Tick() with bWasInitialized == false"), *GetActorLabel()))
+    {
+        //（执行一些需要已正确初始化AMyActor的操作。)
+    }
+}
+```
+
+```c++
+// 若添加新形状类型，但忘记在此切换块中处理，则此代码将停止。
+switch (MyShape)
+{
+    case EShapes::S_Circle:
+        //（处理圆圈。）
+        break;
+    case EShapes::S_Square:
+        //（处理方块。）
+        break;
+    default:
+        // 每种形状类型都应有相应情况，因此这种情况不应该发生。
+        checkNoEntry();
+        break;
+}
+```
+
+```c++
+// 此UObject拥有测试函数IsEverythingOK，没有副作用，若出现问题则返回false。
+// 若发生这种情况，将出现致命错误并终止。
+// 因为代码无副作用，仅作诊断之用，因此无需在发布版本中运行。
+checkCode(
+    if (!IsEverythingOK())
+    {
+        UE_LOG(LogUObjectGlobals, Fatal, TEXT("Something is wrong with %s!Terminating."), *GetFullName());
+    }
+);
+```
+
+```c++
+// 此列表中不应有圆圈，若有，程序将停转。但检查圆圈耗时较长，因此建议在调试版本中操作。
+checkSlowf(!MyLinkedList.HasCycle(), TEXT("Found a cycle in the list!"));
+//（遍历列表，在各个元素上运行一些代码。）
+```
+## 游戏性类
+虚幻引擎中每个游戏性类都由一个类头文件（`.h`）和一个类源文件（`.cpp`）构成。**类头包含类和类成员（如变量和函数）的声明，而在类源文件中通过 _实现_ 属于类的函数来定义类的功能。**
+
+虚幻引擎中的类拥有一个标准化的命名方案，通过首字母或前缀即可立即明了其为哪种类。游戏性类的前缀有：
+
+|前缀|含义|
+|---|---|
+|`A`|从 _可生成的_ 游戏性对象的基础类进行延伸。它们是 Actor，可直接生成到世界场景中。|
+|`U`|从所有游戏性对象的基础类进行延伸。它们无法被实例到世界场景中，必须从属于 Actor。总体而言，它们是与 [组件](https://docs.unrealengine.com/5.2/zh-CN/components-in-unreal-engine)相似的对象。|
+
+## 添加类
+
+[C++类向导](https://docs.unrealengine.com/5.2/zh-CN/using-the-cplusplus-class-wizard-in-unreal-engine)将设置新类所需要的头文件和源文件，并随之更新游戏模块。头文件和源文件自动包含类声明和类构造函数，以及虚幻引擎专有代码 - 例如 `UCLASS()` 宏。
+
+## 类头
+
+虚幻引擎中的游戏性类通常拥有单独且唯一的类头文件。通常这些文件的命名与其中定义的类相匹配，减去 `A` 或 `U` 前缀，并使用 `.h` 文件扩展名。因此，`AActor` 类的类头文件命名为 `Actor.h`。虽然 Epic 代码遵循这些规则，但当前引擎中类名称和源文件名之间不存在正式关系。
+
+游戏性类的类头文件使用标准 C++ 语法，并结合专门的宏，以简化类、变量和函数的声明过程。
+
+在每个游戏性类头文件的顶端，需要包含生成的头文件（自动创建）。因此在 `ClassName.h` 的顶端必须出现以下行：
+
+```
+    #include "ClassName.generated.h"
+```
+
+### 类声明
+
+类声明定义类的名称、其继承的类，以及其继承的函数和变量。类声明还将定义通过 [类说明符](https://docs.unrealengine.com/5.2/zh-CN/gameplay-classes-in-unreal-engine#%E7%B1%BB%E8%AF%B4%E6%98%8E%E7%AC%A6) 和元数据要求的其他引擎和编辑器特定行为。
+
+类声明的语法如下所示：
+
+```
+    UCLASS([specifier, specifier, ...], [meta(key=value, key=value, ...)])
+    class ClassName : public ParentName
+    {
+        GENERATED_BODY()
+    }
+```
+
+声明包含一个类的标准 C++ 类声明。在标准声明之上，描述符（如类说明符和元数据）将被传递到 `UCLASS` 宏。它们用于创建被声明类的 `UClass`，它可被看作引擎对类的专有表达。此外，`GENERATED_BODY()` 宏必须被放置在类体的最前方。
+
+#### 类说明符
+
+声明类时，可以为声明添加 **类说明符**，以控制类相对于引擎和编辑器的各个方面的行为。
+
 # 反射系统
 **虚幻引擎反射系统** 使用**宏**为提供引擎和编辑器各种功能，封装你的类。在使用 **虚幻引擎（UE） 时，可以使用标准的 C++类、函数和变量。
 
@@ -14,6 +184,7 @@
 - [接口](https://docs.unrealengine.com/5.2/zh-CN/interfaces-in-unreal-engine) 提供可以在多个或不同的类中实现函数和额外的游戏行为。 你的玩家角色可以与世界中的各种Actor互动。 每个这些互动都能引起对一个事件的不同反应。
 - [Metadata说明符](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine)控制类、接口、结构体、列举、函数，或属性与引擎和编辑器各方面的交互方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
 - [UFUNCTION](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)，以及 [UPROPERTY](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties) 宏使 UE 注意到新的类、函数和变量。这些宏由引擎进行垃圾收集。在说明宏时, 你可以在虚幻编辑器中编辑和显示它们。
+
 # 属性
 ## 属性声明
 
@@ -1462,7 +1633,7 @@ bool bLen5 = StrArr.ContainsByPredicate([](const FString& Str){
 // bLen5 == true
 ```
 
--  **`Find`**：查找元素。确定元素是否存在并返回其索引（返回的是找到的首个元素）
+-  **`Find`**：查找元素（只需要一次查找）。确定元素是否存在并返回其索引（返回的是找到的首个元素）
 -  **`FindLast`** ：如存在重复元素而希望找到最末元素的索引
 - **两个形参，返回布尔**，指出是否已找到元素，同时在找到元素索引时将其写入变量。
 - **一个形参，返回索引**。如不将索引作为显式参数传递，这两个函数便会执行此操作。如未找到元素，将返回特殊 `INDEX_NONE` 值：
@@ -1879,7 +2050,7 @@ SArr.SetNumZeroed(5);
 `Swap` 和 `SwapMemory` 函数均接受两个指数并交换此类指数上的元素值。这两个函数相同，不同点是 `Swap` 会对指数执行额外的错误检查，并断言索引是否超出范围。
 
 ## TMap 映射
-`TMap` 与 `TSet` 类似，它们的结构均基于对键进行散列运算。但与 `TSet` 不同的是，此容器将数据存储为键值对（`TPair<KeyType, ValueType>`），只将键用于存储和获取。
+`TMap` 与 `TSet` 类似，它们的结构均基于对键进行散列运算。但与 `TSet` 不同的是，**此容器将数据存储为键值对（`TPair<KeyType, ValueType>`），只将键用于存储和获取。**
 
 映射有两种类型：`TMap` 和 `TMultiMap`。
 -  **`TMap`** 中的**键是唯一**的。**添加新的键值时，若所用的键与原有的对相同，新对将替换原有的对。**
@@ -1895,7 +2066,9 @@ SArr.SetNumZeroed(5);
 
 `TMap` 也可使用任选分配器来控制内存分配行为。但不同于 `TArray`，这些是集合分配器，而不是 `FHeapAllocator` 和 `TInlineAllocator` 之类的标准UE4分配器。集合分配器（`TSetAllocator`类）定义映射应使用的散列桶数量，以及应使用哪个标准UE4分配器来存储散列和元素。
 
-**`KeyFuncs`** 是最后一个 `TMap` 模板参数，该参数告知映射如何从元素类型获取键，如何比较两个键是否相等，以及如何对键进行散列计算。**这些参数有默认值，它们只会返回对键的引用，使用 `运算符==` 确定相等性，并调用非成员 `GetTypeHash` 函数进行散列计算。** 如果您的键类型支持这些函数，可使用它作为映射键，不需要提供自定义 `KeyFuncs`。
+**`KeyFuncs`** 是最后一个 `TMap` 模板参数，**该参数告知映射如何从元素类型获取键，如何比较两个键是否相等，以及如何对键进行散列计算。**
+
+**这些参数有默认值，它们只会返回对键的引用，使用 `运算符==` 确定相等性，并调用非成员 `GetTypeHash` 函数进行散列计算。** 如果您的键类型支持这些函数，可使用它作为映射键，不需要提供自定义 `KeyFuncs`。
 
 与 `TArray` 不同的是，内存中 `TMap` 元素的相对排序既不可靠也不稳定，对这些元素进行迭代很可能会使它们返回的顺序和它们添加的顺序有所不同。这些元素也不太可能在内存中连续排列。映射的支持数据结构是稀疏数组，这种数组可有效支持元素之间的空位。当元素从映射中被移除时，稀疏数组中就会出现空位。将新的元素添加到数组可填补这些空位。但是，即便 `TMap` 不会打乱元素来填补空位，指向映射元素的指针仍然可能失效，因为如果存储器被填满，又添加了新的元素，整个存储可能会重新分配。
 
@@ -2122,7 +2295,7 @@ FString Val6 = FruitMap.FindRef(6);
     // ]
 ```
 
-**`FindAndRemoveChecked`**： 可用于从映射移除元素并返回其值。名称的"已检查"部分表示若键不存在，映射将调用 `check`（UE4中等同于 `assert`）。
+- **`FindAndRemoveChecked`**： 可用于从映射移除元素并返回其值。名称的"已检查"部分表示若键不存在，映射将调用 `check`（UE4中等同于 `assert`）。
 
 ```c++
 FString Removed7 = FruitMap.FindAndRemoveChecked(7);
@@ -2139,7 +2312,7 @@ FString Removed8 = FruitMap.FindAndRemoveChecked(8);
 // Assert!
 ```
 
-`RemoveAndCopyValue` 函数的作用与 `Remove` 相似，不同点是会将已移除元素的值复制到引用参数。如果映射中不存在指定的键，则输出参数将保持不变，函数将返回 `false`。
+-  **`RemoveAndCopyValue`** ：作用与 `Remove` 相似，**不同点是会将已移除元素的值复制到引用参数**。如果映射中不存在指定的键，则输出参数将保持不变，函数将返回 `false`。
 
 ```c++
     FString Removed;
@@ -2152,19 +2325,11 @@ FString Removed8 = FruitMap.FindAndRemoveChecked(8);
     //  { Key:3, Value:"Orange" },
     //  { Key:9, Value:"Melon"  }
     // ]
-    bool bFound8 = FruitMap.RemoveAndCopyValue(8, Removed);
-    // bFound8  == false
-    // Removed  == "Pear", i.e. unchanged
-    // FruitMap == [
-    //  { Key:5, Value:"Mango"  },
-    //  { Key:4, Value:"Kiwi"   },
-    //  { Key:3, Value:"Orange" },
-    //  { Key:9, Value:"Melon"  }
-    // ]
+
 ```
 
-最后，使用 `Empty` 或 `Reset` 函数可将映射中的所有元素移除。
-
+-  **`Empty`** 或 **`Reset`** ：将映射中的所有元素移除。
+    -  `Empty` 和 `Reset` 相似，但 `Empty` 可采用参数指示映射中保留的 slack 量
 ```c++
     TMap<int32, FString> FruitMapCopy = FruitMap;
     // FruitMapCopy == [
@@ -2178,34 +2343,35 @@ FString Removed8 = FruitMap.FindAndRemoveChecked(8);
     // FruitMapCopy == []
 ```
 
-`Empty` 和 `Reset` 相似，但 `Empty` 可采用参数指示映射中保留的slack量，而 `Reset`
 
 ### 排序
 
-`TMap` 可以进行排序。排序后，迭代映射会以排序的顺序显示元素，但下次修改映射时，排序可能会发生变化。排序是不稳定的，因此等值元素在MultiMap中可能以任何顺序出现。
+`TMap` 可以进行排序。排序后，迭代映射会以排序的顺序显示元素，但下次修改映射时，排序可能会发生变化。**排序是不稳定的，因此等值元素在 MultiMap 中可能以任何顺序出现。**
 
-使用 `KeySort` 或 `ValueSort` 函数可分别按键和值进行排序。两个函数均使用二元谓词来进行排序：
+-  **`KeySort`** ：按键排序
+-  **`ValueSort`**： 按值排序
+- 两个函数均使用二元谓词来进行排序：
 
 ```c++
-    FruitMap.KeySort([](int32 A, int32 B) {
-        return A > B; // sort keys in reverse
-    });
-    // FruitMap == [
-    //  { Key:9, Value:"Melon"  },
-    //  { Key:5, Value:"Mango"  },
-    //  { Key:4, Value:"Kiwi"   },
-    //  { Key:3, Value:"Orange" }
-    // ]
+FruitMap.KeySort([](int32 A, int32 B) {
+    return A > B; // sort keys in reverse
+});
+// FruitMap == [
+//  { Key:9, Value:"Melon"  },
+//  { Key:5, Value:"Mango"  },
+//  { Key:4, Value:"Kiwi"   },
+//  { Key:3, Value:"Orange" }
+// ]
 
-    FruitMap.ValueSort([](const FString& A, const FString& B) {
-        return A.Len() < B.Len(); // sort strings by length
-    });
-    // FruitMap == [
-    //  { Key:4, Value:"Kiwi"   },
-    //  { Key:5, Value:"Mango"  },
-    //  { Key:9, Value:"Melon"  },
-    //  { Key:3, Value:"Orange" }
-    // ]
+FruitMap.ValueSort([](const FString& A, const FString& B) {
+    return A.Len() < B.Len(); // sort strings by length
+});
+// FruitMap == [
+//  { Key:4, Value:"Kiwi"   },
+//  { Key:5, Value:"Mango"  },
+//  { Key:9, Value:"Melon"  },
+//  { Key:3, Value:"Orange" }
+// ]
 ```
 
 ### 运算符
@@ -2213,32 +2379,32 @@ FString Removed8 = FruitMap.FindAndRemoveChecked(8);
 和 `TArray` 一样，`TMap` 是常规值类型，可通过标准复制构造函数或赋值运算符进行复制。因为映射严格拥有其元素，复制映射的操作是深层的，所以新的映射将拥有其自己的元素副本。
 
 ```c++
-    TMap<int32, FString> NewMap = FruitMap;
-    NewMap[5] = "Apple";
-    NewMap.Remove(3);
-    // FruitMap == [
-    //  { Key:4, Value:"Kiwi"   },
-    //  { Key:5, Value:"Mango"  },
-    //  { Key:9, Value:"Melon"  },
-    //  { Key:3, Value:"Orange" }
-    // ]
-    // NewMap == [
-    //  { Key:4, Value:"Kiwi"  },
-    //  { Key:5, Value:"Apple" },
-    //  { Key:9, Value:"Melon" }
-    // ]
+TMap<int32, FString> NewMap = FruitMap;
+NewMap[5] = "Apple";
+NewMap.Remove(3);
+// FruitMap == [
+//  { Key:4, Value:"Kiwi"   },
+//  { Key:5, Value:"Mango"  },
+//  { Key:9, Value:"Melon"  },
+//  { Key:3, Value:"Orange" }
+// ]
+// NewMap == [
+//  { Key:4, Value:"Kiwi"  },
+//  { Key:5, Value:"Apple" },
+//  { Key:9, Value:"Melon" }
+// ]
 ```
 
 `TMap` 支持移动语义，使用 `MoveTemp` 函数可调用这些语义。在移动后，源映射必定为空：
 
 ```c++
-    FruitMap = MoveTemp(NewMap);
-    // FruitMap == [
-    //  { Key:4, Value:"Kiwi"  },
-    //  { Key:5, Value:"Apple" },
-    //  { Key:9, Value:"Melon" }
-    // ]
-    // NewMap == []
+FruitMap = MoveTemp(NewMap);
+// FruitMap == [
+//  { Key:4, Value:"Kiwi"  },
+//  { Key:5, Value:"Apple" },
+//  { Key:9, Value:"Melon" }
+// ]
+// NewMap == []
 ```
 
 ### Slack
@@ -2323,20 +2489,16 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 ```
 
 ### KeyFuncs
+**`KeyFuncs`** 是最后一个 `TMap` 模板参数，**该参数告知映射如何从元素类型获取键，如何比较两个键是否相等，以及如何对键进行散列计算。**
 
 只要类型具有 `运算符==` 和非成员 `GetTypeHash` 重载，就可用作 `TMap` 的键类型，不需要任何更改。但是，您可能需要将类型用作键，而不重载这些函数。在这些情况下，可对 `KeyFuncs` 进行自定义。为键类型创建 `KeyFuncs`，必须定义两个typedef和三个静态函数，如下所示：
 
 - `KeyInitType` —— 用于传递键的类型。
-    
 - `ElementInitType` —— 用于传递元素的类型。
-    
 - `KeyInitType GetSetKey(ElementInitType Element)`——返回元素的键。
-    
 - `bool Matches(KeyInitType A, KeyInitType B)` —— 如果 `A` 和 `B` 等值将返回 `true`，否则返回 `false`。
-    
 - `uint32 GetKeyHash(KeyInitType Key)` —— 返回 `Key` 的散列值。
     
-
 `KeyInitType` 和 `ElementInitType` 是键类型和值类型的常规传递约定的typedef。它们通常为浅显类型的一个值，和非浅显类型的一个常量引用。请记住，映射的元素类型是 `TPair`。
 
 自定义 `KeyFuncs` 的示例可能如下所示：
@@ -2403,7 +2565,6 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 3. 最后，`GetKeyHash` 静态函数接受提取的键并返回其散列值。由于 `Matches` 函数区分大小写，`GetKeyHash` 也必须区分大小写。区分大小写的 `FCrc` 函数将计算键字符串的散列值。
     
 4. 现在结构已满足 `TMap` 要求的行为，可创建它的实例。
-    
 
 `KeyFuncs` 参数处于最后，所以这个 `TMap`
 
@@ -2444,3 +2605,301 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 `CountBytes` 和 `GetAllocatedSize` 函数用于估计内部数组的当前内存使用情况。`CountBytes` 接受 `Farchive` 参数，而 `GetAllocatedSize` 则不会。这些函数常用于统计报告。
 
 `Dump` 函数接受 `FOutputDevice`，并写出关于映射内容的实现信息。此函数常用于调试。
+
+## TSet 集合
+`TSet` 使用值本身作为键（**键值合一**）。`TSet` 可以非常快速地添加、查找和删除元素（恒定时间）。**默认情况下，`TSet` 不支持重复的键（添加重复的键会覆盖旧的键），但使用模板参数可激活此行为。**
+
+**同质容器：所有元素均为完全相同类型**。
+
+`TSet` 是一种快速容器类，用于在排序不重要的情况下存储唯一元素。在大多数情况下，只需要一种参数——元素类型。但是，`TSet` 可配置各种模板参数来改变其行为，使其更全面。除了可指定从 `DefaultKeyFuncs` 的派生结构体来提供散列功能，还可允许集合中的多个键拥有相同的值。它和其它容器类一样，可设置自定义内存分配器来存储数据。
+
+`TSet` 也是**值类型**，支持常规复制、赋值和析构函数操作，以及其元素较强的所有权。`TSet` 被销毁时，其元素也将被销毁。键类型也必须是值类型。
+
+`TSet` 使用散列，即如果给出了 `KeyFuncs` 模板参数，该参数会告知集合如何从某个元素确定键，如何比较两个键是否相等，如何对键进行散列，以及是否允许重复键。它们默认只返回对键的引用，使用 `运算符==` 对比相等性，使用非成员函数 `GetTypeHash` 进行散列。默认情况下，集合中不允许有重复的键。如果您的键类型支持这些函数，则可以将其用作集合键，无需提供自定义 `KeyFuncs`。要写入自定义 `KeyFuncs`，可扩展 `DefaultKeyFuncs` 结构体。
+
+最后，`TSet` 可通过任选分配器控制内存分配行为。标准虚幻引擎4（UE4）分配器（如 `FHeapAllocator` 和 `TInlineAllocator`）不能用作 `TSet` 的分配器。实际上，`TSet` 使用集合分配器，该分配器可定义集合中使用的散列桶数量以及用于存储元素的标准UE4分配器。请参见 `TSetAllocator` 了解更多信息。
+
+与 `TArray` 不同的是，内存中 `TSet` 元素的相对排序既不可靠也不稳定，对这些元素进行迭代很可能会使它们返回的顺序和它们添加的顺序有所不同。这些元素也不太可能在内存中连续排列。集合中的后台数据结构是稀疏数组，即在数组中有空位。从集合中移除元素时，稀疏数组中会出现空位。将新的元素添加到阵列可填补这些空位。但是，即便 `TSet` 不会打乱元素来填补空位，指向集元素的指针仍然可能失效，因为如果存储器被填满，又添加了新的元素，整个存储可能会重新分配。
+
+### 创建和填充集合
+
+-  `TSet` 的创建方法如下：
+```c++
+    TSet<FString> FruitSet;
+```
+
+这会创建一个空白 `TSet`，用于存储 `FString` 数据。`TSet` 会直接使用 `运算符==` 比较元素，使用 `GetTypeHash` 对其进行散列，然后使用标准的堆分配器。此时尚未分配内存。
+
+-  **`Add`**：填充集合，提供键（元素）：
+```c++
+FruitSet.Add(TEXT("Banana"));
+FruitSet.Add(TEXT("Grapefruit"));
+FruitSet.Add(TEXT("Pineapple"));
+// FruitSet == [ "Banana", "Grapefruit", "Pineapple" ]
+```
+
+此处的元素按插入顺序排列，但不保证这些元素在内存中实际保留此排序。如果是新集合，可能会保留插入排序，但插入和删除的次数越多，新元素不出现在末尾的可能性越大。
+
+-  **`Emplace`**：和 `TArray` 一样，还可使用 **`Emplace`** 代替 `Add`，避免插入集合时创建临时文件。与 `TArray` 不同的是，只能使用单一参数构造函数将元素放到集合中。
+```c++
+FruitSet.Emplace(TEXT("Orange"));
+// FruitSet == [ "Banana", "Grapefruit", "Pineapple", "Pear", "Orange" ]
+```
+
+-  **`Append`** ：合并来插入另一个集合中的所有元素：
+```c++
+TSet<FString> FruitSet2;
+FruitSet2.Emplace(TEXT("Kiwi"));
+FruitSet2.Emplace(TEXT("Melon"));
+FruitSet2.Emplace(TEXT("Mango"));
+FruitSet2.Emplace(TEXT("Orange"));
+FruitSet.Append(FruitSet2);
+// FruitSet == [ "Banana", "Grapefruit", "Pineapple", "Pear", "Orange", "Kiwi", "Melon", "Mango" ]
+```
+
+### 编辑UPROPERTY TSet
+
+如果用 `UPROPERTY` 宏和一个可编辑的关键词（`EditAnywhere`、`EditDefaultsOnly` 或 `EditInstanceOnly`）标记 `TSet`，则可在虚幻编辑器中添加和编辑元素。
+
+```c++
+UPROPERTY(Category = SetExample, EditAnywhere)
+TSet<FString> FruitSet;
+```
+
+### 遍历
+
+`TSet` 的遍历类似于 `TArray`。可使用 C++的设置 for 循环：
+```c++
+for (auto& Elem :FruitSet)
+{
+    FPlatformMisc::LocalPrint(
+        *FString::Printf(
+            TEXT(" \"%s\"\n"),
+            *Elem
+        )
+    );
+}
+// Output:
+//  "Banana"
+//  "Grapefruit"
+//  "Pineapple"
+//  "Pear"
+//  "Orange"
+//  "Kiwi"
+//  "Melon"
+//  "Mango"
+```
+
+也可以用 `CreateIterator` 和 `CreateConstIterators` 函数来创建迭代器。
+-  `CreateIterator` 返回拥有读写访问权限的迭代器
+-  `CreateConstIterator` 返回拥有只读访问权限的迭代器。
+- 无论哪种情况，均可用这些迭代器的 `Key` 和 `Value` 来检查元素。
+
+```c++
+for (auto It = FruitSet.CreateConstIterator(); It; ++It)
+{
+    FPlatformMisc::LocalPrint(
+        *FString::Printf(
+            TEXT("(%s)\n"),
+            *It
+        )
+    );
+}
+```
+
+### 查询
+
+-  **`Num`** ：查询集合中保存的元素数量：
+
+```c++
+    int32 Count = FruitSet.Num();
+    // Count == 8
+```
+
+-  **`Contains`** ：确定集合是否包含特定元素
+
+```c++
+bool bHasBanana = FruitSet.Contains(TEXT("Banana"));
+bool bHasLemon = FruitSet.Contains(TEXT("Lemon"));
+// bHasBanana == true
+// bHasLemon == false
+```
+
+- 使用 **`FSetElementId`** 结构体可**查找集合中某个键的索引**。然后，就可使用该索引与 `运算符[]` 查找元素。
+    - 在非常量集合上调用 `operator[]` 将返回非常量引用，而在常量集合上调用将返回常量引用。
+
+```c++
+FSetElementId BananaIndex = FruitSet.Index(TEXT("Banana"));
+// BananaIndex is a value between 0 and (FruitSet.Num() - 1)
+FPlatformMisc::LocalPrint(
+    *FString::Printf(
+        TEXT(" \"%s\"\n"),
+        *FruitSet[BananaIndex]
+    )
+);
+// Prints "Banana"
+
+FSetElementId LemonIndex = FruitSet.Index(TEXT("Lemon"));
+// LemonIndex is INDEX_NONE (-1)
+FPlatformMisc::LocalPrint(
+    *FString::Printf(
+        TEXT(" \"%s\"\n"),
+        *FruitSet[LemonIndex]
+    )
+); // Assert!
+```
+
+如果不确定集合中是否包含某个键，可使用 `Contains` 函数和 `运算符[]` 进行检查。但这并非理想的方法，因为同一键需要进行两次查找才能获取成功。
+
+-  **`Find`** 函数查找一次即可完成这些行为。
+- 如果中包含该键，`Find` 将返回指向元素数值的指针。
+- 如果不包含该键，则返回 null。
+- 对常量集合调用 `Find`，返回的指针也将为常量。
+
+```c++
+    FString* PtrBanana = FruitSet.Find(TEXT("Banana"));
+    FString* PtrLemon = FruitSet.Find(TEXT("Lemon"));
+    // *PtrBanana == "Banana"
+    //  PtrLemon == nullptr
+```
+
+- **`Array`** ：会返回一个 `TArray`，其中填充了 `TSet` 中每个元素的一份副本。被传递的数组在填入前会被清空，因此元素的生成数量将始终等于集合中的元素数量：
+
+```c++
+TArray<FString> FruitArray = FruitSet.Array();
+// FruitArray == [ "Banana","Grapefruit","Pineapple","Pear","Orange","Kiwi","Melon","Mango" ] (order may vary)
+```
+
+### 移除
+
+-  **`Remove`** 函数可**按索引移除元素**，但仅建议在通过元素迭代时使用：Remove 函数会返回已删除元素的数量。
+    - 如果给定的键未包含在集合中，则会返回0。
+    - 如果 `TSet` 支持重复的键，`Remove` 将移除所有匹配元素。
+    - 移除元素将在数据结构中留下空位
+```c++
+FruitSet.Remove(0);
+// FruitSet == [ "Grapefruit","Pineapple","Pear","Orange","Kiwi","Melon","Mango" ]
+```
+
+```c++
+int32 RemovedAmountPineapple = FruitSet.Remove(TEXT("Pineapple"));
+// RemovedAmountPineapple == 1
+// FruitSet == [ "Grapefruit","Pear","Orange","Kiwi","Melon","Mango" ]
+FString RemovedAmountLemon = FruitSet.Remove(TEXT("Lemon"));
+// RemovedAmountLemon == 0
+```
+
+-  **`Empty`** 或 **`Reset`** ：将集合中的所有元素移除。
+    -  `Empty` 和 `Reset` 相似，但 `Empty` 可采用参数指示集合中保留的 slack 量 `
+```c++
+    TSet<FString> FruitSetCopy = FruitSet;
+    // FruitSetCopy == [ "Grapefruit","Pear","Orange","Kiwi","Melon","Mango" ]
+
+    FruitSetCopy.Empty();
+    // FruitSetCopy == []
+```
+
+### 排序
+
+`TSet` 可以排序。排序后，迭代集合会以排序的顺序显示元素，但下次修改集合时，排序可能会发生变化。由于排序不稳定，可能按任何顺序显示集合中支持重复键的等效元素。
+
+**`Sort`**： 函数使用指定排序顺序的二进制谓词
+```c++
+FruitSet.Sort([](const FString& A, const FString& B) {
+    return A > B; // sort by reverse-alphabetical order
+});
+// FruitSet == [ "Pear", "Orange", "Melon", "Mango", "Kiwi", "Grapefruit" ] (order is temporarily guaranteed)
+
+FruitSet.Sort([](const FString& A, const FString& B) {
+    return A.Len() < B.Len(); // sort strings by length, shortest to longest
+});
+// FruitSet == [ "Pear", "Kiwi", "Melon", "Mango", "Orange", "Grapefruit" ] (order is temporarily guaranteed)
+```
+
+### 运算符
+
+和 `TArray` 一样，`TSet` 是常规值类型，可通过标准复制构造函数或赋值运算符进行复制。因为集合严格拥有其元素，复制集合的操作是深层的，所以新集合将拥有其自身的元素副本：
+
+```c++
+TSet<FString> NewSet = FruitSet;
+NewSet.Add(TEXT("Apple"));
+NewSet.Remove(TEXT("Pear"));
+// FruitSet == [ "Pear", "Kiwi", "Melon", "Mango", "Orange", "Grapefruit" ]
+// NewSet == [ "Kiwi", "Melon", "Mango", "Orange", "Grapefruit", "Apple" ]
+```
+
+### Slack
+
+Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存，无需添加元素；通过非零slack参数调用 `Reset` 或 `Empty` 可移除元素，无需将其使用的内存取消分配。Slack优化了将新元素添加到集合的过程，因为可以使用预先分配的内存，而不必分配新内存。它在移除元素时也十分实用，因为系统不需要将内存取消分配。在清空希望用相同或更少的元素立即重新填充的集合时，此方法尤其有效。
+
+`TSet` 不像 `TArray` 中的 `Max` 函数那样可检查预分配元素的数量。
+
+以下代码可在不取消任何内存的情况下移除集合中的所有元素，从而产生slack：
+
+```c++
+    FruitSet.Reset();
+    // FruitSet == [ <invalid>, <invalid>, <invalid>, <invalid>, <invalid>, <invalid> ]
+```
+
+使用 `Reserve` 函数可直接创建slack，例如在添加元素之前预分配内存。
+
+```c++
+    FruitSet.Reserve(10);
+    for (int32 i = 0; i < 10; ++i)
+    {
+        FruitSet.Add(FString::Printf(TEXT("Fruit%d"), i));
+    }
+    // FruitSet == [ "Fruit9", "Fruit8", "Fruit7" ..."Fruit2", "Fruit1", "Fruit0" ]
+```
+
+预先分配slack会导致以倒序添加新元素。与数组不同，集合不维护元素排序，处理集合的代码不能指望元素排序稳定或可预测。
+
+使用 `Collapse` 和 `Shrink` 函数可移除 `TSet` 中的全部slack。`Shrink` 将从容器的末端移除所有slack，但这会在中间或开始处留下空白元素。
+
+```c++
+    // Remove every other element from the set.
+    for (int32 i = 0; i < 10; i += 2)
+    {
+        FruitSet.Remove(FSetElementId::FromInteger(i));
+    }
+    // FruitSet == ["Fruit8", <invalid>, "Fruit6", <invalid>, "Fruit4", <invalid>, "Fruit2", <invalid>, "Fruit0", <invalid> ]
+
+    FruitSet.Shrink();
+    // FruitSet == ["Fruit8", <invalid>, "Fruit6", <invalid>, "Fruit4", <invalid>, "Fruit2", <invalid>, "Fruit0" ]
+```
+
+在上述代码中，`Shrink` 只删除了一个无效元素，因为末端只有一个空元素。要移除所有slack，首先应调用 `Compact` 或 `CompactStable` 函数，将空白空间组合在一起，为调用 `Shrink` 做好准备。顾名思义，`CompactStable` 可在合并空元素时保持元素的排序。
+
+```c++
+    FruitSet.CompactStable();
+    // FruitSet == ["Fruit8", "Fruit6", "Fruit4", "Fruit2", "Fruit0", <invalid>, <invalid>, <invalid>, <invalid> ]
+    FruitSet.Shrink();
+    // FruitSet == ["Fruit8", "Fruit6", "Fruit4", "Fruit2", "Fruit0" ]
+```
+
+### DefaultKeyFuncs
+
+只要类型具有 `运算符==` 和非成员 `GetTypeHash` 重载，就可为TSet所用，因为此类型既是元素又是键。然而，不便于重载这些函数时可将类型作为键使用。在这些情况下，可对 `DefaultKeyFuncs` 进行自定义。为键类型创建 `KeyFuncs`，必须定义两个typedef和三个静态函数，如下所示：
+
+- `KeyInitType` —— 用于传递键的类型。通常抽取自ElementType模板参数。
+    
+- `ElementInitType` —— 用于传递元素的类型。同样通常抽取自ElementType模板参数，因此与KeyInitType相同。
+    
+- `KeyInitType GetSetKey(ElementInitType Element)`——返回元素的键。在集合中，通常是元素本身。
+    
+- `bool Matches(KeyInitType A, KeyInitType B)` —— 如果 `A` 和 `B` 等值将返回 `true`，否则返回 `false`。
+    
+- `uint32 GetKeyHash(KeyInitType Key)` —— 返回 `Key` 的散列值。
+    
+
+`KeyInitType` 和 `ElementInitType` 是键/元素类型普通传递惯例的typedef。它们通常为浅显类型的一个值和非浅显类型的一个常量引用。请注意，集合的元素类型也是键类型，因此 `DefaultKeyFuncs` 仅使用一种模板参数 `ElementType` 定义两者。
+
+`TSet` 假定在 `DefaultKeyFuncs` 中使用 `Matches` 进行对比结果为相等的两个项也将在 `KeyFuncs` 的 `GetKeyHash` 中返回相同的值。
+
+`DefaultKeyFuncs` 的默认实现时，此规则也适用于 `运算符==` 和 `GetKeyHash`
+
+### 其他
+
+`CountBytes` 和 `GetAllocatedSize` 函数用于估计内部数组的当前内存使用情况。`CountBytes` 接受 `FArchive` 参数，而 `GetAllocatedSize` 则不接受。这些函数常用于统计报告。
+
+`Dump` 函数接受 `FOutputDevice` 并写出关于集合内容的实现信息。还有一个名为 `DumpHashElements` 的函数，可列出来自所有散列条目的所有元素。这些函数常用于调试。
