@@ -324,9 +324,9 @@ bool bIsThirsty;
 |---|---|
 |`AdvancedDisplay`|属性将被放置在其出现的任意面板的高级（下拉）部分中。|
 |`AssetRegistrySearchable`|`AssetRegistrySearchable` 说明符说明此属性与其值将被自动添加到将此包含为成员变量的所有资源类实例的资源注册表。不可在结构体属性或参数上使用。|
-|`BlueprintAssignable`|只能与组播委托共用。公开属性在蓝图中指定。|
-|`BlueprintAuthorityOnly`|此属性必须为一个组播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。|
-|`BlueprintCallable`|仅用于组播委托。应公开属性在蓝图代码中调用。|
+|`BlueprintAssignable`|只能与多播委托共用。公开属性在蓝图中指定。|
+|`BlueprintAuthorityOnly`|此属性必须为一个多播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。|
+|`BlueprintCallable`|仅用于多播委托。应公开属性在蓝图代码中调用。|
 |`BlueprintGetter=GetterFunctionName`|此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。|
 |`BlueprintReadOnly`|此属性可由蓝图读取，但不能被修改。此说明符与 `BlueprintReadWrite` 说明符不兼容。|
 |`BlueprintReadWrite`|可从蓝图读取或写入此属性。此说明符与 `BlueprintReadOnly` 说明符不兼容。|
@@ -2906,27 +2906,21 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 `Dump` 函数接受 `FOutputDevice` 并写出关于集合内容的实现信息。还有一个名为 `DumpHashElements` 的函数，可列出来自所有散列条目的所有元素。这些函数常用于调试。
 
 # 委托
-**委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。请尽量通过引用传递委托。虚幻引擎共支持三种类型的委托：
+**委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。虚幻引擎共支持三种类型的委托：
 
-- 单点委托
-    
-- [组播委托](https://docs.unrealengine.com/5.2/zh-CN/multicast-delegates-in-unreal-engine)
-    
-- [动态(UObject, serializable)](https://docs.unrealengine.com/5.2/zh-CN/dynamic-delegates-in-unreal-engine)
-    
+- 单播委托
+- 多播委托（又称多播）
+- 动态(UObject, serializable)委托
 
 ## 声明委托
 
-如需声明委托，请使用下文所述的宏。请根据与委托相绑定的函数（或多个函数）的函数签名来选择宏。每个宏都为新的委托类型名称、函数返回类型（如果不是 `void` 函数）及其参数提供了参数。当前，支持以下使用任意组合的委托签名：
+如需声明委托，请使用下文所述的宏。请根据与委托相绑定的函数（或多个函数）的函数签名来选择宏。每个宏都为新的委托类型名称、函数返回类型（如果不是 `void` 函数）及其参数提供了参数。
 
+当前，支持以下使用任意组合的委托签名：
 - 返回一个值的函数。
-    
-- 声明为 `常` 函数。
-    
+- 声明为 `const` 函数。
 - 最多4个"载荷"变量。
-    
 - 最多8个函数参数。
-    
 
 使用此表格查找要用于声明委托的生命宏。
 
@@ -2941,43 +2935,26 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 |`<RetValType> Function(Param1, Param2)`|`DECLARE_DELEGATE_RetVal_TwoParams(RetValType, DelegateName, Param1Type, Param2Type)`|
 |`<RetValType> Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)`|
 
-委托函数支持与[UFunctions](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)相同的说明符，但使用 `UDELEGATE` 宏而不是 `UFUNCTION`。例如，以下代码将 `BlueprintAuthorityOnly` 说明符添加到 `FInstigatedAnyDamageSignature` 委托中
+委托函数支持与`UFunction`相同的说明符，但**使用 `UDELEGATE` 宏**而不是 `UFUNCTION`。例如，以下代码将 `BlueprintAuthorityOnly` 说明符添加到 `FInstigatedAnyDamageSignature` 委托中
 
+```c++
+UDELEGATE(BlueprintAuthorityOnly)
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, float, Damage, const UDamageType*, DamageType, AActor*, DamagedActor, AActor*, DamageCauser);
 ```
-    UDELEGATE(BlueprintAuthorityOnly)
-    DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, float, Damage, const UDamageType*, DamageType, AActor*, DamagedActor, AActor*, DamageCauser);
-```
 
-关于组播委托、动态委托和封装委托，上述宏的变体如下：
+关于多播委托、动态委托和封装委托，上述宏的变体如下：
 
-- DECLARE_MULTICAST_DELEGATE...
+- `DECLARE_MULTICAST_DELEGATE...`
+- `DECLARE_DYNAMIC_DELEGATE...`
+- `DECLARE_DYNAMIC_MULTICAST_DELEGATE...`
+- `DECLARE_DYNAMIC_DELEGATE...`
+- `DECLARE_DYNAMIC_MULTICAST_DELEGATE...`
     
-- DECLARE_DYNAMIC_DELEGATE...
-    
-- DECLARE_DYNAMIC_MULTICAST_DELEGATE...
-    
-- DECLARE_DYNAMIC_DELEGATE...
-    
-- DECLARE_DYNAMIC_MULTICAST_DELEGATE...
-    
-
 委托签名声明可存在于全局范围内、命名空间内、甚至类声明内。此类声明可能不在于函数体内。
-
-请参见[动态委托](https://docs.unrealengine.com/5.2/zh-CN/dynamic-delegates-in-unreal-engine) 和[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)了解有关声明此类类型委托的更多信息。
-
-委托函数支持与
-
-[UFunctions](programming-and-scripting/programming-language-implementation/cpp-in-unreal-engine/Functions)
-
-相同的
-
-[说明符](programming-and-scripting/programming-language-implementation/cpp-in-unreal-engine/Functions/Specifiers)
-
-，但使用 `UDELEGATE` 宏而不是 `UFUNCTION`。
 
 ## 绑定委托
 
-委托系统理解某些类型的对象，使用此类对象时将启用附加功能。将委托绑定到UObject或共享指针类的成员， 委托系统可保留对该对象的弱引用，因此对象在委托下方被销毁时，可通过调用 `IsBound()` 或 `ExecuteIfBound()` 函数进行处理。注意各类受支持对象的特殊绑定语法。
+委托系统理解某些类型的对象，使用此类对象时将启用附加功能。**将委托绑定到UObject或共享指针类的成员， 委托系统可保留对该对象的弱引用，因此对象在委托下方被销毁时，可通过调用 `IsBound()` 或 `ExecuteIfBound()` 函数进行处理**。注意各类受支持对象的特殊绑定语法。
 
 |函数|描述|
 |---|---|
@@ -3001,7 +2978,9 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 
 ## 执行委托
 
-通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。 此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。 执行未绑定的委托在某些情况下确实可能导致内存混乱。可调用 `IsBound()` 检查是否可安全执行委托。 同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
+通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
+可调用 `IsBound()` 检查是否可安全执行委托。 
+同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
 
 |执行函数|描述|
 |---|---|
@@ -3009,58 +2988,129 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
 |`IsBound`|检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
 
-参见[多播委托](https://docs.unrealengine.com/5.2/zh-CN/multicast-delegates-in-unreal-engine)，了解执行多投射委托的相关细节。
-
 ## 用法示例
 
 假设类拥有可在任何地方随意调用的方法：
 
-```
-    class FLogWriter
-    {
-        void WriteToLog(FString);
-    };
+```c++
+class FLogWriter
+{
+    void WriteToLog(FString);
+};
 ```
 
 要调用WriteToLog函数，需创建该函数签名的委托类型。为此，首先需使用以下宏声明委托。例如， 以下是一个简单的委托类型：
 
-```
-    DECLARE_DELEGATE_OneParam(FStringDelegate, FString);
+```c++
+DECLARE_DELEGATE_OneParam(FStringDelegate, FString);
 ```
 
 此将创建名为 `FStringDelegate` 的委托类型，该类型使用 `FString` 类型的单个参数。
 
 此为在类中使用此 `FStringDelegate` 的方法范例：
 
-```
-    class FMyClass
-    {
-        FStringDelegate WriteToLogDelegate;
-    };
+```c++
+class FMyClass
+{
+    FStringDelegate WriteToLogDelegate;
+};
 ```
 
 利用此操作，类可保有指向任意类中的方法的指针。该类唯一真正了解的信息就是，此委托是其的函数签名。
 
 如要分配委托，现在只需创建委托类的实例，将拥有该方法的类作为模板参数传递。 同时还需传递对象的实例和方法的实际函数地址。因此，现在需创建 `FLogWriter` 类的实例， 然后创建该对象实例 `WriteToLog` 方法的委托：
 
-```
-    TSharedRef<FLogWriter> LogWriter(new FLogWriter());
+```c++
+TSharedRef<FLogWriter> LogWriter(new FLogWriter());
 
-    WriteToLogDelegate.BindSP(LogWriter, &FLogWriter::WriteToLog);
+WriteToLogDelegate.BindSP(LogWriter, &FLogWriter::WriteToLog);
 ```
 
 此操作可将委托动态绑定到类的方法！很简单，对吧？
 
-注意：绑定到的对象由共享指针拥有，因此 `BindSP` 的SP部分代表共享指针。此外， 还有不同对象类型的版本，例如BindRaw()和BindUObject()。
+注意：**绑定到的对象由共享指针拥有，因此 `BindSP` 的SP部分代表共享指针**。此外， 还有不同对象类型的版本，例如BindRaw()和BindUObject()。
 
 FMyClass现在可调用 `WriteToLog` 方法，甚至无需了解 `FLogWriter` 类的任何信息！要调用委托，只需使用 `Execute()` 方法：
 
-```
-    WriteToLogDelegate.Execute(TEXT("Delegates are great!"));
+```c++
+WriteToLogDelegate.Execute(TEXT("Delegates are great!"));
 ```
 
 如将函数绑定到网络前调用Execute()，将触发断言：多数情况下，建议进行以下操作：
 
+```c++
+WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!"));
 ```
-    WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!"));
-```
+## 多播委托
+**可以绑定到多个函数并一次性同时执行它们的委托。**
+
+多播委托拥有大部分与单播委托相同的功能。它们只拥有对对象的弱引用，可以与结构体一起使用，可以四处轻松复制等等。  
+就像常规委托一样，多播委托可以远程加载/保存和触发；但多播委托函数不能使用返回值。它们最适合用来 四处轻松传递一组委托。
+
+**事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
+
+## 声明多播委托
+
+多播委托在声明方式上与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同，只是前者使用特定于多播委托的宏变体。
+
+|声明宏|说明|
+|---|---|
+|`DECLARE_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个多播委托。|
+|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态多播委托。|
+
+## 绑定多播委托
+
+多播委托可以绑定多个函数，当委托触发时，将调用所有这些函数。因此，绑定函数在语义上与数组更加类似。
+
+|函数|说明|
+|---|---|
+|`Add()`|将函数委托添加到该多播委托的调用列表中。|
+|`AddStatic()`|添加原始C++指针全局函数委托。|
+|`AddRaw()`|添加原始C++指针委托。原始指针不使用任何类型的引用，因此如果从委托下面删除了对象，则调用此函数可能不安全。调用Execute()时请小心！|
+|`AddSP()`|添加基于共享指针的（快速、非线程安全）成员函数委托。共享指针委托保留对对象的弱引用。|
+|`AddUObject()`|添加基于UObject的成员函数委托。UObject委托保留对对象的弱引用。|
+|`Remove()`|从该多播委托的调用列表中删除函数（性能为O(N)）。请注意，委托的顺序可能不会被保留！|
+|`RemoveAll()`|从该多播委托的调用列表中删除绑定到指定UserObject的所有函数。请注意，委托的顺序可能不会被保留！|
+
+`RemoveAll()`将删除绑定到所提供指针的所有已注册委托。切记，未绑定到对象指针的原始委托不会被该函数所删除！
+
+## 多播执行
+
+多播委托允许您附加多个函数委托，然后通过调用多播委托的 `Broadcast()` 函数一次性同时执行它们。多播委托签名不得使用返回值。 
+
+在多播委托上调用 `Broadcast()` 总是安全的，即使是在没有任何绑定时也是如此。唯一需要注意的是，如果您使用委托来初始化输出变量，通常会带来非常不利的后果。
+
+调用 `Broadcast()` 时绑定函数的执行顺序尚未定义。执行顺序可能与函数的添加顺序不相同。
+
+|函数|说明|
+|---|---|
+| `Broadcast()` |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
+## 动态委托
+**可序列化且支持反射的委托。**
+动态委托可序列化，其函数可按命名查找，但其执行速度比常规委托慢。
+### 声明动态委托
+
+动态委托的声明方式与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同， 只是前者使用动态委托专属的宏变体。
+
+|声明宏|描述|
+|---|---|
+|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态委托。|
+|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态多播委托。 |
+
+### 动态委托绑定
+
+|辅助宏|说明|
+|---|---|
+|`BindDynamic( UserObject, FuncName )`|用于在动态委托上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
+|`AddDynamic( UserObject, FuncName )`|用于在动态多播委托上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
+|`RemoveDynamic( UserObject, FuncName )`|用于在动态多播委托上调用RemoveDynamic()的辅助宏。自动生成函数命名字符串。|
+
+### 执行动态委托
+
+通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。 此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。 执行未绑定的委托在某些情况下确实可能导致内存混乱。可调用 `IsBound()` 检查是否可安全执行委托。 同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
+
+|执行函数|描述|
+|---|---|
+|`Execute`|不检查其绑定情况即执行一个委托|
+|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
+| `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|

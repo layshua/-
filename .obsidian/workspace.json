@@ -187,8 +187,7 @@
     "type": "split",
     "children": [],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -204,7 +203,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21a03d7ff7e78358",
+  "active": "f7029ad6cb1ecda1",
   "lastOpenFiles": [
     "zip/images/Pasted image 20230827161330.png",
     "引擎Unreal/02 蓝图 & U++/U++编程规范.md",
