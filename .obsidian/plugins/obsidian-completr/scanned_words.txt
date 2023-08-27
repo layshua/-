@@ -47219,6 +47219,8 @@ AnotherObjectObserver
 AddUninitialized
 AddZeroed
 AUTDemoHUD
+AddDynamic
+ActorComponents
 URL
 Utools
 Users
@@ -51099,6 +51101,7 @@ UnassignedReference
 UninitInts
 UninitStrs
 UniqueID
+UserObject
 api
 ac
 app
@@ -59676,6 +59679,7 @@ RestrictedTagCaretMenu
 RestrictedTags
 RemovedAmountPineapple
 RemovedAmountLemon
+RemoveDynamic
 Microsoft
 Menu
 MicaForEveryone
@@ -68663,6 +68667,7 @@ WIDGETS
 Wildcard
 Whiz
 WithValidation
+WriteToLog
 Start
 StartAllBack
 Shadowrocket
@@ -73733,6 +73738,7 @@ SomeComponent
 SomeOtherComponent
 Species
 SetExample
+SceneComponents
 Programs
 POP
 PC
@@ -78080,6 +78086,8 @@ Pear
 Prints
 PtrBanana
 PtrLemon
+PlayerCamera
+PrimitiveComponent
 ContextMenuManager
 ClashVerge
 Clash
@@ -82672,6 +82680,7 @@ CaseSensitive
 Constructors
 ContructorHelpers
 ClassFinder
+CameraComponent
 ImTip
 IMAP
 ID
@@ -151427,6 +151436,9 @@ BulkSerialize
 Banana
 BaseKeyFuncs
 BananaIndex
+BindRaw
+BindUObject
+BindDynamic
 Fraktur
 Frame
 Foo
@@ -155890,6 +155902,7 @@ FGameplayTagContainer
 FruitSet
 FSetElementId
 FruitArray
+FMyClass
 Element
 Entity
 Enity
