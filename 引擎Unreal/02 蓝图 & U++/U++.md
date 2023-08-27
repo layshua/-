@@ -1248,7 +1248,7 @@ AnotherObjectObserver.Reset();
 
 `TArray` 是UE4中最常用的容器类。其速度快、内存消耗小、安全性高。`TArray` 类型由两大属性定义：元素类型和可选分配器。
 
-**元素类型：所有元素均为完全相同类型**。
+**同质容器：所有元素均为完全相同类型**。
 
 **分配器常被省略，默认为最常用的分配器。** 其定义对象在内存中的排列方式；以及数组如何进行扩展，以容纳更多的元素。若默认行为不符合要求，可选取多种不同的分配器，或自行编写。
 
@@ -1347,7 +1347,7 @@ for (int32 Index = 0; Index != StrArr.Num(); ++Index)
 }
 ```
 
-- **还可通过数组迭代器类型控制迭代。** 函数 `CreateIterator` 和 `CreateConstIterator` 可分别用于元素的读写和只读访问：
+- **还可通过数组迭代器类型控制迭代。** 函数 `CreateIterator` 和 `CreateConstIterator` 可分别用于元素的**读写**和**只读**访问：
 ```c++
 for (auto It = StrArr.CreateConstIterator(); It; ++It)
 {
@@ -1752,122 +1752,120 @@ SlackArray.Add(5);
 
 分配器确定重新分配后容器中的Slack量。因此，用户不应认为Slack是常量。
 
-虽然无需管理Slack，但可管理Slack对数组进行优化，以满足需求。例如，如需要向数组添加大约100个新元素，则可在添加前确保拥有可至少存储100个新元素的Slack，以便添加新元素时无需分配内存。上文所述的 `Empty` 函数接受可选Slack参数：
+**虽然无需管理 Slack，但可管理 Slack 对数组进行优化，以满足需求。** 例如，如需要向数组添加大约100个新元素，则可在添加前确保拥有可至少存储100个新元素的 Slack，以便添加新元素时无需分配内存。上文所述的 `Empty` 函数接受可选 Slack 参数：
 
-```
-    SlackArray.Empty();
-    // SlackArray.GetSlack() == 0
-    // SlackArray.Num()      == 0
-    // SlackArray.Max()      == 0
-    SlackArray.Empty(3);
-    // SlackArray.GetSlack() == 3
-    // SlackArray.Num()      == 0
-    // SlackArray.Max()      == 3
-    SlackArray.Add(1);
-    SlackArray.Add(2);
-    SlackArray.Add(3);
-    // SlackArray.GetSlack() == 0
-    // SlackArray.Num()      == 3
-    // SlackArray.Max()      == 3
-```
-
-`Reset` 函数与Empty函数类似，不同之处是若当前内存分配已提供请求的Slack，该函数将不释放内存。但若请求的Slack较大，其将分配更多内存：
-
-```
-    SlackArray.Reset(0);
-    // SlackArray.GetSlack() == 3
-    // SlackArray.Num()      == 0
-    // SlackArray.Max()      == 3
-    SlackArray.Reset(10);
-    // SlackArray.GetSlack() == 10
-    // SlackArray.Num()      == 0
-    // SlackArray.Max()      == 10
+```c++
+SlackArray.Empty();
+// SlackArray.GetSlack() == 0
+// SlackArray.Num()      == 0
+// SlackArray.Max()      == 0
+SlackArray.Empty(3);
+// SlackArray.GetSlack() == 3
+// SlackArray.Num()      == 0
+// SlackArray.Max()      == 3
+SlackArray.Add(1);
+SlackArray.Add(2);
+SlackArray.Add(3);
+// SlackArray.GetSlack() == 0
+// SlackArray.Num()      == 3
+// SlackArray.Max()      == 3
 ```
 
-最后，使用 `Shrink` 函数可移除所有Slack。此才做将把内存分配调整为保存当前元素所需的最小内存。`Shrink` 不会对数组中的元素产生影响。
+-  `Reset` 函数与 Empty 函数类似，不同之处是若当前内存分配已提供请求的 Slack，该函数将不释放内存。但若请求的 Slack 较大，其将分配更多内存：
 
+```c++
+SlackArray.Reset(0);
+// SlackArray.GetSlack() == 3
+// SlackArray.Num()      == 0
+// SlackArray.Max()      == 3
+SlackArray.Reset(10);
+// SlackArray.GetSlack() == 10
+// SlackArray.Num()      == 0
+// SlackArray.Max()      == 10
 ```
-    SlackArray.Add(5);
-    SlackArray.Add(10);
-    SlackArray.Add(15);
-    SlackArray.Add(20);
-    // SlackArray.GetSlack() == 6
-    // SlackArray.Num()      == 4
-    // SlackArray.Max()      == 10
-    SlackArray.Shrink();
-    // SlackArray.GetSlack() == 0
-    // SlackArray.Num()      == 4
-    // SlackArray.Max()      == 4
+
+-  `Shrink` 函数可移除所有 Slack。此才做将把内存分配调整为保存当前元素所需的最小内存。`Shrink` 不会对数组中的元素产生影响。
+
+```c++
+SlackArray.Add(5);
+SlackArray.Add(10);
+SlackArray.Add(15);
+SlackArray.Add(20);
+// SlackArray.GetSlack() == 6
+// SlackArray.Num()      == 4
+// SlackArray.Max()      == 10
+SlackArray.Shrink();
+// SlackArray.GetSlack() == 0
+// SlackArray.Num()      == 4
+// SlackArray.Max()      == 4
 ```
 
 ### 原始内存
 
 本质上而言，`TArray` 只是分配内存周围的包装器。直接修改分配的字节和自行创建元素即可将其用作包装器，此操作十分实用。`Tarray` 将尽量利用其拥有的信息进行执行，但有时需降低一个等级。
 
-`TArray`
+`AddUninitialized` 和 `InsertUninitialized` 函数可将未初始化的空间添加到数组。两者工作方式分别与 `Add` 和 `Insert` 函数相同，**只是不调用元素类型的构造函数**。**若要避免调用构造函数，建议使用此类函数**。类似以下范例的情况中建议使用此类函数，其中计划用 `Memcpy` 调用完全覆盖结构体：
 
-`AddUninitialized` 和 `InsertUninitialized` 函数可将未初始化的空间添加到数组。两者工作方式分别与 `Add` 和 `Insert` 函数相同，只是不调用元素类型的构造函数。若要避免调用构造函数，建议使用此类函数。类似以下范例的情况中建议使用此类函数，其中计划用 `Memcpy` 调用完全覆盖结构体：
-
-```
-    int32 SrcInts[] = { 2, 3, 5, 7 };
-    TArray<int32> UninitInts;
-    UninitInts.AddUninitialized(4);
-    FMemory::Memcpy(UninitInts.GetData(), SrcInts, 4*sizeof(int32));
-    // UninitInts == [2,3,5,7]
+```c++
+int32 SrcInts[] = { 2, 3, 5, 7 };
+TArray<int32> UninitInts;
+UninitInts.AddUninitialized(4);
+FMemory::Memcpy(UninitInts.GetData(), SrcInts, 4*sizeof(int32));
+// UninitInts == [2,3,5,7]
 ```
 
 也可使用此功能保留计划自行构建对象所需内存：
 
-```
-    TArray<FString> UninitStrs;
-    UninitStrs.Emplace(TEXT("A"));
-    UninitStrs.Emplace(TEXT("D"));
-    UninitStrs.InsertUninitialized(1, 2);
-    new ((void*)(UninitStrs.GetData() + 1)) FString(TEXT("B"));
-    new ((void*)(UninitStrs.GetData() + 2)) FString(TEXT("C"));
-    // UninitStrs == ["A","B","C","D"]
+```c++
+TArray<FString> UninitStrs;
+UninitStrs.Emplace(TEXT("A"));
+UninitStrs.Emplace(TEXT("D"));
+UninitStrs.InsertUninitialized(1, 2);
+new ((void*)(UninitStrs.GetData() + 1)) FString(TEXT("B"));
+new ((void*)(UninitStrs.GetData() + 2)) FString(TEXT("C"));
+// UninitStrs == ["A","B","C","D"]
 ```
 
 `AddZeroed` 和 `InsertZeroed` 的工作方式相似，不同点是会将添加/插入的空间字节清零：
 
-```
-    struct S
+```c++
+struct S
+{
+    S(int32 InInt, void* InPtr, float InFlt)
+        :Int(InInt)
+        , Ptr(InPtr)
+        , Flt(InFlt)
     {
-        S(int32 InInt, void* InPtr, float InFlt)
-            :Int(InInt)
-            , Ptr(InPtr)
-            , Flt(InFlt)
-        {
-        }
-        int32 Int;
-        void* Ptr;
-        float Flt;
-    };
-    TArray<S> SArr;
-    SArr.AddZeroed();
-    // SArr == [{ Int:0, Ptr: nullptr, Flt:0.0f }]
+    }
+    int32 Int;
+    void* Ptr;
+    float Flt;
+};
+TArray<S> SArr;
+SArr.AddZeroed();
+// SArr == [{ Int:0, Ptr: nullptr, Flt:0.0f }]
 ```
 
 `SetNumUninitialized` 和 `SetNumZeroed` 函数的工作方式与 `SetNum` 类似，不同之处在于新数量大于当前数量时，将保留新元素的空间为未初始化或按位归零。与 `AddUninitialized` 和 `InsertUninitialized` 函数相同，必要时需将新元素正确构建到新空间中：
 
-```
-    SArr.SetNumUninitialized(3);
-    new ((void*)(SArr.GetData() + 1)) S(5, (void*)0x12345678, 3.14);
-    new ((void*)(SArr.GetData() + 2)) S(2, (void*)0x87654321, 2.72);
-    // SArr == [
-    //   { Int:0, Ptr: nullptr,    Flt:0.0f  },
-    //   { Int:5, Ptr:0x12345678, Flt:3.14f },
-    //   { Int:2, Ptr:0x87654321, Flt:2.72f }
-    // ]
+```c++
+SArr.SetNumUninitialized(3);
+new ((void*)(SArr.GetData() + 1)) S(5, (void*)0x12345678, 3.14);
+new ((void*)(SArr.GetData() + 2)) S(2, (void*)0x87654321, 2.72);
+// SArr == [
+//   { Int:0, Ptr: nullptr,    Flt:0.0f  },
+//   { Int:5, Ptr:0x12345678, Flt:3.14f },
+//   { Int:2, Ptr:0x87654321, Flt:2.72f }
+// ]
 
-    SArr.SetNumZeroed(5);
-    // SArr == [
-    //   { Int:0, Ptr: nullptr,    Flt:0.0f  },
-    //   { Int:5, Ptr:0x12345678, Flt:3.14f },
-    //   { Int:2, Ptr:0x87654321, Flt:2.72f },
-    //   { Int:0, Ptr: nullptr,    Flt:0.0f  },
-    //   { Int:0, Ptr: nullptr,    Flt:0.0f  }
-    // ]
+SArr.SetNumZeroed(5);
+// SArr == [
+//   { Int:0, Ptr: nullptr,    Flt:0.0f  },
+//   { Int:5, Ptr:0x12345678, Flt:3.14f },
+//   { Int:2, Ptr:0x87654321, Flt:2.72f },
+//   { Int:0, Ptr: nullptr,    Flt:0.0f  },
+//   { Int:0, Ptr: nullptr,    Flt:0.0f  }
+// ]
 ```
 
 应谨慎使用"Uninitialized"和"Zeroed"函数族。如函数类型包含要构建的成员或未处于有效按位清零状态的成员，可导致数组元素无效和未知行为。此类函数适用于固定的数组类型，例如FMatrix和FVector。
@@ -1879,3 +1877,570 @@ SlackArray.Add(5);
 `CountBytes` 和 `GetAllocatedSize` 函数用于估算数组当前内存占用量。`CountBytes` 接受 `FArchive`，可直接调用 `GetAllocatedSize`。此类函数常用于统计报告。
 
 `Swap` 和 `SwapMemory` 函数均接受两个指数并交换此类指数上的元素值。这两个函数相同，不同点是 `Swap` 会对指数执行额外的错误检查，并断言索引是否超出范围。
+
+## TMap 映射
+`TMap` 与 `TSet` 类似，它们的结构均基于对键进行散列运算。但与 `TSet` 不同的是，此容器将数据存储为键值对（`TPair<KeyType, ValueType>`），只将键用于存储和获取。
+
+映射有两种类型：`TMap` 和 `TMultiMap`。
+-  **`TMap`** 中的**键是唯一**的。**添加新的键值时，若所用的键与原有的对相同，新对将替换原有的对。**
+-  **`TMultiMap `** 可存储多个相同的键。容器可以同时存储新对和原有的对。
+
+**在 `TMap` 中，键值对被视为映射的元素类型，相当于每一对都是个体对象。在本文中，元素就意味着键值对，而各个组件就被称作元素的键或元素的值。元素类型实际上是 `TPair<KeyType, ElementType>`，但很少需要直接引用 `TPair` 类型。**
+
+**同质容器：所有元素均为完全相同类型**。
+
+`TMap` 也是值类型，支持通常的复制、赋值和析构函数运算，以及它的元素的强所有权。在映射被销毁时，它的元素都会被销毁。键和值也必须为值类型。
+
+`TMap` 是散列容器，这意味着键类型必须支持 **`GetTypeHash`** 函数，并提供 `运算符==` 来比较各个键是否等值。
+
+`TMap` 也可使用任选分配器来控制内存分配行为。但不同于 `TArray`，这些是集合分配器，而不是 `FHeapAllocator` 和 `TInlineAllocator` 之类的标准UE4分配器。集合分配器（`TSetAllocator`类）定义映射应使用的散列桶数量，以及应使用哪个标准UE4分配器来存储散列和元素。
+
+**`KeyFuncs`** 是最后一个 `TMap` 模板参数，该参数告知映射如何从元素类型获取键，如何比较两个键是否相等，以及如何对键进行散列计算。**这些参数有默认值，它们只会返回对键的引用，使用 `运算符==` 确定相等性，并调用非成员 `GetTypeHash` 函数进行散列计算。** 如果您的键类型支持这些函数，可使用它作为映射键，不需要提供自定义 `KeyFuncs`。
+
+与 `TArray` 不同的是，内存中 `TMap` 元素的相对排序既不可靠也不稳定，对这些元素进行迭代很可能会使它们返回的顺序和它们添加的顺序有所不同。这些元素也不太可能在内存中连续排列。映射的支持数据结构是稀疏数组，这种数组可有效支持元素之间的空位。当元素从映射中被移除时，稀疏数组中就会出现空位。将新的元素添加到数组可填补这些空位。但是，即便 `TMap` 不会打乱元素来填补空位，指向映射元素的指针仍然可能失效，因为如果存储器被填满，又添加了新的元素，整个存储可能会重新分配。
+
+### 创建和填充映射
+
+`TMap` 的创建方法如下：
+
+```c++
+TMap<int32, FString> FruitMap;
+```
+
+`FruitMap` 现在是一个字符串的空 `TMap`，该字符串由整数键标识。我们既没有指定分配器，也没有指定 `KeyFuncs`，所以映射将执行标准的堆分配，使用 `运算符==` 对键进行对比（`int32` 类型），并使用 `GetTypeHash` 进行散列运算。此时没有分配任何内存。
+
+ - **`Add`** ：填充映射 （键，值）
+ - 可接受不带值的键，值被默认构建为`""`
+
+```c++
+FruitMap.Add(5, TEXT("Banana"));
+FruitMap.Add(2, TEXT("Grapefruit"));
+FruitMap.Add(7, TEXT("Pineapple"));
+FruitMap.Add(4);
+// FruitMap == [
+//  { Key:5, Value:"Banana"     },
+//  { Key:2, Value:"Grapefruit" },
+//  { Key:7, Value:"Pineapple"  }
+//  { Key:4, Value:""          }
+// ]
+```
+
+**此处的元素按插入顺序排列，但不保证这些元素在内存中实际保留此排序。** 如果是新的映射，可能会保留插入排序，但插入和删除的次数越多，新元素不出现在末尾的可能性就越大。
+
+-  **`Emplace`** ：和 `TArray` 一样，还可使用 `Emplace` 代替 `Add`，防止插入映射时创建临时文件。此处直接将键和值传递给了各自的构造函数，**与 `TArray` 不同的是，只能通过单一参数构造函数将元素安放到映射中。**
+```c++
+    FruitMap.Emplace(3, TEXT("Orange"));
+    // FruitMap == [
+    //  { Key:5, Value:"Banana"    },
+    //  { Key:2, Value:"Pear"      },
+    //  { Key:7, Value:"Pineapple" },
+    //  { Key:4, Value:""          },
+    //  { Key:3, Value:"Orange"    }
+    // ]
+```
+
+-  **`Append`** ：合并映射，将一个映射的所有元素移至另一个映射：
+
+```c++
+TMap<int32, FString> FruitMap2;
+FruitMap2.Emplace(4, TEXT("Kiwi"));
+FruitMap2.Emplace(9, TEXT("Melon"));
+FruitMap2.Emplace(5, TEXT("Mango"));
+FruitMap.Append(FruitMap2);
+// FruitMap == [
+//  { Key:5, Value:"Mango"     },
+//  { Key:2, Value:"Pear"      },
+//  { Key:7, Value:"Pineapple" },
+//  { Key:4, Value:"Kiwi"      },
+//  { Key:3, Value:"Orange"    },
+//  { Key:9, Value:"Melon"     }
+// ]
+// FruitMap2 is now empty.
+```
+
+- 如果用 `UPROPERTY` 宏和一个可编辑的关键词（`EditAnywhere`、`EditDefaultsOnly` 或 `EditInstanceOnly`）标记 `TMap`，即可在编辑器中添加和编辑元素。
+```c++
+UPROPERTY(Category = MapsAndSets, EditAnywhere)
+TMap<int32, FString> FruitMap;
+```
+
+### 遍历
+
+`TMaps` 的迭代类似于 `TArrays`。可使用 C++的设置范围功能，注意元素类型是 **`TPair`**：
+
+```c++
+for (auto& Elem :FruitMap)
+{
+    FPlatformMisc::LocalPrint(
+        *FString::Printf(
+            TEXT("(%d, \"%s\")\n"),
+            Elem.Key,
+            *Elem.Value
+        )
+    );
+}
+// Output:
+// (5, "Mango")
+// (2, "Pear")
+// (7, "Pineapple")
+// (4, "Kiwi")
+// (3, "Orange")
+// (9, "Melon")
+```
+
+也可以用 `CreateIterator` 和 `CreateConstIterators` 函数来创建迭代器。
+-  `CreateIterator` 返回拥有**读写**访问权限的迭代器
+-  `CreateConstIterator` 返回拥有**只读**访问权限的迭代器。无论哪种情况，均可用这些迭代器的 `Key` 和 `Value` 来检查元素。使用迭代器显示"fruit"范例映射将产生如下结果：
+
+```c++
+for (auto It = FruitMap.CreateConstIterator(); It; ++It)
+{
+    FPlatformMisc::LocalPrint(
+        *FString::Printf(
+            TEXT("(%d, \"%s\")\n"),
+            It.Key(),   // same as It->Key
+            *It.Value() // same as *It->Value
+        )
+    );
+}
+```
+
+### 查询
+
+-  **`Num`** ：查询映射中保存的**元素数量**：
+```c++
+int32 Count = FruitMap.Num();
+// Count == 6
+```
+
+- **`Contains`**： 映射是否包含特定**键**
+
+```c++
+bool bHas7 = FruitMap.Contains(7);
+// bHas7 == true
+```
+
+-  **`[键]`**： 如果知道映射中存在某个特定键，**将键用作索引来查找相应值**。使用非常量映射执行该操作将返回非常量引用，使用常量映射将返回常量引用。
+```c++
+FString Val7 = FruitMap[7];
+// Val7 == "Pineapple"
+```
+
+-  **`Find`** ：查找键
+- 如果包含该键，`Find` 将返回**指向元素数值的指针**。
+- 如果不包含该键，则返回 `nullptr`。
+- 在常量映射上调用 `Find`，返回的指针也将为常量。
+```c++
+    FString* Ptr7 = FruitMap.Find(7);
+    FString* Ptr8 = FruitMap.Find(8);
+    // *Ptr7 == "Pineapple"
+    //  Ptr8 == nullptr
+```
+
+- **`FindOrAdd`** ：返回对与给定键关联的**值的引用**。
+    - 如果不存在该键，`FindOrAdd` 将返回新创建的元素（使用给定键和默认构建值），该元素也会被添加到映射。
+    - `FindOrAdd` 可修改映射，因此**仅适用于非常量映射**。不要被名称迷惑，
+- **`FindRef`** 会返回与给定键关联的**值副本**；
+    - 若未找到给定键，则返回默认构建值。
+    - `FindRef` 不会创建新元素，因此**既可用于常量映射，也可用于非常量映射**。
+- 即使在映射中找不到键，`FindOrAdd` 和 `FindRef` 也会成功运行，因此无需执行常规的安全规程（如提前检查 `Contains` 或对返回值进行空白检查）就可安全地调用。
+```c++
+FString& Ref7 = FruitMap.FindOrAdd(7);
+// Ref7     == "Pineapple"
+// FruitMap == [
+//  { Key:5, Value:"Mango"     },
+//  { Key:2, Value:"Pear"      },
+//  { Key:7, Value:"Pineapple" },
+//  { Key:4, Value:"Kiwi"      },
+//  { Key:3, Value:"Orange"    },
+//  { Key:9, Value:"Melon"     }
+// ]
+FString& Ref8 = FruitMap.FindOrAdd(8);
+// Ref8     == ""
+// FruitMap == [
+//  { Key:5, Value:"Mango"     },
+//  { Key:2, Value:"Pear"      },
+//  { Key:7, Value:"Pineapple" },
+//  { Key:4, Value:"Kiwi"      },
+//  { Key:3, Value:"Orange"    },
+//  { Key:9, Value:"Melon"     },
+//  { Key:8, Value:""          }
+// ]
+
+FString Val7 = FruitMap.FindRef(7);
+FString Val6 = FruitMap.FindRef(6);
+// Val7     == "Pineapple"
+// Val6     == ""
+// FruitMap == [
+//  { Key:5, Value:"Mango"     },
+//  { Key:2, Value:"Pear"      },
+//  { Key:7, Value:"Pineapple" },
+//  { Key:4, Value:"Kiwi"      },
+//  { Key:3, Value:"Orange"    },
+//  { Key:9, Value:"Melon"     },
+//  { Key:8, Value:""          }
+// ]
+```
+
+- **`FindKey`** ：逆向按值查找，返回指向与所提供**值**配对的第一个键的指针。搜索映射中不存在的值将返回空键。
+```c++
+    const int32* KeyMangoPtr   = FruitMap.FindKey(TEXT("Mango"));
+    const int32* KeyKumquatPtr = FruitMap.FindKey(TEXT("Kumquat"));
+    // *KeyMangoPtr   == 5
+    //  KeyKumquatPtr == nullptr
+```
+
+按值查找比按键查找慢（线性时间）。这是因为映射按键排序，而非按值排序。
+
+- **`GenerateKeyArray`**  和 **`GenerateValueArray`** 分别使用所有键和值的副本来填充 `TArray`。在这两种情况下，都会在填充前清空所传递的数组，因此产生的元素数量始终等于映射中的元素数量。
+```c++
+    TArray<int32>   FruitKeys;
+    TArray<FString> FruitValues;
+    FruitKeys.Add(999);
+    FruitKeys.Add(123);
+    FruitMap.GenerateKeyArray  (FruitKeys);
+    FruitMap.GenerateValueArray(FruitValues);
+    // FruitKeys   == [ 5,2,7,4,3,9,8 ]
+    // FruitValues == [ "Mango","Pear","Pineapple","Kiwi","Orange",
+    //                  "Melon","" ]
+```
+
+### 移除
+
+-  **`Remove`** ：提供要移除元素的键。返回值是被移除元素的数量。
+    - 如果映射不包含与键匹配的元素，则返回值可为零
+    - 移除元素将在数据结构中留下空位
+```c++
+    FruitMap.Remove(8);
+    // FruitMap == [
+    //  { Key:5, Value:"Mango"     },
+    //  { Key:2, Value:"Pear"      },
+    //  { Key:7, Value:"Pineapple" },
+    //  { Key:4, Value:"Kiwi"      },
+    //  { Key:3, Value:"Orange"    },
+    //  { Key:9, Value:"Melon"     }
+    // ]
+```
+
+**`FindAndRemoveChecked`**： 可用于从映射移除元素并返回其值。名称的"已检查"部分表示若键不存在，映射将调用 `check`（UE4中等同于 `assert`）。
+
+```c++
+FString Removed7 = FruitMap.FindAndRemoveChecked(7);
+// Removed7 == "Pineapple"
+// FruitMap == [
+//  { Key:5, Value:"Mango"  },
+//  { Key:2, Value:"Pear"   },
+//  { Key:4, Value:"Kiwi"   },
+//  { Key:3, Value:"Orange" },
+//  { Key:9, Value:"Melon"  }
+// ]
+
+FString Removed8 = FruitMap.FindAndRemoveChecked(8);
+// Assert!
+```
+
+`RemoveAndCopyValue` 函数的作用与 `Remove` 相似，不同点是会将已移除元素的值复制到引用参数。如果映射中不存在指定的键，则输出参数将保持不变，函数将返回 `false`。
+
+```c++
+    FString Removed;
+    bool bFound2 = FruitMap.RemoveAndCopyValue(2, Removed);
+    // bFound2  == true
+    // Removed  == "Pear"
+    // FruitMap == [
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:3, Value:"Orange" },
+    //  { Key:9, Value:"Melon"  }
+    // ]
+    bool bFound8 = FruitMap.RemoveAndCopyValue(8, Removed);
+    // bFound8  == false
+    // Removed  == "Pear", i.e. unchanged
+    // FruitMap == [
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:3, Value:"Orange" },
+    //  { Key:9, Value:"Melon"  }
+    // ]
+```
+
+最后，使用 `Empty` 或 `Reset` 函数可将映射中的所有元素移除。
+
+```c++
+    TMap<int32, FString> FruitMapCopy = FruitMap;
+    // FruitMapCopy == [
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:3, Value:"Orange" },
+    //  { Key:9, Value:"Melon"  }
+    // ]
+
+    FruitMapCopy.Empty();       // We could also have called Reset() here.
+    // FruitMapCopy == []
+```
+
+`Empty` 和 `Reset` 相似，但 `Empty` 可采用参数指示映射中保留的slack量，而 `Reset`
+
+### 排序
+
+`TMap` 可以进行排序。排序后，迭代映射会以排序的顺序显示元素，但下次修改映射时，排序可能会发生变化。排序是不稳定的，因此等值元素在MultiMap中可能以任何顺序出现。
+
+使用 `KeySort` 或 `ValueSort` 函数可分别按键和值进行排序。两个函数均使用二元谓词来进行排序：
+
+```c++
+    FruitMap.KeySort([](int32 A, int32 B) {
+        return A > B; // sort keys in reverse
+    });
+    // FruitMap == [
+    //  { Key:9, Value:"Melon"  },
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:3, Value:"Orange" }
+    // ]
+
+    FruitMap.ValueSort([](const FString& A, const FString& B) {
+        return A.Len() < B.Len(); // sort strings by length
+    });
+    // FruitMap == [
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:9, Value:"Melon"  },
+    //  { Key:3, Value:"Orange" }
+    // ]
+```
+
+### 运算符
+
+和 `TArray` 一样，`TMap` 是常规值类型，可通过标准复制构造函数或赋值运算符进行复制。因为映射严格拥有其元素，复制映射的操作是深层的，所以新的映射将拥有其自己的元素副本。
+
+```c++
+    TMap<int32, FString> NewMap = FruitMap;
+    NewMap[5] = "Apple";
+    NewMap.Remove(3);
+    // FruitMap == [
+    //  { Key:4, Value:"Kiwi"   },
+    //  { Key:5, Value:"Mango"  },
+    //  { Key:9, Value:"Melon"  },
+    //  { Key:3, Value:"Orange" }
+    // ]
+    // NewMap == [
+    //  { Key:4, Value:"Kiwi"  },
+    //  { Key:5, Value:"Apple" },
+    //  { Key:9, Value:"Melon" }
+    // ]
+```
+
+`TMap` 支持移动语义，使用 `MoveTemp` 函数可调用这些语义。在移动后，源映射必定为空：
+
+```c++
+    FruitMap = MoveTemp(NewMap);
+    // FruitMap == [
+    //  { Key:4, Value:"Kiwi"  },
+    //  { Key:5, Value:"Apple" },
+    //  { Key:9, Value:"Melon" }
+    // ]
+    // NewMap == []
+```
+
+### Slack
+
+Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存，无需添加元素；通过非零slack参数调用 `Reset` 或 `Empty` 可移除元素，无需将其使用的内存取消分配。Slack优化了将新元素添加到映射的过程，因为可以使用预先分配的内存，而不必分配新内存。它在移除元素时也十分实用，因为系统不需要将内存取消分配。在清空希望用相同或更少的元素立即重新填充的映射时，此方法尤其有效。
+
+`TMap` 不像 `TArray` 中的 `Max` 函数那样可以检查预分配元素的数量。
+
+在下列代码中，`Reserve` 函数预先分配映射，最多可包含10个元素。
+
+```c++
+    FruitMap.Reserve(10);
+    for (int32 i = 0; i < 10; ++i)
+    {
+        FruitMap.Add(i, FString::Printf(TEXT("Fruit%d"), i));
+    }
+    // FruitMap == [
+    //  { Key:9, Value:"Fruit9" },
+    //  { Key:8, Value:"Fruit8" },
+    //  ...
+    //  { Key:1, Value:"Fruit1" },
+    //  { Key:0, Value:"Fruit0" }
+    // ]
+```
+
+使用 `Collapse` 和 `Shrink` 函数可移除 `TMap` 中的全部slack。`Shrink` 将从容器的末端移除所有slack，但这会在中间或开始处留下空白元素。
+
+```c++
+    for (int32 i = 0; i < 10; i += 2)
+    {
+        FruitMap.Remove(i);
+    }
+    // FruitMap == [
+    //  { Key:9, Value:"Fruit9" },
+    //  <invalid>,
+    //  { Key:7, Value:"Fruit7" },
+    //  <invalid>,
+    //  { Key:5, Value:"Fruit5" },
+    //  <invalid>,
+    //  { Key:3, Value:"Fruit3" },
+    //  <invalid>,
+    //  { Key:1, Value:"Fruit1" },
+    //  <invalid>
+    // ]
+    FruitMap.Shrink();
+    // FruitMap == [
+    //  { Key:9, Value:"Fruit9" },
+    //  <invalid>,
+    //  { Key:7, Value:"Fruit7" },
+    //  <invalid>,
+    //  { Key:5, Value:"Fruit5" },
+    //  <invalid>,
+    //  { Key:3, Value:"Fruit3" },
+    //  <invalid>,
+    //  { Key:1, Value:"Fruit1" }
+    // ]
+```
+
+在上述代码中，`Shrink` 只删除了一个无效元素，因为末端只有一个空元素。要移除所有slack，首先应调用 `Compact` 函数，将空白空间组合在一起，为调用 `Shrink` 做好准备。
+
+```c++
+    FruitMap.Compact();
+    // FruitMap == [
+    //  { Key:9, Value:"Fruit9" },
+    //  { Key:7, Value:"Fruit7" },
+    //  { Key:5, Value:"Fruit5" },
+    //  { Key:3, Value:"Fruit3" },
+    //  { Key:1, Value:"Fruit1" },
+    //  <invalid>,
+    //  <invalid>,
+    //  <invalid>,
+    //  <invalid>
+    // ]
+    FruitMap.Shrink();
+    // FruitMap == [
+    //  { Key:9, Value:"Fruit9" },
+    //  { Key:7, Value:"Fruit7" },
+    //  { Key:5, Value:"Fruit5" },
+    //  { Key:3, Value:"Fruit3" },
+    //  { Key:1, Value:"Fruit1" }
+    // ]
+```
+
+### KeyFuncs
+
+只要类型具有 `运算符==` 和非成员 `GetTypeHash` 重载，就可用作 `TMap` 的键类型，不需要任何更改。但是，您可能需要将类型用作键，而不重载这些函数。在这些情况下，可对 `KeyFuncs` 进行自定义。为键类型创建 `KeyFuncs`，必须定义两个typedef和三个静态函数，如下所示：
+
+- `KeyInitType` —— 用于传递键的类型。
+    
+- `ElementInitType` —— 用于传递元素的类型。
+    
+- `KeyInitType GetSetKey(ElementInitType Element)`——返回元素的键。
+    
+- `bool Matches(KeyInitType A, KeyInitType B)` —— 如果 `A` 和 `B` 等值将返回 `true`，否则返回 `false`。
+    
+- `uint32 GetKeyHash(KeyInitType Key)` —— 返回 `Key` 的散列值。
+    
+
+`KeyInitType` 和 `ElementInitType` 是键类型和值类型的常规传递约定的typedef。它们通常为浅显类型的一个值，和非浅显类型的一个常量引用。请记住，映射的元素类型是 `TPair`。
+
+自定义 `KeyFuncs` 的示例可能如下所示：
+
+```c++
+    struct FMyStruct
+    {
+        // String which identifies our key
+        FString UniqueID;
+
+        // Some state which doesn't affect struct identity
+        float SomeFloat;
+
+        explicit FMyStruct(float InFloat)
+            :UniqueID (FGuid::NewGuid().ToString())
+            , SomeFloat(InFloat)
+        {
+        }
+    };
+    template <typename ValueType>
+    struct TMyStructMapKeyFuncs :
+        BaseKeyFuncs<
+            TPair<FMyStruct, ValueType>,
+            FString
+        >
+    {
+    private:
+        typedef BaseKeyFuncs<
+            TPair<FMyStruct, ValueType>,
+            FString
+        > Super;
+
+    public:
+        typedef typename Super::ElementInitType ElementInitType;
+        typedef typename Super::KeyInitType     KeyInitType;
+
+        static KeyInitType GetSetKey(ElementInitType Element)
+        {
+            return Element.Key.UniqueID;
+        }
+
+        static bool Matches(KeyInitType A, KeyInitType B)
+        {
+            return A.Compare(B, ESearchCase::CaseSensitive) == 0;
+        }
+
+        static uint32 GetKeyHash(KeyInitType Key)
+        {
+            return FCrc::StrCrc32(*Key);
+        }
+    };
+```
+
+`FMyStruct` 具有唯一标识符，以及一些与身份无关的其他数据。`GetTypeHash` 和 `运算符==` 不适用于此，因为 `运算符==` 为实现通用目的不应忽略任何类型的数据，但同时又需要如此才能与 `GetTypeHash` 的行为保持一致，后者只关注 `UniqueID` 字段。以下步骤有助于为 `FMyStruct` 创建自定义 `KeyFuncs`：
+
+1. 首先，继承 `BaseKeyFuncs`，因为它可以帮助定义某些类型，包括 `KeyInitType` 和 `ElementInitType`。
+    
+    `BaseKeyFuncs` 使用两个模板参数：映射的元素类型和键类型。和所有映射一样，元素类型是 `TPair`，使用 `FMyStruct` 作为其 `KeyType`，`TMyStructMapKeyFuncs` 的模板参数作为其 `ValueType`。将备用 `KeyFuncs` 用作模板，可为每个映射指定 `ValueType`，因此每次要在 `FMyStruct` 上创建键控 `TMap` 时不必定义新的 `KeyFuncs`。第二个 `BaseKeyFuncs` 参数是键类型，不要与元素存储的键区（`TPair` 的 `KeyType`）混淆。因为此映射应使用 `UniqueID`（来自 `FMyStruct`）作为键，所以此处使用 `FString`。
+    
+2. 然后，定义三个必需的 `KeyFuncs` 静态函数。第一个是 `GetSetKey`，该函数返回给定元素类型的键。由于元素类型是 `TPair`，而键是 `UniqueID`，所以该函数可直接返回 `UniqueID`。
+    
+    第二个静态函数是 `Matches`，该函数接受两个元素的键（由 `GetSetKey` 获取），然后比较它们是否相等。在 `FString` 中，标准的等效测试（`运算符==`）不区分大小写；要替换为区分大小写的搜索，请用相应的大小写对比选项使用 `Compare` 函数。
+    
+3. 最后，`GetKeyHash` 静态函数接受提取的键并返回其散列值。由于 `Matches` 函数区分大小写，`GetKeyHash` 也必须区分大小写。区分大小写的 `FCrc` 函数将计算键字符串的散列值。
+    
+4. 现在结构已满足 `TMap` 要求的行为，可创建它的实例。
+    
+
+`KeyFuncs` 参数处于最后，所以这个 `TMap`
+
+```c++
+    TMap<
+        FMyStruct,
+        int32,
+        FDefaultSetAllocator,
+        TMyStructMapKeyFuncs<int32>
+    > MyMapToInt32;
+
+    // Add some elements
+    MyMapToInt32.Add(FMyStruct(3.14f), 5);
+    MyMapToInt32.Add(FMyStruct(1.23f), 2);
+
+    // MyMapToInt32 == [
+    //  {
+    //      Key:{
+    //          UniqueID:"D06AABBA466CAA4EB62D2F97936274E4",
+    //          SomeFloat:3.14f
+    //      },
+    //      Value:5
+    //  },
+    //  {
+    //      Key:{
+    //          UniqueID:"0661218447650259FD4E33AD6C9C5DCB",
+    //          SomeFloat:1.23f
+    //      },
+    //      Value:5
+    //  }
+    // ]
+```
+
+`TMap` 假设两个项目使用 `Matches` 比较的结果相等，则它们会从 `GetKeyHash` 返回相同的值。此外，如果对现有映射元素的键进行的修改将会改变来自这两个函数中任一个的结果，那么系统会将这种修改视作未定义的行为，因为这会使映射的内部散列失效。这些规则也适用于使用默认 `KeyFuncs` 时 `运算符==` 和 `GetKeyHash`
+
+### 其他
+
+`CountBytes` 和 `GetAllocatedSize` 函数用于估计内部数组的当前内存使用情况。`CountBytes` 接受 `Farchive` 参数，而 `GetAllocatedSize` 则不会。这些函数常用于统计报告。
+
+`Dump` 函数接受 `FOutputDevice`，并写出关于映射内容的实现信息。此函数常用于调试。
