@@ -39440,6 +39440,7 @@ ValArr
 Vanilla
 ValueType
 ValueSort
+Verify
 verge
 vPdIt
 vertical
@@ -47217,6 +47218,7 @@ AnotherPointer
 AnotherObjectObserver
 AddUninitialized
 AddZeroed
+AUTDemoHUD
 URL
 Utools
 Users
@@ -59668,6 +59670,12 @@ RemoveSwap
 RemoveAtSwap
 RemoveAllSwap
 RemoveAndCopyValue
+RestrictedTagsUI
+RestrictedTagWarning
+RestrictedTagCaretMenu
+RestrictedTags
+RemovedAmountPineapple
+RemovedAmountLemon
 Microsoft
 Menu
 MicaForEveryone
@@ -64526,6 +64534,12 @@ Melon
 Mango
 MapsAndSets
 MyMapToInt
+MatchesTag
+MatchesTagExact
+MatchesAny
+MatchesAnyExact
+MatchesAll
+MatchesAllExact
 Windows
 Win
 World
@@ -73715,6 +73729,10 @@ SwapMemory
 Slack
 SomeFloat
 StrCrc
+SomeComponent
+SomeOtherComponent
+Species
+SetExample
 Programs
 POP
 PC
@@ -78059,6 +78077,9 @@ PointerTwo
 Pineapple
 Printf
 Pear
+Prints
+PtrBanana
+PtrLemon
 ContextMenuManager
 ClashVerge
 Clash
@@ -82648,6 +82669,9 @@ Chocolate
 CountBytes
 CreateConstIterators
 CaseSensitive
+Constructors
+ContructorHelpers
+ClassFinder
 ImTip
 IMAP
 ID
@@ -102591,6 +102615,8 @@ bLen
 bComparison
 bHas
 bFound
+bHasBanana
+bHasLemon
 fe
 front
 fill
@@ -124316,6 +124342,7 @@ stof
 stod
 stold
 strings
+slack
 local
 list
 left
@@ -147586,6 +147613,12 @@ HeapPop
 HeapPopDiscard
 HeapRemoveAt
 HeapTop
+HasTag
+HasTagExact
+HasAny
+HasAnyExact
+HasAll
+HasAllExact
 Bbb
 Bear
 Base
@@ -151393,6 +151426,7 @@ Brave
 BulkSerialize
 Banana
 BaseKeyFuncs
+BananaIndex
 Fraktur
 Frame
 Foo
@@ -155849,6 +155883,13 @@ FCrc
 FDefaultSetAllocator
 Farchive
 FOutputDevice
+FObjectInitializer
+Family
+FGameplayTag
+FGameplayTagContainer
+FruitSet
+FSetElementId
+FruitArray
 Element
 Entity
 Enity
@@ -160412,6 +160453,7 @@ EditDefaultsOnly
 EditInstanceOnly
 ElementInitType
 ESearchCase
+Ensure
 xmlns
 xyz
 xy
@@ -171125,6 +171167,8 @@ DragDropEvent
 DragDropOp
 DestroyMyObjectType
 Dump
+DefaultGameplayTags
+DefaultKeyFuncs
 LNK
 Log
 Linux
@@ -175325,6 +175369,8 @@ LineTraceSingle
 ListChildren
 LockedObserver
 LocalPrint
+Lemon
+LemonIndex
 Getx
 GetX
 GetName
@@ -180042,6 +180088,11 @@ GenerateKeyArray
 GenerateValueArray
 GetSetKey
 GetKeyHash
+Genus
+GameplayTags
+GameplayTagTableList
+GameplayTagRedirects
+GameplayTagsUIWithRestrictedTags
 NULL
 Native
 NormalMap
