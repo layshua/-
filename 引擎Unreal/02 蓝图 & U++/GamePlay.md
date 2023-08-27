@@ -1,3 +1,4 @@
+
 # 事件
 
 ## Actor
@@ -375,3 +376,8 @@ class AMyPlayerController : public APlayerController
 你的项目设置中的输入属性可能如下所示：
 
 ![[83bcde708ee30addd568e23d2a180ccc_MD5.jpg]]
+
+# 委托
+```c++ file:BossActor.h
+
+```

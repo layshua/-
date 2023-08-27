@@ -50,7 +50,28 @@ Actor 支持拥有一个 SceneComponent 的层级。每个 Actor 也拥有一个
 
 ![[Pasted image 20230826161240.png]]
 
-### 
+### Actor 通信
+
+### Ticking
+
+[Ticking](https://docs.unrealengine.com/5.2/zh-CN/actor-ticking-in-unreal-engine)代表Actor在虚幻引擎中的更新方式。所有Actor均能每帧tick，或以用户定义的最小间隔进行tick，以便执行必要的更新计算或操作。
+
+所有Actor均可通过 `Tick()` 函数默认被tick。
+
+**ActorComponents** 能够默认被更新，但其使用的是 `TickComponent()` 函数进行操作。 参见组件页面的[更新部分](https://docs.unrealengine.com/5.2/zh-CN/components-in-unreal-engine)了解详情。
+
+### 生命周期
+
+查看[Actor生命周期](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-actor-lifecycle)文档，了解如何在游戏中创建和移除Actor的更多信息。
+
+### 复制
+
+**复制** 用于在处理联网多人游戏时对场景中的Actor进行同步。属性值和函数调用均可被复制， 以便对客户端上游戏的状态进行完整控制。
+
+### 销毁Actor
+
+Actor 通常不会被垃圾回收，因为场景对象保存一个 Actor 引用的列表。调用 `Destroy()` 即可显式销毁 Actor。这会将其从关卡中移除，并将其标记为"待销毁"，这说明其在下次垃圾回收中被清理之前都将存在。
+
 ## Level 与 World
 一个或多个 Level 组成 World，每个 Level 保存当前所有的 Actors。
 WorldSetting 并不是设置 World 的属性（不要混肴），是针对 Level 的设置。仅代表当前一个关卡，并不是所有关卡。

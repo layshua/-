@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6df6a2d0017c5dd8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,12 +77,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GamePlay架构.md"
+                "file": "引擎Unreal/02 蓝图 & U++/U++.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -114,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -165,12 +178,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "55ca52777b487c83",
+  "active": "6df6a2d0017c5dd8",
   "lastOpenFiles": [
     "引擎Unreal/02 蓝图 & U++/GamePlay.md",
+    "引擎Unreal/02 蓝图 & U++/U++.md",
+    "引擎Unreal/03 Gameplay/GamePlay架构.md",
     "编程/C++/《C++ Primer》.md",
     "引擎Unreal/09 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md",
-    "引擎Unreal/02 蓝图 & U++/U++.md",
     "引擎Unreal/02 蓝图 & U++/UMG.md",
     "zip/images/Pasted image 20230827161330.png",
     "引擎Unreal/02 蓝图 & U++/U++编程规范.md",
@@ -197,7 +211,6 @@
     "引擎Unreal/05 Gameplay/ARPG.md",
     "引擎Unreal/09 教程剪藏/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
     "引擎Unreal/02 蓝图 & U++/蓝图开发最佳实践.md",
-    "引擎Unreal/03 Gameplay/GamePlay架构.md",
     "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/01 指南/问题汇总.md",
     "编程/C++/STL.md",
