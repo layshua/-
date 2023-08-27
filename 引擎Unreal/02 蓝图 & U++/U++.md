@@ -1255,7 +1255,7 @@ AnotherObjectObserver.Reset();
 `Tarray` 为数值类型，**建议在实际操作中勿使用 `new` 和 `delete` 创建或销毁 `TArray` 实例**。
 元素也为数值类型，为容器所拥有。`TArray` 被销毁时其中的元素也将被销毁。若在另一 `TArray` 中创建 `TArray` 变量，其元素将复制到新变量中，且不会共享状态。
 
-## 创建和填充数组
+### 创建和填充数组
 
 如要**创建数组**，将其以此定义：
 ```c++
@@ -1325,7 +1325,7 @@ StrArr.SetNum(6);
 // StrArr == ["Hello","Brave","World","of","Tomorrow","!"]
 ```
 
-## 遍历
+### 遍历
 
 - 建议使用**范围 for 循环**：
 ```c++
@@ -1356,7 +1356,7 @@ for (auto It = StrArr.CreateConstIterator(); It; ++It)
 }
 ```
 
-## 排序
+### 排序
 
 -  **`Sort`** ：快排算法，从小到大排序（数值按元素类型的 `<` 排序）
 
@@ -1394,7 +1394,7 @@ StrArr.StableSort([](const FString& A, const FString& B) {
 //"Brave"、"Hello"和"World"的相对排序不会改变。
 ```
 
-## 查询
+### 查询
 
 -  **`Num`** ：数组保存的元素数量：
 ```c++
@@ -1409,7 +1409,7 @@ uint32 ElementSize = StrArr.GetTypeSize();
 ```
 
 - **`GetData`**：直接访问数组内存（如用于确定 C 类 API 的互操作性），将指针返回到数组中的元素。仅在数组存在且未执行更改数组的操作时，此指针方有效。仅 `StrPtr` 的首个 `Num` 指数才可被解除引用。
-    - 返回的是指针，如容器为常量，则返回的指针也为常量。
+    - **返回的是指针**，如容器为常量，则返回的指针也为常量。
 ```c++
 FString* StrPtr = StrArr.GetData();
 // StrPtr[0] == "!"
@@ -1419,370 +1419,335 @@ FString* StrPtr = StrArr.GetData();
 // StrPtr[6] - undefined behavior
 ```
 
-
-**索引运算符 `[]`**： 获取元素，返回的是引用
-
-```
-    FString Elem1 = StrArr[1];
-    // Elem1 == "of"
-```
-
-传递小于0或大于等于`Num()`的无效索引将导致运行时错误。使用 **`IsValidIndex`** 函数询问容器，可确定特定索引是否有效：
-
+- **索引运算符 `[]`**： 获取元素
+    - **返回的是引用**，因此其还可用于改变数组中的元素（假定数组不为常量）。
+    - 传递小于 0 或大于等于 `Num()` 的无效索引将导致运行时错误。
+    - **`IsValidIndex`** ：询问容器，可确定特定索引是否有效
+    - 与 `GetData` 函数相同：如数组为常量，`[]` 将返回常量引用。
 ```c++
-bool bValidM1 = StrArr.IsValidIndex(-1);
-bool bValid0  = StrArr.IsValidIndex(0);
-bool bValid5  = StrArr.IsValidIndex(5);
-bool bValid6  = StrArr.IsValidIndex(6);
-// bValidM1 == false
-// bValid0  == true
-// bValid5  == true
-// bValid6  == false
-```
+FString Elem1 = StrArr[1];
+// Elem1 == "of"
 
-`[]` 将返回引用。因此其还可用于改变数组中的元素（假定数组不为常量）。
-
-```c++
-StrArr[3] = StrArr[3].ToUpper();
+StrArr[3] = StrArr[3].ToUpper(); 
 // StrArr == ["!","of","Brave","HELLO","World","Tomorrow"]
+
+bool bValidM1 = StrArr.IsValidIndex(-1);
+// bValidM1 == false
 ```
 
-与`GetData`函数相同：如数组为常量，`运算符[]` 将返回常量引用。还可使用 `Last` 函数从数组末端反向索引。索引默认为零。`Top` 函数是 `Last` 的同义词，唯一区别是其不接受索引：
+-  **`Last`** ：从数组末端反向索引。索引默认为零。`Top` 函数是 `Last` 的同义词，唯一区别是其不接受索引：
 
-```
-FString ElemEnd  = StrArr.Last();
+```c++
+FString ElemEnd  = StrArr.Last(); 
 FString ElemEnd0 = StrArr.Last(0);
-FString ElemEnd1 = StrArr.Last(1);
 FString ElemTop  = StrArr.Top();
 // ElemEnd  == "Tomorrow"
 // ElemEnd0 == "Tomorrow"
-// ElemEnd1 == "World"
 // ElemTop  == "Tomorrow"
 ```
 
-可询问数组是否包含特定元素：
-
-```
+- **`Contains`**：询问数组是否包含特定元素：
+```c++
 bool bHello   = StrArr.Contains(TEXT("Hello"));
-bool bGoodbye = StrArr.Contains(TEXT("Goodbye"));
 // bHello   == true
-// bGoodbye == false
 ```
 
-或询问数组是否包含与特定谓词匹配的元素：
+- **`ContainsByPredicate`**：或询问数组是否包含与特定谓词匹配的元素：
 
-```
-    bool bLen5 = StrArr.ContainsByPredicate([](const FString& Str){
-        return Str.Len() == 5;
-    });
-    bool bLen6 = StrArr.ContainsByPredicate([](const FString& Str){
-        return Str.Len() == 6;
-    });
-    // bLen5 == true
-    // bLen6 == false
+```c++
+//数组是否长度为5
+bool bLen5 = StrArr.ContainsByPredicate([](const FString& Str){
+    return Str.Len() == 5;
+});
+// bLen5 == true
 ```
 
-使用 `Find` 函数族可查找元素。可使用Find确定元素是否存在并返回其索引：
+-  **`Find`**：查找元素。确定元素是否存在并返回其索引（返回的是找到的首个元素）
+-  **`FindLast`** ：如存在重复元素而希望找到最末元素的索引
+- **两个形参，返回布尔**，指出是否已找到元素，同时在找到元素索引时将其写入变量。
+- **一个形参，返回索引**。如不将索引作为显式参数传递，这两个函数便会执行此操作。如未找到元素，将返回特殊 `INDEX_NONE` 值：
 
-```
-    int32 Index;
-    if (StrArr.Find(TEXT("Hello"), Index))
-    {
-        // Index == 3
-    }
-```
-
-此操作会将 `Index` 设为找到的首个元素的索引。如存在重复元素而希望找到最末元素的索引，则使用 `FindLast` 函数：
-
-```
-    int32 IndexLast;
-    if (StrArr.FindLast(TEXT("Hello"), IndexLast))
-    {
-        // IndexLast == 3, because there aren't any duplicates
-    }
-```
-
-两个函数均会返回布尔，指出是否已找到元素，同时在找到元素索引时将其写入变量。
-
-`Find` 和 `FindLast` 也可直接返回元素索引。如不将索引作为显式参数传递，这两个函数便会执行此操作。此将比上述函数更简洁，使用的函数则取决于特定需求或风格。
-
-如未找到元素，将返回特殊 `INDEX_NONE` 值：
-
-```
-    int32 Index2     = StrArr.Find(TEXT("Hello"));
-    int32 IndexLast2 = StrArr.FindLast(TEXT("Hello"));
-    int32 IndexNone  = StrArr.Find(TEXT("None"));
-    // Index2     == 3
-    // IndexLast2 == 3
-    // IndexNone  == INDEX_NONE
-```
-
-`IndexOfByKey` 的工作方式类似，不同元素可与任意对象比较。开始搜索前，使用 `Find` 函数会将参数实际转换为元素类型（此本例中为 `FString`）。使用 `IndexOfByKey`，可直接对不"键"，因此即使键类型无法直接转换为元素类型，也可进行搜索。
-
-`IndexOfByKey` 适用于存在 `运算符==(ElementType, KeyType)` 的键类型。`IndexOfByKey` 将返回找到的首个元素的索引；如未找到元素，则返回 `INDEX_NONE`：
-
-```
-    int32 Index = StrArr.IndexOfByKey(TEXT("Hello"));
+```c++
+int32 Index;
+if (StrArr.Find(TEXT("Hello"), Index))
+{
     // Index == 3
+}
 ```
 
-`IndexOfByPredicate` 函数用于查找与特定谓词匹配的首个元素的索引；如未找到，同样返回特殊 `INDEX_NONE` 值：
-
-```
-    int32 Index = StrArr.IndexOfByPredicate([](const FString& Str){
-        return Str.Contains(TEXT("r"));
-    });
-    // Index == 2
-```
-
-可将指针返回指向找到的元素，而不返回指数。`FindByKey` 与 `IndexOfByKey` 相似，将元素和任意对象进行对比，但返回指向所找到元素的指针。如未找到元素，则返回`nullptr`。
-
-```
-    auto* OfPtr  = StrArr.FindByKey(TEXT("of")));
-    auto* ThePtr = StrArr.FindByKey(TEXT("the")));
-    // OfPtr  == &StrArr[1]
-    // ThePtr == nullptr
+```c++
+int32 IndexLast;
+if (StrArr.FindLast(TEXT("Hello"), IndexLast))
+{
+    // IndexLast == 3, because there aren't any duplicates
+}
 ```
 
-`FindByPredicate` 的使用方式和 `IndexOfByPredicate` 相似，不同点是返回指针而非索引：
-
-```
-    auto* Len5Ptr = StrArr.FindByPredicate([](const FString& Str){
-        return Str.Len() == 5;
-    });
-    auto* Len6Ptr = StrArr.FindByPredicate([](const FString& Str){
-        return Str.Len() == 6;
-    });
-    // Len5Ptr == &StrArr[2]
-    // Len6Ptr == nullptr
+```c++
+int32 Index2     = StrArr.Find(TEXT("Hello"));
+int32 IndexLast2 = StrArr.FindLast(TEXT("Hello"));
+int32 IndexNone  = StrArr.Find(TEXT("None"));
+// Index2     == 3
+// IndexLast2 == 3
+// IndexNone  == INDEX_NONE
 ```
 
-最后，使用 `FilterByPredicate` 函数可获取与特定谓词匹配的元素数组：
+-  **`IndexOfByKey`** 的工作方式类似，不同元素可与任意对象比较。开始搜索前，使用 `Find` 函数会将参数实际转换为元素类型（此本例中为 `FString`）。使用 `IndexOfByKey`，可直接对不"键"，因此即使键类型无法直接转换为元素类型，也可进行搜索。
 
-```
-    auto Filter = StrArray.FilterByPredicate([](const FString& Str){
-        return !Str.IsEmpty() && Str[0] < TEXT('M');
-    });
-```
+`IndexOfByKey` 适用于存在 `运算符==(ElementType, KeyType)` 的键类型。`IndexOfByKey` 将返回找到的首个元素的**索引**；如未找到元素，则返回 `INDEX_NONE`：
 
-## 移除
-
-`Remove` 函数族用于移除数组中的元素。`Remove` 函数将根据元素类型的 `运算符==` 函数移除所有与提供元素等值的元素。例如：
-
-```
-    TArray<int32> ValArr;
-    int32 Temp[] = { 10, 20, 30, 5, 10, 15, 20, 25, 30 };
-    ValArr.Append(Temp, ARRAY_COUNT(Temp));
-    // ValArr == [10,20,30,5,10,15,20,25,30]
-
-    ValArr.Remove(20);
-    // ValArr == [10,30,5,10,15,25,30]
+```c++
+int32 Index = StrArr.IndexOfByKey(TEXT("Hello"));
+// Index == 3
 ```
 
-`RemoveSingle` 也可用于擦除数组中的首个匹配元素。以下情况尤为实用——此函数在数组中可能存在重复，而只希望擦除一个时；或作为优化，数组只能包含一个匹配元素时：
-
-```
-    ValArr.RemoveSingle(30);
-    // ValArr == [10,5,10,15,25,30]
-```
-
-`RemoveAt` 函数也可用于按照从零开始的索引移除元素。可使用 `IsValidIndex` 确定数组中的元素是否使用计划提供的索引，将无效索引传递给此函数会导致运行时错误：
-
-```
-    ValArr.RemoveAt(2); // Removes the element at index 2
-    // ValArr == [10,5,15,25,30]
-
-    ValArr.RemoveAt(99); // This will cause a runtime error as
-                           // there is no element at index 99
+- **`IndexOfByPredicate`**: 用于查找与特定谓词匹配的首个元素的**索引**；如未找到，同样返回特殊 `INDEX_NONE` 值。可将指针返回指向找到的元素，而不返回指数。
+```c++
+int32 Index = StrArr.IndexOfByPredicate([](const FString& Str){
+    return Str.Contains(TEXT("r"));
+});
+// Index == 2
 ```
 
-`RemoveAll` 也可用于函数移除与谓词匹配的元素。例如，移除为3倍数的所有数值：
+- **`FindByKey`**： 与 `IndexOfByKey` 相似，将元素和任意对象进行对比，但返回指向所找到元素的**指针**。如未找到元素，则返回 `nullptr`。
 
-```
-    ValArr.RemoveAll([](int32 Val) {
-        return Val % 3 == 0;
-    });
-    // ValArr == [10,5,25]
-```
-
-在所有这些情况中，由于数组中不能出现空位，因此移除元素时其后的元素将被下移到更低指数中。
-
-移动过程存在开销。如不需要剩余元素排序，可使用 `RemoveSwap`、`RemoveAtSwap` 和 `RemoveAllSwap` 函数减少此开销。此类函数的工作方式与其非交换变种相似，不同之处在于其不保证剩余元素的排序，因此可更快地完成任务：
-
-```
-    TArray<int32> ValArr2;
-    for (int32 i = 0; i != 10; ++i)
-        ValArr2.Add(i % 5);
-    // ValArr2 == [0,1,2,3,4,0,1,2,3,4]
-
-    ValArr2.RemoveSwap(2);
-    // ValArr2 == [0,1,4,3,4,0,1,3]
-
-    ValArr2.RemoveAtSwap(1);
-    // ValArr2 == [0,3,4,3,4,0,1]
-
-    ValArr2.RemoveAllSwap([](int32 Val) {
-        return Val % 3 == 0;
-    });
-    // ValArr2 == [1,4,4]
+```c++
+auto* OfPtr  = StrArr.FindByKey(TEXT("of")));
+auto* ThePtr = StrArr.FindByKey(TEXT("the")));
+// OfPtr  == &StrArr[1]
+// ThePtr == nullptr
 ```
 
-最后，可使用 `Empty` 函数移除数组中所有元素：
-
+- **`FindByPredicate`** ：的使用方式和 `IndexOfByPredicate` 相似，不同点是返回**指针**而非索引：
+```c++
+auto* Len5Ptr = StrArr.FindByPredicate([](const FString& Str){
+    return Str.Len() == 5;
+});
+auto* Len6Ptr = StrArr.FindByPredicate([](const FString& Str){
+    return Str.Len() == 6;
+});
+// Len5Ptr == &StrArr[2]
+// Len6Ptr == nullptr
 ```
-    ValArr2.Empty();
-    // ValArr2 == []
+
+-  **`FilterByPredicate`** ：函数可获取与特定谓词匹配的元素数组：
+```c++
+auto Filter = StrArray.FilterByPredicate([](const FString& Str){
+    return !Str.IsEmpty() && Str[0] < TEXT('M');
+});
 ```
 
-## 运算符
+### 移除
+
+- **`Remove`**：根据元素类型的 `运算符==` 函数**移除所有与提供元素等值的元素**。
+```c++
+TArray<int32> ValArr;
+int32 Temp[] = { 10, 20, 30, 5, 10, 15, 20, 25, 30 };
+ValArr.Append(Temp, ARRAY_COUNT(Temp));
+// ValArr == [10,20,30,5,10,15,20,25,30]
+
+ValArr.Remove(20);
+// ValArr == [10,30,5,10,15,25,30]
+```
+
+- **`RemoveSingle`** ：**移除数组中的首个匹配元素**。以下情况尤为实用——此函数在数组中可能存在重复，而只希望擦除一个时；或作为优化，数组只能包含一个匹配元素时：
+```c++
+ValArr.RemoveSingle(30);
+// ValArr == [10,5,10,15,25,30]
+```
+
+- **`RemoveAt`** ：**按照从零开始的索引移除元素**。可使用 `IsValidIndex` 确定数组中的元素是否使用计划提供的索引，将无效索引传递给此函数会导致运行时错误：
+
+```c++
+ValArr.RemoveAt(2); // Removes the element at index 2
+// ValArr == [10,5,15,25,30]
+
+ValArr.RemoveAt(99); // This will cause a runtime error as
+                       // there is no element at index 99
+```
+
+- **`RemoveAll`** ：移除与谓词匹配的元素。
+```c++
+//移除为3倍数的所有数值：
+ValArr.RemoveAll([](int32 Val) {
+    return Val % 3 == 0;
+});
+// ValArr == [10,5,25]
+```
+
+- 移除某个元素后其后的元素将前移，该移动过程存在开销。如不需要剩余元素排序，可使用 **`RemoveSwap`**、**`RemoveAtSwap`** 和 **`RemoveAllSwap`** 函数减少此开销。此类函数的工作方式与其对应的非 Swap 函数相似，**不同之处在于其不保证剩余元素的排序，因此可更快地完成任务：**
+```c++
+TArray<int32> ValArr2;
+for (int32 i = 0; i != 10; ++i)
+    ValArr2.Add(i % 5);
+// ValArr2 == [0,1,2,3,4,0,1,2,3,4]
+
+ValArr2.RemoveSwap(2);
+// ValArr2 == [0,1,4,3,4,0,1,3]
+
+ValArr2.RemoveAtSwap(1);
+// ValArr2 == [0,3,4,3,4,0,1]
+
+ValArr2.RemoveAllSwap([](int32 Val) {
+    return Val % 3 == 0;
+});
+// ValArr2 == [1,4,4]
+```
+
+-  **`Empty`** ：移除数组中所有元素：
+```c++
+ValArr2.Empty();
+// ValArr2 == []
+```
+
+### 运算符
 
 数组是常规数值类型，可使用标准复制构造函数或赋值运算符进行复制。由于数组严格拥有其元素，复制数组的操作是深层的，因此新数组将拥有其自身的元素副本：
 
-```
-    TArray<int32> ValArr3;
-    ValArr3.Add(1);
-    ValArr3.Add(2);
-    ValArr3.Add(3);
+```c++
+TArray<int32> ValArr3;
+ValArr3.Add(1);
+ValArr3.Add(2);
+ValArr3.Add(3);
 
-    auto ValArr4 = ValArr3;
-    // ValArr4 == [1,2,3];
-    ValArr4[0] = 5;
-    // ValArr3 == [1,2,3];
-    // ValArr4 == [5,2,3];
+auto ValArr4 = ValArr3;
+// ValArr4 == [1,2,3];
+ValArr4[0] = 5;
+// ValArr3 == [1,2,3];
+// ValArr4 == [5,2,3];
 ```
 
-作为 `Append` 函数的替代，可使用 `运算符+=` 对数组进行串联：
+作为 `Append` 函数的替代，可使用  **`+=`**  对数组进行串联：
 
-```
+```c++
     ValArr4 += ValArr3;
     // ValArr4 == [5,2,3,1,2,3]
 ```
 
-`TArray` 还支持移动语义，使用 `MoveTemp` 函数可调用这些语义。移动后，源数组必定为空：
-
-```
+`TArray` 还**支持移动语义**，使用 **`MoveTemp`** 函数可调用这些语义。**移动后，源数组必定为空：**
+```c++
     ValArr3 = MoveTemp(ValArr4);
     // ValArr3 == [5,2,3,1,2,3]
     // ValArr4 == []
 ```
 
-使用 `运算符==` 和 `运算符!=` 可对数组进行比较。元素的排序很重要：只有元素的顺序和数量相同时，两个数组才被视为相同。元素通过其自身的 `运算符==` 进行比较：
+使用 `运算符==` 和 `运算符!=` 可对数组进行比较。**元素的排序很重要：只有元素的顺序和数量相同时，两个数组才被视为相同。** 元素通过其自身的 `运算符==` 进行比较：
 
+```c++
+TArray<FString> FlavorArr1;
+FlavorArr1.Emplace(TEXT("Chocolate"));
+FlavorArr1.Emplace(TEXT("Vanilla"));
+// FlavorArr1 == ["Chocolate","Vanilla"]
+
+auto FlavorArr2 = Str1Array;
+// FlavorArr2 == ["Chocolate","Vanilla"]
+
+bool bComparison1 = FlavorArr1 == FlavorArr2;
+// bComparison1 == true
+
+for (auto& Str :FlavorArr2)
+{
+    Str = Str.ToUpper();
+}
+// FlavorArr2 == ["CHOCOLATE","VANILLA"]
+
+bool bComparison2 = FlavorArr1 == FlavorArr2;
+// bComparison2 == true, because FString comparison ignores case
+
+Exchange(FlavorArr2[0], FlavorArr2[1]);
+// FlavorArr2 == ["VANILLA","CHOCOLATE"]
+
+bool bComparison3 = FlavorArr1 == FlavorArr2;
+// bComparison3 == false, because the order has changed
 ```
-    TArray<FString> FlavorArr1;
-    FlavorArr1.Emplace(TEXT("Chocolate"));
-    FlavorArr1.Emplace(TEXT("Vanilla"));
-    // FlavorArr1 == ["Chocolate","Vanilla"]
 
-    auto FlavorArr2 = Str1Array;
-    // FlavorArr2 == ["Chocolate","Vanilla"]
-
-    bool bComparison1 = FlavorArr1 == FlavorArr2;
-    // bComparison1 == true
-
-    for (auto& Str :FlavorArr2)
-    {
-        Str = Str.ToUpper();
-    }
-    // FlavorArr2 == ["CHOCOLATE","VANILLA"]
-
-    bool bComparison2 = FlavorArr1 == FlavorArr2;
-    // bComparison2 == true, because FString comparison ignores case
-
-    Exchange(FlavorArr2[0], FlavorArr2[1]);
-    // FlavorArr2 == ["VANILLA","CHOCOLATE"]
-
-    bool bComparison3 = FlavorArr1 == FlavorArr2;
-    // bComparison3 == false, because the order has changed
-```
-
-## 堆
+### 堆
 
 `TArray` 拥有支持二叉堆数据结构的函数。堆是一种二叉树，其中父节点的排序等于或高于其子节点。作为数组实现时，树的根节点位于元素0，索引N处节点的左右子节点的指数分别为2N+1和2N+2。子节点彼此间不存在特定排序。
 
-调用 `Heapify` 函数可将现有数组转换为堆。此会重载为是否接受谓词，无谓词的版本将使用元素类型的 `运算符<` 确定排序：
-
-```
-    TArray<int32> HeapArr;
-    for (int32 Val = 10; Val != 0; --Val)
-    {
-        HeapArr.Add(Val);
-    }
-    // HeapArr == [10,9,8,7,6,5,4,3,2,1]
-    HeapArr.Heapify();
-    // HeapArr == [1,2,4,3,6,5,8,10,7,9]
+-  **`Heapify`** ：将现有数组转换为堆。此会重载为是否接受谓词，无谓词的版本将使用元素类型的 `运算符<` 确定排序：
+```c++
+TArray<int32> HeapArr;
+for (int32 Val = 10; Val != 0; --Val)
+{
+    HeapArr.Add(Val);
+}
+// HeapArr == [10,9,8,7,6,5,4,3,2,1]
+HeapArr.Heapify();
+// HeapArr == [1,2,4,3,6,5,8,10,7,9]
 ```
 
 下图为树的展示：
 
-![image alt text](https://docs.unrealengine.com/5.2/Images/programming-and-scripting/programming-language-implementation/containers-in-unreal-engine/TArrays/image_0.jpg)
+![[ebc25c012f14a4da679ba8e79239d9fd_MD5.jpg]]
 
 树中的节点按堆化数组中元素的排序从左至右、从上至下读取。注意：数组在转换为堆后无需排序。排序数组也是有效堆，但堆结构的定义较为宽松，同一组元素可存在多个有效堆。
 
-通过HeapPush函数可将新元素添加到堆，对其他节点进行重新排序，以对堆进行维护：
-
-```
-    HeapArr.HeapPush(4);
-    // HeapArr == [1,2,4,3,4,5,8,10,7,9,6]
-```
-
-![image alt text](https://docs.unrealengine.com/5.2/Images/programming-and-scripting/programming-language-implementation/containers-in-unreal-engine/TArrays/image_1.jpg)
-
-`HeapPop` 和 `HeapPopDiscard` 函数用于移除堆的顶部节点。这两个函数的区别在于前者引用元素的类型来返回顶部元素的副本，而后者只是简单地移除顶部节点，不进行任何形式的返回。两个函数得出的数组变更一致，重新正确排序其他元素可对堆进行维护：
-
-```
-    int32 TopNode;
-    HeapArr.HeapPop(TopNode);
-    // TopNode == 1
-    // HeapArr == [2,3,4,6,4,5,8,10,7,9]
+- **`HeapPush`**：将新元素添加到堆，对其他节点进行重新排序，以对堆进行维护：
+```c++
+HeapArr.HeapPush(4);
+// HeapArr == [1,2,4,3,4,5,8,10,7,9,6]
 ```
 
-![image alt text](https://docs.unrealengine.com/5.2/Images/programming-and-scripting/programming-language-implementation/containers-in-unreal-engine/TArrays/image_2.jpg)
+![[3c72916abfbce477554a0ac63d9711eb_MD5.jpg]]
 
-`HeapRemoveAt` 将删除数组中给定索引处的元素，然后重新排列元素，对堆进行维护：
+- **`HeapPop`** 和 **`HeapPopDiscard`** ：用于移除堆的顶部节点。这两个函数的区别在于前者引用元素的类型来返回顶部元素的副本，而后者只是简单地移除顶部节点，不进行任何形式的返回。两个函数得出的数组变更一致，重新正确排序其他元素可对堆进行维护：
 
+```c++
+int32 TopNode;
+HeapArr.HeapPop(TopNode);
+// TopNode == 1
+// HeapArr == [2,3,4,6,4,5,8,10,7,9]
 ```
-    HeapArr.HeapRemoveAt(1);
-    // HeapArr == [2,4,4,6,9,5,8,10,7]
+
+![[132b01cd79f6a706f2f89baae1a8bf1b_MD5.jpg]]
+
+- **`HeapRemoveAt`**： 将删除数组中给定索引处的元素，然后重新排列元素，对堆进行维护：
+```c++
+HeapArr.HeapRemoveAt(1);
+// HeapArr == [2,4,4,6,9,5,8,10,7]
 ```
 
-![image alt text](https://docs.unrealengine.com/5.2/Images/programming-and-scripting/programming-language-implementation/containers-in-unreal-engine/TArrays/image_3.jpg)
+![[f54cd1b8099a40e6a5e5518a08c5f2ba_MD5.jpg]]
 
 `Heapify` 调用、其他堆操作或手动将数组操作到堆中之后），才应调用 `HeapPush`、`HeapPop`、`HeapPopDiscard` 和 `HeapRemoveAt`
 
 此类函数（包括 `Heapify`）都可选择使用二元谓词决定堆中节点元素的排序。堆操作默认使用元素类型的 `运算符<` 确定排序。如使用自定义谓词，须在所有堆操作中使用相同谓词。
 
-最后，可使用 `HeapTop` 检查堆的顶部节点，无需变更数组：
-
+-  **`HeapTop` ：检查堆的顶部节点，无需变更数组：
+```c++
+int32 Top = HeapArr.HeapTop();
+// Top == 2
 ```
-    int32 Top = HeapArr.HeapTop();
-    // Top == 2
-```
 
-## Slack
+### Slack
 
-可调整数组的大小，因此使用的内存量不同。为避免每次添加元素时重新分配内存，分配器提供的内存通常会超过必要内存，使之后调用 `Add` 时不会因重新分配内存而降低性能。同样，删除元素通常不会释放内存.此操作会使数组拥有Slack元素，也就是当前未使用的有效预分配元素储存槽。数组中存储的元素量与数组使用分配内存可存储的元素数量间的差值即为数组中的Slack量。
+为避免每次添加元素时重新分配内存，分配器提供的内存通常会超过必要内存，使之后调用 `Add` 时不会因重新分配内存而降低性能。同样，**删除元素通常不会释放内存.此操作会使数组拥有 `Slack` 元素，也就是当前未使用的有效预分配元素储存槽**。
+**数组中存储的元素量与数组使用分配内存可存储的元素数量间的差值即为数组中的Slack量。**
+默认构建的数组不分配内存，Slack 初始为零。
 
-由于默认构建的数组不分配内存，Slack初始为零。使用 `GetSlack` 函数可找出数组中的Slack量。通过 `Max` 函数可获取容器重新分配前数组可保存的最大元素数量。`GetSlack` 等同 `Max` 和 `Num` 间的差值：
+-  **`GetSlack`** 函数可找出数组中的 Slack 量。
+-  `Max` 函数可获取容器重新分配前数组可保存的最大元素数量。
+- `GetSlack` 等同 `Max` 和 `Num` 间的差值：
 
-```
-    TArray<int32> SlackArray;
-    // SlackArray.GetSlack() == 0
-    // SlackArray.Num()      == 0
-    // SlackArray.Max()      == 0
+```c++
+TArray<int32> SlackArray;
+// SlackArray.GetSlack() == 0
+// SlackArray.Num()      == 0
+// SlackArray.Max()      == 0
 
-    SlackArray.Add(1);
-    // SlackArray.GetSlack() == 3
-    // SlackArray.Num()      == 1
-    // SlackArray.Max()      == 4
+SlackArray.Add(1);
+// SlackArray.GetSlack() == 3
+// SlackArray.Num()      == 1
+// SlackArray.Max()      == 4
 
-    SlackArray.Add(2);
-    SlackArray.Add(3);
-    SlackArray.Add(4);
-    SlackArray.Add(5);
-    // SlackArray.GetSlack() == 17
-    // SlackArray.Num()      == 5
-    // SlackArray.Max()      == 22
+SlackArray.Add(2);
+SlackArray.Add(3);
+SlackArray.Add(4);
+SlackArray.Add(5);
+// SlackArray.GetSlack() == 17
+// SlackArray.Num()      == 5
+// SlackArray.Max()      == 22
 ```
 
 分配器确定重新分配后容器中的Slack量。因此，用户不应认为Slack是常量。
@@ -1835,7 +1800,7 @@ bool bGoodbye = StrArr.Contains(TEXT("Goodbye"));
     // SlackArray.Max()      == 4
 ```
 
-## 原始内存
+### 原始内存
 
 本质上而言，`TArray` 只是分配内存周围的包装器。直接修改分配的字节和自行创建元素即可将其用作包装器，此操作十分实用。`Tarray` 将尽量利用其拥有的信息进行执行，但有时需降低一个等级。
 
@@ -1907,7 +1872,7 @@ bool bGoodbye = StrArr.Contains(TEXT("Goodbye"));
 
 应谨慎使用"Uninitialized"和"Zeroed"函数族。如函数类型包含要构建的成员或未处于有效按位清零状态的成员，可导致数组元素无效和未知行为。此类函数适用于固定的数组类型，例如FMatrix和FVector。
 
-## 其他
+### 其他
 
 `BulkSerialize` 函数是序列化函数，可用作替代 `运算符<<`，将数组作为原始字节块进行序列化，而非执行逐元素序列化。如使用内置类型或纯数据结构体等浅显元素，可改善性能。
 
