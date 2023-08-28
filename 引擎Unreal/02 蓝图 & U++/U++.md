@@ -2905,7 +2905,51 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 
 `Dump` 函数接受 `FOutputDevice` 并写出关于集合内容的实现信息。还有一个名为 `DumpHashElements` 的函数，可列出来自所有散列条目的所有元素。这些函数常用于调试。
 # 字符串
-[虚幻引擎中的字符串处理 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/string-handling-in-unreal-engine/)
+## TCHAR 与 TEXT()
+对于大多数情况下，虚幻依靠 `TCHAR` 类型来表示字符。`TEXT()` 宏可用于表示 `TCHAR` 文字。
+
+```c++
+MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
+```
+
+## FName
+
+[虚幻引擎中的FName | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/fname-in-unreal-engine/)
+
+`FName` 是**对全局字符串表中不可变且不区分大小写的字符串的引用**。相较于 FString，它的大小更小，更能高效的传递，但更难以操控。
+
+在 **内容浏览器中为新资源命名时** ，**变更动态材质实例中的参数**或**访问骨骼网格体中的一块骨骼时**需要使用 **`FName`**。 FName 通过一个轻型系统使用字符串。在此系统中，特定字符串即使会被重复使用，在数据表中也只存储一次。
+
+`FName` 不区分大小写。它们为不可变，无法被操作。FNames 的存储系统和静态特性决定了通过键进行 FNames 的查找和访问速度较快。 FName 子系统的另一个功能是使用散列表为 FName 转换提供快速字符串。
+
+
+
+## FText
+[虚幻引擎中的FText | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/ftext-in-unreal-engine/)
+
+- `FText` 是指定**用于处理本地化的更可靠的字符串表示**。
+
+在 **虚幻引擎** 中，[文本本地化](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)的主要组件是 `FText` 类。此类通过提供下列功能支持文本本地化，**因此面向用户的所有文本都应使用此类：**
+
+- [创建本地化的文本文字。](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)
+- [设置文本格式](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)（根据占位符模式生成文本）。
+- [根据数字生成文本。](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)
+- [根据日期时间生成文本。](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)
+- [生成衍生文本](https://docs.unrealengine.com/5.2/zh-CN/text-localization-in-unreal-engine)，如将文本设为大写或小写。
+
+`Ftext` 同时具有 `AsCultureInvariant` 函数（或 `INVTEXT` 宏），可创建非本地化的（即"语言不变"）文本。这在进行如将玩家名从外部API转换为可在用户界面显示的文本等操作时，十分有用。
+
+可使用 `FText::GetEmpty()` 或仅使用 `FText()`,创建空白 `FText`。
+
+## FString
+[虚幻引擎中的FString | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/fstring-in-unreal-engine/)
+ 
+  
+`FString` 是典型的"动态字符数组"字符串类型。
+
+与 `FName` 和 `FText` 不同，`FString` 可以与搜索、修改并且与其他字符串比较。不过，这些操作会导致 `FString` 的开销比不可变字符串类更大。这是因为 **`FString` 对象保存自己的字符数组，而 `FName` 和 `FText` 对象保存共享字符数组的指针，并且可以完全根据索引值建立相等性。**
+
+
 # 委托
 **委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。虚幻引擎共支持三种类型的委托：
 

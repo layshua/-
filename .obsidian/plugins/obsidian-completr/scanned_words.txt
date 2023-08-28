@@ -8092,6 +8092,9 @@ OfPtr
 Orange
 OnConstruction
 OnActorSpawned
+OpenRead
+OpenWrite
+OutputLog
 codeup
 clash
 ctrl
@@ -47244,6 +47247,7 @@ ABcompare
 ArgS
 AddisonWesley
 AddToWorld
+AddToRoot
 URL
 Utools
 Users
@@ -51125,6 +51129,7 @@ UninitInts
 UninitStrs
 UniqueID
 UserObject
+UnPossess
 api
 ac
 app
@@ -64572,6 +64577,7 @@ MatchesAny
 MatchesAnyExact
 MatchesAll
 MatchesAllExact
+MyPlayerName
 Windows
 Win
 World
@@ -82720,6 +82726,10 @@ Constructors
 ContructorHelpers
 ClassFinder
 CameraComponent
+ConvertRelativePathToFull
+CopyDirctorTree
+CopyFile
+CreateDirectory
 ImTip
 IMAP
 ID
@@ -114966,6 +114976,7 @@ TMaps
 TArrays
 TMyStructMapKeyFuncs
 Trex
+TActorItertor
 io
 ipad
 it
@@ -147697,6 +147708,7 @@ HasAny
 HasAnyExact
 HasAll
 HasAllExact
+HelloUE
 Bbb
 Bear
 Base
@@ -151511,6 +151523,7 @@ BindDynamic
 BlobPtr
 Blob
 BeginDestroy
+BlueprintReadWrite
 Fraktur
 Frame
 Foo
@@ -155977,6 +155990,16 @@ FruitArray
 FMyClass
 FinishSpawningActor
 FinishDestroy
+FRegexPattern
+FRegexMatcher
+FPaths
+FileExists
+FastXML
+FXmlFile
+FJsonSerializer
+FJsonValue
+FPlatformFileManager
+FText
 Element
 Entity
 Enity
@@ -171258,6 +171281,9 @@ Dump
 DefaultGameplayTags
 DefaultKeyFuncs
 DebugDelete
+DeleteDirectory
+DeleteFile
+DeveloperTools
 LNK
 Log
 Linux
@@ -175461,6 +175487,8 @@ LocalPrint
 Lemon
 LemonIndex
 LoadMap
+LOG
+LogMy
 Getx
 GetX
 GetName
@@ -180183,6 +180211,10 @@ GameplayTags
 GameplayTagTableList
 GameplayTagRedirects
 GameplayTagsUIWithRestrictedTags
+GENERAED
+GameDir
+GConfig
+GetPlatformFile
 NULL
 Native
 NormalMap
