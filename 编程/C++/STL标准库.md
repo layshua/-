@@ -1,6 +1,7 @@
 
 # 一、顺序容器
-容器均定义为模板类
+**容器**用于表示由同类型元素构成的、长度可变的元素序列。
+容器是由类模板来实现的，模板的参数是容器中元素的类型。
 
 `vector`
 **可变大小数组**。支持快速随机访问。在尾部之外的位置插入或删除元素可能很慢
@@ -520,6 +521,19 @@ string s5 = s.substr(12);  //抛出一个out_of_range异常
 >
 >一般来说，C++程序应该使用名为 cname 的头文件而不使用 name. h 的形式。
 
+## 8 链表 list 容器算法 
+ 
+> [!NOTE] 
+> 对于 list 和 forward_list，应该**优先使用成员函数版本**的算法而不是通用算法。
+>
+链表特有的操作会改变底层的容器
+
+ ![[Pasted image 20230212235051.png]]
+![[Pasted image 20230212235106.png]]
+
+特有的 splice 成员
+![[Pasted image 20230212235202.png]]
+
 ## 顺序容器适配器
 容器、迭代器和函数都有**适配器（adaptor）**，标准库定义了三个顺序容器适配器：
 **stack** 栈适配器
@@ -928,6 +942,7 @@ adjacent_find (beg, end)
 adjacent_find (beg, end, binaryPred)
 ```
 **`adjacent_find`**：返回指向**第一对**相邻重复元素的迭代器。如果序列中无相邻重复元素，则返回 end。
+>adjacent：邻近的
 
 ```c++
 search_n(beg, end, count, val)
@@ -1311,18 +1326,18 @@ includes (beg,end,beg2, end2, comp)
 set_union (beg, end, beg2, end2, dest)
 set_union (beg, end, beg2, end2, dest, comp)
 ```
-**`set_union`**：对两个序列中的所有元素，创建它们的有序序列。两个序列都包含的元素在输出序列中只出现一次。输出序列保存在 dest 中。
+**`set_union并集`**：对两个序列中的所有元素，创建它们的有序序列。两个序列都包含的元素在输出序列中只出现一次。输出序列保存在 dest 中。
 ```c++
 set_intersection (beg, end, beg2, end2, dest)
 set_intersection (beg, end, beg2, end2, dest, comp)
 ```
-**`set_intersection`**：对两个序列都包含的元素创建一个有序序列。结果序列保存在 dest 中。
+**`set_intersection交集`**：对两个序列都包含的元素创建一个有序序列。结果序列保存在 dest 中。
 
 ```c++
 set_difference (beg, end, beg2, end2, dest)
 set_difference (beg, end, beg2, end2, dest, comp)
 ```
-**`set_difference`**:对出现在第一个序列中，但不在第二个序列中的元素，创建一个有序序列。
+**`set_difference差集`**:对出现在第一个序列中，但不在第二个序列中的元素，创建一个有序序列。
 
 ```c++
 set_symmetric_difference (beg, end，beg2, end2, dest)

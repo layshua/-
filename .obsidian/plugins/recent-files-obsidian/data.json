@@ -5,12 +5,12 @@
       "path": "编程/C++/STL标准库.md"
     },
     {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
       "basename": "STL",
       "path": "编程/C++/STL.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "GamePlay",
