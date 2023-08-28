@@ -14,10 +14,10 @@
 `UINTERFACE()` 和 `USTRUCT()` 宏， 以及用于指定 [类](https://docs.unrealengine.com/5.2/zh-CN/class-specifiers)、函数、属性、 接口或 结构体 在虚幻引擎和虚幻编辑器中行为的每个宏关键词。
 `UPARAM()` 宏，主要用于将 C++ 代码公开到蓝图。在 [向蓝图公开游戏逻辑内容](https://docs.unrealengine.com/5.2/zh-CN/exposing-gameplay-elements-to-blueprints-visual-scripting-in-unreal-engine) 文档中可查看 UPARAM() 的使用范例。
 ## 断言
-在 C 和 C++编程中，`assert` 可在开发期间帮助检测和诊断不正常或无效的运行时条件。这些条件通常检查是否指针为非空、除数为非零、函数并非递归运行，或代码要求的其他重要假设。但**每次检查会使得效率十分低下**。某些情况下，`assert` 会在延迟崩溃发生之前发现导致该崩溃的 bug，例如删除未来 tick 所需的对象，协助开发人员发现引起崩溃的根本原因。
+
 **`assert` 的关键特性之一是不存在于发布代码中，这意味着不但不会影响发布产品的性能，也没有任何副作用**。**对 `assert` 最简单的理解就是："断言"必须一律为 true，否则程序会停止运行。**
 
-虚幻引擎提供 `assert` 等同项的三个不同族系：`check`、`verify` 和 `ensure`。若要检查这些功能背后的代码，可在 `Engine/Source/Runtime/Core/Public/Misc/AssertionMacros.h` 中找到相关的宏。各个功能的行为略有不同，但它们都是开发期间使用的诊断工具，目标大致相同。
+虚幻引擎提供 `assert` 等同项的三个不同族系：`check`、`verify` 和 `ensure`。各个功能的行为略有不同，但它们都是开发期间使用的诊断工具，目标大致相同。
 
 ### Check
 
@@ -33,22 +33,20 @@ Check族系最接近基础 `assert`，因为当第一个参数得出的值为fa
 |`checkNoRecursion`|（无）|若此行被hit超过一次而未离开作用域，则停止执行|
 |`unimplemented`|（无）|若此行被hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数|
 
-检查宏在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中运行（以"Slow"结尾的宏除外，其仅在调试（Debug）版本中运行）。定义 `USE_CHECKS_IN_SHIPPING` 以保留一个true值（通常为 `1`），使Check宏可在所有版本中运行。此法在以下情况中十分实用：怀疑Check宏中的代码正在修改值；发现了仅存在于在发布版本中且难以追踪的bug，但认为现有Check宏能找到这些bug。项目发布时应将 `USE_CHECKS_IN_SHIPPING` 设为默认值 `0`。
-
 ### Verify
 
-在大部分版本中，Verify族系的行为与Check族系相同。但即便在禁用Check宏的版本中，Verify宏也会计算其表达式的值。这意味着仅当该表达式需要独立于诊断检查之外运行时，才应使用Verify宏。举例而言，若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用Verify而非Check来确保该操作成功。因为在发布版本中Verify将忽略返回值，但仍将执行操作。而Check在发布版本中根本不调用该函数，所以行为才会有所不同。
+**若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
 
 |宏|参数|行为|
 |---|---|---|
 |`verify` 或 `verifySlow`|`Expression`|若 `Expression` 为false，停止执行|
 |`verify` 或 `verifyfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
 
-验证宏在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中完整运行（以"Slow"结尾的宏除外，其仅在调试（Debug）版本中运行）。定义 `USE_CHECKS_IN_SHIPPING` 来保留一个true值（通常为 `1`），从而覆盖此行为。在所有其他情况下，Verify宏将计算其表达式，但不会停止执行或将文本输出到日志。
+
 
 ### Ensure
 
-Ensure族系类似于Verify族系，但可在出现非致命错误时使用。这意味着，若Ensure宏的表达式计算得出的值为false，引擎将通知崩溃报告器，但仍会继续运行。为避免崩溃报告器收到太多通知，Ensure宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要Ensure宏在每次表达式计算得值为false时都报告一次，则使用"Always"版本的宏。
+**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
 
 |宏|参数|行为|
 |---|---|---|
