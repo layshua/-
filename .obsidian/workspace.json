@@ -72,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md"
               }
             }
           }
@@ -166,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +182,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,8 +216,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "5a93a1fe6f9aee3a",
+  "active": "76ab8ec0fd37cda9",
   "lastOpenFiles": [
+    "README.md",
     "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/02 蓝图 & U++/GamePlay.md",
     "引擎Unreal/03 Gameplay/GamePlay架构.md",
