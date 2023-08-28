@@ -78247,6 +78247,7 @@ PrivaePCH
 PackageMetaData
 ProstProcessing
 PersistentObject
+PCH
 ContextMenuManager
 ClashVerge
 Clash
@@ -115150,6 +115151,7 @@ TGraphTask
 TaskStorage
 TGraphTaskB
 TGraphTaskD
+TCHAR
 io
 ipad
 it
@@ -147888,6 +147890,7 @@ HelloUE
 HeadMountedDisplay
 HandleObjectReference
 HelloGameMode
+HitResult
 Bbb
 Bear
 Base
@@ -156205,6 +156208,7 @@ Forground
 FCombTask
 FGraphEvent
 FArrayOfMyTypes
+FNames
 Element
 Entity
 Enity
