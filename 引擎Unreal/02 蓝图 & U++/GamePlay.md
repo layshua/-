@@ -65,7 +65,7 @@ void UMyComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FAct
 
 - `NewObject` 用于创建新的 `UObject` 类型。
 - `SpawnActor` 用于生成 `AActor` 类型。
-    
+
 ### UObject 和 NewObject
 
 在虚幻引擎中创建 `UObject` 的子类与在 Unity 中创建 `ScriptableObject` 的子类非常类似。对于不需要生成到世界中或像 Actor 那样绑定了组件的 Gameplay 类，这些很有用。
@@ -86,13 +86,17 @@ UMyObject* NewObj = ConstructObject<UMyObject>();
 
 ### AActor 和 SpawnActor
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
-Actor 使用 World（C++ 中的 `UWorld`）对象上的 `SpawnActor` 方法生成。一些 UObject 提供了 `GetWorld` 方法（例如，所有 Actor 都如此）。你会采用此方法获取 World 对象。
+
+
+
+Actor 通过 `UWorld` 对象（可以通过 `GetWorld()` 获得）的 `SpawnActor` 方法生成。
+>UObject 为 Actor 提供了 `GetWorld` 方法
 
 请注意，在下面的示例中，我们传入了我们想生成的 Actor 的类，而不是传入另一个 Actor。在我们的示例中，该类可以是 AMyEnemy 的任意子类。
 
 要是你想创建另一个对象的副本，就像在 Unity 的 Instantiate 函数那样，你该怎么做呢？
 
-`NewObject` 和 `SpawnActor` 函数也能给一个 "模板" 对象来工作。虚幻引擎将创建该对象的副本，而不是从头创建新对象。这将复制其所有 UPROPERTY 和组件。
+`NewObject` 和 `SpawnActor` 函数也能给一个 "模板" 对象来工作。虚幻引擎将创建该对象的副本，而不是从头创建新对象。这将复制其所有 `UPROPERTY` 和组件。
 
 ```c++
 AMyActor* CreateCloneOfMyActor(AMyActor* ExistingActor, FVector SpawnLocation, FRotator SpawnRotation)
@@ -100,9 +104,11 @@ AMyActor* CreateCloneOfMyActor(AMyActor* ExistingActor, FVector SpawnLocation, F
     UWorld* World = ExistingActor->GetWorld();
     FActorSpawnParameters SpawnParams;
     SpawnParams.Template = ExistingActor;
+    
     World->SpawnActor<AMyActor>(ExistingActor->GetClass(), SpawnLocation, SpawnRotation, SpawnParams);
 }
 ```
+
 你可能会好奇这里的 "从头开始" 到底是什么意思。你创建的每个对象类都有一个默认模板，其中包含其属性和组件的默认值。如果你不覆盖这些属性，也没有提供你自己的模板，虚幻引擎将使用这些默认值来构造你的对象。
 
 ```c++
@@ -128,7 +134,7 @@ class AMyActor : public AActor
 };
 ```
 
-在构造函数 `AMyActor` 中，我们为这个类设置了属性的默认值。请注意 `CreateDefaultSubobject` 函数的用法，我们可以使用此函数创建组件并向其分配默认属性。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
+在构造函数 `AMyActor` 中，我们为这个类设置了属性的默认值。请注意 **`CreateDefaultSubobject`** 函数的用法，我们可以使用此函数创建组件并向其分配默认属性。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
 
 ## 类型转换
 

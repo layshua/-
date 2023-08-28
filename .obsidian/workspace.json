@@ -45,13 +45,7 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "e0115ad15661bd82",
-        "type": "tabs",
-        "children": [
+          },
           {
             "id": "b245bc7967c9a6a4",
             "type": "leaf",
@@ -65,7 +59,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -108,11 +103,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md"
+                "file": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -158,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
+                "file": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
+                "file": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -209,12 +205,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "fcd3ac3505b76f5f",
+  "active": "b245bc7967c9a6a4",
   "lastOpenFiles": [
-    "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
-    "引擎Unreal/02 蓝图 & U++/U++.md",
-    "引擎Unreal/02 蓝图 & U++/GamePlay.md",
     "引擎Unreal/03 Gameplay/GamePlay架构.md",
+    "引擎Unreal/02 蓝图 & U++/GamePlay.md",
+    "引擎Unreal/02 蓝图 & U++/U++.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
     "编程/C++/《C++ Primer》.md",
     "zip/images/Pasted image 20230828173115.png",
     "引擎Unreal/03 Gameplay/《大象无形》/03 三：模块基础.md",
