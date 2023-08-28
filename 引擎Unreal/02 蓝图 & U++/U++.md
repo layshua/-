@@ -23,6 +23,15 @@
 
 Check族系最接近基础 `assert`，因为当第一个参数得出的值为false时，此族系的成员会停止执行，且默认不会在发布版本中运行。以下Check宏可用：
 
+```c++
+// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
+void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
+{
+    check(JumpTarget != nullptr);
+    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
+}
+```
+
 |宏|参数|行为|
 |---|---|---|
 |`check` 或 `checkSlow`|`Expression`|若 `Expression` 为false，停止执行|
@@ -37,44 +46,20 @@ Check族系最接近基础 `assert`，因为当第一个参数得出的值为fa
 
 **若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
 
-|宏|参数|行为|
-|---|---|---|
-|`verify` 或 `verifySlow`|`Expression`|若 `Expression` 为false，停止执行|
-|`verify` 或 `verifyfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
-
-
-
-### Ensure
-
-**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
-
-|宏|参数|行为|
-|---|---|---|
-|`ensure`|`Expression`|`Expression` 首次为false时通知崩溃报告器|
-|`ensureMsgf`|`Expression`、`FormattedText`、`...`|`Expression` 首次为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
-|`ensureAlways`|`Expression`|`Expression` 为false时通知崩溃报告器|
-|`ensureAlwaysMsgf`|`Expression`, `FormattedText`, `...`|`Expression` 为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
-
-Ensure宏在所有版本中计算其表达式的值，但仅在调试（Debug）、开发（Development）、测试（Test）和发布编辑器（Shipping Editor）版本中联系崩溃报告器。
-
-### 用例
-
-以下假设情况展示了一些用例，其中Check、Verify和Ensure可帮助理清代码或协助调试。
-
-```c++
-// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
-void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
-{
-    check(JumpTarget != nullptr);
-    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
-}
-```
-
 ```c++
 // 这将设置Mesh的值，并预计为非空值。若之后Mesh的值为空，则停止程序。
 // 使用Verify而非Check，因为表达式存在副作用（设置网格体）。
 verify((Mesh = GetRenderMesh()) != nullptr);
 ```
+
+|宏|参数|行为|
+|---|---|---|
+|`verify` 或 `verifySlow`|`Expression`|若 `Expression` 为false，停止执行|
+|`verify` 或 `verifyfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
+
+### Ensure
+
+**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
 
 ```c++
 // 这行代码捕获了在产品发布版本中可能出现的小错误。
@@ -91,63 +76,20 @@ void AMyActor::Tick(float DeltaSeconds)
 }
 ```
 
-```c++
-// 若添加新形状类型，但忘记在此切换块中处理，则此代码将停止。
-switch (MyShape)
-{
-    case EShapes::S_Circle:
-        //（处理圆圈。）
-        break;
-    case EShapes::S_Square:
-        //（处理方块。）
-        break;
-    default:
-        // 每种形状类型都应有相应情况，因此这种情况不应该发生。
-        checkNoEntry();
-        break;
-}
-```
+|宏|参数|行为|
+|---|---|---|
+|`ensure`|`Expression`|`Expression` 首次为false时通知崩溃报告器|
+|`ensureMsgf`|`Expression`、`FormattedText`、`...`|`Expression` 首次为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
+|`ensureAlways`|`Expression`|`Expression` 为false时通知崩溃报告器|
+|`ensureAlwaysMsgf`|`Expression`, `FormattedText`, `...`|`Expression` 为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
 
-```c++
-// 此UObject拥有测试函数IsEverythingOK，没有副作用，若出现问题则返回false。
-// 若发生这种情况，将出现致命错误并终止。
-// 因为代码无副作用，仅作诊断之用，因此无需在发布版本中运行。
-checkCode(
-    if (!IsEverythingOK())
-    {
-        UE_LOG(LogUObjectGlobals, Fatal, TEXT("Something is wrong with %s!Terminating."), *GetFullName());
-    }
-);
-```
 
-```c++
-// 此列表中不应有圆圈，若有，程序将停转。但检查圆圈耗时较长，因此建议在调试版本中操作。
-checkSlowf(!MyLinkedList.HasCycle(), TEXT("Found a cycle in the list!"));
-//（遍历列表，在各个元素上运行一些代码。）
-```
+
+
+
+
+
 ## 游戏性类
-虚幻引擎中每个游戏性类都由一个类头文件（`.h`）和一个类源文件（`.cpp`）构成。**类头包含类和类成员（如变量和函数）的声明，而在类源文件中通过 _实现_ 属于类的函数来定义类的功能。**
-
-虚幻引擎中的类拥有一个标准化的命名方案，通过首字母或前缀即可立即明了其为哪种类。游戏性类的前缀有：
-
-|前缀|含义|
-|---|---|
-|`A`|从 可生成的游戏性对象的基础类进行延伸。它们是 Actor，可直接生成到世界场景中。|
-|`U`|从所有游戏性对象的基础类进行延伸。它们无法被实例到世界场景中，必须从属于 Actor。总体而言，它们是与 [组件](https://docs.unrealengine.com/5.2/zh-CN/components-in-unreal-engine)相似的对象。|
-
-
-### 类头
-
-虚幻引擎中的游戏性类通常拥有单独且唯一的类头文件。**通常这些文件的命名与其中定义的类相匹配，减去 `A` 或 `U` 前缀，并使用 `.h` 文件扩展名**。因此，`AActor` 类的类头文件命名为 `Actor.h`。虽然 Epic 代码遵循这些规则，但当前引擎中类名称和源文件名之间不存在正式关系。
-
-游戏性类的类头文件使用标准 C++ 语法，并结合专门的宏，以简化类、变量和函数的声明过程。
-
-**在每个游戏性类头文件的顶端，需要包含生成的头文件（自动创建）。因此在 `ClassName.h` 的顶端必须出现以下行：**
-
-```c++
-#include "ClassName.generated.h"
-```
-
 ### 类声明
 
 类声明定义类的名称、其继承的类，以及其继承的函数和变量。类声明还将定义通过 [类说明符](https://docs.unrealengine.com/5.2/zh-CN/gameplay-classes-in-unreal-engine#%E7%B1%BB%E8%AF%B4%E6%98%8E%E7%AC%A6) 和元数据要求的其他引擎和编辑器特定行为。
@@ -187,7 +129,7 @@ class ClassName : public ParentName
 # 属性
 ## 属性声明
 
-属性使用标准的C++变量语法声明，前面用UPROPERTY宏来定义属性元数据和变量说明符。
+属性使用标准的C++变量语法声明，前面用`UPROPERTY`宏来定义属性元数据和变量说明符。
 
 ```c++
 UPROPERTY([specifier, specifier, ...], [meta(key=value, key=value, ...)])
