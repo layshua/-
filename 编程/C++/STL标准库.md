@@ -980,7 +980,7 @@ mismatch (beg1, end1, beg2, binaryPred)
 equal (beg1, end1, beg2)
 equal (beg1, end1 , beg2, binaryPred)
 ```
-**`equal`**：确定两个序列是否相等。如果输入序列中每个元素都与从 beg2 开始的序列中对应元素相等，则返回 true。
+- **`equal`**：确定两个序列是否相等。如果输入序列中每个元素都与从 beg2 开始的序列中对应元素相等，则返回 true。
 
 **equal 基于一个非常重要的假设：它假定第二个序列至少与第一个序列一样长。**
 
@@ -994,28 +994,175 @@ equal (beg1, end1 , beg2, binaryPred)
 从技术上讲，无论我们提供什么类型的迭代器，这些算法都会执行对数次的比较操作。但是，当使用前向迭代器时，这些算法必须花费线性次数的迭代器操作来移动到序列中要比较的元素。
 **这些算法要求序列中的元素已经是有序的。** 它们的行为类似关联容器的同名成员（参见 11.3.5 节，第 389 页)。`equal_range`、`lower_bound` 和 `upper_bound` 算法返回迭代器，指向给定元素在序列中的正确插入位置——插入后还能保持有序。如果给定元素比序列中的所有元素都大，则会返回尾后迭代器。
 
-每个算法都提供两个版本: 第一个版本用元素类型的小于运算符（`<`）来检测元素; 第二个版本则使用给定的比较操作。在下列算法中，“x 小于 y”表示 `x<y` 或 `comp (x,y)` 成功。
+每个算法都提供两个版本: 
+- 第一个版本用元素类型的小于运算符（`<`）来检测元素; 
+- 第二个版本则使用给定的比较操作。在下列算法中，“x 小于 y”表示 `x<y` 或 `comp (x,y)` 成功。
 
 ```c++
 lower_bound (beg, end, val)
 lower_bound (beg, end, val, comp)
 ```
-返回一个迭代器，表示第一个小于等于 val 的元素, 如果不存在这样的元素，则返回 end。
+- **`lower_bound`**：返回一个迭代器，表示**第一个小于等于 val 的元素**, 如果不存在这样的元素，则返回 end。
 
-```
+```c++
 upper_bound (beg, end, val)
 upper_bound (beg, end, val, comp)
 ```
-返回一个迭代器，表示第一个大于 val 的元素，如果不存在这样的元素，则返回 end。equal_range (beg, end, val)
+- **`upper_bound`**：返回一个迭代器，表示**第一个大于 val 的元素**，如果不存在这样的元素，则返回 end。
+
+```c++
+equal_range (beg, end, val)
 equal_range (beg, end, val, comp)
-返回一个 pair (参见 11.2.3 节，第 379 页)，其 first 成员是 lower_bound 返回的迭代器，second 成员是 upper_bound 返回的迭代器。
+```
+- **`equal_range`**：返回一个 pair ，其 first 成员是 lower_bound 返回的迭代器，second 成员是 upper_bound 返回的迭代器。
+
+```c++
 binary_search (beg, end, val)
 binary_search (beg, end, val, comp)
-返回一个 bool 值，指出序列中是否包含等于 val 的元素。对于两个值 x 和 y，当 x 不小于 y 且 y 也不小于 x 时，认为它们相等。
+```
+- **`binary_search`**：返回一个 bool 值，指出序列中**是否包含等于 val 的元素**。
 
+## 写容器元素的算法
 
+很多算法向给定序列中的元素写入新值。这些算法可以从不同角度加以区分: 
+- 通过表示输入序列的迭代器类型来区分; 
+- 通过是写入输入序列中元素还是写入给定目的位置来区分。
 
+### 只写不读元素
+这些算法要求一个**输出迭代器 (output iterator)**，表示目的位置。`_n` 结尾的版本接受第二个实参，表示写入的元素数目，并将给定数目的元素写入到目的位置中。
 
+```c++
+fill (beg, end, val)
+fill_n (dest, cnt, va1) 
+generate (beg, end, Gen) 
+generate_n (dest, cnt, Gen)
+```
+
+**给输入序列中每个元素赋予一个新值。**
+- **`fill`** ：将值 val 赋予元素; 
+- **`generate`**： 执行生成器对象 `Gen ()` 生成新值。生成器是一个可调用对象，每次调用会生成一个不同的返回值。
+
+`fill` 和 `generate` 都返回 void。
+`_n` 版本返回一个迭代器，指向写入到输出序列的最后一个元素之后的位置。
+
+```c++
+fi1l(vec.begin(),vec.end(),0);//将每个元素重置为0
+fill_n(vec.begin(),vec.size(),0); // 将所有元素重置为0
+```
+### 使用输入迭代器
+这些算法读取一个输入序列，将值写入到一个输出序列中。它们要求一个名为 `dest` 的输出迭代器，而表示输入范围的迭代器必须是输入迭代器。
+
+```c++
+copy (beg, end, dest)
+copy_if (beg, end, dest, unaryPred) copy_n (beg, n, dest)
+```
+**从输入范围将元素拷贝到 `dest` 指定的目的序列。**
+- **`copy`**： 拷贝所有元素，
+- **`copy_if`**： 拷贝满足 `unaryPred` 的元素
+- **`copy_n`** ：拷贝前 n 个元素。输入序列必须有至少 n 个元素。
+
+```c++
+move (beg, end, dest)
+```
+- **`move`**： 对输入序列中的每个元素调用 `std: : move`，将其移动到迭代器 dest 开始的序列中。
+
+```c++
+transform (beg, end, dest, unaryop)
+transform (beg, end, beg2, dest, binaryop)
+```
+- **`transform`**：**调用给定操作，并将结果写到 dest 中**。
+    - 第一个版本对输入范围中每个元素应用一元操作。
+    - 第二个版本对两个输入序列中的元素应用二元操作。
+
+```c++
+replace_copy (beg, end, dest, old_val, new_val)
+replace_copy_if (beg, end, dest, unaryPred, new_val)
+```
+**将每个元素拷贝到 dest，将指定的元素替换为 new_val。**
+- **`replace_copy`**：替换那些 `==old_val` 的元素。
+- **`replace_copy_if`**：替换那些满足 `unaryPred` 的元素。
+
+```c++
+merge (beg1, end1, beg2, end2, dest)
+merge (beg1, end1, beg2, end2, dest, comp)
+```
+- **`merge`**：两个输入序列必须都是**有序**的。**将合并后的序列写入到 dest 中**。
+    - 第一个版本用 `<` 运算符比较元素;
+    -  第二个版本则使用给定比较操作。
+
+### 使用前向迭代器
+**这些算法要求前向迭代器，由于它们是向输入序列写入元素，迭代器必须具有写入元素的权限。**
+
+```c++
+iter_swap (iter1, iter2)
+swap_ranges (beg1, end1 ,beg2)
+```
+-  **`iter_swap`** 交换 `iter1` 和 `iter2` 所表示的元素，返回 void
+-  **`swap_ranges`** 将输入范围中所有元素与 beg2 开始的第二个序列中所有元素进行交换。两个范围不能有重叠。
+    - 返回递增后的 beg2，指向最后一个交换元素之后的位置。
+
+```c++
+replace (beg, end, old_val, new_val)
+replace_if (beg, end, unaryPred, new_val)
+```
+用 `new_val` 替换每个匹配元素。
+
+- **`replace`**：使用 `==` 比较元素与 `old_val`
+- **`replace_if`**：替换那些满足 `unaryPred` 的元素。
+
+### 使用双向迭代器的写算法
+这些算法需要在序列中有反向移动的能力，因此它们要求双向迭代器。
+
+```c++
+copy_backward (beg, end, dest)
+move_backward (beg, end, dest)
+```
+**从后往前，从输入范围中拷贝或移动元素到指定目的位置。**
+与其他算法不同，**`dest` 是输出序列的尾后迭代器**（即，目的序列恰在 dest 之前结束)。
+输入范围中的尾元素被拷贝或移动到目的序列的尾元素，然后是倒数第二个元素被拷贝/移动，依此类推。元素在目的序列中的顺序与在输入序列中相同。
+如果范围为空，则返回值为 dest; 否则，返回值表示从`*beg` 中拷贝或移动的元素。
+
+```c++
+inplace_merge (beg, mid, end)
+inplace_merge (beg, mid, end, comp)
+```
+**将同一个序列中的两个有序子序列合并为单一的有序序列。** beg 到 mid 间的子序列和 mid 到 end 间的子序列被合并，并被写入到原序列中。
+- 第一个版本使用 `<` 比较元素
+- 第二个版本使用给定的比较操作，返回 void。
+
+## 划分和排序算法
+每个排序和划分算法都提供**稳定和不稳定版本**（参见 10.3.1 节，第 345 页)。
+**稳定算法保证保持相等元素的相对顺序**。由于稳定算法会做更多工作，可能比不稳定版本慢得多并消耗更多内存。
+### 划分算法
+**一个划分算法将输入范围中的元素划分为两组:**
+- 第一组包含那些**满足给定谓词**的元素
+- 第二组则包含**不满足谓词**的元素。
+
+例如，对于一个序列中的元素，我们可以根据元素是否是奇数或者单词是否以大写字母开头等来划分它们。**这些算法都要求双向迭代器。**
+
+```c++
+is_partitioned (beg, end, unaryPred)
+```
+- **`is_partitioned`**：如果所有满足谓词 `unaryPred` 的元素都在不满足 `unaryPred` 的元素之前，则返回 true。若序列为空，也返回 true。
+
+```c++
+partition_copy (beg, end, dest1, dest2, unaryPred)
+```
+- **`partition_copy`**：将满足 `unaryPred` 的元素拷贝到 dest1, 并将不满足 `unaryPred` 的元素拷贝到 dest2。
+    - 返回一个迭代器 `pair` ，其 first 成员表示拷贝到 dest1 的元素的末尾，second 表示拷贝到 dest2 的元素的末尾。
+    - 输入序列与两个目的序列都不能重叠。
+ 
+```c++
+partition_point (beg, end,unaryPred)
+```
+`partition_point`：输入序列必须是已经用 `unaryPred` 划分过的。返回满足 `unaryPred` 的范围的尾后迭代器。如果返回的迭代器不是 end，则它指向的元素及其后的元素必须都不满足 unaryPred。
+
+```c++
+stable partition (beg, end, unaryPred) partition (beg, end, unaryPred)
+```
+使用 unaryPred 划分输入序列。满足 unaryPred 的元素放置在序列开始，不满足的元素放在序列尾部。返回一个迭代器，指向最后一个满足 unaryPred 的元素之后的位置，如果所有元素都不满足 unaryPred，则返回 beg。
+
+# 临时
 ## 1 只读算法
 
 
@@ -1029,24 +1176,6 @@ int sum accumulate(vec.cbegin(),vec.cend(),0);
 这条语句将 sum 设置为 vec 中元素的和，和的初值被设置为0。
 
 
-## 2 写算法
-`fill`：接受一对迭代器表示一个范围，还接受一个值作为第三个参数，将给定的这个值赋予输入序列中的每个元素。
-```c++
-fi1l(vec.begin(),vec.end(),0);//将每个元素重置为0
-//将容器的一个子序列设置为10
-fill(vec.begin(),vec.begin(),vec.size()/2,10);
-```
-
-`fill_n` 接受一个单迭代器、一个计数值和一个值。它将给定值赋予迭代器指向的元素开始的指定个元素。我们可以用 fill_n 将一个新值赋予 vector 中的元素：
-```c++
-vector<int>vec;  // 空vector
-fill_n(vec.begin(),10,0);  //错误：vec是空的，不能写入10个元素。
-
-fill_n(vec.begin(),vec.size(),0); // 正确，将所有元素重置为0
-```
-
-> [!warning] 
->向目的位置迭代器写入数据的算法假定目的位置足够大，能容纳要写入的元素。
 
 ## 3 拷贝算法
 此算法接受三个迭代器，前两个表示一个输入范围，第三个表示目的序列的起始位置。此算法**将输入范围中的元素拷贝到目的序列中**。传递给 copy 的目的序列至少要包含与输入序列一样多的元素，这一点很重要。
