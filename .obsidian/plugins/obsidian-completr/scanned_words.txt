@@ -87059,6 +87059,7 @@ InputCore
 InClass
 InContainer
 IncrementalPurgeGarbage
+ImagerWrapper
 qq
 qyi
 quad
@@ -175724,6 +175725,7 @@ LoadPackage
 LoadPackageInternal
 LightSource
 Lover
+LogMactos
 Getx
 GetX
 GetName
@@ -180462,6 +180464,7 @@ GGarbageCollectionGuradCritial
 GCUnlock
 GCRT
 GObjCurrentPurgeObjectIndexNeedsReset
+GConfi
 NULL
 Native
 NormalMap

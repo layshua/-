@@ -2850,7 +2850,46 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
 ```
 
+## UE_LOG
+
+Log 作为开发中常用到的功能，可以在任何需要情况下记录程序运行情况。
+
+### 查看 Log
+
+**Game 模式**
+在 Game（打包）模式下，记录 Log 需要在启动参数后加 `-Log`。 
+**编辑器模式**
+在编辑器下，需要打开 Log 窗口（Window->DeveloperTools->OutputLog）。
+
+### 使用 Log
+```c++
+UE_LOG(LogMy, Warning, TEXT("Hell World"));
+UE_LOG(LogMy, Warning, TEXT("Show a String %s"),*FString("Hello")) 
+UE_LOG(LogMy, Warning, TEXT("Show a Int %d"),100);
+```
+`UE_LOG` 宏输出 log：
+**参数一**： Log 的分类（需要预先定义）。 
+**参数二**：类型，有 Log、Warning、Error   三种类型。这三种类型区别是颜色不同，Log 为灰色，Warning 为黄色，Error 为红色。
+**参数三**：具体的输出内容为 TEXT，可以根据需要自行构造。
+
+几种常用的符号如下：
+1.  `%s` 字符串（FString）
+2.  `%d` 整型数据（int32）
+3.  `%f` 浮点形（float）
+
+### 自定义 Log 的 Category
+虚幻引擎 4 提供了多种自定义 Category 的宏。读者可自行参考 LogMactos. h 文件。这里介绍一种相对简单的自定义宏的方法。
+```c++
+DEFINE_LOG_CATEGORY_STATIC(LogMyCategory,Warning,All);
+```
+
+在使用自定义 Log 分类的时将此宏放在你需要输出 Log 的源文件顶部。
+为了更方便地使用，可以将它放到 PCH 文件里，或者模块的头文件里（原则上是将 Log 分类定义放在被多数源文件 include 的文件里）。
+
 ## FName
+
+> [!NOTE]
+> 简单而言，FName 是无法被修改的字符串，大小写不敏感。从语义上讲，名字也应该是唯一的。不管同样的字符串出现了多少次，在字符串表里只被存储一次。而借助这个哈希表，从字符串到 FName 的转换，以及根据 Key 查询 FName 会变得非常快速。
 
 [虚幻引擎中的FName | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/fname-in-unreal-engine/)
 
@@ -2860,9 +2899,11 @@ MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
 
 `FName` 不区分大小写。它们为不可变，无法被操作。FNames 的存储系统和静态特性决定了通过键进行 FNames 的查找和访问速度较快。 FName 子系统的另一个功能是使用散列表为 FName 转换提供快速字符串。
 
-
-
 ## FText
+
+> [!NOTE]
+> FText 表示一个“被显示的字符串”。所有你希望“显示”的字符串都应该是 FText。因为 FText 提供了内置的本地化支持，也通过一张查找表来支持运行时本地化。FText 不提供任何的更改操作，对于被显示的字符串来说，“修改”是一个非常不安全的操作。
+
 [虚幻引擎中的FText | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/ftext-in-unreal-engine/)
 
 - `FText` 是指定**用于处理本地化的更可靠的字符串表示**。
@@ -2880,8 +2921,12 @@ MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
 可使用 `FText::GetEmpty()` 或仅使用 `FText()`,创建空白 `FText`。
 
 ## FString
+
+> [!NOTE]
+> FString 是唯一提供修改操作的字符串类。同时也意味着 FString 的消耗要高于 FName 和 FText。
+> 事实上，一般我们都使用 FString 来传递。尽管如此，Slate 控件的文字参数往往是 FText。这是为了强制要求本地化。
+
 [虚幻引擎中的FString | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/fstring-in-unreal-engine/)
- 
   
 `FString` 是典型的"动态字符数组"字符串类型。
 
