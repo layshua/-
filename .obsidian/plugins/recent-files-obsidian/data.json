@@ -1,12 +1,72 @@
 {
   "recentFiles": [
     {
-      "basename": "大象无形 UE4 笔记二",
-      "path": "zBuffer/大象无形 UE4 笔记二.md"
+      "basename": "01 一",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/01 一.md"
     },
     {
-      "basename": "大象无形 UE4 笔记一",
-      "path": "zBuffer/大象无形 UE4 笔记一.md"
+      "basename": "02 二",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/02 二.md"
+    },
+    {
+      "basename": "08 八：并行与并发",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/08 八：并行与并发.md"
+    },
+    {
+      "basename": "09 九：TaskGraph",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/09 九：TaskGraph.md"
+    },
+    {
+      "basename": "10 十：UObject (一)",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
+    },
+    {
+      "basename": "12 十二：垃圾回收",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/12 十二：垃圾回收.md"
+    },
+    {
+      "basename": "13 十三：渲染系统（一）",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/13 十三：渲染系统（一）.md"
+    },
+    {
+      "basename": "14 十四：渲染系统（二）",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/14 十四：渲染系统（二）.md"
+    },
+    {
+      "basename": "11 十一：UObject (二)",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/11 十一：UObject (二).md"
+    },
+    {
+      "basename": "06 六：UBT",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/06 六：UBT.md"
+    },
+    {
+      "basename": "07 七：UHT",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/07 七：UHT.md"
+    },
+    {
+      "basename": "04 四：模块初始化",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/04 四：模块初始化.md"
+    },
+    {
+      "basename": "03 三：模块基础",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/03 三：模块基础.md"
+    },
+    {
+      "basename": "05 五：模块总结",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/05 五：模块总结.md"
+    },
+    {
+      "basename": "Unity URP 实现屏幕空间反射（SSR）",
+      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 实现屏幕空间反射（SSR）.md"
+    },
+    {
+      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
+      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
+    },
+    {
+      "basename": "SSPR",
+      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/SSPR.md"
     },
     {
       "basename": "U++",
@@ -139,66 +199,6 @@
     {
       "basename": "Cherno剩余",
       "path": "编程/C++/Cherno剩余.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "基础",
-      "path": "引擎Unreal/07 地编/基础.md"
-    },
-    {
-      "basename": "Landscape",
-      "path": "引擎Unreal/07 地编/Landscape.md"
-    },
-    {
-      "basename": "交互雪",
-      "path": "引擎Unreal/08 案例/交互雪.md"
-    },
-    {
-      "basename": "交互草",
-      "path": "引擎Unreal/08 案例/交互草.md"
-    },
-    {
-      "basename": "水体渲染",
-      "path": "引擎Unreal/08 案例/水体渲染.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "《Unity Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客",
-      "path": "DCC/02 Blender/Blender 导出模型规范检查_blender 检查多边面_花冠少年的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "建模原理",
-      "path": "DCC/02 Blender/建模原理.md"
-    },
-    {
-      "basename": "《GUI》",
-      "path": "引擎Unity3D/1 Unity精粹/《GUI》.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Painter 次世代贴图材质基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Painter 次世代贴图材质基础流程.md"
-    },
-    {
-      "basename": "【游戏美术文档】Substance Designer 烘培贴图基础流程",
-      "path": "DCC/02 Blender/【游戏美术文档】Substance Designer 烘培贴图基础流程.md"
-    },
-    {
-      "basename": "01 粒子系统概述",
-      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
-    },
-    {
-      "basename": "02 Unity操作指南",
-      "path": "引擎Unity3D/1 Unity精粹/02 Unity操作指南.md"
     }
   ],
   "omittedPaths": [],
