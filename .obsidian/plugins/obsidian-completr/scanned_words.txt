@@ -31966,6 +31966,7 @@ ucrtbase
 uasset
 uplugin
 umap
+updating
 everything
 ea
 ede
@@ -42908,6 +42909,7 @@ vWQpZ
 vecctor
 voidDoTask
 vim
+vcxproj
 AA
 AppData
 AIRDyuVH
@@ -47274,6 +47276,7 @@ AnimationModifiers
 AMyAction
 AllOpaque
 AmbientOcclusionPS
+AssetRegistryCache
 URL
 Utools
 Users
@@ -55146,6 +55149,7 @@ arrT
 absnum
 absInt
 adaptor
+aboutue
 Roaming
 RegWorkshop
 Release
@@ -73865,6 +73869,9 @@ Subsequents
 SubsequentList
 SubsuentList
 Subsequncts
+Stand
+SWidget
+ScriptComponent
 Programs
 POP
 PC
@@ -82856,6 +82863,7 @@ Chair
 ConditionalBeginDestroy
 CGLock
 ConditioanalBeginDestroy
+CachedAssetRegistry
 ImTip
 IMAP
 ID
@@ -102819,6 +102827,7 @@ bHasLemon
 bookNo
 baby
 baseCollection
+bPendingDestruction
 fe
 front
 fill
@@ -147878,6 +147887,7 @@ HasAllExact
 HelloUE
 HeadMountedDisplay
 HandleObjectReference
+HelloGameMode
 Bbb
 Bear
 Base
@@ -151699,6 +151709,7 @@ BlankProgram
 Binaries
 BuildHZB
 BeginDestroyed
+BlueprintClass
 Fraktur
 Frame
 Foo
@@ -156193,6 +156204,7 @@ FTaskGraphCompatibilityImplementation
 Forground
 FCombTask
 FGraphEvent
+FArrayOfMyTypes
 Element
 Entity
 Enity
@@ -171491,6 +171503,8 @@ DiffuseIndirectComposite
 DestroyNoNativeProperties
 DestroyValue
 DispatchSubsequents
+DevelopmentEditor
+DebugEditor
 LNK
 Log
 Linux
