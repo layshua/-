@@ -8090,6 +8090,8 @@ ObjectOwner
 ObjectObserver
 OfPtr
 Orange
+OnConstruction
+OnActorSpawned
 codeup
 clash
 ctrl
@@ -47241,6 +47243,7 @@ ActorComponents
 ABcompare
 ArgS
 AddisonWesley
+AddToWorld
 URL
 Utools
 Users
@@ -59704,6 +59707,7 @@ RestrictedTags
 RemovedAmountPineapple
 RemovedAmountLemon
 RemoveDynamic
+RouteActorInitialize
 Microsoft
 Menu
 MicaForEveryone
@@ -73766,6 +73770,7 @@ SceneComponents
 Stegosaurus
 StrBlobptr
 StrBlobPtr
+SpawnActorDeferred
 Programs
 POP
 PC
@@ -78115,6 +78120,13 @@ PtrBanana
 PtrLemon
 PlayerCamera
 PrimitiveComponent
+PostLoad
+PostActorCreated
+PreInitializeComponents
+PostInitializeComponents
+PostDuplicate
+PostSpawnInitialize
+PostActorConstruction
 ContextMenuManager
 ClashVerge
 Clash
@@ -86894,6 +86906,9 @@ InInt
 InPtr
 InFlt
 InFloat
+InitializeActorsForPlay
+InitializeComponent
+IsReadyForFinishDestroy
 qq
 qyi
 quad
@@ -151495,6 +151510,7 @@ BindUObject
 BindDynamic
 BlobPtr
 Blob
+BeginDestroy
 Fraktur
 Frame
 Foo
@@ -155959,6 +155975,8 @@ FruitSet
 FSetElementId
 FruitArray
 FMyClass
+FinishSpawningActor
+FinishDestroy
 Element
 Entity
 Enity
@@ -160523,6 +160541,7 @@ EditInstanceOnly
 ElementInitType
 ESearchCase
 Ensure
+ExecuteConstruction
 xmlns
 xyz
 xy
@@ -175441,6 +175460,7 @@ LockedObserver
 LocalPrint
 Lemon
 LemonIndex
+LoadMap
 Getx
 GetX
 GetName
