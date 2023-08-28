@@ -1,63 +1,21 @@
 
-# 事件
-
-## Actor
-虚幻引擎 Actor 有一组类似于 Unity 的 `Start` 、 `OnDestroy` 和 `Update` 函数的方法。如下所示：
-
+# 常用
 ```c++
-UCLASS()
-class AMyActor : public AActor
-{
-    GENERATED_BODY()
+//静态网格体组件
+UStaticMeshComponent* Cylinder = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cylinder"));  
+Cylinder->SetupAttachment(RootComponent);  
 
-    // 游戏开始时调用。
-    void BeginPlay();
+//从文件查找Object
+static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder"));  
 
-    // 销毁时调用。
-    void EndPlay(const EEndPlayReason::Type EndPlayReason);
-
-    // 每帧调用以更新此Actor。
-    void Tick(float DeltaSeconds);
-};
-```
-
-![[cfedafa655eab03ddf40662aa013c483_MD5.jpg]]
-
-## 组件
-虚幻引擎中的组件包含不同的函数。下面是一个基本示例：
-
-```c++
-UCLASS()
-class UMyComponent : public UActorComponent
-{
-    GENERATED_BODY()
-
-    // 在创建所属Actor之后调用
-    void InitializeComponent();
-
-    // 在销毁组件或所属Actor时调用
-    void UninitializeComponent();
-
-    // 组件版的Tick函数
-    void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction);
-};
-```
-
-![[267e8d4e22867a4951b46b9b18c86926_MD5.jpg]]
-
-记住，在虚幻引擎中，你必须调用方法的父类版本。
-
-例如，在 Unity C# 中，可能是调用 `base.Update()`，但在虚幻引擎 C++ 中，你将使用 `Super::TickComponent()`：
-
-```c++
-void UMyComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-    // 此处添加自定义更新内容
-    Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+//查找成功设置组件属性
+if(CylinderAsset.Succeeded())  
+{  
+    Cylinder->SetStaticMesh(CylinderAsset.Object);  
+    Cylinder->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));  
+    Cylinder->SetWorldScale3D(FVector(1.0f));  
 }
 ```
-
-在 C++ 中，一些类使用以 `A` 开头，而另一些类以 `U` 开头。`A` 表示 Actor 子类，而 `U` 表示 **Object** 子类。另一个常用前缀是 `F` ，它用于大部分普通数据结构和非 UObject 类。
 
 # 游戏逻辑
 ## 实例化 Object/Actor

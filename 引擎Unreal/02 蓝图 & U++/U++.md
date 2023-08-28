@@ -2850,18 +2850,17 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
 ```
 
-## UE_LOG
+## 打印信息
+### UE_LOG
 
 Log 作为开发中常用到的功能，可以在任何需要情况下记录程序运行情况。
 
-### 查看 Log
-
+**查看 Log**：
 **Game 模式**
 在 Game（打包）模式下，记录 Log 需要在启动参数后加 `-Log`。 
 **编辑器模式**
 在编辑器下，需要打开 Log 窗口（Window->DeveloperTools->OutputLog）。
 
-### 使用 Log
 ```c++
 UE_LOG(LogMy, Warning, TEXT("Hell World"));
 UE_LOG(LogMy, Warning, TEXT("Show a String %s"),*FString("Hello")) 
@@ -2877,15 +2876,39 @@ UE_LOG(LogMy, Warning, TEXT("Show a Int %d"),100);
 2.  `%d` 整型数据（int32）
 3.  `%f` 浮点形（float）
 
-### 自定义 Log 的 Category
-虚幻引擎 4 提供了多种自定义 Category 的宏。读者可自行参考 LogMactos. h 文件。这里介绍一种相对简单的自定义宏的方法。
+### 打印到屏幕
 ```c++
-DEFINE_LOG_CATEGORY_STATIC(LogMyCategory,Warning,All);
+GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Screen Message"));
+```
+### 打印矢量
+```c++
+GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, FString::Printf(TEXT("My Location is: %s"), *GetActorLocation().ToString()));
 ```
 
-在使用自定义 Log 分类的时将此宏放在你需要输出 Log 的源文件顶部。
-为了更方便地使用，可以将它放到 PCH 文件里，或者模块的头文件里（原则上是将 Log 分类定义放在被多数源文件 include 的文件里）。
+```c++
+// 定义打印消息函数以打印到屏幕
+#define print(text) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green,text)
+#define printFString(text, fstring) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT(text), fstring))
 
+void ATestActor::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	// 标准控制台打印
+	UE_LOG(LogTemp, Warning, TEXT("I just started running"));
+
+	// 打印到屏幕
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Screen Message"));
+
+	// 打印向量
+	FVector MyVector = FVector(200,100,900);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, FString::Printf(TEXT("My Location is: %s"), *MyVector.ToString()));
+
+	// 使用上面定义的快捷方式打印消息
+	print("Hello Unreal");	
+	printFString("My Variable Vector is: %s", *MyVector.ToString());
+}
+```
 ## FName
 
 > [!NOTE]
