@@ -34,19 +34,6 @@
             }
           },
           {
-            "id": "5a93a1fe6f9aee3a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "7cf3319f587de005",
             "type": "leaf",
             "state": {
@@ -72,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md"
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md"
               }
             }
           }
@@ -166,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
+                "file": "引擎Unreal/02 蓝图 & U++/GamePlay.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,13 +203,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "7cf3319f587de005",
+  "active": "76ab8ec0fd37cda9",
   "lastOpenFiles": [
-    "引擎Unreal/02 蓝图 & U++/GamePlay.md",
-    "引擎Unreal/02 蓝图 & U++/U++.md",
-    "README.md",
     "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
+    "README.md",
+    "引擎Unreal/02 蓝图 & U++/U++.md",
     "引擎Unreal/03 Gameplay/GamePlay架构.md",
+    "引擎Unreal/02 蓝图 & U++/GamePlay.md",
     "zip/images/Pasted image 20230828205734.png",
     "引擎Unreal/03 Gameplay/《大象无形》/03 三：模块基础.md",
     "引擎Unreal/03 Gameplay/《大象无形》/04 四：模块初始化.md",

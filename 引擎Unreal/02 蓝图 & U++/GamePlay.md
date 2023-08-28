@@ -1,23 +1,4 @@
 
-# 常用
-```c++
-//静态网格体组件
-UStaticMeshComponent* Cylinder = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cylinder"));  
-Cylinder->SetupAttachment(RootComponent);  
-
-//从文件查找Object
-static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder"));  
-
-//查找成功设置组件属性
-if(CylinderAsset.Succeeded())  
-{  
-    Cylinder->SetStaticMesh(CylinderAsset.Object);  
-    Cylinder->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));  
-    Cylinder->SetWorldScale3D(FVector(1.0f));  
-}
-```
-
-# 游戏逻辑
 ## 实例化 Object/Actor
 虚幻引擎有两个不同的函数来实例化对象：
 
@@ -110,6 +91,12 @@ if (SphereCollider != nullptr)
 }
 ```
 
+## 从文件查找 Object
+```c++
+//从文件查找Object
+static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
+```
+
 ## 销毁 Actor
 
 ```c++
@@ -138,7 +125,6 @@ MyActor->SetActorTickEnabled(false);
 AActor* ParentActor = MyComponent->GetOwner();
 ```
 ## 从 Actor 访问组件
-
 
 ```c++
 UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
@@ -341,7 +327,26 @@ class AMyPlayerController : public APlayerController
 
 ![[83bcde708ee30addd568e23d2a180ccc_MD5.jpg]]
 
-# 委托
-```c++ file:BossActor.h
-
+## 查找 Player 位置
+```c++
+FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
 ```
+
+## 创建静态网格体
+
+```c++
+//创建静态网格体组件
+UStaticMeshComponent* Cylinder = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cylinder"));  
+Cylinder->SetupAttachment(RootComponent);  
+
+ 
+
+//查找成功设置组件属性
+if(CylinderAsset.Succeeded())  
+{  
+    Cylinder->SetStaticMesh(CylinderAsset.Object);  
+    Cylinder->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));  
+    Cylinder->SetWorldScale3D(FVector(1.0f));  
+}
+```
+
