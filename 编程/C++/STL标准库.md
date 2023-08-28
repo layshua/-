@@ -885,19 +885,139 @@ unorderd：不按关键字顺序，使用哈希函数（hash function）和关�
 - **`unaryPred` 和 `binaryPred` 是一元和二元谓词**，分别接受一个和两个参数，都是来自输入序列的元素，两个谓词都返回可用作条件的类型。
 - **`comp` 是一个二元谓词**，满足关联容器中对关键字序的要求。
 - **`unaryOp` 和 `binaryOp` 是可调用对象**，可分别使用来自输入序列的一个和两个实参来调用。
+![[《C++ Primer》#^6ekdwn]]
 ## 查找算法
 这些算法在一个输入序列中搜索一个指定值或一个值的序列。
 
 每个算法都提供两个重载的版本：
 - 第一个版本使用底层类型的相等运算符 `==` 来比较元素;
 - 第二个版本使用用户给定的 `unaryPred` 和 `binaryPred` 比较元素。
-### 简单查找
+### 查找指定值
+这些算法查找指定值，要求输入迭代器 ( input iterator)。
+
+```c++
+find(beg, end, val)
+find_if(beg, end, unaryPred) 
+find_if_not(beg, end, unaryPred) 
+count(beg, end, val)
+count_if(beg, end, unaryPred)
+```
+- **`find`** 返回一个迭代器，指向输入序列中**第一个**等于 `val` 的元素。
+- **`find_if`** 返回一个迭代器，指向**第一个**满足 `unaryPred` 的元素。
+- **`find_if_not`**返回一个迭代器，指向**第一个**令 `unaryPred` 为 false 的元素。
+**上述三个算法在未找到元素时都返回 end。**
+
+- **`count`** 返回一个计数器，指出 val 出现了多少次; 
+- **`count_if`** 统计有多少个元素满足 `unaryPred`。
+
+```c++
+all_of(beg, end, unaryPred) 
+any_of(beg, end, unaryPred) 
+none_of(beg, end, unaryPred)
+```
+这些算法都返回一个 bool 值，分别指出 `unaryPred` 是否对所有元素都成功、对任意一个元素成功以及对所有元素都不成功。
+如果序列为空：
+**`any_of`** 返回 false
+**`all_of`** 和 **`none_of`** 返回 true。
+
+### 查找重复值
+下面这些算法要求**前向迭代器** ( forward iterator )，在输入序列中查找重复元素。
+
+```c++
+adjacent_find (beg, end)
+adjacent_find (beg, end, binaryPred)
+```
+**`adjacent_find`**：返回指向**第一对**相邻重复元素的迭代器。如果序列中无相邻重复元素，则返回 end。
+
+```c++
+search_n(beg, end, count, val)
+search_n(beg, end, count, val, binaryPred)
+```
+**`search_n`**：返回一个迭代器，从此位置开始有 count 个相等元素。如果序列中不存在这样的子序列，则返回 end。
+### 查找子序列
+在下面的算法中，除了 `find_first_of` 之外，都要求两个前向迭代器。`find_first_of` 用输入迭代器表示第一个序列，用前向迭代器表示第二个序列。这些算法搜索子序列而不是单个元素。
+
+```c++
+search (beg1, end1 , beg2 , end2)
+search (beg1, end1 , beg2, end2, binaryPred)
+```
+**`search`**：返回第二个输入范围（子序列)在第一个输入范围中**第一次**出现的位置。如果未找到子序列，则返回 end1。
+
+```c++
+find_first_of (beg1, end1, beg2, end2)
+find_first_of (beg1, end1, beg2, end2, binaryPred)
+```
+**`find_first_of`**：返回一个迭代器，指向第二个输入范围中任意元素在第一个范围中**首次**出现的位置。如果未找到匹配元素，则返回 end1。
+
+```c++
+find_end(beg1, end1, beg2 , end2)
+find_end(beg1, end1 , beg2 , end2, binaryPred)
+```
+**`find_end`**：类似 search，但返回的是**最后一次**出现的位置。如果第二个输入范围为空，或者在第一个输入范围中未找到它，则返回 end1。
+
+## 其他只读算法
+这些算法要求前两个实参都是输入迭代器。
+`equal` 和 `mismatch` 算法还接受一个额外的输入迭代器，表示第二个范围的开始位置。
+这两个算法都提供两个重载的版本：
+- 第一个版本使用底层类型的相等运算符 `==` 比较元素
+- 第二个版本则用用户指定的 `unaryPred` 或 `binaryPred` 比较元素。
+
+```c++
+for_each(beg, end, unaryop)
+```
+- **`for_each`**：**对输入序列中的每个元素应用可调用对象 `unaryOp`**, 
+    - `unaryOp` 的返回值被忽略。
+    - 如果迭代器允许通过解引用运算符向序列中的元素写入值，则 `unaryOp` 可能修改元素。
+
+```c++
+mismatch (beg1, end1, beg2)
+mismatch (beg1, end1, beg2, binaryPred)
+```
+- **`mismatch`**：比较两个序列中的元素。返回一个迭代器的 `pair`，表示两个序列中**第一个不匹配的元素**。
+- 如果所有元素都匹配，则返回的 pair 中第一个迭代器为 end1，第二个迭代器指向 beg2 中偏移量等于第一个序列长度的位置。
+
+```c++
+equal (beg1, end1, beg2)
+equal (beg1, end1 , beg2, binaryPred)
+```
+**`equal`**：确定两个序列是否相等。如果输入序列中每个元素都与从 beg2 开始的序列中对应元素相等，则返回 true。
+
+**equal 基于一个非常重要的假设：它假定第二个序列至少与第一个序列一样长。**
+
+> [!NOTE]  关键概念：迭代器参数
+**一些算法从两个序列中读取元素。构成这两个序列的元素可以来自于不同类型的容器，两个序列中元素的类型也不要求严格匹配。** 算法要求的只是能够比较两个序列中的元素。例如，对 equal 算法，元素类型不要求相同，但是我们必须能使用 `==` 来比较来自两个序列中的元素。
+>
+**用一个单一迭代器表示第二个序列的算法都假定第二个序列至少与第一个一样长。**
+
+## 二分搜索算法
+这些算法都要求前向迭代器，但这些算法都经过了优化，如果我们提供**随机访问迭代器 (random-access iterator)** 的话，它们的性能会好得多。
+从技术上讲，无论我们提供什么类型的迭代器，这些算法都会执行对数次的比较操作。但是，当使用前向迭代器时，这些算法必须花费线性次数的迭代器操作来移动到序列中要比较的元素。
+**这些算法要求序列中的元素已经是有序的。** 它们的行为类似关联容器的同名成员（参见 11.3.5 节，第 389 页)。`equal_range`、`lower_bound` 和 `upper_bound` 算法返回迭代器，指向给定元素在序列中的正确插入位置——插入后还能保持有序。如果给定元素比序列中的所有元素都大，则会返回尾后迭代器。
+
+每个算法都提供两个版本: 第一个版本用元素类型的小于运算符（`<`）来检测元素; 第二个版本则使用给定的比较操作。在下列算法中，“x 小于 y”表示 `x<y` 或 `comp (x,y)` 成功。
+
+```c++
+lower_bound (beg, end, val)
+lower_bound (beg, end, val, comp)
+```
+返回一个迭代器，表示第一个小于等于 val 的元素, 如果不存在这样的元素，则返回 end。
+
+```
+upper_bound (beg, end, val)
+upper_bound (beg, end, val, comp)
+```
+返回一个迭代器，表示第一个大于 val 的元素，如果不存在这样的元素，则返回 end。equal_range (beg, end, val)
+equal_range (beg, end, val, comp)
+返回一个 pair (参见 11.2.3 节，第 379 页)，其 first 成员是 lower_bound 返回的迭代器，second 成员是 upper_bound 返回的迭代器。
+binary_search (beg, end, val)
+binary_search (beg, end, val, comp)
+返回一个 bool 值，指出序列中是否包含等于 val 的元素。对于两个值 x 和 y，当 x 不小于 y 且 y 也不小于 x 时，认为它们相等。
+
+
 
 
 ## 1 只读算法
-只读取其输入范围内的元素，不改变元素
-`find`
-`count`
+
 
 `accumulate`（定义在头文件 numeric）
 accumulate 函数接受三个参数，前两个指出了需要求和的元素的范围，第三个参数是和的初值。第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。
@@ -908,21 +1028,6 @@ int sum accumulate(vec.cbegin(),vec.cend(),0);
 ```
 这条语句将 sum 设置为 vec 中元素的和，和的初值被设置为0。
 
-`equal`：用于确定两个序列是否保存相同的值。如果所有对应元素都相等，则返回
-true, 否则返回 false。
-此算法接受三个迭代器：前两个表示第一个序列中的元素范围，第三个表示第二个序列的首元素：
-```c++
-//roster2中的元素数目应该至少与roster1一样多
-equal(roster1.cbegin(),roster1.cend(),roster2.cbegin());
-```
-
-**equal 基于一个非常重要的假设：它假定第二个序列至少与第一个序列一样长。**
-
-> [!NOTE]  关键概念：迭代器参数
-**一些算法从两个序列中读取元素。构成这两个序列的元素可以来自于不同类型的容
-器，两个序列中元素的类型也不要求严格匹配。** 算法要求的只是能够比较两个序列中的元素。例如，对 equal 算法，元素类型不要求相同，但是我们必须能使用 == 来比较来自两个序列中的元素。
->
-**用一个单一迭代器表示第二个序列的算法都假定第二个序列至少与第一个一样长。**
 
 ## 2 写算法
 `fill`：接受一对迭代器表示一个范围，还接受一个值作为第三个参数，将给定的这个值赋予输入序列中的每个元素。
