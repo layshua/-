@@ -1267,67 +1267,155 @@ shuffle (beg, end, Uniform_rand)
 第二个版本接受一个可调用对象参数，该对象必须接受一个正整数值，并生成 0到此值的包含区间内的一个服从均匀分布的随机整数。shuffle 的第三个参数必须满足均匀分布随机数生成器的要求 (参见 17.4 节，第 659 页)。所有版本都返回 void。
 
 ## 7 排列算法
-排列算法生成序列的字典序排列。对于一个给定序列，这些算法通过重排它的一个排列来生成字典序中下一个或前一个排列。算法返回一个 bool 值，指出是否还有下一个或前一个排列。
+排列算法生成序列的**字典序排列**。对于一个给定序列，这些算法通过重排它的一个排列来生成字典序中下一个或前一个排列。**算法返回一个 bool 值，指出是否还有下一个或前一个排列。**
 为了理解什么是下一个或前一个排列，考虑下面这个三字符的序列: abc。它有六种可能的排列: abc、acb、bac、bca、cab 及 cba。这些排列是按字典序递增序列出的。即，abc 是第一个排列，这是因为它的第一个元素小于或等于任何其他排列的首元素，并且它的第二个元素小于任何其他首元素相同的排列。类似的，acb 排在下一位，原因是它以 a 开头，小于任何剩余排列的首元素。同理，以 b 开头的排列也都排在以 c 开头的排列之前。
-对于任意给定的排列，基于单个元素的一个特定的序，我们可以获得它的前一个和下一个排列。给定排列 bca，我们知道其前一个排列为 bac，下一个排列为 cab。序列 abc 没有前一个排列，而 cba 没有下一个排列。
-这些算法假定序列中的元素都是唯一的，即，没有两个元素的值是一样的。为了生成排列，必须既向前又向后处理序列，因此算法要求双向迭代器。
+**对于任意给定的排列，基于单个元素的一个特定的序，我们可以获得它的前一个和下一个排列。给定排列 bca，我们知道其前一个排列为 bac，下一个排列为 cab。序列 abc 没有前一个排列，而 cba 没有下一个排列。**
+**这些算法假定序列中的元素都是唯一的**，即，没有两个元素的值是一样的。为了生成排列，必须既向前又向后处理序列，因此算法**要求双向迭代器。**
 
-
-# 临时
-## 1 只读算法
-
-
-`accumulate`（定义在头文件 numeric）
-accumulate 函数接受三个参数，前两个指出了需要求和的元素的范围，第三个参数是和的初值。第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。
-假定 vec 是一个整数序列，则：
 ```c++
-//对vec中的元素求和，和的初值是0
-int sum accumulate(vec.cbegin(),vec.cend(),0);
+is_permutation (beg1, end1 , beg2)
+is_permutation (beg1, end1, beg2, binaryPred)
 ```
-这条语句将 sum 设置为 vec 中元素的和，和的初值被设置为0。
+**`is_permutation`**：如果第二个序列的某个排列和第一个序列具有相同数目的元素，且元素都相等，则返回 true。第一个版本用 `==` 比较元素，第二个版本使用给定的 binaryPred。
 
-
-
-## 3 拷贝算法
-此算法接受三个迭代器，前两个表示一个输入范围，第三个表示目的序列的起始位置。此算法**将输入范围中的元素拷贝到目的序列中**。传递给 copy 的目的序列至少要包含与输入序列一样多的元素，这一点很重要。
-
-我们可以用 coPy 实现内置数组的拷贝，如下面代码所示：
 ```c++
-inta1[]={0,1,2,3,4,5,6,7,8,9}:
-inta2[sizeof(a1)/sizeof(*a1)】;//a2与a1大小一样
-//ret指向拷贝到a2的尾元素之后的位置
-auto ret=copy(begin(a1),end(a1),a2);//把a1的内容拷贝给a2
+next_permutation (beg, end)
+next_permutation (beg, end, comp)
 ```
+**`next_permutation`**： 如果序列已经是最后一个排列，则将序列重排为最小的排列，并返回 false。否则，它将输入序列转换为字典序中下一个排列，并返回 true。第一个版本使用元素的 `<` 运算符比较元素，第二个版本使用给定的比较操作。
 
-copy 返回目的位置迭代器（递增后）的值，即 ret 指向拷贝到 a2 的尾元素之后的位置。
-
-**多个算法都提供“拷贝”版本。** 这些算法计算新元素的值，但不会将它们放置在输入序列的末尾，而是创建一个新序列保存这些结果。
-`replace` 算法读入一个序列，并将其中所有等于给定值的元素都改为另一个
-值。此算法接受 4 个参数：前两个是迭代器，表示输入序列，后两个一个是要搜索的值，
-另一个是新值。它将所有等于第一个值的元素替换为第二个值：
 ```c++
-//将所有值为0的元素改为42
-replace (ilst.begin(),ilst.end(),0,42);
+prev_permutation (beg, end)
+prev_permutation (beg, end, comp)
 ```
-此调用将序列中所有的 0 都替换为 42。如果我们希望保留原序列不变，可以调用 `replace_copy`。此算法接受额外第三个迭代器参数，指出调整后序列的保存位置：
+**`prev_permutation`**：类似 `next_premutation`，但将序列转换为前一个排列。如果序列已经是最小的排列，则将其重排为最大的排列，并返回 false。
+## 8 有序序列的集合算法
+集合算法实现了有序序列上的一般集合操作。
+**这些算法提供了普通顺序容器 (vector、list 等）或其他序列（如输入流）上的类集合行为。**
+
+> [!warning] 
+> 这些算法与标准库 set 容器不同，不要与 set 上的操作相混淆。
+
+这些算法顺序处理元素，因此**要求输入迭代器**。他们还接受一个表示目的序列的输出迭代器，唯一的例外是 `includes`。这些算法返回递增后的 dest 迭代器，表示写入 dest 的最后一个元素之后的位置。
+每种算法都有重载版本
+- 第一个使用元素类型的 `<` 运算符
+- 第二个使用给定的比较操作。
+
 ```c++
-//使用back inserter按需要增长目标序列
-replace_copy(ilst.cbegin(),ilst.cend(),
-back_inserter (ivec),0,42);
+includes (beg, end, beg2, end2)
+includes (beg,end,beg2, end2, comp)
 ```
-此调用后，i1st 并未改变，ivec 包含 i1st 的一份拷贝，不过原来在 ilst 中值为 0 的元素在 ivec 中都变为42。
+**`includes`**：如果第二个序列中每个元素都包含在输入序列中，则返回 true。否则返回 false。
 
-## 4 排序算法
-`sort`：从小到大排序，使用<运算符
-`unique`：sort 后将相邻的重复项隐藏（并不是删除，放在了末尾），返回的迭代器指向最后一个不重复元素之后的位置
+```c++
+set_union (beg, end, beg2, end2, dest)
+set_union (beg, end, beg2, end2, dest, comp)
+```
+**`set_union`**：对两个序列中的所有元素，创建它们的有序序列。两个序列都包含的元素在输出序列中只出现一次。输出序列保存在 dest 中。
+```c++
+set_intersection (beg, end, beg2, end2, dest)
+set_intersection (beg, end, beg2, end2, dest, comp)
+```
+**`set_intersection`**：对两个序列都包含的元素创建一个有序序列。结果序列保存在 dest 中。
 
-原 vector：
-![[Pasted image 20230212174503.png]]
-sort 后：
-![[Pasted image 20230212174441.png]]
-unique 后：![[Pasted image 20230212174447.png]]
-`stable_sort`：等长元素字典排序
-## 5 定制操作
+```c++
+set_difference (beg, end, beg2, end2, dest)
+set_difference (beg, end, beg2, end2, dest, comp)
+```
+**`set_difference`**:对出现在第一个序列中，但不在第二个序列中的元素，创建一个有序序列。
+
+```c++
+set_symmetric_difference (beg, end，beg2, end2, dest)
+set_symmetric_difference (beg, end，beg2, end2，dest, comp)
+```
+**`set_symmetric_difference`**：对只出现在一个序列中的元素，创建一个有序序列。
+
+## 9 最大值最小值
+这些算法使用元素类型的`<`运算符或给定的比较操作。第一组算法对值而非序列进行操作。第二组算法接受一个序列，它们要求输入迭代器。
+
+```c++
+min (val1, val2)
+min (val1, val2, comp) 
+min (init_list)
+min (init_list, comp) 
+max (val1, val2)
+max (val1, val2, comp) 
+max (init_list)
+max (init_list, comp)
+```
+返回 val1 和 val2 中的最小值/最大值，或 `initializer_list` 中的最小值/最大值。
+- 两个实参的类型必须完全一致。
+- 参数和返回类型都是 const 的引用，意味着对象不会被拷贝。
+
+```c++
+minmax (val1, val2)
+minmax (va11, va12, comp) minmax (init_list)
+minmax (init_list, comp)
+```
+返回一个 `pair `, 其 first 成员为提供的值中的较小者, second 成员为较大者。`initializer_list` 版本返回一个 pair，其 first 成员为 list 中的最小值，second 为最大值。
+
+```c++
+min_element (beg, end)
+min_element (beg, end, comp) 
+max_element (beg, end)
+max_element (beg, end, comp) 
+minmax_element (beg, end)
+minmax_element (beg, end, comp)
+```
+`min_element` 和 `max_element` 分别返回指向输入序列中最小和最大元素的迭代器。
+`minmax_element` 返回一个 pair，其 first 成员为最小元素，second 成员为最大元素。
+
+**字典序比较**
+**此算法比较两个序列，根据第一对不相等的元素的相对大小来返回结果。** 算法使用元素类型的 `<` 运算符或给定的比较操作。两个序列都要求用输入迭代器给出。
+
+```c++
+lexicographical_compare (beg1, end1, beg2, end2)
+lexicographical_compare (beg1, end1，beg2, end2, comp)
+```
+**如果第一个序列在字典序中小于第二个序列，则返回 true。否则，返回 false。** 如果一个序列比另一个短，且所有元素都与较长序列的对应元素相等，则较短序列在字典序中更小。如果序列长度相等，且对应元素都相等，则在字典序中任何一个都不大于另外一个。
+## 10 数值算法
+数值算法定义在头文件 `numeric` 中。这些算法要求输入迭代器; 如果算法输出数据，则使用输出迭代器表示目的位置。
+
+```c++
+accumulate (beg, end, init)
+accumulate (beg, end, init, binaryop)
+```
+- **`accumulate`**：返回输入序列中**所有值的和**。和的初值从 init 指定的值开始。返回类型与 init 的类型相同。
+    - 第一个版本使用元素类型的`+`运算符
+    - 第二个版本使用指定的二元操作。
+
+```c++
+inner_product (beg1, end1, beg2, init)
+inner_product (beg1, end1, beg2, init, binop1, binop2)
+```
+- **`inner_product`**：返回两个序列的**内积**，即，对应元素的积的和。两个序列一起处理，来自两个序列的元素相乘，乘积被累加起来。和的初值由 `init` 指定，`init` 的类型确定了返回类型。
+    - 第一个版本使用元素类型的乘法 (`*`）和加法 (`+`）运算符。
+    - 第二个版本使用给定的二元操作，使用第一个操作代替加法，第二个操作代替乘法。
+
+```c++
+partial_sum (beg, end, dest)
+partial_sum (beg, end, dest, binaryop)
+```
+- **`partial_sum`**：**将新序列写入 dest，每个新元素的值都等于输入范围中当前位置和之前位置上所有元素之和**。
+    - 第一个版本使用元素类型的+运算符;
+    -  第二个版本使用指定的二元操作。算法返回递增后的 dest 迭代器，指向最后一个写入元素之后的位置。
+
+```c++
+adjacent_difference (beg, end, dest)
+adjacent_difference (beg, end, dest, binaryop)
+```
+- **`adjacent_difference` 邻差**：将新序列写入 dest，**每个新元素（除了首元素之外）的值都等于输入范围中当前位置和前一个位置元素之差。**
+    -  第一个版本使用元素类型的-运算符，
+    - 第二个版本使用指定的二元操作。
+
+```c++
+iota (beg, end, val)
+```
+- **`iota`**：将 val 赋予首元素并递增 val。将递增后的值赋予下一个元素，继续递增 val，然后将递增后的值赋予序列中的下一个元素。继续递增 val 并将其新值赋予输入序列中的后续元素。
+
+
+
+# 四、定制操作
 **用 lambda 表达式定制操作**
 
 ### 谓词：向算法传递函数
@@ -1340,143 +1428,6 @@ unique 后：![[Pasted image 20230212174447.png]]
 > 二元谓词 (binary predicate, 意味着它们有两个参数)。
 > 
 > 接受谓词参数的算法对输入序列中的元素调用谓词。因此，元素类型必须能转换为谓词的参数类型。
-
-###  内置的 sort 函数
-
-1. sort (vec.begin (), vec.end (), 谓词)
-
-**谓词可以设置排序的规则，谓语可以是内置函数，也可以是 lambda 表达式。**
-
-2. **默认**是从小到大排序
-
-```c++
-#include<iostream>
-#include<vector>
-#include<algorithm>
-
-int main() {
-    std::vector<int>  values = {3, 5, 1, 4, 2};
-    std::sort(values.begin(), values.end());  //默认用法，不写谓词
-    for (int value : values)
-		    std::cout << value << std::endl; // 1 2 3 4 5
-    std::cin.get();
-}
-```
-
-3. 使用内置函数，添加头文件 functional，使用 **std::greater** 函数，则会按照**从大到小**顺序排列。
-
-```c++
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<functional>
-
-int main() {
-    std::vector<int>  values = {3, 5, 1, 4, 2};             
-    std::sort(values.begin(), values.end(),std::greater<int>()); 
-    for (int value : values)
-		    std::cout << value << std::endl; // 5 4 3 2 1
-    std::cin.get();
-}
-```
-
-4. 使用 lambda 进行灵活排序
-
-```c++
-std::sort(values.begin(), values.end(), 
-		  [](int a, int b){return a < b});//从小到大排序
-    
-
-a < b //返回true，a排在前面。此时为升序排列（如果a小于b，那么a就排在b的前面）
-a > b //返回true, a排在前面，此时为降序排列（如果a大于b，那么a就排在b的前面）
-```
-
-对于已定的传入参数的顺序 `[](int a, int b)`，函数体中如果参数 a 在前面，则返回 true，如果参数 a 在后面则返回 false
-
-```c++
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<functional>
-
-int main() {
-    std::vector<int>  values = {3, 5, 1, 4, 2};          
-
-    std::sort(values.begin(), values.end(), [](int a, int b)
-    {
-            return a < b;  // 如果a小于b，那么a就排在b的前面。 1 2 3 4 5
-    });
-
-    for (int value : values)
-    std::cout << value << std::endl;
-
-    std::cin.get();
-}
-```
-
-5. 如果把 1 排到最后
-
-如果 a == 1，则把它移到后面去，即返回 false，不希望它在 b 前。如果 b == 1，我们希望 a 在前面，要返回 true。
-
-```c++
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<functional>
-
-int main() {
-    std::vector<int>  values = {3, 5, 1, 4, 2};          
-    std::sort(values.begin(), values.end(), [](int a, int b)
-    {
-            if (a == 1)
-                return false;
-            if(b == 1)
-                return true;
-            return a < b;   //2 3 4 5 1
-    });
-    for (int value : values)
-    std::cout << value << std::endl;
-    std::cin.get();
-}
-```
-
-### find_if
-我们还可以写一个 lambda 接受 vector 的整数元素，遍历这个 vector 找到比 3 大的整数，然后返回它的迭代器，也就是满足条件的第一个元素。 
-
-**`find_if` 是一个搜索类的函数，区别于 `find` 的是：它可以接受一个函数指针来定义搜索的规则，返回满足这个规则的第一个元素的迭代器**。这个情况就很适合 lambda 表达式的出场了
-
-```c++
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
-int main() {
-    std::vector<int> values = { 1, 5, 3, 4, 2 };
-    //下面就用到了lambda作为函数指针构成了find_it的规则
-    auto it = std::find_if(values.begin(), values.end(), [](int value) { return value > 3; });  //返回第一个大于3的元素的迭代器 
-    std::cout << *it << std::endl;  //将其输出
-}
-```
-### for_each
-for_each 时 vector 的一个操作
-```c++
-//for_each原理 这里的MayPrint可以用lambda改写
-for_each(v.begin(),v.end(),MyPrint); 
-
-void MyPrint(int val) 
-{ 
-		cout<<val<<endl; 
-}
-```
-
-```c++
-//每次打印后面接一个空格
-vector<string> v;
-
-for_each(v.end, v.end(), [](const string &s){cout<< s <<" ";});
-cout<<endl;
-```
-
 
 ### 【C++11】参数绑定 bind 函数
 #bind
@@ -1749,16 +1700,3 @@ _ if 版本的算法
 find(beg,end,val);   
 find_if(beg,end,lambada);
 ```
-
-## 8 链表 list 容器算法 
- 
-> [!NOTE] 
-> 对于 list 和 forward_list，应该**优先使用成员函数版本**的算法而不是通用算法。
->
-链表特有的操作会改变底层的容器
-
- ![[Pasted image 20230212235051.png]]
-![[Pasted image 20230212235106.png]]
-
-特有的 splice 成员
-![[Pasted image 20230212235202.png]]
