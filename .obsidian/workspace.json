@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++.md",
+                "file": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,8 +106,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -205,15 +203,20 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "b245bc7967c9a6a4",
+  "active": "fcd3ac3505b76f5f",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230828205734.png",
+    "引擎Unreal/03 Gameplay/《大象无形》/03 三：模块基础.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/04 四：模块初始化.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/07 七：UHT.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/06 六：UBT.md",
+    "引擎Unreal/03 Gameplay/《大象无形》/05 五：模块总结.md",
+    "引擎Unreal/02 蓝图 & U++/U++.md",
     "引擎Unreal/03 Gameplay/GamePlay架构.md",
     "引擎Unreal/02 蓝图 & U++/GamePlay.md",
-    "引擎Unreal/02 蓝图 & U++/U++.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
     "编程/C++/《C++ Primer》.md",
     "zip/images/Pasted image 20230828173115.png",
-    "引擎Unreal/03 Gameplay/《大象无形》/03 三：模块基础.md",
     "引擎Unreal/03 Gameplay/《大象无形》/02 二.md",
     "引擎Unreal/03 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "zip/images/b54db34c036f47a0b26358d554725632_MD5.png",
@@ -233,10 +236,6 @@
     "引擎Unreal/03 Gameplay/《大象无形》/13 十三：渲染系统（一）.md",
     "引擎Unreal/03 Gameplay/《大象无形》/14 十四：渲染系统（二）.md",
     "引擎Unreal/03 Gameplay/《大象无形》/11 十一：UObject (二).md",
-    "引擎Unreal/03 Gameplay/《大象无形》/06 六：UBT.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/07 七：UHT.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/04 四：模块初始化.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/05 五：模块总结.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 实现屏幕空间反射（SSR）.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md",
     "技术美术/5 水体渲染/SSR屏幕空间反射/SSPR.md",
