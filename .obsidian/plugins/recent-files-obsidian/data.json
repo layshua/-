@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "GamePlay架构",
-      "path": "引擎Unreal/03 Gameplay/GamePlay架构.md"
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "01 虚幻类",
@@ -11,6 +11,10 @@
     {
       "basename": "GamePlay",
       "path": "引擎Unreal/02 蓝图 & U++/GamePlay.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "引擎Unreal/03 Gameplay/GamePlay架构.md"
     },
     {
       "basename": "U++",
@@ -183,10 +187,6 @@
     {
       "basename": "光照设置",
       "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "01 学习大纲",
