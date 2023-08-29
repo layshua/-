@@ -837,7 +837,7 @@ AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空�
 标记为 ` BlueprintImplementableEvent` 的函数仍然可以被调用，但不能被重载。你将无法从蓝图访问所有其他函数。
 
 # UFunction
-## UFunction 声明
+
 
 **UFunction** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFunction`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
 宏将支持 **函数说明符** 更改虚幻引擎解译和使用函数的方式。
@@ -853,14 +853,14 @@ ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1
 
 用户甚至可创建自己的控制台命令（通常也称 _debug_ 、 _configuration_ 或 _cheat code_ 命令），并能在开发版本中从游戏控制台调用这些命令，或将拥有自定义功能的按钮添加到关卡编辑器中的游戏对象。
 
-### 函数说明符
+## 函数说明符
 
 声明函数时，可以为声明添加 **函数说明符**，以控制函数相对于引擎和编辑器的各个方面的行为方式。
 
 **常用：**
 1. `BlueprintCallable` 函数以C++编写，可从 **蓝图图表** 中调用，但只能通过编辑C++代码进行修改或重写。以此类方式标记的函数通常具备供非程序员使用而编写的功能，但是不应对其进行修改，否则修改将毫无意义。数学函数便是此类函数的经典范例。
 2. 在C++ header (.h)文件中设置 `BlueprintImplementableEvent` 函数，但是函数的主体则在蓝图图表中完成编写，而非C++中。创建此类通常是为了使非程序员能够对无预期默认动作或标准行为的特殊情况创建自定义反应。在宇宙飞船游戏中，玩家飞船接触到能量升级时发生的事件便是这方面的范例。
-3. `BlueprintNativeEvent` 函数与 `BlueprintCallable` 和 `BlueprintImplementableEvent` 函数的组合类似。其具备用 C++中编程的默认行为，但此类行为可通过在蓝图图表中覆盖进行补充或替换。对此类代码编程时，C++代码固定使用命名末尾添加了`_Implementation` 的虚拟函数，如下所示。此为最为灵活的选项，因此本教程将采用这种方法。
+3. `BlueprintNativeEvent` 函数与 `BlueprintCallable` 和 `BlueprintImplementableEvent` 函数的组合类似。其具备用 C++中编程的默认行为，但此类行为可通过在蓝图图表中覆盖进行补充或替换。对此类代码编程时，C++代码固定使用命名末尾添加了 `_Implementation` 的虚拟函数，此为最为灵活的选项。
 
 
 |函数说明符|效果|
@@ -885,22 +885,13 @@ ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1
 |`Unreliable`|此函数将通过网络复制，但是可能会因带宽限制或网络错误而失败。仅在与`Client`或`Server`配合使用时才有效。|
 |`WithValidation`|用于声明名称与主函数相同的附加函数，但是末尾需要添加`_Validate`。此函数使用相同的参数，但是会返回`bool`，以指示是否应继续调用主函数。|
 
-### 函数参数说明符
+## 函数参数说明符
 
 |参数说明符|描述|
 |---|---|
 |Out|声明由引用传递的参数，使函数对其进行修改。|
 |Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
 
-## 委托
-
-**委托（Delegates）** 可以通过通用、类型安全的方式对C++对象调用成员函数。**委托可以动态绑定到任意对象的成员函数，在未来对对象调用函数，即使调用者不知道对象的类型也可以。**
-
-## 定时器
-
-**定时器** 可用于在一段延迟后执行某个动作，或在一段时间内执行动作。比如，你可以让玩家在获得某个物品后保持无敌10秒，并在10秒后失去无敌效果。或者，让玩家在进入毒气场景后每秒受到伤害。这类效果都可以通过定时器实现。
-
-请参见[Gameplay定时器](https://docs.unrealengine.com/5.2/zh-CN/gameplay-timers-in-unreal-engine)页面查看更多参考和使用信息。
 # 元数据说明符
 文档：
 [虚幻引擎元数据说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine/)
@@ -3171,3 +3162,120 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 |`Execute`|不检查其绑定情况即执行一个委托|
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
+
+
+# 定时器
+
+## 定时器管理
+
+定时器在 **全局定时器管理器**（`FTimerManager` 类型）中管理。全局定时器管理器存在于 **游戏实例** 对象上以及每个 **场景** 中。
+**如果要对其调用定时器的对象（如 Actor）在时间结束前被销毁，则相关定时器会自动取消**。在此情况下，定时器句柄将变为无效，并且不会调用该函数。
+
+
+- **访问定时器管理器**：可以使用 `AActor` 函数 `GetWorldTimerManager()`，它会在 `UWorld` 中调用 `GetTimerManager()` 函数。
+- **访问全局定时器管理器**：使用 `UGameInstance` 函数 `GetTimerManager()`。如果场景因为任何原因而没有自己的定时器管理器，也可以退而求其次，使用全局定时器管理器。全局管理器可以用于与任何特定场景的存在没有相关性或依赖性的函数调用。
+- **使用定时器管理器来设置定时器**：`SetTimer` 和 `SetTimerForNextTick`，它们各自都有一些重载。每个函数都可以连接到任意类型的对象或函数委托，`SetTimer` 可以设为根据需要定期重复。请参阅[定时器管理器 API 页面]( https://docs.unrealengine.com/en-US/API/Runtime/Engine/FTimerManager "FTimerManager")以了解有关这两个函数的更多详细信息。
+- 定时器可以与标准的C++函数指针、[`TFunction`对象](https://docs.unrealengine.com/en-US/API/Runtime/Core/GenericPlatform/TFunction "TFunction")或[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)一起使用。
+
+### 设置和清空定时器
+
+`SetTimer()` 函数将定时器设置为在一段延迟后调用函数或委托，可以设置为不限次重复调用该函数。
+这些函数将填充 **定时器句柄**（`FTimerHandle` 类型），后者可用于暂停（和恢复）倒计时，查询或更改剩余时间，甚至可以取消定时器。
+可以在定时器调用的函数内部设置定时器，甚至可以重复使用用来调用这个函数的定时器句柄。一种用法是延迟依赖于尚未产生、但预计很快会产生的Actor的Actor的初始化；从属Actor初始化函数可以设置一个定时器，在经过固定时长（如一秒）后再次调用这个初始化函数。或者，该初始化函数可以由在成功时自动清空的循环定时器调用。
+
+**`SetTimerForNextTick`**： 设置定时器在下一帧运行，而不是按固定间隔。但需要注意的是，**该函数不填充定时器句柄**。
+
+**清空定时器**：将 `SetTimer` 期间填充的 `FTimerHandle` 传递到 `FTimerManager` 函数 **`ClearTimer`** 中。**定时器句柄将在此刻失效，并可以再次用于管理新定时器**。
+
+使用现有定时器句柄调用 `SetTimer` 将清空该定时器句柄引用的定时器，并将它换成新定时器。
+
+最后，与特定对象关联的所有定时器都可以通过调用`ClearAllTimersForObject` 来清空。
+
+示例：
+```c++ 
+//声明
+FTimerHandle MemberTimerHandle;
+```
+
+```c++
+ACountdown::ACountdown()
+{
+    CountdownTime = 3; //初始化倒计时
+}
+
+void AMyActor::BeginPlay()
+{
+    Super::BeginPlay();
+    // 从现在开始两秒后，每秒调用一次RepeatingFunction。
+    GetWorldTimerManager().SetTimer(MemberTimerHandle, this, &AMyActor::RepeatingFunction, 1.0f, true, 2.0f);
+}
+
+void ACountdown::BeginPlay()
+{
+	Super::BeginPlay();
+	 // 从现在开始5s后，每秒调用一次AdvanceTimer函数
+	GetWorldTimerManager().SetTimer(CountdownTimerHandle, this, &ACountdown::AdvanceTimer, 1.0f, true,5.0f);
+}
+
+void ACountdown::AdvanceTimer()
+{
+    //倒计时结束时，清空定时器
+	--CountdownTime;
+	if(CountdownTime<=0)
+	{
+		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
+		// CountdownTimerHandle现在可以复用于其他任意定时器。
+	}
+}
+```
+
+
+> [!warning] 
+>以小于等于0的速率调用`SetTimer`等效于调用`ClearTimer`。
+
+### 暂停和恢复定时器
+
+`FTimerManager`函数`PauseTimer`使用定时器句柄来暂停正在运行的定时器。这样可阻止定时器执行其函数调用，但经过的时间和剩余时间将保持暂停时的状态。``UnPauseTimer`使暂停的定时器恢复运行。
+
+## 定时器信息
+
+除了管理定时器，定时器管理器还提供了用于获取特定定时器信息的函数，如速率、经过的时间和剩余时间等。
+
+### 定时器是否活跃
+
+`FTimerManager`的`IsTimerActive`函数用于确定指定定时器当前是否活跃且未暂停。
+
+示例：
+
+```
+    // 这个武器是否正在等待再次射击？
+    GetWorldTimerManager().IsTimerActive(this, &AUTWeapon::RefireCheckTimer);
+```
+
+### 定时器速率
+
+``FTimerManager`有一个函数`GetTimerRate``，它用于从定时器句柄获取定时器的当前速率（两次激活之间的时间）。定时器速率不能直接更改，但可以使用其定时器句柄调用`SetTimer`来清空定时器并创建新定时器，新定时器除了速率不同，其他保持不变。如果定时器句柄无效，则`GetTimerRate`将返回值`-1`。
+
+示例：
+
+```
+    // 该武器的射击速率在预热时变化。当前是否正在等待射击，如果是，两次射击之间的当前间隔是多久？
+    GetWorldTimerManager().GetTimerRate(this, &AUTWeapon::RefireCheckTimer);
+```
+
+### 经过时间和剩余时间
+
+``FTimermanager`通过`GetTimerElapsed`和`GetTimerRemaining``，针对与所提供的定时器句柄关联的定时器，提供了返回经过时间和剩余时间的功能。与`GetTimerRate`一样，如果定时器句柄无效，则这两个函数将返回`-1`。
+
+示例：
+
+```
+    // 该武器准备好再次射击之前将经过多长时间？如果答案为-1，则表示现在已准备就绪。
+    GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
+```
+
+定时器的经过时间和剩余时间之和应该等于定时器的速率。
+
+## 已知问题
+
+- 该代码目前并非线程安全，如果从游戏线程外部访问可能会导致断言。
