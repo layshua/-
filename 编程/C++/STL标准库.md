@@ -524,6 +524,19 @@ string s4 =  "world" + "!" + s1; //错误，不能把字面值直接相加
 
 #### 初始化
 ![[Pasted image 20230212153613.png]]
+```c++
+const char *cp = "Hello world!!!"; //以空字符结束的数组
+char noNull[]= {'H', 'i'};            //不是以空字符结束
+
+string s1(cp);        //拷贝cp中的字符直到遇到空字符;s1 == "Hello world!!!"
+string s2 (noNul1,2); //从noNull拷贝两个字符;s2 =="Hi"
+string s3 (noNull);   //未定义:noNull不是以空字符结束
+string s4(cp + 6，5); //从cp[6]开始拷贝5个字符;s4 == "world"
+string s5(s1,6，5);   //从s1 [6]开始考贝5个字符;s5 =="world"
+string s6(s1,6);      //从s1[6]开始拷贝，直至s1末尾;s6 == "world!!!"
+string s7(s1,6,20);   //正确，只拷贝到s1末尾;s7 =="world!!!"
+string s8(s1, 16);    //抛出一个out_of_range异常
+```
 
 #### substr 操作
 返回一个 string，他是原始 string 的一部分或全部的拷贝，可以传递给 substr 一个可选的开始位置和计数值：
@@ -537,16 +550,82 @@ string s5 = s.substr(12);  //抛出一个out_of_range异常
 ```
 
 #### 改变 string 的其他方法
+- `insert` 和 `erase` 有多个版本：
+    - 接收迭代器
+    - **接收下标**
+    - **接受 C 风格字符数组**
+
+```c++
+string& insert(int pos, const char* s); // 在pos位置插入C风格字符数组
+string& insert(int pos, const string& str); // 在pos位置插入字符串str
+string& insert(int pos, int n, char c); // 在pos位置插入n个字符c
+
+string& erase(int pos, int n = npos); // 删除从pos位置开始的n个字符，默认一直删除到末尾。
+```
+
+string 类定义了两个额外的成员函数： `append` 和 `repalce`
+```c++
+string& append(const char* s); 
+// 把C风格字符数组s连接到当前字符串结尾
+string& append(const char* s, int n); 
+// 把C风格字符数组s的前n个字符连接到当前字符串结尾
+string& append(const string &s); 
+// 将字符串s追加到当前字符串末尾
+string& append(const string&s, int pos, int n); 
+// 把字符串s中从pos开始的n个字符连接到当前字符串结尾
+string& append(int n, char c); 
+// 在当前字符串结尾添加n个字符c
+```
+
+```c++
+string& replace(int pos, int n, const string& str); 
+// 替换从pos开始n个字符为字符串s
+string& replace(int pos, int n, const char* s);
+// 替换从pos开始的n个字符为字符串s
+```
+
 ![[Pasted image 20230212154457.png]] ![[Pasted image 20230212154543.png]]
 #### string 搜索操作
 ![[Pasted image 20230212154657.png]]
 ![[Pasted image 20230212154705.png]]
 
-> [!warning] 
-> string 搜索函数返回 string: size_type 值，该类型是一个 unsigned 类型。因此，用一个 int 或其他带符号类型来保存这些函数的返回值不是一个好主意。
+**`find`** 
+```c++
+int find(const string& str, int pos = 0) const; 
+// 查找str在当前字符串中第一次出现的位置，从pos开始查找，pos默认为0
+int find(const char* s, int n = 0) const; 
+// 查找C风格字符串s在当前字符串中第一次出现的位置，从pos开始查找，pos默认为0
+int find(const char* s, int pos, int n) const; 
+// 从pos位置查找s的前n个字符在当前字符串中第一次出现的位置
+int find(const char c, int pos = 0) const; 
+// 查找字符c第一次出现的位置，从pos开始查找，pos默认为0
+```
+当查找失败时，find 方法会返回-1，-1 已经被封装为 string 的静态成员常量 `string::npos`。
+`static const size_t nops = -1;`
 
+**`rfind`**
+```c++
+int rfind(const string& str, int pos = npos) const; 
+// 从pos开始向左查找最后一次出现的位置，pos默认为npos
+int rfind(const char* s, int pos = npos) const; 
+// 查找s最后一次出现的位置，从pos开始向左查找，pos默认为npos
+int rfind(const char* s, int pos, int n) const; 
+// 从pos开始向左查找s的前n个字符最后一次出现的位置
+int rfind(const char c, int pos = npos) const; 
+// 查找字符c最后一次出现的位置
+```
+find 方法通常查找字串第一次出现的位置，而 rfind 方法通常**查找字串最后一次出现的位置。**
+rfind (str, pos)的实际的开始位置是 pos + str.size ()，即从该位置开始（不包括该位置字符）向前寻找匹配项，如果有则返回字符串位置，如果没有返回 string:: npos。
+-1 其实是 size_t 类的最大值（学过补码的同学应该不难理解），所以 string:: npos 还可以表示“直到字符串结束”，这样的话 rfind 中 pos 的默认参数是不是就不难理解啦？
 #### compare 比较函数
 ![[Pasted image 20230212155018.png]]
+
+```c++
+int compare(const string& s) const; // 与字符串s比较
+int compare(const char* s) const; // 与C风格字符数组比较
+```
+compare 函数**依据字典序比较**，在当前字符串比给定字符串小时返回-1，在当前字符串比给定字符串大时返回 1，相等时返回 0。
+
 #### 数值转换
 ![[Pasted image 20230212155134.png]]
 
