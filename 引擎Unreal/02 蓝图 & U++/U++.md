@@ -3194,6 +3194,7 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 示例：
 ```c++ 
 //声明
+int32 CountdownTime;
 FTimerHandle MemberTimerHandle;
 ```
 
@@ -3201,13 +3202,6 @@ FTimerHandle MemberTimerHandle;
 ACountdown::ACountdown()
 {
     CountdownTime = 3; //初始化倒计时
-}
-
-void AMyActor::BeginPlay()
-{
-    Super::BeginPlay();
-    // 从现在开始两秒后，每秒调用一次RepeatingFunction。
-    GetWorldTimerManager().SetTimer(MemberTimerHandle, this, &AMyActor::RepeatingFunction, 1.0f, true, 2.0f);
 }
 
 void ACountdown::BeginPlay()
