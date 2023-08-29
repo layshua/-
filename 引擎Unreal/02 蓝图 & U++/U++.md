@@ -4,14 +4,7 @@
 4.  [来自程序员的暴击：虚幻四C++入坑指南合集版](https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV14K411J7v2)
 
 # 游戏性架构
-使用 C++ 代码进行游戏性元素编程时，每个模块会包含许多 C++ 类。
 
-![[Pasted image 20230827161330.png]]
-
-在虚幻引擎中进行编程时，可使用标准 C++ 类、函数和变量。可使用标准 C++ 语法对它们进行定义。然而，`UCLASS()`、`UFUNCTION()` 和 `UPROPERTY()` 宏可使虚幻引擎识别新的类、函数和变量。
-`UPROPERTY()` 宏作为声明序言的变量可被引擎执行垃圾回收，也可在虚幻编辑器中显示和编辑。
-`UINTERFACE()` 和 `USTRUCT()` 宏， 以及用于指定 [类](https://docs.unrealengine.com/5.2/zh-CN/class-specifiers)、函数、属性、 接口或 结构体 在虚幻引擎和虚幻编辑器中行为的每个宏关键词。
-`UPARAM()` 宏，主要用于将 C++ 代码公开到蓝图。在 [向蓝图公开游戏逻辑内容](https://docs.unrealengine.com/5.2/zh-CN/exposing-gameplay-elements-to-blueprints-visual-scripting-in-unreal-engine) 文档中可查看 UPARAM() 的使用范例。
 ## 断言
 
 **`assert` 的关键特性之一是不存在于发布代码中，这意味着不但不会影响发布产品的性能，也没有任何副作用**。**对 `assert` 最简单的理解就是："断言"必须一律为 true，否则程序会停止运行。**
@@ -88,39 +81,17 @@ void AMyActor::Tick(float DeltaSeconds)
 
 
 
-## 游戏性类
-### 类声明
 
-类声明定义类的名称、其继承的类，以及其继承的函数和变量。类声明还将定义通过 [类说明符](https://docs.unrealengine.com/5.2/zh-CN/gameplay-classes-in-unreal-engine#%E7%B1%BB%E8%AF%B4%E6%98%8E%E7%AC%A6) 和元数据要求的其他引擎和编辑器特定行为。
-
-类声明的语法如下所示：
-
-```c++
-UCLASS([specifier, specifier, ...], [meta(key=value, key=value, ...)])
-class ClassName : public ParentName
-{
-    GENERATED_BODY()
-}
-```
-
-声明包含一个类的标准 C++ 类声明。在标准声明之上，描述符（如类说明符和元数据）将被传递到 `UCLASS` 宏。它们用于创建被声明类的 `UClass`，它可被看作引擎对类的专有表达。此外，`GENERATED_BODY()` 宏必须被放置在类体的最前方。
-
-#### 类说明符和元数据说明符
-
-声明类时，可以为声明添加 **类说明符**，以控制类相对于引擎和编辑器的各个方面的行为。
-[类说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/class-specifiers/)
 ## 游戏模块
 [使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
 ## GameplayTags
 [使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
-# 反射系统
-
 
 # 属性 UPROPERTY
 ## 属性声明
 
 属性使用标准的 C++变量语法声明，前面用 `UPROPERTY` 宏来定义属性元数据和变量说明符。
-
+`UPROPERT` 宏作为声明序言的变量可被引擎执行垃圾回收，也可在虚幻编辑器中显示和编辑。
 当你需要将一个 UObject 类的子类的成员变量注册到蓝图中时，你只需要借助 `UPROPERTY` 宏即可完成。
 
 ```c++
@@ -282,7 +253,16 @@ bool bIsThirsty;
 # 对象 / 类 UCLASS
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
 
+声明包含一个类的标准 C++ 类声明。在标准声明之上，描述符（如类说明符和元数据）将被传递到 `UCLASS` 宏。
 **`UCLASS` 宏的作用**是标记 `UObject` 的子类，以便 **UObject** 处理系统可以识别它们。
+
+```c++
+UCLASS([specifier, specifier, ...], [meta(key=value, key=value, ...)])
+class ClassName : public ParentName
+{
+    GENERATED_BODY()
+}
+```
 
 ## 1 UCLASS 宏
 
@@ -295,7 +275,49 @@ bool bIsThirsty;
 > [!NOTE]
 > `UObject` 类还可包括仅限本地的属性，这些属性没有用 `UFUNCTION` 或者 `UPROPERTY` 指定器标记用于反射。**只有用指定器宏标记过的函数和属性会列举在它们对应的 `UCLASS` 中。**
 
-## 2 TSubclassOf
+## 2 类说明符
+
+声明类时，可以为声明添加 **类说明符**，以控制类相对于引擎和编辑器的各个方面的行为。
+
+|类说明符|效果|
+|---|---|
+| `Abstract` |**Abstract** 说明符会将类声明为"**抽象基类**"，阻止用户向关卡中添加此类的 Actor。对于单独存在时没有意义的类，此说明符非常有用。例如，`ATriggerBase` 基类是抽象类，而 `ATriggerBox` 子类不是抽象类，可以放置在关卡中。|
+| `AdvancedClassDisplay` |**AdvancedClassDisplay** 说明符强制类的所有属性仅在显示这些属性的 ["细节面板（Details Panel）"](https://docs.unrealengine.com/5.2/zh-CN/level-editor-details-panel-in-unreal-engine) 的"高级（Advanced）"部分中显示。要覆盖单个属性上的此说明符，在该属性上使用 `SimpleDisplay` 说明符。|
+| `AutoCollapseCategories=(Category1, Category2, ...)` | `AutoCollapseCategories` 说明符使父类上的 **AutoExpandCategories** 说明符的列出类别的效果无效。|
+| `AutoExpandCategories=(Category1, Category2, ...)` |为此类的对象指定应自动在虚幻编辑器属性窗口中展开的一个或多个类别。要自动展开未使用类别声明的变量，请使用声明变量的类的名称。 |
+|⭐ **`Blueprintable`**|⭐将此类公开为用于**创建蓝图的可接受基类**。默认为 `NotBlueprintable`，除非继承时就并非如此。此说明符由子类继承。|
+|⭐ **`BlueprintType`**|将此类公开为可用于蓝图中的变量的类型。|
+| `ClassGroup=GroupName` |指示在虚幻编辑器的 Actor 浏览器中启用 **组视图（Group View）** 时，**Actor 浏览器** 应在指定的 `GroupName` 中包含此类及此类的所有子类。|
+| `CollapseCategories` |指示此类的属性不应划分到虚幻编辑器属性窗口的类别中。此说明符会传播到子类，可由 `DontCollapseCategories` 说明符覆盖。|
+| `Config=ConfigName` |指示此类可在配置文件（`.ini`）中存储数据。如果存在任何使用 `config` 或 `globalconfig` 说明符声明的类属性，此说明符将使这些属性存储在指定的配置文件中。此说明符会传播到所有子类并且无法使此说明符无效，但是子类可通过重新声明 `config` 说明符并提供不同的 `ConfigName` 来更改配置文件。常见的 `ConfigName` 值是"Engine"、"Editor"、"Input"和"Game"。|
+| `Const` |此类中的所有属性和函数都是 `const` 并且导出为 `const`。此说明符由子类继承。|
+| `ConversionRoot` |根转换，将子类限制为仅可沿层级向上转换为第一个根类的子类。|
+| `CustomConstructor` |阻止构造函数声明自动生成。|
+| `DefaultToInstanced` |此类的所有实例都被认为是"实例化的"。实例化的类（组件）将在构造时被复制。此说明符由子类继承。|
+| `DependsOn=(ClassName1, ClassName2, ...)` |列出的所有类将先于此类被编译。提供的类名必须指示同一个或前一个包中的类。可以使用单个 `DependsOn` 行（以逗号分隔）来标识多个依赖类，或者可以通过为每个类使用单独的 `DependsOn` 行来指定多个依赖类。当某个类使用在另一个类中声明的结构体或枚举时，这非常重要，因为编译器仅知道它已编译了类中的哪些部分。|
+| `Deprecated` |此类已弃用，序列化时将不保存此类的对象。此说明符由子类继承。|
+| `DontAutoCollapseCategories=(Category, Category, ...)` |使列出的类别的继承自父类的 `AutoCollapseCategories` 说明符无效。|
+| `DontCollapseCategories` |使继承自基类的 `CollapseCatogories` 说明符无效。|
+| `EditInlineNew` |指示可以从虚幻编辑器"属性（Property）"窗口创建此类的对象，而非从现有资源引用。默认行为是仅可通过"属性（Property）"窗口指定对现有对象的引用。此说明符会传播到所有子类；子类可通过 `NotEditInlineNew` 说明符覆盖它。|
+| `HideCategories=(Category1, Category2, ...)` |列出一个或多个应该对用户完全隐藏的分类。要隐藏未使用类别声明的属性，请使用声明变量的类的名称。此说明符会传播到子类。|
+| `HideDropdown` |阻止此类在属性窗口组合框中显示。|
+| `HideFunctions=(Category1, Category2, ...)` |让指定分类中的所有函数都对用户完全隐藏。|
+| `HideFunctions=FunctionName` |将提到的函数对用户完全隐藏。|
+| `Intrinsic` |指示此类直接在 C++中声明，无 **Unreal Header Tool** 生成的样板。请勿在新类上使用此说明符。|
+| `MinimalAPI` |导致仅导出此类的类型信息，以供其他模块使用。可以以此类为目标进行强制转换，但此类的函数无法被调用（除了使用内联方法）。这可以缩短编译时间，因为没有针对无需从其他模块访问其所有函数的类导出一切。|
+| `NoExport` |指示此类的声明不应包含在由标头生成器自动生成的 C++头文件中。必须在单独的头文件中手动定义该 C++类声明。仅对本地类有效。请勿对新类使用此说明符。|
+| `NonTransient` |使继承自基类的 `Transient` 说明符无效。|
+| `NotBlueprintable` |指定此类不是可用于创建蓝图的可接受基类。此为默认说明符，将由子类继承。|
+| `NotPlaceable` |使继承自基类的 `Placeable` 说明符无效。指示不可以在编辑器中将此类的对象放置到关卡、UI 场景或蓝图中。|
+| `PerObjectConfig` |此类的配置信息将按对象存储，在 ``.ini`文件中，每个对象都有一个分段，根据对象命名，格式为`` [ObjectName ClassName] `。此说明符会传播到子类。|
+| `Placeable` |指示可在编辑器中创建此类，而且可将此类放置到关卡、UI 场景或蓝图（取决于类类型）中。此标志会传播到所有子类；子类可使用 `NotPlaceable` 说明符覆盖此标志。|
+| `ShowCategories=(Category1, Category2, ...)` |使列出的类别的继承自基类的 `HideCategories` 说明符无效。|
+| `ShowFunctions=(Category1, Category2, ...)` |在属性查看器中显示列出的类别中的所有函数。|
+| `ShowFunctions=FunctionName` |在属性查看器中显示指定的函数。|
+| `Transient` |从不将属于此类的对象保存到磁盘。当与播放器或窗口等本质上不持久的特定种类的原生类配合使用时，它非常有用。此说明符会传播到子类，但是可由 `NonTransient` 说明符覆盖。|
+| `Within=OuterClassName` |此类的对象无法在 `OuterClassName` 对象的实例之外存在。这意味着，要创建此类的对象，需要提供 `OuterClassName` 的一个实例作为其 `Outer` 对象。|
+
+## 3 TSubclassOf
 
 
 **`TSubclassOf`** 是提供 `UClass` 类型安全性的模板类。它**在分配从特定类型派生出来的类时很有效**。
@@ -338,7 +360,7 @@ ClassB = ClassC; // Performs a compile time check
 ```
 
 
-## 3 UObject 创建
+## 4 UObject 创建
 
 **`UObjects` 不支持构造器参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
 
@@ -353,7 +375,6 @@ ClassB = ClassC; // Performs a compile time check
 
 > [!warning]
 > **`UObjects` 永远都不应使用 `new` 运算符。所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。**
-
 
 ## 4 虚幻头文件工具 UHT
 
@@ -399,9 +420,8 @@ class MYPROJECT_API UMyObject : public UObject
 ```
 
 4. **`GENERATED_BODY` 宏不获取参数，但会对类进行设置，以支持引擎要求的基础结构。所有 `UCLASS` 和 `USTRUCT` 均有此要求。**
-
 ```c++
-GENERATED_BODY()
+GENERATED_BODY() //GENERATED_BODY()宏必须被放置在类体的最前方。
 ```
 
 5. 虚幻头文件工具支持最下 C++集。当使用自定义 `#ifdefs` 宏包裹 UCLASS 的部分时，UHT 会忽略不包含 `WITH_EDITOR` 或者 `WITHEDITORONLY_DATA` 宏的宏。
@@ -740,7 +760,8 @@ TestFunction();
 |Out|声明由引用传递的参数，使函数对其进行修改。|
 |Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
 # 参数 UPARAM
-将 C++代码公开到蓝图
+主要用于将 C++ 代码公开到蓝图
+
 若要使参数通过**引用传递并仍然显示为输入**，请使用 `UPARAM()` 宏。
 
 ![[Pasted image 20230829220832.png]]
@@ -762,6 +783,7 @@ UPARAM(DisplayName="X (Roll)") float Roll,
 UPARAM(DisplayName="Y (Pitch)") float Pitch,
 UPARAM(DisplayName="Z (Yaw)") float Yaw);
 ```
+
 # 元数据说明符
 文档：
 [虚幻引擎元数据说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine/)
@@ -3130,4 +3152,86 @@ GetWorldTimerManager().GetTimerRate(this, &AUTWeapon::RefireCheckTimer);
 ```c++
 // 该武器准备好再次射击之前将经过多长时间？如果答案为-1，则表示现在已准备就绪。
 GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
+```
+
+# 创建蓝图 API：提示和技巧
+[在虚幻引擎中将C++暴露给蓝图 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/exposing-cplusplus-to-blueprints-visual-scripting-in-unreal-engine/)
+程序员创建对蓝图公开的 API 时需要考虑以下几点：
+
+- 可选参数便于在蓝图中处理：
+    
+```c++
+/**
+ * 将字符串显示到日志中，也可选择显示到屏幕上。
+ * 如 Print To Log 为 true，它将显示在 Output Log 窗口中。否则它将被记录为"Verbose"，通常不会显示。
+ *
+ * @param   InString        登出字符串
+ * @param   bPrintToScreen  是否将输出显示到屏幕上
+ * @param   bPrintToLog     是否将输出保存到日志中
+ * @param   bPrintToConsole 是否将输出显示到控制台
+ * @param   TextColor       是否将输出显示到控制台
+ */
+UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject", CallableWithoutWorldContext, Keywords = "log print", AdvancedDisplay = "2"), Category="Utilities|String")
+static void PrintString(UObject* WorldContextObject, const FString& InString = FString(TEXT("Hello")), bool bPrintToScreen = true, bool bPrintToLog = true, FLinearColor TextColor = FLinearColor(0.0,0.66,1.0));
+```
+
+
+- 在带大量返回参数的函数和返回结构体的函数之间优先前者。以下片段显示如何在节点上创建多个输出引脚：
+    
+```c++
+UFUNCTION(BlueprintCallable, Category = "Example Nodes")
+static void MultipleOutputs(int32& OutputInteger, FVector& OutputVector);
+```
+    
+- 可在现有函数上添加新参数，但如果要进行移除或变更，则需要否决原始函数并添加一个新函数。必须使用否决元数据，使新函数的信息显示在蓝图中：
+    
+```c++
+UFUNCTION(BlueprintCallable, Category="Collision", meta=(DeprecatedFunction, DeprecationMessage = "Use new CapsuleOverlapActors", WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore"))
+static ENGINE_API bool CapsuleOverlapActors_DEPRECATED(UObject* WorldContextObject, const FVector CapsulePos, float Radius, float HalfHeight, EOverlapFilterOption Filter, UClass* ActorClassFilter, const TArray<AActor*>& ActorsToIgnore, TArray<class AActor*>& OutActors);
+```
+    
+- 如果函数需要接受枚举，考虑将"expand enum as execs"用作元数据，可使节点更易于使用。
+    
+```c++
+UFUNCTION(BlueprintCallable, Category = "DataTable", meta = (ExpandEnumAsExecs="OutResult", DataTablePin="CurveTable"))
+static void EvaluateCurveTableRow(UCurveTable* CurveTable, FName RowName, float InXY, TEnumAsByte<EEvaluateCurveTableResult::Type>& OutResult, float& OutXY);
+```
+    
+- 许多完成耗时较长的操作（如 move here）均为隐藏函数。
+    
+```c++
+/**
+ * 执行带延迟的隐藏操作。
+ *
+ * @param WorldContext  世界背景。
+ * @param Duration      延迟长度。
+ * @param LatentInfo    隐藏操作。
+ */
+UFUNCTION(BlueprintCallable, Category="Utilities|FlowControl", meta=(Latent, WorldContext="WorldContextObject", LatentInfo="LatentInfo", Duration="0.2"))
+static void Delay(UObject* WorldContextObject, float Duration, struct FLatentActionInfo LatentInfo );
+```
+    
+- 如有可能，考虑将函数放入共享库。便于在多个类之间使用，避开"target"引脚。
+    
+```c++
+class DOCUMENTATIONCODE_API UTestBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
+```
+    
+- 尽可能将节点标记为纯，可避免在节点上使用连线的执行引脚。
+    
+```c++
+/* 在 0 和 最大 - 1 之间返回一致分配的随机数 */
+UFUNCTION(BlueprintPure, Category="Math|Random")
+static int32 RandomInteger(int32 Max);
+```
+    
+- 将一个函数标记为 `const` 也可使蓝图节点不带执行引脚：
+    
+```c++
+/**
+ * 获得 actor 到世界的转换。
+ * @return 从 actor 空间转换到世界空间的转换。
+ */
+UFUNCTION(BlueprintCallable, meta=(DisplayName = "GetActorTransform"), Category="Utilities|Transformation")
+FTran
 ```
