@@ -112,8 +112,8 @@ string<int>::iterator it;  //it能读写vector<string>的元素
 string<int>::const_iterator it; //只能读元素，不能写元素
 ```
 
-如果 vector 对象或 string 对象是一个常量，那么只能使用 const_iterator；
-如果不是常量，那么两种迭代器都可以使用。
+**如果 vector 对象或 string 对象是一个常量，那么只能使用 const_iterator；
+如果不是常量，那么两种迭代器都可以使用。**
 
 ### begin 和 end 成员
 begin 和 end 有多个版本
@@ -152,7 +152,7 @@ forward_list 的迭代器不支持递减运算符（--）
 > 凡是使用了迭代器的循环体，都不要向迭代器所属的容器添加元素
 > 
 > 如果在一个循环中插入/删除 deque、string 或 vector 中的元素，不要缓存 end 返回的迭代器。
-## array
+## array 固定数组
 
 当**创建 array** 时就要**初始化其大小**，不可再改变。
 
@@ -227,7 +227,7 @@ int main() {
 }
 ```
 
-## vector
+## vector 可变数组
 ### 初始化
 ![[Pasted image 20230209195935.png]]
 ### 操作
@@ -361,7 +361,7 @@ int main() {
 }
 ```
 
-## string
+## string 字符串
 标准库类型 String 表示可变长的字符序列
 
 ### 初始化
@@ -519,7 +519,7 @@ string s5 = s.substr(12);  //抛出一个out_of_range异常
 >
 >一般来说，C++程序应该使用名为 cname 的头文件而不使用 name. h 的形式。
 
-## 8 链表 list 容器算法 
+## list 链表
  
 > [!NOTE] 
 > 对于 list 和 forward_list，应该**优先使用成员函数版本**的算法而不是通用算法。
@@ -531,12 +531,13 @@ string s5 = s.substr(12);  //抛出一个out_of_range异常
 
 特有的 splice 成员
 ![[Pasted image 20230212235202.png]]
+## deque 双端队列
 
 ## 顺序容器适配器
 容器、迭代器和函数都有**适配器（adaptor）**，标准库定义了三个顺序容器适配器：
-**stack** 栈适配器
-**queue** 队列适配器
-**priority_queue**
+**`stack`** 栈适配器
+**`queue`** 队列适配器
+**`priority_queue`**
 
 **本质上，一个适配器是一种机制，能使某种事物的行为看起来像另外一种事物一样。一个容器适配器接受一种己有的容器类型，使其行为看起来像一种不同的类型。**
 
@@ -554,53 +555,74 @@ stack<int> intStack(deq); //接受一个容器的构造函数，拷贝该容器�
 //在vector上实现的空栈
 stack<string,vector<string>> str_stk;
 //str stk2在vector上实现，初始化时保存svec的拷贝
-stack<string,vector<string>> str stk2(svec);
+stack<string,vector<string>> str_stk2(svec);
 ```
 
 
 > [!warning] 重载类型限制
-> 所有适配器都要求容器具有添加和删除元素的能力。因此，适配器不能构造在 array 之上。
+> 所有适配器都要求容器具有添加和删除元素的能力。**因此，适配器不能构造在 array 之上。**
 > 
-类似的，我们也不能用 forward_list 来构造适配器，因为所有适配器都要求容器具有添加、删除以及访问尾元素的能力。
+类似的，我们**也不能用 forward_list 来构造适配器**，因为所有适配器都要求容器具有添加、删除以及访问尾元素的能力。
 >
-stack 只要求 push back、pop back 和 back 操作，因此可以使用除 array 和 forward list 之外的任何容器类型来构造 stack。
+>- **`stack`** 只要求 push_back、pop_back 和 back 操作，因此**可以使用除 array 和 forward list 之外的任何容器类型来构造 stack。默认基于 deque 实现**
 >
-queue 适配器要求 back、push_back、front 和 push_front, 因此它可以构造于 list 或 deque 之上，但不能基于 vector 构造。
+>- **`queue` 适配器**要求 back、push_back、front 和 push_front, 因此它可以构造于 list 或 deque 之上，但**不能基于 vector 构造**。**默认基于 deque 实现**
 >
-priority_queue 除了 front、push_back 和 pop_back 操作之外还要求随机访问能力，因此它可以构造于 vector 或 deque 之上，但不能基于 list 构造。
+>- **`priority_queue`** 除了 front、push_back 和 pop_back 操作之外还要求随机访问能力，因此它**可以构造于 vector 或 deque 之上，但不能基于 list 构造。**默认基于 vector 实现。
+>
 
-### 栈适配器 stack 
+### stack 栈适配器
+- 先进后出
+- 没有迭代器，不能遍历
+
+![[Pasted image 20230825104239.jpg|300]]
+```c++
+s.pop () //删除栈顶元素，但不返回该元素值
+
+s.push (item) //创建一个新元素压入栈顶，该元素通过拷贝或移动item而来，或者由args构造
+s.emplace( args)
+
+s.top () //返回栈顶元素，但不将元素弹出栈
+```
 
 ```c++
 #include <stack> //头文件
 
 int main()
 {
-		stack<int> intStack; //空栈
+    stack<int> intStack; //空栈
 
-		//入栈
-		for (size_t i = 0; i!=10; ++i)
-		intStack.push(i);
-	
-		//intStack保存0到9十个数
-		while (!intStack.empty()) 
-		{
-			int value = intStack.top();
-			//使用栈顶值的代码
-			intStack.pop();//出栈，弹出栈顶元素
-			
-			return 0;
+    //入栈
+    for (size_t i = 0; i!=10; ++i)
+        intStack.push(i);
+
+    //intStack保存0到9十个数
+    while (!intStack.empty()) 
+    {
+        int value = intStack.top(); //使用栈顶值的代码
+        intStack.pop(); //出栈，弹出栈顶元素
+        
+        return 0;
+    }
 }
 ```
 
-![[Pasted image 20230212164240.png]]
+### queue 队列适配器 
+- 先进先出
+- 没有迭代器，不能遍历
+- `priority_queue` 允许我们为队列中的元素建立**优先级**，新加入的元素会排在所有优先级比他低的已有元素之前。
+![[Pasted image 20230825104341.jpg]]
+```c++
+q.pop ()   //返回【queue的首元素】或【priority_queue的最高优先级的元素】,但不删除此元素
+q.front () //返回首元素，但不删除此元素
+q.back ()  //返回尾元素【只适用于queue】
+q.top ()   //返回最高优先级元素，但不删除该元素【只适用于priority_queue】
 
-### 队列适配器 queue
-queue 使用先入先出（FIFO）策略
-priority_queue 允许我们为队列中的元素建立优先级，新加入的元素会排在所有优先级比他低的已有元素之前。
+q.push (item)     //在queue末尾或priority_queue 中恰当的位置创建一个元素，其值为item，或者由 args构造
+q.emplace (args ) 
 
-![[Pasted image 20230212165605.png]]
-![[Pasted image 20230212165613.png]]
+```
+
 # 二、关联容器
 - 关联容器中的元素是按关键字来保存和访问的
 - 关联容器的迭代器都是双向的

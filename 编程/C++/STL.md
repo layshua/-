@@ -711,8 +711,7 @@ long long atoll(const char* str); // 'll' means long long
 double atof(const char* str); // 'f' means double
 ```
 
-# vector - 向量
-STL中vector类的详细介绍
+# vector - 可变数组
 ## vector 容器基本概念
 vector的数据安排及操作方式，与array非常相似，两者的唯一差别在于空间的运用的灵活性。
 array是静态空间，一旦配置了一般不能改变，如果要改变空间大小，需要自行完成以下三个步骤：
@@ -760,7 +759,6 @@ iterator--；
 iterator = iterator + 1；
 //通过编译，则是随机访问迭代器
 ```
-
 
 ## vector常用API操作
 ### vector 构造函数
@@ -839,7 +837,7 @@ erase(const_iterator pos); // 删除位置pos的元素
 clear(); // 删除容器中的所有元素
 ```
 
-# deque - 双向队列
+# deque - 双向队列 
 STL中deque类的详细介绍
 ## duque 容器基本概念
 vector 容器是单向开口的连续内存空间，deque 则是一种双向开口的连续线性空间。
@@ -938,64 +936,8 @@ iterator erase(iterator pos)；
 // 删除pos位置的数据，返回下一个数据的位置
 ```
 
-# stack - 栈
-## stack 容器基本概念
-stack 是一种先进后出（First In Last Out, FILO）的数据结构，它只有一个出口。
-stack 容器允许新增元素、移除元素、取得栈顶元素，但是除了最顶端外，没有任何其他方法可以存取stack的其他元素。
-**换言之，stack 不允许有遍历行为。**
-![[Pasted image 20230825104239.jpg]]
-## stack 没有迭代器
-不允许遍历行为，自然也就不提供迭代器了。
-## stack 常用API
-### stack 构造函数
-```c++
-stack<T> stkT; // 默认构造函数，stack采用模版类实现
-stack(const stack& stk); // 拷贝构造函数
-```
-### stack 赋值操作
-```c++
-stack& operator=(const stack& stk); // 重载赋值操作符
-```
-### stack 数据存取操作
-```c++
-void push(T elem); // 向栈顶添加元素
-void pop(); // 从栈顶移除第一个元素
-T& top(); // 返回栈顶元素
-```
-### stack 大小操作
-```c++
-bool empty(); // 判断堆栈是否为空
-int size(); // 返回栈的大小
-```
 
-# queue - 队列
-## queue 容器基本概念
-queue 是一种**先进先出**(First In First Out, FIFO)的数据结构，它有两个出口，queue 容器允许从一端新增元素，从另一端移除元素。
-![[Pasted image 20230825104341.jpg]]
-## queue 没有迭代器
-只有queue的顶端元素，才有机会被外界去用。queue不提供遍历功能，也不提供迭代器。
-## queue 常用API
-### queue 构造函数
-```c++
-queue<T> queT; // queue对象的默认构造函数形式，采用模版类实现
-queue(const queue& que); // 拷贝构造函数
-```
-### queue 存取、插入和删除操作
-```c++
-void push(T elem); // 往队尾添加元素
-void pop(); // 从队头移除第一个元素
-T& back(); // 返回最后一个元素
-T& front(); // 返回第一个元素
-```
-### queue 赋值操作
-```c++
-queue& operator=(const queue& que); // 重载赋值操作符
-```
-### queue 大小操作
-```c++
-bool empty(); // 判断队列是否为空
-int size(); // 返回队列的大小
-```
+
 
 
 # list - 链表
