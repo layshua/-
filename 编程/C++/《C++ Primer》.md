@@ -4757,25 +4757,25 @@ StrVec::StrVec(StrVec &&s) noexcept //移动操作不应抛出任何异常
 //成员初始化器接管s中的资源
 : elements(s.elements),first free(s.first free),cap(s.cap)
 {
-		//令S进入这样的状态：对其运行析构函数是安全的
-		s.elements = s.first_free =  s.cap = nullptr;
-	}
+    //令S进入这样的状态：对其运行析构函数是安全的
+    s.elements = s.first_free =  s.cap = nullptr;
+}
 
 //移动赋值运算符
 StrVec &StrVec::operator=(StrVec &&rhs) noexcept
 {
-		//直接检测自赋值
-		if (this != rhs)
-		{
-			free();  //释放已有元素
-			elements = rhs.elements;  //从rhs接管资源
-			first_free = rhs.first_free;
-			cap = rhs.cap;  
-			//将rhs置于可析构状态
-			rhs.elements = rhs.first_free = rhs.cap = nullptr;
-		}
-			return *this;
-	}
+    //直接检测自赋值
+    if (this != rhs)
+    {
+        free();  //释放已有元素
+        elements = rhs.elements;  //从rhs接管资源
+        first_free = rhs.first_free;
+        cap = rhs.cap;  
+        //将rhs置于可析构状态
+        rhs.elements = rhs.first_free = rhs.cap = nullptr;
+    }
+        return *this;
+}
 
 ```
 
@@ -4785,11 +4785,11 @@ noexcept通知标准库我们的构造函数不抛出任何异常，必须在类
 class StrVec
 {
 public:
-		StrVec(StrVec&& ) noexcept;//移动构造函数
-		//其他成员的定义，如前
+    StrVec(StrVec&& ) noexcept;//移动构造函数
+    //其他成员的定义，如前
 };
-		StrVec::StrVec(StrVec &&s) noexcept:/*成员初始化器*/
-		{ /*构造函数体*/ }
+    StrVec::StrVec(StrVec &&s) noexcept:/*成员初始化器*/
+    { /*构造函数体*/ }
 ```
 
 #### 默认移动函数
@@ -4798,13 +4798,13 @@ public:
 //编译器会为X和hasX合成移动操作
 struct X
 {
-		int i;  //内置类型可以移动
-		std:string s;  //string定义了自己的移动操作
+    int i;  //内置类型可以移动
+    std:string s;  //string定义了自己的移动操作
 };
 
 struct hasX
 {
-		X mem; //X有合成的移动操作
+    X mem; //X有合成的移动操作
 }
 X x;
 X x2 = std:move(x);  //使用合成的移动构造函数
@@ -4817,16 +4817,16 @@ hasx hx,hx2 = std:move(hx);  //使用合成的移动构造函数
 ```c++
 void StrVec::reallocate()
 {
-		//分配大小两倍于当前规模的内存空间
-		auto newcapacity = size()? 2 * size() : 1;
-		auto first = alloc.allocate(newcapacity);
-		//移动元素
-		auto last = uninitialized_copy(make_move_iterator(begin()),make move iterator (end()),first);
-		free();  //释放旧空间
-		elements = first;  //更新指针
-		first free = last;
-		cap = elements + newcapacity;
-	}
+    //分配大小两倍于当前规模的内存空间
+    auto newcapacity = size()? 2 * size() : 1;
+    auto first = alloc.allocate(newcapacity);
+    //移动元素
+    auto last = uninitialized_copy(make_move_iterator(begin()),make move iterator (end()),first);
+    free();  //释放旧空间
+    elements = first;  //更新指针
+    first free = last;
+    cap = elements + newcapacity;
+}
 ```
 
 #### 引用限定符
@@ -4850,14 +4850,13 @@ i = retval();  //正确：我们可以将一个右值作为赋值操作的右侧
 class Foo
 {
 public:
-		Foo anotherMem() const &  //正确：const限定符在前
-		Foo someMem() & const;  //错误：const限定符必须在前
+    Foo anotherMem() const &  //正确：const限定符在前
+    Foo someMem() & const;  //错误：const限定符必须在前
 };
 ```
 
 > [!NOTE] Title
 > 如果一个成员函数有引用限定符，则具有相同参数列表的所有版本都必须有引用限定符
-
 
 # 七、IO 库
 ## 1 IO 类
@@ -5098,7 +5097,7 @@ cout<<"decimal:"<<dec<<20 <<""<<1024<<endl;  //十进制
 //decimal:20 1024
 ```
 
-# 十一、动态内存
+# 八、动态内存
 到目前为止，我们编写的程序中所使用的对象都有着严格定义的生存期。
 **全局对象**：在程序启动时分配，在程序结束时销毁。
 **局部自动对象**：当我们进入其定义所在的程序块时被创建，在离开块时销毁。
@@ -5513,7 +5512,7 @@ P726
 #### 定位new表达式
 P729
 
-# 十二、重载运算与类型转换
+# 九、重载运算与类型转换
 
 ![[Pasted image 20230219235211.png]]
 
@@ -5925,7 +5924,7 @@ P514 慎用
 > [!NOTE] Title
 > 一个类型转换函数必须是类的成员函数，他不能声明返回类型，形参列表也必须为空。类型转换函数通常是const
 > operator type() const;
-# 十三、模板与泛型编程
+# 十、模板与泛型编程
 OOP能处理类型在程序运行之前都未知的情况，**在泛型编程中，在编译时就能获知类型。**
 
 > [!NOTE] Title
@@ -6596,7 +6595,7 @@ compare ("hi","mom");  //调用特例化版本
 > 2. 模板及其特例化版本应该声明在同一个头文件中。所有同名模板的声明应该放在前面，然后是这些模板的特例化版本。
 > 3. 类模板可以部分特例化，可以只指定一部分而非所有模板参数。还可以只特例化成员而不是类。
 
-# 十四、命名空间
+# 十一、命名空间
 大型程序使用多个库，难免命名冲突，**命名空间**就是防止名字冲突的机制。
 **命名空间分割了全局命名空间，其中每个命名空间是一个作用域**。通过在某个命名空间中定义库的名字，库的作者（以及用户）可以避免全局名字固有的限制。
 ## 命名空间定义
@@ -6745,122 +6744,8 @@ using指示可以出现在全局作用域、局部作用域和命名空间作用
 
 ## 重载与命名空间
 P708
-# 十五、标准库特殊设施
-## 【C++11】tuple元组类型
-#tuple
-![[Pasted image 20230226231649.png]]
--   tuple是类似pair的类型，可以简单地**保存类型不同的任意数量的对象**。
--   tuple也可以进行比较运算，但是必须元素数量相同时才能比较
--   tuple的**常见用途是从一个函数返回多个值**，类似于在外部定义一个struct，但是更加方便且低耦合
 
-### 定义和初始化tuple
-```c++
-//当我们定义一个tuple时，需要指出每个成员的类型：
-tuple<size_t, size_t, size_t> threeD; //默认初始化，三个成员都设置为0
-tuple<string, vector<double>, int, list<int>>
-someVa1("constants",{3.14,2.718},42,{0,1,2,3,4,5})
-```
-
-**tuple的构造函数是explicit的**，因此必须使用直接初始化语法：
-```c++
-tuple<size_t, size_t, size_t> threeD = (1,2,3);  //错误
-tuple<size_t, size_t, size_t> threeD{1,2,3};  //正确
-```
-类似make_pair函数，标准库定义了make_tuple函数，我们还可以用它来生成tuple对象：
-```c++
-//表示书店交易记录的tuple,包含：ISBN、数量和每册书的价格
-auto item = make_tup1e("0-999-78345-X", 3, 20.00);
-```
-make_tuple函数使用初始值的类型来推断tuple的类型。在本例中，item是一个tuple,类型为`tuple<const char*,int,double>`。
-
-### 访问tuple的成员
-tuple的成员都是未命名的（没有first、second），需要使用`get`标准库函数模板访问。
-```c++
-// 使用get,我们必须指定一个显式模板实参，它指出我们想要访问第几个成员。
-// 我们传递给get一个tuple对象，它返回指定成员的引用：
-auto book = get<0>(item);  //返回item的第一个成员
-auto cnt = get<1>(item);  //返回item的第二个成员
-auto price = get<2>(item)/cnt;  //返回item的最后一个成员
-get<2>(item) *= 0.8;  //打折20号
-```
-
-## bitset类型
-#bitset
--   bitset类型可以很好地处理位运算问题，比直接使用位操作符清晰方便很多
--   bitset类似array，定义的时候模板参数是这个bitset的位数
-![[Pasted image 20230226231850.png]]
-![[Pasted image 20230226231958.png]]
-## 正则表达式
-略
-## 随机数
-旧版c和C++使用**rand函数**生成随机数，此函数生成均匀分布的伪随机数，每个随机数的范围在0和一个系统相关最大值（至少为32767之间）。
-有很多程序需要不同范围的随机数，对rand进行定制会有很多问题，对此C++11引入了**随机数引擎类(random-number engines)和随机数分布类(random-number distribution)。**
-一个引擎类可以生成unsigned随机数序列，一个分布类使用一个引擎类生成指定类型的、在给定范围内的、服从特定概率分布的随机数。
-![[Pasted image 20230226232655.png]]
-
-> [!tip] 
-> C++程序不应该使用库函数rand,而应使用default_random_engine类和恰当的分布类对象。
-
-### 随机数引擎和分布
-标准库定义了多个随机数引擎类P783，这里只介绍最常用的`default_random_engine`类。
-![[Pasted image 20230226234230.png]]
-随机数引擎是函数对象类（参见14.8节，第506页），它们定义了一个调用运算符，该运算符不接受参数并返回一个随机unsigned整数。我们可以通过调用一个随机数引擎对象来生成原始随机数：
-```c++
-default_random_engine e;  //生成随机无符号数
-for (size_t i = 0; i < 10; ++i)
-		//e()“调用”对象来生成下一个随机数
-		cout << e() << "";
-```
-
-为了得到一个指定范围内的数，我们使用一个**分布**类型的对象
-```c++
-//生成0到9之间（包含）均匀分布的随机数
-uniform int distribution<unsigned> u(0,9);
-default_random_engine e;//生成无符号随机整数
-for (size_t i = 0; i = 10; ++i)
-		//将u作为随机数源
-		//每个调用返回在指定范围内并服从均匀分布的值
-		cout<<u(e)<<""; //得到0到9之间（包含）的数
-```
-此处我们将u定义为`uniform int distribution<unsigned>`。此类型生成均匀分布的unsigned值。当我们定义一个这种类型的对象时，可以提供想要的最小值和最大值。
-分布类型也是函数对象类。分布类型定义了一个调用运算符，它接受一个随机数引擎作为参数。分布对象使用它的引擎参数生成随机数，并将其映射到指定的分布。
-
-> [!NOTE] 
-> 1. 当我们说**随机数发生器**时，是指分布对象和引擎对象的组合。
-> 2. 一个给定的随机数发生器一直会生成相同的随机数序列。一个函数如果定义了局部的随机数发生器，应该将其（包括引擎和分布对象）定义为static的。否则，每次调用函数都会生成相同的序列。
-
-### 随机种子
-随机数发生器会生成相同的随机数序列，我们可以提供一个**随机种子**来生成不同的随即结果。种子就是一个数值，引擎可以利用它从序列中一个新位置重新生成随机数。
-为引擎设置种子有两种方式：在创建引擎对象时提供种子，或者调用引擎的seed成员：
-```c++
-default_random_engine el;  // 使用默认种子
-default_random_engine e2(2147483646);  // 使用给定的种子值
-
-// e3和e4将生成相同的序列，因为它们使用了相同的种子
-default_random_engine e3;  //使用默认种子值
-e3.seed(32767);  //调用seed设置一个新种子值
-default_random_engine e4(32767);  //将种子值设置为32767
-for(size t i=0;i!=100;++1)
-{
-		if(e1()==e2())
-			cout <"unseeded match at iteration:"<i<<endl;
-		if(e3()！=e4())
-			cout <"seeded differs at iteration:"<i<<endl;
-}
-```
-
-通常调用系统函数time作为种子。由于time返回以秒计的时间，因此这种方式只适用于生成种子的间隔为秒级或更长的应用。
-```c++
-default_random_engine el(time(0));//稍微随机些的种子
-```
-
-> [!warning] 
-> 如果程序作为一个自动过程的一部分反复运行，将time的返回值作为种子的方式就无效了；它可能多次使用的都是相同的种子。
-
-### 其他随机数分布
-P665
-
-# 十六、异常处理
+# 十二、异常处理
 C++中异常处理包括：
 throw表达式
 try语句块

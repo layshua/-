@@ -25,12 +25,11 @@
 ![[Pasted image 20230211220558.png|650]]
 
 **特别的 `array`**
-定义一个 array 时，除了指定元素类型，还要指定容器大小
+- 定义一个 array 时，除了指定元素类型，还要指定容器大小
 ```c++
 array<int, 10>
 ```
-此外，其他容器默认构造都是空容器，而 array 默认构造是非空的：它包含了与其大小一样多的默认初始化元素。
-
+- 此外，其他容器默认构造都是空容器，而 array 默认构造是非空的：它包含了与其大小一样多的默认初始化元素。
 
 > [!NOTE] 关键概念：容器元素是拷贝
 > 当我们用一个对象来初始化容器时，或将一个对象插入到容器中时，实际上放入到容器中的是对象值的一个拷贝，而不是对象本身。就像我们将一个对象传递给非引用参数一样，容器中的元素与提供值的对象之间没有任何关联。随后对容器中元素的任何改变都不会影响到原始对象，反之亦然。
@@ -85,12 +84,11 @@ emplce_back 对应 push_back
 ### 删除元素
 ![[Pasted image 20230211224643.png]]
 
-**特殊的 forward_list 操作**
+###  forward_list 操作
 ![[Pasted image 20230211232259.png]]
 ### 改变容器的大小
 ![[Pasted image 20230211232558.png]]
 
-### 额外的 string 操作
 
 ## 顺序容器迭代器
 
@@ -1715,3 +1713,118 @@ _ if 版本的算法
 find(beg,end,val);   
 find_if(beg,end,lambada);
 ```
+
+# 五、标准库特殊设施
+## 【C++11】tuple 元组类型
+#tuple
+![[Pasted image 20230226231649.png]]
+-   tuple 是类似 pair 的类型，可以简单地**保存类型不同的任意数量的对象**。
+-   tuple 也可以进行比较运算，但是必须元素数量相同时才能比较
+-   tuple 的**常见用途是从一个函数返回多个值**，类似于在外部定义一个 struct，但是更加方便且低耦合
+
+### 定义和初始化 tuple
+```c++
+//当我们定义一个tuple时，需要指出每个成员的类型：
+tuple<size_t, size_t, size_t> threeD; //默认初始化，三个成员都设置为0
+tuple<string, vector<double>, int, list<int>>
+someVa1("constants",{3.14,2.718},42,{0,1,2,3,4,5})
+```
+
+**tuple 的构造函数是 explicit 的**，因此必须使用直接初始化语法：
+```c++
+tuple<size_t, size_t, size_t> threeD = (1,2,3);  //错误
+tuple<size_t, size_t, size_t> threeD{1,2,3};  //正确
+```
+类似 make_pair 函数，标准库定义了 make_tuple 函数，我们还可以用它来生成 tuple 对象：
+```c++
+//表示书店交易记录的tuple,包含：ISBN、数量和每册书的价格
+auto item = make_tup1e("0-999-78345-X", 3, 20.00);
+```
+make_tuple 函数使用初始值的类型来推断 tuple 的类型。在本例中，item 是一个 tuple, 类型为 `tuple<const char*,int,double>`。
+
+### 访问 tuple 的成员
+tuple 的成员都是未命名的（没有 first、second），需要使用 `get` 标准库函数模板访问。
+```c++
+// 使用get,我们必须指定一个显式模板实参，它指出我们想要访问第几个成员。
+// 我们传递给get一个tuple对象，它返回指定成员的引用：
+auto book = get<0>(item);  //返回item的第一个成员
+auto cnt = get<1>(item);  //返回item的第二个成员
+auto price = get<2>(item)/cnt;  //返回item的最后一个成员
+get<2>(item) *= 0.8;  //打折20号
+```
+
+## bitset 类型
+#bitset
+-   bitset 类型可以很好地处理位运算问题，比直接使用位操作符清晰方便很多
+-   bitset 类似 array，定义的时候模板参数是这个 bitset 的位数
+![[Pasted image 20230226231850.png]]
+![[Pasted image 20230226231958.png]]
+## 正则表达式
+略
+## 随机数
+旧版 c 和 C++使用**rand 函数**生成随机数，此函数生成均匀分布的伪随机数，每个随机数的范围在 0 和一个系统相关最大值（至少为 32767之间）。
+有很多程序需要不同范围的随机数，对 rand 进行定制会有很多问题，对此 C++11 引入了**随机数引擎类 (random-number engines)和随机数分布类 (random-number distribution)。**
+一个引擎类可以生成 unsigned 随机数序列，一个分布类使用一个引擎类生成指定类型的、在给定范围内的、服从特定概率分布的随机数。
+![[Pasted image 20230226232655.png]]
+
+> [!tip] 
+> C++程序不应该使用库函数 rand, 而应使用 default_random_engine 类和恰当的分布类对象。
+
+### 随机数引擎和分布
+标准库定义了多个随机数引擎类 P783，这里只介绍最常用的 `default_random_engine` 类。
+![[Pasted image 20230226234230.png]]
+随机数引擎是函数对象类（参见 14.8 节，第 506 页），它们定义了一个调用运算符，该运算符不接受参数并返回一个随机 unsigned 整数。我们可以通过调用一个随机数引擎对象来生成原始随机数：
+```c++
+default_random_engine e;  //生成随机无符号数
+for (size_t i = 0; i < 10; ++i)
+		//e()“调用”对象来生成下一个随机数
+		cout << e() << "";
+```
+
+为了得到一个指定范围内的数，我们使用一个**分布**类型的对象
+```c++
+//生成0到9之间（包含）均匀分布的随机数
+uniform int distribution<unsigned> u(0,9);
+default_random_engine e;//生成无符号随机整数
+for (size_t i = 0; i = 10; ++i)
+		//将u作为随机数源
+		//每个调用返回在指定范围内并服从均匀分布的值
+		cout<<u(e)<<""; //得到0到9之间（包含）的数
+```
+此处我们将 u 定义为 `uniform int distribution<unsigned>`。此类型生成均匀分布的 unsigned 值。当我们定义一个这种类型的对象时，可以提供想要的最小值和最大值。
+分布类型也是函数对象类。分布类型定义了一个调用运算符，它接受一个随机数引擎作为参数。分布对象使用它的引擎参数生成随机数，并将其映射到指定的分布。
+
+> [!NOTE] 
+> 1. 当我们说**随机数发生器**时，是指分布对象和引擎对象的组合。
+> 2. 一个给定的随机数发生器一直会生成相同的随机数序列。一个函数如果定义了局部的随机数发生器，应该将其（包括引擎和分布对象）定义为 static 的。否则，每次调用函数都会生成相同的序列。
+
+### 随机种子
+随机数发生器会生成相同的随机数序列，我们可以提供一个**随机种子**来生成不同的随即结果。种子就是一个数值，引擎可以利用它从序列中一个新位置重新生成随机数。
+为引擎设置种子有两种方式：在创建引擎对象时提供种子，或者调用引擎的 seed 成员：
+```c++
+default_random_engine el;  // 使用默认种子
+default_random_engine e2(2147483646);  // 使用给定的种子值
+
+// e3和e4将生成相同的序列，因为它们使用了相同的种子
+default_random_engine e3;  //使用默认种子值
+e3.seed(32767);  //调用seed设置一个新种子值
+default_random_engine e4(32767);  //将种子值设置为32767
+for(size t i=0;i!=100;++1)
+{
+		if(e1()==e2())
+			cout <"unseeded match at iteration:"<i<<endl;
+		if(e3()！=e4())
+			cout <"seeded differs at iteration:"<i<<endl;
+}
+```
+
+通常调用系统函数 time 作为种子。由于 time 返回以秒计的时间，因此这种方式只适用于生成种子的间隔为秒级或更长的应用。
+```c++
+default_random_engine el(time(0));//稍微随机些的种子
+```
+
+> [!warning] 
+> 如果程序作为一个自动过程的一部分反复运行，将 time 的返回值作为种子的方式就无效了；它可能多次使用的都是相同的种子。
+
+### 其他随机数分布
+P665
