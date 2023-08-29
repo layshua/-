@@ -1,4 +1,4 @@
-
+# Actor
 ## 实例化 Object/Actor
 虚幻引擎有两个不同的函数来实例化对象：
 
@@ -131,7 +131,6 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 ```
 
 ![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
-
 
 ## 查找 Actor/UObject
 
@@ -331,7 +330,11 @@ class AMyPlayerController : public APlayerController
 ```c++
 FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
 ```
-
+## GetPlayerController
+```c++
+// 查找处理本地玩家控制的actor。
+APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
+```
 ## 创建静态网格体
 
 ```c++
@@ -350,3 +353,17 @@ if(CylinderAsset.Succeeded())
 }
 ```
 
+# 相机
+```c++
+// 查找处理本地玩家控制的actor。
+APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
+
+OurPlayerController->GetViewTarget(); //获取当前相机
+
+OurPlayerController->SetViewTarget(CameraOne); //切换相机
+OurPlayerController->SetViewTargetWithBlend(CameraTwo, SmoothBlendTime); //平滑切换
+```
+
+
+
+# 碰撞
