@@ -656,9 +656,6 @@ class UClassName : public UInterface
 
 2. 其次，`UINTERFACE` 类不是实际的接口；它是一个空白类，它的存在只是为了向虚幻引擎反射系统确保可见性。将由其他类继承的实际接口必须具有相同的类名，但是**开头字母`U`必须改为`I`。**
 
-在你的.h文件（例如 `ReactToTriggerInterface.h`）中：
-
-
 ```c++ file:ReactToTriggerInterface.h
 #pragma once
 
@@ -769,23 +766,17 @@ bool ReactToTrigger();
 
 
 ```c++ file:ReactToTrigger.h
-    public:
-    /**可以在C++或蓝图中实现的React To Trigger版本。*/
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category=Trigger Reaction)
-    bool ReactToTrigger();
+public:
+/**可以在C++或蓝图中实现的React To Trigger版本。*/
+UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category=Trigger Reaction)
+bool ReactToTrigger();
 ```
 
-#### BlueprintCallable
+`BlueprintCallable`：**引用实现接口的对象的 C++或蓝图**可以调用使用 `BlueprintCallable` 说明符的函数。
 
-**引用实现接口的对象的C++或蓝图**可以调用使用 `BlueprintCallable` 说明符的函数。
+`BlueprintImplementableEvent`：使用 `BlueprintImplementableEvent` 的函数**不能在 C++中被重载，但可以在任何实现或继承接口的蓝图类中被重载。**
 
-#### BlueprintImplementableEvent
-
-使用 `BlueprintImplementableEvent` 的函数**不能在C++中被重载，但可以在任何实现或继承接口的蓝图类中被重载。**
-
-#### BlueprintNativeEvent
-
-在C++中，可通过重载一个同名函数来实现使用 `BlueprintNativeEvent` 的函数，但要在末尾添加上后缀 `_Implementation` 。
+`BlueprintNativeEvent`：在 C++中，可通过重载一个同名函数来实现使用 `BlueprintNativeEvent` 的函数，但要在末尾添加上后缀 `_Implementation` 。该说明符还**允许在蓝图中重载实现**。
 
 ```c++ file:Trap.h
 
@@ -800,7 +791,6 @@ bool ATrap::ReactToTrigger_Implementation() const
 }
 ```
 
-该说明符还**允许在蓝图中重载实现**。
 
 ## 4 确定类是否实现了接口
 
@@ -828,18 +818,10 @@ ISomeOtherInterface* DifferentInterface = Cast<ISomeOtherInterface>(ReactingObje
 AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空且OriginalObject为AActor或AActor派生的类，则Actor将为非空。
 ```
 
-## 6 蓝图可实现类
-
-如果你想要蓝图能够实现此接口，则必须使用 `Blueprintable` 元数据说明符。、
-
-蓝图类要重载的每个接口函数都必须是 `BlueprintNativeEvent ` 或 `BlueprintImplementableEvent`。
-
-标记为 ` BlueprintImplementableEvent` 的函数仍然可以被调用，但不能被重载。你将无法从蓝图访问所有其他函数。
-
 # UFunction
 
-
 **UFunction** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFunction`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
+
 宏将支持 **函数说明符** 更改虚幻引擎解译和使用函数的方式。
 
 ```c++
@@ -3171,20 +3153,19 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 定时器在 **全局定时器管理器**（`FTimerManager` 类型）中管理。全局定时器管理器存在于 **游戏实例** 对象上以及每个 **场景** 中。
 **如果要对其调用定时器的对象（如 Actor）在时间结束前被销毁，则相关定时器会自动取消**。在此情况下，定时器句柄将变为无效，并且不会调用该函数。
 
-
-- **访问定时器管理器**：可以使用 `AActor` 函数 `GetWorldTimerManager()`，它会在 `UWorld` 中调用 `GetTimerManager()` 函数。
+- **定时器句柄**（**`FTimerHandle`** 类）：可用于暂停（和恢复）倒计时，查询或更改剩余时间，甚至可以取消定时器。
+- **访问定时器管理器**：可以使用 `AActor` 函数 **`GetWorldTimerManager()`**，它会在 `UWorld` 中调用 `GetTimerManager()` 函数，来访问 `FTimerManager`。
 - **访问全局定时器管理器**：使用 `UGameInstance` 函数 `GetTimerManager()`。如果场景因为任何原因而没有自己的定时器管理器，也可以退而求其次，使用全局定时器管理器。全局管理器可以用于与任何特定场景的存在没有相关性或依赖性的函数调用。
 - **使用定时器管理器来设置定时器**：`SetTimer` 和 `SetTimerForNextTick`，它们各自都有一些重载。每个函数都可以连接到任意类型的对象或函数委托，`SetTimer` 可以设为根据需要定期重复。请参阅[定时器管理器 API 页面]( https://docs.unrealengine.com/en-US/API/Runtime/Engine/FTimerManager "FTimerManager")以了解有关这两个函数的更多详细信息。
 - 定时器可以与标准的C++函数指针、[`TFunction`对象](https://docs.unrealengine.com/en-US/API/Runtime/Core/GenericPlatform/TFunction "TFunction")或[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)一起使用。
 
 ### 设置和清空定时器
-**定时器句柄**（**`FTimerHandle`** 类型）：可用于暂停（和恢复）倒计时，查询或更改剩余时间，甚至可以取消定时器。
-
+以下函数为 **`FTimerManager`** 类的成员函数，用 `GetWorldTimerManager()` 即可调用：
 - **`SetTimer()`** 函数**将定时器设置为在一段延迟后调用函数或委托**，可以设置为不限次重复调用该函数。该函数将填充 **定时器句柄**（`FTimerHandle` 类型）
     - 使用现有定时器句柄调用 `SetTimer` 将清空该定时器句柄引用的定时器，并将它换成新定时器。
 - **`SetTimerForNextTick`**： **设置定时器在下一帧运行**，而不是按固定间隔。但需要注意的是，**该函数不填充定时器句柄**。
 - **`ClearTimer`：清空定时器**，将 `SetTimer` 期间填充的 `FTimerHandle` 传递到  `ClearTimer` 中。定时器句柄将在此刻失效，并可以再次用于管理新定时器。
-- **`ClearAllTimersForObject`** ：清空所有与特定对象关联的所有定时器。
+- **`ClearAllTimersForObject`** ：**清空所有**与特定对象关联的所有定时器。
 
 示例：
 ```c++ 
@@ -3218,53 +3199,46 @@ void ACountdown::AdvanceTimer()
 }
 ```
 
-
 > [!warning] 
 >以小于等于0的速率调用`SetTimer`等效于调用`ClearTimer`。
 
 ### 暂停和恢复定时器
 
-`FTimerManager`函数`PauseTimer`使用定时器句柄来暂停正在运行的定时器。这样可阻止定时器执行其函数调用，但经过的时间和剩余时间将保持暂停时的状态。``UnPauseTimer`使暂停的定时器恢复运行。
+**`PauseTimer`**：使用定时器句柄来暂停正在运行的定时器。这样可阻止定时器执行其函数调用，但经过的时间和剩余时间将保持暂停时的状态。
+**`UnPauseTimer`**：使暂停的定时器恢复运行。
 
 ## 定时器信息
 
-除了管理定时器，定时器管理器还提供了用于获取特定定时器信息的函数，如速率、经过的时间和剩余时间等。
+除了管理定时器，定时器管理器还提供了**用于获取特定定时器信息的函数，如速率、经过的时间和剩余时间等。**
 
 ### 定时器是否活跃
 
-`FTimerManager`的`IsTimerActive`函数用于确定指定定时器当前是否活跃且未暂停。
+- **`IsTimerActive`**：用于确定指定定时器当前是否活跃且未暂停。
 
-示例：
-
-```
-    // 这个武器是否正在等待再次射击？
-    GetWorldTimerManager().IsTimerActive(this, &AUTWeapon::RefireCheckTimer);
+```c++
+// 这个武器是否正在等待再次射击？
+GetWorldTimerManager().IsTimerActive(this, &AUTWeapon::RefireCheckTimer);
 ```
 
 ### 定时器速率
 
-``FTimerManager`有一个函数`GetTimerRate``，它用于从定时器句柄获取定时器的当前速率（两次激活之间的时间）。定时器速率不能直接更改，但可以使用其定时器句柄调用`SetTimer`来清空定时器并创建新定时器，新定时器除了速率不同，其他保持不变。如果定时器句柄无效，则`GetTimerRate`将返回值`-1`。
+- **`GetTimerRate`** ：用于从定时器句柄**获取定时器的当前速率**（两次激活之间的时间）。
+    - 定时器速率不能直接更改，但可以使用其定时器句柄调用 ` SetTimer ` 来清空定时器并创建新定时器，新定时器除了速率不同，其他保持不变。来模拟更改定时器速率。
+    - 如果定时器句柄无效，则 ` GetTimerRate ` 将返回值 ` -1 `。
 
-示例：
-
-```
-    // 该武器的射击速率在预热时变化。当前是否正在等待射击，如果是，两次射击之间的当前间隔是多久？
-    GetWorldTimerManager().GetTimerRate(this, &AUTWeapon::RefireCheckTimer);
+```c++
+// 该武器的射击速率在预热时变化。当前是否正在等待射击，如果是，两次射击之间的当前间隔是多久？
+GetWorldTimerManager().GetTimerRate(this, &AUTWeapon::RefireCheckTimer);
 ```
 
 ### 经过时间和剩余时间
 
-``FTimermanager`通过`GetTimerElapsed`和`GetTimerRemaining``，针对与所提供的定时器句柄关联的定时器，提供了返回经过时间和剩余时间的功能。与`GetTimerRate`一样，如果定时器句柄无效，则这两个函数将返回`-1`。
+- **`GetTimerElapsed`** ：返回与定时器句柄关联的定时器的**经过时间**
+-  **`GetTimerRemaining`**：返回与定时器句柄关联的定时器的**剩余时间**
+- 如果定时器句柄无效，则这两个函数将返回 `-1`。
+- 定时器的**经过时间和剩余时间之和应该等于定时器的速率**。
 
-示例：
-
+```c++
+// 该武器准备好再次射击之前将经过多长时间？如果答案为-1，则表示现在已准备就绪。
+GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
 ```
-    // 该武器准备好再次射击之前将经过多长时间？如果答案为-1，则表示现在已准备就绪。
-    GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
-```
-
-定时器的经过时间和剩余时间之和应该等于定时器的速率。
-
-## 已知问题
-
-- 该代码目前并非线程安全，如果从游戏线程外部访问可能会导致断言。
