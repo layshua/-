@@ -857,6 +857,12 @@ ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1
 
 声明函数时，可以为声明添加 **函数说明符**，以控制函数相对于引擎和编辑器的各个方面的行为方式。
 
+**常用：**
+1. `BlueprintCallable` 函数以C++编写，可从 **蓝图图表** 中调用，但只能通过编辑C++代码进行修改或重写。以此类方式标记的函数通常具备供非程序员使用而编写的功能，但是不应对其进行修改，否则修改将毫无意义。数学函数便是此类函数的经典范例。
+2. 在C++ header (.h)文件中设置 `BlueprintImplementableEvent` 函数，但是函数的主体则在蓝图图表中完成编写，而非C++中。创建此类通常是为了使非程序员能够对无预期默认动作或标准行为的特殊情况创建自定义反应。在宇宙飞船游戏中，玩家飞船接触到能量升级时发生的事件便是这方面的范例。
+3. `BlueprintNativeEvent` 函数与 `BlueprintCallable` 和 `BlueprintImplementableEvent` 函数的组合类似。其具备用 C++中编程的默认行为，但此类行为可通过在蓝图图表中覆盖进行补充或替换。对此类代码编程时，C++代码固定使用命名末尾添加了`_Implementation` 的虚拟函数，如下所示。此为最为灵活的选项，因此本教程将采用这种方法。
+
+
 |函数说明符|效果|
 |---|---|
 |`BlueprintAuthorityOnly`|如果在具有网络权限的机器上运行（服务器、专用服务器或单人游戏），此函数将仅从蓝图代码执行。|

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "U++",
+      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
+    },
+    {
       "basename": "ue操作指南",
       "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
@@ -51,10 +55,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "U++",
-      "path": "引擎Unreal/02 蓝图 & U++/U++.md"
     },
     {
       "basename": "03 三：模块基础",
