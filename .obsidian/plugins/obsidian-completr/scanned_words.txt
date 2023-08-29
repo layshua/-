@@ -115155,6 +115155,7 @@ TaskStorage
 TGraphTaskB
 TGraphTaskD
 TCHAR
+TFunction
 io
 ipad
 it
@@ -156212,6 +156213,7 @@ FCombTask
 FGraphEvent
 FArrayOfMyTypes
 FNames
+FTimerManager
 Element
 Entity
 Enity

@@ -3178,18 +3178,13 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 - 定时器可以与标准的C++函数指针、[`TFunction`对象](https://docs.unrealengine.com/en-US/API/Runtime/Core/GenericPlatform/TFunction "TFunction")或[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)一起使用。
 
 ### 设置和清空定时器
+**定时器句柄**（**`FTimerHandle`** 类型）：可用于暂停（和恢复）倒计时，查询或更改剩余时间，甚至可以取消定时器。
 
-`SetTimer()` 函数将定时器设置为在一段延迟后调用函数或委托，可以设置为不限次重复调用该函数。
-这些函数将填充 **定时器句柄**（`FTimerHandle` 类型），后者可用于暂停（和恢复）倒计时，查询或更改剩余时间，甚至可以取消定时器。
-可以在定时器调用的函数内部设置定时器，甚至可以重复使用用来调用这个函数的定时器句柄。一种用法是延迟依赖于尚未产生、但预计很快会产生的Actor的Actor的初始化；从属Actor初始化函数可以设置一个定时器，在经过固定时长（如一秒）后再次调用这个初始化函数。或者，该初始化函数可以由在成功时自动清空的循环定时器调用。
-
-**`SetTimerForNextTick`**： 设置定时器在下一帧运行，而不是按固定间隔。但需要注意的是，**该函数不填充定时器句柄**。
-
-**清空定时器**：将 `SetTimer` 期间填充的 `FTimerHandle` 传递到 `FTimerManager` 函数 **`ClearTimer`** 中。**定时器句柄将在此刻失效，并可以再次用于管理新定时器**。
-
-使用现有定时器句柄调用 `SetTimer` 将清空该定时器句柄引用的定时器，并将它换成新定时器。
-
-最后，与特定对象关联的所有定时器都可以通过调用`ClearAllTimersForObject` 来清空。
+- **`SetTimer()`** 函数**将定时器设置为在一段延迟后调用函数或委托**，可以设置为不限次重复调用该函数。该函数将填充 **定时器句柄**（`FTimerHandle` 类型）
+    - 使用现有定时器句柄调用 `SetTimer` 将清空该定时器句柄引用的定时器，并将它换成新定时器。
+- **`SetTimerForNextTick`**： **设置定时器在下一帧运行**，而不是按固定间隔。但需要注意的是，**该函数不填充定时器句柄**。
+- **`ClearTimer`：清空定时器**，将 `SetTimer` 期间填充的 `FTimerHandle` 传递到  `ClearTimer` 中。定时器句柄将在此刻失效，并可以再次用于管理新定时器。
+- **`ClearAllTimersForObject`** ：清空所有与特定对象关联的所有定时器。
 
 示例：
 ```c++ 
