@@ -12642,6 +12642,13 @@ cplusplus
 cname
 ctype
 coPy
+checkSlow
+checkf
+checkfSlow
+checkCode
+checkNoEntry
+checkNoReentry
+checkNoRecursion
 github
 grey
 green
@@ -31975,6 +31982,7 @@ uasset
 uplugin
 umap
 updating
+unimplemented
 everything
 ea
 ede
@@ -35849,6 +35857,9 @@ epic
 experiences
 emplce
 ekdwn
+ensureMsgf
+ensureAlways
+ensureAlwaysMsgf
 VPN
 Verge
 VS
@@ -42919,6 +42930,8 @@ vecctor
 voidDoTask
 vim
 vcxproj
+verifySlow
+verifyfSlow
 AA
 AppData
 AIRDyuVH
@@ -82929,6 +82942,7 @@ CallableWithoutWorldContext
 CapsuleOverlapActors
 CapsulePos
 CurveTable
+CalculateJumpVelocity
 ImTip
 IMAP
 ID
@@ -102905,6 +102919,7 @@ bPendingDestruction
 bPrintToScreen
 bPrintToLog
 bPrintToConsole
+bWasInitialized
 fe
 front
 fill
@@ -156316,6 +156331,7 @@ FLinearColor
 FlowControl
 FLatentActionInfo
 FTran
+FormattedText
 Element
 Entity
 Enity
@@ -171637,6 +171653,7 @@ DataTable
 DataTablePin
 DOCUMENTATIONCODE
 DisplayName
+DeltaSeconds
 LNK
 Log
 Linux
@@ -180604,6 +180621,8 @@ GetTimerRate
 GetTimerElapsed
 GetTimerRemaining
 GetActorTransform
+GetRenderMesh
+GetActorLabel
 NULL
 Native
 NormalMap
@@ -197168,6 +197187,8 @@ JwKu
 JMh
 JavaDoc
 JoinedStr
+JumpTarget
+JumpVelocity
 Ke
 KjpKWmp
 KYW

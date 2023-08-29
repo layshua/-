@@ -3,91 +3,7 @@
 3.  [技术宅阿棍儿](https://link.zhihu.com/?target=https%3A//space.bilibili.com/92060300/video)（大标题直击要领，很棒）
 4.  [来自程序员的暴击：虚幻四C++入坑指南合集版](https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV14K411J7v2)
 
-# 游戏性架构
-
-## 断言
-
-**`assert` 的关键特性之一是不存在于发布代码中，这意味着不但不会影响发布产品的性能，也没有任何副作用**。**对 `assert` 最简单的理解就是："断言"必须一律为 true，否则程序会停止运行。**
-
-虚幻引擎提供 `assert` 等同项的三个不同族系：`check`、`verify` 和 `ensure`。各个功能的行为略有不同，但它们都是开发期间使用的诊断工具，目标大致相同。
-
-### Check
-
-Check族系最接近基础 `assert`，因为当第一个参数得出的值为false时，此族系的成员会停止执行，且默认不会在发布版本中运行。以下Check宏可用：
-
-```c++
-// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
-void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
-{
-    check(JumpTarget != nullptr);
-    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
-}
-```
-
-|宏|参数|行为|
-|---|---|---|
-|`check` 或 `checkSlow`|`Expression`|若 `Expression` 为false，停止执行|
-|`checkf` 或 `checkfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
-|`checkCode`|`Code`|在运行一次的do-while循环结构中执行 `Code`；主要用于准备另一个Check所需的信息|
-|`checkNoEntry`|（无）|若此行被hit，则停止执行，类似于 `check(false)`，但主要用于应不可到达的代码路径|
-|`checkNoReentry`|（无）|若此行被hit超过一次，则停止执行|
-|`checkNoRecursion`|（无）|若此行被hit超过一次而未离开作用域，则停止执行|
-|`unimplemented`|（无）|若此行被hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数|
-
-### Verify
-
-**若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
-
-```c++
-// 这将设置Mesh的值，并预计为非空值。若之后Mesh的值为空，则停止程序。
-// 使用Verify而非Check，因为表达式存在副作用（设置网格体）。
-verify((Mesh = GetRenderMesh()) != nullptr);
-```
-
-|宏|参数|行为|
-|---|---|---|
-|`verify` 或 `verifySlow`|`Expression`|若 `Expression` 为false，停止执行|
-|`verify` 或 `verifyfSlow`|`Expression`、`FormattedText`、`...`|若 `Expression` 为false，则停止执行并将 `FormattedText` 输出到日志|
-
-### Ensure
-
-**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
-
-```c++
-// 这行代码捕获了在产品发布版本中可能出现的小错误。
-// 此错误较小，无需停止执行便可解决。
-// 虽然该bug已修复，但开发者仍然希望了解之前是否曾经出现过此bug。
-void AMyActor::Tick(float DeltaSeconds)
-{
-    Super::Tick(DeltaSeconds);
-    // 确保bWasInitialized为true，然后再继续。若为false，则在日志中记录该bug尚未修复。
-    if (ensureMsgf(bWasInitialized, TEXT("%s ran Tick() with bWasInitialized == false"), *GetActorLabel()))
-    {
-        //（执行一些需要已正确初始化AMyActor的操作。)
-    }
-}
-```
-
-|宏|参数|行为|
-|---|---|---|
-|`ensure`|`Expression`|`Expression` 首次为false时通知崩溃报告器|
-|`ensureMsgf`|`Expression`、`FormattedText`、`...`|`Expression` 首次为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
-|`ensureAlways`|`Expression`|`Expression` 为false时通知崩溃报告器|
-|`ensureAlwaysMsgf`|`Expression`, `FormattedText`, `...`|`Expression` 为false时通知崩溃报告器并将 `FormattedText` 输出到日志|
-
-
-
-
-
-
-
-
-## 游戏模块
-[使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
-## GameplayTags
-[使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
-
-# 属性 UPROPERTY
+# 一、属性 UPROPERTY
 ## 属性声明
 
 属性使用标准的 C++变量语法声明，前面用 `UPROPERTY` 宏来定义属性元数据和变量说明符。
@@ -250,7 +166,7 @@ bool bIsThirsty;
 |⭐ **`VisibleDefaultsOnly`**|⭐ 说明此属性只在原型的属性窗口中可见，**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 |⭐ **`VisibleInstanceOnly`**|⭐ 说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 
-# 对象 / 类 UCLASS
+# 二、对象 / 类 UCLASS
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
 
 声明包含一个类的标准 C++ 类声明。在标准声明之上，描述符（如类说明符和元数据）将被传递到 `UCLASS` 宏。
@@ -457,7 +373,7 @@ Ticking 代表虚幻引擎中对象的更新方式。所有Actors均可在每帧
 - 已有的用于 nullptr 的检查应该被 `IsValid()` 调用所替代，除非你进行手动清除，因为指针不再会被垃圾回收器通过 `MarkPendingKill()` 自动清除。
 
 
-# 结构体 USTRUCT
+# 三、结构体 USTRUCT
 **结构体（Struct）** 是一种数据结构，帮助你组织和操作相关属性。在虚幻引擎中，结构体会被引擎的反射系统识别为 **`USTRUCT`**，但**不属于 [UObject](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine) 生态圈,且不能在[UClasses]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/UClass "UClass")的内部使用。**
 
 - 在相同的数据布局下， `USTRUCT` 比 `UObject` 能更快创建。
@@ -502,7 +418,7 @@ struct FStructName
     1. Make函数出现在任何带有 `BlueprintType` 标签的 `USTRUCT` 中。
     2. 如果在USTRUCT中至少有一个 `BlueprintReadOnly` 或 `BlueprintReadWrite` 属性，Break函数就会出现。
     3. Break函数创建的纯节点为每个标记为 `BlueprintReadOnly` 或 `BlueprintReadWrite` 的资产提供一个输出引脚。
-# 接口 UINTERFACE
+# 四、接口 UINTERFACE
 接口类用于确保一组可能不相关的类实现一组公共的函数。在一些游戏功能可能由原本不相似的大型复杂类共享的情况下，这很有用。
 
 游戏可能有这样一个系统，玩家角色进入触发器体积时可以激活陷阱、提醒敌人或向玩家奖励积分。这可以通过陷阱、敌人或积分奖励上的"ReactToTrigger"函数来实现。但是，陷阱可能派生自[AActor](https://docs.unrealengine.com/5.2/zh-CN/actors-in-unreal-engine)，敌人派生自专门的[APawn](https://docs.unrealengine.com/5.2/zh-CN/pawn-in-unreal-engine)或[ACharacter](https://docs.unrealengine.com/5.2/zh-CN/characters-in-unreal-engine)子类，而积分奖励派生自 `UDataAsset` 。
@@ -686,7 +602,7 @@ ISomeOtherInterface* DifferentInterface = Cast<ISomeOtherInterface>(ReactingObje
 AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空且OriginalObject为AActor或AActor派生的类，则Actor将为非空。
 ```
 
-# 函数 UFUNCTION
+# 五、函数 UFUNCTION
 
 **`UFUNCTION`** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFUNCTION`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
 
@@ -759,7 +675,7 @@ TestFunction();
 |---|---|
 |Out|声明由引用传递的参数，使函数对其进行修改。|
 |Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
-# 参数 UPARAM
+# 六、参数 UPARAM
 主要用于将 C++ 代码公开到蓝图
 
 若要使参数通过**引用传递并仍然显示为输入**，请使用 `UPARAM()` 宏。
@@ -784,7 +700,7 @@ UPARAM(DisplayName="Y (Pitch)") float Pitch,
 UPARAM(DisplayName="Z (Yaw)") float Yaw);
 ```
 
-# 元数据说明符
+# 七、元数据说明符
 文档：
 [虚幻引擎元数据说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine/)
 
@@ -820,7 +736,7 @@ enum class EMyEnum : uint8
 };
 ```
 
-# 智能指针
+# 八、智能指针
 ## 概述
 **虚幻智能指针库** 为 C++11智能指针的自定义实现，旨在减轻内存分配和追踪的负担。该实现包括行业标准 **共享指针**、**弱指针** 和 **唯一指针**。其还可添加 **共享引用**，此类引用的行为与不可为空的共享指针相同。
 **虚幻 Objects 使用更适合游戏代码的单独内存追踪系统，因此这些类无法与 `UObject` 系统同时使用。**
@@ -1242,7 +1158,7 @@ AnotherObjectObserver.Reset();
 - **在[Set](https://docs.unrealengine.com/5.2/zh-CN/set-containers-in-unreal-engine)或[Map](https://docs.unrealengine.com/5.2/zh-CN/map-containers-in-unreal-engine)中用作键。弱指针可能会在未通知容器的情况下随时无效，因此共享指针或共享引用更适用于充当键。可安全地将弱指针用作数值。
 - 虽然弱指针提供 `IsValid` 函数，但是检查 `IsValid` 无法保证对象在任何时间长度内均可持续有效。线程安全共享指针可能会因另一线程上的活动而随时无效，因此使用线程安全共享指针应尤其注意。`Pin` 返回的共享指针将使对象在代码将其清除或其超出范围前保持活跃状态，**因此 `Pin` 函数是用于检查的首选方法，此类检查会导致取消引用或访问存储对象。**
 
-# 容器
+# 九、容器
 
 ## TArray 数组
 
@@ -2732,7 +2648,7 @@ Slack是不包含元素的已分配内存。调用 `Reserve` 可分配内存�
 `CountBytes` 和 `GetAllocatedSize` 函数用于估计内部数组的当前内存使用情况。`CountBytes` 接受 `FArchive` 参数，而 `GetAllocatedSize` 则不接受。这些函数常用于统计报告。
 
 `Dump` 函数接受 `FOutputDevice` 并写出关于集合内容的实现信息。还有一个名为 `DumpHashElements` 的函数，可列出来自所有散列条目的所有元素。这些函数常用于调试。
-# 字符串
+# 十、字符串
 ## TCHAR 与 TEXT()
 对于大多数情况下，虚幻依靠 `TCHAR` 类型来表示字符。`TEXT()` 宏可用于表示 `TCHAR` 文字。
 
@@ -2846,7 +2762,7 @@ void ATestActor::BeginPlay()
 与 `FName` 和 `FText` 不同，`FString` 可以与搜索、修改并且与其他字符串比较。不过，这些操作会导致 `FString` 的开销比不可变字符串类更大。这是因为 **`FString` 对象保存自己的字符数组，而 `FName` 和 `FText` 对象保存共享字符数组的指针，并且可以完全根据索引值建立相等性。**
 
 
-# 委托
+# 十一、委托
 **委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。虚幻引擎共支持三种类型的委托：
 
 - 单播委托
@@ -3057,7 +2973,7 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
 
 
-# 定时器
+# 十二、定时器
 
 ## 定时器管理
 
@@ -3154,6 +3070,81 @@ GetWorldTimerManager().GetTimerRate(this, &AUTWeapon::RefireCheckTimer);
 GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
 ```
 
+
+# 十三、断言
+
+**`assert` 的关键特性之一是不存在于发布代码中，这意味着不但不会影响发布产品的性能，也没有任何副作用**。**对 `assert` 最简单的理解就是："断言"必须一律为 true，否则程序会停止运行。**
+
+虚幻引擎提供 `assert` 等同项的三个不同族系：`check`、`verify` 和 `ensure`。各个功能的行为略有不同，但它们都是开发期间使用的诊断工具，目标大致相同。
+
+## Check
+
+Check 族系最接近基础 `assert`，因为当第一个参数得出的值为 false 时，此族系的成员会停止执行，且默认不会在发布版本中运行。以下 Check 宏可用：
+
+```c++
+// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
+void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
+{
+    check(JumpTarget != nullptr);
+    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
+}
+```
+
+|宏|参数|行为|
+|---|---|---|
+| `check` 或 `checkSlow` | `Expression` |若 `Expression` 为 false，停止执行|
+| `checkf` 或 `checkfSlow` | `Expression`、`FormattedText`、`...` |若 `Expression` 为 false，则停止执行并将 `FormattedText` 输出到日志|
+| `checkCode` | `Code` |在运行一次的 do-while 循环结构中执行 `Code`；主要用于准备另一个 Check 所需的信息|
+| `checkNoEntry` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应不可到达的代码路径|
+| `checkNoReentry` |（无）|若此行被 hit 超过一次，则停止执行|
+| `checkNoRecursion` |（无）|若此行被 hit 超过一次而未离开作用域，则停止执行|
+| `unimplemented` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数|
+
+## Verify
+
+**若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
+
+```c++
+// 这将设置Mesh的值，并预计为非空值。若之后Mesh的值为空，则停止程序。
+// 使用Verify而非Check，因为表达式存在副作用（设置网格体）。
+verify((Mesh = GetRenderMesh()) != nullptr);
+```
+
+|宏|参数|行为|
+|---|---|---|
+| `verify` 或 `verifySlow` | `Expression` |若 `Expression` 为 false，停止执行|
+| `verify` 或 `verifyfSlow` | `Expression`、`FormattedText`、`...` |若 `Expression` 为 false，则停止执行并将 `FormattedText` 输出到日志|
+
+## Ensure
+
+**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
+
+```c++
+// 这行代码捕获了在产品发布版本中可能出现的小错误。
+// 此错误较小，无需停止执行便可解决。
+// 虽然该bug已修复，但开发者仍然希望了解之前是否曾经出现过此bug。
+void AMyActor::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    // 确保bWasInitialized为true，然后再继续。若为false，则在日志中记录该bug尚未修复。
+    if (ensureMsgf(bWasInitialized, TEXT("%s ran Tick() with bWasInitialized == false"), *GetActorLabel()))
+    {
+        //（执行一些需要已正确初始化AMyActor的操作。)
+    }
+}
+```
+
+|宏|参数|行为|
+|---|---|---|
+| `ensure` | `Expression` | `Expression` 首次为 false 时通知崩溃报告器|
+| `ensureMsgf` | `Expression`、`FormattedText`、`...` | `Expression` 首次为 false 时通知崩溃报告器并将 `FormattedText` 输出到日志|
+| `ensureAlways` | `Expression` | `Expression` 为 false 时通知崩溃报告器|
+| `ensureAlwaysMsgf` | `Expression`, `FormattedText`, `...` | `Expression` 为 false 时通知崩溃报告器并将 `FormattedText` 输出到日志|
+
+
+# GameplayTags
+[使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
+
 # 创建蓝图 API：提示和技巧
 [在虚幻引擎中将C++暴露给蓝图 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/exposing-cplusplus-to-blueprints-visual-scripting-in-unreal-engine/)
 程序员创建对蓝图公开的 API 时需要考虑以下几点：
@@ -3235,3 +3226,6 @@ static int32 RandomInteger(int32 Max);
 UFUNCTION(BlueprintCallable, meta=(DisplayName = "GetActorTransform"), Category="Utilities|Transformation")
 FTran
 ```
+
+# 游戏模块
+[使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-gameplay-tags-in-unreal-engine/)
