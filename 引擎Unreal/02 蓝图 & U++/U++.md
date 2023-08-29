@@ -7,7 +7,6 @@
 使用 C++ 代码进行游戏性元素编程时，每个模块会包含许多 C++ 类。
 
 ![[Pasted image 20230827161330.png]]
-每个类定义新 Actor 或对象的模板。类头文件中声明了类、类[函数](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)和类[属性](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties)。 类还包括[结构体](https://docs.unrealengine.com/5.2/zh-CN/structs-in-unreal-engine)这种有助于进行相关属性组织和操作的数据结构。结构也可被自行定义。 通过[接口](https://docs.unrealengine.com/5.2/zh-CN/interfaces-in-unreal-engine)可以使不同的类应用额外的游戏性行为。
 
 在虚幻引擎中进行编程时，可使用标准 C++ 类、函数和变量。可使用标准 C++ 语法对它们进行定义。然而，`UCLASS()`、`UFUNCTION()` 和 `UPROPERTY()` 宏可使虚幻引擎识别新的类、函数和变量。
 `UPROPERTY()` 宏作为声明序言的变量可被引擎执行垃圾回收，也可在虚幻编辑器中显示和编辑。
@@ -237,16 +236,14 @@ bool bIsThirsty;
 
 声明属性时，**属性说明符** 可被添加到声明，以控制属性与引擎和编辑器诸多方面的相处方式。
 
-
-
 |属性标签|效果|
 |---|---|
 |`AdvancedDisplay`|属性将被放置在其出现的任意面板的**高级（下拉） 部分**中。|
 |`AssetRegistrySearchable`|`AssetRegistrySearchable` 说明符说明此属性与其值将被自动添加到将此包含为成员变量的所有资源类实例的资源注册表。不可在结构体属性或参数上使用。|
-|`BlueprintAssignable` |只能与**多播委托**共用。公开属性在蓝图中指定。|
-|`BlueprintAuthorityOnly`|此属性必须为一个多播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。|
-|`BlueprintCallable`|仅用于多播委托。应公开属性在蓝图代码中调用。|
-|`BlueprintGetter=GetterFunctionName` |此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。|
+|⭐ **`BlueprintAssignable`**|⭐只能与**多播委托**共用。公开属性在蓝图中指定。|
+|`BlueprintAuthorityOnly`|此属性必须为一个多播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。 |
+|⭐ **`BlueprintCallable`**|⭐ 仅用于**多播委托**。应公开属性在蓝图代码中调用。|
+|`BlueprintGetter=GetterFunctionName` |此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。 |
 |⭐ **`BlueprintReadOnly`**|⭐此属性可由蓝图读取，但不能被修改。|
 |⭐ **`BlueprintReadWrite`**|⭐可从蓝图读取或写入此属性。|
 |`BlueprintSetter=SetterFunctionName`|此属性拥有一个自定义编译函数，被隐式标记为 `BlueprintReadWrite`。注意：必须对变异函数进行命名，并为相同类的一部分。 |
@@ -282,7 +279,7 @@ bool bIsThirsty;
 |⭐ **`VisibleDefaultsOnly`**|⭐ 说明此属性只在原型的属性窗口中可见，**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 |⭐ **`VisibleInstanceOnly`**|⭐ 说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 
-# 对象
+# 对象 / 类 UCLASS
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
 
 **`UCLASS` 宏的作用**是标记 `UObject` 的子类，以便 **UObject** 处理系统可以识别它们。
@@ -409,16 +406,15 @@ GENERATED_BODY()
 
 5. 虚幻头文件工具支持最下 C++集。当使用自定义 `#ifdefs` 宏包裹 UCLASS 的部分时，UHT 会忽略不包含 `WITH_EDITOR` 或者 `WITHEDITORONLY_DATA` 宏的宏。
 
-## 7 更新对象
+## 6 更新对象
 
 Ticking 代表虚幻引擎中对象的更新方式。所有Actors均可在每帧被 tick，便于您执行必要的更新计算或操作。
 
 -  `Actor` 和 Actor 组件在注册时会自动调用它们的 Tick 函数
 - **`UObjects` 不具有嵌入的更新能力。在必须的时候，可以使用 `inherits` 类说明符从 `FTickableGameObject` 继承即可添加此能力。**  这样即可实现 `Tick()` 函数，引擎每帧都将调用此函数。
 
-注意，无论对象是否被垃圾回收，[Actors](https://docs.unrealengine.com/5.2/zh-CN/actors-in-unreal-engine)对其都没有影响。
 
-## 8 销毁对象
+## 7 销毁对象
 
 **对象不被引用后，垃圾回收系统将自动进行对象销毁。** 这意味着没有任何 `UPROPERTY` 指针、引擎容器、`TStrongObjectPtr` 或类实例会拥有任何对它的强引用。
 
@@ -441,15 +437,15 @@ Ticking 代表虚幻引擎中对象的更新方式。所有Actors均可在每帧
 - 已有的用于 nullptr 的检查应该被 `IsValid()` 调用所替代，除非你进行手动清除，因为指针不再会被垃圾回收器通过 `MarkPendingKill()` 自动清除。
 
 
-# 结构体
-**结构体（Struct）** 是一种数据结构，帮助你组织和操作相关属性。在虚幻引擎中，结构体会被引擎的反射系统识别为 **`UStruct`**，但**不属于 [UObject](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine) 生态圈,且不能在[UClasses]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/UClass "UClass")的内部使用。**
+# 结构体 USTRUCT
+**结构体（Struct）** 是一种数据结构，帮助你组织和操作相关属性。在虚幻引擎中，结构体会被引擎的反射系统识别为 **`USTRUCT`**，但**不属于 [UObject](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine) 生态圈,且不能在[UClasses]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/UClass "UClass")的内部使用。**
 
-- 在相同的数据布局下， `UStruct` 比 `UObject` 能更快创建。
-- `UStruct`支持`UProperty`, 但它不由垃圾回收系统管理，不能提供`UFunction`
+- 在相同的数据布局下， `USTRUCT` 比 `UObject` 能更快创建。
+- `USTRUCT`支持`UPROPERTY`, 但它不由垃圾回收系统管理，不能提供`UFUNCTION`
 
-## 实现UStruct
+## 实现USTRUCT
 
-要把一个结构体变成 `UStruct`，请遵循以下步骤：
+要把一个结构体变成 `USTRUCT`，请遵循以下步骤：
 
 1. 打开你要定义结构体的 **header (.h)** 文件。
 2. 要定义你的C++结构体，请将 `USTRUCT` 宏放在结构体定义的上方。
@@ -477,16 +473,16 @@ struct FStructName
 
 ## 最佳做法与技巧
 
-下面是一些使用 `UStruct` 时需要记住的有用提示：
+下面是一些使用 `USTRUCT` 时需要记住的有用提示：
 
-1. `UStruct` 可以使用虚幻引擎的[智能指针](https://docs.unrealengine.com/5.2/zh-CN/smart-pointers-in-unreal-engine)和垃圾回收系统来防止垃圾回收删除 `UObjects`。
+1. `USTRUCT` 可以使用虚幻引擎的[智能指针](https://docs.unrealengine.com/5.2/zh-CN/smart-pointers-in-unreal-engine)和垃圾回收系统来防止垃圾回收删除 `UObjects`。
 2. 结构体最好用于简单数据类型。对于你的项目中更复杂的交互，也许可以使用 `UObject` 或 `AActor` 子类来代替。
-3. `UStructs` **不可以** 用于复制。但是 `UProperty` 变量 **可以** 用于复制。
+3. `USTRUCTs` **不可以** 用于复制。但是 `UPROPERTY` 变量 **可以** 用于复制。
 4. 虚幻引擎可以自动为结构体创建Make和Break函数。
-    1. Make函数出现在任何带有 `BlueprintType` 标签的 `Ustruct` 中。
-    2. 如果在UStruct中至少有一个 `BlueprintReadOnly` 或 `BlueprintReadWrite` 属性，Break函数就会出现。
+    1. Make函数出现在任何带有 `BlueprintType` 标签的 `USTRUCT` 中。
+    2. 如果在USTRUCT中至少有一个 `BlueprintReadOnly` 或 `BlueprintReadWrite` 属性，Break函数就会出现。
     3. Break函数创建的纯节点为每个标记为 `BlueprintReadOnly` 或 `BlueprintReadWrite` 的资产提供一个输出引脚。
-# 接口
+# 接口 UINTERFACE
 接口类用于确保一组可能不相关的类实现一组公共的函数。在一些游戏功能可能由原本不相似的大型复杂类共享的情况下，这很有用。
 
 游戏可能有这样一个系统，玩家角色进入触发器体积时可以激活陷阱、提醒敌人或向玩家奖励积分。这可以通过陷阱、敌人或积分奖励上的"ReactToTrigger"函数来实现。但是，陷阱可能派生自[AActor](https://docs.unrealengine.com/5.2/zh-CN/actors-in-unreal-engine)，敌人派生自专门的[APawn](https://docs.unrealengine.com/5.2/zh-CN/pawn-in-unreal-engine)或[ACharacter](https://docs.unrealengine.com/5.2/zh-CN/characters-in-unreal-engine)子类，而积分奖励派生自 `UDataAsset` 。
@@ -534,19 +530,19 @@ public:
 - 前缀为 `U`的类不需要构造函数或任何其他函数
 - 前缀为 `I`的类将包含所有接口函数，且此类实际上将被你的其他类继承。
 
-如果你想要让蓝图实现此接口，则需要 `Blueprintable` 说明符。
 
-### 接口说明符
+## 2 接口说明符
 
 接口说明符用于向虚幻反射系统公开你的类，详见下表：
 
 |接口说明符|含义|
 |---|---|
-|`BlueprintType`|将该类公开为可用于蓝图中的变量的类型。|
-|`DependsOn=(ClassName1, ClassName2, ...)`|所有列出的类都将在该类之前编译。ClassName必须在同一个（或上一个）包中指定一个类。多个依赖性类可以使用以逗号分隔的单个"DependsOn"行来指定，也可以使用单个"DependsOn"行为每个类指定。当一个类使用在另一个类中声明的结构体或枚举时，这一点非常重要，因为编译器只知道它已经编译的类中的内容。|
+|⭐ **`Blueprintable`**|⭐将该类公开为可接受的用于创建蓝图的基类，让蓝图实现此接口|
+|⭐ **`BlueprintType`** |⭐将该类公开为可用于蓝图中的变量的类型。|
+|`DependsOn=(ClassName1, ClassName2, ...)` |所有列出的类都将在该类之前编译。ClassName必须在同一个（或上一个）包中指定一个类。多个依赖性类可以使用以逗号分隔的单个"DependsOn"行来指定，也可以使用单个"DependsOn"行为每个类指定。当一个类使用在另一个类中声明的结构体或枚举时，这一点非常重要，因为编译器只知道它已经编译的类中的内容。|
 |`MinimalAPI`|仅导致该类的类型信息被导出以供其他模块使用。你可以向该类转换，但不能调用该类的函数（内联方法除外）。对于不需要其所有函数在其他模块中均可供访问的类，通过不导出这些类的所有内容，这可以缩短编译时间。|
 
-## 2 在 C++中实现接口
+## 3 在 C++中实现接口
 
 若要在一个新的类中使用你的接口，只需从前缀为 `I` 的接口类继承（除了你正在使用的任何基于 `UObject`的类）即可。
 
@@ -566,7 +562,7 @@ public:
 }
 ```
 
-## 3 声明接口函数
+## 4 声明接口函数
 
 有几种方法可以在接口中声明函数，由环境决定能够实现或调用哪种方法。
 所有方法都必须在前缀为 `I` 的类中为接口声明，而且必须为 `public` ，以便对外部的类可见。
@@ -632,7 +628,6 @@ bool ReactToTrigger();
 `BlueprintNativeEvent`：在 C++中，可通过重载一个同名函数来实现使用 `BlueprintNativeEvent` 的函数，但要在末尾添加上后缀 `_Implementation` 。该说明符还**允许在蓝图中重载实现**。
 
 ```c++ file:Trap.h
-
 public:
 bool ReactToTrigger_Implementation() override;
 ```
@@ -645,7 +640,7 @@ bool ATrap::ReactToTrigger_Implementation() const
 ```
 
 
-## 4 确定类是否实现了接口
+## 5 确定类是否实现了接口
 
 为了与实现接口的C++和蓝图类兼容，可以使用以下任意函数：
 
@@ -659,7 +654,7 @@ IReactToTriggerInterface* ReactingObjectA = Cast<IReactToTriggerInterface>(Origi
 
 如果 `StaticClass` 函数在前缀为 `I`的类中没有实现，尝试在前缀为 `U` 的类上使用 `Cast` 将失败，代码将无法编译。
 
-## 5 转换到其他虚幻类型
+## 6 转换类型
 
 虚幻引擎的转换系统支持**从一个接口转换到另一个接口**，或者在适当的情况下，**从一个接口转换到一个虚幻类型**。
 
@@ -671,9 +666,9 @@ ISomeOtherInterface* DifferentInterface = Cast<ISomeOtherInterface>(ReactingObje
 AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空且OriginalObject为AActor或AActor派生的类，则Actor将为非空。
 ```
 
-# 函数 UFunction
+# 函数 UFUNCTION
 
-**UFunction** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFunction`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
+**`UFUNCTION`** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFUNCTION`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
 
 宏将支持 **函数说明符** 更改虚幻引擎解译和使用函数的方式。
 
@@ -682,7 +677,7 @@ UFUNCTION([specifier1=setting1, specifier2, ...], [meta(key1="value1", key2, ...
 ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1, ParameterN2=DefaultValueN2]) [const];
 ```
 
-可利用函数说明符将`UFunction`对蓝图公开，以便开发者从蓝图资源调用或扩展`UFunction`，而无需更改C++代码。
+可利用函数说明符将`UFUNCTION`对蓝图公开，以便开发者从蓝图资源调用或扩展`UFUNCTION`，而无需更改C++代码。
 
 ## 函数说明符
 
@@ -690,8 +685,14 @@ ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1
 
 **常用：**
 1. **`BlueprintCallable`** ：函数可从**蓝图**中调用，但**只能通过 C++代码修改**。
-2. **`BlueprintImplementableEvent`**：函数由其**蓝图**的子类实现，不应该在 C++中给出函数的实现，这会导致链接错误。
-3. **`BlueprintNativeEvent`** ：函数提供一个 C++的默认实现，同时也可以被蓝图重载。默认实现的函数名为 `函数名_Implementation` 。
+    - 码将更改它所调用的对象的某些内容或一些其他全局状态，意味着必须调用它，必须连接白色执行线（调度它）。
+2. **`BlueprintPure`**：函数可从**蓝图**中调用，但**只能通过 C++代码修改**。
+    - 不会更改它所调用的对象的任何内容或任何其他全局状态，它只需要输入，然后告诉您输出，类似于数学运算节点，不需要连接白色执行线。
+3. **`BlueprintImplementableEvent`**：函数由其**蓝图**的子类实现，不应该在 C++中给出函数的实现，这会导致链接错误。
+    - 如果没有返回值或输出参数，那么在蓝图中为一个事件
+    - 如果它有返回值或任何输出参数，那么在蓝图中为一个函数
+4. **`BlueprintNativeEvent`** ：函数提供一个 C++的默认实现，同时也可以被蓝图重载。默认实现的函数名为 `函数名_Implementation` 。
+    - 如果需要，您仍然可以调用默认实现，方法是在事件或函数条目节点上 **右键单击**，并选择"将调用添加到父项（Add call to parent）"。
 ```c++
 //.h中声明
 UFUNCTION(BlueprintNativeEvent)
@@ -738,7 +739,29 @@ TestFunction();
 |---|---|
 |Out|声明由引用传递的参数，使函数对其进行修改。|
 |Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
+# 参数 UPARAM
+将 C++代码公开到蓝图
+若要使参数通过**引用传递并仍然显示为输入**，请使用 `UPARAM()` 宏。
 
+![[Pasted image 20230829220832.png]]
+
+```c++
+UFUNCTION(BlueprintCallable, Category = "Example Nodes")
+static void HandleTargets(UPARAM(ref) TArray<FVector>& InputLocations, TArray<FVector>& OutputLocations);
+```
+
+您还可以使用`UPARAM()`来**更改引脚的显示名称**。例如， MakeRotator 函数使用"`UPARAM()`和`DisplayName`关键字来更改绕 Z 轴的旋转、绕 X 轴的旋转、绕 Y 轴的旋转参数在蓝图中的显示方式。
+
+![[54948c4fcd6856e0a406abb1d203171e_MD5.jpg]]
+
+```c++
+/** 根据采用度数的旋转值制作一个旋转体{绕Z轴的旋转、绕X轴的旋转、绕Y轴的旋转} */
+UFUNCTION(BlueprintPure, Category="Math|Rotator", meta=(Keywords="construct build rotation rotate rotator makerotator", NativeMakeFunc))
+static FRotator MakeRotator(
+UPARAM(DisplayName="X (Roll)") float Roll,
+UPARAM(DisplayName="Y (Pitch)") float Pitch,
+UPARAM(DisplayName="Z (Yaw)") float Yaw);
+```
 # 元数据说明符
 文档：
 [虚幻引擎元数据说明符 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine/)
@@ -2831,7 +2854,7 @@ void ATestActor::BeginPlay()
 |`<RetValType> Function(Param1, Param2)`|`DECLARE_DELEGATE_RetVal_TwoParams(RetValType, DelegateName, Param1Type, Param2Type)`|
 |`<RetValType> Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)`|
 
-委托函数支持与`UFunction`相同的说明符，但**使用 `UDELEGATE` 宏**而不是 `UFUNCTION`。例如，以下代码将 `BlueprintAuthorityOnly` 说明符添加到 `FInstigatedAnyDamageSignature` 委托中
+委托函数支持与`UFUNCTION`相同的说明符，但**使用 `UDELEGATE` 宏**而不是 `UFUNCTION`。例如，以下代码将 `BlueprintAuthorityOnly` 说明符添加到 `FInstigatedAnyDamageSignature` 委托中
 
 ```c++
 UDELEGATE(BlueprintAuthorityOnly)

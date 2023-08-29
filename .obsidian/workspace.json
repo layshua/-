@@ -6,6 +6,7 @@
       {
         "id": "250cb3d9ae235ff6",
         "type": "tabs",
+        "dimension": 55.628742514970064,
         "children": [
           {
             "id": "19ed83f85c27db1f",
@@ -52,6 +53,7 @@
       {
         "id": "1bc41cc7e0dd2065",
         "type": "tabs",
+        "dimension": 44.37125748502994,
         "children": [
           {
             "id": "40c9b641d7d49d7f",
@@ -212,6 +214,8 @@
   },
   "active": "e3e3e17867dda187",
   "lastOpenFiles": [
+    "zip/images/54948c4fcd6856e0a406abb1d203171e_MD5.jpg",
+    "zip/images/Pasted image 20230829220832.png",
     "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/02 蓝图 & U++/U++.md",
     "引擎Unreal/01 指南/ue操作指南.md",
@@ -229,7 +233,6 @@
     "zip/images/Pasted image 20230829144811.png",
     "引擎Unreal/03 Gameplay/增强输入.md",
     "zip/images/ace1acad44d2dc52a9aa718108db8e07_MD5.png",
-    "zip/images/48b715cb485dddb01cd7bb83cca2e033_MD5.jpg",
     "引擎Unreal/01 指南/光照设置.md",
     "编程/C++/STL.md",
     "编程/C++/STL标准库.md",
