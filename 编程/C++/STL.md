@@ -638,19 +638,7 @@ double atof(const char* str); // 'f' means double
 ```
 
 # vector - 可变数组
-## vector 容器基本概念
-vector的数据安排及操作方式，与array非常相似，两者的唯一差别在于空间的运用的灵活性。
-array是静态空间，一旦配置了一般不能改变，如果要改变空间大小，需要自行完成以下三个步骤：
-- 配置一块新的空间
-- 将旧数据搬往新的空间
-- 释放原来的空间
-而 vector 是动态空间，但其实 vector 的动态也是对于上述过程的封装，并且 vector 配置空间的策略也考虑了运行成本，采用特定的扩展的策略（并不是简单的成倍扩展）。
-![[spaces_4jcp9JrFSUV0Enu5fcXK_uploads_wOcATtLA7TPligYyNsnw_屏幕截图 06-07-2021 22.webp]]
-## vector 迭代器
-vector维护一个线性空间，所以不论元素类型如何，普通指针都可以作为vector的迭代器。
-因为vector迭代器所需要的行为，如`operator*，operator->，operator++，operator--，operator+，operator-，operator+=，operator-=`，普通指针天生具备。
-vector指针支持随机存取，而普通指针正有着这样的能力。
-所以，vector提供的是**随机访问迭代器（Random Access Iterator）**，其内部用普通指针实现。
+
 ### 使用迭代器进行正序遍历
 ```c++
 for (vector<T>::iterator it = v.begin(); it != v.end(); it++)

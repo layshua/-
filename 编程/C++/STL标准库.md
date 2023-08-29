@@ -161,15 +161,37 @@ c.clear ( )    //删除c中的所有元素。返回void
 
 
 ### 改变容器的大小
-- resize 不适用于 array
+- `resize` 不适用于 array
 
 ```c++
 c.resize(n)      //调整 c 的大小为 n 个元素。若 n<c.size()，则多出的元素被丢弃。若必须添加新元素，对新元素进行值初始化
-c. resize(n, t)  //调整 c 的大小为 n 个元素。任何新添加的元素都初始化为值 t
+c.resize(n, t)  //调整 c 的大小为 n 个元素。任何新添加的元素都初始化为值 t
 ```
 
 > [!warning] 
 > 如果 resize 缩小容器，则指向被删除元素的迭代器、引用和指针都会失效; 对 vector、string 或 deque 进行 resize 可能导致迭代器、指针和引用失效。
+
+### 容器容量管理
+
+> [!NOTE] size 和 capacity 的区别
+> -  `size` 是指容器已经保存的元素的数目；
+>-  `capacity` 则是在不分配新的内存空间的前提下它最多可以保存多少元素。即容器的容量
+>- `resize` 成员函数只改变容器中元素的数目，而不是容器的容量。
+
+-  `shrink_to_fit` 只适用于 vector、 string 和 deque。
+- `capacity` 和 `reserve` 只适用于 vector 和 string。
+
+```c++
+c.shrink_to_fit() //请将capacity ()减少为与size ()相同大小
+c.capacity()      //不重新分配内存空间的话，c可以保存多少元素
+c.reserve(n)      //分配至少能容纳n个元素的内存空间
+```
+
+只有当需要的内存空间超过当前容量时，`reserve` 调用才会改变 vector 的容量。如果需求大小大于当前容量，`reserve` 至少分配与需求一样大的内存空间（可能更大）。
+
+如果需求大小小于或等于当前容量，`reserve` 什么也不做。特别是，当需求大小小于当前容量时，容器不会退回内存空间。因此，在调用 `reserve` 之后，capacity 将会大于或等于传递给 `reserve` 的参数。
+
+调用 `reserve` 永远也不会减少容器占用的内存空间。类似的，**`resize` 成员函数（参见 9.3.5 节，第 314 页）只改变容器中元素的数目，而不是容器的容量**。我们同样不能使用 resize 来减少容器预留的内存空间。
 
 ## 顺序容器迭代器
 
@@ -203,31 +225,29 @@ cbegin：返回 const 迭代器（const_iterator）
 
 ### 运算
 ![[Pasted image 20230209204934.png]]
-forward_list 的迭代器不支持递减运算符（--）
+forward_list 的迭代器不支持递减运算符`--`
 
 **以下运算只能应用于 string、vector、deque 和 array 的迭代器**
 ![[Pasted image 20230209205951.png]]
 迭代器相减的结果是两个迭代器的距离，类型是名为 `difference_type` 的带符号整型数。
 
 ### 容器操作导致的迭代器失效
-在向容器添加元素后：
+**在向容器添加元素后：**
 1. 如果容器是 vector 或 string, 且存储空间被重新分配，则指向容器的迭代器、指针和引用都会失效。如果存储空间未重新分配，指向插入位置之前的元素的迭代器、指针和引用仍有效，但指向插入位置之后元素的迭代器、指针和引用将会失效。
 2. 对于 deque, 插入到除首尾位置之外的任何位置都会导致迭代器、指针和引用失效。如果在首尾位置添加元素，迭代器会失效，但指向存在的元素的引用和指针不会失效。
 3. 对于 list 和 forward_list, 指向容器的迭代器（包括尾后迭代器和首前迭代器)、指针和引用仍有效。
 
 当我们从一个容器中删除元素后，指向被删除元素的迭代器、指针和引用会失效，这应该不会令人惊讶。毕竟，这些元素都已经被销毁了。
 
-当我们删除一个元素后：
-1. 对于 list 和 forward_list, 指向容器其他位置的迭代器（包括尾后迭代器和首前迭代器)、引用和指针仍有效。
+**当我们删除一个元素后：**
+1.  对于 vector 和 string, 指向被删元素之前元素的迭代器、引用和指针仍有效。注意：当我们删除元素时，尾后迭代器总是会失效。
 2. 对于 deque, 如果在首尾之外的任何位置删除元素，那么指向被删除元素外其他元素的迭代器、引用或指针也会失效。如果是删除 deque 的尾元素，则尾后迭代器也会失效，但其他迭代器、引用和指针不受影响：如果是删除首元素，这些也不会受影响。
-3. 对于 vector 和 string, 指向被删元素之前元素的迭代器、引用和指针仍有效。注意：当我们删除元素时，尾后迭代器总是会失效。
-
+3. 对于 list 和 forward_list, 指向容器其他位置的迭代器（包括尾后迭代器和首前迭代器)、引用和指针仍有效。
 
 > [!command] 建议：管理迭代器
 > 当你使用迭代器（或指向容器元素的引用或指针）时，**最小化要求迭代器必须保持有效**的程序片段是一个好的方法。由于向迭代器添加元素和从迭代器删除元素的代码可能会使迭代器失效，因此必须保证每次改变容器的操作之后都正确地重新定位迭代器。
 > 这个建议对 vector、string 和 deque 尤为重要。
 > 
-
 
 > [!Warning] warning
 > 凡是使用了迭代器的循环体，都不要向迭代器所属的容器添加元素
@@ -235,36 +255,25 @@ forward_list 的迭代器不支持递减运算符（--）
 > 如果在一个循环中插入/删除 deque、string 或 vector 中的元素，不要缓存 end 返回的迭代器。
 ## 【array】 固定数组
 
-当**创建 array** 时就要**初始化其大小**，不可再改变。
-
-```c++
-#include <array>  // 先要包含头文件
-int main() {
-    std::array<int, 5> data;  //定义，有两个参数，一个指定类型，一个指定大小
-    data[0] = 1;
-    data[4] = 10;
-    return 0;
-}
-```
-
-array 和原生数组都是**创建在栈上**的（vector 是在堆上创建底层数据储存的）
-
-原生数组越界的时候不会报错，而 **array 会有越界检查**，会报错提醒。
-
-使用 std:: array 的好处是可以**访问它的大小**（通过 s**ize ()** 函数），它是一个**类**。
+- 当**创建 array** 时就要**初始化其大小**，不可再改变。
+- array 和原生数组都是**创建在栈上**的（vector 是在堆上创建底层数据储存的）
+- 原生数组越界的时候不会报错，而 **array 会有越界检查**，会报错提醒。
+- 使用 std:: array 的好处是可以**访问它的大小**（通过 s**ize ()** 函数），它是一个**类**。
 
 ```c++
 #include<iostream>
 #include<array>
 
-void PrintArray(const std::array<int, 5>& data)  //显式指定了大小 {
+void PrintArray(const std::array<int, 5>& data)  //显式指定了大小 
+{
     for (int i = 0;i < data.size();i++)  //访问数组大小
     {
         std::cout << data[i] << std::endl;
     }
 }
+
 int main() {
-    std::array<int, 5> data;
+    std::array<int, 5> data; //定义，有两个参数，一个指定类型，一个指定大小
     data[0] = 0;
     data[1] = 1;
     data[2] = 2;
@@ -275,40 +284,8 @@ int main() {
 }
 ```
 
-如何传入一个**标准数组作为参数**，但**不知道数组的大小**？
-
-方法：使用模板
-
-```c++
-#include <iostream>
-#include <array>
-
-template <typename T>
-void printarray(const T &data) {
-    for (int i = 0; i < data.size(); i++)
-    {
-        std::cout << data[i] << std::endl;
-    }
-}
-
-template <typename T, unsigned long N> // or // template <typename T, size_t N>
-void printarray2(const std::array<T, N> &data) {
-    for (int i = 0; i < N; i++)
-    {
-        std::cout << data[i] << std::endl;
-    }
-}
-
-int main() {
-    std::array<int, 5> data;
-    data[0] = 2;
-    data[4] = 1;
-    printarray(data);
-    printarray2(data);
-}
-```
-
 ## 【vector】 可变数组
+vector 提供的是**随机访问迭代器（Random Access Iterator）**，其内部用普通指针实现。
 ### 初始化
 ![[Pasted image 20230209195935.png]]
 ### 操作
@@ -328,18 +305,6 @@ vector 本质上是一个动态数组, 内存连续存储。
 为了避免这种代价，标准库实现者采用了可以减少容器空间重新分配次数的策略。**当不得不获取新的内存空间时，vector 和 string 的实现通常会分配比新的空间需求更大的内存空间。容器预留这些空间作为备用，可用来保存更多的新元素。这样，就不需要每次添加新元素都重新分配容器的内存空间了。**
 
 vs 编辑器每次扩容 1.5 倍：[C++vector的动态扩容，为何是1.5倍或者是2倍](https://blog.csdn.net/qq_44918090/article/details/120583540)
-
-![[Pasted image 20230211234640.png]]
-
-只有当需要的内存空间超过当前容量时，reserve 调用才会改变 vector 的容量。
-如果需求大小大于当前容量，reserve 至少分配与需求一样大的内存空间（可能更大）。
-如果需求大小小于或等于当前容量，reserve 什么也不做。特别是，当需求大小小于当前容量时，容器不会退回内存空间。因此，在调用 reserve 之后，capacity 将会大于或等于传递给 reserve 的参数。
-这样，调用 reserve 永远也不会减少容器占用的内存空间。类似的，resize 成员函数（参见 9.3.5 节，第 314 页）只改变容器中元素的数目，而不是容器的容量。我们同样不能使用 resize 来减少容器预留的内存空间。
-
-### capacity 和 size
-**区别：**
-size 是指容器已经保存的元素的数目；
-capacity 则是在不分配新的内存空间的前提下它最多可以保存多少元素。
 
 ### vector 使用优化
 
