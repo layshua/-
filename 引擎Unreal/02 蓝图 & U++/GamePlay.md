@@ -1,4 +1,4 @@
-# Actor
+# Object/Actor 类
 ## 实例化 Object/Actor
 虚幻引擎有两个不同的函数来实例化对象：
 
@@ -204,7 +204,43 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
-### 物理：刚体与图元组件
+## 创建静态网格体
+
+```c++
+// 创建并放置网格体组件，以便查看球体位置  
+UStaticMeshComponent* SphereVisual = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisualRepresentation"));  
+
+SphereVisual->SetupAttachment(RootComponent);  
+
+static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));  
+
+if(SphereVisualAsset.Succeeded())  
+{  
+    SphereVisual->SetStaticMesh(SphereVisualAsset.Object);  
+    SphereVisual->SetRelativeLocation(FVector(0.0f, 0.0f, -40.0f));  
+    SphereVisual->SetWorldScale3D(FVector(0.8f));  
+}
+```
+# Pawn 类
+## PlayerController 控制默认玩家
+```c++
+AutoPossessPlayer = EAutoReceiveInput::Player0;
+```
+![[Pasted image 20230829162058.png]]
+
+# PlayerController
+## 查找 Player 位置
+```c++
+FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
+```
+## GetPlayerController
+```c++
+// 查找处理本地玩家控制的actor。
+APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
+```
+
+# 物理
+## 刚体与图元组件
 `RigidBody`/`Primitive Component`
 
 在 Unity 中，假如要为 GameObject 赋予物理特征，首先必须为其提供刚体组件。
@@ -217,8 +253,7 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 Unity 将碰撞和可视性划分到不同的组件中，虚幻引擎则将 **"潜在的物理碰撞"（potentially physical）** 和 **"潜在的可视效果"（potentially visible）** 组合到了单个图元组件中。凡是在世界中具有形状的组件，只要能通过物理方式渲染或交互，都是 `PrimitiveComponent` 的子类。
 
-
-### 刚体运动
+## 刚体/碰撞组件
 
 在虚幻引擎 4 中，碰撞组件和刚体组件是同一个组件。其基类是 `UPrimitiveComponent`，它有许多子类（`USphereComponent`、`UCapsuleComponent` 等）可满足你的需要。
 
@@ -239,7 +274,7 @@ class AMyActor : public AActor
     }
 };
 ```
-### RayTrace
+## RayTrace
 ```c++
 APawn* AMyPlayerController::FindPawnCameraIsLookingAt()
 {
@@ -266,7 +301,7 @@ APawn* AMyPlayerController::FindPawnCameraIsLookingAt()
 }
 ```
 [![[4e3dc3bf152452bb0663afe8869c952a_MD5.jpg]]
-### 触发器体积 Trigger Volumes
+## 触发器体积 Trigger Volumes
 ```c++
 UCLASS()
 class AMyActor : public AActor
@@ -298,7 +333,7 @@ class AMyActor : public AActor
 ![[9ea03060c7ec432c5c18a49982f9d1ee_MD5.jpg]]
 
 
-### 输入事件
+## 输入事件
 ```c++
 UCLASS()
 class AMyPlayerController : public APlayerController
@@ -326,34 +361,9 @@ class AMyPlayerController : public APlayerController
 
 ![[83bcde708ee30addd568e23d2a180ccc_MD5.jpg]]
 
-## 查找 Player 位置
-```c++
-FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
-```
-## GetPlayerController
-```c++
-// 查找处理本地玩家控制的actor。
-APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
-```
-## 创建静态网格体
-
-```c++
-//创建静态网格体组件
-UStaticMeshComponent* Cylinder = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cylinder"));  
-Cylinder->SetupAttachment(RootComponent);  
-
- 
-
-//查找成功设置组件属性
-if(CylinderAsset.Succeeded())  
-{  
-    Cylinder->SetStaticMesh(CylinderAsset.Object);  
-    Cylinder->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));  
-    Cylinder->SetWorldScale3D(FVector(1.0f));  
-}
-```
 
 # 相机
+## 获取和切换场景相机
 ```c++
 // 查找处理本地玩家控制的actor。
 APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
@@ -363,7 +373,37 @@ OurPlayerController->GetViewTarget(); //获取当前相机
 OurPlayerController->SetViewTarget(CameraOne); //切换相机
 OurPlayerController->SetViewTargetWithBlend(CameraTwo, SmoothBlendTime); //平滑切换
 ```
+## 弹簧臂
+```c++
+// 使用弹簧臂给予摄像机平滑自然的运动感。  
+USpringArmComponent* SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraAttachmentArm"));  
+SpringArm->SetupAttachment(RootComponent);  
+SpringArm->SetRelativeRotation(FRotator(-45.0f, 0.0f, 0.0f));  
+SpringArm->TargetArmLength = 400.0f;  
+SpringArm->bEnableCameraLag = true;  
+SpringArm->CameraLagSpeed = 3.0f;
 
+// 创建摄像机并附加到弹簧臂
+UCameraComponent* Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("ActualCamera"));
+Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+```
 
+# 粒子
+```c++
+//声明
+UPROPERTY()  
+UParticleSystemComponent* OurParticleSystemComponent;
 
-# 碰撞
+// 创建粒子系统  
+OurParticleSystemComponent = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("MovementParticles"));  
+OurParticleSystemComponent->SetupAttachment(SphereVisual);  
+OurParticleSystemComponent->bAutoActivate = false;  
+OurParticleSystemComponent->SetRelativeLocation(FVector(-20.0f, 0.0f, 20.0f));  
+
+static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire"));  
+if(ParticleAsset.Succeeded())  
+{  
+    //修改ParticleSystemComponent使用的ParticleSystem
+    OurParticleSystemComponent->SetTemplate(ParticleAsset.Object);  
+}
+```
