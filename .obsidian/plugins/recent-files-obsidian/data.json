@@ -13,6 +13,10 @@
       "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "问题汇总",
       "path": "引擎Unreal/01 指南/问题汇总.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "增强输入",
       "path": "引擎Unreal/01 指南/增强输入.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "光照设置",

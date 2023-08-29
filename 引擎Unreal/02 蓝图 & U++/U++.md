@@ -126,10 +126,12 @@ class ClassName : public ParentName
 - [Metadata说明符](https://docs.unrealengine.com/5.2/zh-CN/metadata-specifiers-in-unreal-engine)控制类、接口、结构体、列举、函数，或属性与引擎和编辑器各方面的交互方式。每一种类型的数据结构或成员都有自己的元数据说明符列表。
 - [UFUNCTION](https://docs.unrealengine.com/5.2/zh-CN/ufunctions-in-unreal-engine)，以及 [UPROPERTY](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-uproperties) 宏使 UE 注意到新的类、函数和变量。这些宏由引擎进行垃圾收集。在说明宏时, 你可以在虚幻编辑器中编辑和显示它们。
 
-# 属性
+# 属性 UPROPERTY
 ## 属性声明
 
-属性使用标准的C++变量语法声明，前面用`UPROPERTY`宏来定义属性元数据和变量说明符。
+属性使用标准的 C++变量语法声明，前面用 `UPROPERTY` 宏来定义属性元数据和变量说明符。
+
+当你需要将一个 UObject 类的子类的成员变量注册到蓝图中时，你只需要借助 `UPROPERTY` 宏即可完成。
 
 ```c++
 UPROPERTY([specifier, specifier, ...], [meta(key=value, key=value, ...)])
@@ -240,45 +242,31 @@ uint32 bIsHungry : 1;
 bool bIsThirsty;
 ```
 
-### 字符串
-
-虚幻引擎4支持三种核心类型的字符串。
-
-- `FString`是典型的"动态字符数组"字符串类型。
-- `FName`是**对全局字符串表中不可变且不区分大小写的字符串的引用**。相较于FString，它的大小更小，更能高效的传递，但更难以操控。
-- `FText`是指定**用于处理本地化的更可靠的字符串表示**。
-
-对于大多数情况下，虚幻依靠`TCHAR`类型来表示字符。`TEXT()`宏可用于表示`TCHAR`文字。
-
-```
-    MyDogPtr->DogName = FName(TEXT("Samson Aloysius"));
-```
-
-有关这三种字符串类型、何时使用哪个类型以及如何使用它们的更多信息，请参阅[字符串处理文档](https://docs.unrealengine.com/5.2/zh-CN/string-handling-in-unreal-engine)。
-
 ## 属性说明符
 
 声明属性时，**属性说明符** 可被添加到声明，以控制属性与引擎和编辑器诸多方面的相处方式。
 
+
+
 |属性标签|效果|
 |---|---|
-|`AdvancedDisplay`|属性将被放置在其出现的任意面板的高级（下拉）部分中。|
+|`AdvancedDisplay`|属性将被放置在其出现的任意面板的**高级（下拉） 部分**中。|
 |`AssetRegistrySearchable`|`AssetRegistrySearchable` 说明符说明此属性与其值将被自动添加到将此包含为成员变量的所有资源类实例的资源注册表。不可在结构体属性或参数上使用。|
-|`BlueprintAssignable`|只能与多播委托共用。公开属性在蓝图中指定。|
+|`BlueprintAssignable` |只能与**多播委托**共用。公开属性在蓝图中指定。|
 |`BlueprintAuthorityOnly`|此属性必须为一个多播委托。在蓝图中，其只接受带 `BlueprintAuthorityOnly` 标签的事件。|
 |`BlueprintCallable`|仅用于多播委托。应公开属性在蓝图代码中调用。|
-|`BlueprintGetter=GetterFunctionName`|此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。|
-|`BlueprintReadOnly`|此属性可由蓝图读取，但不能被修改。此说明符与 `BlueprintReadWrite` 说明符不兼容。|
-|`BlueprintReadWrite`|可从蓝图读取或写入此属性。此说明符与 `BlueprintReadOnly` 说明符不兼容。|
-|`BlueprintSetter=SetterFunctionName`|此属性拥有一个自定义编译函数，被隐式标记为 `BlueprintReadWrite`。注意：必须对变异函数进行命名，并为相同类的一部分。|
-|`Category="TopCategory\|SubCategory\|..."`|指定在蓝图编辑工具中显示时的属性类别。使用 \| 运算符定义嵌套类目。|
+|`BlueprintGetter=GetterFunctionName` |此属性指定一个自定义存取器函数。如此属性不带 `BlueprintSetter` 或 `BlueprintReadWrite` 标签，则其为隐式 `BlueprintReadOnly`。|
+|⭐ **`BlueprintReadOnly`**|⭐此属性可由蓝图读取，但不能被修改。|
+|⭐ **`BlueprintReadWrite`**|⭐可从蓝图读取或写入此属性。|
+|`BlueprintSetter=SetterFunctionName`|此属性拥有一个自定义编译函数，被隐式标记为 `BlueprintReadWrite`。注意：必须对变异函数进行命名，并为相同类的一部分。 |
+|⭐ **`Category="TopCategory\|SubCategory\|..."`**|⭐指定在蓝图编辑工具中显示时的属性类别。使用 \| 运算符定义嵌套类目。|
 |`Config`|此属性将被设为可配置。当前值可被存入与类相关的 `.ini` 文件中，创建后将被加载。无法在默认属性中给定一个值。暗示为 `BlueprintReadOnly`。|
-|`DuplicateTransient`|说明在任意类型的复制中（复制/粘贴、二进制复制等），属性的值应被重设为类默认值。|
-|`EditAnywhere`|说明此属性可通过属性窗口在原型和实例上进行编辑。此说明符与所有"可见"说明符均不兼容。|
-|`EditDefaultsOnly`|说明此属性可通过属性窗口进行编辑，但只能在原型上进行。此说明符与所有"可见"说明符均不兼容。|
+|`DuplicateTransient` |说明在任意类型的复制中（复制/粘贴、二进制复制等），属性的值应被重设为类默认值。|
+|⭐ **`EditAnywhere`** |⭐说明此属性可通过属性窗口在原型和实例上进行编辑。|
+|⭐ **`EditDefaultsOnly`**|⭐说明此属性可通过属性窗口进行编辑，但只能在原型上进行。|
 |`EditFixedSize`|只适用于动态数组。这能防止用户通过虚幻编辑器属性窗口修改数组长度。|
 |`EditInline`|允许用户在虚幻编辑器的属性查看器中编辑此属性所引用的Object的属性（只适用于Object引用，包括Object引用的数组）。|
-|`EditInstanceOnly`|说明此属性可通过属性窗口进行编辑，但只能在实例上进行，不能在原型上进行。此说明符与所有"可见"说明符均不兼容。|
+|⭐ **`EditInstanceOnly`**|⭐说明此属性可通过属性窗口进行编辑，但只能在实例上进行，不能在原型上进行。|
 |`Export`|只适用于Object属性（或Object数组）。说明Object被复制时（例如复制/粘贴操作）指定到此属性的Object应整体导出为一个子Object块，而非只是输出Object引用本身。|
 |`GlobalConfig`|工作原理与 `Config` 相似，不同点是无法在子类中进行覆盖。无法在默认属性中对其给定一个值。暗示为 `BlueprintReadOnly`。|
 |`Instanced`|仅限Object（`UCLASS`）属性。此类的一个实例创建时，其将被给定一个Object的特殊副本，指定到默认项中的此属性。用于实例化类默认属性中定义的子Object。暗示为 `EditInline` 和 `Export`。|
@@ -299,9 +287,9 @@ bool bIsThirsty;
 |`SimpleDisplay`|出现在 **细节** 面板中的可见或可编辑属性，无需打开"高级"部分即可见。|
 |`TextExportTransient`|此属性将不会导出为一个文本格式（因此其无法用于复制/粘贴操作）。|
 |`Transient`|属性为临时，意味着其无法被保存或加载。以此方法标记的属性将在加载时被零填充。|
-|`VisibleAnywhere`|说明此属性在所有属性窗口中可见，但无法被编辑。此说明符与"Edit"说明符不兼容。|
-|`VisibleDefaultsOnly`|说明此属性只在原型的属性窗口中可见，无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
-|`VisibleInstanceOnly`|说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），无法被编辑。此说明符与所有"Edit"说明符均不兼容。|
+|⭐ **`VisibleAnywhere`**|⭐ 说明此属性在所有属性窗口中**可见**，但**无法被编辑**。此说明符与"Edit"说明符不兼容。|
+|⭐ **`VisibleDefaultsOnly`**|⭐ 说明此属性只在原型的属性窗口中可见，**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
+|⭐ **`VisibleInstanceOnly`**|⭐ 说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 
 # 对象
 虚幻引擎包含一个用于处理游戏对象的强大系统。虚幻引擎中**所有对象的基类都是 `UObject`**。
@@ -818,7 +806,7 @@ ISomeOtherInterface* DifferentInterface = Cast<ISomeOtherInterface>(ReactingObje
 AActor* Actor = Cast<AActor>(ReactingObject); // 如果ReactingObject为非空且OriginalObject为AActor或AActor派生的类，则Actor将为非空。
 ```
 
-# UFunction
+# 函数 UFunction
 
 **UFunction** 是一种 C++函数，可以被虚幻引擎（UE）反射系统识别。 `UObject` 或蓝图函数库可将**成员函数**声明为 `UFunction`，方法是将 `UFUNCTION` 宏放在头文件中函数声明上方的行中。
 
@@ -829,32 +817,44 @@ UFUNCTION([specifier1=setting1, specifier2, ...], [meta(key1="value1", key2, ...
 ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1, ParameterN2=DefaultValueN2]) [const];
 ```
 
-可利用函数说明符将`UFunction`对[蓝图可视化脚本](https://docs.unrealengine.com/5.2/zh-CN/blueprints-visual-scripting-in-unreal-engine)图表公开，以便开发者从蓝图资源调用或扩展`UFunction`，而无需更改C++代码。
-
-在类的默认属性中，`UFunction`可绑定到[委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)，从而能够执行一些操作（例如将操作与用户输入相关联）。它们还可以充当网络回调，这意味着当某个变量受网络更新影响时，用户可以将其用于接收通知并运行自定义代码。
-
-用户甚至可创建自己的控制台命令（通常也称 _debug_ 、 _configuration_ 或 _cheat code_ 命令），并能在开发版本中从游戏控制台调用这些命令，或将拥有自定义功能的按钮添加到关卡编辑器中的游戏对象。
+可利用函数说明符将`UFunction`对蓝图公开，以便开发者从蓝图资源调用或扩展`UFunction`，而无需更改C++代码。
 
 ## 函数说明符
 
 声明函数时，可以为声明添加 **函数说明符**，以控制函数相对于引擎和编辑器的各个方面的行为方式。
 
 **常用：**
-1. `BlueprintCallable` 函数以C++编写，可从 **蓝图图表** 中调用，但只能通过编辑C++代码进行修改或重写。以此类方式标记的函数通常具备供非程序员使用而编写的功能，但是不应对其进行修改，否则修改将毫无意义。数学函数便是此类函数的经典范例。
-2. 在C++ header (.h)文件中设置 `BlueprintImplementableEvent` 函数，但是函数的主体则在蓝图图表中完成编写，而非C++中。创建此类通常是为了使非程序员能够对无预期默认动作或标准行为的特殊情况创建自定义反应。在宇宙飞船游戏中，玩家飞船接触到能量升级时发生的事件便是这方面的范例。
-3. `BlueprintNativeEvent` 函数与 `BlueprintCallable` 和 `BlueprintImplementableEvent` 函数的组合类似。其具备用 C++中编程的默认行为，但此类行为可通过在蓝图图表中覆盖进行补充或替换。对此类代码编程时，C++代码固定使用命名末尾添加了 `_Implementation` 的虚拟函数，此为最为灵活的选项。
+1. **`BlueprintCallable`** ：函数可从**蓝图**中调用，但**只能通过 C++代码修改**。
+2. **`BlueprintImplementableEvent`**：函数由其**蓝图**的子类实现，不应该在 C++中给出函数的实现，这会导致链接错误。
+3. **`BlueprintNativeEvent`** ：函数提供一个 C++的默认实现，同时也可以被蓝图重载。默认实现的函数名为 `函数名_Implementation` 。
+```c++
+//.h中声明
+UFUNCTION(BlueprintNativeEvent)
+void TestFunction(); //由蓝图重载
+virtual void TestFunction_Implementation();  //由cpp实现
 
+//.cpp中实现
+//只需要实现名为_Implementation的默认实现
+void ATestActor::TestFunction_Implementation()  
+{  
+    //功能...
+}
+
+//.cpp中调用
+//仍旧使用原版本，如果该函数没有被蓝图重载，则自动生成代码调用TestFunction_Implementation()
+TestFunction(); 
+```
 
 |函数说明符|效果|
 |---|---|
-|`BlueprintAuthorityOnly`|如果在具有网络权限的机器上运行（服务器、专用服务器或单人游戏），此函数将仅从蓝图代码执行。|
-|`BlueprintCallable`|此函数可在蓝图或关卡蓝图图表中执行。|
-|`BlueprintCosmetic`|此函数为修饰性的，无法在专用服务器上运行。|
-|`BlueprintImplementableEvent`|此函数可在蓝图或关卡蓝图图表中实现。|
-|`BlueprintNativeEvent`|此函数旨在被蓝图覆盖掉，但是也具有默认原生实现。用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`，是写入代码的位置。如果未找到任何蓝图覆盖，该自动生成的代码将调用`_ Implementation` 方法。|
-|`BlueprintPure`|此函数不对拥有它的对象产生任何影响，可在蓝图或关卡蓝图图表中执行。|
-|`CallInEditor`|可通过细节（Details）面板`中的按钮在编辑器中的选定实例上调用此函数。|
-|`Category = "TopCategory\|SubCategory\|Etc"`|在蓝图编辑工具中显示时指定函数的类别。使用 \| 运算符定义嵌套类别。|
+|`BlueprintAuthorityOnly` |如果在具有网络权限的机器上运行（服务器、专用服务器或单人游戏），此函数将仅从蓝图代码执行。|
+|⭐ **`BlueprintCallable`**|⭐**此函数可在蓝图或关卡蓝图图表中执行。**|
+|`BlueprintCosmetic`|此函数为修饰性的，无法在专用服务器上运行。 |
+|⭐ **`BlueprintImplementableEvent`**|⭐**此函数可在蓝图或关卡蓝图图表中实现。**|
+|⭐ **`BlueprintNativeEvent`**|⭐**此函数旨在被蓝图覆盖掉，但是也具有默认原生实现。** 用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`，是写入代码的位置。如果未找到任何蓝图覆盖，该自动生成的代码将调用`_ Implementation` 方法。 |
+|`BlueprintPure` |此函数不对拥有它的对象产生任何影响，可在蓝图或关卡蓝图图表中执行。|
+|⭐ **`CallInEditor`**|⭐**可通过细节（Details）面板中的按钮在编辑器中的选定实例上调用此函数。** |
+|⭐ **`Category = "TopCategory\|SubCategory\|Etc"`**|⭐**在蓝图编辑工具中显示时指定函数的类别**。使用 \| 运算符定义嵌套类别。|
 |`Client`|此函数仅在拥有在其上调用此函数的对象的客户端上执行。用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`。必要时，此自动生成的代码将调用`_ Implementation` 方法。|
 |`CustomThunk`|`UnrealHeaderTool` 代码生成器将不为此函数生成thunk，用户需要自己通过 `DECLARE_FUNCTION` 或 `DEFINE_FUNCTION` 宏来提供thunk。|
 |`Exec`|此函数可从游戏内控制台执行。仅在特定类中声明时，Exec命令才有效。|
