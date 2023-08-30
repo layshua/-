@@ -2945,7 +2945,7 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 
 |函数|说明|
 |---|---|
-| `Broadcast()` |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
+| `Broadcast()`  |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
 ## 6 动态委托
 **可序列化且支持反射的委托。**
 
@@ -2956,15 +2956,15 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 
 |声明宏|描述|
 |---|---|
-|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态委托。|
-|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态多播委托。 |
+|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个**动态委托**。|
+|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个**动态多播委托**。|
 
 ### 动态委托绑定
 
 |辅助宏|说明|
 |---|---|
-|`BindDynamic( UserObject, FuncName )`|用于在动态委托上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
-|`AddDynamic( UserObject, FuncName )`|用于在动态多播委托上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
+|`BindDynamic( UserObject, FuncName )`|用于在**动态委托**上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
+|`AddDynamic( UserObject, FuncName )`|用于在**动态多播委托**上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
 |`RemoveDynamic( UserObject, FuncName )`|用于在动态多播委托上调用RemoveDynamic()的辅助宏。自动生成函数命名字符串。|
 
 ### 执行动态委托
@@ -2976,6 +2976,7 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 |`Execute`|不检查其绑定情况即执行一个委托|
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
+|`Broadcast` |**动态多播委托**执行|
 
 
 # 十二、定时器

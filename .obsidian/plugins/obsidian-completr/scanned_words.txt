@@ -180628,6 +180628,7 @@ GetTimerRemaining
 GetActorTransform
 GetRenderMesh
 GetActorLabel
+GetPlayerController
 NULL
 Native
 NormalMap

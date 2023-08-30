@@ -120,11 +120,12 @@ MyActor->SetActorEnableCollision(false);
 // 禁止Actor更新
 MyActor->SetActorTickEnabled(false);
 ```
-## 从组件访问 Actor
+## 获取组件挂载的 Actor
+
 ```c++
 AActor* ParentActor = MyComponent->GetOwner();
 ```
-## 从 Actor 访问组件
+## 获取挂载在 Actor 上的组件
 
 ```c++
 UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();

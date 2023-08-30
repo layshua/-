@@ -5,6 +5,10 @@
       "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
     },
     {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
+    },
+    {
       "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
       "path": "引擎Unreal/04 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
     },
@@ -67,10 +71,6 @@
     {
       "basename": "01 虚幻类",
       "path": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md"
-    },
-    {
-      "basename": "GamePlay",
-      "path": "引擎Unreal/02 蓝图 & U++/GamePlay.md"
     },
     {
       "basename": "光照设置",
