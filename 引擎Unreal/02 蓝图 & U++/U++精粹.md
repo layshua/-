@@ -740,7 +740,7 @@ enum class EMyEnum : uint8
 ## 概述
 **虚幻智能指针库** 为 C++11智能指针的自定义实现，旨在减轻内存分配和追踪的负担。该实现包括行业标准 **共享指针**、**弱指针** 和 **唯一指针**。其还可添加 **共享引用**，此类引用的行为与不可为空的共享指针相同。
 
-- UE 智能指针不能用于 UObject 类
+- UE 智能指针不能用于 UObject 类，**常用于引擎的 `Uobject` 系统外的数据对象（比如自己创建的类）**
 
 ### 智能指针类型
 
@@ -904,6 +904,8 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 
 因为**共享指针可为空**，所以无论有无数据对象，都可以对它们进行初始化。以下是创建共享指针的一些示例：
 
+- **`MakeShared<>`** ：创建共享指针
+
 ```c++
 // 创建一个空白的共享指针
 TSharedPtr<FMyObjectType> EmptyPointer;
@@ -918,7 +920,7 @@ TSharedPtr<FMyObjectType, ESPMode::ThreadSafe> NewThreadsafePointer = MakeShared
 
 在第二个示例中，`NodePtr` 实际上拥有新的 `FMyObjectType` 对象，因为没有其他共享指针引用该对象。如果 `NodePtr` 超出范围，并且没有其他共享指针或共享引用指向该对象，那么该对象将被销毁。
 
-**复制共享指针时，系统将向它引用的对象添加一个引用。**
+- **复制共享指针时，系统将向它引用的对象添加一个引用。**
 
 ```c++
 // 增加任意对象ExistingSharedPointer引用的引用数。
@@ -927,7 +929,7 @@ TSharedPtr<FMyObjectType> AnotherPointer = ExistingSharedPointer;
 
 对象将持续存在，直到不再有共享指针（或共享引用）引用它为止。
 
-**使用 `Reset` 函数、或分配一个空指针来重设共享指针，如下所示：**
+- **使用 `Reset` 函数、或分配一个空指针来重设共享指针，如下所示：**
 
 ```c++
 PointerOne.Reset();
@@ -935,7 +937,7 @@ PointerTwo = nullptr;
 // PointerOne和PointerTwo现在都引用nullptr。
 ```
 
-**使用 `MoveTemp`（或 `MoveTempIfPossible`）函数将一个共享指针的内容转移到另一个共享指针，将原始的共享指针保留为空：**（对应 C++的 std::move）
+- **使用 `MoveTemp`（或 `MoveTempIfPossible`）函数将一个共享指针的内容转移到另一个共享指针，将原始的共享指针保留为空：**（对应 C++的 std::move）
 
 ```c++
 // 将PointerOne的内容移至PointerTwo。在此之后，PointerOne将引用nullptr。
@@ -976,7 +978,7 @@ if (NodeA == NodeB)
 }
 ```
 
-- **`IsValid` 函数和 `bool` 运算符有助于判断共享指针是否引用了有效对象。
+- **`IsValid` 函数（是否为有效的）和 `bool` 运算符有助于判断共享指针是否引用了有效对象。
 - 还可以调用 **`Get`**，查看它**是否返回有效的（非空）对象指针**。**
 
 ```c++
@@ -991,6 +993,12 @@ if (Node)
 if (Node.Get() != nullptr)
 {
     // ...
+}
+
+//更严格的检查
+if (Node.IsValid() && Node.Get())
+{
+    //...
 }
 ```
 
@@ -1025,7 +1033,9 @@ TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType(), [](FMyObjectType* Obj)
 ```
 
 ## TSharedRef
-**共享引用** 是一类强大且不可为空的 **智能指针**，其被用于引擎的 `Uobject` 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至**未拥有 `IsValid` 方法**。在共享引用和 **[共享指针](https://docs.unrealengine.com/5.2/zh-CN/shared-pointers-in-unreal-engine)** 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。
+**共享引用** 是一类强大且**不可为空**的智能指针，无法重置共享引用、向其指定空对象，或创建空白引用。因此**共享引用固定包含有效对象**，甚至**没有 `IsValid` 方法**。
+
+**在共享引用和共享指针之间进行选择时，除非需要空对象或可为空的对象，否则建议你优先选择共享引用。**
 
 **与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。**
 
