@@ -3088,42 +3088,53 @@ GetWorldTimerManager().GetTimerElapsed(this, &AUTWeapon::RefireCheckTimer);
 Check 族系最接近基础 `assert`，因为当第一个参数得出的值为 false 时，此族系的成员会停止执行，且默认不会在发布版本中运行。以下 Check 宏可用：
 
 ```c++
-// 决不可使用空JumpTarget调用此函数。若发生此情况，须停止程序。
-void AMyActor::CalculateJumpVelocity(AActor* JumpTarget, FVector& JumpVelocity)
-{
-    check(JumpTarget != nullptr);
-    //（计算在JumpTarget上着陆所需的速度。现在可确定JumpTarget为非空。）
-}
+//当Expression为以下值时触发断言
+//空指针
+//0
+//false
+check(Expression); 
+check(Expression && "Expression can not be NULL"); 
+
+//附加报错文本
+checkf(Expression ,TEXT("Expression can not be NULL"))
+
+//代码执行到这一行就触发断言
+checkNoEntry();
 ```
 
 |宏|参数|行为|
 |---|---|---|
-| `check` 或 `checkSlow` | `Expression` |若 `Expression` 为 false，停止执行|
+| `check` 或 `checkSlow` |`Expression`|若 `Expression` 为 false，停止执行|
 | `checkf` 或 `checkfSlow` | `Expression`、`FormattedText`、`...` |若 `Expression` 为 false，则停止执行并将 `FormattedText` 输出到日志|
 | `checkCode` | `Code` |在运行一次的 do-while 循环结构中执行 `Code`；主要用于准备另一个 Check 所需的信息|
-| `checkNoEntry` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应不可到达的代码路径|
+| `checkNoEntry` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应不可到达的代码路径 |
 | `checkNoReentry` |（无）|若此行被 hit 超过一次，则停止执行|
-| `checkNoRecursion` |（无）|若此行被 hit 超过一次而未离开作用域，则停止执行|
-| `unimplemented` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数|
+| `checkNoRecursion` |（无）|若此行被 hit 超过一次而未离开作用域（递归），则停止执行 |
+| `unimplemented` |（无）|若此行被 hit，则停止执行，类似于 `check(false)`，但主要用于应被覆盖而不会被调用的虚拟函数 |
+
+> [!NOTE] 此行被 hit 的含义
+> 这句话意思就是代码执行到这一行
 
 ## Verify
 
-**若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
+**若某个函数执行操作，然后返回 `bool` 来说明该操作是否成功，则应使用 Verify 而非 Check 来确保该操作成功。** 
+因为在发布版本中 Verify 将忽略返回值，但仍将执行操作。而 Check 在发布版本中根本不调用该函数，所以行为才会有所不同。
 
 ```c++
-// 这将设置Mesh的值，并预计为非空值。若之后Mesh的值为空，则停止程序。
-// 使用Verify而非Check，因为表达式存在副作用（设置网格体）。
+// 使用Verify而非Check，因为表达式需要先执行操作———设置网格体。
 verify((Mesh = GetRenderMesh()) != nullptr);
 ```
 
 |宏|参数|行为|
 |---|---|---|
 | `verify` 或 `verifySlow` | `Expression` |若 `Expression` 为 false，停止执行|
-| `verify` 或 `verifyfSlow` | `Expression`、`FormattedText`、`...` |若 `Expression` 为 false，则停止执行并将 `FormattedText` 输出到日志|
+|`verifyf` 或 `verifyfSlow`| `Expression`、`FormattedText`、`...` |若 `Expression` 为 false，则停止执行并将 `FormattedText` 输出到日志|
 
 ## Ensure
 
-**Ensure 族系类似于 Verify 族系，但可在出现非致命错误时使用。这意味着，若 Ensure 宏的表达式计算得出的值为 false，引擎将通知崩溃报告器，但仍会继续运行。** 为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
+**Ensure 宏的表达式计算得出的值为 false，将报告崩溃，<font color="#ff0000">仍会继续运行（即可以在编辑器点击继续运行）</font>。**
+
+为避免崩溃报告器收到太多通知，Ensure 宏在每次引擎或编辑器会话中仅报告一次。若实际情况需要 Ensure 宏在每次表达式计算得值为 false 时都报告一次，则使用"Always"版本的宏。
 
 ```c++
 // 这行代码捕获了在产品发布版本中可能出现的小错误。
