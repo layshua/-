@@ -1,4 +1,4 @@
-# 通用容器操作
+# 一、通用容器操作
 以下操作基本适用于所有容器
 
 ![[Pasted image 20230211213826.png]]
@@ -68,7 +68,36 @@ assign 允许我们从一个**不同但相容**的类型赋值，或者从容器
     - 元素间接访问操作（`*`）、元素成员间接访问操作（`->`）和下标访问元素操作（`[]`）
     - `++`、`--`、`+`、`-`、`+=`、`-=`、`==`、`!=`、`<`、`>`、`<=`、`>=` 操作
 
-除了这些基本迭代器外，STL 还提供了一些**迭代器适配器**，可以生成对应的迭代器 [[#6 泛型迭代器]]，用于一些特殊的操作。
+除了这些基本迭代器外，STL 还提供了一些**迭代器适配器**，可以生成对应的迭代器 [[#泛型迭代器]]，用于一些特殊的操作。
+- 插入迭代器
+- 反向迭代器
+- 流迭代器
+### 迭代器遍历
+**迭代器正序遍历**
+```c++
+for (vector<T>::iterator it = v.begin(); it != v.end(); it++)
+{
+    cout << *it << endl;
+}
+/**
+ * 1. 迭代器的声明方式:  容器类型::迭代器类型
+ * 2. 顺序首尾迭代器由begin()和end()方法生成
+*/
+```
+
+**迭代器逆序遍历**
+```c++
+for (vector<T>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
+{
+    cout << *it << endl;
+}
+/**
+  * 1. 逆向迭代器不再是iterator，而是reverse_iterator
+  * 2. 逆序首位迭代器由rbegin()和rend()方法生成
+*/
+```
+
+
 ### 各容器的迭代器类型
 
 - 对于 `vector`、`deque` 以及 `basic_string` 容器类，与它们关联的迭代器类型为**随机访问迭代器（RanIt）**
@@ -76,39 +105,24 @@ assign 允许我们从一个**不同但相容**的类型赋值，或者从容器
 
 `queue`、`stack` 和 `priority_queue` 容器类，不支持迭代器！
 
+**判断迭代器是否能随机访问的方法**
+用多了自然就背上了，下面给出一种现场测试的方法。
+```c++
+iterator++；
+iterator--；
+//通过编译，至少是双向迭代器
+  
+iterator = iterator + 1；
+//通过编译，则是随机访问迭代器
+```
+
 ### 迭代器之间的相融关系
 
 ![[cefca8bcc1571137315093623ec613f2_MD5.png]]
 
 迭代器之间的相融关系
 **在需要箭头左边迭代器的地方可以用箭头右边的迭代器去替代。**
-
-### 反向迭代器（reverse iterator）
-
-对于反向迭代器，递增（以及递减）操作的含义会颠倒过来。递增一个反向迭代器（++it）会移动到前一个元素; 递减一个迭代器 (—-it）会移动到下一个元素。
-除了 `forward_list` 之外, 其他容器都支持反向迭代器。我们可以通过调用 rbegin、rend、crbegin 和 crend 成员函数来获得反向迭代器。**这些成员函数返回指向容器尾元素和首元素之前一个位置的迭代器**。与普通迭代器一样，反向迭代器也有 const 和非 const 版本。
-![[Pasted image 20230824095050.png]]
-```c++
-vector<int> vec = {0,1,2,3,4,5,6,7,8,9};//从尾元素到首元素的反向迭代器
-for (auto r_iter = vec.crbegin( );  //将r_iter绑定到尾元素
-    r_iter != vec.crend ( ) ; //crend指向首元素之前的位置
-    ++r_iter) //实际是递减，移动到前一个元素
-{
-    cout <<*r_iter<< endl; //打印9,8，7， ... 0
-}
-```
-
-通过向 sort 传递一对反向迭代器来讲 vector 在整理为递减序列
-```c++
-sort (vec.begin () , vec.end ()); //按“正常序”排序vec
-sort (vec.rbegin () , vec.rend ( )); //按逆序排序:将最小元素放在vec的末尾
-```
-
-
-
-
-
-# 一、顺序容器
+# 二、顺序容器
 **容器**用于表示由同类型元素构成的、长度可变的元素序列。
 容器是由类模板来实现的，模板的参数是容器中元素的类型。
 
@@ -917,7 +931,7 @@ q.emplace (args )
 
 ```
 
-# 二、关联容器
+# 三、关联容器
 - 关联容器中的元素是按关键字来保存和访问的
 - 关联容器的迭代器都是双向的
 ![[Pasted image 20230213162157.png]]
@@ -1225,8 +1239,366 @@ unorderd：不按关键字顺序，使用**哈希函数（hash function）** 和
 默认情况下，无序容器使用关键字类型的 `==` 运算符来比较元素，它们还使用一个 `hash<key_type>` 类型的对象来生成每个元素的哈希值。标准库为内置类型〈包括指针)提供了 hash 模板。还为一些标准库类型，包括 string 和我们将要在第 12 章介绍的智能指针类型定义了 hash。因此，**我们可以直接定义关键字是内置类型（包括指针类型)、string 还是智能指针类型的无序容器**。
 **但是，我们不能直接定义关键字类型为自定义类类型的无序容器。** 与容器不同，不能直接使用哈希模板，而**必须提供我们自己的 hash 模板版本**。我们将在 16.5 节 (第 626 页)中介绍如何做到这一点。
 
-# 三、泛型算法
+# 四、定制操作
+**用 lambda 表达式定制操作**
 
+###  谓词：向算法传递函数
+
+> [!NOTE] 谓词
+> **谓词是一个可调用的表达式，是返回值为 `bool` 的普通函数或者函数对象**
+> 
+> 标准库算法所使用的谓词分为两类：
+> 一元谓词 (unary predicate, 意味着它们只接受单一参数)
+> 二元谓词 (binary predicate, 意味着它们有两个参数)。
+> 
+> 接受谓词参数的算法对输入序列中的元素调用谓词。因此，元素类型必须能转换为谓词的参数类型。
+
+#### 一元谓词举例
+
+例如，对于下面的“**统计**”算法：
+```c++
+size_t count_if(InIt first, InIt last, Pred cond);
+```
+
+可以有如下使用方式：
+```c++
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+bool f(int x) { return x > 0; }
+
+int main() 
+{
+    vector<int> v;
+    ...... // 往容器中放了元素
+    cout << count_if(v.begin(), v.end(), f); // 统计v中正数的个数
+    return 0;
+}
+```
+
+#### 二元谓词举例
+
+例如，对于下面的“**排序**”算法：
+```c++
+void sort(RanIt first, RanIt last); // 按“<”排序
+void sort(RanIt first, RanIt last, BinPred comp); // 按comp返回true规定的次序
+```
+
+可以有如下用法：
+```c++
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool greater2(int x1, int x2) { return x1 > x2; }
+
+int main()
+{
+    vector<int> v;
+    ...... // 往容器中放了元素
+    sort(v.begin(), v.end()); // 从小到大排序
+    sort(v.begin(), v.end(), greater2); // 从大到小排序
+    return 0;
+}
+```
+
+### 【C++11】参数绑定 bind 函数
+#bind
+#### 绑定普通函数
+可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
+
+```c++
+//调用bind的一般形式：
+auto newCallable = bind (callable, arg_list);
+
+//newCallable本身是一个可调用对象
+//arg_list是一个逗号分隔的参数列表，对应给定的callable的参数。
+//即当我们调用newCallable时，newCallable会调用callable,并传递给它arg list中的参数。
+```
+`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“占位符”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
+数值 n 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
+名字_n 都定义在名为**placeholders 命名空间**，该命名空间定义在 std 命名空间。使用时，都要写上。
+
+#### 绑定类的成员函数
+类的成员函数必须通过类的对象或者指针调用，因此在 bind 时， `arg_list` 中的第一个参数的位置来指定一个类的实列、指针或引用。
+```c++
+class Test
+{
+public:
+    int funs(int val)
+    {
+        std::cout << "hello world" << val << std::endl;
+        return val;
+    }
+};
+ 
+class message
+{
+public:
+    std::function<int()> fun;
+};
+ 
+int main(int argc, char *argv[])
+{
+    QCoreApplication a(argc, argv);
+ 
+    Test test;
+    message *mes = new message;
+    mes->fun = std::bind(&Test::funs,test,2);  //test为类的实例
+    cout << mes->fun() <<endl;
+ 
+    return a.exec();
+}
+```
+
+**bind 功能如下：**
+#### 修正参数的值
+```c++
+using namespace std::placeholders; 
+
+bool check_size(const std::string &s, std::string::size_type sz)
+{
+		return s.size()>=sz;
+}
+
+//check6是一个可调用对象，接受一个string类型的参数
+//并用此string和值6来调用check_size
+auto check6 = bind(check_size, _1, 6);
+//占位符出现在arg_list的第一个位置，表示check6的此参数对应check_size的第一个参数。此参数是一个const string&
+//因此调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size
+string s = "hello";
+bool b1 = check6(s); //check6(s)会调用check size(s,6)
+```
+
+#### 重排参数顺序
+例如，假定 f 是一个可调用对象，它有 5 个参数，则下面对 bind 的调用：
+```c++
+//g是一个有两个参数的可调用对象
+auto g = bind(f,a,b,_2,c,_1);
+```
+
+生成一个新的可调用对象，它有两个参数，分别用占位符_2 和_1 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
+传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
+
+下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
+的含义：
+```c++
+//按单词长度由短至长排序
+sort (words.begin(), words.end(), isShorter);
+//按单词长度由长至短排序
+sort (words.begin(), words.end(), bind(isShorter,2,1));
+```
+在第一个调用中，当 sort 需要比较两个元素 A 和 B 时，它会调用 isShorter(A,B)。
+在第二个对 sort 的调用中，传递给 isShorter 的参数被交换过来了。因此，当 sort 比较两个元素时，就好像调用 isShorter (B,A)一样。
+
+#### ref 函数：绑定引用参数
+#ref
+默认情况下，bind 的那些不是占位符的参数被拷贝到 bind 返回的可调用对象中。但是，与 lambda 类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
+例如，为了替换一个引用方式捕获 ostream 的 lambda:
+```c++
+//os是一个局部变量，引用一个输出流
+//c是一个局部变量，类型为char
+for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
+
+//可以很容易地编写一个函数，完成相同的工作：
+ostream &print(ostream &os, const string &s, char c)
+{
+		return os << s << c;
+}
+
+//但是，不能直接用bind来代替对os的捕获：
+//错误：不能拷贝os
+for_each (words.begin(), words.end(), bind(print, os, _1,' '));
+```
+
+原因在于 bind 拷贝其参数，而我们不能拷贝一个 ostream。如果我们希望传递给 bind 一个对象而又不拷贝它，就必须使用标准库 `ref` 函数：
+```c++
+for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
+```
+函数 ref 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
+
+## 泛型迭代器
+除了为每个容器定义的迭代器之外，标准库在头文件 `iterator` 中还定义了额外几种迭代器。
+
+1. **插入迭代器 (insert iterator)**：绑定到一个容器上，可用来向容器插入元素。
+3. **流迭代器 (stream iterator)**：绑定到输入或输出流上，可用来遍历所关联的 IO 流。
+4. **反向迭代器 (reverse iterator)**：向后而不是向前移动。除了 forward_list 之外的标准库容器都有反向迭代器。
+6. **移动迭代器 (move iterator)**：这些专用的迭代器不是拷贝其中的元素，而是移动它们。
+
+### 插入迭代器
+
+**插入迭代器适配器：接受一个容器，生成一个迭代器**
+-  `back_inserter`
+-  `front_inserter` 
+-  `inserter` 
+
+**插入迭代器：用于在容器中指定位置插入元素**
+- `back_insert_iterator`（用于在尾部插入元素）
+- `front_insert_iterator`（用于在首部插入元素）
+- `insert_iterator`（用于在任意指定位置插入元素）
+
+当我们通过一个插入迭代器进行赋值时，该迭代器调用容器操作来向给定容器的指定位置插入一个元素。
+通常情况，当我们通过一个迭代器向容器元素赋值时，值被赋予迭代器指向的元素。而当我们通过一个插入迭代器赋值时，一个与赋值号右侧值相等的元素被添加到容器中。
+
+![[Pasted image 20230212223317.png]]
+
+#### back_inserter
+- `back_inserter` 创建一个使用 `push_back` 的迭代器。`back_inserter` 接受一个指向容器的引用，返回一个与该容器绑定的插入迭代器。当我们通过此迭代器赋值时，赋值运算符会调用 `push_back` 将一个具有给定值的元素添加到容器中：
+```c++
+vector<int> vec;//空向量
+auto it=back_inserter(vec);//通过它赋值会将元素添加到vec中
+*it=42;//vec中现在有一个元素，值为42
+```
+
+**我们常常使用 `back_inserter` 来创建一个迭代器，作为算法的目的位置来使用。**例如：
+```c++
+vector<int> vec;//空向量
+//正确：back_inserter创建一个插入迭代器，可用来向vec添加元素
+fill_n(back_inserter(vec),10,0);//添加10个元素到vec
+```
+
+#### front_inserter
+- `front_inserter` 创建一个使用 `push_front` 的迭代器。元素总是插入到容器第一个元素之前。
+```c++
+list<int> lst = {1,2,3,4};
+list<int> lst2,list3; //空list
+
+//拷贝完成之后，lst2包含4 3 2 1
+copy(lst.cbegin(), lst.cend(), front_inserter(lst2));
+//拷贝完成之后，lst2包含1 2 3 4
+copy(lst.cbegin(), lst.cend(), inserter(lst3,lst3.begin()));
+```
+
+#### inserter
+- `inserter` 创建一个使用 `insert` 的迭代器。此函数接受第二个参数，这个参数必须是一个指向给定容器的迭代器。元素将被插入到给定迭代器所表示的元素之前。
+```c++
+auto it = inserter(c,iter);
+*it = val;
+
+//等价
+it = c.insert(it,val);
+++it //递增it使他指向原来的元素
+```
+
+> [!NOTE] 
+> 只有在容器支持 push front 的情况下，我们才可以使用 front_inserter。类似的，只有在容器支持 push_back 的情况下，我们才能使用 back_inserter。
+
+### 反向迭代器
+
+对于反向迭代器，递增（以及递减）操作的含义会颠倒过来。递增一个反向迭代器（++it）会移动到前一个元素; 递减一个迭代器 (—-it）会移动到下一个元素。
+除了 `forward_list` 之外, 其他容器都支持反向迭代器。我们可以通过调用 rbegin、rend、crbegin 和 crend 成员函数来获得反向迭代器。**这些成员函数返回指向容器尾元素和首元素之前一个位置的迭代器**。与普通迭代器一样，反向迭代器也有 const 和非 const 版本。
+![[Pasted image 20230824095050.png]]
+```c++
+vector<int> vec = {0,1,2,3,4,5,6,7,8,9};//从尾元素到首元素的反向迭代器
+for (auto r_iter = vec.crbegin( );  //将r_iter绑定到尾元素
+    r_iter != vec.crend ( ) ; //crend指向首元素之前的位置
+    ++r_iter) //实际是递减，移动到前一个元素
+{
+    cout <<*r_iter<< endl; //打印9,8，7， ... 0
+}
+```
+
+通过向 sort 传递一对反向迭代器来将 vector 整理为递减序列
+```c++
+sort (vec.begin () , vec.end ()); //按“正常序”排序vec
+sort (vec.rbegin () , vec.rend ( )); //按逆序排序:将最小元素放在vec的末尾
+```
+
+### iostream 流迭代器
+iostream 类型不是容器，但是标准库也定义了用于这些 IO 对象的迭代器。**迭代器将它们对应的流当作一个特定类型的元素序列来处理**。通过使用流迭代器，**可以用泛型算法**从流对象读取数据以及写入数据。
+
+创建流迭代器，必须指定迭代器要读写的类型。
+#### istream_iterator
+**可以为任何具有输入运算符（>>）的类型定义 ostream iterator 对象**。
+![[Pasted image 20230212231129.png]]
+
+```c++
+istream_iterator<int> int_it(cin);  //从cin读取int
+istream_iterator<int> int_eof;  //默认初始化迭代器，可以组为尾后值使用
+
+ifstream ifs("afile");
+istream_iterator<string> str_it(ifs);  //从"afile"读取字符串
+```
+
+```c++
+//例子：从标准输入读取数据，存入vector
+istream_iterator<int> in_iter(cin);  //从cin读取int
+istream_iterator<int> eof;  //尾后迭代器
+
+//当有数据可供读取时
+while(in_iter != eof)  
+		//后置递增运算读取流，返回迭代器的旧值
+		//解引用迭代器，获得从流读取的前一个值
+		vec.push_back(*in_iter++);
+
+//等价
+vector<int> vec(in_iter, eof); //从迭代器范围构造vec
+```
+
+#### ostream_iterator
+**可以为任何具有输出运算符（<<）的类型定义 ostream iterator 对象**。
+
+创建 ostream_iterator 时，我们可以**提供（可选的）第二参数，它是一个字符串，在输出每个元素后都会打印此字符串**。此字符串必须是一个 C 风格字符串（即，一个字符串字面常量或者一个指向以空字符结尾的字符数组的指针)。
+必须将 ostream_iterator 绑定到一个指定的流，不允许空的或表示尾后位置的 ostream_iterator。
+
+![[Pasted image 20230212231331.png]]
+```c++
+//输出值的序列
+ostream_iterator<int> out_iter(cout, " ");
+for(auto e : vec)
+		*out_ite++ = e; //赋值语句实际将元素写到cout
+cout<<endl; 
+
+//可以用copy来打印vec中的元素，比循环更简单
+copy(vec.begin(), vec.end(), out_iter);
+cout<<endl;
+```
+
+## 泛型算法结构
+### 迭代器类别
+![[Pasted image 20230212233213.png]]
+### 算法形参模式
+```c++
+alg (beg, end, other args);
+alg (beg, end, dest, other args);
+alg (beg, end, beg2, other args);
+alg (beg, end, beg2, end2, other args);
+```
+
+beg、end、dest 都是迭代器参数。除了这些参数，一些算法还接受额外的、非迭代器的特定参数。
+
+**接受单个目标迭代器的算法**
+dest 参数是一个表示算法可以写入的目的位置的迭代器。
+算法假定 (assume)：按其需要写入数据，不管写入多少个元素都是安全的。
+
+> [!NOTE] 
+> 向输出迭代器写入数据的算法都假定目标空间足够容纳写入的数据。
+
+**接受第二个输入序列的算法**
+如果一个算法接受 beg2 和 end2, 这两个迭代器表示第二个范围。这类算法接受两个完整指定的范围：[ beg, end ) 表示的范围和 [ beg2end2 ) 表示的第二个范围。
+
+只接受单独的 beg2 ( 不接受 end2 ) 的算法将 beg2 作为第二个输入范围中的首元素。此范围的结束位置未指定，这些算法假定从 beg2 开始的范围与 beg 和 end 所表示的范围至少一样大。
+
+> [!NOTE] 
+> 接受单独 beg2 的算法假定从 beg2 开始的序列与 beg 和 end 所表示的范围至少一样大。
+
+### 算法命名规范
+一些算法使用重载形式传递一个谓词
+```c++
+unique(beg, end);  //使用==运算符比较元素
+unique(beg, end, comp)  //使用comp比较元素
+```
+
+_ if 版本的算法
+接受一个元素值得算法通常都有一个接受谓词的版本 (不是重载)
+```c++
+find(beg,end,val);   
+find_if(beg,end,lambada);
+```
+
+# 五、泛型算法
 
 > [!Tip] 
 > 标准库容器定义的操作集合很小。标准库并未给每个容器添加大量功能，而是提
@@ -1234,14 +1606,16 @@ unorderd：不按关键字顺序，使用**哈希函数（hash function）** 和
 (generic, 或称泛型的)：它们可用于不同类型的容器和不同类型的元素。**
 ```c++
 //头文件
-#include <algorithm> //包含大多数泛型算法     
+#include <algorithm> //包含除数值泛型算法以外的所有算法
 #include <numeric> //数值泛型算法
 ```
 
 > [!NOTE] 关键概念：算法永远不会执行容器的操作
 > 
-泛型算法本身不会执行容器的操作，它们只会运行于迭代器之上，执行迭代器的操作。
-**算法永远不会改变底层容器的大小。** 算法可能改变容器中保存的元素的值，也可能在容器内移动元素，但永远不会直接添加或删除元素。
+泛型算法本身不会执行容器的操作，它们只会运行于迭代器之上，执行迭代器的操作。这使得算法不依赖于具体的容器，提高了算法的通用性。
+>
+>**算法永远不会改变底层容器的大小。** 算法可能改变容器中保存的元素的值，也可能在容器内移动元素，但永远不会直接添加或删除元素。
+>
 当一个算法操作**插入迭代器**时，插入迭代器可以完成向容器添加元素的效果，但算法自身永远不会做这样的操作。
 
 - **`beg` 和 `end` 是表示元素范围的迭代器。** 几乎所有算法都对一个由 beg 和 end 表示的序列进行操作。
@@ -1783,356 +2157,7 @@ iota (beg, end, val)
 
 
 
-# 四、定制操作
-**用 lambda 表达式定制操作**
-
-### 谓词：向算法传递函数
-
-> [!NOTE] 谓词
-> **谓词是一个可调用的表达式，是返回值为 `bool` 的普通函数或者函数对象**
-> 
-> 标准库算法所使用的谓词分为两类：
-> 一元谓词 (unary predicate, 意味着它们只接受单一参数)
-> 二元谓词 (binary predicate, 意味着它们有两个参数)。
-> 
-> 接受谓词参数的算法对输入序列中的元素调用谓词。因此，元素类型必须能转换为谓词的参数类型。
-
-#### 一元谓词举例
-
-例如，对于下面的“**统计**”算法：
-```c++
-size_t count_if(InIt first, InIt last, Pred cond);
-```
-
-可以有如下使用方式：
-```c++
-#include <vector>
-#include <algorithm>
-#include <iostream>
-using namespace std;
-
-bool f(int x) { return x > 0; }
-
-int main() 
-{
-    vector<int> v;
-    ...... // 往容器中放了元素
-    cout << count_if(v.begin(), v.end(), f); // 统计v中正数的个数
-    return 0;
-}
-```
-
-#### 二元谓词举例
-
-例如，对于下面的“**排序**”算法：
-```c++
-void sort(RanIt first, RanIt last); // 按“<”排序
-void sort(RanIt first, RanIt last, BinPred comp); // 按comp返回true规定的次序
-```
-
-可以有如下用法：
-```c++
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-bool greater2(int x1, int x2) { return x1 > x2; }
-
-int main()
-{
-    vector<int> v;
-    ...... // 往容器中放了元素
-    sort(v.begin(), v.end()); // 从小到大排序
-    sort(v.begin(), v.end(), greater2); // 从大到小排序
-    return 0;
-}
-```
-
-### 【C++11】参数绑定 bind 函数
-#bind
-#### 绑定普通函数
-可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
-
-```c++
-//调用bind的一般形式：
-auto newCallable = bind (callable, arg_list);
-
-//newCallable本身是一个可调用对象
-//arg_list是一个逗号分隔的参数列表，对应给定的callable的参数。
-//即当我们调用newCallable时，newCallable会调用callable,并传递给它arg list中的参数。
-```
-`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“占位符”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
-数值 n 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
-名字_n 都定义在名为**placeholders 命名空间**，该命名空间定义在 std 命名空间。使用时，都要写上。
-
-#### 绑定类的成员函数
-类的成员函数必须通过类的对象或者指针调用，因此在 bind 时， `arg_list` 中的第一个参数的位置来指定一个类的实列、指针或引用。
-```c++
-class Test
-{
-public:
-    int funs(int val)
-    {
-        std::cout << "hello world" << val << std::endl;
-        return val;
-    }
-};
- 
-class message
-{
-public:
-    std::function<int()> fun;
-};
- 
-int main(int argc, char *argv[])
-{
-    QCoreApplication a(argc, argv);
- 
-    Test test;
-    message *mes = new message;
-    mes->fun = std::bind(&Test::funs,test,2);  //test为类的实例
-    cout << mes->fun() <<endl;
- 
-    return a.exec();
-}
-```
-
-**bind 功能如下：**
-#### 修正参数的值
-```c++
-using namespace std::placeholders; 
-
-bool check_size(const std::string &s, std::string::size_type sz)
-{
-		return s.size()>=sz;
-}
-
-//check6是一个可调用对象，接受一个string类型的参数
-//并用此string和值6来调用check_size
-auto check6 = bind(check_size, _1, 6);
-//占位符出现在arg_list的第一个位置，表示check6的此参数对应check_size的第一个参数。此参数是一个const string&
-//因此调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size
-string s = "hello";
-bool b1 = check6(s); //check6(s)会调用check size(s,6)
-```
-
-#### 重排参数顺序
-例如，假定 f 是一个可调用对象，它有 5 个参数，则下面对 bind 的调用：
-```c++
-//g是一个有两个参数的可调用对象
-auto g = bind(f,a,b,_2,c,_1);
-```
-
-生成一个新的可调用对象，它有两个参数，分别用占位符_2 和_1 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
-传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
-
-下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
-的含义：
-```c++
-//按单词长度由短至长排序
-sort (words.begin(), words.end(), isShorter);
-//按单词长度由长至短排序
-sort (words.begin(), words.end(), bind(isShorter,2,1));
-```
-在第一个调用中，当 sort 需要比较两个元素 A 和 B 时，它会调用 isShorter(A,B)。
-在第二个对 sort 的调用中，传递给 isShorter 的参数被交换过来了。因此，当 sort 比较两个元素时，就好像调用 isShorter (B,A)一样。
-
-#### ref 函数：绑定引用参数
-#ref
-默认情况下，bind 的那些不是占位符的参数被拷贝到 bind 返回的可调用对象中。但是，与 lambda 类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
-例如，为了替换一个引用方式捕获 ostream 的 lambda:
-```c++
-//os是一个局部变量，引用一个输出流
-//c是一个局部变量，类型为char
-for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
-
-//可以很容易地编写一个函数，完成相同的工作：
-ostream &print(ostream &os, const string &s, char c)
-{
-		return os << s << c;
-}
-
-//但是，不能直接用bind来代替对os的捕获：
-//错误：不能拷贝os
-for_each (words.begin(), words.end(), bind(print, os, _1,' '));
-```
-
-原因在于 bind 拷贝其参数，而我们不能拷贝一个 ostream。如果我们希望传递给 bind 一个对象而又不拷贝它，就必须使用标准库 `ref` 函数：
-```c++
-for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
-```
-函数 ref 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
-
-## 6 泛型迭代器
-除了为每个容器定义的迭代器之外，标准库在头文件 `iterator` 中还定义了额外几种迭代器。
-
-1. **插入迭代器 (insert iterator)**：绑定到一个容器上，可用来向容器插入元素。
-3. **流迭代器 (stream iterator)**：绑定到输入或输出流上，可用来遍历所关联的 IO 流。
-4. **反向迭代器 (reverse iterator)**：向后而不是向前移动。除了 forward_list 之外的标准库容器都有反向迭代器。
-6. **移动迭代器 (move iterator)**：这些专用的迭代器不是拷贝其中的元素，而是移动它们。
-
-### 插入迭代器
-
-**插入迭代器适配器：接受一个容器，生成一个迭代器**
--  `back_inserter`
--  `front_inserter` 
--  `inserter` 
-
-**插入迭代器：用于在容器中指定位置插入元素**
-- `back_insert_iterator`（用于在尾部插入元素）
-- `front_insert_iterator`（用于在首部插入元素）
-- `insert_iterator`（用于在任意指定位置插入元素）
-
-当我们通过一个插入迭代器进行赋值时，该迭代器调用容器操作来向给定容器的指定位置插入一个元素。
-通常情况，当我们通过一个迭代器向容器元素赋值时，值被赋予迭代器指向的元素。而当我们通过一个插入迭代器赋值时，一个与赋值号右侧值相等的元素被添加到容器中。
-
-![[Pasted image 20230212223317.png]]
-
-#### back_inserter
-- `back_inserter` 创建一个使用 `push_back` 的迭代器。`back_inserter` 接受一个指向容器的引用，返回一个与该容器绑定的插入迭代器。当我们通过此迭代器赋值时，赋值运算符会调用 `push_back` 将一个具有给定值的元素添加到容器中：
-```c++
-vector<int> vec;//空向量
-auto it=back_inserter(vec);//通过它赋值会将元素添加到vec中
-*it=42;//vec中现在有一个元素，值为42
-```
-
-**我们常常使用 `back_inserter` 来创建一个迭代器，作为算法的目的位置来使用。**例如：
-```c++
-vector<int> vec;//空向量
-//正确：back_inserter创建一个插入迭代器，可用来向vec添加元素
-fill_n(back_inserter(vec),10,0);//添加10个元素到vec
-```
-
-#### front_inserter
-- `front_inserter` 创建一个使用 `push_front` 的迭代器。元素总是插入到容器第一个元素之前。
-```c++
-list<int> lst = {1,2,3,4};
-list<int> lst2,list3; //空list
-
-//拷贝完成之后，lst2包含4 3 2 1
-copy(lst.cbegin(), lst.cend(), front_inserter(lst2));
-//拷贝完成之后，lst2包含1 2 3 4
-copy(lst.cbegin(), lst.cend(), inserter(lst3,lst3.begin()));
-```
-
-#### inserter
-- `inserter` 创建一个使用 `insert` 的迭代器。此函数接受第二个参数，这个参数必须是一个指向给定容器的迭代器。元素将被插入到给定迭代器所表示的元素之前。
-```c++
-auto it = inserter(c,iter);
-*it = val;
-
-//等价
-it = c.insert(it,val);
-++it //递增it使他指向原来的元素
-```
-
-> [!NOTE] 
-> 只有在容器支持 push front 的情况下，我们才可以使用 front_inserter。类似的，只有在容器支持 push_back 的情况下，我们才能使用 back_inserter。
-
-### iostream 流迭代器
-iostream 类型不是容器，但是标准库也定义了用于这些 IO 对象的迭代器。**迭代器将它们对应的流当作一个特定类型的元素序列来处理**。通过使用流迭代器，**可以用泛型算法**从流对象读取数据以及写入数据。
-
-创建流迭代器，必须指定迭代器要读写的类型。
-#### istream_iterator
-**可以为任何具有输入运算符（>>）的类型定义 ostream iterator 对象**。
-![[Pasted image 20230212231129.png]]
-
-```c++
-istream_iterator<int> int_it(cin);  //从cin读取int
-istream_iterator<int> int_eof;  //默认初始化迭代器，可以组为尾后值使用
-
-ifstream ifs("afile");
-istream_iterator<string> str_it(ifs);  //从"afile"读取字符串
-```
-
-```c++
-//例子：从标准输入读取数据，存入vector
-istream_iterator<int> in_iter(cin);  //从cin读取int
-istream_iterator<int> eof;  //尾后迭代器
-
-//当有数据可供读取时
-while(in_iter != eof)  
-		//后置递增运算读取流，返回迭代器的旧值
-		//解引用迭代器，获得从流读取的前一个值
-		vec.push_back(*in_iter++);
-
-//等价
-vector<int> vec(in_iter, eof); //从迭代器范围构造vec
-```
-
-#### ostream_iterator
-**可以为任何具有输出运算符（<<）的类型定义 ostream iterator 对象**。
-
-创建 ostream_iterator 时，我们可以**提供（可选的）第二参数，它是一个字符串，在输出每个元素后都会打印此字符串**。此字符串必须是一个 C 风格字符串（即，一个字符串字面常量或者一个指向以空字符结尾的字符数组的指针)。
-必须将 ostream_iterator 绑定到一个指定的流，不允许空的或表示尾后位置的 ostream_iterator。
-
-![[Pasted image 20230212231331.png]]
-```c++
-//输出值的序列
-ostream_iterator<int> out_iter(cout, " ");
-for(auto e : vec)
-		*out_ite++ = e; //赋值语句实际将元素写到cout
-cout<<endl; 
-
-//可以用copy来打印vec中的元素，比循环更简单
-copy(vec.begin(), vec.end(), out_iter);
-cout<<endl;
-```
-
-### 反向迭代器
-rbegin、rend、crbegin、crend
-对于反向迭代器，递增递减操作含义会倒过来，递增迭代器会移动到前一个元素。
-```c++
-vector<int> vec = {0,1,2,3,4};
-
-//从尾元素到首元素的反向迭代器
-for(auto r_iter = vec.rbegin();r_iter!=vec.rend();++r_iter)
-		cout<< *r_iter <<endl;
-```
-
-## 7 泛型算法结构
-### 迭代器类别
-![[Pasted image 20230212233213.png]]
-### 算法形参模式
-```c++
-alg (beg, end, other args);
-alg (beg, end, dest, other args);
-alg (beg, end, beg2, other args);
-alg (beg, end, beg2, end2, other args);
-```
-
-beg、end、dest 都是迭代器参数。除了这些参数，一些算法还接受额外的、非迭代器的特定参数。
-
-**接受单个目标迭代器的算法**
-dest 参数是一个表示算法可以写入的目的位置的迭代器。
-算法假定 (assume)：按其需要写入数据，不管写入多少个元素都是安全的。
-
-> [!NOTE] 
-> 向输出迭代器写入数据的算法都假定目标空间足够容纳写入的数据。
-
-**接受第二个输入序列的算法**
-如果一个算法接受 beg2 和 end2, 这两个迭代器表示第二个范围。这类算法接受两个完整指定的范围：[ beg, end ) 表示的范围和 [ beg2end2 ) 表示的第二个范围。
-
-只接受单独的 beg2 ( 不接受 end2 ) 的算法将 beg2 作为第二个输入范围中的首元素。此范围的结束位置未指定，这些算法假定从 beg2 开始的范围与 beg 和 end 所表示的范围至少一样大。
-
-> [!NOTE] 
-> 接受单独 beg2 的算法假定从 beg2 开始的序列与 beg 和 end 所表示的范围至少一样大。
-
-### 算法命名规范
-一些算法使用重载形式传递一个谓词
-```c++
-unique(beg, end);  //使用==运算符比较元素
-unique(beg, end, comp)  //使用comp比较元素
-```
-
-_ if 版本的算法
-接受一个元素值得算法通常都有一个接受谓词的版本 (不是重载)
-```c++
-find(beg,end,val);   
-find_if(beg,end,lambada);
-```
-
-# 五、标准库特殊设施
+# 六、标准库特殊设施
 ## 【C++11】tuple 元组类型
 #tuple
 ![[Pasted image 20230226231649.png]]
