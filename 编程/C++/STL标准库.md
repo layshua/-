@@ -718,16 +718,35 @@ int toupper(int c); // 如果字符c是小写字母，则返回其大写形式�
 >一般来说，C++程序应该使用名为 cname 的头文件而不使用 name. h 的形式。
 
 ## 【list】 双向链表
- 
+**list 不仅仅是一个双向链表，而且是一个循环的双向链表。**
+
+**list 有一个重要的性质，插入和删除操作都不会造成原有 list 迭代器的失效**。这在 vector 是不成立的，因为 vector 的插入操作可能会造成内存的重新配置，导致原有的迭代器全部失效
+**而 list 元素的删除只会使得被删除元素的迭代器失效**
 > [!NOTE] 
 > 对于 list 和 forward_list，应该**优先使用成员函数版本**的算法而不是通用算法。
 >
 链表特有的操作会改变底层的容器
 
+链表是一种物理存储单元上非连、续非顺序的储存结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。
+- 链表由一系列结点（链表中每一个元素称为结点）组成
+- 结点可以在运行时动态生成
+- 每个结点包括两个部分
+    - 储存数据元素的数据域
+    - 储存下一个结点地址的指针域
+-   链表灵活，但是空间和时间的额外消耗会比较大。
+
+
+相较于 vector 的连续线性空间，list 就显得复杂许多。
+- 它的好处是每次插入或者删除一个元素，就是配置或者释放一个元素的空间
+- 因此，list 对于空间的运用有绝对的精准，一点也不浪费
+- 而且，list 对于任何位置插入或删除元素都是常数项时间
+
+![[Pasted image 20230825104451.jpg]]
+
  ![[Pasted image 20230212235051.png]]
 ![[Pasted image 20230212235106.png]]
 
-特有的 splice 成员
+特有的 `splice` 成员函数
 ![[Pasted image 20230212235202.png]]
 
 ## 【forward_list】单向链表
@@ -735,6 +754,23 @@ int toupper(int c); // 如果字符c是小写字母，则返回其大写形式�
 ![[Pasted image 20230211232259.png]]
 
 ## 【deque】双端队列
+vector 容器是单向开口的连续内存空间，deque 则是一种双向开口的连续线性空间。
+所谓的双向开口，意思是可以在头尾两端分别做元素的插入和删除操作
+vector 虽然也能在头尾插入元素，但是在头部插入元素的效率很低，需要大量进行移位操作
+![[Pasted image 20230825103846.jpg]]
+![[Pasted image 20230825103917.jpg]]
+deque **允许使用常数项时间在头部插入或删除元素**
+deque 没有容量的概念，因为它是由动态的分段连续空间组合而成，随时可以增加一块新的空间并链接起来
+虽然 deque 也提供了 Random Access Iterator，但其实现相比于 vector 要复杂得多，所以**需要随机访问的时候最好还是用 vector**。
+### 双端插入删除
+```c++
+push_back(T elem); // 在容器尾部添加一个元素
+push_front(T elem); // 在容器头部插入一个元素
+​
+pop_back(); // 删除容器最后一个数据
+pop_front(); // 删除容器第一个数据
+```
+
 
 ## 顺序容器适配器
 容器、迭代器和函数都有**适配器（adaptor）**，标准库定义了三个顺序容器适配器：
@@ -838,7 +874,16 @@ q.emplace (args )
 - 有序关联容器使用比较运算符 `<` 来组织元素，按关键值字典排序从小到大 
 - 无序关联容器使用哈希函数（hash function）和关键字类型 `==` 运算符来组织元素 
 ## 1 map 映射
-又称关联数组：关键字-值（键值对）
+map 的特性是，所有的元素都会根据元素的键值自动排序；
+map 的所有元素都是 `pair`，同时拥有实值和键值。
+- pair 的第一元素被视为键值，第二元素被视为实值；
+- map 不允许两个元素有相同的键值；
+**和 set 类似的原因，我们不能通过迭代器改变 map 的键值，但我们可以任意修改实值。**
+map 和 list 在增删元素的时候具有相似的性质。
+map 和 multimap 的操作类似，唯一的区别是 multimap 键值可重复。
+map 和 multimap 都是以**红黑树**作为底层实现机制。
+map 和 multimap 包含在同一个头文件中。
+
 ```c++
 //初始化
 map<string, size_t> word_count; //空容器
@@ -863,7 +908,14 @@ for(const auto &w : word_count)
 
 ![[Pasted image 20230213163856.png]]
 ## 2 set 集合
-只有关键字，支持关键字查询操作——检查一个给定关键字是否再 set 中
+set 的特性是，所有的容器都会根据元素自身的键值进行自动被排序。
+
+set 的元素不像 map 那样可以同时拥有实值和键值，**set 的元素既是实值又是键值**。
+
+- set 不允许两个元素有相同的键值
+- 我们不可以通过 set 的迭代器改变 set 元素的值。因为其元素值就是键值，任意改变会严重破坏 set 的组织
+- 换句话说，set 的 iterator 是一种 const_iterator
+
 ```c++
 //初始化
 set<string> s = {"a","b","c"};
@@ -872,25 +924,34 @@ set<string> s = {"a","b","c"};
 **使用 set：**
 ```c++
 //统计每个单词在输入中出现的次数，并忽略指定的单词
-	map<string, size_t> word_count;  //string到size_t的空map
-	set<string> exclude = { "I","i","You","you" }; //忽略单词集合
+map<string, size_t> word_count;  //string到size_t的空map
+set<string> exclude = { "I","i","You","you" }; //忽略单词集合
 
-	string word;
-	while (cin >> word)
-	{
-		//只统计不在exclude中的单词
-		if(exclude.find(word) == exclude.end())
-			++word_count[word]; //提取word的计数器并加1
-	}
+string word;
+while (cin >> word)
+{
+    //只统计不在exclude中的单词
+    if(exclude.find(word) == exclude.end())
+        ++word_count[word]; //提取word的计数器并加1
+}
 
-	for(const auto &w : word_count)  
-	{
-		cout << w.first << "出现" << w.second << "次" << endl;
-	}
+for(const auto &w : word_count)  
+{
+    cout << w.first << "出现" << w.second << "次" << endl;
+}
 
 ```
 ![[Pasted image 20230213170315.png]]
 find 调用返回一个迭代器，如果给定关键字在 set 中，迭代器指向该关键字，否则，find 返回尾后迭代器。
+
+### multiset
+
+- multiset 特性及用法和 set 完全相同，唯一的差别在于它允许键值重复。
+- set 和 multiset 的底层实现是**红黑树**，红黑树为平衡二叉树的一种
+
+> 注意，multiset 和 set 共用一个头文件。
+
+
 ## 3 pair 类型
 定义在头文件 utility 中
 - 一个 pair 保存两个数据成员，必须提供两个类型名
@@ -899,12 +960,18 @@ find 调用返回一个迭代器，如果给定关键字在 set 中，迭代器�
 //初始化
 pair<string,size_t> p; //pair的默认构造函数对数据成员进行值初始化，一个是空string，一个是0
 pair<string,size_t> p{"a",2};
+
+pair<T1, T2> p(k, v);
+
+pair<T1, T2> p = make_pair(k, v);
+
+//使用
+cout << p.first << p.second << endl;
 ```
 
 ![[Pasted image 20230213172051.png]]
 
-【C++11】**可以对返回值进行列表初始化**
-
+【C++11】**可以对返回值进行列表初始化
 ```c++
 pair<string,int> process(vector<string>& v)
 {
@@ -973,14 +1040,20 @@ set<int>::iterator set_it = iset.begin();
 //获得一个指向首元素的迭代器
 auto map_it = word_count.cbegin();
 //比较当前迭代器和尾后迭代器
-while (map_it != word count.cend())
+while (map_it != word_count.cend())
 {
-		//解引用迭代器，打印关键字-值对
-		cout << map_it->first << "出现" < <map_it->second << "次"<< endl;
-		++map_it;//递增迭代器，移动到下一个元素
+    //解引用迭代器，打印关键字-值对
+    cout << map_it->first << "出现" < <map_it->second << "次"<< endl;
+    ++map_it;//递增迭代器，移动到下一个元素
 }
 ```
 
+```c++
+for (map<T1, T2>::iterator it = m.begin(); it != m.end(); it++)
+{
+    cout << "key = " << it->first << " value = " << it->second << endl;
+}
+```
 ### insert 添加元素
 insert 向容器中添加一个元素或一个元素范围（begin，end）
 ![[Pasted image 20230213180409.png]]
@@ -1046,9 +1119,9 @@ auto iter = authors.find(search_item);  //作者的第一本书
 //用一个循环查找此作者的所有著作
 while(entries)
 {
-		cout<< iter-> second <<endl;
-		++iter;
-		--entries;
+    cout<< iter-> second <<endl;
+    ++iter;
+    --entries;
 }
 ```
 
@@ -1084,7 +1157,7 @@ for(auto pos = authors.equal_range(search_item);pos.first != pos.second; ++pos.f
 ```
 
 ## 5 无序关联容器
-unorderd：不按关键字顺序，使用哈希函数（hash function）和关键字类型== 运算符来组织元素
+unorderd：不按关键字顺序，使用**哈希函数（hash function）** 和关键字类型 `==` 运算符来组织元素
 **使用有序容器相同的操作，只是不排序**
 
 > [!Tip] 
@@ -1093,11 +1166,14 @@ unorderd：不按关键字顺序，使用哈希函数（hash function）和关�
 ### 管理桶
 - 无序容器在存储上组织为一组**桶（bucket）**，每个桶保存零个或多个元素。
 - 使用一个哈希函数将元素映射到桶。
-- 为了访问一个元素，容器首先计算元素的哈希值，它指出应该搜索哪个桶。
+- **为了访问一个元素，容器首先计算元素的哈希值，它指出应该搜索哪个桶**。
 - 容器将具有一个特定哈希值的所有元素都保存在相同的桶中。如果容器允许重复关键字，所有具有相同关键字的元素也都会在同一个桶中。因此，无序容器的性能依赖于哈希函数的质量和桶的数量和大小。
 
 无序容器提供了一组管理桶的函数，这些成员函数允许我们查询容器的状态以及在必要时强制容器进行重组。
 ![[Pasted image 20230213213719.png]]
+### 对关键字类型的要求
+默认情况下，无序容器使用关键字类型的 `==` 运算符来比较元素，它们还使用一个 `hash<key_type>` 类型的对象来生成每个元素的哈希值。标准库为内置类型〈包括指针)提供了 hash 模板。还为一些标准库类型，包括 string 和我们将要在第 12 章介绍的智能指针类型定义了 hash。因此，**我们可以直接定义关键字是内置类型（包括指针类型)、string 还是智能指针类型的无序容器**。
+**但是，我们不能直接定义关键字类型为自定义类类型的无序容器。** 与容器不同，不能直接使用哈希模板，而**必须提供我们自己的 hash 模板版本**。我们将在 16.5 节 (第 626 页)中介绍如何做到这一点。
 
 # 三、泛型算法
 
