@@ -416,21 +416,6 @@ int main()
 
 # string 字符串
 
-## string 和 C风格字符 串对比
-
-- `char*`是一个指针，`string`是一个类
-    `string`封装了`char*`，管理这个字符串，是一个`char*`型的容器。
-
-- `string` 封装了很多实用的成员方法
-    查找`find`，拷贝`copy`，删除`erase`，替换`replace`，插入`insert`......
-    
-
-- 不用考虑内存释放和越界
-    `string`管理`char*`所分配的内存，每一次`string`的复制/赋值，取值都由`string`类负责维护，不用担心复制越界和取值越界等。
-
-> `string` 本质上是一个动态的 char 数组。
-
-
 ### string 和 C-Style 字符串的转换
 
 #### string 转 const char*

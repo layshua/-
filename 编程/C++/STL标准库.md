@@ -410,8 +410,36 @@ int main() {
 ## 【string】 字符串
 标准库类型 String 表示可变长的字符序列
 
-### 初始化
+- `char*` 是一个指针，`string` 是一个类
+    `string` 封装了 `char*`，管理这个字符串，是一个 `char*` 型的容器。
+
+> `string` 本质上是一个动态的 char 数组。
+
+- 不用考虑内存释放和越界
+    `string` 管理 `char*` 所分配的内存，每一次 `string` 的复制/赋值，取值都由 `string` 类负责维护，不用担心复制越界和取值越界等。
+
+### 1 初始化
 ![[Pasted image 20230209190416.png]]
+
+**除了顺序容器通用的操作外，string 类型还提供了一些额外的操作。**
+- 提供 string 类和 C 风格字符串之间的相互转换
+- 增加了允许我们用下标代替迭代器的版本
+
+![[Pasted image 20230212153613.png]]
+```c++
+const char *cp = "Hello world!!!"; //以空字符结束的数组
+char noNull[]= {'H', 'i'};            //不是以空字符结束
+
+string s1(cp);        //拷贝cp中的字符直到遇到空字符;s1 == "Hello world!!!"
+string s2 (noNul1,2); //从noNull拷贝两个字符;s2 =="Hi"
+string s3 (noNull);   //未定义:noNull不是以空字符结束
+string s4(cp + 6，5); //从cp[6]开始拷贝5个字符;s4 == "world"
+string s5(s1,6，5);   //从s1 [6]开始考贝5个字符;s5 =="world"
+string s6(s1,6);      //从s1[6]开始拷贝，直至s1末尾;s6 == "world!!!"
+string s7(s1,6,20);   //正确，只拷贝到s1末尾;s7 =="world!!!"
+string s8(s1, 16);    //抛出一个out_of_range异常
+```
+
 ### 操作
 ![[Pasted image 20230209190604.png]]
 
@@ -499,6 +527,7 @@ size ()函数返回 string:: size_type 类型的值，string[x]的下标 x 也�
 > 如果一条表达式中已经有了 size ()函数，就不要再使用 int 了，这样可以避免混用带来的问题，问题主要出自于 int 是有符号数，和无符号数运算会出问题
 
 #### 比较 string 长度
+**直接比较**
 如果两个 string 对象在某些写对应的位置上不一致，则 string 对象比较的结果其实是 string 对象中第一对相异字符比较的结果
 ```c++
 string a = "Hello";
@@ -518,25 +547,6 @@ string s4 =  "world" + "!" + s1; //错误，不能把字面值直接相加
 ```
 	
 ### 额外的 String 操作
-**除了顺序容器通用的操作外，string 类型还提供了一些额外的操作。**
-- 提供 string 类和 C 风格字符串之间的相互转换
-- 增加了允许我们用下标代替迭代器的版本
-
-#### 初始化
-![[Pasted image 20230212153613.png]]
-```c++
-const char *cp = "Hello world!!!"; //以空字符结束的数组
-char noNull[]= {'H', 'i'};            //不是以空字符结束
-
-string s1(cp);        //拷贝cp中的字符直到遇到空字符;s1 == "Hello world!!!"
-string s2 (noNul1,2); //从noNull拷贝两个字符;s2 =="Hi"
-string s3 (noNull);   //未定义:noNull不是以空字符结束
-string s4(cp + 6，5); //从cp[6]开始拷贝5个字符;s4 == "world"
-string s5(s1,6，5);   //从s1 [6]开始考贝5个字符;s5 =="world"
-string s6(s1,6);      //从s1[6]开始拷贝，直至s1末尾;s6 == "world!!!"
-string s7(s1,6,20);   //正确，只拷贝到s1末尾;s7 =="world!!!"
-string s8(s1, 16);    //抛出一个out_of_range异常
-```
 
 #### substr 操作
 返回一个 string，他是原始 string 的一部分或全部的拷贝，可以传递给 substr 一个可选的开始位置和计数值：

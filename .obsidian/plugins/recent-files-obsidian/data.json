@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "01 虚幻类",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md"
+      "basename": "STL标准库",
+      "path": "编程/C++/STL标准库.md"
+    },
+    {
+      "basename": "STL",
+      "path": "编程/C++/STL.md"
     },
     {
       "basename": "U++",
       "path": "引擎Unreal/02 蓝图 & U++/U++.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/C++/Cherno剩余.md"
     },
     {
       "basename": "ue操作指南",
@@ -15,6 +23,22 @@
     {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
+    },
+    {
+      "basename": "代码随想录",
+      "path": "编程/算法/代码随想录.md"
+    },
+    {
+      "basename": "数据结构",
+      "path": "编程/算法/数据结构.md"
+    },
+    {
+      "basename": "01 虚幻类",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md"
     },
     {
       "basename": "问题汇总",
@@ -33,20 +57,8 @@
       "path": "引擎Unreal/01 指南/光照设置.md"
     },
     {
-      "basename": "STL",
-      "path": "编程/C++/STL.md"
-    },
-    {
-      "basename": "STL标准库",
-      "path": "编程/C++/STL标准库.md"
-    },
-    {
       "basename": "【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客",
       "path": "zBuffer/【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "代码随想录",
-      "path": "编程/算法/代码随想录.md"
     },
     {
       "basename": "GamePlay架构",
@@ -183,22 +195,6 @@
     {
       "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
       "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "C++补充",
-      "path": "编程/C++/C++补充.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "101 材质大师",
-      "path": "引擎Unreal/05 材质 & 渲染/101 材质大师.md"
-    },
-    {
-      "basename": "01 学习大纲",
-      "path": "01 学习大纲.md"
     }
   ],
   "omittedPaths": [],
