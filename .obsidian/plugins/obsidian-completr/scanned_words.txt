@@ -16318,6 +16318,7 @@ guidance
 gXgYgZ
 gaps
 gameMode
+getptr
 typora
 todo
 tooltip
@@ -47317,6 +47318,7 @@ AdvancedDisplay
 AutoCreateRefTerm
 ActorsToIgnore
 ActorClassFilter
+ANSI
 URL
 Utools
 Users
@@ -73938,6 +73940,7 @@ Subsystem
 Samson
 SetTimer
 SetTimerForNextTick
+STRICT
 Programs
 POP
 PC
@@ -156333,6 +156336,7 @@ FlowControl
 FLatentActionInfo
 FTran
 FormattedText
+Found
 Element
 Entity
 Enity

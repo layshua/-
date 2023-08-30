@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "STL",
+      "path": "编程/C++/STL.md"
+    },
+    {
       "basename": "STL标准库",
       "path": "编程/C++/STL标准库.md"
     },
     {
-      "basename": "STL",
-      "path": "编程/C++/STL.md"
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "U++",
@@ -19,10 +23,6 @@
     {
       "basename": "ue操作指南",
       "path": "引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "C++原理",

@@ -37,8 +37,54 @@ array<int, 10>
 ## swap 和 assign
 ![[Pasted image 20230211221941.png]]
 assign 允许我们从一个**不同但相容**的类型赋值，或者从容器的一个子序列赋值。assign 操作用参数指定的元素的拷贝替换左边容器的所有元素。
+## 迭代器
+迭代器实现了**智能指针**功能，它们用于指向容器中的元素，对容器中的元素进行访问和遍历。
 
-## 反向迭代器
+在 STL 中，迭代器是作为类模板来实现的（在头文件 `iterator` 中定义），它们可分为以下几种类型：
+
+### 根据访问修改权限分类
+
+- 输出迭代器（output iterator，记为：**OutIt**）
+    - 可以修改它所指向的容器元素
+    - 间接访问操作（`*`）
+    - `++` 操作
+- 输入迭代器（input iterator，记为：**InIt**）
+    - 只能读取它所指向的容器元素
+    - 间接访问操作（`*`）和元素成员间接访问（`->`）
+    - `++`、`==`、`!=` 操作。
+
+### 根据迭代方式分类
+
+- 前向迭代器（forward iterator，记为：**FwdIt**）
+    - 可以读取/修改它所指向的容器元素
+    - 元素间接访问操作（`*`）和元素成员间接访问操作（`->`）
+    - `++`、`==`、`!=` 操作
+- 双向迭代器（bidirectional iterator，记为：**BidIt**）
+    - 可以读取/修改它所指向的容器元素
+    - 元素间接访问操作（`*`）和元素成员间接访问操作（`->`）
+    - `++`、`--`、`==`、`!=` 操作
+- 随机访问迭代器（random-access iterator，记为：**RanIt**）
+    - 可以读取/修改它所指向的容器元素
+    - 元素间接访问操作（`*`）、元素成员间接访问操作（`->`）和下标访问元素操作（`[]`）
+    - `++`、`--`、`+`、`-`、`+=`、`-=`、`==`、`!=`、`<`、`>`、`<=`、`>=` 操作
+
+除了这些基本迭代器外，STL 还提供了一些**迭代器适配器**，可以生成对应的迭代器 [[#6 泛型迭代器]]，用于一些特殊的操作。
+### 各容器的迭代器类型
+
+- 对于 `vector`、`deque` 以及 `basic_string` 容器类，与它们关联的迭代器类型为**随机访问迭代器（RanIt）**
+- 对于 `list`、`map/multimap` 以及 `set/multiset` 容器类，与它们关联的迭代器类型为**双向迭代器（BidIt）**
+
+`queue`、`stack` 和 `priority_queue` 容器类，不支持迭代器！
+
+### 迭代器之间的相融关系
+
+![[cefca8bcc1571137315093623ec613f2_MD5.png]]
+
+迭代器之间的相融关系
+**在需要箭头左边迭代器的地方可以用箭头右边的迭代器去替代。**
+
+### 反向迭代器（reverse iterator）
+
 对于反向迭代器，递增（以及递减）操作的含义会颠倒过来。递增一个反向迭代器（++it）会移动到前一个元素; 递减一个迭代器 (—-it）会移动到下一个元素。
 除了 `forward_list` 之外, 其他容器都支持反向迭代器。我们可以通过调用 rbegin、rend、crbegin 和 crend 成员函数来获得反向迭代器。**这些成员函数返回指向容器尾元素和首元素之前一个位置的迭代器**。与普通迭代器一样，反向迭代器也有 const 和非 const 版本。
 ![[Pasted image 20230824095050.png]]
@@ -57,6 +103,10 @@ for (auto r_iter = vec.crbegin( );  //将r_iter绑定到尾元素
 sort (vec.begin () , vec.end ()); //按“正常序”排序vec
 sort (vec.rbegin () , vec.rend ( )); //按逆序排序:将最小元素放在vec的末尾
 ```
+
+
+
+
 
 # 一、顺序容器
 **容器**用于表示由同类型元素构成的、长度可变的元素序列。
@@ -1177,7 +1227,6 @@ unorderd：不按关键字顺序，使用**哈希函数（hash function）** 和
 
 # 三、泛型算法
 
-## 0 算法文档 P770
 
 > [!Tip] 
 > 标准库容器定义的操作集合很小。标准库并未给每个容器添加大量功能，而是提
@@ -1748,6 +1797,57 @@ iota (beg, end, val)
 > 
 > 接受谓词参数的算法对输入序列中的元素调用谓词。因此，元素类型必须能转换为谓词的参数类型。
 
+#### 一元谓词举例
+
+例如，对于下面的“**统计**”算法：
+```c++
+size_t count_if(InIt first, InIt last, Pred cond);
+```
+
+可以有如下使用方式：
+```c++
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+bool f(int x) { return x > 0; }
+
+int main() 
+{
+    vector<int> v;
+    ...... // 往容器中放了元素
+    cout << count_if(v.begin(), v.end(), f); // 统计v中正数的个数
+    return 0;
+}
+```
+
+#### 二元谓词举例
+
+例如，对于下面的“**排序**”算法：
+```c++
+void sort(RanIt first, RanIt last); // 按“<”排序
+void sort(RanIt first, RanIt last, BinPred comp); // 按comp返回true规定的次序
+```
+
+可以有如下用法：
+```c++
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool greater2(int x1, int x2) { return x1 > x2; }
+
+int main()
+{
+    vector<int> v;
+    ...... // 往容器中放了元素
+    sort(v.begin(), v.end()); // 从小到大排序
+    sort(v.begin(), v.end(), greater2); // 从大到小排序
+    return 0;
+}
+```
+
 ### 【C++11】参数绑定 bind 函数
 #bind
 #### 绑定普通函数
@@ -1872,21 +1972,31 @@ for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
 6. **移动迭代器 (move iterator)**：这些专用的迭代器不是拷贝其中的元素，而是移动它们。
 
 ### 插入迭代器
-插入器是一种迭代器适配器，它接受一个容器，生成一个迭代器，能实现向给定容器添加元素。当我们通过一个插入迭代器进行赋值时，该迭代器调用容器操作来向给定容器的指定位置插入一个元素。
+
+**插入迭代器适配器：接受一个容器，生成一个迭代器**
+-  `back_inserter`
+-  `front_inserter` 
+-  `inserter` 
+
+**插入迭代器：用于在容器中指定位置插入元素**
+- `back_insert_iterator`（用于在尾部插入元素）
+- `front_insert_iterator`（用于在首部插入元素）
+- `insert_iterator`（用于在任意指定位置插入元素）
+
+当我们通过一个插入迭代器进行赋值时，该迭代器调用容器操作来向给定容器的指定位置插入一个元素。
+通常情况，当我们通过一个迭代器向容器元素赋值时，值被赋予迭代器指向的元素。而当我们通过一个插入迭代器赋值时，一个与赋值号右侧值相等的元素被添加到容器中。
 
 ![[Pasted image 20230212223317.png]]
 
-通常情况，当我们通过一个迭代器向容器元素赋值时，值被赋予迭代器指向的元素。而当我们通过一个插入迭代器赋值时，一个与赋值号右侧值相等的元素被添加到容器中。
-
-**插入器有三种类型，差异在于元素插入的位置。**
 #### back_inserter
-- `back_inserter` 创建一个使用 push back 的迭代器。back inserter 接受一个指向容器的引用，返回一个与该容器绑定的插入迭代器。当我们通过此迭代器赋值时，赋值运算符会调用 push_back 将一个具有给定值的元素添加到容器中：
+- `back_inserter` 创建一个使用 `push_back` 的迭代器。`back_inserter` 接受一个指向容器的引用，返回一个与该容器绑定的插入迭代器。当我们通过此迭代器赋值时，赋值运算符会调用 `push_back` 将一个具有给定值的元素添加到容器中：
 ```c++
 vector<int> vec;//空向量
 auto it=back_inserter(vec);//通过它赋值会将元素添加到vec中
 *it=42;//vec中现在有一个元素，值为42
 ```
-我们常常使用 back_inserter 来创建一个迭代器，作为算法的目的位置来使用。例如：
+
+**我们常常使用 `back_inserter` 来创建一个迭代器，作为算法的目的位置来使用。**例如：
 ```c++
 vector<int> vec;//空向量
 //正确：back_inserter创建一个插入迭代器，可用来向vec添加元素
@@ -1894,17 +2004,19 @@ fill_n(back_inserter(vec),10,0);//添加10个元素到vec
 ```
 
 #### front_inserter
-- `front_inserter` 创建一个使用 push_front 的迭代器。元素总是插入到容器第一个元素之前。
+- `front_inserter` 创建一个使用 `push_front` 的迭代器。元素总是插入到容器第一个元素之前。
 ```c++
 list<int> lst = {1,2,3,4};
 list<int> lst2,list3; //空list
 
 //拷贝完成之后，lst2包含4 3 2 1
 copy(lst.cbegin(), lst.cend(), front_inserter(lst2));
+//拷贝完成之后，lst2包含1 2 3 4
+copy(lst.cbegin(), lst.cend(), inserter(lst3,lst3.begin()));
 ```
 
 #### inserter
-- `inserter` 创建一个使用 insert 的迭代器。此函数接受第二个参数，这个参数必须是一个指向给定容器的迭代器。元素将被插入到给定迭代器所表示的元素之前。
+- `inserter` 创建一个使用 `insert` 的迭代器。此函数接受第二个参数，这个参数必须是一个指向给定容器的迭代器。元素将被插入到给定迭代器所表示的元素之前。
 ```c++
 auto it = inserter(c,iter);
 *it = val;
