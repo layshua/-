@@ -169,8 +169,11 @@ for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 ```
 
 ![[573de7ae173939da688330a4b765228d_MD5.jpg]]
-
-## 添加标签 Actor/ActorComponent 
+## 标签Tags
+### 添加标签 Actor/ActorComponent 
+```c++
+Tags.Add(FName("FireTag"));
+```
 
 ```c++
 // Actor可以有多个标签
@@ -183,7 +186,7 @@ MyActor.Tags.AddUnique(TEXT("MyTag"));
 // 组件有自己的标签数组
 MyComponent.ComponentTags.AddUnique(TEXT("MyTag"));
 ```
-## 比较标签 Actor/ActorComponent 
+### 比较标签 Actor/ActorComponent 
 
 ```c++
 // 检查某个Actor是否有此标签
@@ -205,6 +208,13 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
+### 获取标签 Actor 数组
+```c++
+TArray<AActor*> ActorsToFind;  
+if(UWorld* World= GetWorld())  
+{UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
+}
+```
 ## 创建静态网格体
 
 ```c++
