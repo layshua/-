@@ -835,8 +835,8 @@ UE 智能指针不能用于与 `UObject` 及其派生类不兼容。**常用于
 **共享指针可为空**，所以无论有无数据对象，都可以对它们进行初始化。
 
 - **`MakeShared<T>() / MakeShareable() ` ：创建共享指针
-- MakeShared（包括用于 TUniquePtr 的 MakeUnique）：类似于 C++中的 `std::make_shared` ，比直接用普通指针创建效率更高，因为智能指针内存包含两部分，除了数据本身的内存之外，还有一个控制块内存，**普通指针**创建时，会**分别申请两次内存**，而使用 **MakedShared 只需要进行一次内存申请**，因而效率更高。
-- MakeShareable：主要针对**将一个普通指针转换为智能指针**，而 TSharedPtr 需要在定义时显示调用构造函数才可以将一个普通指针传入（仍然不建议提前定义一个指针变量然后用来初始化指针智能），与之不同的是，**MakeShareabel 支持自定义删除对象的行为**，将自定义删除处理通过参数传入。
+- MakeShared：在单个内存块中分配新的对象实例和引用控制器，但要求对象提供公共构造函数。
+- MakeShareable：效率较低，但即使对象的构造函数是私有的也可以工作，使您能够获得不是您创建的对象的所有权，并在删除对象时支持自定义行为。
 ```c++
 // 创建空白的共享指针
 TSharedPtr<FMyObjectType> EmptyPointer;
@@ -2169,7 +2169,7 @@ FString Removed8 = FruitMap.FindAndRemoveChecked(8);
     //  { Key:9, Value:"Melon"  }
     // ]
 
-    FruitMapCopy.Empty();       // We could also have called Reset() here.
+    FruitMapCopy.Empty(); // We could also have called Reset() here.
     // FruitMapCopy == []
 ```
 

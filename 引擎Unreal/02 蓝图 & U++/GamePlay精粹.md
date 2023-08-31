@@ -421,3 +421,69 @@ if(ParticleAsset.Succeeded())
 
 # 保存游戏
 [在虚幻引擎中保存和加载游戏 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/saving-and-loading-your-game-in-unreal-engine/)
+
+# 强引用弱引用
+数据层和表现层分离
+```c++
+
+class IMyID
+{
+public:
+	IMyID()
+	{
+		ID = FMath::RandRange(0,1000);
+	}
+private:
+	int64 ID;
+};
+
+//数据类
+class FData : public IMyID
+{
+public:
+	float Health;
+	uint8 bDeath;
+	FName PlayerName;
+};
+
+//数据管理类
+class FDataManage
+{
+public:
+	TSharedRef<FDataManage> Get()
+	{
+		if(!DataManage.IsValid())
+		{
+			DataManage = MakeShareable(new FDataManage());
+		}
+
+		return DataManage.ToSharedRef();
+	}
+
+	~FDataManage()
+	{
+		for(auto &tmp : MyData)
+		{
+			delete tmp.Value;
+		}
+		
+		MyData.Empty(); //清空数据
+	}
+private:
+	static TSharedPtr<FDataManage> DataManage; 
+
+	TMap<int64,TSharedPtr<FData>> MyData; //通过强指针来管理数据，可以控制数据的生命周期(在析构中清空数据)
+};
+
+//角色实例
+class FCharacter 
+{
+	FORCEINLINE bool isValid()
+	{
+		return NewData.IsValid();
+	}
+	
+private:
+	TWeakPtr<FData> NewData; //通过这个弱指针就可以修改数据,避免野指针
+};
+```
