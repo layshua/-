@@ -835,7 +835,8 @@ UE 智能指针不能用于与 `UObject` 及其派生类不兼容。**常用于
 **共享指针可为空**，所以无论有无数据对象，都可以对它们进行初始化。
 
 - **`MakeShared<T>() / MakeShareable() ` ：创建共享指针
-
+- MakeShared（包括用于 TUniquePtr 的 MakeUnique）：类似于 C++中的 `std::make_shared` ，比直接用普通指针创建效率更高，因为智能指针内存包含两部分，除了数据本身的内存之外，还有一个控制块内存，**普通指针**创建时，会**分别申请两次内存**，而使用 **MakedShared 只需要进行一次内存申请**，因而效率更高。
+- MakeShareable：主要针对**将一个普通指针转换为智能指针**，而 TSharedPtr 需要在定义时显示调用构造函数才可以将一个普通指针传入（仍然不建议提前定义一个指针变量然后用来初始化指针智能），与之不同的是，**MakeShareabel 支持自定义删除对象的行为**，将自定义删除处理通过参数传入。
 ```c++
 // 创建空白的共享指针
 TSharedPtr<FMyObjectType> EmptyPointer;
@@ -1146,16 +1147,16 @@ TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(si
 ## TSharedFromThis 助手类
 共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
 有些函数的参数为共享引用或共享指针，我们就需要传进去一个对象，但**如何让对象知道自己就是智能指针？**
-
-**`TSharedFromThis` 意思就使用 `this` 指针来构造一个共享指针。将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。**
+将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。
 
 >对标的是原生 C++的 `std::enable_shared_from_this`。用法也非常相似?? 存疑
 
+**`TSharedFromThis` 意思就使用 `this` 指针来构造一个共享指针，通过这个共享指针可以安全的使用 this 指针。** 
+其内部有一个弱指针，若要获取类实例的 this 指针，它提供两类接口 **AsShared()** 和 **SharedThis()**，它们会**通过 `TWeakPtr` 返回一个共享引用；
+
 *   自定义类继承 `TSharedFromThis` 模板类
-*   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱引用转换成共享指针。
-    *   `AsShared()` 将 C++原生指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
-    *   `SharedThis(this)` 会返回具备 "this" 类型的共享引用
-*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言。
+*   `AsShared()` 将 C++原生指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
+*   `SharedThis(this)` 会返回具备 "this" 类型的共享引用
 
 ```c++
 class BaseClass : public TSharedFromThis<BaseClass>
@@ -1184,8 +1185,31 @@ void Func()
     }
 ```
 
+**需要注意的是：**
+① **调用 AsShared () 的对象必须是一个智能指针**，否则仍然不能保证使用 this 裸指针或对内存重复释放，在 UE4 中会触发断言；
+② 在**类外部调用静态方法 `SharedThis()` 时，当前操作模块的类也必须公有继承其自身的 `TSharedFromThis`**；
+③ `AsShared()` 和 `SharedThis()` **不能在构造函数内部使用**，共享引用此时并未初始化，将导致崩溃或断言。
 
+```c++
+class MyClass : public TSharedFromThis<MyClass>
+{
+public:
+    TSharedRef<MyClass> SharedMyself()
+    {
+        return SharedThis(this);
+    }
+};
 
+// 普通指针或对象，使用TSharedFromThis内的方法会触发断言 
+TSharedPtr<MyClass> ptr = MakeShared<MyClass>();
+
+// 通过接口获取类实例的智能引用，维护的是同一块内存，同一个计数器 
+TSharedRef<MyClass> pRef1 = ptr->AsShared();
+TSharedRef<MyClass> pRef2 = ptr->SharedMyself();
+
+// 在类外部使用该接口，那么操作模块的类也必须继承其自身的TSharedFromThis 
+TSharedRef<MyClass> pRef3 = SharedThis(ptr.Get());
+```
 
 ## 自定义删除器
 
