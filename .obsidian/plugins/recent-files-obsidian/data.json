@@ -1,20 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "如何分析算法的「时间复杂度」？",
-      "path": "zBuffer/如何分析算法的「时间复杂度」？.md"
+      "basename": "《数据结构》",
+      "path": "编程/算法/《数据结构》.md"
     },
     {
-      "basename": "《王道》数据结构笔记整理 2022_数据结构 王道_胖胖的懒羊羊的博客 - CSDN 博客",
-      "path": "zBuffer/《王道》数据结构笔记整理 2022_数据结构 王道_胖胖的懒羊羊的博客 - CSDN 博客.md"
+      "basename": "时空复杂度",
+      "path": "编程/算法/时空复杂度.md"
     },
     {
-      "basename": "数据结构",
-      "path": "编程/算法/数据结构.md"
-    },
-    {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
+      "basename": "数列",
+      "path": "Math/Others/数列.md"
     },
     {
       "basename": "STL标准库",
@@ -25,8 +21,20 @@
       "path": "编程/C++/《C++ Primer》.md"
     },
     {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/C++/Cherno剩余.md"
+    },
+    {
       "basename": "C++原理",
       "path": "编程/C++/C++原理.md"
+    },
+    {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
     },
     {
       "basename": "U++精粹",
@@ -61,10 +69,6 @@
       "path": "引擎Unreal/01 指南/增强输入.md"
     },
     {
-      "basename": "Cherno剩余",
-      "path": "编程/C++/Cherno剩余.md"
-    },
-    {
       "basename": "ue操作指南",
       "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
@@ -79,10 +83,6 @@
     {
       "basename": "光照设置",
       "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客",
-      "path": "zBuffer/【刷题】刷题常用 STL 函数整理合集_达瓦里氏吨吨吨的博客 - CSDN 博客.md"
     },
     {
       "basename": "README",
@@ -187,18 +187,6 @@
     {
       "basename": "303 实时渲染",
       "path": "引擎Unreal/05 材质 & 渲染/303 实时渲染.md"
-    },
-    {
-      "basename": "虚幻引擎蓝图编程要点 - 哔哩哔哩",
-      "path": "引擎Unreal/09 教程剪藏/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md"
-    },
-    {
-      "basename": "租房注意事项",
-      "path": "zip/留学/租房注意事项.md"
-    },
-    {
-      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
-      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
     }
   ],
   "omittedPaths": [],
