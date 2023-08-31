@@ -58,48 +58,6 @@
     ![[968a88be7a341ca5c7a4a16c6a275be0_MD5.png]]
     
 
-# 唯一指针 TUniquePtr
-
-*   TUniquePtr 指向的对象只能被唯一指向，因而 Unique 指针不能赋值给其它指针
-*   不要为共享指针或共享引用引用的对象创建唯一指针
-
-## 创建 / 初始化 / 判断 / 解引用 / 重置
-
-*   MakeUnique()
-    
-*   IsValid()
-    
-*   `->` 运算符
-    
-*   `Get()` 函数
-    
-*   `Release()` 释放并返回指针
-    
-*   `Reset()` 或 `nullptr` 重置
-    
-    ```
-    // 创建唯一指针
-    	TUniquePtr<SimpleObject> ObjUniquePtr = MakeUnique<SimpleObject>();
-    	UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" Validity: ObjUniquePtr[%d]"), ObjUniquePtr.IsValid());
-    
-    	// 判断有效性
-    	if (ObjUniquePtr.IsValid()) 
-    	{
-    		ObjUniquePtr->ExeFun(); // 解引用
-    	}
-    
-    	// 释放指针，移交
-    	TUniquePtr<SimpleObject> ObjUniquePtr2(ObjUniquePtr.Release());
-    	UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" Validity: ObjUniquePtr[%d], ObjUniquePtr2[%d]"), ObjUniquePtr.IsValid(), ObjUniquePtr2.IsValid());
-    
-    	// 重置
-    	ObjUniquePtr.Reset();		
-    	ObjUniquePtr2 = nullptr;
-    ```
-    
-    ![[9c7c64764b95fb87ac99e1e551146652_MD5.png]]
-    
-
 # 基类与派生类的智能转换
 
 ## 共享指针转换

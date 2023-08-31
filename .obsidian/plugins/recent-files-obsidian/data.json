@@ -9,12 +9,12 @@
       "path": "zBuffer/【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef.md"
     },
     {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
-    },
-    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
     },
     {
       "basename": "STL标准库",
