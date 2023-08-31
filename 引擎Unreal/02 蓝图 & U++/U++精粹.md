@@ -1144,13 +1144,18 @@ TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(si
 ```
 
 ## TSharedFromThis 助手类 （不太理解）
+共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
+有些函数的参数为共享引用或共享指针，我们就需要传进去一个对象，但**如何让对象知道自己就是智能指针？**
+
+**`TSharedFromThis` 意思就使用 this 指针来构造一个共享指针。将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。**
+
+>对标的是原生 C++的 `std::enable_shared_from_this`。用法也非常相似。
 
 *   自定义类继承 `TSharedFromThis` 模板类
 *   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱引用转换成共享指针。
     *   `AsShared()` 将裸指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
     *   `SharedThis(this)` 会返回具备 "this" 类型的共享引用
-
-*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
+    *   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
 
 ```c++
 class BaseClass : public TSharedFromThis<BaseClass>
@@ -1159,27 +1164,26 @@ class BaseClass : public TSharedFromThis<BaseClass>
         void printf(){};
 }
 
-void NewMain()
+void Func()
 {
     //创建共享指针访问成员函数
-    TSharedPtr<BaseClass> A = MakeShareable(new BaseClass());
-    A->printf();
+    TSharedPtr<BaseClass> sharePtr = MakeShareable(new BaseClass());
+    sharePtr->printf();
 
-    //将A解引用，将共享指针转换为裸指针
-    BaseClass* B = A.Get();
+    //通过.Get()将共享指针解引用，将共享指针转换为C++原生指针
+    BaseClass* ptr = sharePtr.Get(); 
 
     //对于普通的类，我们如果想把B在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
     //这里BaseClass继承了TSharedFromThis，因此我们可以直接将指向BaseClass的裸指针B转换为共享引用
     //通将共享引用转换为弱指针即可
-    if(B)
+    if(ptr)
     {
-        B->AsShared();    
+        ptr->AsShared();    
     }
 }
 ```
 
-共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
-**在某些情况下，可能要将对象作为共享引用或共享指针进行访问。为此，使用对象的类作为模板参数，继承 `TSharedFromThis` 。**
+
 
 `TSharedFromThis` 提供两个函数：**`AsShared`** 和 **`SharedThis`**，**可将对象转换为共享引用（如果需要共享指针，则可以再将共享引用转换为共享指针）**。
 使用固定**返回共享引用的类** factory 时，或**需将对象传到需要共享引用或共享指针的系统**时，此操作十分有用。
@@ -1225,6 +1229,17 @@ class FMyDerivedClass : public FMyBaseClass
 ```
 
 
+5. TSharedFromThis
+TSharedFromThis 是一个模板类，普通 C++函数继承 TSharedFromThis 类后，类将会保存一个弱指针，当通过智能指针获取到该类的普通指针时，可以通过调用 AsShared 方法获取到该类的智能指针。简而言之，继承该类的普通 C++类可以将智能指针获得的普通指针再转为智能指针。
+
+```c++
+class FTestClass : TSharedFromThis<FTestClass>
+{}
+
+TSharedPtr<FTestClass> TestPtr = MakeShareable(new FTestClass());
+FTestClass* TestNormalPtr = TestPtr.Get();
+TSharedPtr<FTestClass> TestPtr2 = TestNormalPtr->AsShared ();
+```
 
 
 ## 自定义删除器

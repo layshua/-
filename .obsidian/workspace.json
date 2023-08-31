@@ -48,20 +48,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "3425193a7a4e2d70",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "638e8d63d7647e00",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -207,10 +193,10 @@
   },
   "active": "ba1ca54884bcb3a1",
   "lastOpenFiles": [
-    "zBuffer/【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef.md",
-    "引擎Unreal/02 蓝图 & U++/U++精粹.md",
     "编程/C++/《C++ Primer》.md",
+    "引擎Unreal/02 蓝图 & U++/U++精粹.md",
     "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md",
+    "zBuffer/【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef.md",
     "zip/images/968a88be7a341ca5c7a4a16c6a275be0_MD5.png",
     "zip/images/5ad0851ece9ef9722328639bfb3da2e0_MD5.png",
     "zip/images/c476999fd034bdb72ef8e069c9baa2b6_MD5.png",

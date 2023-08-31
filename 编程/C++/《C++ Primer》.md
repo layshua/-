@@ -5534,15 +5534,13 @@ if (!p.unique())
 *p += newVal;  //现在我们知道自己是新对象唯一的用户，可以放心改变对象的值
 ```
 
-#### enable_shared_from_this
-
-下面摘自 cpp reference 中概述
+#### 【C++11】enable_shared_from_this
 
 C++11 开始支持 `enable_shared_from_this`，它是一个模板类，定义在头文件 `<memory>`，其原型为：  
 `template< class T > class enable_shared_from_this;`
 
 `std::enable_shared_from_this` 能让其一个对象（假设其名为 t ，且已被一个 std:: shared_ptr 对象 pt 管理）安全地生成其他额外的 `std::shared_ptr` 实例（假设名为 pt1, pt2, … ），它们与 pt 共享对象 t 的所有权。  
-例如：若一个类 T 继承自 `std::enable_shared_from_this<T>` ，则 T 类中有继承自父类的成员函数： `shared_from_this` 。当 T 类的对象 t 被一个为名为 pt 的 std:: shared_ptr 类对象管理时，调用 T:: shared_from_this 成员函数，将会返回一个新的 std:: shared_ptr 对象，它与 pt 共享 t 的所有权。
+例如：若一个类 T 继承自 `std::enable_shared_from_this<T>` ，则 T 类中有继承自父类的成员函数： `shared_from_this` 。当 T 类的对象 t 被一个为名为 pt 的 `std:: shared_ptr` 类对象管理时，调用 `T:: shared_from_this` 成员函数，将会返回一个新的 `std:: shared_ptr` 对象，它与 pt 共享 t 的所有权。
 
 ##### 为什么要用 ？
 
