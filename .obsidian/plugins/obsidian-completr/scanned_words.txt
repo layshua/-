@@ -102988,6 +102988,7 @@ bPrintToLog
 bPrintToConsole
 bWasInitialized
 bracketCheck
+binops
 fe
 front
 fill
@@ -106734,6 +106735,7 @@ ffee
 fstring
 firstChild
 firstchild
+funs
 dd
 dcc
 data

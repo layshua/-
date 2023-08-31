@@ -6016,25 +6016,23 @@ sort (svec.begin(),svec.end(),greater<string>());
 3）同时拥有多种内部状态，比如返回一个值得同时并累加。  
 4）作为算法 for_each 的返回值使用。
 
-## 8 可调用对象与 function
+## 8 【C++11】 function 与 可调用对象
 ### 可调用对象
-
  #可调用对象
-**对于一个对象或一个表达式，如果可以对其使用调用运算符（），则称它为可调用的。**
+
+**对于一个对象或一个表达式，如果可以对其使用调用运算符（），则称它为可调用的。** 
 
 **可调用对象有四种：**
 1. 函数
 2. 函数指针
 3. 重载了函数调用运算符的类 `operator()`, 即函数对象（仿函数）[[#7 函数对象（仿函数）与函数调用运算符`()`]]
-4. lambda 表达式 [[#【C++11】lambda表达式]] ^6ekdwn
+4. lambda 表达式 [[#【C++11】lambda表达式]] 
 5. bind 创建的对象 [[STL标准库#【C++11】参数绑定 bind 函数]]
 
-和其他对象一样，可调用对象也有类型，例如每个 lambda 有它自己唯一的（未命名）类类型；函数及函数中
-### 函数表
+和其他对象一样，**可调用的对象也有类型**。例如，每个 lambda 有它自己唯一的（末命名)类类型：函数及函数指针的类型则由其返回值类型和实参类型决定，等等。
 
-C++语言中有几种可调用的对象：函数、函数指针、lambda表达式、bind创建的对象以及重载了函数调用运算符的类。
-和其他对象一样，可调用的对象也有类型。例如，每个lambda有它自己唯一的（末命名)类类型：函数及函数指针的类型则由其返回值类型和实参类型决定，等等。
-**不同类型的可调用对象却可能共享同一种调用形式**。调用形式指明了调用返回的类型以及传递给调用的实参类型。一种调用形式对应一个函数类型，例如：`int (int,int)`是一个函数类型，它接受两个int、返回一个int。
+然而，**不同类型的可调用对象却可能共享同一种调用形式**。调用形式指明了调用返回的类型以及传递给调用的实参类型。**一种调用形式对应一个函数类型**，例如：`int (int,int)` 是一个函数类型，它接受两个 int、返回一个 int。
+### 不同类型的相同调用形式
 
 对于几个可调用对象共享同一种调用形式的情况，有时我们会希望把它们看成具有相同的类型。例如，考虑下列不同类型的可调用对象：
 ```c++
@@ -6047,7 +6045,7 @@ struct divide
 {
     int operator()(int denominator,int divisor)
     {
-        return denominator divisor;
+        return denominator / divisor;
     }
 }
 ```
@@ -6055,22 +6053,44 @@ struct divide
 
 > [!NOTE] 函数表
 > ****
-我们可能希望使用这些可调用对象构建一个简单的桌面计算器。为了实现这一目的，需要定义一个**函数表**用于存储指向这些可调用对象的“指针”。当程序需要执行某个特定的操作时，从表中查找该调用的函数。
+我们可能希望使用这些可调用对象构建一个简单的桌面计算器。为了实现这一目的，需要定义一个**函数表**用于**存储指向这些可调用对象的“指针”**。当程序需要执行某个特定的操作时，从表中查找该调用的函数。
 
-### 【C++11】function 类型
+在 C++中，**函数表很容易通过 map 来实现**。
+
+对于此例来说，我们**使用一个表示运算符符号的 string 对象作为关键字**; **使用实现运算符的函数作为值**。当我们需要求给定运算符的值时，先通过运算符索引 map，然后调用找到的那个元素。
+假定我们的所有函数都相互独立，并且只处理关于 int 的二元运算，则 map 可以定义成如下的形式:
+```c++
+//构建从运算符到函数指针的映射关系，其中函数接受两个 int、返回一个 int
+map<string, int(*） (int ,int) > binops;
+```
+我们可以按照下面的形式将 add 的指针添加到 binops 中:
+```c++
+//正确: add 是一个指向正确类型函数的指针
+binops.insert ({ "+", add});
+```
+但是我们不能将 mod 或者 divide 存入 binops。问题在于 mod 是个 lambda 表达式，而每个 lambda 有它自己的类类型，该类型与存储在 binops 中的值的类型不匹配。
+```c++
+binops.insert( {"%", mod} ); //error
+```
+我们可以使用 function 标准库类型来解决这个问题。
+
+### function 类型
+#function
 又称偏函数（partial function）
 
-`std::function` 就是可调用对象的封装器，可以把 `std::function` 看做一个函数对象，用于表示函数这个抽象概念。`std::function` 的实例可以存储、复制和调用任何可调用对象，存储的可调用对象称为 `std::function` 的目标，
-若 `std::function` 不含目标，则称它为空，调用空的 `std::function` 的目标会抛出` std:: bad_function_call` 异常。
+-  `function` 就是**可调用对象的封装器**，可以把 `function` 看做一个函数对象，用于表示函数这个抽象概念。
+-  `function` 的**实例**可以存储、复制和调用任何可调用对象，存储的可调用对象称为 `function` 的目标，
+- 若 `function` 不含目标，则称它为空，调用空的 `function` 的目标会抛出 `bad_function_call` 异常。
 
 #function
 常用function类型来定义函数表。
 ![[Pasted image 20230221224156.png]]
-```c++
-//在这里我们声明了一个function类型，它可以表示接受两个int、返回一个int的可调用对象。因此，我们可以用这个新声明的类型表示任意一种桌面计算器用到的类型；
-function<int(int,int)>
-function<返回值类型(参数一类型，参数二类型)>
 
+接着讨论上一节的例子。
+在这里我们声明了一个 function 类型，它可以表示接受两个 int、返回一个 int 的可调用对象。因此，我们可以用这个新声明的类型表示任意一种桌面计算器用到的类型；
+
+```c++
+//function<返回值类型(参数一类型，参数二类型)>
 function<int(int,int)> f1 = add;  //函数指针
 function<int (int,int)> f2 = divide();  //函数对象类的对象
 function<int (int,int)> f3 = [](int i,int j){ return i*j; }; //lambda
@@ -6080,16 +6100,259 @@ cout<<f2(4,2)<<end1:  //打印2
 cout<<f3(4,2)<<end1;  //打印8
 ```
 
+使用这个 function 类型可以重新定义 map：
+```c++
+//列举了可调用对象与二元运算符对应关系的表格
+//所有可调用对象都必须接受两个int、返回一个int
+//其中的元素可以是函数指针、函数对象或者lambda
+map<string,function<int (int, int) >> binops;
+```
+
+我们能把所有可调用对象都添加到这个 map 中：
+```c++
+map<string,function<int (int, int)>> binops = 
+{
+    //函数指针
+    { "+", add } ,
+    //标准库函数对象
+    { "-",std::minus<int> ( )},
+    //用户定义的函数对象
+    { "/ ",divide ( ) },
+    //未命名的 lambda{ "%", mod} 
+    {"*"，[ ](int i, int j) { return i * j; }),
+    //命名了的lambda对象
+    {"%",mod}
+};
+```
+
+一如往常，当我们索引 map 时将得到关联值的一个引用。如果我们索引 binops，将得到 function 对象的引用。function 类型重载了调用运算符，该运算符接受它自己的实参然后将其传递给存好的可调用对象:
+```c++
+binops ["+"](10,5);  //调用 add (10，5)
+binops ["-"](10,5) ; //使用 minus<int>对象的调用运算符 
+binops ["/"](10,5);   //使用 divide 对象的调用运算符 
+binops ["*"](10,5);   //调用 lambda 函数对象
+binops ["%"]( 10,5) ; //调用 lambda 函数对象
+```
+我们依次调用了 binops 中存储的每个操作。在第一个调用中，我们获得的元素存放着一个指向 add 函数的指针, 因此调用 `binops [ "+"](10，5) `实际上是使用该指针调用 add, 并传入 10 和 5。在接下来的调用中, `binops["-"]`返回一个存放着 `std::minus<int>`类型对象的 function，我们将执行该对象的调用运算符。
+
+### 重载的函数与 function
+
+我们不能（直接）将重载函数的名字存入 function 类型的对象中:
+```c++
+int add (int i, int j){ return i +j;}
+sales_data add(const sales_data&,const sales_data&);
+
+map<string,function<int (int,int)>> binops;
+binops.insert({"+", add}); //错误:哪个add?
+
+```
+
+解决上述二义性问题的一条途径是**存储函数指针而非函数的名字**:
+```c++
+int (*fp) (int,int) = add; //指针所指的add是接受两个int的版本
+binops.insert( { "+",fp} ); //正确:fp指向一个正确的add版本
+
+```
+同样，我们也能使用 lambda 来消除二义性:
+```c++
+//正确: 使用 lambda 来指定我们希望使用的 add 版本
+binops.insert ( { "+", [](int a, int b) {return add (a, b); } });
+```
+
+## 9【C++11】 bind 参数绑定
+#bind
+
+#### 绑定普通函数
+可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
+
+```c++
+//调用bind的一般形式：
+auto newCallable = bind (callable, arg_list);
+```
+- `newCallable` 本身是一个可调用对象
+- `arg_list` 是一个逗号分隔的参数列表，对应给定的 `callable` 的参数。
+- **即当我们调用 `newCallable` 时，`newCallable` 会调用 `callable`, 并传递给它 `arg_list` 中的参数。**
+
+`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“**占位符**”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
+- 数值 `n` 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
+-  `arg_list` 中使用占位符的位置需要我们传入参数，若使用给定值，则不用传参。
+-  `_n` 都定义在 `std::placeholders` 命名空间： `std::placeholders::_n`
+
 ```c++
 #include <functional>
 using namespace std;
 using namespace std::placeholders;
 
 void print(int n, int base); // 按 base 进制来输出 n
-​
+
+//普通使用
+
+//function 与 bind 结合使用​
 function<void(int)> print10 = bind(print, _1, 10);
 print10(23); //相当于 print(23, 10)
 ```
+#### 绑定类的成员函数
+类的成员函数必须通过类的对象或者指针调用，因此在 `bind` 时， `arg_list` 中的**第一个参数的位置来指定一个类的实列、指针或引用。**
+```c++ h:21
+class Test
+{
+public:
+    int funs(int val)
+    {
+        std::cout << "hello world" << val << std::endl;
+        return val;
+    }
+};
+ 
+class message
+{
+public:
+    std::function<int()> fun;
+};
+ 
+int main()
+{
+    Test test;
+    message *mes = new message;
+    mes->fun = std::bind(&Test::funs,test,2);  //test为类的实例
+    cout << mes->fun() <<endl;
+}
+```
+
+**bind 功能如下：**
+#### 修正参数的值
+```c++
+using namespace std::placeholders; 
+
+bool check_size(const std::string &s, std::string::size_type sz)
+{
+    return s.size()>=sz;
+}
+
+//check6是一个可调用对象，接受一个string类型的参数
+//并用此string和值6来调用check_size
+auto check6 = bind(check_size, _1, 6);
+//占位符出现在arg_list的第一个位置，表示check6的此参数对应check_size的第一个参数。此参数是一个const string&
+//因此调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size
+string s = "hello";
+bool b1 = check6(s); //check6(s)会调用check size(s,6)
+```
+
+#### 重排参数顺序
+例如，假定 f 是一个可调用对象，它有 5 个参数，则下面对 bind 的调用：
+```c++
+//g是一个有两个参数的可调用对象
+auto g = bind(f,a,b,_2,c,_1);
+```
+
+生成一个新的可调用对象，它有两个参数，分别用占位符 `_2` 和 `_1` 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
+传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
+
+下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
+的含义：
+```c++
+//按单词长度由短至长排序
+sort (words.begin(), words.end(), isShorter);
+//按单词长度由长至短排序
+sort (words.begin(), words.end(), bind(isShorter,2,1));
+```
+在第一个调用中，当 sort 需要比较两个元素 A 和 B 时，它会调用 isShorter (A, B)。
+在第二个对 sort 的调用中，传递给 isShorter 的参数被交换过来了。因此，当 sort 比较两个元素时，就好像调用 isShorter (B, A)一样。
+
+#### ref 函数：绑定引用参数
+#ref
+默认情况下，bind 的那些不是占位符的参数被拷贝到 bind 返回的可调用对象中。但是，与 lambda 类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
+例如，为了替换一个引用方式捕获 ostream 的 lambda:
+```c++
+//os是一个局部变量，引用一个输出流
+//c是一个局部变量，类型为char
+for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
+
+//可以很容易地编写一个函数，完成相同的工作：
+ostream &print(ostream &os, const string &s, char c)
+{
+    return os << s << c;
+}
+
+//但是，不能直接用bind来代替对os的捕获：
+//错误：不能拷贝os
+for_each (words.begin(), words.end(), bind(print, os, _1,' '));
+```
+
+原因在于 bind 拷贝其参数，而我们不能拷贝一个 ostream。如果我们希望传递给 bind 一个对象而又不拷贝它，就必须使用标准库 `ref` 函数：
+```c++
+for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
+```
+函数 `ref` 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
+
+#### bind1st () 和 bind2nd ()
+
+`bind1st()` 和 `bind2nd()`，只能绑定第一个或第二个参数，局限性太强，在 C++11 里已经**弃用**了，建议使用新标准的 `bind()`，用法更灵活更方便。  
+下面先说明 `bind1st()` 和 `bind2nd()` 的用法
+
+`bind1st()` 和 `bind2nd()` 都是把二元函数转化为一元函数，方法是绑定其中一个参数。  
+`bind1st()` 是绑定第一个参数。  
+`bind2nd()` 是绑定第二个参数。
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind2nd(less<int>(), 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind1st(less<int>(), 40));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+结果：
+```c++
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
+`less()` 是一个二元函数，`less(a, b)` 表示判断 `a<b` 是否成立。
+所以 `bind2nd(less<int>(), 40)` 相当于 `x<40` 是否成立, 用于判定那些小于 40 的元素。
+`bind1st(less<int>(), 40)` 相当于 `40<x` 是否成立, 用于判定那些大于 40 的元素。
+
+上面的例子使用 `bind()` 可以写成下面的形式：
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), std::placeholders::_1, 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), 40, std::placeholders::_1));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+
+结果:
+```
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
 ## 9 类型转换运算符
 P514 慎用
 > [!NOTE] Title
