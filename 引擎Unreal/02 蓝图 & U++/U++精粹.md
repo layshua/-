@@ -837,12 +837,13 @@ UE 智能指针不能用于与 `UObject` 及其派生类不兼容。**常用于
 - **`MakeShared<T>() / MakeShareable() ` ：创建共享指针
 - MakeShared：在单个内存块中分配新的对象实例和引用控制器，但要求对象提供公共构造函数。
 - MakeShareable：效率较低，但即使对象的构造函数是私有的也可以工作，使您能够获得不是您创建的对象的所有权，并在删除对象时支持自定义行为。
+- 注意**只能用于动态分配内存！`new`**
 ```c++
 // 创建空白的共享指针
 TSharedPtr<FMyObjectType> EmptyPointer;
 
 // 为新对象创建共享指针
-TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType());
+TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType()); 
 TSharedPtr<FMyObjectType> NewPointer = MakeShareable(new FMyObjectType());
 
 // 从共享引用创建共享指针
@@ -2865,6 +2866,9 @@ void ATestActor::BeginPlay()
 - 最多8个函数参数。
 
 使用此表格查找要用于声明委托的生命宏。
+- `Param`：形参
+- `RetVal` ：返回值
+
 
 |函数签名|声明宏|
 |---|---|
@@ -2872,7 +2876,7 @@ void ATestActor::BeginPlay()
 |`void Function(Param1)`|`DECLARE_DELEGATE_OneParam(DelegateName, Param1Type)`|
 |`void Function(Param1, Param2)`|`DECLARE_DELEGATE_TwoParams(DelegateName, Param1Type, Param2Type)`|
 |`void Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_<Num>Params(DelegateName, Param1Type, Param2Type, ...)`|
-|`<RetValType> Function()`|`DECLARE_DELEGATE_RetVal(RetValType, DelegateName)`|
+|`<RetValType> Function()`|`DECLARE_DELEGATE_RetVal(RetValType, DelegateName)` |
 |`<RetValType> Function(Param1)`|`DECLARE_DELEGATE_RetVal_OneParam(RetValType, DelegateName, Param1Type)`|
 |`<RetValType> Function(Param1, Param2)`|`DECLARE_DELEGATE_RetVal_TwoParams(RetValType, DelegateName, Param1Type, Param2Type)`|
 |`<RetValType> Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)`|
@@ -2893,11 +2897,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, flo
 - `DECLARE_DYNAMIC_DELEGATE...`
 - `DECLARE_DYNAMIC_MULTICAST_DELEGATE...`
 
-委托签名声明可存在于全局范围内、命名空间内、甚至类声明内。此类声明可能不在于函数体内。
-
 ## 2 绑定委托
 
-委托系统理解某些类型的对象，使用此类对象时将启用附加功能。**将委托绑定到`UObject`或`共享指针类`的成员， 委托系统可保留对该对象的弱引用，因此对象在委托下方被销毁时，可通过调用 `IsBound()` 或 `ExecuteIfBound()` 函数进行处理**。注意各类受支持对象的特殊绑定语法。
+委托系统理解某些类型的对象，使用此类对象时将启用附加功能。**将委托`Bind`到 `UObject` 或 `共享指针类` 的成员，委托系统可保留对该对象的弱引用，因此对象在委托下方被销毁时，可通过调用 `IsBound()` 或 `ExecuteIfBound()` 函数进行处理**。
 
 |函数|描述|
 |---|---|
@@ -2908,8 +2910,6 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, flo
 |`BindSP`|绑定基于指针的共享成员函数委托。共享指针委托会保留对对象的弱引用。可使用 `ExecuteIfBound()` 进行调用。 |
 |`BindUObject`|绑定 `UObject` 的成员函数委托。`UObject` 委托会保留对你的对象 `UObject` 的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
 |`UnBind`|取消绑定此委托。|
-
-请参见 `DelegateSignatureImpl.inl`（位于 `..\UE4\Engine\Source\Runtime\Core\Public\Templates\`），了解此类函数的变体、参数和实现。
 
 ### 载荷数据
 
@@ -2923,15 +2923,13 @@ MyDelegate.BindRaw( &MyFunction, true, 20 );
 
 ## 3 执行委托
 
-通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
-可调用 `IsBound()` 检查是否可安全执行委托。 
-同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
+通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须用 `IsBound()` 检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
 
-|执行函数|描述|
+|执行函数 |描述|
 |---|---|
+| `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
 |`Execute`|不检查其绑定情况即执行一个委托|
-|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
-|`IsBound`|检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
+|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute **(只能用于无返回值的委托)**|
 
 ## 4 用法示例
 
