@@ -899,7 +899,7 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 
 ##  TSharedPtr
 
-> [!NOTE] 共享指针
+> [!NOTE] 共享指针（强指针）
 > **共享指针（Shared Pointers）** 是指既健壮、又能为空指针的智能指针。**共享指针沿袭了普通智能指针的所有优点**，它能避免出现内存泄漏、悬挂指针，还能避免指针指向未初始化的内存。
 > 
 > **还有一些其他特点**：
@@ -969,25 +969,7 @@ PointerTwo = nullptr;
 // PointerOne和PointerTwo现在都引用nullptr。
 ```
 
-### 4 共享指针与共享引用转换
-
-在共享指针与共享引用之间进行转换是一种常见的做法。**共享引用隐式地转换为共享指针，并提供新的共享指针将引用有效对象的额外保证**。转换由普通语法处理：
-
-```c++
-    TSharedPtr<FMyObjectType> MySharedPointer = MySharedReference;
-```
-
-**只要共享指针引用了一个非空对象，你就可以使用 `Shared Pointer` 函数 `ToSharedRef` 从此共享指针创建一个共享引用。** 试图从空共享指针创建共享引用将导致程序断言。
-
-```c++
-// 在解引用之前，请确保共享指针有效，以避免可能出现的断言。
-if (MySharedPointer.IsValid())
-{
-    MySharedReference = MySharedPointer.ToSharedRef();
-}
-```
-
-### 5 相等性 / 有效性
+### 5 比较 / 有效性
 
 `==` `!=`：共享指针是否相等
 相等被定义为两个共享指针引用同一对象。
@@ -1039,38 +1021,26 @@ if (Node)
 }
 ```
 
-### 7 自定义删除器
-
-**共享指针和共享引用支持对它们引用的对象使用自定义删除器**。如需运行自定义删除代码，请**提供lambda函数**，作为创建智能指针时使用的参数，就像这样：
-
-```c++
-void DestroyMyObjectType(FMyObjectType* ObjectAboutToBeDeleted)
-{
-    // 此处添加删除代码。
-}
-// 这些函数使用自定义删除器创建指南指针。
-TSharedRef<FMyObjectType> NewReference(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
-
-TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
-```
-
 ## TSharedRef
-**共享引用** 是一类强大且**不可为空**的智能指针，无法重置共享引用、向其指定空对象，或创建空白引用。因此**共享引用固定包含有效对象**，甚至**没有 `IsValid` 方法**。
+共享引用（强引用）
+
+- **不可为空**，初始化必须有数据对象
+- 无法重置 `Reset` 共享引用、向其指定空对象，或创建空白引用。因此**固定包含有效对象**，甚至**没有 `IsValid` 方法**。
+- **与标准的 C++引用不同，可在创建后将共享引用重新指定到另一对象。
 
 **在共享引用和共享指针之间进行选择时，除非需要空对象或可为空的对象，否则建议你优先选择共享引用。**
 
-**与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。**
-
 ### 声明和初始化
 
-**共享引用不可为空，因此初始化需要数据对象**。在无有效对象的情况下尝试创建的共享引用将不会编译，并尝试将共享引用初始化为空指针变量。
+- **`MakeShared<T>() / MakeShareable() ` ：创建共享引用
 
 ```c++
-//创建新节点的共享引用
+//创建共享引用
+TSharedRef<FMyObjectType> NewReference(new FMyObjectType());
 TSharedRef<FMyObjectType> NewReference = MakeShared<FMyObjectType>();
 ```
 
-在无有效对象的情况下尝试创建的共享引用将不会编译：
+在无有效对象的情况下尝试创建的共享引用将不会编译，并尝试将共享引用初始化为空指针变量：
 
 ```c++
 //以下两者均不会编译：
@@ -1080,28 +1050,9 @@ TSharedRef<FMyObjectType> NullAssignedReference = nullptr;
 TSharedRef<FMyObjectType> NullAssignedReference = NullObject;
 ```
 
-### 共享指针和共享引用间的转换
-
-**共享引用可以直接隐式转换为共享指针**，并为新共享指针引用有效对象提供额外保证：
-
-```c++
-TSharedPtr<FMyObjectType> MySharedPointer = MySharedReference;
-```
-
-**如共享指针引用非空对象，即可使用 `共享指针` 函数 `ToSharedRef`，在共享指针中创建共享引用。** 尝试在空共享指针中创建共享引用，将导致程序断言。
-
-```c++
-//在取消引用前，确保共享指针为有效，避免潜在断言。
-If (MySharedPointer.IsValid())
-{
-    MySharedReference = MySharedPointer.ToSharedRef();
-}
-```
-
 ### 比较
-
-可测试共享引用彼此是否相等。在此情况下，相等表示引用相同对象。
-
+`==` `!=`：共享引用是否相等
+相等表示引用相同对象。
 ```c++
     TSharedRef<FMyObjectType> ReferenceA, ReferenceB;
     if (ReferenceA == ReferenceB)
@@ -1110,23 +1061,42 @@ If (MySharedPointer.IsValid())
     }
 ```
 
+## 智能指针类型转换
+
+### 引用转指针
+**共享引用隐式转换为共享指针**
+```c++
+    TSharedPtr<FMyObjectType> MySharedPointer = MySharedReference;
+```
+
+### 指针转引用
+**`ToSharedRef`**：**从共享指针创建共享引用**
+- 要求共享指针引用了一个非空对象
+- 从空共享指针创建共享引用将触发断言。
+
+```c++
+// 在解引用之前，请确保共享指针有效，以避免可能出现的断言。
+if (MySharedPointer.IsValid())
+{
+    MySharedReference = MySharedPointer.ToSharedRef();
+}
+```
+
 ## TWeakPtr
-**弱指针** 存储对象的弱引用。与 **共享指针** 或 **共享引用** 不同，弱指针不会阻止其引用的对象被销毁。
 
-**在访问弱指针引用的对象前，应使用 `Pin` 函数生成共享指针。此操作确保使用该对象时其将继续存在。**
 
-如只需要确定弱指针是否引用对象，可将其与 `nullptr` 比较，或在之上调用 `IsValid`。
-
-弱指针的使用有助于授予意图——弱指针表明对引用对象的观察，而无需所有权，同时不控制其生命周期。
+- **弱指针**存储对象的弱引用，不参与引用计数。
+- **在访问弱指针引用的对象前，应使用 `Pin` 函数生成共享指针。此操作确保使用该对象时其将继续存在。**
+- 如只需要确定弱指针是否引用对象，可将其与 `nullptr` 比较，或在之上调用 `IsValid`。
 
 ### 声明、初始化和分配
 
-**可创建空白弱指针，或在共享引用、共享指针或其他弱指针中进行。**
+**可创建空白弱指针，或通过共享指针和共享引用创建
 
 ```c++
-//分配新的数据对象，并创建对其的强引用。
+//创建共享引用。
 TSharedRef<FMyObjectType> ObjectOwner = MakeShared<FMyObjectType>();
-//创建指向新数据对象的弱指针。
+//创建指向对象的弱指针。
 TWeakPtr<FMyObjectType> ObjectObserver(ObjectOwner);
 ```
 
@@ -1191,6 +1161,23 @@ AnotherObjectObserver.Reset();
 
 ## TUniquePtr
 唯一指针仅会显式拥有其引用的对象。仅有一个唯一指针指向给定资源，因此唯一指针可转移所有权，但无法共享。复制唯一指针的任何尝试都将导致编译错误。唯一指针超出范围时，其将自动删除其所引用的对象。
+
+
+## 自定义删除器
+
+**共享指针和共享引用支持对它们引用的对象使用自定义删除器**。如需运行自定义删除代码，请**提供 lambda 函数**，作为创建智能指针时使用的参数，就像这样：
+
+```c++
+void DestroyMyObjectType(FMyObjectType* ObjectAboutToBeDeleted)
+{
+    // 此处添加删除代码。
+}
+// 这些函数使用自定义删除器创建指南指针。
+TSharedRef<FMyObjectType> NewReference(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
+
+TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
+```
+
 # 九、容器
 
 ## TArray 数组
