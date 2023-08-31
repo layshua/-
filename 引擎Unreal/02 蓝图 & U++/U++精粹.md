@@ -896,7 +896,7 @@ if (NodeA == NodeB)
 ```
 
 - **`IsValid` 函数（是否为有效的）和 `bool` 运算符有助于判断共享指针是否引用了有效对象。
--  **`Get`**：返回对象指针，若为空返回null
+-  **`Get`**：**返回对象的原生C++指针，若为空返回 null**
 
 ```c++
 if (Node.IsValid())
@@ -1143,19 +1143,19 @@ const TSharedPtr<SimpleObject> simpleObj_const(new SimpleObject());
 TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(simpleObj_const);
 ```
 
-## TSharedFromThis 助手类 （不太理解）
+## TSharedFromThis 助手类
 共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
 有些函数的参数为共享引用或共享指针，我们就需要传进去一个对象，但**如何让对象知道自己就是智能指针？**
 
-**`TSharedFromThis` 意思就使用 this 指针来构造一个共享指针。将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。**
+**`TSharedFromThis` 意思就使用 `this` 指针来构造一个共享指针。将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。**
 
 >对标的是原生 C++的 `std::enable_shared_from_this`。用法也非常相似。
 
 *   自定义类继承 `TSharedFromThis` 模板类
 *   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱引用转换成共享指针。
-    *   `AsShared()` 将裸指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
+    *   `AsShared()` 将 C++原生指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
     *   `SharedThis(this)` 会返回具备 "this" 类型的共享引用
-    *   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
+*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言。
 
 ```c++
 class BaseClass : public TSharedFromThis<BaseClass>
@@ -1170,76 +1170,21 @@ void Func()
     TSharedPtr<BaseClass> sharePtr = MakeShareable(new BaseClass());
     sharePtr->printf();
 
-    //通过.Get()将共享指针解引用，将共享指针转换为C++原生指针
+    //通过.Get()将共享指针解引用,我们将可以通过智能指针获得原生C++指针
+    //原生C++指针ptr指向sharePtr所指的对象
     BaseClass* ptr = sharePtr.Get(); 
 
-    //对于普通的类，我们如果想把B在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
-    //这里BaseClass继承了TSharedFromThis，因此我们可以直接将指向BaseClass的裸指针B转换为共享引用
-    //通将共享引用转换为弱指针即可
+    //对于普通的类，我们如果想把ptr在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
+    //⭐对于继承了TSharedFromThis的类，类对象知道自己是共享指针
+    //因此我们可以直接使用AsShared()将指向BaseClass的C++原生指针ptr转换为共享引用
+    //然后隐式转换为共享指针
     if(ptr)
     {
-        ptr->AsShared();    
+         TSharedPtr<BaseClass> sharePtr2 = ptr->AsShared();    
     }
-}
 ```
 
 
-
-`TSharedFromThis` 提供两个函数：**`AsShared`** 和 **`SharedThis`**，**可将对象转换为共享引用（如果需要共享指针，则可以再将共享引用转换为共享指针）**。
-使用固定**返回共享引用的类** factory 时，或**需将对象传到需要共享引用或共享指针的系统**时，此操作十分有用。
-`AsShared` 会将类返回为最初作为模板参数传到 `TSharedFromThis` 的类型返回，其可能是调用对象的父类型，
-而 `SharedThis` 将直接从该类型衍生类型，并返回引用该类型对象的智能指针。以下范例代码中演示这两种函数
-
-```c++
-class FRegistryObject
-{
-    // 此函数将接受到FMyBaseClass或其子类的TSharedRef或TSharedPtr。
-    void Register(TSharedRef<FMyBaseClass>);
-};
-
-class FMyBaseClass: public TSharedFromThis<FMyBaseClass>
-{
-    virtual void RegisterAsBaseClass(FRegistryObject* RegistryObject)
-    {
-        // 访问对"this"的共享引用。
-        // 直接继承自< TSharedFromThis >，因此AsShared()和SharedThis(this)会返回相同的类型。
-        TSharedRef<FMyBaseClass> ThisAsSharedRef = AsShared();
-        
-        //⭐需要将对象传到需要共享引用的地方
-        // RegistryObject需要 TSharedRef<FMyBaseClass>，或TSharedPtr<FMyBaseClass>。TSharedRef可被隐式转换为TSharedPtr(引用转指针)
-        RegistryObject->Register(ThisAsSharedRef);
-    }
-};
-
-class FMyDerivedClass : public FMyBaseClass
-{
-    virtual void Register(FRegistryObject* RegistryObject) override
-    {
-        // 并非直接继承自TSharedFromThis<>，因此AsShared()和SharedThis(this)不会返回相同类型。
-        // 在本例中，AsShared()会返回在TSharedFromThis<> - TSharedRef<FMyBaseClass>中初始指定的类型。
-        // 在本例中，SharedThis(this)会返回具备"this"类型的TSharedRef - TSharedRef<FMyDerivedClass>。
-        // SharedThis()函数仅在与 'this'指针相同的范围内可用。
-        TSharedRef<FMyDerivedClass> AsSharedRef = SharedThis(this);
-        // FMyDerivedClass是FMyBaseClass的一种类型，因此RegistryObject将接受TSharedRef<FMyDerivedClass>。
-        RegistryObject->Register(ThisAsSharedRef);
-    }
-};
-
-
-```
-
-
-5. TSharedFromThis
-TSharedFromThis 是一个模板类，普通 C++函数继承 TSharedFromThis 类后，类将会保存一个弱指针，当通过智能指针获取到该类的普通指针时，可以通过调用 AsShared 方法获取到该类的智能指针。简而言之，继承该类的普通 C++类可以将智能指针获得的普通指针再转为智能指针。
-
-```c++
-class FTestClass : TSharedFromThis<FTestClass>
-{}
-
-TSharedPtr<FTestClass> TestPtr = MakeShareable(new FTestClass());
-FTestClass* TestNormalPtr = TestPtr.Get();
-TSharedPtr<FTestClass> TestPtr2 = TestNormalPtr->AsShared ();
-```
 
 
 ## 自定义删除器
