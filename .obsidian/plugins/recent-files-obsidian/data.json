@@ -5,10 +5,6 @@
       "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
     },
     {
-      "basename": "【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef",
-      "path": "zBuffer/【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef.md"
-    },
-    {
       "basename": "《C++ Primer》",
       "path": "编程/C++/《C++ Primer》.md"
     },

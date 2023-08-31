@@ -58,6 +58,12 @@
     ![[968a88be7a341ca5c7a4a16c6a275be0_MD5.png]]
     
 
+# 唯一指针 TUniquePtr
+
+*   TUniquePtr 指向的对象只能被唯一指向，因而 Unique 指针不能赋值给其它指针
+*   不要为共享指针或共享引用引用的对象创建唯一指针
+
+
 # 基类与派生类的智能转换
 
 ## 共享指针转换
@@ -90,111 +96,7 @@ UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj_mutable is %s"), simpleObj_
 
 ![[ea4025f32fd90d7225cbb290d392b7a0_MD5.png]]
 
-## 共享引用转换
 
-*   隐式转换
-*   StaticCastSharedRef
-
-// 创建唯一指针  
-TUniquePtr ObjUniquePtr = MakeUnique();  
-UE_LOG(LogTemp, Warning, TEXT(**FUNCTION**"Validity: ObjUniquePtr[%d]"), ObjUniquePtr.IsValid());
-
-```
-// 判断有效性
-if (ObjUniquePtr.IsValid())
-{
-	ObjUniquePtr->ExeFun(); // 解引用
-}
-
-// 释放指针，移交
-TUniquePtr<SimpleObject> ObjUniquePtr2(ObjUniquePtr.Release());
-UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" Validity: ObjUniquePtr[%d], ObjUniquePtr2[%d]"), ObjUniquePtr.IsValid(), ObjUniquePtr2.IsValid());
-
-// 重置
-ObjUniquePtr.Reset();
-ObjUniquePtr2 = nullptr;
-```
-
-*   ConstStaticCastSharedRef
-
-代码省略
-
-# 助手类 TSharedFromThis
-
-*   自定义类继承 `TSharedFromThis` 模板类
-*   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱指针转换成共享指针。
-    *   `AsShared()` 将裸指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
-    *   `SharedThis(this)` 会返回具备 "this" 类型的 TSharedRef
-
-*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
-    
-```c++
-class BaseClass : public TSharedFromThis<BaseClass>
-{
-    public:
-        void printf(){};
-}
-
-void NewMain()
-{
-    //创建共享指针访问成员函数
-    TSharedPtr<BaseClass> A = MakeShareable(new BaseClass());
-    A->printf();
-
-    //将A解引用，将共享指针转换为裸指针
-    BaseClass* B = A.Get();
-
-    //对于普通的类，我们如果想把B在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
-    //这里BaseClass继承了TSharedFromThis，因此我们可以直接将指向BaseClass的裸指针B转换为共享引用
-    //通将共享引用转换为弱指针即可
-    if(B)
-    {
-        B->AsShared();    
-    }
-}
-```
-
-
-```c++
-// 基类
-class BaseClass :public TSharedFromThis<BaseClass>
-{
-public:
-    BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    virtual ~BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    virtual void ExeFun() { 
-        TSharedRef<BaseClass> ThisAsSharedRef = AsShared();
-    }
-};
-
-// 派生类
-class ChildClass :public BaseClass 
-{
-public:
-    ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    virtual ~ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    virtual void ExeFun() override{
-         //AsShared()返回 TSharedRef<BaseClass>, 因而编译不通过
-        //TSharedRef<ChildClass> AsSharedRef = AsShared(); 
-
-        TSharedRef<ChildClass> AsSharedRef = SharedThis(this);
-    }
-};
-```
-    
-```c++
-TSharedPtr<BaseClass> BaseClassPtr = MakeShared<BaseClass>();
-UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d]"), BaseClassPtr.GetSharedReferenceCount());
-
-BaseClass* tempPtr = BaseClassPtr.Get();
-TSharedPtr<BaseClass> BaseClassPtr_Shared =tempPtr->AsShared();
-UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d], BaseClassPtr_Shared[%d]"), 
-    BaseClassPtr.GetSharedReferenceCount(), BaseClassPtr_Shared.GetSharedReferenceCount());
-
-// 使用下面语句运行，程序死机
-// TSharedPtr<BaseClass> BaseClassPtr_New = MakeShareable(tempPtr);
-```
-    ![[6a59e5818b262084b4dca42dadd8be69_MD5.png]]
 
 # 注意
 

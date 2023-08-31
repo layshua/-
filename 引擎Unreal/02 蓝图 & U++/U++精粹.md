@@ -803,99 +803,7 @@ UE 智能指针不能用于与 `UObject` 及其派生类不兼容。**常用于
 4. 弱引]用计数 (无符号 32 位整型)
 注意: 无论有多少个共享指针/弱指针引用一个对象，都仅为每个对象创建一个引用控制器。.
 
-### 助手类和函数
 
-虚幻智能指针库提供多个助手类和函数，以便使用智能指针时更加容易、直观。
-
-|助手类|描述|
-|---|---|
-|`TSharedFromThis` |在添加 `AsShared` 或 `SharedThis` 函数的 `TSharedFromThis` 中衍生类。利用此类函数可获取对象的 `TSharedRef`。|
-|**函数** |  |  |
-|`MakeShared` 和 `MakeShareable` |在常规C++指针中创建共享指针。`MakeShared` 会在单个内存块中分配新的对象实例和引用控制器，但要求对象提交公共构造函数。`MakeShareable` 的效率较低，但即使对象的构造函数为私有，其仍可运行。利用此操作可拥有非自己创建的对象，并在删除对象时支持自定义行为。|
-|`StaticCastSharedRef` 和 `StaticCastSharedPtr` |静态投射效用函数，通常用于向下投射到衍生类型。|
-|`ConstCastSharedRef` 和 `ConstCastSharedPtr`|将 `const` 智能引用或智能指针分别转换为 `mutable` 智能引用或智能指针。|
-
-### 智能指针实现细节
-
-#### 侵入性访问器
-
-**共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有**。此通常是可以接受的，但**在某些情况下，可能要将对象作为共享引用或共享指针进行访问。为此，使用对象的类作为模板参数，在 `TSharedFromThis` 衍生对象的类。**
-
-`TSharedFromThis` 提供两个函数：**`AsShared`** 和 **`SharedThis`**，**可将对象转换为共享引用（并从共享引用转换为共享指针）**。使用固定返回共享引用的类 factory 时，或需将对象传到需要共享引用或共享指针的系统时，此操作十分有用。`AsShared` 会将类返回为最初作为模板参数传到 `TSharedFromThis` 的类型返回，其可能是调用对象的父类型，而 `SharedThis` 将直接从该类型衍生类型，并返回引用该类型对象的智能指针。以下范例代码中演示这两种函数：
-
-```c++
-class FRegistryObject;
-class FMyBaseClass: public TSharedFromThis<FMyBaseClass>
-{
-    virtual void RegisterAsBaseClass(FRegistryObject* RegistryObject)
-    {
-        // 访问对"this"的共享引用。
-        // 直接继承自< TSharedFromThis >，因此AsShared()和SharedThis(this)会返回相同的类型。
-        TSharedRef<FMyBaseClass> ThisAsSharedRef = AsShared();
-        // RegistryObject需要 TSharedRef<FMyBaseClass>，或TSharedPtr<FMyBaseClass>。TSharedRef可被隐式转换为TSharedPtr.
-        RegistryObject->Register(ThisAsSharedRef);
-    }
-};
-
-class FMyDerivedClass : public FMyBaseClass
-{
-    virtual void Register(FRegistryObject* RegistryObject) override
-    {
-        // 并非直接继承自TSharedFromThis<>，因此AsShared()和SharedThis(this)不会返回相同类型。
-        // 在本例中，AsShared()会返回在TSharedFromThis<> - TSharedRef<FMyBaseClass>中初始指定的类型。
-        // 在本例中，SharedThis(this)会返回具备"this"类型的TSharedRef - TSharedRef<FMyDerivedClass>。
-        // SharedThis()函数仅在与 'this'指针相同的范围内可用。
-        TSharedRef<FMyDerivedClass> AsSharedRef = SharedThis(this);
-        // FMyDerivedClass是FMyBaseClass的一种类型，因此RegistryObject将接受TSharedRef<FMyDerivedClass>。
-        RegistryObject->Register(ThisAsSharedRef);
-    }
-};
-
-class FRegistryObject
-{
-    // 此函数将接受到FMyBaseClass或其子类的TSharedRef或TSharedPtr。
-    void Register(TSharedRef<FMyBaseClass>);
-};
-```
-
-**不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言。**
-
-#### 智能转换
-
-可通过虚幻智能指针库包含的多个支持函数智能转换共享指针(和共享引用)。向上转换是隐式的，与 C++指针相同。
-- **使用 `ConstCastSharedPtr` 函数进行 const 智能指针转换：非常量转常量
-- **使用 `StaticCastSharedPtr` 进行静态投射（通常是向下转换到派生类指针）。**
-
-无run-type类型的信息（RTTI），因此不支持动态转换；应使用静态投射，如以下代码所示：
-```c++
-// 假设通过其他方式验证了FDragDropOperation实际为FAssetDragDropOp。
-TSharedPtr<FDragDropOperation> Operation = DragDropEvent.GetOperation();
-//现在可使用StaticCastSharedPtr进行投射。
-TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(Operation);
-```
-
-#### 线程安全
-
-**通常仅在单线程上访问智能指针的操作才是安全的。**
-
-**如需访问多线程，请使用智能指针类的线程安全版本：**
-
-- `TSharedPtr<T, ESPMode::ThreadSafe>`
-- `TSharedRef<T, ESPMode::ThreadSafe>`
-- `TWeakPtr<T, ESPMode::ThreadSafe>`
-- `TSharedFromThis<T, ESPMode::ThreadSafe>`
-
-**由于原子引用计数，此类线程安全版本比默认版本稍慢，但其行为与常规C++指针一致：**
-- 读取和复制固定为线程安全。
-- 写入和重置须同步后才安全。
-
-如了解多线程永不访问指针，可通过避免使用线程安全版本获得更好性能。
-
-### 提示和限制
-
-- 避免将数据作为 `TSharedRef` 或 `TSharedPtr` 参数传到函数，此操作将因取消引用和引用计数而产生开销。相反，**建议将引用对象作为 `const &` 进行传递。**
-- 可将共享指针向前声明为不完整类型。
-- 共享指针与虚幻对象(`UObject` 及其衍生类)不兼容。引擎具有 `UObject` 管理的单独内存管理系统（[对象处理](https://docs.unrealengine.com/5.2/zh-CN/unreal-object-handling-in-unreal-engine)文档），两个系统未互相重叠。
 
 ##  TSharedPtr
 
@@ -910,9 +818,14 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 >     
 > **共享指针有一些值得注意的基本特性，包括：**
 > - 语法非常健壮
-> - 非侵入式（但能反射）
+> - 非侵入性（但能反射）
 > - 线程安全（视情况而定）
 > - 性能佳，占用内存少
+> 
+> > [!NOTE] 非侵入性
+> **共享指针是非侵入性的，即对象不知道其是否为智能指针拥有**。
+> 
+
 
 **共享指针类似于共享引用，<font color="#ff0000">主要区别在于共享指针可以指向空对象，共享引用不可为空</font>。**
 除非需要空对象或可为空的对象，否则建议你**优先选择共享引用**。
@@ -1030,6 +943,7 @@ if (Node)
 
 **在共享引用和共享指针之间进行选择时，除非需要空对象或可为空的对象，否则建议你优先选择共享引用。**
 
+避免将数据作为 `TSharedRef` 或 `TSharedPtr` 参数传到函数，此操作将因取消引用和引用计数而产生开销。相反，**建议将引用对象作为 `const &` 进行传递。**
 ### 声明和初始化
 
 - **`MakeShared<T>() / MakeShareable() ` ：创建共享引用
@@ -1198,23 +1112,120 @@ TSharedPtr<FMyObjectType> LockedObserver = ObjectObserver.Pin()
 ```
 
 
-### 派生类转基类
+### 子类转父类
 隐式转换
 ```c++
+//SimpleObject是ComplexObject的父类
 TSharedPtr<SimpleObject> simpleObj;
 TSharedPtr<ComplexObject> complexObj = MakeShared<ComplexObject>();
 
 // 派生类转基类
 simpleObj = complexObj;
-UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj is %s"), simpleObj.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
 ```
 
-### 基类转派生类
+### 父类转子类
 `StaticCastSharedRef` 和 `StaticCastSharedPtr` 
+```c++
+//SimpleObject是ComplexObject的父类
+// 基类转派生类
+TSharedPtr<ComplexObject> complexObj2 = StaticCastSharedPtr<ComplexObject>(simpleObj);
+```
+
 ### `const` 转 `mutable`
 [[《C++ Primer》#mutable关键字]]：简单理解就是把 const 转换成非const
 
 `ConstCastSharedRef` 和 `ConstCastSharedPtr` ：将 `const` 智能引用或智能指针分别转换为 `mutable` 智能引用或智能指针。
+
+```c++
+//创建常量指针
+const TSharedPtr<SimpleObject> simpleObj_const(new SimpleObject());
+//常量指针转非常量指针
+TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(simpleObj_const);
+```
+
+## TSharedFromThis 助手类 （不太理解）
+
+*   自定义类继承 `TSharedFromThis` 模板类
+*   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱引用转换成共享指针。
+    *   `AsShared()` 将裸指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
+    *   `SharedThis(this)` 会返回具备 "this" 类型的共享引用
+
+*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
+
+```c++
+class BaseClass : public TSharedFromThis<BaseClass>
+{
+    public:
+        void printf(){};
+}
+
+void NewMain()
+{
+    //创建共享指针访问成员函数
+    TSharedPtr<BaseClass> A = MakeShareable(new BaseClass());
+    A->printf();
+
+    //将A解引用，将共享指针转换为裸指针
+    BaseClass* B = A.Get();
+
+    //对于普通的类，我们如果想把B在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
+    //这里BaseClass继承了TSharedFromThis，因此我们可以直接将指向BaseClass的裸指针B转换为共享引用
+    //通将共享引用转换为弱指针即可
+    if(B)
+    {
+        B->AsShared();    
+    }
+}
+```
+
+共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
+**在某些情况下，可能要将对象作为共享引用或共享指针进行访问。为此，使用对象的类作为模板参数，继承 `TSharedFromThis` 。**
+
+`TSharedFromThis` 提供两个函数：**`AsShared`** 和 **`SharedThis`**，**可将对象转换为共享引用（如果需要共享指针，则可以再将共享引用转换为共享指针）**。
+使用固定**返回共享引用的类** factory 时，或**需将对象传到需要共享引用或共享指针的系统**时，此操作十分有用。
+`AsShared` 会将类返回为最初作为模板参数传到 `TSharedFromThis` 的类型返回，其可能是调用对象的父类型，
+而 `SharedThis` 将直接从该类型衍生类型，并返回引用该类型对象的智能指针。以下范例代码中演示这两种函数
+
+```c++
+class FRegistryObject
+{
+    // 此函数将接受到FMyBaseClass或其子类的TSharedRef或TSharedPtr。
+    void Register(TSharedRef<FMyBaseClass>);
+};
+
+class FMyBaseClass: public TSharedFromThis<FMyBaseClass>
+{
+    virtual void RegisterAsBaseClass(FRegistryObject* RegistryObject)
+    {
+        // 访问对"this"的共享引用。
+        // 直接继承自< TSharedFromThis >，因此AsShared()和SharedThis(this)会返回相同的类型。
+        TSharedRef<FMyBaseClass> ThisAsSharedRef = AsShared();
+        
+        //⭐需要将对象传到需要共享引用的地方
+        // RegistryObject需要 TSharedRef<FMyBaseClass>，或TSharedPtr<FMyBaseClass>。TSharedRef可被隐式转换为TSharedPtr(引用转指针)
+        RegistryObject->Register(ThisAsSharedRef);
+    }
+};
+
+class FMyDerivedClass : public FMyBaseClass
+{
+    virtual void Register(FRegistryObject* RegistryObject) override
+    {
+        // 并非直接继承自TSharedFromThis<>，因此AsShared()和SharedThis(this)不会返回相同类型。
+        // 在本例中，AsShared()会返回在TSharedFromThis<> - TSharedRef<FMyBaseClass>中初始指定的类型。
+        // 在本例中，SharedThis(this)会返回具备"this"类型的TSharedRef - TSharedRef<FMyDerivedClass>。
+        // SharedThis()函数仅在与 'this'指针相同的范围内可用。
+        TSharedRef<FMyDerivedClass> AsSharedRef = SharedThis(this);
+        // FMyDerivedClass是FMyBaseClass的一种类型，因此RegistryObject将接受TSharedRef<FMyDerivedClass>。
+        RegistryObject->Register(ThisAsSharedRef);
+    }
+};
+
+
+```
+
+
+
 
 ## 自定义删除器
 
@@ -1230,6 +1241,23 @@ TSharedRef<FMyObjectType> NewReference(new FMyObjectType(), [](FMyObjectType* Ob
 
 TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType(), [](FMyObjectType* Obj){ DestroyMyObjectType(Obj); });
 ```
+
+## 线程安全
+
+**通常仅在单线程上访问智能指针的操作才是安全的。**
+
+**如需访问多线程，请使用智能指针类的线程安全版本：**
+
+- `TSharedPtr<T, ESPMode::ThreadSafe>`
+- `TSharedRef<T, ESPMode::ThreadSafe>`
+- `TWeakPtr<T, ESPMode::ThreadSafe>`
+- `TSharedFromThis<T, ESPMode::ThreadSafe>`
+
+**由于原子引用计数，此类线程安全版本比默认版本稍慢，但其行为与常规 C++指针一致：**
+- 读取和复制固定为线程安全。
+- 写入和重置须同步后才安全。
+
+如了解多线程永不访问指针，可通过避免使用线程安全版本获得更好性能。
 
 # 九、容器
 

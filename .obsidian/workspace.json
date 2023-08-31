@@ -57,13 +57,8 @@
             "id": "638e8d63d7647e00",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zBuffer/【UE4 C++ 基础知识】_15_ 智能指针 TSharedPtr、UniquePtr、TWeakPtr、TSharedRef.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
