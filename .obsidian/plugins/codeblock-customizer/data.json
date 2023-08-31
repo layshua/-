@@ -342,7 +342,7 @@
           "highlightColor": "--text-highlight-bg",
           "alternateHighlightColors": {
             "error": "#6B0000",
-            "h": "#757199"
+            "h": "#1F232A"
           },
           "languageBorderColors": {}
         },

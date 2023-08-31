@@ -842,9 +842,11 @@ pop_front(); // 删除容器第一个数据
 **`queue`** 队列适配器
 **`priority_queue`**
 
-**本质上，一个适配器是一种机制，能使某种事物的行为看起来像另外一种事物一样。一个容器适配器接受一种己有的容器类型，使其行为看起来像一种不同的类型。**
-
-例如，stack 适配器接受一个顺序容器（除 array 或 forward_list 外），并使其操作起来像一个 stack 一样。
+> [!NOTE] 适配器
+> #适配器
+> **本质上，一个适配器是一种机制，能使某种事物的行为看起来像另外一种事物一样。一个容器适配器接受一种己有的容器类型，使其行为看起来像一种不同的类型。**
+> 
+> 例如，stack 适配器接受一个顺序容器（除 array 或 forward_list 外），并使其操作起来像一个 stack 一样。
 
 ![[Pasted image 20230212163058.png]]
 ### 定义适配器
@@ -1306,24 +1308,26 @@ int main()
 
 ### 【C++11】参数绑定 bind 函数
 #bind
+
 #### 绑定普通函数
 可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
 
 ```c++
 //调用bind的一般形式：
 auto newCallable = bind (callable, arg_list);
-
-//newCallable本身是一个可调用对象
-//arg_list是一个逗号分隔的参数列表，对应给定的callable的参数。
-//即当我们调用newCallable时，newCallable会调用callable,并传递给它arg list中的参数。
 ```
-`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“占位符”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
-数值 n 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
-名字_n 都定义在名为**placeholders 命名空间**，该命名空间定义在 std 命名空间。使用时，都要写上。
+- `newCallable` 本身是一个可调用对象
+- `arg_list` 是一个逗号分隔的参数列表，对应给定的 `callable` 的参数。
+- **即当我们调用 `newCallable` 时，`newCallable` 会调用 `callable`, 并传递给它 `arg_list` 中的参数。**
+
+`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“**占位符**”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
+- 数值 `n` 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
+-  `arg_list` 中使用占位符的位置需要我们传入参数，若使用给定值，则不用传参。
+-  `_n` 都定义在 `std::placeholders` 命名空间： `std::placeholders::_n`
 
 #### 绑定类的成员函数
-类的成员函数必须通过类的对象或者指针调用，因此在 bind 时， `arg_list` 中的第一个参数的位置来指定一个类的实列、指针或引用。
-```c++
+类的成员函数必须通过类的对象或者指针调用，因此在 `bind` 时， `arg_list` 中的**第一个参数的位置来指定一个类的实列、指针或引用。**
+```c++ h:21
 class Test
 {
 public:
@@ -1340,16 +1344,12 @@ public:
     std::function<int()> fun;
 };
  
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
- 
     Test test;
     message *mes = new message;
     mes->fun = std::bind(&Test::funs,test,2);  //test为类的实例
     cout << mes->fun() <<endl;
- 
-    return a.exec();
 }
 ```
 
@@ -1360,7 +1360,7 @@ using namespace std::placeholders;
 
 bool check_size(const std::string &s, std::string::size_type sz)
 {
-		return s.size()>=sz;
+    return s.size()>=sz;
 }
 
 //check6是一个可调用对象，接受一个string类型的参数
@@ -1379,7 +1379,7 @@ bool b1 = check6(s); //check6(s)会调用check size(s,6)
 auto g = bind(f,a,b,_2,c,_1);
 ```
 
-生成一个新的可调用对象，它有两个参数，分别用占位符_2 和_1 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
+生成一个新的可调用对象，它有两个参数，分别用占位符`_2` 和`_1` 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
 传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
 
 下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
@@ -1405,7 +1405,7 @@ for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
 //可以很容易地编写一个函数，完成相同的工作：
 ostream &print(ostream &os, const string &s, char c)
 {
-		return os << s << c;
+    return os << s << c;
 }
 
 //但是，不能直接用bind来代替对os的捕获：
@@ -1417,8 +1417,75 @@ for_each (words.begin(), words.end(), bind(print, os, _1,' '));
 ```c++
 for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
 ```
-函数 ref 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
+函数 `ref` 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
 
+#### bind1st () 和 bind2nd ()
+
+`bind1st()` 和 `bind2nd()`，在 C++11 里已经**弃用**了，建议使用新标准的 `bind()`，用法更灵活更方便。  
+下面先说明 `bind1st()` 和 `bind2nd()` 的用法
+
+`bind1st()` 和 `bind2nd()` 都是把二元函数转化为一元函数，方法是绑定其中一个参数。  
+`bind1st()` 是绑定第一个参数。  
+`bind2nd()` 是绑定第二个参数。
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind2nd(less<int>(), 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind1st(less<int>(), 40));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+结果：
+```c++
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
+`less()` 是一个二元函数，`less(a, b)` 表示判断 `a<b` 是否成立。
+所以 `bind2nd(less<int>(), 40)` 相当于 `x<40` 是否成立, 用于判定那些小于 40 的元素。
+`bind1st(less<int>(), 40)` 相当于 `40<x` 是否成立, 用于判定那些大于 40 的元素。
+
+上面的例子使用 `bind()` 可以写成下面的形式：
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), std::placeholders::_1, 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), 40, std::placeholders::_1));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+
+结果:
+```
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
 ## 泛型迭代器
 除了为每个容器定义的迭代器之外，标准库在头文件 `iterator` 中还定义了额外几种迭代器。
 

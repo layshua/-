@@ -1933,13 +1933,15 @@ lambada 即 λ 的读音
 如果一个需要多次使用的功能，最好还是用函数。
 
 > [!NOTE] 可调用对象
+> #可调用对象
 > 对于一个对象或一个表达式，如果可以对其使用调用运算符（），则称它为可调用的。
 >
 可调用对象有四种：
 > 1. 函数
 > 2. 函数指针
-> 3. 重载了函数调用运算符的类, 即函数对象（仿函数）
-> 4. lambda表达式 ^6ekdwn
+> 3. 重载了函数调用运算符的类`operator()`, 即函数对象（仿函数）
+> 4. lambda 表达式 ^6ekdwn
+> 5. bind表达式
 
 普通函数的不同：
 1. lambda可以定义在函数内部
@@ -5957,8 +5959,6 @@ int j = absnum(i);  //将i传给absnum.operator()
 for_each(vs.begin(),vs.end(),absInt()); //第三个实参是类型absInt的一个临时对象
 ```
 
-**lambda也是一种函数对象**
-
 ### 标准库内置函数对象
 ![[Pasted image 20230221223643.png]]
 使用时需要包含头文件 `<functional>`
@@ -6042,10 +6042,10 @@ auto mod=[](int i,int j ){return i % j；};
 //函数对象类
 struct divide
 {
-		int operator()(int denominator,int divisor)
-		{
-			return denominator divisor;
-		}
+    int operator()(int denominator,int divisor)
+    {
+        return denominator divisor;
+    }
 }
 ```
 上面这些可调用对象分别对其参数执行了不同的算术运算，尽管它们的类型各不相同，但是共享同一种调用形式：`int (int,int)`
@@ -6056,12 +6056,17 @@ struct divide
 
 ### 【C++11】function 类型
 又称偏函数（partial function）
+
+`std::function` 就是可调用对象的封装器，可以把 `std::function` 看做一个函数对象，用于表示函数这个抽象概念。`std::function` 的实例可以存储、复制和调用任何可调用对象，存储的可调用对象称为 `std::function` 的目标，
+若 `std::function` 不含目标，则称它为空，调用空的 `std::function` 的目标会抛出` std:: bad_function_call` 异常。
+
 #function
 常用function类型来定义函数表。
 ![[Pasted image 20230221224156.png]]
 ```c++
 //在这里我们声明了一个function类型，它可以表示接受两个int、返回一个int的可调用对象。因此，我们可以用这个新声明的类型表示任意一种桌面计算器用到的类型；
 function<int(int,int)>
+function<返回值类型(参数一类型，参数二类型)>
 
 function<int(int,int)> f1 = add;  //函数指针
 function<int (int,int)> f2 = divide();  //函数对象类的对象
