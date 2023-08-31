@@ -1149,7 +1149,7 @@ TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(si
 
 **`TSharedFromThis` 意思就使用 `this` 指针来构造一个共享指针。将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。**
 
->对标的是原生 C++的 `std::enable_shared_from_this`。用法也非常相似。
+>对标的是原生 C++的 `std::enable_shared_from_this`。用法也非常相似?? 存疑
 
 *   自定义类继承 `TSharedFromThis` 模板类
 *   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱引用转换成共享指针。
