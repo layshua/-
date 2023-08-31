@@ -276,24 +276,24 @@
     
 *   非常量转常量 ConstCastSharedPtr
     
-    ```
-    TSharedPtr<SimpleObject> simpleObj;
-    TSharedPtr<ComplexObject> complexObj = MakeShared<ComplexObject>();
-    
-    // 派生类转基类
-    simpleObj = complexObj;
-    UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj is %s"), simpleObj.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
-    
-    // 基类转派生类
-    TSharedPtr<ComplexObject> complexObj2 = StaticCastSharedPtr<ComplexObject>(simpleObj);
-    UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"complexObj2 is %s"), complexObj2.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
-    
-    // 常量指针转非常量指针
-    
-    const TSharedPtr<SimpleObject> simpleObj_const(new SimpleObject());
-    TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(simpleObj_const);
-    UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj_mutable is %s"), simpleObj_mutable.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
-    ```
+```c++
+TSharedPtr<SimpleObject> simpleObj;
+TSharedPtr<ComplexObject> complexObj = MakeShared<ComplexObject>();
+
+// 派生类转基类
+simpleObj = complexObj;
+UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj is %s"), simpleObj.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
+
+// 基类转派生类
+TSharedPtr<ComplexObject> complexObj2 = StaticCastSharedPtr<ComplexObject>(simpleObj);
+UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"complexObj2 is %s"), complexObj2.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
+
+// 常量指针转非常量指针
+
+const TSharedPtr<SimpleObject> simpleObj_const(new SimpleObject());
+TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(simpleObj_const);
+UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"simpleObj_mutable is %s"), simpleObj_mutable.IsValid() ? TEXT("Valid") : TEXT("Not Valid"));
+```
     
 
 ![[ea4025f32fd90d7225cbb290d392b7a0_MD5.png]]
@@ -329,58 +329,75 @@ ObjUniquePtr2 = nullptr;
 
 # 助手类 TSharedFromThis
 
-*   自定义类继承 TSharedFromThis 模板类
+*   自定义类继承 `TSharedFromThis` 模板类
+*   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱指针转换成共享指针。
+    *   `AsShared()` 将裸指针转换为共享引用，可再隐式转为共享指针
+    *   `SharedThis(this)` 会返回具备 "this" 类型的 TSharedRef
+
+*   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
     
-*   TSharedFromThis 会保存一个弱指针
-    
-*   `AsShared()` 将裸指针转智共享引用，可再隐式转为共享指针
-    
-*   `SharedThis(this)` 会返回具备 "this" 类型的 TSharedRef
-    
-*   不要在构造函数中调用 AsShared 或 Shared，共享引用此时并未初始化，将导致崩溃或断言
-    
-    ```
-    // 基类
-    class BaseClass :public TSharedFromThis<BaseClass>
-    {
+```c++
+class BaseClass : public TSharedFromThis<BaseClass>
+{
     public:
-    	BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    	virtual ~BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    	virtual void ExeFun() { 
-    		TSharedRef<BaseClass> ThisAsSharedRef = AsShared();
-    	}
-    };
-    
-    // 派生类
-    class ChildClass :public BaseClass 
+        void printf(){};
+}
+
+void NewMain()
+{
+    //
+    TSharedFromThis<BaseClass> A = MakeShareable(new BaseClass());
+    A->printf();
+
+    BaseClass* B = A.Get();
+    if(B)
     {
-    public:
-    	ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    	virtual ~ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
-    	virtual void ExeFun() override{
-    		 //AsShared()返回 TSharedRef<BaseClass>, 因而编译不通过
-    		//TSharedRef<ChildClass> AsSharedRef = AsShared(); 
+        A->AsShared();    
+    }
+}
+```
+
+
+```c++
+// 基类
+class BaseClass :public TSharedFromThis<BaseClass>
+{
+public:
+    BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
+    virtual ~BaseClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
+    virtual void ExeFun() { 
+        TSharedRef<BaseClass> ThisAsSharedRef = AsShared();
+    }
+};
+
+// 派生类
+class ChildClass :public BaseClass 
+{
+public:
+    ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
+    virtual ~ChildClass() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__)); }
+    virtual void ExeFun() override{
+         //AsShared()返回 TSharedRef<BaseClass>, 因而编译不通过
+        //TSharedRef<ChildClass> AsSharedRef = AsShared(); 
+
+        TSharedRef<ChildClass> AsSharedRef = SharedThis(this);
+    }
+};
+```
     
-    		TSharedRef<ChildClass> AsSharedRef = SharedThis(this);
-    	}
-    };
-    ```
-    
-    ```
-    TSharedPtr<BaseClass> BaseClassPtr = MakeShared<BaseClass>();
-    UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d]"), BaseClassPtr.GetSharedReferenceCount());
-    
-    BaseClass* tempPtr = BaseClassPtr.Get();
-    TSharedPtr<BaseClass> BaseClassPtr_Shared =tempPtr->AsShared();
-    UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d], BaseClassPtr_Shared[%d]"), 
-    	BaseClassPtr.GetSharedReferenceCount(), BaseClassPtr_Shared.GetSharedReferenceCount());
-    
-    // 使用下面语句运行，程序死机
-    // TSharedPtr<BaseClass> BaseClassPtr_New = MakeShareable(tempPtr);
-    ```
-    
+```c++
+TSharedPtr<BaseClass> BaseClassPtr = MakeShared<BaseClass>();
+UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d]"), BaseClassPtr.GetSharedReferenceCount());
+
+BaseClass* tempPtr = BaseClassPtr.Get();
+TSharedPtr<BaseClass> BaseClassPtr_Shared =tempPtr->AsShared();
+UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__" 引用计数：BaseClassPtr[%d], BaseClassPtr_Shared[%d]"), 
+    BaseClassPtr.GetSharedReferenceCount(), BaseClassPtr_Shared.GetSharedReferenceCount());
+
+// 使用下面语句运行，程序死机
+// TSharedPtr<BaseClass> BaseClassPtr_New = MakeShareable(tempPtr);
+```
     ![[6a59e5818b262084b4dca42dadd8be69_MD5.png]]
-    
 
 # 注意
 
