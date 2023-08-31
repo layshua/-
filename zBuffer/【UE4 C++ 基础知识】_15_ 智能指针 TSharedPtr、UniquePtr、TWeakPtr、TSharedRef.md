@@ -1,27 +1,3 @@
-# 基本概念
-
-*   UE4 对 UObject 对象提供垃圾回收
-*   UE4 对原生对象不提供垃圾回收，需要手动进行清理
-    *   方式
-        *   **malloc / free**
-        *   **new / delete**  
-            new 与 malloc 的区别在于，new 在分配内存完成之后会调用构造函数。
-    *   缺点
-        *   如果不及时清理，则会占用内存，或者导致内存泄漏
-        *   如果不小心提前清理，则会导致野指针
-*   UE4 提供共享指针库来管理内存，它是 C++11 智能指针的自定义实现
-    *   分类
-        *   **TSharedPtr**
-        *   **UniquePtr**
-        *   **TWeakPtr**
-        *   **TSharedRef**
-    *   优点
-        *   **防止内存泄漏** 共享引用不存在时，智能指针（弱指针除外）会自动删除对象。
-        *   **弱引用** 弱指针会中断引用循环并阻止悬挂指针。
-        *   **可选择的线程安全** 虚幻智能指针库包括线程安全代码，可跨线程管理引用计数。如无需线程安全，可用其换取更好性能。
-        *   **运行时安全** 共享引用从不为空，可固定随时取消引用。
-        *   **授予意图** 可轻松区分对象所有者和观察者。
-        *   **内存** 智能指针在 64 位下仅为 C++ 指针大小的两倍（加上共享的 16 字节引用控制器）。唯一指针除外，其与 C++ 指针大小相同。
 
 # 共享指针 TSharedPtr
 
@@ -34,7 +10,7 @@
     
 *   `Reset()` 函数
     
-    ```
+    ```c++
     class SimpleObject {
     public:
     	SimpleObject() { UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"SimpleObject Construct")); }
@@ -43,7 +19,7 @@
     };
     ```
     
-    ```
+    ```c++
     // 快速创建共享指针
     TSharedPtr<SimpleObject> simObjectPtr(new SimpleObject());
     // MakeShareable 创建共享指针
@@ -70,7 +46,7 @@
     
 *   MoveTemp / MoveTempIfPossible
     
-    ```
+    ```c++
     // 复制共享指针
     TSharedPtr<SimpleObject> simObjectPtr_copy = simObjectPtr;
     UE_LOG(LogTemp, Warning, TEXT(__FUNCTION__"引用计数: simObjectPtr[%d], simObjectPtr_copy[%d],"),
@@ -331,7 +307,7 @@ ObjUniquePtr2 = nullptr;
 
 *   自定义类继承 `TSharedFromThis` 模板类
 *   `TSharedFromThis` 会保存一个**弱引用**，可以通过弱指针转换成共享指针。
-    *   `AsShared()` 将裸指针转换为共享引用，可再隐式转为共享指针
+    *   `AsShared()` 将裸指针转换为共享引用，如果需要，我们可以再隐式转为共享指针
     *   `SharedThis(this)` 会返回具备 "this" 类型的 TSharedRef
 
 *   不要在构造函数中调用 `AsShared` 或 `Shared`，共享引用此时并未初始化，将导致崩溃或断言
@@ -345,14 +321,19 @@ class BaseClass : public TSharedFromThis<BaseClass>
 
 void NewMain()
 {
-    //
-    TSharedFromThis<BaseClass> A = MakeShareable(new BaseClass());
+    //创建共享指针访问成员函数
+    TSharedPtr<BaseClass> A = MakeShareable(new BaseClass());
     A->printf();
 
+    //将A解引用，将共享指针转换为裸指针
     BaseClass* B = A.Get();
+
+    //对于普通的类，我们如果想把B在转换为共享指针，需要再次调用MakeShareable创建新的共享指针
+    //这里BaseClass继承了TSharedFromThis，因此我们可以直接将指向BaseClass的裸指针B转换为共享引用
+    //通将共享引用转换为弱指针即可
     if(B)
     {
-        A->AsShared();    
+        B->AsShared();    
     }
 }
 ```

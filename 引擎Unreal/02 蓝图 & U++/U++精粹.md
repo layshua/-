@@ -745,13 +745,6 @@ UE 智能指针不能用于与 `UObject` 及其派生类不兼容。**常用于
 
 智能指针可影响其包含或引用对象的寿命。不同智能指针对对象有不同的限制和影响。下表可用于协助决定各类型智能指针的适用情况：
 
-|智能指针类型|适用情形|
-|---|---|
-|**共享指针**（`TSharedPtr`）|共享指针拥有其引用的对象，无限防止该对象被删除，并在无共享指针或共享引用（见下文）引用其时，最终处理其的删除。**共享指针可为空白，意味其不引用任何对象。** 任何非空共享指针都可对其引用的对象生成共享引用。|
-|**共享引用**（`TSharedRef`）|共享引用的行为与共享指针类似，即其拥有自身引用的对象。对于空对象而言，其存在不同；**共享引用须固定引用非空对象。共享指针无此类限制，因此共享引用可固定转换为共享指针，且该共享指针固定引用有效对象。** 要确认引用的对象是非空，或者要表明共享对象所有权时，请使用共享引用。|
-|**弱指针**（`TWeakPtr`）|弱指针类与共享指针类似，但不拥有其引用的对象，因此不影响其生命周期。此属性中断引用循环，因此十分有用，但也意味弱指针可在无预警的情况下随时变为空。因此，弱指针可生成指向其引用对象的共享指针，确保程序员能对该对象进行安全临时访问。|
-|**唯一指针**（`TUniquePtr`）|唯一指针仅会显式拥有其引用的对象。仅有一个唯一指针指向给定资源，因此唯一指针可转移所有权，但无法共享。复制唯一指针的任何尝试都将导致编译错误。唯一指针超出范围时，其将自动删除其所引用的对象。|
-
 共享指针：最常用的指针, 用来存储。
 
 共享引用
@@ -906,60 +899,55 @@ TSharedPtr<FAssetDragDropOp> DragDropOp = StaticCastSharedPtr<FAssetDragDropOp>(
 
 ##  TSharedPtr
 
-**共享指针（Shared Pointers）** 是指既健壮、又能为空指针的智能指针。**共享指针沿袭了普通智能指针的所有优点**，它能避免出现内存泄漏、悬挂指针，还能避免指针指向未初始化的内存。
+> [!NOTE] 共享指针
+> **共享指针（Shared Pointers）** 是指既健壮、又能为空指针的智能指针。**共享指针沿袭了普通智能指针的所有优点**，它能避免出现内存泄漏、悬挂指针，还能避免指针指向未初始化的内存。
+> 
+> **还有一些其他特点**：
+> - **共享所有权（Shared Ownership）：** 引用计数支持多个共享指针，以确保它们引用的数据对象永远不被删除，前提是它们中的任意一个仍指向数据对象。
+> - **自动失效（Automatic Invalidation）：** 你可安全引用易变对象，无需担心出现悬挂指针。
+> - **弱引用：** 弱指针可中断引用循环。
+> - **意向指示（Indication of Intent）：** 区分拥有者（参见[共享引用](https://docs.unrealengine.com/5.2/zh-CN/shared-references-in-unreal-engine)）和观察者，并提供不可为空的引用。
+>     
+> **共享指针有一些值得注意的基本特性，包括：**
+> - 语法非常健壮
+> - 非侵入式（但能反射）
+> - 线程安全（视情况而定）
+> - 性能佳，占用内存少
 
-**还有一些其他特点**：
-- **共享所有权（Shared Ownership）：** 引用计数支持多个共享指针，以确保它们引用的数据对象永远不被删除，前提是它们中的任意一个仍指向数据对象。
-- **自动失效（Automatic Invalidation）：** 你可安全引用易变对象，无需担心出现悬挂指针。
-- **弱引用：** [弱指针](https://docs.unrealengine.com/5.2/zh-CN/weak-pointers-in-unreal-engine)可中断引用循环。
-- **意向指示（Indication of Intent）：** 区分拥有者（参见[共享引用](https://docs.unrealengine.com/5.2/zh-CN/shared-references-in-unreal-engine)）和观察者，并提供不可为空的引用。
-    
+**共享指针类似于共享引用，<font color="#ff0000">主要区别在于共享指针可以指向空对象，共享引用不可为空</font>。**
+除非需要空对象或可为空的对象，否则建议你**优先选择共享引用**。
 
-**共享指针有一些值得注意的基本特性，包括：**
-- 语法非常健壮
-- 非侵入式（但能反射）
-- 线程安全（视情况而定）
-- 性能佳，占用内存少
+### 1 声明和初始化
 
-**共享指针类似于共享引用，<font color="#ff0000">主要区别在于共享引用不可为空，因此会始终引用有效对象</font>。**
-**在共享引用和共享指针之间进行选择时，除非需要空对象或可为空的对象，否则建议你优先选择共享引用。**
+**共享指针可为空**，所以无论有无数据对象，都可以对它们进行初始化。
 
-### 声明和初始化
-
-因为**共享指针可为空**，所以无论有无数据对象，都可以对它们进行初始化。以下是创建共享指针的一些示例：
-
-- **`MakeShared<>`** ：创建共享指针
+- **`MakeShared<T>() / MakeShareable() ` ：创建共享指针
 
 ```c++
-// 创建一个空白的共享指针
+// 创建空白的共享指针
 TSharedPtr<FMyObjectType> EmptyPointer;
-// 为新对象创建一个共享指针
+
+// 为新对象创建共享指针
 TSharedPtr<FMyObjectType> NewPointer(new FMyObjectType());
-// 从共享引用创建一个共享指针
+TSharedPtr<FMyObjectType> NewPointer = MakeShareable(new FMyObjectType());
+
+// 从共享引用创建共享指针
 TSharedRef<FMyObjectType> NewReference(new FMyObjectType());
 TSharedPtr<FMyObjectType> PointerFromReference = NewReference;
-// 创建一个线程安全的共享指针
+
+// 创建线程安全的共享指针
 TSharedPtr<FMyObjectType, ESPMode::ThreadSafe> NewThreadsafePointer = MakeShared<FMyObjectType, ESPMode::ThreadSafe>(MyArgs);
 ```
 
-在第二个示例中，`NodePtr` 实际上拥有新的 `FMyObjectType` 对象，因为没有其他共享指针引用该对象。如果 `NodePtr` 超出范围，并且没有其他共享指针或共享引用指向该对象，那么该对象将被销毁。
+### 2 复制/转移
 
-- **复制共享指针时，系统将向它引用的对象添加一个引用。**
+**复制共享指针时，系统将向它引用的对象添加一个引用。**
 
 ```c++
-// 增加任意对象ExistingSharedPointer引用的引用数。
+// 增加对象ExistingSharedPointer引用的引用数。
 TSharedPtr<FMyObjectType> AnotherPointer = ExistingSharedPointer;
 ```
 
-对象将持续存在，直到不再有共享指针（或共享引用）引用它为止。
-
-- **使用 `Reset` 函数、或分配一个空指针来重设共享指针，如下所示：**
-
-```c++
-PointerOne.Reset();
-PointerTwo = nullptr;
-// PointerOne和PointerTwo现在都引用nullptr。
-```
 
 - **使用 `MoveTemp`（或 `MoveTempIfPossible`）函数将一个共享指针的内容转移到另一个共享指针，将原始的共享指针保留为空：**（对应 C++的 std::move）
 
@@ -972,7 +960,16 @@ PointerOne = MoveTempIfPossible(PointerTwo);
 
 `MoveTemp` 和 `MoveTempIfPossible` 的唯一不同之处在于 `MoveTemp` 包含静态断言，强制其只能在非常量左值（lvalue）上执行。
 
-### 共享指针与共享引用转换
+### 3 重置
+**使用 `Reset` 函数、或分配一个空指针来重置共享指针
+
+```c++
+PointerOne.Reset();
+PointerTwo = nullptr;
+// PointerOne和PointerTwo现在都引用nullptr。
+```
+
+### 4 共享指针与共享引用转换
 
 在共享指针与共享引用之间进行转换是一种常见的做法。**共享引用隐式地转换为共享指针，并提供新的共享指针将引用有效对象的额外保证**。转换由普通语法处理：
 
@@ -990,9 +987,10 @@ if (MySharedPointer.IsValid())
 }
 ```
 
-### 对比
+### 5 相等性 / 有效性
 
-**你可以测试共享指针彼此间的相等性**。在此情境中，相等被定义为两个共享指针引用同一对象。
+`==` `!=`：共享指针是否相等
+相等被定义为两个共享指针引用同一对象。
 
 ```c++
 TSharedPtr<FTreeNode> NodeA, NodeB;
@@ -1026,7 +1024,7 @@ if (Node.IsValid() && Node.Get())
 }
 ```
 
-### 解引用和访问
+### 6 解引用和访问
 
 你可以像使用普通C++指针那样解引用，调用方法和访问成员。你也可以像使用其他C++指针那样，通过调用 **`IsValid`** 函数或使用重载的 `bool` 运算符，在取消引用之前执行空检查。
 
@@ -1041,7 +1039,7 @@ if (Node)
 }
 ```
 
-### 自定义删除器
+### 7 自定义删除器
 
 **共享指针和共享引用支持对它们引用的对象使用自定义删除器**。如需运行自定义删除代码，请**提供lambda函数**，作为创建智能指针时使用的参数，就像这样：
 
@@ -1191,6 +1189,8 @@ AnotherObjectObserver.Reset();
 - **在[Set](https://docs.unrealengine.com/5.2/zh-CN/set-containers-in-unreal-engine)或[Map](https://docs.unrealengine.com/5.2/zh-CN/map-containers-in-unreal-engine)中用作键。弱指针可能会在未通知容器的情况下随时无效，因此共享指针或共享引用更适用于充当键。可安全地将弱指针用作数值。
 - 虽然弱指针提供 `IsValid` 函数，但是检查 `IsValid` 无法保证对象在任何时间长度内均可持续有效。线程安全共享指针可能会因另一线程上的活动而随时无效，因此使用线程安全共享指针应尤其注意。`Pin` 返回的共享指针将使对象在代码将其清除或其超出范围前保持活跃状态，**因此 `Pin` 函数是用于检查的首选方法，此类检查会导致取消引用或访问存储对象。**
 
+## TUniquePtr
+唯一指针仅会显式拥有其引用的对象。仅有一个唯一指针指向给定资源，因此唯一指针可转移所有权，但无法共享。复制唯一指针的任何尝试都将导致编译错误。唯一指针超出范围时，其将自动删除其所引用的对象。
 # 九、容器
 
 ## TArray 数组
