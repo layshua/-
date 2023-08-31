@@ -8107,6 +8107,7 @@ OutputVector
 OutActors
 OutResult
 OutXY
+ObjUniquePtr
 codeup
 clash
 ctrl
@@ -39502,6 +39503,7 @@ Visul
 VisualStudio
 VerityImport
 Verbose
+Validity
 verge
 vPdIt
 vertical
@@ -51223,6 +51225,7 @@ UGameInstance
 UnPauseTimer
 UCurveTable
 UTestBlueprintFunctionLibrary
+UniquePtr
 api
 ac
 app
@@ -64719,6 +64722,7 @@ MultipleOutputs
 MAXLEN
 MAXLINE
 MergeSort
+MakeUnique
 Windows
 Win
 World
@@ -73970,6 +73974,7 @@ StringNode
 SIZE
 ShellSort
 SelectSort
+SharedPointer
 Programs
 POP
 PC
@@ -82991,6 +82996,7 @@ CTree
 CSNode
 CSTree
 Crear
+ConstStaticCastSharedRef
 ImTip
 IMAP
 ID
@@ -115327,6 +115333,7 @@ ThreadNode
 ThreadTree
 TreadNode
 TREE
+TWeakObjectPtr
 io
 ipad
 it
@@ -156443,6 +156450,7 @@ FTran
 FormattedText
 Found
 Firstnode
+FStructures
 Element
 Entity
 Enity
