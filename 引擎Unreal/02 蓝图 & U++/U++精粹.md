@@ -773,8 +773,8 @@ enum class EMyEnum : uint8
 
 |助手类|描述|
 |---|---|
-|`TSharedFromThis` |在添加 `AsShared` 或 `SharedThis` 函数的 `TSharedFromThis` 中衍生类。利用此类函数可获取对象的 `TSharedRef`。|
-|**函数** |   |  |
+|`TSharedFromThis` |在添加 `AsShared` 或 `SharedThis` 函数的 `TSharedFromThis` 中衍生类。利用此类函数可获取对象的 `TSharedRef`。 |
+|**函数** |  |  |
 |`MakeShared` 和 `MakeShareable`|在常规C++指针中创建共享指针。`MakeShared` 会在单个内存块中分配新的对象实例和引用控制器，但要求对象提交公共构造函数。`MakeShareable` 的效率较低，但即使对象的构造函数为私有，其仍可运行。利用此操作可拥有非自己创建的对象，并在删除对象时支持自定义行为。|
 |`StaticCastSharedRef` 和 `StaticCastSharedPtr`|静态投射效用函数，通常用于向下投射到衍生类型。|
 |`ConstCastSharedRef` 和 `ConstCastSharedPtr`|将 `const` 智能引用或智能指针分别转换为 `mutable` 智能引用或智能指针。|
@@ -1052,7 +1052,7 @@ TSharedRef<FMyObjectType> NewReference = MakeShared<FMyObjectType>();
 
 ```c++
 //以下两者均不会编译：
-TSharedRef<FMyObjectType> UnassignedReference;
+TSharedRef<FMyObjectType> UnassignedReference; 
 TSharedRef<FMyObjectType> NullAssignedReference = nullptr;
 //以下会编译，但如NullObject实际为空则断言。
 TSharedRef<FMyObjectType> NullAssignedReference = NullObject;
@@ -1060,7 +1060,7 @@ TSharedRef<FMyObjectType> NullAssignedReference = NullObject;
 
 ### 共享指针和共享引用间的转换
 
-**共享指针和共享引用间的转换十分常见。共享引用会隐式转换为共享指针，并为新共享指针引用有效对象提供额外保证。使用普通语法处理转换：**
+**共享引用可以直接隐式转换为共享指针**，并为新共享指针引用有效对象提供额外保证：
 
 ```c++
 TSharedPtr<FMyObjectType> MySharedPointer = MySharedReference;

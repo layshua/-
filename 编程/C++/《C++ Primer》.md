@@ -1630,14 +1630,14 @@ break使用的时机：
 
 而对于 main 函数，返回值是 int，并且只有 main 函数可以不 return——它会自动假设返回 0.（这是现代 C 和 C++ 的一个特性）
 
-## 空形参列表
+## 1 空形参列表
 ```c++
 //形参列表可以为空，下列两种方式等价
 void func() {};
 void func(void) {};  //兼容c
 ```
 
-## main处理命令行选项
+## 2 main 处理命令行选项
 有时我们需要给main传递实参，一种常见的情况是用户通过设置一组选项来确定函数所要执行的操作。
 例如，假定main函数位于可执行文件prog内，我们可以向程序传递下面的选项：
 ```c++
@@ -1738,7 +1738,7 @@ void main(int value,char **point)
 ```
 
 
-## 【C++11】 含有可变形参的函数
+## 3 【C++11】 含有可变形参的函数
 编写处理不同数量形参的函数，C++11有两种方法：
 1. 如果所有实参类型相同，可以使用 `initialize_list` 的标准库类型 
 2. 如果实参类型不同，可以编写可变参数模板P618
@@ -1788,7 +1788,7 @@ void foo (...);
 
 第一种形式指定了 foo 函数的部分形参的类型，对应于这些形参的实参将会执行正常的类型检查。省略符形参所对应的实参无须类型检查。在第一种形式中，形参声明后面的逗号是可选的。
 
-## 【C++11】尾置返回类型
+## 4 【C++11】尾置返回类型
 
 任何函数的定义都能使用尾置返回，但是**这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用**。
 
@@ -1815,7 +1815,7 @@ auto func(int i) -> int (*)[10];
 ```
 
 因为我们把函数的返回类型放在了形参列表之后，所以我们可以很清晰地看到func函数返回的是一个指针，并且该指针指向了一个含有10个整数的数组。
-## 默认实参
+## 5 默认实参
 - 局部变量不能作为默认实参
 - 调用含有默认实参的函数时，可以包含该实参，也可以省略该实参
 - 设计时尽量让不怎么使用默认值的参数出现在前面
@@ -1832,7 +1832,7 @@ string screen(int height = 24, int width = 80, char background = ' ');
 	window = screen( , , "S") // 错误，只能从尾部填充
 ```
 
-## 函数指针
+## 6 函数指针
 #函数指针
 
 ```c++
@@ -1926,7 +1926,8 @@ int main() {
 }
 ```
 
-## 【C++11】lambda表达式
+## 7【C++11】lambda 表达式
+#lambda
 lambada 即 λ 的读音
 
 可以理解为一个临时函数，适用于那种只在一两处使用的简单操作。
@@ -1949,47 +1950,6 @@ auto f = [] { return 42;}  //auto为int型
 cout<<f()<<endl; //输出42
 ```
 
-### 指定lambda返回类型
-
-> [!NOTE] lambda返回类型
-> 如果lambda的函数体只有一个return语句，则返回类型从返回的表达式的类型推断。
-> 
-> 如果lambda的函数体有多个return语句，则要求所有return的表达式类型相同。
-> 
-> 如果lambda的函数体没有return语句，则返回类型为void。
-
-```c++
-//将序列中的负数都改为正数
-int main()
-{
-		vector<int> v{-1,-2,3,4,-5};
-		//正确：无需指定返回类型，编译器推断返回int
-		transform(v.begin(), v.end(), v.begin(),
-			[](int i) {return i < 0 ? -i : i; });
-
-		for (auto value : v)
-		{
-			cout << value << endl; //输出1 2 3 4 5
-		}
-}
-
-
-//用if改写，看起来等价
-//正确：return的表达式类型都是int
-transform(v.begin(), v.end(), v.begin (),
-		  [](int i) {if(i < 0) return -i; else return i;}) 
-
-//使用尾置返回类型，指定lambda返回类型
-transform(v.begin(), v.end(), v.begin (),
-		  [](int i)->int {if(i < 0) return -i; else return i;}) 
-
-
-//无return，返回类型为void
-//错误，lambda返回了void，而vector元素是int类型，无法完成转换
-transform(v.begin(), v.end(), v.begin(),
-		[](int i) {if (i < 0)  i*=-1; });
-	
-```
 ### 捕获列表
 **捕获列表**是一个lambda所在函数中定义的局部变量的列表（通常为空）
 ![[Pasted image 20230212201442.png]]
@@ -2079,6 +2039,250 @@ void fcn3()
 		v1=0:
 		auto j=f();//j改变为43
 }
+```
+
+### 指定lambda返回类型
+
+> [!NOTE] lambda返回类型
+> 如果lambda的函数体只有一个return语句，则返回类型从返回的表达式的类型推断。
+> 
+> 如果lambda的函数体有多个return语句，则要求所有return的表达式类型相同。
+> 
+> 如果lambda的函数体没有return语句，则返回类型为void。
+
+```c++
+//将序列中的负数都改为正数
+int main()
+{
+		vector<int> v{-1,-2,3,4,-5};
+		//正确：无需指定返回类型，编译器推断返回int
+		transform(v.begin(), v.end(), v.begin(),
+			[](int i) {return i < 0 ? -i : i; });
+
+		for (auto value : v)
+		{
+			cout << value << endl; //输出1 2 3 4 5
+		}
+}
+
+
+//用if改写，看起来等价
+//正确：return的表达式类型都是int
+transform(v.begin(), v.end(), v.begin (),
+		  [](int i) {if(i < 0) return -i; else return i;}) 
+
+//使用尾置返回类型，指定lambda返回类型
+transform(v.begin(), v.end(), v.begin (),
+		  [](int i)->int {if(i < 0) return -i; else return i;}) 
+
+
+//无return，返回类型为void
+//错误，lambda返回了void，而vector元素是int类型，无法完成转换
+transform(v.begin(), v.end(), v.begin(),
+		[](int i) {if (i < 0)  i*=-1; });
+	
+```
+## 8【C++11】 bind 参数绑定
+#bind
+
+如果 lambda 的捕获列表为空，通常可以用函数来代替它。但是，对于**捕获局部变量的 lambda**，用函数来替换它就不是那么容易了。
+
+例如，我们用在 `find_if` 调用中的 lambda 比较一个 string 和一个给定大小。我们可以很容易地编写一个完成同样工作的函数:
+
+```c++
+bool check_size (const string &s, string: : size_type sz)
+{
+    return s.size ()>=sz;
+}
+```
+
+但是，我们不能用这个函数作为 `find_if` 的一个参数。`find_if` 接受一个一元谓词，因此传递给 `find_if` 的可调用对象必须接受单一参数。假设传递给 find_if 的 lambda 使用捕获列表来保存 sz。**为了用 check_size 来代替此 lambda，必须解决如何向 sz 形参传递一个参数的问题。**
+我们可以解决向 check_size 传递一个长度参数的问题，方法是使用一个新的名为 bind 的标准库函数，它定义在头文件 functional 中。
+
+#### bind 函数
+可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
+
+```c++
+//调用bind的一般形式：
+auto newCallable = bind (callable, arg_list);
+```
+- `newCallable` 本身是一个可调用对象
+- `arg_list` 是一个逗号分隔的参数列表，对应给定的 `callable` 的参数。
+- **即当我们调用 `newCallable` 时，`newCallable` 会调用 `callable`, 并传递给它 `arg_list` 中的参数。**
+
+`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“**占位符**”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
+- 数值 `n` 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
+-  `arg_list` 中使用占位符的位置需要我们传入参数，若使用给定值，则不用传参。
+-  `_n` 都定义在 `std::placeholders` 命名空间： `std::placeholders::_n`
+
+### 函数参数绑定
+作为一个简单的例子，我们将使用 bind 生成一个调用 check_size 的对象，如下所示，它用一个定值作为其大小参数来调用 check_size: 
+```c++
+// check6是一个可调用对象，接受一个string类型的参数
+// 并用此string和值6来调用check_size
+auto check6 = bind(check_size, _1,6);
+```
+此bind 调用只有一个占位符，表示check6只接受单一参数。占位符出现在arg_list 的第一个位置，表示 check6的此参数对应 check_size 的第一个参数。此参数是一个const string&。因此，调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size。
+```c++
+string s = "hello";
+bool b1 = check6(s); // check6(s)会调用 check_size(s,6)
+```
+
+使用 bind，我们可以将原来基于 lambda 的 `find_if` 调用: 
+```c++
+auto wc= find_if(words.begin(), words.end (),[sz] (const string &a)
+```
+替换为如下使用 `check_size` 的版本: 
+```c++
+auto wc = find_if(words.begin(), words.end( ),bind(check_size,_1, sz));
+```
+此 bind 调用生成一个可调用对象，将 check_size 的第二个参数绑定到 sz 的值。当 `find_if` 对 words 中的 string 调用这个对象时，这些对象会调用 `check_size`，将给定的 string 和 sz 传递给它。因此，find_if 可以有效地对输入序列中每个 string 调用 check_size，实现 string 的大小与 sz 的比较。 
+#### 与 function 类型联用
+```c++
+#include <functional>
+using namespace std;
+using namespace std::placeholders;
+
+void print(int n, int base); // 按 base 进制来输出 n
+
+//普通使用
+
+//function 与 bind 结合使用​
+function<void(int)> print10 = bind(print, _1, 10);
+print10(23); //相当于 print(23, 10)
+```
+
+### 修正参数的值
+```c++
+using namespace std::placeholders; 
+
+bool check_size(const std::string &s, std::string::size_type sz)
+{
+    return s.size()>=sz;
+}
+
+//check6是一个可调用对象，接受一个string类型的参数
+//并用此string和值6来调用check_size
+auto check6 = bind(check_size, _1, 6);
+//占位符出现在arg_list的第一个位置，表示check6的此参数对应check_size的第一个参数。此参数是一个const string&
+//因此调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size
+string s = "hello";
+bool b1 = check6(s); //check6(s)会调用check size(s,6)
+```
+
+### 重排参数顺序
+例如，假定 f 是一个可调用对象，它有 5 个参数，则下面对 bind 的调用：
+```c++
+//g是一个有两个参数的可调用对象
+auto g = bind(f,a,b,_2,c,_1);
+```
+
+生成一个新的可调用对象，它有两个参数，分别用占位符 `_2` 和 `_1` 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
+传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
+
+下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
+的含义：
+```c++
+//按单词长度由短至长排序
+sort (words.begin(), words.end(), isShorter);
+//按单词长度由长至短排序
+sort (words.begin(), words.end(), bind(isShorter,2,1));
+```
+在第一个调用中，当 sort 需要比较两个元素 A 和 B 时，它会调用 isShorter (A, B)。
+在第二个对 sort 的调用中，传递给 isShorter 的参数被交换过来了。因此，当 sort 比较两个元素时，就好像调用 isShorter (B, A)一样。
+
+### ref 函数：绑定引用参数
+#ref
+默认情况下，bind 的那些不是占位符的参数被拷贝到 bind 返回的可调用对象中。但是，与 lambda 类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
+例如，为了替换一个引用方式捕获 ostream 的 lambda:
+```c++
+//os是一个局部变量，引用一个输出流
+//c是一个局部变量，类型为char
+for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
+
+//可以很容易地编写一个函数，完成相同的工作：
+ostream &print(ostream &os, const string &s, char c)
+{
+    return os << s << c;
+}
+
+//但是，不能直接用bind来代替对os的捕获：
+//错误：不能拷贝os
+for_each (words.begin(), words.end(), bind(print, os, _1,' '));
+```
+
+原因在于 bind 拷贝其参数，而我们不能拷贝一个 ostream。如果我们希望传递给 bind 一个对象而又不拷贝它，就必须使用标准库 `ref` 函数：
+```c++
+for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
+```
+函数 `ref` 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
+
+### bind1st () 和 bind2nd ()
+
+`bind1st()` 和 `bind2nd()`，只能绑定第一个或第二个参数，局限性太强，在 C++11 里已经**弃用**了，建议使用新标准的 `bind()`，用法更灵活更方便。  
+下面先说明 `bind1st()` 和 `bind2nd()` 的用法
+
+`bind1st()` 和 `bind2nd()` 都是把二元函数转化为一元函数，方法是绑定其中一个参数。  
+`bind1st()` 是绑定第一个参数。  
+`bind2nd()` 是绑定第二个参数。
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind2nd(less<int>(), 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind1st(less<int>(), 40));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+结果：
+```c++
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
+```
+
+`less()` 是一个二元函数，`less(a, b)` 表示判断 `a<b` 是否成立。
+所以 `bind2nd(less<int>(), 40)` 相当于 `x<40` 是否成立, 用于判定那些小于 40 的元素。
+`bind1st(less<int>(), 40)` 相当于 `40<x` 是否成立, 用于判定那些大于 40 的元素。
+
+上面的例子使用 `bind()` 可以写成下面的形式：
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+    int numbers[] = { 10,20,30,40,50,10 };
+    int cx;
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), std::placeholders::_1, 40));
+    cout << "There are " << cx << " elements that are less than 40.\n";
+
+    cx = count_if(numbers, numbers + 6, bind(less<int>(), 40, std::placeholders::_1));
+    cout << "There are " << cx << " elements that are not less than 40.\n";
+
+    system("pause");
+    return 0;
+}
+```
+
+结果:
+```
+There are 4 elements that are less than 40.
+There are 1 elements that are not less than 40.
 ```
 
 # 六、面向对象 OOP
@@ -6157,200 +6361,6 @@ binops.insert( { "+",fp} ); //正确:fp指向一个正确的add版本
 ```c++
 //正确: 使用 lambda 来指定我们希望使用的 add 版本
 binops.insert ( { "+", [](int a, int b) {return add (a, b); } });
-```
-
-## 9【C++11】 bind 参数绑定
-#bind
-
-#### 绑定普通函数
-可以将 bind 函数看作一个通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
-
-```c++
-//调用bind的一般形式：
-auto newCallable = bind (callable, arg_list);
-```
-- `newCallable` 本身是一个可调用对象
-- `arg_list` 是一个逗号分隔的参数列表，对应给定的 `callable` 的参数。
-- **即当我们调用 `newCallable` 时，`newCallable` 会调用 `callable`, 并传递给它 `arg_list` 中的参数。**
-
-`arg_list` 中的参数可能包含形如 `_n` 的名字，其中 n 是一个整数。这些参数是“**占位符**”, 表示 newCallable 的参数，它们占据了传递给 newCallable 的参数的“位置”。
-- 数值 `n` 表示生成的可调用对象中参数的位置：`_1` 为 newCallable 的第一个参数，`_2` 为第二个参数，依此类推。
--  `arg_list` 中使用占位符的位置需要我们传入参数，若使用给定值，则不用传参。
--  `_n` 都定义在 `std::placeholders` 命名空间： `std::placeholders::_n`
-
-```c++
-#include <functional>
-using namespace std;
-using namespace std::placeholders;
-
-void print(int n, int base); // 按 base 进制来输出 n
-
-//普通使用
-
-//function 与 bind 结合使用​
-function<void(int)> print10 = bind(print, _1, 10);
-print10(23); //相当于 print(23, 10)
-```
-#### 绑定类的成员函数
-类的成员函数必须通过类的对象或者指针调用，因此在 `bind` 时， `arg_list` 中的**第一个参数的位置来指定一个类的实列、指针或引用。**
-```c++ h:21
-class Test
-{
-public:
-    int funs(int val)
-    {
-        std::cout << "hello world" << val << std::endl;
-        return val;
-    }
-};
- 
-class message
-{
-public:
-    std::function<int()> fun;
-};
- 
-int main()
-{
-    Test test;
-    message *mes = new message;
-    mes->fun = std::bind(&Test::funs,test,2);  //test为类的实例
-    cout << mes->fun() <<endl;
-}
-```
-
-**bind 功能如下：**
-#### 修正参数的值
-```c++
-using namespace std::placeholders; 
-
-bool check_size(const std::string &s, std::string::size_type sz)
-{
-    return s.size()>=sz;
-}
-
-//check6是一个可调用对象，接受一个string类型的参数
-//并用此string和值6来调用check_size
-auto check6 = bind(check_size, _1, 6);
-//占位符出现在arg_list的第一个位置，表示check6的此参数对应check_size的第一个参数。此参数是一个const string&
-//因此调用check6必须传递给它一个string类型的参数，check6会将此参数传递给check_size
-string s = "hello";
-bool b1 = check6(s); //check6(s)会调用check size(s,6)
-```
-
-#### 重排参数顺序
-例如，假定 f 是一个可调用对象，它有 5 个参数，则下面对 bind 的调用：
-```c++
-//g是一个有两个参数的可调用对象
-auto g = bind(f,a,b,_2,c,_1);
-```
-
-生成一个新的可调用对象，它有两个参数，分别用占位符 `_2` 和 `_1` 表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给 f。f 的第一个、第二个和第四个参数分别被绑定到给定的值 a、b 和 c 上。
-传递给 g 的参数按位置绑定到占位符。即，第一个参数绑定到_1，第二个参数绑定到_2。因此，当我们调用 g 时，其第一个参数将被传递给 f 作为最后一个参数，第二个参数将被传递给 f 作为第三个参数。实际上，这个 bind 调用会将 `g(_1,_2)` 映射为 `f(a,b,_2,c,1)` 即，对 g 的调用会调用 f, 用 g 的参数代替占位符，再加上绑定的参数 a、b 和 c。例如，调用 `g(X,Y)` 会调用 `f(a,b,Y,c,X)`
-
-下面是用 bind 重排参数顺序的一个具体例子，我们可以用 bind 颠倒 isShroter
-的含义：
-```c++
-//按单词长度由短至长排序
-sort (words.begin(), words.end(), isShorter);
-//按单词长度由长至短排序
-sort (words.begin(), words.end(), bind(isShorter,2,1));
-```
-在第一个调用中，当 sort 需要比较两个元素 A 和 B 时，它会调用 isShorter (A, B)。
-在第二个对 sort 的调用中，传递给 isShorter 的参数被交换过来了。因此，当 sort 比较两个元素时，就好像调用 isShorter (B, A)一样。
-
-#### ref 函数：绑定引用参数
-#ref
-默认情况下，bind 的那些不是占位符的参数被拷贝到 bind 返回的可调用对象中。但是，与 lambda 类似，**有时对有些绑定的参数我们希望以引用方式传递，或是要绑定参数的类型无法拷贝。**
-例如，为了替换一个引用方式捕获 ostream 的 lambda:
-```c++
-//os是一个局部变量，引用一个输出流
-//c是一个局部变量，类型为char
-for_each(words.begin(), words.end(), [&os,c](const string &s){os << s <<c;})
-
-//可以很容易地编写一个函数，完成相同的工作：
-ostream &print(ostream &os, const string &s, char c)
-{
-    return os << s << c;
-}
-
-//但是，不能直接用bind来代替对os的捕获：
-//错误：不能拷贝os
-for_each (words.begin(), words.end(), bind(print, os, _1,' '));
-```
-
-原因在于 bind 拷贝其参数，而我们不能拷贝一个 ostream。如果我们希望传递给 bind 一个对象而又不拷贝它，就必须使用标准库 `ref` 函数：
-```c++
-for_each (words.begin(),words.end(), bind(print,ref(os),1,''));
-```
-函数 `ref` 返回一个对象，包含给定的引用，此对象是可以拷贝的。标准库中还有一个 `cref` 函数，生成一个保存 const 引用的类。与 bind 一样，函数 ref 和 cref 也定义在头文件 functional 中。
-
-#### bind1st () 和 bind2nd ()
-
-`bind1st()` 和 `bind2nd()`，只能绑定第一个或第二个参数，局限性太强，在 C++11 里已经**弃用**了，建议使用新标准的 `bind()`，用法更灵活更方便。  
-下面先说明 `bind1st()` 和 `bind2nd()` 的用法
-
-`bind1st()` 和 `bind2nd()` 都是把二元函数转化为一元函数，方法是绑定其中一个参数。  
-`bind1st()` 是绑定第一个参数。  
-`bind2nd()` 是绑定第二个参数。
-
-```c++
-#include <iostream>
-#include <algorithm>
-#include <functional>
-
-using namespace std;
-
-int main() {
-    int numbers[] = { 10,20,30,40,50,10 };
-    int cx;
-    cx = count_if(numbers, numbers + 6, bind2nd(less<int>(), 40));
-    cout << "There are " << cx << " elements that are less than 40.\n";
-
-    cx = count_if(numbers, numbers + 6, bind1st(less<int>(), 40));
-    cout << "There are " << cx << " elements that are not less than 40.\n";
-
-    system("pause");
-    return 0;
-}
-```
-结果：
-```c++
-There are 4 elements that are less than 40.
-There are 1 elements that are not less than 40.
-```
-
-`less()` 是一个二元函数，`less(a, b)` 表示判断 `a<b` 是否成立。
-所以 `bind2nd(less<int>(), 40)` 相当于 `x<40` 是否成立, 用于判定那些小于 40 的元素。
-`bind1st(less<int>(), 40)` 相当于 `40<x` 是否成立, 用于判定那些大于 40 的元素。
-
-上面的例子使用 `bind()` 可以写成下面的形式：
-
-```c++
-#include <iostream>
-#include <algorithm>
-#include <functional>
-
-using namespace std;
-
-int main() {
-    int numbers[] = { 10,20,30,40,50,10 };
-    int cx;
-    cx = count_if(numbers, numbers + 6, bind(less<int>(), std::placeholders::_1, 40));
-    cout << "There are " << cx << " elements that are less than 40.\n";
-
-    cx = count_if(numbers, numbers + 6, bind(less<int>(), 40, std::placeholders::_1));
-    cout << "There are " << cx << " elements that are not less than 40.\n";
-
-    system("pause");
-    return 0;
-}
-```
-
-结果:
-```
-There are 4 elements that are less than 40.
-There are 1 elements that are not less than 40.
 ```
 
 ## 9 类型转换运算符
