@@ -25257,6 +25257,7 @@ mQRr
 mYpy
 muak
 mJO
+modifying
 windows
 win
 width
@@ -48868,6 +48869,17 @@ Aumk
 AheK
 Aymooh
 AOIL
+Asyn
+AActors
+AsynTask
+ATaskGraphActor
+AsyncTask
+AsyncTas
+AllThreads
+AAsyncTaskActor
+AutoDeleteSimpleAsyncTask
+Async
+AsyncWork
 URL
 Utools
 Users
@@ -52884,6 +52896,7 @@ UZul
 Uil
 UFUCNTION
 Unload
+UnLock
 api
 ac
 app
@@ -61724,6 +61737,7 @@ ReactToTriggerInterface
 RequestSyncLoad
 RequestAsyncLoad
 ReleaseHandle
+RunnableActor
 Microsoft
 Menu
 MicaForEveryone
@@ -76251,6 +76265,9 @@ SwV
 SJod
 StaticLoadObject
 SoftObjectReference
+SimpleRunnable
+SimpleTask
+SimpleAsyncTask
 Programs
 POP
 PC
@@ -80750,6 +80767,7 @@ PYEi
 POnL
 Pznc
 Pawns
+ParallelFor
 ContextMenuManager
 ClashVerge
 Clash
@@ -89867,6 +89885,7 @@ IhgV
 Irqm
 IdYB
 Iaux
+IQueuedWork
 qq
 qyi
 quad
@@ -106118,6 +106137,7 @@ bQKEz
 blv
 bOOLc
 bManageActiveHandle
+bForceSingleThread
 fe
 front
 fill
@@ -118833,6 +118853,8 @@ TSoftObjectPtr
 TSoftClassPtr
 TryLoad
 TryLoadClass
+TimerManager
+TaskGraphActor
 io
 ipad
 it
@@ -128538,6 +128560,7 @@ srs
 stR
 sCai
 seqsearch
+spawning
 local
 list
 left
@@ -161102,6 +161125,18 @@ FStreamableManager
 FStreamableHandle
 FSoftObjectPtr
 ForceGC
+FSimpleRunnable
+FSpinLock
+FScopeLock
+FRWLock
+FTaskGraph
+FNonAbandonableTask
+FAsyncTask
+FQueuedThreadPool
+FAutoDeleteAsyncTask
+FQueueThreadPoolBase
+FQueuedThread
+FEvent
 Element
 Entity
 Enity
@@ -176930,6 +176965,8 @@ Devgb
 Djvi
 Datatable
 Drone
+DrawDebugLine
+DoWork
 LNK
 Log
 Linux
@@ -199096,6 +199133,8 @@ QEkxOK
 QYJNN
 QKEP
 QLgc
+QueuedWork
+QueuedThreads
 Java
 JPEG
 JlAGTAAAAAAf
