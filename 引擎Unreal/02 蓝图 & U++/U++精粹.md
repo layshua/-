@@ -2857,11 +2857,74 @@ void ATestActor::BeginPlay()
 
 
 # 十一、委托 UDELEGATE
-**委托** 是一种泛型但类型安全的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。虚幻引擎共支持三种类型的委托：
+**委托** 是一种**泛型但类型安全**的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。
 
-- 单播委托
-- 多播委托（又称组播）
-- 动态(UObject, serializable)委托
+复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。
+
+## **步骤**
+
+**发送者步骤：**
+1. 声明委托，定义参数列表【可以简单理解为构建一个委托类】
+2. 声明委托对象【理解为实例化一个类】
+3. 在需要的位置触发委托（执行或者广播），需要传入参数【相当于发送消息】
+
+**接收者步骤：**
+1. 在其他类中需要接收消息位置，绑定实际执行函数【接收消息，并且根据消息内容执行绑定的操作】
+2. 实现具体的执行函数内容【被触发后，实际执行的内容】
+
+---
+
+**例子**：为角色添加一个血条 component，通过血条 component 接收血条变化并将其广播给角色本身，让角色接收消息做出一定反应，比如扣血和死亡
+**发送者**：血条组件
+**观察者（接收者）**：角色
+
+1. 先在头文件上面声明一个委托, 名字要以 F 开头（位置：HealthComponent. h)
+```c++ file:HealthComponent.h
+//声明一个动态广播委托
+//第一个参数事件的名称（自己定义）
+//后面的参数是事件所需要的参数
+//因为有6个参数 所以添加_SixParams
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams(FOnHealthChangeSignature, USHeathComponent*, HealthComponent, float, Health, float, HealthDelta, const class UDamageType*, DamageType, class AController*, InstigatedBy, AActor*, DamageCauser);
+```
+
+2. 声明一个委托实例（位置：HealthComponent. h)
+```c++ file:HealthComponent.h
+public:
+//创建事件实例
+//属性暴露给蓝图
+UPROPERTY(BlueprintAssignable, Category = "Events")
+FOnHealthChangeSignature OnHealthChange;
+```
+
+3. 在需要的位置触发广播（位置：HealthComponent. cpp)
+```c++ file:HealthComponent.cpp
+//事件广播
+OnHealthChange.Broadcast(this,CurrentHealth,Damage,DamageType,InstigatedBy, DamageCauser);
+```
+
+4. 最后要在蓝图类中，选中声明的委托 C++ 类组件，找到委托事件进行绑定（位置：Character 蓝图)
+![[c093a0ded68ab870163bd68435ac5ce8_MD5.jpg]]
+
+或者在 c++ 进行绑定（位置：Character. h/. cpp)
+
+```c++ file:Character.h
+//添加HealthComponent组件，Character相当于一个容器
+UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Health")
+USHeathComponent* HealthComponent; //观察者引用发送者
+
+​
+//要绑定的函数参数要和声明委托的参数一致
+ UFUNCTION()
+ void OnHealthChange(USHeathComponent* HealthComponent, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+​
+```
+
+```c++ file:Character.cpp
+//在创建HealthComponent对象后，绑定函数OnHealthChange函数到其委托OnHealthChange上（名字可以不相同），OnHealthChange函数执行具体的内容
+HealthComponent->OnHealthChange.AddDynamic(this, &ASCharacter::OnHealthChange);
+```
+
+解释下，这样使用**委托的好处**：血条组件中使用 `OnHealthChange` 委托，那么 Character 和其他 Actor 使用血条组件时，只有单方面的引用（**观察者引用发送者**。很好理解，观察者要监视发送者）（观察者设计模式原理），血条组件并不需要关心谁用了它，也就是血条组件无需包含使用它的 Character 或者 Actor 的引用，这就实现了一种解耦，这就是委托的好处。
 
 ## 1 声明委托
 
@@ -2929,59 +2992,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, flo
 |`Execute`|不检查其绑定情况即执行一个委托|
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute **(只能用于无返回值的委托)**|
 
-## 4 用法示例
-
-假设类拥有可在任何地方随意调用的方法：
-
-```c++
-class FLogWriter
-{
-    void WriteToLog(FString);
-};
-```
-
-要调用`WriteToLog`函数，需创建该函数签名的委托类型。为此，首先需使用以下宏**声明委托**。例如， 以下是一个简单的委托类型：
-
-```c++
-DECLARE_DELEGATE_OneParam(FStringDelegate, FString);
-```
-
-**此将创建名为 `FStringDelegate` 的委托类型，该类型使用 `FString` 类型的单个参数。**
-
-此为**在类中使用此 `FStringDelegate` 的方法范例：**
-
-```c++
-class FMyClass
-{
-    FStringDelegate WriteToLogDelegate;
-};
-```
-
-利用此操作，类可保有指向任意类中的方法的指针。该类唯一真正了解的信息就是，此委托是其的函数签名。
-
-如要分配委托，现在只需创建委托类的实例，将拥有该方法的类作为模板参数传递。 同时还需传递对象的实例和方法的实际函数地址。因此，现在需创建 `FLogWriter` 类的实例， 然后创建该对象实例 `WriteToLog` 方法的委托：
-
-```c++
-TSharedRef<FLogWriter> LogWriter(new FLogWriter());
-
-WriteToLogDelegate.BindSP(LogWriter, &FLogWriter::WriteToLog);
-```
-
-此操作可**将委托动态绑定到类的方法**！很简单，对吧？
-
-注意：**绑定到的对象由共享指针拥有，因此 `BindSP` 的SP部分代表共享指针**。此外， 还有不同对象类型的版本，例如BindRaw()和BindUObject()。
-
-FMyClass现在可调用 `WriteToLog` 方法，甚至无需了解 `FLogWriter` 类的任何信息！要调用委托，只需使用 `Execute()` 方法：
-
-```c++
-WriteToLogDelegate.Execute(TEXT("Delegates are great!"));
-```
-
-如将函数绑定到网络前调用Execute()，将触发断言：多数情况下，建议进行以下操作：
-
-```c++
-WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!"));
-```
+## 单播委托
 
 ## 5 多播委托
 **可以绑定到多个函数并一次性同时执行它们的委托。**
@@ -2993,16 +3004,17 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 
 **事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
 
-###  声明多播委托
+###  声明
 
 多播委托在声明方式上与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同，只是前者使用特定于多播委托的宏变体。
+```c++
+//多播委托
+DECLARE_MULTICAST_DELEGATE(DelegateName);
+DECLARE_MULTICAST_DELEGATE_ONEPARAM(DelegateName, Param1Type);
+DECLARE_MULTICAST_DELEGATE_XXXPARAMS(DelegateName, Param1Type,...);
+```
 
-|声明宏|说明|
-|---|---|
-|`DECLARE_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个多播委托。|
-|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个动态多播委托。|
-
-### 绑定多播委托
+### 绑定/移除
 
 多播委托可以绑定多个函数，当委托触发时，将调用所有这些函数。因此，绑定函数在语义上与数组更加类似。
 
@@ -3018,31 +3030,31 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 
 `RemoveAll()`将删除绑定到所提供指针的所有已注册委托。切记，未绑定到对象指针的原始委托不会被该函数所删除！
 
-### 多播执行
+### 执行
 
 多播委托允许您附加多个函数委托，然后通过调用多播委托的 `Broadcast()` 函数一次性同时执行它们。多播委托签名不得使用返回值。 
 
-在多播委托上调用 `Broadcast()` 总是安全的，即使是在没有任何绑定时也是如此。唯一需要注意的是，如果您使用委托来初始化输出变量，通常会带来非常不利的后果。
+在多播委托上调用 `Broadcast()` 总是安全的，即使是在没有任何绑定时也是如此。
 
-调用 `Broadcast()` 时绑定函数的执行顺序尚未定义。执行顺序可能与函数的添加顺序不相同。
+唯一需要注意的是，如果您使用委托来初始化输出变量，通常会带来非常不利的后果。调用 `Broadcast()` 时绑定函数的执行顺序尚未定义。执行顺序可能与函数的添加顺序不相同。
 
 |函数|说明|
 |---|---|
 | `Broadcast()`  |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
 ## 6 动态委托
-**可序列化且支持反射的委托。**
+**可序列化且支持反射的委托，类必须继承自 UObject。**
 
 动态委托可序列化，其函数可按命名查找，但其执行速度比常规委托慢。
-### 声明动态委托
+### 声明
 
 动态委托的声明方式与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同， 只是前者使用动态委托专属的宏变体。
 
 |声明宏|描述|
 |---|---|
-|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个**动态委托**。|
-|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )`|创建一个**动态多播委托**。|
+|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )` |创建一个**动态委托**。|
+|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )` |创建一个**动态多播委托**。|
 
-### 动态委托绑定
+### 绑定/移除
 
 |辅助宏|说明|
 |---|---|
@@ -3050,7 +3062,7 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 |`AddDynamic( UserObject, FuncName )`|用于在**动态多播委托**上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
 |`RemoveDynamic( UserObject, FuncName )`|用于在动态多播委托上调用RemoveDynamic()的辅助宏。自动生成函数命名字符串。|
 
-### 执行动态委托
+### 执行
 
 通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。 此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。 执行未绑定的委托在某些情况下确实可能导致内存混乱。可调用 `IsBound()` 检查是否可安全执行委托。 同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
 
@@ -3060,7 +3072,6 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
 |`Broadcast` |**动态多播委托**执行|
-
 
 # 十二、定时器
 

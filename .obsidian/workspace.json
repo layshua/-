@@ -4,6 +4,25 @@
     "type": "split",
     "children": [
       {
+        "id": "674e50a99ad2e8de",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "61c3520da5c61d01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
         "id": "a7dcbdf9214c3d84",
         "type": "tabs",
         "children": [
@@ -13,7 +32,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/UE4 代理 (委托) 概览.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +82,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+                "file": "zBuffer/UE4 代理 (委托) 概览.md"
               }
             }
           },
@@ -73,12 +92,12 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+                "file": "zBuffer/UE4 代理 (委托) 概览.md"
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -124,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/UE4 代理 (委托) 概览.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/UE4 代理 (委托) 概览.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -175,12 +194,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "33ef0e2e73201589",
+  "active": "df8be59fbd210a04",
   "lastOpenFiles": [
+    "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+    "zBuffer/UE4 代理 (委托) 概览.md",
+    "引擎Unreal/02 蓝图 & U++/UMG.md",
+    "zip/images/abd8cd819345a9b683c78545e6b142ee_MD5.png",
+    "zip/images/69406e62cfc3d657d92d7040e0922942_MD5.png",
+    "zip/images/0e61248b90f580a59888582eb7758374_MD5.png",
+    "zip/images/354d2ce95f2a0925b4429a0469c24a06_MD5.jpg",
+    "zip/images/9d121b38d3d9fb0d0f010012a3fe4af9_MD5.png",
+    "zip/images/75eda287dbc14d7959cf572ce4cf3928_MD5.jpg",
+    "zip/images/1da3f18b9bfbb3a03fe2a23b68e3bed0_MD5.png",
+    "zip/images/f57337e4528c8e7c018b67c1ad5fa8a8_MD5.jpg",
+    "zip/images/510fa98e9d83851287a372aa42f73b3f_MD5.png",
+    "zip/images/c8c18a5716876d4db31a9b76687a1c4c_MD5.jpg",
     "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md",
     "引擎Unreal/02 蓝图 & U++/蓝图精粹.md",
     "编程/C++/《C++ Primer》.md",
-    "zip/images/Pasted image 20230901130209.png",
     "编程/算法/《数据结构》.md",
     "zip/templates/markmap脑图.md",
     "zip/templates/yaml_metadata.md",
@@ -198,22 +229,10 @@
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/01 Trick！.md",
-    "引擎Unreal/02 蓝图 & U++/UMG.md",
-    "引擎Unreal/02 蓝图 & U++/U++精粹.md",
     "编程/C++/C++原理.md",
     "编程/C++/《Effective C++ 3th》.md",
     "zip/templates/yaml.md",
-    "zip/templates/论文_metadata.md",
     "未命名",
-    "zip/images/54650641ee166bcbaff901651e3ef7ba_MD5.jpg",
-    "zip/images/3c3f9f499278e47bc6a761d9b3078be0_MD5.jpg",
-    "zip/images/Pasted image 20230901103623.png",
-    "zip/images/Pasted image 20230901103610.png",
-    "zip/images/Pasted image 20230901093425.png",
-    "zip/images/968a88be7a341ca5c7a4a16c6a275be0_MD5.png",
-    "zip/images/5ad0851ece9ef9722328639bfb3da2e0_MD5.png",
-    "zip/images/c476999fd034bdb72ef8e069c9baa2b6_MD5.png",
-    "zip/images/9c7c64764b95fb87ac99e1e551146652_MD5.png",
     "引擎Unreal/03 Gameplay/《大钊》",
     "引擎Unreal/03 Gameplay/《大象无形》",
     "编程/算法",
