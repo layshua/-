@@ -13044,6 +13044,7 @@ ccur
 cTmR
 ckd
 cowq
+crash
 github
 grey
 green
@@ -52881,6 +52882,8 @@ UWcu
 Ulk
 UZul
 Uil
+UFUCNTION
+Unload
 api
 ac
 app
@@ -56964,6 +56967,7 @@ asOU
 aOoz
 aSh
 acoC
+arry
 Roaming
 RegWorkshop
 Release
@@ -61716,6 +61720,10 @@ RWL
 RqWc
 ROZb
 RIjX
+ReactToTriggerInterface
+RequestSyncLoad
+RequestAsyncLoad
+ReleaseHandle
 Microsoft
 Menu
 MicaForEveryone
@@ -66726,6 +66734,9 @@ MZQI
 MPu
 MgQE
 MvG
+Managers
+MyDrone
+MyTriggerBox
 Windows
 Win
 World
@@ -76238,6 +76249,8 @@ SVNt
 SXSv
 SwV
 SJod
+StaticLoadObject
+SoftObjectReference
 Programs
 POP
 PC
@@ -80736,6 +80749,7 @@ PKCp
 PYEi
 POnL
 Pznc
+Pawns
 ContextMenuManager
 ClashVerge
 Clash
@@ -85477,6 +85491,9 @@ Ceqy
 CPodo
 Cuiq
 CpXz
+Controllers
+CPPFunction
+ConstructorHelpers
 ImTip
 IMAP
 ID
@@ -106100,6 +106117,7 @@ bVm
 bQKEz
 blv
 bOOLc
+bManageActiveHandle
 fe
 front
 fill
@@ -118811,6 +118829,10 @@ TQEU
 TOp
 TzYw
 TVwTE
+TSoftObjectPtr
+TSoftClassPtr
+TryLoad
+TryLoadClass
 io
 ipad
 it
@@ -128515,6 +128537,7 @@ skuw
 srs
 stR
 sCai
+seqsearch
 local
 list
 left
@@ -152507,6 +152530,7 @@ HeG
 Hlb
 HEHE
 HQV
+Huds
 Bbb
 Bear
 Base
@@ -161070,6 +161094,14 @@ FHnm
 FwfT
 FVvy
 FmBl
+FObjectFinder
+FClassFinder
+FSoftClassPath
+FStreamingManager
+FStreamableManager
+FStreamableHandle
+FSoftObjectPtr
+ForceGC
 Element
 Entity
 Enity
@@ -176896,6 +176928,8 @@ DxU
 DAuS
 Devgb
 Djvi
+Datatable
+Drone
 LNK
 Log
 Linux
@@ -181214,6 +181248,10 @@ Lxe
 LaS
 LaMn
 Lsu
+LoadObject
+LoadClass
+LoadSynchronous
+LoadPackageAsync
 Getx
 GetX
 GetName
@@ -186102,6 +186140,8 @@ GNzRQ
 GZEYX
 Gcoq
 GWl
+GetLoadedAsset
+GetLoadedAssets
 NULL
 Native
 NormalMap

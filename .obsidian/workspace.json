@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8d36099b620de036",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+                "file": "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md"
               }
             }
           },
@@ -73,7 +86,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+                "file": "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md"
               }
             }
           }
@@ -123,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+                "file": "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -174,26 +187,37 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "61c3520da5c61d01",
   "lastOpenFiles": [
+    "zBuffer/【UE4 C++ 基础知识】_11_ 资源的同步加载与异步加载.md",
+    "zBuffer/【UE4】异步加载关卡 LoadingScreen (蓝图和 C++).md",
+    "zip/images/3028266419c39433b9cdb36b3da7c023_MD5.png",
+    "zip/images/76903491057907c5cb1e889683cfb4cd_MD5.png",
+    "zip/images/add4d9cd75cb48cfb78a99647ac0b7cf_MD5.gif",
+    "zip/images/bff764b85e76ac94b6a8905a01071652_MD5.png",
+    "zBuffer/【UE4 C++ 基础知识】_10_ 资源的引用.md",
+    "引擎Unreal/02 U++精粹/6 资源引用.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/02 U++精粹/2 容器.md",
+    "引擎Unreal/02 U++精粹/4 委托.md",
+    "引擎Unreal/02 U++精粹/3 智能指针.md",
+    "引擎Unreal/02 U++精粹/断言.md",
+    "引擎Unreal/02 U++精粹/5 定时器.md",
+    "引擎Unreal/03 蓝图/UMG.md",
+    "引擎Unreal/03 蓝图/GamePlay精粹.md",
+    "引擎Unreal/02 U++精粹",
+    "zBuffer/C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客.md",
+    "zBuffer/【UE4 C++ 基础知识】_9_ Interface 接口.md",
+    "引擎Unreal/03 蓝图/蓝图精粹.md",
+    "zip/images/2a910ca10a8e8545b4aadc6ff0026ade_MD5.png",
     "zip/images/Pasted image 20230901195356.png",
     "zip/images/9d2428a628a890cc0469f887bcfc294e_MD5.png",
     "zip/images/942fee0c636bb0a81e921eaa99e52bd0_MD5.png",
     "zip/images/Pasted image 20230901194721.png",
     "zip/images/b8afbd1280f8a8633fc10e17329ba58a_MD5.png",
-    "zip/images/9eeca8d2381f93f451dfd5c02844ce29_MD5.png",
-    "引擎Unreal/03 Gameplay/UE画布.canvas",
-    "zip/images/Pasted image 20230901192952.jpg",
-    "zip/images/Pasted image 20230901192948.jpg",
-    "zip/images/Pasted image 20230901192944.jpg",
-    "zip/images/Pasted image 20230901192924.png",
-    "zip/images/Pasted image 20230901172151.png",
-    "引擎Unreal/02 蓝图 & U++/U++精粹.md",
+    "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unity3D/1 Unity精粹/《CS Primer》.md",
     "zBuffer/UE4 代理 (委托) 概览.md",
-    "引擎Unreal/02 蓝图 & U++/UMG.md",
-    "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md",
-    "引擎Unreal/02 蓝图 & U++/蓝图精粹.md",
     "编程/C++/《C++ Primer》.md",
     "编程/算法/《数据结构》.md",
     "zip/templates/markmap脑图.md",
@@ -203,27 +227,15 @@
     "zip/templates/callout分栏.md",
     "zip/templates/mermaid流图.md",
     "技术美术/3 后处理/01 图像模糊.md",
-    "技术美术/1 渲染雅集/09 体积云.md",
-    "技术美术/1 渲染雅集/07 草.md",
-    "技术美术/1 渲染雅集/06 雾.md",
-    "技术美术/1 渲染雅集/05 描边.md",
-    "技术美术/1 渲染雅集/04 溶解.md",
-    "技术美术/1 渲染雅集/03 UV操作.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "编程/C++/C++原理.md",
-    "编程/C++/《Effective C++ 3th》.md",
     "未命名",
-    "引擎Unreal/03 Gameplay/《大钊》",
-    "引擎Unreal/03 Gameplay/《大象无形》",
+    "引擎Unreal/04 Gameplay/《大钊》",
+    "引擎Unreal/04 Gameplay/《大象无形》",
     "编程/算法",
     "zip/引擎Unreal/02 蓝图 & U++/蓝图管线.pdf",
     "技术美术/3 后处理/SSAO",
     "技术美术/5 水体渲染/SSR屏幕空间反射",
     "DCC/展UV",
     "引擎Unity3D/5 粒子系统",
-    "rendering-the-wireframe",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
