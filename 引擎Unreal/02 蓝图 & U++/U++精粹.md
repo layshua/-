@@ -2915,19 +2915,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, flo
 |`BindStatic`|绑定原始C++指针全局函数委托。|
 |`BindRaw`|绑定原始C++指针委托。由于原始指针不使用任何类型的引用，因此在删除目标对象后调用`Execute `或` ExecuteIfBound` 会不安全。|
 |`BindLambda`|绑定一个Lambda函数。|
-|`BindSP`|绑定基于指针的共享成员函数委托。共享指针委托会保留对对象的弱引用。可使用 `ExecuteIfBound()` 进行调用。 |
+|`BindSP`|绑定基于**共享指针**的成员函数委托。共享指针委托会保留对对象的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
 |`BindUObject`|绑定 `UObject` 的成员函数委托。`UObject` 委托会保留对你的对象 `UObject` 的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
 |`UnBind`|取消绑定此委托。|
-
-### 载荷数据
-
-绑定到委托时，可同时传递**载荷数据（调用时被直接传到绑定函数的任意变量）**。
-
-此操作十分有用，利用其可在绑定时将参数存储在委托内。所有委托类型（除"动态"外）均自动支持载荷变量。此范例将两个自定义变量（一个布尔，一个 int32）传递到委托。之后调用该委托时，此类参数将被传到绑定函数。须始终接受委托类型参数后的额外变量参数。
-
-```c++
-MyDelegate.BindRaw( &MyFunction, true, 20 );
-```
 
 ## 3 执行委托
 
