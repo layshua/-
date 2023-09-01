@@ -1153,7 +1153,7 @@ const TSharedPtr<SimpleObject> simpleObj_const(new SimpleObject());
 TSharedPtr<SimpleObject> simpleObj_mutable = ConstCastSharedPtr<SimpleObject>(simpleObj_const);
 ```
 
-## TSharedFromThis 助手类
+## TSharedFromThis 
 共享指针是非侵入性的，意味对象不知道其是否为智能指针拥有。
 有些函数的参数为共享引用或共享指针，我们就需要传进去一个对象，但**如何让对象知道自己就是智能指针？**
 将一个类继承自 `TSharedFromThis` 后，那么这个类的对象就会知道自己是属于哪一个共享指针。
@@ -1180,7 +1180,7 @@ void Func()
     TSharedPtr<BaseClass> sharePtr = MakeShareable(new BaseClass());
     sharePtr->printf();
 
-    //通过.Get()将共享指针解引用,我们将可以通过智能指针获得原生C++指针
+    //通过.Get()将共享指针解引用, 我们将可以通过智能指针获得原生C++指针
     //原生C++指针ptr指向sharePtr所指的对象
     BaseClass* ptr = sharePtr.Get(); 
 
@@ -2912,12 +2912,12 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, flo
 |函数|描述|
 |---|---|
 |`Bind`|绑定到现有委托对象。|
-|`BindStatic`|绑定原始C++指针全局函数委托。|
+|`BindStatic`|绑定原始C++指针static函数委托。|
 |`BindRaw`|绑定原始C++指针委托。由于原始指针不使用任何类型的引用，因此在删除目标对象后调用`Execute `或` ExecuteIfBound` 会不安全。|
-|`BindLambda`|绑定一个Lambda函数。|
+|`BindLambda`|绑定一个Lambda函数。 |
 |`BindSP`|绑定基于**共享指针**的成员函数委托。共享指针委托会保留对对象的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
 |`BindUObject`|绑定 `UObject` 的成员函数委托。`UObject` 委托会保留对你的对象 `UObject` 的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
-|`UnBind`|取消绑定此委托。|
+|`UnBind`|取消绑定此委托。 |
 
 ## 3 执行委托
 
@@ -2987,7 +2987,9 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 **可以绑定到多个函数并一次性同时执行它们的委托。**
 
 多播委托拥有大部分与单播委托相同的功能。它们只拥有对对象的弱引用，可以与结构体一起使用，可以四处轻松复制等等。  
-就像常规委托一样，多播委托可以远程加载/保存和触发；**但多播委托函数不能使用返回值**。它们最适合用来 四处轻松传递一组委托。
+就像常规委托一样，多播委托可以远程加载/保存和触发；
+
+**但多播委托函数不能使用返回值**。它们最适合用来 四处轻松传递一组委托。
 
 **事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
 
@@ -3004,14 +3006,14 @@ WriteToLogDelegate.ExecuteIfBound(TEXT("Only executes if a function was bound!")
 
 多播委托可以绑定多个函数，当委托触发时，将调用所有这些函数。因此，绑定函数在语义上与数组更加类似。
 
-|函数|说明|
+|函数|说明 |
 |---|---|
 |`Add()`|将函数委托添加到该多播委托的调用列表中。|
-|`AddStatic()`|添加原始C++指针全局函数委托。|
-|`AddRaw()`|添加原始C++指针委托。原始指针不使用任何类型的引用，因此如果从委托下面删除了对象，则调用此函数可能不安全。调用Execute()时请小心！|
+|`AddStatic()`|添加原始C++指针static函数委托。|
+|`AddRaw()`|添加原始C++指针委托。原始指针不使用任何类型的引用，因此如果从委托下面删除了对象，则调用此函数可能不安全。调用`Execute()`时请小心！|
 |`AddSP()`|添加基于共享指针的（快速、非线程安全）成员函数委托。共享指针委托保留对对象的弱引用。|
 |`AddUObject()`|添加基于UObject的成员函数委托。UObject委托保留对对象的弱引用。|
-|`Remove()`|从该多播委托的调用列表中删除函数（性能为O(N)）。请注意，委托的顺序可能不会被保留！|
+|`Remove()`|从该多播委托的调用列表中删除函数（性能为O(N)）。请注意，委托的顺序可能不会被保留！ |
 |`RemoveAll()`|从该多播委托的调用列表中删除绑定到指定UserObject的所有函数。请注意，委托的顺序可能不会被保留！|
 
 `RemoveAll()`将删除绑定到所提供指针的所有已注册委托。切记，未绑定到对象指针的原始委托不会被该函数所删除！
