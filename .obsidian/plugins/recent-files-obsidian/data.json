@@ -1,8 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "未命名",
-      "path": "引擎Unity3D/4 GamePlay/未命名.canvas"
+      "basename": "U++精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+    },
+    {
+      "basename": "UE画布",
+      "path": "引擎Unreal/03 Gameplay/UE画布.canvas"
+    },
+    {
+      "basename": "Pasted image 20230901192952",
+      "path": "zip/images/Pasted image 20230901192952.jpg"
+    },
+    {
+      "basename": "Pasted image 20230901192948",
+      "path": "zip/images/Pasted image 20230901192948.jpg"
+    },
+    {
+      "basename": "Pasted image 20230901192944",
+      "path": "zip/images/Pasted image 20230901192944.jpg"
+    },
+    {
+      "basename": "Pasted image 20230901192924",
+      "path": "zip/images/Pasted image 20230901192924.png"
     },
     {
       "basename": "Pasted image 20230901172151",
@@ -15,10 +35,6 @@
     {
       "basename": "Pasted image 20230901171714",
       "path": "zip/images/Pasted image 20230901171714.png"
-    },
-    {
-      "basename": "U++精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
     },
     {
       "basename": "《CS Primer》",
@@ -183,22 +199,6 @@
     {
       "basename": "04 四：模块初始化",
       "path": "引擎Unreal/03 Gameplay/《大象无形》/04 四：模块初始化.md"
-    },
-    {
-      "basename": "07 七：UHT",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/07 七：UHT.md"
-    },
-    {
-      "basename": "06 六：UBT",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/06 六：UBT.md"
-    },
-    {
-      "basename": "05 五：模块总结",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/05 五：模块总结.md"
-    },
-    {
-      "basename": "《InsideUE4》基础概念",
-      "path": "引擎Unreal/03 Gameplay/《大钊》/《InsideUE4》基础概念.md"
     }
   ],
   "omittedPaths": [],

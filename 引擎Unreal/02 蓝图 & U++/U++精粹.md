@@ -16,7 +16,6 @@ reference: []
 
 属性使用标准的 C++变量语法声明，前面用 `UPROPERTY` 宏来定义属性元数据和变量说明符。
 `UPROPERT` 宏作为声明序言的变量可被引擎执行垃圾回收，也可在虚幻编辑器中显示和编辑。
-当你需要将一个 UObject 类的子类的成员变量注册到蓝图中时，你只需要借助 `UPROPERTY` 宏即可完成。
 
 ```c++
 UPROPERTY([specifier, specifier, ...], [meta(key=value, key=value, ...)])
@@ -24,7 +23,7 @@ Type VariableName;
 ```
 
 ## 核心数据类型
-
+![[Pasted image 20230901195356.png]]
 ### 整数
 
 整数数据类型转换是"int"或"uint"后跟位大小。
@@ -171,7 +170,7 @@ bool bIsThirsty;
 |`TextExportTransient`|此属性将不会导出为一个文本格式（因此其无法用于复制/粘贴操作）。|
 |`Transient`|属性为临时，意味着其无法被保存或加载。以此方法标记的属性将在加载时被零填充。|
 |⭐ **`VisibleAnywhere`**|⭐ 说明此属性在所有属性窗口中**可见**，但**无法被编辑**。此说明符与"Edit"说明符不兼容。|
-|⭐ **`VisibleDefaultsOnly`**|⭐ 说明此属性只在原型的属性窗口中可见，**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
+|⭐ **`VisibleDefaultsOnly`**|⭐ 说明此属性只在原型的属性窗口中可见，**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。 |
 |⭐ **`VisibleInstanceOnly`**|⭐ 说明此属性只在实例的属性窗口中可见（在原型属性窗口中不可见），**无法被编辑**。此说明符与所有"Edit"说明符均不兼容。|
 
 # 二、对象 / 类 UCLASS
@@ -239,7 +238,7 @@ class ClassName : public ParentName
 | `ShowFunctions=(Category1, Category2, ...)` |在属性查看器中显示列出的类别中的所有函数。|
 | `ShowFunctions=FunctionName` |在属性查看器中显示指定的函数。|
 | `Transient` |从不将属于此类的对象保存到磁盘。当与播放器或窗口等本质上不持久的特定种类的原生类配合使用时，它非常有用。此说明符会传播到子类，但是可由 `NonTransient` 说明符覆盖。|
-| `Within=OuterClassName` |此类的对象无法在 `OuterClassName` 对象的实例之外存在。这意味着，要创建此类的对象，需要提供 `OuterClassName` 的一个实例作为其 `Outer` 对象。|
+| `Within=OuterClassName` |此类的对象无法在 `OuterClassName` 对象的实例之外存在。这意味着，要创建此类的对象，需要提供 `OuterClassName` 的一个实例作为其 `Outer` 对象。 |
 
 ## 3 TSubclassOf
 
@@ -631,12 +630,13 @@ ReturnType FunctionName([Parameter1, Parameter2, ..., ParameterN1=DefaultValueN1
 1. **`BlueprintCallable`** ：函数可从**蓝图**中调用，但**只能通过 C++代码修改**。
     - 码将更改它所调用的对象的某些内容或一些其他全局状态，意味着必须调用它，必须连接白色执行线（调度它）。
 2. **`BlueprintPure`**：函数可从**蓝图**中调用，但**只能通过 C++代码修改**。
-    - 不会更改它所调用的对象的任何内容或任何其他全局状态，它只需要输入，然后告诉您输出，类似于数学运算节点，不需要连接白色执行线。
+    - 不会更改它所调用的对象的任何内容或任何其他全局状态，它只需要输入，然后告诉您输出，类似于数学运算节点，不需要连接白色执行线。![[Pasted image 20230901194721.png]]
 3. **`BlueprintImplementableEvent`**：函数由其**蓝图**的子类实现，不应该在 C++中给出函数的实现，这会导致链接错误。
     - 如果没有返回值或输出参数，那么在蓝图中为一个事件
     - 如果它有返回值或任何输出参数，那么在蓝图中为一个函数
 4. **`BlueprintNativeEvent`** ：函数提供一个 C++的默认实现，同时也可以被蓝图重载。默认实现的函数名为 `函数名_Implementation` 。
     - 如果需要，您仍然可以调用默认实现，方法是在事件或函数条目节点上 **右键单击**，并选择"将调用添加到父项（Add call to parent）"。
+
 ```c++
 //.h中声明
 UFUNCTION(BlueprintNativeEvent)
@@ -664,7 +664,7 @@ TestFunction();
 |⭐ **`BlueprintNativeEvent`**|⭐**此函数旨在被蓝图覆盖掉，但是也具有默认原生实现。** 用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`，是写入代码的位置。如果未找到任何蓝图覆盖，该自动生成的代码将调用`_ Implementation` 方法。 |
 |`BlueprintPure` |此函数不对拥有它的对象产生任何影响，可在蓝图或关卡蓝图图表中执行。|
 |⭐ **`CallInEditor`**|⭐**可通过细节（Details）面板中的按钮在编辑器中的选定实例上调用此函数。** |
-|⭐ **`Category = "TopCategory\|SubCategory\|Etc"`**|⭐**在蓝图编辑工具中显示时指定函数的类别**。使用 \| 运算符定义嵌套类别。|
+|⭐ **`Category = "TopCategory\|SubCategory\|Etc"`**|⭐**在蓝图编辑工具中显示时指定函数的类别**。使用 \| 运算符定义嵌套类别。 |
 |`Client`|此函数仅在拥有在其上调用此函数的对象的客户端上执行。用于声明名称与主函数相同的附加函数，但是末尾添加了`_Implementation`。必要时，此自动生成的代码将调用`_ Implementation` 方法。|
 |`CustomThunk`|`UnrealHeaderTool` 代码生成器将不为此函数生成thunk，用户需要自己通过 `DECLARE_FUNCTION` 或 `DEFINE_FUNCTION` 宏来提供thunk。|
 |`Exec`|此函数可从游戏内控制台执行。仅在特定类中声明时，Exec命令才有效。|
@@ -683,6 +683,33 @@ TestFunction();
 |---|---|
 |Out|声明由引用传递的参数，使函数对其进行修改。|
 |Optional|通过任选关键词可使部分函数参数变为任选，便于调用。任选参数的数值（调用方未指定）取决于函数。例如， `SpawnActor` 函数使用任选位置和旋转，默认为生成的 Actor 根组件的位置和旋转。添加 `= [value]` 参数可指定任选参数的默认值。例如： `function myFunc(optional int x = -1)` 。在多数情况下，如无数值被传递到任选参数，将使用变量类型的默认值或零（例如 0、false、""、none）。|
+
+## Exec 控制台可调用函数
+
+此函数可从游戏中的控制台中执行。Exec命令仅在特定类中声明时才产生作用。包括：
+
+- Pawns,
+- Player Controllers,
+- Player Input,
+- Cheat Managers,
+- Game Modes,
+- Game Instances,
+- overriden Game Engine classes,
+- Huds
+
+```cpp
+UFUNCTION(Exec, Category = "methods")
+void FunExec(float Value);
+
+
+void AMyPawn::FunExec(float Value)
+{
+	GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Blue, FString::Printf(TEXT("BPNative C++ Call  Value:%f"), Value));
+}
+```
+
+![[942fee0c636bb0a81e921eaa99e52bd0_MD5.png]]
+
 # 六、参数 UPARAM
 主要用于将 C++ 代码公开到蓝图
 
@@ -724,25 +751,103 @@ UPARAM(DisplayName="Z (Yaw)") float Yaw);
 {UCLASS/UENUM/UINTERFACE/USTRUCT/UFUNCTION/UPROPERTY}(SpecifierX, meta=(MetaTag1="Value1", MetaTag2, ..), SpecifierY)
 ```
 
-**要添加元数据说明符到列举值，可将 `UMETA` 标签添加到值本身。如果存在用于分隔的逗号，则要添加到逗号之前，如下所示：**
+## 属性说明符
+
+**`DisplayName` 别名**，可以便于蓝图变量搜索，如果变量名不好记的话
+
+**`EditCondition` 是否可编辑**：支持 bool、比较等条件判断
+
+```cpp
+UPROPERTY(EditAnywhere,BlueprintReadWrite, meta = (DisplayName="UseOffset1、2 标志位") )
+	bool bUseOffset;
+
+UPROPERTY(EditAnywhere, meta = (DisplayName = "ContitionValue 控制 offset3"))
+	int32 ContitionValue;
+
+UPROPERTY(EditAnywhere, meta = (DisplayName = "ContitionColorBits 控制 offset4"))
+	EColorBits1 ContitionColorBits;
+
+UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "bUseOffset"))
+	float Offset1;
+
+UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "!bUseOffset"))
+	float Offset2;
+
+UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "ContitionValue>0"))
+	float Offset3;
+
+UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "ContitionColorBits==EColorBits1::ECB_Green"))
+	float Offset4;
+```
+
+![[9eeca8d2381f93f451dfd5c02844ce29_MD5.png]]
+
+**`BindWidget`**： 和 UMG 同名同类型控件绑定
+
+```scss
+UPROPERTY(EditAnywhere, meta = (BindWidget))
+  UImage* TCanvas;
+
+UPROPERTY(EditAnywhere, BlueprintReadWrite , meta = (BindWidget))
+  UButton* Btn_Mass;
+```
+
+**`UMETA`** ：扩展宏
+- cpp meta里的中文在蓝图经常会乱码
+    - 解决方法一：高级保存选择 Unicode 65001
+    - 解决办法二：使用UMETA中的DisplayName
+- 可用于Enum的元素别名
+- 可用于结构体的元素别名
+- 可用于Datatable的别名
+
+```cpp
+UPROPERTY(EditAnywhere)
+	FName ChineseName UMETA(DisplayName="中文名");
+
+UPROPERTY(EditAnywhere)
+	float Weight UMETA(DisplayName = "体重") = 65.0f;
+
+UPROPERTY(EditAnywhere)
+	EColorBits1 FavoriteColorBits UMETA(DisplayName = "最喜欢的颜色")=EColorBits1::ECB_Blue;
+```
+
+![[b8afbd1280f8a8633fc10e17329ba58a_MD5.png]]
+
+### 函数说明符
+`ExpandEnumAsExecs`
+```cpp
+UENUM(BlueprintType)
+enum class BranchOutput : uint8
+{
+	Branch0,
+	Branch1,
+	Branch2,
+};
+
+UFUNCTION(BlueprintCallable, Category = "methods", Meta = (ExpandEnumAsExecs = "Branches"))
+void FunExpandEnumAsExecs(int32 Input, BranchOutput& Branches);
+```
 
 ```c++
-UENUM()
-enum class EMyEnum : uint8
+void AMyActor::FunExpandEnumAsExecs(int32 Input, BranchOutput& Branches)
 {
-    // DefaultValue Tooltip
-    DefaultValue = 0 UMETA(MetaTag1="Value1", MetaTag2, ..),
-
-    // ValueWithoutMetaSpecifiers Tooltip
-    ValueWithoutMetaSpecifiers,
-
-    // ValueWithMetaSpecifiers Tooltip
-    ValueWithMetaSpecifiers UMETA((MetaTag1="Value1", MetaTag2, ..),
-
-    // FinalValue Tooltip
-    FinalValue (MetaTag1="Value1", MetaTag2, ..)
-};
+	if (Input == 0)
+	{
+		Branches = BranchOutput::Branch0;
+	}
+	else if(Input == 1)
+	{
+		Branches = BranchOutput::Branch1;
+	}
+	else
+	{
+		Branches = BranchOutput::Branch2;
+	}
+}
 ```
+
+![[9d2428a628a890cc0469f887bcfc294e_MD5.png]]
+
 
 # 八、智能指针
 ## 概述
