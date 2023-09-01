@@ -2959,13 +2959,15 @@ DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2
 
 声明了委托后，只是相当于编程声明了一个类，还要对其进行 "实例化"，即声明委托对象。
 
+### 绑定/解绑
+
 | 函数                                                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |:----------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Bind`                                                          |绑定到现有委托对象。|
 | `BindStatic`                                                    |绑定原始C++对象static(全局)函数委托。 |
 |`BindRaw`|绑定原始C++对象的成员函数。<div>注意原始指针不使用任何类型的引用，删除目标对象后调用`Execute&nbsp;`或`&nbsp;ExecuteIfBound` 会不安全。</div>|
 |`BindLambda` |绑定一个Lambda函数。 |
-|`BindWeakLambda`|绑定弱引用Lambda函数 |
+|`BindWeakLambda`|绑定弱引用Lambda函数|
 | `BindSP`                                                        |绑定**共享指针/共享引用**指向的原始C++对象的成员函数。<div>共享指针委托会保留对象的弱引用。可使用`ExecuteIfBound()`进行调用。</div> |
 | <span style="color: rgb(15, 15, 15);">`BindThreadSafeSP`</span> |绑定线程安全的**共享指针/共享引用**指向的原始C++对象的成员函数。|
 | `BindUObject`                                                   |绑定`UObject` 对象的成员函数。<div>委托保留 `UObject`对象的弱引用。可使用`ExecuteIfBound()`进行调用。</div>|
@@ -2989,78 +2991,128 @@ DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2
 多播委托拥有大部分与单播委托相同的功能。它们只拥有对对象的弱引用，可以与结构体一起使用，可以四处轻松复制等等。  
 就像常规委托一样，多播委托可以远程加载/保存和触发；
 
-**但多播委托函数不能使用返回值**。它们最适合用来 四处轻松传递一组委托。
-
-**事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
+**多播委托函数不能使用返回值**。。
 
 ###  声明
 
-多播委托在声明方式上与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同，只是前者使用特定于多播委托的宏变体。
 ```c++
-//多播委托
+//无参无返回值
 DECLARE_MULTICAST_DELEGATE(DelegateName);
-DECLARE_MULTICAST_DELEGATE_ONEPARAM(DelegateName, Param1Type);
-DECLARE_MULTICAST_DELEGATE_XXXPARAMS(DelegateName, Param1Type,...);
+
+//有参无返回值
+DECLARE_MULTICAST_DELEGATE_ONEPARAM(DelegateName, Param1Type); //一个参数
+DECLARE_MULTICAST_DELEGATE_<Num>PARAMS(DelegateName, Param1Type,...); //多参
 ```
 
 ### 绑定/移除
 
 多播委托可以绑定多个函数，当委托触发时，将调用所有这些函数。因此，绑定函数在语义上与数组更加类似。
 
-|函数|说明 |
+|函数 |说明 |
 |---|---|
 |`Add()`|将函数委托添加到该多播委托的调用列表中。|
-|`AddStatic()`|添加原始C++指针static函数委托。|
-|`AddRaw()`|添加原始C++指针委托。原始指针不使用任何类型的引用，因此如果从委托下面删除了对象，则调用此函数可能不安全。调用`Execute()`时请小心！|
-|`AddSP()`|添加基于共享指针的（快速、非线程安全）成员函数委托。共享指针委托保留对对象的弱引用。|
-|`AddUObject()`|添加基于UObject的成员函数委托。UObject委托保留对对象的弱引用。|
-|`Remove()`|从该多播委托的调用列表中删除函数（性能为O(N)）。请注意，委托的顺序可能不会被保留！ |
+| `AddStatic()` |添加原始 C++对象的 static(全局)函数 |
+|`AddRaw()`|添加原始 C++对象的成员函数。<div>原始指针不使用任何类型的引用，因此如果从委托下面删除了对象，则调用此函数可能不安全。调用 `Execute()` 时请小心！</div>|
+| `AddSP()` |添加**共享指针/共享引用**指向的原始 C++对象的成员函数。<div>共享指针委托保留对对象的弱引用。</div> |
+|`AddThreadSafeSP()`|添加线程安全**共享指针/共享引用**指向的原始 C++对象的成员函数。<div>共享指针委托保留对对象的弱引用。</div> |
+| `AddUObject()` |添加 `UObject` 对象的成员函数。<div>UObject 委托保留对对象的弱引用。</div> |
+| `AddFunction()` |添加 `UObject` 对象的 `UFunction` 成员函数 |
+| `AddLambda()` |添加一个 Lambda 函数|
+|`AddWeakLambda()`|添加一个弱引用 Lambda 函数|
+
+|函数 |说明 |
+|---|---|
+|`Remove()` |从该多播委托的调用列表中删除函数（性能为O(N)）。请注意，委托的顺序可能不会被保留！ |
 |`RemoveAll()`|从该多播委托的调用列表中删除绑定到指定UserObject的所有函数。请注意，委托的顺序可能不会被保留！|
 
 `RemoveAll()`将删除绑定到所提供指针的所有已注册委托。切记，未绑定到对象指针的原始委托不会被该函数所删除！
 
-### 执行
+### 广播
 
-多播委托允许您附加多个函数委托，然后通过调用多播委托的 `Broadcast()` 函数一次性同时执行它们。多播委托签名不得使用返回值。 
-
-在多播委托上调用 `Broadcast()` 总是安全的，即使是在没有任何绑定时也是如此。
-
-唯一需要注意的是，如果您使用委托来初始化输出变量，通常会带来非常不利的后果。调用 `Broadcast()` 时绑定函数的执行顺序尚未定义。执行顺序可能与函数的添加顺序不相同。
+- 多播委托允许您附加多个函数委托，然后通过调用多播委托的 `Broadcast()` 函数一次性同时执行它们。
+- 无返回值
+- 在多播委托上调用 `Broadcast()` 总是安全的，即使是在没有任何绑定时也是如此。
+- 唯一需要注意的是，如果您使用委托来初始化输出变量，通常会带来非常不利的后果。调用 `Broadcast()` 时绑定函数的执行顺序尚未定义。执行顺序可能与函数的添加顺序不相同。
 
 |函数|说明|
 |---|---|
 | `Broadcast()`  |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
-## 6 动态委托
-**可序列化且支持反射的委托，类必须继承自 UObject。**
+## 3 事件
+#Event
+**事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
+![[c8c18a5716876d4db31a9b76687a1c4c_MD5.jpg]]
 
-动态委托可序列化，其函数可按命名查找，但其执行速度比常规委托慢。
+
+### 声明
+```c++
+//无参无返回值
+DECLARE_EVENT(OwningType, EventName);
+
+//有参无返回值
+DECLARE_EVENT_ONEPARAM(OwningType, DelegateName, Param1Type); //一个参数
+DECLARE_EVENT_<Num>PARAMS(OwningType, DelegateName, Param1Type,...); //多参
+```
+
+**注意 1**：事件第一个参数为  '拥有'此事件的类型 B，即类型 B 为事件的友元类，可以访问事件中的私有成员，例如 broadcast 函数
+
+**注意 2：** 定时事件宏一般放在一个类的内部，即访问该类型时需要带上所在类的名称前缀，如 `（ATPSProjectCharacter::FCharacterEvent）`, 可以有限减少事件类型名称冲突
+
+### 绑定和广播
+和多播相同
+## 6 动态委托
+- **可序列化且支持反射，令其可以在蓝图中进行调用。
+- 绑定的成员函数所属的类**必须继承自 UObject**
+- 其函数可按命名查找，但其执行速度比常规委托慢。
+- **动态委托**可以作为函数参数使用，只有**动态多播委托**可以作为变量给蓝图绑定和调用
 ### 声明
 
-动态委托的声明方式与[声明标准委托](https://docs.unrealengine.com/5.2/zh-CN/delegates-and-lamba-functions-in-unreal-engine)相同， 只是前者使用动态委托专属的宏变体。
+```c++
+//动态单播（可以有返回值）
+//无参，无返回值
+DECLARE_DYNAMIC_DELEGATE(DelegateName) 
+//有参，无返回值
+DECLARE_DYNAMIC_DELEGATE_<Num>Params(DelegateName, Param1Type, ...)//多参
+//无参，有返回值
+DECLARE_DYNAMIC_DELEGATE_RetVal(RetValType, DelegateName)
+//有参有返回值
+DECLARE_DYNAMIC_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)
 
-|声明宏|描述|
-|---|---|
-|`DECLARE_DYNAMIC_DELEGATE[_RetVal, ...]( DelegateName )` |创建一个**动态委托**。|
-|`DECLARE_DYNAMIC_MULTICAST_DELEGATE[_RetVal, ...]( DelegateName )` |创建一个**动态多播委托**。|
+//动态多播（无返回值）
+//无参无返回值
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(DelegateName);
+//有参，无返回值
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_<Num>Params(DelegateName, Param1Type, ...)//多参
+```
 
 ### 绑定/移除
 
 |辅助宏|说明|
 |---|---|
-|`BindDynamic( UserObject, FuncName )`|用于在**动态委托**上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
+|`BindDynamic( UserObject, FuncName )` |用于在**动态单播委托**上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
 |`AddDynamic( UserObject, FuncName )`|用于在**动态多播委托**上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
 |`RemoveDynamic( UserObject, FuncName )`|用于在动态多播委托上调用RemoveDynamic()的辅助宏。自动生成函数命名字符串。|
 
+在 ue4 中封装了较为简单的宏，通过宏拆解出函数名，后面可以通过存入的函数名来反射找到对应类对应的函数：
+```c++
+#define BindDynamic( UserObject, FuncName ) __Internal_BindDynamic( UserObject, FuncName, STATIC_FUNCTION_FNAME( TEXT( #FuncName ) ) )
+ 
+#define AddDynamic( UserObject, FuncName ) __Internal_AddDynamic( UserObject, FuncName, STATIC_FUNCTION_FNAME( TEXT( #FuncName ) ) )
+```
 ### 执行
 
-通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。 此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。 执行未绑定的委托在某些情况下确实可能导致内存混乱。可调用 `IsBound()` 检查是否可安全执行委托。 同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
+通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
 
-|执行函数|描述|
+可调用 `IsBound()` 检查是否可安全执行委托。 同时，对于无返回值的委托，可调用 `ExecuteIfBound()`，但需注意输出参数可能未初始化。
+
+|动态单播 |描述|
 |---|---|
-|`Execute`|不检查其绑定情况即执行一个委托|
-|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute|
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
-|`Broadcast` |**动态多播委托**执行|
+|`Execute`|执行一个委托 |
+| `ExecuteIfBound` |检查一个委托是否已绑定，如是，则调用 Execute |
+
+|动态多播|描述|
+|---|---|
+|`Broadcast` |广播|
 
 # 十二、定时器
 

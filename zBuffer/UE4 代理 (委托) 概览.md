@@ -257,7 +257,7 @@ DECLARE_MULTICAST_DELEGATE_XXXPARAMS(DelegateName, Param1Type,...);
 
 ### **4）案例**
 
-```
+```c++
 //定义
 DECLARE_MULTICAST_DELEGATE_OneParam(FCharacterDelegate_Multicast, int);  // TMulticastDelegate<void, int>
 ​
@@ -277,7 +277,7 @@ CharacterDelegateMulticast1.Broadcast(100); // 执行绑定实例，执行顺序
 
 事件实质上是一个`多播委托`，功能相差无几, 下图展示了事件和多播的区别
 
-![[c8c18a5716876d4db31a9b76687a1c4c_MD5.jpg]]
+
 
 ### **1）事件定义和声明**
 
@@ -318,7 +318,7 @@ FCharacterEvent CharacterEvent;
 
 ### **1）定义和声明动态委托**
 
-```
+```c++
 //定义
 DECLARE_DYNAMIC_DELEGATE(DelegateName); //动态单播委托
 DECLARE_DYNAMIC_DELEGATE_XXXPARAMS(DelegateName, Param1Type,...);
@@ -342,7 +342,7 @@ FCharacterDelegate_DynamicMulticast DelegateName;
 
 在 ue4 中封装了较为简单的宏，通过宏拆解出函数名，后面可以通过存入的函数名来反射找到对应类对应的函数
 
-```
+```c++
 #define BindDynamic( UserObject, FuncName ) __Internal_BindDynamic( UserObject, FuncName, STATIC_FUNCTION_FNAME( TEXT( #FuncName ) ) )
  
 #define AddDynamic( UserObject, FuncName ) __Internal_AddDynamic( UserObject, FuncName, STATIC_FUNCTION_FNAME( TEXT( #FuncName ) ) )
@@ -374,7 +374,7 @@ FCharacterDelegate_DynamicMulticast DelegateName;
 
 以`FCharacterDelegate_Dynamic`为例，讲述动态委托的绑定和触发
 
-```
+```c++
 //定义
 DECLARE_DYNAMIC_DELEGATE_OneParam(FCharacterDelegate_Dynamic, int, nCode);
 ​
@@ -411,7 +411,7 @@ void ATPSProjectCharacter::OnDelegateDynamicTest()
 
 以`FCharacterDelegate_DynamicMulticast`为例，讲述动态多播委托的绑定和触发
 
-```
+```c++
 //定义
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCharacterDelegate_DynamicMulticast, int, nCode);
 ​

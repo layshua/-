@@ -8111,6 +8111,7 @@ ObjUniquePtr
 OnMyDelegate
 ONEPARAM
 OnHealthChange
+OwningType
 codeup
 clash
 ctrl
@@ -35869,6 +35870,7 @@ ekdwn
 ensureMsgf
 ensureAlways
 ensureAlwaysMsgf
+execs
 VPN
 Verge
 VS
@@ -47335,6 +47337,11 @@ AVLTree
 Author
 AController
 ASCharacter
+AddThreadSafeSP
+AddFunction
+AddLambda
+AddWeakLambda
+ATPSProjectCharacter
 URL
 Utools
 Users
@@ -78371,6 +78378,7 @@ PostThread
 PTNode
 PTree
 Partition
+PARAMS
 ContextMenuManager
 ClashVerge
 Clash
@@ -156487,6 +156495,8 @@ Fibonacci
 FibonacciSearch
 FVarient
 FOnHealthChangeSignature
+FCharacterEvent
+FNAME
 Element
 Entity
 Enity
@@ -161067,6 +161077,8 @@ ELemType
 EnQueue
 Elemtype
 Email
+EVENT
+EventName
 xmlns
 xyz
 xy
