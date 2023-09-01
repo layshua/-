@@ -1,6 +1,46 @@
 {
   "recentFiles": [
     {
+      "basename": "yaml_metadata",
+      "path": "zip/templates/yaml_metadata.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "zip/templates/未命名.md"
+    },
+    {
+      "basename": "callout分栏",
+      "path": "zip/templates/callout分栏.md"
+    },
+    {
+      "basename": "yaml",
+      "path": "zip/templates/yaml.md"
+    },
+    {
+      "basename": "mermaid流图",
+      "path": "zip/templates/mermaid流图.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "论文_metadata",
+      "path": "zip/templates/论文_metadata.md"
+    },
+    {
+      "basename": "C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客",
+      "path": "zBuffer/C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "代码随想录",
       "path": "编程/算法/代码随想录.md"
     },
@@ -11,14 +51,6 @@
     {
       "basename": "GamePlay精粹",
       "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
-    },
-    {
-      "basename": "C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客",
-      "path": "zBuffer/C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "U++精粹",
@@ -35,10 +67,6 @@
     {
       "basename": "数列",
       "path": "Math/Others/数列.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
     },
     {
       "basename": "Cherno剩余",
@@ -87,10 +115,6 @@
     {
       "basename": "光照设置",
       "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "03 三：模块基础",
@@ -175,22 +199,6 @@
     {
       "basename": "缴费",
       "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "引擎Unreal/03 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "虚幻官方直播笔记 (贾越 - Niagara 基础）",
-      "path": "引擎Unreal/06 Niagara/虚幻官方直播笔记 (贾越 - Niagara 基础）/虚幻官方直播笔记 (贾越 - Niagara 基础）.md"
-    },
-    {
-      "basename": "Shader HLSL",
-      "path": "引擎Unreal/05 材质 & 渲染/Shader HLSL.md"
-    },
-    {
-      "basename": "303 实时渲染",
-      "path": "引擎Unreal/05 材质 & 渲染/303 实时渲染.md"
     }
   ],
   "omittedPaths": [],
