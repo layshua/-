@@ -111,7 +111,7 @@ UE4 提供了五类 Delegate，分别是单播、多播、动态委托、动态�
 
 声明定义单播委托可以有参数或无参数，有返回值或无返回值，通过如下几种宏声明
 
-```
+```c++
 DECLARE_DELEGATE( FSimpleDelegate ); // 无参、无返回值
 DECLARE_DELEGATE_OneParam(FPakEncryptionKeyDelegate, uint8[32]); // 1个参数、无返回值
 DECLARE_DELEGATE_TwoParams(FPakSigningKeysDelegate, TArray<uint8>&, TArray<uint8>&); // 2个参数、无返回值
@@ -120,7 +120,7 @@ DECLARE_DELEGATE_RetVal_ThreeParams(bool, FOnMountPak, const FString&, int32, IP
 
 定义了委托后，只是相当于编程声明了一个类，还要对其进行 "实例化"，即声明委托对象，以下是完整流程
 
-```
+```c++
 //函数开头声明委托
 DECLARE_DELEGATE(FTestDelegate);
 class XXX_API AMyTestActor : public AActor
@@ -146,10 +146,9 @@ public:
 
 实际案例，仅作部分参考
 
-```
+```c++
 // Bind Static
 CharacterDelegate1.BindStatic(StaticDelegateProc);
-​
 CharacterDelegate2.BindStatic(ATPSProjectCharacter::StaticCharacterDelegateProc);
 ​
 // Bind Raw

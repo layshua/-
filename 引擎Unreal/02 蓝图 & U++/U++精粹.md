@@ -2859,8 +2859,8 @@ void ATestActor::BeginPlay()
 # 十一、委托 UDELEGATE
 **委托** 是一种**泛型但类型安全**的方式，可在 C++对象上调用成员函数。可使用委托动态绑定到任意对象的成员函数，之后在该对象上调用函数，即使调用程序不知对象类型也可进行操作。
 
-复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用传递委托**。
-
+- 复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用 `&` 传递委托**。
+- **委托函数**使用 **`UDELEGATE` 宏**，支持与 `UFUNCTION` 相同的说明符。
 ## **步骤**
 
 **发送者步骤：**
@@ -2914,9 +2914,11 @@ USHeathComponent* HealthComponent; //观察者引用发送者
 
 ​
 //要绑定的函数参数要和声明委托的参数一致
- UFUNCTION()
- void OnHealthChange(USHeathComponent* HealthComponent, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
-​
+//委托函数使用`UDELEGATE` 宏，支持与 `UFUNCTION` 相同的说明符。
+//委托参数的变量类型后面要加 `,` 与变量命分隔开。和常规函数不同
+UFUNCTION()
+void OnHealthChange(USHeathComponent* HealthComponent, float Health, float HealthDelta, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+
 ```
 
 ```c++ file:Character.cpp
@@ -2926,9 +2928,10 @@ HealthComponent->OnHealthChange.AddDynamic(this, &ASCharacter::OnHealthChange);
 
 解释下，这样使用**委托的好处**：血条组件中使用 `OnHealthChange` 委托，那么 Character 和其他 Actor 使用血条组件时，只有单方面的引用（**观察者引用发送者**。很好理解，观察者要监视发送者）（观察者设计模式原理），血条组件并不需要关心谁用了它，也就是血条组件无需包含使用它的 Character 或者 Actor 的引用，这就实现了一种解耦，这就是委托的好处。
 
-## 1 声明委托
-
-如需声明委托，请使用下文所述的宏。请根据与委托相绑定的函数（或多个函数）的函数签名来选择宏。每个宏都为新的委托类型名称、函数返回类型（如果不是 `void` 函数）及其参数提供了参数。
+## 单播委托
+只能绑定一个函数指针，单播执行时只能触发一个绑定函数（如果绑定多个，只能触发最后绑定的那个函数）
+### 声明
+单播委托可以有参数或无参数，有返回值或无返回值
 
 当前，支持以下使用任意组合的委托签名：
 - 返回一个值的函数。
@@ -2939,60 +2942,46 @@ HealthComponent->OnHealthChange.AddDynamic(this, &ASCharacter::OnHealthChange);
 使用此表格查找要用于声明委托的生命宏。
 - `Param`：形参
 - `RetVal` ：返回值
-
-
-|函数签名|声明宏|
-|---|---|
-|`void Function()`|`DECLARE_DELEGATE(DelegateName)`|
-|`void Function(Param1)`|`DECLARE_DELEGATE_OneParam(DelegateName, Param1Type)`|
-|`void Function(Param1, Param2)`|`DECLARE_DELEGATE_TwoParams(DelegateName, Param1Type, Param2Type)`|
-|`void Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_<Num>Params(DelegateName, Param1Type, Param2Type, ...)`|
-|`<RetValType> Function()`|`DECLARE_DELEGATE_RetVal(RetValType, DelegateName)` |
-|`<RetValType> Function(Param1)`|`DECLARE_DELEGATE_RetVal_OneParam(RetValType, DelegateName, Param1Type)`|
-|`<RetValType> Function(Param1, Param2)`|`DECLARE_DELEGATE_RetVal_TwoParams(RetValType, DelegateName, Param1Type, Param2Type)`|
-|`<RetValType> Function(Param1, Param2, ...)`|`DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)`|
-
-委托函数使用 **`UDELEGATE` 宏**，支持与 `UFUNCTION` 相同的说明符。
-
-例如，以下声明委托代码将 `BlueprintAuthorityOnly` 说明符添加到 `FInstigatedAnyDamageSignature` 委托中。
 ```c++
-UDELEGATE(BlueprintAuthorityOnly)
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FInstigatedAnyDamageSignature, float, Damage, const UDamageType*, DamageType, AActor*, DamagedActor, AActor*, DamageCauser);
+//无参，无返回值
+DECLARE_DELEGATE(DelegateName)
+//有参，无返回值
+DECLARE_DELEGATE_OneParam(DelegateName, Param1Type) //一个参数
+DECLARE_DELEGATE_TwoParams(DelegateName, Param1Type, Param2Type) //两个参数
+DECLARE_DELEGATE_<Num>Params(DelegateName, Param1Type, Param2Type, ...)//多参
+//无参，有返回值
+DECLARE_DELEGATE_RetVal(RetValType, DelegateName)
+//有参有返回值
+DECLARE_DELEGATE_RetVal_OneParam(RetValType, DelegateName, Param1Type)
+DECLARE_DELEGATE_RetVal_TwoParams(RetValType, DelegateName, Param1Type, Param2Type)
+DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2Type, ...)
 ```
->- 委托参数的变量类型后面要加 `,` 与变量命分隔开。和常规函数不同
->- 声明在类外
 
-关于多播委托、动态委托和封装委托，上述宏的变体如下：
+声明了委托后，只是相当于编程声明了一个类，还要对其进行 "实例化"，即声明委托对象。
 
-- `DECLARE_MULTICAST_DELEGATE...`
-- `DECLARE_DYNAMIC_DELEGATE...`
-- `DECLARE_DYNAMIC_MULTICAST_DELEGATE...`
+| 函数                                                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|:----------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Bind`                                                          |绑定到现有委托对象。|
+| `BindStatic`                                                    |绑定原始C++对象static(全局)函数委托。 |
+|`BindRaw`|绑定原始C++对象的成员函数。<div>注意原始指针不使用任何类型的引用，删除目标对象后调用`Execute&nbsp;`或`&nbsp;ExecuteIfBound` 会不安全。</div>|
+|`BindLambda` |绑定一个Lambda函数。 |
+|`BindWeakLambda`|绑定弱引用Lambda函数 |
+| `BindSP`                                                        |绑定**共享指针/共享引用**指向的原始C++对象的成员函数。<div>共享指针委托会保留对象的弱引用。可使用`ExecuteIfBound()`进行调用。</div> |
+| <span style="color: rgb(15, 15, 15);">`BindThreadSafeSP`</span> |绑定线程安全的**共享指针/共享引用**指向的原始C++对象的成员函数。|
+| `BindUObject`                                                   |绑定`UObject` 对象的成员函数。<div>委托保留 `UObject`对象的弱引用。可使用`ExecuteIfBound()`进行调用。</div>|
+|  `BindFunction`                                                 |绑定 `UObject` 对象的 `UFunction` 成员函数|
+| `UnBind`                                                        |取消绑定此委托。|
 
-## 2 绑定委托
+### 执行
 
-委托系统理解某些类型的对象，使用此类对象时将启用附加功能。**将委托`Bind`到 `UObject` 或 `共享指针类` 的成员，委托系统可保留对该对象的弱引用，因此对象在委托下方被销毁时，可通过调用 `IsBound()` 或 `ExecuteIfBound()` 函数进行处理**。
+通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须用 `IsBound()` 检查委托是否已绑定。
+此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
 
-|函数|描述|
-|---|---|
-|`Bind`|绑定到现有委托对象。|
-|`BindStatic`|绑定原始C++指针static函数委托。|
-|`BindRaw`|绑定原始C++指针委托。由于原始指针不使用任何类型的引用，因此在删除目标对象后调用`Execute `或` ExecuteIfBound` 会不安全。|
-|`BindLambda`|绑定一个Lambda函数。 |
-|`BindSP`|绑定基于**共享指针**的成员函数委托。共享指针委托会保留对对象的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
-|`BindUObject`|绑定 `UObject` 的成员函数委托。`UObject` 委托会保留对你的对象 `UObject` 的弱引用。可使用 `ExecuteIfBound()` 进行调用。|
-|`UnBind`|取消绑定此委托。 |
-
-## 3 执行委托
-
-通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须用 `IsBound()` 检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
-
-|执行函数 |描述|
+|执行函数 |描述 |
 |---|---|
 | `IsBound` |检查一个委托是否已绑定，经常出现在包含 `Execute` 调用的代码前|
-|`Execute`|不检查其绑定情况即执行一个委托|
-|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute **(只能用于无返回值的委托)**|
-
-## 单播委托
+|`Execute`|执行一个委托|
+|`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute **(只能用于无返回值的委托)** |
 
 ## 5 多播委托
 **可以绑定到多个函数并一次性同时执行它们的委托。**
