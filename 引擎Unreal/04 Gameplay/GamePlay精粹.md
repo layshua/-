@@ -2,31 +2,23 @@
 ## 实例化 Object/Actor
 虚幻引擎有两个不同的函数来实例化对象：
 
-- `NewObject` 用于创建新的 `UObject` 类型。
+- `NewObject<T>` 用于创建新的 `UObject` 类型。
 - `SpawnActor` 用于生成 `AActor` 类型。
 
-### UObject 和 NewObject
+### UObject 和 NewObject<>
+[在虚幻引擎中创建对象 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/creating-objects-in-unreal-engine/)
 
 在虚幻引擎中创建 `UObject` 的子类与在 Unity 中创建 `ScriptableObject` 的子类非常类似。对于不需要生成到世界中或像 Actor 那样绑定了组件的 Gameplay 类，这些很有用。
+![[Pasted image 20230901234233.png]]
 
 ```c++
 //NewObject
 //接收一个外部UObject或UClass，用自动生成的名称创建新实例
 UMyObject* NewObj = NewObject<UMyObject>(); 
-
-//NewNamedObject
-//允许为新实例指定一个名称以及对象标记和一个要指定为参数的模板对象
-UMyObject* NewObj = NewNamedObject<UMyObject>();
-
-//ConstructObject
-//更灵活
-UMyObject* NewObj = ConstructObject<UMyObject>();
 ```
 
 ### AActor 和 SpawnActor
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
-
-
 
 Actor 通过 `UWorld` 对象（可以通过 `GetWorld()` 获得）的 `SpawnActor` 方法生成。
 >UObject 为 Actor 提供了 `GetWorld` 方法

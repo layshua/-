@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/04 Gameplay/GamePlay精粹.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -55,10 +59,6 @@
     {
       "basename": "5 定时器",
       "path": "引擎Unreal/02 U++精粹/5 定时器.md"
-    },
-    {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/03 蓝图/GamePlay精粹.md"
     },
     {
       "basename": "【月神3】杂项",
