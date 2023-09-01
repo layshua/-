@@ -2861,7 +2861,7 @@ void ATestActor::BeginPlay()
 
 - 复制委托对象很安全。你也可以利用值传递委托，但这样操作需要在堆上分配内存，因此通常并不推荐。**请尽量通过引用 `&` 传递委托**。
 - **委托函数**使用 **`UDELEGATE` 宏**，支持与 `UFUNCTION` 相同的说明符。
-## **步骤**
+## 1 使用方法
 
 **发送者步骤：**
 1. 声明委托，定义参数列表【可以简单理解为构建一个委托类】
@@ -2928,7 +2928,9 @@ HealthComponent->OnHealthChange.AddDynamic(this, &ASCharacter::OnHealthChange);
 
 解释下，这样使用**委托的好处**：血条组件中使用 `OnHealthChange` 委托，那么 Character 和其他 Actor 使用血条组件时，只有单方面的引用（**观察者引用发送者**。很好理解，观察者要监视发送者）（观察者设计模式原理），血条组件并不需要关心谁用了它，也就是血条组件无需包含使用它的 Character 或者 Actor 的引用，这就实现了一种解耦，这就是委托的好处。
 
-## 单播委托
+**进一步理解，发送者只管发送，不必直到谁会接收。观察者只需要监听发送者并定义自己收到消息后要执行的行为。** 举例来说，主角释放了一个技能，释放时主角类发出一个委托，受该技能影响的其他类接受这个委托并定义被影响的效果。主角类并不需要直到谁会受到影响。
+
+## 2 单播委托
 只能绑定一个函数指针，单播执行时只能触发一个绑定函数（如果绑定多个，只能触发最后绑定的那个函数）
 ### 声明
 单播委托可以有参数或无参数，有返回值或无返回值
@@ -2985,7 +2987,7 @@ DECLARE_DELEGATE_RetVal_<Num>Params(RetValType, DelegateName, Param1Type, Param2
 |`Execute`|执行一个委托|
 |`ExecuteIfBound`|检查一个委托是否已绑定，如是，则调用Execute **(只能用于无返回值的委托)** |
 
-## 5 多播委托
+## 3 多播委托
 **可以绑定到多个函数并一次性同时执行它们的委托。**
 
 多播委托拥有大部分与单播委托相同的功能。它们只拥有对对象的弱引用，可以与结构体一起使用，可以四处轻松复制等等。  
@@ -3037,7 +3039,7 @@ DECLARE_MULTICAST_DELEGATE_<Num>PARAMS(DelegateName, Param1Type,...); //多参
 |函数|说明|
 |---|---|
 | `Broadcast()`  |将该委托广播给所有绑定的对象，但可能已过期的对象除外。|
-## 3 事件
+## 4 事件 Event
 #Event
 **事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
 ![[c8c18a5716876d4db31a9b76687a1c4c_MD5.jpg]]
@@ -3055,11 +3057,11 @@ DECLARE_EVENT_<Num>PARAMS(OwningType, DelegateName, Param1Type,...); //多参
 
 **注意 1**：事件第一个参数为  '拥有'此事件的类型 B，即类型 B 为事件的友元类，可以访问事件中的私有成员，例如 broadcast 函数
 
-**注意 2：** 定时事件宏一般放在一个类的内部，即访问该类型时需要带上所在类的名称前缀，如 `（ATPSProjectCharacter::FCharacterEvent）`, 可以有限减少事件类型名称冲突
+**注意 2：** **定时事件宏一般放在一个类的内部，即访问该类型时需要带上所在类的名称前缀**，如 `（ATPSProjectCharacter::FCharacterEvent）`, 可以有限减少事件类型名称冲突
 
 ### 绑定和广播
 和多播相同
-## 6 动态委托
+## 5 动态委托
 - **可序列化且支持反射，令其可以在蓝图中进行调用。
 - 绑定的成员函数所属的类**必须继承自 UObject**
 - 其函数可按命名查找，但其执行速度比常规委托慢。
@@ -3086,10 +3088,16 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_<Num>Params(DelegateName, Param1Type, ...)//�
 
 ### 绑定/移除
 
-|辅助宏|说明|
+|动态单播 |说明|
 |---|---|
 |`BindDynamic( UserObject, FuncName )` |用于在**动态单播委托**上调用BindDynamic()的辅助宏。自动生成函数命名字符串。|
+|`BindFunction( UserObject, FuncName )` |绑定`UObject`对象的`UFunction`成员函数|
+|`Clear`|解绑，内部调用`Unbind`|
+
+|动态多播|说明|
+|---|---|
 |`AddDynamic( UserObject, FuncName )`|用于在**动态多播委托**上调用AddDynamic()的辅助宏。自动生成函数命名字符串。|
+| `AddUniqueDynamic( UserObject, FuncName )` ||
 |`RemoveDynamic( UserObject, FuncName )`|用于在动态多播委托上调用RemoveDynamic()的辅助宏。自动生成函数命名字符串。|
 
 在 ue4 中封装了较为简单的宏，通过宏拆解出函数名，后面可以通过存入的函数名来反射找到对应类对应的函数：
@@ -3098,6 +3106,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_<Num>Params(DelegateName, Param1Type, ...)//�
  
 #define AddDynamic( UserObject, FuncName ) __Internal_AddDynamic( UserObject, FuncName, STATIC_FUNCTION_FNAME( TEXT( #FuncName ) ) )
 ```
+
+
 ### 执行
 
 通过调用委托的 `Execute()` 函数执行绑定到委托的函数。执行前须检查委托是否已绑定。此操作是为了使代码更安全，因为有时委托可能含有未初始化且被后续访问的返回值和输出参数。执行未绑定的委托在某些情况下确实可能导致内存混乱。
@@ -3113,6 +3123,212 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_<Num>Params(DelegateName, Param1Type, ...)//�
 |动态多播|描述|
 |---|---|
 |`Broadcast` |广播|
+
+### 开放到蓝图
+1. 首先在 C++ 中定义对象及动态多播委托
+```c++ h:1,8,9,10
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMyDelegate,int32,MyInt);
+UCLASS()
+
+class SMARTPTR_API AMyActor : public AActor
+{
+	GENERATED_BODY()
+
+    //使用BlueprintAssignable说明符
+	UPROPERTY(BlueprintAssignable,Category="MyDelegate")
+	FMyDelegate MyDelegate;
+};
+```
+
+2. 在蓝图中绑定即可
+![[Pasted image 20230901163755.png|550]]
+![[Pasted image 20230901163812.png|550]]
+
+## 6 全局事件派发（鸽）
+
+虽然 UE4 原生提供的委托功能已经满足需求，但是它总归并不是真正意义上全局的事件，**需要监听者知道事件派发者是谁**（甚至需要在 C++ 包含其派发者头文件），**因此我们需要一个中间者来帮我们进行转发事件，监听者和派发者并不需要彼此知道，只要知道中间者就行，从而实现解耦。**
+
+这里我们使用 GameState 作为这个中间者。在 GameState 创建中构建一个委托（当然也可以在 GameInstance，放在 GameState 比较好管理事件生命周期）
+
+### **构建全局事件**
+
+*   为支持蓝图，这里我们选择动态多播构建全局派发事件
+*   为方便派发者方便派发事件，这里派发者可以以事件名 FString 直接动态注册和绑定事件
+
+```c++
+// 定义委托样式
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FActorTrigger, const FString&, TriggerName);
+
+//绑定事件函数
+UFUNCTION(BlueprintCallable, Category = "Event")
+void GlobalBindEvent(UserClass* Object, FString TriggerName, typename FActorTrigger::FDelegate::TMethodPtrResolver<UserClass>::FMethodPtr FuncPtr, FName FuncName);
+
+//派发事件
+UFUNCTION(BlueprintCallable, Category = "Event")
+void GlobalDispatchEvent(FString TriggerName);
+
+//清除所有事件
+UFUNCTION(BlueprintCallable, Category = "Event")
+void ClearAllEvents();
+
+// 全局绑定事件
+template< class UserClass >
+void MyGameState::GlobalBindTriggerEvent(UserClass* Object, FString TriggerName, typename FActorTrigger::FDelegate::TMethodPtrResolver<UserClass>::FMethodPtr FuncPtr, FName FuncName) 
+{
+    FActorTrigger& Trigger = TriggerDelagates.FindOrAdd(TriggerName);
+    Trigger.__Internal_AddDynamic(Object, FuncPtr, FuncName);
+}
+
+// 全局派发事件
+void AMyGameState::GlobalDispatchEvent(FString TriggerName)
+{
+    if (TriggerName.Len() > 0)
+    {
+        FPlaceableActorTrigger* Trigger = TriggerDelagates.Find(TriggerName);
+        if (Trigger)
+        {
+            Trigger->Broadcast(TriggerName);
+        }
+    }
+}
+
+// 清除事件
+void AMyGameState::ClearAllEvents()
+{
+    for (auto DeleagtePair : TriggerDelagates)
+    {
+        DeleagtePair.Value.Clear();
+    }
+    TriggerDelagates.Empty();
+
+
+}
+```
+
+### **应用全局事件**
+
+```c++
+/////////////////// 绑定事件 /////////////////////
+#include "UserClass.h"
+TriggerEventName = "MyTriggerEvent";
+// 获取GameState
+AMyGameState* myInstance = Cast<AMyGameState>(GetWorld()->GetGameState());
+myInstance->GlobalBindTriggerEvent<UUserClass>(this, TriggerEventName, &UUserClass::OnMyTestFunction, FName(TEXT("OnMyTestFunction")));
+
+/////////////////// 派发事件 /////////////////////
+AMyGameState* myGameState = Cast<AMyGameState>(GetWorld()->GetGameState());
+myGameState ->GlobalDispatchEvent(TriggerEventName);
+```
+
+### **进阶：可传参事件**
+
+上面的事件目前只支持简单的全局事件派发，但是大多数情况我们是需要参数传递的，因此上述方法并不实用，但是 UE 的委托委托蛋疼的地方在于你想要定义不同参数的委托的需要提前宏定义好。因此我们只能取巧。
+
+这里我的解决方案是利用一个容器去存储传递的数据，这样我只要传递当前这个容器的值即可。
+
+*   **结构体**：在结构体可以定义 TMap 参数，然后直接传递结构体变量，缺点是当需要传递多种类型时，我需要存储在多个不同类型的 TMap 中，读取解析麻烦。当然也有解决方法，我可以将结构体参数定义为可变参数的模板类型，但是过程会比较复杂，这里抛砖引玉一下，当然该方法**不支持动态多播**，也即不支持蓝图委托，只能用于普通单播和多播，结构体实现大致如下：
+
+```c++
+template <typename... Args>
+struct FMultiType {
+    std::tuple<Args...> values;
+
+
+    template<typename T>
+    FMultiType(T value): values(value) {}
+
+
+    template<typename T, typename... Rest>
+    FMultiType(T arg, Rest... rest): values(arg, rest...) {}
+};
+```
+
+*   **Json**：UE5 中内置了 JsonObject 的第三方库，UE4 中也可以自己添加头文件引入 Josn 类。我们可以利用 Json 对象来帮助我们传递任意类型参数  
+    大致思路如下：创建一个 JsonObject, 用智能指针管理，然后将数据添加到里面，然后用序列化为 FString 进行数据传输（动态多播也不支持 JsonObject 非 UE 相关类传输），在监听者收到 String 后对其反序化。  
+    苦笑：其实这样写也蛮麻烦的，在蓝图端还得写一个 JsonObject 的 Helper 来帮助解析。
+
+```c++
+////////////////序列化参数//////////////////
+// 创建一个新的 JSON 对象
+TSharedPtr<FJsonObject> MyJsonObject = MakeShareable(new FJsonObject);
+
+// 向 JSON 对象中添加字段
+MyJsonObject->SetStringField(TEXT("Name"), TEXT("John"));
+MyJsonObject->SetNumberField(TEXT("Age"), 25);
+MyJsonObject->SetBoolField(TEXT("IsStudent"), true);
+
+// 将 JSON 对象转换为字符串
+FString JsonString;
+TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&JsonString);
+FJsonSerializer::Serialize(MyJsonObject.ToSharedRef(), Writer);
+
+///////////////重新定义委托参数///////////////
+// 定义委托样式
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FActorTrigger, const FString&, TriggerName, FString&, Prams);
+
+////////////////反序列化参数//////////////////
+// 传入参数为JsonString
+TSharedPtr<FJsonObject> MyJsonObject;
+TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(JsonString);
+if (FJsonSerializer::Deserialize(Reader, MyJsonObject) && MyJsonObject.IsValid())
+{
+    // 反序列化成功
+   
+    // 获取字符串字段
+    FString Name;
+    MyJsonObject->TryGetStringField(TEXT("Name"), Name);
+
+    // 获取数值字段
+    float Age;
+    MyJsonObject->TryGetNumberField(TEXT("Age"), Age);
+
+    // 获取布尔字段
+    bool IsStudent;
+    MyJsonObject->TryGetBoolField(TEXT("IsStudent"), IsStudent);
+}
+else
+{
+    UE_LOG(LogTemp, Log, TEXT("Fail Deserialize JsonObject"));
+}
+```
+
+*   **FVarient**
+
+如果不考虑蓝图实现，其实这个全局委托事件就可以放飞自我了，我们无需考虑蓝图能接受的类型，比如我们可以使用 UE 内置的**无类型变量 FVarient** 来兼容所有变量的传递（这么好用的参数类型，UE 竟然只允许在 C++ 中使用，可恶啊！！！），直接像这样 `DispatchEvent(FName EventName, TArray<FVariant>& Params)` 的参数传递即可。
+
+**FVarient** 位于引擎 `Core/Misc` 模块中
+
+**FVarient** 的使用方式如下：
+
+```c++
+// 存储整数类型的变量
+FVariant Var = 123;
+
+// 存储浮点数类型的变量
+float FloatValue = 3.14f;
+Var = FloatValue;
+
+// 存储字符串类型的变量
+FString StringValue = TEXT("Hello World");
+Var = StringValue;
+
+// 存储对象指针类型的变量
+AActor* ActorPtr = GetWorld()->GetFirstPlayerController()->GetCharacter();
+Var = FObjectPtr(ActorPtr);
+
+// 存储枚举类型的变量
+EMyEnum MyEnumValue = EMyEnum::Value1;
+Var = MyEnumValue;
+
+// 存储结构体类型的变量
+FVector Location(1.0f, 2.0f, 3.0f);
+Var = Location;
+
+// 存储对象类型的变量
+UClass* MyClass = UMyClass::StaticClass();
+UMyClass* MyObj = NewObject<UMyClass>();
+Var = FSoftObjectPath(MyClass->GetPathName() + TEXT(".") + MyObj->GetName());
+```
 
 # 十二、定时器
 
