@@ -52897,6 +52897,7 @@ Uil
 UFUCNTION
 Unload
 UnLock
+UGameplayStatics
 api
 ac
 app
@@ -61738,6 +61739,9 @@ RequestSyncLoad
 RequestAsyncLoad
 ReleaseHandle
 RunnableActor
+RemoveFromRoot
+RenderThread
+RHIThread
 Microsoft
 Menu
 MicaForEveryone
@@ -71005,6 +71009,7 @@ WiER
 WJI
 Wjh
 WQrz
+WeakReferenceCount
 Start
 StartAllBack
 Shadowrocket
@@ -76268,6 +76273,10 @@ SoftObjectReference
 SimpleRunnable
 SimpleTask
 SimpleAsyncTask
+SHorizontalBox
+SVerticalBox
+SUniformGridPanel
+SWrapBox
 Programs
 POP
 PC
@@ -80768,6 +80777,7 @@ POnL
 Pznc
 Pawns
 ParallelFor
+Persistence
 ContextMenuManager
 ClashVerge
 Clash
@@ -85512,6 +85522,8 @@ CpXz
 Controllers
 CPPFunction
 ConstructorHelpers
+CompletionEvent
+CharacterMovementComponent
 ImTip
 IMAP
 ID
@@ -89886,6 +89898,7 @@ Irqm
 IdYB
 Iaux
 IQueuedWork
+IDelegateInstance
 qq
 qyi
 quad
@@ -106138,6 +106151,7 @@ blv
 bOOLc
 bManageActiveHandle
 bForceSingleThread
+backend
 fe
 front
 fill
@@ -118855,6 +118869,11 @@ TryLoad
 TryLoadClass
 TimerManager
 TaskGraphActor
+Tuple
+TDelegate
+TShareRef
+TSharedPt
+TList
 io
 ipad
 it
@@ -128561,6 +128580,7 @@ stR
 sCai
 seqsearch
 spawning
+slate
 local
 list
 left
@@ -161137,6 +161157,11 @@ FAutoDeleteAsyncTask
 FQueueThreadPoolBase
 FQueuedThread
 FEvent
+FDelegateBase
+FEngineLoop
+FNullGraphTask
+FRenderCommandFence
+FWorldContext
 Element
 Entity
 Enity
@@ -165839,6 +165864,7 @@ EgH
 EtC
 EEH
 Evme
+ENQUEUE
 xmlns
 xyz
 xy
@@ -176967,6 +176993,7 @@ Datatable
 Drone
 DrawDebugLine
 DoWork
+DefaultPawn
 LNK
 Log
 Linux
@@ -186179,6 +186206,12 @@ Gcoq
 GWl
 GetLoadedAsset
 GetLoadedAssets
+GetGameInstance
+GameMapsSettings
+GlobalDefaultGameMode
+GGameThreadId
+GameThreadWaitForTask
+GameEngine
 NULL
 Native
 NormalMap
