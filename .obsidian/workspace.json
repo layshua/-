@@ -13,10 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/templates/yaml_metadata.md",
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
                 "mode": "source",
                 "backlinks": false,
-                "source": true
+                "source": false
               }
             }
           }
@@ -63,11 +63,22 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/templates/yaml_metadata.md"
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+              }
+            }
+          },
+          {
+            "id": "33ef0e2e73201589",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "c860fd12f8384878",
@@ -113,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/templates/yaml_metadata.md",
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/templates/yaml_metadata.md",
+                "file": "引擎Unreal/02 蓝图 & U++/U++精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -145,24 +156,7 @@
   "right": {
     "id": "bd3717a50a592ecf",
     "type": "split",
-    "children": [
-      {
-        "id": "0d1158751020d3bb",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "33ef0e2e73201589",
-            "type": "leaf",
-            "state": {
-              "type": "file-properties",
-              "state": {
-                "file": "zip/templates/yaml_metadata.md"
-              }
-            }
-          }
-        ]
-      }
-    ],
+    "children": [],
     "direction": "horizontal",
     "width": 200,
     "collapsed": true
@@ -181,12 +175,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "33ef0e2e73201589",
   "lastOpenFiles": [
-    "zip/templates/未命名.md",
-    "zip/templates/yaml_metadata.md",
-    "zip/templates/未命名.canvas",
+    "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md",
+    "引擎Unreal/02 蓝图 & U++/蓝图精粹.md",
+    "编程/C++/《C++ Primer》.md",
+    "zip/images/Pasted image 20230901130209.png",
+    "编程/算法/《数据结构》.md",
     "zip/templates/markmap脑图.md",
+    "zip/templates/yaml_metadata.md",
+    "zip/templates/未命名.md",
+    "zip/templates/未命名.canvas",
     "zip/templates/callout分栏.md",
     "zip/templates/mermaid流图.md",
     "技术美术/3 后处理/01 图像模糊.md",
@@ -201,12 +200,8 @@
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unreal/02 蓝图 & U++/UMG.md",
     "引擎Unreal/02 蓝图 & U++/U++精粹.md",
-    "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md",
-    "引擎Unreal/02 蓝图 & U++/蓝图精粹.md",
     "编程/C++/C++原理.md",
     "编程/C++/《Effective C++ 3th》.md",
-    "编程/C++/《C++ Primer》.md",
-    "编程/算法/《数据结构》.md",
     "zip/templates/yaml.md",
     "zip/templates/论文_metadata.md",
     "未命名",
@@ -219,7 +214,6 @@
     "zip/images/5ad0851ece9ef9722328639bfb3da2e0_MD5.png",
     "zip/images/c476999fd034bdb72ef8e069c9baa2b6_MD5.png",
     "zip/images/9c7c64764b95fb87ac99e1e551146652_MD5.png",
-    "zip/images/c17a68d25f12801ac30b4b26206640eb_MD5.png",
     "引擎Unreal/03 Gameplay/《大钊》",
     "引擎Unreal/03 Gameplay/《大象无形》",
     "编程/算法",

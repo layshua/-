@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "yaml_metadata",
-      "path": "zip/templates/yaml_metadata.md"
+      "basename": "U++精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+    },
+    {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
+    },
+    {
+      "basename": "蓝图精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/蓝图精粹.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "《数据结构》",
+      "path": "编程/算法/《数据结构》.md"
     },
     {
       "basename": "markmap脑图",
       "path": "zip/templates/markmap脑图.md"
+    },
+    {
+      "basename": "yaml_metadata",
+      "path": "zip/templates/yaml_metadata.md"
     },
     {
       "basename": "callout分栏",
@@ -61,32 +81,12 @@
       "path": "引擎Unreal/02 蓝图 & U++/UMG.md"
     },
     {
-      "basename": "U++精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
-    },
-    {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
-    },
-    {
-      "basename": "蓝图精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/蓝图精粹.md"
-    },
-    {
       "basename": "C++原理",
       "path": "编程/C++/C++原理.md"
     },
     {
       "basename": "《Effective C++ 3th》",
       "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
-      "basename": "《数据结构》",
-      "path": "编程/算法/《数据结构》.md"
     },
     {
       "basename": "论文_metadata",

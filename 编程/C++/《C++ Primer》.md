@@ -1,15 +1,11 @@
 ---
 title: 《C++ Primer》
-aliases: []
-tags: []
 create_time: 2023-05-06 13:57
 uid: "202305061357"
-banner: "![[Pasted image 20221223234905.png]]"
-reference: []
+banner: "![[Pasted image 20221223234905.png|350]]"
 ---
 
 # 零、 预处理器
-
 确保头文件多次包含仍能安全工作的常用技术是**预处理器**，预处理器是在编译之前执行的一段程序，任何以 # 开头的东西，都被称为预处理器命令或者预处理器指令。如 `#include` ，当预处理器看到 `#include`标记时就会用指定的头文件内容代替 `#include` 。
 ## 头文件保护符
 下面来说 `# pargma once`
