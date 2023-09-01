@@ -31,7 +31,6 @@
     "04 状态栏淡出",
     "05 quiet-outline插件配置",
     "06 Latex Suite插件配置",
-    "07 Front-matter格式",
     "08 callout分栏",
     "09 图片居中",
     "10 悬浮标签页标题栏",
@@ -39,7 +38,8 @@
     "分割线",
     "03 表格样式",
     "13 文件名滚动",
-    "13 文件管理器横向加长"
+    "13 文件管理器横向加长",
+    "07 Front-matter格式"
   ],
   "accentColor": "#804bfb",
   "nativeMenus": false,

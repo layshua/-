@@ -5,6 +5,7 @@
     "tags": "tags",
     "create_time": "datetime",
     "reference": "multitext",
-    "uid": "text"
+    "uid": "text",
+    "banner": "text"
   }
 }

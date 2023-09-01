@@ -17,7 +17,12 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-hmd-frontmatter
     color:dodgerblue
 }
 
-/* 开启Banner的情况下, Front-matter上移 */
-.markdown-source-view.mod-cm6 .cm-line.has-banner:not(.has-banner-icon) .obsidian-banner-spacer {
-    margin-bottom: -2rem;
+/* 解决1.40属性面板导致banner隐藏 */
+.obsidian-banner-wrapper {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.mod-header:has(+ .obsidian-banner-wrapper) {
+    margin-top: var(--banner-height);
 }

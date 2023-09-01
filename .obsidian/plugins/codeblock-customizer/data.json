@@ -8,6 +8,11 @@
           "enableDeleteCodeButton": false,
           "codeBlockBorderStylingPosition": "disable"
         },
+        "semiFold": {
+          "enableSemiFold": false,
+          "visibleLines": 5,
+          "showAdditionalUncollapseButon": false
+        },
         "header": {
           "boldText": false,
           "italicText": false,
@@ -95,6 +100,11 @@
           "enableActiveLineHighlight": true,
           "enableDeleteCodeButton": false,
           "codeBlockBorderStylingPosition": "disable"
+        },
+        "semiFold": {
+          "enableSemiFold": false,
+          "visibleLines": 5,
+          "showAdditionalUncollapseButon": false
         },
         "header": {
           "boldText": false,
@@ -280,6 +290,11 @@
         "enableDeleteCodeButton": false,
         "codeBlockBorderStylingPosition": "right"
       },
+      "semiFold": {
+        "enableSemiFold": false,
+        "visibleLines": 5,
+        "showAdditionalUncollapseButon": false
+      },
       "header": {
         "boldText": true,
         "italicText": false,
@@ -369,5 +384,6 @@
   "ThemeName": "Custom",
   "newThemeName": "",
   "alternateHighlightColorName": "",
-  "languageBorderColorName": ""
+  "languageBorderColorName": "",
+  "foldAllCommand": false
 }

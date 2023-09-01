@@ -5,32 +5,76 @@
       "path": "zip/templates/yaml_metadata.md"
     },
     {
-      "basename": "未命名",
-      "path": "zip/templates/未命名.md"
+      "basename": "markmap脑图",
+      "path": "zip/templates/markmap脑图.md"
     },
     {
       "basename": "callout分栏",
       "path": "zip/templates/callout分栏.md"
     },
     {
-      "basename": "yaml",
-      "path": "zip/templates/yaml.md"
-    },
-    {
       "basename": "mermaid流图",
       "path": "zip/templates/mermaid流图.md"
     },
     {
-      "basename": "README",
-      "path": "README.md"
+      "basename": "01 图像模糊",
+      "path": "技术美术/3 后处理/01 图像模糊.md"
     },
     {
-      "basename": "论文_metadata",
-      "path": "zip/templates/论文_metadata.md"
+      "basename": "09 体积云",
+      "path": "技术美术/1 渲染雅集/09 体积云.md"
     },
     {
-      "basename": "C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客",
-      "path": "zBuffer/C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客.md"
+      "basename": "07 草",
+      "path": "技术美术/1 渲染雅集/07 草.md"
+    },
+    {
+      "basename": "06 雾",
+      "path": "技术美术/1 渲染雅集/06 雾.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "03 UV操作",
+      "path": "技术美术/1 渲染雅集/03 UV操作.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "01 Trick！",
+      "path": "技术美术/1 渲染雅集/01 Trick！.md"
+    },
+    {
+      "basename": "UMG",
+      "path": "引擎Unreal/02 蓝图 & U++/UMG.md"
+    },
+    {
+      "basename": "U++精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+    },
+    {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
+    },
+    {
+      "basename": "蓝图精粹",
+      "path": "引擎Unreal/02 蓝图 & U++/蓝图精粹.md"
+    },
+    {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
     },
     {
       "basename": "《Effective C++ 3th》",
@@ -41,20 +85,24 @@
       "path": "编程/C++/《C++ Primer》.md"
     },
     {
-      "basename": "代码随想录",
-      "path": "编程/算法/代码随想录.md"
-    },
-    {
       "basename": "《数据结构》",
       "path": "编程/算法/《数据结构》.md"
     },
     {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/GamePlay精粹.md"
+      "basename": "论文_metadata",
+      "path": "zip/templates/论文_metadata.md"
     },
     {
-      "basename": "U++精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客",
+      "path": "zBuffer/C++ 查找算法总结（可执行代码）_语句 locate_seqsearch(arry_size_key 改为调用函数 seqsearch2)_枫飞雪飘的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "代码随想录",
+      "path": "编程/算法/代码随想录.md"
     },
     {
       "basename": "STL标准库",
@@ -71,14 +119,6 @@
     {
       "basename": "Cherno剩余",
       "path": "编程/C++/Cherno剩余.md"
-    },
-    {
-      "basename": "C++原理",
-      "path": "编程/C++/C++原理.md"
-    },
-    {
-      "basename": "蓝图精粹",
-      "path": "引擎Unreal/02 蓝图 & U++/蓝图精粹.md"
     },
     {
       "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
@@ -151,54 +191,6 @@
     {
       "basename": "10 十：UObject (一)",
       "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
-    },
-    {
-      "basename": "12 十二：垃圾回收",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/12 十二：垃圾回收.md"
-    },
-    {
-      "basename": "13 十三：渲染系统（一）",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/13 十三：渲染系统（一）.md"
-    },
-    {
-      "basename": "14 十四：渲染系统（二）",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/14 十四：渲染系统（二）.md"
-    },
-    {
-      "basename": "11 十一：UObject (二)",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/11 十一：UObject (二).md"
-    },
-    {
-      "basename": "Unity URP 实现屏幕空间反射（SSR）",
-      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 实现屏幕空间反射（SSR）.md"
-    },
-    {
-      "basename": "Unity URP 屏幕空间反射 Screen space Reflection（SSR）",
-      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/Unity URP 屏幕空间反射 Screen space Reflection（SSR）.md"
-    },
-    {
-      "basename": "SSPR",
-      "path": "技术美术/5 水体渲染/SSR屏幕空间反射/SSPR.md"
-    },
-    {
-      "basename": "[译文]UE 基础—蓝图 VS_ C++",
-      "path": "引擎Unreal/09 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
-    },
-    {
-      "basename": "UMG",
-      "path": "引擎Unreal/02 蓝图 & U++/UMG.md"
-    },
-    {
-      "basename": "行李",
-      "path": "zip/留学/行李.md"
-    },
-    {
-      "basename": "清单",
-      "path": "zip/留学/清单.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
     }
   ],
   "omittedPaths": [],
