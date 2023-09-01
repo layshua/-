@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"4ca2fc89e6333d58","x":-12480,"y":-21280,"width":10400,"height":8640,"type":"group","label":"GamePlay架构"},
+		{"id":"c54540df626e32aa","x":-19360,"y":-21280,"width":6560,"height":3680,"type":"group","label":"类的继承层级关系"},
+		{"id":"2d4570c42f1e1a7c","x":-12365,"y":-20800,"width":4960,"height":7782,"type":"file","file":"zip/images/Pasted image 20230901171714.png"},
+		{"id":"59f883123d73b560","x":-7200,"y":-20800,"width":4960,"height":3720,"type":"file","file":"zip/images/Pasted image 20230901171937.jpg"},
+		{"id":"75ce07140071e7ba","x":-19200,"y":-21120,"width":6376,"height":3200,"type":"file","file":"zip/images/Pasted image 20230901172151.png"}
+	],
+	"edges":[]
+}

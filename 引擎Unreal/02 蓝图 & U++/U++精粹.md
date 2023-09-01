@@ -3044,7 +3044,6 @@ DECLARE_MULTICAST_DELEGATE_<Num>PARAMS(DelegateName, Param1Type,...); //多参
 **事件 Event 是一种特殊类型的多播委托，它在访问 `Broadcast()` 、`IsBound()` 和 `Clear()` 函数时会受到限制。** 
 ![[c8c18a5716876d4db31a9b76687a1c4c_MD5.jpg]]
 
-
 ### 声明
 ```c++
 //无参无返回值

@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名",
+      "path": "引擎Unity3D/4 GamePlay/未命名.canvas"
+    },
+    {
+      "basename": "Pasted image 20230901172151",
+      "path": "zip/images/Pasted image 20230901172151.png"
+    },
+    {
+      "basename": "Pasted image 20230901171937",
+      "path": "zip/images/Pasted image 20230901171937.jpg"
+    },
+    {
+      "basename": "Pasted image 20230901171714",
+      "path": "zip/images/Pasted image 20230901171714.png"
+    },
+    {
       "basename": "U++精粹",
       "path": "引擎Unreal/02 蓝图 & U++/U++精粹.md"
     },
@@ -183,18 +199,6 @@
     {
       "basename": "《InsideUE4》基础概念",
       "path": "引擎Unreal/03 Gameplay/《大钊》/《InsideUE4》基础概念.md"
-    },
-    {
-      "basename": "08 八：并行与并发",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/08 八：并行与并发.md"
-    },
-    {
-      "basename": "09 九：TaskGraph",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/09 九：TaskGraph.md"
-    },
-    {
-      "basename": "10 十：UObject (一)",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
     }
   ],
   "omittedPaths": [],
