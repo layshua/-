@@ -24489,6 +24489,8 @@ myPrint
 myFunc
 mismatch
 mNameToCreateFunc
+memcpy
+maodun
 windows
 win
 width
@@ -47326,6 +47328,7 @@ ActorClassFilter
 ANSI
 AVLNode
 AVLTree
+Author
 URL
 Utools
 Users
@@ -87212,6 +87215,11 @@ InOrder
 InThread
 Inorder
 InsertSort
+InsertionSearch
+InfoType
+IdxType
+IDX
+IdxSearch
 qq
 qyi
 quad
@@ -95466,6 +95474,8 @@ printf
 pushStack
 popStack
 pivotpos
+pTree
+pNew
 nodesCatch
 nobr
 navy
@@ -102995,6 +103005,7 @@ bPrintToConsole
 bWasInitialized
 bracketCheck
 binops
+binarySearch
 fe
 front
 fill
@@ -124793,6 +124804,7 @@ seeded
 stoX
 scanf
 swao
+seqSearch
 local
 list
 left
@@ -135979,6 +135991,7 @@ handled
 harsh
 hari
 hips
+hight
 rgb
 right
 rm
@@ -156451,6 +156464,8 @@ FormattedText
 Found
 Firstnode
 FStructures
+Fibonacci
+FibonacciSearch
 Element
 Entity
 Enity
@@ -161030,6 +161045,7 @@ ElenType
 ELemType
 EnQueue
 Elemtype
+Email
 xmlns
 xyz
 xy
@@ -184765,6 +184781,8 @@ NamedThread
 NumberOfPrerequistitesOutstanding
 NewSet
 Nextnode
+NodeType
+NODE
 ZooAnima
 ZooAnimal
 ZTest
