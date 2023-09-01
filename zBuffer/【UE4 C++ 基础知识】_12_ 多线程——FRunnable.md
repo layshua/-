@@ -1,14 +1,14 @@
 # 概述
 
 *   UE4 里，提供的多线程的方法：
-    *   继承 `FRunnable` 接口创建单个线程
-    *   创建 `AsyncTask` 调用线程池里面空闲的线程
-    *   通过 `TaskGraph` 系统来异步完成一些自定义任务
+    *   继承 `FRunnable` 接口创建**单个线程**
+    *   创建 `AsyncTask` **调用**线程池里面空闲的线程
+    *   通过 `TaskGraph` 系统来异步完成一些**自定义任务**
     *   支持原生的多线程 `std::thread`
-*   在 GameThread 线程之外的其他线程中
+*   在 `GameThread` 线程之外的其他线程中
     *   不要 spawning / modifying / deleting UObjects / AActors
-    *   不要使用定时器 _TimerManager_
-    *   不要使用任何绘制接口，例如 _DrawDebugLine，然有可能崩溃_
+    *   不要使用定时器 `TimerManager`
+    *   不要使用任何绘制接口，例如 `DrawDebugLine`，有可能崩溃
     *   如果想做的话，可以在主线程中异步处理
     *   其他线程中一般做数据收发和解析，数学运算等
 
@@ -17,25 +17,24 @@
 # FRunnable
 
 *   FRunnable 是 UE4 中多线程的实现方式之一，适用于复杂运算
-    
-*   FRunnable 是线程的执行体，提供相应的接口。FRunnable 需要依附与一个 FRunnableThread 对象，才能被执行
-    
-    ```
-    class CORE_API FRunnable
-    {
-    public:
-        // ....
-        virtual bool Init(); // 初始化 runnable 对象，在FRunnableThread创建线程对象后调用
-    
-        virtual uint32 Run() = 0; // Runnable 对象逻辑处理主体，在Init成功后调用
-    
-        virtual void Stop() {} // 停止 runnable 对象, 线程提前终止时被用户调用
-    
-        virtual void Exit() {} // 退出 runnable 对象，由FRunnableThread调用
-    };
-    ```
-    
-*   FRunnableThread 表示一个可执行的线程，该类会派生出平台相关的子类。通过调用 `FRunnableThread::Create` 完成线程的创建
+*   FRunnable 是线程的执行体，提供相应的接口。FRunnable 需要依附与一个 `FRunnableThread` 对象，才能被执行
+
+```c++
+class CORE_API FRunnable
+{
+public:
+    // ....
+    virtual bool Init(); // 初始化 runnable 对象，在FRunnableThread创建线程对象后调用
+
+    virtual uint32 Run() = 0; // runnable 对象逻辑处理主体，在Init成功后调用
+
+    virtual void Stop() {} // 停止 runnable 对象, 线程提前终止时被用户调用
+
+    virtual void Exit() {} // 退出 runnable 对象，由FRunnableThread调用
+};
+```
+
+*   `FRunnableThread` 表示一个可执行的线程，该类会派生出平台相关的子类。通过调用 `FRunnableThread::Create` 完成线程的创建
     
 
 ![](https://img2020.cnblogs.com/blog/2369154/202104/2369154-20210430012219695-768566798.png)
@@ -44,7 +43,7 @@
 
 ## 创建 FRunnable 派生类
 
-```
+```c++
 // .h 
 class TIPS_API FSimpleRunnable: public FRunnable
 {
@@ -63,7 +62,8 @@ private:
 	bool bRun = true;				// 线程循环标志
 	bool bPause = false;			//线程挂起标志
 	FRunnableThread* ThreadIns;		// 线程实例
-	FEvent* ThreadEvent;			//FEvent指针,挂起/激活线程, 在各自的线程内使用
+	FEvent* ThreadEvent;			//FEvent指针,挂起/激活线程, 在各自的线程内使用。
+	//可等待事件的接口。用于等待另一个线程发出信号，表示它已准备好让等待线程执行某些工作。它还可以用于告诉线程组退出。考虑使用FEventRef作为更安全、更方便的替代方法。
 
 	virtual bool Init() override;
 	virtual uint32 Run() override;
@@ -72,16 +72,16 @@ private:
 };
 ```
 
-```
+```c++
 // .cpp
 FSimpleRunnable::FSimpleRunnable(const FString& ThreadName)
 {
 	// 获取 FEvent 指针
 	ThreadEvent = FPlatformProcess::GetSynchEventFromPool();
-
 	// 创建线程实例
 	m_ThreadName = ThreadName;
 	ThreadIns = FRunnableThread::Create(this, *m_ThreadName, 0, TPri_Normal);
+	////获取线程ID
 	m_ThreadID = ThreadIns->GetThreadID();
 	UE_LOG(LogTemp, Warning, TEXT("Thread Start! ThreadID = %d"), m_ThreadID);
 }
@@ -184,7 +184,7 @@ void FSimpleRunnable::ShutDown(bool bShouldWait)
 
 ## 创建调用多线程的 Actor
 
-```
+```c++
 // .h
 protected:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
@@ -213,7 +213,7 @@ UFUNCTION(BlueprintCallable)
 };
 ```
 
-```
+```c++
 // .cpp
 void ARunnableActor::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
@@ -279,7 +279,7 @@ void ARunnableActor::ForceKillThread(bool bShouldWait)
 
 *   当希望线程只能创建一次时，可以通过声明静态单例 FRunnable （本例为 FSimpleRunnable）
 
-```
+```c++
 // .h
 static FSimpleRunnable* MySimpleRunnable; // 声明静态单例
 static FSimpleRunnable* JoyInit();  // 声明静态方法

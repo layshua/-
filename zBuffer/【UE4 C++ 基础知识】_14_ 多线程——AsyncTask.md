@@ -2,7 +2,7 @@
 
 ## AsyncTask
 
-*   AsyncTask 系统是一套基于线程池的异步任务处理系统。每创建一个 AsyncTas，都会被加入到线程池中进行执行
+*   AsyncTask 系统是一套基于线程池的异步任务处理系统。每创建一个 AsyncTask，都会被加入到线程池中进行执行
 *   AsyncTask 泛指 `FAsyncTask` 和 `FAutoDeleteAsyncTask`，一般声明为友元函数，FNonAbandonableTask 派生类作为模板
 *   `FNonAbandonableTask` 是要继承的基类，不可被终止的任务，可以看作是任务执行体的抽象
 
