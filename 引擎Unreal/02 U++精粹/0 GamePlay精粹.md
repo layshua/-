@@ -1,10 +1,10 @@
-# Object
+# UObject
 
 ## 创建 Object
 
-- **`UObjects` 构造函数不支持参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
+- **`UObject` 构造函数不支持参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
 -  `UObject` 构造函数应该轻量化，仅用于设置默认的数值和子对象，构造时不应该调用其它功能和函数。
-- **`UObjects` 永远都不应使用 `new` 运算符。** 所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。
+- **`UObject` 永远都不应使用 `new` 运算符。** 所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。
 
 ---
 
@@ -74,7 +74,7 @@ for (TObjectIterator<UMyObject> It; It; ++it)
 static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
 ```
 
-# Actor 类
+# AActor 
 对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
 ## 实例化 Actor
 
@@ -120,8 +120,8 @@ MyActor->SetActorEnableCollision(false);
 MyActor->SetActorTickEnabled(false);
 ```
 
-## 查找 Actor
-
+## 查找/获取 Actor
+### 单个Actor
 ```c++
 // 按名称查找Actor（也适用于UObject）
 AActor* MyActor = FindObject<AActor>(nullptr, TEXT("MyNamedActor"));
@@ -138,11 +138,7 @@ for (TActorIterator<AMyActor> Iter(GetWorld()); Iter; ++Iter)
    //等价
    *(Iter).YourFunction(); 
 }
-```
 
-![[52ee0d707b4ee7d5c92ad8ebc0c1cbc8_MD5.jpg]]
-
-```c++
 // 按标签查找Actor（也适用于ActorComponent，需要改用TObjectIterator）
 for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 {
@@ -154,7 +150,19 @@ for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 }
 ```
 
+![[52ee0d707b4ee7d5c92ad8ebc0c1cbc8_MD5.jpg]]
+
 ![[573de7ae173939da688330a4b765228d_MD5.jpg]]
+
+### Actor 数组
+![[Pasted image 20230903002855.png]]
+```c++
+TArray<AActor*> ActorsToFind;  
+if(UWorld* World= GetWorld())  
+{
+UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
+}
+```
 ## 标签Tags
 ### 添加标签 Actor/ActorComponent 
 ```c++
@@ -194,17 +202,8 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
-### 获取标签 Actor 数组
-```c++
-TArray<AActor*> ActorsToFind;  
-if(UWorld* World= GetWorld())  
-{
-UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
-}
-```
 
-
-# ActorComponent
+# Actor 组件
 ## 注册
 ### 注册组件
 引擎必须注册组件，才能让 Actor 组件能够逐帧更新。如果在 Actor 产生过程中，作为 Actor 子对象自动创建了组件，则这类组件会自动注册。
@@ -243,13 +242,60 @@ UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass
 如果编译您自己的组件，可以使用 `MarkRenderStateDirty` 函数将渲染数据标记为 dirty。在一帧结束时，所有 dirty 组件的渲染数据都会在引擎中更新。
 **场景组件（包括 Primitive 组件）默认会创建渲染状态，而 Actor 组件则不会。**
 
+### 物理状态
+
+要与引擎的物理模拟系统交互，Actor 组件需要物理状态。物理状态会在发生变化时立即更新，防止出现"帧落后"瑕疵等问题，也不需要"dirty"标记。
+**默认情况下，`UActorComponent` 和 `USceneComponent` 没有物理状态，但 `UPrimitiveComponent` 有。** 
+
+覆盖 `ShouldCreatePhysicsState` 函数以确定组件类实例是否需要物理状态。
+- 如果类使用物理，则不建议只返回 `true`。请参阅函数的 `UPrimitiveComponent` 版本，了解不应创建物理状态的情况（例如在组件破坏期间）。
+- 在正常返回 `true` 的情况下，还可以返回 `Super::ShouldCreatePhysicsState`。
+
+## 可视化组件
+ 
+**可视化组件**：**只在编辑器中工作时存在的普通组件。** 用于辅助开发，在编辑器中运行时或运行打包版本时不会打包这些组件。
+
+**创建可视化组件：**
+- 创建常规组件并在其上方调用 `SetIsVisualizationComponent`。
+- 由于组件无需存在于编辑器之外，所有对它的引用都应当处在对 `WITH_EDITORONLY_DATA` 或 `WITH_EDITOR` 的预处理器检查之中。这将确保打包版本不受这些组件的影响，并保证不会在代码中的任何位置引用它们。举例而言，**摄像机组件** 使用多个其他组件来在编辑器中显示实用信息，包括用于显示视图视锥的 **绘制视锥组件**。在头文件中，绘制视锥组件在类中进行如下定义：
+```c++
+#if WITH_EDITORONLY_DATA
+    // 用于显示摄像机视野所在位置的视锥组件
+    class UDrawFrustumComponent* DrawFrustum;
+    // ...
+#endif
+```
+`DrawFrustum` 现仅存在于编辑器中，被视为可视化组件，即在编辑器中进行游戏测试时不会显示。
+
+- 同样，对这个组件的所有引用应当位于源文件中对 `WITH_EDITORONLY_DATA` 的预处理器检查之中。`OnRegister` 中的 `WITH_EDITORONLY_DATA` 检查内部的这段代码，将检查确认摄像机组件是否连接到有效 Actor，然后添加绘制视锥组件代码：
+
+```c++
+void UCameraComponent::OnRegister()
+{
+#if WITH_EDITORONLY_DATA
+    if (AActor* MyOwner = GetOwner())
+    {
+        // ...
+        if (DrawFrustum == nullptr)
+        {
+            DrawFrustum = NewObject<UDrawFrustumComponent>(MyOwner, NAME_None, RF_Transactional | RF_TextExportTransient);
+            DrawFrustum->SetupAttachment(this);
+            DrawFrustum->SetIsVisualizationComponent(true);
+            // ...
+        }
+    }
+    // ...
+#endif
+    Super::OnRegister();
+    // ...在此处编写其他代码（在所有版本中运行）...
+}
+```
 
 ## 销毁
 
 ```c++
 MyActorComponent->DestroyComponent(); //销毁UActorComponent
 ```
-
 
 ## 获取组件依附的 Actor
 
@@ -264,9 +310,112 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 
 ![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
 
-## UPrimitiveComponent
-在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
+## 设置组件层级关系
+- **`RootComponent` 或 `SetRootComponent()`**：设置根组件
+- **`SetupAttachment`**：将场景组件附加指定组件。**在构造函数中、以及处理尚未注册的组件时使用**
+- **`AttachToComponent`**：将场景组件附加到指定组件。**在游戏进行中使用**
 
+```cpp
+//设置根组件
+RootComponent = outCollison;  
+SetRootComponent(outCollison);
+
+//在构造函数中、以及处理尚未注册的组件时设置
+paddle1->SetupAttachment(body, TEXT("paddle1"));
+
+paddle3->AttachToComponent(body, FAttachmentTransformRules::KeepRelativeTransform, TEXT("paddle3"));
+
+```
+
+## 各类组件创建与初始化
+
+### UStaticMeshComponent
+
+```cpp
+paddle1 = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("paddle1"));
+auto paddleMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Demo_Drone/SM/paddle.paddle'"));
+if (paddleMesh.Object != nullptr)
+{
+	paddle1->SetStaticMesh(paddleMesh.Object);
+}
+```
+
+### UBoxComponent
+
+```cpp
+outCollison = CreateDefaultSubobject<UBoxComponent>(TEXT("outCollison"));
+outCollison->SetBoxExtent(FVector(60, 60, 15));
+outCollison->SetSimulatePhysics(true);
+outCollison->SetCollisionProfileName(TEXT("WorldDynamic"));
+outCollison->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+```
+
+### USphereComponent
+
+```cpp
+sphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
+sphereComp->InitSphereRadius(5.0f);
+sphereComp->SetCollisionProfileName(TEXT("WorldDynamic"));
+sphereComp->SetGenerateOverlapEvents(true);
+sphereComp->OnComponentBeginOverlap.AddDynamic(this, &Amissile::Overlaphandler);
+```
+
+```cpp
+// overlap 函数绑定
+void Amissile::Overlaphandler(UPrimitiveComponent* OverlappedComponent,
+				AActor* OtherActor, 
+				UPrimitiveComponent* OtherComp,
+				int32 OtherBodyIndex,
+				bool bFromSweep,
+				const FHitResult& SweepResult){}
+```
+
+### USkeletalMeshComponent
+
+```cpp
+SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComp"));
+SkeletalMeshComp->SetGenerateOverlapEvents(true);
+SkeletalMeshComp->SetSimulatePhysics(true);
+```
+
+### USpringArmComponent 和 UCameraComponent
+
+```cpp
+springArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+springArmComp->SetupAttachment(RootComponent);
+cameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+cameraComp->SetupAttachment(springArmComp);
+```
+
+### UPhysicsThrusterComponent
+
+```cpp
+upThrusterComp = CreateDefaultSubobject<UPhysicsThrusterComponent>(TEXT("upThrusterComp"));
+upThrusterComp->SetupAttachment(RootComponent);
+upThrusterComp->SetWorldRotation(UKismetMathLibrary::MakeRotFromX(FVector(-this->GetActorUpVector())));
+upThrusterComp->ThrustStrength = 980.0f;
+upThrusterComp->SetAutoActivate(true);
+```
+
+### UTextRenderComponent
+
+```cpp
+CountdownText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("CountdownNumber"));
+CountdownText->SetHorizontalAlignment(EHTA_Center);
+CountdownText->SetWorldSize(150.0f);
+CountdownText->AttachTo(RootComponent);
+CountdownTime = 3;
+CountdownText->SetText(FString::FromInt(FMath::Max(CountdownTime, 0)));
+```
+
+```cpp
+projectileMovementComp = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("projectileMovement"));
+projectileMovementComp->InitialSpeed = 500.0f;
+```
+
+## 类型转换
+
+在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
 ```c++
 UPrimitiveComponent* Primitive = 
 MyActor->GetComponentByClass(UPrimitiveComponent::StaticClass());
@@ -277,22 +426,6 @@ if (SphereCollider != nullptr)
         // ...
 }
 ````
-## 设置组件层级关系
-- 设置根组件 `RootComponent` 或者 `SetRootComponent()`
-- `SetupAttachment`
-- `AttachToComponent`
-
-```cpp
-//设置根组件
-RootComponent = outCollison;  
-SetRootComponent(outCollison);
-
-//
-paddle1->SetupAttachment(body, TEXT("paddle1"));
-
-paddle3->AttachToComponent(body, FAttachmentTransformRules::KeepRelativeTransform, TEXT("paddle3"));
-
-```
 
 # Pawn 类
 ## PlayerController 控制默认玩家
@@ -302,6 +435,7 @@ AutoPossessPlayer = EAutoReceiveInput::Player0;
 ![[Pasted image 20230829162058.png]]
 
 # PlayerController
+## 获取
 ## 查找 Player 位置
 ```c++
 FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
