@@ -18,7 +18,6 @@
 > [!warning]
 > **`UObjects` 永远都不应使用 `new` 运算符。所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。**
 
-
 **`CreateDefaultSubobject`** ：创建组件。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
 
 ```c++
@@ -38,7 +37,6 @@ class AMyActor : public AActor
 };
 ```
 
-
 ## 更新 Object
 
 Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每帧被 tick，便于您执行必要的更新计算或操作。
@@ -49,7 +47,8 @@ Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每�
 
 ## 销毁 Object
 
-**对象不被引用后，垃圾回收系统将自动进行对象销毁。** 
+**`UPROPERTY` 宏定义对象不被引用后，垃圾回收系统将自动进行对象销毁。** 
+垃圾回收器会定期从根节点 Root 开始检查，当一个 UObject 没有被别的任何 UObject 引用，就会被垃圾回收。你可以通过 `AddToRoot` 函数来让一个 UObject 一直不被回收。
 
 **主动销毁的方法：**
 - `UObject::ConditionalBeginDestroy()`
@@ -81,40 +80,20 @@ static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/
 
 # Actor 类
 ## 实例化 Actor
-虚幻引擎有两个不同的函数来实例化对象：
 
-- `SpawnActor` 用于生成 `AActor` 类型。
-
-### AActor 和 SpawnActor
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
 
-Actor 通过 `UWorld` 对象（可以通过 `GetWorld()` 获得）的 `SpawnActor` 方法生成。
+- Actor 通过 `UWorld` 对象（可以通过 `GetWorld()` 获得）的 **`SpawnActor`** 方法生成。
 >UObject 为 Actor 提供了 `GetWorld` 方法
 
 ```c++
-GetWorld()->SpawnActor<Amissile>(bullet0, GetActorTransform());
-
-GetWorld()->SpawnActor<Amissile>(bullet, body->GetSocketTransform("FirePos"));
-
-Amissile* MissileIns = GetWorld()->SpawnActor<Amissile>(bullet2->StaticClass(), GetActorTransform());
+AKAsset* SpawnedActor1 =
+(AKAsset*) GetWorld()->SpawnActor(AKAsset::StaticClass(), NAME_None, &Location);
 ```
-
-```c++
-AMyActor* CreateCloneOfMyActor(AMyActor* ExistingActor, FVector SpawnLocation, FRotator SpawnRotation)
-{
-    UWorld* World = ExistingActor->GetWorld();
-    FActorSpawnParameters SpawnParams;
-    SpawnParams.Template = ExistingActor;
-    
-    World->SpawnActor<AMyActor>(ExistingActor->GetClass(), SpawnLocation, SpawnRotation, SpawnParams);
-}
-```
-
 
 ## 类型转换
 
 在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
-
 
 ```c++
 UPrimitiveComponent* Primitive = 
@@ -130,10 +109,11 @@ if (SphereCollider != nullptr)
 ## 销毁 Actor
 
 ```c++
-MyActor->Destroy();
+MyActor->Destroy(); //AActor销毁
 ```
 
 即使 Actor 被调用了 `Destroy()`，并且被从关卡中移除，它还是会等到所有对它的引用都解除之后才会被垃圾回收。
+
 ## 延迟销毁 Actor（延迟 1 秒）
 
 ```c++
@@ -151,18 +131,6 @@ MyActor->SetActorEnableCollision(false);
 // 禁止Actor更新
 MyActor->SetActorTickEnabled(false);
 ```
-## 获取组件挂载的 Actor
-
-```c++
-AActor* ParentActor = MyComponent->GetOwner();
-```
-## 获取挂载在 Actor 上的组件
-
-```c++
-UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
-```
-
-![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
 
 ## 查找 Actor
 
@@ -171,10 +139,16 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 AActor* MyActor = FindObject<AActor>(nullptr, TEXT("MyNamedActor"));
 
 // 按类型查找Actor（需要UWorld对象）
-for (TActorIterator<AMyActor> It(GetWorld()); It; ++It)
+// 使用 Actor 迭代器
+for (TActorIterator<AMyActor> Iter(GetWorld()); Iter; ++Iter)
 {
-    AMyActor* MyActor = *It;
-    // ...
+    //查找
+    AMyActor* MyActor = *Iter;
+    
+   // 直接调用这个Actor的某个你需要成员函数等
+   Iter->YourFunction();
+   //等价
+   *(Iter).YourFunction(); 
 }
 ```
 
@@ -256,6 +230,30 @@ if(SphereVisualAsset.Succeeded())
     SphereVisual->SetWorldScale3D(FVector(0.8f));  
 }
 ```
+# ActorComponent
+
+## 获取组件依附的 Actor
+
+```c++
+AActor* ParentActor = MyComponent->GetOwner();
+```
+## 获取 Actor 上的组件
+
+```c++
+UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
+```
+
+![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
+
+## 创建
+
+## 销毁
+
+```c++
+MyActorComponent->DestroyComponent(); //销毁UActorComponent
+```
+
+
 # Pawn 类
 ## PlayerController 控制默认玩家
 ```c++
