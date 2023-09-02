@@ -24,13 +24,11 @@
   "easy-typing-obsidian",
   "obsidian-diagrams-net",
   "obsidian-outliner",
-  "obsidian-codemirror-options",
   "obsidian-list-callouts",
   "kity-mindmap",
   "obsidian-banners",
   "omnisearch",
   "obsidian-icon-folder",
-  "cm-editor-syntax-highlight-obsidian",
   "obsidian-git",
   "recent-files-obsidian",
   "obsidian-link-converter",
@@ -41,5 +39,7 @@
   "obsidian-focus-mode",
   "pdf-to-markdown-plugin",
   "codeblock-customizer",
-  "obsidian-hider"
+  "obsidian-hider",
+  "cm-editor-syntax-highlight-obsidian",
+  "obsidian-codemirror-options"
 ]
