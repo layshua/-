@@ -1,21 +1,70 @@
-# Object/Actor 类
-## 实例化 Object/Actor
+# Object
+
+## 创建 Object
+
+**`UObjects` 不支持构造器参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
+
+**`UObject` 构造器应该轻量化，仅用于设置默认的数值和子对象，构造时不应该调用其它功能和函数。** 
+
+对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
+
+`UObject` 应该仅在运行时使用 `NewObject` 构建，或者将 `CreateDefaultSubobject` 用于构造器。
+
+|方法|描述|
+|---|---|
+|[`NewObject<class>`]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/NewObject "NewObject")|使用所有可用创建选项的可选参数创建一个新实例。提供极高的灵活性，包括带自动生成命名的简单使用案例。|
+| `CreateDefaultSubobject<class>` |创建一个组件或者子对象，可以提供创建子类和返回父类的方法。<br><br> 创建默认子对象时，由于它们在引擎启动时构造，UObject 的类构造器应该仅适用于本地数据或者本地加载的静态资产。|
+
+> [!warning]
+> **`UObjects` 永远都不应使用 `new` 运算符。所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。**
+
+## 更新 Object
+
+Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每帧被 tick，便于您执行必要的更新计算或操作。
+
+-  `Actor` 和 Actor 组件在注册时会自动调用它们的 Tick 函数
+- **`UObjects` 不具有嵌入的更新能力。在必须的时候，可以使用 `inherits` 类说明符从 `FTickableGameObject` 继承即可添加此能力。**  这样即可实现 `Tick()` 函数，引擎每帧都将调用此函数。
+
+
+## 销毁 Object
+
+**对象不被引用后，垃圾回收系统将自动进行对象销毁。** 
+
+**主动销毁的方法：**
+- `UObject::ConditionalBeginDestroy()`
+    - 异步执行且对象在当前帧内持续有效
+    - 等待下次GC
+```c++
+Obj->ConditionalBeginDestroy();
+Obj = nullptr;
+```
+
+- `Obj->MarkAsGarbage()` ：标记为垃圾
+    - 标记为垃圾等待回收。如果 `gc.PendingKillEnabled=true` ，那么所有标记为 `PendingKill` 的对象会被垃圾回收器自动清空并销毁。
+
+
+## 查找
+### 按类型查找 Object
+```c++
+// 按类型查找UObject
+for (TObjectIterator<UMyObject> It; It; ++it)
+{
+    UMyObject* MyObject = *It;
+    // ...
+}
+```
+### 从文件查找 Object
+```c++
+//从文件查找Object
+static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
+```
+
+
+# Actor 类
+## 实例化 Actor
 虚幻引擎有两个不同的函数来实例化对象：
 
-- `NewObject<T>` 用于创建新的 `UObject` 类型。
 - `SpawnActor` 用于生成 `AActor` 类型。
-
-### UObject 和 NewObject<>
-[在虚幻引擎中创建对象 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/creating-objects-in-unreal-engine/)
-
-在虚幻引擎中创建 `UObject` 的子类与在 Unity 中创建 `ScriptableObject` 的子类非常类似。对于不需要生成到世界中或像 Actor 那样绑定了组件的 Gameplay 类，这些很有用。
-![[Pasted image 20230901234233.png]]
-
-```c++
-//NewObject
-//接收一个外部UObject或UClass，用自动生成的名称创建新实例
-UMyObject* NewObj = NewObject<UMyObject>(); 
-```
 
 ### AActor 和 SpawnActor
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
@@ -83,18 +132,13 @@ if (SphereCollider != nullptr)
 }
 ```
 
-## 从文件查找 Object
-```c++
-//从文件查找Object
-static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
-```
-
 ## 销毁 Actor
 
 ```c++
 MyActor->Destroy();
 ```
 
+即使 Actor 被调用了 `Destroy()`，并且被从关卡中移除，它还是会等到所有对它的引用都解除之后才会被垃圾回收。
 ## 延迟销毁 Actor（延迟 1 秒）
 
 ```c++
@@ -125,7 +169,7 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 
 ![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
 
-## 查找 Actor/UObject
+## 查找 Actor
 
 ```c++
 // 按名称查找Actor（也适用于UObject）
@@ -142,13 +186,6 @@ for (TActorIterator<AMyActor> It(GetWorld()); It; ++It)
 ![[52ee0d707b4ee7d5c92ad8ebc0c1cbc8_MD5.jpg]]
 
 ```c++
-// 按类型查找UObject
-for (TObjectIterator<UMyObject> It; It; ++it)
-{
-    UMyObject* MyObject = *It;
-    // ...
-}
-
 // 按标签查找Actor（也适用于ActorComponent，需要改用TObjectIterator）
 for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 {

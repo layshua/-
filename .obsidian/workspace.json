@@ -8,29 +8,11 @@
         "type": "tabs",
         "children": [
           {
-            "id": "61c3520da5c61d01",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "7bb8f1d7ed86c71e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -50,17 +32,11 @@
             "id": "64d400e1f70da373",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -217,7 +193,9 @@
   "active": "7bb8f1d7ed86c71e",
   "lastOpenFiles": [
     "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/04 Gameplay/GamePlay精粹.md",
+    "引擎Unreal/01 指南/ue操作指南.md",
     "zip/images/Pasted image 20230901234233.png",
     "引擎Unreal/02 U++精粹/7 多线程.md",
     "引擎Unreal/02 U++精粹/6 资源加载.md",
@@ -230,8 +208,6 @@
     "zip/images/489d7279d6648b82d0fc9433fecada71_MD5.jpg",
     "zip/images/ba1c06ce4f5cbcc94e357ea42d17aedd_MD5.jpg",
     "zip/images/18a96a6896a5f2036408c6338d550233_MD5.jpg",
-    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/03 蓝图/蓝图精粹.md",
     "引擎Unreal/01 指南/U++编程规范.md",
     "引擎Unity3D/1 Unity精粹/《Unity Primer》.md",
