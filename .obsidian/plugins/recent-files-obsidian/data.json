@@ -5,6 +5,30 @@
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
+      "basename": "BUG",
+      "path": "引擎Unreal/01 指南/BUG.md"
+    },
+    {
+      "basename": "ue操作指南",
+      "path": "引擎Unreal/01 指南/ue操作指南.md"
+    },
+    {
+      "basename": "【UE5】修复 Rider 在 UE5_2 报错找不到 DirectX 符号问题",
+      "path": "zBuffer/【UE5】修复 Rider 在 UE5_2 报错找不到 DirectX 符号问题.md"
+    },
+    {
+      "basename": "U++编程规范",
+      "path": "引擎Unreal/01 指南/U++编程规范.md"
+    },
+    {
+      "basename": "增强输入",
+      "path": "引擎Unreal/01 指南/增强输入.md"
+    },
+    {
+      "basename": "问题汇总",
+      "path": "引擎Unreal/01 指南/问题汇总.md"
+    },
+    {
       "basename": "2 容器",
       "path": "引擎Unreal/02 U++精粹/2 容器.md"
     },
@@ -49,10 +73,6 @@
       "path": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
     },
     {
-      "basename": "ue操作指南",
-      "path": "引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
       "basename": "7 多线程",
       "path": "引擎Unreal/02 U++精粹/7 多线程.md"
     },
@@ -75,10 +95,6 @@
     {
       "basename": "蓝图精粹",
       "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
-    },
-    {
-      "basename": "U++编程规范",
-      "path": "引擎Unreal/01 指南/U++编程规范.md"
     },
     {
       "basename": "《Unity Primer》",
@@ -183,22 +199,6 @@
     {
       "basename": "03 深度法线纹理",
       "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
-    },
-    {
-      "basename": "02 顶点动画",
-      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
-    },
-    {
-      "basename": "C++原理",
-      "path": "编程/C++/C++原理.md"
-    },
-    {
-      "basename": "《Effective C++ 3th》",
-      "path": "编程/C++/《Effective C++ 3th》.md"
     }
   ],
   "omittedPaths": [],

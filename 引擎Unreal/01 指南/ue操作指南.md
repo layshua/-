@@ -278,3 +278,14 @@ FBX文件信息:虚幻默认动画帧率为 30帧。
 
 一般选择默认，后面根据需求。
 
+# 编译版本独立程序
+复制一份 BlankProgram，命名为 TestCpp
+![[Pasted image 20230902135816.png]]
+
+复制的文件中的文件名全部改为 TestCpp
+![[Pasted image 20230902140147.png]]
+文件中的 BlankProgram 全部替换为TestCpp
+![[Pasted image 20230902140006.png]]
+
+然后生成项目
+![[Pasted image 20230902140302.png]]
