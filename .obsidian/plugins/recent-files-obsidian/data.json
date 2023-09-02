@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
-      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
-    },
-    {
       "basename": "代码随想录",
       "path": "编程/算法/代码随想录.md"
+    },
+    {
+      "basename": "STL标准库",
+      "path": "编程/C++/STL标准库.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
+      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
     },
     {
       "basename": "《数据结构》",
@@ -129,10 +137,6 @@
       "path": "zip/images/Pasted image 20230901171714.png"
     },
     {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
       "basename": "markmap脑图",
       "path": "zip/templates/markmap脑图.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "《Effective C++ 3th》",
       "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "论文_metadata",
-      "path": "zip/templates/论文_metadata.md"
     }
   ],
   "omittedPaths": [],
