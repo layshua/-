@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+      "basename": "0 GamePlay精粹",
+      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
     {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/04 Gameplay/GamePlay精粹.md"
+      "basename": "6 资源加载",
+      "path": "引擎Unreal/02 U++精粹/6 资源加载.md"
+    },
+    {
+      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
+      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
     },
     {
       "basename": "01 虚幻类",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
+    },
+    {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "《C++ Primer》",
@@ -111,10 +119,6 @@
     {
       "basename": "5 定时器",
       "path": "引擎Unreal/02 U++精粹/5 定时器.md"
-    },
-    {
-      "basename": "6 资源加载",
-      "path": "引擎Unreal/02 U++精粹/6 资源加载.md"
     },
     {
       "basename": "STL标准库",

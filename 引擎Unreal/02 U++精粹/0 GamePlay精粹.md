@@ -2,39 +2,35 @@
 
 ## 创建 Object
 
-**`UObjects` 不支持构造器参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
+- **`UObjects` 构造函数不支持参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
+-  `UObject` 构造函数应该轻量化，仅用于设置默认的数值和子对象，构造时不应该调用其它功能和函数。
+- **`UObjects` 永远都不应使用 `new` 运算符。** 所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。
 
-**`UObject` 构造器应该轻量化，仅用于设置默认的数值和子对象，构造时不应该调用其它功能和函数。** 
+---
 
-对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
+- **`NewObject<T>`** ：创建一个 `UObject` 实例，仅在运行时使用
+- **`CreateDefaultSubobject<TT>`** ：创建一个组件或者子对象，在构造函数中使用
 
-`UObject` 应该仅在运行时使用 `NewObject` 构建，或者将 `CreateDefaultSubobject` 用于构造器。
-
-|方法|描述|
-|---|---|
-|[`NewObject<class>`]( https://docs.unrealengine.com/en-US/API/Runtime/CoreUObject/UObject/NewObject "NewObject")|使用所有可用创建选项的可选参数创建一个新实例。提供极高的灵活性，包括带自动生成命名的简单使用案例。|
-| `CreateDefaultSubobject<class>` |创建一个组件或者子对象，可以提供创建子类和返回父类的方法。<br><br> 创建默认子对象时，由于它们在引擎启动时构造，UObject 的类构造器应该仅适用于本地数据或者本地加载的静态资产。|
-
-> [!warning]
-> **`UObjects` 永远都不应使用 `new` 运算符。所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。**
-
-**`CreateDefaultSubobject`** ：创建组件。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
-
+例子：创建静态网格体
 ```c++
-UCLASS()
-class AMyActor : public AActor
-{
-    GENERATED_BODY()
+// 构造函数中
 
-    USphereComponent* MyCollisionComp;
+// 创建网格体组件，以便查看球体位置  
+UStaticMeshComponent* SphereVisual = CreateDefaultSubobject<UStaticMeshComponent> (TEXT("VisualRepresentation"));    
 
-    AMyActor()
-    {
-        MyCollisionComp = CreateDefaultSubobject<USphereComponent>(FName(TEXT("CollisionComponent"));
-        MyCollisionComp->RelativeLocation = FVector::ZeroVector;
-        MyCollisionComp->SphereRadius = 20.0f;
-    }
-};
+//依附到根组件
+SphereVisual->SetupAttachment(RootComponent); 
+
+//加载资源
+static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));  
+
+if(SphereVisualAsset.Succeeded())  
+{  
+    SphereVisual->SetStaticMesh(SphereVisualAsset.Object);  
+    SphereVisual->SetRelativeLocation(FVector(0.0f, 0.0f, -40.0f));  
+    SphereVisual->SetWorldScale3D(FVector(0.8f));  
+}
+
 ```
 
 ## 更新 Object
@@ -79,6 +75,7 @@ static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/
 ```
 
 # Actor 类
+对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
 ## 实例化 Actor
 
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
@@ -91,20 +88,6 @@ AKAsset* SpawnedActor1 =
 (AKAsset*) GetWorld()->SpawnActor(AKAsset::StaticClass(), NAME_None, &Location);
 ```
 
-## 类型转换
-
-在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
-
-```c++
-UPrimitiveComponent* Primitive = 
-MyActor->GetComponentByClass(UPrimitiveComponent::StaticClass());
-
-USphereComponent* SphereCollider = Cast<USphereComponent>(Primitive);
-if (SphereCollider != nullptr)
-{
-        // ...
-}
-```
 
 ## 销毁 Actor
 
@@ -114,10 +97,15 @@ MyActor->Destroy(); //AActor销毁
 
 即使 Actor 被调用了 `Destroy()`，并且被从关卡中移除，它还是会等到所有对它的引用都解除之后才会被垃圾回收。
 
-## 延迟销毁 Actor（延迟 1 秒）
+## 生命周期
+延迟 1s 销毁
 
+- 构造函数初始化生命周期 `InitialLifeSpan`
+- BeginPlay 里使用 `SetLifeSpan()` 设置生命周期
 ```c++
-MyActor->SetLifeSpan(1);
+InitialLifeSpan = 8.0f;  
+
+MyActor->SetLifeSpan(1); //延迟1s销毁
 ```
 
 ## 禁用 Actor
@@ -210,27 +198,58 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 ```c++
 TArray<AActor*> ActorsToFind;  
 if(UWorld* World= GetWorld())  
-{UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
+{
+UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
 }
 ```
-## 创建静态网格体
+
+
+# ActorComponent
+## 注册
+### 注册组件
+引擎必须注册组件，才能让 Actor 组件能够逐帧更新。如果在 Actor 产生过程中，作为 Actor 子对象自动创建了组件，则这类组件会自动注册。
+但是游戏期间创建的组件可以使用手动注册。`RegisterComponent` 函数提供了这个功能，要求是组件与 Actor 关联。
+
+> [!NOTE] Title
+> 游戏期间注册组件可能会影响性能，因此只应在必要时进行此操作。
+### 注册事件
+
+在注册组件的过程中，引擎会将组件与场景关联起来，让其可用于逐帧更新，并运行以下 `UActorComponent` 函数：
+
+|函数|描述|
+|---|---|
+|`OnRegister`|在注册组件时，可以覆写此函数来添加代码。|
+|`CreateRenderState`|初始化组件的[渲染状态](https://docs.unrealengine.com/4.26/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Components/#%E5%9C%BA%E6%99%AF%E4%BB%A3%E7%90%86)。|
+|`OnCreatePhysicsState`|初始化组件的[物理状态](https://docs.unrealengine.com/4.26/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Components/#%E7%89%A9%E7%90%86%E7%8A%B6%E6%80%81)。|
+
+### 取消注册
+
+要从更新、模拟或渲染过程中移除 Actor 组件，可以使用 `UnregisterComponent` 函数将其取消注册。
+
+## 更新
+组件能够以类似于 Actor 的方法逐帧更新。`TickComponent` 函数允许组件逐帧运行代码。
+例如，**USkeletalMeshComponent** 使用其 `TickComponent` 函数来更新动画和骨架控制器，而 **UParticleSystemComponent** 使用 `TickComponent`更新其发射器和处理粒子事件`。
+
+**默认情况下，Actor 组件不更新**。
+
+**为了让 Actor 组件逐帧更新：**
+1. 必须在构造函数中将 `PrimaryComponentTick.bCanEverTick` 设置为 `true` 来启用 tick。
+2. 之后，在构造函数中或其他位置处，必须调用 `PrimaryComponentTick.SetTickFunctionEnable(true)` 以开启更新。
+3. 之后可调用 `PrimaryComponentTick.SetTickFunctionEnable(false)` 停用 tick。
+4. 如果您知道组件永远不需要更新，或者打算手动调用自己的更新函数（也许从拥有的 Actor 类），将 `PrimaryComponentTick.bCanEverTick` 保留为默认值 `false` 即可，这样可以稍微改善性能。
+### 渲染状态
+
+为进行渲染，Actor 组件必须创建渲染状态。此渲染状态还会告诉引擎，需要更新渲染数据的组件已发生变更。当发生此类变更时，渲染状态会被标记为"dirty"。
+如果编译您自己的组件，可以使用 `MarkRenderStateDirty` 函数将渲染数据标记为 dirty。在一帧结束时，所有 dirty 组件的渲染数据都会在引擎中更新。
+**场景组件（包括 Primitive 组件）默认会创建渲染状态，而 Actor 组件则不会。**
+
+
+## 销毁
 
 ```c++
-// 创建并放置网格体组件，以便查看球体位置  
-UStaticMeshComponent* SphereVisual = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisualRepresentation"));  
-
-SphereVisual->SetupAttachment(RootComponent);  
-
-static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));  
-
-if(SphereVisualAsset.Succeeded())  
-{  
-    SphereVisual->SetStaticMesh(SphereVisualAsset.Object);  
-    SphereVisual->SetRelativeLocation(FVector(0.0f, 0.0f, -40.0f));  
-    SphereVisual->SetWorldScale3D(FVector(0.8f));  
-}
+MyActorComponent->DestroyComponent(); //销毁UActorComponent
 ```
-# ActorComponent
+
 
 ## 获取组件依附的 Actor
 
@@ -245,14 +264,35 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 
 ![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
 
-## 创建
-
-## 销毁
+## UPrimitiveComponent
+在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
 
 ```c++
-MyActorComponent->DestroyComponent(); //销毁UActorComponent
-```
+UPrimitiveComponent* Primitive = 
+MyActor->GetComponentByClass(UPrimitiveComponent::StaticClass());
 
+USphereComponent* SphereCollider = Cast<USphereComponent>(Primitive);
+if (SphereCollider != nullptr)
+{
+        // ...
+}
+````
+## 设置组件层级关系
+- 设置根组件 `RootComponent` 或者 `SetRootComponent()`
+- `SetupAttachment`
+- `AttachToComponent`
+
+```cpp
+//设置根组件
+RootComponent = outCollison;  
+SetRootComponent(outCollison);
+
+//
+paddle1->SetupAttachment(body, TEXT("paddle1"));
+
+paddle3->AttachToComponent(body, FAttachmentTransformRules::KeepRelativeTransform, TEXT("paddle3"));
+
+```
 
 # Pawn 类
 ## PlayerController 控制默认玩家

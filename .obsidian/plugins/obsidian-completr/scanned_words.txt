@@ -20888,6 +20888,7 @@ tldp
 ttZ
 tgc
 titleSlug
+testIntValue
 markdown
 matter
 mod
@@ -85527,6 +85528,7 @@ CPPFunction
 ConstructorHelpers
 CompletionEvent
 CharacterMovementComponent
+ClassDefaultObject
 ImTip
 IMAP
 ID
@@ -89902,6 +89904,8 @@ IdYB
 Iaux
 IQueuedWork
 IDelegateInstance
+IsSameUClass
+IsChildOf
 qq
 qyi
 quad
@@ -186224,6 +186228,10 @@ GGameThreadId
 GameThreadWaitForTask
 GameEngine
 GetBoneRotation
+GetClass
+GetStaticClass
+GetSuperStruct
+GetDefaultObject
 NULL
 Native
 NormalMap
