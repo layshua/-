@@ -428,23 +428,50 @@ if (SphereCollider != nullptr)
 ````
 
 # Pawn 类
+## 获取 Pawn
+
+```c++
+//GetPlayerPawn()
+APawn* myPawn = Cast<ADrone>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+
+//GetPawn()
+APawn* myPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+```
+
 ## PlayerController 控制默认玩家
 ```c++
 AutoPossessPlayer = EAutoReceiveInput::Player0;
 ```
 ![[Pasted image 20230829162058.png]]
 
-# PlayerController
-## 获取
-## 查找 Player 位置
+# Character
+## 获取 Character
 ```c++
-FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
+//GetPlayerCharacter
+ACharacter* myPawn = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+
+//GetCharacter
+ACharacter* myPawn = GetWorld()->GetFirstPlayerController()->GetCharacter();
 ```
-## GetPlayerController
+# PlayerController
+## 获取 playerController
+可配合 Cast 转换成对应的 controller
+
+`UGameplayStatics::GetPlayerController`
 ```c++
 // 查找处理本地玩家控制的actor。
 APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(this, 0);
 ```
+
+`UWorld::GetFirstPlayerController`
+```c++
+APlayerController* playerController = GetWorld()->GetFirstPlayerController();
+```
+## 查找 Player 位置
+```c++
+FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
+```
+
 
 # 物理
 ## 刚体与图元组件
