@@ -13045,6 +13045,7 @@ cTmR
 ckd
 cowq
 crash
+camelCaseName
 github
 grey
 green
@@ -20886,6 +20887,7 @@ txnmn
 tldp
 ttZ
 tgc
+titleSlug
 markdown
 matter
 mod
@@ -44370,6 +44372,7 @@ vlz
 vMBL
 vgvgb
 vgvg
+velocityTool
 AA
 AppData
 AIRDyuVH
@@ -128581,6 +128584,7 @@ sCai
 seqsearch
 spawning
 slate
+snakeCaseName
 local
 list
 left
