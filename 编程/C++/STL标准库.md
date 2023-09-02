@@ -133,18 +133,6 @@ iterator = iterator + 1；
 迭代器之间的相融关系
 **在需要箭头左边迭代器的地方可以用箭头右边的迭代器去替代。**
 
-## 迭代器相关
-`distance`：返回两个迭代器之间的距离。
-
-使用这个函数，能完成迭代器与下标之间的转换：下标 = 当前迭代器位置-容器头部
-```c++
-//结合begin（）和返回的迭代值进行求下标的计算。
-auto iter  = find(nums.begin(), nums.end(), target);
-if(iter!=nums.end())
-{
-    return distance(nums.begin(),iter); //返回target值在数组中的下标
-}
-```
 
 # 二、顺序容器
 **容器**用于表示由同类型元素构成的、长度可变的元素序列。
