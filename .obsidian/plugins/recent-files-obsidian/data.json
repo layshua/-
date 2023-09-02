@@ -1,8 +1,80 @@
 {
   "recentFiles": [
     {
+      "basename": "GamePlay精粹",
+      "path": "引擎Unreal/04 Gameplay/GamePlay精粹.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
+      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "14 十四：渲染系统（二）",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/14 十四：渲染系统（二）.md"
+    },
+    {
+      "basename": "13 十三：渲染系统（一）",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md"
+    },
+    {
+      "basename": "12 十二：垃圾回收",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md"
+    },
+    {
+      "basename": "08 八：并行与并发",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md"
+    },
+    {
+      "basename": "09 九：TaskGraph",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md"
+    },
+    {
+      "basename": "10 十：UObject (一)",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
+    },
+    {
+      "basename": "丁书凯FPS",
+      "path": "引擎Unreal/04 Gameplay/丁书凯FPS.md"
+    },
+    {
+      "basename": "01 虚幻类",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
+    },
+    {
+      "basename": "03 三：模块基础",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
+    },
+    {
+      "basename": "11 十一：UObject (二)",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md"
+    },
+    {
+      "basename": "06 六：UBT",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/06 六：UBT.md"
+    },
+    {
+      "basename": "05 五：模块总结",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/05 五：模块总结.md"
+    },
+    {
+      "basename": "07 七：UHT",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md"
+    },
+    {
+      "basename": "04 四：模块初始化",
+      "path": "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md"
     },
     {
       "basename": "BUG",
@@ -49,28 +121,12 @@
       "path": "编程/C++/STL标准库.md"
     },
     {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
-    },
-    {
       "basename": "代码随想录",
       "path": "编程/算法/代码随想录.md"
     },
     {
-      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
-      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
-    },
-    {
       "basename": "《数据结构》",
       "path": "编程/算法/《数据结构》.md"
-    },
-    {
-      "basename": "GamePlay精粹",
-      "path": "引擎Unreal/04 Gameplay/GamePlay精粹.md"
-    },
-    {
-      "basename": "01 虚幻类",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
     },
     {
       "basename": "7 多线程",
@@ -143,62 +199,6 @@
     {
       "basename": "Pasted image 20230901172151",
       "path": "zip/images/Pasted image 20230901172151.png"
-    },
-    {
-      "basename": "Pasted image 20230901171937",
-      "path": "zip/images/Pasted image 20230901171937.jpg"
-    },
-    {
-      "basename": "Pasted image 20230901171714",
-      "path": "zip/images/Pasted image 20230901171714.png"
-    },
-    {
-      "basename": "markmap脑图",
-      "path": "zip/templates/markmap脑图.md"
-    },
-    {
-      "basename": "yaml_metadata",
-      "path": "zip/templates/yaml_metadata.md"
-    },
-    {
-      "basename": "callout分栏",
-      "path": "zip/templates/callout分栏.md"
-    },
-    {
-      "basename": "mermaid流图",
-      "path": "zip/templates/mermaid流图.md"
-    },
-    {
-      "basename": "01 图像模糊",
-      "path": "技术美术/3 后处理/01 图像模糊.md"
-    },
-    {
-      "basename": "09 体积云",
-      "path": "技术美术/1 渲染雅集/09 体积云.md"
-    },
-    {
-      "basename": "07 草",
-      "path": "技术美术/1 渲染雅集/07 草.md"
-    },
-    {
-      "basename": "06 雾",
-      "path": "技术美术/1 渲染雅集/06 雾.md"
-    },
-    {
-      "basename": "05 描边",
-      "path": "技术美术/1 渲染雅集/05 描边.md"
-    },
-    {
-      "basename": "04 溶解",
-      "path": "技术美术/1 渲染雅集/04 溶解.md"
-    },
-    {
-      "basename": "03 UV操作",
-      "path": "技术美术/1 渲染雅集/03 UV操作.md"
-    },
-    {
-      "basename": "03 深度法线纹理",
-      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
     }
   ],
   "omittedPaths": [],

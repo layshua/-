@@ -98402,6 +98402,7 @@ ppvaE
 pjkki
 prQ
 pxoDy
+pelvis
 nodesCatch
 nobr
 navy
@@ -118878,6 +118879,8 @@ TShareRef
 TSharedPt
 TList
 TestCpp
+TimeToDisplay
+TChar
 io
 ipad
 it
@@ -161167,6 +161170,7 @@ FEngineLoop
 FNullGraphTask
 FRenderCommandFence
 FWorldContext
+FRotator
 Element
 Entity
 Enity
@@ -176999,6 +177003,8 @@ Drone
 DrawDebugLine
 DoWork
 DefaultPawn
+DisplayColor
+DebugMessage
 LNK
 Log
 Linux
@@ -186217,6 +186223,7 @@ GlobalDefaultGameMode
 GGameThreadId
 GameThreadWaitForTask
 GameEngine
+GetBoneRotation
 NULL
 Native
 NormalMap

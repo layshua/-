@@ -18,6 +18,27 @@
 > [!warning]
 > **`UObjects` 永远都不应使用 `new` 运算符。所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。**
 
+
+**`CreateDefaultSubobject`** ：创建组件。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
+
+```c++
+UCLASS()
+class AMyActor : public AActor
+{
+    GENERATED_BODY()
+
+    USphereComponent* MyCollisionComp;
+
+    AMyActor()
+    {
+        MyCollisionComp = CreateDefaultSubobject<USphereComponent>(FName(TEXT("CollisionComponent"));
+        MyCollisionComp->RelativeLocation = FVector::ZeroVector;
+        MyCollisionComp->SphereRadius = 20.0f;
+    }
+};
+```
+
+
 ## 更新 Object
 
 Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每帧被 tick，便于您执行必要的更新计算或操作。
@@ -42,7 +63,6 @@ Obj = nullptr;
 - `Obj->MarkAsGarbage()` ：标记为垃圾
     - 标记为垃圾等待回收。如果 `gc.PendingKillEnabled=true` ，那么所有标记为 `PendingKill` 的对象会被垃圾回收器自动清空并销毁。
 
-
 ## 查找
 ### 按类型查找 Object
 ```c++
@@ -59,7 +79,6 @@ for (TObjectIterator<UMyObject> It; It; ++it)
 static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
 ```
 
-
 # Actor 类
 ## 实例化 Actor
 虚幻引擎有两个不同的函数来实例化对象：
@@ -72,11 +91,13 @@ static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/
 Actor 通过 `UWorld` 对象（可以通过 `GetWorld()` 获得）的 `SpawnActor` 方法生成。
 >UObject 为 Actor 提供了 `GetWorld` 方法
 
-请注意，在下面的示例中，我们传入了我们想生成的 Actor 的类，而不是传入另一个 Actor。在我们的示例中，该类可以是 AMyEnemy 的任意子类。
+```c++
+GetWorld()->SpawnActor<Amissile>(bullet0, GetActorTransform());
 
-要是你想创建另一个对象的副本，就像在 Unity 的 Instantiate 函数那样，你该怎么做呢？
+GetWorld()->SpawnActor<Amissile>(bullet, body->GetSocketTransform("FirePos"));
 
-`NewObject` 和 `SpawnActor` 函数也能给一个 "模板" 对象来工作。虚幻引擎将创建该对象的副本，而不是从头创建新对象。这将复制其所有 `UPROPERTY` 和组件。
+Amissile* MissileIns = GetWorld()->SpawnActor<Amissile>(bullet2->StaticClass(), GetActorTransform());
+```
 
 ```c++
 AMyActor* CreateCloneOfMyActor(AMyActor* ExistingActor, FVector SpawnLocation, FRotator SpawnRotation)
@@ -89,32 +110,6 @@ AMyActor* CreateCloneOfMyActor(AMyActor* ExistingActor, FVector SpawnLocation, F
 }
 ```
 
-你可能会好奇这里的 "从头开始" 到底是什么意思。你创建的每个对象类都有一个默认模板，其中包含其属性和组件的默认值。如果你不覆盖这些属性，也没有提供你自己的模板，虚幻引擎将使用这些默认值来构造你的对象。
-
-```c++
-UCLASS()
-class AMyActor : public AActor
-{
-    GENERATED_BODY()
-
-    UPROPERTY()
-    int32 MyIntProp;
-
-    UPROPERTY()
-    USphereComponent* MyCollisionComp;
-
-    AMyActor()
-    {
-        MyIntProp = 42;
-
-        MyCollisionComp = CreateDefaultSubobject<USphereComponent>(FName(TEXT("CollisionComponent"));
-        MyCollisionComp->RelativeLocation = FVector::ZeroVector;
-        MyCollisionComp->SphereRadius = 20.0f;
-    }
-};
-```
-
-在构造函数 `AMyActor` 中，我们为这个类设置了属性的默认值。请注意 **`CreateDefaultSubobject`** 函数的用法，我们可以使用此函数创建组件并向其分配默认属性。**使用此函数创建的所有子对象都充当默认模板，因此我们可以在子类或蓝图中修改它们。**
 
 ## 类型转换
 
