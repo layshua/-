@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
+      "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Pasted image 20230901192944",
       "path": "zip/images/Pasted image 20230901192944.jpg"
-    },
-    {
-      "basename": "Pasted image 20230901192924",
-      "path": "zip/images/Pasted image 20230901192924.png"
     }
   ],
   "omittedPaths": [],

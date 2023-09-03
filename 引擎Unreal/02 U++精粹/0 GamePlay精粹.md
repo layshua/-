@@ -508,6 +508,122 @@ class AMyActor : public AActor
     }
 };
 ```
+
+### Component 碰撞
+
+- 注意` Overlap Begin/End` 的函数参数
+- 注意 `OnHit` 的函数参数
+- 注意 `Generated Hit Event` 对应函数名 `SetNotifyRigidBodyCollision`
+- 绑定函数可以用 `AddDynamic`，也可以用 `FScriptDelegate` 委托
+- 部分设置可不写，蓝图使用时再手动设置
+- 写法支持 UShapeComponent及其派生类，如 USphereComponent 、UBoxComponent 等
+
+```cpp
+UPROPERTY(EditAnywhere)
+USceneComponent* Root;
+
+UPROPERTY(EditAnywhere)
+UStaticMeshComponent* Cube;
+
+UFUNCTION()
+virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+UFUNCTION()
+virtual void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+UFUNCTION()
+virtual void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+```
+
+```cpp
+ACollisionActor::ACollisionActor()
+{
+    // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+    PrimaryActorTick.bCanEverTick = true;
+
+    Root = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
+    SetRootComponent(Root);
+
+    Cube = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cube"));
+    Cube->SetupAttachment(Root);
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> mesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
+    if (mesh.Succeeded())
+    {
+        Cube->SetStaticMesh(mesh.Object);
+    }
+
+    // 设置是否开启物理模拟
+    Cube->SetSimulatePhysics(false);
+
+    // 开启 Generated Hit Event
+    Cube->SetNotifyRigidBodyCollision(true);
+    
+    // 开启CCD Continuous collision detection (CCD) 连续式碰撞检测
+    Cube->BodyInstance.SetUseCCD(true);
+    
+    // 开启Generate Overlap Events
+    Cube->SetGenerateOverlapEvents(true);
+
+    // 设置碰撞预设
+    Cube->SetCollisionProfileName(TEXT("OverlapAll"));
+    //Cube->SetCollisionResponseToAllChannels(ECR_Overlap);
+
+    // 设置碰撞响应设置
+    Cube->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+
+    // 绑定函数
+    Cube->OnComponentBeginOverlap.AddDynamic(this, &ACollisionActor::OnOverlapBegin);
+
+    // 另一个绑定函数的方法： 使用FScriptDelegate委托
+    FScriptDelegate OverlapEndDelegate;
+    OverlapEndDelegate.BindUFunction(this, TEXT("OnOverlapEnd"));
+    Cube->OnComponentBeginOverlap.Add(OverlapEndDelegate);
+    
+    // 绑定碰撞函数
+    Cube->OnComponentHit.AddDynamic(this, &ACollisionActor::OnHit);
+}
+
+void ACollisionActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+    UE_LOG(LogTemp, Warning, TEXT("Overlap Begin"));
+}
+
+void ACollisionActor::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+    UE_LOG(LogTemp, Warning, TEXT("Overlap End"));
+}
+
+void ACollisionActor::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+    UE_LOG(LogTemp, Warning, TEXT("Hit"));
+    Destroy();
+}
+```
+
+### ATriggerBox 碰撞
+
+- OnActorBeginOverlap
+- OnActorEndOverlap
+  
+  ```cpp
+  UFUNCTION()
+  	void HandleOverlap(AActor* OverlappedActor, AActor* OtherActor );
+  ```
+  
+  ```cpp
+  void AMyTriggerBox::BeginPlay()
+  {
+  	//放在构造函数好像不起作用
+  	OnActorBeginOverlap.AddDynamic(this, &AMyTriggerBox::HandleOverlap);
+  }
+  
+  void AMyTriggerBox::HandleOverlap(AActor* OverlappedActor, AActor* OtherActor )
+  {
+  	UClass* ActorClass = OtherActor->GetClass();
+  	// 其他处理逻辑
+  }
+  ```
+- 
 ## 触发器体积 Trigger Volumes
 ```c++
 UCLASS()
