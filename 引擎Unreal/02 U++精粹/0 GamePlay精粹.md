@@ -477,9 +477,9 @@ FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActo
 ## 刚体与图元组件
 `RigidBody`/`Primitive Component`
 
-在 Unity 中，假如要为 GameObject 赋予物理特征，首先必须为其提供刚体组件。
+在 Unity 中，假如要为 GameObject 赋予物理特征，首先必须为其提供**刚体**组件。
 
-在虚幻引擎中，任何图元组件（C++ 中的 `UPrimitiveComponent`）都可以是物理对象。
+在UE中，**任何图元组件（C++ 中的 `UPrimitiveComponent`）都可以是物理对象。**
 一些常见图元组件如下：
 - 形状组件（胶囊体、球体和盒体）
 - 静态网格体组件
@@ -489,7 +489,7 @@ Unity 将碰撞和可视性划分到不同的组件中，虚幻引擎则将 **"�
 
 ## 刚体/碰撞组件
 
-在虚幻引擎 4 中，碰撞组件和刚体组件是同一个组件。其基类是 `UPrimitiveComponent`，它有许多子类（`USphereComponent`、`UCapsuleComponent` 等）可满足你的需要。
+**碰撞组件和刚体组件是同一个组件**。其基类是 `UPrimitiveComponent`，它有许多子类（`USphereComponent`、`UCapsuleComponent` 等）可满足你的需要。
 
 ```c++
 UCLASS()
@@ -508,33 +508,6 @@ class AMyActor : public AActor
     }
 };
 ```
-## RayTrace
-```c++
-APawn* AMyPlayerController::FindPawnCameraIsLookingAt()
-{
-    // 你可以在这里自定义有关追踪的各种属性
-    FCollisionQueryParams Params;
-    // 忽略玩家的Pawn
-    Params.AddIgnoredActor(GetPawn());
-
-    // 击中结果由线路追踪填充
-    FHitResult Hit;
-
-    // 来自摄像机的Raycast，仅与Pawn碰撞（它们在ECC_Pawn碰撞通道上）
-    FVector Start = PlayerCameraManager->GetCameraLocation();
-    FVector End = Start + (PlayerCameraManager->GetCameraRotation().Vector() * 1000.0f);
-    bool bHit = GetWorld()->LineTraceSingle(Hit, Start, End, ECC_Pawn, Params);
-
-    if (bHit)
-    {
-        // Hit.Actor包含指向追踪所击中的Actor的弱指针
-        return Cast<APawn>(Hit.Actor.Get());
-    }
-
-    return nullptr;
-}
-```
-[![[4e3dc3bf152452bb0663afe8869c952a_MD5.jpg]]
 ## 触发器体积 Trigger Volumes
 ```c++
 UCLASS()
@@ -567,6 +540,71 @@ class AMyActor : public AActor
 ![[9ea03060c7ec432c5c18a49982f9d1ee_MD5.jpg]]
 
 
+## 射线检测
+### World.h 
+- Trace模式
+    - TraceSingle 单个结果
+    - TraceMulti 多个结果
+- Trace 的检测依据
+    - ByChanne
+    - ByObjectType
+    - ByProfile
+
+由于**一般不使用 World 里的Trace API**，故本小结只举 LineTraceSingleByChannel 一个例子
+```cpp
+// 碰撞参数
+FCollisionQueryParams CollisonQueryParams(TEXT("QueryParams"),true,NULL);
+CollisonQueryParams.bTraceComplex = true;
+CollisonQueryParams.bReturnPhysicalMaterial = false;
+CollisonQueryParams.AddIgnoredActor(this);
+
+// 起始点和检测结果
+FVector BeginLoc = GetActorLocation();
+FVector EndLoc = BeginLoc + GetActorForwardVector() * 1000;
+FHitResult HitResult;
+
+// 射线检测
+GetWorld()->LineTraceSingleByChannel(HitResult, BeginLoc, EndLoc, ECollisionChannel::ECC_Visibility, CollisonQueryParams);
+// 绘制射线
+DrawDebugLine(GetWorld(), BeginLoc, HitResult.GetActor() ? HitResult.Location : EndLoc, FColor::Red, false, 1.0f);
+if (HitResult.GetActor())
+{
+    UKismetSystemLibrary::PrintString(GetWorld(), HitResult.GetActor()->GetName());
+}
+```
+
+### UKismetSystemLibrary
+- 与蓝图使用的 Trace 节点对应，
+- 实际调用的是 World.h 里的 Trace 函数
+![[Pasted image 20230903111939.png]]
+
+
+```c++
+APawn* AMyPlayerController::FindPawnCameraIsLookingAt()
+{
+    // 你可以在这里自定义有关追踪的各种属性
+    FCollisionQueryParams Params;
+    // 忽略玩家的Pawn
+    Params.AddIgnoredActor(GetPawn());
+
+    // 击中结果由线路追踪填充
+    FHitResult Hit;
+
+    // 来自摄像机的Raycast，仅与Pawn碰撞（它们在ECC_Pawn碰撞通道上）
+    FVector Start = PlayerCameraManager->GetCameraLocation();
+    FVector End = Start + (PlayerCameraManager->GetCameraRotation().Vector() * 1000.0f);
+    bool bHit = GetWorld()->LineTraceSingle(Hit, Start, End, ECC_Pawn, Params);
+
+    if (bHit)
+    {
+        // Hit.Actor包含指向追踪所击中的Actor的弱指针
+        return Cast<APawn>(Hit.Actor.Get());
+    }
+
+    return nullptr;
+}
+```
+[![[4e3dc3bf152452bb0663afe8869c952a_MD5.jpg]]
 # 8 输入系统
 ## 增强输入
 Enhanced Input System 实际上就是对默认输入系统做了一个扩展，它以模块化的方式解耦了从输入的按键配置到事件处理的逻辑处理过程，提供了更灵活和更便利的输入配置和处理功能。同时又能向后兼容虚幻引擎 4 (UE4）中的默认输入系统。以插件的形式供我们使用。
@@ -746,3 +784,45 @@ private:
 	TWeakPtr<FData> NewData; //通过这个弱指针就可以修改数据,避免野指针
 };
 ```
+
+# 抛物线路径、发射轨道相关
+-  `UGameplayStatics::Blueprint_PredictProjectilePath_ByObjectType`：根据 Object Type，算出抛物线的点集合和检测结果
+
+```c++ h:12
+FVector BeginLoc = GetActorLocation();
+FVector LaunchVelocity = GetActorForwardVector() * 1000.0f;
+TArray<TEnumAsByte<EObjectTypeQuery> > ObjectTypes;
+ObjectTypes.Add(EObjectTypeQuery::ObjectTypeQuery1);
+TArray<AActor*> IgnoreActors;	
+
+FHitResult HitResult;
+TArray<FVector> OutPatnPositions;
+FVector OutLastTraceDestination;
+
+//开始模拟
+bool bIsHit = UGameplayStatics::Blueprint_PredictProjectilePath_ByObjectType(
+	GetWorld(),
+	HitResult,
+	OutPatnPositions,
+	OutLastTraceDestination,
+	BeginLoc,
+	LaunchVelocity,
+	true,
+	0.0f,
+	ObjectTypes,
+	false,
+	IgnoreActors,
+	EDrawDebugTrace::ForDuration,
+	0.0f
+);
+if (bIsHit)
+{
+	UKismetSystemLibrary::PrintString(GetWorld(), HitResult.GetActor()->GetName());
+}
+```
+
+- `Blueprint_PredictProjectilePath_ByTraceChannel`:根据 ChannelChannel，算出抛物线的点集合和检测结果
+- `PredictProjectilePath`：根据预测参数，推算结果
+-  `Blueprint_PredictProjectilePath_Advanced`：根据预测参数，推算结果
+- `BlueprintSuggestProjectileVelocity`：根据目标点，反算初速度
+- `SuggestProjectileVelocity_CustomArc`：根据目标点，反算初速度

@@ -5,6 +5,10 @@
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
     {
+      "basename": "蓝图精粹",
+      "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
+    },
+    {
       "basename": "增强输入",
       "path": "引擎Unreal/01 指南/增强输入.md"
     },
@@ -151,10 +155,6 @@
     {
       "basename": "UE4_5 开发面试题：Unreal",
       "path": "图形学/面经/UE4_5 开发面试题：Unreal.md"
-    },
-    {
-      "basename": "蓝图精粹",
-      "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
     },
     {
       "basename": "《Unity Primer》",

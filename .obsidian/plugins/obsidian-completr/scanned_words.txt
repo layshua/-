@@ -8374,6 +8374,10 @@ OverlappedComponent
 OtherActor
 OtherComp
 OtherBodyIndex
+ObjectTypes
+ObjectTypeQuery
+OutPatnPositions
+OutLastTraceDestination
 codeup
 clash
 ctrl
@@ -52938,6 +52942,11 @@ UPhysicsThrusterComponent
 UKismetMathLibrary
 UTextRenderComponent
 UProjectileMovementComponent
+UKismetSystemLibrary
+UInputAction
+UInputMappingContext
+UInputModifier
+UnputTrigeer
 api
 ac
 app
@@ -76354,6 +76363,7 @@ SetAutoActivate
 SetHorizontalAlignment
 SetWorldSize
 SetText
+SuggestProjectileVelocity
 Programs
 POP
 PC
@@ -80859,6 +80869,7 @@ PrimaryComponentTick
 ParticleAsset
 ParticleSystemComponent
 PlayerName
+PredictProjectilePath
 ContextMenuManager
 ClashVerge
 Clash
@@ -85611,6 +85622,8 @@ CameraTwo
 CameraAttachmentArm
 CameraLagSpeed
 CountdownNumber
+CollisonQueryParams
+CustomArc
 ImTip
 IMAP
 ID
@@ -89991,6 +90004,8 @@ IsChildOf
 IMyID
 InitSphereRadius
 InitialSpeed
+InputMappingContext
+IgnoreActors
 qq
 qyi
 quad
@@ -106254,6 +106269,9 @@ bEnableCameraLag
 bAutoActivate
 bDeath
 bFromSweep
+bTraceComplex
+bReturnPhysicalMaterial
+bIsHit
 fe
 front
 fill
@@ -156621,6 +156639,10 @@ BQKEY
 BWK
 BQWhm
 Bcp
+BeginLoc
+ByObjectType
+ByTraceChannel
+BlueprintSuggestProjectileVelocity
 Fraktur
 Frame
 Foo
@@ -161282,6 +161304,7 @@ FDataManage
 FCharacter
 FORCEINLINE
 FromInt
+ForDuration
 Element
 Entity
 Enity
@@ -165988,6 +166011,10 @@ ENQUEUE
 EAutoReceiveInput
 EDITORONLY
 EHTA
+EndLoc
+ECollisionChannel
+EObjectTypeQuery
+EDrawDebugTrace
 xmlns
 xyz
 xy
@@ -181442,6 +181469,7 @@ LoadObject
 LoadClass
 LoadSynchronous
 LoadPackageAsync
+LaunchVelocity
 Getx
 GetX
 GetName
@@ -186348,6 +186376,8 @@ GetViewTarget
 GetActorUpVector
 GetPlayerPawn
 GetPlayerCharacter
+GetActorForwardVector
+GetActor
 NULL
 Native
 NormalMap
@@ -199306,6 +199336,7 @@ QKEP
 QLgc
 QueuedWork
 QueuedThreads
+QueryParams
 Java
 JPEG
 JlAGTAAAAAAf
