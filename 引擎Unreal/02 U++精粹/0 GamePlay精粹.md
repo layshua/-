@@ -1,4 +1,4 @@
-# UObject
+# 1 UObject
 
 ## 创建 Object
 
@@ -74,7 +74,7 @@ for (TObjectIterator<UMyObject> It; It; ++it)
 static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
 ```
 
-# AActor 
+# 2 AActor 
 对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
 ## 实例化 Actor
 
@@ -203,7 +203,7 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
 
-# Actor 组件
+# 3 Actor 组件
 ## 注册
 ### 注册组件
 引擎必须注册组件，才能让 Actor 组件能够逐帧更新。如果在 Actor 产生过程中，作为 Actor 子对象自动创建了组件，则这类组件会自动注册。
@@ -427,7 +427,7 @@ if (SphereCollider != nullptr)
 }
 ````
 
-# Pawn 类
+# 4 Pawn 类
 ## 获取 Pawn
 
 ```c++
@@ -444,7 +444,7 @@ AutoPossessPlayer = EAutoReceiveInput::Player0;
 ```
 ![[Pasted image 20230829162058.png]]
 
-# Character
+# 5 Character
 ## 获取 Character
 ```c++
 //GetPlayerCharacter
@@ -453,7 +453,7 @@ ACharacter* myPawn = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
 //GetCharacter
 ACharacter* myPawn = GetWorld()->GetFirstPlayerController()->GetCharacter();
 ```
-# PlayerController
+# 6 PlayerController
 ## 获取 playerController
 可配合 Cast 转换成对应的 controller
 
@@ -473,7 +473,7 @@ FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActo
 ```
 
 
-# 物理
+# 7 物理
 ## 刚体与图元组件
 `RigidBody`/`Primitive Component`
 
@@ -567,7 +567,43 @@ class AMyActor : public AActor
 ![[9ea03060c7ec432c5c18a49982f9d1ee_MD5.jpg]]
 
 
-## 输入事件
+# 8 输入系统
+## 增强输入
+Enhanced Input System 实际上就是对默认输入系统做了一个扩展，它以模块化的方式解耦了从输入的按键配置到事件处理的逻辑处理过程，提供了更灵活和更便利的输入配置和处理功能。同时又能向后兼容虚幻引擎 4 (UE4）中的默认输入系统。以插件的形式供我们使用。
+
+**重要的类：**
+-  `UInputAction` 输入操作
+    - 是交互角色可能做出的任何动作，独立于原始输入，可以设置多种类型的输入值-
+-  `UInputMappingContext` 输入映射上下文
+    - 将用户的输入映射到操作，并可以动态地为每个用户添加、移除或安排优先次序。通过本地玩家子系统（Enhanced Input Local Player Subsystem)将一个或多个映射应用到本地玩家，并安排它们的优先次序，避免多个操作由于尝试使用同一输入而发生冲突
+-  `UInputModifier` 输入修饰符。
+    - 调整来自用户设备的原始输入的值，如使用 Negate 可以将输入值取负值。
+-  `UnputTrigeer` 输入触发器。
+    - 根据特定的条件来确定是否应该激活输入操作。
+
+**增强输入系统优点**
+1. 简化了绑定操作，现在绑定的都是 `InputAction`, 现在不分 Action 和 Axis，提供了更多的扩展性和灵活性。
+2. 运行时控制添加、移除映射.
+3. 模块化，不再只依赖 ini 配置，以资源 asset 方式配置.
+4. 提高性能，不需要检查所有输入，只关心当前场景和绑定
+
+### 蓝图
+可以参考引擎的模板 Character
+
+1. 创建 `InputAction` ![[Pasted image 20230829145313.png]]
+
+2. 创建 `InputMappingContext` ![[Pasted image 20230829145347.png]]，设置映射 ![[Pasted image 20230829145439.png|350]]
+
+3. `PlayerController` 添加创建的输入映射上下文，可以添加多个上下文
+![[Pasted image 20230829144811.png]]
+
+4. 使用 `InputAction` 对应的事件
+![[Pasted image 20230829145511.png|350]]
+
+
+
+
+## 默认输入系统
 ```c++
 UCLASS()
 class AMyPlayerController : public APlayerController
@@ -596,7 +632,7 @@ class AMyPlayerController : public APlayerController
 ![[83bcde708ee30addd568e23d2a180ccc_MD5.jpg]]
 
 
-# 相机
+# 9 相机
 ## 获取和切换场景相机
 ```c++
 // 查找处理本地玩家控制的actor。
@@ -622,7 +658,7 @@ UCameraComponent* Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Actual
 Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 ```
 
-# 粒子
+# 10 粒子
 ```c++
 //声明
 UPROPERTY()  
