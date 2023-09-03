@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/05 动画/动画蓝图.md",
+                "file": "引擎Unreal/05 动画/动画节点.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -106,7 +106,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/05 动画/动画蓝图.md"
+                "file": "引擎Unreal/05 动画/动画节点.md"
               }
             }
           },
@@ -116,7 +116,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/05 动画/动画蓝图.md"
+                "file": "引擎Unreal/05 动画/动画节点.md"
               }
             }
           }
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/05 动画/动画蓝图.md",
+                "file": "引擎Unreal/05 动画/动画节点.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/05 动画/动画蓝图.md",
+                "file": "引擎Unreal/05 动画/动画节点.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,21 +217,22 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "0e4ed71ecbb9d0f4",
   "lastOpenFiles": [
-    "引擎Unreal/05 动画/动画节点.md",
+    "引擎Unreal/05 动画/状态机.md",
+    "zip/images/5e27c0891b8745f2b8328cb8542b66c9_MD5.png",
+    "zip/images/4ca47f7777e8660cc2a9874393f7e686_MD5.png",
+    "zip/images/4012c1ce3a6b2002b87b556cd2f38160_MD5.png",
+    "zip/images/d7fec1b731f676c27175f59e5669ef1c_MD5.png",
+    "zip/images/fc5351fffadfac1c13012d870d7f856e_MD5.png",
+    "zip/images/71357e3bca7aaaf2919bbb78d463f049_MD5.png",
+    "zip/images/c222520bbd81b9d5f33958c28f4d9390_MD5.png",
+    "zip/images/72e5628e9d8f1689e71edca085599e7e_MD5.png",
+    "zip/images/0bc7f69a5815d42d56e7179db708f19d_MD5.png",
+    "zip/images/f589c26cf06179fd43aa900e750bcbdb_MD5.png",
     "引擎Unreal/05 动画/动画蓝图.md",
+    "引擎Unreal/05 动画/动画节点.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
-    "zip/images/88d145d68c585fe62d040b77491f56a0_MD5.png",
-    "zip/images/bfa54cf10eea4830fb29c3dc5ae0d41f_MD5.jpg",
-    "zip/images/12479c5e3bafa733d22af00cfdb893a0_MD5.jpg",
-    "zip/images/cba00de8303e571311fb7d96a26827e3_MD5.jpg",
-    "zip/images/b878e872b90fb1853b0d916f00d40471_MD5.jpg",
-    "zip/images/828b348d4c9715e2d7a507c36d399433_MD5.jpg",
-    "zip/images/32b8bbd4a35415f1d573250978e30a51_MD5.jpg",
-    "zip/images/426529fd80d9c395b6989fd5a9c79ab4_MD5.jpg",
-    "zip/images/21fd93c5bf195f5b9bbf64a1f5dba7b2_MD5.jpg",
-    "zip/images/99d024a783caad8acdfd29b058b960d3_MD5.jpg",
     "引擎Unreal/03 蓝图/蓝图精粹.md",
     "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
@@ -253,7 +254,6 @@
     "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
     "引擎Unreal/04 Gameplay/丁书凯FPS.md",
     "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
     "引擎Unreal/04 Gameplay/UE画布.canvas",

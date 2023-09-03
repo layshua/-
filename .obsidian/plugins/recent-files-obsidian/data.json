@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "动画蓝图",
-      "path": "引擎Unreal/05 动画/动画蓝图.md"
-    },
-    {
       "basename": "动画节点",
       "path": "引擎Unreal/05 动画/动画节点.md"
+    },
+    {
+      "basename": "状态机",
+      "path": "引擎Unreal/05 动画/状态机.md"
+    },
+    {
+      "basename": "动画蓝图",
+      "path": "引擎Unreal/05 动画/动画蓝图.md"
     },
     {
       "basename": "1 类型",
@@ -195,10 +199,6 @@
     {
       "basename": "UE画布",
       "path": "引擎Unreal/04 Gameplay/UE画布.canvas"
-    },
-    {
-      "basename": "Pasted image 20230901192952",
-      "path": "zip/images/Pasted image 20230901192952.jpg"
     }
   ],
   "omittedPaths": [],
