@@ -48912,6 +48912,7 @@ ADrone
 ACharacter
 AnimNotify
 AssetPlayerIndex
+Atomsphere
 URL
 Utools
 Users
@@ -66821,6 +66822,8 @@ MyData
 MakeRotFromX
 MachineIndex
 Machines
+Manipulate
+Mechanices
 Windows
 Win
 World
@@ -76373,6 +76376,10 @@ SetWorldSize
 SetText
 SuggestProjectileVelocity
 StateIndex
+Starter
+Snappiung
+Screenshot
+Shaping
 Programs
 POP
 PC
@@ -90020,6 +90027,7 @@ Initialize
 Initialized
 Interior
 Inertialization
+Immersive
 qq
 qyi
 quad
@@ -98525,6 +98533,7 @@ paddle
 paddleMesh
 projectileMovementComp
 projectileMovement
+props
 nodesCatch
 nobr
 navy
@@ -102377,6 +102386,7 @@ ntKWkG
 nmD
 nJg
 ncjT
+newe
 bf
 bc
 black
@@ -119018,6 +119028,7 @@ ThrustStrength
 TryGetPawnOwner
 Threaded
 TransitionIndex
+Take
 io
 ipad
 it
@@ -123722,6 +123733,7 @@ iwsaw
 infy
 inoZ
 idle
+infinitely
 shift
 svg
 sf
@@ -128729,6 +128741,7 @@ slate
 snakeCaseName
 sphereComp
 springArmComp
+screenshot
 local
 list
 left
@@ -177171,6 +177184,8 @@ DefaultPawn
 DisplayColor
 DebugMessage
 DataManage
+Druid
+Discord
 LNK
 Log
 Linux
@@ -181495,6 +181510,7 @@ LoadSynchronous
 LoadPackageAsync
 LaunchVelocity
 Linked
+LandscapeLayerBlend
 Getx
 GetX
 GetName
@@ -199367,6 +199383,7 @@ QLgc
 QueuedWork
 QueuedThreads
 QueryParams
+Quixel
 Java
 JPEG
 JlAGTAAAAAAf
