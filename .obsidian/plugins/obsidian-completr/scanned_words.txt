@@ -48923,6 +48923,9 @@ Atomsphere
 ACollisionActor
 AMyTriggerBox
 ActorClass
+AMyClass
+AddActorWorldOffset
+AddActorWorldRotation
 URL
 Utools
 Users
@@ -61812,6 +61815,7 @@ Relevant
 ReturnValue
 Reinitialize
 RootScene
+RotationRate
 Microsoft
 Menu
 MicaForEveryone
@@ -66835,6 +66839,7 @@ MachineIndex
 Machines
 Manipulate
 Mechanices
+MovementRate
 Windows
 Win
 World
