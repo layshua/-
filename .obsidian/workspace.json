@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "编程/C++/《C++ Primer》.md"
               }
             }
           },
@@ -113,7 +112,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "编程/C++/《C++ Primer》.md"
               }
             }
           }
@@ -163,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "编程/C++/《C++ Primer》.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -214,10 +213,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "b6b77fcef2834861",
+  "active": "8eebba310c1d7296",
   "lastOpenFiles": [
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/08 地编/Landscape.md",
     "Tools/Git/UE4源码管理.md",

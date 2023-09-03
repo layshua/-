@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -79,10 +83,6 @@
     {
       "basename": "6 资源加载",
       "path": "引擎Unreal/02 U++精粹/6 资源加载.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "2 容器",
