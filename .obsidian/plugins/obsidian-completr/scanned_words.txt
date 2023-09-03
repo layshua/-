@@ -40822,6 +40822,7 @@ VMkxc
 VerW
 VaonX
 VfRi
+Variables
 verge
 vPdIt
 vertical
@@ -48909,6 +48910,7 @@ Amissile
 AttachTo
 ADrone
 ACharacter
+AnimNotify
 URL
 Utools
 Users
@@ -61794,6 +61796,8 @@ RHIThread
 RootComponent
 RigidBody
 RandRange
+Relevant
+ReturnValue
 Microsoft
 Menu
 MicaForEveryone
@@ -90006,6 +90010,9 @@ InitSphereRadius
 InitialSpeed
 InputMappingContext
 IgnoreActors
+Inertial
+Initialize
+Initialized
 qq
 qyi
 quad
@@ -119001,6 +119008,8 @@ TargetArmLength
 Transactional
 TextExportTransient
 ThrustStrength
+TryGetPawnOwner
+Threaded
 io
 ipad
 it
@@ -156643,6 +156652,8 @@ BeginLoc
 ByObjectType
 ByTraceChannel
 BlueprintSuggestProjectileVelocity
+Blends
+Become
 Fraktur
 Frame
 Foo
@@ -181470,6 +181481,7 @@ LoadClass
 LoadSynchronous
 LoadPackageAsync
 LaunchVelocity
+Linked
 Getx
 GetX
 GetName

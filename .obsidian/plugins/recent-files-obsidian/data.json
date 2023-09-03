@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "动画蓝图",
+      "path": "引擎Unreal/05 动画/动画蓝图.md"
+    },
+    {
+      "basename": "蓝图精粹",
+      "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
+    },
+    {
       "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
       "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
     },
     {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
-    },
-    {
-      "basename": "蓝图精粹",
-      "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
     },
     {
       "basename": "增强输入",
@@ -195,10 +199,6 @@
     {
       "basename": "Pasted image 20230901192948",
       "path": "zip/images/Pasted image 20230901192948.jpg"
-    },
-    {
-      "basename": "Pasted image 20230901192944",
-      "path": "zip/images/Pasted image 20230901192944.jpg"
     }
   ],
   "omittedPaths": [],
