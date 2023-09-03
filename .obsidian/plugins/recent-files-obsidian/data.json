@@ -5,6 +5,14 @@
       "path": "引擎Unreal/05 动画/动画蓝图.md"
     },
     {
+      "basename": "动画节点",
+      "path": "引擎Unreal/05 动画/动画节点.md"
+    },
+    {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
       "basename": "蓝图精粹",
       "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
     },
@@ -27,10 +35,6 @@
     {
       "basename": "01 虚幻类",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
-    },
-    {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
@@ -195,10 +199,6 @@
     {
       "basename": "Pasted image 20230901192952",
       "path": "zip/images/Pasted image 20230901192952.jpg"
-    },
-    {
-      "basename": "Pasted image 20230901192948",
-      "path": "zip/images/Pasted image 20230901192948.jpg"
     }
   ],
   "omittedPaths": [],

@@ -48911,6 +48911,7 @@ AttachTo
 ADrone
 ACharacter
 AnimNotify
+AssetPlayerIndex
 URL
 Utools
 Users
@@ -66817,6 +66818,7 @@ MyCharacter
 MovementParticles
 MyData
 MakeRotFromX
+MachineIndex
 Windows
 Win
 World
@@ -76368,6 +76370,7 @@ SetHorizontalAlignment
 SetWorldSize
 SetText
 SuggestProjectileVelocity
+StateIndex
 Programs
 POP
 PC
@@ -90013,6 +90016,8 @@ IgnoreActors
 Inertial
 Initialize
 Initialized
+Interior
+Inertialization
 qq
 qyi
 quad
@@ -119010,6 +119015,7 @@ TextExportTransient
 ThrustStrength
 TryGetPawnOwner
 Threaded
+TransitionIndex
 io
 ipad
 it
@@ -186390,6 +186396,10 @@ GetPlayerPawn
 GetPlayerCharacter
 GetActorForwardVector
 GetActor
+GetStateMachineInstance
+GetCheckedNodeFromIndex
+GetNodeFromIndex
+GetRelevantAssetPlayerFromState
 NULL
 Native
 NormalMap
@@ -190494,6 +190504,7 @@ NNV
 Nqni
 NewData
 NoCollision
+NodeIdx
 ZooAnima
 ZooAnimal
 ZTest
