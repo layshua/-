@@ -48949,6 +48949,7 @@ AddedString
 AShooterHUD
 Atoi
 Atof
+ABird
 URL
 Utools
 Users
@@ -80980,6 +80981,8 @@ ParentName
 Placeable
 PerObjectConfig
 Performs
+PROJECTDN
+ProjectDN
 ContextMenuManager
 ClashVerge
 Clash

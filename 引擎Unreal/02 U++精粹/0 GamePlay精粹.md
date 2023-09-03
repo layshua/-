@@ -323,6 +323,7 @@ SetRootComponent(outCollison);
 //在构造函数中、以及处理尚未注册的组件时设置
 paddle1->SetupAttachment(body, TEXT("paddle1"));
 
+//游戏进行中使用
 paddle3->AttachToComponent(body, FAttachmentTransformRules::KeepRelativeTransform, TEXT("paddle3"));
 
 ```
