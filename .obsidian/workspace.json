@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "98fcc54d7253d15b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/Git/UE4源码管理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +76,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -106,7 +119,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "Tools/Git/UE4源码管理.md"
               }
             }
           },
@@ -116,7 +129,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "Tools/Git/UE4源码管理.md"
               }
             }
           }
@@ -166,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "Tools/Git/UE4源码管理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +196,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "Tools/Git/UE4源码管理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -217,9 +230,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6581d76cda603d71",
+  "active": "98fcc54d7253d15b",
   "lastOpenFiles": [
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
     "引擎Unreal/04 Gameplay/ARPG/未命名.md",
@@ -236,7 +250,6 @@
     "zip/images/Pasted image 20230903152513.png",
     "zip/images/Pasted image 20230903152452.png",
     "zip/images/Pasted image 20230903152440.png",
-    "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/ARPG",
     "zBuffer/【UE4 C++ 基础知识】_12_ 多线程——FRunnable.md",
     "zBuffer/【UE4 C++ 基础知识】_14_ 多线程——AsyncTask.md",
