@@ -25273,6 +25273,7 @@ mYpy
 muak
 mJO
 modifying
+myPawn
 windows
 win
 width
@@ -48902,6 +48903,8 @@ AutoPossessPlayer
 ActualCamera
 Amissile
 AttachTo
+ADrone
+ACharacter
 URL
 Utools
 Users
@@ -186343,6 +186346,8 @@ GetDefaultObject
 GetComponentByClass
 GetViewTarget
 GetActorUpVector
+GetPlayerPawn
+GetPlayerCharacter
 NULL
 Native
 NormalMap
