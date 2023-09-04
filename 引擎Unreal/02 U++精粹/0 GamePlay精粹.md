@@ -440,7 +440,7 @@ APawn* myPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 ```
 
 ## PlayerController 控制默认玩家
-Pawn 默认的 AutoPossessPlayer 是未设置的，设为 Player0（）
+Pawn 默认的 AutoPossessPlayer 是未设置的，设为 Player0 即代表着将控制权交给 World 中第一个 Controller。如果是多人游戏就会有多个Player
 ![[Pasted image 20230904133218.png]]
 
 ```c++
@@ -762,32 +762,70 @@ Enhanced Input System 实际上就是对默认输入系统做了一个扩展，�
 
 
 ## 默认输入系统
-```c++
-UCLASS()
-class AMyPlayerController : public APlayerController
+
+### 轴映射与动作映射
+![[Pasted image 20230904135119.png]]
+
+![image](https://img2020.cnblogs.com/blog/2369154/202104/2369154-20210422201258708-740217416.png)
+
+```cpp
+void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
-    GENERATED_BODY()
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-    void SetupInputComponent()
-    {
-        Super::SetupInputComponent();
+	PlayerInputComponent->BindAction("DropItem", EInputEvent::IE_Pressed, this, &AMyCharacter::DropItem);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMyCharacter::Jump);
+	PlayerInputComponent->BindAxis("MoveForward", this, &AMyCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMyCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("PitchCamera", this, &AMyCharacter::PitchCamera);
+	PlayerInputComponent->BindAxis("YawCamera", this, &AMyCharacter::YawCamera);
+}
 
-        InputComponent->BindAction("Fire", IE_Pressed, this, &AMyPlayerController::HandleFireInputEvent);
-        InputComponent->BindAxis("Horizontal", this, &AMyPlayerController::HandleHorizontalAxisInputEvent);
-        InputComponent->BindAxis("Vertical", this, &AMyPlayerController::HandleVerticalAxisInputEvent);
-    }
+void AMyCharacter::MoveForward(float AxisValue)
+{
+	MovementInput.X = FMath::Clamp<float>(AxisValue, -1.f, 1.f);
+}
 
-    void HandleFireInputEvent();
-    void HandleHorizontalAxisInputEvent(float Value);
-    void HandleVerticalAxisInputEvent(float Value);
-};
+void AMyCharacter::MoveRight(float AxisValue)
+{
+	MovementInput.Y = FMath::Clamp<float>(AxisValue, -1.f, 1.f);
+}
+
+void AMyCharacter::PitchCamera(float AxisValue)
+{
+	CameraInput.Y = AxisValue;
+}
+
+void AMyCharacter::YawCamera(float AxisValue)
+{
+	CameraInput.X = AxisValue;
+}
 ```
 
-![[980dbfd9b4d7a19784b8e4608a0ca40a_MD5.jpg]]
+- 设置按键再游戏暂停可以继续响应 `bExecuteWhenPaused`
 
-你的项目设置中的输入属性可能如下所示：
+```kotlin
+InputComponent->BindAction("ESCEvent", IE_Pressed, this, &ASLAiPlayerController::ESCEvent).bExecuteWhenPaused=true;//游戏暂停可以执行
+```
 
-![[83bcde708ee30addd568e23d2a180ccc_MD5.jpg]]
+## 从C++中添加轴和动作映射
+
+```cpp
+//添加、绑定ActionKeyMapping轴映射 方法一
+FInputActionKeyMapping onFire("OnFire", EKeys::LeftMouseButton, 0, 0, 0, 0);
+UPlayerInput::AddEngineDefinedActionMapping(onFire);
+PlayerInputComponent->BindAction("OnFire", IE_Pressed, this, &AMyCharacter::OnFire);
+
+//添加、绑定ActionKeyMapping轴映射 方法二
+UPlayerInput::AddEngineDefinedActionMapping(FInputActionKeyMapping("Sprint",EKeys::LeftShift));
+PlayerInputComponent->BindAction("Sprint", IE_Pressed,this,&AMyCharacter::StartSprint);
+PlayerInputComponent->BindAction("Sprint", IE_Released,this,&AMyCharacter::StopSprint);
+
+//添加、绑定AxisMapping轴映射
+UPlayerInput::AddEngineDefinedAxisMapping(FInputAxisKeyMapping("Turn", EKeys::MouseX, 1.0f));
+PlayerInputComponent->BindAxis("Turn", this, &AMyCharacter::OnTurn);
+
+```
 
 
 # 9 相机

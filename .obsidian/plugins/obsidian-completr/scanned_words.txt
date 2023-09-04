@@ -66900,6 +66900,8 @@ MyFString
 MyString
 MyName
 MyText
+Modifiers
+Modifier
 Windows
 Win
 World
@@ -90163,6 +90165,8 @@ IsValidObjectName
 IntVariable
 InBool
 InObj
+InputModifier
+InputTrigger
 qq
 qyi
 quad
@@ -119188,6 +119192,7 @@ TotalSeconds
 TruncToInt
 TimeDesc
 ToBool
+Triggers
 io
 ipad
 it
@@ -166273,6 +166278,7 @@ ETextComparisonLevel
 EqualToCaseIgnored
 ExampleFText
 ESearchDir
+EnhancedInput
 xmlns
 xyz
 xy
