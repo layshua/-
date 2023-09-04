@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "f5a6d37daafa133d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "222db5172f5c62a1",
             "type": "leaf",
             "state": {
@@ -94,7 +107,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -137,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md"
               }
             }
           },
@@ -147,7 +160,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md"
               }
             }
           }
@@ -197,7 +210,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -214,7 +227,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -248,13 +261,16 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "83e4d1fad891fadd",
+  "active": "f5a6d37daafa133d",
   "lastOpenFiles": [
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+    "zip/images/Pasted image 20230904234746.png",
+    "zip/images/Pasted image 20230904234627.png",
+    "zip/images/Pasted image 20230904233655.png",
     "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "引擎Unreal/05 动画/状态机.md",
     "引擎Unreal/05 动画/动画节点.md",
     "引擎Unreal/05 动画/动画蓝图.md",
-    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230904220708.png",
     "zip/images/Pasted image 20230904220353.png",
     "引擎Unreal/04 Gameplay/ARPG/未命名.md",
@@ -267,9 +283,6 @@
     "zip/images/Pasted image 20230904172126.png",
     "zip/images/Pasted image 20230904172112.png",
     "zip/images/Pasted image 20230904170450.png",
-    "zip/images/Pasted image 20230904163941.png",
-    "zip/images/Pasted image 20230904162541.png",
-    "zip/images/Pasted image 20230904162539.png",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md",
     "编程/算法/代码随想录.md",
@@ -286,7 +299,6 @@
     "zBuffer/【UE4 C++ 基础知识】_13_ 多线程——TaskGraph.md",
     "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
     "zBuffer/【UE5】修复 Rider 在 UE5_2 报错找不到 DirectX 符号问题.md",
-    "zBuffer/02_P7~P23Realistic Landscapes - 哔哩哔哩.md",
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
