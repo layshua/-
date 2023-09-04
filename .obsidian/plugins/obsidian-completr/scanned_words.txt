@@ -16884,6 +16884,8 @@ gxlpq
 gwRI
 gsyu
 globalconfig
+getRightBorder
+getLeftBorder
 typora
 todo
 tooltip
@@ -128900,6 +128902,7 @@ snakeCaseName
 sphereComp
 springArmComp
 screenshot
+searchRange
 local
 list
 left
@@ -132780,6 +132783,7 @@ lxt
 lEOeNS
 lgRW
 locomotion
+leftBorder
 YAML
 You
 YEBAYGhURFRofHx
@@ -144843,6 +144847,7 @@ rGPk
 roq
 rotator
 rotPelvis
+rightBorder
 XXXXXX
 XXX
 XML
