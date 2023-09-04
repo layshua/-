@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "状态机",
+      "path": "引擎Unreal/05 动画/状态机.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+    },
+    {
       "basename": "ue操作指南",
       "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
-    },
-    {
-      "basename": "GamePlay架构",
-      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
     },
     {
       "basename": "01 虚幻类",
@@ -67,10 +71,6 @@
     {
       "basename": "动画节点",
       "path": "引擎Unreal/05 动画/动画节点.md"
-    },
-    {
-      "basename": "状态机",
-      "path": "引擎Unreal/05 动画/状态机.md"
     },
     {
       "basename": "动画蓝图",

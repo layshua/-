@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/05 动画/状态机.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -37,13 +37,8 @@
             "id": "6cb906118799f76e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -59,7 +54,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md"
+                "file": "引擎Unreal/05 动画/状态机.md"
               }
             }
           },
@@ -112,7 +108,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md"
+                "file": "引擎Unreal/05 动画/状态机.md"
               }
             }
           }
@@ -162,7 +158,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
+                "file": "引擎Unreal/05 动画/状态机.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +175,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
+                "file": "引擎Unreal/05 动画/状态机.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -213,8 +209,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6581d76cda603d71",
+  "active": "83e4d1fad891fadd",
   "lastOpenFiles": [
+    "引擎Unreal/04 Gameplay/GamePlay架构.md",
+    "引擎Unreal/01 指南/ue操作指南.md",
     "zip/images/Pasted image 20230904172226.png",
     "zip/images/Pasted image 20230904172126.png",
     "zip/images/Pasted image 20230904172112.png",
@@ -223,7 +221,6 @@
     "zip/images/Pasted image 20230904163941.png",
     "zip/images/Pasted image 20230904162541.png",
     "zip/images/Pasted image 20230904162539.png",
-    "引擎Unreal/04 Gameplay/GamePlay架构.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/images/Pasted image 20230904135119.png",
@@ -232,7 +229,6 @@
     "编程/算法/代码随想录.md",
     "编程/C++/STL标准库.md",
     "zip/images/6a1b2972c795b09875727c9aa5505923_MD5.png",
-    "zip/images/Pasted image 20230903231808.png",
     "编程/C++/《C++ Primer》.md",
     "引擎Unreal/08 地编/Landscape.md",
     "Tools/Git/UE4源码管理.md",
