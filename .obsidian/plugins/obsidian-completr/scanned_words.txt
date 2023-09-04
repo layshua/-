@@ -48962,6 +48962,9 @@ ActionKeyMapping
 AddEngineDefinedActionMapping
 AxisMapping
 AddEngineDefinedAxisMapping
+AddMovementInput
+AddControllerYawInput
+AddControllerPitchInput
 URL
 Utools
 Users
@@ -106473,6 +106476,8 @@ bisimplemated
 bIsImplemented
 bUseOffset
 bExecuteWhenPaused
+bUseControllerRotationPitch
+bUseControllerRotationYaw
 fe
 front
 fill
@@ -181793,6 +181798,7 @@ LOCTEXT
 LinearColorVariable
 LeftMouseButton
 LeftShift
+LookUp
 Getx
 GetX
 GetName

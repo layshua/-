@@ -811,8 +811,9 @@ Enhanced Input System 实际上就是对默认输入系统做了一个扩展，�
 ## 默认输入系统
 
 ### 轴映射与动作映射
+轴映射每帧执行，动作映射一次性执行
 ![[Pasted image 20230904135119.png]]
-
+![[Pasted image 20230904204143.png]]
 ![image](https://img2020.cnblogs.com/blog/2369154/202104/2369154-20210422201258708-740217416.png)
 
 ```cpp
@@ -855,7 +856,7 @@ void AMyCharacter::YawCamera(float AxisValue)
 InputComponent->BindAction("ESCEvent", IE_Pressed, this, &ASLAiPlayerController::ESCEvent).bExecuteWhenPaused=true;//游戏暂停可以执行
 ```
 
-## 从C++中添加轴和动作映射
+### 从C++中添加轴和动作映射
 
 ```cpp
 //添加、绑定ActionKeyMapping轴映射 方法一

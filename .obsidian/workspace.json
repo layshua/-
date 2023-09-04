@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "6fae0d12ffff0165",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "6cb906118799f76e",
             "type": "leaf",
             "state": {
@@ -68,7 +81,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -111,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           },
@@ -121,7 +134,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           }
@@ -171,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -222,12 +235,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "222db5172f5c62a1",
+  "active": "6fae0d12ffff0165",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230904204143.png",
+    "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/04 Gameplay/ARPG笔记.md",
     "引擎Unreal/05 动画/状态机.md",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
     "zip/images/Pasted image 20230904172226.png",
     "zip/images/Pasted image 20230904172126.png",
     "zip/images/Pasted image 20230904172112.png",
@@ -237,7 +252,6 @@
     "zip/images/Pasted image 20230904162541.png",
     "zip/images/Pasted image 20230904162539.png",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-    "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/images/Pasted image 20230904135119.png",
     "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md",
     "zip/images/Pasted image 20230904133218.png",
@@ -260,7 +274,6 @@
     "引擎Unreal/05 动画/动画节点.md",
     "zBuffer/02_P7~P23Realistic Landscapes - 哔哩哔哩.md",
     "引擎Unreal/05 动画/动画蓝图.md",
-    "引擎Unreal/03 蓝图/蓝图精粹.md",
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
