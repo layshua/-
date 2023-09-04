@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           },
@@ -113,7 +112,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           }
@@ -163,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -214,10 +213,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86b0a46618d8ba0a",
+  "active": "6581d76cda603d71",
   "lastOpenFiles": [
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "zip/images/Pasted image 20230904162541.png",
+    "zip/images/Pasted image 20230904162539.png",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/images/Pasted image 20230904135119.png",
@@ -238,7 +239,6 @@
     "引擎Unreal/06 材质 & 渲染/101 材质大师.md",
     "zip/images/Pasted image 20230903160845.png",
     "zip/images/Pasted image 20230903160559.png",
-    "zip/images/Pasted image 20230903160533.png",
     "引擎Unreal/01 指南/光照设置.md",
     "引擎Unreal/04 Gameplay/ARPG",
     "zBuffer/【UE4 C++ 基础知识】_12_ 多线程——FRunnable.md",

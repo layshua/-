@@ -439,7 +439,7 @@ APawn* myPawn = Cast<ADrone>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 APawn* myPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 ```
 
-## PlayerController 控制默认玩家
+## PlayerController 控制玩家
 Pawn 默认的 AutoPossessPlayer 是未设置的，设为 Player0 即代表着将控制权交给 World 中第一个 Controller。如果是多人游戏就会有多个Player
 ![[Pasted image 20230904133218.png]]
 
@@ -448,6 +448,49 @@ AutoPossessPlayer = EAutoReceiveInput::Player0;
 ```
 ![[Pasted image 20230829162058.png]]
 
+## PlayerController 控制旋转
+
+![[Pasted image 20230904162541.png]]
+
+```c++ h:4,5,6,23,29,34
+AMyCharacter::AMyCharacter()
+{
+	PrimaryActorTick.bCanEverTick = true;
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	bUseControllerRotationPitch = true;
+	bUseControllerRotationYaw = true;
+}
+
+
+void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AMyCharacter::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &AMyCharacter::Turn);
+	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AMyCharacter::LookUp);
+}
+
+void AMyCharacter::MoveForward(float Value)
+{
+	if((Controller!=nullptr) && (Value!=0.0f))
+	{
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, Value); //移动组件
+	}
+}
+
+void AMyCharacter::Turn(float Value)
+{
+	AddControllerYawInput(Value);
+}
+
+void AMyCharacter::LookUp(float Value)
+{
+	AddControllerPitchInput(Value);
+}
+
+
+```
 # 5 Character
 ## 获取 Character
 ```c++
