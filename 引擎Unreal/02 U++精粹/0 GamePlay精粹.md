@@ -449,8 +449,12 @@ AutoPossessPlayer = EAutoReceiveInput::Player0;
 ![[Pasted image 20230829162058.png]]
 
 ## PlayerController 控制旋转
-
+飞行物 Pawn可以开启这两项，
 ![[Pasted image 20230904162541.png]]
+
+对于人形 Pawn 通常都关闭，只在 SpringArm 和 Camera 中开启
+
+![[Pasted image 20230904163941.png]]
 
 ```c++ h:4,5,6,23,29,34
 AMyCharacter::AMyCharacter()
@@ -488,9 +492,9 @@ void AMyCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(Value);
 }
-
-
 ```
+
+
 # 5 Character
 ## 获取 Character
 ```c++
