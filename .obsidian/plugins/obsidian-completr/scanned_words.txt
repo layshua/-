@@ -3688,6 +3688,7 @@ oPe
 oSG
 outCollison
 outputMessage
+onFire
 OneDrive
 Obsidian
 Office
@@ -8390,6 +8391,8 @@ OuterClassName
 OriginalObject
 OutputLocations
 OtherFName
+OnFire
+OnTurn
 codeup
 clash
 ctrl
@@ -48952,6 +48955,13 @@ AShooterHUD
 Atoi
 Atof
 ABird
+AMyCharacter
+AxisValue
+ASLAiPlayerController
+ActionKeyMapping
+AddEngineDefinedActionMapping
+AxisMapping
+AddEngineDefinedAxisMapping
 URL
 Utools
 Users
@@ -53005,6 +53015,8 @@ UImage
 UButton
 UCS
 UEngine
+UInputComponent
+UPlayerInput
 api
 ac
 app
@@ -61867,6 +61879,7 @@ ReactingObject
 ReactingObjectA
 ReturnType
 RotatorVariable
+Released
 Microsoft
 Menu
 MicaForEveryone
@@ -66902,6 +66915,10 @@ MyName
 MyText
 Modifiers
 Modifier
+MoveForward
+MoveRight
+MovementInput
+MouseX
 Windows
 Win
 World
@@ -76474,6 +76491,10 @@ ShowFunctions
 SkeletalMesh
 StringResult
 SanitizeFloat
+SetupPlayerInputComponent
+Sprint
+StartSprint
+StopSprint
 Programs
 POP
 PC
@@ -80987,6 +81008,8 @@ PerObjectConfig
 Performs
 PROJECTDN
 ProjectDN
+PlayerInputComponent
+PitchCamera
 ContextMenuManager
 ClashVerge
 Clash
@@ -85763,6 +85786,7 @@ CompareFloat
 CompareTo
 CompareToCaseIgnored
 CHARACTERS
+CameraInput
 ImTip
 IMAP
 ID
@@ -106442,6 +106466,7 @@ bCanStaking
 bisimplemated
 bIsImplemented
 bUseOffset
+bExecuteWhenPaused
 fe
 front
 fill
@@ -136571,6 +136596,7 @@ YZIi
 YNm
 YUwd
 YuK
+YawCamera
 header
 hidden
 height
@@ -161553,6 +161579,8 @@ FromString
 Fstring
 FloatVariable
 FCString
+FInputActionKeyMapping
+FInputAxisKeyMapping
 Element
 Entity
 Enity
@@ -166279,6 +166307,9 @@ EqualToCaseIgnored
 ExampleFText
 ESearchDir
 EnhancedInput
+EInputEvent
+ESCEvent
+EKeys
 xmlns
 xyz
 xy
@@ -177422,6 +177453,7 @@ DrawItem
 DrawHUD
 DrawText
 DVariable
+DropItem
 LNK
 Log
 Linux
@@ -181751,6 +181783,8 @@ Localized
 Lava
 LOCTEXT
 LinearColorVariable
+LeftMouseButton
+LeftShift
 Getx
 GetX
 GetName
@@ -211936,6 +211970,7 @@ kOOe
 kKß
 kUv
 kesek
+kotlin
 zoom
 zw
 zaG
