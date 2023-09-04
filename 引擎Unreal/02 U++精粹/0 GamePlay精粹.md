@@ -440,6 +440,9 @@ APawn* myPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 ```
 
 ## PlayerController 控制默认玩家
+Pawn 默认的 AutoPossessPlayer 是未设置的，设为 Player0（）
+![[Pasted image 20230904133218.png]]
+
 ```c++
 AutoPossessPlayer = EAutoReceiveInput::Player0;
 ```
