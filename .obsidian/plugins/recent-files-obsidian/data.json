@@ -5,6 +5,22 @@
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
     {
+      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
+      "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
+    },
+    {
+      "basename": "状态机",
+      "path": "引擎Unreal/05 动画/状态机.md"
+    },
+    {
+      "basename": "动画节点",
+      "path": "引擎Unreal/05 动画/动画节点.md"
+    },
+    {
+      "basename": "动画蓝图",
+      "path": "引擎Unreal/05 动画/动画蓝图.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -15,10 +31,6 @@
     {
       "basename": "ue操作指南",
       "path": "引擎Unreal/01 指南/ue操作指南.md"
-    },
-    {
-      "basename": "状态机",
-      "path": "引擎Unreal/05 动画/状态机.md"
     },
     {
       "basename": "GamePlay架构",
@@ -69,20 +81,8 @@
       "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
     },
     {
-      "basename": "动画节点",
-      "path": "引擎Unreal/05 动画/动画节点.md"
-    },
-    {
-      "basename": "动画蓝图",
-      "path": "引擎Unreal/05 动画/动画蓝图.md"
-    },
-    {
       "basename": "蓝图精粹",
       "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
-    },
-    {
-      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
-      "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
     },
     {
       "basename": "增强输入",
