@@ -289,3 +289,16 @@ FBX文件信息:虚幻默认动画帧率为 30帧。
 
 然后生成项目
 ![[Pasted image 20230902140302.png]]
+
+# 删除缓存
+当我们向 build. cs 中添加内容，比如增删模块，可以删除一下文件刷新项目
+Binaries 二进制文件
+Intermediate 中间文件
+Saved 已保存文件
+
+然后右键
+![[Pasted image 20230904172126.png]]
+![[Pasted image 20230904172112.png]]
+
+然后启动项目，确认重建模块
+![[Pasted image 20230904172226.png]]

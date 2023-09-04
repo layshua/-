@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "GamePlay架构",
-      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+      "basename": "ue操作指南",
+      "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
     },
     {
       "basename": "01 虚幻类",
@@ -155,10 +159,6 @@
     {
       "basename": "BUG",
       "path": "引擎Unreal/01 指南/BUG.md"
-    },
-    {
-      "basename": "ue操作指南",
-      "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
       "basename": "U++编程规范",
