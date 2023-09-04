@@ -827,7 +827,9 @@ PlayerInputComponent->BindAxis("Turn", this, &AMyCharacter::OnTurn);
 
 ```
 
-
+roll  X
+pitch Y
+yaw Z
 # 9 相机
 ## 获取和切换场景相机
 ```c++
