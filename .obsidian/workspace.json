@@ -107,7 +107,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 蓝图/蓝图精粹.md"
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
               }
             }
           },
@@ -160,7 +160,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 蓝图/蓝图精粹.md"
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
               }
             }
           }
@@ -210,7 +210,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -227,7 +227,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 蓝图/蓝图精粹.md",
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -261,8 +261,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "f5a6d37daafa133d",
+  "active": "6fae0d12ffff0165",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230905000347.png",
+    "引擎Unreal/03 蓝图/蓝图精粹.md",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230904234746.png",
     "zip/images/Pasted image 20230904234627.png",
@@ -298,7 +300,6 @@
     "zBuffer/【UE4 C++ 基础知识】_14_ 多线程——AsyncTask.md",
     "zBuffer/【UE4 C++ 基础知识】_13_ 多线程——TaskGraph.md",
     "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
-    "zBuffer/【UE5】修复 Rider 在 UE5_2 报错找不到 DirectX 符号问题.md",
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
