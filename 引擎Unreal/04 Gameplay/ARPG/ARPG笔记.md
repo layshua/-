@@ -46,3 +46,13 @@ P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&
 
 # 重定向 IK RIG
 P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
+
+# 拾取武器
+![[Pasted image 20230905151915.png]]
+
+# 小功能使用 inline
+内联函数直接展开，不需要想普通函数那样根据函数名取内存中找对应的实现。
+非常适合用于 Get Set 函数
+```
+FORCEINLINE void SetOverlappingWeapon(AWeaponBase* Weapon){WeaponBase = Weapon;};
+```
