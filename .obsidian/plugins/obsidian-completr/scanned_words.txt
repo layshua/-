@@ -177467,6 +177467,8 @@ DrawHUD
 DrawText
 DVariable
 DropItem
+DNode
+DLinklist
 LNK
 Log
 Linux
