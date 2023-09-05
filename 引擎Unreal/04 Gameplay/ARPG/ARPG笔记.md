@@ -10,21 +10,6 @@
 
 新建关卡实例
 ![[Pasted image 20230903165925.png]]
-# 动画 AnimInstance 类
-因为动画事件即便不 play，也会一直运行，因此写代码时要十分注意内存泄露。建议在编译对该类的任何更改时关闭 UE 编辑器，防止编辑器崩溃
-
-# IK + ControlRig
-82 级别： https://www.bilibili.com/video/BV1EM411U7PX/?p=82&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
-IK：
-两脚分别放一个球，用来做球体追踪
-![[Pasted image 20230904220353.png|450]]
-1. 球体追踪，分别计算两只脚和脚下表面之间的偏移量。
-2. 找出最低的（偏移量大的），用它可以确定将骨盆骨骼向下移动的偏移量
-3. 插值移动骨骼，过程平滑一些
-
-末端骨骼移动上去之后，如何确定其他骨骼的位置？UE 内置的 IK 帮我们解这个方程。
-![[Pasted image 20230904220708.png|500]]
-
 
 # 碰撞重叠
 ## 静态网格体添加碰撞体
@@ -41,18 +26,41 @@ IK：
 选中组件搜索
 ![[Pasted image 20230905000347.png|500]]
 
-# 从 Mixamo 导入动画
-P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
-
-# 重定向 IK RIG
-P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
-
 # 拾取武器
 ![[Pasted image 20230905151915.png]]
 
-# 小功能使用 inline
+# FORCEINLINE
 内联函数直接展开，不需要想普通函数那样根据函数名取内存中找对应的实现。
 非常适合用于 Get Set 函数
 ```
 FORCEINLINE void SetOverlappingWeapon(AWeaponBase* Weapon){WeaponBase = Weapon;};
 ```
+
+
+# 动画
+## 动画 AnimInstance 类
+因为动画事件即便不 play，也会一直运行，因此写代码时要十分注意内存泄露。建议在编译对该类的任何更改时关闭 UE 编辑器，防止编辑器崩溃
+
+## IK + ControlRig
+82 级别： https://www.bilibili.com/video/BV1EM411U7PX/?p=82&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
+IK：
+两脚分别放一个球，用来做球体追踪
+![[Pasted image 20230904220353.png|450]]
+1. 球体追踪，分别计算两只脚和脚下表面之间的偏移量。
+2. 找出最低的（偏移量大的），用它可以确定将骨盆骨骼向下移动的偏移量
+3. 插值移动骨骼，过程平滑一些
+
+末端骨骼移动上去之后，如何确定其他骨骼的位置？UE 内置的 IK 帮我们解这个方程。
+![[Pasted image 20230904220708.png|500]]
+
+
+
+## 从 Mixamo 导入动画
+P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
+
+## 重定向 IK RIG
+P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
+
+
+## 蒙太奇
+![[Pasted image 20230905203832.png]]
