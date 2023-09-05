@@ -40,3 +40,9 @@ IK：
 ## 为单个组件添加事件
 选中组件搜索
 ![[Pasted image 20230905000347.png|500]]
+
+# 从 Mixamo 导入动画
+P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
+
+# 重定向 IK RIG
+创建 IK Rig（IK Rig & Retargeting 动画复用）
