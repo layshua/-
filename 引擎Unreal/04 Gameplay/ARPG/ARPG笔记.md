@@ -45,4 +45,4 @@ IK：
 P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
 
 # 重定向 IK RIG
-创建 IK Rig（IK Rig & Retargeting 动画复用）
+P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
