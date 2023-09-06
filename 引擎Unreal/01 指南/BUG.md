@@ -68,3 +68,22 @@ public class DirectX : ModuleRules
 ![[7d8d9e6190abfe77c3e3bef52ce8f40c_MD5.png]]
 
 ![[332d01d63b3b220c3c23976d25ce71a7_MD5.png]]
+
+
+# MSB3073 
+
+Git 出问题了！
+
+```
+Microsoft.MakeFile.targets (45,5):[MSB3073]命令:“****” -WaitMutext -FromMsBuild" 已退出，代码为-532462766
+```
+
+
+目前发现有两个原因：
+1. git 拉代码后有冲突。
+解决方法：解决冲突后正常编译
+
+2. 项目过程中程序崩溃，再次编译出现该问题。
+解决方法：先输入 git status 命令发现有 untracked files: 的文件，用 git clean -fd 清除该类文件或者 git add，然后 git commit，就可以正常编译。
+
+个人建议出现这类问题先看看自己的 git 状态是不是干净的。
