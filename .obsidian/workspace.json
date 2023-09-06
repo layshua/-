@@ -222,9 +222,24 @@
   "right": {
     "id": "bd3717a50a592ecf",
     "type": "split",
-    "children": [],
+    "children": [
+      {
+        "id": "513993bb3b1dc291",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "154da81e10029da9",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
     "direction": "horizontal",
-    "width": 200,
+    "width": 295.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -236,9 +251,10 @@
       "remotely-save:Remotely Save": false,
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "omnisearch:Omnisearch": false
+      "omnisearch:Omnisearch": true
     }
   },
   "active": "767c1cb70332998c",
