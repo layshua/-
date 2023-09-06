@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "ue操作指南",
+      "path": "引擎Unreal/01 指南/ue操作指南.md"
+    },
+    {
+      "basename": "问题汇总",
+      "path": "引擎Unreal/01 指南/问题汇总.md"
+    },
+    {
+      "basename": "中行卓隽卡交房租教程文字版 - 哔哩哔哩",
+      "path": "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md"
+    },
+    {
+      "basename": "飞机",
+      "path": "zip/留学/飞机.md"
+    },
+    {
+      "basename": "清单",
+      "path": "zip/留学/清单.md"
+    },
+    {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
+      "basename": "4 委托",
+      "path": "引擎Unreal/02 U++精粹/4 委托.md"
+    },
+    {
       "basename": "01 三维旋转",
       "path": "图形学/0 3D数学/公式推导/01 三维旋转.md"
     },
@@ -13,16 +41,8 @@
       "path": "引擎Unreal/01 指南/BUG.md"
     },
     {
-      "basename": "问题汇总",
-      "path": "引擎Unreal/01 指南/问题汇总.md"
-    },
-    {
       "basename": "U++编程规范",
       "path": "引擎Unreal/01 指南/U++编程规范.md"
-    },
-    {
-      "basename": "ue操作指南",
-      "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
       "basename": "ARPG笔记",
@@ -51,10 +71,6 @@
     {
       "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
       "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
-    },
-    {
-      "basename": "4 委托",
-      "path": "引擎Unreal/02 U++精粹/4 委托.md"
     },
     {
       "basename": "《数据结构》",
@@ -183,22 +199,6 @@
     {
       "basename": "07 七：UHT",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md"
-    },
-    {
-      "basename": "04 四：模块初始化",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md"
-    },
-    {
-      "basename": "3 智能指针",
-      "path": "引擎Unreal/02 U++精粹/3 智能指针.md"
-    },
-    {
-      "basename": "7 多线程",
-      "path": "引擎Unreal/02 U++精粹/7 多线程.md"
-    },
-    {
-      "basename": "UE4_5 开发面试题：Unreal",
-      "path": "图形学/面经/UE4_5 开发面试题：Unreal.md"
     }
   ],
   "omittedPaths": [],

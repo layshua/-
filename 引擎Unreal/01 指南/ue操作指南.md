@@ -302,3 +302,36 @@ Saved 已保存文件
 
 然后启动项目，确认重建模块
 ![[Pasted image 20230904172226.png]]
+
+
+# 编辑器配置文件修改
+## 默认配置
+首先因为 UE4 的中文翻译不全面，以及学习资料很多是英文，为了方便我还是喜欢用英文界面。
+
+有几个编辑器的偏好设置，每次新建项目都要修改，不如改引擎的默认配置文件，或者启动器的默认配置文件。
+
+路径：
+![[Pasted image 20230906195131.png]]
+
+1. Editor Preferences->LevelEditor->Play，Play in Editor->Game Gets Mouse Control，选中后游戏在编辑器运行（PIE）自动获得鼠标焦点（游戏中启用），否则需要在游戏中点一下。配置文件中
+```
+[/Script/UnrealEd. LevelEditorPlaySettings]
+GameGetsMouseControl=True
+```
+2. Editor Preferences->LevelEditor->Play，Play in Editor->Mouse Control Label Position，鼠标控制提醒标签，默认在左上角，经常挡住屏幕输出信息（PrintString 的输出），可改为右下角
+```
+[/Script/UnrealEd. LevelEditorPlaySettings]
+MouseControlLabelPosition=LabelAnchorMode_BottomRight
+```
+
+3. Editor Preferences->Content Editors->Blueprint Editor，Compiler->Save on Compile，**默认是编译成功不保存，可以改为 On Success Only**。配置文件中“[/Script/BlueprintGraph. BlueprintEditorSettings]”节不存在，要新增
+```
+[/Script/BlueprintGraph. BlueprintEditorSettings]
+SaveOnCompile=SoC_SuccessOnly
+```
+
+4. **资产编辑器打开位置设置为主窗口：**
+```
+[/Script/UnrealEd. EditorStyleSettings]
+AssetEditorOpenLocation=MainWindow
+```
