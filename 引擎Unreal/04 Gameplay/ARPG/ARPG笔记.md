@@ -64,3 +64,12 @@ P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
 
 ## 蒙太奇
 ![[Pasted image 20230905203832.png]]
+
+# 声音
+## 旧方法
+UE4 旧方法：直接在动画资源或动画蒙太奇中添加动画通知
+![[Pasted image 20230906135518.png]]
+
+通过创建 cue，可以修改声音文件
+
+## meta Sounds
