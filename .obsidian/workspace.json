@@ -8,77 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bffc699eddcc2cd6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "97b90ffad722fe0c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "图形学/0 3D数学/公式推导/01 三维旋转.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "50b2181a7259cd66",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "db6b353093ebe78e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/U++编程规范.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f951c045bbe960f3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/STL标准库.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "767c1cb70332998c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -128,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md"
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
               }
             }
           },
@@ -138,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md"
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
               }
             }
           }
@@ -188,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -205,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/ue操作指南.md",
+                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -255,8 +190,13 @@
       "omnisearch:Omnisearch": true
     }
   },
-  "active": "bffc699eddcc2cd6",
+  "active": "97b90ffad722fe0c",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230906230739.png",
+    "zip/images/Pasted image 20230906230719.png",
+    "zip/images/Pasted image 20230906230657.png",
+    "图形学/0 3D数学/公式推导/01 三维旋转.md",
+    "引擎Unreal/01 指南/ue操作指南.md",
     "zip/images/Pasted image 20230906195131.png",
     "引擎Unreal/01 指南/问题汇总.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
@@ -264,11 +204,9 @@
     "zip/留学/清单.md",
     "zip/留学/缴费.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
     "图形学/0 3D数学/3D数学.md",
     "引擎Unreal/01 指南/BUG.md",
     "引擎Unreal/01 指南/U++编程规范.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230906142545.png",
     "zip/images/Pasted image 20230906142524.png",
@@ -284,9 +222,6 @@
     "zip/images/Pasted image 20230905132314.png",
     "编程/算法/《数据结构》.md",
     "zip/images/Pasted image 20230905110832.png",
-    "zip/images/Pasted image 20230905110600.png",
-    "zip/images/Pasted image 20230905110408.png",
-    "zip/images/Pasted image 20230905110348.png",
     "编程/C++/STL标准库.md",
     "引擎Unreal/05 动画/状态机.md",
     "引擎Unreal/03 蓝图/蓝图精粹.md",

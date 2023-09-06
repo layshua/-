@@ -65,6 +65,45 @@ P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
 ## 蒙太奇
 ![[Pasted image 20230905203832.png]]
 
+分段标记：
+![[Pasted image 20230906230739.png]]
+分段执行，一定要断开片段
+![[Pasted image 20230906230719.png]]
+
+```c++
+void AMyCharacter::PlayAttackMontage()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && AttackMontage)
+	{
+		AnimInstance->Montage_Play(AttackMontage);
+		FName NotifyName = FName();
+		switch (AttackComboIndex)
+		{
+		case 0:
+			NotifyName = FName("AttackCombo1");
+			++AttackComboIndex;
+			break;
+		case 1:
+			NotifyName = FName("AttackCombo2");
+			++AttackComboIndex;
+			break;
+		case 2:
+			NotifyName = FName("AttackCombo3");
+			++AttackComboIndex;
+			break;
+		case 3:
+			NotifyName = FName("AttackCombo4");
+			AttackComboIndex = 0;
+			break;
+		default:
+			break;
+		}
+		AnimInstance->Montage_JumpToSection(NotifyName, AttackMontage);
+	}
+}
+```
+
 # 声音
 ## 旧方法
 UE4 旧方法：直接在动画资源或动画蒙太奇中添加动画通知
