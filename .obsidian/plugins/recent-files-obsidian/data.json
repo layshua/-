@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
+    },
+    {
+      "basename": "《Effective C++ 3th》",
+      "path": "编程/C++/《Effective C++ 3th》.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
@@ -39,10 +51,6 @@
     {
       "basename": "STL标准库",
       "path": "编程/C++/STL标准库.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "蓝图精粹",
@@ -191,14 +199,6 @@
     {
       "basename": "《Unity Primer》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity Primer》.md"
-    },
-    {
-      "basename": "《CS Primer》",
-      "path": "引擎Unity3D/1 Unity精粹/《CS Primer》.md"
-    },
-    {
-      "basename": "【月神3】杂项",
-      "path": "引擎Unreal/07 Niagara/月神3/【月神3】杂项.md"
     }
   ],
   "omittedPaths": [],
