@@ -19,8 +19,17 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3da070cb0ce0bf7a",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -190,7 +199,7 @@
       "omnisearch:Omnisearch": true
     }
   },
-  "active": "97b90ffad722fe0c",
+  "active": "3da070cb0ce0bf7a",
   "lastOpenFiles": [
     "zip/images/Pasted image 20230906230739.png",
     "zip/images/Pasted image 20230906230719.png",
