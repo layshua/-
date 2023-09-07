@@ -66925,6 +66925,7 @@ MoveRight
 MovementInput
 MouseX
 Markers
+Mouse
 Windows
 Win
 World
@@ -85795,6 +85796,7 @@ CompareToCaseIgnored
 CHARACTERS
 CameraInput
 Crossfade
+Compile
 ImTip
 IMAP
 ID
@@ -166323,6 +166325,7 @@ EInputEvent
 ESCEvent
 EKeys
 Elapsed
+Editors
 xmlns
 xyz
 xy
@@ -181801,6 +181804,7 @@ LinearColorVariable
 LeftMouseButton
 LeftShift
 LookUp
+LevelEditor
 Getx
 GetX
 GetName
@@ -186719,6 +186723,7 @@ GroupName
 GameFramework
 GMDebugLog
 GetTimeString
+Gets
 NULL
 Native
 NormalMap
