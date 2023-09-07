@@ -16889,6 +16889,7 @@ gsyu
 globalconfig
 getRightBorder
 getLeftBorder
+gao
 typora
 todo
 tooltip
