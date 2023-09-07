@@ -5,6 +5,10 @@
       "path": "引擎Unreal/01 指南/ue操作指南.md"
     },
     {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
@@ -51,10 +55,6 @@
     {
       "basename": "U++编程规范",
       "path": "引擎Unreal/01 指南/U++编程规范.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "C++原理",
