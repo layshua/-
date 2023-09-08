@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -83,10 +87,6 @@
     {
       "basename": "光照设置",
       "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
