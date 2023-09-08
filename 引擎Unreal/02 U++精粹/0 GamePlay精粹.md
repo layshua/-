@@ -773,7 +773,32 @@ if (HitResult.GetActor())
 - 实际调用的是 World.h 里的 Trace 函数
 ![[Pasted image 20230903111939.png]]
 
+```c++
+const FVector Start = BoxTractStart->GetComponentLocation();
+const FVector End = BoxTractEnd->GetComponentLocation();
 
+TArray<AActor*> ActorsToIgnore;
+ActorsToIgnore.Add(this);
+FHitResult BoxHit;
+
+UKismetSystemLibrary::BoxTraceSingle(
+        this,
+        Start,
+        End,
+        FVector(5.f,5.f,5.f),
+        BoxTractStart->GetComponentRotation(),
+        TraceTypeQuery1,
+        false,
+        ActorsToIgnore,
+        EDrawDebugTrace::ForDuration,
+        BoxHit,
+        true,
+        FLinearColor::Red,
+        FLinearColor::Green,
+        5.f
+        );
+	
+```
 # 8 输入系统
 ## 增强输入
 Enhanced Input System 实际上就是对默认输入系统做了一个扩展，它以模块化的方式解耦了从输入的按键配置到事件处理的逻辑处理过程，提供了更灵活和更便利的输入配置和处理功能。同时又能向后兼容虚幻引擎 4 (UE4）中的默认输入系统。以插件的形式供我们使用。
