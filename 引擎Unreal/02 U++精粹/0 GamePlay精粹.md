@@ -774,32 +774,6 @@ if (HitResult.GetActor())
 ![[Pasted image 20230903111939.png]]
 
 
-```c++
-APawn* AMyPlayerController::FindPawnCameraIsLookingAt()
-{
-    // 你可以在这里自定义有关追踪的各种属性
-    FCollisionQueryParams Params;
-    // 忽略玩家的Pawn
-    Params.AddIgnoredActor(GetPawn());
-
-    // 击中结果由线路追踪填充
-    FHitResult Hit;
-
-    // 来自摄像机的Raycast，仅与Pawn碰撞（它们在ECC_Pawn碰撞通道上）
-    FVector Start = PlayerCameraManager->GetCameraLocation();
-    FVector End = Start + (PlayerCameraManager->GetCameraRotation().Vector() * 1000.0f);
-    bool bHit = GetWorld()->LineTraceSingle(Hit, Start, End, ECC_Pawn, Params);
-
-    if (bHit)
-    {
-        // Hit.Actor包含指向追踪所击中的Actor的弱指针
-        return Cast<APawn>(Hit.Actor.Get());
-    }
-
-    return nullptr;
-}
-```
-[![[4e3dc3bf152452bb0663afe8869c952a_MD5.jpg]]
 # 8 输入系统
 ## 增强输入
 Enhanced Input System 实际上就是对默认输入系统做了一个扩展，它以模块化的方式解耦了从输入的按键配置到事件处理的逻辑处理过程，提供了更灵活和更便利的输入配置和处理功能。同时又能向后兼容虚幻引擎 4 (UE4）中的默认输入系统。以插件的形式供我们使用。
