@@ -58,6 +58,7 @@ IK：
 ## 从 Mixamo 导入动画
 P92： https://www.bilibili.com/video/BV1EM411U7PX/?p=92&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
 
+mixamo converto 插件给 mixamo 导出的模型添加根骨骼：P124 https://www.bilibili.com/video/BV1EM411U7PX/?p=124&spm_id_from=pageDriver&vd_source=02e3d219e0c32801f6b50c2266e6a7be
 ## 重定向 IK RIG
 P93+P94 创建 IK Rig（IK Rig & Retargeting 动画复用）
 
