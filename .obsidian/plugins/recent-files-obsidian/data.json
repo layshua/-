@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "《编辑器扩展》",
+      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
+    },
+    {
+      "basename": "《数据持久化》",
+      "path": "引擎Unity3D/1 Unity精粹/《数据持久化》.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "03 三：模块基础",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
-    },
-    {
-      "basename": "11 十一：UObject (二)",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md"
-    },
-    {
-      "basename": "06 六：UBT",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/06 六：UBT.md"
     }
   ],
   "omittedPaths": [],
