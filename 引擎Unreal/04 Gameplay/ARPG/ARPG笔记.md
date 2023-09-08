@@ -123,10 +123,59 @@ UE4 旧方法：直接在动画资源或动画蒙太奇中添加动画通知
 随机音高
 ![[Pasted image 20230906142524.png]]
 
+## 声音衰减
+![[Pasted image 20230908212643.png]]
+创建后可以设置参数，然后再 metadata 或声音文件中都能使用
+![[Pasted image 20230908212750.png|450]]
+![[Pasted image 20230908212726.png]]
+
 # 计算受击方向
 
-计算 Forward 和 ToHit 向量的夹角
+点乘计算 Forward 和 ToHit 向量的夹角
 ![[Pasted image 20230908194556.png]]
 
 根据夹角运行四个方向的动画
 ![[Pasted image 20230908194724.png]]
+
+叉乘 Forward 和 ToHit，根据结果的 z 朝向来判断是左边还是右边，以此分出负角度和正角度
+```c++
+//计算不同Hit方向
+void AEnemy::DirectionHitReact(const FVector& ImpactPoint)
+{
+	//点积计算Forward和ToHit的夹角，来确定播放hit动画
+	const FVector Forward = GetActorForwardVector();
+	const FVector ImpactLowered = FVector(ImpactPoint.X, ImpactPoint.Y, GetActorLocation().Z); //固定冲击点z轴，方便计算方向
+	const FVector ToHit = (ImpactLowered - GetActorLocation()).GetSafeNormal();
+	const double CosTheta = FVector::DotProduct(Forward,ToHit);
+	double Theta = FMath::Acos(CosTheta);
+	Theta = FMath::RadiansToDegrees(Theta); //弧度转角度
+
+	//叉积判断Hit点在Forward的左边还是右边
+	//左边叉积方向为正，右边为负
+	const FVector CrossProduct = FVector::CrossProduct(Forward, ToHit);
+	if(CrossProduct.Z < 0 ) 
+	{
+		Theta *= -1; //右边为负角度，即顺时针角度从Forward为0开始：0~90~180~-90~0
+	}
+
+	FName SectionName = FName();
+	if(Theta>=-45.0f&&Theta<=45.0f)
+	{
+		SectionName = FName("FrontHit");
+	}
+	else if(Theta>45.0f&&Theta<=135.0f)
+	{
+		SectionName = FName("LeftHit");
+	}
+	else if(Theta<-45.0f&&Theta>=-135.0f)
+	{
+		SectionName = FName("RightHit");
+	}
+	else
+	{
+		SectionName = FName("BackHit");
+	}
+	PlayHitReactMontage(SectionName);
+}
+```
+
