@@ -525,6 +525,7 @@ FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActo
 
 
 # 7 物理
+
 ## 刚体与图元组件
 `RigidBody`/`Primitive Component`
 
@@ -537,7 +538,34 @@ FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActo
 - 骨骼网格体组件
 
 Unity 将碰撞和可视性划分到不同的组件中，虚幻引擎则将 **"潜在的物理碰撞"（potentially physical）** 和 **"潜在的可视效果"（potentially visible）** 组合到了单个图元组件中。凡是在世界中具有形状的组件，只要能通过物理方式渲染或交互，都是 `PrimitiveComponent` 的子类。
+## 碰撞
 
+![[Pasted image 20230115201320.png|300]]
+关于碰撞的处理方式，需要记住几点规则：
+![[Pasted image 20230115200719.png]]
+
+- 两个对象设置为**互相阻挡 (block)** 才可以产生碰撞, 但是如果想要发生**Hit 事件**, 则需要勾选 `Simulation Generates Hit Events
+-   将 Actor 设置为 **overlap** 往往看起来它们彼此 **iganore**，如果没有 **生成重叠事件 `Generate Overlap Events`**，则二者基本相同。
+-   对于两个或更多模拟对象：如果一个设置为重叠对象，另一个设置为阻挡对象，则发生重叠，而不会发生阻挡。
+-   block 同时也可以是 overlap，但是**不建议同时勾选 Simulation Generates Hit Events 和 Generate Overlap Events**。逻辑上来讲，不会有物体既能处于 Hit 状态又可以重叠，需要手动处理的部分太多。
+-   如果一个对象设置为忽略，另一个设置为重叠，则不会触发重叠事件。
+
+**追踪响应 Trace Responses**用于追踪（光线投射），例如蓝图节点 **按频道进行线迹追踪（Line Trace by Channel）**。
+**可视性（Visibility）**：泛型可视性测试频道。
+**摄像机（Camera）**：通常用于从摄像机到某个对象的追踪。
+
+碰撞设置：
+```c++
+WeaponCollision->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+
+WeaponCollision->SetCollisionResponseToAllChannels
+(ECollisionResponse::ECR_Overlap);
+
+WeaponCollision->SetCollisionResponseToChannel
+(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
+```
+
+![[Pasted image 20230908140129.png|450]]
 ## 刚体/碰撞组件
 
 **碰撞组件和刚体组件是同一个组件**。其基类是 `UPrimitiveComponent`，它有许多子类（`USphereComponent`、`UCapsuleComponent` 等）可满足你的需要。
