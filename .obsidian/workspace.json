@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "8dcdbd9337467045",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Math/LaTeX/常用语法.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "8b7c5a2d62feb816",
             "type": "leaf",
             "state": {
@@ -232,32 +245,32 @@
   },
   "active": "9bde544ea08b3ef5",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230909111108.png",
+    "zip/images/Pasted image 20230909110255.png",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "Math/LaTeX/常用语法.md",
+    "编程/算法/《数据结构》.md",
+    "zip/images/Pasted image 20230909104822.png",
     "zip/images/Pasted image 20230909101333.png",
     "zip/images/Pasted image 20230909100325.png",
     "zip/images/Pasted image 20230909095539.png",
     "zip/images/Pasted image 20230909095531.png",
     "Math/LaTeX/语法大全.md",
-    "Math/LaTeX/常用语法.md",
-    "编程/算法/《数据结构》.md",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
     "引擎Unreal/04 Gameplay/丁书凯FPS.md",
     "引擎Unreal/04 Gameplay/宝藏.md",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "zip/images/Pasted image 20230908212750.png",
     "zip/images/Pasted image 20230908212726.png",
     "zip/images/Pasted image 20230908212643.png",
     "图形学/0 3D数学/3D数学.md",
     "zip/images/Pasted image 20230908194724.png",
-    "zip/images/Pasted image 20230908194556.png",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/03 蓝图/蓝图精粹.md",
     "zip/留学/飞机.md",
-    "zip/images/Pasted image 20230908140129.png",
-    "zip/images/Pasted image 20230908140106.png",
     "zip/留学/租房注意事项.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/缴费.md",
