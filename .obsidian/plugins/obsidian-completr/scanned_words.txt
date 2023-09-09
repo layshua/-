@@ -40850,6 +40850,7 @@ VisibleDefaultsOnly
 VisibleInstanceOnly
 VectorVariable
 VInterp
+VertexType
 verge
 vPdIt
 vertical
@@ -44420,6 +44421,7 @@ vMBL
 vgvgb
 vgvg
 velocityTool
+vexnum
 AA
 AppData
 AIRDyuVH
@@ -57109,6 +57111,7 @@ aOoz
 aSh
 acoC
 arry
+arcnum
 Roaming
 RegWorkshop
 Release
@@ -66935,6 +66938,8 @@ MouseX
 Markers
 Mouse
 Muli
+MaxVertexNum
+MGraph
 Windows
 Win
 World
@@ -166360,6 +166365,7 @@ ESCEvent
 EKeys
 Elapsed
 Editors
+EdgeType
 xmlns
 xyz
 xy
