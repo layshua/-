@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "TPS笔记",
-      "path": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
-    },
-    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
+      "basename": "0 GamePlay精粹",
+      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+    },
+    {
+      "basename": "TPS笔记",
+      "path": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
     },
     {
       "basename": "BUG",
@@ -15,10 +19,6 @@
     {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
-    },
-    {
-      "basename": "0 GamePlay精粹",
-      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
     {
       "basename": "《数据结构》",

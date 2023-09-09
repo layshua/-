@@ -88,6 +88,7 @@ AKAsset* SpawnedActor1 =
 (AKAsset*) GetWorld()->SpawnActor(AKAsset::StaticClass(), NAME_None, &Location);
 ```
 
+`::StaticClass()` 以 `UCLASS*` 的形式为我们提供一个原始 C++类 
 
 ## 销毁 Actor
 

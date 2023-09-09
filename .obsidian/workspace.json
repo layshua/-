@@ -13,23 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
-          },
-          {
-            "id": "2798220794d71e39",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -72,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
+                "file": "引擎Unreal/02 U++精粹/1 类型.md"
               }
             }
           },
@@ -82,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
+                "file": "引擎Unreal/02 U++精粹/1 类型.md"
               }
             }
           }
@@ -132,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -199,8 +190,10 @@
       "omnisearch:Omnisearch": true
     }
   },
-  "active": "2798220794d71e39",
+  "active": "9bde544ea08b3ef5",
   "lastOpenFiles": [
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "zip/images/df47b40fb6be65ff26695a7d770294a2_MD5.png",
     "zip/images/e42924d2fbf909129a69df7b72d5f46c_MD5.png",
     "zip/images/5e9a60381281807cb620eee17a00fce0_MD5.png",
@@ -211,13 +204,10 @@
     "zip/images/782e46ac8f1ef8ada4454217d9edd0b0_MD5.png",
     "zip/images/c3f6036fae3df51f3bc5caa4d2637679_MD5.png",
     "zip/images/2fafea5d98ebe1a4d7d4d01804175637_MD5.png",
-    "zip/images/d94d832b449772a1791f935d3ee8c08b_MD5.png",
     "引擎Unreal/02 U++精粹/1 类型.md",
-    "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "引擎Unreal/04 Gameplay/TPS",
     "引擎Unreal/01 指南/BUG.md",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "编程/算法/《数据结构》.md",
     "zip/留学/清单.md",
     "Math/LaTeX/常用语法.md",
