@@ -87,3 +87,14 @@ Microsoft.MakeFile.targets (45,5):[MSB3073]命令:“****” -WaitMutext -FromMs
 解决方法：先输入 git status 命令发现有 untracked files: 的文件，用 git clean -fd 清除该类文件或者 git add，然后 git commit，就可以正常编译。
 
 个人建议出现这类问题先看看自己的 git 状态是不是干净的。
+
+# 缺少模块
+## 无法解析的外部符号
+![[Pasted image 20230909153711.png]]
+
+查找官方文档，发现不是引擎得默认模块
+![[Pasted image 20230909153931.png]]
+
+在项目的 build. cs 中导入，然后编译项目即可
+![[Pasted image 20230909154042.png]]
+
