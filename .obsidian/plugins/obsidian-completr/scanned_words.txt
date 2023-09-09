@@ -48972,6 +48972,7 @@ AddEngineDefinedAxisMapping
 AddMovementInput
 AddControllerYawInput
 AddControllerPitchInput
+AutonomousProxy
 URL
 Utools
 Users
@@ -76517,6 +76518,7 @@ SetupPlayerInputComponent
 Sprint
 StartSprint
 StopSprint
+SimulatedProxy
 Programs
 POP
 PC
