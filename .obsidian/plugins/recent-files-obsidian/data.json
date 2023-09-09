@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "清单",
+      "path": "zip/留学/清单.md"
+    },
+    {
       "basename": "《数据结构》",
       "path": "编程/算法/《数据结构》.md"
     },
@@ -63,10 +67,6 @@
     {
       "basename": "缴费",
       "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "清单",
-      "path": "zip/留学/清单.md"
     },
     {
       "basename": "租房注意事项",

@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "3fe30e3e8409b915",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zip/留学/清单.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "8dcdbd9337467045",
             "type": "leaf",
             "state": {
@@ -73,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -116,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/算法/《数据结构》.md"
+                "file": "zip/留学/清单.md"
               }
             }
           },
@@ -126,7 +139,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/算法/《数据结构》.md"
+                "file": "zip/留学/清单.md"
               }
             }
           }
@@ -176,7 +189,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/算法/《数据结构》.md",
+                "file": "zip/留学/清单.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +206,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/算法/《数据结构》.md",
+                "file": "zip/留学/清单.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -243,13 +256,13 @@
       "omnisearch:Omnisearch": true
     }
   },
-  "active": "9bde544ea08b3ef5",
+  "active": "3fe30e3e8409b915",
   "lastOpenFiles": [
+    "编程/算法/《数据结构》.md",
     "zip/images/Pasted image 20230909111108.png",
     "zip/images/Pasted image 20230909110255.png",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "Math/LaTeX/常用语法.md",
-    "编程/算法/《数据结构》.md",
     "zip/images/Pasted image 20230909104822.png",
     "zip/images/Pasted image 20230909101333.png",
     "zip/images/Pasted image 20230909100325.png",
@@ -265,7 +278,6 @@
     "zip/images/Pasted image 20230908212726.png",
     "zip/images/Pasted image 20230908212643.png",
     "图形学/0 3D数学/3D数学.md",
-    "zip/images/Pasted image 20230908194724.png",
     "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md",
     "引擎Unity3D/1 Unity精粹/《数据持久化》.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
