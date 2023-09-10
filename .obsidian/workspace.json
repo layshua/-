@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/2 容器.md",
+                "file": "编程/C++/STL标准库.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0e05b2a2208ff2b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/C++/《C++ Primer》.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -77,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/2 容器.md"
+                "file": "编程/C++/STL标准库.md"
               }
             }
           },
@@ -87,7 +100,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/2 容器.md"
+                "file": "编程/C++/STL标准库.md"
               }
             }
           }
@@ -137,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/2 容器.md",
+                "file": "编程/C++/STL标准库.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/2 容器.md",
+                "file": "编程/C++/STL标准库.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -206,7 +219,12 @@
   },
   "active": "0f74bebdc696726f",
   "lastOpenFiles": [
+    "编程/C++/《C++ Primer》.md",
+    "编程/C++/STL标准库.md",
+    "编程/C++/C++原理.md",
+    "编程/C++/《Effective C++ 3th》.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/02 U++精粹/2 容器.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "zip/images/df47b40fb6be65ff26695a7d770294a2_MD5.png",
@@ -239,10 +257,6 @@
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/缴费.md",
     "zip/留学/行李.md",
-    "引擎Unreal/01 指南/ue操作指南.md",
-    "编程/C++/《C++ Primer》.md",
-    "图形学/0 3D数学/公式推导/01 三维旋转.md",
-    "引擎Unreal/01 指南/问题汇总.md",
     "引擎Unreal/04 Gameplay/ARPG",
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
