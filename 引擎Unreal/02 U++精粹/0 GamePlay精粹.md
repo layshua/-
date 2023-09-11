@@ -206,6 +206,59 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 ## Damage
 `take damage` 函数
 ![[Pasted image 20230911143017.png]]
+
+##### DamageType 损坏类型
+
+顾名思义，损伤类型是一种用于描述损伤“类型”的对象，与损伤的起源无关。**如果你有很多损坏源，并且你想要它们之间有共同的功能，这可能是一个非常有用的概念。**
+
+
+一个简单的例子可以说明这一点，那就是火灾造成的损失。比方说，你希望任何受到火灾伤害的人大喊“哇，太热了”，然后跑到最近的水里。  
+
+与其将代码复制到每一个可以烧毁玩家的角色（或每一种可能被烧毁的角色）中，您可以定义火的伤害类型（UDamageTypeFire），赋予它某种类型的HandleDamagedCharacter（）函数，并从TakeDamage（）调用链中适当地调用它。
+
+##### Instigator 煽动者
+
+`Instigator`是造成损害的人，通常是 PlayerController 或 AIController。在火灾损坏的情况下，可能是玩家或 AI 点燃了火。
+
+##### DamageCauser 损坏原因
+
+`DamageCauser` 通常是造成损坏的原因，比如你刚刚走过的 ACampFire actor。
+
+#### Damage in C++ C++中的伤害
+
+Let’s look first at damage support in native code.   
+让我们先来看看本机代码中的损坏支持。
+
+In this case, damaging an actor is simple -- just call TakeDamage() on it.  
+在这种情况下，损坏一个 actor 很简单——只需对其调用 TakeDamage（）即可。
+
+```c++
+virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, class AActor* DamageCauser);  
+```
+
+同样，为了响应损坏，只需在接收 actor 上重写 `TakeDamage()` 并插入自定义处理即可。
+
+您会注意到TakeDamage（）调用接受DamageEvent作为参数。此`FDamageEvent`数据结构包含有关损坏事件的特定情况的数据，以便您的响应代码能够做出适当的反应。**UE4内置了三种类型的伤害事件。**
+
+##### FPointDamageEvent  点伤害事件
+
+点损伤事件模拟在受害者特定点施加的损伤，例如子弹或重拳。它包含撞击的方向和描述表面撞击的FHitResult。
+
+##### FRadialDamageEvent 径向伤害事件
+
+径向损伤事件模拟点源的径向损伤，爆炸就是一个明显的例子。它包含爆炸的震中、描述空间中损失衰减的数据以及受影响组件的列表。
+
+##### FDamageEvent F损坏事件
+
+这是可用的最通用的损伤模型，**只包含一个可选的DamageTypeClass。**
+
+如果这些内置事件类型都不能满足您的需求，那么您**可以从FDamageEvent派生自己的结构，并存储所需的任何数据。**
+
+#### Damage in Blueprints 蓝图中的损坏
+
+在蓝图中处理损坏是类似的，只是损坏应用程序和响应已经按事件类型进行了分解。有可全局访问的节点可用于造成伤害，如ApplyDamage、ApplyPointDamage和ApplyRadialDamage。为了响应损坏事件，该级别中的actor类和actor实例都有一组类似的“受到损坏”事件。
+
+如果您为项目定义自定义损坏事件，您可能希望公开一组类似的函数和委托，以便在蓝图中使用。
 # 3 Actor 组件
 ## 注册
 ### 注册组件
