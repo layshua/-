@@ -1,8 +1,5 @@
-
 ---
 title: STL标准库
-aliases: []
-tags: []
 create_time: 2023-08-31 11:03
 uid: 202308311103
 banner: "![[Pasted image 20230831110348.png]]"

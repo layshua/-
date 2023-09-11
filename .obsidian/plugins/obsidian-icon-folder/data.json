@@ -1,6 +1,6 @@
 {
   "settings": {
-    "migrated": true,
+    "migrated": 2,
     "iconPacksPath": "zip/icons",
     "fontSize": 16,
     "emojiStyle": "native",
