@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/05 动画/动画蓝图.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/05 动画/动画蓝图.md"
               }
             }
           },
@@ -100,7 +100,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/05 动画/动画蓝图.md"
               }
             }
           }
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/05 动画/动画蓝图.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/05 动画/动画蓝图.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -219,6 +219,8 @@
   },
   "active": "0e05b2a2208ff2b7",
   "lastOpenFiles": [
+    "引擎Unreal/05 动画/状态机.md",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "zip/images/Pasted image 20230911143017.png",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230911123433.png",
@@ -229,7 +231,6 @@
     "编程/C++/《Effective C++ 3th》.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/02 U++精粹/2 容器.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "zip/images/df47b40fb6be65ff26695a7d770294a2_MD5.png",
     "zip/images/e42924d2fbf909129a69df7b72d5f46c_MD5.png",
@@ -238,7 +239,6 @@
     "zip/images/97822aba6e4c69dad4fd324276fb7b6b_MD5.png",
     "zip/images/dab2686a56b8b16bdd83420c48ef2c32_MD5.png",
     "zip/images/c6fc26486d600b9eb67c65efb522971a_MD5.png",
-    "zip/images/782e46ac8f1ef8ada4454217d9edd0b0_MD5.png",
     "引擎Unreal/04 Gameplay/TPS",
     "引擎Unreal/01 指南/BUG.md",
     "编程/算法/《数据结构》.md",
