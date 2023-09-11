@@ -33,7 +33,7 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 
 |子节点|描述|
 |---|---|
-|**装饰器（Decorator）**|也称为条件语句。这种节点附着于另一个节点，决定着树中的一个分支，甚至单个节点是否能够被执行。|
+|**装饰器（Decorator）**|也称为条件语句。这种节点附着于另一个节点，决定着树中的一个分支，甚至单个节点是否能够被执行。 |
 |**服务（Service）**|这类节点连接至 **任务（Task）** 节点和 **合成（Composite）** 节点，只要它们的分支正在执行，它们就会以所定义的频率执行。这些节点通常用于检查和更新 **黑板**。它们取代了其他行为树系统中的传统平行（Parallel）节点。|
 
 装饰器例子：**黑板装饰器（Blackboard Decorator）** 来确定 **黑板键** 的数值，当它有效时，将会允许这个分支的执行。   
@@ -75,17 +75,37 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 
 |合成节点|描述 |
 |---|---|
-|**选择器（`Selector`）**|**从左到右执行分支**，通常用于在子树之间进行选择。**当选择器找到能够成功执行的子树时，将停留在该分支中，直到它的执行结束，然后转到选择器的父合成节点，继续决策流。** |
-|**序列（`Sequence`）**|从左到右执行分支，通常用于按顺序执行一系列子项。与选择器节点不同，序列节点会持续执行其子项，直到它遇到失败的节点。|
+|**选择器（`Selector`）**|**从左到右顺序执行其子节点**。当其中一个子节点执行成功时，选择器节点将停止执行。<div>如果选择器的一个子节点成功运行，则选择器运行成功。如果选择器的所有子节点运行失败，则选择器运行失败。</div> |
+|**序列（`Sequence`）**|**从左到右的顺序执行其子节点**。当其中一个子节点失败时，序列节点也将停止执行。<div>如果有子节点失败，那么序列就会失败。如果该序列的所有子节点运行都成功执行，则序列节点成功。</div>|
 |**简单平行（`Simple Parallel`）**|简单平行节点有两个"连接"。<div>第一个是**主任务**，它只能分配一个任务节点（意味着没有合成节点）。</div><div>第二个连接是**后台分支**：是主任务仍在运行时应该执行的活动。</div><div>简单平行节点可能会在主任务完成后立即结束，或者等待后台分支的结束，具体依属性而定。</div> |
 
 可以将简单平行节点理解为"执行 A 的同时，也在执行 B"。例如"攻击敌人，同时也朝敌人移动。"从基本上而言，A 是主任务，B 是后台分支。
 
+## 装饰器节点 Decorator
+条件语句，连接到[合成（Composite）](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-composites)或[任务（Task）](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-tasks)节点，并定义树中的分支，甚至单个节点是否可以执行。
+![[Pasted image 20230911235256.png]]
+- **Composite**：合成，自定义逻辑。以这种方式使用合成装饰器将影响内存和性能。也可以在C++中创建一个装饰器来执行同样的自定义行为，但效率更高。
+- **Blackboard**：检查给定的 **黑板键（Blackboard Key）** 上是否设置了值。
+- **Check Gameplay Tags on Actor**：## 检查Gameplay标签条件
+- **Compare BBEntries**：比较两个 **黑板键** 的值，并根据结果（等于或不等）阻止或允许节点的执行。
+- **Conditional Loop**：条件语句循环，只要满足了 **键查询（Key Query）** 条件，该装饰器将使它所连接节点进行循环。
+- **Cone Check**：椎体检查装饰器，采用了三个矢量键：第一个确定椎体的起始位置，第二个用于定义锥体朝向的方向，第三个用于检查该位置是否在锥体内部。您可以使用 **锥体半角（Cone Half Angle）** 属性来定义锥体的角度。
+- **Cooldown**：冷却装饰器， 将锁定节点或分支的执行，直到冷却时间结束。
+- **Does Path Exist**：路径是否存在，会检查是否可以在以下两个矢量之间创建路径：黑板键A和黑板键B
+- **Force Success**：强制成功装饰器，会将节点结果更改为成功。
+- **Is at Location**：在位置处装饰器，节点将检查 AI 控制的 Pawn 是否位于给定位置。
+- **ls BBEntry Of Class**：用于确定所指定的黑板键是否属于指定的类。
+- **Keep in Cone**：保持在椎体内装饰器，节点会根据所观察到的位置是否仍位于锥体内部来确定其条件。当节点首次拥有相关性时，将计算锥体的方向。
+- **Loop**：对节点或分支进行多次循环或无限次循环。
+- **Set Tag Cooldown**：设置Gameplay标签的冷却时长。
+- **Tag Cooldown**：基于Gameplay标签的冷却计时器是否过期。
+- **Time Limit**：时间限制装饰器，会为一个分支或节点设置在终止其运行并失败前，完成运行所需的一段时间。每当该节点被聚焦时，计时器都会重置。
+
 ## 服务节点 Service
 
-**服务节点**：[服务](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-services)节点是与任意**合成节点**（选择器节点、序列节点或简单平行节点）相关联的一种特殊节点，它**能够针对指定秒数的每个回调进行注册，并能对多种需要周期性出现的类型进行更新。**
+**服务节点**：[服务](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-services)节点是与任意**合成节点**（选择器节点、序列节点或简单平行节点）相关联的一种特殊节点。只有在合成节点的子节点正在被执行时才会激活。
+它**能够针对指定秒数的每个回调进行注册，并能对多种需要周期性出现的类型进行更新。**
 举例而言，当AI Pawn面对当前敌人、继续在其行为树中正常行动时，可以使用服务节点为该Pawn确定最适合追逐的敌人。
-只要执行仍位于服务节点所加入的合成节点的分支树中，服务节点便为活跃状态。
 
 ## 观察者中止 Observer Aborts
 
@@ -94,6 +114,12 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 举例而言，有一只猫在执行序列节点（例如"发出嘶声"和"扑击"）。如果老鼠逃入洞里，则需要猫立即放弃。如果使用平行节点，你要设置一个子项检查是否可以扑击老鼠，然后设置另一个子项检查序列要执行的动作。
 因为虚幻引擎行为树由事件驱动，所以我们要解决此问题。**可以通过条件装饰器观察其数值，并且在必要时中止**。在本例中，可以在序列上设置"是否可以扑击老鼠？（Mouse Can Be Pounced On?）"装饰器节点，把"观察者中止（Observer Aborts）"设置为"自身（Self）"。
 
+四个选项：
+- None 不中止执行。
+- Self 中止此节点自身和在其下运行的所有子树。
+- Lower Priority 中止此节点右侧的所有节点。
+- Both ：中止 Self+Lower Priority
+
 ## 行为树节点实例化规则
 
 行为树节点作为共享对象存在，这意味着使用同一行为树的所有代理将共享一组节点实例。这样不仅可以在降低内存使用率的同时提升 CPU 性能，还可以防止节点保存代理特定的数据。
@@ -101,7 +127,8 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 
 ### 实例化节点
 
-将节点的 `bCreateNodeInstance` 变量设为 `true` 后，将使每个使用行为树的代理成为特殊的节点实例，以牺牲一定性能和内存使用率为代价来确保安全存储代理专属的数据。包括 `UBTTask_BlueprintBase`、`UBTTask_PlayAnimation`、`UBTTask_RunBehaviorDynamic` 在内的部分虚幻引擎节点类均使用此功能。
+将节点的 `bCreateNodeInstance` 变量设为 `true` 后，将使每个使用行为树的代理成为特殊的节点实例，以牺牲一定性能和内存使用率为代价来确保安全存储代理专属的数据。
+包括 `UBTTask_BlueprintBase`、`UBTTask_PlayAnimation`、`UBTTask_RunBehaviorDynamic` 在内的部分虚幻引擎节点类均使用此功能。
 
 ### 存储在黑板上
 
@@ -109,22 +136,23 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 
 ### 存储在行为树节点上
 
-可以创建自定义结构体或类，将变量存储在节点的内存中。例如，`UBTTask_MoteTo` 类利用 `FBTMoveToTaskMemory`。您可以在 `BTTask_MoteTo.h` 中找到以下代码：
+可以创建自定义结构体或类，将变量存储在节点的内存中。例如，`UBTTask_MoteTo` 类利用 `FBTMoveToTaskMemory`。
 
-```
-    struct FBTMoveToTaskMemory
-    {
-        /** Move request ID */
-        FAIRequestID MoveRequestID;
+您可以在 `BTTask_MoteTo.h` 中找到以下代码：
+```c++
+struct FBTMoveToTaskMemory
+{
+    /** Move request ID */
+    FAIRequestID MoveRequestID;
 
-        FDelegateHandle BBObserverDelegateHandle;
-        FVector PreviousGoalLocation;
+    FDelegateHandle BBObserverDelegateHandle;
+    FVector PreviousGoalLocation;
 
-        TWeakObjectPtr<UAITask_MoveTo> Task;
+    TWeakObjectPtr<UAITask_MoveTo> Task;
 
-        uint8 bWaitingForPath : 1;
-        uint8 bObserverCanFinishTask : 1;
-    };
+    uint8 bWaitingForPath : 1;
+    uint8 bObserverCanFinishTask : 1;
+};
 ```
 
 `UBTNode` 中的许多虚函数都将 `uint8*` 参数带到节点的内存中。此参数指示为代理分配的内存块，内存块大小将由 `GetInstanceMemorySize` 的覆盖版本返回。节点将为各个代理分配此大小的内存，并将此内存存储到单一连续块中，以优化性能。但此内存不属于UObject生态系统，也不属于虚幻引擎的反射系统，且无法通过垃圾回收查看。因此，`UPROPERTY` 支持将不可用，建议使用 `TWeakObjectPtr` 来存储可能需要的 `UObject` 指针。

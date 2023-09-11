@@ -117,8 +117,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -233,6 +232,7 @@
   },
   "active": "0e05b2a2208ff2b7",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20230911235256.png",
     "zip/images/Pasted image 20230911231525.jpg",
     "zip/images/Pasted image 20230911231500.jpg",
     "zip/images/Pasted image 20230911230545.jpg",
@@ -266,7 +266,6 @@
     "引擎Unreal/02 U++精粹/2 容器.md",
     "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "zip/images/df47b40fb6be65ff26695a7d770294a2_MD5.png",
-    "zip/images/e42924d2fbf909129a69df7b72d5f46c_MD5.png",
     "引擎Unreal/04 Gameplay/TPS",
     "引擎Unreal/01 指南/BUG.md",
     "编程/算法/《数据结构》.md",
