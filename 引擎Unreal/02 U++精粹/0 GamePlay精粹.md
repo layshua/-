@@ -950,6 +950,12 @@ if(ParticleAsset.Succeeded())
     //修改ParticleSystemComponent使用的ParticleSystem
     OurParticleSystemComponent->SetTemplate(ParticleAsset.Object);  
 }
+
+
+//Niagara:需要引入"Niagara"模块
+UNiagaraComponent* NiagaraComponent;
+NiagaraComponent->Deactivate(); //关闭
+
 ```
 
 # 保存游戏
