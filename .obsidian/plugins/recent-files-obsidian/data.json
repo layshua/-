@@ -5,8 +5,16 @@
       "path": "引擎Unreal/04 Gameplay/AI/AI基础.md"
     },
     {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
       "basename": "STL标准库",
       "path": "编程/C++/STL标准库.md"
+    },
+    {
+      "basename": "0 GamePlay精粹",
+      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
     {
       "basename": "《C++ Primer》",
@@ -53,10 +61,6 @@
       "path": "引擎Unreal/05 动画/状态机.md"
     },
     {
-      "basename": "0 GamePlay精粹",
-      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
-    },
-    {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
@@ -67,10 +71,6 @@
     {
       "basename": "《Effective C++ 3th》",
       "path": "编程/C++/《Effective C++ 3th》.md"
-    },
-    {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "2 容器",

@@ -48973,6 +48973,11 @@ AddMovementInput
 AddControllerYawInput
 AddControllerPitchInput
 AutonomousProxy
+ACampFire
+ApplyPointDamage
+ApplyRadialDamage
+AIPerception
+Affiliation
 URL
 Utools
 Users
@@ -53029,6 +53034,7 @@ UEngine
 UInputComponent
 UPlayerInput
 UShapeComponent
+UDamageTypeFire
 api
 ac
 app
@@ -81036,6 +81042,9 @@ PlayerInputComponent
 PitchCamera
 Promote
 PrintFunction
+Perception
+PawnNoiseEmitter
+PawnSensing
 ContextMenuManager
 ClashVerge
 Clash
@@ -85818,6 +85827,8 @@ Compile
 Channels
 CastFailed
 ChannelChannel
+Composites
+Chase
 ImTip
 IMAP
 ID
@@ -90225,6 +90236,7 @@ InputTrigger
 Interrupt
 ImpactPoint
 Instace
+Instigator
 qq
 qyi
 quad
@@ -102585,6 +102597,7 @@ nmD
 nJg
 ncjT
 newe
+neutrals
 bf
 bc
 black
@@ -114806,6 +114819,7 @@ dtBB
 dXCip
 dHKp
 dsT
+damaging
 TFvYZOKeHL
 TAB
 TeX
@@ -119262,6 +119276,7 @@ ThirdPersonCharacter
 ToHit
 TraceSingle
 TraceMulti
+Tagging
 io
 ipad
 it
@@ -152991,6 +153006,7 @@ HideDropdown
 HideFunctions
 HandleTargets
 HitLocation
+HandleDamagedCharacter
 Bbb
 Bear
 Base
@@ -161638,6 +161654,9 @@ FInputActionKeyMapping
 FInputAxisKeyMapping
 FInterp
 FieldSystem
+FPointDamageEvent
+FRadialDamageEvent
+FDamageEvent
 Element
 Entity
 Enity
@@ -177518,6 +177537,9 @@ DNode
 DLinklist
 DrawDebugType
 DrawTime
+DamageEvent
+DamageTypeClass
+Detect
 LNK
 Log
 Linux
