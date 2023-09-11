@@ -180,6 +180,11 @@ void AEnemy::DirectionHitReact(const FVector& ImpactPoint)
 ```
 
 # Chaos 物理
+## bone colors
+设置破碎后不无法显示原来的材质：
+![[Pasted image 20230911123410.png]]
+取消勾选 show bone colors 即可： ![[Pasted image 20230911123433.png]]
+
 ## FieldSystem
 P137 创建物理场Actor
 [物理场参考指南 | 虚幻引擎5.0文档 (unrealengine.com)](https://docs.unrealengine.com/5.0/zh-CN/reference-guide-for-physics-field-in-unreal-engine/)
