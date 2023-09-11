@@ -203,7 +203,9 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
-
+## Damage
+`take damage` 函数
+![[Pasted image 20230911143017.png]]
 # 3 Actor 组件
 ## 注册
 ### 注册组件
