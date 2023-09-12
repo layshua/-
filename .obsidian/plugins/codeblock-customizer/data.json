@@ -6,7 +6,9 @@
           "enableLineNumbers": true,
           "enableActiveLineHighlight": true,
           "enableDeleteCodeButton": false,
-          "codeBlockBorderStylingPosition": "disable"
+          "codeBlockBorderStylingPosition": "disable",
+          "showIndentationLines": false,
+          "enableCopyCodeButton": false
         },
         "semiFold": {
           "enableSemiFold": false,
@@ -35,6 +37,9 @@
         "printing": {
           "enablePrintToPDFStyling": false,
           "forceCurrentColorUse": false
+        },
+        "common": {
+          "enableInSourceMode": false
         },
         "enableEditorActiveLineHighlight": true
       },
@@ -99,7 +104,9 @@
           "enableLineNumbers": true,
           "enableActiveLineHighlight": true,
           "enableDeleteCodeButton": false,
-          "codeBlockBorderStylingPosition": "disable"
+          "codeBlockBorderStylingPosition": "disable",
+          "showIndentationLines": false,
+          "enableCopyCodeButton": false
         },
         "semiFold": {
           "enableSemiFold": false,
@@ -128,6 +135,9 @@
         "printing": {
           "enablePrintToPDFStyling": false,
           "forceCurrentColorUse": false
+        },
+        "common": {
+          "enableInSourceMode": false
         },
         "enableEditorActiveLineHighlight": true
       },
@@ -288,7 +298,9 @@
         "enableLineNumbers": true,
         "enableActiveLineHighlight": true,
         "enableDeleteCodeButton": false,
-        "codeBlockBorderStylingPosition": "right"
+        "codeBlockBorderStylingPosition": "right",
+        "showIndentationLines": false,
+        "enableCopyCodeButton": false
       },
       "semiFold": {
         "enableSemiFold": false,
@@ -317,6 +329,9 @@
       "printing": {
         "enablePrintToPDFStyling": false,
         "forceCurrentColorUse": false
+      },
+      "common": {
+        "enableInSourceMode": false
       },
       "enableEditorActiveLineHighlight": false
     },
