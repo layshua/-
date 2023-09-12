@@ -560,7 +560,13 @@ ACharacter* myPawn = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
 //GetCharacter
 ACharacter* myPawn = GetWorld()->GetFirstPlayerController()->GetCharacter();
 ```
-# 6 PlayerController
+# 6 Controller
+## 获取 Actor 的 controller
+```c++
+GetController(); //获取Controller
+Cast<AAIController>(GetController()); //获取AIController
+```
+
 ## 获取 playerController
 可配合 Cast 转换成对应的 controller
 
