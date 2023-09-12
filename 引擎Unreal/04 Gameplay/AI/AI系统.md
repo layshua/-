@@ -7,32 +7,67 @@ reference: []
 ---
 
 # AI 感知系统
-除可用于决定所执行逻辑的[行为树](https://docs.unrealengine.com/5.2/zh-CN/behavior-trees-in-unreal-engine)，以及用于获取环境信息的[场景查询系统（EQS）](https://docs.unrealengine.com/5.2/zh-CN/environment-query-system-in-unreal-engine)之外，AI 框架中可用于为 AI 提供感官数据的另一个工具是 **AI 感知系统（AI Perception System）** 。
-
-刺激源被注册后将调用 **On Perception Updated** （或用于目标选择的 **On Target Perception Updated** ）事件，你可以使用该事件来启动新的蓝图脚本和（或）对验证行为树分支的变量进行更新。
+除可用于决定所执行逻辑的[行为树](https://docs.unrealengine.com/5.2/zh-CN/behavior-trees-in-unreal-engine)，以及用于获取环境信息的[场景查询系统（EQS）](https://docs.unrealengine.com/5.2/zh-CN/environment-query-system-in-unreal-engine)之外，AI 框架中可用于为 AI 提供感官数据的另一个工具是 **AI 感知系统（AI Perception System）** 。通过 AI 感知组件实现。
 
 ## AIPerception 感知组件
 AI 组件允许 Pawn 感知周围环境中的数据，例如噪声来源位置、或 Pawn 能够看到某个对象。
-![[Pasted image 20230911211441.png]]
+![[Pasted image 20230912133213.png]]
+- **`AIPerception`** 组件相当于刺激源的监听器，用于收集已注册的刺激信号。
+- **`AI Perception Stimuli Source`** 组件自动将 Actor 注册成为感知系统中指定感官的一个刺激源。 
+- 刺激源被注册后将调用 AIPerception 组件的 **`On Perception Updated`** （或用于目标选择的 **`On Target Perception Updated`** ）事件
 
-**`AIPerceptionComponent`** 相当于刺激源的监听器，用于收集已注册的刺激信号。
-当组件获得新的刺激信号（批量）时，将会调用 **`UpdatePerception`**。
+### 感知配置
+![[Pasted image 20230912132010.png]]
+>可以配置多个感官，并且指定一个**主导感官（Dominant Sense）**，该感官应优先于其他感官。
 
-**AI 感知组件（AIPerception Component）** 用于在 **AI 感知系统（AI Perception System）** 中创建一个刺激监听器，收集可以响应的已注册刺激（本例中我们可以使用视觉）。这将使我们能够确定 AI 何时能实际看到玩家，并做出相应的反应。
+![[Pasted image 20230912132405.png]]
+- <font color="#ff0000">Al Damage sense config 伤害</font>：对伤害事件（如 **Event Any Damage** 、 **Event Point Damage** 或 **Event Radial Damage** ）作出反应。
+- <font color="#ff0000">Al Hearing config 听觉</font>：检测由 **报告噪点事件（Report Noise Event）** 产生的声音，例如发射物击中某物发出的声音
+- <font color="#ff0000">Al Prediction sense config 感知</font> ：这要求感知系统（Perception System）在 PredictionTime 秒内向请求者提供 PredictedActor 的预计位置。
+- <font color="#ff0000">Al Sight config 视觉</font>：决定着 AI 角色在关卡中所能"看见"的事物。当一个 Actor 进入 **视觉半径** 后，AI 感知系统将发出更新信号，并穿过被看到的 Actor（举例而言，一个玩家进入该半径，并被具备视觉感知的 AI 所察觉）。
+- <font color="#ff0000">Al Team sense config 团队</font>：通知感知组件的拥有者同团队中有人处在附近（发送该事件的游戏代码也会发送半径距离）。
+- <font color="#ff0000">Al Touch config 触觉</font>：检测到 AI 与物体发生主动碰撞，或是与物体发生被动碰撞。举例而言，在潜入类型的游戏中，你可能希望玩家在不接触敌方 AI 的情况下偷偷绕过他们。使用此感官可以确定玩家与 AI 发生接触，并能用不同逻辑做出响应。
 
-Detection by Affiliation 从属检测：默认情况下 **Actor** 不会被指定归属，会被视为中立（neutrals）。
+
+- <font color="#ff0000">Detection by Affiliation</font> 从属检测：默认情况下 **Actor** 不会被指定归属，会被视为中立（neutrals）。
 
 > [!NOTE]
-> 目前，你还不能通过蓝图分配归属，因此为了检测玩家，我们要启用 **检测中立（Detect Neutral）** 标签。另外一种方法是使用 **Actor标签（Actor Tagging）** 来确定哪个角色是玩家，并强制AI角色只追逐被标记为玩家的Actor。
+> 目前，你还不能通过蓝图分配归属，因此为了检测玩家，我们要启用 **检测中立（Detect Neutral）** 标签。另外一种方法是使用 **Actor 标签（Actor Tagging）** 来确定哪个角色是玩家，并强制 AI 角色只追逐被标记为玩家的 Actor。
+
+### 感知函数调用
+
+以下函数可以通过蓝图调用，进而从感知系统获取信息，或对感知系统产生影响。
+
+|函数|描述|
+|---|---|
+|**Get Actors Perception**|获取针对给定Actor的感知，并返回被感知Actor的数据结构。|
+|**Get Currently Perceived Actors**|返回基于给定感官被感知的全部Actor。如果未指定感官，则返回当前以任意方式感知到的所有Actor。|
+|**Get Known Perceived Actors**|返回基于给定感官被感知的（且尚未被遗忘）的所有Actor。如果未指定感官，则被感知到的所有Actor均将被返回。|
+|**Get Perceived Hostile Actors**|返回敌方Actor列表（发出的刺激已被感知且未失效或已成功感知的所有敌方Actor)。本方法可以在蓝图中重写，返回用户所需的任意Actor列表。|
+|**Request Stimuli Listener Update**|手动强制AI感知系统更新指定目标的刺激监听器的属性。|
+|**Set Sense Enabled**|启用或禁用指定的 **感官类** 。<br><br>只有在针对目标组件实体配置给定感官后，该设置才有效。|
+
+### 刺激源配置
+![[Pasted image 20230912133432.png]]
+
+还可以指定基于 **AISense** 类的所有自定义感官。
+### 刺激函数调用
+以下函数可以通过 **AI 感知刺激源** 组件的蓝图调用：
+
+|函数|描述|
+|---|---|
+|**注册为感官（Register for Sense）**|将拥有Actor注册为指定感官类的刺激源。|
+|**注册到感知系统（Register with Perception System）**|将拥有Actor注册为 **注册为感官源（Register as Source for Senses）** 属性中所指定感官的刺激源，并通过 **Register for Sense** 函数调用。<br><br>如果启用了自动注册为源（Auto Register as Source）属性，则不需要调用此函数。|
+|**从感知系统中注销（Unregister from Perception System）**|取消将拥有Actor注册为感知刺激源。|
+|**从感知中注销（Unregister from Sense）**|
 
 ## PawnNoiseEmitter 噪声发射器组件
-
+![[Pasted image 20230912134050.png]]
 **`PawnNoiseEmitterComponent`** 追踪 **`PawnSensingComponents`** 使用的噪声事件数据来监听 Pawn。该组件主要存在于 Pawn 或其控制器上。它在网络客户端上不进行任何操作。
 
 ## PawnSensing 感应组件
 
 Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例如视觉和听觉）设置及功能，以便 Actor 在游戏世界中观察/监听 Pawn。其在网络客户端上不进行任何操作。
-
 
 # 行为树
 执行逻辑时，行为树会使用一种名为 **黑板** 的独立资源来存储它需要知道的信息（名为 **黑板键**），从而做出有根据的决策。常见工作流程是创建一块黑板，添加一些黑板键，然后创建一个使用黑板资源的行为树。
@@ -233,7 +268,8 @@ AI 代理有两种方法来绕开移动障碍物，或在彼此间避障，分�
 
 
 # MassEntity（鸽）
-MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。
+
+MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。**基于 ECS**
 [虚幻引擎MassEntity | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/mass-entity-in-unreal-engine/)
 
 # 智能对象（鸽）
