@@ -1,18 +1,22 @@
 ---
-title: AI基础
+title: AI系统
 create_time: 2023-09-11 21:21
 uid: "202309112121"
 banner: "![[]]"
 reference: []
 ---
 
-# AI 组件
+# AI 感知系统
+除可用于决定所执行逻辑的[行为树](https://docs.unrealengine.com/5.2/zh-CN/behavior-trees-in-unreal-engine)，以及用于获取环境信息的[场景查询系统（EQS）](https://docs.unrealengine.com/5.2/zh-CN/environment-query-system-in-unreal-engine)之外，AI 框架中可用于为 AI 提供感官数据的另一个工具是 **AI 感知系统（AI Perception System）** 。
+
+刺激源被注册后将调用 **On Perception Updated** （或用于目标选择的 **On Target Perception Updated** ）事件，你可以使用该事件来启动新的蓝图脚本和（或）对验证行为树分支的变量进行更新。
+
+## AIPerception 感知组件
 AI 组件允许 Pawn 感知周围环境中的数据，例如噪声来源位置、或 Pawn 能够看到某个对象。
 ![[Pasted image 20230911211441.png]]
 
-## AIPerception 感知组件
-
-在 **`AIPerceptionSystem`** 中，**`AIPerceptionComponent`** 相当于刺激源的监听器，用于收集已注册的刺激信号。当组件获得新的刺激信号（批量）时，将会调用 **`UpdatePerception`**。
+**`AIPerceptionComponent`** 相当于刺激源的监听器，用于收集已注册的刺激信号。
+当组件获得新的刺激信号（批量）时，将会调用 **`UpdatePerception`**。
 
 **AI 感知组件（AIPerception Component）** 用于在 **AI 感知系统（AI Perception System）** 中创建一个刺激监听器，收集可以响应的已注册刺激（本例中我们可以使用视觉）。这将使我们能够确定 AI 何时能实际看到玩家，并做出相应的反应。
 
@@ -182,14 +186,68 @@ struct FBTMoveToTaskMemory
 注意寻路网格体在楼梯上无法正确绘制，可以调整绘制偏移让覆盖面更广。
 ![[Pasted image 20230912114535.png]]
 
-重要节点：
+重要节点（由事件驱动）：
 ![[Pasted image 20230912121741.png]]
+## 修改寻路系统
+- 寻路修饰体积 ![[Pasted image 20230912121943.png|246]] ：使用区域类（Area class）来确定体积内寻路的 **默认成本（Default Cost）** 乘数。从而改变特定区域中的 Nav Mesh 成本，让指定区域可达或不可达。
 
-- 寻路修饰体积 ![[Pasted image 20230912121943.png|246]] ：改变特定区域中的寻路网格体成本。可以让指定区域可达或不可达
+> [!NOTE] 区域类
+>  ![[Pasted image 20230912125311.png]]
+>  - 区域类还定义了 **固定区域进入成本（Fixed Area Entering Cost）**，这是代理进入该区域时采用的初始成本。你可以根据需要创建任意数量的区域类来影响代理如何寻路关卡。
+>  - 可以创建 Area Class 蓝图自定义区域类![[Pasted image 20230912125453.png|350]]
+
+- 寻路查询筛选器（Navigation Query Filters）： 包含有关一个或多个区域类的信息，如有需要，可以重载成本值。你可以根据需要创建任意数量的查询筛选器来进一步自定义代理如何寻路关卡。[自定义寻路区域和查询筛选器](https://docs.unrealengine.com/5.2/zh-CN/overview-of-custom-navigation-areas-and-query-filters-in-unreal-engine/)
 - 寻路链接代理 ![[Pasted image 20230912121957.png|196]] ：能将寻路网格体中没有直接寻路路径的两个区域连接起来。在搜索路径的同时，寻路链接代理会用作额外连接，供代理用于到达目的地。![[Pasted image 20230912122840.png]]
-- 自定义蓝图，使用智能链接代理以允许代理在平台之间朝着目标跳跃[教程链接](https://docs.unrealengine.com/5.2/zh-CN/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine/)
+- 自定义蓝图，使用**智能链接代理**以允许代理在平台之间朝着目标跳跃或执行其他动作[教程链接](https://docs.unrealengine.com/5.2/zh-CN/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine/)
 - 自定义蓝图，在运行时**动态生成 Nav Mesh**[教程链接](https://docs.unrealengine.com/5.2/zh-CN/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine/)
+
+## 避障机制
+[在虚幻引擎寻路系统中使用避障机制 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-avoidance-with-the-navigation-system-in-unreal-engine/)
+
+寻路机制可以在静态对象周围生成路径，而避障算法主要用于**处理移动障碍物**。
+AI 代理有两种方法来绕开移动障碍物，或在彼此间避障，分别是 **相对速度障碍物算法（Reciprocal Velocity Obstacles，即 RVO）** 和 **群组绕行管理器（Detour Crowd Manager）**。
+
+1. **相对速度障碍物算法** 系统会计算每个代理的速度向量，避免和附近的其他代理碰撞。该系统会查看附近的代理，并假定它们在计算的每一步内都以恒速移动。根据代理向目标移动的速度，会选择最佳的速度向量进行匹配。
+    - RVO 不使用寻路网格体进行避障，因此它无需寻路系统即可用于代理。该系统包含在角色类的 **角色移动（Character Movement）** 组件中。![[Pasted image 20230912130029.png]]
+
+2. **群组绕行管理器（Detour Crowd Manager）** 系统**通过自适应 RVO 采样计算来解决代理之间的规避问题**。它会计算一个粗略的速度采样，并且着重在代理的移动方向，相较于传统的 RVO 规避方式，**显著提升规避性能**。该系统还使用可见度和拓扑路径优化项，进一步提升碰撞规避。
+    - 群组绕行管理器系统可以高度配置特定示例模式选项、最大代理数和代理半径。该系统包括在 **群组绕行 AI 控制器（DetourCrowd AI Controller）** 类中，可以和任意 Pawn 类一起使用。
+
+**两种系统各自独立工作，在你的项目中只能使用其中一种。**
+
+|方法|描述|局限性|
+|---|---|---|
+|相对速度障碍物算法|- 代理使用特定半径内的速度向量规避障碍物。<br>    <br>- 包含在角色类的角色移动（Character Movement）组件中。|- 相较于群组绕行管理器更难配置。<br>    <br>- 仅限于角色类中。<br>    <br>- 不使用寻路网格体进行规避，因此代理可能会任性地"出走"。|
+|群组绕行管理器|- 代理通过路径优化和特定半径内的速度向量规避障碍物。<br>    <br>- 包含在群组绕行AI控制器（DetourCrowd AI Controller）类中。\| 在项目设置中定义了固定的最大代理数量。|- 在项目设置中定义了固定的最大代理数量。|
+
+## 寻路调用程序
+**寻路调用程序（Navigation Invokers）** 是在运行时在代理周围生成寻路网格体的蓝图 Actor 组件。**使用寻路调用程序，就无需在编辑器中构建寻路网格体，并且还可以限制在运行时生成的图块数。**
+寻路调用程序非常适合大型关卡，因为在编辑器中构建寻路网格体不切实际。
+[使用虚幻引擎中的寻路调用程序 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/using-navigation-invokers-in-unreal-engine/)
+
+## 优化 NavMesh 生成速度
+[优化虚幻引擎寻路网格体的生成速度 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/optimizing-navigation-mesh-generation-speed-in-unreal-engine/)
+
+## 世界分区静态导航网格
+[世界分区导航网格 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/world-partitioned-navigation-mesh/)
+
 
 # MassEntity（鸽）
 MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。
 [虚幻引擎MassEntity | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/mass-entity-in-unreal-engine/)
+
+# 智能对象（鸽）
+**智能对象（Smart Object）** 是可以放置在关卡中与AI代理和玩家交互的对象。这些对象包含交互所需的所有信息。
+[虚幻引擎智能对象概述 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/smart-objects-in-unreal-engine---overview/)
+
+# StateTree（鸽）
+
+**StateTree** 是一种通用分层状态机，组合了行为树中的 **选择器（Selectors）** 与状态机中的 **状态（States）** 和 **过渡（Transitions）** 。使用 StateTree，你可以创建非常高效、保持灵活且井然有序的逻辑。
+
+[虚幻引擎中的StateTree | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/state-tree-in-unreal-engine/)
+
+# 环境查询系统 EQS（鸽）
+**场景查询系统（EQS）** 是虚幻引擎5（UE5） AI 系统的一个功能，可将其**用于从环境中收集数据，获取环境信息**。在 EQS 中，可以通过不同种类的测试向收集的数据提问，这些测试会根据提出问题的类型来生成最适合的项目。 
+
+可以从[行为树](https://docs.unrealengine.com/5.2/zh-CN/behavior-trees-in-unreal-engine)中调用 EQS 查询，并根据测试的结果将其用于后续操作的决定。EQS 查询主要由[生成器](https://docs.unrealengine.com/5.2/zh-CN/eqs-node-reference-generators-in-unreal-engine)节点（用于生成将被测试及加权的位置或 Actor）和[情境](https://docs.unrealengine.com/5.2/zh-CN/eqs-node-reference-contexts-in-unreal-engine)节点（被用作各种测试和生成器引用的框架）组成。**可以用 EQS 查询指引 AI 角色找到能够发现玩家并发起攻击的最佳位置、找到距离最近的体力值或弹药拾取物，或找到最近的掩体（以及其他可进行的动作）。**
+[虚幻引擎中的场景查询系统 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/environment-query-system-in-unreal-engine/)
