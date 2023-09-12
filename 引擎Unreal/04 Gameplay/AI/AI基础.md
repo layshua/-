@@ -182,6 +182,8 @@ struct FBTMoveToTaskMemory
 注意寻路网格体在楼梯上无法正确绘制，可以调整绘制偏移让覆盖面更广。
 ![[Pasted image 20230912114535.png]]
 
+重要节点：
+![[Pasted image 20230912121741.png]]
 # MassEntity（鸽）
 MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。
 [虚幻引擎MassEntity | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/mass-entity-in-unreal-engine/)
