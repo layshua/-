@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "ARPG笔记",
+      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+    },
+    {
       "basename": "AI系统",
       "path": "引擎Unreal/04 Gameplay/AI/AI系统.md"
     },
@@ -83,10 +87,6 @@
     {
       "basename": "状态机",
       "path": "引擎Unreal/05 动画/状态机.md"
-    },
-    {
-      "basename": "ARPG笔记",
-      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
     {
       "basename": "C++原理",
