@@ -8394,6 +8394,7 @@ OtherFName
 OnFire
 OnTurn
 OnActorEndOverlap
+Obstacles
 codeup
 clash
 ctrl
@@ -48981,6 +48982,7 @@ AIPerception
 Affiliation
 Aborts
 AAIController
+AISense
 URL
 Utools
 Users
@@ -61907,6 +61909,8 @@ Require
 Resize
 RInterp
 Responses
+RVO
+Reciprocal
 Microsoft
 Menu
 MicaForEveryone
@@ -66951,6 +66955,7 @@ Mouse
 Muli
 MaxVertexNum
 MGraph
+MassEntity
 Windows
 Win
 World
@@ -76529,6 +76534,13 @@ StartSprint
 StopSprint
 SimulatedProxy
 Sight
+Sense
+Stimuli
+Senses
+SetDynamicSubtree
+Smart
+StateTree
+Selectors
 Programs
 POP
 PC
@@ -81050,6 +81062,9 @@ Perception
 PawnNoiseEmitter
 PawnSensing
 Pounced
+PredictionTime
+PredictedActor
+Perceived
 ContextMenuManager
 ClashVerge
 Clash
@@ -90243,6 +90258,7 @@ Interrupt
 ImpactPoint
 Instace
 Instigator
+Invokers
 qq
 qyi
 quad
@@ -119283,6 +119299,9 @@ ToHit
 TraceSingle
 TraceMulti
 Tagging
+Touch
+Tasks
+Toward
 io
 ipad
 it
@@ -153016,6 +153035,8 @@ HitLocation
 HandleDamagedCharacter
 HasLineOfSIght
 HasLineOfSight
+Hearing
+Hostile
 Bbb
 Bear
 Base
@@ -166401,6 +166422,8 @@ Elapsed
 Editors
 EdgeType
 Exist
+EQSQuery
+Entering
 xmlns
 xyz
 xy
@@ -177552,6 +177575,11 @@ DrawTime
 DamageEvent
 DamageTypeClass
 Detect
+Dominant
+Directly
+Decorators
+Detour
+DetourCrowd
 LNK
 Log
 Linux
@@ -207925,6 +207953,7 @@ KsXi
 Kvzk
 KeepRelativeTransform
 Keys
+Known
 key
 kSC
 keaXj

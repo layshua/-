@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "AI系统",
+      "path": "引擎Unreal/04 Gameplay/AI/AI系统.md"
+    },
+    {
       "basename": "5 定时器",
       "path": "引擎Unreal/02 U++精粹/5 定时器.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
-    },
-    {
-      "basename": "AI系统",
-      "path": "引擎Unreal/04 Gameplay/AI/AI系统.md"
     },
     {
       "basename": "Unity Git",
