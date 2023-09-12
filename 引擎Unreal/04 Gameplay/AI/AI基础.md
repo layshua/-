@@ -184,6 +184,12 @@ struct FBTMoveToTaskMemory
 
 重要节点：
 ![[Pasted image 20230912121741.png]]
+
+- 寻路修饰体积 ![[Pasted image 20230912121943.png|246]] ：改变特定区域中的寻路网格体成本。可以让指定区域可达或不可达
+- 寻路链接代理 ![[Pasted image 20230912121957.png|196]] ：能将寻路网格体中没有直接寻路路径的两个区域连接起来。在搜索路径的同时，寻路链接代理会用作额外连接，供代理用于到达目的地。![[Pasted image 20230912122840.png]]
+- 自定义蓝图，使用智能链接代理以允许代理在平台之间朝着目标跳跃[教程链接](https://docs.unrealengine.com/5.2/zh-CN/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine/)
+- 自定义蓝图，在运行时**动态生成 Nav Mesh**[教程链接](https://docs.unrealengine.com/5.2/zh-CN/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine/)
+
 # MassEntity（鸽）
 MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。
 [虚幻引擎MassEntity | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/mass-entity-in-unreal-engine/)
