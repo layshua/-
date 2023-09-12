@@ -214,6 +214,9 @@ struct FBTMoveToTaskMemory
 寻路系统包含各种组件以及可修改寻路网格体生成方式的设置，例如指定给多边形的成本。这进而影响代理在你的关卡中寻路的方式。你还可以将寻路网格体中不连续的区域连接起来，如平台和桥梁。
 
 寻路系统包含三种 **生成模式（Generation Modes）**：**静态（Static）**、**动态（Dynamic）** 和 **仅限动态修改器（Dynamic Modifiers Only）**。这些模式控制了项目中生成寻路网格体的方式，并提供了各种选项来满足你的需要。
+![[Pasted image 20230912142325.png]]
+>项目设置—引擎网格体—运行时
+
 
 该系统还为代理提供了两种规避方法：**相对速度障碍物(RVO)（Reciprocal Velocity Obstacles (RVO)）** 和 **大规模人群绕行避让管理器（Detour Crowd Manager）**。这些方法允许代理在游戏过程中绕行，避让动态障碍物和其他代理。
 
