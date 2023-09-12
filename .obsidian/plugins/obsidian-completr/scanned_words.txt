@@ -48980,6 +48980,7 @@ ApplyRadialDamage
 AIPerception
 Affiliation
 Aborts
+AAIController
 URL
 Utools
 Users
@@ -186804,6 +186805,7 @@ GameFramework
 GMDebugLog
 GetTimeString
 Gets
+GetController
 NULL
 Native
 NormalMap
