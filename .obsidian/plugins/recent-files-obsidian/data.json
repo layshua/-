@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "AI基础",
+      "path": "引擎Unreal/04 Gameplay/AI/AI基础.md"
+    },
+    {
       "basename": "Unity Git",
       "path": "Tools/Git/Unity Git.md"
     },
@@ -39,10 +43,6 @@
     {
       "basename": "Untitled",
       "path": "Untitled.sheet"
-    },
-    {
-      "basename": "AI基础",
-      "path": "引擎Unreal/04 Gameplay/AI/AI基础.md"
     },
     {
       "basename": "ue操作指南",

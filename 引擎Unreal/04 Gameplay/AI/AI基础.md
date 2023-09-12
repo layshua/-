@@ -29,25 +29,6 @@ Detection by Affiliation 从属检测：默认情况下 **Actor** 不会被指
 
 Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例如视觉和听觉）设置及功能，以便 Actor 在游戏世界中观察/监听 Pawn。其在网络客户端上不进行任何操作。
 
-# 黑板
-
-|子节点|描述|
-|---|---|
-|**装饰器（Decorator）**|也称为条件语句。这种节点附着于另一个节点，决定着树中的一个分支，甚至单个节点是否能够被执行。 |
-|**服务（Service）**|这类节点连接至 **任务（Task）** 节点和 **合成（Composite）** 节点，只要它们的分支正在执行，它们就会以所定义的频率执行。这些节点通常用于检查和更新 **黑板**。它们取代了其他行为树系统中的传统平行（Parallel）节点。|
-
-装饰器例子：**黑板装饰器（Blackboard Decorator）** 来确定 **黑板键** 的数值，当它有效时，将会允许这个分支的执行。   
-
-1. 选择所添加的 **Blackboard Based Condition**，并对 **细节（Details）** 面板进行以下设置。   
-![[57221805c55025757d460fdb31218aaf_MD5.jpg]]
-- 将观察者终止（Observer aborts） **设为** 两者（Both） 
-- 将 **黑板键（Blackboard Key）** 设为 **HasLineOfSIght**  
-- 将 **节点名称（Node Name）** 设为 **Has Line of Sight?**
-
-我们在此说明，当 **HasLineOfSight** 的数值为 **已设置（Is Set）** （或为 true）时，会执行这个 **追逐玩家（Chase Player）** 分支。
-**观察者终止（Observer aborts）** 中设置为 **两者（Both）** 意味着当我们分配的 **黑板键** 改变时，中止本身（**追逐玩家**）和任何低优先级的任务。
-- 当 **HasLineOfSight** 的数值改变且未设置时，其将中止自身（**追逐玩家**），此时将执行下一个分支（**巡逻**）。
-- 当 **HasLineOfSight** 数值再次变成 **已设置（Is Set）** 时，观察者将中止优先级较低的任务，并使 **追逐玩家（Chase Player）** 分支能够再次被执行。
 
 # 行为树
 执行逻辑时，行为树会使用一种名为 **黑板** 的独立资源来存储它需要知道的信息（名为 **黑板键**），从而做出有根据的决策。常见工作流程是创建一块黑板，添加一些黑板键，然后创建一个使用黑板资源的行为树。
@@ -103,9 +84,33 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 
 ## 服务节点 Service
 
-**服务节点**：[服务](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-services)节点是与任意**合成节点**（选择器节点、序列节点或简单平行节点）相关联的一种特殊节点。只有在合成节点的子节点正在被执行时才会激活。
+**服务节点**：[服务](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-services)节点是与任意合成节点（选择器节点、序列节点或简单平行节点）相关联的一种特殊节点。只有在合成节点的分支被执行，它们就会以定义的频率执行。**常用于检查和更新黑板**。
+
 它**能够针对指定秒数的每个回调进行注册，并能对多种需要周期性出现的类型进行更新。**
-举例而言，当AI Pawn面对当前敌人、继续在其行为树中正常行动时，可以使用服务节点为该Pawn确定最适合追逐的敌人。
+举例而言，当 AI Pawn 面对当前敌人、继续在其行为树中正常行动时，可以使用服务节点为该 Pawn 确定最适合追逐的敌人。
+
+1. **默认聚焦(Default Focus）** 通过设置控制器的聚焦来创建访问 **蓝图** 和代码中 Actor 的快捷方式。**将 AIController 的聚焦设置到 Actor 上后，你便能直接从 AI 控制器对其进行访问，而不需要访问黑板键。**
+2. **运行 EQS（Run EQS）** 服务节点可用于**以指定的时间间隔定期执行场景查询系统（EQS）模板，并可对指定的黑板键进行更新。**
+
+## 任务节点 Tasks
+**任务节点的功能是实现操作，例如移动 AI 或调整黑板值**。它们可以连接至装饰器节点或服务节点。
+
+![[Pasted image 20230912112520.png]]
+
+- <font color="#ff0000">Finish with Result</font>：**以结果完成** 任务节点可用于在完成时即时输出一个给定结果。该节点会基于所定义的结果强制分支结束或继续。
+- <font color="#ff0000">Make Noise</font>：如果受控Pawn拥有 **PawnNoiseEmitter** 组件，**发出噪音（Make Noise）** 任务将使Pawn"产生噪声"（发送消息），使其它拥有 **PawnSensing** 组件的Pawn听到（接收消息）。
+- <font color="#ff0000">Move Directly Toward</font>：**直接移动至**任务节点会将 AI Pawn 沿直线移向指定的 Actor 或位置（矢量）黑板条目，而不参考任何导航系统。如果需要 AI 按导航移动，请改用 **移动至（Move To）** 任务节点。
+- <font color="#ff0000">Move To</font>：**移动至**任务将使拥有角色移动组件的Pawn使用**NavMesh**移动至矢量黑板键。
+- <font color="#ff0000">Play Animation</font>：用于播放指定的动画资源。
+- <font color="#ff0000">Play Sound</font>：播放指定的音效。
+- <font color="#ff0000"><font color="#ff0000">Push Pawn Action</font></font>：**推送 Pawn 动作**节点使您能够将指定的动作推送至 Pawn 的控制器。
+- <font color="#ff0000">Rotate to Face BBEntry</font>：**旋转至面向黑板条目**任务节点会使关连 Pawn 向指定的黑板键旋转。( Pawn 必须启用 Use Controller Rotation Yaw )
+- <font color="#ff0000">Run Behavior</font>：**运行行为**任务节点将分支树推送到执行堆栈上，从而运行另一个行为树。（给子树的根等级装饰器节点提供支持。在运行时不能改变该子树资源，在运行时不能修改运行树的结构。如果您需要在运行时能修改的子树，使用 Run Behavior Dynamic）
+- <font color="#ff0000">Run Behavior Dynamic</font>：**运行动态行为**任务节点能够在执行堆栈上推送子树。使用 **行为树组件** 上的 **SetDynamicSubtree** 函数即可以在运行时分配子树资源。（本函数不会为子树的根等级装饰器节点提供支持。）
+- <font color="#ff0000">Run EQSQuery</font>：将运行指定的场景查询系统（EQS）资源。
+- <font color="#ff0000">Set Tag Cooldown</font>：设置 **冷却标签（Cooldown Tag）** 数值，并与 **冷却标签装饰器（Cooldown Tag Decorators）** 一起使用，从而防止行为树的执行。
+- <font color="#ff0000">Wait</font>：使树在此节点上等待，直至指定的 **等待时间（Wait Time）** 结束。
+- <font color="#ff0000">Wait Blackboard Time</font>：与 **等待（Wait）** 任务节点的原理类似，由黑板键盘指定时间
 
 ## 观察者中止 Observer Aborts
 
@@ -155,4 +160,28 @@ struct FBTMoveToTaskMemory
 };
 ```
 
-`UBTNode` 中的许多虚函数都将 `uint8*` 参数带到节点的内存中。此参数指示为代理分配的内存块，内存块大小将由 `GetInstanceMemorySize` 的覆盖版本返回。节点将为各个代理分配此大小的内存，并将此内存存储到单一连续块中，以优化性能。但此内存不属于UObject生态系统，也不属于虚幻引擎的反射系统，且无法通过垃圾回收查看。因此，`UPROPERTY` 支持将不可用，建议使用 `TWeakObjectPtr` 来存储可能需要的 `UObject` 指针。
+`UBTNode` 中的许多虚函数都将 `uint8*` 参数带到节点的内存中。此参数指示为代理分配的内存块，内存块大小将由 `GetInstanceMemorySize` 的覆盖版本返回。节点将为各个代理分配此大小的内存，并将此内存存储到单一连续块中，以优化性能。但此内存不属于 UObject 生态系统，也不属于虚幻引擎的反射系统，且无法通过垃圾回收查看。因此，`UPROPERTY` 支持将不可用，建议使用 `TWeakObjectPtr` 来存储可能需要的 `UObject` 指针。
+
+# 寻路系统
+
+**虚幻引擎寻路系统** 用于为人工智能代理（AI Agent）提供寻路功能。
+
+为了帮助AI确定起点和终点之间的路径，引擎会根据场景中的碰撞体生成寻路网格体。这种简化的多边形网格体代表了关卡中的可寻路空间。默认情况下，寻路网格体会细分为多个区块，允许你重新构建寻路网格体的局部区域。
+
+生成的网格体由多个多边形组成，每个多边形都有一个"成本"值。搜索路径时，寻路算法会尝试找到总成本最低的路径。
+
+---
+
+寻路系统包含各种组件以及可修改寻路网格体生成方式的设置，例如指定给多边形的成本。这进而影响代理在你的关卡中寻路的方式。你还可以将寻路网格体中不连续的区域连接起来，如平台和桥梁。
+
+寻路系统包含三种 **生成模式（Generation Modes）**：**静态（Static）**、**动态（Dynamic）** 和 **仅限动态修改器（Dynamic Modifiers Only）**。这些模式控制了项目中生成寻路网格体的方式，并提供了各种选项来满足你的需要。
+
+该系统还为代理提供了两种规避方法：**相对速度障碍物(RVO)（Reciprocal Velocity Obstacles (RVO)）** 和 **大规模人群绕行避让管理器（Detour Crowd Manager）**。这些方法允许代理在游戏过程中绕行，避让动态障碍物和其他代理。
+
+![[Pasted image 20230912114543.png]]
+注意寻路网格体在楼梯上无法正确绘制，可以调整绘制偏移让覆盖面更广。
+![[Pasted image 20230912114535.png]]
+
+# MassEntity（鸽）
+MassEntity 是一个重点围绕游戏逻辑打造的框架，用于面向数据的计算。
+[虚幻引擎MassEntity | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/mass-entity-in-unreal-engine/)

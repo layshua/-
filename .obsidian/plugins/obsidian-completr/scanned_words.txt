@@ -48979,6 +48979,7 @@ ApplyPointDamage
 ApplyRadialDamage
 AIPerception
 Affiliation
+Aborts
 URL
 Utools
 Users
@@ -76526,6 +76527,7 @@ Sprint
 StartSprint
 StopSprint
 SimulatedProxy
+Sight
 Programs
 POP
 PC
@@ -81046,6 +81048,7 @@ PrintFunction
 Perception
 PawnNoiseEmitter
 PawnSensing
+Pounced
 ContextMenuManager
 ClashVerge
 Clash
@@ -85830,6 +85833,7 @@ CastFailed
 ChannelChannel
 Composites
 Chase
+Cooldown
 ImTip
 IMAP
 ID
@@ -153009,6 +153013,8 @@ HideFunctions
 HandleTargets
 HitLocation
 HandleDamagedCharacter
+HasLineOfSIght
+HasLineOfSight
 Bbb
 Bear
 Base
@@ -156973,6 +156979,8 @@ BigFont
 Beginplay
 ByChanne
 ByProfile
+BBEntries
+BBEntry
 Fraktur
 Frame
 Foo
@@ -166391,6 +166399,7 @@ EKeys
 Elapsed
 Editors
 EdgeType
+Exist
 xmlns
 xyz
 xy
@@ -181875,6 +181884,7 @@ LeftMouseButton
 LeftShift
 LookUp
 LevelEditor
+Lower
 Getx
 GetX
 GetName
