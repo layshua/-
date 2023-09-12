@@ -5,6 +5,14 @@
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
+      "basename": "5 定时器",
+      "path": "引擎Unreal/02 U++精粹/5 定时器.md"
+    },
+    {
+      "basename": "3 智能指针",
+      "path": "引擎Unreal/02 U++精粹/3 智能指针.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "U++编程规范",
       "path": "引擎Unreal/01 指南/U++编程规范.md"
-    },
-    {
-      "basename": "光照设置",
-      "path": "引擎Unreal/01 指南/光照设置.md"
-    },
-    {
-      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
-      "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
     }
   ],
   "omittedPaths": [],
