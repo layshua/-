@@ -8,110 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9bde544ea08b3ef5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/STL标准库.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0f74bebdc696726f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/STL标准库.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a6d1870a1d5e448a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Git/Unity Git.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "17db47898634ab43",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "16b4c8fe5ca62ab5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/AI/AI系统.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a27965ad306cf458",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d237dd96abf32762",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8af64fed5928db41",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "63bb39364d7e2e32",
             "type": "leaf",
             "state": {
@@ -125,17 +21,19 @@
             }
           },
           {
-            "id": "9cd53e66d777e03f",
+            "id": "d08c681cdb811aa8",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.4.12"
+                "file": "编程/C++/STL标准库.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               }
             }
           }
-        ],
-        "currentTab": 9
+        ]
       }
     ],
     "direction": "vertical"
@@ -311,12 +209,14 @@
       "markdown-table-editor:Open Markdown Table Editor": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
-      "pdf-to-markdown-plugin:PDF to Markdown": false,
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "9cd53e66d777e03f",
+  "active": "63bb39364d7e2e32",
   "lastOpenFiles": [
+    "编程/C++/STL标准库.md",
+    "编程/C++/《C++ Primer》.md",
+    "编程/C++/《Effective C++ 3th》.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/04 Gameplay/AI/AI系统.md",
@@ -337,8 +237,6 @@
     "Tools/Git/Unity Git.md",
     "Tools/Git/git入门.md",
     "Tools/Git/图床.md",
-    "编程/C++/《C++ Primer》.md",
-    "编程/C++/STL标准库.md",
     "未命名.md",
     "Tools/Obsidian/插件流.md",
     "Untitled.sheet",
@@ -354,7 +252,6 @@
     "引擎Unreal/10 教程剪藏/虚幻引擎蓝图编程要点 - 哔哩哔哩/虚幻引擎蓝图编程要点 - 哔哩哔哩.md",
     "引擎Unreal/10 教程剪藏/UE5 实现基于 Gerstner 波的写实海水渲染（一）/UE5 实现基于 Gerstner 波的写实海水渲染（一）.md",
     "引擎Unreal/05 动画/动画蓝图.md",
-    "引擎Unreal/05 动画/状态机.md",
     "引擎Unreal/04 Gameplay/TPS",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/04 Gameplay/ARPG",
