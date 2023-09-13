@@ -894,9 +894,6 @@ Enhanced Input System 实际上就是对默认输入系统做了一个扩展，�
 4. 使用 `InputAction` 对应的事件
 ![[Pasted image 20230829145511.png|350]]
 
-
-
-
 ## 默认输入系统
 
 ### 轴映射与动作映射

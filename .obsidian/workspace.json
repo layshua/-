@@ -13,26 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "2ad76d4a4b9e07e3",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d33b8e38983e11be",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -82,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/02 U++精粹/4 委托.md"
               }
             }
           },
@@ -92,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/02 U++精粹/4 委托.md"
               }
             }
           }
@@ -142,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -218,8 +199,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "15679188c6b7dce9",
   "lastOpenFiles": [
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/01 指南/4 光照设置.md",
     "引擎Unreal/01 指南/5 增强输入.md",
     "引擎Unreal/01 指南/3 BUG.md",
@@ -246,7 +228,6 @@
     "编程/C++/《C++ Primer》.md",
     "编程/C++/《Effective C++ 3th》.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/5 定时器.md",
     "引擎Unreal/02 U++精粹/3 智能指针.md",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
