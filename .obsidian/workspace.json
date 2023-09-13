@@ -21,6 +21,14 @@
             }
           },
           {
+            "id": "9d5382b9bd267082",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
             "id": "d08c681cdb811aa8",
             "type": "leaf",
             "state": {
@@ -33,7 +41,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -212,7 +221,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "63bb39364d7e2e32",
+  "active": "9d5382b9bd267082",
   "lastOpenFiles": [
     "编程/IDE/Rider for UE.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
