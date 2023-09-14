@@ -53042,6 +53042,7 @@ UPlayerInput
 UShapeComponent
 UDamageTypeFire
 UnrealVS
+UEnum
 api
 ac
 app
@@ -76544,6 +76545,7 @@ SetDynamicSubtree
 Smart
 StateTree
 Selectors
+StaticEnum
 Programs
 POP
 PC
@@ -81068,6 +81070,7 @@ Pounced
 PredictionTime
 PredictedActor
 Perceived
+PrintEnum
 ContextMenuManager
 ClashVerge
 Clash
@@ -166432,6 +166435,8 @@ Exist
 EQSQuery
 Entering
 EzArgs
+EEnemyActionState
+EnemyActionState
 xmlns
 xyz
 xy
@@ -186843,6 +186848,7 @@ GMDebugLog
 GetTimeString
 Gets
 GetController
+GetDisplayNameTextByValue
 NULL
 Native
 NormalMap
