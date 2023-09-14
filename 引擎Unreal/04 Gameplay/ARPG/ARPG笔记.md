@@ -189,3 +189,8 @@ void AEnemy::DirectionHitReact(const FVector& ImpactPoint)
 P137 创建物理场Actor
 [物理场参考指南 | 虚幻引擎5.0文档 (unrealengine.com)](https://docs.unrealengine.com/5.0/zh-CN/reference-guide-for-physics-field-in-unreal-engine/)
 
+
+# 多个武器
+多种武器（继承同一蓝图）的拾取，会因为插槽位置不适配导致位置错误
+方案一：为每个武器添加一个插槽，这种方法不好管理
+方案二：用建模软件调整并统一枢轴位置![[Pasted image 20230914143217.png]]
