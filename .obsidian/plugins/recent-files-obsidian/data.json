@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "代码随想录",
       "path": "编程/算法/代码随想录.md"
-    },
-    {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "2 容器",
