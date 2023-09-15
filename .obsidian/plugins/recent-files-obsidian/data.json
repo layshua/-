@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "1 UE指南",
+      "path": "引擎Unreal/01 指南/1 UE指南.md"
+    },
+    {
+      "basename": "3 BUG",
+      "path": "引擎Unreal/01 指南/3 BUG.md"
+    },
+    {
+      "basename": "2 问题汇总",
+      "path": "引擎Unreal/01 指南/2 问题汇总.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -31,14 +43,6 @@
     {
       "basename": "4 光照设置",
       "path": "引擎Unreal/01 指南/4 光照设置.md"
-    },
-    {
-      "basename": "3 BUG",
-      "path": "引擎Unreal/01 指南/3 BUG.md"
-    },
-    {
-      "basename": "1 UE指南",
-      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "Rider for UE",
@@ -195,10 +199,6 @@
     {
       "basename": "飞机",
       "path": "zip/留学/飞机.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
     }
   ],
   "omittedPaths": [],

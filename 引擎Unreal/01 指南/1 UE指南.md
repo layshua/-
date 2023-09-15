@@ -247,7 +247,18 @@ Niagara 的缩略图：
 Unity 和虚幻引擎都使用左手坐标系，但坐标轴的命名方式不同。**虚幻引擎 Z 的正方向是"上"。**
 
 ## 10 Live Coding 乱码
+命令行输出的信息是 UTF8 编码， LiveCoding 用的是系统编码，所以最终导致了 LiveCoding 是乱码。
+
+方案一：直接修改系统编码。会导致部分软件乱码
+
 ![[Pasted image 20230829165213.png]]
+
+
+方案二：LiveCoding 的输出结果会储存到一个文件里，路径是
+```
+C:\Users\LiuKe\AppData\Local\UnrealBuildTool\Log.txt
+```
+用 IDE 打开这文件就能看到非乱码的输出了, 来替代livecoding
 
 
 
