@@ -40,7 +40,6 @@ Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每�
 -  `Actor` 和 Actor 组件在注册时会自动调用它们的 Tick 函数
 - **`UObjects` 不具有嵌入的更新能力。在必须的时候，可以使用 `inherits` 类说明符从 `FTickableGameObject` 继承即可添加此能力。**  这样即可实现 `Tick()` 函数，引擎每帧都将调用此函数。
 
-
 ## 销毁 Object
 
 **`UPROPERTY` 宏定义对象不被引用后，垃圾回收系统将自动进行对象销毁。** 
