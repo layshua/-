@@ -1,16 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "清单",
+      "path": "zip/留学/清单.md"
+    },
+    {
+      "basename": "行李",
+      "path": "zip/留学/行李.md"
+    },
+    {
+      "basename": "租房注意事项",
+      "path": "zip/留学/租房注意事项.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "01 学习大纲",
+      "path": "技术美术/01 学习大纲.md"
+    },
+    {
       "basename": "101 Niagara",
       "path": "引擎Unreal/07 Niagara/101 Niagara.md"
     },
     {
-      "basename": "月神三期",
-      "path": "引擎Unreal/07 Niagara/月神三期.md"
-    },
-    {
       "basename": "4 委托",
       "path": "引擎Unreal/02 U++精粹/4 委托.md"
+    },
+    {
+      "basename": "月神三期",
+      "path": "引擎Unreal/07 Niagara/月神三期.md"
     },
     {
       "basename": "5 定时器",
@@ -105,16 +125,8 @@
       "path": "Tools/Git/图床.md"
     },
     {
-      "basename": "未命名",
-      "path": "未命名.md"
-    },
-    {
       "basename": "插件流",
       "path": "Tools/Obsidian/插件流.md"
-    },
-    {
-      "basename": "Untitled",
-      "path": "Untitled.sheet"
     },
     {
       "basename": "基础",
@@ -165,10 +177,6 @@
       "path": "编程/算法/《数据结构》.md"
     },
     {
-      "basename": "清单",
-      "path": "zip/留学/清单.md"
-    },
-    {
       "basename": "常用语法",
       "path": "Math/LaTeX/常用语法.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "宝藏",
       "path": "引擎Unreal/04 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "《编辑器扩展》",
-      "path": "引擎Unity3D/1 Unity精粹/《编辑器扩展》.md"
     }
   ],
   "omittedPaths": [],
