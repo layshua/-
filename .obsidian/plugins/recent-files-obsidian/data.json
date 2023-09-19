@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "飞机",
+      "path": "zip/留学/飞机.md"
+    },
+    {
       "basename": "清单",
       "path": "zip/留学/清单.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "丁书凯FPS",
       "path": "引擎Unreal/04 Gameplay/丁书凯FPS.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "引擎Unreal/04 Gameplay/宝藏.md"
     }
   ],
   "omittedPaths": [],
