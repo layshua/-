@@ -91,7 +91,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "zip/留学/缴费.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -99,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/留学/清单.md"
+                "file": "zip/留学/缴费.md"
               }
             }
           },
@@ -152,7 +152,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "zip/留学/清单.md"
+                "file": "zip/留学/缴费.md"
               }
             }
           }
@@ -202,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/留学/清单.md",
+                "file": "zip/留学/缴费.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/留学/清单.md",
+                "file": "zip/留学/缴费.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -278,10 +278,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "dfe1c1e94c502d62",
+  "active": "ea13c4082ea594f6",
   "lastOpenFiles": [
     "zip/留学/租房注意事项.md",
     "zip/留学/清单.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/行李.md",
     "zip/留学/缴费.md",
@@ -305,7 +306,6 @@
     "引擎Unreal/02 U++精粹/5 定时器.md",
     "引擎Unreal/02 U++精粹/7 多线程.md",
     "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/01 指南/3 BUG.md",
     "zip/images/Pasted image 20230914143217.png",
     "zip/images/Pasted image 20230913203502.png",
     "引擎Unreal/01 指南/Rider",
