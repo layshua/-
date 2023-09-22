@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "清单",
+      "path": "zip/留学/清单.md"
+    },
+    {
+      "basename": "租房注意事项",
+      "path": "zip/留学/租房注意事项.md"
+    },
+    {
+      "basename": "缴费",
+      "path": "zip/留学/缴费.md"
+    },
+    {
       "basename": "1 ShaderLab",
       "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
     },
@@ -43,22 +55,6 @@
     {
       "basename": "C++原理",
       "path": "编程/C++/C++原理.md"
-    },
-    {
-      "basename": "飞机",
-      "path": "zip/留学/飞机.md"
-    },
-    {
-      "basename": "清单",
-      "path": "zip/留学/清单.md"
-    },
-    {
-      "basename": "行李",
-      "path": "zip/留学/行李.md"
-    },
-    {
-      "basename": "租房注意事项",
-      "path": "zip/留学/租房注意事项.md"
     },
     {
       "basename": "README",
@@ -195,10 +191,6 @@
     {
       "basename": "动画蓝图",
       "path": "引擎Unreal/05 动画/动画蓝图.md"
-    },
-    {
-      "basename": "状态机",
-      "path": "引擎Unreal/05 动画/状态机.md"
     }
   ],
   "omittedPaths": [],

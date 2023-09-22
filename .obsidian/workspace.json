@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "dfe1c1e94c502d62",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zip/留学/清单.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2dba954c6a78e7b1",
             "type": "leaf",
             "state": {
@@ -86,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -129,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+                "file": "zip/留学/清单.md"
               }
             }
           },
@@ -139,7 +152,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+                "file": "zip/留学/清单.md"
               }
             }
           }
@@ -189,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "zip/留学/清单.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -206,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+                "file": "zip/留学/清单.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -265,8 +278,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "9f17e0df994f4db0",
+  "active": "dfe1c1e94c502d62",
   "lastOpenFiles": [
+    "zip/留学/租房注意事项.md",
+    "zip/留学/清单.md",
+    "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
+    "zip/留学/行李.md",
+    "zip/留学/缴费.md",
+    "zip/留学/飞机.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
@@ -277,10 +296,6 @@
     "编程/C++/STL标准库.md",
     "编程/C++/《C++ Primer》.md",
     "编程/C++/C++原理.md",
-    "zip/留学/飞机.md",
-    "zip/留学/清单.md",
-    "zip/留学/行李.md",
-    "zip/留学/租房注意事项.md",
     "README.md",
     "技术美术/01 学习大纲.md",
     "未命名.md",
@@ -291,8 +306,6 @@
     "引擎Unreal/02 U++精粹/7 多线程.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/01 指南/3 BUG.md",
-    "引擎Unreal/01 指南/2 问题汇总.md",
-    "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/images/Pasted image 20230914143217.png",
     "zip/images/Pasted image 20230913203502.png",
     "引擎Unreal/01 指南/Rider",
