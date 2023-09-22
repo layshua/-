@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "0 GamePlay精粹",
+      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+    },
+    {
+      "basename": "概率论与数理统计",
+      "path": "Math/概率论/概率论与数理统计.md"
+    },
+    {
+      "basename": "微积分基础",
+      "path": "Math/微积分/微积分基础.md"
+    },
+    {
+      "basename": "01 辐射度量学",
+      "path": "图形学/3 全局光照GI/01 辐射度量学.md"
+    },
+    {
+      "basename": "02 PBR理论",
+      "path": "图形学/3 全局光照GI/02 PBR理论.md"
+    },
+    {
+      "basename": "06 全局光照GI",
+      "path": "图形学/3 全局光照GI/06 全局光照GI.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "STL标准库",
+      "path": "编程/C++/STL标准库.md"
+    },
+    {
+      "basename": "《C++ Primer》",
+      "path": "编程/C++/《C++ Primer》.md"
+    },
+    {
+      "basename": "C++原理",
+      "path": "编程/C++/C++原理.md"
+    },
+    {
       "basename": "飞机",
       "path": "zip/留学/飞机.md"
     },
@@ -61,10 +105,6 @@
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
-      "basename": "0 GamePlay精粹",
-      "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
-    },
-    {
       "basename": "ARPG笔记",
       "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
@@ -89,10 +129,6 @@
       "path": "引擎Unreal/04 Gameplay/AI/AI系统.md"
     },
     {
-      "basename": "STL标准库",
-      "path": "编程/C++/STL标准库.md"
-    },
-    {
       "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
       "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
     },
@@ -103,10 +139,6 @@
     {
       "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
       "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "《C++ Primer》",
-      "path": "编程/C++/《C++ Primer》.md"
     },
     {
       "basename": "《Effective C++ 3th》",
@@ -167,38 +199,6 @@
     {
       "basename": "状态机",
       "path": "引擎Unreal/05 动画/状态机.md"
-    },
-    {
-      "basename": "C++原理",
-      "path": "编程/C++/C++原理.md"
-    },
-    {
-      "basename": "TPS笔记",
-      "path": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
-    },
-    {
-      "basename": "《数据结构》",
-      "path": "编程/算法/《数据结构》.md"
-    },
-    {
-      "basename": "常用语法",
-      "path": "Math/LaTeX/常用语法.md"
-    },
-    {
-      "basename": "语法大全",
-      "path": "Math/LaTeX/语法大全.md"
-    },
-    {
-      "basename": "UE画布",
-      "path": "引擎Unreal/04 Gameplay/UE画布.canvas"
-    },
-    {
-      "basename": "GamePlay架构",
-      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
-    },
-    {
-      "basename": "丁书凯FPS",
-      "path": "引擎Unreal/04 Gameplay/丁书凯FPS.md"
     }
   ],
   "omittedPaths": [],

@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/留学/飞机.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/留学/飞机.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           },
@@ -139,7 +139,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "zip/留学/飞机.md"
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
               }
             }
           }
@@ -189,7 +189,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/留学/飞机.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -206,7 +206,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/留学/飞机.md",
+                "file": "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -267,6 +267,17 @@
   },
   "active": "9f17e0df994f4db0",
   "lastOpenFiles": [
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "Math/概率论/概率论与数理统计.md",
+    "Math/微积分/微积分基础.md",
+    "图形学/3 全局光照GI/01 辐射度量学.md",
+    "图形学/3 全局光照GI/02 PBR理论.md",
+    "图形学/3 全局光照GI/06 全局光照GI.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "编程/C++/STL标准库.md",
+    "编程/C++/《C++ Primer》.md",
+    "编程/C++/C++原理.md",
+    "zip/留学/飞机.md",
     "zip/留学/清单.md",
     "zip/留学/行李.md",
     "zip/留学/租房注意事项.md",
@@ -282,20 +293,9 @@
     "引擎Unreal/01 指南/3 BUG.md",
     "引擎Unreal/01 指南/2 问题汇总.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
-    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230914143217.png",
-    "编程/算法/代码随想录.md",
-    "引擎Unreal/02 U++精粹/2 容器.md",
-    "引擎Unreal/01 指南/4 光照设置.md",
-    "引擎Unreal/01 指南/5 增强输入.md",
-    "引擎Unreal/01 指南/1 ue操作指南.md",
     "zip/images/Pasted image 20230913203502.png",
-    "编程/IDE/Rider for UE.md",
-    "引擎Unreal/04 Gameplay/AI/AI系统.md",
-    "编程/C++/STL标准库.md",
     "引擎Unreal/01 指南/Rider",
-    "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
     "zip/images/31b15598556252a6f519c3f2f575f720_MD5.png",
     "zip/images/0d6b97d814c22be0475144dc6b882abf_MD5.jpg",
     "zip/images/e9dd16ec9b81afcae12feb57658f7a96_MD5.png",
