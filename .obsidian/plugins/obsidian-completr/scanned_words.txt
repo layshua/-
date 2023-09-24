@@ -13080,6 +13080,10 @@ camelCaseName
 cameraComp
 converto
 calcChain
+cppTEnumAsByte
+cppMyEnumValue
+cppEMyEnum
+cppif
 github
 grey
 green
@@ -166437,6 +166441,7 @@ Entering
 EzArgs
 EEnemyActionState
 EnemyActionState
+EnumValue
 xmlns
 xyz
 xy
