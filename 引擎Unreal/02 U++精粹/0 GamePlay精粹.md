@@ -89,7 +89,6 @@ AKAsset* SpawnedActor1 =
 
 `::StaticClass()` 以 `UCLASS*` 的形式为我们提供一个原始 C++类 
 
-
 ```c++
 TSubclassOf<ATreasure> TreasureClasses;
 

@@ -97,35 +97,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "306e4619efc08961",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ef731fa9f994cd42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/C++/《C++ Primer》.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -168,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md"
+                "file": "引擎Unreal/02 U++精粹/1 类型.md"
               }
             }
           },
@@ -178,7 +152,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md"
+                "file": "引擎Unreal/02 U++精粹/1 类型.md"
               }
             }
           }
@@ -228,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -245,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/《C++ Primer》.md",
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -304,8 +278,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "306e4619efc08961",
+  "active": "4b9805fde02c7c39",
   "lastOpenFiles": [
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "编程/C++/《C++ Primer》.md",
     "引擎Unreal/01 指南/5 U++编程规范.md",
@@ -316,7 +291,6 @@
     "zip/留学/中行卓隽卡交房租教程文字版 - 哔哩哔哩.md",
     "zip/留学/行李.md",
     "zip/留学/飞机.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
