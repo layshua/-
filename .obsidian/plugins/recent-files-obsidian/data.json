@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "ARPG笔记",
+      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+    },
+    {
+      "basename": "动画蓝图",
+      "path": "引擎Unreal/05 动画/动画蓝图.md"
+    },
+    {
+      "basename": "状态机",
+      "path": "引擎Unreal/05 动画/状态机.md"
+    },
+    {
+      "basename": "UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）",
+      "path": "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -105,10 +121,6 @@
       "path": "引擎Unreal/01 指南/2 问题汇总.md"
     },
     {
-      "basename": "ARPG笔记",
-      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
-    },
-    {
       "basename": "代码随想录",
       "path": "编程/算法/代码随想录.md"
     },
@@ -187,14 +199,6 @@
     {
       "basename": "UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）",
       "path": "引擎Unreal/10 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md"
-    },
-    {
-      "basename": "[译文]UE 基础—蓝图 VS_ C++",
-      "path": "引擎Unreal/10 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/[译文]UE 基础—蓝图 VS_ C++.md"
-    },
-    {
-      "basename": "动画蓝图",
-      "path": "引擎Unreal/05 动画/动画蓝图.md"
     }
   ],
   "omittedPaths": [],

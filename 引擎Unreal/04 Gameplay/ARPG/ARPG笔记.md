@@ -107,6 +107,9 @@ void AMyCharacter::PlayAttackMontage()
 
 ## 引擎中编辑动画
 114
+## Motion warping
+敌人攻击时转向
+
 # 声音
 ## 旧方法
 UE4 旧方法：直接在动画资源或动画蒙太奇中添加动画通知
