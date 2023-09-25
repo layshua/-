@@ -107,9 +107,25 @@ void AMyCharacter::PlayAttackMontage()
 
 ## 引擎中编辑动画
 114
-## Motion warping
-敌人攻击时转向
+## Motion warping 运动扭曲
+敌人攻击时转向，敌人可以一直瞄准玩家
+打开插件
+![[Pasted image 20230925221138.png]]
 
+给 Actor 添加组件
+![[Pasted image 20230925221302.png]]
+
+添加动画通知
+![[Pasted image 20230925221446.png|600]]
+想让哪一段动画可以进行 Warping，就拉多长
+![[Pasted image 20230925221934.png|400]]
+
+![[Pasted image 20230925221826.png|450]]
+Scale 缩放动画长度
+Skew Warp 允许我们根据某种目标调整敌人的位置
+
+![[Pasted image 20230925222207.png]]
+![[Pasted image 20230925222214.png]]
 # 声音
 ## 旧方法
 UE4 旧方法：直接在动画资源或动画蒙太奇中添加动画通知
