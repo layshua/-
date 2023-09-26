@@ -89,17 +89,12 @@
             "id": "4b9805fde02c7c39",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -142,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "zip/留学/清单.md"
               }
             }
           },
@@ -152,7 +147,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "zip/留学/清单.md"
               }
             }
           }
@@ -202,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "zip/留学/清单.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "zip/留学/清单.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -278,8 +273,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4b9805fde02c7c39",
+  "active": "dfe1c1e94c502d62",
   "lastOpenFiles": [
+    "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/05 动画/动画蓝图.md",
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+    "zip/images/Pasted image 20230925225937.png",
     "zip/images/Pasted image 20230925224820.png",
     "zip/images/Pasted image 20230925223918.png",
     "zip/images/Pasted image 20230925222214.png",
@@ -289,11 +289,9 @@
     "zip/images/Pasted image 20230925221446.png",
     "zip/images/Pasted image 20230925221302.png",
     "zip/images/Pasted image 20230925221138.png",
-    "引擎Unreal/05 动画/动画蓝图.md",
     "引擎Unreal/05 动画/状态机.md",
     "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "编程/C++/《C++ Primer》.md",
     "引擎Unreal/01 指南/5 U++编程规范.md",
     "引擎Unreal/02 U++精粹/5 定时器.md",
@@ -313,9 +311,6 @@
     "编程/C++/C++原理.md",
     "README.md",
     "技术美术/01 学习大纲.md",
-    "未命名.md",
-    "zip/images/Pasted image 20230914143217.png",
-    "zip/images/Pasted image 20230913203502.png",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",

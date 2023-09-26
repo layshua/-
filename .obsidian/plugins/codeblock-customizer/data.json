@@ -8,7 +8,8 @@
           "enableDeleteCodeButton": false,
           "codeBlockBorderStylingPosition": "disable",
           "showIndentationLines": false,
-          "enableCopyCodeButton": false
+          "enableCopyCodeButton": false,
+          "enableLinks": false
         },
         "semiFold": {
           "enableSemiFold": false,
@@ -106,7 +107,8 @@
           "enableDeleteCodeButton": false,
           "codeBlockBorderStylingPosition": "disable",
           "showIndentationLines": false,
-          "enableCopyCodeButton": false
+          "enableCopyCodeButton": false,
+          "enableLinks": false
         },
         "semiFold": {
           "enableSemiFold": false,
@@ -300,7 +302,8 @@
         "enableDeleteCodeButton": false,
         "codeBlockBorderStylingPosition": "right",
         "showIndentationLines": false,
-        "enableCopyCodeButton": false
+        "enableCopyCodeButton": false,
+        "enableLinks": false
       },
       "semiFold": {
         "enableSemiFold": false,
