@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "引擎Unreal/02 U++精粹/4 委托.md"
               }
             }
           },
@@ -113,7 +112,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+                "file": "引擎Unreal/02 U++精粹/4 委托.md"
               }
             }
           }
@@ -163,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -239,13 +238,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4b9805fde02c7c39",
+  "active": "15679188c6b7dce9",
   "lastOpenFiles": [
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/02 U++精粹/2 容器.md",
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/留学/清单.md",
     "引擎Unreal/05 动画/动画蓝图.md",
-    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "zip/images/Pasted image 20230925225937.png",
     "zip/images/Pasted image 20230925224820.png",
     "zip/images/Pasted image 20230925223918.png",
@@ -276,7 +276,6 @@
     "编程/C++/STL标准库.md",
     "编程/C++/C++原理.md",
     "README.md",
-    "技术美术/01 学习大纲.md",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",
