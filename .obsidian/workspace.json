@@ -13,10 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
+                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "33b0808395d05658",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.14"
               }
             }
           },
@@ -59,7 +69,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md"
+                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
               }
             }
           },
@@ -112,7 +123,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md"
+                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
               }
             }
           }
@@ -162,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
+                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
+                "file": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -238,11 +249,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "15679188c6b7dce9",
+  "active": "33b0808395d05658",
   "lastOpenFiles": [
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+    "引擎Unreal/02 U++精粹/4 委托.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/2 容器.md",
-    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/留学/清单.md",
     "引擎Unreal/05 动画/动画蓝图.md",
@@ -275,7 +287,6 @@
     "图形学/1 图形系统/09 阴影.md",
     "编程/C++/STL标准库.md",
     "编程/C++/C++原理.md",
-    "README.md",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",
@@ -289,12 +300,4 @@
     "引擎Unreal/04 Gameplay/《大钊》",
     "引擎Unreal/04 Gameplay/《大象无形》",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
-    "未命名.canvas",
-    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
-    "图形学/DX12/龙书/DX12初始化.canvas",
-    "testt.canvas",
-    "Tools/Excalidraw/未命名.canvas",
-    "Software/未命名.canvas"
-  ]
-}
+    "未命名.ca

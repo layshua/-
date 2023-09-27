@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "TPS笔记",
+      "path": "引擎Unreal/04 Gameplay/TPS/TPS笔记.md"
+    },
+    {
+      "basename": "ARPG笔记",
+      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+    },
+    {
       "basename": "4 委托",
       "path": "引擎Unreal/02 U++精粹/4 委托.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "2 容器",
       "path": "引擎Unreal/02 U++精粹/2 容器.md"
-    },
-    {
-      "basename": "ARPG笔记",
-      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -195,10 +199,6 @@
     {
       "basename": "交互草",
       "path": "引擎Unreal/09 案例/交互草.md"
-    },
-    {
-      "basename": "UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）",
-      "path": "引擎Unreal/10 教程剪藏/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）/UE4-Niagara - 致敬死亡搁浅 - 扫描仪（上）.md"
     }
   ],
   "omittedPaths": [],
