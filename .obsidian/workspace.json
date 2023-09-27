@@ -21,16 +21,6 @@
             }
           },
           {
-            "id": "33b0808395d05658",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.4.14"
-              }
-            }
-          },
-          {
             "id": "e30d81224c990393",
             "type": "leaf",
             "state": {
@@ -69,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -232,8 +221,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 295.5,
-    "collapsed": true
+    "width": 295.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -249,7 +237,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "33b0808395d05658",
+  "active": "15679188c6b7dce9",
   "lastOpenFiles": [
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
@@ -300,4 +288,12 @@
     "引擎Unreal/04 Gameplay/《大钊》",
     "引擎Unreal/04 Gameplay/《大象无形》",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
-    "未命名.ca
+    "未命名.canvas",
+    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
+    "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
+    "图形学/DX12/龙书/DX12初始化.canvas",
+    "testt.canvas",
+    "Tools/Excalidraw/未命名.canvas",
+    "Software/未命名.canvas"
+  ]
+}
