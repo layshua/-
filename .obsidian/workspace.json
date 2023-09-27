@@ -34,14 +34,6 @@
             }
           },
           {
-            "id": "ae8764d545a78f51",
-            "type": "leaf",
-            "state": {
-              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
-              "state": {}
-            }
-          },
-          {
             "id": "e30d81224c990393",
             "type": "leaf",
             "state": {
@@ -94,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -273,12 +265,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "active": "cdada2c11a75616e",
   "lastOpenFiles": [
     "引擎Unreal/02 U++精粹/4 委托.md",
-    "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
-    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+    "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
     "引擎Unreal/02 U++精粹/2 容器.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "zip/留学/清单.md",
