@@ -34,6 +34,14 @@
             }
           },
           {
+            "id": "ae8764d545a78f51",
+            "type": "leaf",
+            "state": {
+              "type": "swar8080/AVAILABLE_PLUGIN_UPDATES",
+              "state": {}
+            }
+          },
+          {
             "id": "e30d81224c990393",
             "type": "leaf",
             "state": {
@@ -71,9 +79,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ef05c9e001c3d12f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -235,7 +256,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 295.5
+    "width": 295.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -251,7 +273,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "cdada2c11a75616e",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
     "引擎Unreal/02 U++精粹/4 委托.md",
     "引擎Unreal/04 Gameplay/TPS/TPS笔记.md",
