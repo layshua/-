@@ -21,7 +21,15 @@ reference: []
 ## 从源程序到可执行文件
 ![[Pasted image 20230928215219.png]]
 
+```c++ file:hello.c
+#include <stdio.h>
 
+int main(){
+    printf("Hellow World.\n");
+    return 0;
+}
+
+```
 对于一个 C++源文件，从文本到可执行文件一般需要四个过程：
 ### 1 预处理阶段
 **预处理器（cpp）** 对源程序 `hello. c` 中以字符 `#` 字节开头的命令进行处理，例如将 `#include` 命令后面的 `.h` 文件内容插入程序文件。输出修改后的源程序 `hello. i` 
@@ -32,30 +40,92 @@ reference: []
 - 删除所有的注释，`“//”`和`“/**/”`。
 - 保留所有的 `#pragma` 编译器指令，编译器需要用到他们，如： `#pragma once`  是为了防止有文件被重复引用。
 - 添加行号和文件标识，便于编译时编译器产生调试用的行号信息，和编译时产生编译错误或警告是能够显示行号。
+```c++ file:hello.i
+# 1 "hello.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 32 "<command-line>" 2
+# 1 "hello.c"
+# 1 "/usr/include/stdio.h" 1 3 4
+# 27 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 33 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 424 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 427 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 428 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 429 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 425 "/usr/include/features.h" 2 3 4
+# 448 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 449 "/usr/include/features.h" 2 3 4
+# 34 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 2 3 4
+# 28 "/usr/include/stdio.h" 2 3 4
 
+```
 ### 2 编译阶段
 **编译器（ccl）** 对预处理后的源程序进行编译，生成汇编语言程序 ` hello.s`
 
 编译过程一般分为6步：扫描、语法分析、语义分析、源代码优化、代码生成和目标代码优化。
 ![[2037768-20ef368560491608.webp]]
+```c++ file:hello.s
+	.file	"hello.c"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"Hellow World."
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+	.section	.note.GNU-stack,"",@progbits
+```
 ### 3 汇编阶段
-**汇编器（as）** 将编译阶段生成的汇编文件转化成机器码，生成可重定位目标文件。
-汇编器的汇编过程相对于编译器来说更简单，没有复杂的语法，也没有语义，更不需要做指令优化，只是根据汇编指令和机器指令的对照表一一翻译过来，汇编过程有汇编器 as 完成。经汇编之后，产生目标文件 (与可执行文件格式几乎一样) xxx.o (Windows 下)、xxx.obj (Linux 下)。
-4，链接阶段：将多个目标文件及所需要的库连接成最终的可执行目标文件。链接分为静态链接和动态链接：
+汇编器（as）将 `hello.s` 翻译成机器语言指令，把这些指令打包成一种叫做**可重定位目标程序**的格式，并保存在 `hello.o` 文件中，这是一个二进制文件，用文本编辑器打开会显示为乱码。
 
-1、静态链接：
+汇编器的汇编过程相对于编译器来说更简单，没有复杂的语法，也没有语义，更不需要做指令优化，只是根据汇编指令和机器指令的对照表一一翻译过来，汇编过程有汇编器 as 完成。经汇编之后，产生目标文件 (与可执行文件格式几乎一样) xxx.o (Windows 下)、xxx.obj (Linux 下)。
+
+### 4 链接阶段
+**链接器（ld）** 将多个可重定位目标文件和标准库函数链接为一个可执行目标文件（简称可执行文件）。
+`hello` 程序调用了 `printf` 函数，它是 C 标准库函数，具体存在于一个已经预编译好的 `printf.o` 文件，链接器（ld）负责将这个文件与我们的 hello 文件合并起来。
+
+将多个目标文件及所需要的库连接成最终的可执行目标文件。链接分为静态链接和动态链接：
+**静态链接：**
 函数和数据被编译进一个二进制文件。在使用静态库的情况下，在编译链接可执行文件时，链接器从库中复制这些函数和数据并把它们和应用程序的其它模块组合起来创建最终的可执行文件。
 空间浪费：因为每个可执行程序中对所有需要的目标文件都要有一份副本，所以如果多个程序对同一个目标文件都有依赖，会出现同一个目标文件都在内存存在多个副本；
 更新困难：每当库函数的代码修改了，这个时候就需要重新进行编译链接形成可执行程序。
 运行速度快：但是静态链接的优点就是，在可执行程序中已经具备了所有执行程序所需要的任何东西，在执行的时候运行速度快。
-2、动态链接：
+**动态链接**
 动态链接的基本思想是把程序按照模块拆分成各个相对独立部分，在程序运行时才将它们链接在一起形成一个完整的程序，而不是像静态链接一样把所有程序模块都链接成一个单独的可执行文件。
 共享库：就是即使需要每个程序都依赖同一个库，但是该库不会像静态链接那样在内存中存在多分，副本，而是这多个程序在执行时共享同一份副本；
 更新方便：更新时只需要替换原来的目标文件，而无需将所有的程序再重新链接一遍。当程序下一次运行时，新版本的目标文件会被自动加载到内存并且链接起来，程序就完成了升级的目标。
 性能损耗：因为把链接推迟到了程序运行时，所以每次执行程序都需要进行链接，所以性能会有一定损失。
-————————————————
-版权声明：本文为 CSDN 博主「WhiteJunior」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接： https://blog.csdn.net/lym940928/article/details/93384917
+
 # 一、运行原理
 ## 内存分区模型
 C++程序在执行时，将内存大方向划分为**4 个区域**
@@ -282,7 +352,6 @@ int main()
 }  
 
 ```
-![](<assets/1680873907645.png>)
 
 **（2）显式链接**  
 需要函数指针和 WIN32 API 函数 LoadLibrary、GetProcAddress 装载，使用这种载入方法，不需要. lib 文件和. h 头文件，只需要. dll 文件即可（将. dll 文件置入工程目录中）。
