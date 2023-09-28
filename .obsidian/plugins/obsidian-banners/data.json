@@ -8,9 +8,10 @@
   "enableDragInPopover": false,
   "enableLockButton": true,
   "headerDecor": "shadow",
-  "headerHorizontalAlignment": "left",
-  "headerVerticalAlignment": "edge",
+  "headerHorizontalAlignment": "center",
+  "headerVerticalAlignment": "center",
   "useTwemoji": true,
   "showPreviewInLocalModal": true,
-  "version": "1.3.3"
+  "version": "1.3.3",
+  "headerSize": "2.5em"
 }
