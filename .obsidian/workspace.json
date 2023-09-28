@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8eee41240f33cec1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
               }
             }
           },
@@ -100,7 +86,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
               }
             }
           }
@@ -150,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,34 +213,34 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8eee41240f33cec1",
+  "active": "23a076cd0cfa8eb8",
   "lastOpenFiles": [
-    "引擎Unreal/02 U++精粹/1 类型.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
+    "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/14 十四：渲染系统（二）.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
+    "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md",
+    "zip/templates/论文_metadata.md",
+    "zip/templates/yaml_Banner.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
+    "zip/templates/yaml_noBanner.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/05 五：模块总结.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/01 指南/2 问题汇总.md",
     "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "引擎Unreal/04 Gameplay/AI/AI系统.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md",
     "引擎Unreal/06 渲染 & VFX/07 Niagara/101 Niagara.md",
     "引擎Unreal/03 蓝图/UMG.md",
     "引擎Unreal/03 蓝图/蓝图精粹.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/04 纹理.md",
     "图形学/1 图形系统/07 混合和剔除.md",
-    "图形学/1 图形系统/06 深度测试.md",
-    "图形学/1 图形系统/08 透明.md",
-    "图形学/1 图形系统/09 阴影.md",
-    "图形学/1 图形系统/11 曲线曲面几何.md",
-    "图形学/1 图形系统/10 色彩.md",
-    "图形学/1 图形系统/05 模板测试.md",
-    "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/02 光栅化.md",
-    "技术美术/1 渲染雅集/01 Trick！.md",
-    "编程/算法/《数据结构》.md",
-    "引擎Unreal/02 U++精粹/2 容器.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "zip/images/Pasted image 20230928152605.png",
     "zip/images/Pasted image 20230928152538.png",
     "zip/images/Pasted image 20230928152457.png",

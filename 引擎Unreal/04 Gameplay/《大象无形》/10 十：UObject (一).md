@@ -10,7 +10,7 @@
 
 ![[89f6c4254f6f39d2f85f7af3de5f18fd_MD5.jpg]]
 
-其中我们的 UObject 的实例化，需要调用 NewObject<T>() 函数，而不能直接用 C++ 的 new 操作符。
+其中我们的 UObject 的实例化，需要调用 `NewObject<T>()` 函数，而不能直接用 C++ 的 new 操作符。
 
 ## 测试 UObject 类
 
