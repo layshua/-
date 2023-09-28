@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dad50ea64651a45a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 U++精粹/1 类型.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -77,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
               }
             }
           },
@@ -87,7 +100,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md"
               }
             }
           }
@@ -137,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -216,9 +229,11 @@
   },
   "active": "8eee41240f33cec1",
   "lastOpenFiles": [
-    "引擎Unreal/01 指南/2 问题汇总.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "引擎Unreal/01 指南/2 问题汇总.md",
     "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "引擎Unreal/04 Gameplay/AI/AI系统.md",
     "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md",
@@ -239,9 +254,7 @@
     "技术美术/1 渲染雅集/01 Trick！.md",
     "编程/算法/《数据结构》.md",
     "引擎Unreal/02 U++精粹/2 容器.md",
-    "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
-    "引擎Unreal/02 U++精粹/3 智能指针.md",
     "zip/images/Pasted image 20230928152605.png",
     "zip/images/Pasted image 20230928152538.png",
     "zip/images/Pasted image 20230928152457.png",
