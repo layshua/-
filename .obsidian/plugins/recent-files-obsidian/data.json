@@ -5,6 +5,22 @@
       "path": "编程/C++/C++原理.md"
     },
     {
+      "basename": "数据结构",
+      "path": "编程/算法/数据结构.md"
+    },
+    {
+      "basename": "代码随想录",
+      "path": "编程/算法/代码随想录.md"
+    },
+    {
+      "basename": "时空复杂度",
+      "path": "编程/算法/时空复杂度.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "编程/设计模式/工厂模式.md"
+    },
+    {
       "basename": "Cherno剩余",
       "path": "编程/C++/Cherno剩余.md"
     },
@@ -149,10 +165,6 @@
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
     {
-      "basename": "《数据结构》",
-      "path": "编程/算法/《数据结构》.md"
-    },
-    {
       "basename": "2 容器",
       "path": "引擎Unreal/02 U++精粹/2 容器.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "月神三期",
       "path": "引擎Unreal/06 渲染 & VFX/07 Niagara/月神三期.md"
-    },
-    {
-      "basename": "UE画布",
-      "path": "引擎Unreal/04 Gameplay/UE画布.canvas"
-    },
-    {
-      "basename": "09 九：TaskGraph",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md"
-    },
-    {
-      "basename": "【月神3】杂项",
-      "path": "引擎Unreal/06 渲染 & VFX/07 Niagara/月神3/【月神3】杂项.md"
     }
   ],
   "omittedPaths": [],
