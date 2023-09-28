@@ -59,23 +59,14 @@ UE4 本身包含网络模式和编辑器，这意味着你的工程在部署的�
 在阅读代码之前，就必须去了解一下 [UE4 的命名约定](http://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/)，具体的自己去查看官网文档，下面是一些基本需要知道的：  
 
 *   模版类以 T 作为前缀，比如 TArray,TMap,TSet UObject 派生类都以 U 前缀  
-    
 *   AActor 派生类都以 A 前缀  
-    
 *   SWidget 派生类都以 S 前缀  
-    
 *   抽象接口以 I 前缀  
-    
 *   枚举以 E 开头  
-    
 *   bool 变量以 b 前缀，如 bPendingDestruction  
-    
 *   其他的大部分以 F 开头，如 FString,FName  
-    
 *   typedef 的以原型名前缀为准，如 typedef TArray FArrayOfMyTypes;  
-    
 *   在编辑器里和 C# 里，类型名是去掉前缀过的  
-    
 *   UHT 在工作的时候需要你提供正确的前缀，所以虽然说是约定，但你也得必须遵守。（编译系统怎么用到那些前缀，后续再讨论）  
     
 

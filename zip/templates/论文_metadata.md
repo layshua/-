@@ -6,8 +6,10 @@ author:
 date: 
 DOI: 
 url: []
-create_time: {{date:YYYY-MM-DD HH:mm}}
-uid: {{date:YYYYMMDDHHmm}}
+create_time:
+  "{ date:YYYY-MM-DD HH:mm }": 
+uid:
+  "{ date:YYYYMMDDHHmm }": 
 cssclass: academia, academia-rounded
 banner: "![[]]"
 ---

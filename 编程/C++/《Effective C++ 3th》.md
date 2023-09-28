@@ -4,7 +4,7 @@ aliases: []
 tags: []
 create_time: 2023-04-25 22:17
 uid: "202304252217"
-banner: "![[Pasted image 20230317143626.jpg]]"
+banner: "[[Pasted image 20230317143626.jpg]]"
 ---
 # 零、导读
 

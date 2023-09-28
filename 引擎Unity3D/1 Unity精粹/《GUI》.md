@@ -4,7 +4,7 @@ aliases: []
 tags: []
 create_time: 2023-06-07 23:35
 uid: 202306072335
-banner: "![[diablo-iv-beta-vendor-3.png]]"
+banner: "[[diablo-iv-beta-vendor-3.png]]"
 ---
 
 # 九宫格 UI 理论
