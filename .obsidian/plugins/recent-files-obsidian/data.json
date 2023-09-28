@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "水体渲染",
       "path": "引擎Unreal/09 案例/水体渲染.md"
-    },
-    {
-      "basename": "交互雪",
-      "path": "引擎Unreal/09 案例/交互雪.md"
-    },
-    {
-      "basename": "交互草",
-      "path": "引擎Unreal/09 案例/交互草.md"
     }
   ],
   "omittedPaths": [],
