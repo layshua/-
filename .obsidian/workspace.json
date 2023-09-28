@@ -72,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -115,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/07 Niagara/月神三期.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           },
@@ -125,7 +126,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/07 Niagara/月神三期.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           }
@@ -175,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/07 Niagara/月神三期.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -192,7 +193,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/07 Niagara/月神三期.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -251,8 +252,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "15679188c6b7dce9",
+  "active": "e30d81224c990393",
   "lastOpenFiles": [
+    "引擎Unreal/07 Niagara/月神三期.md",
     "引擎Unreal/07 Niagara/月神3/【月神3】杂项.md",
     "引擎Unreal/07 Niagara/月神3/【月神3】正课.md",
     "图形学/1 图形系统/02 光栅化.md",
@@ -288,7 +290,6 @@
     "zip/留学/飞机.md",
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
-    "图形学/3 全局光照GI/01 辐射度量学.md",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",
