@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
+                "file": "编程/C++/C++原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
+                "file": "编程/C++/C++原理.md"
               }
             }
           },
@@ -86,11 +86,12 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
+                "file": "编程/C++/C++原理.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "c860fd12f8384878",
@@ -136,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
+                "file": "编程/C++/C++原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
+                "file": "编程/C++/C++原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,14 +216,19 @@
   },
   "active": "23a076cd0cfa8eb8",
   "lastOpenFiles": [
+    "编程/C++/Cherno剩余.md",
+    "编程/C++/C++原理.md",
+    "编程/C++/3 Effective C++.md",
+    "编程/C++/2 STL标准库.md",
+    "编程/C++/1 C++ Primer.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
     "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
     "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md",
     "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md",
     "引擎Unreal/04 Gameplay/《大象无形》/14 十四：渲染系统（二）.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
-    "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md",
     "zip/templates/论文_metadata.md",
@@ -236,11 +242,6 @@
     "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "引擎Unreal/04 Gameplay/AI/AI系统.md",
     "引擎Unreal/06 渲染 & VFX/07 Niagara/101 Niagara.md",
-    "引擎Unreal/03 蓝图/UMG.md",
-    "引擎Unreal/03 蓝图/蓝图精粹.md",
-    "图形学/1 图形系统/01 渲染管线.md",
-    "图形学/1 图形系统/04 纹理.md",
-    "图形学/1 图形系统/07 混合和剔除.md",
     "zip/images/Pasted image 20230928152605.png",
     "zip/images/Pasted image 20230928152538.png",
     "zip/images/Pasted image 20230928152457.png",

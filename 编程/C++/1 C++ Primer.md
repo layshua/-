@@ -1,10 +1,11 @@
 ---
 banner: "[[Pasted image 20221223234905.png]]"
-title: 《C++ Primer》
+title: 1 C++ Primer
 create_time: 2023-05-06 13:57
 uid: "202305061357"
+banner_header: 
+banner_lock: true
 ---
-
 # 零、 预处理器
 确保头文件多次包含仍能安全工作的常用技术是**预处理器**，预处理器是在编译之前执行的一段程序，任何以 # 开头的东西，都被称为预处理器命令或者预处理器指令。如 `#include` ，当预处理器看到 `#include`标记时就会用指定的头文件内容代替 `#include` 。
 ## 头文件保护符
@@ -2444,7 +2445,7 @@ f (*svec.begin ()); //正确：传入一个string对象，f使用.*调用empty
 f(&svec[0]);  //正确：传入一个string的指针，f使用->*调用empty
 ```
 
-**方法三：** 使用 [[STL标准库#【C++11】参数绑定 bind 函数]] 从成员函数生成一个可调用对象
+**方法三：** 使用 [[2 STL标准库#【C++11】参数绑定 bind 函数]] 从成员函数生成一个可调用对象
 ```c++
 //选择范围中的每个string,并将其bind到empty的第一个隐式实参上
 auto it = find_if(svec.begin(),svec.end(),bind(&string:empty,_1));
@@ -6226,7 +6227,7 @@ sort (svec.begin(),svec.end(),greater<string>());
 > 2. 函数指针
 > 3. 重载了函数调用运算符的类 `operator()`, 即函数对象（仿函数）[[#7 函数对象（仿函数）与函数调用运算符`()`]]
 > 4. lambda 表达式 [[#【C++11】lambda表达式]] 
-> 5. bind 创建的对象 [[STL标准库#【C++11】参数绑定 bind 函数]]  ^snr6wf
+> 5. bind 创建的对象 [[2 STL标准库#【C++11】参数绑定 bind 函数]]  ^snr6wf
 
 和其他对象一样，**可调用的对象也有类型**。例如，每个 lambda 有它自己唯一的（末命名)类类型：函数及函数指针的类型则由其返回值类型和实参类型决定，等等。
 
