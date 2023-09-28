@@ -95,6 +95,7 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 ## 合成节点 Composite
 
 > [!NOTE] 合成节点
+>**主要作用：流程控制**
 > 是流控制的一种形式，决定了与其相连的子分支的执行方式。  
 > 只有 **合成** 节点可以连接至 **行为树** 的 **Root** 节点。
 
@@ -107,11 +108,15 @@ Pawn 的感应组件（`Sensing Component`）用于封装 Actor 的感知（例�
 可以将简单平行节点理解为"执行 A 的同时，也在执行 B"。例如"攻击敌人，同时也朝敌人移动。"从基本上而言，A 是主任务，B 是后台分支。
 
 ## 装饰器节点 Decorator
+
+> [!NOTE] 
+> **主要作用：对子树的返回结果进行处理**
+
 条件语句，连接到[合成（Composite）](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-composites)或[任务（Task）](https://docs.unrealengine.com/5.2/zh-CN/unreal-engine-behavior-tree-node-reference-tasks)节点，并定义树中的分支，甚至单个节点是否可以执行。
 ![[Pasted image 20230911235256.png]]
 - **Composite**：合成，自定义逻辑。以这种方式使用合成装饰器将影响内存和性能。也可以在C++中创建一个装饰器来执行同样的自定义行为，但效率更高。
 - **Blackboard**：检查给定的 **黑板键（Blackboard Key）** 上是否设置了值。
-- **Check Gameplay Tags on Actor**：## 检查Gameplay标签条件
+- **Check Gameplay Tags on Actor**：检查Gameplay标签条件
 - **Compare BBEntries**：比较两个 **黑板键** 的值，并根据结果（等于或不等）阻止或允许节点的执行。
 - **Conditional Loop**：条件语句循环，只要满足了 **键查询（Key Query）** 条件，该装饰器将使它所连接节点进行循环。
 - **Cone Check**：椎体检查装饰器，采用了三个矢量键：第一个确定椎体的起始位置，第二个用于定义锥体朝向的方向，第三个用于检查该位置是否在锥体内部。您可以使用 **锥体半角（Cone Half Angle）** 属性来定义锥体的角度。

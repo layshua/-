@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8eee41240f33cec1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/01 指南/1 UE指南.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md"
+                "file": "引擎Unreal/01 指南/1 UE指南.md"
               }
             }
           },
@@ -73,12 +87,11 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md"
+                "file": "引擎Unreal/01 指南/1 UE指南.md"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -124,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
+                "file": "引擎Unreal/01 指南/1 UE指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
+                "file": "引擎Unreal/01 指南/1 UE指南.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,8 +214,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "23a076cd0cfa8eb8",
+  "active": "8eee41240f33cec1",
   "lastOpenFiles": [
+    "引擎Unreal/01 指南/2 问题汇总.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/03 三：模块基础.md",
+    "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
+    "引擎Unreal/04 Gameplay/AI/AI系统.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md",
     "引擎Unreal/06 渲染 & VFX/07 Niagara/101 Niagara.md",
     "引擎Unreal/03 蓝图/UMG.md",
     "引擎Unreal/03 蓝图/蓝图精粹.md",
@@ -223,19 +242,13 @@
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/3 智能指针.md",
-    "引擎Unreal/02 U++精粹/5 定时器.md",
-    "引擎Unreal/02 U++精粹/4 委托.md",
-    "引擎Unreal/02 U++精粹/6 资源加载.md",
     "zip/images/Pasted image 20230928152605.png",
     "zip/images/Pasted image 20230928152538.png",
     "zip/images/Pasted image 20230928152457.png",
     "zip/images/Pasted image 20230928152420.png",
     "zip/images/Pasted image 20230928152345.png",
     "zip/images/Pasted image 20230928152150.png",
-    "zip/templates/yaml_metadata.md",
     "引擎Unreal/10 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/assets/1671947342168.png",
-    "编程/C++/《Effective C++ 3th》.md",
-    "编程/C++/《C++ Primer》.md",
     "zip/images/Pasted image 20230928150745.png",
     "zip/images/Pasted image 20230928150407.png",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
