@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cdada2c11a75616e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "引擎Unreal/07 Niagara/月神三期.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -129,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md"
+                "file": "引擎Unreal/07 Niagara/月神三期.md"
               }
             }
           },
@@ -139,7 +125,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md"
+                "file": "引擎Unreal/07 Niagara/月神三期.md"
               }
             }
           }
@@ -189,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "引擎Unreal/07 Niagara/月神三期.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -206,7 +192,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "图形学/1 图形系统/02 光栅化.md",
+                "file": "引擎Unreal/07 Niagara/月神三期.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -265,8 +251,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "cdada2c11a75616e",
+  "active": "15679188c6b7dce9",
   "lastOpenFiles": [
+    "引擎Unreal/07 Niagara/月神3/【月神3】杂项.md",
+    "引擎Unreal/07 Niagara/月神3/【月神3】正课.md",
+    "图形学/1 图形系统/02 光栅化.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/02 U++精粹/2 容器.md",
@@ -300,9 +289,6 @@
     "Math/概率论/概率论与数理统计.md",
     "Math/微积分/微积分基础.md",
     "图形学/3 全局光照GI/01 辐射度量学.md",
-    "图形学/3 全局光照GI/02 PBR理论.md",
-    "图形学/3 全局光照GI/06 全局光照GI.md",
-    "图形学/1 图形系统/09 阴影.md",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",
