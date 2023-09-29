@@ -1,9 +1,3 @@
-[《InsideUE4》GamePlay架构（一）Actor和Component - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/22833151)
-
-
-
-## Level 与 World
-
 
 ## GameMode 和GameState
 两个主要类负责处理进行中游戏的相关信息：**Game Mode** 和 **Game State**。

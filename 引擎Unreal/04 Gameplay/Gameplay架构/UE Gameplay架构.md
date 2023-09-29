@@ -228,12 +228,6 @@ TObjectPtr<AActor> ChildActorTemplate;
 
 ## Level
 
-> [!NOTE] 总结
-> - 一个或多个 Level 组成 World，每个 Level 保存当前所有的 Actors。
-> - WorldSetting 并不是设置 World 的属性（不要混肴），是针对 Level 的设置。仅代表当前一个关卡，并不是所有关卡。
-> - Level 作为 Actor 的容器，同时也划分了 World，一方面支持了 Level 的动态加载，另一方面也允许了团队的实时协作，大家可以同时并行编辑不同的 Level。
-> - 一般而言，一个玩家从游戏开始到结束，UE 会创造一个 GameWorld 给玩家并一直存在。玩家切换场景或关卡，也只是在这个 World 中加载释放不同的 Level。
-
 在 UE 的世界中，我们之前已经有了空气（C++）, 土壤（UObject），物件（Actor）。而现在 UE 又施展神力创建了一片片大陆（Level），在这片大陆上（. map 文件），Actor 们秩序井然，各种地形拔地而起，植被繁茂，天空雾云缭绕，圣光普照，这也是玩家们降生开始精彩冒险的地方。  
 
 ![[72477eba63e36061f9a9b028f933c3d9_MD5.png]]
@@ -341,12 +335,14 @@ void ALevelScriptActor::PreInitializeComponents()
 
 ![[db0281595e0687c54921e249851819e0_MD5.png]]
 
-Persistent 的意思是一开始就加载进 World，Streaming 是后续动态加载的意思。Levels 里保存有所有的当前已经加载的 Level，StreamingLevels 保存整个 World 的 Levels 配置列表。PersistentLevel 和 CurrentLevel 只是个快速引用。在编辑器里编辑的时候，CurrentLevel 可以指向其他 Level，但运行时 CurrentLevel 只能是指向 PersistentLevel。
+Persistent 的意思是一开始就加载进 World，Streaming 是后续动态加载的意思。Levels 里保存有所有的当前已经加载的 Level，StreamingLevels 保存整个 World 的 Levels 配置列表。PersistentLevel 和 CurrentLevel 只是个快速引用。**在编辑器里编辑的时候，CurrentLevel 可以指向其他 Level，但运行时 CurrentLevel 只能是指向 PersistentLevel。**
 
-**思考：为何要有主 PersistentLevel？**  
-首先，World 至少得有一个 Level，就像你也得先出生在一块大陆上才可以继续谈起去探索别的新大陆。所以这块玩家出生的大陆就是主 Level 了。当然了，因为我们也可以同时配置别的 Level 一开始就加载进来，其实跟 PersistentLevel 是差不多等价的，但再考虑到另一问题：Levels 拼接进 World 一起之后，各自有各自的 worldsetting，那整个 World 的配置应该以谁的为主？
+> [!question] 
+> **思考：为何要有主 PersistentLevel？**  
 
-```
+首先，World 至少得有一个 Level，就像你也得先出生在一块大陆上才可以继续谈起去探索别的新大陆。所以这块玩家出生的大陆就是主 Level 了。当然了，因为我们也可以同时配置别的 Level 一开始就加载进来，其实跟 PersistentLevel 是差不多等价的，**但再考虑到另一问题：Levels 拼接进 World 一起之后，各自有各自的 worldsetting，那整个 World 的配置应该以谁的为主？**
+
+```c++
 AWorldSettings* UWorld::GetWorldSettings( bool bCheckStreamingPesistent, bool bChecked ) const
 {
     checkSlow(IsInGameThread());
@@ -372,49 +368,43 @@ AWorldSettings* UWorld::GetWorldSettings( bool bCheckStreamingPesistent, bool bC
 }
 ```
 
-可以看出，World 的 Settings 也是以 PersistentLevel 为主的，但这也并不意味着其他 Level 的 Settings 就完全没有作用了，本篇也无法一一列出所有配置选项来说明，简单来说，就是需要在整个世界范围内起作用的配置选项（比如 VR 的 WorldToMeters，KillZ，WorldGravity 其他大部分都是）就是需要从主 PersistentLevel 的配置中提取。而一些配置选项可以在单独 Level 中起作用的，比如在编辑 Level 时的光照质量配置就是一个个 Level 单独的，目前这种配置很少，但可能以后也会增加。在这里只是阐明一个为主其他为辅的 Level 配置系统。
+**可以看出，World 的 Settings 也是以 PersistentLevel 为主的**，但这也并不意味着其他 Level 的 Settings 就完全没有作用了，本篇也无法一一列出所有配置选项来说明，简单来说，就是需要在整个世界范围内起作用的配置选项（比如 VR 的 WorldToMeters，KillZ，WorldGravity 其他大部分都是）就是需要从主 PersistentLevel 的配置中提取。而一些配置选项可以在单独 Level 中起作用的，比如在编辑 Level 时的光照质量配置就是一个个 Level 单独的，目前这种配置很少，但可能以后也会增加。在这里只是阐明一个为主其他为辅的 Level 配置系统。
 
-**思考：Levels 们的 Actors 和 World 有直接关系吗？**  
+> [!question] 
+> **思考：Levels 们的 Actors 和 World 有直接关系吗？**  
+
 当别的 Level 被添加进当前 World 之后，我们能直接在 WorldOutliner 里看到其他 Level 的 Actor 们。  
 
 ![[f574ef7fcefa7b1d4986b1ea6b322ac0_MD5.png]]
 
-但这并不代表着 World 直接引用了 Level 里的 Actor 们。TActorIteratorBase（World 的 Actor 迭代器）内部的实现也只是在遍历 Levels 来获得所有 Actor。当然 World 为了更快速的操作 Controllers 和 Pawn 也都保存了引用。但 Levels 却共享着 World 的一个 PhysicsScene，这也意味着 Levels 里的 Actors 的物理实体其实都是在 World 里的，这也好理解，毕竟物理的碰撞之类的当然要是全局的了。再说到导航，World 在拼接 Level 的时候，也是会同时把两个 Level 的导航网格给 “拼接” 起来的。当然目前还不是深入细节的时候，现在只要从大局上明白 World-Level-Actor 的关系。
+但这并不代表着 World 直接引用了 Level 里的 Actor 们。`TActorIteratorBase`（World 的 Actor 迭代器）内部的实现也只是在遍历 Levels 来获得所有 Actor。当然 World 为了更快速的操作 Controllers 和 Pawn 也都保存了引用。但 Levels 却共享着 World 的一个 PhysicsScene，这也意味着 Levels 里的 Actors 的物理实体其实都是在 World 里的，这也好理解，毕竟物理的碰撞之类的当然要是全局的了。再说到导航，World 在拼接 Level 的时候，也是会同时把两个 Level 的导航网格给 “拼接” 起来的。当然目前还不是深入细节的时候，现在只要从大局上明白 World-Level-Actor 的关系。
 
-**思考：为什么要在 Level 里保存 Actors，而不是把所有 Map 的 Actors 配置都生成在 World 一个总 Actors 里？**  
+> [!question] 
+> **思考：为什么要在 Level 里保存 Actors，而不是把所有 Map 的 Actors 配置都生成在 World 一个总 Actors 里？**  
+
 这肯定也是一种实现方式，好处是把整个 World 看成一个整体，所有的 actors 都从属于 world，这样就不存在 Level 边界，可以更整体的处理 Actors 的作用范围和判定问题，实现上也少了拼接导航等步骤。当然坏处也是模糊了 Level 边界，这样在加载进一个 Level 之后，之后再动态释放，就需要再重新再从整体中抽离出部分来释放，这个筛选过程也会产生比较大的损耗。试着去理解 UE 的权衡，应该是尽量的把损耗平摊（这里是把 Level 加载释放的损耗尽量减小），才不会产生比较大的帧率波动，让玩家感觉到卡帧。
 
 ## 总结
 
-Level 作为 Actor 的容器，同时也划分了 World，一方面支持了 Level 的动态加载，另一方面也允许了团队的实时协作，大家可以同时并行编辑不同的 Level。一般而言，一个玩家从游戏开始到结束，UE 会创造一个 GameWorld 给玩家并一直存在。玩家切换场景或关卡，也只是在这个 World 中加载释放不同的 Level。既然 Level 拥有了管理者（LevelScriptActor），玩家可以编写特定关卡的逻辑，那么我们能否对 World 这种层次编写逻辑呢？答案是肯定的，不过本文篇幅有限，敬请期待下篇。
 
-上篇：[《Inside UE4》GamePlay 架构（一）Actor 和 Component](https://zhuanlan.zhihu.com/p/22833151)
+ - 一个或多个 Level 组成 World，每个 Level 保存当前所有的 Actor。
+- WorldSetting 并不是设置 World 的属性（不要混肴），是针对 Level 的设置。仅代表当前一个关卡，并不是所有关卡。
+- Level 作为 Actor 的容器，同时也划分了 World，一方面支持了 Level 的动态加载，另一方面也允许了团队的实时协作，大家可以同时并行编辑不同的 Level。
+- 一般而言，一个玩家从游戏开始到结束，UE 会创造一个 GameWorld 给玩家并一直存在。玩家切换场景或关卡，也只是在这个 World 中加载释放不同的 Level。
 
-下篇：[《InsideUE4》GamePlayer 架构（三）WorldContext，GameInstance，Engine](https://zhuanlan.zhihu.com/p/23167068)
-
-_UE4.14_
-
----------------------------------------------------------------------------------------------------------------------------
-
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
-
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
-
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
-
-**个人原创，未经授权，谢绝转载！**
+既然 Level 拥有了管理者（LevelScriptActor），玩家可以编写特定关卡的逻辑，那么我们能否对 World 这种层次编写逻辑呢？答案是肯定的，不过本文篇幅有限，敬请期待下篇。
 
 # 3 WorldContext，GameInstance，Engine
 ## 引言  
 
-前文提到说一个 World 管理多个 Level，并负责它们的加载释放。那么，问题来了，一个游戏里是只有一个 World 吗？
+前文提到说一个 World 管理多个 Level，并负责它们的加载释放。那么，问题来了，**一个游戏里是只有一个 World 吗？**
 
 ## WorldContext
 
-答案是否定的，首先 World 就不是只有一种类型，比如编辑器本身就也是一个 World，里面显示的游戏场景也是一个 World，这两个 World 互相协作构成了我们的编辑体验。然后点播放的时候，引擎又可以生成新的类型 World 来让我们测试。简单来说，UE 其实是一个平行宇宙世界观。  
+**答案是否定的**，首先 World 就不是只有一种类型，比如编辑器本身就也是一个 World，里面显示的游戏场景也是一个 World，这两个 World 互相协作构成了我们的编辑体验。然后点播放的时候，引擎又可以生成新的类型 World 来让我们测试。简单来说，UE 其实是一个平行宇宙世界观。  
 以下是一些世界类型：
 
-```
+```c++
 namespace EWorldType
 {
 	enum Type
@@ -429,7 +419,7 @@ namespace EWorldType
 }
 ```
 
-而 UE 用来管理和跟踪这些 World 的工具就是 WorldContext：  
+**而 UE 用来管理和跟踪这些 World 的工具就是 `WorldContext`：**  
 
 ![[4d6b1ac2e1f7b9da9d34c1396b65b0b9_MD5.png]]
 
@@ -437,7 +427,7 @@ namespace EWorldType
 FWorldContext 保存着 ThisCurrentWorld 来指向当前的 World。而当需要从一个 World 切换到另一个 World 的时候（比如说当点击播放时，就是从 Preview 切换到 PIE），FWorldContext 就用来保存切换过程信息和目标 World 上下文信息。所以一般在切换的时候，比如 OpenLevel，也都会需要传 FWorldContext 的参数。一般就来说，对于独立运行的游戏，WorldContext 只有唯一个。而对于编辑器模式，则是一个 WorldContext 给编辑器，一个 WorldContext 给 PIE（Play In Editor）的 World。一般来说我们不需要直接操作到这个类，引擎内部已经处理好各种 World 的协作。  
 不仅如此，同时 FWorldContext 还保存着 World 里 Level 切换的上下文：
 
-```
+```c++
 struct FWorldContext
 {
     [...]
@@ -466,7 +456,7 @@ struct FWorldContext
 
 这里的 TravelURL 和 TravelType 就是负责设定下一个 Level 的目标和转换过程。  
 
-```
+```c++
 // Traveling from server to server.
 UENUM()
 enum ETravelType
