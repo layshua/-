@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
+                "file": "编程/6 UML/基础.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md"
+                "file": "编程/6 UML/基础.md"
               }
             }
           },
@@ -113,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md"
+                "file": "编程/6 UML/基础.md"
               }
             }
           }
@@ -163,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
+                "file": "编程/6 UML/基础.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
+                "file": "编程/6 UML/基础.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -240,10 +240,46 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "6ea84489302e84b4",
+  "floating": {
+    "id": "de76586a8fe56ef7",
+    "type": "floating",
+    "children": [
+      {
+        "id": "54e1b8eba743040b",
+        "type": "window",
+        "children": [
+          {
+            "id": "6b662e21b83d868d",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3a1e2b5baa102161",
+                "type": "leaf",
+                "state": {
+                  "type": "diagrams-net",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 349,
+        "y": 290,
+        "width": 737,
+        "height": 601,
+        "maximize": true,
+        "zoom": -0.5
+      }
+    ]
+  },
+  "active": "3a1e2b5baa102161",
   "lastOpenFiles": [
-    "Tools/Software/破解StarUML.md",
+    "zip/images/Pasted image 20230929143431.png",
     "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
+    "编程/6 UML/基础.md",
+    "编程/6 UML",
+    "Tools/Software/破解StarUML.md",
     "Tools/Software/激活office365.md",
     "zBuffer/StarUml 下载，安装和授权破解教程.md",
     "zip/images/ce0e3440e5630603757bff6434d0c525_MD5.gif",
@@ -259,8 +295,8 @@
     "Tools/Obsidian/插件流.md",
     "zip/images/Diagram 4.svg.xml",
     "Tools/工具流.md",
-    "编程/C++/2 STL标准库.md",
-    "编程/C++/1 C++ Primer.md",
+    "编程/1 C++/2 STL标准库.md",
+    "编程/1 C++/1 C++ Primer.md",
     "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
     "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
@@ -273,13 +309,11 @@
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
-    "编程/C++/程序运行原理.md",
+    "编程/1 C++/程序运行原理.md",
     "zBuffer/深入浅出静态链接和动态链接 - CSDN 博客.md",
-    "编程/算法/数据结构.md",
+    "编程/2 算法/数据结构.md",
     "编程/408",
-    "编程/算法/代码随想录.md",
-    "编程/算法/时空复杂度.md",
-    "编程/设计模式/工厂模式.md",
+    "编程/2 算法/代码随想录.md",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
@@ -289,7 +323,6 @@
     "引擎Unreal/网络",
     "引擎Unreal/02 U++精粹",
     "zip/templates/未命名.canvas",
-    "未命名",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
