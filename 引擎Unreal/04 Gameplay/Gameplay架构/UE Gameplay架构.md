@@ -2,7 +2,8 @@
 title: UE Gameplay架构
 create_time: 2023-09-29 17:05
 uid: "202309291705"
-reference: []
+reference:
+  - https://zhuanlan.zhihu.com/insideue4
 banner: "[[Pasted image 20230929170757.png]]"
 banner_header: 
 banner_y: 1
@@ -14,7 +15,7 @@ banner_lock: true
 ## UE 创世，万物皆 UObject，接着有 Actor。
 
 ### UObject:
-
+[[01 虚幻类#UObject 类]]
 起初，UE 创世，有感于天地间 C++ 原始之气一片混沌虚无，便撷取凝实一团 C++ 之气，降下无边魔力，洒下秩序之光，便为这个世界生成了坚实的土壤 UObject，并用 UClass 一一为此命名。
 
 ![[fdaabac496005895c71298f5274b99db_MD5.png]]
@@ -31,12 +32,15 @@ banner_lock: true
 脱胎自 Object 的 Actor 也多了一些本事：Replication（网络复制）,Spawn（生生死死），Tick(有了心跳)。  
 Actor 无疑是 UE 中最重要的角色之一，组织庞大，最常见的有 StaticMeshActor, CameraActor 和 PlayerStartActor 等。Actor 之间还可以互相 “嵌套”，拥有相对的“父子” 关系。
 
-**思考：为何 Actor 不像 GameObject 一样自带 Transform？**  
-我们知道，如果一个对象需要在 3D 世界中表示，那么它必然要携带一个 Transform matrix 来表示其位置。关键在于，在 UE 看来，Actor 并不只是 3D 中的 “表示”，一些不在世界里展示的“不可见对象” 也可以是 Actor，如 AInfo(派生类 AWorldSetting,AGameMode,AGameSession,APlayerState,AGameState 等)，AHUD,APlayerCameraManager 等，代表了这个世界的某种信息、状态、规则。你可以把这些看作都是一个个默默工作的灵体 Actor。所以，Actor 的概念在 UE 里其实不是某种具象化的 3D 世界里的对象，而是世界里的种种元素，用更泛化抽象的概念来看，小到一个个地上的石头，大到整个世界的运行规则，都是 Actor.  
-当然，你也可以说即使带着 Transform，把坐标设置为原点，然后不可见不就行了？这样其实当然也是可以，不过可能因为 UE 跟贴近 C++ 一些的缘故，所以设计哲学上就更偏向于 C++ 的哲学 “不为你不需要的东西付代价”。一个 Transform 再加上附带的逆矩阵之类的表示，内存占用上其实也是挺可观的。要知道 UE 可是会抠门到连 bool 变量都要写成 uint bPending:1; 位域来节省一个字节的内存的。  
-换一个角度讲，如果把带 Transform 也当成一个 Actor 的额外能力可以自由装卸的话，那其实也可以自圆其说。经过了 UE 的权衡和考虑，把 Transform 封装进了 SceneComponent, 当作 RootComponent。但在权衡到使用的便利性的时候，大部分 Actor 其实是有 Transform 的，我们会经常获取设置它的坐标，如果总是得先获取一下 SceneComponent，然后再调用相应接口的话，那也太繁琐了。所以 UE 也为了我们直接提供了一些便利性的 Actor 方法，如 (Get/Set)ActorLocation 等，其实内部都是转发到 RootComponent。
+> [!question] 思考：为何 Actor 不像 GameObject 一样自带 Transform？
+> 
+> 我们知道，如果一个对象需要在 3D 世界中表示，那么它必然要携带一个 Transform matrix 来表示其位置。关键在于，**在 UE 看来，Actor 并不只是 3D 中的 “表示”，一些不在世界里展示的“不可见对象” 也可以是 Actor，如 AInfo (派生类 AWorldSetting, AGameMode, AGameSession, APlayerState, AGameState 等)，AHUD, APlayerCameraManager 等，代表了这个世界的某种信息、状态、规则**。你可以把这些看作都是一个个默默工作的灵体 Actor。所以，Actor 的概念在 UE 里其实不是某种具象化的 3D 世界里的对象，而是世界里的种种元素，**用更泛化抽象的概念来看，小到一个个地上的石头，大到整个世界的运行规则，都是 Actor**.  
+> 
+> 当然，你也可以说即使带着 Transform，把坐标设置为原点，然后不可见不就行了？这样其实当然也是可以，不过可能因为 UE 跟贴近 C++ 一些的缘故，所以设计哲学上就更偏向于 C++ 的哲学 “不为你不需要的东西付代价”。一个 Transform 再加上附带的逆矩阵之类的表示，内存占用上其实也是挺可观的。要知道 UE 可是会抠门到连 bool 变量都要写成 uint bPending: 1; 位域来节省一个字节的内存的。  
+> 
+> 换一个角度讲，如果把带 Transform 也当成一个 Actor 的额外能力可以自由装卸的话，那其实也可以自圆其说。经过了 UE 的权衡和考虑，把 Transform 封装进了 SceneComponent, 当作 RootComponent。但在权衡到使用的便利性的时候，大部分 Actor 其实是有 Transform 的，我们会经常获取设置它的坐标，如果总是得先获取一下 SceneComponent，然后再调用相应接口的话，那也太繁琐了。所以 UE 也为了我们直接提供了一些便利性的 Actor 方法，如 (Get/Set)ActorLocation 等，其实内部都是转发到 RootComponent。
 
-```
+```c++
 /*~
  * Returns location of the RootComponent 
  * this is a template for no other reason than to delay compilation until USceneComponent is defined
@@ -65,9 +69,6 @@ bool AActor::SetActorLocation(const FVector& NewLocation, bool bSweep, FHitResul
 
 ## Component
 
-世界纷繁复杂，光有一种 Actor 可不够，自然就需要有各种不同技能的 Actor 各司其职。在早期的远古时代，每个 Actor 拥有的技能都是与生俱有，只能父传子一代代的传下去。随着游戏世界的越来越绚丽，需要的技能变得越来越多和频繁改变，这样一组合，唯出身论的 Actor 数量们就开始爆炸了，而且一个个也越来越胖，最后连 UE 这样的神也管理不了了。终于，到了第 4 个纪元，UE 窥得一丝隔壁平行宇宙 Unity 的天机。下定决心，让 Actor 们轻装上阵，只提供一些通用的基本生存能力，而把众多的 “技能” 抽象成了一个个 “Component” 并提供组装的接口，让 Actor 随用随组装，把自己武装成一个个专业能手。
-
-看见 UActorComponent 的 U 前缀，是不是想起了什么？没错，UActorComponent 也是基础于 UObject 的一个子类，这意味着其实 Component 也是有 UObject 的那些通用功能的。（关于 Actor 和 Component 之间 Tick 的传递后续再细讨论）
 
 **下面我们来细细看一下 Actor 和 Component 的关系：**  
 TSet<UActorComponent*> OwnedComponents 保存着这个 Actor 所拥有的所有 Component, 一般其中会有一个 SceneComponent 作为 RootComponent。  
@@ -84,22 +85,28 @@ ActorComponent 下面最重要的一个 Component 就非 SceneComponent 莫属�
 ![[6ed5ef4dbe67c9b5a2db08151d8bc1a0_MD5.jpg]]
 
   
-**思考：为何 ActorComponent 不能互相嵌套？而在 SceneComponent 一级才提供嵌套？**  
 
-首先，ActorComponent 下面当然不是只有 SceneComponent，一些 UMovementComponent，AIComponent，或者是我们自己写的 Component，都是会直接继承 ActorComponent 的。但很奇怪的是，ActorComponent 却是不能嵌套的，在 UE 的观念里，好像只有带 Transform 的 SceneComponent 才有资格被嵌套，好像 Component 的互相嵌套必须和 3D 里的 transform 父子对应起来。  
-老实说，如果让我来设计 Entity-Component 模式，我很可能会为了通用性而在 ActorComponent 这一级直接提供嵌套，这样所有的 Component 就与生俱来拥有了组合其他 Component 的能力，灵活性大大提高。但游戏引擎的设计必然也经过了各种权衡，虽然说架构上显得并不那么的统一干净，但其实也大大减少了被误用的机会。实体组件模式推崇的 “组合优于继承” 的概念确实很强大，但其实同时也带来了一些问题，如 Component 之间如何互相依赖，如何互相通信，嵌套过深导致的接口便利损失和性能损耗，真正一个让你随便嵌套的组件模式可能会在使用上更容易出问题。  
-从功能上来说，UE 更倾向于编写功能单一的 Component（如 UMovementComponent）, 而不是一个整合了其他 Component 的大管家 Component（当然如果你偏要这么干，那 UE 也阻止不了你）。  
-而从游戏逻辑的实现来说，UE 也是不推荐把游戏逻辑写在 Component 里面，所以你其实也没什么机会去写一个很复杂的 Component.
+> [!question] 思考：为何 ActorComponent 不能互相嵌套？而在 SceneComponent 一级才提供嵌套？
+> 首先，ActorComponent 下面当然不是只有 SceneComponent，一些 UMovementComponent，AIComponent，或者是我们自己写的 Component，都是会直接继承 ActorComponent 的。但很奇怪的是，ActorComponent 却是不能嵌套的，在 UE 的观念里，好像只有带 Transform 的 SceneComponent 才有资格被嵌套，好像 Component 的互相嵌套必须和 3D 里的 transform 父子对应起来。
+>   
+> 老实说，如果让我来设计 Entity-Component 模式，我很可能会为了通用性而在 ActorComponent 这一级直接提供嵌套，这样所有的 Component 就与生俱来拥有了组合其他 Component 的能力，灵活性大大提高。但游戏引擎的设计必然也经过了各种权衡，虽然说架构上显得并不那么的统一干净，但其实也大大减少了被误用的机会。实体组件模式推崇的 “组合优于继承” 的概念确实很强大，但其实同时也带来了一些问题，如 Component 之间如何互相依赖，如何互相通信，嵌套过深导致的接口便利损失和性能损耗，真正一个让你随便嵌套的组件模式可能会在使用上更容易出问题。  
+> 
+> 从功能上来说，UE 更倾向于编写功能单一的 Component（如 UMovementComponent）, 而不是一个整合了其他 Component 的大管家 Component（当然如果你偏要这么干，那 UE 也阻止不了你）。  
+> 而从游戏逻辑的实现来说，UE 也是不推荐把游戏逻辑写在 Component 里面，所以你其实也没什么机会去写一个很复杂的 Component.
 
-**思考：Actor 的 SceneComponent 哲学**  
-很多其他游戏引擎，还有一种设计思路是 “万物皆 Node”。Node 都带变换。比如说你要设计一辆汽车，一种方式是车身作为一个 Node,4 个轮子各为车身的子 Node，然后移动父 Node 来前进。而在 UE 里，一种很可能的方式就变成，汽车是一个 Actor，车身作为 RootComponent，4 个轮子都作为 RootComponent 的子 SceneComponent。请读者们细细体会这二者的区别。两种方式都可以实现出优秀的游戏引擎，只是有些理念和侧重点不同。  
-从设计哲学上来说，其实你把万物看成是 Node，或者是 Component，并没有什么本质上的不同。看作 Node 的时候，Node 你就要设计的比较轻量廉价，这样才能比较没有负担的创建多个，同理 Component 也是如此。Actor 可以带多个 SceneComponent 来渲染多个 Mesh 实体，同样每个 Node 带一份 Mesh 再组合也可以实现出同样效果。  
-个人观点来说，关键的不同是在于你是怎么划分要操作的实体的粒度的。当看成是 Node 时，因为 Node 身上的一些通用功能（事件处理等），其实我们是期望着我们可以非常灵活的操作到任何一个细小的对象，我们希望整个世界的所有物体都有一些基本的功能（比如说被拾取），这有点完美主义者的思路。而注重现实的人就会觉得，整个游戏世界里，有相当大一部分对象其实是不那么动态的。比如车子，我关心的只是整体，而不是细小到每一个车轱辘。这种理念就会导成另外一种设计思路：把要操作的实体按照功能划分，而其他的就尽量只是最简单的表示。所以在 UE 里，其实是把 5 个薄薄的 SceneComponent 表示再用 Actor 功能的盒子装了起来，而在这个盒子内部你可以编写操作这 5 个对象的逻辑。换做是 Node 模式，想编写操作逻辑的话，一般就来说就会内化到父 Node 的内部，不免会有逻辑与表现掺杂之嫌，而如果 Node 要把逻辑再用组合分离开的话，其实也就转化成了某种 ScriptComponent。
+> [!NOTE] **思考：Actor 的 SceneComponent 哲学**  
+>
+> 很多其他游戏引擎，还有一种设计思路是 “万物皆 Node”。Node 都带变换。比如说你要设计一辆汽车，一种方式是车身作为一个 Node, 4 个轮子各为车身的子 Node，然后移动父 Node 来前进。而在 UE 里，一种很可能的方式就变成，汽车是一个 Actor，车身作为 RootComponent，4 个轮子都作为 RootComponent 的子 SceneComponent。请读者们细细体会这二者的区别。两种方式都可以实现出优秀的游戏引擎，只是有些理念和侧重点不同。 
+>  
+> 从设计哲学上来说，其实你把万物看成是 Node，或者是 Component，并没有什么本质上的不同。看作 Node 的时候，Node 你就要设计的比较轻量廉价，这样才能比较没有负担的创建多个，同理 Component 也是如此。Actor 可以带多个 SceneComponent 来渲染多个 Mesh 实体，同样每个 Node 带一份 Mesh 再组合也可以实现出同样效果。  
+> 
+> 个人观点来说，关键的不同是在于你是怎么划分要操作的实体的粒度的。当看成是 Node 时，因为 Node 身上的一些通用功能（事件处理等），其实我们是期望着我们可以非常灵活的操作到任何一个细小的对象，我们希望整个世界的所有物体都有一些基本的功能（比如说被拾取），这有点完美主义者的思路。而注重现实的人就会觉得，整个游戏世界里，有相当大一部分对象其实是不那么动态的。比如车子，我关心的只是整体，而不是细小到每一个车轱辘。这种理念就会导成另外一种设计思路：把要操作的实体按照功能划分，而其他的就尽量只是最简单的表示。所以在 UE 里，其实是把 5 个薄薄的 SceneComponent 表示再用 Actor 功能的盒子装了起来，而在这个盒子内部你可以编写操作这 5 个对象的逻辑。换做是 Node 模式，想编写操作逻辑的话，一般就来说就会内化到父 Node 的内部，不免会有逻辑与表现掺杂之嫌，而如果 Node 要把逻辑再用组合分离开的话，其实也就转化成了某种 ScriptComponent。
 
-**思考：Actor 之间的父子关系是怎么确定的？**  
-你应该已经注意到了 Actor 里面的 TArray<AActor*> Children 字段，所以你可能会期望看到 Actor:AddChild 之类的方法，很遗憾。在 UE 里，Actor 之间的父子关系却是通过 Component 确定的。同一般的 Parent:AddChild 操作原语不同，UE 里是通过 Child:AttachToActor 或 Child:AttachToComponent 来创建父子连接的。
+> [!question] **思考：Actor 之间的父子关系是怎么确定的？**  
+> 
+> 你应该已经注意到了 Actor 里面的 TArray<AActor*> Children 字段，所以你可能会期望看到 Actor:AddChild 之类的方法，很遗憾。在 UE 里，Actor 之间的父子关系却是通过 Component 确定的。同一般的 Parent:AddChild 操作原语不同，UE 里是通过 `Child:AttachToActor` 或 `Child:AttachToComponent` 来创建父子连接的。
 
-```
+```c++
 void AActor::AttachToActor(AActor* ParentActor, const FAttachmentTransformRules& AttachmentRules, FName SocketName)
 {
     if (RootComponent && ParentActor)
@@ -122,7 +129,7 @@ void AActor::AttachToComponent(USceneComponent* Parent, const FAttachmentTransfo
 
 3D 世界里的 “父子” 关系，我们一般可能会认为就是 3D 世界里的变换的坐标空间 “父子” 关系，但如果再度扩展一下，如上所述，一个 Actor 可是可以带有多个 SceneComponent 的，这意味着一个 Actor 是可以带有多个 Transform“锚点”的。创建父子时，你到底是要把当前 Actor 当作对方哪个 SceneComponent 的子？再进一步，如果你想更细控制到 Attach 到某个 Mesh 的某个 Socket（关于 Socket Slot，目前可以简单理解为一个虚拟插槽，提供变换锚点），你就更需要去寻找到特定的变换锚点，然后 Attach 的过程分别在 Location,Roator,Scale 上应用 Rule 来计算最后的位置。  
 
-```
+```c++
 /** Rules for attaching components - needs to be kept synced to EDetachmentRule */
 UENUM()
 enum class EAttachmentRule : uint8
@@ -143,7 +150,7 @@ enum class EAttachmentRule : uint8
 **聊一聊 ChildActorComponent**  
 同作为最常用到的 Component 之一，ChildActorComponent 担负着 Actor 之间互相组合的胶水。这货在蓝图里静态存在的时候其实并不真正的创建 Actor，而是在之后 Component 实例化的时候才真正创建。
 
-```
+```c++
 void UChildActorComponent::OnRegister()
 {
     Super::OnRegister();
@@ -192,7 +199,7 @@ UE 终于听到了人民群众的呼声，在 4.14 里增加了 Child Actor Temp
 
 ![[50aefb50cc62c8b650889c838af882db_MD5.jpg]]
 
-```
+```c++
 /** The class of Actor to spawn */
 UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=ChildActorComponent, meta=(OnlyPlaceable, AllowPrivateAccess="true", ForceRebuildProperty="ChildActorTemplate"))
 TSubclassOf<AActor>	ChildActorClass;
@@ -208,40 +215,13 @@ TObjectPtr<AActor> ChildActorTemplate;
 
 最新的 UE 代码里已经提供了 ChildActorTemplate 这个对象，来为 ChildActorClass 生成一个 Actor 模板，方便我们编辑属性，之后在生成 ChildActor 的时候，可以把 ChildActorTemplate 身上的属性拷贝给 ChildActor，这样运作看起来就像生成了你配置的那个 Actor，也比较流畅自然了。
 
-## 后记
-
-花了这么多篇幅，才刚刚讲到 Actor 和 Component 这两个最基本的整体设计，而关于 Actor,Component 生命周期，Tick，事件传递等机制性的问题，还都没有展开。UE 作为从 1 代至今 4 代，久经磨练的一款成熟引擎，GamePlay 框架部分其实也就不到十个类，而这些类之间怎么组织，为啥这么设计，有什么权衡和考虑，我相信这里面其实是非常有讲究的。如果是 UE 的总架构师来讲解的话，肯定能有非常多的心得体会故事。而我们作为学习者，也应该尽量去体会琢磨它的用心，一方面磨练我们自己的架构设计能力，一方面也让我们更能掌握这个游戏的引擎。  
-从此篇开始，会循序渐进的探讨各个部分的结构设计，最后再从整体的框架上讨论该结构的优劣点。
-
-上篇：[《InsideUE4》基础概念](https://zhuanlan.zhihu.com/p/22814098)
-
-下篇：[《InsideUE4》GamePlay 架构（二）Level 和 World](https://zhuanlan.zhihu.com/p/22924838)
-
-## 引用
-
-1.  [Unreal Engine 4 Terminology](https://docs.unrealengine.com/latest/INT/GettingStarted/Terminology/index.html)
-
-1.  [Gameplay Framework Quick Reference](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/QuickReference/index.html)
-
-_UE4.14_
-
----------------------------------------------------------------------------------------------------------------------------
-
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
-
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
-
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
-
-**个人原创，未经授权，谢绝转载！**
-
 # 2 Level 和 World
 ## 引言  
 
 上文谈到 Actor 和 Component 的关系，UE 利用 Actor 的概念组成一片游戏对象森林，并利用 Component 组装扩展 Actor 的能力，让世界里拥有了形形色色的 Actor 们，拥有了自由表达 3D 世界的能力。  
 那么，这些 Actor 们，到底是怎么组织起来的呢？
 
-既然提到了世界，我们的直觉反应是采用一个 "World" 对象来包容所有的 Actor 们。但是当游戏的虚拟世界非常巨大时，这种方式就捉襟见肘了。首先，目前虽然 PC 的性能日益强大，但是依然内存也限制了不能一下子加载进所有的游戏资源；其次，因为玩家的活动和可见范围有限，为了最优性能，把即使是很远的跟玩家无关的对象也考虑进来也明显是不明智的。所以我们需要一种更细粒度的概念来划分世界。
+既然提到了世界，我们的直觉反应是采用一个 "World" 对象来包容所有的 Actor 们。但是当游戏的虚拟世界非常巨大时，这种方式就捉襟见肘了。首先，目前虽然 PC 的性能日益强大，但是依然内存也限制了不能一下子加载进所有的游戏资源；其次，因为玩家的活动和可见范围有限，为了最优性能，把即使是很远的跟玩家无关的对象也考虑进来也明显是不明智的。所以我们**需要一种更细粒度的概念来划分世界。**
 
 不同的游戏引擎们，看待这个过程的角度和理念也不一样。Cocos2dx 会认为游戏世界是由 Scene 组成的，Scene 再由一个个 Layer 层叠表现，然后再有一个 Director 来导演整个游戏。Unity 觉得世界也是由 Scene 组成的，然后一个 Application 来扮演上帝来 LoadLevel，后来换成了 SceneManager。其他的，有的会称为关卡（Level）或地图（map）等等。而 UE 中把这种拆分叫做关卡（Level），由一个或多个 Level 组成一个 World。  
 不要觉得这种划分好像很随意，只是个名字不同而已。实际上一个游戏引擎的 “世界观” 关系到了一整串后续的内容组织，玩家的管理，世界的生成，变换和毁灭。游戏引擎内部的资源的加载释放也往往都是和这种划分（Level）绑定在一起的。
