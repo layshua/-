@@ -2,10 +2,10 @@
 title: AI系统
 create_time: 2023-09-11 21:21
 uid: "202309112121"
-banner: "![[]]"
+banner: "[[Pasted image 20230929172419.png]]"
 reference: []
+banner_header: 
 ---
-
 # AI 感知系统
 除可用于决定所执行逻辑的[行为树](https://docs.unrealengine.com/5.2/zh-CN/behavior-trees-in-unreal-engine)，以及用于获取环境信息的[场景查询系统（EQS）](https://docs.unrealengine.com/5.2/zh-CN/environment-query-system-in-unreal-engine)之外，AI 框架中可用于为 AI 提供感官数据的另一个工具是 **AI 感知系统（AI Perception System）** 。通过 AI 感知组件实现。
 
