@@ -5,8 +5,8 @@
       "path": "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md"
     },
     {
-      "basename": "程序运行原理",
-      "path": "编程/C++/程序运行原理.md"
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "02 模块基础",
@@ -17,8 +17,8 @@
       "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
     },
     {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
+      "basename": "程序运行原理",
+      "path": "编程/C++/程序运行原理.md"
     },
     {
       "basename": "数据结构",

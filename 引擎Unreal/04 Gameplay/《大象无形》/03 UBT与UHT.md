@@ -2,9 +2,15 @@
 > [!question] 问题
 > 模块机制很厉害，但是模块是用什么样的方式配置、编译、启动和运行呢？大牛们常常提到的“UBT”和“UHT”又是什么呢？
 
-# UBT
+# UBT 虚幻引擎构建工具
 
 UBT 全称为 **UnrealBuildTool** ，虚幻引擎的构建工具。它主要负责分析 build.cs 和 Target.cs 等配置文件，并把虚幻的 .h 和 .cpp 文件编译并链接为二进制可执行文件 exe。
+
+> [!NOTE]
+> 它编译后生成的 exe 文件位于 Engine\Binaries\DotNET\UnrealBuildTool 目录，我们可以进入控制台（cmd）在这个目录，输入 UnrealBuildTool. exe 启动这个工具：
+> 
+> ![[5a8d1d6bae0871194740f988ca56f66c_MD5.jpg]]
+> 
 
 ![[60d60ced445bf2553f492337a2351578_MD5.jpg]]
 
@@ -16,45 +22,31 @@ UBT 全称为 **UnrealBuildTool** ，虚幻引擎的构建工具。它主要负�
 
 同时UBT也负责监视是否需要热加载。并且调用UHT收集各个模块的信息。
 
-请注意，UBT被设计为一个跨平台的构建工具，因此针对不同的平台有相对应的类来进行处理。UBT生成的makefil会被对应编译器平台的ProjectFileGenerater用于生成解决方案，而不是一开始就针对某个平台的解决方案来确定如何生成。
-### UHT
+请注意，UBT 被设计为一个跨平台的构建工具，因此针对不同的平台有相对应的类来进行处理。UBT 生成的 makefil 会被对应编译器平台的 ProjectFileGenerater 用于生成解决方案，而不是一开始就针对某个平台的解决方案来确定如何生成。
+## 完整编译流程
 
-而 UHT 的全称为 **UnrealHeaderTool，**意思是虚幻引擎的头文件工具，主要负责解析各个头文件，并分析其中的有 UCLASS()，USTRUCT()等前缀的类，以及 UFUNCTION()等前缀的函数，并且把这些类与函数等信息通过生成 (*.generate.h) 等代码反射给蓝图使用，如下图：
-
-![[1924824db73600cd0c5646c61ffc4777_MD5.jpg]]
-
-### 完整编译流程
-
-UBT 收集目录中的 *.cs 文件，解析各种编译配置；然后 UBT 调用 UHT 分析需要分析的 *.h 文件，根据文件是否有 UCLASS()，UFUNCTION（）等宏，来反射信息，并生成 *.generated.h 和 *.gen.cpp 文件；最后 UBT 调用 MSBuild，将相关 *.h/ *.cpp 代码，以及生成的 *.generated.h 和 *.gen.cpp 一起编译。
+1. UBT 收集目录中的 `*.cs` 文件，解析各种编译配置；
+2. 然后 UBT 调用 UHT 分析需要分析的 `*.h` 文件，根据文件是否有 `UCLASS ()`，`UFUNCTION()` 等宏，来反射信息，并生成 ` *.generated.h` 和 `*. gen.cpp` 文件；
+3. 最后 UBT 调用 MSBuild，将相关 `*.h/ *.cpp` 代码，以及生成的 `*.generated. h` 和 `*.gen.cpp` 一起编译。
 
 ![[30fc0c7e1f64141c9591546259720ca2_MD5.jpg]]
 
-## UBT 概述
-
-UBT 是用 C# 做的一个命令行可执行程序 exe，它的代码在 Engine\Source\Programs\UnrealBuildTool，我们可以在 UE5 的解决方案的 Programs 目录中找到它：
-
-![[fe840424eb723a2478debd037fc47322_MD5.jpg]]
-
-它编译后生成的 exe 文件位于 Engine\Binaries\DotNET\UnrealBuildTool 目录，我们可以进入控制台（cmd）在这个目录，输入 UnrealBuildTool.exe 启动这个工具：
-
-![[5a8d1d6bae0871194740f988ca56f66c_MD5.jpg]]
-
-### UBT 命令行模式
+## UBT 命令行模式
 
 **一，生成项目解决方案**
 
-我们知道当我们刚创建一个名为 MyGame 游戏项目时，会右键点击 MyGame.uproject，然后点击 “Generate Visual Studio project file” 以便生成 MyGame.sln 的解决方案，方便用 Visual Studio 打开它来编译。
+我们知道当我们刚创建一个名为 MyGame 游戏项目时，会右键点击 MyGame. uproject，然后点击 “Generate Visual Studio project file” 以便生成 MyGame. sln 的解决方案，方便用 Visual Studio 打开它来编译。
 
 ![[74500a8f59359cb267c68d829b8862ab_MD5.jpg]]
 
 其实，这个操作也能直接调用 UBT 的命令行来实现，我们先在命令行模式，cd 到 Engine\Binaries\DotNET\UnrealBuildTool 目录，然后输入：
 
-UnrealBuildTool.exe -projectfiles -project=I:/ue5/Projects/MyGame/MyGame.uproject -game -rocket -progress -log=I:/ue5/log1.txt  
-也可以生成 MyGame.sln 文件。
+UnrealBuildTool. exe -projectfiles -project=I:/ue5/Projects/MyGame/MyGame. uproject -game -rocket -progress -log=I:/ue5/log1. txt  
+也可以生成 MyGame. sln 文件。
 
 ![[742532f0b9380794279df474b7379c49_MD5.jpg]]
 
-同样，我们也可以在 Visual Studio 中调试这个 UnrealBuildTool 工具的 C# 源代码。我们先右键点击这个项目，然后点击 “属性”，在属性那里选择“调试”，然后在“命令行参数” 那里输入：-projectfiles -project=I:/ue5/Projects/MyGame/MyGame.uproject -game -rocket -progress -log=I:/ue5/log1.txt
+同样，我们也可以在 Visual Studio 中调试这个 UnrealBuildTool 工具的 C# 源代码。我们先右键点击这个项目，然后点击 “属性”，在属性那里选择“调试”，然后在“命令行参数” 那里输入：-projectfiles -project=I:/ue5/Projects/MyGame/MyGame. uproject -game -rocket -progress -log=I:/ue5/log1. txt
 
 如下图：  
 
@@ -68,13 +60,13 @@ UnrealBuildTool.exe -projectfiles -project=I:/ue5/Projects/MyGame/MyGame.uprojec
 
 我们也可以用 UBT 的命令行来编译一个 UE5 的项目，比如我们可以 cd 到 Engine\Binaries\DotNET\UnrealBuildTool 目录，然后输入：
 
-UnrealBuildTool.exe MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGame/MyGame.uproject
+UnrealBuildTool. exe MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGame/MyGame. uproject
 
 它就会编译 MyGame 项目在 Win64 平台的 Development Editor 配置的目标 exe 出来，如下：
 
 ![[a4d378601c6755849bb037444430b5fb_MD5.jpg]]
 
-我们看到第一个 参数为 MyGameEditor，这个是什么意思呢？它表示生成 MyGame 项目的 Editor 目标，即带 UE5 编辑器的目标，方便内部开发与调试。如果这个输入 MyGame 的话，它是编译发布给玩家的 game.exe，不带 UE5 编辑器，资源也必须提前 cook 好，不然运行不了程序。 其中，这两个命令是跟解决方案的 *.Target.cs 文件一一对应的，如下图：
+我们看到第一个参数为 MyGameEditor，这个是什么意思呢？它表示生成 MyGame 项目的 Editor 目标，即带 UE5 编辑器的目标，方便内部开发与调试。如果这个输入 MyGame 的话，它是编译发布给玩家的 game. exe，不带 UE5 编辑器，资源也必须提前 cook 好，不然运行不了程序。其中，这两个命令是跟解决方案的 *. Target. cs 文件一一对应的，如下图：
 
 ![[0a5d8a392ce82482fc017cce32733e9e_MD5.jpg]]
 
@@ -82,33 +74,56 @@ UnrealBuildTool.exe MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGa
 
 那么 UBT 我们先介绍到这里，如果读者对 UBT 本身的代码感兴趣的话，可以在 Visual Studio 把 UnrealBuildTool 项目设置为 “启动项目”，并且右击项目，点击“属性”，在属性那里选择“调试”，然后在“命令行参数” 输入类似：
 
-MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGame/MyGame.uproject
+MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGame/MyGame. uproject
 
 就能在 Visual Studio 中断点调试这个 UBT 工具本身的 C# 代码与原理了。笔者暂时对 UBT 的底层原理这块就不求甚解了。另外书中还详细提到了 WinMain 函数代码是怎么编译进 exe 的，这块有兴趣的同学也请自己参照下书本上的内容。
 
-下一节我们会分享代码反射与 UHT 工具的基本原理，敬请期待！
+# UHT 虚幻引擎头文件工具
 
-# UHT
-本节我们来重点学习一下 UHT 工具的概念。对应书中第 8.4 节道常无名：UBT 和 UHT 简介的后半节。
-
-## UHT 概述
-
-那么什么是 UHT 呢？UHT 的全称是 Unreal Header Tool，即虚幻头文件工具，它主要分析头文件，找出 UClass ()，UFUNCTION () 等标记，并把它反射给蓝图脚本用的工具：
+**UnrealHeaderTool**，虚幻引擎的头文件工具
+ 
+主要负责解析各个头文件，并分析其中的有 `UCLASS()`，`USTRUCT()`等前缀的类，以及` UFUNCTION()`等前缀的函数，并且把这些类与函数等信息通过生成 (`*.generate.h`) 等代码反射给蓝图使用，如下图：
 
 ![[1924824db73600cd0c5646c61ffc4777_MD5.jpg]]
 
-### UHT：一个引擎独立运行程序
+
+## UHT：一个引擎独立运行程序
+
+> [!NOTE] 作者定义的引擎独立程序
+> 引擎独立应用程序是指，这种应用程序依赖引擎。比如依赖 UBT 以
+>配置编译环境，从而能跨平台编译，依赖引擎的某些模块。
+>
+但是这样的应用程序又不是一个引擎，也不是一个游戏。它最终输出为一个.exe文件。但是又不需要引擎完全启动，甚至不需要Renderer模块，以至于有可能只是一个命令行工具——比如UHT。
 
 首先，UHT 是一个引擎独立程序，它是 C++ 写的一个 exe 程序，依赖部分引擎代码：
+通过虚幻引擎源代码，你会发现 UHT 拥有自己的.target.cs 和.build.cs文件。
 
+在其.target.cs文件中，它把自己设置为exe的输出模块。
+在.build.cs文件中，它指出了自己的依赖模块：
 ![[4bffd93405637610b09bdb97b9108575_MD5.jpg]]
-
-我们可以从 UnrealHeaderTool. Build. cs 中看到它其实也依赖少数引擎的核心模块：
 
 ![[b62435f0a48ec59af3fc237f671f3084_MD5.jpg]]
 
-在了解 UHT 的具体工作之前，我们需要先了解什么是反射。
+然后又包含了 Launch 模块的 public/private 文件夹，以便让自己能够调用GEngine->PreInit函数。
+最终，UHT会被编译成一个.exe文件，通过命令行参数调用。很奇妙不是吗？一个能够用来编译引擎的程序，居然依赖引擎本身。
+## UHT 大致工作流程
+UHT 的 Main 函数在 UnrealHeadToolMain.cpp 文件中。这个文件提供了 Main 函数，并且也通过 `IMPLEMENT_APPLICATION` 宏声明了这是个独立应用程序。
 
+具体执行的内容如下：
+1. 调用`GEngineLoop->PreInit`函数，初始化Log、文件系统等基础系统。从而允许借助UE_LOG宏输出log信息。
+2. 调用`UnrealHeaderTool_Main`函数，执行真正的工作内容。
+3. 调用`FEngineLoop::AppExit`退出。
+
+## UHT 做了什么
+首先，UBT 会通过命令行参数告诉 UHT，游戏模块对应的定义文件在哪。这个文件是一个. manifest 文件（由 UBT 生成），内容是 Json 字符串。这个字符串包含了所有 Module 的编译相关的信息。包括各种路径，以及预编译头文件位置等。
+
+然后 UHT 开始了自己的三遍编译：Public Classes Headers、PublicHeaders、Private Headers。第一遍其实是为了兼容虚幻引擎3时代的代码。虚幻引擎3时代的 Classes 文件夹会向 Unreal Script 暴露这些类。接下来的两遍则是解析头文件定义，并生成 C++代码以完成需要的功能。生成的代码会和现有代码一起联合编译以产生结果。
+
+> [!question] 问题
+> UHT 生成的是代码么？代码如何完成“类有哪些成员变量、成员函
+>数”这样的信息的注册呢？
+
+经过UHT的三遍编译，最终生成的是`.generated.cpp`和`.generated.h`这两种文件。
 ## 反射
 
 书中的给的定义就是，我们需要在运行时获取一个类，并且能获取这些类有哪些成员变量，成员函数；还能获取成员变量的名字等。C++ 本身并没有提供这样一套机制。所以需要自己实现。
@@ -125,7 +140,7 @@ MyGameEditor Win64 Development -Project=I:/ue5/Projects/MyGame/MyGame.uproject
 
 把项目名命名为 reflect1，然后，我们把初始代码修改如下：
 
-```
+```c++
 #include <iostream>
 
 using namespace std;
@@ -165,7 +180,7 @@ Quack!
 
 其实我们想要程序更为灵活一些，我们先用一种对象创建工厂的方法，我们在所有动物类定义之后，增加了一个 ClassFactory 的类，并且定义了这个类的一个全局静态实例变量：
 
-```
+```c++
 class ClassFactory
 {
 public:
@@ -190,7 +205,7 @@ static ClassFactory g_classFactory;
 
 然后，我们通过 cin 让用户输入自己想创建的类的名字，并且创建这个类的对象，让它叫一声：
 
-```
+```c++
 int main() {
 	cout << "please input the animal name: " << endl;
 	string name;
@@ -216,7 +231,7 @@ int main() {
 
 我们先修改一下 ClassFactory 的类代码，用一个 map 来管理所有类对象的创建，首先我们需要把 ClassFactory 的类定义移到最前，然后修改如下：
 
-```
+```c++
 // 前向声明基类
 class Animal;
 
@@ -252,7 +267,7 @@ static ClassFactory g_classFactory;
 
 然后我们需要增加一个注册动作类，主要需要给每个不同的类，提供注册动作相关：
 
-```
+```c++
 // 注册动作类，需要利用它的构造函数来注册指定类到 类工厂 （ClassFactory）
 class RegistAction
 {
@@ -270,7 +285,7 @@ public:
 
 如上，我们需要给每个类增加一个创建对象函数，并利用 RegistAction 静态变量把类信息注册到类工厂上。当然这两行代码我们也可以用一个宏来简化一下：
 
-```
+```c++
 #define REGIST(className) \
 	Animal *Create##className() { return new className(); } \
 	RegistAction g_RegAction##className(#className, Create##className)
@@ -280,7 +295,7 @@ public:
 
 最后我们整个测试程序的代码如下：
 
-```
+```c++
 #include <iostream>
 #include <string>
 #include <map>
@@ -380,7 +395,7 @@ int main() {
 
 首先，我们有一个 MyGame 的项目，我们定义了一个自己的 AMyActor 类，代码如下：
 
-```
+```c++
 UCLASS()
 class MYGAME_API AMyActor : public AActor
 {
@@ -419,7 +434,7 @@ public:
 
 ![[8c545aabeb3e8436853b4963385c52ef_MD5.jpg]]
 
-这里可以看到我们的成员变量 MyPlayerName 的反射代码。所以 UE5 是用 UHT 把 MyActor. h/cpp 自动生成 MyActor. generated. h 和 MyActor. gen. cpp 代码，这两个生成的代码就包括了把 UFUNCTION 的函数名以及实际函数地址，以及 UPROPERTY 的变量名与变量地址注册到某个字典。
+这里可以看到我们的成员变量 MyPlayerName 的反射代码。所以 UE5 是用 UHT 把 MyActor. h/cpp 自动生成 MyActor. generated. h 和 MyActor. gen. cpp 代码，**这两个生成的代码就包括了把 UFUNCTION 的函数名以及实际函数地址，以及 UPROPERTY 的变量名与变量地址注册到某个字典。**
 
 ## UHT 反射机制步骤
 
