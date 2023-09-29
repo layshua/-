@@ -1,8 +1,64 @@
 {
   "recentFiles": [
     {
+      "basename": "04 WorldContext，GameInstance，Engine",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/04 WorldContext，GameInstance，Engine.md"
+    },
+    {
+      "basename": "02 Actor 和 Component",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/02 Actor 和 Component.md"
+    },
+    {
+      "basename": "05 Pawn",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/05 Pawn.md"
+    },
+    {
+      "basename": "03 Level 和 World",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/03 Level 和 World.md"
+    },
+    {
+      "basename": "07 PlayerController 和 AIController",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/07 PlayerController 和 AIController.md"
+    },
+    {
+      "basename": "06 Controller",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/06 Controller.md"
+    },
+    {
+      "basename": "11 总结",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/11 总结.md"
+    },
+    {
+      "basename": "08 GameMode 和 GameState",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/08 GameMode 和 GameState.md"
+    },
+    {
+      "basename": "10 GameInstance",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/10 GameInstance.md"
+    },
+    {
+      "basename": "09 Player",
+      "path": "引擎Unreal/04 Gameplay/Gameplay架构/09 Player.md"
+    },
+    {
+      "basename": "GamePlay架构",
+      "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+    },
+    {
+      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
+      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
+    },
+    {
+      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
+      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
+    },
+    {
+      "basename": "UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客",
+      "path": "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md"
+    },
+    {
       "basename": "通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客",
-      "path": "zBuffer/通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客.md"
+      "path": "编程/6 UML/通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客.md"
     },
     {
       "basename": "1 C++ Primer",
@@ -15,10 +71,6 @@
     {
       "basename": "1 类型",
       "path": "引擎Unreal/02 U++精粹/1 类型.md"
-    },
-    {
-      "basename": "8_ 面向对象——UML 类图（Class Diagram）",
-      "path": "zBuffer/8_ 面向对象——UML 类图（Class Diagram）.md"
     },
     {
       "basename": "基础",
@@ -43,10 +95,6 @@
     {
       "basename": "2 STL标准库",
       "path": "编程/1 C++/2 STL标准库.md"
-    },
-    {
-      "basename": "《InsideUE4》基础概念",
-      "path": "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md"
     },
     {
       "basename": "10 十：UObject (一)",
@@ -79,10 +127,6 @@
     {
       "basename": "03 UBT与UHT",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md"
-    },
-    {
-      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
-      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
     },
     {
       "basename": "程序运行原理",
@@ -151,54 +195,6 @@
     {
       "basename": "蓝图精粹",
       "path": "引擎Unreal/03 蓝图/蓝图精粹.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "06 深度测试",
-      "path": "图形学/1 图形系统/06 深度测试.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "05 模板测试",
-      "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     }
   ],
   "omittedPaths": [],
