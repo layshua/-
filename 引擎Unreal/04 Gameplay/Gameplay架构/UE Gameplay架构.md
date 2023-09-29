@@ -223,10 +223,16 @@ TObjectPtr<AActor> ChildActorTemplate;
 
 既然提到了世界，我们的直觉反应是采用一个 "World" 对象来包容所有的 Actor 们。但是当游戏的虚拟世界非常巨大时，这种方式就捉襟见肘了。首先，目前虽然 PC 的性能日益强大，但是依然内存也限制了不能一下子加载进所有的游戏资源；其次，因为玩家的活动和可见范围有限，为了最优性能，把即使是很远的跟玩家无关的对象也考虑进来也明显是不明智的。所以我们**需要一种更细粒度的概念来划分世界。**
 
-不同的游戏引擎们，看待这个过程的角度和理念也不一样。Cocos2dx 会认为游戏世界是由 Scene 组成的，Scene 再由一个个 Layer 层叠表现，然后再有一个 Director 来导演整个游戏。Unity 觉得世界也是由 Scene 组成的，然后一个 Application 来扮演上帝来 LoadLevel，后来换成了 SceneManager。其他的，有的会称为关卡（Level）或地图（map）等等。而 UE 中把这种拆分叫做关卡（Level），由一个或多个 Level 组成一个 World。  
+不同的游戏引擎们，看待这个过程的角度和理念也不一样。 UE 中用关卡（Level）来划分世界，由一个或多个 Level 组成一个 World。  
 不要觉得这种划分好像很随意，只是个名字不同而已。实际上一个游戏引擎的 “世界观” 关系到了一整串后续的内容组织，玩家的管理，世界的生成，变换和毁灭。游戏引擎内部的资源的加载释放也往往都是和这种划分（Level）绑定在一起的。
 
 ## Level
+
+> [!NOTE] 总结
+> - 一个或多个 Level 组成 World，每个 Level 保存当前所有的 Actors。
+> - WorldSetting 并不是设置 World 的属性（不要混肴），是针对 Level 的设置。仅代表当前一个关卡，并不是所有关卡。
+> - Level 作为 Actor 的容器，同时也划分了 World，一方面支持了 Level 的动态加载，另一方面也允许了团队的实时协作，大家可以同时并行编辑不同的 Level。
+> - 一般而言，一个玩家从游戏开始到结束，UE 会创造一个 GameWorld 给玩家并一直存在。玩家切换场景或关卡，也只是在这个 World 中加载释放不同的 Level。
 
 在 UE 的世界中，我们之前已经有了空气（C++）, 土壤（UObject），物件（Actor）。而现在 UE 又施展神力创建了一片片大陆（Level），在这片大陆上（. map 文件），Actor 们秩序井然，各种地形拔地而起，植被繁茂，天空雾云缭绕，圣光普照，这也是玩家们降生开始精彩冒险的地方。  
 
@@ -238,12 +244,18 @@ TObjectPtr<AActor> ChildActorTemplate;
 
 ![[5980f02a5ea5f4f706d7c33329d8f688_MD5.jpg]]
 
-其实虽然名字叫做 WorldSettings，但其实只是跟 Level 相关，我猜可能是在上古时代，当时整个世界只有一块大陆，人们就以为当前的大陆就是整个世界，所以给这块大陆的设置就起名为 WorldSettings，后来等技术进步了，发现必须有其他大陆了，这个名字已经用得太多反而不好改了，就只好遗留下来了。当然也有可能是因为当 Level 被添加进 World 后，这个 Level 的 Settings 如果是主 PersistentLevel，那它就会被当作整个 World 的 WorldSettings。  
+**其实虽然名字叫做 WorldSettings，但其实只是跟 Level 相关**，我猜可能是在上古时代，当时整个世界只有一块大陆，人们就以为当前的大陆就是整个世界，所以给这块大陆的设置就起名为 WorldSettings，后来等技术进步了，发现必须有其他大陆了，这个名字已经用得太多反而不好改了，就只好遗留下来了。当然也有可能是因为当 Level 被添加进 World 后，这个 Level 的 Settings 如果是主 PersistentLevel，那它就会被当作整个 World 的 WorldSettings。  
 注意，Actors 里也保存着 AWorldSettings 和 ALevelScriptActor 的指针，所以 Actors 实际上确实是保存了所有 Actor。
 
-**思考：为何 AWorldSettings 要放进在 Actors[0] 的位置？而 ALevelScriptActor 却不用？**
+> [!question]  思考：为何 AWorldSettings 要放进在 Actors[0] 的位置？而 ALevelScriptActor 却不用？
+>
+> 实际上通过下面这段代码可知，Actors 们的排序依据是把那些 “非网络” 的 Actor 放在前面，而把 “网络可复制” 的 Actor 们放在后面，然后加一个起始索引标记 iFirstNetRelevantActor，相当于为网络 Actor 划分了一个缓存，从而加速了网络复制时的检测速度。
+> 
+> **AWorldSettings 因为都是静态的数据提供者，在游戏运行过程中也不会改变，不需要网络复制，所以也就可以一直放在前列，而如果再加个规则，一直放在第一个的话，也能同时把 AWorldSettings 和其他的前列 Actor 们再度区分开，在需要的时候也能加速判断。**
+> 
+>**ALevelScriptActor 因为是代表关卡蓝图，是允许携带 “复制” 变量函数的，所以也有可能被排序到后列。**
 
-```
+```c++
 void ULevel::SortActorList()
 {
     //[...]
@@ -276,14 +288,15 @@ void ULevel::SortActorList()
 }
 ```
 
-实际上通过这一段代码可知，Actors 们的排序依据是把那些 “非网络” 的 Actor 放在前面，而把 “网络可复制” 的 Actor 们放在后面，然后加一个起始索引标记 iFirstNetRelevantActor，相当于为网络 Actor 划分了一个缓存，从而加速了网络复制时的检测速度。AWorldSettings 因为都是静态的数据提供者，在游戏运行过程中也不会改变，不需要网络复制，所以也就可以一直放在前列，而如果再加个规则，一直放在第一个的话，也能同时把 AWorldSettings 和其他的前列 Actor 们再度区分开，在需要的时候也能加速判断。ALevelScriptActor 因为是代表关卡蓝图，是允许携带 “复制” 变量函数的，所以也有可能被排序到后列。
 
-**思考：既然 ALevelScriptActor 也继承于 AActor, 为何关卡蓝图不设计能添加 Component？**  
-观察到，平常我们在创建 Actor 的时候，我们蓝图界面是可以创建 Component 的。  
-那为什么在关卡蓝图里，却不能这么做（没有提供该界面功能）？  
-我虽然在图里标出了 Level 中拥有 ModelComponents，但那其实只是针对 BSP 应用的一个子集。通过源码发现，其实 UE 自己也是在 C++ 里往 ALevelScriptActor 添加 UInputComponent 来实现关卡蓝图可以响应事件。
 
-```
+> [!question] 思考：既然 ALevelScriptActor 也继承于 AActor, 为何关卡蓝图不设计能添加 Component？
+> 
+> 平常我们在创建 Actor 的时候，我们蓝图界面是可以创建 Component 的。  那为什么在关卡蓝图里，却不能这么做（没有提供该界面功能）？  
+> 我虽然在图里标出了 Level 中拥有 ModelComponents，但那其实只是针对 BSP 应用的一个子集。通过源码发现，其实 UE 自己也是在 C++ 里往 ALevelScriptActor 添加 UInputComponent 来实现关卡蓝图可以响应事件。
+> 
+
+```c++
 void ALevelScriptActor::PreInitializeComponents()
 {
     if (UInputDelegateBinding::SupportsInputDelegate(GetClass()))
@@ -306,10 +319,11 @@ void ALevelScriptActor::PreInitializeComponents()
 ![[05692ae305831c4fc34577f462cd4afa_MD5.png]]
 
 在关卡蓝图里的 self 其实也是个 Actor！虽然一般这么干也没什么毛用。  
-那么好好想想，为啥 UE 要给你这么一个关卡蓝图界面呢？  
-在此，我也只能进行一番猜测，ALevelScriptActor 作为一个特化的 Actor, 却把 Components 列表界面给隐藏了，说明 UE 其实是不希望我们去复杂化关卡构成的。  
+
+**那么好好想想，为啥 UE 要给你这么一个关卡蓝图界面呢？**  
+在此，我也只能进行一番猜测，ALevelScriptActor 作为一个特化的 Actor, 却把 Components 列表界面给隐藏了，**说明 UE 其实是不希望我们去复杂化关卡构成的。**  
 假设说 UE 开放了关卡 Component，那么我们在创建组件时就必然要考虑一个问题：哪些是 ActorComponent，哪些是 LevelComponent，再怎么 ALevelScriptActor 本质是个 Actor，但 Level 的概念还是要突出，ALevelScriptActor 的 Actor 本质是要隐藏的。所以用户就会多一些心智负担，可能混淆。而如果像这样不开放，大家的思路就都转向先创建个 Actor，然后再往之上添加 component，思路会比较统一清晰。  
-再之，从游戏逻辑的组织上来说，Level 其实更应该表现为一个 Actor 的容器。UE 其实也是不鼓励在 Level 里编写太复杂的逻辑的。所以才接着会有了之后的 GameMode, Controller 那些真正的逻辑控制类（后续会再细讨论）。  
+再之，从游戏逻辑的组织上来说，Level 其实更应该表现为一个 Actor 的容器。**UE 其实也是不鼓励在 Level 里编写太复杂的逻辑的。所以才接着会有了之后的 GameMode, Controller 那些真正的逻辑控制类（后续会再细讨论）。**  
 所以游戏引擎也并不是说最大化的暴露一切功能给你就是最好的，有时候选择太多了反而容易出错。在这一点上，我觉得 UE 很好的保持了克制，为我们提供了一个优秀的清晰的不易出错的框架，同时也对高阶用户保留了灵活性。
 
 ## World
@@ -323,7 +337,7 @@ void ALevelScriptActor::PreInitializeComponents()
 ![[5518cb072e076559c9320782e502e763_MD5.jpg]]
 
 具体摆放的操作和技巧并不是本文的重点。简单本质来说，就是一个 World 里有多个 Level，这些 Level 在什么位置，是在一开始就加载进来，还是 Streaming 运行时加载。  
-UE 里每个 World 支持一个 PersistentLevel 和多个其他 Level：  
+**UE 里每个 World 支持一个 PersistentLevel 和多个其他 Level：**  
 
 ![[db0281595e0687c54921e249851819e0_MD5.png]]
 
