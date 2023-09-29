@@ -5,6 +5,10 @@
       "path": "zBuffer/通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客.md"
     },
     {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
       "basename": "02 模块基础",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md"
     },
@@ -39,10 +43,6 @@
     {
       "basename": "2 STL标准库",
       "path": "编程/1 C++/2 STL标准库.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "《InsideUE4》基础概念",
