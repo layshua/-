@@ -41,5 +41,6 @@
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-codemirror-options",
   "table-editor-obsidian",
-  "obsidian-banners"
+  "obsidian-banners",
+  "obsidian-plantuml"
 ]
