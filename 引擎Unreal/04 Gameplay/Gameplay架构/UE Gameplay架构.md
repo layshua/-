@@ -480,13 +480,15 @@ void UEngine::SetClientTravel( UWorld *InWorld, const TCHAR* NextURL, ETravelTyp
 }
 ```
 
-粗略的流程是 UE 在 OpenLevel 的时候，先设置当前 World 的 Context 上的 TravelURL，然后在 UEngine:: TickWorldTravel 的时候判断 TravelURL 非空来真正执行 Level 的切换。具体的 Level 切换详细流程比较复杂，目前先从大局上理解整体结构。总而言之，WorldContext 既负责 World 之间切换的上下文，也负责 Level 之间切换的操作信息。  
+粗略的流程是 UE 在 OpenLevel 的时候，先设置当前 World 的 Context 上的 TravelURL，然后在 UEngine:: TickWorldTravel 的时候判断 TravelURL 非空来真正执行 Level 的切换。具体的 Level 切换详细流程比较复杂，目前先从大局上理解整体结构。**总而言之，WorldContext 既负责 World 之间切换的上下文，也负责 Level 之间切换的操作信息。**  
 
-**思考：为何 Level 的切换信息不放在 World 里？**  
-因为 UE 有一个逻辑，一个 World 只有一个 PersistentLevel（见上篇），而当我们 OpenLevel 一个 PersistentLevel 的时候，实际上引擎做的是先释放掉当前的 World，然后再创建个新的 World。所以如果我们把下一个 Level 的信息放在当前的 World 中，就不得不在释放当前 World 前又拷贝回来一遍了。  
+> [!question] 
+> **思考：为何 Level 的切换信息不放在 World 里？**  
+
+因为 UE 有一个逻辑，一个 World 只有一个 PersistentLevel（见上篇），而**当我们 OpenLevel 一个 PersistentLevel 的时候，实际上引擎做的是先释放掉当前的 World，然后再创建个新的 World**。所以如果我们把下一个 Level 的信息放在当前的 World 中，就不得不在释放当前 World 前又拷贝回来一遍了。  
 而 LoadStreamLevel 的时候，就只是在当前的 World 中载入对象了，所以其实就没有这个限制了。
 
-```
+```c++
 void UGameplayStatics::LoadStreamLevel(UObject* WorldContextObject, FName LevelName,bool bMakeVisibleAfterLoad,bool bShouldBlockOnLoad,FLatentActionInfo LatentInfo)
 {
 	if (UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject))
@@ -503,19 +505,29 @@ void UGameplayStatics::LoadStreamLevel(UObject* WorldContextObject, FName LevelN
 
 World->GetLatentActionManager () 其实也算是保存在当前 World 里了。  
 
-**思考：为何 World 和 Level 的切换要放在下一帧再执行？**  
+> [!question] 
+> **思考：为何 World 和 Level 的切换要放在下一帧再执行？**  
+
 首先 Level 的加载显然是比较慢的，需要载入 Map，相应的 Mesh，Material…… 等等。所以这个操作就必须异步化，异步的话其实就剩下两种方式，一种是先记录下来信息之后再执行；一种是命令模式立马往队列里压个命令之后再执行。注意，因为 OpenLevel 还要相应在主线程生成相应 Actor 对象，所以有些部分还是要在主线程完成的。这两种模式其实都可以达成需求，前者更加简单明了，后者相对统一。UE 也是个进化过来的引擎，也并不是所有的代码都完美无缺。猜想其实也是一开始这么简单就这么做了，后来也没有特别大的改动的动力就一直这样了。引擎最终比的是生产效率的提高，确实也不是代码有多优雅。
 
 ## GameInstance
 
-那么这些 WorldContexts 又是保存在哪里的呢？追根溯源：  
+那么这些 `WorldContexts` 又是保存在哪里的呢？追根溯源：  
 
 ![[b3c2ba26d2f5d1c20eba93180028298a_MD5.png]]
 
   
-GameInstance 里会保存着当前的 WorldConext 和其他整个游戏的信息。明白了 GameInstance 是比 World 更高的层次之后，我们也就能明白为何那些独立于 Level 的逻辑或数据要在 GameInstance 中存储了。  
+**GameInstance 里会保存着当前的 WorldConext 和其他整个游戏的信息**。明白了 GameInstance 是比 World 更高的层次之后，我们也就能明白为何那些独立于 Level 的逻辑或数据要在 GameInstance 中存储了。  
+
 这一点其实也很好理解，大凡游戏引擎都会有一个 Game 的概念，不管是叫 Application 还是 Director，它都是玩家能直接接触到的最根源的操作类。而 UE 的 GameInstance 因为继承于 UObject，所以就拥有了动态创建的能力，所以我们可以通过指定 GameInstanceClass 来让 UE 创建使用我们自定义的 GameInstance 子类。所以不论是 C++ 还是 BP，我们通常会继承于 GameInstance，然后在里面编写应用于整个游戏范围的逻辑。  
-因为经常有初学者会问到：我的 Level 切换了，变量数据就丟了，我应该把那些数据放在哪？再清晰直白一点，GameInstance 就是你不管 Level 怎么切换，还是会一直存在的那个对象！
+
+**因为经常有初学者会问到：我的 Level 切换了，变量数据就丟了，我应该把那些数据放在哪？再清晰直白一点，GameInstance 就是你不管 Level 怎么切换，还是会一直存在的那个对象！**
+
+- 游戏实例类的实例会在游戏开始时创建，并仅在游戏关闭时移除。
+- 关卡中的所有 Actor 和其他对象会完全销毁，并在每次关卡加载时重新产生。
+- 游戏实例类和它包含的数据在各个关卡之间保持不变。游戏实例类仅存在于每个客户端上，不进行复制。
+- 要分配游戏中使用的游戏实例类，前往"编辑”(Edit)>“项目设置”(Project Settings)>“地图和模式”(MapsModes)修改项目设置。
+![[Pasted image 20230115230553.png]]
 
 ## Engine
 
@@ -523,15 +535,15 @@ GameInstance 里会保存着当前的 WorldConext 和其他整个游戏的信息
 
 ![[fe68f967adb22cfeea680d61a78da666_MD5.png]]
 
-此处 UEngine 分化出了两个子类：UGameEngine 和 UEditorEngine。众所周知，UE 的编辑器也是 UE 用自己的引擎渲染出来的，采用的也是 Slate 那套 UI 框架。好处有很多，比如跨平台比较统一，UI 框架可以复用一套控件库，Dogfood 等等，此处不再细讲。所以本质上来说，UE 的编辑器其实也是个游戏！我们是在编辑器这个游戏里面创造我们自己的另一个游戏。话虽如此，但比较编辑器和游戏还是有一定差别的，所以 UE 会在不同模式下根据编译环境而采用不同的具体 Engine 类，而在基类 UEngine 里通过一个 WorldList 保存了所有的 World。
+此处 UEngine 分化出了两个子类：UGameEngine 和 UEditorEngine。众所周知，UE 的编辑器也是 UE 用自己的引擎渲染出来的，采用的也是 Slate 那套 UI 框架。好处有很多，比如跨平台比较统一，UI 框架可以复用一套控件库，Dogfood 等等，此处不再细讲。**所以本质上来说，UE 的编辑器其实也是个游戏**！我们是在编辑器这个游戏里面创造我们自己的另一个游戏。话虽如此，但比较编辑器和游戏还是有一定差别的，所以 UE 会在不同模式下根据编译环境而采用不同的具体 Engine 类，而在基类 UEngine 里通过一个 WorldList 保存了所有的 World。
 
 *   Standalone Game：会使用 UGameEngine 来创建出唯一的一个 GameWorld，因为也只有一个，所以为了方便起见，就直接保存了 GameInstance 指针。
 *   而对于编辑器来说，EditorWorld 其实只是用来预览，所以并不拥有 OwningGameInstance，而 PlayWorld 里的 OwningGameInstance 才是间接保存了 GameInstance.
 
 目前来说，因为 UE 还不支持同时运行多个 World（当前只能一个，但可以切换），所以 GameInstance 其实也是唯一的。提前说些题外话，虽然目前网络部分还没涉及到，但是当我们在 Editor 里进行 MultiplePlayer 的测试时，每一个 Player Window 里都是一个 World。如果是 DedicateServer 模式，那 DedicateServer 也会是一个 World。  
-最后实例化出来的 UEngine 实例用一个全局的 GEngine 变量来保存。至此，我们已经到了引擎的最根处:
+最后实例化出来的 UEngine 实例用一个全局的 `GEngine` 变量来保存。至此，我们已经到了引擎的最根处:
 
-```
+```c++
 //UnrealEngine\Engine\Source\Runtime\Engine\Private\UnrealEngine.cpp
 ENGINE_API UEngine*	GEngine = NULL;
 ```
@@ -555,39 +567,12 @@ class UGameplayStatics : public UBlueprintFunctionLibrary
 那作为 GamePlay 部分而言，我们还有一个问题：UE 是如何把在该对象结构上表达游戏逻辑的？  
 如果说：“程序 = 数据 + 算法”的话，那 UE 的 GamePlay 我们已经讨论完了数据部分，而下篇我们将开始讨论 UE 的游戏逻辑 “算法” 部分。
 
-上篇：[《InsideUE4》GamePlay 架构（二）Level 和 World](https://zhuanlan.zhihu.com/p/22924838)
-
-下篇：[《InsideUE4》GamePlay 架构（四）Pawn](https://zhuanlan.zhihu.com/p/23321666?refer=insideue4)
-
-_UE4.14_
-
----------------------------------------------------------------------------------------------------------------------------
-
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
-
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
-
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
-
-**个人原创，未经授权，谢绝转载！**
-
 # 4 Pawn
-我像是一颗棋  
-进退任由你决定  
-我不是你眼中唯一将领  
-却是不起眼的小兵
 
 ## 引言
 
 欢迎来到 GamePlay 架构章节的下半部分！  
 在上一篇的内容里，我们谈到了 UE 的 3D 游戏世界是由 Object->Actor+Component->Level->World->WorldContext->GameInstance->Engine 来逐渐层层构建而成的。那么从这下半章节开始，我们就将要开始逐一分析，UE 是如何在每一个对象层次上表达游戏逻辑的。和分析对象节点树一样，我们也将采用自底向上的方法，从最原始简单的对象开始。
-
-首先需要明确的是，本部分接下来要讲述的 UE 的 GamePlay 逻辑框架部分，只是讨论 UE 的设计思想和理念，并不是表示其在所有其他游戏引擎中是最优最完美的方案，同时当然也不是开发人员务必遵守的金科玉律，你依然可以也应该根据自己实际情况灵活变通。UE 经过了很多权衡设计和历史进化，最后选择了该设计方案，一方面和对象层级相辅相成，另一方面也提供了足够的自由度可以供你腾挪。  
-实现一个游戏业务功能的方式有多种，你应该尽量妥善的权衡你当前的现实情况，考虑生产效率、维护性、功能实现、易理解、性能等等多种因素，然后选择你认为最恰当的方式。如果你当前在制作一个快速原型 Demo，你大可以简单粗暴，我也不赞成时刻谨遵教条主义一定要分层拆分如何如何；而如果是面对一个正式的比较大型项目，随着规模的扩大，我们就得利用清晰的概念来帮助我们减轻心智负担。UE 作为一个老牌的经历了十几年风风雨雨的游戏引擎，也当然有它的一套 GamePlay 哲学。我们选择了 UE，接受了在 UE 的工作流之下工作，如果我们能比较好的理解它的概念和思想，就能更加的 “顺” 着它的思路，得心应手海阔任鱼跃。而如果我们 “逆” 着这个框架来搞自己的一套，一是不免有无法充分利用 UE 的嫌疑，二也是以 UE 的庞大和根深错节难免让你碰一头灰费力不讨好。
-
-**Note1**：虽然本部分会涉及到游戏的业务逻辑编写部分，但并不打算详细讨论 AI（BehaviorTree，Navigation 等）。AI 也是一个很大的话题，值得专门开个大章节讨论，我们现在不应该委屈她。  
-**Note2**：本部分也不会细讨论输入事件的处理，游戏逻辑确实一大部分是由输入事件驱动起来的，不过我们此时只是简单聊一下概念，后续会有章节再细讨论输入事件的路由流程。  
-**Note3**：联机游戏的游戏逻辑自然也是非常重要的，但为了简化本章节的概念，所以网络联机的逻辑同步等也都不会涉及。留待后续网络章节再好好的阐述。
 
 ## Component
 
