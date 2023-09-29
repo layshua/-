@@ -692,9 +692,16 @@ Note1：重申一下，Controller 特别是 PlayerController，跟网络，AI �
 ![[65338ebec11c6c740455b572516d8eb6_MD5.png]]
 
 跟我们的设计八九不离十，我们再一一仔细验证一番：  
-关联 Pawn 的能力，有 Possess 和 UnPossess，源码里也有 PawnPendingDestroy 等这些函数（未一一列出）；GameMode 中也保存着 AIControllerClass 和 PlayerControllerClass 的配置，用于在适当的时候 Spawn 出 Controller；继承于 Actor 也就有了 EnableInput 和 Tick；Controller 本身还可以继续派生下去（如 AIController 和 PlayerController），也可以容纳 Components；也带着一个 SceneComponent 所以可以摆放在世界中；自身也可以添加成员变量来记忆存储游戏状态；自身也有一个 FName StateName（Playing、Spectating、Inactive），切换自身的状态（运行，观察，非激活）；因为跟 Pawn 是平级的关系，只在运行的时候引用关联，所以对彼此独立存在不做强制约束，提高了灵活性。一个 Pawn 自身上也可以配置策略：
+- 关联 Pawn 的能力，有 Possess 和 UnPossess，源码里也有 PawnPendingDestroy 等这些函数（未一一列出）；
+- GameMode 中也保存着 AIControllerClass 和 PlayerControllerClass 的配置，用于在适当的时候 Spawn 出 Controller；
+- 继承于 Actor 也就有了 EnableInput 和 Tick；
+- Controller 本身还可以继续派生下去（如 AIController 和 PlayerController），也可以容纳 Components；
+- 也带着一个 SceneComponent 所以可以摆放在世界中；
+- 自身也可以添加成员变量来记忆存储游戏状态；
+- 自身也有一个 FName StateName（Playing、Spectating、Inactive），切换自身的状态（运行，观察，非激活）；
+- 因为跟 Pawn 是平级的关系，只在运行的时候引用关联，所以对彼此独立存在不做强制约束，提高了灵活性。一个 Pawn 自身上也可以配置策略：
 
-```
+```c++
 namespace EAutoReceiveInput
 {
     enum Type
@@ -728,22 +735,30 @@ TSubclassOf<AController> AIControllerClass;
 
 这样在运行时 UE 也可以根据 Pawn 创建配套的 Controller。毕竟只是为了阐明概念，而不是纠结技术细节，我对 Controller 的功能接口都只是粗略带过，如果读者自己去看 Contoller 的 UE 源码，顺便可以对我当前说的概念验证一下，还会发现一些 Movement 和 ViewPoint 的接口，这些也算是和控制移动和视角配套吧。  
 
-**思考：Controller 和 Pawn 必须 1:1 吗？**  
+>[!question] 
+> **思考：Controller 和 Pawn 必须 1:1 吗？**  
+
 观察 UE 实现里我们发现 Controller 里只是保存了一个 Pawn 指针，而不是数组，这和一开始希望的多对多关系有些出入。理想和现实总是有差距，一个愿景落实到工程实践上也不免得有一些妥协。首先我们再来梳理理解一下这个 Possess(拥有 / 占用) 的概念。一个 Controller 能灵活的 Possess/UnPossess 一个 Pawn，虽然一次只能控制一个，但在游戏中我们也可以在不同的 Pawn 中切换，比如操纵一个主角坐进然后控制一辆汽车，或者端起固定的机关枪扫射，这些功能琢磨一下其实只是涉及操作实体 Pawn 的变化。如果我们能妥善的用好 Pawn 和 Controller 的切换功能，大部分基本的游戏功能也是能够比较方便的实现的。那么有哪些是不太适合的呢？UE 官方其实也承认了，见 [Controller](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/Controller/index.html) 文档说明：
 
-By default, there is a one-to-one relationship between Controllers and Pawns; meaning, each Controller controls only one Pawn at any given time. This is acceptable for most types of games, but may need to be adjusted as certain types of games - real-time strategy comes to mind - may require the ability to control multiple entities at once.
+>默认情况下，控制器（Controller）和角色（Pawn）之间存在一对一的关系；也就是说，每个控制器在任何给定时间只能控制一个角色。这对于大多数类型的游戏来说是可以接受的，但对于某些类型的游戏，比如实时策略游戏，可能需要调整，以便同时控制多个实体。
 
 对于 RTS 这种需要一下子控制多个单位的游戏来说，这种 1v1 的关系确实比较僵硬，就需要在 Controller 里自己实现扩展一下，额外保存多个 Pawn，然后自己实现一些需要的控制实现，但总体上也只能说得绕一下，也算不上特别复杂，所以就也不能说 UE 做不了某一些类型的游戏，Epic 是个游戏引擎公司，卖的毕竟是个通用游戏引擎。  
-OK，那 UE 为何不实现成多对多呢？我觉得理由往往很简单，就是想保持一定的简单。游戏引擎的每个模块的设计，甚至函数接口的设计，无时无刻不在权衡决定。太简单了概念清晰用起来方便但是灵活扩展力不足，太灵活扩展无限了往往也会让人无从适从容易出错。当前 1:1 的时候，我们的脑袋逻辑很清晰，我们可以在 Controller 里直接 GetPawn，也可以在 Pawn 中 GetController，都非常方便。调试逻辑 Bug 的时候，我们也能很快找到查错的目标。而对比想象，如果是 M：N，灵活性是满满了，但是你能轻易的说出当前 Pawn 是被哪些 Controller 控制吗？你也得时时记着这个 Controller 当前控制了哪些 Pawn。OMG！这些 Pawn 和 Controller 多对多的构成了网状结构，项目越庞大复杂，这张网也越能套住你。再从另一个方面说，一旦提供了这种多对多的直接支持，以我们人类的性格，免费现成的东西，我们总是倾向于去找机会能用上它，而不是去琢磨到底应不应该用。所以一旦就这么直接提供了，对于刚入门的新手，压根就没什么指引，怎么来好像都可以，就非常容易收不住把项目逻辑关系搞得不必要的复杂。所以以后 UE 就算想在这一方面优化加强，应该也会比较克制。  
+
+**OK，那 UE 为何不实现成多对多呢？我觉得理由往往很简单，就是想保持一定的简单**。游戏引擎的每个模块的设计，甚至函数接口的设计，无时无刻不在权衡决定。太简单了概念清晰用起来方便但是灵活扩展力不足，太灵活扩展无限了往往也会让人无从适从容易出错。当前 1:1 的时候，我们的脑袋逻辑很清晰，我们可以在 Controller 里直接 GetPawn，也可以在 Pawn 中 GetController，都非常方便。调试逻辑 Bug 的时候，我们也能很快找到查错的目标。而对比想象，如果是 M：N，灵活性是满满了，但是你能轻易的说出当前 Pawn 是被哪些 Controller 控制吗？你也得时时记着这个 Controller 当前控制了哪些 Pawn。OMG！这些 Pawn 和 Controller 多对多的构成了网状结构，项目越庞大复杂，这张网也越能套住你。再从另一个方面说，一旦提供了这种多对多的直接支持，以我们人类的性格，免费现成的东西，我们总是倾向于去找机会能用上它，而不是去琢磨到底应不应该用。所以一旦就这么直接提供了，对于刚入门的新手，压根就没什么指引，怎么来好像都可以，就非常容易收不住把项目逻辑关系搞得不必要的复杂。所以以后 UE 就算想在这一方面优化加强，应该也会比较克制。  
+
 索性再聊开一些，我们用 Unity 来做一下对比。Unity 就是 GameObject+Component，你自己组合去吧，非常的灵活自由，也不做什么限制，但造成的后果就是常常各种 Component 互相引用来引用去，网状互联一团乱麻。另外几乎每个人都可以在上面搞出一套游戏系统出来，互相之间都是自成一派。所以经常网上就会有各种帖子问怎么在 Unity 中实现 MVC 模式的，也有分析炉石传说游戏逻辑框架的。Unity 当然是个好引擎，目前来说热度也是比 UE 要高一些，但我们也不能因为它火用得人多，就权威崇拜从众的认为 Unity 各个方面都比别的引擎好。设计架构游戏的时候，工程师们要抵挡住灵活性的诱惑，保持克制往往是更难得珍贵的美德。要认识到，引擎的终极目的是方便人使用的，我们程序员往往很容易太沉迷于程序功能的灵活强大，而疏忽了易用性鲁棒性等社会工程需求。
 
-**思考：为何 Controller 不能像 Actor 层级嵌套？**  
+> [!question] 
+> **思考：为何 Controller 不能像 Actor 层级嵌套？**  
+
 我们都知道 Actor 可以藉着身上的 SceneComponent 互相嵌套。那么 AController 同样也是 Actor，为何不也实现这么一个父子机制？从功能上来说，一个 Controller 可以有子 Controllers，听起来也是非常灵活强大啊。但是冷静想一下，Controller 表达的 “控制” 的概念，所以在这里你实际上想要表达的是一种 “控制” 互相嵌套的概念，感觉又给 “控制” 给分了层，有 “大控制”，也有“小控制”，但是“控制” 的“大小”又是个什么概念呢？我们应该怎么划分控制的大小？“控制”本质上来说就是一些代码，不管怎么设计，目的都是用来表达游戏游戏逻辑的。而针对游戏逻辑的复杂，怎么更好的管理组织逻辑代码，我们有状态机，分层状态机，行为树，GOAL（目标导向），甚至你还能搞些神经网络遗传算法机器学习啥的。所以在我们已经有这么多工具的基础上，徒增复杂性是很危险的做法。如果有必要，也可以把 Controller 本身再当作其他 AI 算法的容器，所以就没必要在对象层次上再做文章了。
 
-**思考：Controller 可以显示吗？**  
+> [!question] 
+> **思考：Controller 可以显示吗？**  
+
 既然 Actor 本身可以带着 Mesh 组件来渲染显示，那 Controller 可不可以呢？是不是 Controller 都是不可见的？这个答案可说是也可以说不是，因为 Controller 本身确实就是一个特殊点的 Actor 而已，你依然可以在 Controller 中添加 Mesh 组件，添加别的子 Actor 等，所以从这个方面说 Controller 是有可以渲染显示的能力的。但是一个控制者毕竟只是表达一个逻辑的概念，所以为了分工明确，UE 就干脆在 Controller 的构造函数里把自己给隐藏了：
 
-```
+```c++
 bHidden = true;
 #if WITH_EDITORONLY_DATA
     bHiddenEd = true;
@@ -752,12 +767,14 @@ bHidden = true;
 
 事了拂衣去，深藏功与名。为了验证我的说法，读者你可以亲自在 PlayController 下挂一些 Cube 之类的 Actor，然后在源码层把这两个值改为 false，重新编译运行看下结果，看能否正确显示出来，这里我就不贴图了，留给读者验证，很好玩的哦。  
 
-**思考：Controller 的位置有什么意义？**  
-既然 Controller 本身只是控制者，那它在场景中的位置和移动有什么意义吗？Controller 为何还需要个 SceneComponent? 意义在于如果 Controller 本身有位置信息，就可以利用该信息更好的控制 Pawn 的位置和移动。  
-首先说下 Controller 的 Rotation，这个比较好理解一点，如果我想让我的 Pawn 和 Controller 保持旋转朝向一致，因为是 Controller 作主控制 Pawn 的关系，所以 Controller 就得维护自己的 Rotation。再来说位置，如果 Controller 有自己的位置，这样在 Respawn 重新生成 Pawn 的时候，你就可以选择在当前位置创建。因此为了自动更新 Controller 的位置，UE 还提供了一个 bAttachToPawn 的开关选项，默认是关闭的，UE 不会自动的更新 Controller 的位置信息；而如果打开，就会把 Controller 附加到 Pawn 的子节点里面去，让 Controller 跟随 Pawn 来移动。你可以把这两种模式想象成一种是上帝视角在千里之外心电感应控制 Pawn，另一种是骑在 Pawn 肩上来指挥。  
+> [!question] 
+> **思考：Controller 的位置有什么意义？**  
+
+既然 Controller 本身只是控制者，那它在场景中的位置和移动有什么意义吗？Controller 为何还需要个 SceneComponent? **意义在于如果 Controller 本身有位置信息，就可以利用该信息更好的控制 Pawn 的位置和移动。**  
+首先说下 Controller 的 Rotation，这个比较好理解一点，如果我想让我的 Pawn 和 Controller 保持旋转朝向一致，因为是 Controller 作主控制 Pawn 的关系，所以 Controller 就得维护自己的 Rotation。再来说位置，如果 Controller 有自己的位置，这样在 Respawn 重新生成 Pawn 的时候，你就可以选择在当前位置创建。**因此为了自动更新 Controller 的位置，UE 还提供了一个 `bAttachToPawn` 的开关选项，默认是关闭的，UE 不会自动的更新 Controller 的位置信息；而如果打开，就会把 Controller 附加到 Pawn 的子节点里面去，让 Controller 跟随 Pawn 来移动**。你可以把这两种模式想象成一种是上帝视角在千里之外心电感应控制 Pawn，另一种是骑在 Pawn 肩上来指挥。  
 当然如果这个 Controller 确实只是纯朴的逻辑控制的话（如 AIController），那确实位置也没什么意义。所以 UE 甚至还隐藏了 Controller 的一些更新位置的接口，尽量避免让人手动去操纵：
 
-```
+```c++
 private:
     // Hidden functions that don't make sense to use on this class.
     HIDE_ACTOR_TRANSFORM_FUNCTIONS();
@@ -788,12 +805,14 @@ private:
 
 UE 这里其实想说的是，这些更新位置的操作还是让我来为你管理吧，我真的担心你会用错搞出什么乱子来。顺便再说些题外话，对于 PlayerController 来说，因为玩家需要一个视角来观察世界，所以常常 PlayerController 常常会扛着个摄像机出现（蓝图里没有，但是会运行时生成 PlayerCameraManager 和 CameraActor），所以就算没有角色可供操作，玩家也依然希望是可以视角漫游观察整个世界的（试试看把默认 Level 里的 PlayerStart 删掉后运行看看）。这个时候 PlayerController 常常会默认创建出一个 ASpectatorPawn 或者 DefaultPawn（根据 GameMode 里配置），我们虽然看不见 Pawn，但依然可以观察世界，靠得就是跟 Controller 关联的旋转和摄像机。  
 
-**思考：哪些逻辑应该写在 Controller 中？**  
+> [!question] 
+> **思考：哪些逻辑应该写在 Controller 中？**  
+
 如同当初我们在思考 Actor 和 Component 的逻辑划分一样，我们也得要划分哪些逻辑应该放在 Pawn 中，哪些应该放在 Contrller 中。上文我们也说过，Pawn 也可以接收用户输入事件，所以其实只要你愿意，你甚至可以脱离 Controller 做一个特立独行的 Pawn。那么在那些时候需要 Controller？哪些逻辑应该由 Controller 掌管呢？可以从以下一些方面考虑：
 
-*   从概念上，Pawn 本身表示的是一个 “能动” 的概念，重点在于 “能”。而 Controller 代表的是动到“哪里” 的概念，重点在于“方向”。所以如果是一些 Pawn 本身固有的能力逻辑，如前进后退、播放动画、碰撞检测之类的就完全可以在 Pawn 内实现；而对于一些可替换的逻辑，或者智能决策的，就应该归 Controller 管辖。
-*   从对应上来说，如果一个逻辑只属于某一类 Pawn，那么其实你放进 Pawn 内也挺好。而如果一个逻辑可以应用于多个 Pawn，那么放进 Controller 就可以组合应用了。举个例子，在战争游戏中，假设说有坦克和卡车两种战车（Pawn），只有坦克可以开炮，那么开炮这个功能你就可以直接实现在坦克 Pawn 上。而这两辆战车都有的自动寻找攻击目标功能，就可以实现在一个 Controller 里。
-*   从存在性来说，Controller 的生命期比 Pawn 要长一些，比如我们经常会实现的游戏中玩家死亡后复活的功能。Pawn 死亡后，这个 Pawn 就被 Destroy 了，就算之后再 Respawn 创建出来一个新的，但是 Pawn 身上保存的变量状态都已经被重置了。所以对于那些需要在 Pawn 之外还要持续存在的逻辑和状态，放进 Controller 中是更好的选择。
+*   从概念上，Pawn 本身表示的是一个 “能动” 的概念，重点在于 “能”。而 Controller 代表的是动到“哪里” 的概念，重点在于“方向”。**所以如果是一些 Pawn 本身固有的能力逻辑，如前进后退、播放动画、碰撞检测之类的就完全可以在 Pawn 内实现；而对于一些可替换的逻辑，或者智能决策的，就应该归 Controller 管辖。**
+*   从对应上来说，如**果一个逻辑只属于某一类 Pawn，那么其实你放进 Pawn 内也挺好。而如果一个逻辑可以应用于多个 Pawn，那么放进 Controller 就可以组合应用了**。举个例子，在战争游戏中，假设说有坦克和卡车两种战车（Pawn），只有坦克可以开炮，那么开炮这个功能你就可以直接实现在坦克 Pawn 上。而这两辆战车都有的自动寻找攻击目标功能，就可以实现在一个 Controller 里。
+*   从存在性来说，Controller 的生命期比 Pawn 要长一些，比如我们经常会实现的游戏中玩家死亡后复活的功能。Pawn 死亡后，这个 Pawn 就被 Destroy 了，就算之后再 Respawn 创建出来一个新的，但是 Pawn 身上保存的变量状态都已经被重置了。**所以对于那些需要在 Pawn 之外还要持续存在的逻辑和状态，放进 Controller 中是更好的选择。**
 
 ## APlayerState
 
