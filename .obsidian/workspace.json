@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Software/Office365/激活方法.md",
+                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Software/Office365/激活方法.md"
+                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md"
               }
             }
           },
@@ -113,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Tools/Software/Office365/激活方法.md"
+                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md"
               }
             }
           }
@@ -163,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Software/Office365/激活方法.md",
+                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Software/Office365/激活方法.md",
+                "file": "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -240,10 +240,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "dad50ea64651a45a",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "Tools/Software/破解StarUML.md",
+    "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
+    "Tools/Software/激活office365.md",
+    "zBuffer/StarUml 下载，安装和授权破解教程.md",
+    "zip/images/ce0e3440e5630603757bff6434d0c525_MD5.gif",
+    "zip/images/a2f2d3d6a398f3182ff5dff8491a6883_MD5.jpg",
+    "zip/images/9a13023c17934f475975ffdc8f524f9e_MD5.jpg",
+    "zip/images/01f643faa158d7114f9a300c977ab007_MD5.jpg",
+    "zip/images/4920888b402d4c69cf37f305651b7d1c_MD5.jpg",
+    "zip/images/c991cd6eb1a765ddfde61ec9e6dba4c8_MD5.jpg",
+    "zip/images/381f40af1e6d9e403deebfdb652f9c33_MD5.jpg",
+    "zip/images/7a9a1d6b394aa1664a5ec0de2c504776_MD5.jpg",
+    "zip/images/e09e1a952a464a6aac704be7acec13d0_MD5.jpg",
+    "zip/images/5af4695c8297d5f64c55ae7d7ca4469f_MD5.jpg",
+    "Tools/Obsidian/插件流.md",
     "zip/images/Diagram 4.svg.xml",
-    "zip/images/Diagram 4.svg",
     "Tools/工具流.md",
     "编程/C++/2 STL标准库.md",
     "编程/C++/1 C++ Primer.md",
@@ -262,23 +276,10 @@
     "编程/C++/程序运行原理.md",
     "zBuffer/深入浅出静态链接和动态链接 - CSDN 博客.md",
     "编程/算法/数据结构.md",
-    "zip/images/2037768-20ef368560491608.webp",
-    "zip/images/Pasted image 20230928215219.png",
     "编程/408",
     "编程/算法/代码随想录.md",
     "编程/算法/时空复杂度.md",
     "编程/设计模式/工厂模式.md",
-    "编程/C++/Cherno剩余.md",
-    "编程/C++/3 Effective C++.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/14 十四：渲染系统（二）.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md",
-    "zip/images/Pasted image 20230928152605.png",
-    "zip/images/Pasted image 20230928152538.png",
-    "zip/images/Pasted image 20230928152457.png",
-    "zip/images/Pasted image 20230928152420.png",
-    "zip/images/Pasted image 20230928152345.png",
-    "zip/images/Pasted image 20230928152150.png",
-    "引擎Unreal/10 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/assets/1671947342168.png",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
@@ -289,7 +290,6 @@
     "引擎Unreal/02 U++精粹",
     "zip/templates/未命名.canvas",
     "未命名",
-    "引擎Unreal/04 Gameplay/《大钊》",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
     "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",

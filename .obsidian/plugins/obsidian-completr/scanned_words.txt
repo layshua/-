@@ -13653,6 +13653,7 @@ cSu
 cVXg
 cuFk
 ccl
+checklicensevalidity
 github
 grey
 green
@@ -22015,6 +22016,7 @@ tEo
 tzjj
 tqn
 tyw
+toast
 markdown
 matter
 mod
@@ -26645,6 +26647,7 @@ mGa
 mKf
 mlF
 makefil
+menus
 windows
 win
 width
@@ -60283,6 +60286,8 @@ asnX
 abcoy
 aBe
 agf
+asar
+autoUpdater
 Roaming
 RegWorkshop
 Release
@@ -80569,6 +80574,8 @@ SNjj
 Svz
 SFbmx
 SWv
+StartUML
+StarUML
 Programs
 POP
 PC
@@ -103889,6 +103896,7 @@ pWM
 pmO
 pfr
 poUm
+pack
 nodesCatch
 nobr
 navy
@@ -135782,6 +135790,8 @@ sUph
 sjs
 sXs
 strlen
+showdialog
+startUML
 local
 list
 left
@@ -175285,6 +175295,7 @@ EKxD
 EPJ
 EwOL
 EiqIZ
+Electron
 xmlns
 xyz
 xy
@@ -187190,6 +187201,7 @@ DJJo
 DJwy
 DxZ
 Dvz
+Dialog
 LNK
 Log
 Linux
