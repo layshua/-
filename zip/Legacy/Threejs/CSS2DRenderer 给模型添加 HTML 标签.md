@@ -380,10 +380,3 @@ initListener() {
   }
 ```
 
-刷新浏览器，查看效果  
-
-![](1682178795839.png)
-
-ok，今天内容有点多，已经晚上一点了，就写到这里吧，有问题评论区留言，喜欢的小伙伴点赞关注收藏哦！
-
-我的博客即将同步至腾讯云开发者社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=2r6ku3l1vyyo4
