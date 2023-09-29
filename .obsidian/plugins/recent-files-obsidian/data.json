@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "C++原理",
-      "path": "编程/C++/C++原理.md"
+      "basename": "程序运行原理",
+      "path": "编程/C++/程序运行原理.md"
+    },
+    {
+      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
+      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
+    },
+    {
+      "basename": "1 类型",
+      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "数据结构",
@@ -79,10 +87,6 @@
     {
       "basename": "yaml_Banner",
       "path": "zip/templates/yaml_Banner.md"
-    },
-    {
-      "basename": "1 类型",
-      "path": "引擎Unreal/02 U++精粹/1 类型.md"
     },
     {
       "basename": "yaml_noBanner",
@@ -191,14 +195,6 @@
     {
       "basename": "1671947342168",
       "path": "引擎Unreal/10 教程剪藏/[译文]UE 基础—蓝图 VS_ C++/assets/1671947342168.png"
-    },
-    {
-      "basename": "3D数学",
-      "path": "图形学/0 3D数学/3D数学.md"
-    },
-    {
-      "basename": "月神三期",
-      "path": "引擎Unreal/06 渲染 & VFX/07 Niagara/月神三期.md"
     }
   ],
   "omittedPaths": [],

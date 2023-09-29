@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "23a076cd0cfa8eb8",
+            "id": "d347bb509aa8cb82",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,14 +26,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/1 类型.md",
+                "file": "编程/C++/程序运行原理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/C++/C++原理.md"
+                "file": "编程/C++/程序运行原理.md"
               }
             }
           },
@@ -86,7 +87,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/C++/C++原理.md"
+                "file": "编程/C++/程序运行原理.md"
               }
             }
           }
@@ -136,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "编程/C++/程序运行原理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/C++/C++原理.md",
+                "file": "编程/C++/程序运行原理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -213,10 +214,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "23a076cd0cfa8eb8",
+  "active": "dad50ea64651a45a",
   "lastOpenFiles": [
+    "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
+    "编程/C++/程序运行原理.md",
+    "zBuffer/深入浅出静态链接和动态链接 - CSDN 博客.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
     "编程/算法/数据结构.md",
-    "编程/C++/C++原理.md",
     "zip/images/2037768-20ef368560491608.webp",
     "zip/images/Pasted image 20230928215219.png",
     "编程/408",
@@ -239,10 +243,8 @@
     "引擎Unreal/04 Gameplay/《大象无形》/07 七：UHT.md",
     "zip/templates/论文_metadata.md",
     "zip/templates/yaml_Banner.md",
-    "引擎Unreal/02 U++精粹/1 类型.md",
     "zip/templates/yaml_noBanner.md",
     "引擎Unreal/04 Gameplay/《大象无形》/05 五：模块总结.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/04 四：模块初始化.md",
     "zip/images/Pasted image 20230928152605.png",
     "zip/images/Pasted image 20230928152538.png",
     "zip/images/Pasted image 20230928152457.png",

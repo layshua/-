@@ -135779,6 +135779,7 @@ sgf
 sUph
 sjs
 sXs
+strlen
 local
 list
 left
@@ -139882,6 +139883,7 @@ lTgc
 lFfM
 lblO
 lPcw
+libc
 YAML
 You
 YEBAYGhURFRofHx
