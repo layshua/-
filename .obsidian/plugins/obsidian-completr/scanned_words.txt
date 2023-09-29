@@ -26644,6 +26644,7 @@ mVcm
 mGa
 mKf
 mlF
+makefil
 windows
 win
 width
@@ -85315,6 +85316,7 @@ Phs
 PJo
 PqLWZXy
 PBOZlF
+ProjectFileGenerater
 ContextMenuManager
 ClashVerge
 Clash
@@ -139884,6 +139886,7 @@ lFfM
 lblO
 lPcw
 libc
+libary
 YAML
 You
 YEBAYGhURFRofHx
