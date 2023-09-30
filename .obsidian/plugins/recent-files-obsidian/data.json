@@ -5,16 +5,16 @@
       "path": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md"
     },
     {
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md"
+    },
+    {
       "basename": "5 U++编程规范",
       "path": "引擎Unreal/01 指南/5 U++编程规范.md"
     },
     {
       "basename": "1 UE指南",
       "path": "引擎Unreal/01 指南/1 UE指南.md"
-    },
-    {
-      "basename": "GAS精粹",
-      "path": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md"
     },
     {
       "basename": "1 Gameplay架构",

@@ -13,19 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "397decf1afe05f75",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
                 "mode": "source",
                 "backlinks": false,
@@ -59,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -240,12 +226,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "397decf1afe05f75",
+  "active": "d347bb509aa8cb82",
   "lastOpenFiles": [
-    "引擎Unreal/01 指南/5 U++编程规范.md",
-    "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
+    "引擎Unreal/01 指南/5 U++编程规范.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/04 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 U++精粹/7 多线程.md",
     "zip/images/1696083355324.png",
