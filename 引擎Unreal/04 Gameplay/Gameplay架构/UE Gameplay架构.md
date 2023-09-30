@@ -854,19 +854,22 @@ Controller 和网络的结合很紧密，很多机制和网络也非常强关联
 
 通过分化出来后的 Actor 的互相控制，既充分利用了现有的机制功能，又提供了足够的灵活性，而且做的更改还很少，不用再设计额外另一套框架。
 
-本想着一篇介绍完 Controller、PlayerController 和 AIController 这三个对象，但是 Controller 本身是 UE 里极为重要的核心概念，自身的功能非常的丰富，牵扯的模块也比较多，因此想抽离阐述最核心的概念和功能并不是一件容易的事。花了这么长的篇幅，只讨论揣摩了 Controller 的设计过程和最基本的职责（还有输入网络等都没有解释），顺便先简单介绍了下 PlayerState 出场（PlayerState 实际上是跟 UPlayer 关联更大一些，PlayerController 等后续章节会继续讨论它），对于 PlayerController 和 AIController，目前也只是语焉不详的含糊带过。不过还是希望读者们能从中吸取到设计的营养，把握清楚概念了，才能更好的组织游戏逻辑，开发出更好的游戏。
+本想着一篇介绍完 Controller、PlayerController 和 AIController 这三个对象，但是 Controller 本身是 UE 里极为重要的核心概念，自身的功能非常的丰富，牵扯的模块也比较多，因此想抽离阐述最核心的概念和功能并不是一件容易的事。
+
+花了这么长的篇幅，只讨论揣摩了 Controller 的设计过程和最基本的职责（还有输入网络等都没有解释），顺便先简单介绍了下 PlayerState 出场（PlayerState 实际上是跟 UPlayer 关联更大一些，PlayerController 等后续章节会继续讨论它），对于 PlayerController 和 AIController，目前也只是语焉不详的含糊带过。不过还是希望读者们能从中吸取到设计的营养，把握清楚概念了，才能更好的组织游戏逻辑，开发出更好的游戏。
 
 # 6 PlayerController 和 AIController
 
 ## 引言
 
 上文我们谈到了 Component-Actor-Pawn-Controller 的结构，追溯了 AController 整个家族的崛起和身负的使命。本篇我们继续来探讨 Controller 家族中最为人所知的 PlayerController 和 AIController。  
+
 作为一个 Controller，我们讨论的依然是该如何控制。我们已经知道了 Controller 可以 Possess 并控制 Pawn，但是 Controller 本身又是怎么驱动起来的呢？一个游戏里的控制角色大抵都可以分为两类：玩家和 AI。不管是单机游戏或者分屏多玩家，还是网络玩家联机对战，游戏都是为了玩家服务的，所以也必然会有一个或多个玩家，就算是如《山》那种纯看的游戏，也是有一个 “可观察不可动” 的玩家的。而 AI 的实体的数量就可以是零或者多个。  
 **Note1：** 依旧重申：输入、网络、AI 行为树等模块虽跟 PlayerController 和 AIController 关系紧密，但目前都暂且不讨论，留待各自模块章节再叙述。
 
 ## APlayerController
 
-让咱们先从简单的单机游戏开始讨论吧，比如一款单机 FPS 游戏，这个游戏里已经用各种各样的 Actor 们构建完成了世界场景，你的主角和敌人 Pawn 们也都在整装待发，这个时候你思考这么一个问题，我该怎么玩这个游戏？壮丽的舞台已经准备好了，就等你入场了。先抛开具体的引擎而言，首先你需要能看见（拥有 Camera 和位置），其次你必须能响应输入（玩家按 WASD 你应该能接收到），然后你可以根据输入操控一些 Pawn（Possess 然后传递 Input），这样一个单机游戏中的简单玩家控制器就差不多了。一个游戏中只有一个 PlayerController，在不同的关卡中你可以使用不同的 PlayerController，但是同一时刻响应的只能是一个 PlayerController。  
+让咱们先从简单的单机游戏开始讨论吧，比如一款单机 FPS 游戏，这个游戏里已经用各种各样的 Actor 们构建完成了世界场景，你的主角和敌人 Pawn 们也都在整装待发，这个时候你思考这么一个问题，我该怎么玩这个游戏？壮丽的舞台已经准备好了，就等你入场了。先抛开具体的引擎而言，首先你需要能**看见**（拥有 Camera 和位置），其次你必须能**响应输入**（玩家按 WASD 你应该能接收到），然后你可以根据输入操控一些 Pawn（**Possess 然后传递 Input**），这样一个单机游戏中的简单玩家控制器就差不多了。一个游戏中只有一个 PlayerController，在不同的关卡中你可以使用不同的 PlayerController，但是同一时刻响应的只能是一个 PlayerController。  
 
 插上多个手柄，咱们再拓展一下，比如像《街霸》那种单 PC 但是多玩家对抗或者协作的游戏。两个玩家可以分别用两个手柄，或者一个用键盘一个用鼠标，甚至是键盘上的不同区域，形式可以多种多样。这个时候如果依然只有一个 PlayerController，实现起来其实也是可行的，把两个手柄——所有的输入都由这个 PlayerController 来接收，然后在 PlayerController 内部再分别根据情况去处理不同的 Pawn。但是这种方式的缺点显然也在于很容易把玩家 1、2 的输入和控制混杂在一起，没有清晰的区分开。因此，为了支持这种情况，我们可以开始允许游戏中同时出现多个 PlayerController，每个 PlayerController 甚至都可以拥有自己的 Viewport（分屏或者不同窗口），这样我们通过配置，可以精确的路由手柄 1 的输入给玩家 1，各自的逻辑也很好的区分和复用。  
 再插上网线继续，到了网游时代，我们的游戏就开始允许有多人联机对战了。玩家在自己的 PC 上控制的只是自己的本地的角色，而屏幕游戏里其他的玩家角色是由网线另一端的玩家控制的。为了更好的适应这种情况，我们就又得扩展一下 PlayerController 的概念，PlayerController 不仅能控制本地的 Pawn，而且还能 “控制” 远程的 Pawn（实际上是通过 Server 上的 PlayerController 控制 Server 上的 Pawn，然后再复制到远程机器上的 Pawn 实现的）。  
@@ -876,12 +879,12 @@ Controller 和网络的结合很紧密，很多机制和网络也非常强关联
 
 PlayerController 因为是直接跟玩家打交道的逻辑类，因此是 UE 里使用最多的类之一。UE4.13.2 版本里 1632 行的. h 文件和 4686 行的. cpp 文件，里面实现了很多的功能，初阅读起来往往深陷其中不得要领。但是在上述的分析了之后，我们也可以在其中大概归纳出几个模块：
 
-*   Camera 的管理，目的都是为了控制玩家的视角，所以有了 PlayerCameraManager 这一个关联很紧密的摄像机管理类，用来方便的切换摄像机。PlayerController 的 ControlRotation、ViewTarget 等也都是为了更新 Camera 的位置。因为跟 Camera 的关系紧密，而 Camera 最后输出的是屏幕坐标里的图像，所以为了方便一些拾取的 HitResult 函数也都是实现在这里面。渲染章节会再详细介绍 UE 的摄像机管理。
-*   Input 系统，包括构建 InputStack 用来路由输入事件，也包括了自己对输入事件的处理。所以包含了 UPlayerInput 来委托处理。
-*   UPlayer 关联，既然顾名思义是 PlayerController，那自然要和 Player 对应起来，这也是 PlayerController 最核心的部分。一个 UPlayer 可以是本地的 LocalPlayer，也可以是一个网络控制 UNetConnection。PlayerController 只有在 SetPlayer 之后，才可以开始正常工作。
-*   HUD 显示，用于在当前控制器的摄像机面前一直显示一些 UI，这是从 UE3 迁移过来的组件，现在用 UMG 的比较多，等介绍 UI 模块的时候再详细介绍。
-*   Level 的切换，PlayerController 作为网络里通道，在一起进行 Level Travelling 的时候，也都是先通过 PlayerController 来进行 RPC 调用，然后由 PlayerController 来转发到自己 World 中来实际进行。
-*   Voice，也是为了方便网络中语音聊天的一些控制函数。
+*   **Camera 的管理**，目的都是为了控制玩家的视角，所以有了 `PlayerCameraManager` 这一个关联很紧密的摄像机管理类，用来方便的切换摄像机。PlayerController 的 ControlRotation、ViewTarget 等也都是为了更新 Camera 的位置。因为跟 Camera 的关系紧密，而 Camera 最后输出的是屏幕坐标里的图像，所以为了方便一些拾取的 HitResult 函数也都是实现在这里面。渲染章节会再详细介绍 UE 的摄像机管理。
+*   **Input 系统**，包括构建 InputStack 用来路由输入事件，也包括了自己对输入事件的处理。所以包含了 UPlayerInput 来委托处理。
+*   **UPlayer 关联**，既然顾名思义是 PlayerController，那自然要和 Player 对应起来，这也是 PlayerController 最核心的部分。一个 UPlayer 可以是本地的 LocalPlayer，也可以是一个网络控制 UNetConnection。PlayerController 只有在 SetPlayer 之后，才可以开始正常工作。
+*   **HUD 显示**，用于在当前控制器的摄像机面前一直显示一些 UI，这是从 UE3 迁移过来的组件，现在用 UMG 的比较多，等介绍 UI 模块的时候再详细介绍。
+*   **Level 的切换**，PlayerController 作为网络里通道，在一起进行 Level Travelling 的时候，也都是先通过 PlayerController 来进行 RPC 调用，然后由 PlayerController 来转发到自己 World 中来实际进行。
+*   **Voice**，也是为了方便网络中语音聊天的一些控制函数。
 
 简单来说，PlayerController 作为玩家直接控制的实体，很多的跟玩家直接相关的操作也都得委托它来完成。目前来说 PlayerController 里旗下的 100 + 的函数也大概可以分为以上几大模块，也根据需要重载了 Controller 里的一些其他函数。  
 UE 的思想是具象化一个 “玩家实体”，并把所有的跟该玩家相关的操作和接口都交给它完成。一般其他的游戏引擎只是个 “功能引擎”，提供了一些图形渲染 UI 系统等组件，但是在 GamePlay 这个层次就都非常欠缺了，一般都需要开发者自己搭建一套。而回想你写过的游戏，是不是也往往有一个 Player 类（一般是单件或者全局变量）？里面几乎是放着所有跟该玩家相关的业务逻辑代码。UE 里的 PlayerController 就是这种概念，优点当然是直接方便好理解，缺点也如你所见，会代码膨胀得比较快。不过目前来说还算能接受，等某一块功能真的比较大了之后，可以再把它抽出一个单独的类来，如 PlayerInput 和 PlayerCameraManager 一样。
