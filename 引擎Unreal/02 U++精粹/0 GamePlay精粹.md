@@ -8,9 +8,10 @@ banner_y: 0.322
 banner_header: 
 banner_icon: 🎮
 ---
-# 1 UObject
+# 虚幻类
+## UObject
 
-## 创建 Object
+### 创建 Object
 
 - **`UObject` 构造函数不支持参数**。所有的 C++ `UObject` 都会在引擎启动的时候初始化，然后引擎会调用其默认构造器。如果没有默认的构造器，那么 `UObject` 将不会编译。
 -  `UObject` 构造函数应该轻量化，仅用于设置默认的数值和子对象，构造时不应该调用其它功能和函数。
@@ -19,7 +20,7 @@ banner_icon: 🎮
 ---
 
 - **`NewObject<T>`** ：创建一个 `UObject` 实例，仅在运行时使用
-- **`CreateDefaultSubobject<TT>`** ：创建一个组件或者子对象，在构造函数中使用
+- **`CreateDefaultSubobject<T>`** ：创建一个组件或者子对象，在构造函数中使用
 
 例子：创建静态网格体
 ```c++
@@ -43,14 +44,14 @@ if(SphereVisualAsset.Succeeded())
 
 ```
 
-## 更新 Object
+### 更新 Object
 
 Ticking 代表虚幻引擎中对象的更新方式。所有 Actors 均可在每帧被 tick，便于您执行必要的更新计算或操作。
 
 -  `Actor` 和 Actor 组件在注册时会自动调用它们的 Tick 函数
 - **`UObjects` 不具有嵌入的更新能力。在必须的时候，可以使用 `inherits` 类说明符从 `FTickableGameObject` 继承即可添加此能力。**  这样即可实现 `Tick()` 函数，引擎每帧都将调用此函数。
 
-## 销毁 Object
+### 销毁 Object
 
 **`UPROPERTY` 宏定义对象不被引用后，垃圾回收系统将自动进行对象销毁。** 
 垃圾回收器会定期从根节点 Root 开始检查，当一个 UObject 没有被别的任何 UObject 引用，就会被垃圾回收。你可以通过 `AddToRoot` 函数来让一个 UObject 一直不被回收。
@@ -67,8 +68,8 @@ Obj = nullptr;
 - `Obj->MarkAsGarbage()` ：标记为垃圾
     - 标记为垃圾等待回收。如果 `gc.PendingKillEnabled=true` ，那么所有标记为 `PendingKill` 的对象会被垃圾回收器自动清空并销毁。
 
-## 查找
-### 按类型查找 Object
+### 查找
+#### 按类型查找 Object
 ```c++
 // 按类型查找UObject
 for (TObjectIterator<UMyObject> It; It; ++it)
@@ -77,15 +78,15 @@ for (TObjectIterator<UMyObject> It; It; ++it)
     // ...
 }
 ```
-### 从文件查找 Object
+#### 从文件查找 Object
 ```c++
 //从文件查找Object
 static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder")); 
 ```
 
-# 2 AActor 
+## AActor 
 对于 Actor 和 Actor 组件，初始化功能应该输入 **`BeginPlay()`** 方法。
-## 实例化 Actor
+### 实例化 Actor
 
 [Spawning Actors in Unreal Engine | 虚幻引擎5.2文档](https://docs.unrealengine.com/5.2/zh-CN/spawning-actors-in-unreal-engine/)
 
@@ -108,7 +109,7 @@ if(World)
     World->SpawnActor<ATreasure>(TreasureClasses, Location, GetActorRotation());
 }
 ```
-## 销毁 Actor
+### 销毁 Actor
 
 ```c++
 MyActor->Destroy(); //AActor销毁
@@ -116,7 +117,7 @@ MyActor->Destroy(); //AActor销毁
 
 即使 Actor 被调用了 `Destroy()`，并且被从关卡中移除，它还是会等到所有对它的引用都解除之后才会被垃圾回收。
 
-## 生命周期
+### 生命周期
 延迟 1s 销毁
 
 - 构造函数初始化生命周期 `InitialLifeSpan`
@@ -127,7 +128,7 @@ InitialLifeSpan = 8.0f;
 MyActor->SetLifeSpan(1); //延迟1s销毁
 ```
 
-## 禁用 Actor
+### 禁用 Actor
 ```c++
 // 隐藏可见组件
 MyActor->SetActorHiddenInGame(true);
@@ -139,8 +140,8 @@ MyActor->SetActorEnableCollision(false);
 MyActor->SetActorTickEnabled(false);
 ```
 
-## 查找/获取 Actor
-### 单个Actor
+### 查找/获取 Actor
+#### 单个Actor
 ```c++
 // 按名称查找Actor（也适用于UObject）
 AActor* MyActor = FindObject<AActor>(nullptr, TEXT("MyNamedActor"));
@@ -173,7 +174,7 @@ for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 
 ![[573de7ae173939da688330a4b765228d_MD5.jpg]]
 
-### Actor 数组
+#### Actor 数组
 ![[Pasted image 20230903002855.png]]
 ```c++
 TArray<AActor*> ActorsToFind;  
@@ -182,8 +183,8 @@ if(UWorld* World= GetWorld())
 UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(),AFireEffect::StaticClass(),FName("FireTag"),ActorsToFind);
 }
 ```
-## 标签Tags
-### 添加标签 Actor/ActorComponent 
+### 标签Tags
+#### 添加标签 Actor/ActorComponent 
 ```c++
 Tags.Add(FName("FireTag"));
 ```
@@ -199,7 +200,7 @@ MyActor.Tags.AddUnique(TEXT("MyTag"));
 // 组件有自己的标签数组
 MyComponent.ComponentTags.AddUnique(TEXT("MyTag"));
 ```
-### 比较标签 Actor/ActorComponent 
+#### 比较标签 Actor/ActorComponent 
 
 ```c++
 // 检查某个Actor是否有此标签
@@ -221,11 +222,11 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 ![[d1da59ffb195362329516a944aeabc1a_MD5.jpg]]
 
-## Damage
+### Damage
 `take damage` 函数
 ![[Pasted image 20230911143017.png]]
 
-##### DamageType 损坏类型
+###### DamageType 损坏类型
 
 顾名思义，损伤类型是一种用于描述损伤“类型”的对象，与损伤的起源无关。**如果你有很多损坏源，并且你想要它们之间有共同的功能，这可能是一个非常有用的概念。**
 
@@ -234,15 +235,15 @@ if (MyComponent->ComponentHasTag(FName(TEXT("MyTag"))))
 
 与其将代码复制到每一个可以烧毁玩家的角色（或每一种可能被烧毁的角色）中，您可以定义火的伤害类型（UDamageTypeFire），赋予它某种类型的HandleDamagedCharacter（）函数，并从TakeDamage（）调用链中适当地调用它。
 
-##### Instigator 煽动者
+###### Instigator 煽动者
 
 `Instigator`是造成损害的人，通常是 PlayerController 或 AIController。在火灾损坏的情况下，可能是玩家或 AI 点燃了火。
 
-##### DamageCauser 损坏原因
+###### DamageCauser 损坏原因
 
 `DamageCauser` 通常是造成损坏的原因，比如你刚刚走过的 ACampFire actor。
 
-#### Damage in C++ C++中的伤害
+##### Damage in C++ C++中的伤害
 
 Let’s look first at damage support in native code.   
 让我们先来看看本机代码中的损坏支持。
@@ -258,34 +259,34 @@ virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEv
 
 您会注意到TakeDamage（）调用接受DamageEvent作为参数。此`FDamageEvent`数据结构包含有关损坏事件的特定情况的数据，以便您的响应代码能够做出适当的反应。**UE4内置了三种类型的伤害事件。**
 
-##### FPointDamageEvent  点伤害事件
+###### FPointDamageEvent  点伤害事件
 
 点损伤事件模拟在受害者特定点施加的损伤，例如子弹或重拳。它包含撞击的方向和描述表面撞击的FHitResult。
 
-##### FRadialDamageEvent 径向伤害事件
+###### FRadialDamageEvent 径向伤害事件
 
 径向损伤事件模拟点源的径向损伤，爆炸就是一个明显的例子。它包含爆炸的震中、描述空间中损失衰减的数据以及受影响组件的列表。
 
-##### FDamageEvent F损坏事件
+###### FDamageEvent F损坏事件
 
 这是可用的最通用的损伤模型，**只包含一个可选的DamageTypeClass。**
 
 如果这些内置事件类型都不能满足您的需求，那么您**可以从FDamageEvent派生自己的结构，并存储所需的任何数据。**
 
-#### Damage in Blueprints 蓝图中的损坏
+##### Damage in Blueprints 蓝图中的损坏
 
 在蓝图中处理损坏是类似的，只是损坏应用程序和响应已经按事件类型进行了分解。有可全局访问的节点可用于造成伤害，如ApplyDamage、ApplyPointDamage和ApplyRadialDamage。为了响应损坏事件，该级别中的actor类和actor实例都有一组类似的“受到损坏”事件。
 
 如果您为项目定义自定义损坏事件，您可能希望公开一组类似的函数和委托，以便在蓝图中使用。
-# 3 Actor 组件
-## 注册
-### 注册组件
+## Actor 组件
+### 注册
+#### 注册组件
 引擎必须注册组件，才能让 Actor 组件能够逐帧更新。如果在 Actor 产生过程中，作为 Actor 子对象自动创建了组件，则这类组件会自动注册。
 但是游戏期间创建的组件可以使用手动注册。`RegisterComponent` 函数提供了这个功能，要求是组件与 Actor 关联。
 
 > [!NOTE] Title
 > 游戏期间注册组件可能会影响性能，因此只应在必要时进行此操作。
-### 注册事件
+#### 注册事件
 
 在注册组件的过程中，引擎会将组件与场景关联起来，让其可用于逐帧更新，并运行以下 `UActorComponent` 函数：
 
@@ -295,11 +296,11 @@ virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEv
 |`CreateRenderState`|初始化组件的[渲染状态](https://docs.unrealengine.com/4.26/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Components/#%E5%9C%BA%E6%99%AF%E4%BB%A3%E7%90%86)。|
 |`OnCreatePhysicsState`|初始化组件的[物理状态](https://docs.unrealengine.com/4.26/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Components/#%E7%89%A9%E7%90%86%E7%8A%B6%E6%80%81)。|
 
-### 取消注册
+#### 取消注册
 
 要从更新、模拟或渲染过程中移除 Actor 组件，可以使用 `UnregisterComponent` 函数将其取消注册。
 
-## 更新
+### 更新
 组件能够以类似于 Actor 的方法逐帧更新。`TickComponent` 函数允许组件逐帧运行代码。
 例如，**USkeletalMeshComponent** 使用其 `TickComponent` 函数来更新动画和骨架控制器，而 **UParticleSystemComponent** 使用 `TickComponent`更新其发射器和处理粒子事件`。
 
@@ -310,13 +311,13 @@ virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEv
 2. 之后，在构造函数中或其他位置处，必须调用 `PrimaryComponentTick.SetTickFunctionEnable(true)` 以开启更新。
 3. 之后可调用 `PrimaryComponentTick.SetTickFunctionEnable(false)` 停用 tick。
 4. 如果您知道组件永远不需要更新，或者打算手动调用自己的更新函数（也许从拥有的 Actor 类），将 `PrimaryComponentTick.bCanEverTick` 保留为默认值 `false` 即可，这样可以稍微改善性能。
-### 渲染状态
+#### 渲染状态
 
 为进行渲染，Actor 组件必须创建渲染状态。此渲染状态还会告诉引擎，需要更新渲染数据的组件已发生变更。当发生此类变更时，渲染状态会被标记为"dirty"。
 如果编译您自己的组件，可以使用 `MarkRenderStateDirty` 函数将渲染数据标记为 dirty。在一帧结束时，所有 dirty 组件的渲染数据都会在引擎中更新。
 **场景组件（包括 Primitive 组件）默认会创建渲染状态，而 Actor 组件则不会。**
 
-### 物理状态
+#### 物理状态
 
 要与引擎的物理模拟系统交互，Actor 组件需要物理状态。物理状态会在发生变化时立即更新，防止出现"帧落后"瑕疵等问题，也不需要"dirty"标记。
 **默认情况下，`UActorComponent` 和 `USceneComponent` 没有物理状态，但 `UPrimitiveComponent` 有。** 
@@ -325,7 +326,7 @@ virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEv
 - 如果类使用物理，则不建议只返回 `true`。请参阅函数的 `UPrimitiveComponent` 版本，了解不应创建物理状态的情况（例如在组件破坏期间）。
 - 在正常返回 `true` 的情况下，还可以返回 `Super::ShouldCreatePhysicsState`。
 
-## 可视化组件
+### 可视化组件
  
 **可视化组件**：**只在编辑器中工作时存在的普通组件。** 用于辅助开发，在编辑器中运行时或运行打包版本时不会打包这些组件。
 
@@ -365,18 +366,18 @@ void UCameraComponent::OnRegister()
 }
 ```
 
-## 销毁
+### 销毁
 
 ```c++
 MyActorComponent->DestroyComponent(); //销毁UActorComponent
 ```
 
-## 获取组件依附的 Actor
+### 获取组件依附的 Actor
 
 ```c++
 AActor* ParentActor = MyComponent->GetOwner();
 ```
-## 获取 Actor 上的组件
+### 获取 Actor 上的组件
 
 ```c++
 UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
@@ -384,7 +385,7 @@ UMyComponent* MyComp = MyActor->FindComponentByClass<UMyComponent>();
 
 ![[e5c08b782929e1ae15f583195a515fb2_MD5.jpg]]
 
-## 设置组件层级关系
+### 设置组件层级关系
 - **`RootComponent` 或 `SetRootComponent()`**：设置根组件
 - **`SetupAttachment`**：将场景组件附加指定组件。**在构造函数中、以及处理尚未注册的组件时使用**
 - **`AttachToComponent`**：将场景组件附加到指定组件。**在游戏进行中使用**
@@ -402,9 +403,9 @@ paddle3->AttachToComponent(body, FAttachmentTransformRules::KeepRelativeTransfor
 
 ```
 
-## 各类组件创建与初始化
+### 各类组件创建与初始化
 
-### UStaticMeshComponent
+#### UStaticMeshComponent
 
 ```cpp
 paddle1 = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("paddle1"));
@@ -415,7 +416,7 @@ if (paddleMesh.Object != nullptr)
 }
 ```
 
-### UBoxComponent
+#### UBoxComponent
 
 ```cpp
 outCollison = CreateDefaultSubobject<UBoxComponent>(TEXT("outCollison"));
@@ -425,7 +426,7 @@ outCollison->SetCollisionProfileName(TEXT("WorldDynamic"));
 outCollison->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 ```
 
-### USphereComponent
+#### USphereComponent
 
 ```cpp
 sphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
@@ -445,7 +446,7 @@ void Amissile::Overlaphandler(UPrimitiveComponent* OverlappedComponent,
 				const FHitResult& SweepResult){}
 ```
 
-### USkeletalMeshComponent
+#### USkeletalMeshComponent
 
 ```cpp
 SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComp"));
@@ -453,7 +454,7 @@ SkeletalMeshComp->SetGenerateOverlapEvents(true);
 SkeletalMeshComp->SetSimulatePhysics(true);
 ```
 
-### USpringArmComponent 和 UCameraComponent
+#### USpringArmComponent 和 UCameraComponent
 
 ```cpp
 springArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
@@ -462,7 +463,7 @@ cameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 cameraComp->SetupAttachment(springArmComp);
 ```
 
-### UPhysicsThrusterComponent
+#### UPhysicsThrusterComponent
 
 ```cpp
 upThrusterComp = CreateDefaultSubobject<UPhysicsThrusterComponent>(TEXT("upThrusterComp"));
@@ -472,7 +473,7 @@ upThrusterComp->ThrustStrength = 980.0f;
 upThrusterComp->SetAutoActivate(true);
 ```
 
-### UTextRenderComponent
+#### UTextRenderComponent
 
 ```cpp
 CountdownText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("CountdownNumber"));
@@ -488,7 +489,7 @@ projectileMovementComp = CreateDefaultSubobject<UProjectileMovementComponent>(TE
 projectileMovementComp->InitialSpeed = 500.0f;
 ```
 
-## 类型转换
+### 类型转换
 
 在此例中，我们获取了一个已知的组件，将其转换为特定类型，然后判断能否执行一些操作。
 ```c++
@@ -502,8 +503,8 @@ if (SphereCollider != nullptr)
 }
 ````
 
-# 4 Pawn 类
-## 获取 Pawn
+## Pawn 类
+### 获取 Pawn
 
 ```c++
 //GetPlayerPawn()
@@ -513,7 +514,7 @@ APawn* myPawn = Cast<ADrone>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 APawn* myPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 ```
 
-## PlayerController 控制玩家
+### PlayerController 控制玩家
 Pawn 默认的 AutoPossessPlayer 是未设置的，设为 Player0 即代表着将控制权交给 World 中第一个 Controller。如果是多人游戏就会有多个Player
 ![[Pasted image 20230904133218.png]]
 
@@ -522,7 +523,7 @@ AutoPossessPlayer = EAutoReceiveInput::Player0;
 ```
 ![[Pasted image 20230829162058.png]]
 
-## PlayerController 控制旋转
+### PlayerController 控制旋转
 飞行物 Pawn可以开启这两项，
 ![[Pasted image 20230904162541.png]]
 
@@ -569,8 +570,8 @@ void AMyCharacter::LookUp(float Value)
 ```
 
 
-# 5 Character
-## 获取 Character
+## Character
+### 获取 Character
 ```c++
 //GetPlayerCharacter
 ACharacter* myPawn = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
@@ -578,14 +579,14 @@ ACharacter* myPawn = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
 //GetCharacter
 ACharacter* myPawn = GetWorld()->GetFirstPlayerController()->GetCharacter();
 ```
-# 6 Controller
-## 获取 Actor 的 controller
+## Controller
+### 获取 Actor 的 controller
 ```c++
 GetController(); //获取Controller
 Cast<AAIController>(GetController()); //获取AIController
 ```
 
-## 获取 playerController
+### 获取 playerController
 可配合 Cast 转换成对应的 controller
 
 `UGameplayStatics::GetPlayerController`
@@ -598,7 +599,7 @@ APlayerController* OurPlayerController = UGameplayStatics::GetPlayerController(t
 ```c++
 APlayerController* playerController = GetWorld()->GetFirstPlayerController();
 ```
-## 查找 Player 位置
+### 查找 Player 位置
 ```c++
 FVector MyCharacter = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
 ```
@@ -1009,12 +1010,24 @@ Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 ```
 
 # 10 粒子
-```c++
+Niagara 系统
+```c++ title:粒子系统
 //声明
-UPROPERTY()  
+UNiagaraSystem* HitParticle;
+
+//Spawn
+UNiagaraFunctionLibrary::SpawnSystemAtLocation(this,HitParticle,GetActorLocation(),GetActorRotation());
+
+//发射一次
+UGameplayStatics::SpawnEmitterAtLocation(World, HitParticle, ImpactPoint);
+```
+
+Niagara 系统组件
+```c++ 
+//声明
 UParticleSystemComponent* OurParticleSystemComponent;
 
-// 创建粒子系统  
+// 创建粒子系统组件
 OurParticleSystemComponent = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("MovementParticles"));  
 OurParticleSystemComponent->SetupAttachment(SphereVisual);  
 OurParticleSystemComponent->bAutoActivate = false;  
@@ -1033,7 +1046,85 @@ UNiagaraComponent* NiagaraComponent;
 NiagaraComponent->Deactivate(); //关闭
 
 ```
+# 音效
+```c++
+USoundBase* PickUpSound;
 
+UGameplayStatics::PlaySoundAtLocation(this, PickUpSound, GetActorLocation());
+```
+# 动画
+## 蒙太奇 Montage
+```c++
+//声明
+UAnimMontage* AttackMontage;
+
+//播放指定SectionName的蒙太奇片段
+void ABaseCharacter::PlayMontageSection(UAnimMontage* AnimMontage, const FName& SectionName)
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+
+	if (AnimInstance && AnimMontage)
+	{
+		AnimInstance->Montage_Play(AnimMontage);
+		AnimInstance->Montage_JumpToSection(SectionName, AnimMontage);
+	}
+}
+
+
+```
+# 玩法
+## 不同受击方向
+```c++
+void ABaseCharacter::DirectionHitReact(const FVector& ImpactPoint)
+{
+	//点积计算Forward和ToHit的夹角，来确定播放hit动画
+	const FVector Forward = GetActorForwardVector();
+	const FVector ImpactLowered = FVector(ImpactPoint.X, ImpactPoint.Y, GetActorLocation().Z); //固定冲击点z轴，方便计算方向
+	const FVector ToHit = (ImpactLowered - GetActorLocation()).GetSafeNormal();
+	const double CosTheta = FVector::DotProduct(Forward, ToHit);
+	double Theta = FMath::Acos(CosTheta);
+	Theta = FMath::RadiansToDegrees(Theta); //弧度转角度
+
+	//叉积判断Hit点在Forward的左边还是右边
+	//左边叉积方向为正，右边为负
+	const FVector CrossProduct = FVector::CrossProduct(Forward, ToHit);
+	if (CrossProduct.Z < 0)
+	{
+		Theta *= -1; //右边为负角度，即顺时针角度从Forward为0开始：0~90~180~-90~0
+	}
+
+	FName SectionName;
+	if (Theta >= -45.0f && Theta <= 45.0f)
+	{
+		SectionName = FName("FrontHit");
+	}
+	else if (Theta > 45.0f && Theta <= 135.0f)
+	{
+		SectionName = FName("LeftHit");
+	}
+	else if (Theta < -45.0f && Theta >= -135.0f)
+	{
+		SectionName = FName("RightHit");
+	}
+	else
+	{
+		SectionName = FName("BackHit");
+	}
+	PlayHitReactMontage(SectionName);
+}
+```
+## 道具拾取
+子组件吸附到父组件的 Socket 上
+```c++
+void AWeaponBase::AttachComponentToSocket(USceneComponent* InParentComponent, UStaticMeshComponent* InChildComponent,
+                                          FName InSocketName)
+{
+	const FAttachmentTransformRules AttachmentTransformRules(EAttachmentRule::SnapToTarget,
+	                                                         EAttachmentRule::SnapToTarget,
+	                                                         EAttachmentRule::SnapToTarget, true);
+	InChildComponent->AttachToComponent(InParentComponent, AttachmentTransformRules, InSocketName);
+}
+```
 # 保存游戏
 [在虚幻引擎中保存和加载游戏 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/saving-and-loading-your-game-in-unreal-engine/)
 

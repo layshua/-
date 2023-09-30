@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/02 U++精粹/4 委托.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -227,13 +226,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "51be16d524ea4847",
+  "active": "d347bb509aa8cb82",
   "lastOpenFiles": [
-    "引擎Unreal/02 U++精粹/5 定时器.md",
+    "README.md",
+    "引擎Unreal/02 U++精粹/4 委托.md",
     "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/02 U++精粹/5 定时器.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-    "README.md",
     "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "引擎Unreal/04 Gameplay/游戏开发工程",
     "引擎Unreal/04 Gameplay/《insider UE》/1 Gameplay架构.md",
@@ -267,7 +267,6 @@
     "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
     "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md",
     "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md",
     "编程/408",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/01 指南/Rider",
