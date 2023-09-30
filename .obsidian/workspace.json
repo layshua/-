@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
               }
             }
           },
@@ -86,7 +86,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md"
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
               }
             }
           }
@@ -136,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md",
+                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -215,8 +215,9 @@
   },
   "active": "d347bb509aa8cb82",
   "lastOpenFiles": [
+    "引擎Unreal/04 Gameplay/《insider UE》/1 Gameplay架构.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
-    "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md",
     "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/发布方案.md",
     "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
@@ -250,7 +251,6 @@
     "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md",
     "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "编程/1 C++/程序运行原理.md",
     "zBuffer/深入浅出静态链接和动态链接 - CSDN 博客.md",
     "编程/408",
