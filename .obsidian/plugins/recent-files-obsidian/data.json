@@ -5,12 +5,20 @@
       "path": "引擎Unreal/04 Gameplay/Gameplay架构/UE Gameplay架构.md"
     },
     {
-      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
-      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
-    },
-    {
       "basename": "GamePlay架构",
       "path": "引擎Unreal/04 Gameplay/GamePlay架构.md"
+    },
+    {
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "发布方案",
+      "path": "Tools/Obsidian/发布方案.md"
+    },
+    {
+      "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
+      "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
     },
     {
       "basename": "01 虚幻类",
@@ -163,10 +171,6 @@
     {
       "basename": "激活office365",
       "path": "Tools/Software/激活office365.md"
-    },
-    {
-      "basename": "插件流",
-      "path": "Tools/Obsidian/插件流.md"
     },
     {
       "basename": "工具流",

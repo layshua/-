@@ -889,13 +889,15 @@ PlayerController 因为是直接跟玩家打交道的逻辑类，因此是 UE �
 简单来说，PlayerController 作为玩家直接控制的实体，很多的跟玩家直接相关的操作也都得委托它来完成。目前来说 PlayerController 里旗下的 100 + 的函数也大概可以分为以上几大模块，也根据需要重载了 Controller 里的一些其他函数。  
 UE 的思想是具象化一个 “玩家实体”，并把所有的跟该玩家相关的操作和接口都交给它完成。一般其他的游戏引擎只是个 “功能引擎”，提供了一些图形渲染 UI 系统等组件，但是在 GamePlay 这个层次就都非常欠缺了，一般都需要开发者自己搭建一套。而回想你写过的游戏，是不是也往往有一个 Player 类（一般是单件或者全局变量）？里面几乎是放着所有跟该玩家相关的业务逻辑代码。UE 里的 PlayerController 就是这种概念，优点当然是直接方便好理解，缺点也如你所见，会代码膨胀得比较快。不过目前来说还算能接受，等某一块功能真的比较大了之后，可以再把它抽出一个单独的类来，如 PlayerInput 和 PlayerCameraManager 一样。
 
-**思考：哪些逻辑应该放在 PlayerController 中？**  
+> [!question] 
+> **思考：哪些逻辑应该放在 PlayerController 中？**  
+
 回想我们上篇的问题：“哪些逻辑应该写在 Controller 中？”，该处的答案观点在本处也依然适用。不过我还想再补充几点：
 
-*   对实现游戏逻辑来说，如果是按照 MVC 的视角，那么 View 对应的是 Pawn 的表现，而 PlayerController 对应的是 Controller 的部分，那 Model 就是游戏业务逻辑的数据了。拿超级马里奥游戏来举例子，把问题先局限在一个关卡内，假设要实现的是金币的逻辑，那么 View 指的是游戏右上角的金币数目 UI，而玩家用 PlayerController 来控制马里奥来蹦跳行走，而马里奥（Pawn）通过触碰金币的事件又上报给 PlayerController 来相应增加金币。而 PlayerController 存储金币的数据就是在 PlayerState 中。即 PlayerState 中有一个 int coin，也有相应的 AddCoin(int coin)。而 PlayerController 的职责应该是一边控制 Pawn，一边负责内部正确的调用 PlayerState 的 Coin 接口。那么 PlayerController 里的成员变量有什么用？根据单一职责原则，我们写在哪个类里的变量应该尽量只符合该类的作用，所以 PlayerController 里的变量的意义在于更好的实现控制。比如假设玩家在一个关卡内可以按 AABB 来作弊获得 100 金币，但是限最多 3 次。那么这个按键的响应就应该由 PlayerController 来接收，然后调用 AddCoin(100)，并更新 PlayerController 里的成员变量 CoinCheatCount。也或者想实现马里奥的加速跑，也可以在 PlayerController 里增加 Speed 的成员变量。
+*   对实现游戏逻辑来说，如果是按照 MVC 的视角，那么 View 对应的是 Pawn 的表现，而 PlayerController 对应的是 Controller 的部分，那 Model 就是游戏业务逻辑的数据了。拿超级马里奥游戏来举例子，把问题先局限在一个关卡内，假设要实现的是金币的逻辑，那么 View 指的是游戏右上角的金币数目 UI，而玩家用 PlayerController 来控制马里奥来蹦跳行走，而马里奥（Pawn）通过触碰金币的事件又上报给 PlayerController 来相应增加金币。而 PlayerController 存储金币的数据就是在 PlayerState 中。即 PlayerState 中有一个 int coin，也有相应的 AddCoin(int coin)。**而 PlayerController 的职责应该是一边控制 Pawn，一边负责内部正确的调用 PlayerState 的 Coin 接口**。那么 PlayerController 里的成员变量有什么用？根据单一职责原则，我们写在哪个类里的变量应该尽量只符合该类的作用，**所以 PlayerController 里的变量的意义在于更好的实现控制**。比如假设玩家在一个关卡内可以按 AABB 来作弊获得 100 金币，但是限最多 3 次。那么这个按键的响应就应该由 PlayerController 来接收，然后调用 AddCoin(100)，并更新 PlayerController 里的成员变量 CoinCheatCount。也或者想实现马里奥的加速跑，也可以在 PlayerController 里增加 Speed 的成员变量。
 *   记住 PlayerController 是可被替换的，不同的关卡里也可能是不一样的。比如马里奥在水下的时候控制的方式明显就不一样，所以就不能像 “Player” 单件类那样什么都往里面塞。这样一旦被替换掉了之后数据就都丢失了。
 *   PlayerController 也不一定存在，考虑一下如果把马里奥做成联机游戏，那么对方玩家被同步过来的将只有 PlayerState，对方玩家的 PlayerController 只在服务器上存在。所以这个时候，如果你把金币数据放在 PlayerController 里的话就非常尴尬了。所以为了扩展性来说，还是根据职责分明的原则来正确划分业务逻辑会比较好。
-*   在任一刻，Player:PlayerController:PlayerState 是 1:1:1 的关系。但是 PlayerController 可以有多个备选用来切换，PlayerState 也可以相应多个切换。UPlayer 的概念会在之后讲解，但目前可以简单理解为游戏里一个全局的玩家逻辑实体，而 PlayerController 代表的就是玩家的意志，PlayerState 代表的是玩家的状态。
+*   在任一刻，Player:PlayerController:PlayerState 是 1:1:1 的关系。但是 PlayerController 可以有多个备选用来切换，PlayerState 也可以相应多个切换。**UPlayer 的概念会在之后讲解，但目前可以简单理解为游戏里一个全局的玩家逻辑实体，而 PlayerController 代表的就是玩家的意志，PlayerState 代表的是玩家的状态。**
 
 ## AAIController
 
@@ -905,15 +907,17 @@ UE 的思想是具象化一个 “玩家实体”，并把所有的跟该玩家�
 
 同 PlayerController 对比，少了 Camera、Input、UPlayer 关联，HUD 显示，Voice、Level 切换接口，但也增加了一些 AI 需要的组件：
 
-*   Navigation，用于智能根据导航寻路，其中我们常用的 MoveTo 接口就是做这件事情的。而在移动的过程中，因为少了玩家控制的来转向，所以多了一个 SetFocus 来控制当前的 Pawn 视角朝向哪个位置。
-*   AI 组件，运行启动行为树，使用黑板数据，探索周围环境，以后如果有别的 AI 算法方法实现成组件，也应该在本组件内组合启动。
-*   Task 系统，让 AI 去完成一些任务，也是实现 GameplayAbilities 系统的一个接口。目前简单来说 GameplayAbilities 是为 Actor 添加额外能力属性集合的一个模块，比如 HP，MP 等。其中的 GamePlayEffect 也是用来实现 Buffer 的工具。另外 GamePlayTags 也是用来给 Actor 添加标签标记来表明状态的一种机制。目前来说该两个模块似乎都是由 Epic 的 Game Team 在维护，所以完成度不是非常的高，用的时候也往往需要根据自己情况去重构调整。
+*   **Navigation**，用于智能根据导航寻路，其中我们常用的 MoveTo 接口就是做这件事情的。而在移动的过程中，因为少了玩家控制的来转向，所以多了一个 SetFocus 来控制当前的 Pawn 视角朝向哪个位置。
+*   **AI 组件**，运行启动行为树，使用黑板数据，探索周围环境，以后如果有别的 AI 算法方法实现成组件，也应该在本组件内组合启动。
+*   **Task 系统**，让 AI 去完成一些任务，也是实现 GameplayAbilities 系统的一个接口。目前简单来说 GameplayAbilities 是为 Actor 添加额外能力属性集合的一个模块，比如 HP，MP 等。其中的 GamePlayEffect 也是用来实现 Buffer 的工具。另外 GamePlayTags 也是用来给 Actor 添加标签标记来表明状态的一种机制。目前来说该两个模块似乎都是由 Epic 的 Game Team 在维护，所以完成度不是非常的高，用的时候也往往需要根据自己情况去重构调整。
 
-本文重点不在于讨论 AI 内部的各种组件功能，因此我们先把目光聚焦在 AIController 对象本身上。同 PlayerController 一样，AIController 也只存在于 Server 上（单机游戏也可看作是 Server）。游戏里必须有玩家参与，而 AI 可以没有，所以 AIController 并不一定会存在。我们可以在 Pawn 上配置 AIControllerClass 来让该 Pawn 产生的时候自动为它分配一个 AIController，之后自动释放。
+本文重点不在于讨论 AI 内部的各种组件功能，因此我们先把目光聚焦在 AIController 对象本身上。**同 PlayerController 一样，AIController 也只存在于 Server 上（单机游戏也可看作是 Server）**。游戏里必须有玩家参与，而 AI 可以没有，所以 AIController 并不一定会存在。我们可以在 Pawn 上配置 AIControllerClass 来让该 Pawn 产生的时候自动为它分配一个 AIController，之后自动释放。
 
-**思考：哪些逻辑应该放在 AIController 中？**  
+> [!question] 
+> **思考：哪些逻辑应该放在 AIController 中？**  
+
 我们依然要思考这个问题，大部分思想和原则和 PlayerController 是一样的，只不过 AI 算法的多种多样，所以我们推荐尽量利用 UE 提供的行为树黑板等组件实现，而不是直接在 AIController 硬编码再度实现。也请把目光仅仅局限在当前的 Pawn 身上，不要在里面写其他无关的逻辑。另外，因为 AIController 都是在关卡内比较短暂存在的，一般不太有跨 Level 的数据保存，所以你可以用 AIController 的成员变量来保存状态。而如果真的需要用到 PlayerController 的状态，则也可以引用一个 PlayerState 过来。如果想引用关卡的全局状态，也可以引用 GameState，再更高级别的，甚至可以直接和 GameInstance 接触。  
-但是 AIController 也可以通过配置 bWantsPlayerState 来获得自己的 PlayerState，所以 PlayerState 其实也并不是跟 UPlayer 绑定的，毕竟从本质上来说 APlayerState 也只是个 AInfo（AActor），跟其他 Actor 一样可以有多个，并没有什么稀奇的，区别是你自己怎么创建并利用它。
+但是 AIController 也可以通过配置 `bWantsPlayerState` 来获得自己的 PlayerState，所以 PlayerState 其实也并不是跟 UPlayer 绑定的，毕竟从本质上来说 APlayerState 也只是个 AInfo（AActor），跟其他 Actor 一样可以有多个，并没有什么稀奇的，区别是你自己怎么创建并利用它。
 
 ## 总结
 
@@ -925,28 +929,7 @@ UE 的思想是具象化一个 “玩家实体”，并把所有的跟该玩家�
 
 而下篇我们的逻辑之旅将再继续拔高一个层次，将开始讲解 World 层次的逻辑，这个世界的意志：GameMode！
 
-上篇：[《InsideUE4》GamePlay 架构（五）Controller](https://zhuanlan.zhihu.com/p/23480071)  
-下篇：[《InsideUE4》GamePlay 架构（七）GameMode 和 GameState](https://zhuanlan.zhihu.com/p/23707588)
-
-## 引用
-
-1.  [PlayerController](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/Controller/PlayerController/index.html)
-2.  [AIController](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/Controller/AIController/index.html)
-
-_UE 4.13.2_
-
----------------------------------------------------------------------------------------------------------------------------
-
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
-
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
-
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
-
-**个人原创，未经授权，谢绝转载！**
-
 # 7 GameMode 和 GameState
-我的世界，我做主
 
 ## 引言
 
@@ -956,15 +939,15 @@ UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官�
 ## GameMode
 
 Level，在游戏里的概念里，就是关卡的意思。同时作为游戏的玩家和开发者，我们总是会非常经常的提起关卡，但是关卡具体又是个什么定义呢？游戏里的哪些部分可以算是一个关卡？简单的我们都知道有《愤怒的小鸟》或《植物大战僵尸》的关卡，复杂的有大型 FPS 游戏里的关卡，而对于更大型的《暗黑 3》或者大型无缝地图 RPG 游戏《巫师 3》，甚至是号称超级广阔宇宙《无人深空》，我们能直接了当的说出哪部分是关卡吗？游戏行业发展如今，为了更好的组织游戏逻辑和内容资源，也发展出了一些概念来更好的理解和阐述，虽然叫法不同，不过含义理念都是相通的。比如，Cocos2dx 会认为游戏就是由不同的 Scene 切换组成的，每个 Scene 又由 Layer 组成；Unity 也认为游戏就是一个个 Scene；而 UE 的视角的是，游戏是由一个个 World 组成的，World 又是由 Level 组成的。这些概念有什么不同？  
-让我们从游戏本身的机制上分析：
 
-*   游戏或玩家的节奏，游戏可以分成一个个阶段，马里奥里的关卡就是一个阶段，而 RPG 游戏的一个大地图也是一个阶段。一个游戏也可能只有一个阶段，比如一直在宇宙里漫游的游戏。通常一个阶段结束后，会有一个结算，阶段之间，玩家也能明显感觉到切换感。
-*   游戏的机制，有时候即使是同样的场景，玩家却也能感觉就像在玩两个不同的游戏，比如 MOBA 里的同一张地图上的各种不同挑战模式。
-*   游戏的资源划分，有时候也能遇见同一个玩法应用在不同的场景上，比如赛车游戏的不同跑道。有时候也会在游戏的大地图里从酷热的沙漠到寒冷的极地。游戏开发中也总是倾向于给游戏用到的资源划分成组的进行载入和释放。
+**让我们从游戏本身的机制上分析：**
+*   **游戏或玩家的节奏**，游戏可以分成一个个阶段，马里奥里的关卡就是一个阶段，而 RPG 游戏的一个大地图也是一个阶段。一个游戏也可能只有一个阶段，比如一直在宇宙里漫游的游戏。通常一个阶段结束后，会有一个结算，阶段之间，玩家也能明显感觉到切换感。
+*   **游戏的机制**，有时候即使是同样的场景，玩家却也能感觉就像在玩两个不同的游戏，比如 MOBA 里的同一张地图上的各种不同挑战模式。
+*   **游戏的资源划分**，有时候也能遇见同一个玩法应用在不同的场景上，比如赛车游戏的不同跑道。有时候也会在游戏的大地图里从酷热的沙漠到寒冷的极地。游戏开发中也总是倾向于给游戏用到的资源划分成组的进行载入和释放。
 
-通过以上的分析，也和以前的一贯思路一样，我们发现在思考 “关卡” 这件事情上，也是要保持头脑清晰的分清 “表示” 和“逻辑”。玩法就是“逻辑”，场景就是“表示”。所以我们如果以逻辑来划分游戏，得到的就是一个个 World 的概念；如果以表示来划分，得到就是一个个 Level。一场游戏中，玩法再复杂但也只有一个，场景却可以无限大，所以可以有很多个表示拼接组装，因此是 World 包含 Level，而不是反过来。现在回过头来回想一下 Cocos2dx 和 Unity 的世界观，它们的概念还只是在表示层，在游戏实例和关卡之间少了一个更高级的逻辑概念。  
-因此 UE 的世界观是，World 更多是逻辑的概念，而 Level 是资源场景表示。以《巫师 3》为例，有好几个国家之间通过传送切换，国家内大地图无缝漫游，显然我们知道不可能把一个国家的所有资源都加载进内存，因此在 UE 里，一个国家就是许多个 Level 拼接的，而一个国家就是一个 World，它们可以有不同的模式玩法。但毕竟 AAA 游戏很少，通常的，我们的游戏比较简单的用一个 Level 就够了，否则这个场景表示的概念就应该叫 Area 更合适了，也因此通常的这里的 Level 也常常对应游戏里玩家面对的 "关卡"，也因此 UE 里 Level 的 Settings 叫做 WorldSettings 了。  
-厘清了这些概念了之后，我们就知道，当我们在谈 Level 的业务逻辑控制的时候，我们实际上谈的是 World 的业务逻辑。按照 UE 的设计理念和经过 Controller 的经历，我想我也不用多解释了从 Actor 再派生出一个 WorldController 的方式了，可以直接的享受 Actor 已经提供的一切福利。一个 World 的 Controller 想不出有什么需要展示渲染的，因此可以直接从 AInfo 派生吧。哦，WorldController 是我瞎编的，在 UE3 里它叫做 GameInfo，到了 UE4 它改名为了 GameMode。笼统的讲，一个 World 就是一个 Game，把玩法叫做 Mode，我们应该也能接受吧。那我们来看看它：  
+通过以上的分析，也和以前的一贯思路一样，我们发现在思考 “关卡” 这件事情上，也是要保持头脑清晰的分清 “表示” 和“逻辑”。**玩法就是“逻辑”，场景就是“表示”。所以我们如果以逻辑来划分游戏，得到的就是一个个 World 的概念；如果以表示来划分，得到就是一个个 Level**。一场游戏中，玩法再复杂但也只有一个，场景却可以无限大，所以可以有很多个表示拼接组装，因此是 World 包含 Level，而不是反过来。现在回过头来回想一下 Cocos2dx 和 Unity 的世界观，它们的概念还只是在表示层，在游戏实例和关卡之间少了一个更高级的逻辑概念。  
+**因此 UE 的世界观是，World 更多是逻辑的概念，而 Level 是资源场景表示。** 以《巫师 3》为例，有好几个国家之间通过传送切换，国家内大地图无缝漫游，显然我们知道不可能把一个国家的所有资源都加载进内存，因此在 UE 里，一个国家就是许多个 Level 拼接的，而一个国家就是一个 World，它们可以有不同的模式玩法。但毕竟 AAA 游戏很少，通常的，我们的游戏比较简单的用一个 Level 就够了，否则这个场景表示的概念就应该叫 Area 更合适了，也因此通常的这里的 Level 也常常对应游戏里玩家面对的 "关卡"，也因此 UE 里 Level 的 Settings 叫做 WorldSettings 了。  
+厘清了这些概念了之后，我们就知道，当我们在谈 Level 的业务逻辑控制的时候，我们实际上谈的是 World 的业务逻辑。按照 UE 的设计理念和经过 Controller 的经历，我想我也不用多解释了从 Actor 再派生出一个 WorldController 的方式了，可以直接的享受 Actor 已经提供的一切福利。一个 World 的 Controller 想不出有什么需要展示渲染的，因此可以直接从 AInfo 派生吧。哦，WorldController 是我瞎编的，在 UE3 里它叫做 GameInfo，到了 UE4 它改名为了 `GameMode`。笼统的讲，一个 World 就是一个 Game，把玩法叫做 Mode，我们应该也能接受吧。那我们来看看它：  
 
 ![[ff5cbe14bd917023fc60dd39a31662a2_MD5.png]]
 
@@ -978,27 +961,28 @@ Level，在游戏里的概念里，就是关卡的意思。同时作为游戏的
 2.  **游戏的进度**，一个游戏支不支持暂停，怎么重启等这些涉及到游戏内状态的操作也都是 GameMode 的工作之一，SetPause、ResartPlayer 等函数可以控制相应逻辑。
 3.  **Level 的切换**，或者说 World 的切换更加合适，GameMode 也决定了刚进入一场游戏的时候是否应该开始播放开场动画（cinematic），也决定了当要切换到下一个关卡时是否要 bUseSeamlessTravel，一旦开启后，你可以重载 GameMode 和 PlayerController 的 GetSeamlessTravelActorList 方法和 GetSeamlessTravelActorList 来指定哪些 Actors 不被释放而进入下一个 World 的 Level。
 4.  **多人游戏的步调同步**，在多人游戏的时候，我们常常需要等所有加入的玩家连上之后，载入地图完毕后才能一起开始逻辑。因此 UE 提供了一个 MatchState 来指定一场游戏运行的状态，意义看名称也是不言自明的，就是用了一个状态机来标记开始和结束的状态，并触发各种回调。  
-    /** Possible state of the current match, where a match is all the gameplay that happens on a single map */  
-    namespace MatchState  
-    {  
-    extern ENGINE_API const FName EnteringMap; // We are entering this map, actors are not yet ticking  
-    extern ENGINE_API const FName WaitingToStart; // Actors are ticking, but the match has not yet started  
-    extern ENGINE_API const FName InProgress; // Normal gameplay is occurring. Specific games will have their own state machine inside this state  
-    extern ENGINE_API const FName WaitingPostMatch; // Match has ended so we aren't accepting new players, but actors are still ticking  
-    extern ENGINE_API const FName LeavingMap; // We are transitioning out of the map to another location  
-    extern ENGINE_API const FName Aborted; // Match has failed due to network issues or other problems, cannot continue  
-    }
+```c++
+/** Possible state of the current match, where a match is all the gameplay that happens on a single map */  
+namespace MatchState  
+{  
+extern ENGINE_API const FName EnteringMap; // We are entering this map, actors are not yet ticking  
+extern ENGINE_API const FName WaitingToStart; // Actors are ticking, but the match has not yet started  
+extern ENGINE_API const FName InProgress; // Normal gameplay is occurring. Specific games will have their own state machine inside this state  
+extern ENGINE_API const FName WaitingPostMatch; // Match has ended so we aren't accepting new players, but actors are still ticking  
+extern ENGINE_API const FName LeavingMap; // We are transitioning out of the map to another location  
+extern ENGINE_API const FName Aborted; // Match has failed due to network issues or other problems, cannot continue  
+}```
 
 **思考：多个 Level 配置不同的 GameMode 时采用的是哪一个 GameMode？**  
-我们知道除了配置全局的 GameModeClass 之外，我们还能为每个 Level 单独的配置不同的 GameModeClass。但是当一个 World 由多个 Level 组成的时候，这样就相当于配置了多个 GameModeClass，那么应用的是哪一个？首先第一个原则需要记住的就是，一个 World 里只会有一个 GameMode 实例，否则肯定乱套了。因此当有多个 Level 的时候，一定是 PersistentLevel 和多个 StreamingLevel，这时就算它们配置了不同的 GameModeClass，UE 也只会为第一次创建 World 时加载 PersistentLevel 的时候创建 GameMode，在后续的 LoadStreamingLevel 时候，并不会再动态创建出别的 GameMode，所以 GameMode 从始至终只有一个，PersistentLevel 的那个。
+我们知道除了配置全局的 GameModeClass 之外，我们还能为每个 Level 单独的配置不同的 GameModeClass。但是当一个 World 由多个 Level 组成的时候，这样就相当于配置了多个 GameModeClass，那么应用的是哪一个？首先第一个原则需要记住的就是，**一个 World 里只会有一个 GameMode 实例**，否则肯定乱套了。因此**当有多个 Level 的时候，一定是 PersistentLevel 和多个 StreamingLevel，这时就算它们配置了不同的 GameModeClass，UE 也只会为第一次创建 World 时加载 PersistentLevel 的时候创建 GameMode，在后续的 LoadStreamingLevel 时候，并不会再动态创建出别的 GameMode，所以 GameMode 从始至终只有一个，PersistentLevel 的那个。**
 
 **思考：Level 迁移时 GameMode 是否保持一致？**  
 在在 travelling 的时候，如果下一个 Level 的配置的 GameModeClass 和当前的不同，那么迁移后是哪个 GameMode？  
-无论 travelling 采用哪种方式，当前的 World 都会被释放掉，然后加载创建新的 World。但这个过程中，有点区别的是根据 bUseSeamlessTravel 的不同，UE 可以选择哪些 Actor 迁移到下一个 World 中去（实现方式是先创建个中间过渡 World 进行二段迁移（为了避免同时加载进两个大地图撑爆内存），具体见引用 3）。分两种情况：  
-不开启 bUseSeamlessTravel，那么在 travelling 的时候（ServerTravel 或 ClientTravel），当前的 World 会被释放，所以当前的 GameMode 就被释放掉。新的 World 加载，就会根据新的 GameModeClass 创建新的 GameMode。所以这时是不同的。  
-开启 bUseSeamlessTravel，travelling 时，当前 World 的 GameMode 会调用 GetSeamlessTravelActorList：
+无论 travelling 采用哪种方式，当前的 World 都会被释放掉，然后加载创建新的 World。但这个过程中，有点区别的是根据 `bUseSeamlessTravel` 的不同，UE 可以选择哪些 Actor 迁移到下一个 World 中去（实现方式是先创建个中间过渡 World 进行二段迁移（为了避免同时加载进两个大地图撑爆内存），具体见引用 3）。分两种情况：  
+1. 不开启 bUseSeamlessTravel，那么在 travelling 的时候（ServerTravel 或 ClientTravel），当前的 World 会被释放，所以当前的 GameMode 就被释放掉。新的 World 加载，就会根据新的 GameModeClass 创建新的 GameMode。所以这时是不同的。  
+2. 开启 bUseSeamlessTravel，travelling 时，当前 World 的 GameMode 会调用 GetSeamlessTravelActorList：
 
-```
+```c++
 void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& ActorList)
 {
 	UWorld* World = GetWorld();
@@ -1024,15 +1008,17 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 }
 ```
 
-在第一步从 CurrentWorld 到 TransitionWorld 的迁移时候，bToTransition==true，这个时候 GameMode 也会迁移进 TransitionWorld（TransitionMap 可以在 ProjectSettings 里配置），也包括 GameState 和 GameSession，然后 CurrentWorld 释放掉。第二步从 TransitionWorld 到 NewWorld 的迁移，GameMode（已经在 TransitionWorld 中了）会再次调用 GetSeamlessTravelActorList，这个时候 bToTransition==false，所以第二次的时候如代码所见当前的 GameMode、GameState 和 GameSession 就被排除在外了。这样 NewWorld 再继续 InitWorld 的时候，一发现当前没有 GameMode，就会根据配置的 GameModeClass 重新生成一个出来。所以这个时候 GameMode 也是不同的。  
-结论是，UE 的流程 travelling，GameMode 在新的 World 里是会新生成一个的，即使 Class 类型一致，即使 bUseSeamlessTravel，因此在 travelling 的时候要小心 GameMode 里保存的状态丢失。不过 Pawn 和 Controller 默认是一致的。
+在第一步从 CurrentWorld 到 TransitionWorld 的迁移时候，`bToTransition==true`，这个时候 GameMode 也会迁移进 TransitionWorld（TransitionMap 可以在 ProjectSettings 里配置），也包括 GameState 和 GameSession，然后 CurrentWorld 释放掉。第二步从 TransitionWorld 到 NewWorld 的迁移，GameMode（已经在 TransitionWorld 中了）会再次调用 GetSeamlessTravelActorList，这个时候 `bToTransition==false`，所以第二次的时候如代码所见当前的 GameMode、GameState 和 GameSession 就被排除在外了。这样 NewWorld 再继续 InitWorld 的时候，一发现当前没有 GameMode，就会根据配置的 GameModeClass 重新生成一个出来。所以这个时候 GameMode 也是不同的。  
+**结论是，UE 的流程 travelling，GameMode 在新的 World 里是会新生成一个的，即使 Class 类型一致，即使 bUseSeamlessTravel，因此在 travelling 的时候要小心 GameMode 里保存的状态丢失。不过 Pawn 和 Controller 默认是一致的。**
 
-**思考：哪些逻辑应该写在 GameMode 里？哪些应该写在 Level Blueprint 里？**  
+> [!question] 
+> **思考：哪些逻辑应该写在 GameMode 里？哪些应该写在 Level Blueprint 里？**  
+
 我们依旧要问这个老土的问题。根据我们前面的知识，我们知道每个 Level 其实也是有自己的 LevelScriptActor 的，那么这两个有什么区别？可以从这几个方面来回答：
 
-*   概念上，Level 是表示，World 是逻辑，一个 World 如果有很多个 Level 拼在一起，那么也就是有了很多个 LevelScriptActor，无法想象在那么多个地方写一个完整的游戏逻辑。所以 GameMode 应该专注于逻辑的实现，而 LevelScriptActor 应该专注于本 Level 的表示逻辑，比如改变 Level 内某些 Actor 的运动轨迹，或者某一个区域的重力，或者触发一段特效或动画。而 GameMode 应该专注于玩法，比如胜利条件，怪物刷新等。
-*   组合上，同 Controller 应用到 Pawn 一样道理，因为 GameMode 是可以应用在不同的 Level 的，所以通用的玩法应该放在 GameMode 里。
-*   GameMode 只在 Server 存在（单机游戏也是 Server），对于已经连接上 Server 的 Client 来说，因为游戏的状态都是由 Sever 决定的，Client 只是负责展示，所以 Client 上是没有 GameMode 的，但是有 LevelScriptActor，所以 GameMode 里不要写 Client 特定相关的逻辑，比如操作 UI 等。但是 LevelScriptActor 还是有的，而且支持 RPC，即使如此，LevelScriptActor 还是应该只专注于表现，比如网络中触发一个特效火焰。至于 UI，可以通过 PlayerController 的 RPC，然后转发到 GameInstance 来操作。
+*   概念上，Level 是表示，World 是逻辑，一个 World 如果有很多个 Level 拼在一起，那么也就是有了很多个 LevelScriptActor，无法想象在那么多个地方写一个完整的游戏逻辑。**所以 GameMode 应该专注于逻辑的实现，而 LevelScriptActor 应该专注于本 Level 的表示逻辑**，比如改变 Level 内某些 Actor 的运动轨迹，或者某一个区域的重力，或者触发一段特效或动画。而 GameMode 应该专注于玩法，比如胜利条件，怪物刷新等。
+*   组合上，同 Controller 应用到 Pawn 一样道理，因为 GameMode 是可以应用在不同的 Level 的，所以**通用的玩法应该放在 GameMode 里。**
+*   **GameMode 只在 Server 存在**（单机游戏也是 Server），对于已经连接上 Server 的 Client 来说，因为游戏的状态都是由 Sever 决定的，Client 只是负责展示，所以 Client 上是没有 GameMode 的，但是有 LevelScriptActor，所以 **GameMode 里不要写 Client 特定相关的逻辑，比如操作 UI 等**。但是 LevelScriptActor 还是有的，而且支持 RPC，**即使如此，LevelScriptActor 还是应该只专注于表现，比如网络中触发一个特效火焰**。至于 UI，可以通过 PlayerController 的 RPC，然后转发到 GameInstance 来操作。
 *   跟下层的 PlayerController 比较，GameMode 关心的是构建一个游戏本身的玩法，PlayerController 关心的玩家的行为。这两个行为是独立正交可以自由组合的。所以想想哪些逻辑属于游戏，哪些属于玩家，就应该清楚写在哪里了。
 *   跟上层的 GameInstance 比较，GameInstance 关注的是更高层的不同 World 之间的逻辑，虽然有时候他也把手伸下来做些 UI 的管理工作，不过严谨来说，在 UE 里 UI 是独立于 World 的一个结构，所以也还算能理解。因此可以把不同 GameMode 之间协调的工作交给 GameInstance，而 GameMode 只专注自己的玩法世界。
 
