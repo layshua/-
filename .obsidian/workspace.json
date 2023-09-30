@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+                "file": "README.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "51be16d524ea4847",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -33,7 +46,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           },
@@ -86,7 +100,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md"
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
               }
             }
           }
@@ -136,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -213,8 +227,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d347bb509aa8cb82",
+  "active": "51be16d524ea4847",
   "lastOpenFiles": [
+    "引擎Unreal/02 U++精粹/5 定时器.md",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+    "引擎Unreal/02 U++精粹/1 类型.md",
+    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
+    "README.md",
+    "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
+    "引擎Unreal/04 Gameplay/游戏开发工程",
     "引擎Unreal/04 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
@@ -247,12 +268,6 @@
     "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md",
     "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md",
     "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/08 八：并行与并发.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/03 UBT与UHT.md",
-    "引擎Unreal/02 U++精粹/1 类型.md",
-    "编程/1 C++/程序运行原理.md",
-    "zBuffer/深入浅出静态链接和动态链接 - CSDN 博客.md",
     "编程/408",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/01 指南/Rider",
@@ -261,7 +276,6 @@
     "引擎Unreal/04 Gameplay/TPS",
     "引擎Unreal/04 Gameplay/ARPG",
     "引擎Unreal/网络",
-    "引擎Unreal/02 U++精粹",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",

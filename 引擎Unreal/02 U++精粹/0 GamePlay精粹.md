@@ -1040,7 +1040,6 @@ NiagaraComponent->Deactivate(); //关闭
 # 强引用弱引用
 数据层和表现层分离
 ```c++
-
 class IMyID
 {
 public:
@@ -1145,19 +1144,3 @@ if (bIsHit)
 - `BlueprintSuggestProjectileVelocity`：根据目标点，反算初速度
 - `SuggestProjectileVelocity_CustomArc`：根据目标点，反算初速度
 
-# 理解 DeltaTime
-UE 世界坐标单位是 cm
-涉及移动旋转计算时，我们通常声明一个常量乘以 `DeltaTime`，原理如下：
-
-```cs
-void AMyClass::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	float MovementRate = 50.0f; //移动速度为50cm/s
-	float RotationRate = 45.0f; //旋转速度为90°/s
-	//Speed * DeltaTime (cm/s)*(s/frame) = (cm/frame) 即每帧移动多少cm
-	//通过这种方法可以保证在不同帧率下移动速度一致
-	AddActorWorldOffset(FVector(0.f, 0.f, MovementRate * DeltaTime));
-	AddActorWorldRotation(FRotator(0.f, RotationRate*DeltaTime, 0.f));
-}
-```
