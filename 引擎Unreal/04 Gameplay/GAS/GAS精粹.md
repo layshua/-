@@ -1,4 +1,13 @@
-![[1696083211282.png]]
+---
+title: GAS精粹
+create_time: 2023-09-30 15:14
+uid: "202309301514"
+reference: []
+banner: "[[1696083211282.png]]"
+banner_header: 
+banner_lock: true
+---
+
 **更新时间：2021/03/26(完结)**  
 翻译此文时间: 2020.12.21  
 原文地址: [tranek/GASDocumentation](https://github.com/BillEliot/GASDocumentation)  
@@ -3180,4 +3189,4 @@ if (AbilitySystemComponent)
 * APawn::PossessedBy() now sets the owner of the Pawn to the new Controller. Useful because Mixed Replication Mode expects the owner of the Pawn to be the Controller if the ASC lives on the Pawn.
 * Fixed bug with POD (Plain Old Data) in FAttributeSetInittterDiscreteLevels.
 
-**[⬆ 返回目录]
+**[⬆ 返回目录](#table-of-contents)**
