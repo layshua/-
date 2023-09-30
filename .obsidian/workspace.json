@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/网络/网络概述.md",
+                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "74bccb6f2a487056",
+            "id": "ba0e5abf5e505b3c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
+                "file": "引擎Unreal/网络/网络概述.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -72,8 +72,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md"
+                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
               }
             }
           },
@@ -126,7 +125,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md"
+                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
               }
             }
           }
@@ -176,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
+                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +192,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
+                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -253,24 +252,25 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "74bccb6f2a487056",
+  "active": "d347bb509aa8cb82",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20230930212635.png",
-    "zip/images/Pasted image 20230930212418.png",
-    "zip/images/905f31067c55000bdeaa04043ccd3563_MD5.jpg",
-    "zip/images/95d92c98ae7e0e64a5cc2a60076272e9_MD5.jpg",
-    "zip/images/c73f0fdc6eea04125940608c83cadbdd_MD5.jpg",
-    "zip/images/745503d1619813d0c58138bfb2ccf961_MD5.jpg",
-    "zip/images/fa2c5e1fe3f0925f57d69eb1b1c52692_MD5.jpg",
-    "zip/images/30a0ae9cab49af4c225ada7c54f06326_MD5.jpg",
-    "zip/images/145d8dc1bed0ed04cc02e150ee92e246_MD5.jpg",
-    "zip/images/432c4d6b6a6f234eabc80887276df56a_MD5.jpg",
-    "zip/images/812a90273ef6ade5bee3aa774f8dcb1c_MD5.jpg",
     "引擎Unreal/网络/网络概述.md",
+    "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "zip/images/ad509368d5b19aa84d47d430e4f60b1c_MD5.jpg",
+    "zip/images/34625260ecbd778ed275d58c4e9b3e5f_MD5.jpg",
+    "zip/images/5271181fca7c8e78be496642a3f38a20_MD5.jpg",
+    "zip/images/3c58f2fe24f6cae14e389aee3f118f07_MD5.jpg",
+    "zip/images/03b581af4508ce830b7bccef0759f3a0_MD5.jpg",
+    "zip/images/9b0df3e07d1d2d164e3edeca48b55f78_MD5.jpg",
+    "zip/images/36f38d0d42d9f62d401ade5fea646901_MD5.jpg",
+    "zip/images/33addb24ce4d9a8e66360061ab5fa0e4_MD5.jpg",
+    "zip/images/62d6c7c3bd20cc02a72d26cd28bb5ae1_MD5.jpg",
     "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
+    "引擎Unreal/网络/设置专用服务器.md",
+    "zip/images/Pasted image 20230930212635.png",
     "引擎Unreal/网络/教程.md",
     "引擎Unreal/网络/角色移动组件-网络移动.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
     "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
@@ -294,8 +294,6 @@
     "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
     "引擎Unreal/04 Gameplay/GamePlay架构.md",
     "Tools/Obsidian/插件流.md",
-    "Tools/Obsidian/发布方案.md",
-    "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
     "编程/6 UML",
     "zip/images/Diagram 4.svg.xml",
     "编程/408",

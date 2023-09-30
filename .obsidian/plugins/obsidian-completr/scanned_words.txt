@@ -8787,6 +8787,7 @@ OPTIMIZATION
 OnRemoveAbility
 OnGiveAbility
 OverrideBlendOutTime
+OnDeath
 codeup
 clash
 ctrl
@@ -80935,6 +80936,7 @@ SavedMoves
 ServerMove
 SetLocation
 SUCCESSFUL
+SphereComponent
 Programs
 POP
 PC
@@ -90764,6 +90766,7 @@ Cogp
 ClientServerExample
 Controlled
 ClientAdjustPosition
+Choose
 ImTip
 IMAP
 ID
@@ -126218,6 +126221,10 @@ TargetCancel
 TxFrtmpX
 Teleport
 Teams
+ThirdPersonMP
+ThirdPersonExampleMap
+ThirdPersonMPCharacter
+ThirdPersonMPProjectile
 io
 ipad
 it
@@ -136376,6 +136383,7 @@ stale
 sfaE
 sdkmanager
 srcset
+shooter
 local
 list
 left
@@ -176031,6 +176039,7 @@ EOlVTpcbRIaBDBrUpV
 ExampleClass
 ENetworkSmoothingMode
 Expanse
+Explosion
 xmlns
 xyz
 xy
@@ -197767,6 +197776,8 @@ GxFUszfZECpEiylFfVzAuWCSRoeW
 GLMZ
 GHDJmWvdUm
 GenerateProjectFiles
+GetLocalRole
+GetRemoteRole
 NULL
 Native
 NormalMap
