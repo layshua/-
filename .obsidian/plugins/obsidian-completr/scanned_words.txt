@@ -51909,6 +51909,9 @@ ALnI
 ALLpHdAOWotdjkY
 ANDROID
 AppDate
+Autonomous
+AnimMontages
+AnimMontage
 URL
 Utools
 Users
@@ -56229,6 +56232,8 @@ Useful
 UVyEz
 URwLAeAIaQ
 UnrealEditor
+UCharacterMovementComponent
+UpdateCustomMovement
 api
 ac
 app
@@ -65548,6 +65553,7 @@ RTJ
 Replicates
 Role
 RepNotify
+ReplicatedMovement
 Microsoft
 Menu
 MicaForEveryone
@@ -70837,6 +70843,8 @@ MHIApxER
 MrKtbRLH
 MjtI
 MSn
+MoveAutonomous
+MoveToForce
 Windows
 Win
 World
@@ -80922,6 +80930,9 @@ SfAC
 SXxd
 SOLhp
 SetupAndroid
+SavedMoves
+ServerMove
+SetLocation
 Programs
 POP
 PC
@@ -85711,6 +85722,7 @@ PossessedBy
 PrvLkhoEkZGnkQ
 PUDdqJPza
 PJbVZAgybBiyj
+PerformMovement
 ContextMenuManager
 ClashVerge
 Clash
@@ -90749,6 +90761,7 @@ CezsdkHznmwMkuhqghc
 Cogp
 ClientServerExample
 Controlled
+ClientAdjustPosition
 ImTip
 IMAP
 ID
@@ -126201,6 +126214,7 @@ TargetActor
 TargetConfirm
 TargetCancel
 TxFrtmpX
+Teleport
 io
 ipad
 it
@@ -170982,6 +170996,11 @@ FjTVfZCc
 FHPNjj
 Fdiagram
 Fmxfile
+FSavedMove
+FNetworkPredictionData
+FClientAdjustment
+FRepMovement
+FRootMotionSource
 Element
 Entity
 Enity
@@ -176004,6 +176023,7 @@ ENFA
 EgoBx
 EOlVTpcbRIaBDBrUpV
 ExampleClass
+ENetworkSmoothingMode
 xmlns
 xyz
 xy
@@ -202121,6 +202141,7 @@ NewHealth
 NDXMJyT
 NFsY
 NewAndroidProject
+NetUsePackedMovementRPCs
 ZooAnima
 ZooAnimal
 ZTest
@@ -215741,6 +215762,7 @@ JfLPLfZRhFxxMN
 JfYqGbMYvk
 JCbKrEaZID
 JjoI
+JumpForce
 Ke
 KjpKWmp
 KYW
