@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程",
+      "path": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md"
+    },
+    {
+      "basename": "5 U++编程规范",
+      "path": "引擎Unreal/01 指南/5 U++编程规范.md"
+    },
+    {
       "basename": "1 UE指南",
       "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "工具流",
       "path": "Tools/工具流.md"
-    },
-    {
-      "basename": "2 STL标准库",
-      "path": "编程/1 C++/2 STL标准库.md"
-    },
-    {
-      "basename": "10 十：UObject (一)",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md"
     }
   ],
   "omittedPaths": [],

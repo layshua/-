@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md"
               }
             }
           },
@@ -113,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md"
               }
             }
           }
@@ -163,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -242,11 +242,13 @@
   },
   "active": "397decf1afe05f75",
   "lastOpenFiles": [
+    "引擎Unreal/01 指南/5 U++编程规范.md",
+    "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/04 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 U++精粹/7 多线程.md",
     "zip/images/1696083355324.png",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
     "引擎Unreal/04 Gameplay/AI/AI系统.md",
@@ -283,8 +285,6 @@
     "Tools/Software/激活office365.md",
     "zBuffer/StarUml 下载，安装和授权破解教程.md",
     "zip/images/Diagram 4.svg.xml",
-    "Tools/工具流.md",
-    "编程/1 C++/2 STL标准库.md",
     "编程/408",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
