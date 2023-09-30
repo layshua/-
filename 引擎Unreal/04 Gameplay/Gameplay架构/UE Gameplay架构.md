@@ -1019,8 +1019,8 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 *   概念上，Level 是表示，World 是逻辑，一个 World 如果有很多个 Level 拼在一起，那么也就是有了很多个 LevelScriptActor，无法想象在那么多个地方写一个完整的游戏逻辑。**所以 GameMode 应该专注于逻辑的实现，而 LevelScriptActor 应该专注于本 Level 的表示逻辑**，比如改变 Level 内某些 Actor 的运动轨迹，或者某一个区域的重力，或者触发一段特效或动画。而 GameMode 应该专注于玩法，比如胜利条件，怪物刷新等。
 *   组合上，同 Controller 应用到 Pawn 一样道理，因为 GameMode 是可以应用在不同的 Level 的，所以**通用的玩法应该放在 GameMode 里。**
 *   **GameMode 只在 Server 存在**（单机游戏也是 Server），对于已经连接上 Server 的 Client 来说，因为游戏的状态都是由 Sever 决定的，Client 只是负责展示，所以 Client 上是没有 GameMode 的，但是有 LevelScriptActor，所以 **GameMode 里不要写 Client 特定相关的逻辑，比如操作 UI 等**。但是 LevelScriptActor 还是有的，而且支持 RPC，**即使如此，LevelScriptActor 还是应该只专注于表现，比如网络中触发一个特效火焰**。至于 UI，可以通过 PlayerController 的 RPC，然后转发到 GameInstance 来操作。
-*   跟下层的 PlayerController 比较，GameMode 关心的是构建一个游戏本身的玩法，PlayerController 关心的玩家的行为。这两个行为是独立正交可以自由组合的。所以想想哪些逻辑属于游戏，哪些属于玩家，就应该清楚写在哪里了。
-*   跟上层的 GameInstance 比较，GameInstance 关注的是更高层的不同 World 之间的逻辑，虽然有时候他也把手伸下来做些 UI 的管理工作，不过严谨来说，在 UE 里 UI 是独立于 World 的一个结构，所以也还算能理解。因此可以把不同 GameMode 之间协调的工作交给 GameInstance，而 GameMode 只专注自己的玩法世界。
+*   跟下层的 PlayerController 比较，GameMode 关心的是构建一个游戏本身的玩法，PlayerController 关心的玩家的行为。这两个行为是独立正交可以自由组合的。所以**想想哪些逻辑属于游戏，哪些属于玩家，就应该清楚写在哪里了。**
+*   跟上层的 GameInstance 比较，GameInstance 关注的是更高层的不同 World 之间的逻辑，虽然有时候他也把手伸下来做些 UI 的管理工作，不过严谨来说，在 UE 里 UI 是独立于 World 的一个结构，所以也还算能理解。**因此可以把不同 GameMode 之间协调的工作交给 GameInstance，而 GameMode 只专注自己的玩法世界。**
 
 ## GameState
 
@@ -1029,7 +1029,7 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 ![[568304d68e5bb5a41c29dbd4931ae780_MD5.png]]
 
 比较简单，第一个 MatchState 和相关的回调就是为了在网络中传播同步游戏的状态使用的（记得 GameMode 在 Client 并不存在，但是 GameState 是存在的，所以可以通过它来复制），第二部分是玩家状态列表，同样的如果在 Client1 想看到 Client2 的游戏状态数据，则 Client2 的 PlayerState 就必须广播过来，因此 GameState 把当前 Server 的 PlayerState 都收集了过来，方便访问使用。  
-关于使用，开发者可以自定义 GameState 子类来存储本 GameMode 的运行过程中产生的数据（那些想要 replicated 的!），如果是 GameMode 游戏运行的一些数据，又不想要所有的客户端都可以看到，则也可以写在 GameMode 的成员变量中。重复遍，PlayerState 是玩家自己的游戏数据，GameInstance 里是程序运行的全局数据。
+关于使用，开发者可以自定义 GameState 子类来存储本 GameMode 的运行过程中产生的数据（那些想要 replicated 的!），如果是 GameMode 游戏运行的一些数据，又不想要所有的客户端都可以看到，则也可以写在 GameMode 的成员变量中。重复遍，**PlayerState 是玩家自己的游戏数据，GameInstance 里是程序运行的全局数据。**
 
 ### GameSession
 
@@ -1043,18 +1043,10 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 
 我们的逻辑之旅还没到终点，让我们继续爬升，下篇将介绍 Player。
 
-上篇：[《InsideUE4》GamePlay 架构（六）PlayerController 和 AIController](https://zhuanlan.zhihu.com/p/23649987)
 
-下篇：[《InsideUE4》GamePlay 架构（八）Player](https://zhuanlan.zhihu.com/p/23826859)
-
-## 修订
-
-在笔者书写本篇的同时（UE4.13.2），UE 同时也完成了 4.14 的 preview3 的工作，roadmap 里 “GameMode Cleanup” 的工作也已经完成了，第二天发现 4.14 正式发布了。因此为了紧跟 UE 最新潮流时尚，以后要是文章内容所涉及内容被 UE 修改完善优化的，也会采用修订的方式进行补充说明，之后不再特意作此声明。
-
-### 4.14 GameMode，GameState 的清理
-
+### 4.14 版本 GameMode，GameState 的清理
 根据搜索到的最早记录 "[[Request/Improvment] GameMode cleanup.](https://forums.unrealengine.com/showthread.php?39840-Request-Improvment-GameMode-cleanup)"(09-14-2014)，是有人抱怨当前的 GameMode 实现了太多的默认逻辑（例如多人的 Match），虽然方便了一些人使用，但是也确实加大了理解的难度，并且有时候还得去屏蔽删除一些默认逻辑。然后顺便吐槽了一番 AActor 里的 Damage，笔者也表示这确实不是 AActor 应该管的事情。  
-言归正传，UE 在 2016-08-24 的时候开始加进 roadmap，并终于在 4.14 里实现完成了。如前所述，就是把 GameMode 和 GameState 的一些共同最基础部分抽到基类 AGameModeBase 和 AGameStateBase 里，并把现在的 GameMode 和 GameState 依然当作多人联机的默认实现。所以以后大家如果想实现一个比较简单的单机 GameMode 就可以直接从 AGameModeBase 里继承了。
+言归正传，UE 在 2016-08-24 的时候开始加进 roadmap，并终于在 4.14 里实现完成了。如前所述，就是把 GameMode 和 GameState 的一些共同最基础部分抽到基类 AGameModeBase 和 AGameStateBase 里，并把现在的 GameMode 和 GameState 依然当作多人联机的默认实现。所以以后大家**如果想实现一个比较简单的单机 GameMode 就可以直接从 AGameModeBase 里继承了。**
 
 ![[2eeb7821615ea2f3fc91b706e01956c1_MD5.png]]
 
@@ -1064,47 +1056,61 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 
 把 MatchState 也抽离到了下层，并增加了几个方便的字段引用（如 AuthorityGameMode）。总体功能职责架构上还是没有什么大变化的，吓死我了。
 
-## 引用
+### GameMode
+即使最开放的游戏也拥有基础规则，而这些规则构成了 **Game Mode**。在最基础的层面上，这些规则包括：
+- 出现的玩家和观众数量，以及允许的玩家和观众最大数量。
+- 玩家进入游戏的方式，可包含选择生成地点和其他生成/重生成行为的规则。
+- 游戏是否可以暂停，以及如何处理游戏暂停。
+- 关卡之间的过渡，包括游戏是否以动画模式开场。
 
-1.  [GameMode](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/GameMode/index.html)
-2.  [GameState](https://docs.unrealengine.com/latest/INT/Gameplay/Framework/GameState/index.html)
-3.  [Travelling in Multiplayer](https://docs.unrealengine.com/latest/INT/Gameplay/Networking/Travelling/index.html)
+Game Modes 的任务是定义和实现规则。Game Modes 当前常用的基类有两个。
+4.14 版本中加入了 `AGameModeBase`，这是所有 Game Mode 的基类，是经典的 `AGameMode` 简化版本。`AGameMode` 是 4.14 版本之前的基类，仍然保留，功能如旧，但现在是 `AGameModeBase` 的子类。
+由于其比赛状态概念的实现，`AGameMode` 更适用于标准游戏类型（如多人射击游戏）。
+`AGameModeBase` 简洁高效，是新代码项目中包含的全新默认游戏模式。
 
-_UE4.13.2_
+**一款游戏可拥有任意数量的 Game Mode**，因此也可拥有任意数量的 `AGameModeBase` 类子类；然而，**给定时间上只能使用一个 Game Mode**。每次关卡进行游戏实例化时 Game Mode Actor 将通过 `UGameEngine::LoadMap()` 函数进行实例化。
 
----------------------------------------------------------------------------------------------------------------------------
+**Game Mode 不会复制到加入多人游戏的远程客户端；它只存在于服务器上**，因此本地客户端可看到之前使用过的留存 Game Mode 类（或蓝图）；但无法访问实际的实例并检查其变量，确定游戏进程中已发生哪些变化。
+如玩家确实需要更新与当前 Game Mode 相关的信息，可将信息保存在一个 `AGameStateBase` Actor 上，轻松保持同步。`AGameStateBase` Actor 随 Game Mode 而创建，之后被复制到所有远程客户端。
 
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
+默认设置：
+![[Pasted image 20230115223623.png]]
+在关卡编辑器的 WorldSetting 中重载，实际运行以重载的 GameMode 为准：
+WorldSetting 并不是设置 World 的属性（不要混肴），是针对 Level 的设置。仅代表当前一个关卡，并不是所有关卡。
+![[Pasted image 20230115223741.png|300]]
 
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
+### GameState
+基于规则的事件在游戏中发生，需要进行追踪并和所有玩家共享时，信息将通过 **Game State** 进行存储和同步。这些信息包括：
+- 游戏已运行的时间（包括本地玩家加入前的运行时间）。
+- 每个个体玩家加入游戏的时间和玩家的当前状态。
+- 当前 Game Mode 的基类。
+- 游戏是否已开始。
 
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
+**Game State** 负责启用客户端监控游戏状态。从概念上而言，Game State 应该管理所有已连接客户端已知的信息（特定于 Game Mode 但不特定于任何个体玩家）。它能够追踪游戏层面的属性，如已连接玩家的列表、夺旗游戏中的团队得分、开放世界游戏中已完成的任务，等等。
 
-**个人原创，未经授权，谢绝转载！**
+Game State 并非追踪玩家特有内容（如夺旗比赛中特定玩家为团队获得的分数）的最佳之处，因为它们由 **Player State** 更清晰地处理。**整体而言，GameState 应该追踪游戏进程中变化的属性。这些属性与所有人皆相关，且所有人可见。** 
+**Game mode 只存在于服务器上，而 Game State 存在于服务器上且会被复制到所有客户端，保持所有已连接机器的游戏进程更新。**
 
 # 8 Player
-你们对力量一无所知
-
 ## 引言
 
 回顾上文，我们谈完了 World 和 Level 级别的逻辑操纵控制，如同分离组合的 AController 一样，UE 在 World 的层次上也采用了一个分离的 AGameMode 来抽离了游戏关卡逻辑，从而支持了逻辑的组合。本篇我们继续上升一个层次，考虑在 World 之上，游戏还需要哪些逻辑控制？  
-暂时不考虑别的功能系统（如社交系统，统计等各种），单从游戏性来讨论，现在闭上眼睛，想象我们已经藉着 UE 的伟力搭建了好了一个个 LevelWorld，嗯，就像《西部世界》一样，场景已经搭建好了，世界规则故事也编写完善，现在需要干些什么？当然是开始派玩家进去玩啦！  
-大家都是老玩家了，想想我们之前玩的游戏类型：
+暂时不考虑别的功能系统（如社交系统，统计等各种），单从游戏性来讨论，现在闭上眼睛，想象我们已经藉着 UE 的伟力搭建了好了一个个 LevelWorld，嗯，就像《西部世界》一样，场景已经搭建好了，世界规则故事也编写完善，现在需要干些什么？当然是开始派玩家进去玩啦！
 
+大家都是老玩家了，想想我们之前玩的游戏类型：
 *   玩家数目是单人还是多人
 *   网络环境是只本地还是联网
 *   窗口显示模式是单屏还是分屏
 *   输入模式是共用设备还是分开控制（比如各有手柄）
 *   也许还有别的不同
 
-假如你是个开发游戏引擎的，会怎么支持这些不同的模式？以笔者见识过的大部分游戏引擎，解决这个问题的思路就是不解决，要嘛是限制功能，要嘛就是美名其曰让开发者自己灵活控制。不过想了一下，这也不能怪他们，毕竟很少有引擎能像 UE 这样历史悠久同时又能得到足够多的游戏磨练，才会有功夫在 GamePlay 框架上雕琢。大部分引擎还是更关注于实现各种绚丽的功能，至于怎么在上面开展游戏逻辑，那就是开发者自己的事了。一个引擎的功能是否强大，是基础比拼指标；而 GamePlay 框架作为最高层直面用户的对接接口，是一个引擎的脸面。所以有兴趣游戏引擎研究的朋友们，区分一个引擎是否 “优秀”，第二个指标是看它是否设计了一个优雅的游戏逻辑编写框架，一般只有基础功能已经做得差不多了的引擎开发者才会有精力去开发 GamePlay 框架，因为游戏引擎不止渲染！  
-言归正传，按照软件工程的理念，没有什么问题是不能通过加一个间接层解决的，不行就加两层！所以既然我们在处理玩家模式的问题，理所当然的是加个间接层，将玩家这个概念抽象出来。  
-那么什么是玩家呢？狭义的讲，玩家就是真实的你，和你身旁的小伙伴。广义来说，按照图灵测试理论，如果你无法分辨另一方是 AI 还是人，那他其实就跟玩家毫无区别，所以并不妨碍我们将网络另一端的一条狗当作玩家。那么在游戏引擎看来，玩家就是输入的发起者。游戏说白了，也只是接受输入产生输出的一个程序。所以有多少输入，这些输入归多少组，就有多少个玩家。这里的输入不止包括本地键盘手柄等输入设备的按键，也包括网线里传过来的信号，是广义的该游戏能接受到的外界输入。注意输出并不是玩家的必要属性，一个玩家并不一定需要游戏的输出，想象你闭上眼睛玩马里奥或者有个网络连接不断发送来控制信号但是从来不接收反馈，虽然看起来意义不大，但也确实不能说这就不是游戏。  
-在 UE 的眼里，玩家也是如此广义的一个概念。本地的玩家是玩家，网络联机时虽然看不见对方，但是对方的网络连接也可以看作是个玩家。当然的，本地玩家和网络玩家毕竟还是差别很大，所以 UE 里也对二者进行了区分，才好更好的管理和应用到不同场景中去，比如网络玩家就跟本地设备的输入没多大关系了嘛。
+按照软件工程的理念，没有什么问题是不能通过加一个间接层解决的，不行就加两层！所以既然我们在处理玩家模式的问题，理所当然的是加个间接层，将玩家这个概念抽象出来。  
+**在游戏引擎看来，玩家就是输入的发起者**。游戏说白了，也只是接受输入产生输出的一个程序。所以有多少输入，这些输入归多少组，就有多少个玩家。这里的输入不止包括本地键盘手柄等输入设备的按键，也包括网线里传过来的信号，是广义的该游戏能接受到的外界输入。注意输出并不是玩家的必要属性，一个玩家并不一定需要游戏的输出，想象你闭上眼睛玩马里奥或者有个网络连接不断发送来控制信号但是从来不接收反馈，虽然看起来意义不大，但也确实不能说这就不是游戏。  
+**在 UE 的眼里，玩家也是如此广义的一个概念。本地的玩家是玩家，网络联机时虽然看不见对方，但是对方的网络连接也可以看作是个玩家**。当然的，本地玩家和网络玩家毕竟还是差别很大，所以 UE 里也对二者进行了区分，才好更好的管理和应用到不同场景中去，比如网络玩家就跟本地设备的输入没多大关系了嘛。
 
 ## UPlayer
 
-让我们假装自己是 UE，开始编写 Player 类吧。为了利用上 UObject 的那些现有特性，所以肯定是得从 UObject 继承了。那能否是 AActor 呢？Actor 是必须在 World 中才能存在的，而 Player 却是比 World 更高一级的对象。玩游戏的过程中，LevelWorld 在不停的切换，但是玩家的模式却是脱离不变的。另外，Player 也不需要被摆放在 Level 中，也不需要各种 Component 组装，所以从 AActor 继承并不合适。那还是保持简单吧：  
+让我们假装自己是 UE，开始编写 Player 类吧。为了利用上 UObject 的那些现有特性，所以肯定是得从 UObject 继承了。那能否是 AActor 呢？Actor 是必须在 World 中才能存在的，而 Player 却是比 World 更高一级的对象。玩游戏的过程中，LevelWorld 在不停的切换，但是玩家的模式却是脱离不变的。另外，Player 也不需要被摆放在 Level 中，也不需要各种 Component 组装，所以从 AActor 继承并不合适。那还是保持简单吧，直接继承自UObject：  
 
 ![[dd8b6f82366c93fce61070c65ca5b9e7_MD5.png]]
 
@@ -1114,7 +1120,7 @@ UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官�
 
 ![[762eea989265e1cd724ec1976965eeb2_MD5.png]]
 
-```
+```c++
 ULocalPlayer* UGameInstance::CreateLocalPlayer(int32 ControllerId, FString& OutError, bool bSpawnActor)
 {
 	ULocalPlayer* NewPlayer = NULL;
@@ -1147,7 +1153,7 @@ ULocalPlayer* UGameInstance::CreateLocalPlayer(int32 ControllerId, FString& OutE
 可以看到，如果是在 Server 模式，会直接创建出 ULocalPlayer，然后创建出相应的 PlayerController。而如果是 Client（比如 Play 的时候选择 NumberPlayer=2, 则有一个为 Client），则会先发送 JoinSplit 消息到服务器，在载入服务器上的 Map 之后，再为 LocalPlayer 创建出 PlayerController。  
 而在每个 PlayerController 创建的过程中，在其内部会调用 InitPlayerState：
 
-```
+```c++
 void AController::InitPlayerState()
 {
 	if ( GetNetMode() != NM_Client )
@@ -1179,7 +1185,7 @@ void AController::InitPlayerState()
 这样 LocalPlayer 最终就和 PlayerState 对应了起来。而网络联机时其他玩家的 PlayerState 是通过 Replicated 过来的。  
 我们谈了那么久的玩家就是输入，体现在在每个 PlayerController 接受 Player 的时候：
 
-```
+```c++
 void APlayerController::SetPlayer( UPlayer* InPlayer )
 {
     //[...]
@@ -1209,14 +1215,16 @@ void APlayerController::SetPlayer( UPlayer* InPlayer )
 }
 ```
 
-可见，对于 ULocalPlayer，APlayerController 内部会开始 InitInputSystem()，接着会创建相应的 UPlayerInput，BuildInputStack 等初始化出和 Input 相关的组件对象。现在先明白到 LocalPlayer 才是 PlayerController 产生的源头，也因此才有了 Input 就够了，特定的 Input 事件流程分析在后续章节再细述。
+可见，对于 ULocalPlayer，APlayerController 内部会开始 InitInputSystem()，接着会创建相应的 UPlayerInput，BuildInputStack 等初始化出和 Input 相关的组件对象。现在先明白到 **LocalPlayer 才是 PlayerController 产生的源头，也因此才有了 Input** 就够了，特定的 Input 事件流程分析在后续章节再细述。
 
-**思考：为何不在 LocalPlayer 里编写逻辑？**  
+> [!question] 
+> **思考：为何不在 LocalPlayer 里编写逻辑？**  
+
 作为游戏开发者，相信大家都有这么个体会，往往在游戏逻辑代码中总会有一个自己的 Player 类，里面放着这个玩家的相关数据和逻辑业务。可是在 UE 里为何就不见了这么个结构？也没见 UE 在文档里有描述推荐你怎么创建自己的 Player。  
 这个可能有两个原因，一是 UE 从 FPS-Specify 游戏起家，不像现在的各种手游有非常重的玩家系统，在 UE 的眼中，Level 和 World 才是最应该关注的对象，因此 UE 的视角就在于怎么在 Level 中处理好 Player 的逻辑，而非在 World 之外的额外操作。二是因为在一个 World 中，上文提到其实已经有了 Pawn-PlayerController 和 PlayerState 的组合了，表示、逻辑和数据都齐备了，也就没必要再在 Level 掺和进 Player 什么事了。当然你也可以理解为 PlayerController 就是 Player 在 Level 中的话事人。  
 凡事留一线，日后好相见。尽管如此，UE 还是给了我们自定义 ULocalPlayer 子类的机会：
 
-```
+```c++
 //class UEngine：
 /** The class to use for local players. */
 UPROPERTY()
@@ -1237,27 +1245,9 @@ FStringClassReference LocalPlayerClassName;
 
 ## 总结
 
-本篇我们抽象出了 Player 的概念，并依据使用场景派生出了 LocalPlayer 和 NetConnection 这两个子类，从此 Player 就不再是一个虚无缥缈的概念，而是 UE 里的逻辑实体。UE 可以根据生成的 Player 对象的数量和类型的不同，在此上实现出不同的玩家控制模式，LocalPlayer 作为源头 Spawn 出 PlayerController 继而 PlayerState 就是实证之一。而在网络联机时，把一个网络连接看作是一个玩家这个概念，把在 World 之上的输入实体用 Player 统一了起来，从而可以实现出灵活的本地远程不同玩家模式策略。  
+本篇我们抽象出了 Player 的概念，并依据使用场景派生出了 LocalPlayer 和 NetConnection 这两个子类，从此 Player 就不再是一个虚无缥缈的概念，而是 UE 里的逻辑实体。UE 可以根据生成的 Player 对象的数量和类型的不同，在此上实现出不同的玩家控制模式，**LocalPlayer 作为源头 Spawn 出 PlayerController 继而 PlayerState** 就是实证之一。而在网络联机时，把一个网络连接看作是一个玩家这个概念，把在 World 之上的输入实体用 Player 统一了起来，从而可以实现出灵活的本地远程不同玩家模式策略。  
 尽管如此，UPlayer 却像是深藏在 UE 里的幕后功臣，UE 也并不推荐直接在 Player 里编程，而是利用 Player 作为源头，来产生构建一系列相关的机制。但对于我们游戏开发者而言，知道并了解 UE 里的 Player 的概念，是把现实生活同游戏世界串联起来的很重要的纽带。我们在一个个 World 里向上仰望，还能清楚的看见一个个 LocalPlayer 或 NetConnection 仿佛在注视着这片大地，是他们为 World 注入了生机。  
 已经到头了？并没有，我们继续向上逆风飞翔，终将得见游戏里的神：GameInstance。
-
-上篇：[《InsideUE4》GamePlay 架构（七）GameMode 和 GameState](https://zhuanlan.zhihu.com/p/23707588)
-
-下篇：[《InsideUE4》GamePlay 架构（九）GameInstance](https://zhuanlan.zhihu.com/p/24005952)
-
-## 引用
-
-_UE4.14_
-
----------------------------------------------------------------------------------------------------------------------------
-
-知乎专栏：[InsideUE4](https://zhuanlan.zhihu.com/insideue4)
-
-UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官方文档和视频教程)
-
-微信公众号：**aboutue**，关于 UE 的一切新闻资讯、技巧问答、文章发布，欢迎关注。
-
-**个人原创，未经授权，谢绝转载！**
 
 # 9 GameInstance
 一人之下，万人之上
@@ -1275,13 +1265,10 @@ UE4 深入学习 QQ 群：**456247757**(非新手入门群，请先学习完官�
 
 我并不想罗列所有的接口，UGameInstance 里的接口大概有 4 类：
 
-1. 引擎的初始化加载，Init 和 ShutDown 等（在引擎流程章节会详细叙述）
-
-2. Player 的创建，如 CreateLocalPlayer，GetLocalPlayers 之类的。
-
-3. GameMode 的重载修改，这是从 4.14 新增加进来改进，本来你只能为特定的某个 Map 配置好 GameModeClass，但是现在 GameInstance 允许你重载它的 PreloadContentForURL、CreateGameModeForURL 和 OverrideGameModeClass 方法来 hook 改变这一流程。
-
-4. OnlineSession 的管理，这部分逻辑跟网络的机制有关（到时候再详细介绍），目前可以简单理解为有一个网络会话的管理辅助控制类。
+1. **引擎的初始化加载**，Init 和 ShutDown 等（在引擎流程章节会详细叙述）
+2. **Player 的创建**，如 CreateLocalPlayer，GetLocalPlayers 之类的。
+3. **GameMode 的重载修改**，这是从 4.14 新增加进来改进，本来你只能为特定的某个 Map 配置好 GameModeClass，但是现在 GameInstance 允许你重载它的 PreloadContentForURL、CreateGameModeForURL 和 OverrideGameModeClass 方法来 hook 改变这一流程。
+4. **OnlineSession 的管理**，这部分逻辑跟网络的机制有关（到时候再详细介绍），目前可以简单理解为有一个网络会话的管理辅助控制类。
 
 而 GameInstance 是在 GameEngine 里创建的（先不谈 UEditorEngine）：
 

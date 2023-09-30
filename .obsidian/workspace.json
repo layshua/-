@@ -6,7 +6,6 @@
       {
         "id": "80bc260db3014d84",
         "type": "tabs",
-        "dimension": 49.880239520958085,
         "children": [
           {
             "id": "d347bb509aa8cb82",
@@ -28,26 +27,6 @@
               "type": "markdown",
               "state": {
                 "file": "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "c7f506594bdad22f",
-        "type": "tabs",
-        "dimension": 50.11976047904192,
-        "children": [
-          {
-            "id": "3d43790aff76c19f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/GamePlay架构.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
