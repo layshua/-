@@ -53,13 +53,9 @@ GameplayAbilitySystem插件由Epic Games开发, 随Unreal Engine 4 (UE4)发布. 
 **GAS必须由C++创建**, 但是`GameplayAbility`和`GameplayEffect`可由设计师在蓝图中创建.  
 
 GAS中的现存问题:
-
 * `GameplayEffect`延迟调节(Latency Reconciliation).(不能预测能力冷却时间, 导致高延迟玩家相比低延迟玩家, 对于短冷却时间的能力有更低的激活速率.)
 * 不能预测性地移除`GameplayEffect`. 然而我们可以反向预测性地添加`GameplayEffect`, 从而高效的移除它. 但是这不总是合适或者可行的, 因此这仍然是个问题.
 * 缺乏样例模板项目, 多人联机样例和文档. 希望这篇文档会有所帮助.
-
-**[⬆ 返回目录](#table-of-contents)**
-
 <a name="sp"></a>
 ## 2. 样例项目
 
@@ -113,9 +109,6 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 |GC_|GameplayCue|
 |GE_|GameplayEffect|
 
-**[⬆ 返回目录](#table-of-contents)**
-
-<a name="setup"></a>
 ## 3. 使用GAS创建一个项目
 
 使用GAS建立一个项目的基本步骤:  
@@ -126,9 +119,6 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 这就是你启用GAS所需做的全部了. 从这里开始, 添加一个[`ASC`](#concepts-asc)和[`AttributeSet`](#concepts-as)到你的`Character`或`PlayerState`, 并开始着手[`GameplayAbility`](#concepts-ga)和[`GameplayEffect`](#concepts-ge)!
 
-**[⬆ 返回目录](#table-of-contents)**
-
-<a name="concepts"></a>
 ## 4. GAS概念
 
 * 4.1 [Ability System Component](#concepts-asc)  
@@ -142,7 +132,6 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 * 4.9 [Ability System Globals](#concepts-asg)  
 * 4.10 [Prediction](#concepts-p)
 
-<a name="concepts-asc"></a>
 ### 4.1 Ability System Component
 
 `AbilitySystemComponent(ASC)`是GAS的核心, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), 所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
@@ -174,9 +163,6 @@ OwnerActor需要继承并实现`IAbilitySystemInterface`, 如果AvatarActor和Ow
 
 从4.24开始, 需要使用`PossessedBy()`设置新的`Controller`为`Pawn`的Owner.  
 
-**[⬆ 返回目录](#table-of-contents)**
-
-<a name="concepts-asc-setup"></a>
 #### 4.1.2 设置和初始化
 
 `ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为Replicated. **这必须在C++中完成.**  
@@ -2959,7 +2945,6 @@ Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(
 
 <a name="qol"></a>
 # 8. Quality of Life Suggestions
-
 <a name="qol-gameplayeffectcontainers"></a>
 ## 8.1 Gameplay Effect Containers
 
