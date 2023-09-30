@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md"
+    },
+    {
+      "basename": "abilityflowchartcomplex",
+      "path": "zip/images/abilityflowchartcomplex.png"
+    },
+    {
+      "basename": "ARPG笔记",
+      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
+    },
+    {
       "basename": "0 GamePlay精粹",
       "path": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
     },
@@ -133,10 +145,6 @@
       "path": "技术美术/1 渲染雅集/02 顶点动画.md"
     },
     {
-      "basename": "ARPG笔记",
-      "path": "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md"
-    },
-    {
       "basename": "7 多线程",
       "path": "引擎Unreal/02 U++精粹/7 多线程.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "12 十二：垃圾回收",
       "path": "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md"
-    },
-    {
-      "basename": "09 九：TaskGraph",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md"
-    },
-    {
-      "basename": "13 十三：渲染系统（一）",
-      "path": "引擎Unreal/04 Gameplay/《大象无形》/13 十三：渲染系统（一）.md"
     }
   ],
   "omittedPaths": [],

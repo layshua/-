@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md"
               }
             }
           },
@@ -99,7 +99,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md"
+                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md"
               }
             }
           }
@@ -149,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
+                "file": "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -228,9 +228,25 @@
   },
   "active": "d347bb509aa8cb82",
   "lastOpenFiles": [
+    "zip/images/1696083211282.png",
+    "zip/images/abilityflowchartcomplex.png",
+    "引擎Unreal/04 Gameplay/GAS/GAS精粹.md",
+    "zip/images/2e7de398871c8533a6d950662579d19a_MD5.png",
+    "zip/images/7615f2cbcb71b1ec17fe13f200aa0a7c_MD5.png",
+    "zip/images/abc8096d382fe7dafc3a7543689bdaab_MD5.png",
+    "zip/images/82bce806c03018ab6f1e6a8d4aa16f0a_MD5.png",
+    "zip/images/7a05152ed5871153b641841e4f366f1c_MD5.png",
+    "zip/images/7c2109bfb643c979cab43b16eebe5dfb_MD5.png",
+    "zip/images/888ed3c330cc4a58423f1ba9c3ce0459_MD5.png",
+    "zip/images/789e45f3d6c054bea171333c58322c40_MD5.png",
+    "zip/images/03a822b3796c45dd813785eb48c0fdef_MD5.png",
+    "引擎Unreal/04 Gameplay/ARPG/ARPG笔记.md",
+    "引擎Unreal/04 Gameplay/GAS/Images",
+    "引擎Unreal/04 Gameplay/GAS",
+    "引擎Unreal/04 Gameplay/新建文件夹",
+    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "README.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
-    "引擎Unreal/02 U++精粹/0 GamePlay精粹.md",
     "引擎Unreal/02 U++精粹/5 定时器.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
@@ -242,39 +258,23 @@
     "Tools/Obsidian/插件流.md",
     "Tools/Obsidian/发布方案.md",
     "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
-    "zip/images/Pasted image 20230929143431.png",
     "Tools/Software/StarUML 安装、注册与中文版详解版_staruml 中文 - CSDN 博客.md",
     "编程/6 UML/基础.md",
     "编程/6 UML",
     "Tools/Software/破解StarUML.md",
     "Tools/Software/激活office365.md",
     "zBuffer/StarUml 下载，安装和授权破解教程.md",
-    "zip/images/ce0e3440e5630603757bff6434d0c525_MD5.gif",
-    "zip/images/a2f2d3d6a398f3182ff5dff8491a6883_MD5.jpg",
-    "zip/images/9a13023c17934f475975ffdc8f524f9e_MD5.jpg",
-    "zip/images/01f643faa158d7114f9a300c977ab007_MD5.jpg",
-    "zip/images/4920888b402d4c69cf37f305651b7d1c_MD5.jpg",
-    "zip/images/c991cd6eb1a765ddfde61ec9e6dba4c8_MD5.jpg",
-    "zip/images/381f40af1e6d9e403deebfdb652f9c33_MD5.jpg",
-    "zip/images/7a9a1d6b394aa1664a5ec0de2c504776_MD5.jpg",
-    "zip/images/e09e1a952a464a6aac704be7acec13d0_MD5.jpg",
     "zip/images/Diagram 4.svg.xml",
     "Tools/工具流.md",
     "编程/1 C++/2 STL标准库.md",
     "编程/1 C++/1 C++ Primer.md",
     "引擎Unreal/04 Gameplay/《大钊》/《InsideUE4》基础概念.md",
     "引擎Unreal/04 Gameplay/《大象无形》/10 十：UObject (一).md",
-    "引擎Unreal/04 Gameplay/《大象无形》/11 十一：UObject (二).md",
-    "引擎Unreal/04 Gameplay/《大象无形》/12 十二：垃圾回收.md",
-    "引擎Unreal/04 Gameplay/《大象无形》/09 九：TaskGraph.md",
     "编程/408",
     "引擎Unreal/04 Gameplay/UE画布.canvas",
     "引擎Unreal/01 指南/Rider",
     "Untitled.sheet",
     "引擎Unreal/04 Gameplay/AI",
-    "引擎Unreal/04 Gameplay/TPS",
-    "引擎Unreal/04 Gameplay/ARPG",
-    "引擎Unreal/网络",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
     "未命名.canvas",
