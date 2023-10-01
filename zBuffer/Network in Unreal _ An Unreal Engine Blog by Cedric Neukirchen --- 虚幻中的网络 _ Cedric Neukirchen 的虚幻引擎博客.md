@@ -169,7 +169,6 @@ GameMode 确保调用 GameState 的 `MatchState` 函数，并且 **GameState 本
 我们从 AGameState 基类中获取一些可以利用的变量。 PlayerArray、MatchState 和 ElapsedTime 都会被复制，因此客户端也可以访问它们。
 >`AuthorityGameMode` 除外。只有服务器可以访问它，因为 GameMode 仅存在于服务器上。
 
-The PlayerArray is not directly replicated, however, every PlayerState is replicated and they add themselves to the PlayerArray on construction. Additionally, they are collected by the GameState, just to ensure no race-condition causes problems.  
 **PlayerArray 不会直接复制，但是，每个 PlayerState 都会被复制，并且它们会在构造时将自己添加到 PlayerArray 中**。此外，它们由 GameState 收集，只是为了确保竞争条件不会导致问题。
 
 以下是 C++代码示例，展示了将 PlayerState 收集到 PlayerArray 中的快速插入方法： 
@@ -212,51 +211,88 @@ void AGameState::AddPlayerState(APlayerState* PlayerState)
 
 ```
 
-All of this happens on the server and the client instances of Player- and GameState!  
 所有这一切都发生在服务器以及 Player 和 GameState 的客户端实例上！
 
-#### Functions[​]( #functions "Direct link to Functions") 功能​
+#### 示例
+我可以为您提供的一个小的函数示例是**跟踪 “A” 和“B”两支球队的得分。** 假设我们有一个 `CustomEvent`，当球队得分时会调用该事件。
 
-A small function example I could provide you with would be keeping track of the score of two teams 'A' and 'B'. Let's say we have a CustomEvent which is called when a team scores.  
-我可以为您提供的一个小功能示例是跟踪 “A” 和“B”两支球队的得分。假设我们有一个 CustomEvent，当球队得分时会调用该事件。
-
-It passes a boolean so we know which team scored. We could also pass in a PlayerState, Team, or whatever you utilize to identify who scored.  
 它传递一个布尔值，这样我们就知道哪支球队得分了。我们还可以传递 PlayerState、Team 或任何您用来识别得分者的信息。
 
-Later in the “Replication” chapter, you will read about the rule that only the server can (and should) replicate variables, so we make sure only he can call this event.  
-稍后在 “复制” 章节中，您将了解只有服务器可以（并且应该）复制变量的规则，因此我们确保只有他可以调用此事件。
+稍后在 “Replication 复制” 章节中，您将了解**只有服务器可以（并且应该）复制变量的规则**，因此我们确保只有服务器可以调用此事件。
 
-The event is called from another class (for example a weapon that killed someone) and this should happen on the Server (always!), so we don't need an RPC here.  
 该事件是从另一个类调用的（例如杀死某人的武器），并且这应该发生在服务器上（总是！），因此我们在这里不需要 RPC。
 
-Since these variables and the GameState are replicated you can use these two variables and get them in any other class you need them. For example, to display them in a scoreboard widget.  
-由于这些变量和 GameState 是复制的，因此您可以使用这两个变量并将它们放入您需要的任何其他类中。例如，将它们显示在记分板小部件中。
+- @ 蓝图
+![[Pasted image 20231001173813.png]]
+由于这些变量和 GameState 是复制的，因此您可以使用这两个变量并将它们放入您需要的任何其他类中。例如，将它们显示在记分板 widget 中。 
 
-#### UE++ Examples[​]( #ue -examples "Direct link to UE++ Examples") UE++ 示例​
+- @ C++
 
-To recreate this small example we need a bit more code, but despite the function itself the code needed to set up the replication is only needed once per class.  
-为了重新创建这个小示例，我们需要更多的代码，但是尽管函数本身，每个类只需要一次设置复制所需的代码。
+为了重新创建这个例子，我们需要更多的代码，但是除了函数本身之外，设置复制所需的代码只需要每个类一次。
 
-Header file of our AGameState class inside of the class declaration  
-我们的 AGameState 类的头文件位于类声明中
+```c++ file:MyGameState.h
+// You need this included to get the replication working.
+#include “UnrealNetwork.h”
 
-```
-// You need this included to get the replication working.#include “UnrealNetwork.h”// Replicated specifier used to mark this variable to replicateUPROPERTY(Replicated)int32 TeamAScore;UPROPERTY(Replicated)int32 TeamBScore;// Function to increase the score of a teamvoid AddScore(bool bTeamAScored);
-```
+// Replicated specifier used to mark this variable to replicate
+UPROPERTY(Replicated)
+int32 TeamAScore;
 
-You will read more about this function in the Replication part!  
-您将在复制部分阅读有关此功能的更多信息！
+UPROPERTY(Replicated)
+int32 TeamBScore;
 
-CPP file of our AGameState child class  
-AGameState 子类的 CPP 文件
-
-```
-// This function is required through the replicated specifier in the UPROPERTY macro and is declared by itvoid ATestGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const{    Super::GetLifetimeReplicatedProps(OutLifetimeProps);    DOREPLIFETIME(ATestGameState, TeamAScore);    DOREPLIFETIME(ATestGameState, TeamBScore);}
+// Function to increase the score of a team
+void AddScore(bool bTeamAScored);
 ```
 
-CPP file of our AGameState child class  
-AGameState 子类的 CPP 文件
+```c++ file:MyGameState.cpp
+void ATestGameState::AddScore(bool bTeamAScored)
+{
+    if (bTeamAScored)
+    {
+        TeamAScore++;
+    }
+    else
+    {
+        TeamBScore++;
+    }
+}
+```
 
-```
-void ATestGameState::AddScore(bool bTeamAScored){    if (bTeamAScored)    {        TeamAScore++;    }    else    {        TeamBScore++;    }}
-```
+## PlayerState 
+
+`APlayerState` 类是**共享特定玩家信息的最重要的类**。它旨在保存有关玩家的当前信息。**每个玩家都有自己的 PlayerState**。
+
+**PlayerState 也会复制给每个人，并可用于在其他客户端上检索和显示数据。
+访问所有 PlayerState 的一个简单方法是 AGameState 类中的 `PlayerArray`。**
+
+您可能想要存储在 PlayerState 中的示例信息：
+- PlayerName - 玩家的当前名称
+- Score - 玩家当前的分数
+- Ping - 玩家当前的 ping
+- TeamID - 玩家所在团队的 ID
+- 或其他玩家可能需要了解的其他复制信息
+
+## Examples and Usage[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playerstate#examples-and-usage "Direct link to Examples and Usage") 示例和用法​
+
+Most of the examples I could provide would be very specific. So instead we are going to have a look at some of the already available properties, as well as some of the more interesting functions.  
+我能提供的大多数例子都非常具体。因此，我们将看看一些已经可用的属性，以及一些更有趣的函数。
+
+### Blueprint Examples[​]( https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playerstate#blueprint-examples "Direct link to Blueprint Examples") 蓝图示例​
+
+There are a few variables exposed to Blueprints, which can be more or less useful. Sadly some of them aren't exposed with all their functionality, so it might be best to replace them with your own.  
+蓝图暴露了一些变量，它们或多或少有用。遗憾的是，其中一些并未公开其所有功能，因此最好用您自己的功能替换它们。
+
+![PlayerState Variables](data:image/png;base64,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 "PlayerState Variables")
+
+These variables are all replicated, so they are kept in sync on all clients.  
+这些变量都会被复制，因此它们在所有客户端上保持同步。
+
+Sadly they are not easily settable in Blueprints, but nothing keeps you from creating your versions of them.  
+遗憾的是，它们在蓝图中不容易设置，但没有什么可以阻止您创建它们的版本。
+
+  
+
+An example of how the PlayerName variable can be set is by calling “ChangeName”, a GameMode function, and passing it the PlayerController of the Player.  
+如何设置 PlayerName 变量的一个示例是通过调用 GameMode 函数“ChangeName”，并将其传递给玩家的 PlayerController。
+![[Pasted image 20231001174629.png]]
