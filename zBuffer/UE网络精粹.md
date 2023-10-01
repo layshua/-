@@ -370,7 +370,6 @@ Pawn 的子类 ACharacter 经常被使用，因为它带有一个已经**联网*
 >- 由于 possess 逻辑发生在服务器上，这些事件仅在 Pawn/Character 的服务器版本上调用。
 >- `ReceiveControllerChanged` 事件：在 Controller 变更时后调用，在客户端和服务端都能调用。
 
-
 下图将展示如何使用 `EventAnyDamage` 函数和复制的 `Health` 变量来降低玩家的生命值。
 >这发生在服务器上而不是客户端上！
 
@@ -402,6 +401,226 @@ Pawn 的子类 ACharacter 经常被使用，因为它带有一个已经**联网*
 
 #### C++
 
-对于 C++ 示例，我不会重新创建 UserWidget 示例。要让 UserWidgets 在 C++ 中工作需要做太多的样板文件，我不想在这里讨论这个。
+对于 C++ 示例，我不会重新创建 UserWidget 示例。要让 UserWidgets 在 C++ 中工作需要做太多的模板式的东西，我不想在这里讨论这个。
 
-所以我们将重点关注占有和伤害事件。在C++中，两个Possess事件被称为：
+所以我们将重点关注占有和伤害事件。在 C++中，两个 Possess 事件被称为：
+```c++
+virtual void PossessedBy(AController* NewController);
+
+virtual void UnPossessed();
+```
+>注意，`UnPossessed` 事件不会传递旧的 PlayerController。
+
+And we also want to recreate the Health example in C++. As always, if you don't understand the steps of replication at this moment, don't worry, the upcoming chapters will explain it to you.  
+我们还想用 C++ 重新创建 Health 示例。如果您现在不明白复制的步骤，请不要担心，接下来的章节将为您解释。
+>如果示例在复制方面看起来太复杂，请暂时跳过这些示例。
+
+“`TakeDamage`”函数相当于“`EventAnyDamage`”节点。为了造成伤害，您通常会对要对其造成伤害的 Actor 调用“TakeDamage”，如果该 Actor 实现了该函数，它将对此做出反应，类似于本示例的做法。
+
+```c++ file:TestPawn.h
+// Replicated Health variable
+UPROPERTY(Replicated)
+int32 Health;
+
+// Overriding the TakeDamage event
+virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
+```
+
+```c++ file:TestPawn.cpp
+// 该函数是必需的，UPROPERTY 宏中的Replicated指示符会为我们声明该函数。我们只需实现它
+void ATestPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+    // 告诉 UE 我们要复制这个变量
+    DOREPLIFETIME(ATestPawn, Health);
+}
+
+float ATestPawn::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+    const float ActualDamage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+
+    // Lower the Health of the Player
+    Health -= ActualDamage;
+
+    // And destroy it if the Health is less or equal 0
+    if (Health <= 0.f)
+    {
+        Destroy();
+    }
+
+    return ActualDamage;
+}
+```
+
+## PlayerController
+The class **APlayerController** might be the most interesting and complicated class that we come across. It's also the center for a lot of client logic since this is the first class that the client actually 'owns'.  
+APlayerController 类可能是我们遇到的最有趣、最复杂的类。它也是大量客户端逻辑的中心，因为**这是客户端真正 "拥有 (owns) "的第一个类**。
+
+The PlayerController can be seen as the 'Input' of the player. It is the link of the player with the server. This further means every client has one PlayerController.  
+PlayerController 可以看作是玩家的 "输入"。它是玩家与服务器的链接。这进一步意味着每个客户端都有一个 PlayerController。  
+A client's PlayerController only ever exists on their end, as well as on the server. A client cannot access other clients' PlayerControllers.  
+客户端的 PlayerController 只存在于客户端和服务器端。客户端无法访问其他客户端的 PlayerController。
+
+**Every client only knows about their own PlayerController!  
+每个客户端只知道自己的 PlayerController！**
+
+The result of that is that the server has a reference of all client PlayerControllers!  
+这样做的结果是，服务器拥有所有客户端 PlayerControllers 的引用！
+
+The term 'Input' does not directly mean that all actual Input (Button Presses, Mouse Movement, Controller Axis, etc.) needs to be placed in the PlayerController.  
+输入 "一词并不直接意味着所有实际输入（按键、鼠标移动、控制器轴等）都需要放在 PlayerController 中。
+
+It is a good practice to place Pawn/Character specific Input (cars work differently than humans) into your APawn/ACharacter classes and to place Input that should work with all Characters, or even when the Character object is not valid, into your PlayerController.  
+一个好的做法是，将 "棋子"/"角色 "特定的输入（汽车的工作方式与人类不同）放入 APawn/ACharacter 类中，而将适用于所有角色的输入，或甚至当角色对象无效时，放入 PlayerController 中。
+
+**Furthermore, an important thing to know is:  
+此外，还有一件重要的事情需要了解：**
+
+_How do I get the correct PlayerController?  
+如何获取正确的 PlayerController？_
+
+The famous node 'GetPlayerController(0)' or code line 'UGameplayStatics::GetPlayerController(GetWorld(), 0);' works differently on the server and clients.  
+著名的节点 "GetPlayerController(0) "或代码行 "UGameplayStatics::GetPlayerController(GetWorld(), 0); "在服务器和客户端上的工作方式不同。
+
+- Calling it on the Listen-Server will return the Listen-Server's PlayerController  
+    在监听服务器上调用它将返回监听服务器的 PlayerController
+- Calling it on a Client will return the Client's PlayerController  
+    在客户端上调用它将返回客户端的 PlayerController
+- Calling it on a Dedicated Server will return the first Client's PlayerController  
+    在专用服务器上调用它将返回第一个客户端的 PlayerController
+
+Other numbers than '0' will not return other clients' PlayerControllers for a client. This index is meant to be used for local players (splitscreen), which we won't cover here.  
+除 "0 "以外的其他数字将不会返回某个客户端的其他客户端 PlayerControllers。该索引用于本地玩家（分屏），我们在此不做介绍。
+
+## Examples and Usage[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#examples-and-usage "Direct link to Examples and Usage") 示例和用法
+
+Even though the APlayerController is one of the most important classes for networking, there isn't much to it by default.  
+尽管 APlayerController 是网络中最重要的类之一，但默认情况下它的功能并不多。
+
+So we will create a small example just to make clear why it's needed. In the chapter about ownership, you will read about why the PlayerController is important for RPCs.  
+因此，我们将创建一个小示例来说明为什么需要它。在 "所有权 "一章中，你会了解到为什么 PlayerController 对于 RPC 非常重要。
+
+The following example will show you how to utilize the PlayerController to increment a replicated variable in the GameState by pressing a UserWidget button.  
+下面的示例将向您展示如何利用 PlayerController，通过按下 UserWidget 按钮来递增 GameState 中的一个复制变量。
+
+_Why do we need the PlayerController for this?  
+为什么需要使用 PlayerController？_
+
+Well, I don't want to write down the RPC and Ownership chapter twice, so just a short explanation:  
+好吧，我不想把 RPC 和所有权章节写两遍，所以就简单解释一下吧：
+
+UserWidgets only exist on the local player (being a client or a ListenServer) and even if they are owned by the client a ServerRPC has no instance of them on the server to run on.  
+UserWidgets 只存在于本地播放器（客户端或 ListenServer）上，即使它们被客户端拥有，ServerRPC 也无法在服务器上运行它们的实例。
+
+It's simply **not** replicated!  
+根本无法复制！
+
+This means we need a way to get the button Press over to the server so it can then increment the variable.  
+这意味着我们需要一种方法，将按钮 Press 发送到服务器，这样服务器就可以递增变量。
+
+_Why not call the RPC on the GameState directly?  
+为什么不直接调用 GameState 上的 RPC？_
+
+Because it's owned by the server. A ServerRPC needs the client as the owner!  
+因为它归服务器所有。ServerRPC 需要客户端作为所有者！
+
+### Blueprint[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#blueprint "Direct link to Blueprint") 蓝图
+
+So first of all, we need a simple UserWidget with a button that we can press.  
+因此，首先，我们需要一个简单的 UserWidget，上面有一个可以按下的按钮。
+
+I will post the images in the opposite order, so you can see where it ends and what events call the events of the previous images.  
+我将以相反的顺序张贴图片，这样你就能看到图片的结尾，以及哪些事件呼应了前面图片中的事件。
+
+So starting with our goal, the GameState. It gets a normal event that increments a replicated integer variable:  
+因此，从我们的目标 GameState 开始。它会收到一个普通事件，该事件会递增一个复制的整数变量：
+![[Pasted image 20231001200904.png]]
+This event will get called on the server side, inside of our ServerRPC in our PlayerController:  
+该事件将在服务器端调用，就在我们的 PlayerController 中的 ServerRPC 内部：
+![[Pasted image 20231001200911.png]]
+And at last, we have our button, which gets pressed and calls the ServerRPC:  
+最后，我们的按钮被按下并调用 ServerRPC：
+![[Pasted image 20231001200919.png]]
+
+So when we click on the button (client side), we use the ServerRPC in our PlayerController to get to the server side (possible, because the PlayerController is owned by the client!) and then call the 'IncreaseVariable' event of the GameState to increment the replicated integer variable.  
+因此，当我们点击按钮（客户端）时，我们使用 PlayerController 中的 ServerRPC 来进入服务器端（这是可能的，因为 PlayerController 是客户端所有的！），然后调用 GameState 的 "IncreaseVariable "事件来递增复制的整数变量。
+
+This integer variable, since it is replicated and set by the server, will now update on all instances of the GameState so that clients can also see the update!  
+由于这个整数变量是由服务器复制和设置的，因此现在会在 GameState 的所有实例上更新，这样客户端也能看到更新！
+
+#### UE++[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#ue "Direct link to UE++") UE++
+
+For the C++ version of this example, I will replace the UserWidget with the BeginPlay of the PlayerController. This doesn't make much sense, however, implementing UserWidgets in C++ needs some more code which I don't want to post here.  
+在本例的 C++ 版本中，我将用 PlayerController 的 BeginPlay 代替 UserWidget。不过，用 C++ 实现 UserWidget 需要更多代码，我不想在此赘述。
+
+```c++ file:TestPlayerController.h
+// Server RPC. You will read more about this in the RPC chapter  
+UFUNCTION(Server, unreliable, WithValidation)  
+void Server_IncreaseVariable();  
+  
+// Also overriding the BeginPlay function for this example  
+virtual void BeginPlay() override;
+```
+
+```c++ file:TestGameState.h
+// Replicated integer variable
+UPROPERTY(Replicated)
+int32 OurVariable;
+
+public:
+// Function to increment the variable
+void IncreaseVariable();
+```
+
+
+```c++ file:TestPlayerController.cpp
+// Otherwise we can't access the GameState functions
+#include “TestGameState.h”
+
+// You will read later about RPCs and why '_Validate' is a thing
+bool ATestPlayerController::Server_IncreaseVariable_Validate()
+{
+    return true;
+}
+
+// You will read later about RPCs and why '_Implementation' is a thing
+void ATestPlayerController::Server_IncreaseVariable_Implementation()
+{
+    ATestGameState* GameState = Cast<ATestGameState>(UGameplayStatics::GetGameState(GetWorld()));
+    GameState->IncreaseVariable();
+}
+
+void ATestPlayerController::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // BeginPlay is called on every instance of an Actor, so also on the server version of this PlayerController.
+    // We want to ensure, that only the local player calls this RPC. Again, this example doesn't necessarily make much sense
+    // since we could just flip the condition and wouldn't need the RPC at all, but C++ Widget, you know...
+    // We could also use "IsLocalPlayerController()" here
+    if (Role < ROLE_Authority)
+    {
+        Server_IncreaseVariable();
+    }
+}
+```
+
+```c++ file:file:TestGameState.cpp
+// This function is required and the replicated specifier in the UPROPERTY macro causes it to be declared for us. We only need to implement it
+void ATestGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+    // This tells UE that we want to replicate this variable
+    DOREPLIFETIME(ATestGameState, OurVariable);
+}
+
+void ATestGameState::IncreaseVariable()
+{
+    OurVariable++;
+}
+```
+
+That's quite some code. If you don't understand the use of some of the functions and their naming yet, don't worry. The upcoming sections will help you understand why it's done like this.  
+这是相当多的代码。如果你还不理解其中一些函数的用法和命名，不用担心。接下来的章节将帮助你理解为什么要这样做。
