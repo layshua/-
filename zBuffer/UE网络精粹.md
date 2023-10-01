@@ -453,87 +453,55 @@ float ATestPawn::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent
 }
 ```
 
-## PlayerController
-The class **APlayerController** might be the most interesting and complicated class that we come across. It's also the center for a lot of client logic since this is the first class that the client actually 'owns'.  
+## PlayerController （客户端+服务器）
+
 APlayerController 类可能是我们遇到的最有趣、最复杂的类。它也是大量客户端逻辑的中心，因为**这是客户端真正 "拥有 (owns) "的第一个类**。
 
-The PlayerController can be seen as the 'Input' of the player. It is the link of the player with the server. This further means every client has one PlayerController.  
-PlayerController 可以看作是玩家的 "输入"。它是玩家与服务器的链接。这进一步意味着每个客户端都有一个 PlayerController。  
-A client's PlayerController only ever exists on their end, as well as on the server. A client cannot access other clients' PlayerControllers.  
-客户端的 PlayerController 只存在于客户端和服务器端。客户端无法访问其他客户端的 PlayerController。
+PlayerController 可以看作是玩家的 "`Input`"。它是玩家与服务器的链接。这进一步意味着**每个客户端都有一个 PlayerController**。  
 
-**Every client only knows about their own PlayerController!  
-每个客户端只知道自己的 PlayerController！**
+**客户端的 PlayerController 只存在于本客户端和服务器**：
+- 每个客户端**只知道**自己的 PlayerController，**无法访问其他客户端的 PlayerController。**
+- 服务器拥有**所有**客户端 PlayerControllers 的引用！
 
-The result of that is that the server has a reference of all client PlayerControllers!  
-这样做的结果是，服务器拥有所有客户端 PlayerControllers 的引用！
+"Input"一词并不直接意味着所有实际输入（按键、鼠标移动、控制器轴等）都需要放在 PlayerController 中。一个好的做法是：
+- 将 Pawn/Character **特定**的输入（汽车的工作方式与人类不同）放入 APawn/ACharacter 类中
+- 将适用于**所有** Character 或甚至当 Character 对象无效时的输入，放入 PlayerController 中。 
 
-The term 'Input' does not directly mean that all actual Input (Button Presses, Mouse Movement, Controller Axis, etc.) needs to be placed in the PlayerController.  
-输入 "一词并不直接意味着所有实际输入（按键、鼠标移动、控制器轴等）都需要放在 PlayerController 中。
+> [!question] 
+> 如何获取正确的 PlayerController？
 
-It is a good practice to place Pawn/Character specific Input (cars work differently than humans) into your APawn/ACharacter classes and to place Input that should work with all Characters, or even when the Character object is not valid, into your PlayerController.  
-一个好的做法是，将 "棋子"/"角色 "特定的输入（汽车的工作方式与人类不同）放入 APawn/ACharacter 类中，而将适用于所有角色的输入，或甚至当角色对象无效时，放入 PlayerController 中。
+节点 `GetPlayerController(0)` 或代码行 `UGameplayStatics::GetPlayerController(GetWorld(), 0);` 在服务器和客户端上的工作方式不同：
+- 在监听服务器（Listen-Server）上调用它将返回**监听服务器**的 PlayerController
+- 在客户端上调用它将返回**客户端**的 PlayerController
+- 在专用服务器（Dedicated Server）上调用它将返回**第一个客户端**的 PlayerController
 
-**Furthermore, an important thing to know is:  
-此外，还有一件重要的事情需要了解：**
+>除 "0 "以外的其他数字将不会返回某个客户端的其他客户端 PlayerControllers。该索引用于本地玩家（分屏），我们在此不做介绍。
 
-_How do I get the correct PlayerController?  
-如何获取正确的 PlayerController？_
+## 示例和用法
 
-The famous node 'GetPlayerController(0)' or code line 'UGameplayStatics::GetPlayerController(GetWorld(), 0);' works differently on the server and clients.  
-著名的节点 "GetPlayerController(0) "或代码行 "UGameplayStatics::GetPlayerController(GetWorld(), 0); "在服务器和客户端上的工作方式不同。
-
-- Calling it on the Listen-Server will return the Listen-Server's PlayerController  
-    在监听服务器上调用它将返回监听服务器的 PlayerController
-- Calling it on a Client will return the Client's PlayerController  
-    在客户端上调用它将返回客户端的 PlayerController
-- Calling it on a Dedicated Server will return the first Client's PlayerController  
-    在专用服务器上调用它将返回第一个客户端的 PlayerController
-
-Other numbers than '0' will not return other clients' PlayerControllers for a client. This index is meant to be used for local players (splitscreen), which we won't cover here.  
-除 "0 "以外的其他数字将不会返回某个客户端的其他客户端 PlayerControllers。该索引用于本地玩家（分屏），我们在此不做介绍。
-
-## Examples and Usage[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#examples-and-usage "Direct link to Examples and Usage") 示例和用法
-
-Even though the APlayerController is one of the most important classes for networking, there isn't much to it by default.  
 尽管 APlayerController 是网络中最重要的类之一，但默认情况下它的功能并不多。
 
-So we will create a small example just to make clear why it's needed. In the chapter about ownership, you will read about why the PlayerController is important for RPCs.  
-因此，我们将创建一个小示例来说明为什么需要它。在 "所有权 "一章中，你会了解到为什么 PlayerController 对于 RPC 非常重要。
+因此，我们将创建一个小示例来说明为什么需要它。在 "所有权 (ownership) "一章中，你会了解到**为什么 PlayerController 对于 RPC 非常重要。**
 
-The following example will show you how to utilize the PlayerController to increment a replicated variable in the GameState by pressing a UserWidget button.  
 下面的示例将向您展示如何利用 PlayerController，通过按下 UserWidget 按钮来递增 GameState 中的一个复制变量。
 
-_Why do we need the PlayerController for this?  
-为什么需要使用 PlayerController？_
+> [!question] 为什么需要使用 PlayerController？
+> UserWidgets 只存在于本地播放器（客户端或 ListenServer）上，即使它们被客户端拥有，ServerRPC 也无法在服务器上运行它们的实例。它根本无法复制！
+>
+这意味着我们需要一种方法，将 button Press 发送到服务器，这样服务器就可以递增变量。
+>
+>RPC 和所有权章节会有详细介绍！
 
-Well, I don't want to write down the RPC and Ownership chapter twice, so just a short explanation:  
-好吧，我不想把 RPC 和所有权章节写两遍，所以就简单解释一下吧：
-
-UserWidgets only exist on the local player (being a client or a ListenServer) and even if they are owned by the client a ServerRPC has no instance of them on the server to run on.  
-UserWidgets 只存在于本地播放器（客户端或 ListenServer）上，即使它们被客户端拥有，ServerRPC 也无法在服务器上运行它们的实例。
-
-It's simply **not** replicated!  
-根本无法复制！
-
-This means we need a way to get the button Press over to the server so it can then increment the variable.  
-这意味着我们需要一种方法，将按钮 Press 发送到服务器，这样服务器就可以递增变量。
-
-_Why not call the RPC on the GameState directly?  
-为什么不直接调用 GameState 上的 RPC？_
-
-Because it's owned by the server. A ServerRPC needs the client as the owner!  
-因为它归服务器所有。ServerRPC 需要客户端作为所有者！
+> [!question] 为什么不直接调用 GameState 上的 RPC？
+> 因为它归服务器所有。ServerRPC 需要客户端作为所有者！
 
 ### Blueprint[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#blueprint "Direct link to Blueprint") 蓝图
 
-So first of all, we need a simple UserWidget with a button that we can press.  
 因此，首先，我们需要一个简单的 UserWidget，上面有一个可以按下的按钮。
 
-I will post the images in the opposite order, so you can see where it ends and what events call the events of the previous images.  
+
 我将以相反的顺序张贴图片，这样你就能看到图片的结尾，以及哪些事件呼应了前面图片中的事件。
 
-So starting with our goal, the GameState. It gets a normal event that increments a replicated integer variable:  
 因此，从我们的目标 GameState 开始。它会收到一个普通事件，该事件会递增一个复制的整数变量：
 ![[Pasted image 20231001200904.png]]
 This event will get called on the server side, inside of our ServerRPC in our PlayerController:  
@@ -572,7 +540,6 @@ public:
 // Function to increment the variable
 void IncreaseVariable();
 ```
-
 
 ```c++ file:TestPlayerController.cpp
 // Otherwise we can't access the GameState functions

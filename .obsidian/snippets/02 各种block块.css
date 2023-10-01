@@ -41,17 +41,18 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
     padding: 5px 5px;
 }
 
-/* codeblock 去除圆角 */
-/*body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblock-bg
+/* codeblock */
+/* 去圆角 */
+/* body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian div.HyperMD-codeblock-bg
 {
     border-radius: 0;
-}*/
+} */
+
+/* 行号栏颜色 */
 .markdown-source-view .codeblock-customizer-line-number {
     background-color: #1F232A;
 }
-
-.markdown-source-view .codeblock-customizer-header-container,
-.markdown-source-view .codeblock-customizer-header-container-specific {
-    width: calc(var(--line-width-adaptive) - var(--folding-offset));
-    margin-left: max(calc(50% + var(--folding-offset) - var(--line-width-adaptive)/2), calc(50% + var(--folding-offset) - var(--max-width)/2)) !important;
+/* 标题栏和代码块对齐 */
+.markdown-source-view.mod-cm6 .cm-content>* {
+    margin: auto;
 }
