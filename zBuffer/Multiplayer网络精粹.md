@@ -33,8 +33,26 @@ Important 重要的
 这会允许他们作弊！
 一个简单的例子是发射武器：确保在服务器上测试客户端是否拥有所需数量的弹药，之后再允许射击而不是直接处理射击！
 
-# GamePlay架构
-## GameMode（服务器）
+# GamePlay 架构 + 网络
+## 1 架构总结
+根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将它们分为四类： 
+
+- **Server Only** -  仅服务器 - 这些对象只存在于服务器上
+- **Server & Clients** - 服务器和所有客户端 - 这些对象存在于服务器和所有客户端中
+- **Server & Owning Client** - 服务器和拥有客户端（即本地客户端） - 这些对象只存在于服务器和拥有客户端上
+- **Owning Client Only** - 仅拥有客户端，这些对象只存在于拥有客户端上
+
+>**拥有客户端（Owning Client）** 是指拥有相关 Actor 的 player/client。就像你拥有自己的电脑一样。所有权（Ownership）对于后面章节中的 "RPC "非常重要。
+
+**下面两幅图向您展示了一些常见的类别，以及它们属于哪些类别。**
+![[8a1f656c0ccacdb389055b2e883b707f_MD5.svg|"Common Classes layed out in the four sections mentioned above."]]
+
+第二幅图展示了一个有两个连接客户端的专用服务器（dedicated server）的示例。
+
+![[27b08f9e7b9ed6bc9c57882c9cbe197a_MD5.svg|"Venn Diagram of the Classes in a Dedicated Server with two connected Clients example."]]
+
+
+## 2 GameMode（仅服务器）
 > [!NOTE]
 > 在 4.14 中，AGameMode 类分为 AGameModeBase 和 AGameMode。 GameModeBase 的功能较少，因为某些游戏可能不需要旧 AGameMode 类的完整功能列表。
 > 
@@ -150,7 +168,7 @@ void ATestGameMode::PostLogin(APlayerController* NewPlayer)
 ![[Pasted image 20231001163900.png|400]]
 ![[Pasted image 20231001164757.png]]
 
-## GameState（客户端+服务器）
+## 3 GameState（所有客户端+服务器）
 
 > [!info] 
 > 在 4.14 中，GameState 类被分为 AGameStateBase 和 AGameState。 GameStateBase 的功能较少，因为某些游戏可能不需要旧 GameState 类的完整功能列表。
@@ -269,7 +287,7 @@ void ATestGameState::AddScore(bool bTeamAScored)
 }
 ```
 
-## PlayerState （客户端+服务器）
+## 4 PlayerState （所有客户端+服务器）
 
 `APlayerState` 类是**共享特定玩家信息的最重要的类**。它旨在保存有关玩家的当前信息。**每个玩家都有自己的 PlayerState**。
 
@@ -346,7 +364,7 @@ void ATestPlayerState::OverrideWith(class APlayerState* PlayerState)
 }
 ```
 
-## Pawn / Character
+## 5 Pawn / Character（所有客户端+服务器）
 
 PlayerController 一次只能拥有一个 Pawn，但可以通过-possess  和 unpossess 来轻松切换 Pawn。
 
@@ -453,7 +471,7 @@ float ATestPawn::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent
 }
 ```
 
-## PlayerController （客户端+服务器）
+## 6 PlayerController （拥有客户端+服务器）
 
 APlayerController 类可能是我们遇到的最有趣、最复杂的类。它也是大量客户端逻辑的中心，因为**这是客户端真正 "拥有 (owns) "的第一个类**。
 
@@ -588,7 +606,7 @@ void ATestPlayerController::BeginPlay()
 
 这是相当多的代码。如果你还不理解其中一些函数的用法和命名，不用担心。接下来的章节将帮助你理解为什么要这样做。
 
-## AHUD（客户端）
+## 7 AHUD（仅拥有客户端）
 **AHUD 类仅在每个客户端上可用，可通过 PlayerController 访问。它将由 PlayerController 自动生成。**
 
 在 UMG（虚幻动态图形）发布之前，AHUD 类一直用于在客户端的视口中绘制文本、纹理等。
@@ -599,11 +617,11 @@ void ATestPlayerController::BeginPlay()
 
 >由于 HUD 与多人游戏没有直接联系，因此示例只能显示单人游戏的逻辑，所以本课将跳过这些示例。
 
-## UUserWidget (UMG Widget) ）（本地）
+## 8 UUserWidget （仅拥有客户端）
 
-UUserWidgets 用于 Epic Games 的用户界面系统，该系统被称为虚幻动态图形（Unreal Motion Graphics）。
+UUserWidgets 用于 Epic Games 的用户界面系统，该系统被称为**虚幻动态图形（UMG，Unreal Motion Graphics）**。
 
-它们继承自 Slate，Slate 是一种用于在 C++ 中创建用户界面的语言，同时也用于虚幻引擎编辑器本身。
+它们**继承自 Slate**，Slate 是一种用于在 C++ 中创建用户界面的语言，同时也用于虚幻引擎编辑器本身。
 
 Widgets are only available locally. They don't replicate and should not contain and replication code. Preferably they wouldn't contain any gameplay code either, but some games might require it.  
 Widgets**只能在本地使用**。它们**不会复制，也不应包含复制代码**。**它们最好也不包含任何游戏代码**，但有些游戏可能需要。
@@ -612,31 +630,160 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 在 APawn 示例中，我们已经有一个使用 Widgets 的小例子。因此，我将在此略过。
 
-# GamePlay 架构与网络
 
-根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将它们分为四类： 
 
-- **Server Only** -  仅限服务器 - 这些对象只存在于服务器上
-- **Server & Clients** - 服务器和客户端 - 这些对象存在于服务器和所有客户端中
-- **Server & Owning Client** - 服务器和拥有客户端（即本客户端） - 这些对象只存在于服务器和拥有客户端上
-- **Owning Client Only** - These objects only exist on the owning client  
-    仅限拥有客户端 - 这些对象只存在于拥有客户端上
+# 专用服务器与监听服务器
+## Dedicated Server 专用服务器
 
-“Owning Client” is the player/client who owns the actor in question. You can see this the same way as you own your computer. Ownership becomes important for “RPCs” in a later chapter.  
-"拥有客户 "是指拥有相关演员的玩家/客户。就像你拥有自己的电脑一样。所有权对于后面章节中的 "RPC "非常重要。
+专用服务器是**不需要玩家托管的独立服务器。**
 
-The following two graphics show you some of the common classes and in which of the categories they exist.  
-下面两幅图向您展示了一些常见的类别，以及它们属于哪些类别。
+它与游戏客户端分离运行，主要用于运行一个服务器，玩家可以随时加入/离开，而服务器不会随之关闭。
 
-![Common classes layed out in the four categories mentioned above.](https://cedric-neukirchen.net/assets/images/Framework_Network_One-539c3355dce1d2cffc7fe494f354ed4d.svg "Common Classes layed out in the four sections mentioned above.")
+专用服务器可在 Windows 和 Linux 下编译，也可在云服务器上运行，玩家可通过固定 IP 地址连接到云服务器。
 
-  
+专用服务器没有视觉（visual）部分，因此不需要 UI，也没有 PlayerController 。它们在游戏中也没有 Character 或类似的代表。  
+ 
+## Listen Server 监听服务器
 
-The second graphic demonstrates an example of a dedicated server with two connected clients.  
-第二幅图展示了一个有两个连接客户机的专用服务器的示例。
+监听服务器是指同时也是客户端的服务器。（用自己的电脑开服务器，还能同时玩游戏~）
 
-  
+由于同时也是客户端，Listen-Server 需要 UI，并有一个代表客户端部分的 PlayerController。**在监听服务器上获取 `PlayerController(0)`将返回该客户端的  PlayerController 。**
 
-![Venn diagram of the classes in a dedicated server with two connected clients example.](https://cedric-neukirchen.net/assets/images/Framework_Network_Two-e4a5cca1ccc50bbd8a66f1831d027e70.svg "Venn Diagram of the Classes in a Dedicated Server with two connected Clients example.")
+**由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
-## Common Classes[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/framework-and-network#common-classes "Direct link to Common Classes") 普通班
+不过，使用 OnlineSubsystem（稍后解释）可以解决更改 IP 的问题。
+# 复制 Replication
+##  简介
+
+Replication 是服务器将信息 / 数据传递给客户端的行为。
+
+This can be limited to specific entities and groups. Blueprints mostly perform replication according to the settings of the affected AActor.  
+这可以仅限于特定的实体和组。蓝图大多根据受影响 AActor 的设置执行复制。
+
+The first class, which is capable of replicating properties, is the AActor class. While you can also replicate UObjects, they are replicated via an AActor, still requiring you to have some sort of AActor to handle the replication.  
+第一个可以复制属性的类是 AActor 类。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。
+
+A good example of UObjects that support being replicated via an AActor without much additional work required by us is a UActorComponent.  
+UActorComponent 就是一个很好的例子，它支持通过 AActor 复制 UObjects，而不需要我们做太多额外的工作。
+
+All of the before mentioned classes inherit from AActor at some point, giving them the ability to replicate properties if needed. Though not all of them do this the same way.  
+前面提到的所有类都在某种程度上继承自 AActor，从而使它们能够在需要时复制属性。不过，并非所有类的复制方式都相同。
+
+The AGameMode, for example, doesn't replicate at all and only exists on the server. And AHUD only exists on clients, also not replicating.  
+例如，AGameMode 根本不会复制，只存在于服务器上。而 AHUD 只存在于客户端，也不会复制。
+
+## How to use 'Replication'?[​]( #how -to-use-replication "Direct link to How to use 'Replication'?")  
+如何使用 "复制"？
+
+![](https://cedric-neukirchen.net/assets/images/variables-3de92c3d24f385c4bb0bd1ccc61c115d.png)
+
+Replication can be activated in the Class Defaults/Constructor of an AActor child class:  
+复制可以在 AActor 子类的类默认设置 / 构造函数中激活：
+
+Example for an Character Constructor  
+字符构造函数示例
+
+```
+ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)    : Super(ObjectInitializer){    bReplicates = true;    bReplicateMovement = true;}
+```
+
+An Actor with 'bReplicates' set to **TRUE** will be spawned and replicated on all clients if spawned by the server. And **ONLY** when spawned by the server.  
+如果一个角色的 "bReplicates" 设置为 "true"，那么该角色将被生成并复制到所有客户端（如果该角色是由服务器生成的）。而且只有在服务器生成时才会复制。
+
+If a client spawns this Actor the Actor will **ONLY** exist on this very client.  
+如果客户端生成了这个 Actor，该 Actor 将只存在于这个客户端上。
+
+## Replicating properties[​]( #replicating -properties "Direct link to Replicating properties") 复制属性
+
+![](https://cedric-neukirchen.net/assets/images/variable_details-422ba9760735cf2d04683659a4402bcc.png)
+
+When replication is enabled we can replicate variables inside of the Actor. There are multiple ways to do this. We will start with the most basic one:  
+启用复制后，我们可以在 Actor 内部复制变量。有多种方法可以做到这一点。我们将从最基本的方法开始：
+
+Setting the “Replication” Drop-Down menu to “Replicated” will ensure this variable gets replicated to all replicated Instances of this Actor.  
+将 "复制" 下拉菜单设置为 "复制"，将确保此变量被复制到此 Actor 的所有复制实例中。
+
+Variables can be replicated under certain conditions. We will talk about those a bit further along.  
+变量可以在某些条件下复制。下面我们将进一步讨论。
+
+Replicated variables are marked with two white circles.  
+重复变量用两个白圈标出。
+
+![](https://cedric-neukirchen.net/assets/images/getter_setter-9a2423c0b9f7ac3eba0f68f0cddb2df4.png)
+
+Replicating a variable in C++ requires slightly more work.  
+在 C++ 中复制变量所需的工作稍多一些。
+
+Header file inside of the classes declaration  
+类声明内的头文件
+
+```
+// Create replicated health variableUPROPERTY(Replicated)float Health;
+```
+
+The .cpp file will get this **'GetLifetimeReplicatedProps'** function. The header declaration of that function is already created for us by UE when marking a variable as replicated.  
+.cpp 文件将获得 "GetLifetimeReplicatedProps" 函数。在将变量标记为复制时，UE 已经为我们创建了该函数的头声明。
+
+In this function, you may define the rules of replicating your variables.  
+在此函数中，您可以定义复制变量的规则。
+
+```
+void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const{    Super::GetLifetimeReplicatedProps(OutLifetimeProps);    // Here we list the variables we want to replicate    DOREPLIFETIME(ATestPlayerCharacter, Health);}
+```
+
+You can also do a conditional replication here:  
+您也可以在这里进行有条件复制：
+
+```
+// Replicates the Variable only to the Owner of this Object/ClassDOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
+```
+
+<table data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><thead data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><th data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Condition<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">条件</span></span></span></th><th data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Description<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">说明</span></span></span></th></tr></thead><tbody data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_InitialOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only attempt to send on the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">initial bunch</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会尝试在初始串上发送</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_OwnerOnly<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">COND_OwnnerOnly</span></span></span></td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Actor's owner</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会发送给演员的所有者</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SkipOwner</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property send to every connection <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">EXCEPT</strong> the owner<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">此属性会发送给所有连接，但所有者除外</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SimulatedOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">simulated</strong> Actors<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">此属性只会发送到模拟的 Actors</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_AutonomousOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">autonomous</strong> Actors<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会发送给自主行为体</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SimulatedOrPhysics<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">COND_模拟或物理</span></span></span></td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will send to simulated OR <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">bRepPhysics</strong> Acto<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性将发送到模拟 OR bRepPhysics Acto。</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_InitialOrOwner</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will send on the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">initial bunch</strong>, or to the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Actor's owner</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性将在初始束上发送，或发送给 Actor 的所有者</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_Custom</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property has no particular condition, but wants the ability to toggle on/off via <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">SetCustomIsActiveOverride</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关</span></span></span></td></tr></tbody></table>
+
+It's important to understand that the whole replication process only works from Server to client and **NOT** the other wayround.  
+重要的是要明白，整个复制过程只能从服务器到客户端，而不能反过来。
+
+We will learn later how to get the server to replicate something that the client wants to share with others (for example their PlayerName).  
+我们稍后将学习如何让服务器复制客户希望与他人共享的内容（例如他们的播放器名称）。
+
+A different way to replicate a variable is to mark it as "ReplicatedUsing". In Blueprints this is called "RepNotify". It allows specifying a function that gets called on the client when the new value of the variable is replicated to them.  
+复制变量的另一种方法是将其标记为 "ReplicatedUsing"。在 Blueprints 中，这被称为 "RepNotify"。它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。
+
+![](https://cedric-neukirchen.net/assets/images/repnotify_variable_details-e5486fa7c4f998b62ca8404e6a26fa53.png)
+
+In Blueprints this function will be created automatically once you select “RepNotify” in the "Replication" Drop-Down menu:  
+在 Blueprints 中，一旦在 "复制" 下拉菜单中选择 "RepNotify"，该功能就会自动创建：
+
+![](https://cedric-neukirchen.net/assets/images/repnotify_function-9b91d8d2254f14ea53524e6dccfcd75c.png)
+
+The C++ version needs a bit more but works the same:  
+C++ 版本需要的更多，但工作原理相同：
+
+Header file inside of the classes declaration  
+类声明内的头文件
+
+```
+// Create RepNotify Health variableUPROPERTY(ReplicatedUsing=OnRep_Health)float Health;// Create OnRep function | UFUNCTION() Macro is important! | Doesn't need to be virtualUFUNCTION()virtual void OnRep_Health();
+```
+
+CPP file of the class  
+类的 CPP 文件
+
+```
+void ATestCharacter::OnRep_Health(){    if (Health <= 0.f)    {        PlayDeathAnimation();    }}
+```
+
+With 'ReplicatedUsing=FUNCTIONNAME', we specify the function that should get called when the variable is successfully replicated. This function needs to have the 'UNFUNCTION ()' macro, even if the macro is empty!  
+通过 "ReplicatedUsing=FUNCTIONNAME"，我们指定了变量复制成功后应调用的函数。该函数必须包含 "UNFUNCTION ()" 宏，即使该宏为空！
+
+Rep Notify deffirence between C++ and Blueprints  
+代表通知 C++ 和蓝图之间的区别
+
+It's important to note here that C++ and Blueprints handle RepNotify slightly differently. In C++, RepNotify functions only call for the clients.  
+值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。在 C++ 中，RepNotify 函数只调用客户端。
+
+When a server changes the value and requires the OnRep function to call too, you will need to call it manually after adjusting the variable. That's because the OnRep function is meant as a callback for when the variable is replicated to the client.  
+当服务器更改值并要求同时调用 OnRep 函数时，您需要在调整变量后手动调用该函数。这是因为 OnRep 函数的作用是在变量复制到客户端时进行回调。
+
+In Blueprints, however, the OnRep function will call for clients **and** server. That's because the BP version of OnRep is a"Property Changed" callback. This means that the function will call for the server too, but also for the client if the client changes the variable locally.  
+但在 Blueprints 中，OnRep 函数将调用客户端和服务器。这是因为 BP 版本的 OnRep 是 "属性已更改" 回调。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。

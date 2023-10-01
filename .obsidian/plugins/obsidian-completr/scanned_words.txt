@@ -3899,6 +3899,7 @@ owligjCQpRHHKXoId
 oMIUUzqToKEHiA
 oqILDIAZ
 oJlruWSiTo
+owns
 OneDrive
 Obsidian
 Office
@@ -8837,6 +8838,8 @@ Ojqs
 OhRt
 ODXJ
 OGztEUq
+ONLY
+OwnnerOnly
 codeup
 clash
 ctrl
@@ -13792,6 +13795,7 @@ cTtXoCM
 cbgri
 cVatW
 cacvUpqYmyxxEEuQOkvuHQM
+circles
 github
 grey
 green
@@ -26896,6 +26900,7 @@ mzNnjtUdofiS
 mfsuWLXPNzc
 mSKrWh
 mewxhhIM
+marking
 windows
 win
 width
@@ -30887,6 +30892,7 @@ whKqRFKCrjZmd
 wbLwIED
 wlkeEiQp
 wLAkKUZs
+wayround
 utools
 url
 unresolved
@@ -35171,6 +35177,7 @@ ucLku
 uTJUsSXEEWn
 uNOKJPxrZlTsD
 unpossess
+upcoming
 everything
 ea
 ede
@@ -52223,6 +52230,8 @@ AfBkYJNHNeaNWtMMpyXakuNyfestHZJTIKxmizhd
 AeLFJEFy
 ANjphkbh
 AQhm
+AutonomousOnly
+Acto
 URL
 Utools
 Users
@@ -56568,6 +56577,11 @@ UIGrGTbWlxqQduVVSu
 UldS
 UtdSiQQXL
 UJME
+UNFUNCTION
+UserWidget
+UserWidgets
+UUserWidget
+UUserWidgets
 api
 ac
 app
@@ -60879,6 +60893,8 @@ aZGnQHI
 aNcp
 aktwmeQDENydbYeiSd
 authority
+according
+autonomous
 Roaming
 RegWorkshop
 Release
@@ -65932,6 +65948,8 @@ RMRLUjAQptIQIOQ
 RapVoLAHiOyvXz
 RcXRIgV
 RbkeC
+Replicating
+Rep
 Microsoft
 Menu
 MicaForEveryone
@@ -71262,6 +71280,7 @@ MeIpowYYIJgpsSJFFTUIlaIhcvXjTJkQ
 MIUoMg
 MONCWZFXjwsFUN
 MovementComponent
+MaxHealth
 Windows
 Win
 World
@@ -81399,6 +81418,10 @@ Szf
 SsKbfShb
 SoCQlWWmNk
 ScmL
+SkipOwner
+SimulatedOnly
+SimulatedOrPhysics
+SetCustomIsActiveOverride
 Programs
 POP
 PC
@@ -86221,6 +86244,9 @@ Pkve
 PlCiPxRjZF
 PdOU
 PPPPzdpcUyuIcnYvl
+ProgressBar
+PlayerControllers
+Preferably
 ContextMenuManager
 ClashVerge
 Clash
@@ -95983,6 +96009,9 @@ IsHW
 IZCB
 IdAn
 IwEqR
+InitialOnly
+InitialOrOwner
+IncreaseVariable
 qq
 qyi
 quad
@@ -113294,6 +113323,7 @@ bGyNFbhLcvHmzmz
 bWFm
 bbfbETNAvU
 bIMHwfwRCiH
+bRepPhysics
 fe
 front
 fill
@@ -122203,6 +122233,8 @@ dXV
 dQJzM
 dnZa
 dpux
+deffirence
+differently
 TFvYZOKeHL
 TAB
 TeX
@@ -131873,6 +131905,7 @@ itcH
 iSWp
 iyNMYnq
 iNUHEULUBqoxkoHCSsTfjx
+immersive
 shift
 svg
 sf
@@ -137157,6 +137190,7 @@ sYmOBriqRqfZD
 sOTcu
 sjVN
 saMZoZC
+simulated
 local
 list
 left
@@ -141293,6 +141327,7 @@ lYHnLTRJmhszKYmLxNUVStT
 lnMrvL
 lopQog
 lfcByNT
+locally
 YAML
 You
 YEBAYGhURFRofHx
@@ -171964,6 +171999,7 @@ FSRBIUShkQSFEIWmYSQohBC
 FWgiyrqTfMTZRUzQ
 FixYYPVTspmKQhSRPhu
 FbKEECXhE
+FUNCTIONNAME
 Element
 Entity
 Enity
@@ -177003,6 +177039,7 @@ Eheo
 EFrI
 EULcyAN
 ECFEMcpGgEELUCpKgEKLQSIJCiEIjCQohCo
+EXCEPT
 xmlns
 xyz
 xy
@@ -188991,6 +189028,7 @@ DSzBVoyM
 DdGIFWjIwRhUocDGSI
 DJXH
 DjmBra
+DestroyActor
 LNK
 Log
 Linux
@@ -193597,6 +193635,8 @@ LKDfg
 LRATBLIWbGPwhs
 LsQSR
 LPWp
+Listen
+ListenServer
 Getx
 GetX
 GetName
@@ -198850,6 +198890,7 @@ GLQNzZGipqQYLkaHVkQCzM
 GeyVGdZi
 GccknxNvL
 GYAVJZWAT
+GetLifetimeReplicatedProps
 NULL
 Native
 NormalMap
