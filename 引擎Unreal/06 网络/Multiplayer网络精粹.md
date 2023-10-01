@@ -665,73 +665,76 @@ UActorComponent 就是一个很好的例子，它支持通过 AActor 复制 UObj
 **前面提到的所有类都在某种程度上继承自 AActor，从而使它们能够在需要时复制属性。不过，并非所有类的复制方式都相同。**
 例如，**AGameMode 根本不会复制**，因为只存在于服务器上。**而 AHUD、UUserWidget 只存在于客户端，也不会复制。**
 
-## How to use 'Replication'?[​]( #how -to-use-replication "Direct link to How to use 'Replication'?")  
-如何使用 "复制"？
-
-![](https://cedric-neukirchen.net/assets/images/variables-3de92c3d24f385c4bb0bd1ccc61c115d.png)
-
-Replication can be activated in the Class Defaults/Constructor of an AActor child class:  
+## 如何使用 Replication
+![[Pasted image 20231001225526.png|450]]
 复制可以在 AActor 子类的类默认设置 / 构造函数中激活：
 
-Example for an Character Constructor  
-字符构造函数示例
+Character构造函数示例
 
+```c++
+ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer)
+{
+    bReplicates = true;
+    bReplicateMovement = true;
+}
 ```
-ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)    : Super(ObjectInitializer){    bReplicates = true;    bReplicateMovement = true;}
-```
 
-An Actor with 'bReplicates' set to **TRUE** will be spawned and replicated on all clients if spawned by the server. And **ONLY** when spawned by the server.  
-如果一个角色的 "bReplicates" 设置为 "true"，那么该角色将被生成并复制到所有客户端（如果该角色是由服务器生成的）。而且只有在服务器生成时才会复制。
+- **如果一个 Actor 的 `bReplicates` 设置为 `true`，那么该角色将被生成并复制到所有客户端（如果该角色是由服务器生成的）。而且只有在服务器生成时才会复制。**
+- **如果客户端生成了这个 Actor，该 Actor 将只存在于这个客户端上。**
 
-If a client spawns this Actor the Actor will **ONLY** exist on this very client.  
-如果客户端生成了这个 Actor，该 Actor 将只存在于这个客户端上。
+##  复制属性
+![[Pasted image 20231001225820.png|500]]
 
-## Replicating properties[​]( #replicating -properties "Direct link to Replicating properties") 复制属性
-
-![](https://cedric-neukirchen.net/assets/images/variable_details-422ba9760735cf2d04683659a4402bcc.png)
-
-When replication is enabled we can replicate variables inside of the Actor. There are multiple ways to do this. We will start with the most basic one:  
 启用复制后，我们可以在 Actor 内部复制变量。有多种方法可以做到这一点。我们将从最基本的方法开始：
 
-Setting the “Replication” Drop-Down menu to “Replicated” will ensure this variable gets replicated to all replicated Instances of this Actor.  
-将 "复制" 下拉菜单设置为 "复制"，将确保此变量被复制到此 Actor 的所有复制实例中。
-
-Variables can be replicated under certain conditions. We will talk about those a bit further along.  
+**将 "复制" 下拉菜单设置为 "`Replication`"，将确保此变量被复制到此 Actor 的所有复制实例中。**
 变量可以在某些条件下复制。下面我们将进一步讨论。
 
-Replicated variables are marked with two white circles.  
-重复变量用两个白圈标出。
+![[Pasted image 20231001230029.png|298]]
+>Replicated 变量用两个白圈标出。
 
-![](https://cedric-neukirchen.net/assets/images/getter_setter-9a2423c0b9f7ac3eba0f68f0cddb2df4.png)
+在 C++ 中复制变量所需的工作稍多一些：
 
-Replicating a variable in C++ requires slightly more work.  
-在 C++ 中复制变量所需的工作稍多一些。
 
-Header file inside of the classes declaration  
-类声明内的头文件
-
-```
-// Create replicated health variableUPROPERTY(Replicated)float Health;
+```c++ file:TestPlayerCharacter.h
+// Create replicated health variable
+UPROPERTY(Replicated)
+float Health;
 ```
 
-The .cpp file will get this **'GetLifetimeReplicatedProps'** function. The header declaration of that function is already created for us by UE when marking a variable as replicated.  
-.cpp 文件将获得 "GetLifetimeReplicatedProps" 函数。在将变量标记为复制时，UE 已经为我们创建了该函数的头声明。
+.cpp 文件将获得 `GetLifetimeReplicatedProps` 函数。在将变量标记为复制时，UE 已经为我们创建了该函数的头声明。
 
-In this function, you may define the rules of replicating your variables.  
-在此函数中，您可以定义复制变量的规则。
+**在此函数中，您可以定义复制变量的规则。**
 
-```
-void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const{    Super::GetLifetimeReplicatedProps(OutLifetimeProps);    // Here we list the variables we want to replicate    DOREPLIFETIME(ATestPlayerCharacter, Health);}
-```
+```c++ file:TestPlayerCharacter.cpp
+void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-You can also do a conditional replication here:  
-您也可以在这里进行有条件复制：
-
-```
-// Replicates the Variable only to the Owner of this Object/ClassDOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
+    // 这里列出我们想要复制的变量
+    DOREPLIFETIME(ATestPlayerCharacter, Health);
+}
 ```
 
-<table data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><thead data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><th data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Condition<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">条件</span></span></span></th><th data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Description<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">说明</span></span></span></th></tr></thead><tbody data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_InitialOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only attempt to send on the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">initial bunch</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会尝试在初始串上发送</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_OwnerOnly<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">COND_OwnnerOnly</span></span></span></td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Actor's owner</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会发送给演员的所有者</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SkipOwner</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property send to every connection <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">EXCEPT</strong> the owner<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">此属性会发送给所有连接，但所有者除外</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SimulatedOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">simulated</strong> Actors<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">此属性只会发送到模拟的 Actors</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_AutonomousOnly</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will only send to <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">autonomous</strong> Actors<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性只会发送给自主行为体</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_SimulatedOrPhysics<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">&nbsp;</span><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">COND_模拟或物理</span></span></span></td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will send to simulated OR <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">bRepPhysics</strong> Acto<span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性将发送到模拟 OR bRepPhysics Acto。</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_InitialOrOwner</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property will send on the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">initial bunch</strong>, or to the <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">Actor's owner</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性将在初始束上发送，或发送给 Actor 的所有者</span></span></span></td></tr><tr data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8"><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">COND_Custom</td><td data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">This property has no particular condition, but wants the ability to toggle on/off via <strong data-immersive-translate-effect="1" data-immersive_translate_walked="8b97df21-045e-4331-a5db-4e2167e0c6d8">SetCustomIsActiveOverride</strong><span lang="zh-CN" data-immersive-translate-translation-element-mark="1"><br><span data-immersive-translate-translation-element-mark="1"><span data-immersive-translate-translation-element-mark="1">该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关</span></span></span></td></tr></tbody></table>
+您也可以在这里进行有条件复制（对应蓝图中的复制条件）：
+
+```c++
+// 仅向该Object/Class的所有者复制变量 
+DOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
+```
+
+| Condition 条件                          |说明|
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| COND_InitialOnly                        |该属性只会尝试在初始串（initial bunch）上发送|
+| COND_OwnerOnly COND_OwnnerOnly          | 该属性只会发送给演员的所有者（owner）|
+| COND_SkipOwner                          |此属性会发送给所有连接，但 owner 除外 |
+| COND_SimulatedOnly                      |此属性只会发送到模拟的（simulated） Actors|
+| COND_AutonomousOnly                     |该属性只会发送给自主行为autonomous Actor|
+|COND_SimulatedOrPhysics | This property will send to simulated OR **bRepPhysics** Acto 该属性将发送到模拟 OR bRepPhysics Acto。                                                                                     |
+|COND_InitialOrOwner| This property will send on the **initial bunch**, or to the **Actor's owner** 该属性将在初始束上发送，或发送给 Actor 的所有者                                                             |
+| COND_Custom                             | This property has no particular condition, but wants the ability to toggle on/off via **SetCustomIsActiveOverride** 该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关 |
+
 
 It's important to understand that the whole replication process only works from Server to client and **NOT** the other wayround.  
 重要的是要明白，整个复制过程只能从服务器到客户端，而不能反过来。
@@ -742,12 +745,12 @@ We will learn later how to get the server to replicate something that the client
 A different way to replicate a variable is to mark it as "ReplicatedUsing". In Blueprints this is called "RepNotify". It allows specifying a function that gets called on the client when the new value of the variable is replicated to them.  
 复制变量的另一种方法是将其标记为 "ReplicatedUsing"。在 Blueprints 中，这被称为 "RepNotify"。它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。
 
-![](https://cedric-neukirchen.net/assets/images/repnotify_variable_details-e5486fa7c4f998b62ca8404e6a26fa53.png)
+![[fdaa3d70c111079ebb5e43e3f4b423e4_MD5.png]]
 
 In Blueprints this function will be created automatically once you select “RepNotify” in the "Replication" Drop-Down menu:  
 在 Blueprints 中，一旦在 "复制" 下拉菜单中选择 "RepNotify"，该功能就会自动创建：
 
-![](https://cedric-neukirchen.net/assets/images/repnotify_function-9b91d8d2254f14ea53524e6dccfcd75c.png)
+![[8ac9f0165edf7c23cdd8d66b1f1a3e81_MD5.png]]
 
 The C++ version needs a bit more but works the same:  
 C++ 版本需要的更多，但工作原理相同：
@@ -779,4 +782,4 @@ When a server changes the value and requires the OnRep function to call too, you
 当服务器更改值并要求同时调用 OnRep 函数时，您需要在调整变量后手动调用该函数。这是因为 OnRep 函数的作用是在变量复制到客户端时进行回调。
 
 In Blueprints, however, the OnRep function will call for clients **and** server. That's because the BP version of OnRep is a"Property Changed" callback. This means that the function will call for the server too, but also for the client if the client changes the variable locally.  
-但在 Blueprints 中，OnRep 函数将调用客户端和服务器。这是因为 BP 版本的 OnRep 是 "属性已更改" 回调。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
+但在 Blueprints 中，OnRep 函数将调用客户端和服务器。这是因为 BP 版本的 OnRep 是 "属性已更改" 回调。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。|  ||  ||  ||  |

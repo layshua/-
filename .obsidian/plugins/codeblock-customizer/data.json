@@ -311,11 +311,11 @@
         "showAdditionalUncollapseButon": false
       },
       "header": {
-        "boldText": true,
+        "boldText": false,
         "italicText": false,
         "collapseIconPosition": "right",
         "collapsedCodeText": " ",
-        "codeblockLangBoldText": true,
+        "codeblockLangBoldText": false,
         "codeblockLangItalicText": false,
         "alwaysDisplayCodeblockLang": false,
         "alwaysDisplayCodeblockIcon": false,
