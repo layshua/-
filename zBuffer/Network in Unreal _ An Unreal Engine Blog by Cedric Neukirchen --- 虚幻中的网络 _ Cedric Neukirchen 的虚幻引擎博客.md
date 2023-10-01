@@ -59,48 +59,27 @@ AGameMode 类用于定义游戏规则。这包括要生成的其他游戏框架�
 
 #### 函数
 
-The first stop we gonna take is the **Override Function** section of the Blueprint version:  
-我们要采取的第一站是蓝图版本的覆盖函数部分：
+GameMode蓝图的 Override 函数部分：
+![[cbde69313852572dab83dc34073ca75f_MD5.png]]
 
-![](https://cedric-neukirchen.net/assets/images/function_overrides-8bdbba5f26177aee60baf01fc1a41a5e.png)
+您可以实现这些函数的逻辑，以适应您的游戏的特定规则。 这包括更改 GameMode 生成 DefaultPawn 的方式或您想要如何决定游戏是否已准备好开始。
 
-You can implement your logic for these functions to fit specific Rules to your Game.  
-您可以实现这些函数的逻辑，以适应您的游戏的特定规则。  
-This includes changing the way the GameMode spawns the **DefaultPawn** or how you want to decide if the game is **Ready to Start**.  
-这包括更改 GameMode 生成 DefaultPawn 的方式或您想要如何决定游戏是否已准备好开始。
+一个例子可能是检查所有玩家是否已加入服务器并准备好，但也有一些事件可以用来对整个比赛中发生的某些事情做出反应。
 
-An example of this might be checking if all players have joined the server yet and are ready:  
-一个例子可能是检查所有玩家是否已加入服务器并准备好：
+我经常使用的一个很好的例子是事件 `OnPostLogin`。每次新玩家加入游戏时都会调用此方法。稍后您将了解有关连接过程的更多信息。
+![[Pasted image 20231001160607.png|300]]
+该事件会向您传递一个有效的 PlayerController 引用，该 Controller 由连接玩家的 UConnection 拥有（稍后也会详细介绍）。
 
-But there are also events that you can use to react to certain things, which happen throughout the match.  
-但也有一些事件可以用来对整个比赛中发生的某些事情做出反应。
-
-A good example of this, which I often use, is the 'Event OnPostLogin'.  
-我经常使用的一个很好的例子是“Event OnPostLogin”。
-
-This is called every time a new player joins the game. Later you will learn more about the connecting process, but for now, we will go along with it.  
-每次新玩家加入游戏时都会调用此方法。稍后您将了解有关连接过程的更多信息，但现在我们将继续进行。
-
-The event passes you a valid PlayerController, which is owned by the connecting player's UConnection (later more about that too).  
-该事件会向您传递一个有效的 PlayerController，该控制器由连接玩家的 UConnection 拥有（稍后也会详细介绍）。
-
-This can be used to already interact with this player by, for example, spawning a new Pawn for them or just saving their PlayerController in an Array for later purposes.  
 这可以用于与该玩家进行交互，例如，为他们生成一个新的 Pawn，或者只是将其 PlayerController 保存在数组中以供以后使用。
 
-As already mentioned, you can use the GameMode to manage the general match flow of your game. For this, you can find a few functions, some of which are overridable like 'Ready To Start Match'.  
-正如已经提到的，您可以使用 GameMode 来管理游戏的一般比赛流程。为此，您可以找到一些功能，其中一些功能是可覆盖的，例如“准备开始比赛”。
 
-These Functions and Events can be used to control your current MatchState. Most of them will be called automatically when the 'Ready To Start Match' function returns **TRUE**, but you can also use them manually.  
-这些函数和事件可用于控制当前的 MatchState。当“Ready To Start Match”函数返回 TRUE 时，它们中的大多数将被自动调用，但您也可以手动使用它们。
+正如已经提到的，您可以使用 GameMode 来管理游戏的一般比赛流程。为此，您可以找到一些功能，其中一些功能是可覆盖的，例如`Ready To Start Match`。
 
-**'New State'** is a simple '**FName'** Type. You could now ask, “Why is this not handled in the AGameState class?”  
-“New State”是一个简单的“FName”类型。您现在可能会问，“为什么这不在 AGameState 类中处理？”
+这些函数和事件可用于控制当前的 `MatchState`。当“Ready To Start Match”函数返回 **TRUE** 时，它们中的大多数将被自动调用，但您也可以手动使用它们。
 
-Well, it is. These GameMode functions are working hand in hand with the GameState.  
-嗯，确实如此。这些 GameMode 函数与 GameState 协同工作。
+“`New State`”是一个简单的“FName”类型。您现在可能会问，“为什么这不在 AGameState 类中处理？”嗯，确实如此。这些 GameMode 函数与 GameState 协同工作。
 
-This is just to give you a point to manage the MatchState unreachable by any client since the GameMode only exists on the server!  
-这只是为了给您一个点来管理任何客户端都无法访问的 MatchState，因为 GameMode 只存在于服务器上！
+**这只是为了给您一个点来管理任何客户端都无法访问的 `MatchState`，因为 GameMode 只存在于服务器上！**
 
 #### Variables[​]( #variables "Direct link to Variables") 变量​
 
@@ -110,9 +89,9 @@ GameMode 还具有您可以并且想要使用的重要变量。
 This is the list of already inherited variables. Some of them can be set via the **ClassDefaults** of the GameMode Blueprint:  
 这是已经继承的变量的列表。其中一些可以通过 GameMode 蓝图的 ClassDefaults 进行设置：
 
-![](https://cedric-neukirchen.net/assets/images/variables-09063c04ef2324670cc5abb2db248243.png)
+![[80d227b1ee73d70c373d2144046809bd_MD5.png]]
 
-![](https://cedric-neukirchen.net/assets/images/variables_defaults-de47bbb47696dd2232727c0b5b3326ed.png)
+![[ac948e6651eb07cead5c485776186c8c_MD5.png]]
 
 Most of them are pretty self-explaining, like **'Default Player Name'**, which gives you the ability to give every connecting player a default PlayerName that can be accessed via the APlayerState class.  
 其中大多数都非常不言自明，例如“默认玩家名称”，它使您能够为每个连接的玩家提供一个可以通过 APlayerState 类访问的默认玩家名称。
