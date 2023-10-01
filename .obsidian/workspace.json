@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+                "file": "引擎Unreal/网络/net.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -26,53 +26,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/网络/网络概述.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5859757a326b1bcb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "51be16d524ea4847",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 U++精粹/4 委托.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b01e37b1000e330b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
+                "file": "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -115,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
+                "file": "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md"
               }
             }
           },
@@ -125,7 +87,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
+                "file": "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md"
               }
             }
           }
@@ -175,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+                "file": "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -192,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+                "file": "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -202,7 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 263.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -252,10 +214,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d347bb509aa8cb82",
+  "active": "ba0e5abf5e505b3c",
   "lastOpenFiles": [
+    "zBuffer/AGameMode _ An Unreal Engine Blog by Cedric Neukirchen --- 游戏模式 _ Cedric Neukirchen 的虚幻引擎博客游戏模式 _ Cedric Neukirchen 的虚幻引擎博客 --- 游戏模式 _ Cedric Neukirchen 的虚幻引擎博客.md",
+    "zBuffer/Network in Unreal _ An Unreal Engine Blog by Cedric Neukirchen --- 虚幻中的网络 _ Cedric Neukirchen 的虚幻引擎博客.md",
+    "引擎Unreal/网络/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+    "引擎Unreal/网络/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/网络/网络概述.md",
-    "zBuffer/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
+    "引擎Unreal/网络/net.md",
+    "引擎Unreal/网络/设置专用服务器.md",
     "引擎Unreal/02 U++精粹/1 类型.md",
     "引擎Unreal/02 U++精粹/4 委托.md",
     "引擎Unreal/04 Gameplay/《大象无形》/01 虚幻类.md",
@@ -269,8 +236,6 @@
     "zip/images/36f38d0d42d9f62d401ade5fea646901_MD5.jpg",
     "zip/images/33addb24ce4d9a8e66360061ab5fa0e4_MD5.jpg",
     "zip/images/62d6c7c3bd20cc02a72d26cd28bb5ae1_MD5.jpg",
-    "zBuffer/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
-    "引擎Unreal/网络/设置专用服务器.md",
     "zip/images/Pasted image 20230930212635.png",
     "引擎Unreal/网络/教程.md",
     "引擎Unreal/网络/角色移动组件-网络移动.md",
@@ -292,8 +257,6 @@
     "引擎Unreal/05 动画/UE5_0 与 5_1 中动画系统更新内容的整理（猫都能看懂!）.md",
     "引擎Unreal/04 Gameplay/游戏开发工程",
     "引擎Unreal/04 Gameplay/《大象无形》/02 模块基础.md",
-    "引擎Unreal/04 Gameplay/GamePlay架构.md",
-    "Tools/Obsidian/插件流.md",
     "编程/6 UML",
     "zip/images/Diagram 4.svg.xml",
     "编程/408",
