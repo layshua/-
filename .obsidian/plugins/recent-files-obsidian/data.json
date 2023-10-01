@@ -5,6 +5,18 @@
       "path": "引擎Unreal/06 网络/Multiplayer网络精粹.md"
     },
     {
+      "basename": "Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客",
+      "path": "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md"
+    },
+    {
+      "basename": "mermaid流图",
+      "path": "zip/templates/mermaid流图.md"
+    },
+    {
+      "basename": "Mermaid流图",
+      "path": "Tools/Obsidian/Mermaid流图.md"
+    },
+    {
       "basename": "在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档",
       "path": "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md"
     },
@@ -187,14 +199,6 @@
     {
       "basename": "05 模板测试",
       "path": "图形学/1 图形系统/05 模板测试.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "01 Trick！",
-      "path": "技术美术/1 渲染雅集/01 Trick！.md"
     }
   ],
   "omittedPaths": [],

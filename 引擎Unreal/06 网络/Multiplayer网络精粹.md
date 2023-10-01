@@ -652,10 +652,16 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 **由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
 不过，使用 OnlineSubsystem（稍后解释）可以解决更改 IP 的问题。
-# 复制 Replication
+# Replication 复制 
 ##  简介
 
-Replication 是服务器将信息 / 数据传递给客户端的行为。
+Replication 是**服务器将信息 / 数据传递给客户端**的行为。
+
+> [!bug] 注意方向，不能反过来！
+> ```mermaid
+>flowchart LR
+	>服务器--Replication-->客户端;
+	>```
 
 这可以仅限于特定的实体和组。蓝图大多根据受影响 AActor 的设置执行复制。
 
@@ -686,17 +692,16 @@ ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)
 ##  复制属性
 ![[Pasted image 20231001225820.png|500]]
 
+### Replicated
 启用复制后，我们可以在 Actor 内部复制变量。有多种方法可以做到这一点。我们将从最基本的方法开始：
 
-**将 "复制" 下拉菜单设置为 "`Replication`"，将确保此变量被复制到此 Actor 的所有复制实例中。**
+**将 "复制" 下拉菜单设置为 "`Replicated`"，将确保此变量被复制到此 Actor 的所有复制实例中。**
 变量可以在某些条件下复制。下面我们将进一步讨论。
 
 ![[Pasted image 20231001230029.png|298]]
 >Replicated 变量用两个白圈标出。
 
-在 C++ 中复制变量所需的工作稍多一些：
-
-
+- @ 在 C++ 中复制变量所需的工作稍多一些：
 ```c++ file:TestPlayerCharacter.h
 // Create replicated health variable
 UPROPERTY(Replicated)
@@ -717,7 +722,7 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 }
 ```
 
-您也可以在这里进行有条件复制（对应蓝图中的复制条件）：
+您也可以在这里进行**有条件复制**（对应蓝图中的复制条件）：
 
 ```c++
 // 仅向该Object/Class的所有者复制变量 
@@ -726,60 +731,223 @@ DOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
 
 | Condition 条件                          |说明|
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| COND_InitialOnly                        |该属性只会尝试在初始串（initial bunch）上发送|
+| COND_InitialOnly                        |该属性只会尝试在初始束（initial bunch）上发送|
 | COND_OwnerOnly COND_OwnnerOnly          | 该属性只会发送给演员的所有者（owner）|
 | COND_SkipOwner                          |此属性会发送给所有连接，但 owner 除外 |
-| COND_SimulatedOnly                      |此属性只会发送到模拟的（simulated） Actors|
+| COND_SimulatedOnly                      |此属性只会发送到模拟的（simulated） Actor|
 | COND_AutonomousOnly                     |该属性只会发送给自主行为autonomous Actor|
-|COND_SimulatedOrPhysics | This property will send to simulated OR **bRepPhysics** Acto 该属性将发送到模拟 OR bRepPhysics Acto。                                                                                     |
-|COND_InitialOrOwner| This property will send on the **initial bunch**, or to the **Actor's owner** 该属性将在初始束上发送，或发送给 Actor 的所有者                                                             |
-| COND_Custom                             | This property has no particular condition, but wants the ability to toggle on/off via **SetCustomIsActiveOverride** 该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关 |
+|COND_SimulatedOrPhysics |该属性将发送到simulated 或 bRepPhysics Actor。|
+|COND_InitialOrOwner| 该属性将在初始束上发送，或发送给 Actor 的所有者|
+| COND_Custom                             | 该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关|
 
+**重要的是要明白，整个复制过程只能<mark style="background: #FF5582A6;">从服务器到客户端</mark>，而不能反过来！**
 
-It's important to understand that the whole replication process only works from Server to client and **NOT** the other wayround.  
-重要的是要明白，整个复制过程只能从服务器到客户端，而不能反过来。
+我们稍后将学习如何让服务器复制客户端希望与他人共享的内容（例如他们的 PlayerName）。
 
-We will learn later how to get the server to replicate something that the client wants to share with others (for example their PlayerName).  
-我们稍后将学习如何让服务器复制客户希望与他人共享的内容（例如他们的播放器名称）。
+### RepNotify—ReplicatedUsing
 
-A different way to replicate a variable is to mark it as "ReplicatedUsing". In Blueprints this is called "RepNotify". It allows specifying a function that gets called on the client when the new value of the variable is replicated to them.  
-复制变量的另一种方法是将其标记为 "ReplicatedUsing"。在 Blueprints 中，这被称为 "RepNotify"。它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。
+复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
 
-![[fdaa3d70c111079ebb5e43e3f4b423e4_MD5.png]]
+在蓝图中，这被称为 `RepNotify`（代表通知）。**它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。**
+![[Pasted image 20231001233317.png]]
+>Set 变为“使用通知设置”
 
-In Blueprints this function will be created automatically once you select “RepNotify” in the "Replication" Drop-Down menu:  
-在 Blueprints 中，一旦在 "复制" 下拉菜单中选择 "RepNotify"，该功能就会自动创建：
+在蓝图中，一旦在 "复制" 下拉菜单中选择 "`RepNotify`"，该功能就会自动创建：
+![[Pasted image 20231001233531.png|373]]
 
-![[8ac9f0165edf7c23cdd8d66b1f1a3e81_MD5.png]]
-
-The C++ version needs a bit more but works the same:  
 C++ 版本需要的更多，但工作原理相同：
+```c++ file:ATestCharacter.h
+// Create RepNotify Health variable
+UPROPERTY(ReplicatedUsing = OnRep_Health)
+float Health;
 
-Header file inside of the classes declaration  
-类声明内的头文件
-
-```
-// Create RepNotify Health variableUPROPERTY(ReplicatedUsing=OnRep_Health)float Health;// Create OnRep function | UFUNCTION() Macro is important! | Doesn't need to be virtualUFUNCTION()virtual void OnRep_Health();
-```
-
-CPP file of the class  
-类的 CPP 文件
-
-```
-void ATestCharacter::OnRep_Health(){    if (Health <= 0.f)    {        PlayDeathAnimation();    }}
+// Create OnRep function | UFUNCTION() Macro is important! | Doesn't need to be virtual
+UFUNCTION()
+virtual void OnRep_Health();
 ```
 
-With 'ReplicatedUsing=FUNCTIONNAME', we specify the function that should get called when the variable is successfully replicated. This function needs to have the 'UNFUNCTION ()' macro, even if the macro is empty!  
-通过 "ReplicatedUsing=FUNCTIONNAME"，我们指定了变量复制成功后应调用的函数。该函数必须包含 "UNFUNCTION ()" 宏，即使该宏为空！
+```c++ file:ATestCharacter.cpp
+void ATestCharacter::OnRep_Health()
+{
+    if (Health <= 0.f)
+    {
+        PlayDeathAnimation();
+    }
+}
+```
+ 
+**通过 `ReplicatedUsing=函数名`，我们指定了变量复制成功后应调用的函数。该函数必须包含 "`UNFUNCTION ()`" 宏，即使该宏为空！**
 
-Rep Notify deffirence between C++ and Blueprints  
-代表通知 C++ 和蓝图之间的区别
+> [!NOTE] RepNotify 蓝图和 C++之间的区别
+> 值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。
+> - **在 C++ 中，OnRep 函数只调用客户端。**
+>     - 当服务器更改值并要求同时调用 OnRep 函数时，您**需要在调整变量后手动调用该函数**。这是因为 **OnRep 函数的作用是在变量复制到客户端时进行回调。**
+> 
+> - **在蓝图中，OnRep 函数将调用客户端和服务器**。
+>     - 这是因为 BP 版本的 OnRep 是 **"属性已更改（Property Changed）" 回调**。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
 
-It's important to note here that C++ and Blueprints handle RepNotify slightly differently. In C++, RepNotify functions only call for the clients.  
-值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。在 C++ 中，RepNotify 函数只调用客户端。
+# RPC 远程过程调用
+Remote Procedure Calls
 
-When a server changes the value and requires the OnRep function to call too, you will need to call it manually after adjusting the variable. That's because the OnRep function is meant as a callback for when the variable is replicated to the client.  
-当服务器更改值并要求同时调用 OnRep 函数时，您需要在调整变量后手动调用该函数。这是因为 OnRep 函数的作用是在变量复制到客户端时进行回调。
 
-In Blueprints, however, the OnRep function will call for clients **and** server. That's because the BP version of OnRep is a"Property Changed" callback. This means that the function will call for the server too, but also for the client if the client changes the variable locally.  
-但在 Blueprints 中，OnRep 函数将调用客户端和服务器。这是因为 BP 版本的 OnRep 是 "属性已更改" 回调。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。|  ||  ||  ||  |
+Other ways for Replication are so-called “**RPC**”s. Short form for “**R**emote **P**rocedure **C**all”.  
+其他复制方式是所谓的 "RPC"。远程过程调用 " 的简称。
+
+They are used to call something on another instance. Your TV-remote does the same with your television.  
+它们用于调用另一个实例中的某些功能。电视遥控器对电视机也是如此。
+
+Unreal Engine uses them to send events from client to server, server to client or server to a specific group.  
+虚幻引擎使用它们将事件从客户端发送到服务器、服务器发送到客户端或服务器发送到特定组。
+
+These RPCs can't have a return value! To return something you need to use a second RPC in the other direction.  
+这些 RPC 不能有返回值！要返回值，您需要在另一个方向上使用第二个 RPC。
+
+RPCs only work under certain rules. They are listed in this table which can also be found in the official Documentation:  
+RPC 仅在特定规则下工作。这些规则列在本表中，也可以在官方文档中找到：
+
+*   **Run on Server** - Is meant to be executed on the server instance of this Actor  
+    在服务器上运行 - 在该行为体的服务器实例上执行
+*   **Run on owning Client** - Is meant to be executed on the owner of this Actor  
+    在拥有客户端上运行 - 在该行为体的拥有者身上执行
+*   **NetMulticast** - Is meant to be executed on all instances of this Actor  
+    NetMulticast - 在该行为体的所有实例上执行
+
+## Requirements and Caveats[​]( #requirements -and-caveats "Direct link to Requirements and Caveats")  
+要求和注意事项
+
+There are a few requirements that need to be met for RPCs to be completely functional:  
+要使 RPC 完全发挥作用，需要满足一些要求：
+
+1.  They must be called on Actors or a replicated Subobject (e.g. a component)  
+    它们必须在行为体或复制的子对象（如组件）上调用
+2.  The Actor (and component) must be replicated  
+    行为体（和组件）必须复制
+3.  If the RPC is being called by the server to be executed on a client, only the client who owns that Actor will execute the function  
+    如果 RPC 被服务器调用并在客户端执行，则只有拥有该 Actor 的客户端才会执行该函数
+4.  If the RPC is being called by a client to be executed on the server, the client must own the Actor that the RPC is being called on  
+    如果 RPC 由客户端调用并在服务器上执行，则客户端必须拥有 RPC 调用的 Actor
+5.  Multicast RPCs are an exception:  
+    组播 RPC 是个例外：
+    *   If they are called by the server, the server will execute them locally, as well as execute them on all currently connected clients, which have an instance of that Actor that is relevant  
+        如果它们被服务器调用，服务器将在本地执行它们，并在当前连接的所有客户端上执行它们，这些客户端都有一个相关的 Actor 实例
+    *   If they are called from clients, a Multicast will only execute locally, and will not execute on the server or other clients  
+        如果从客户端调用，组播只能在本地执行，而不会在服务器或其他客户端上执行
+    *   For now, we have a simple throttling mechanism for Multicast events:  
+        目前，我们有一个针对组播事件的简单节流机制：
+        *   A Multicast function will not replicate more than twice in a given Actor's network update period.  
+            在给定的 Actor 网络更新周期内，组播功能的复制次数不会超过两次。  
+            Long term, Epic expects to improve on this.  
+            从长远来看，Epic 希望在这方面有所改进。
+
+### RPC invoked from the Server[​]( #rpc -invoked-from-the-server "Direct link to RPC invoked from the Server")  
+从服务器调用的 RPC
+
+| Actor Ownership 演员所有权            | Not Replicated 未复制         | NetMulticast 网络多播                                     | Server 服务器                 | Client 客户                                            |
+| ------------------------------------- | ----------------------------- | --------------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
+| **Client-owned Actor 客户拥有的演员** | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Actor's owning Client 在演员拥有的客户端上运行 |
+| **Server-owned Actor 服务器所属演员** | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Server 在服务器上运行                          |
+| **Unonwed Actor 非婚演员**            | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Server 在服务器上运行                          |
+
+### RPC invoked from a Client[​]( #rpc -invoked-from-a-client "Direct link to RPC invoked from a Client")  
+从客户端调用的 RPC
+
+| Actor Ownership 演员所有权                     | Not Replicated 未复制                      | NetMulticast 网络多播                      | Server 服务器                 | Client 客户                                |
+| ---------------------------------------------- | ------------------------------------------ | ------------------------------------------ | ----------------------------- | ------------------------------------------ |
+| **Owned by invoking Client 由调用客户端拥有**  | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Runs on Server 在服务器上运行 | Runs on invoking Client 在调用客户端时运行 |
+| **Owned by a different Client 由不同客户拥有** | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on invoking Client 在调用客户端时运行 |
+| **Server-owned Actor 服务器所属演员**          | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
+| **Unowned Actor 无名演员**                     | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
+
+## RPCs in Blueprints[​]( #rpcs -in-blueprints "Direct link to RPCs in Blueprints") 蓝图中的 RPC
+
+![](https://cedric-neukirchen.net/assets/images/rpc_overview-f6d897e9875b41018c1983d158f683b4.png)
+
+RPCs in Blueprints are created by creating CustomEvents and setting them to Replicate.  
+蓝图中的 RPC 是通过创建自定义事件并将其设置为复制来创建的。
+
+![](https://cedric-neukirchen.net/assets/images/event_details-6b020c4115ded9fac6c1a4b4f3f6c558.png)
+
+RPCs can't have a return value, so functions can't be used to create them.  
+RPC 不能有返回值，因此不能使用函数来创建 RPC。
+
+The 'Reliable' check box can be used to mark the RPC as 'important', trying to ensure that the RPC is not dropped.  
+可靠 "复选框可用于将 RPC 标记为" 重要 "，以确保不丢弃 RPC。
+
+Attention 注意
+
+Don't mark every RPC as Reliable! You should only do this on RPCs which are called once in a while and you require them to reach their destination.  
+不要将每个 RPC 都标记为可靠！您只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。
+
+Calling reliable RPCs on Tick can have side effects, such as filling the reliable buffer, which can cause other properties and RPCs to not be processed anymore.  
+在 Tick 上调用可靠 RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
+
+## RPCs in UE++[​]( #rpcs -in-ue "Direct link to RPCs in UE++") UE++ 中的 RPC
+
+To use the whole Network stuff in C++, you need to include “UnrealNetwork. h” in your project Header. RPCs in C++ are relatively easy to create, we only need to add the specifier to the UFUNCTION () macro.  
+要在 C++ 中使用整个网络，您需要在您的项目头中包含 "UnrealNetwork. h"。在 C++ 中创建 RPC 相对来说比较简单，我们只需要在 UFUNCTION () 宏中添加指定符即可。
+
+```
+// This is a ServerRPC, marked as unreliable and WithValidation (is required!)UFUNCTION(Server, unreliable, WithValidation)void Server_Interact();
+```
+
+The CPP file will implement a different function. This one needs '_Implementation' as a suffix.  
+CPP 文件将实现不同的功能。该文件需要以 "_Implementation" 作为后缀。
+
+```
+// This is the actual implementation, not Server_Interact. But when calling it we use "Server_Interact"void ATestPlayerCharacter::Server_Interact_Implementation(){    // Interact with a door or so!}
+```
+
+The CPP file also needs a version with '_Validate' as a suffix. Later more about that.  
+CPP 文件还需要一个以 "_Validate" 为后缀的版本。稍后再详述。
+
+```
+bool ATestPlayerCharacter::Server_Interact_Validate(){    return true;}
+```
+
+The other two types of RPCs are created like this:  
+其他两类 RPC 也是这样创建的：
+
+ClientRPC, which needs to be marked as 'reliable' or 'unreliable'.  
+ClientRPC，需要标记为 "可靠" 或 "不可靠"。
+
+```
+UFUNCTION(Client, unreliable)void ClientRPCFunction();
+```
+
+and Multicast RPC, which also needs to be marked as 'reliable' or 'unreliable'.  
+和组播 RPC，也需要标记为 "可靠" 或 "不可靠"。
+
+```
+UFUNCTION(NetMulticast, unreliable)void MulticastRPCFunction();
+```
+
+Of course, we can also add the 'reliable' keyword to an RPC to make it reliable  
+当然，我们也可以在 RPC 中添加 "可靠" 关键字，使其变得可靠
+
+```
+UFUNCTION(Client, reliable)void ReliableClientRPCFunction();UFUNCTION(NetMulticast, reliable)void ReliableMulticastRPCFunction();
+```
+
+## Validation (UE++)[​]( #validation -ue "Direct link to Validation (UE++)") 验证 (UE++)
+
+The idea of validation is that if the validation function for an RPC detects that any of the parameters are bad, it can notify the system to disconnect the client/server who initiated the RPC call.  
+验证的原理是，如果 RPC 的验证函数检测到任何参数有问题，它就会通知系统断开发起 RPC 调用的客户机 / 服务器。
+
+Validation is required for now for every ServerRPCFunction. The 'WithValidation' keyword in the UFUNCTION Macro is used for that.  
+现在，每个 ServerRPCFunction 都需要验证。UFUNCTION 宏中的 "WithValidation" 关键字就是用于此目的。
+
+```
+UFUNCTION(Server, unreliable, WithValidation)void SomeRPCFunction(int32 AddHealth);
+```
+
+Here is an example of how the '_Validate' function can be used:  
+下面举例说明如何使用 "_Validate" 函数：
+
+```
+bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth){    if (AddHealth > MAX_ADD_HEALTH)    {        return false; // This will disconnect the caller!    }    return true; // This will allow the RPC to be called!}
+```
+
+info 信息
+
+Client-to-Server RPCs require the '_Validate' function to encourage secure Server RPC functions and to make it as easy as possible for someone to add code to check every parameter to be valid against all the known input constraints.  
+客户端到服务器 RPC 要求使用 "_Validate" 函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
