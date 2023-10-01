@@ -6,6 +6,7 @@ reference: []
 banner: "[[1696179112450.png]]"
 banner_header: 
 banner_lock: true
+banner_icon: 🗺
 ---
 
 # 虚幻中的网络
@@ -35,8 +36,7 @@ Important 重要的
 
 # GamePlay 架构 + 网络
 ## 1 架构总结
-根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将它们分为四类： 
-
+根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将虚幻类分为四类： 
 - **Server Only** -  仅服务器 - 这些对象只存在于服务器上
 - **Server & Clients** - 服务器和所有客户端 - 这些对象存在于服务器和所有客户端中
 - **Server & Owning Client** - 服务器和拥有客户端（即本地客户端） - 这些对象只存在于服务器和拥有客户端上
@@ -657,20 +657,13 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 Replication 是服务器将信息 / 数据传递给客户端的行为。
 
-This can be limited to specific entities and groups. Blueprints mostly perform replication according to the settings of the affected AActor.  
 这可以仅限于特定的实体和组。蓝图大多根据受影响 AActor 的设置执行复制。
 
-The first class, which is capable of replicating properties, is the AActor class. While you can also replicate UObjects, they are replicated via an AActor, still requiring you to have some sort of AActor to handle the replication.  
-第一个可以复制属性的类是 AActor 类。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。
-
-A good example of UObjects that support being replicated via an AActor without much additional work required by us is a UActorComponent.  
+**第一个可以复制属性的类是 AActor 类**。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。
 UActorComponent 就是一个很好的例子，它支持通过 AActor 复制 UObjects，而不需要我们做太多额外的工作。
 
-All of the before mentioned classes inherit from AActor at some point, giving them the ability to replicate properties if needed. Though not all of them do this the same way.  
-前面提到的所有类都在某种程度上继承自 AActor，从而使它们能够在需要时复制属性。不过，并非所有类的复制方式都相同。
-
-The AGameMode, for example, doesn't replicate at all and only exists on the server. And AHUD only exists on clients, also not replicating.  
-例如，AGameMode 根本不会复制，只存在于服务器上。而 AHUD 只存在于客户端，也不会复制。
+**前面提到的所有类都在某种程度上继承自 AActor，从而使它们能够在需要时复制属性。不过，并非所有类的复制方式都相同。**
+例如，**AGameMode 根本不会复制**，因为只存在于服务器上。**而 AHUD、UUserWidget 只存在于客户端，也不会复制。**
 
 ## How to use 'Replication'?[​]( #how -to-use-replication "Direct link to How to use 'Replication'?")  
 如何使用 "复制"？
