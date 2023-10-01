@@ -33,7 +33,7 @@ Important 重要的
 这会允许他们作弊！
 一个简单的例子是发射武器：确保在服务器上测试客户端是否拥有所需数量的弹药，之后再允许射击而不是直接处理射击！
 
-# GamePlay架构与网络
+# GamePlay架构
 ## GameMode（服务器）
 > [!NOTE]
 > 在 4.14 中，AGameMode 类分为 AGameModeBase 和 AGameMode。 GameModeBase 的功能较少，因为某些游戏可能不需要旧 AGameMode 类的完整功能列表。
@@ -477,7 +477,7 @@ PlayerController 可以看作是玩家的 "`Input`"。它是玩家与服务器�
 
 >除 "0 "以外的其他数字将不会返回某个客户端的其他客户端 PlayerControllers。该索引用于本地玩家（分屏），我们在此不做介绍。
 
-## 示例和用法
+### 示例和用法
 
 尽管 APlayerController 是网络中最重要的类之一，但默认情况下它的功能并不多。
 
@@ -495,7 +495,7 @@ PlayerController 可以看作是玩家的 "`Input`"。它是玩家与服务器�
 > [!question] 为什么不直接调用 GameState 上的 RPC？
 > 因为它归服务器所有。ServerRPC 需要客户端作为所有者！
 
-### Blueprint[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#blueprint "Direct link to Blueprint") 蓝图
+#### 蓝图
 
 因此，首先，我们需要一个简单的 UserWidget，上面有一个可以按下的按钮。
 
@@ -504,32 +504,18 @@ PlayerController 可以看作是玩家的 "`Input`"。它是玩家与服务器�
 
 因此，从我们的目标 GameState 开始。它会收到一个普通事件，该事件会递增一个复制的整数变量：
 ![[Pasted image 20231001200904.png]]
-This event will get called on the server side, inside of our ServerRPC in our PlayerController:  
+
 该事件将在服务器端调用，就在我们的 PlayerController 中的 ServerRPC 内部：
 ![[Pasted image 20231001200911.png]]
-And at last, we have our button, which gets pressed and calls the ServerRPC:  
+
 最后，我们的按钮被按下并调用 ServerRPC：
 ![[Pasted image 20231001200919.png]]
 
-So when we click on the button (client side), we use the ServerRPC in our PlayerController to get to the server side (possible, because the PlayerController is owned by the client!) and then call the 'IncreaseVariable' event of the GameState to increment the replicated integer variable.  
-因此，当我们点击按钮（客户端）时，我们使用 PlayerController 中的 ServerRPC 来进入服务器端（这是可能的，因为 PlayerController 是客户端所有的！），然后调用 GameState 的 "IncreaseVariable "事件来递增复制的整数变量。
+因此，当我们点击按钮（客户端）时，我们**使用 PlayerController 中的 ServerRPC 来进入服务器端**（这是可能的，因为 PlayerController 是客户端所有的！），然后调用 GameState 的 "IncreaseVariable "事件来递增复制的整数变量。
 
-This integer variable, since it is replicated and set by the server, will now update on all instances of the GameState so that clients can also see the update!  
 由于这个整数变量是由服务器复制和设置的，因此现在会在 GameState 的所有实例上更新，这样客户端也能看到更新！
 
-#### UE++[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/common-classes/playercontroller#ue "Direct link to UE++") UE++
-
-For the C++ version of this example, I will replace the UserWidget with the BeginPlay of the PlayerController. This doesn't make much sense, however, implementing UserWidgets in C++ needs some more code which I don't want to post here.  
-在本例的 C++ 版本中，我将用 PlayerController 的 BeginPlay 代替 UserWidget。不过，用 C++ 实现 UserWidget 需要更多代码，我不想在此赘述。
-
-```c++ file:TestPlayerController.h
-// Server RPC. You will read more about this in the RPC chapter  
-UFUNCTION(Server, unreliable, WithValidation)  
-void Server_IncreaseVariable();  
-  
-// Also overriding the BeginPlay function for this example  
-virtual void BeginPlay() override;
-```
+##### C++
 
 ```c++ file:TestGameState.h
 // Replicated integer variable
@@ -539,6 +525,33 @@ int32 OurVariable;
 public:
 // Function to increment the variable
 void IncreaseVariable();
+```
+
+```c++ file:file:TestGameState.cpp
+//此函数是必需的，并且UPROPERTY宏中复制的说明符会为我们声明它。我们只需要实现它
+void ATestGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+    // This tells UE that we want to replicate this variable
+    DOREPLIFETIME(ATestGameState, OurVariable);
+}
+
+void ATestGameState::IncreaseVariable()
+{
+    OurVariable++;
+}
+```
+
+在本例的 C++ 版本中，我将用 PlayerController 的 BeginPlay 代替 UserWidget。不过，用 C++ 实现 UserWidget 需要更多代码，我不想在此赘述。
+
+```c++ file:TestPlayerController.h
+// Server RPC. You will read more about this in the RPC chapter  
+UFUNCTION(Server, unreliable, WithValidation)  
+void Server_IncreaseVariable();  
+  
+// Also overriding the BeginPlay function for this example  
+virtual void BeginPlay() override;
 ```
 
 ```c++ file:TestPlayerController.cpp
@@ -562,10 +575,10 @@ void ATestPlayerController::BeginPlay()
 {
     Super::BeginPlay();
 
-    // BeginPlay is called on every instance of an Actor, so also on the server version of this PlayerController.
-    // We want to ensure, that only the local player calls this RPC. Again, this example doesn't necessarily make much sense
-    // since we could just flip the condition and wouldn't need the RPC at all, but C++ Widget, you know...
-    // We could also use "IsLocalPlayerController()" here
+    //BeginPlay在Actor的每个实例上都被调用，在该PlayerController的服务器版本上也是如此。
+    //我们希望确保，只有本地player调用此RPC。同样，这个例子不一定有多大意义
+    //因为我们可以翻转条件，根本不需要RPC，但是C++Widget，你知道。。。
+    //我们也可以在这里使用“IsLocalPlayerController（）”
     if (Role < ROLE_Authority)
     {
         Server_IncreaseVariable();
@@ -573,21 +586,57 @@ void ATestPlayerController::BeginPlay()
 }
 ```
 
-```c++ file:file:TestGameState.cpp
-// This function is required and the replicated specifier in the UPROPERTY macro causes it to be declared for us. We only need to implement it
-void ATestGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-    // This tells UE that we want to replicate this variable
-    DOREPLIFETIME(ATestGameState, OurVariable);
-}
-
-void ATestGameState::IncreaseVariable()
-{
-    OurVariable++;
-}
-```
-
-That's quite some code. If you don't understand the use of some of the functions and their naming yet, don't worry. The upcoming sections will help you understand why it's done like this.  
 这是相当多的代码。如果你还不理解其中一些函数的用法和命名，不用担心。接下来的章节将帮助你理解为什么要这样做。
+
+## AHUD（客户端）
+**AHUD 类仅在每个客户端上可用，可通过 PlayerController 访问。它将由 PlayerController 自动生成。**
+
+在 UMG（虚幻动态图形）发布之前，AHUD 类一直用于在客户端的视口中绘制文本、纹理等。
+
+**现在，UserWidgets 在 99% 的情况下都取代了 HUD 类。**
+
+您仍然可以使用 AHUD 类进行调试，或者使用一个独立区域来管理 UserWidget 的创建、显示、隐藏和销毁。
+
+>由于 HUD 与多人游戏没有直接联系，因此示例只能显示单人游戏的逻辑，所以本课将跳过这些示例。
+
+## UUserWidget (UMG Widget) ）（本地）
+
+UUserWidgets 用于 Epic Games 的用户界面系统，该系统被称为虚幻动态图形（Unreal Motion Graphics）。
+
+它们继承自 Slate，Slate 是一种用于在 C++ 中创建用户界面的语言，同时也用于虚幻引擎编辑器本身。
+
+Widgets are only available locally. They don't replicate and should not contain and replication code. Preferably they wouldn't contain any gameplay code either, but some games might require it.  
+Widgets**只能在本地使用**。它们**不会复制，也不应包含复制代码**。**它们最好也不包含任何游戏代码**，但有些游戏可能需要。
+ 
+要了解有关 UMG 和小工具的更多信息，请使用上面提供的 API 链接。
+
+在 APawn 示例中，我们已经有一个使用 Widgets 的小例子。因此，我将在此略过。
+
+# GamePlay 架构与网络
+
+根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将它们分为四类： 
+
+- **Server Only** -  仅限服务器 - 这些对象只存在于服务器上
+- **Server & Clients** - 服务器和客户端 - 这些对象存在于服务器和所有客户端中
+- **Server & Owning Client** - 服务器和拥有客户端（即本客户端） - 这些对象只存在于服务器和拥有客户端上
+- **Owning Client Only** - These objects only exist on the owning client  
+    仅限拥有客户端 - 这些对象只存在于拥有客户端上
+
+“Owning Client” is the player/client who owns the actor in question. You can see this the same way as you own your computer. Ownership becomes important for “RPCs” in a later chapter.  
+"拥有客户 "是指拥有相关演员的玩家/客户。就像你拥有自己的电脑一样。所有权对于后面章节中的 "RPC "非常重要。
+
+The following two graphics show you some of the common classes and in which of the categories they exist.  
+下面两幅图向您展示了一些常见的类别，以及它们属于哪些类别。
+
+![Common classes layed out in the four categories mentioned above.](https://cedric-neukirchen.net/assets/images/Framework_Network_One-539c3355dce1d2cffc7fe494f354ed4d.svg "Common Classes layed out in the four sections mentioned above.")
+
+  
+
+The second graphic demonstrates an example of a dedicated server with two connected clients.  
+第二幅图展示了一个有两个连接客户机的专用服务器的示例。
+
+  
+
+![Venn diagram of the classes in a dedicated server with two connected clients example.](https://cedric-neukirchen.net/assets/images/Framework_Network_Two-e4a5cca1ccc50bbd8a66f1831d027e70.svg "Venn Diagram of the Classes in a Dedicated Server with two connected Clients example.")
+
+## Common Classes[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/framework-and-network#common-classes "Direct link to Common Classes") 普通班
