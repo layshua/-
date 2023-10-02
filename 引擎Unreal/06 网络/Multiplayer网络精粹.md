@@ -871,7 +871,7 @@ void ATestPlayerCharacter::Server_Interact_Implementation()
 }
 ```
 
-CPP 文件还需要一个以 `_Validate`为后缀的版本。稍后再详述。
+CPP 文件还需要一个以 `_Validate` 为后缀的版本，用于 [[#Validation 验证 (C++)]]。
 
 ```c++
 bool ATestPlayerCharacter::Server_Interact_Validate()
@@ -931,53 +931,108 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 例如，本地 player（客户端或监听服务器）拥有 PlayerController。
 另一个例子是场景中生成/放置的门。这主要由服务器所有。
 
-但为什么会出现这样的问题呢？
-如果你再查看一下前面的表格，就会发现，例如，如果客户端在不属于自己的 Actor 上调用服务器 RPC，该 RPC 就会被丢弃。因此，客户端无法在服务器拥有的门上调用 "`Server_Interact`"。但我们该如何解决这个问题呢？
+**但为什么会出现这样的问题呢？**
+如果你再查看一下前面的表格，就会发现，例如，如果客户端在不属于自己的 Actor 上调用服务器 RPC，该 RPC 就会被丢弃。因此，客户端无法在服务器拥有的 Actor上调用 "`Server_Interact`"。但我们该如何解决这个问题呢？
 
-We use a class/Actor that the client owns and this is where the PlayerController starts to shine. We already had a similar example when discussing the PlayerController class, where we send an RPC to increment a value based on a UserWidget button press.  
-我们使用客户端拥有的类/代理，这就是 PlayerController 开始大显身手的地方。在讨论 PlayerController 类时，我们已经举过一个类似的例子，即根据 UserWidget 按钮的按压情况发送 RPC 以递增数值。
+我们使用客户端拥有的 Class/Actor，这就是 PlayerController 开始大显身手的地方。在讨论 PlayerController 类时，我们已经举过一个类似的例子，即根据 UserWidget 按钮的按压情况发送 RPC 以递增数值。
 
 ![[Pasted image 20231002095346.png]]
 
-So instead of trying to enable Input on the door and calling a ServerRPC there, we create the ServerRPC in the PlayerController and let the server call an interface function on the door (for example 'Interact').  
-因此，与其在门上启用输入并在那里调用 ServerRPC，不如在 PlayerController 中创建 ServerRPC，让服务器调用门上的接口函数（例如 "交互"）。
+因此，与其在 Actor 上启用输入并在那里调用 ServerRPC，不如**在 PlayerController 中创建 ServerRPC，让服务器调用 Actor 上的接口函数（例如 "Interact"）。**  
 
-## Actors and their Owning Connections[​]( https://cedric-neukirchen.net/docs/multiplayer-compendium/ownership#actors-and-their-owning-connections "Direct link to Actors and their Owning Connections")  
-演员及其自有联系
+## Actors 和他们的拥有关系
+Gameplay 架构+网络 章节中提到，PlayerController 是客户端真正 "拥有 (owns) "的第一个类。这意味着什么呢？
 
-As already mentioned in the Gameplay Framework overview, the PlayerController is the first class that the player 'owns', but what does that mean?  
-正如游戏框架概述中提到的，PlayerController 是玩家 "拥有 "的第一个类，但这意味着什么呢？
+每个 "Connection（连接）"都有一个专门为该 "Connection"创建的 PlayerController。**这个 PlayerController 归该 "Connection "所有。**
 
-Each 'Connection' has a PlayerController, created specifically for that Connection. A PlayerController, which is created for that reason is owned by that Connection.  
-每个 "连接 "都有一个专门为该 "连接 "创建的 PlayerController。为此创建的播放器控制器归该 "连接 "所有。
+**因此，当我们想确定某个 Actor 是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的拥有者，如果这是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该 Actor。**
 
-So when we want to determine if an Actor is owned by someone, we query up-wards (recursively) until reaching the most outer owner and if this is a PlayerController, then the Connection that owns the PlayerController also owns that Actor.  
-因此，当我们想确定某个角色是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的拥有者，如果这是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该角色。
+Pawn/Character。它们被 PlayerController possess，在此期间，PlayerController 是 possessed Pawn 的所有者。**这意味着拥有该玩家控制器的 Connection 也拥有该 Pawn。** 这只是在玩家控制器 possess 棋子时的情况。**un-possess 将导致客户端不再拥有该棋子。**
 
-Kinda simple, or? So what would be an example of that?  
-有点简单，还是？有什么例子可以说明这一点？
+> [!question]  为什么这很重要，我需要它做什么？
+>
+> - RPC 需要确定哪个客户端将执行 Run-On-Client RPC（运行于客户端的 RPC）
+> - Actor 复制（replication）和 Connection 相关性（relevancy）
+> - 涉及所有者时的 Actor 属性复制条件
 
-The Pawn/Character. They are possessed by the PlayerController and during that time, the PlayerController is the owner of the possessed Pawn. This means the Connection that owns this PlayerController also owns the Pawn.  
-棋子/角色。它们被玩家控制器占有，在此期间，玩家控制器是被占有棋子的所有者。这意味着拥有该玩家控制器的连接也拥有该棋子。
-
-This is only the case WHILE the PlayerController is possessing the Pawn. Un-possessing it will result in the client no longer owning the Pawn.  
-这只是在玩家控制器拥有棋子时的情况。解除拥有将导致客户端不再拥有该棋子。
-
-**So why is this important and for what do I need this?  
-为什么这很重要，我需要它做什么？**
-
-- RPCs need to determine which client will execute a Run-On-Client RPC  
-    RPC 需要确定哪个客户端将执行运行于客户端的 RPC
-- Actor replication and connection relevancy  
-    代理复制和连接相关性
-- Actor property replication conditions when the owner is involved  
-    涉及所有者时的行为者属性复制条件
-
-You already read that RPCs react differently when getting called by clients or the server depending on the Connection they are owned by.  
 你已经了解到，RPC 在被客户端或服务器调用时，会根据其所属的 Connection 做出不同的反应。
 
-You also read about conditional Replication, where variables are only replicated under a certain condition.  
 您还了解到条件复制，即变量只在特定条件下复制。
 
-The following section describes the relevancy part of the list.  
 下文将介绍列表的相关性部分。
+# Actor 的相关性和优先权
+
+## Relevancy 相关性
+
+> [!question] 
+> 什么是相关性，为什么我们需要它？
+> 
+
+想象一下，游戏中的 Levels/Maps 大到足以让玩家认为其他玩家 "unimportant"。
+
+如果玩家 "A "和玩家 "B "相隔万里，为什么还需要从玩家 "B "那里获取网络更新？
+
+To improve bandwidth Unreal Engine's network code makes it possible that the server only tells clients about Actors that are in that client's relevant set.  
+为了提高带宽，虚幻引擎的网络代码允许服务器只告诉客户端在该客户端相关集合中的角色。
+
+Unreal applies the following rules (in order) to determine the relevant set of Actors for a player. These tests are implemented in the virtual function 'AActor::IsNetRelevantFor()'.  
+虚幻应用以下规则（按顺序）来确定与玩家相关的 Actors 集合。这些测试在虚拟函数 "AActor::IsNetRelevantFor() "中实现。
+
+1. If the Actor is marked as 'bAlwaysRelevant', is owned by the Pawn or PlayerController, is the Pawn, or the Pawn is the Instigator of some action like noise or damage, it is relevant  
+    如果行为体被标记为 "bAlwaysRelevant"（始终相关），被棋子或 PlayerController 所拥有，是棋子，或者棋子是某些行为（如噪音或伤害）的发起者，那么它就是相关的。
+2. If the Actor is marked as 'bNetUserOwnerRelevancy' and has an Owner, use the Owner's relevancy  
+    如果行为体被标记为 "bNetUserOwnerRelevancy "且有所有者，则使用所有者的相关性。
+3. If the Actor is marked as 'bOnlyRelevantToOwner', and does not pass the first check, it is not relevant  
+    如果行为体被标记为 "bOnlyRelevantToOwner"，并且没有通过第一项检查，那么它就是不相关的
+4. If the Actor is attached to the Skeleton of another Actor, then its relevancy is determined by the relevancy of its base  
+    如果该行为体连接到另一个行为体的骨架上，则其相关性由其基础的相关性决定。
+5. If the Actor is hidden ('bHidden == true') and the root component does not collide then the Actor is not relevant  
+    如果 Actor 是隐藏的（'bHidden == true'），并且根组件没有发生碰撞，则 Actor 与此无关。
+    - If there is no root component, 'AActor::IsNetRelevantFor()' will log a warning and ask if the Actor should be set to 'bAlwaysRelevant = true'  
+        如果没有根组件，"AActor::IsNetRelevantFor() "将记录警告并询问是否应将 Actor 设置为 "bAlwaysRelevant = true
+6. If 'AGameNetworkManager' is set to use distance-based relevancy, the Actor is relevant if it is closer than the net cull distance  
+    如果 "AGameNetworkManager "设置为使用基于距离的相关性，则如果角色比净删减距离更近，则该角色是相关的
+
+INFO 信息
+
+Pawn and PlayerController override 'AActor::IsNetRelevantFor()' and have different conditions for relevancy as a result.  
+Pawn 和 PlayerController 重载了 "AActor::IsNetRelevantFor()"，因此具有不同的相关性条件。
+
+## Prioritization[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-relevancy-and-priority#prioritization "Direct link to Prioritization") 优先次序
+
+Unreal uses a load-balancing technique that prioritizes all Actors and gives each one a fair share of the bandwidth based on how important it is to Gameplay.  
+虚幻采用了一种负载平衡技术，该技术会优先处理所有 Actors，并根据每个 Actors 对游戏的重要性为其提供合理的带宽份额。
+
+Actors have a float variable called “NetPriority”. The higher this number, the more bandwidth that Actor receives relative to others.  
+代理有一个名为 "NetPriority（网络优先级）"的浮点变量。这个数字越大，该行为体相对于其他行为体获得的带宽就越多。  
+An Actor with a “NetPriority” of 2.0 will update exactly twice as frequently as an Actor with a “NetPriority” of 1.0.  
+净优先级 "为 2.0 的行为体的更新频率是 "净优先级 "为 1.0 的行为体的两倍。
+
+The only thing that matters with priorities is their ratio. So obviously you cannot improve Unreal's Network Performance by increasing all of the priorities.  
+优先级的唯一重要性在于它们的比例。因此，您显然无法通过提高所有优先级来提高虚幻的网络性能。
+
+The current priority of an Actor is calculated using the virtual function 'AActor::GetNetPriority()'.  
+角色的当前优先级通过虚拟函数 "AActor::GetNetPriority() "计算。  
+To avoid starvation 'AActor::GetNetPriority()' multiplies 'NetPriority' with the time since the Actor was last replicated.  
+为避免饥饿，"AActor::GetNetPriority() "会将 "NetPriority "与代理上次复制后的时间相乘。
+
+The 'GetNetPriority' function also considers the relative location of and distance between the Actor and the Viewer.  
+获取网络优先级 "函数还考虑了 "行为体 "与 "观察者 "之间的相对位置和距离。
+
+![Replication Variables](https://cedric-neukirchen.net/assets/images/variables-3de92c3d24f385c4bb0bd1ccc61c115d.png "Replication Variables")
+
+  
+
+Most of these Settings can be found in the Class Defaults of the Blueprint and can also be set up inside the C++ Class of each Actor Child.  
+这些设置大多可以在蓝图的 "类默认值 "中找到，也可以在每个角色子代的 C++ 类中设置。
+```c++
+bOnlyRelevantToOwner = false;
+bAlwaysRelevant = false;
+bReplicateMovement = true;
+bNetLoadOnClient = true;
+bNetUseOwnerRelevancy = false;
+bReplicates = true;
+NetUpdateFrequency = 100.f;
+NetCullDistanceSquared = 225000000.f;
+NetPriority = 1.f;
+```
