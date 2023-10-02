@@ -1016,85 +1016,244 @@ NetUpdateFrequency = 100.f;
 NetCullDistanceSquared = 225000000.f;
 NetPriority = 1.f;
 ```
+# Actor Role / RemoteRole
 
-# Actor Role / RemoteRole  
-
-我们还有两个重要的 Actor 复制属性 Actor Role 和 RemoteRole  
+我们还有两个重要的 Actor 复制属性 Actor Role 和 RemoteRole
 
 **这两个属性告诉你**
+
 - 谁有权管理 Actor
 - 是否复制 Actor
 - 复制模式
 
 我们首先要确定的是谁有权管理特定的 Actor。
 
-要确定当前运行的引擎实例是否具有权限，请检查角色属性（role property）是否为 `ROLE_Authority`。  
-如果是，那么这个引擎实例就负责这个 Actor（无论Actor是否复制！）。
+要确定当前运行的引擎实例是否具有权限，请检查角色属性（role property）是否为 `ROLE_Authority`。  
+如果是，那么这个引擎实例就负责这个 Actor（无论 Actor 是否复制！）。
 
-> [!info] 
-> 这与所有权（Ownership）不同！
+> [!info] 这与所有权（Ownership）不同！
 
 ## Role/RemoteRole Reversal
-角色/远程角色转换
+角色/远程角色互换
 
-Role and RemoteRole could be reversed depending on who is inspecting these values.  
-Role 和 RemoteRole 可以颠倒，这取决于谁在检查这些值。
+Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
 
-For example, if on the server you have this configuration:  
 例如，在服务器上有这样的配置：
+- `Role == Role_Authority`
+- `RemoteRole == ROLE_SimulatedProxy  `
 
-- Role == Role_Authority 角色 == 角色权限
-- RemoteRole = ROLE_SimulatedProxy  
-    远程角色 = 角色_模拟代理
+那么客户端看到的会是这样：
+- `Role == ROLE_SimulatedProxy`
+- `RemoteRole == ROLE_Authority`
 
-Then the client would see it as this:  
-那么客户就会这样看：
+这是有道理的，因为**服务器负责 Actor 并将其复制给客户端。**  
+**客户端只是接收更新，并在更新之间模拟 Actor。**
 
-- Role == ROLE_SimulatedProxy  
-    角色 == 角色_模拟代理
-- RemoteRole == ROLE_Authority  
-    远程角色 == 角色权限
+## 复制模式
 
-This makes sense since the server is in charge of the Actor and replicating it to clients.  
-这是有道理的，因为服务器负责 Actor 并将其复制给客户端。  
-The clients are just supposed to receive updates and simulate the Actor between updates.  
-客户端只是接收更新，并模拟更新之间的 Actor。
+服务器不会在每次更新时都更新 Actor。这会占用太多的带宽和 CPU 资源。相反，服务器将按照 `AActor:: NetUpdateFrequency（网络更新频率）` 属性指定的频率复制 Actor。
 
-## Mode of Replication[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#mode-of-replication "Direct link to Mode of Replication") 复制模式
+这意味着客户端上的 Actor 更新之间会间隔一段时间。这可能会导致 Actor 的动作看起来零星或不连贯。**为了弥补这一点，客户端将在两次更新之间模拟 Actor。**
 
-The server doesn't update Actors every update. This would take way too much bandwidth and CPU resources. Instead, the server will replicate Actors at a frequency specified on the 'AActor::NetUpdateFrequency' property.  
-服务器不会在每次更新时都更新 "演员"。这会占用太多的带宽和 CPU 资源。相反，服务器将按照 "AActor::NetUpdateFrequency "属性指定的频率复制 Actors。
+**目前有两种模拟方式：**
+- **`ROLE_SimulatedProxy`** 模拟代理
+- **`ROLE_AutonomousProxy`** 自治（自主）代理
 
-This means that some time will have passed on the client between Actor updates. This could result in Actors looking sporadic or choppy in their movement. To compensate for this, the client will simulate the Actor between updates.  
-这意味着客户端上的 Actor 更新之间会间隔一段时间。这可能会导致演员的动作看起来零星或不连贯。为了弥补这一点，客户端将在两次更新之间模拟 Actor。
+###  ROLE_SimulatedProxy
 
-There are currently two types of simulation that occur:  
-目前有两种模拟方式：
+**这是标准的模拟路径，通常是根据最后的已知速度来推断运动。**
 
-**ROLE_SimulatedProxy**
-
-and
-
-**ROLE_AutonomousProxy**
-
-### ROLE_SimulatedProxy[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#role_simulatedproxy "Direct link to ROLE_SimulatedProxy") ROLE_SimulatedProxy
-
-This is the standard simulation path and is generally based on extrapolating movement based on the last known velocity.  
-这是标准的模拟路径，通常是根据最后的已知速度来推断运动。
-
-When the server sends an update for a particular Actor, the client will adjust its position toward the new location, and then in between updates, the client will continue to move the Actor based on the most recent velocity sent from the server.  
 当服务器发送特定 Actor 的更新时，客户端将调整其位置以适应新的位置，然后在两次更新之间，客户端将根据服务器发送的最新速度继续移动 Actor。
 
-Simulating using the last known velocity is just one example of how general simulation works.  
 使用最后已知速度进行模拟只是一般模拟工作原理的一个例子。
 
-Nothing stopping you from writing custom code to use some other information to extrapolate between server updates.  
-没有什么能阻止你编写自定义代码，使用其他信息在服务器更新之间进行推断。
+没有什么能阻止你编写**自定义**代码，使用其他信息在服务器更新之间进行推断。
 
-### ROLE_AutonomousProxy[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#role_autonomousproxy "Direct link to ROLE_AutonomousProxy") ROLE_AutonomousProxy
+###  ROLE_AutonomousProxy
 
-This is generally only used on Actors that are possessed by PlayerControllers.  
-一般只用于被 PlayerControllers 占有的 Actors。
+**一般只用于被 PlayerController possess 的 Actor。**
 
-It just means that this Actor is receiving inputs from a human controller, so when we extrapolate, we have a bit more information and can use actual human inputs to fill in the missing info (rather than extrapolating based on the last known velocity).  
-这只是意味着这个 Actor 正在接收来自人类控制器的输入，因此当我们进行推断时，我们可以获得更多的信息，并使用实际的人类输入来填补缺失的信息（而不是根据最后已知的速度进行推断）。
+这只是意味着这个 Actor 正在接收来自外部（玩家）的输入，因此当我们进行推断时，我们可以获得更多的信息，并使用实际的外部输入来填补缺失的信息（而不是根据最后已知的速度进行推断）。
+
+# Travel 关卡切换 
+[虚幻引擎中的关卡切换 | 虚幻引擎5.3文档 (unrealengine.com)](https://docs.unrealengine.com/5.3/zh-CN/travelling-in-multiplayer-in-unreal-engine/)
+## 无缝与非无缝切换
+**Seamless** and **Non-seamless Travel**
+
+无缝切换和非无缝切换之间的区别：
+- **无缝切换**是一种非阻塞（non-blocking）操作，而**非无缝切换**则将是阻塞（blocking）调用。
+- 客户端的**非无缝切换**意味着他们**与服务器断开连接，然后重新连接到同一服务器**，这将准备好加载新地图。
+
+**Epic 建议尽可能经常使用无缝切换**，因为这将带来更流畅的体验，并避免重新连接过程中可能出现的任何问题。
+
+**非无缝切换<mark style="background: #FF5582A6;">必须</mark>通过三种方式进行：**
+-  第一次加载地图时
+- 当第一次作为客户端连接到服务器时
+- 当您想要结束一场多人比赛并开始一场新的比赛时
+
+## 主要切换函数
+
+驱动切换的三大主要函数：
+
+### UEngine::Browser
+
+- 就像加载新地图时**硬重置（hard reset）** 一样
+- 总会带来“非无缝”的切换
+- 将导致服务器在前往目的 Map 之前断开当前客户端的连接
+- 客户端将断开与当前服务器的连接
+- 专用服务器（Dedicated Serve）无法访问其他服务器，因此 Map 必须是本地的（不能是 URL）
+
+### UWorld::ServerTravel
+
+-  **仅适用于服务器**
+- 将使服务器跳转到新的 World/Level 
+- 所有连接的客户端都会跟随
+- 这就是多人游戏从一个 Map Travel 到另一个 Map 的方式，服务器负责调用此函数
+- 服务器将为所有连接的客户端玩家调用 `APlayerController::ClientTravel`
+
+### APlayerController::ClientTravel
+
+- 如果由客户端调用，将 travel 到新服务器
+- 如果由服务器调用，将指示特定客户端 travel 到新 Map（但保持与当前服务器的连接）
+
+## 实现无缝切换​
+
+无缝切换配有**过渡 Map**。这是通过 `UGameMapsSettings:: TransitionMap` 属性进行配置的。  
+
+默认情况下该属性为空。如果您的游戏将此属性留空，则会为其创建一个空地图。
+
+> [!NOTE] 
+>  - 过渡 Map 存在的原因是必须始终加载一个 World（其中包含 Map），因此我们无法在加载新 Map 之前释放旧 Map。 
+> - 由于 Map 可能非常大，因此将旧 Map 和新 Map 同时存储在内存中是个坏主意，因此这就是 Transition Map 的用武之地。
+
+设置好过渡地图后，将 `AGameMode::bUseSeamlessTravel` 设置为 true，从那里开始，无缝切换应该可以工作了！
+
+# 如何开始多人游戏
+
+开始多人游戏的最简单方法是在 "Play "下拉菜单中将"玩家数量"设置为大于 1 的数值。
+![[Pasted image 20231002203934.png]]
+
+这将自动在服务器和客户端之间建立网络连接。因此，即使您在主菜单层级中启动游戏，并将 "玩家人数 "设置为 2+ ，游戏也会连接起来！
+
+这始终是一种网络连接。这不是本地多人游戏连接。这需要以不同的方式处理，目前不会涉及。
+
+##  高级设置
+
+![[9a85779ca82237f7738f54dcd6f05f1e_MD5.png|"Advanced Settings"]]
+![[Pasted image 20231002204121.png]]
+
+### 单进程下运行
+
+- 选中时，将在 UE 的单个实例中生成多个玩家窗口。
+- 不选中时，将为每个分配的 player 启动多个 UE 实例。
+
+如果不选中 "`Run Dedicated Server` 运行专用服务器"，第一个 player 将是一个监听服务器 ListenServer。
+
+另一方面，当标记为 "`TRUE` "时，所有 Player 都将成为客户端。
+
+### 启动并连接服务器
+
+Check the "Session Management" Tab to learn how to set up a Session/Server via the Session System. Let's have a look at how you can start and join a server without sessions.  
+查看 "会话管理（Session Management） "选项卡，了解如何通过会话系统设置会话/服务器。
+
+让我们看看如何在没有会话的情况下启动和加入服务器。
+
+
+#### 启动（监听）服务器
+- @ 蓝图
+![[dbe15fd24cd12eb791c2da618741e0a5_MD5.png|"Listen Server"]]
+  
+要**在不使用会话系统的情况下启动服务器**，只需使用 `OpenLevel` 节点，并将 "Level Name "和 "listen "选项传给它即可。  
+您还可以传入更多选项，以"`?` "分隔，这些选项可以在 AGameMode 类中检索到。
+
+**没有会话系统的专用服务器**已经在正确的 Map 上启动，您可以在项目设置的 "地图和模式 "部分指定正确的地图。
+
+- @ C++
+  与蓝图类似，您也可以使用这两个函数，其结果与蓝图节点相同。
+
+```c++
+//启动（监听）服务器
+UGameplayStatics::OpenLevel(GetWorld(), “LevelName”, true, “listen”);
+```
+
+#### 连接到服务器
+- @ 蓝图
+![[6e1d9a284e660e8e1a742103f4a3b4de_MD5.png|"Connect Via IP"]]
+
+要连接服务器，只需在 "`Execute Console Command` (执行控制台命令) "节点上使用 "`open IPADDRESS` "命令，其中 "`IPADDRESS` "由服务器的**实际 IP 地址**代替。
+
+例如，可以通过 Widget 文本框来填写。
+- @ C++
+  
+
+```c++
+//连接到服务器
+APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+
+PlayerController->ClientTravel(“IPADDRESS”, ETravelType::TRAVEL_Absolute);
+```
+
+#### UE++[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#ue "Direct link to UE++") UE++
+
+Similar to Blueprints, you can use these two functions, which have the same result as the Blueprint Nodes.  
+
+##### Connect to a Server[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#connect-to-a-server-1 "Direct link to Connect to a Server")  
+
+### Starting via Command Line[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#starting-via-command-line "Direct link to Starting via Command Line")  
+通过命令行启动
+
+Basic command lines (these commands use the editor and therefore don't require cooked data):  
+基本命令行（这些命令使用编辑器，因此不需要熟数据）：
+
+|Type 类型|Command 指挥|
+|---|---|
+|Listen Server 监听服务器|UE4Editor.exe ProjectName MapName?Listen -game|
+|Dedicated Server 专用服务器|UE4Editor.exe ProjectName MapName -server -game -log|
+|Client 客户|UE4Editor.exe ProjectName ServerIP -game|
+
+  
+
+INFO 信息
+
+Dedicated Servers are headless by default. If you don't use “-log”, you won't see any window to present the Dedicated Server!  
+专用服务器默认情况下是无头的。如果不使用"-log"，就看不到任何显示专用服务器的窗口！
+
+### Connection Process[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#connection-process "Direct link to Connection Process") 连接过程
+
+When a new client connects for the first time, a few things happen:  
+当新客户首次连接时，会发生几件事：
+
+First, the client will send a request to the server to connect.  
+首先，客户端会向服务器发送连接请求。
+
+The server will process this request, and if the server doesn't deny the connection, will send a response back to the client, with proper information to proceed.  
+服务器将处理该请求，如果服务器没有拒绝连接，就会向客户端发回响应，并提供适当的信息以继续处理。
+
+The following page will show the major steps of the connection process. This is a direct extract from the official Documentation.  
+以下页面将展示连接过程的主要步骤。这是从官方文档中直接摘录的。
+
+#### The major steps are[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#the-major-steps-are "Direct link to The major steps are")  
+主要步骤如下
+
+1. Client sends a connect request.  
+    客户端发送连接请求。
+2. If the Server accepts, it will send the current map  
+    如果服务器接受，它将发送当前地图
+3. The Server will wait for the Client to load this map  
+    服务器将等待客户端加载该地图
+4. Once loaded, the Server will then locally call “AgameMode::PreLogin”  
+    加载完成后，服务器将在本地调用 "AgameMode::PreLogin"。
+    - This will give the GameMode a chance to reject the connection  
+        这将给游戏模式拒绝连接的机会
+5. If accepted, the Server will then call “AgameMode::Login”  
+    如果接受，服务器将调用 "AgameMode::Login"。
+    - The role of this function is to create a PlayerController, which will then be replicated to the newly connected Client.  
+        该函数的作用是创建一个 PlayerController，然后将其复制到新连接的客户端。  
+        Once received, this PlayerController will replace the clients temporary PlayerController that was used as a placeholder during the connection process Note that “APlayerController::BeginPlay” will be called here.  
+        一旦收到，该播放器控制器将替换连接过程中用作占位符的客户端临时播放器控制器。注意，这里将调用 "APlayerController::BeginPlay"。  
+        It should be noted that it is NOT yet safe to call RPC functions on this actor. You should wait until “AGameMode::PostLogin” is called.  
+        需要注意的是，在该角色上调用 RPC 函数还不安全。您应该等到 "AGameMode::PostLogin "被调用后再调用。
+6. Assuming everything went well, “AGameMode::PostLogin” is called.  
+    假设一切顺利，就会调用 "AGameMode::PostLogin"。
+    - At this point, it is safe for the Server to start calling RPC functions on this PlayerController.  
+        此时，服务器就可以开始调用该 PlayerController 上的 RPC 函数了。
