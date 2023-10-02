@@ -802,9 +802,9 @@ flowchart LR
 这些 RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
 
 **RPC 仅在特定规则下工作**：
-*   **Run on Server** ：在服务器上运行 - 在该 Actor 的**服务器实例**上执行
-*   **Run on owning Client**：在拥有客户端上运行 - 在该 Actor 的**拥有者**身上执行
-*   **NetMulticast** ：多播（组播），在该 Actor 的**所有实例**上执行
+*   **Run on Server** ：ServerRPC 在服务器上运行 - 在该 Actor 的**服务器实例**上执行
+*   **Run on owning Client**：ClientRPC 在拥有客户端上运行 - 在该 Actor 的**拥有者**身上执行
+*   **NetMulticast** ：MulticastRPC 多播（组播），在该 Actor 的**所有实例**上执行
 
 ## 要求和注意事项
 
@@ -819,140 +819,120 @@ flowchart LR
     *  目前，我们有一个针对组播事件的简单**节流机制**（throttling mechanism）：
         *  在给定的 Actor 的网络更新周期内，多播函数的复制次数不会超过两次。  
 
-### RPC invoked from the Server
-从服务器调用的 RPC
+### 从服务器调用的 RPC
 
-| Actor Ownership 演员所有权            | Not Replicated 未复制         | NetMulticast 网络多播                                     | Server 服务器                 | Client 客户                                            |
+| Actor Ownership 演员所有权            |Not Replicated 未复制| NetMulticast 网络多播                                     | Server 服务器                 | Client 客户                                            |
 | ------------------------------------- | ----------------------------- | --------------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
-| **Client-owned Actor 客户拥有的演员** |Runs on Server |Runs on Server and all Clients 在服务器和所有客户端上运行|Runs on Server 在服务器上运行|Runs on Actor's owning Client 在演员拥有的客户端上运行|
-|**Server-owned Actor 服务器所属演员**|Runs on Server |Runs on Server and all Clients |Runs on Server | Runs on Server 在服务器上运行                          |
+|**Client-owned Actor 客户拥有的Actor**|Runs on Server |Runs on Server and all Clients 在服务器和所有客户端上运行|Runs on Server 在服务器上运行|Runs on Actor's owning Client 在演员拥有的客户端上运行|
+|**Server-owned Actor 服务器拥有的Actor**|Runs on Server |Runs on Server and all Clients |Runs on Server | Runs on Server 在服务器上运行                          |
 |**Unonwed **|Runs on Server |Runs on Server and all Clients  |Runs on Server| Runs on Server 在服务器上运行                          |
 
-### RPC invoked from a Client[​]( #rpc -invoked-from-a-client "Direct link to RPC invoked from a Client")  
+>未标记 Replicated 则都在服务器上运行
+### 从客户端调用的 RPC
 从客户端调用的 RPC
 
 | Actor Ownership 演员所有权                     | Not Replicated 未复制                      | NetMulticast 网络多播                      | Server 服务器                 | Client 客户                                |
 | ---------------------------------------------- | ------------------------------------------ | ------------------------------------------ | ----------------------------- | ------------------------------------------ |
 | **Owned by invoking Client 由调用客户端拥有**  | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Runs on Server 在服务器上运行 | Runs on invoking Client 在调用客户端时运行 |
-| **Owned by a different Client 由不同客户拥有** | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on invoking Client 在调用客户端时运行 |
-| **Server-owned Actor 服务器所属演员**          | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
-| **Unowned Actor 无名演员**                     | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
+| **Owned by a different Client 由不同客户拥有** |Runs on invoking Client |Runs on invoking Client | Dropped 掉线                  |Runs on invoking Client |
+|**Server-owned Actor 服务器拥有的Actor**|Runs on invoking Client|Runs on invoking Client|Dropped |Runs on Invoking Client |
+|**Unowned Actor**|Runs on invoking Client |Runs on invoking Client |Dropped |Runs on Invoking Client |
 
 ## 蓝图中的 RPC
 
-![](https://cedric-neukirchen.net/assets/images/rpc_overview-f6d897e9875b41018c1983d158f683b4.png)
+![[9237d6adf6779d0342e27319939ac35b_MD5.png]]
 
-RPCs in Blueprints are created by creating CustomEvents and setting them to Replicate.  
-蓝图中的 RPC 是通过创建自定义事件并将设置 Replicates 来创建的。
+蓝图中的 RPC 是通过创建 `CustomEvent` 并将设置 `Replicates` 来创建的。**RPC 不能有返回值，因此不能使用函数来创建 RPC。**
 
-![](https://cedric-neukirchen.net/assets/images/event_details-6b020c4115ded9fac6c1a4b4f3f6c558.png)
+![[d900cca98dc7a2a1829d62f9d4fcec4c_MD5.png]]
+>`Reliable（可靠）`  复选框可用于将 RPC 标记为" important"，以确保不丢弃 RPC。
 
-RPCs can't have a return value, so functions can't be used to create them.  
-RPC 不能有返回值，因此不能使用函数来创建 RPC。
-
-The 'Reliable' check box can be used to mark the RPC as 'important', trying to ensure that the RPC is not dropped.  
-可靠 "复选框可用于将 RPC 标记为" 重要 "，以确保不丢弃 RPC。
-
-Attention 注意
-
-Don't mark every RPC as Reliable! You should only do this on RPCs which are called once in a while and you require them to reach their destination.  
-不要将每个 RPC 都标记为可靠！您只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。
-
-Calling reliable RPCs on Tick can have side effects, such as filling the reliable buffer, which can cause other properties and RPCs to not be processed anymore.  
-在 Tick 上调用可靠 RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
+> [!attention] 
+> - 不要将每个 RPC 都标记为 `Reliable`！您**只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。**
+> - 在 Tick 上调用 `reliable` RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
 
 ## C++ 中的 RPC
 
-To use the whole Network stuff in C++, you need to include “UnrealNetwork. h” in your project Header. RPCs in C++ are relatively easy to create, we only need to add the specifier to the UFUNCTION () macro.  
-要在 C++ 中使用整个网络，您需要在您的项目头中包含 "UnrealNetwork. h"。在 C++ 中创建 RPC 相对来说比较简单，我们只需要在 UFUNCTION () 宏中添加指定符即可。
+在 C++ 中创建 RPC 相对来说比较简单，我们只需要在 UFUNCTION () 宏中添加指定符即可。
 
-```
-// This is a ServerRPC, marked as unreliable and WithValidation (is required!)UFUNCTION(Server, unreliable, WithValidation)void Server_Interact();
-```
-
-The CPP file will implement a different function. This one needs '_Implementation' as a suffix.  
-CPP 文件将实现不同的功能。该文件需要以 "_Implementation" 作为后缀。
-
-```
-// This is the actual implementation, not Server_Interact. But when calling it we use "Server_Interact"void ATestPlayerCharacter::Server_Interact_Implementation(){    // Interact with a door or so!}
+```c++
+// 这是一个 ServerRPC，被标记为unreliable，并且 WithValidation（需要！）。
+UFUNCTION(Server, unreliable, WithValidation)
+void Server_Interact();
 ```
 
-The CPP file also needs a version with '_Validate' as a suffix. Later more about that.  
-CPP 文件还需要一个以 "_Validate" 为后缀的版本。稍后再详述。
+CPP 文件将实现一个不同的函数。该文件需要以 "`_Implementation`" 作为后缀。
 
-```
-bool ATestPlayerCharacter::Server_Interact_Validate(){    return true;}
-```
-
-The other two types of RPCs are created like this:  
-其他两类 RPC 也是这样创建的：
-
-ClientRPC, which needs to be marked as 'reliable' or 'unreliable'.  
-ClientRPC，需要标记为 "可靠" 或 "不可靠"。
-
-```
-UFUNCTION(Client, unreliable)void ClientRPCFunction();
+```c++
+// 这是实际的实现，而不是 Server_Interact。但在调用时，我们使用 "Server_Interact"。
+void ATestPlayerCharacter::Server_Interact_Implementation()
+{
+    // Interact with a door or so!
+}
 ```
 
-and Multicast RPC, which also needs to be marked as 'reliable' or 'unreliable'.  
-和组播 RPC，也需要标记为 "可靠" 或 "不可靠"。
+CPP 文件还需要一个以 `_Validate`为后缀的版本。稍后再详述。
 
-```
-UFUNCTION(NetMulticast, unreliable)void MulticastRPCFunction();
+```c++
+bool ATestPlayerCharacter::Server_Interact_Validate()
+{
+    return true;
+}
 ```
 
-Of course, we can also add the 'reliable' keyword to an RPC to make it reliable  
-当然，我们也可以在 RPC 中添加 "可靠" 关键字，使其变得可靠
+其他两类 RPC 也是这样创建的：都需要标记为 `reliable` 或 `unreliable`。
 
-```
-UFUNCTION(Client, reliable)void ReliableClientRPCFunction();UFUNCTION(NetMulticast, reliable)void ReliableMulticastRPCFunction();
+```c++
+//ClientRPC
+UFUNCTION(Client, reliable)
+void ClientRPCFunction();
+
+//MulticastRPC
+UFUNCTION(NetMulticast, unreliable)
+void MulticastRPCFunction();
 ```
 
 ## Validation 验证 (C++)
 
-The idea of validation is that if the validation function for an RPC detects that any of the parameters are bad, it can notify the system to disconnect the client/server who initiated the RPC call.  
-验证的原理是，如果 RPC 的验证函数检测到任何参数有问题，它就会通知系统断开发起 RPC 调用的客户机 / 服务器。
+**验证的原理**：如果 RPC 的验证函数检测到任何参数有问题，它就会通知系统**断开**发起 RPC 调用的客户端 / 服务器。
 
-Validation is required for now for every ServerRPCFunction. The 'WithValidation' keyword in the UFUNCTION Macro is used for that.  
-现在，每个 ServerRPCFunction 都需要验证。UFUNCTION 宏中的 "WithValidation" 关键字就是用于此目的。
+现在，每个 ServerRPCFunction 都需要验证。`UFUNCTION` 宏中的 `WithValidation` 关键字就是用于此目的。
 
-```
-UFUNCTION(Server, unreliable, WithValidation)void SomeRPCFunction(int32 AddHealth);
-```
-
-Here is an example of how the '_Validate' function can be used:  
-下面举例说明如何使用 "_Validate" 函数：
-
-```
-bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth){    if (AddHealth > MAX_ADD_HEALTH)    {        return false; // This will disconnect the caller!    }    return true; // This will allow the RPC to be called!}
+```c++
+UFUNCTION(Server, unreliable, WithValidation)
+void SomeRPCFunction(int32 AddHealth);
 ```
 
-info 信息
 
-Client-to-Server RPCs require the '_Validate' function to encourage secure Server RPC functions and to make it as easy as possible for someone to add code to check every parameter to be valid against all the known input constraints.  
-客户端到服务器 RPC 要求使用 "_Validate" 函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
+下面举例说明如何使用 `_Validate` 函数： 
+
+```c++
+bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
+{
+    if (AddHealth > MAX_ADD_HEALTH)
+    {
+        return false; // 这将断开调用
+    }
+
+    return true; // 允许调用 RPC！
+}
+```
+
+> [!info]
+> **客户端到服务器** RPC 要求使用 `_Validate`函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
+> 
 
 # Ownership 所有权
-Ownership is something very important to understand. You already saw a table that contained entries like “Client-owned Actor”.  
-所有权是非常重要的一点。你已经看到了一个包含 "客户拥有的演员 "等条目的表格。
 
-**Server or Clients can 'own' an Actor.  
-服务器或客户端可以 "拥有 "一个代理。**
+所有权是非常重要的一点。你已经看到了一个包含 "Client-owned Actor "等条目的表格 [[#从服务器调用的 RPC]]。
 
-An example is the PlayerController which is owned by the local player (client or Listen-Server).  
-例如，本地播放器（客户端或监听服务器）拥有 PlayerController。
+服务器或客户端可以 own（拥有） 一个Actor。
 
-Another example would be a spawned/placed door in the Scene. This will mostly be owned by the server.  
+例如，本地 player（客户端或监听服务器）拥有 PlayerController。
 另一个例子是场景中生成/放置的门。这主要由服务器所有。
 
-**But why is this a problem?  
-但为什么会出现这样的问题呢？**
-
-If you check out the table from earlier again you will notice that, for example, a Server RPC will be dropped if a client calls it on an Actor that they do not own.  
-如果你再查看一下前面的表格，就会发现，例如，如果客户端在不属于自己的 Actor 上调用服务器 RPC，该 RPC 就会被丢弃。
-
-So the client can't call “Server_Interact” on a server owned door. But how do we work around that?  
-因此，客户端无法在服务器所有的门上调用 "Server_Interact"。但我们该如何解决这个问题呢？
+但为什么会出现这样的问题呢？
+如果你再查看一下前面的表格，就会发现，例如，如果客户端在不属于自己的 Actor 上调用服务器 RPC，该 RPC 就会被丢弃。因此，客户端无法在服务器拥有的门上调用 "`Server_Interact`"。但我们该如何解决这个问题呢？
 
 We use a class/Actor that the client owns and this is where the PlayerController starts to shine. We already had a similar example when discussing the PlayerController class, where we send an RPC to increment a value based on a UserWidget button press.  
 我们使用客户端拥有的类/代理，这就是 PlayerController 开始大显身手的地方。在讨论 PlayerController 类时，我们已经举过一个类似的例子，即根据 UserWidget 按钮的按压情况发送 RPC 以递增数值。
