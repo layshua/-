@@ -3,27 +3,27 @@ SE
 [Amplify Shader Editor手册(中文版)](https://blog.csdn.net/DebuggerPrisonBreak/article/details/85863719?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%2285863719%22%2C%22source%22%3A%22weixin_45532761%22%7D)
 #### 导入 ASE 包
 
-![[f3f9315d439f2cf23ca4c577bde76cea_MD5.webp]]
+![[f3f9315d439f2cf23ca4c577bde76cea_MD5 1.webp]]
 
 或者直接拖拽到 Projects 窗口下的的 Assets 文件中，全部一键导入
 
-![[6e80998d06f18d327b6058d5bb649911_MD5.webp]]
+![[6e80998d06f18d327b6058d5bb649911_MD5 1.webp]]
 
 #### 基础界面了解
 
-![[1f32446287aa8542cd389ed022b92b67_MD5.webp]]
+![[1f32446287aa8542cd389ed022b92b67_MD5 1.webp]]
 
 打开 canvas 即可进入基础界面
 
-![[891be26a168e528012352418f20ce08f_MD5.webp]]
+![[891be26a168e528012352418f20ce08f_MD5 1.webp]]
 
 都是熟悉的单词，看看就好，后面用多就记住了
 
-![[55966892d8a91fe06a2e8529f5a31080_MD5.webp]]
+![[55966892d8a91fe06a2e8529f5a31080_MD5 1.webp]]
 
 看到中间的窗口，最上方
 
-![[d7ac2ee3ae813367ab1517caab28bcfc_MD5.webp]]
+![[d7ac2ee3ae813367ab1517caab28bcfc_MD5 1.webp]]
 
 从左到右依次是
 
@@ -44,7 +44,7 @@ SE
 自己想跟着学的话可以直接进大佬的群，里面有资料。
 下面是一些常用节点
 
-![[e87c2810ab7515b4f0a558b8267bd081_MD5.webp]]
+![[e87c2810ab7515b4f0a558b8267bd081_MD5 1.webp]]
 # 自定义函数
 creat -> Amplify Shader Function
 ![[Pasted image 20221003202058.png]]

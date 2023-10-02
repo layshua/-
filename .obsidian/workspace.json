@@ -8,33 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ba0e5abf5e505b3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4dbff94f110080f6",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "14453663e6e49989",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -84,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md"
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
               }
             }
           },
@@ -94,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md"
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
               }
             }
           }
@@ -144,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -213,7 +192,6 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": true,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "remotely-save:Remotely Save": false,
       "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
@@ -221,24 +199,38 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ba0e5abf5e505b3c",
+  "active": "14453663e6e49989",
   "lastOpenFiles": [
+    "引擎Unreal/06 网络/会话管理.md",
+    "zip/images/994ca6778bd687a5d20bed47b6126e14_MD5.png",
+    "zip/images/074182f4bae9844a8b0dd79fa515e7c1_MD5.png",
+    "zip/images/ca92f18151ec7ab30d823d9537ce86f2_MD5.png",
+    "zip/images/f326e6b0ce21ba212fe02050d63ca061_MD5.png",
+    "引擎Unreal/06 网络/UE网络精粹.md",
+    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+    "图形学/1 图形系统/07 混合和剔除.md",
+    "图形学/1 图形系统/08 透明.md",
+    "图形学/1 图形系统/09 阴影.md",
+    "图形学/1 图形系统/10 色彩.md",
+    "图形学/1 图形系统/11 曲线曲面几何.md",
+    "图形学/1 图形系统/04 纹理.md",
+    "图形学/1 图形系统/03 光照模型.md",
+    "图形学/1 图形系统/01 渲染管线.md",
+    "图形学/3 全局光照GI/PBR实战/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md",
+    "技术美术/PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
+    "技术美术/雪地渲染/8 雪地渲染.md",
+    "技术美术/体积渲染/体积雾.md",
+    "zip/images/00a9e47a23510e177acd02e925538dc1_MD5 1.webp",
+    "技术美术/百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
+    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "zip/images/Pasted image 20231002204121.png",
     "zip/images/Pasted image 20231002204104.png",
     "zip/images/Pasted image 20231002203934.png",
     "zip/images/6e1d9a284e660e8e1a742103f4a3b4de_MD5.png",
     "zip/images/dbe15fd24cd12eb791c2da618741e0a5_MD5.png",
-    "zip/images/7cf33ef8d84322fcdb310518853c867e_MD5.png",
-    "zip/images/9a85779ca82237f7738f54dcd6f05f1e_MD5.png",
-    "Zstore/cc1a37cb528dcc8fd7575fcecd567d28.jpg",
-    "Zstore/1b8b68602c4341b0635fb65aec3cbe62.png",
-    "Zstore/a1444c00510cffa25cd85017195f8748.png",
-    "Zstore/232609b215fcd8e1df5ef26f7cf9cd28.png",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/01 游戏引擎导论.md",
-    "技术美术/PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/03 如何构建游戏世界.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/02游戏引擎的分层架构.md",
-    "技术美术/百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
     "技术美术/PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF/README.md",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
@@ -254,21 +246,6 @@
     "zip/AI/Python/Python基础.md",
     "zip/AI/Python/axis轴.md",
     "编程/1 C++/3 Effective C++.md",
-    "引擎Unreal/06 网络/UE网络精粹.md",
-    "引擎Unreal/02 UE++/0 蓝图精粹.md",
-    "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
-    "zip/templates/mermaid流图.md",
-    "Tools/Obsidian/Mermaid流图.md",
-    "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
-    "引擎Unreal/06 网络/net.md",
-    "引擎Unreal/02 UE++/2 类型.md",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "引擎Unreal/05 UI/UMG.md",
-    "zBuffer/Replication _ An Unreal Engine Blog by Cedric Neukirchen --- 复制 _ Cedric Neukirchen 的虚幻引擎博客.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md",
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
-    "zBuffer/AGameState _ An Unreal Engine Blog by Cedric Neukirchen --- 游戏状态 _ Cedric Neukirchen 的虚幻引擎博客.md",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",

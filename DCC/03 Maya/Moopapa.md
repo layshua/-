@@ -8,13 +8,13 @@
 快速隐藏/显示：ctrl+H / ctrl+shift+H
 大纲中移动文件：鼠标中键
 数字键1：默认显示方式，撤销平滑显示
-![[08cd9208e0b147a623b9bae0983b9ade_MD5.webp]]
+![[08cd9208e0b147a623b9bae0983b9ade_MD5 1.webp]]
 
 数字键2：平滑处理后的线框也平滑之前的线框同时显示
-![[507ca7892f9ebb6f8db43027fb7b9453_MD5.webp]]
+![[507ca7892f9ebb6f8db43027fb7b9453_MD5 1.webp]]
 
 数字键3：平滑处理后的效果：
-![[6e108ca53d34cfda289fad8a91a9a911_MD5.webp]]
+![[6e108ca53d34cfda289fad8a91a9a911_MD5 1.webp]]
 
 打组：ctrl+G
 

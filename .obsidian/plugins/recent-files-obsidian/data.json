@@ -1,8 +1,60 @@
 {
   "recentFiles": [
     {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
+      "basename": "会话管理",
+      "path": "引擎Unreal/06 网络/会话管理.md"
+    },
+    {
       "basename": "UE网络精粹",
       "path": "引擎Unreal/06 网络/UE网络精粹.md"
+    },
+    {
+      "basename": "1 Gameplay架构",
+      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+    },
+    {
+      "basename": "11 曲线曲面几何",
+      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
+    },
+    {
+      "basename": "04 纹理",
+      "path": "图形学/1 图形系统/04 纹理.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "2. PBR核心理论与渲染光学原理总结",
+      "path": "图形学/3 全局光照GI/PBR实战/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
+    },
+    {
+      "basename": "00a9e47a23510e177acd02e925538dc1_MD5 1",
+      "path": "zip/images/00a9e47a23510e177acd02e925538dc1_MD5 1.webp"
     },
     {
       "basename": "Numpy+Matplotlib",
@@ -55,10 +107,6 @@
     {
       "basename": "01 虚幻类",
       "path": "引擎Unreal/03 Gameplay/《大象无形》/01 虚幻类.md"
-    },
-    {
-      "basename": "1 Gameplay架构",
-      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
     },
     {
       "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
@@ -121,10 +169,6 @@
       "path": "引擎Unreal/03 Gameplay/宝藏.md"
     },
     {
-      "basename": "abilityflowchartcomplex",
-      "path": "zip/images/abilityflowchartcomplex.png"
-    },
-    {
       "basename": "README",
       "path": "README.md"
     },
@@ -155,50 +199,6 @@
     {
       "basename": "通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客",
       "path": "编程/6 UML/通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客.md"
-    },
-    {
-      "basename": "01 粒子系统概述",
-      "path": "引擎Unity3D/5 粒子系统/01 粒子系统概述.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "7 资源加载",
-      "path": "引擎Unreal/02 UE++/7 资源加载.md"
-    },
-    {
-      "basename": "5 智能指针",
-      "path": "引擎Unreal/02 UE++/5 智能指针.md"
-    },
-    {
-      "basename": "CSS2DRenderer 给模型添加 HTML 标签",
-      "path": "zip/Legacy/Threejs/CSS2DRenderer 给模型添加 HTML 标签.md"
-    },
-    {
-      "basename": "3 容器",
-      "path": "引擎Unreal/02 UE++/3 容器.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
     }
   ],
   "omittedPaths": [],

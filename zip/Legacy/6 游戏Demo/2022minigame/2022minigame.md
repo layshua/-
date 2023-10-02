@@ -216,7 +216,7 @@ Shader "Unlit/Blur"
 
 _FrostTexture为毛玻璃纹理，实际只需要一个通道。资源来自参考工程[[1 前言]](https://zhuanlan.zhihu.com/p/437305443#ref_1) ，出彩的效果主要靠它。
 
-![[f0fb5a7ecdf204c340c649a9ebaa65cc_MD5.webp]]
+![[f0fb5a7ecdf204c340c649a9ebaa65cc_MD5 1.webp]]
 >                                              不同的毛玻璃纹理
 
 _FrostTexture与_FrostIntensity一起控制_BluredTexture0~3四张RT的lerp效果。

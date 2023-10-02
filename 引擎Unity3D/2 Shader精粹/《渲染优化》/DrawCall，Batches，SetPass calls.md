@@ -2,7 +2,7 @@
 [DrawCall，Batches，SetPass calls是什么？原理？【匠】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/353856280)
 这三个值大家应该比较眼熟，也就是Unity点击Stats弹出的窗口里的信息。
 
-![[371b89f03dcefbcb22e07e85c5080cef_MD5.webp]]
+![[371b89f03dcefbcb22e07e85c5080cef_MD5 1.webp]]
 
 官网渲染 Statistics 窗口信息：[https://docs.unity.cn/cn/current/Manual/RenderingStatistics.html](https://link.zhihu.com/?target=https%3A//docs.unity.cn/cn/current/Manual/RenderingStatistics.html)
 
@@ -10,11 +10,11 @@
 
   
 
-![[8099c1c7d9c80760c12a04c994a6b788_MD5.webp]]
+![[8099c1c7d9c80760c12a04c994a6b788_MD5 1.webp]]
 
 渲染流程如下：（内置渲染管线 / 在URP未开启SRP Batcher）
 
-![[7df3e0549c825d05389c8d5501977033_MD5.webp]]
+![[7df3e0549c825d05389c8d5501977033_MD5 1.webp]]
 
 ## **D**rawCall是什么？
 
@@ -31,11 +31,11 @@ DrawCall就是一个渲染命令，理解成它来告诉GPU渲染哪个物体即
 
   
 
-![[70ca3c842661a730429da10c861efa0e_MD5.webp]]
+![[70ca3c842661a730429da10c861efa0e_MD5 1.webp]]
 
 在下图中Batches值为3
 
-![[f2e2ab06967ff7e4a110a59c0dbe3e21_MD5.webp]]
+![[f2e2ab06967ff7e4a110a59c0dbe3e21_MD5 1.webp]]
 
 ## **SetPass calls是什么？**
 
@@ -55,7 +55,7 @@ DrawCall就是一个渲染命令，理解成它来告诉GPU渲染哪个物体即
 
 > 不同颜色代表着不同的材质球  
 
-![[bf461e49ee6f8bc480d2db2402cbbf3c_MD5.webp]]
+![[bf461e49ee6f8bc480d2db2402cbbf3c_MD5 1.webp]]
 
 ​  
 **结论：**SetPass calls值等同于材质球的pass数量（关掉了阴影，所以没有走阴影Pass通道）
@@ -64,12 +64,12 @@ DrawCall就是一个渲染命令，理解成它来告诉GPU渲染哪个物体即
 
 > **未开启SRP Batcher情况下**（不同颜色代表着不同的材质球）
 
-![[475156acaaf6d4fbf192eeabc677b2c5_MD5.webp]]
+![[475156acaaf6d4fbf192eeabc677b2c5_MD5 1.webp]]
 
   
 **开启SRP Batcher情况下**（不同颜色代表着不同的材质球）  
 
-![[253735ef07133b37bd682355a43349d5_MD5.webp]]
+![[253735ef07133b37bd682355a43349d5_MD5 1.webp]]
 
   
 **结论：**未开启SRP Batcher情况下跟内置管线一样，开启SRP Batcher情况下等同于渲染状态（pass）切换次数。
@@ -80,21 +80,21 @@ CPU和GPU通信原理参考来自UnityShader入门精要（书籍） 和 RenderD
 
 以下是用RenderDoc抓的每个物体DrawCall图
 
-![[cb9c82c644475028a4a23cec2ecb17fc_MD5.webp]]
+![[cb9c82c644475028a4a23cec2ecb17fc_MD5 1.webp]]
 
 物体 1（绿色物体，Shader：Standard）
 
-![[9778c0642513696f32de523585441a55_MD5.webp]]
+![[9778c0642513696f32de523585441a55_MD5 1.webp]]
 
 物体 2（黄色物体，Shader：Standard）
 
-![[6c20c8982f9f57b8a9b17ec4b1473875_MD5.webp]]
+![[6c20c8982f9f57b8a9b17ec4b1473875_MD5 1.webp]]
 
 物体 3（浅红色物体，Shader：Unity/Color）
 
-![[61c1d5893d7e9efe5407f85ba314b513_MD5.webp]]
+![[61c1d5893d7e9efe5407f85ba314b513_MD5 1.webp]]
 
-![[5bca81cc5602676a87148ea36cc06e80_MD5.webp]]
+![[5bca81cc5602676a87148ea36cc06e80_MD5 1.webp]]
 
 重点关注glUniform4fv和glUseProgram即可。
 

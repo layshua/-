@@ -36,7 +36,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 **隐式表示**
 
-![[97bd34d8bfaf5e4cb505c780361a4215_MD5.webp]]
+![[97bd34d8bfaf5e4cb505c780361a4215_MD5 1.webp]]
 
 对于复杂的几何体十分不友好。
 
@@ -48,7 +48,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
   
 
-![[7523c598ed6a49e6bf8eb0ffff6ca910_MD5.webp]]
+![[7523c598ed6a49e6bf8eb0ffff6ca910_MD5 1.webp]]
 
 ### **距离函数**
 
@@ -58,17 +58,17 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 通过AB距离函数相加得到融合后的SDF图，可以转化为blend（A,B)这张图。
 
-![[e0a6527bb726e0d2ec51da12844bc3bc_MD5.webp]]
+![[e0a6527bb726e0d2ec51da12844bc3bc_MD5 1.webp]]
 
 距离函数可以将两个靠近的集合体进行融合。
 
-![[fb5c4d2eb1ea7a2972370a4cd22892f3_MD5.webp]]
+![[fb5c4d2eb1ea7a2972370a4cd22892f3_MD5 1.webp]]
 
 距离函数通过水平集（LevelSet）得到F(X)=0（边界）
 
 ### **分型**
 
-![[b34b9f6168236975d9359f3078527fb6_MD5.webp]]
+![[b34b9f6168236975d9359f3078527fb6_MD5 1.webp]]
 
 分型这种递归问题在渲染中会引发严重的走样
 
@@ -96,7 +96,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 下图定义了一个立方体，有八个顶点（V）,六个面（Vn）多个纹理坐标（vt）表示，然后使用f表示他们之间的关系（（f V/Vt/Vn）
 
-![[2454e4b1a82647420bc4870217ef1e6f_MD5.webp]]
+![[2454e4b1a82647420bc4870217ef1e6f_MD5 1.webp]]
 
 ### **贝塞尔曲线**
 
@@ -113,7 +113,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 -   将所有的0-1所有的b0‘’点都遍历一份相连即可得到贝塞尔曲线
 -   若有n个控制点则将上面步骤进行递归操作直到找到最终位移b0n
 
-![[65e54989019cf12b32392d8b4d9a41c9_MD5.webp]]
+![[65e54989019cf12b32392d8b4d9a41c9_MD5 1.webp]]
 
 总结得到公式：**bn(t)=b0n(t)=Σb0Bn(t)**
 
@@ -124,17 +124,17 @@ banner: "![[Pasted image 20230506154153.png]]"
 -   b为n个贝塞尔控制点
 -   Bn为伯恩斯坦多项式
 
-![[8152ebf6d30e467ab399640d4592abc2_MD5.webp]]
+![[8152ebf6d30e467ab399640d4592abc2_MD5 1.webp]]
 
 其中：
 
-![[4f6ab7026632978755be11db133f13b6_MD5.webp]]
+![[4f6ab7026632978755be11db133f13b6_MD5 1.webp]]
 
 （排列组合Cni）
 
 例子：b0、b1、b2、b3为3d空间中的点，通过函数求得n个离散的点
 
-![[099c85c6c471a2f7b530b3dc1d881755_MD5.webp]]
+![[099c85c6c471a2f7b530b3dc1d881755_MD5 1.webp]]
 
 -   对贝塞尔曲线做仿射变换只需要对控制点、起止点做仿射变换再重新绘制一遍即可。
 -   对投影变换没有这样的性质
@@ -147,7 +147,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 若贝塞尔曲线是一个直线则凸包也是一个直线。
 
-![[3127856c904f7631ce41ef6a544b36fb_MD5.webp]]
+![[3127856c904f7631ce41ef6a544b36fb_MD5 1.webp]]
 
 ### **逐段贝塞尔曲线**
 
@@ -157,7 +157,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
   
 
-![[2def25503e77c453ebdc37457af1ebaa_MD5.webp]]
+![[2def25503e77c453ebdc37457af1ebaa_MD5 1.webp]]
 
 类似PhotoShop的钢笔工具
 
@@ -169,7 +169,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 若相邻两个控制点距离连接点相同且共线则该连接点被称之为C1连续（再连接处一阶连续可导）
 
-![[548486c606e62b55f38f6f5876e99437_MD5.webp]]
+![[548486c606e62b55f38f6f5876e99437_MD5 1.webp]]
 
 ### **贝塞尔曲面**
 
@@ -198,7 +198,7 @@ banner: "![[Pasted image 20230506154153.png]]"
 
 -   让网格中的三角形趋近于正三角形
 
-![[3e838afecbde487f2cff4a1ee9dd9a2a_MD5.webp]]
+![[3e838afecbde487f2cff4a1ee9dd9a2a_MD5 1.webp]]
 
 ### **Loop细分**
 
@@ -225,7 +225,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   neighbor_position_sum为邻居点的平均位置
 -   original_position为旧顶点原本的位置
 
-![[80f5e51f56e6e1d861de88de875ada37_MD5.webp]]
+![[80f5e51f56e6e1d861de88de875ada37_MD5 1.webp]]
 
 问题：只能对完全为三角形的几何体进行细分
 
@@ -241,7 +241,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 -   面上的中点（f）、边上的中点（e）、老的顶点（v）变化情况如下图
 
-![[6be536f047576db49f4675b30487e9ce_MD5.webp]]
+![[6be536f047576db49f4675b30487e9ce_MD5 1.webp]]
 
 ### **边坍缩算法**
 
@@ -249,7 +249,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
   
 
-![[2bcc9a264fed859341b2c4d3971de815_MD5.webp]]
+![[2bcc9a264fed859341b2c4d3971de815_MD5 1.webp]]
 
 边坍缩面临的问题:
 
@@ -259,7 +259,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 ### **二次误差度量**
 
-![[b6018f2a68ee3b4fe3928d5db6305e89_MD5.webp]]
+![[b6018f2a68ee3b4fe3928d5db6305e89_MD5 1.webp]]
 
 如果将减面时候的点直接平均将会得到左边的图，显然不理想。
 
@@ -365,7 +365,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   BSSRDF是BRDF的延伸，下图为BSSRDF的渲染方程和示意图。
 -   使用Dipole Approximation，让物体内外各有一个光源来模拟光的扩散。
 
-![[22377e50e194bcf0558745633b1995a1_MD5.webp]]
+![[22377e50e194bcf0558745633b1995a1_MD5 1.webp]]
 
 衣服：
 
@@ -435,7 +435,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 ### **光线追踪与薄透镜**
 
-![[5fcd7aa03b5497076baa9c0541fe2cff_MD5.webp]]
+![[5fcd7aa03b5497076baa9c0541fe2cff_MD5 1.webp]]
 
 实现步骤：
 
@@ -454,7 +454,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   景深外的模糊的范围会因光圈大小而变化
 -   下面是DOF的计算公式
 
-![[fedbe724e6979b0725aae36daf4eb59d_MD5.webp]]
+![[fedbe724e6979b0725aae36daf4eb59d_MD5 1.webp]]
 
 ### **光场**
 
@@ -467,14 +467,14 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   人们法线只需要四维信息就可以定义光的物理量: 2D位置信息（u，v）+ 2D方向信息(θ，φ)
 -   我们同样可以通过获取一束光在两个平行平面（s，t）和（u，v）上的位置来确定光的位置
 
-![[9118f458bfd47aa3f8ea7c53d7c6748c_MD5.webp]]
+![[9118f458bfd47aa3f8ea7c53d7c6748c_MD5 1.webp]]
 
 -   一般相机的传感器接收到信息是三维到二维的投影，损失了深度,记录的是Irradiance
 -   光场相机通过棱镜分光将的每一块单位面积记录了光场的所有信息Radiance（u,v,s,t）
 -   由于记录了光线的Radiance，可以通过仅观察某个方向的光线，同时可以观察特定方向的光线实现聚焦的功能
 -   光场相机由于需要多个传感器才能记录一个像素的信息因此分辨率不足，同时由于棱镜精密因此高成本
 
-![[8007ebd4bab650e95989e8147947a7f3_MD5.webp]]
+![[8007ebd4bab650e95989e8147947a7f3_MD5 1.webp]]
 
 # **颜色与感知**
 
@@ -483,7 +483,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   图形学仅关心光谱中的可见光（400~700nm）
 -   谱功率密度(SPD) ：描述一束光再波长上的分布
 
-![[9257e8d344de4a1c2df58194334aa306_MD5.webp]]
+![[9257e8d344de4a1c2df58194334aa306_MD5 1.webp]]
 
 -   颜色是一种人的感知不是光的一种属性
 -   人眼的结构也类似于相机，瞳孔对应光圈、晶状体调节焦距，视网膜相当于传感器
@@ -491,13 +491,13 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   其中视锥细胞分为SML三种对不同波长的光线敏感
 -   SML也分别为对应光谱波长的积分
 
-![[e05767259e732b12eafb77e70a45155f_MD5.webp]]
+![[e05767259e732b12eafb77e70a45155f_MD5 1.webp]]
 
 -   同色异谱：不同的SPD的同时拥有相同的SML因此产生相同的颜色
 -   RGB：通过调整RGB三原色的比例来混合出想要的有颜色
 -   有些颜色怎么混合也混不出来（红色在一段波长的贡献的负的），可以通过给原色加色的方法来混合颜色
 
-![[47f07634c701e364d9024c9e2c6f0f9a_MD5.webp]]
+![[47f07634c701e364d9024c9e2c6f0f9a_MD5 1.webp]]
 
 ### **色彩空间**
 
@@ -507,9 +507,9 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   其中Y指的是亮度
 -   通过归一化得到xyz，并固定Y，这样可以制作出下面的这一张图得到所有色域
 
-![[98d639af16385c1bbf73014492e34951_MD5.webp]]
+![[98d639af16385c1bbf73014492e34951_MD5 1.webp]]
 
-![[178300b675c20964873d620af9c726c1_MD5.webp]]
+![[178300b675c20964873d620af9c726c1_MD5 1.webp]]
 
 -   HSV：通过色调（H）、饱和度（S）、明度（V）来定义颜色空间的一种颜色标准
 -   CIELAB：通过三个轴，分别控制亮度和两对互补色（红-绿、蓝-黄）
@@ -573,7 +573,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   b-a/||b-a||表示a->b力的方向，是归一化
 -   问题：由于没有阻力会永远震荡
 
-![[719bd6db52fcd803d4d13b3ad9dfb5f6_MD5.webp]]
+![[719bd6db52fcd803d4d13b3ad9dfb5f6_MD5 1.webp]]
 
 -   加入阻尼力：
 
@@ -581,26 +581,26 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   f是阻尼力，b加上一点是速度，kd是劲度系数
 -   问题：无法描述弹簧内部的力
 
-![[4e2dc4a31f5f56332370f019d2880d90_MD5.webp]]
+![[4e2dc4a31f5f56332370f019d2880d90_MD5 1.webp]]
 
 -   完善的阻尼力：
 
 -   红框为b与a相对速度在b与a方向上的投影，是一个标量
 -   红框右边是a到b的方向
 
-![[d3a629e38efb794ebf743325a992748b_MD5.webp]]
+![[d3a629e38efb794ebf743325a992748b_MD5 1.webp]]
 
 问题：这样的弹簧系统无法应对对折的情况（比如讲一块布对折）
 
 解决：通过加入斜向的弹簧来解决这样的问题。
 
-![[7aa026b2d3d24929128de0133e5056a4_MD5.webp]]
+![[7aa026b2d3d24929128de0133e5056a4_MD5 1.webp]]
 
 问题：这样的弹簧系统无法应对沿着弹簧竖着对折的情况
 
 解决：加入跳跃连接的点，隔一个支点加一个弹簧，这个弹簧十分的弱
 
-![[c2d50abff989b3b994479ed51c0ce249_MD5.webp]]
+![[c2d50abff989b3b994479ed51c0ce249_MD5 1.webp]]
 
 ### **有限元法FEM**
 
@@ -655,13 +655,13 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 计算速度场内粒子的位置需要计算一阶常微分方程
 
-![[1fe91179e44ef6d1841fcdc5bdfabbb6_MD5.webp]]
+![[1fe91179e44ef6d1841fcdc5bdfabbb6_MD5 1.webp]]
 
 ### **欧拉方法**
 
 对时间做离散化的操作，利用欧拉方法（前向欧拉）获取每一个时刻的速度和位移
 
-![[ad54990c5b2d7cdc30c7671a2de7de9f_MD5.webp]]
+![[ad54990c5b2d7cdc30c7671a2de7de9f_MD5 1.webp]]
 
 问题：误差大、稳定性不足，如果步长不足则会不准确，且对于一些曲线的模拟十分不准确，一定会正反馈，其中不稳定的问题很致命
 
@@ -678,11 +678,11 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 -   在初始点与a点总取中点b
 -   再使用b点的速度来求出初始点下一位置c点
 
-![[11e465aacac53fa57676483adcee8aa7_MD5.webp]]
+![[11e465aacac53fa57676483adcee8aa7_MD5 1.webp]]
 
 中点法完整公式：
 
-![[d96ab49c09fd4d2553e5b76c8562cd08_MD5.webp]]
+![[d96ab49c09fd4d2553e5b76c8562cd08_MD5 1.webp]]
 
 ### **自适应步长**
 
@@ -692,7 +692,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 ### **隐式欧拉方法**
 
-![[5a6be922a8fc20d1e4af61241ae8a4bf_MD5.webp]]
+![[5a6be922a8fc20d1e4af61241ae8a4bf_MD5 1.webp]]
 
 联立方程组解出结果（假设下一个时刻的加速度已知）
 
@@ -702,7 +702,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 中点集合k、k2、k3、k4通过下面的方法进行计算得到下一时刻的位置。
 
-![[b8460b8756f7eea55f63707d30c32e05_MD5.webp]]
+![[b8460b8756f7eea55f63707d30c32e05_MD5 1.webp]]
 
 ### **不基于物理的方法**
 
@@ -731,7 +731,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 我们可以通过参数很容易计算出p点的坐标，通过改变参数来实现骨骼的动画就被称为正向运动学
 
-![[d12a3a33e9a074b7dd00d440ed3920e1_MD5.webp]]
+![[d12a3a33e9a074b7dd00d440ed3920e1_MD5 1.webp]]
 
 因为这样的操作十分不直观，艺术家们不愿意通过这样的方式来调节模型的骨骼，因此逆运动学应运而生
 
@@ -739,7 +739,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
 通过直观的控制尖端p点来直接控制参数，这样操作的计算量相对正运动学相比明显增大
 
-![[2d06c57c5cf7a74eceb7819272c2dfbf_MD5.webp]]
+![[2d06c57c5cf7a74eceb7819272c2dfbf_MD5 1.webp]]
 
 问题：
 
@@ -781,7 +781,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
   
 
-![[2304d7592777bc1785d0c9405c372dbf_MD5.webp]]
+![[2304d7592777bc1785d0c9405c372dbf_MD5 1.webp]]
 
 ### **刚体模拟**
 
@@ -789,7 +789,7 @@ V'=(1 - n*u) * V + original_position * neighbor_position_sum
 
   
 
-![[dc0883cd1b56a39ea1b0ba8e35f0f7da_MD5.webp]]
+![[dc0883cd1b56a39ea1b0ba8e35f0f7da_MD5 1.webp]]
 
 ### **流体模拟**
 

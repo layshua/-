@@ -10,7 +10,7 @@ banner_lock: true
 banner_icon: 🗄
 ---
 
-# 虚幻中的网络
+# 1 虚幻中的网络
 虚幻引擎使用标准的**客户端 - 服务器 （Client-Server）架构**。这意味着服务器是**权威（Authoritative）** 的，所有数据必须首先从客户端发送到服务器。之后，服务器验证数据并根据您的代码做出反应。
 
 ## 一个小例子​
@@ -35,7 +35,7 @@ Important 重要的
 这会允许他们作弊！
 一个简单的例子是发射武器：确保在服务器上测试客户端是否拥有所需数量的弹药，之后再允许射击而不是直接处理射击！
 
-# GamePlay 架构 + 网络
+# 2 GamePlay 架构 + 网络
 ## 1 架构总结
 根据前面关于虚幻引擎的 CS 架构和常用类的信息，我们可以将虚幻类分为四类： 
 - **Server Only** -  仅服务器 - 这些对象只存在于服务器上
@@ -633,7 +633,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 
 
-# 专用服务器与监听服务器
+# 3 专用服务器与监听服务器
 ## Dedicated Server 专用服务器
 
 专用服务器是**不需要玩家托管的独立服务器。**
@@ -653,7 +653,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 **由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
 不过，使用 OnlineSubsystem（稍后解释）可以解决更改 IP 的问题。
-# Replication 复制 
+# 4 Replication 复制 
 ##  简介
 
 Replication 是**服务器将信息 / 数据传递给客户端**的行为。
@@ -787,7 +787,7 @@ void ATestCharacter::OnRep_Health()
 > - **在蓝图中，OnRep 函数将调用客户端和服务器**。
 >     - 这是因为 BP 版本的 OnRep 是 **"属性已更改（Property Changed）" 回调**。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
 
-# RPC 远程过程调用
+# 5 RPC 远程过程调用
 Remote Procedure Calls
 
 **RPC 也是一种复制方式，它们用于调用另一个实例中的某些功能。** 电视遥控器对电视机也是如此。
@@ -923,7 +923,7 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 > **客户端到服务器** RPC 要求使用 `_Validate`函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
 > 
 
-# Ownership 所有权
+# 6 Ownership 所有权
 
 所有权是非常重要的一点。你已经看到了一个包含 "Client-owned Actor "等条目的表格 [[#从服务器调用的 RPC]]。
 
@@ -961,7 +961,7 @@ Pawn/Character。它们被 PlayerController possess，在此期间，PlayerContr
 您还了解到条件复制，即变量只在特定条件下复制。
 
 下文将介绍列表的相关性部分。
-# Actor 的相关性和优先权
+# 7 Actor 的相关性和优先权
 
 ## Relevancy 相关性
 
@@ -1016,7 +1016,7 @@ NetUpdateFrequency = 100.f;
 NetCullDistanceSquared = 225000000.f;
 NetPriority = 1.f;
 ```
-# Actor Role / RemoteRole
+# 8 Actor Role / RemoteRole
 
 我们还有两个重要的 Actor 复制属性 Actor Role 和 RemoteRole
 
@@ -1075,7 +1075,7 @@ Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
 
 这只是意味着这个 Actor 正在接收来自外部（玩家）的输入，因此当我们进行推断时，我们可以获得更多的信息，并使用实际的外部输入来填补缺失的信息（而不是根据最后已知的速度进行推断）。
 
-# Travel 关卡切换 
+# 9 Travel 关卡切换 
 [虚幻引擎中的关卡切换 | 虚幻引擎5.3文档 (unrealengine.com)](https://docs.unrealengine.com/5.3/zh-CN/travelling-in-multiplayer-in-unreal-engine/)
 ## 无缝与非无缝切换
 **Seamless** and **Non-seamless Travel**
@@ -1128,7 +1128,7 @@ Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
 
 设置好过渡地图后，将 `AGameMode::bUseSeamlessTravel` 设置为 true，从那里开始，无缝切换应该可以工作了！
 
-# 如何开始多人游戏
+# 10 如何开始多人游戏
 
 开始多人游戏的最简单方法是在 "Play "下拉菜单中将"玩家数量"设置为大于 1 的数值。
 ![[Pasted image 20231002203934.png]]
@@ -1151,7 +1151,7 @@ Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
 
 另一方面，当标记为 "`TRUE` "时，所有 Player 都将成为客户端。
 
-### 启动并连接服务器
+## 启动并连接服务器
 
 Check the "Session Management" Tab to learn how to set up a Session/Server via the Session System. Let's have a look at how you can start and join a server without sessions.  
 查看 "会话管理（Session Management） "选项卡，了解如何通过会话系统设置会话/服务器。
@@ -1159,7 +1159,7 @@ Check the "Session Management" Tab to learn how to set up a Session/Server via t
 让我们看看如何在没有会话的情况下启动和加入服务器。
 
 
-#### 启动（监听）服务器
+### 启动（监听）服务器
 - @ 蓝图
 ![[dbe15fd24cd12eb791c2da618741e0a5_MD5.png|"Listen Server"]]
   
@@ -1176,16 +1176,13 @@ Check the "Session Management" Tab to learn how to set up a Session/Server via t
 UGameplayStatics::OpenLevel(GetWorld(), “LevelName”, true, “listen”);
 ```
 
-#### 连接到服务器
+### 连接到服务器
 - @ 蓝图
 ![[6e1d9a284e660e8e1a742103f4a3b4de_MD5.png|"Connect Via IP"]]
 
 要连接服务器，只需在 "`Execute Console Command` (执行控制台命令) "节点上使用 "`open IPADDRESS` "命令，其中 "`IPADDRESS` "由服务器的**实际 IP 地址**代替。
 
-例如，可以通过 Widget 文本框来填写。
 - @ C++
-  
-
 ```c++
 //连接到服务器
 APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
@@ -1193,67 +1190,122 @@ APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetW
 PlayerController->ClientTravel(“IPADDRESS”, ETravelType::TRAVEL_Absolute);
 ```
 
-#### UE++[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#ue "Direct link to UE++") UE++
 
-Similar to Blueprints, you can use these two functions, which have the same result as the Blueprint Nodes.  
 
-##### Connect to a Server[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#connect-to-a-server-1 "Direct link to Connect to a Server")  
+### 通过命令行启动
 
-### Starting via Command Line[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#starting-via-command-line "Direct link to Starting via Command Line")  
-通过命令行启动
-
-Basic command lines (these commands use the editor and therefore don't require cooked data):  
-基本命令行（这些命令使用编辑器，因此不需要熟数据）：
+基本命令行（这些命令使用编辑器，因此不需要熟数据（cooked data）：
 
 |Type 类型|Command 指挥|
 |---|---|
-|Listen Server 监听服务器|UE4Editor.exe ProjectName MapName?Listen -game|
-|Dedicated Server 专用服务器|UE4Editor.exe ProjectName MapName -server -game -log|
-|Client 客户|UE4Editor.exe ProjectName ServerIP -game|
+|Listen Server |UE4Editor.exe ProjectName MapName?Listen -game|
+|Dedicated Server |UE4Editor.exe ProjectName MapName -server -game -log|
+|Client |UE4Editor.exe ProjectName ServerIP -game|
 
-  
 
-INFO 信息
+> [!info]
+> 专用服务器默认情况下是无头的（headless）。如果不使用"-log"，就看不到任何显示专用服务器的窗口！
 
-Dedicated Servers are headless by default. If you don't use “-log”, you won't see any window to present the Dedicated Server!  
-专用服务器默认情况下是无头的。如果不使用"-log"，就看不到任何显示专用服务器的窗口！
+##  连接过程
 
-### Connection Process[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#connection-process "Direct link to Connection Process") 连接过程
-
-When a new client connects for the first time, a few things happen:  
 当新客户首次连接时，会发生几件事：
+- 首先，客户端会向服务器发送连接请求。
+- 服务器将处理该请求，如果服务器没有拒绝连接，就会向客户端发回响应，并提供适当的信息以继续处理。
 
-First, the client will send a request to the server to connect.  
-首先，客户端会向服务器发送连接请求。
-
-The server will process this request, and if the server doesn't deny the connection, will send a response back to the client, with proper information to proceed.  
-服务器将处理该请求，如果服务器没有拒绝连接，就会向客户端发回响应，并提供适当的信息以继续处理。
-
-The following page will show the major steps of the connection process. This is a direct extract from the official Documentation.  
 以下页面将展示连接过程的主要步骤。这是从官方文档中直接摘录的。
 
 #### The major steps are[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/start-multiplayer-game#the-major-steps-are "Direct link to The major steps are")  
 主要步骤如下
 
-1. Client sends a connect request.  
-    客户端发送连接请求。
-2. If the Server accepts, it will send the current map  
-    如果服务器接受，它将发送当前地图
-3. The Server will wait for the Client to load this map  
-    服务器将等待客户端加载该地图
-4. Once loaded, the Server will then locally call “AgameMode::PreLogin”  
-    加载完成后，服务器将在本地调用 "AgameMode::PreLogin"。
-    - This will give the GameMode a chance to reject the connection  
-        这将给游戏模式拒绝连接的机会
-5. If accepted, the Server will then call “AgameMode::Login”  
-    如果接受，服务器将调用 "AgameMode::Login"。
-    - The role of this function is to create a PlayerController, which will then be replicated to the newly connected Client.  
-        该函数的作用是创建一个 PlayerController，然后将其复制到新连接的客户端。  
-        Once received, this PlayerController will replace the clients temporary PlayerController that was used as a placeholder during the connection process Note that “APlayerController::BeginPlay” will be called here.  
-        一旦收到，该播放器控制器将替换连接过程中用作占位符的客户端临时播放器控制器。注意，这里将调用 "APlayerController::BeginPlay"。  
-        It should be noted that it is NOT yet safe to call RPC functions on this actor. You should wait until “AGameMode::PostLogin” is called.  
-        需要注意的是，在该角色上调用 RPC 函数还不安全。您应该等到 "AGameMode::PostLogin "被调用后再调用。
-6. Assuming everything went well, “AGameMode::PostLogin” is called.  
-    假设一切顺利，就会调用 "AGameMode::PostLogin"。
-    - At this point, it is safe for the Server to start calling RPC functions on this PlayerController.  
-        此时，服务器就可以开始调用该 PlayerController 上的 RPC 函数了。
+1. 客户端向服务器发送连接请求。
+2. 如果服务器接受，它将发送当前 Map 
+3. 服务器将等待客户端加载该 Map 
+4. 加载完成后，服务器将在本地调用 **`AgameMode::PreLogin`**
+    -  这将给 GameMode 拒绝该连接的机会
+5. 如果接受，服务器将调用 **`AgameMode::Login`**
+    - 该函数的作用是创建一个 PlayerController，然后将其复制到新连接的客户端。  
+    - 一旦接受，该 PlayerController 将替换连接过程中用作占位符的客户端临时 PlayerController。注意，这里将调用 `APlayerController:: BeginPlay`。 
+    - 需要注意的是，在该 Actor 上调用 RPC 函数还不安全。您应该等到 "`AGameMode::PostLogin` 被调用后再调用。
+6. 假设一切顺利，就会调用 **`AGameMode::PostLogin`**。
+    - 此时，服务器就可以开始调用该 PlayerController 上的 RPC 函数了。
+
+# 11 其他博客文章和网站
+
+### Wizardcell 发表的帖子
+
+- [Unreal Engine Multiplayer Tips and Tricks  
+    虚幻引擎多人游戏技巧和窍门](https://wizardcell.com/unreal/multiplayer-tips-and-tricks/)
+- [Persistent Data Compendium  
+    持久性数据简编](https://wizardcell.com/unreal/persistent-data/)
+
+### Vori (Vorixo) 发表的帖子
+
+- [Multicast/Client RPCs vs OnReps (towards stateful replication)  
+    组播/客户端 RPC 与 OnReps（面向有状态复制）](https://vorixo.github.io/devtricks/stateful-events-multiplayer/)
+- [How to replicate thousands of Actors efficiently (network managers)  
+    如何高效复制数千个代理（网络管理员）](https://vorixo.github.io/devtricks/network-managers/)
+- [A better and non-destructive synced network clock  
+    更好的无损同步网络时钟](https://vorixo.github.io/devtricks/non-destructive-synced-net-clock/)
+- [Understanding replication atomicity (why you need NetSerialize on some critical structs)  
+    了解复制原子性（为什么需要在某些关键结构上使用 NetSerialize）](https://vorixo.github.io/devtricks/atomicity/)
+- [Rewinding in Multiplayer  
+    多人游戏中的倒带](https://vorixo.github.io/devtricks/simple-rewinding/)
+
+###  KaosSpectrum 发表的帖子
+
+- [How to call RPCs inside UObjects  
+    如何在 UObject 内部调用 RPC](https://www.thegames.dev/?p=45)
+
+###  各种
+
+- [Experimental: Sample Code for implementing Instance Replays  
+    实验：实施实例重播的示例代码](https://forums.unrealengine.com/t/experimental-sample-code-for-implementing-instant-replays/264946)
+- [Sequence Diagram of the Character Movement Component  
+    角色运动组件序列图](https://github.com/staticJPL/UE4SequenceCharacterMovement/blob/master/UE4MovementNetCodeSequence.pdf)
+- [Custom Struct Serialization for Networking in Unreal Engine  
+    虚幻引擎中用于联网的自定义结构序列化](http://www.aclockworkberry.com/custom-struct-serialization-for-networking-in-unreal-engine/#NetDeltaSerialize_and_Fast_TArray_Replication)
+- [Unreal Engine Improvements for Fortnite: Battle Royal  
+    虚幻引擎对《堡垒之夜：皇室战争》的改进](https://www.unrealengine.com/en-US/blog/unreal-engine-improvements-for-fortnite-battle-royale)
+- [Finding Network Exploits  
+    查找网络漏洞](https://www.unrealengine.com/en-US/blog/finding-network-based-exploits)
+- [Twitter Post by Michael Noland (@joatski) - Check if Server or Client caused a Breakpoint in C++  
+    Michael Noland (@joatski) 在 Twitter 上发布的帖子 - 在 C++ 中检查是服务器还是客户端引起了断点](https://twitter.com/joatski/status/1257751888658915328)
+
+### Online Beacons 在线信标
+
+- [Online Beacons UE Docs  
+    在线信标 UE 文档](https://docs.unrealengine.com/en-us/Gameplay/Networking/OnlineBeacons)
+- [Online Beacons Tutorial with Blueprint Access  
+    附带蓝图访问权限的在线信标教程](https://forums.unrealengine.com/community/community-content-tools-and-tutorials/1355434-onlinebeacons-tutorial-with-blueprint-access)
+- [What are Online Beacons and how do they work?  
+    什么是在线信标？](https://answers.unrealengine.com/questions/467973/what-are-online-beacons-and-how-do-they-work.html)
+- [Party Beacon - How does it work?  
+    党员灯塔 - 它是如何工作的？](https://forums.unrealengine.com/development-discussion/c-gameplay-programming/85348-party-beacon-how-does-it-work-o-o)
+
+### 资料库
+
+- [Predicted Movement: CMC extended for predicted abilities  
+    预测移动：预测能力的 CMC 扩展](https://github.com/Vaei/PredictedMovement/)
+
+### 视频和频道
+
+- [Multiplayer in Unreal Engine: How to understand Network Replication  
+    虚幻引擎中的多人游戏：如何理解网络复制](https://www.youtube.com/watch?v=JOJP0CvpB8w)
+- [UE4 - Advanced Networked Movement Tutorial (Sprinting & Wall Running)  
+    UE4 - 高级联网运动教程（冲刺和跑墙）](https://www.youtube.com/watch?v=RtQRMcupJs0&ab_channel=ReidsChannel)
+- [Network Multiplayer Fundamentals | Live from HQ | Inside Unreal  
+    网络多人游戏基础 | 来自总部的现场直播 | 虚幻内部](https://www.youtube.com/watch?v=09yWANtKmC8)
+- [Replication Graph for Optimizing Real-Time Strategy Games | Unreal Fest Europe 2019 | Unreal Engine  
+    用于优化实时战略游戏的复制图 | Unreal Fest Europe 2019 | 虚幻引擎](https://www.youtube.com/watch?v=VusAHXoHF3Y)
+- [Replicating Chaos: Vehicle Replication in Watch Dogs 2  
+    复制混乱看门狗 2》中的车辆复制](https://www.youtube.com/watch?v=_8A2gzRrWLk)
+- [Deterministic vs Replicated AI: Building the Battlefield of "For Honor"  
+    确定型人工智能与复制型人工智能：构建 "荣誉 "战场](https://www.gdcvault.com/play/1024035/Deterministic-vs-Replicated-AI-Building)
+- [Network Scripted Weapons and Abilities in "Overwatch"  
+    守望先锋》中的网络脚本武器和能力](https://www.gdcvault.com/play/1024041/Networking-Scripted-Weapons-and-Abilities)
+- [Overwatch Gameplay Architecture and Netcode  
+    守望先锋》游戏架构和网络代码](https://www.youtube.com/watch?v=W3aieHjyNvw)
+- [I Shot You First: Networking the Gameplay of Halo: Reach  
+    我先开枪的：光环：到达》游戏联网](https://www.youtube.com/watch?v=h47zZrqjgLc)
+- [It IS Rocket Science! The Physics of Rocket League Detailed  
+    这就是火箭科学！火箭联盟的物理原理详解](https://youtu.be/ueEmiDM94IE?t=1413)
