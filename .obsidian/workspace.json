@@ -98,7 +98,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "c860fd12f8384878",
@@ -223,6 +224,8 @@
   },
   "active": "ba0e5abf5e505b3c",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20231002113159.png",
+    "zip/images/Pasted image 20231002112835.png",
     "zip/images/d900cca98dc7a2a1829d62f9d4fcec4c_MD5.png",
     "zip/images/9237d6adf6779d0342e27319939ac35b_MD5.png",
     "zip/images/Pasted image 20231002095346.png",
@@ -237,8 +240,6 @@
     "zip/images/Pasted image 20231001225820.png",
     "zip/images/Pasted image 20231001225526.png",
     "zip/images/8ac9f0165edf7c23cdd8d66b1f1a3e81_MD5.png",
-    "zip/images/fdaa3d70c111079ebb5e43e3f4b423e4_MD5.png",
-    "zip/images/b6acfcf689c9d12a13afffd0bdb45c2d_MD5.png",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/net.md",
     "引擎Unreal/06 网络/官方文档",

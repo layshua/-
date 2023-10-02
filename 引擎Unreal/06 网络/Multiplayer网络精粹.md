@@ -968,62 +968,41 @@ Pawn/Character。它们被 PlayerController possess，在此期间，PlayerContr
 > 什么是相关性，为什么我们需要它？
 > 
 
-想象一下，游戏中的 Levels/Maps 大到足以让玩家认为其他玩家 "unimportant"。
+想象一下，游戏中的 Levels/Maps 大到足以让玩家认为其他玩家 "unimportant"。如果玩家 "A "和玩家 "B "相隔万里，为什么还需要从玩家 "B "那里获取网络更新？
 
-如果玩家 "A "和玩家 "B "相隔万里，为什么还需要从玩家 "B "那里获取网络更新？
+为了提高带宽，虚幻引擎的网络代码**允许服务器只告诉客户端在该客户端相关集合中的角色。**
 
-To improve bandwidth Unreal Engine's network code makes it possible that the server only tells clients about Actors that are in that client's relevant set.  
-为了提高带宽，虚幻引擎的网络代码允许服务器只告诉客户端在该客户端相关集合中的角色。
+> [!quote] 带宽
+> 在计算机网络中，带宽是指在单位时间内传输数据的能力或速率。它通常以每秒传输的比特数（bps）或字节（Bps）来衡量。带宽决定了网络连接的数据传输速度，即能够在特定时间内传输多少数据量。
 
-Unreal applies the following rules (in order) to determine the relevant set of Actors for a player. These tests are implemented in the virtual function 'AActor::IsNetRelevantFor()'.  
-虚幻应用以下规则（按顺序）来确定与玩家相关的 Actors 集合。这些测试在虚拟函数 "AActor::IsNetRelevantFor() "中实现。
+虚幻应用以下规则（**按顺序**）来确定与玩家相关的 Actors 集合。这些测试在虚函数 `AActor::IsNetRelevantFor()` 中实现。
+![[Pasted image 20231002112835.png|350]]
+1. 如果 Actor 被标记为 "`bAlwaysRelevant`"（始终相关），被 Pawn 或 PlayerController 所拥有，是 Pawn，或者 Pawn 是某些行为（如 noise 或 damage）的 Instigator（发起者），那么它就是相关的。
+2. 如果 Actor 被标记为 "`bNetUserOwnerRelevancy(使用拥有者相关性)` "，有拥有者则使用**拥有者**的相关性。
+3.  如果Actor被标记为 "`bOnlyRelevantToOwner`"，并且没有通过第一项检查，那么它就是不相关的
+4. 如果该 Actor Attach 到另一个 Actor 的骨骼上，则其相关性由另一个 Actor的相关性决定。
+5. 如果 Actor 是隐藏的（`bHidden == true`），并且根组件没有发生碰撞，则 Actor 与此无关。
+    - 如果没有根组件，"`AActor::IsNetRelevantFor()` "将记录警告并询问是否应将 Actor 设置为 "`bAlwaysRelevant = true`"
+6. 如果 "`AGameNetworkManager` "设置为使用基于距离的相关性，则如果角色比 net cull distance  更近，则该 Actor是相关的
 
-1. If the Actor is marked as 'bAlwaysRelevant', is owned by the Pawn or PlayerController, is the Pawn, or the Pawn is the Instigator of some action like noise or damage, it is relevant  
-    如果行为体被标记为 "bAlwaysRelevant"（始终相关），被棋子或 PlayerController 所拥有，是棋子，或者棋子是某些行为（如噪音或伤害）的发起者，那么它就是相关的。
-2. If the Actor is marked as 'bNetUserOwnerRelevancy' and has an Owner, use the Owner's relevancy  
-    如果行为体被标记为 "bNetUserOwnerRelevancy "且有所有者，则使用所有者的相关性。
-3. If the Actor is marked as 'bOnlyRelevantToOwner', and does not pass the first check, it is not relevant  
-    如果行为体被标记为 "bOnlyRelevantToOwner"，并且没有通过第一项检查，那么它就是不相关的
-4. If the Actor is attached to the Skeleton of another Actor, then its relevancy is determined by the relevancy of its base  
-    如果该行为体连接到另一个行为体的骨架上，则其相关性由其基础的相关性决定。
-5. If the Actor is hidden ('bHidden == true') and the root component does not collide then the Actor is not relevant  
-    如果 Actor 是隐藏的（'bHidden == true'），并且根组件没有发生碰撞，则 Actor 与此无关。
-    - If there is no root component, 'AActor::IsNetRelevantFor()' will log a warning and ask if the Actor should be set to 'bAlwaysRelevant = true'  
-        如果没有根组件，"AActor::IsNetRelevantFor() "将记录警告并询问是否应将 Actor 设置为 "bAlwaysRelevant = true
-6. If 'AGameNetworkManager' is set to use distance-based relevancy, the Actor is relevant if it is closer than the net cull distance  
-    如果 "AGameNetworkManager "设置为使用基于距离的相关性，则如果角色比净删减距离更近，则该角色是相关的
+> [!info]
+>Pawn 和 PlayerController 重载了 "`AActor::IsNetRelevantFor()`"，因此具有不同的相关性条件。
 
-INFO 信息
+## Prioritization 优先次序
+![[Pasted image 20231002113159.png|400]]
+>优先级更高则意味着其复制的可能性更高
 
-Pawn and PlayerController override 'AActor::IsNetRelevantFor()' and have different conditions for relevancy as a result.  
-Pawn 和 PlayerController 重载了 "AActor::IsNetRelevantFor()"，因此具有不同的相关性条件。
 
-## Prioritization[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-relevancy-and-priority#prioritization "Direct link to Prioritization") 优先次序
+虚幻采用了一种负载均衡（load-balancing）技术，该技术会优先处理所有 Actors，并根据每个 Actors 对游戏的重要性为其提供合理的带宽份额。
 
-Unreal uses a load-balancing technique that prioritizes all Actors and gives each one a fair share of the bandwidth based on how important it is to Gameplay.  
-虚幻采用了一种负载平衡技术，该技术会优先处理所有 Actors，并根据每个 Actors 对游戏的重要性为其提供合理的带宽份额。
+Actor 有一个名为 `NetPriority`（网络优先级）的浮点变量。这个数字越大，该 Actor 相对于其他 Actor 获得的带宽就越多。  
+NetPriority 为 2.0 的 Actor 的更新频率是 NetPriority 为 1.0 的 Actor 的两倍。
+>优先级只决定分配带宽的比例，显然无法通过提高所有优先级来提高虚幻的网络性能。
 
-Actors have a float variable called “NetPriority”. The higher this number, the more bandwidth that Actor receives relative to others.  
-代理有一个名为 "NetPriority（网络优先级）"的浮点变量。这个数字越大，该行为体相对于其他行为体获得的带宽就越多。  
-An Actor with a “NetPriority” of 2.0 will update exactly twice as frequently as an Actor with a “NetPriority” of 1.0.  
-净优先级 "为 2.0 的行为体的更新频率是 "净优先级 "为 1.0 的行为体的两倍。
+- 角色的当前优先级通过虚函数 `AActor::GetNetPriority()` 计算。  
+- 为避免饥饿（starvation），`AActor::GetNetPriority()` 会将 `NetPriority` 与 Actor 自上次复制以来的时间相乘。
+-  `GetNetPriority` 函数还考虑了 "Actor "与 "观察者 "之间的相对位置和距离。
 
-The only thing that matters with priorities is their ratio. So obviously you cannot improve Unreal's Network Performance by increasing all of the priorities.  
-优先级的唯一重要性在于它们的比例。因此，您显然无法通过提高所有优先级来提高虚幻的网络性能。
-
-The current priority of an Actor is calculated using the virtual function 'AActor::GetNetPriority()'.  
-角色的当前优先级通过虚拟函数 "AActor::GetNetPriority() "计算。  
-To avoid starvation 'AActor::GetNetPriority()' multiplies 'NetPriority' with the time since the Actor was last replicated.  
-为避免饥饿，"AActor::GetNetPriority() "会将 "NetPriority "与代理上次复制后的时间相乘。
-
-The 'GetNetPriority' function also considers the relative location of and distance between the Actor and the Viewer.  
-获取网络优先级 "函数还考虑了 "行为体 "与 "观察者 "之间的相对位置和距离。
-
-![Replication Variables](https://cedric-neukirchen.net/assets/images/variables-3de92c3d24f385c4bb0bd1ccc61c115d.png "Replication Variables")
-
-  
-
-Most of these Settings can be found in the Class Defaults of the Blueprint and can also be set up inside the C++ Class of each Actor Child.  
 这些设置大多可以在蓝图的 "类默认值 "中找到，也可以在每个角色子代的 C++ 类中设置。
 ```c++
 bOnlyRelevantToOwner = false;
@@ -1036,3 +1015,30 @@ NetUpdateFrequency = 100.f;
 NetCullDistanceSquared = 225000000.f;
 NetPriority = 1.f;
 ```
+
+# Actor Role and RemoteRole  
+演员角色和远程角色
+
+We have two more important properties for Actor replication.  
+我们还有两个重要的 Actor 复制属性。
+
+**These two properties tell you:  
+这两个属性告诉你**
+
+- Who has authority over the Actor  
+    谁有权管理演员
+- Whether the Actor is replicated or not  
+    是否复制代理
+- The mode of the replication  
+    复制模式
+
+The first thing we want to determine is who has authority over a specific Actor.  
+我们首先要确定的是谁有权管理特定的 Actor。
+
+To determine if the currently running instance of the engine has authority, check if the role property is **ROLE_Authority**.  
+要确定当前运行的引擎实例是否具有权限，请检查角色属性是否为 ROLE_Authority。  
+If it is, then this instance of the engine is in charge of this Actor (whether it's replicated or not!).  
+如果是，那么这个引擎实例就负责这个 Actor（无论是否复制！）。
+
+> [!NOTE] Title
+> 这与所有权不同！
