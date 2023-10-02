@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md",
+                "file": "zip/AI/Python/Numpy+Matplotlib.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -84,7 +84,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md"
+                "file": "zip/AI/Python/Numpy+Matplotlib.md"
               }
             }
           },
@@ -94,12 +94,11 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md"
+                "file": "zip/AI/Python/Numpy+Matplotlib.md"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -145,7 +144,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md",
+                "file": "zip/AI/Python/Numpy+Matplotlib.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md",
+                "file": "zip/AI/Python/Numpy+Matplotlib.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -224,6 +223,10 @@
   },
   "active": "ba0e5abf5e505b3c",
   "lastOpenFiles": [
+    "zip/AI/Python/Python基础.md",
+    "zip/AI/Python/axis轴.md",
+    "编程/1 C++/3 Effective C++.md",
+    "引擎Unreal/06 网络/UE网络精粹.md",
     "zip/images/Pasted image 20231002113159.png",
     "zip/images/Pasted image 20231002112835.png",
     "zip/images/d900cca98dc7a2a1829d62f9d4fcec4c_MD5.png",
@@ -231,7 +234,6 @@
     "zip/images/Pasted image 20231002095346.png",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
-    "引擎Unreal/06 网络/Multiplayer网络精粹.md",
     "zip/images/Pasted image 20231001233531.png",
     "zip/images/Pasted image 20231001233317.png",
     "zip/templates/mermaid流图.md",
@@ -239,7 +241,6 @@
     "zip/images/Pasted image 20231001230029.png",
     "zip/images/Pasted image 20231001225820.png",
     "zip/images/Pasted image 20231001225526.png",
-    "zip/images/8ac9f0165edf7c23cdd8d66b1f1a3e81_MD5.png",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/net.md",
     "引擎Unreal/06 网络/官方文档",
@@ -260,8 +261,6 @@
     "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/网络/教程.md",
     "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "引擎Unreal/04 Gameplay/GAS/Images",
     "引擎Unreal/03 Gameplay/GAS",

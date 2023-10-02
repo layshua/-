@@ -2,7 +2,8 @@
 title: UE网络精粹
 create_time: 2023-10-01 17:51
 uid: "202310011751"
-reference: []
+reference:
+  - https://cedric-neukirchen.net/docs/intro
 banner: "[[1696179112450.png]]"
 banner_header: 
 banner_lock: true
@@ -1016,29 +1017,84 @@ NetCullDistanceSquared = 225000000.f;
 NetPriority = 1.f;
 ```
 
-# Actor Role and RemoteRole  
-演员角色和远程角色
+# Actor Role / RemoteRole  
 
-We have two more important properties for Actor replication.  
-我们还有两个重要的 Actor 复制属性。
+我们还有两个重要的 Actor 复制属性 Actor Role 和 RemoteRole  
 
-**These two properties tell you:  
-这两个属性告诉你**
+**这两个属性告诉你**
+- 谁有权管理 Actor
+- 是否复制 Actor
+- 复制模式
 
-- Who has authority over the Actor  
-    谁有权管理演员
-- Whether the Actor is replicated or not  
-    是否复制代理
-- The mode of the replication  
-    复制模式
-
-The first thing we want to determine is who has authority over a specific Actor.  
 我们首先要确定的是谁有权管理特定的 Actor。
 
-To determine if the currently running instance of the engine has authority, check if the role property is **ROLE_Authority**.  
-要确定当前运行的引擎实例是否具有权限，请检查角色属性是否为 ROLE_Authority。  
-If it is, then this instance of the engine is in charge of this Actor (whether it's replicated or not!).  
-如果是，那么这个引擎实例就负责这个 Actor（无论是否复制！）。
+要确定当前运行的引擎实例是否具有权限，请检查角色属性（role property）是否为 `ROLE_Authority`。  
+如果是，那么这个引擎实例就负责这个 Actor（无论Actor是否复制！）。
 
-> [!NOTE] Title
-> 这与所有权不同！
+> [!info] 
+> 这与所有权（Ownership）不同！
+
+## Role/RemoteRole Reversal
+角色/远程角色转换
+
+Role and RemoteRole could be reversed depending on who is inspecting these values.  
+Role 和 RemoteRole 可以颠倒，这取决于谁在检查这些值。
+
+For example, if on the server you have this configuration:  
+例如，在服务器上有这样的配置：
+
+- Role == Role_Authority 角色 == 角色权限
+- RemoteRole = ROLE_SimulatedProxy  
+    远程角色 = 角色_模拟代理
+
+Then the client would see it as this:  
+那么客户就会这样看：
+
+- Role == ROLE_SimulatedProxy  
+    角色 == 角色_模拟代理
+- RemoteRole == ROLE_Authority  
+    远程角色 == 角色权限
+
+This makes sense since the server is in charge of the Actor and replicating it to clients.  
+这是有道理的，因为服务器负责 Actor 并将其复制给客户端。  
+The clients are just supposed to receive updates and simulate the Actor between updates.  
+客户端只是接收更新，并模拟更新之间的 Actor。
+
+## Mode of Replication[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#mode-of-replication "Direct link to Mode of Replication") 复制模式
+
+The server doesn't update Actors every update. This would take way too much bandwidth and CPU resources. Instead, the server will replicate Actors at a frequency specified on the 'AActor::NetUpdateFrequency' property.  
+服务器不会在每次更新时都更新 "演员"。这会占用太多的带宽和 CPU 资源。相反，服务器将按照 "AActor::NetUpdateFrequency "属性指定的频率复制 Actors。
+
+This means that some time will have passed on the client between Actor updates. This could result in Actors looking sporadic or choppy in their movement. To compensate for this, the client will simulate the Actor between updates.  
+这意味着客户端上的 Actor 更新之间会间隔一段时间。这可能会导致演员的动作看起来零星或不连贯。为了弥补这一点，客户端将在两次更新之间模拟 Actor。
+
+There are currently two types of simulation that occur:  
+目前有两种模拟方式：
+
+**ROLE_SimulatedProxy**
+
+and
+
+**ROLE_AutonomousProxy**
+
+### ROLE_SimulatedProxy[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#role_simulatedproxy "Direct link to ROLE_SimulatedProxy") ROLE_SimulatedProxy
+
+This is the standard simulation path and is generally based on extrapolating movement based on the last known velocity.  
+这是标准的模拟路径，通常是根据最后的已知速度来推断运动。
+
+When the server sends an update for a particular Actor, the client will adjust its position toward the new location, and then in between updates, the client will continue to move the Actor based on the most recent velocity sent from the server.  
+当服务器发送特定 Actor 的更新时，客户端将调整其位置以适应新的位置，然后在两次更新之间，客户端将根据服务器发送的最新速度继续移动 Actor。
+
+Simulating using the last known velocity is just one example of how general simulation works.  
+使用最后已知速度进行模拟只是一般模拟工作原理的一个例子。
+
+Nothing stopping you from writing custom code to use some other information to extrapolate between server updates.  
+没有什么能阻止你编写自定义代码，使用其他信息在服务器更新之间进行推断。
+
+### ROLE_AutonomousProxy[​](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-roles#role_autonomousproxy "Direct link to ROLE_AutonomousProxy") ROLE_AutonomousProxy
+
+This is generally only used on Actors that are possessed by PlayerControllers.  
+一般只用于被 PlayerControllers 占有的 Actors。
+
+It just means that this Actor is receiving inputs from a human controller, so when we extrapolate, we have a bit more information and can use actual human inputs to fill in the missing info (rather than extrapolating based on the last known velocity).  
+这只是意味着这个 Actor 正在接收来自人类控制器的输入，因此当我们进行推断时，我们可以获得更多的信息，并使用实际的人类输入来填补缺失的信息（而不是根据最后已知的速度进行推断）。
