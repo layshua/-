@@ -8841,6 +8841,14 @@ OGztEUq
 ONLY
 OwnnerOnly
 Online
+OnFailure
+OnUpdateSessionComplete
+OnDestroySessionComplete
+OnJoinSessionComplete
+OnMatchmakingComplete
+OnCancelMatchmakingCompletedelegate
+OnFindFriendSessionComplete
+OnSessionInviteAccepted
 codeup
 clash
 ctrl
@@ -13804,6 +13812,8 @@ cooked
 crashes
 connectivity
 cable
+completes
+canceled
 github
 grey
 green
@@ -22251,6 +22261,7 @@ television
 throttling
 toward
 timeout
+topmost
 markdown
 matter
 mod
@@ -26913,6 +26924,8 @@ mfsuWLXPNzc
 mSKrWh
 mewxhhIM
 marking
+meanwhile
+matchmake
 windows
 win
 width
@@ -39498,6 +39511,8 @@ evLYURD
 emote
 extrapolating
 extrapolate
+exec
+extended
 VPN
 Verge
 VS
@@ -56609,6 +56624,7 @@ Unonwed
 Unowned
 UnrealNetwork
 Unlocking
+UpdateSession
 api
 ac
 app
@@ -60924,6 +60940,7 @@ according
 autonomous
 accessor
 advertised
+accepts
 Roaming
 RegWorkshop
 Release
@@ -65984,6 +66001,8 @@ Runs
 RemoteRole
 Reversal
 ROLE
+Registering
+RegisterServer
 Microsoft
 Menu
 MicaForEveryone
@@ -81468,6 +81487,15 @@ ServerIP
 Sessions
 Subsystems
 SessionSettings
+Searching
+SearchResult
+SessionResult
+SessionResults
+Services
+Startmatchmaking
+SessionName
+SendSessionInviteToFriend
+SendSessionInviteToFriends
 Programs
 POP
 PC
@@ -91373,6 +91401,8 @@ Calling
 ClientRPC
 Connection
 Cooperative
+CreateSession
+CancelMatchmaking
 ImTip
 IMAP
 ID
@@ -96071,6 +96101,8 @@ InitialOrOwner
 IncreaseVariable
 Interfaces
 IOnlineSession
+IonlineSession
+Inviting
 qq
 qyi
 quad
@@ -127053,6 +127085,7 @@ TCLMm
 TQRojbITYI
 TUtfix
 Triggering
+TrueSkill
 io
 ipad
 it
@@ -131976,6 +132009,9 @@ initiated
 inspecting
 instantaneous
 invites
+initiate
+invite
+invitation
 shift
 svg
 sf
@@ -167069,6 +167105,7 @@ BYRWKmaH
 BbOBGkn
 BLk
 Beacons
+Blogpost
 Fraktur
 Frame
 Foo
@@ -172092,6 +172129,10 @@ FbKEECXhE
 FUNCTIONNAME
 Friends
 FOnlineSessionSettingsclass
+FindSessions
+FindSession
+Friend
+FindFriendSession
 Element
 Entity
 Enity
@@ -189123,6 +189164,7 @@ DJXH
 DjmBra
 DestroyActor
 Dropped
+DestroySession
 LNK
 Log
 Linux
@@ -217092,6 +217134,8 @@ JCtFzNKwEs
 JOJQu
 JbVLbocEOWY
 JVZI
+Joining
+JoinSession
 Ke
 KjpKWmp
 KYW

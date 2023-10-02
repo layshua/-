@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
       "basename": "会话管理",
       "path": "引擎Unreal/06 网络/会话管理.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
     {
       "basename": "UE网络精粹",
@@ -39,14 +51,6 @@
     {
       "basename": "04 纹理",
       "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
     },
     {
       "basename": "2. PBR核心理论与渲染光学原理总结",
@@ -195,10 +199,6 @@
     {
       "basename": "【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject",
       "path": "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md"
-    },
-    {
-      "basename": "通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客",
-      "path": "编程/6 UML/通俗易懂一文入门 UML 类图（笔记收藏）_构造函数中运用了成员初始化列表_ 那在 uml 类图中该如何表示 - CSDN 博客.md"
     }
   ],
   "omittedPaths": [],
