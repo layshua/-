@@ -6,7 +6,7 @@ reference: []
 banner: "[[1696179112450.png]]"
 banner_header: 
 banner_lock: true
-banner_icon: 🗺
+banner_icon: 🗄
 ---
 
 # 虚幻中的网络
@@ -789,31 +789,18 @@ void ATestCharacter::OnRep_Health()
 # RPC 远程过程调用
 Remote Procedure Calls
 
+RPC 也是一种复制方式，它们用于调用另一个实例中的某些功能。电视遥控器对电视机也是如此。
 
-Other ways for Replication are so-called “**RPC**”s. Short form for “**R**emote **P**rocedure **C**all”.  
-其他复制方式是所谓的 "RPC"。远程过程调用 " 的简称。
+**虚幻引擎使用它们将事件从客户端发送到服务器、服务器发送到客户端或服务器发送到特定组。**
 
-They are used to call something on another instance. Your TV-remote does the same with your television.  
-它们用于调用另一个实例中的某些功能。电视遥控器对电视机也是如此。
+这些 RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
 
-Unreal Engine uses them to send events from client to server, server to client or server to a specific group.  
-虚幻引擎使用它们将事件从客户端发送到服务器、服务器发送到客户端或服务器发送到特定组。
+**RPC 仅在特定规则下工作**：
+*   **Run on Server** ：在服务器上运行 - 在该 Actor 的**服务器实例**上执行
+*   **Run on owning Client**：在拥有客户端上运行 - 在该 Actor 的**拥有者**身上执行
+*   **NetMulticast** ：在该行为体的**所有实例**上执行
 
-These RPCs can't have a return value! To return something you need to use a second RPC in the other direction.  
-这些 RPC 不能有返回值！要返回值，您需要在另一个方向上使用第二个 RPC。
-
-RPCs only work under certain rules. They are listed in this table which can also be found in the official Documentation:  
-RPC 仅在特定规则下工作。这些规则列在本表中，也可以在官方文档中找到：
-
-*   **Run on Server** - Is meant to be executed on the server instance of this Actor  
-    在服务器上运行 - 在该行为体的服务器实例上执行
-*   **Run on owning Client** - Is meant to be executed on the owner of this Actor  
-    在拥有客户端上运行 - 在该行为体的拥有者身上执行
-*   **NetMulticast** - Is meant to be executed on all instances of this Actor  
-    NetMulticast - 在该行为体的所有实例上执行
-
-## Requirements and Caveats[​]( #requirements -and-caveats "Direct link to Requirements and Caveats")  
-要求和注意事项
+## 要求和注意事项
 
 There are a few requirements that need to be met for RPCs to be completely functional:  
 要使 RPC 完全发挥作用，需要满足一些要求：
