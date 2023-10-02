@@ -789,51 +789,44 @@ void ATestCharacter::OnRep_Health()
 # RPC 远程过程调用
 Remote Procedure Calls
 
-RPC 也是一种复制方式，它们用于调用另一个实例中的某些功能。电视遥控器对电视机也是如此。
+**RPC 也是一种复制方式，它们用于调用另一个实例中的某些功能。** 电视遥控器对电视机也是如此。
 
 **虚幻引擎使用它们将事件从客户端发送到服务器、服务器发送到客户端或服务器发送到特定组。**
+```mermaid
+flowchart LR
+	客户端-->服务器
+	服务器-->客户端
+	服务器-->group
+```
 
 这些 RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
 
 **RPC 仅在特定规则下工作**：
 *   **Run on Server** ：在服务器上运行 - 在该 Actor 的**服务器实例**上执行
 *   **Run on owning Client**：在拥有客户端上运行 - 在该 Actor 的**拥有者**身上执行
-*   **NetMulticast** ：在该行为体的**所有实例**上执行
+*   **NetMulticast** ：多播（组播），在该 Actor 的**所有实例**上执行
 
 ## 要求和注意事项
 
-There are a few requirements that need to be met for RPCs to be completely functional:  
-要使 RPC 完全发挥作用，需要满足一些要求：
+**要使 RPC 完全发挥作用，需要满足一些要求：**
+1. 它们必须在 Actor 或复制的子对象 SubObject（如 Component）上调用  
+2. Actor（和 Component）必须复制
+3. 如果 **RPC 被服务器调用并在客户端执行**，则只有**拥有该 Actor** 的客户端才会执行该函数
+4. 如果 **RPC 由客户端调用并在服务器上执行**，则客户端必须拥有 RPC 调用的 Actor
+5.  多播 RPC 是个例外：
+    * 如果它们被服务器调用，服务器将在本地执行它们，并在当前连接的所有客户端上执行它们，这些客户端都有一个相关的 Actor 实例
+    * 如果从客户端调用，多播只能在本地执行，而不会在服务器或其他客户端上执行
+    *  目前，我们有一个针对组播事件的简单**节流机制**（throttling mechanism）：
+        *  在给定的 Actor 的网络更新周期内，多播函数的复制次数不会超过两次。  
 
-1.  They must be called on Actors or a replicated Subobject (e.g. a component)  
-    它们必须在行为体或复制的子对象（如组件）上调用
-2.  The Actor (and component) must be replicated  
-    行为体（和组件）必须复制
-3.  If the RPC is being called by the server to be executed on a client, only the client who owns that Actor will execute the function  
-    如果 RPC 被服务器调用并在客户端执行，则只有拥有该 Actor 的客户端才会执行该函数
-4.  If the RPC is being called by a client to be executed on the server, the client must own the Actor that the RPC is being called on  
-    如果 RPC 由客户端调用并在服务器上执行，则客户端必须拥有 RPC 调用的 Actor
-5.  Multicast RPCs are an exception:  
-    组播 RPC 是个例外：
-    *   If they are called by the server, the server will execute them locally, as well as execute them on all currently connected clients, which have an instance of that Actor that is relevant  
-        如果它们被服务器调用，服务器将在本地执行它们，并在当前连接的所有客户端上执行它们，这些客户端都有一个相关的 Actor 实例
-    *   If they are called from clients, a Multicast will only execute locally, and will not execute on the server or other clients  
-        如果从客户端调用，组播只能在本地执行，而不会在服务器或其他客户端上执行
-    *   For now, we have a simple throttling mechanism for Multicast events:  
-        目前，我们有一个针对组播事件的简单节流机制：
-        *   A Multicast function will not replicate more than twice in a given Actor's network update period.  
-            在给定的 Actor 网络更新周期内，组播功能的复制次数不会超过两次。  
-            Long term, Epic expects to improve on this.  
-            从长远来看，Epic 希望在这方面有所改进。
-
-### RPC invoked from the Server[​]( #rpc -invoked-from-the-server "Direct link to RPC invoked from the Server")  
+### RPC invoked from the Server
 从服务器调用的 RPC
 
 | Actor Ownership 演员所有权            | Not Replicated 未复制         | NetMulticast 网络多播                                     | Server 服务器                 | Client 客户                                            |
 | ------------------------------------- | ----------------------------- | --------------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
-| **Client-owned Actor 客户拥有的演员** | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Actor's owning Client 在演员拥有的客户端上运行 |
-| **Server-owned Actor 服务器所属演员** | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Server 在服务器上运行                          |
-| **Unonwed Actor 非婚演员**            | Runs on Server 在服务器上运行 | Runs on Server and all Clients 在服务器和所有客户端上运行 | Runs on Server 在服务器上运行 | Runs on Server 在服务器上运行                          |
+| **Client-owned Actor 客户拥有的演员** |Runs on Server |Runs on Server and all Clients 在服务器和所有客户端上运行|Runs on Server 在服务器上运行|Runs on Actor's owning Client 在演员拥有的客户端上运行|
+|**Server-owned Actor 服务器所属演员**|Runs on Server |Runs on Server and all Clients |Runs on Server | Runs on Server 在服务器上运行                          |
+|**Unonwed **|Runs on Server |Runs on Server and all Clients  |Runs on Server| Runs on Server 在服务器上运行                          |
 
 ### RPC invoked from a Client[​]( #rpc -invoked-from-a-client "Direct link to RPC invoked from a Client")  
 从客户端调用的 RPC
@@ -845,12 +838,12 @@ There are a few requirements that need to be met for RPCs to be completely funct
 | **Server-owned Actor 服务器所属演员**          | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
 | **Unowned Actor 无名演员**                     | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Dropped 掉线                  | Runs on Invoking Client 运行于调用客户端   |
 
-## RPCs in Blueprints[​]( #rpcs -in-blueprints "Direct link to RPCs in Blueprints") 蓝图中的 RPC
+## 蓝图中的 RPC
 
 ![](https://cedric-neukirchen.net/assets/images/rpc_overview-f6d897e9875b41018c1983d158f683b4.png)
 
 RPCs in Blueprints are created by creating CustomEvents and setting them to Replicate.  
-蓝图中的 RPC 是通过创建自定义事件并将其设置为复制来创建的。
+蓝图中的 RPC 是通过创建自定义事件并将设置 Replicates 来创建的。
 
 ![](https://cedric-neukirchen.net/assets/images/event_details-6b020c4115ded9fac6c1a4b4f3f6c558.png)
 
@@ -868,7 +861,7 @@ Don't mark every RPC as Reliable! You should only do this on RPCs which are call
 Calling reliable RPCs on Tick can have side effects, such as filling the reliable buffer, which can cause other properties and RPCs to not be processed anymore.  
 在 Tick 上调用可靠 RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
 
-## RPCs in UE++[​]( #rpcs -in-ue "Direct link to RPCs in UE++") UE++ 中的 RPC
+## C++ 中的 RPC
 
 To use the whole Network stuff in C++, you need to include “UnrealNetwork. h” in your project Header. RPCs in C++ are relatively easy to create, we only need to add the specifier to the UFUNCTION () macro.  
 要在 C++ 中使用整个网络，您需要在您的项目头中包含 "UnrealNetwork. h"。在 C++ 中创建 RPC 相对来说比较简单，我们只需要在 UFUNCTION () 宏中添加指定符即可。
@@ -915,7 +908,7 @@ Of course, we can also add the 'reliable' keyword to an RPC to make it reliable
 UFUNCTION(Client, reliable)void ReliableClientRPCFunction();UFUNCTION(NetMulticast, reliable)void ReliableMulticastRPCFunction();
 ```
 
-## Validation (UE++)[​]( #validation -ue "Direct link to Validation (UE++)") 验证 (UE++)
+## Validation 验证 (C++)
 
 The idea of validation is that if the validation function for an RPC detects that any of the parameters are bad, it can notify the system to disconnect the client/server who initiated the RPC call.  
 验证的原理是，如果 RPC 的验证函数检测到任何参数有问题，它就会通知系统断开发起 RPC 调用的客户机 / 服务器。
@@ -938,3 +931,73 @@ info 信息
 
 Client-to-Server RPCs require the '_Validate' function to encourage secure Server RPC functions and to make it as easy as possible for someone to add code to check every parameter to be valid against all the known input constraints.  
 客户端到服务器 RPC 要求使用 "_Validate" 函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
+
+# Ownership 所有权
+Ownership is something very important to understand. You already saw a table that contained entries like “Client-owned Actor”.  
+所有权是非常重要的一点。你已经看到了一个包含 "客户拥有的演员 "等条目的表格。
+
+**Server or Clients can 'own' an Actor.  
+服务器或客户端可以 "拥有 "一个代理。**
+
+An example is the PlayerController which is owned by the local player (client or Listen-Server).  
+例如，本地播放器（客户端或监听服务器）拥有 PlayerController。
+
+Another example would be a spawned/placed door in the Scene. This will mostly be owned by the server.  
+另一个例子是场景中生成/放置的门。这主要由服务器所有。
+
+**But why is this a problem?  
+但为什么会出现这样的问题呢？**
+
+If you check out the table from earlier again you will notice that, for example, a Server RPC will be dropped if a client calls it on an Actor that they do not own.  
+如果你再查看一下前面的表格，就会发现，例如，如果客户端在不属于自己的 Actor 上调用服务器 RPC，该 RPC 就会被丢弃。
+
+So the client can't call “Server_Interact” on a server owned door. But how do we work around that?  
+因此，客户端无法在服务器所有的门上调用 "Server_Interact"。但我们该如何解决这个问题呢？
+
+We use a class/Actor that the client owns and this is where the PlayerController starts to shine. We already had a similar example when discussing the PlayerController class, where we send an RPC to increment a value based on a UserWidget button press.  
+我们使用客户端拥有的类/代理，这就是 PlayerController 开始大显身手的地方。在讨论 PlayerController 类时，我们已经举过一个类似的例子，即根据 UserWidget 按钮的按压情况发送 RPC 以递增数值。
+
+![[Pasted image 20231002095346.png]]
+
+So instead of trying to enable Input on the door and calling a ServerRPC there, we create the ServerRPC in the PlayerController and let the server call an interface function on the door (for example 'Interact').  
+因此，与其在门上启用输入并在那里调用 ServerRPC，不如在 PlayerController 中创建 ServerRPC，让服务器调用门上的接口函数（例如 "交互"）。
+
+## Actors and their Owning Connections[​]( https://cedric-neukirchen.net/docs/multiplayer-compendium/ownership#actors-and-their-owning-connections "Direct link to Actors and their Owning Connections")  
+演员及其自有联系
+
+As already mentioned in the Gameplay Framework overview, the PlayerController is the first class that the player 'owns', but what does that mean?  
+正如游戏框架概述中提到的，PlayerController 是玩家 "拥有 "的第一个类，但这意味着什么呢？
+
+Each 'Connection' has a PlayerController, created specifically for that Connection. A PlayerController, which is created for that reason is owned by that Connection.  
+每个 "连接 "都有一个专门为该 "连接 "创建的 PlayerController。为此创建的播放器控制器归该 "连接 "所有。
+
+So when we want to determine if an Actor is owned by someone, we query up-wards (recursively) until reaching the most outer owner and if this is a PlayerController, then the Connection that owns the PlayerController also owns that Actor.  
+因此，当我们想确定某个角色是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的拥有者，如果这是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该角色。
+
+Kinda simple, or? So what would be an example of that?  
+有点简单，还是？有什么例子可以说明这一点？
+
+The Pawn/Character. They are possessed by the PlayerController and during that time, the PlayerController is the owner of the possessed Pawn. This means the Connection that owns this PlayerController also owns the Pawn.  
+棋子/角色。它们被玩家控制器占有，在此期间，玩家控制器是被占有棋子的所有者。这意味着拥有该玩家控制器的连接也拥有该棋子。
+
+This is only the case WHILE the PlayerController is possessing the Pawn. Un-possessing it will result in the client no longer owning the Pawn.  
+这只是在玩家控制器拥有棋子时的情况。解除拥有将导致客户端不再拥有该棋子。
+
+**So why is this important and for what do I need this?  
+为什么这很重要，我需要它做什么？**
+
+- RPCs need to determine which client will execute a Run-On-Client RPC  
+    RPC 需要确定哪个客户端将执行运行于客户端的 RPC
+- Actor replication and connection relevancy  
+    代理复制和连接相关性
+- Actor property replication conditions when the owner is involved  
+    涉及所有者时的行为者属性复制条件
+
+You already read that RPCs react differently when getting called by clients or the server depending on the Connection they are owned by.  
+你已经了解到，RPC 在被客户端或服务器调用时，会根据其所属的 Connection 做出不同的反应。
+
+You also read about conditional Replication, where variables are only replicated under a certain condition.  
+您还了解到条件复制，即变量只在特定条件下复制。
+
+The following section describes the relevancy part of the list.  
+下文将介绍列表的相关性部分。

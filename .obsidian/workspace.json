@@ -11,8 +11,13 @@
             "id": "ba0e5abf5e505b3c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/06 网络/Multiplayer网络精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
@@ -218,6 +223,8 @@
   },
   "active": "ba0e5abf5e505b3c",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20231002095346.png",
+    "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
     "引擎Unreal/06 网络/Multiplayer网络精粹.md",
     "zip/images/Pasted image 20231001233531.png",
@@ -233,11 +240,10 @@
     "zip/images/19e8159085c0d026c6a63c9505ea58e4_MD5.png",
     "zip/images/d4d6b514641996023757c1ba7f423e9c_MD5.png",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
-    "引擎Unreal/02 U++精粹/0 蓝图精粹.md",
     "引擎Unreal/06 网络/net.md",
     "引擎Unreal/06 网络/官方文档",
-    "引擎Unreal/02 U++精粹/2 类型.md",
-    "引擎Unreal/02 U++精粹/1 GamePlay精粹.md",
+    "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/05 UI/UMG.md",
     "引擎Unreal/05 UI",
     "zBuffer/Replication _ An Unreal Engine Blog by Cedric Neukirchen --- 复制 _ Cedric Neukirchen 的虚幻引擎博客.md",
@@ -249,13 +255,12 @@
     "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/网络概述.md",
     "引擎Unreal/06 网络/官方文档/设置专用服务器.md",
-    "引擎Unreal/02 U++精粹/4 委托.md",
+    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/网络/教程.md",
     "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md",
-    "引擎Unreal/01 指南/5 U++编程规范.md",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "引擎Unreal/04 Gameplay/GAS/Images",
     "引擎Unreal/03 Gameplay/GAS",
