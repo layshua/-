@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/06 网络/会话管理.md",
+                "file": "zip/留学/敏捷开发/入门.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/会话管理.md"
+                "file": "zip/留学/敏捷开发/入门.md"
               }
             }
           },
@@ -73,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/会话管理.md"
+                "file": "zip/留学/敏捷开发/入门.md"
               }
             }
           }
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/会话管理.md",
+                "file": "zip/留学/敏捷开发/入门.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/会话管理.md",
+                "file": "zip/留学/敏捷开发/入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,6 +201,12 @@
   },
   "active": "7b694f0e9c618413",
   "lastOpenFiles": [
+    "zip/留学/缴费.md",
+    "zip/留学/敏捷开发/入门.md",
+    "zip/留学/敏捷开发",
+    "zip/留学/租房注意事项.md",
+    "zip/留学/清单.md",
+    "引擎Unreal/06 网络/会话管理.md",
     "zip/images/3195d7c95d3510dfebcc275edc49489f_MD5.png",
     "zip/images/6bdf3075be129e7ff41096e1611493d6_MD5.png",
     "zip/images/49d457ba4481f9dc63ee42972aea51c6_MD5.png",
@@ -208,7 +214,6 @@
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/02 光栅化.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "引擎Unreal/06 网络/会话管理.md",
     "zip/images/994ca6778bd687a5d20bed47b6126e14_MD5.png",
     "zip/images/074182f4bae9844a8b0dd79fa515e7c1_MD5.png",
     "zip/images/ca92f18151ec7ab30d823d9537ce86f2_MD5.png",
@@ -229,7 +234,6 @@
     "技术美术/百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
     "zip/images/Pasted image 20231002204121.png",
     "zip/images/Pasted image 20231002204104.png",
-    "zip/images/Pasted image 20231002203934.png",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/01 游戏引擎导论.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/03 如何构建游戏世界.md",
     "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/02游戏引擎的分层架构.md",
@@ -243,10 +247,6 @@
     "技术美术/PBR/PBR白皮书/content",
     "虚幻引擎/9 教程剪藏/死亡搁浅扫描特效/assets",
     "虚幻引擎/2 蓝图 & U++/史蒂芬多人TPS/assets",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/8 网络",
-    "zip/AI/Python/Numpy+Matplotlib.md",
-    "zip/AI/Python/Python基础.md",
-    "zip/AI/Python/axis轴.md",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
