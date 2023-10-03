@@ -8873,6 +8873,7 @@ OrssI
 OVmA
 OtM
 OTÜ
+OnlineSubsystemSteam
 codeup
 clash
 ctrl
@@ -52391,6 +52392,7 @@ AMww
 AAAP
 AmE
 AsxIs
+AppID
 URL
 Utools
 Users
@@ -56753,6 +56755,8 @@ UUUCB
 UfQaB
 URg
 UMWM
+UserCloudInterface
+UserCloud
 api
 ac
 app
@@ -71495,6 +71499,7 @@ MCE
 MYCe
 MCt
 MenuSystem
+MacEngine
 Windows
 Win
 World
@@ -76020,6 +76025,7 @@ WNKK
 Wsss
 WWav
 WBP
+WindowsEngine
 Start
 StartAllBack
 Shadowrocket
@@ -81685,6 +81691,15 @@ SBoS
 SNnYhd
 Slhw
 Steps
+Steamworks
+SharedCloud
+SteamDevAppId
+STEAMPRODUCTNAME
+STEAMGAMEDIR
+STEAMGAMEDESC
+STEAMSHIPPINGID
+SteamAuth
+SteamOSS
 Programs
 POP
 PC
@@ -96326,6 +96341,7 @@ IiPb
 IVUuB
 IXFCf
 Iezs
+IPNetDriver
 qq
 qyi
 quad
@@ -105363,6 +105379,7 @@ pYLN
 pOyx
 pbzZ
 pRNU
+paramliteral
 nodesCatch
 nobr
 navy
@@ -137623,6 +137640,8 @@ srt
 sWvv
 sssQ
 sooqo
+subsystem
+steamclient
 local
 list
 left
@@ -189612,6 +189631,9 @@ DtA
 DHRX
 DskX
 Downloads
+DefName
+DriverClassName
+DriverClassNameFallBack
 LNK
 Log
 Linux
@@ -194234,6 +194256,8 @@ LPdY
 LjK
 LQPQn
 LND
+Lobbies
+LinuxEngine
 Getx
 GetX
 GetName
@@ -199503,6 +199527,7 @@ GaRR
 GsYT
 Gqcikky
 GWdcd
+GameServer
 NULL
 Native
 NormalMap
@@ -203920,6 +203945,7 @@ NeVV
 Nza
 NWpV
 NQS
+NetDriverDefinitions
 ZooAnima
 ZooAnimal
 ZTest
