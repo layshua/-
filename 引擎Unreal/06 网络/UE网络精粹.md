@@ -944,9 +944,15 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 ## Actors 和他们的拥有关系
 Gameplay 架构+网络 章节中提到，PlayerController 是客户端真正 "拥有 (owns) "的第一个类。这意味着什么呢？
 
-每个 "Connection（连接）"都有一个专门为该 "Connection"创建的 PlayerController。**这个 PlayerController 归该 "Connection "所有。**
+每个 "Connection（连接）"都有一个专门为该 Connection创建的 PlayerController。**这个 PlayerController 归该 "Connection "所有。**
 
-**因此，当我们想确定某个 Actor 是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的拥有者，如果这是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该 Actor。**
+**因此，当我们想确定某个 Actor 是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的所有者，如果是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该 Actor。**
+```mermaid
+flowchart LR
+	Actor———>PlayerController--->Connecion
+```
+
+
 
 Pawn/Character。它们被 PlayerController possess，在此期间，PlayerController 是 possessed Pawn 的所有者。**这意味着拥有该玩家控制器的 Connection 也拥有该 Pawn。** 这只是在玩家控制器 possess 棋子时的情况。**un-possess 将导致客户端不再拥有该棋子。**
 
