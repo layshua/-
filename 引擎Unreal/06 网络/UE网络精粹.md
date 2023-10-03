@@ -808,57 +808,18 @@ flowchart LR
 > [!warning] 
 >  RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
 
-
-**RPC 仅在特定规则下工作**：
-*   **Run on Server** ：ServerRPC 在服务器上运行 - 在该 Actor 的**服务器实例**上执行
-*   **Run on owning Client**：ClientRPC 在拥有客户端上运行 - 在该 Actor 的**拥有者**身上执行
-*   **NetMulticast** ：MulticastRPC 多播（组播），在该 Actor 的**所有实例**上执行
-
-## 要求和注意事项
-
-**要使 RPC 完全发挥作用，需要满足一些要求：**
-1. 它们必须在 Actor 或复制的子对象 SubObject（如 Component）上调用  
-2. Actor（和 Component）必须复制
-3. 如果 **RPC 被服务器调用并在客户端执行**，则只有**拥有该 Actor** 的客户端才会执行该函数
-4. 如果 **RPC 由客户端调用并在服务器上执行**，则客户端必须拥有 RPC 调用的 Actor
-5.  多播 RPC 是个例外：
-    * 如果它们被服务器调用，服务器将在本地执行它们，并在当前连接的所有客户端上执行它们，这些客户端都有一个相关的 Actor 实例
-    * 如果从客户端调用，多播只能在本地执行，而不会在服务器或其他客户端上执行
-    *  目前，我们有一个针对组播事件的简单**节流机制**（throttling mechanism）：
-        *  在给定的 Actor 的网络更新周期内，多播函数的复制次数不会超过两次。  
-
-### 从服务器调用的 RPC
-
-| Actor Ownership 演员所有权            |Not Replicated 未复制| NetMulticast 网络多播                                     | Server 服务器                 | Client 客户                                            |
-| ------------------------------------- | ----------------------------- | --------------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
-|**Client-owned Actor 客户拥有的Actor**|Runs on Server |Runs on Server and all Clients 在服务器和所有客户端上运行|Runs on Server 在服务器上运行|Runs on Actor's owning Client 在演员拥有的客户端上运行|
-|**Server-owned Actor 服务器拥有的Actor**|Runs on Server |Runs on Server and all Clients |Runs on Server | Runs on Server 在服务器上运行                          |
-|**Unonwed **|Runs on Server |Runs on Server and all Clients  |Runs on Server| Runs on Server 在服务器上运行                          |
-
->未标记 Replicated 则都在服务器上运行
-### 从客户端调用的 RPC
-从客户端调用的 RPC
-
-| Actor Ownership 演员所有权                     | Not Replicated 未复制                      | NetMulticast 网络多播                      | Server 服务器                 | Client 客户                                |
-| ---------------------------------------------- | ------------------------------------------ | ------------------------------------------ | ----------------------------- | ------------------------------------------ |
-| **Owned by invoking Client 由调用客户端拥有**  | Runs on invoking Client 在调用客户端时运行 | Runs on invoking Client 在调用客户端时运行 | Runs on Server 在服务器上运行 | Runs on invoking Client 在调用客户端时运行 |
-| **Owned by a different Client 由不同客户拥有** |Runs on invoking Client |Runs on invoking Client | Dropped 掉线                  |Runs on invoking Client |
-|**Server-owned Actor 服务器拥有的Actor**|Runs on invoking Client|Runs on invoking Client|Dropped |Runs on Invoking Client |
-|**Unowned Actor**|Runs on invoking Client |Runs on invoking Client |Dropped |Runs on Invoking Client |
-
-## 使用RPC
+## 使用 RPC
 ### 蓝图
 
-![[9237d6adf6779d0342e27319939ac35b_MD5.png]]
+![[9237d6adf6779d0342e27319939ac35b_MD5.png|450]]
+
+如果被标记为 RPC 的函数是从蓝图中调用，它们也会被复制。这时，它们将遵循相同的规则，就像是从 C++ 调用一样。在此情况下，您无法将函数动态标记为蓝图的 RPC。
+
+然而，**自定义事件却可以从蓝图编辑器内部被标记为复制**。
 
 蓝图中的 RPC 是通过创建 `CustomEvent` 并将设置 `Replicates` 来创建的。**RPC 不能有返回值，因此不能使用函数来创建 RPC。**
 
 ![[d900cca98dc7a2a1829d62f9d4fcec4c_MD5.png]]
->`Reliable（可靠）`  复选框可用于将 RPC 标记为" important"，以确保不丢弃 RPC。
-
-> [!attention] 
-> - 不要将每个 RPC 都标记为 `Reliable`！您**只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。**
-> - 在 Tick 上调用 `reliable` RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
 
 ### C++ （三种 RPC 函数）
 [[UE4 Network] RPC 之哪里调用和哪里执行 - 知乎 (zhihu.com)]( https://zhuanlan.zhihu.com/p/245358090 )
@@ -868,14 +829,14 @@ flowchart LR
 2. 由 `AActor::GetNetConnection() != NULL` 检测 AActor 是否有所属链接
 3. 由 `AActor->RemoteRole != ROLE_None` 检测 AActor 是否为参与属性同步
 
-要将一个函数声明为 RPC，您只需将 `Server`、`Client` 或 `NetMulticast` 关键字添加到 `UFUNCTION()` 声明。
-
 
 > [!tip] 区分调用和执行
 > 假设我们声明了一个名为 `FunctionName()` 的 RPC 函数，用户并不需要实现这个函数，而是要额外的实现一个名为 `FunctionName_Implementation()` 函数处理真正要执行逻辑。而这个 `FunctionName()` 函数会由 UHT 来为我们实现来处理 RPC 调用的逻辑。
 > 
 > 我们将用户调用 `FunctionName()` 函数行为称为用户发起了这个 RPC 函数的**调用**，
 > 而将真正执行到 `FunctionName_Implementation()` 函数时称为这个 RPC 函数被**执行**。
+
+要将一个函数声明为 RPC，您只需将 `Server`、`Client` 或 `NetMulticast` 关键字添加到 `UFUNCTION()` 声明。
 
 #### `UFUNCTION(Server)`
 用于声明**由客户端发起调用，在服务器执行**的 RPC 函数。  
@@ -906,6 +867,7 @@ flowchart LR
 1. 在客户端调用时仅本地执行
 2. 在服务器调用时，对于参与同步的 AActor 即会本地执行也会远程执行，对于不参与同步的 AActor 仅本地执行
 
+#### 例子
 ```c++
 // 这是一个 ServerRPC，被标记为unreliable，并且 WithValidation（需要！）。
 UFUNCTION(Server, unreliable, WithValidation)
@@ -945,11 +907,61 @@ UFUNCTION(NetMulticast, unreliable)
 void MulticastRPCFunction();
 ```
 
+## 要求和注意事项
+
+**要使 RPC 完全发挥作用，需要满足一些要求：**
+1. 它们必须在 Actor 或复制的子对象 SubObject（如 Component）上调用  
+2. Actor（和 Component）必须被复制
+3. 如果 **RPC 由服务器调用并在客户端执行（`UFUNCTION (Client)`）**，则只有**拥有该 Actor** 的客户端才会执行该函数
+4. 如果 **RPC 由客户端调用并在服务器上执行（`UFUNCTION (Server)`）**，则客户端必须拥有 RPC 调用的 Actor
+5.  **多播 RPC （`UFUNCTION (NetMulticast`）是个例外**：
+    * 如果它们被服务器调用，服务器将在本地执行它们，并在当前连接的所有客户端上执行它们，这些客户端都有一个相关的 Actor 实例
+    * 如果从客户端调用，多播只能在本地执行，而不会在服务器或其他客户端上执行
+    *  目前，我们有一个针对多播事件的简单**节流机制**（throttling mechanism）：
+        *  在特定的 Actor 的网络更新周期内，多播函数的复制次数不会超过两次。  
+
+
+### 从服务器调用的 RPC
+下面的表格**根据执行调用的 actor 的所有权，总结了特定类型的 RPC 将在哪里执行。**
+
+|Actor Ownership <br> 所有权 |未复 制| `NetMulticast` | `Server` | `Client` |
+|---|---|---|---|---|
+|被客户端拥有|服务器上运行|服务器+所有客户端|服务器|在 actor 的所属客户端上运行|
+|被服务器拥有|服务器|服务器+所有客户端|服务器 |服务器|
+|未被拥有|服务器|服务器+所有客户端|服务器|服务器|
+>未标记 Replicated 则都在服务器上运行
+### 从客户端调用的 RPC
+从客户端调用的 RPC
+
+|Actor Ownership <br> 所有权|未复制| `NetMulticast` | `Server` | `Client` |
+|---|---|---|---|---|
+|被执行调用的客户端拥有|在执行调用的客户端上运行|执行调用的客户端|服务器上|执行调用的客户端|
+|被不同客户拥有|执行调用的客户端|执行调用的客户端|丢弃|执行调用的客户端|
+|被服务器拥有|执行调用的客户端|执行调用的客户端|丢弃|执行调用的客户端|
+|未被拥有|执行调用的客户端|执行调用的客户端|丢弃|执行调用的客户端|
+
+## 可靠性 Reliable
+
+- 默认情况下，RPC 不可靠，通过指定  `Reliable` 标记为可靠
+- 不要将每个 RPC 都标记为 `Reliable`！您**只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。**
+- 在 Tick 上调用 `reliable` RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
+
+> [!NOTE] 网络通信的可靠性与不可靠性
+> 在网络通信中，可靠和不可靠是指数据传输的特性。
+>
+可靠传输意味着数据在传输过程中能够保证完整性和顺序性。这意味着发送的数据将按照发送的顺序到达接收端，并且不会丢失或损坏。如果发生数据丢失或损坏，可靠传输机制会自动进行重传，以确保数据的完整性和正确性。
+>
+不可靠传输则不提供数据的完整性和顺序性保证。在不可靠传输中，数据可能会丢失、损坏或乱序到达接收端，而且没有自动重传机制。
+>
+在网络通信中，可靠传输通常用于需要确保数据完整性和顺序性的场景，例如文件传输、实时视频流等。而不可靠传输通常用于对实时性要求较高，但对数据完整性和顺序性要求较低的场景，例如实时游戏中的网络同步。
+
 ## Validation 验证 (C++)
 
-**验证的原理**：如果 RPC 的验证函数检测到任何参数有问题，它就会通知系统**断开**发起 RPC 调用的客户端 / 服务器。
+检测错误数据/输入的一个手段
 
-现在，每个 ServerRPCFunction 都需要验证。`UFUNCTION` 宏中的 `WithValidation` 关键字就是用于此目的。
+**验证的原理**：如果 RPC 的验证函数检测到任何参数有问题，就会通知系统**断开**发起 RPC 调用的客户端 / 服务器。
+
+现在，每个 `ServerRPCFunction` 都需要验证。`UFUNCTION` 宏中的 `WithValidation` 关键字就是用于此目的。
 
 ```c++
 UFUNCTION(Server, unreliable, WithValidation)
