@@ -673,7 +673,7 @@ Replication 是**服务器将信息 / 数据传递给客户端**的行为。
 
 ---
 
-**第一个可以复制属性的类是 AActor 类**。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。
+**第一个可以复制属性的类是 AActor 类**。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。[虚幻引擎中的复制子对象 | 虚幻引擎5.2文档 (unrealengine.com)](https://docs.unrealengine.com/5.2/zh-CN/replicated-subobjects-in-unreal-engine/)
 UActorComponent 就是一个很好的例子，它支持通过 AActor 复制 UObjects，而不需要我们做太多额外的工作。
 
 **前面提到的所有类都在某种程度上继承自 AActor，从而使它们能够在需要时复制属性。不过，并非所有类的复制方式都相同。**
@@ -726,7 +726,7 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(ATestPlayerCharacter, Health);
 }
 ```
-## 条件属性复制
+### 条件属性复制
 默认情况下，每个复制属性都有一个内置条件：如果不发生变化就不会进行复制。
 
 为了加强对属性复制的控制，您可以使用一个 **`DOREPLIFETIME_CONDITION` 宏**来添加附加条件。
@@ -758,7 +758,7 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 
 ---
 
-如果这样的控制力还不够，那该怎么办？关于这个话题，还有一件事需要讨论。有一个名叫 `DOREPLIFETIME_ACTIVE_OVERRIDE` 的宏可以让您进行全面控制，利用您想要的任何定制条件来决定何时复制/不复制某个属性。**需要注意的是，这种控制需针对每个 actor（而不是每条连接）逐一进行**。换句话说，如果在定制条件中使用一个可根据连接而发生变化的状态，会存在一定的安全风险。具体示例如下。
+**如果这样的控制力还不够，那该怎么办？** 关于这个话题，还有一件事需要讨论。有一个名叫 `DOREPLIFETIME_ACTIVE_OVERRIDE` 的宏可以让您进行全面控制，利用您想要的任何定制条件来决定何时复制/不复制某个属性。**需要注意的是，这种控制需针对每个 actor（而不是每条连接）逐一进行**。换句话说，如果在定制条件中使用一个可根据连接而发生变化的状态，会存在一定的安全风险。具体示例如下。
 ```c++
 void AActor::PreReplication( IRepChangedPropertyTracker & ChangedPropertyTracker )
 {
@@ -770,11 +770,47 @@ void AActor::PreReplication( IRepChangedPropertyTracker & ChangedPropertyTracker
 为何不一直使用这个宏？主要有两个原因：
 - 如果定制条件的值变化太大，这种做法会降低执行速度。
 - 您不能使用根据连接而变化的条件（此时不检查 RemoteRole）。
+### 复制对象引用
+一般而言，对象引用会在 **虚幻引擎（UE）** 多人游戏架构中自动处理。这就是说，如果您有一个已经复制的 `UObject` 属性，则对该对象的引用将作为服务器分配的专门 ID 通过网络进行发送。这个专门 id 是一个 `FNetworkGUID`。服务器将负责分配此 id，然后向所有已连接的客户端告知这一分配。
 
-属性复制条件可以很好的实现控制力与性能之间的平衡。它们可以使引擎以更快的速度针对多条连接检查并发送属性，同时让程序员对复制属性的方式和时机进行精细控制。
+要复制对象引用，您只需将一个 UObject 属性标记为已复制，就像下面这样：
+
+```c++
+class ENGINE_API AActor : public UObject
+{
+    UPROPERTY( replicated )
+    AActor * Owner;
+};
+```
+
+这时，"Owner" 属性将作为其引用的 actor 的一个复制引用。
+
+对于通过网络合法引用的对象，必须对其提供支持以保证网络连接。要进行检查，您可以调用 `UObject::IsSupportedForNetworking()`。这通常被认为是一个底层函数，所以**一般不需要在游戏代码中对其进行检查**。
+
+您通常可以按照以下原则来确定是否可以通过网络引用一个对象：
+
+- 任何复制的 actor 都可以复制为一个引用
+- 任何未复制的 actor 都必须有可靠命名（直接从数据包加载）
+- 任何复制的组件都可以复制为一个引用
+- 任何未复制的组件都必须有可靠命名。
+- 其他所有 UObject（非 actor 或组件）必须由加载的数据包直接提供
+
+#### 拥有可靠命名的对象
+
+**拥有可靠命名的对象指的是存在于服务器和客户端上的同名对象。**
+
+如果 Actor 是从数据包直接加载（并非在游戏期间生成），它们就被认为是拥有可靠命名。
+
+满足以下条件的组件即拥有可靠命名：
+
+- 从数据包直接加载
+- 通过简单构建脚本添加
+- 采用手动标记（通过 `UActorComponent::SetNetAddressable` 进行）
+    - 只有当您知道要手动命名组件以便其在服务器和客户端上具有相同名称时，才应当使用这种方法（最好的例子就是 `AActor` C++ 构造函数中添加的组件）
+
 ### RepNotify—ReplicatedUsing
 
-复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
+C++ 复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
 
 在蓝图中，这被称为 `RepNotify`（代表通知）。**它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。**
 ![[Pasted image 20231001233317.png]]
