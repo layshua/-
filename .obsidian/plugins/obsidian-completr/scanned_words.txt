@@ -86344,6 +86344,7 @@ ProjectName
 Presence
 Permissions
 Provides
+Persisting
 ContextMenuManager
 ClashVerge
 Clash

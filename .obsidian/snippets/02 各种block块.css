@@ -54,5 +54,5 @@ body.unified-cm-highlighting[class*="theme-"] .cm-s-obsidian .cm-math {
 }
 /* 标题栏和代码块对齐 */
 .markdown-source-view.mod-cm6 .cm-content>* {
-    margin: auto;
+    margin: auto !important;
 }
