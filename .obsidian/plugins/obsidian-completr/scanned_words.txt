@@ -13822,6 +13822,7 @@ completes
 canceled
 categorize
 confirmed
+ceremonies
 github
 grey
 green
@@ -75867,6 +75868,7 @@ WPHDlScWqz
 Wbtf
 Wizardcell
 Waiting
+Waterfall
 Start
 StartAllBack
 Shadowrocket
@@ -81516,6 +81518,10 @@ SendSessionInviteToFriends
 Scheduling
 Scrum
 SendBunch
+Scum
+Sprir
+Spritnt
+Sprit
 Programs
 POP
 PC
@@ -113454,6 +113460,7 @@ bRepPhysics
 backlog
 buy
 browse
+burndown
 fe
 front
 fill
@@ -167154,6 +167161,7 @@ BLk
 Beacons
 Blogpost
 Bunch
+Backlog
 Fraktur
 Frame
 Foo
@@ -189217,6 +189225,7 @@ DestroyActor
 Dropped
 DestroySession
 DelegateHandle
+Daily
 LNK
 Log
 Linux
