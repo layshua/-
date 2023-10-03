@@ -110,10 +110,6 @@ mixamo中下载一些动画
 
 翻译一些蓝图常说的话，让角色动起来
 
-## Rider快捷键
-
-[【Rider for Unreal Engine】常用功能总结_Tanzq-blog的博客-CSDN博客](https://blog.csdn.net/qq_46276931/article/details/120380827)
-
 # C++动画蓝图
 
 ![[0743515fbfe4121ca99c446bad6ff974_MD5.png]]
