@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3f9ad01e9b76e3cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/06 网络/会话管理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md"
+                "file": "引擎Unreal/06 网络/会话管理.md"
               }
             }
           },
@@ -73,7 +87,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md"
+                "file": "引擎Unreal/06 网络/会话管理.md"
               }
             }
           }
@@ -123,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
+                "file": "引擎Unreal/06 网络/会话管理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
+                "file": "引擎Unreal/06 网络/会话管理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -200,18 +214,20 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "42edcd0dde9ce2f4",
+  "active": "3f9ad01e9b76e3cf",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20231003212353.png",
     "引擎Unreal/06 网络/局域网.md",
-    "zip/images/Pasted image 20231003205642.png",
     "引擎Unreal/06 网络/官方文档/网络概述.md",
+    "引擎Unreal/06 网络/UE网络精粹.md",
+    "zip/images/Pasted image 20231003211150.png",
+    "zip/images/Pasted image 20231003205642.png",
     "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/设置专用服务器.md",
     "zip/images/Pasted image 20231003204246.png",
     "引擎Unreal/06 网络/未命名",
-    "引擎Unreal/06 网络/UE网络精粹.md",
     "引擎Unreal/06 网络/会话管理.md",
     "zip/images/Pasted image 20231003203817.png",
     "zip/images/Pasted image 20231003202346.png",
@@ -229,7 +245,6 @@
     "zip/images/Pasted image 20231002235747.png",
     "zip/images/Pasted image 20231002235517.png",
     "zip/images/Pasted image 20231002235046.png",
-    "zip/images/Pasted image 20231002234459.png",
     "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
     "zip/留学/敏捷开发",
     "zip/留学/租房注意事项.md",

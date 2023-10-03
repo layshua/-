@@ -161,7 +161,7 @@ void ATestGameMode::PostLogin(APlayerController* NewPlayer)
 其中大多数命名都很直白，例如`Default Player Name`，它使您能够为每个连接的玩家提供一个可以通过 `APlayerState` 类访问的默认玩家名称。
 还有 `bDelayedStart`，这将使游戏无法开始，即使 `Ready To Start Match` 的默认实现满足所有其他条件。 
 
-更重要的变量之一是 `Options String`。这些是选项，用“`?`”分隔，您可以通过`OpenLevel`函数或当您将`ServerTravel`作为控制台命令调用时传递这些选项。 
+**更重要的变量之一是 `Options String`。这些是选项，用“`?`”分隔，您可以通过`OpenLevel`函数或当您将`ServerTravel`作为控制台命令调用时传递这些选项。** 
 
 您可以使用 `Parse Option` 来提取传递的选项，例如`MaxNumPlayers`：  
 ![[Pasted image 20231001163900.png|400]]
@@ -1259,12 +1259,24 @@ UE 中主要有两种关卡切换方式：**无缝** 和 **非无缝方式**
 - 所有连接的客户端都会跟随
 - 这就是多人游戏从一个 Map 切换到另一个 Map 的方式，服务器负责调用此函数
 - 服务器将为所有连接的客户端玩家调用 `APlayerController::ClientTravel`
-
+```c++
+UWorld* World = GetWorld();
+if(World)
+{
+    World->ServerTravel("/Game/Maps/TestLevel ? listen") //? listen可选，会将服务器设为监听服务器
+}
+```
 ### APlayerController::ClientTravel
 
 - 如果由客户端调用，将切换到新服务器
 - 如果由服务器调用，将指示特定客户端切换到新 Map（但保持与当前服务器的连接）
-
+```c++
+APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
+if(PlayerController)
+{
+    PlayerController->ClientTravel(FString& Address, ETravelType::TRACEL_Absolute);
+}
+```
 ## 启用无缝切换​
 
 无缝切换需要设置一个**过渡 Map（Transition Map）**。这是通过 `UGameMapsSettings:: TransitionMap` 属性进行配置的。  
