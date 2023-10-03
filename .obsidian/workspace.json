@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/06 网络/笔记.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -39,15 +39,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/2 在线子系统和服务.md"
+                "file": "引擎Unreal/06 网络/3 会话管理.md"
               }
             }
           },
@@ -100,7 +99,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/2 在线子系统和服务.md"
+                "file": "引擎Unreal/06 网络/3 会话管理.md"
               }
             }
           }
@@ -150,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/2 在线子系统和服务.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/2 在线子系统和服务.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,15 +226,16 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "74eeff8ad61ed6ea",
+  "active": "42edcd0dde9ce2f4",
   "lastOpenFiles": [
-    "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
+    "引擎Unreal/06 网络/笔记.md",
+    "zip/images/Pasted image 20231003223720.png",
     "引擎Unreal/06 网络/3 会话管理.md",
+    "引擎Unreal/06 网络/1 UE网络精粹.md",
+    "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/4 局域网.md",
-    "引擎Unreal/06 网络/1 UE网络精粹.md",
-    "引擎Unreal/06 网络/笔记.md",
     "zip/images/Pasted image 20231003215202.png",
     "Tools/Git/UE4源码管理.md",
     "引擎Unreal/01 指南/1 UE指南.md",
@@ -261,13 +261,11 @@
     "引擎Unreal/03 Gameplay/宝藏.md",
     "Tools/Obsidian/发布方案.md",
     "zip/images/Pasted image 20231003120609.jpg",
-    "zip/images/Pasted image 20231002235957.png",
     "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
     "zip/留学/敏捷开发",
     "zip/留学/租房注意事项.md",
     "zip/留学/清单.md",
     "图形学/1 图形系统/03 光照模型.md",
-    "图形学/1 图形系统/01 渲染管线.md",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",
