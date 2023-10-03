@@ -5,12 +5,16 @@
       "path": "引擎Unreal/06 网络/3 会话管理.md"
     },
     {
+      "basename": "笔记",
+      "path": "引擎Unreal/06 网络/笔记.md"
+    },
+    {
       "basename": "2 在线子系统和服务",
       "path": "引擎Unreal/06 网络/2 在线子系统和服务.md"
     },
     {
-      "basename": "笔记",
-      "path": "引擎Unreal/06 网络/笔记.md"
+      "basename": "1 UE指南",
+      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "1 UE网络精粹",
@@ -27,10 +31,6 @@
     {
       "basename": "UE4源码管理",
       "path": "Tools/Git/UE4源码管理.md"
-    },
-    {
-      "basename": "1 UE指南",
-      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "网络概述",
