@@ -790,17 +790,24 @@ void ATestCharacter::OnRep_Health()
 # 5 RPC 远程过程调用
 Remote Procedure Calls
 
-**RPC 也是一种复制方式，它们用于调用另一个实例中的某些功能。** 电视遥控器对电视机也是如此。
+RPC 是在本地调用但在其他机器（不同于执行调用的机器）上远程执行的**函数**。
+>类似电视遥控器对电视机的控制。
 
-**虚幻引擎使用它们将事件从客户端发送到服务器、服务器发送到客户端或服务器发送到特定组。**
+RPC 函数非常有用，可允许客户端或服务器通过网络连接**相互**发送消息。
 ```mermaid
 flowchart LR
 	客户端-->服务器
 	服务器-->客户端
-	服务器-->group
 ```
 
-这些 RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
+**主要作用是执行那些不可靠的暂时性/修饰性游戏事件。** 这其中包括播放声音、生成粒子或产生其他**临时效果**之类的事件，它们**对于 Actor 的正常运作并不重要**。在此之前，这些类型的事件往往要通过 Actor 属性进行复制。
+
+在使用 RPC 时，还必须要了解 [[#6 Ownership 连接所有权]]，因为它决定了大多数 RPC 将在哪里运行。
+![[UE网络精粹#^uh7l5h]]
+
+> [!warning] 
+>  RPC **不能有返回值**！要返回一些信息，您需要在另一个方向上使用第二个 RPC。
+
 
 **RPC 仅在特定规则下工作**：
 *   **Run on Server** ：ServerRPC 在服务器上运行 - 在该 Actor 的**服务器实例**上执行
@@ -839,7 +846,8 @@ flowchart LR
 |**Server-owned Actor 服务器拥有的Actor**|Runs on invoking Client|Runs on invoking Client|Dropped |Runs on Invoking Client |
 |**Unowned Actor**|Runs on invoking Client |Runs on invoking Client |Dropped |Runs on Invoking Client |
 
-## 蓝图中的 RPC
+## 使用RPC
+### 蓝图
 
 ![[9237d6adf6779d0342e27319939ac35b_MD5.png]]
 
@@ -852,9 +860,51 @@ flowchart LR
 > - 不要将每个 RPC 都标记为 `Reliable`！您**只应在偶尔调用一次且需要它们到达目的地的 RPC 上这样做。**
 > - 在 Tick 上调用 `reliable` RPC 可能会产生副作用，如填满可靠缓冲区，从而导致其他属性和 RPC 不再被处理。
 
-## C++ 中的 RPC
+### C++ （三种 RPC 函数）
+[[UE4 Network] RPC 之哪里调用和哪里执行 - 知乎 (zhihu.com)]( https://zhuanlan.zhihu.com/p/245358090 )
 
-在 C++ 中创建 RPC 相对来说比较简单，我们只需要在 UFUNCTION () 宏中添加指定符即可。
+#### 相关概念的简介
+1. 由 `AActor->LocalRole == ROLE_Authority` 检测是否为本地权威角色
+2. 由 `AActor::GetNetConnection() != NULL` 检测 AActor 是否有所属链接
+3. 由 `AActor->RemoteRole != ROLE_None` 检测 AActor 是否为参与属性同步
+
+要将一个函数声明为 RPC，您只需将 `Server`、`Client` 或 `NetMulticast` 关键字添加到 `UFUNCTION()` 声明。
+
+
+> [!tip] 区分调用和执行
+> 假设我们声明了一个名为 `FunctionName()` 的 RPC 函数，用户并不需要实现这个函数，而是要额外的实现一个名为 `FunctionName_Implementation()` 函数处理真正要执行逻辑。而这个 `FunctionName()` 函数会由 UHT 来为我们实现来处理 RPC 调用的逻辑。
+> 
+> 我们将用户调用 `FunctionName()` 函数行为称为用户发起了这个 RPC 函数的**调用**，
+> 而将真正执行到 `FunctionName_Implementation()` 函数时称为这个 RPC 函数被**执行**。
+
+#### `UFUNCTION(Server)`
+用于声明**由客户端发起调用，在服务器执行**的 RPC 函数。  
+
+无论是否可靠，构造的 RPC Bunch 都会由 UChannel::SendBunch() 立即发送。
+
+**执行空间：**
+1. 在服务器调用时仅本地执行
+2. 在客户端调用时，对于本地权威角色的 AActor ，若其参与属性同步且有所属链接则远程执行，否则仅本地执行
+3. 在客户端调用时，对于非本地权威角色的 AActor ，若其参与属性同步且有所属链接则远程执行，否则终止执行
+
+#### `UFUNCTION(Client)`
+用于声明**由服务器发起调用，在客户端执行**的 RPC 函数。  
+
+无论是否可靠，构造的 RPC Bunch 都会由 UChannel::SendBunch() 立即发送。
+
+**执行空间：**
+1. 在客户端调用时则仅本地执行
+2. 在服务器调用时，对于本地权威角色的 AActor ，若其参与属性同步且有所属链接则远程执行，否则仅本地执行
+3. 在服务器调用时，对于非本地权威角色的 AActor ，若其参与属性同步且有所属链接则远程执行，否则终止执行
+
+
+#### `UFUNCTION(NetMulticast)`
+用于声明**由服务器发起调用，并广播到所有客户端执行**的 RPC 函数。  
+若为可靠的则 RPC Bunch 会立即发送，若为不可靠的则 RPC Bunch 会随着下次此 RPC 函数所在对象向此链接进行属性同步时，才会一起发送。  
+
+**执行空间：**
+1. 在客户端调用时仅本地执行
+2. 在服务器调用时，对于参与同步的 AActor 即会本地执行也会远程执行，对于不参与同步的 AActor 仅本地执行
 
 ```c++
 // 这是一个 ServerRPC，被标记为unreliable，并且 WithValidation（需要！）。
@@ -865,7 +915,9 @@ void Server_Interact();
 CPP 文件将实现一个不同的函数。该文件需要以 "`_Implementation`" 作为后缀。
 
 ```c++
-// 这是实际的实现，而不是 Server_Interact。但在调用时，我们使用 "Server_Interact"。
+// 这是实际的实现，而不是 Server_Interact（由 UHT 自动实现）。
+// 但在调用时，我们使用 Server_Interact。
+// 调用Server_Interact后，会执行该函数
 void ATestPlayerCharacter::Server_Interact_Implementation()
 {
     // Interact with a door or so!
@@ -923,7 +975,7 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 > **客户端到服务器** RPC 要求使用 `_Validate`函数，以确保服务器 RPC 功能的安全性，并尽可能方便用户添加代码，根据所有已知的输入约束条件检查每个参数是否有效。
 > 
 
-# 6 Ownership 所有权
+# 6 Ownership 连接所有权
 
 所有权是非常重要的一点。你已经看到了一个包含 "Client-owned Actor "等条目的表格 [[#从服务器调用的 RPC]]。
 
@@ -965,7 +1017,7 @@ Pawn/Character。它们被 PlayerController possess，在此期间，PlayerContr
 > - Actor 复制（replication）和 Connection 相关性（relevancy）
 > - 涉及所有者时的 Actor 属性复制条件
 
-连接所有权对于 RPC 这样的机制至关重要，因为当您在 actor 上调用 RPC 函数时，**除非 RPC 被标记为多播，否则就需要知道要在哪个客户端上执行该 RPC。它可以查找关联连接来确定将 RPC 发送到哪条连接。**
+连接所有权对于 RPC 这样的机制至关重要，因为当您在 actor 上调用 RPC 函数时，**除非 RPC 被标记为多播，否则就需要知道要在哪个客户端上执行该 RPC。它可以查找关联连接来确定将 RPC 发送到哪条连接。** ^uh7l5h
 
 连接所有权会在 actor 复制期间使用，用于确定各个 actor 上有哪些连接获得了更新。对于那些将 `bOnlyRelevantToOwner` 设置为 `true` 的 actor，只有拥有此 actor 的连接才会接收这个 actor 的属性更新。默认情况下，所有 PlayerController 都设置了此标志，正因如此，客户端才只会收到它们拥有的 PlayerController 的更新。这样做是出于多种原因，其中最主要的是防止玩家作弊和提高效率。
 
@@ -1046,7 +1098,7 @@ NetPriority = 1.f;
 - 复制模式
 
 我们首先要确定的是谁有权管理特定的 Actor。
-要确定当前运行的引擎实例是否具有权限，请检查 Role 属性（role property）是否为 `ROLE_Authority`。  
+要确定当前运行的引擎实例是否具有权限，请检查 Role 属性（role property）是否为 `ROLE_Authority`（权威角色）。  
 如果是，那么这个引擎实例就负责掌管这个 Actor（**决定其是否被复制**）。
 
 > [!info] 这与所有权（Ownership）不同！
