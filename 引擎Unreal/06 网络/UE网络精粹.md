@@ -11,8 +11,11 @@ banner_icon: 🗄
 ---
 
 # 1 虚幻中的网络
-虚幻引擎使用标准的**客户端 - 服务器 （Client-Server）架构**。这意味着服务器是**权威（Authoritative）** 的，所有数据必须首先从客户端发送到服务器。之后，服务器验证数据并根据您的代码做出反应。
+![[Pasted image 20231003202346.png]]
+虚幻引擎使用标准的**客户端 - 服务器 （Client-Server）架构**。服务器是**权威（Authoritative）** 的，所有数据必须首先从客户端发送到服务器。之后，服务器验证数据并根据您的代码做出反应。
+>服务器是权威的，意味着服务器运行的游戏版本被认为是正确的版本
 
+运行单人游戏时，UE 仍然使用 CS 架构，只不过客户端和服务器是同一台机器。
 ## 一个小例子​
 
 当您作为客户端在多人游戏中移动角色时，您不会自己移动角色，而是告诉服务器您想要移动它。然后，服务器会为其他人（包括您）更新角色的变换。
@@ -23,12 +26,7 @@ banner_icon: 🗄
 
 ##  另一个例子​
 
-When sending a chat message to another client you are sending it to the server first, which then passes it to the client you wanted to reach. This could also be a team, guild, group, etc.  
 当向另一个客户端（个人、公会、队伍等）发送聊天消息时，您首先将其发送到服务器，然后服务器将其传递给您想要联系的客户端。
-
-Important 重要的
-
-**Never** trust the client! Trusting the client here means you don't test the client's actions before executing them.  
 
 > [!danger] 
 > 永远不要相信客户端！信任客户端意味着您在执行客户端的操作之前不会测试它们。
@@ -642,7 +640,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 专用服务器可在 Windows 和 Linux 下编译，也可在云服务器上运行，玩家可通过固定 IP 地址连接到云服务器。
 
-专用服务器没有视觉（visual）部分，因此不需要 UI，也没有 PlayerController 。它们在游戏中也没有 Character 或类似的代表。  
+**专用服务器没有视觉（visual）部分，因此不需要 UI，也没有 PlayerController 。它们在游戏中也没有 Character 或类似的代表。**  
  
 ## Listen Server 监听服务器
 
@@ -653,7 +651,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 **由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
 不过，使用 OnlineSubsystem（详情[[会话管理#2 联机子系统概述]]）可以解决更改 IP 的问题。
-# 4 Replication 属性复制 
+# 4 Replication 复制 
 ##  简介
 
 Replication 是**服务器将信息 / 数据传递给客户端**的行为。
