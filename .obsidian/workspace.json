@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/06 网络/UE网络精粹.md",
+                "file": "引擎Unreal/06 网络/笔记.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,25 @@
             }
           },
           {
-            "id": "3f9ad01e9b76e3cf",
+            "id": "74eeff8ad61ed6ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "引擎Unreal/06 网络/会话管理.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "43e2384ea2f0ebd8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/06 网络/UE网络精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -214,12 +227,18 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "3f9ad01e9b76e3cf",
+  "active": "74eeff8ad61ed6ea",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20231003212353.png",
     "引擎Unreal/06 网络/局域网.md",
-    "引擎Unreal/06 网络/官方文档/网络概述.md",
     "引擎Unreal/06 网络/UE网络精粹.md",
+    "引擎Unreal/06 网络/会话管理.md",
+    "引擎Unreal/06 网络/笔记.md",
+    "zip/images/Pasted image 20231003215202.png",
+    "Tools/Git/UE4源码管理.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "zip/images/Pasted image 20231003213722.png",
+    "zip/images/Pasted image 20231003212353.png",
+    "引擎Unreal/06 网络/官方文档/网络概述.md",
     "zip/images/Pasted image 20231003211150.png",
     "zip/images/Pasted image 20231003205642.png",
     "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
@@ -228,7 +247,6 @@
     "引擎Unreal/06 网络/官方文档/设置专用服务器.md",
     "zip/images/Pasted image 20231003204246.png",
     "引擎Unreal/06 网络/未命名",
-    "引擎Unreal/06 网络/会话管理.md",
     "zip/images/Pasted image 20231003203817.png",
     "zip/images/Pasted image 20231003202346.png",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
@@ -242,9 +260,6 @@
     "Tools/Obsidian/发布方案.md",
     "zip/images/Pasted image 20231003120609.jpg",
     "zip/images/Pasted image 20231002235957.png",
-    "zip/images/Pasted image 20231002235747.png",
-    "zip/images/Pasted image 20231002235517.png",
-    "zip/images/Pasted image 20231002235046.png",
     "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
     "zip/留学/敏捷开发",
     "zip/留学/租房注意事项.md",
@@ -252,9 +267,6 @@
     "图形学/1 图形系统/03 光照模型.md",
     "图形学/1 图形系统/01 渲染管线.md",
     "图形学/1 图形系统/02 光栅化.md",
-    "图形学/2 图形API/OpenGL/LearnOpenGL.md",
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "图形学/1 图形系统/07 混合和剔除.md",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",

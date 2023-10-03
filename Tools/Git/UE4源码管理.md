@@ -71,6 +71,7 @@ Intermediate
 Saved
 .vscode
 .vs
+.idea
 *.VC.db
 *.opensdf
 *.opendb
