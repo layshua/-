@@ -3901,6 +3901,7 @@ oqILDIAZ
 oJlruWSiTo
 owns
 orders
+originally
 OneDrive
 Obsidian
 Office
@@ -8850,6 +8851,10 @@ OnMatchmakingComplete
 OnCancelMatchmakingCompletedelegate
 OnFindFriendSessionComplete
 OnSessionInviteAccepted
+OnlineSubsystems
+OnlineSubsystemModule
+OnlineSubsysbtemUtils
+OnlineSessionSettings
 codeup
 clash
 ctrl
@@ -13815,6 +13820,8 @@ connectivity
 cable
 completes
 canceled
+categorize
+confirmed
 github
 grey
 green
@@ -22263,6 +22270,7 @@ throttling
 toward
 timeout
 topmost
+tie
 markdown
 matter
 mod
@@ -91414,6 +91422,8 @@ Cooperative
 CreateSession
 CancelMatchmaking
 Conversation
+CppSessions
+CSSessionSubsystem
 ImTip
 IMAP
 ID
@@ -105133,6 +105143,9 @@ playlists
 purchase
 prioritising
 purchases
+projectName
+prioritizing
+purchased
 nodesCatch
 nobr
 navy
@@ -113435,6 +113448,8 @@ bbfbETNAvU
 bIMHwfwRCiH
 bRepPhysics
 backlog
+buy
+browse
 fe
 front
 fill
@@ -137325,6 +137340,7 @@ searching
 stories
 substitutions
 scrum
+spending
 local
 list
 left
@@ -154356,6 +154372,9 @@ registered
 regularly
 replacements
 reminders
+recurring
+rationalize
+reminded
 XXXXXX
 XXX
 XML
@@ -172157,6 +172176,7 @@ FindSessions
 FindSession
 Friend
 FindFriendSession
+FOnlineSessionSearchResult
 Element
 Entity
 Enity
@@ -189191,6 +189211,7 @@ DjmBra
 DestroyActor
 Dropped
 DestroySession
+DelegateHandle
 LNK
 Log
 Linux
@@ -193800,6 +193821,7 @@ LPWp
 Listen
 ListenServer
 Leaderboards
+LastSessionSettings
 Getx
 GetX
 GetName
