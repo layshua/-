@@ -118,7 +118,7 @@ bool ATestGameMode::ReadyToStartMatch_Implementation()
 
 ---
 **但也有一些事件可以用来对整个比赛中发生的某些事情做出反应。**
-我经常使用的一个很好的例子是事件 `OnPostLogin`。每次新玩家加入游戏时都会调用此方法。该事件会向您传递一个有效的 PlayerController 引用，该 Controller 由连接玩家的 UConnection 拥有（稍后也会详细介绍）。
+我经常使用的一个很好的例子是事件 `OnPostLogin`。每次新玩家加入游戏时都会调用此方法。该事件会向您传递一个有效的 PlayerController 引用，该 Controller 由连接玩家的 UConnection 拥有 （详情 [[#Actors 和他们的拥有关系]]）。
 
 - @ 蓝图
 ![[Pasted image 20231001160607.png|300]]
@@ -1103,33 +1103,51 @@ UE 中主要有两种关卡切换方式：**无缝** 和 **非无缝方式**
 - 始终导致<mark style="background: #FF5582A6;">非无缝</mark>切换
 - 将导致服务器在切换到目的 Map 之前与当前客户端断开连接
 - 客户端将与当前服务器断开连接。
-- 专用服务器（Dedicated Serve）无法访问其他服务器，因此 Map 必须是本地的（不能是 URL）
+- 专用服务器（Dedicated Serve）无法访问其他服务器，因此 Map 必须存储再本地的（不能是 URL）
 
 ### UWorld::ServerTravel
 
 -  **仅适用于服务器**
-- 将使服务器跳转到新的 World/Level 
+- 会将服务器跳转到新的 World/Level 
 - 所有连接的客户端都会跟随
-- 这就是多人游戏从一个 Map Travel 到另一个 Map 的方式，服务器负责调用此函数
+- 这就是多人游戏从一个 Map 切换到另一个 Map 的方式，服务器负责调用此函数
 - 服务器将为所有连接的客户端玩家调用 `APlayerController::ClientTravel`
 
 ### APlayerController::ClientTravel
 
-- 如果由客户端调用，将 travel 到新服务器
-- 如果由服务器调用，将指示特定客户端 travel 到新 Map（但保持与当前服务器的连接）
+- 如果由客户端调用，将切换到新服务器
+- 如果由服务器调用，将指示特定客户端切换到新 Map（但保持与当前服务器的连接）
 
-## 实现无缝切换​
+## 启用无缝切换​
 
-无缝切换配有**过渡 Map**。这是通过 `UGameMapsSettings:: TransitionMap` 属性进行配置的。  
-
-默认情况下该属性为空。如果您的游戏将此属性留空，则会为其创建一个空地图。
+无缝切换需要设置一个**过渡 Map（Transition Map）**。这是通过 `UGameMapsSettings:: TransitionMap` 属性进行配置的。  
+该属性默认为空，如果您的游戏保持默认状态，则会为过度地图创建一个空地图。
 
 > [!NOTE] 
->  - 过渡 Map 存在的原因是必须始终加载一个 World（其中包含 Map），因此我们无法在加载新 Map 之前释放旧 Map。 
-> - 由于 Map 可能非常大，因此将旧 Map 和新 Map 同时存储在内存中是个坏主意，因此这就是 Transition Map 的用武之地。
+>  - 过渡 Map 存在的原因是必须始终加载一个 World（用于存放 Map），因此我们无法在加载新 Map 之前释放旧 Map。 
+> - 由于 Map 可能非常大，因此将旧 Map 和新 Map 同时存储在内存中是个坏主意，因此这就是 Transition Map 的用武之地。过渡地图非常小，不会造成太大的资源消耗
 
-设置好过渡地图后，将 `AGameMode::bUseSeamlessTravel` 设置为 true，从那里开始，无缝切换应该可以工作了！
+设置好过渡地图后，将 `AGameMode::bUseSeamlessTravel` 设置为 true，这样就可以实现无缝切换了。
+## 无缝切换流程
 
+下面是执行无缝切换时的一般流程：
+
+1. 标记出要在过渡 Level 中的持久化actor（Persisting Actors）（更多信息请见下面）
+2. 转移到过渡 Level 
+3. 标记出要在最终 Level 中持久化actor（更多信息请见下面）
+4. 转移到最终 Level 
+
+## 无缝切换中的持久化Actor
+
+在使用无缝切换时，可以将（持久化）actor 从当前关卡带到新的关卡。这适用于一些特定的 actor，如道具栏物品和玩家等。
+
+**默认情况下，这些 actor 将自动存留：**
+- `GameMode` actor（仅限服务器）
+    - 通过 `AGameModeBase::GetSeamlessTravelActorList` 额外添加的任何 actor
+- 拥有一个有效的 `PlayerState` （仅限服务器）的所有`Controller`
+- 所有 `PlayerController` （仅限服务器）
+- 所有本地 `PlayerController` （服务器和客户端）
+    - 通过 `APlayerController::GetSeamlessTravelActorList` （在本地`PlayerControllers`上调用）额外添加的任何 actor
 # 10 如何开始多人游戏
 
 开始多人游戏的最简单方法是在 "Play "下拉菜单中将"玩家数量"设置为大于 1 的数值。
