@@ -653,7 +653,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 **由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
 不过，使用 OnlineSubsystem（详情[[会话管理#2 联机子系统概述]]）可以解决更改 IP 的问题。
-# 4 Replication 复制 
+# 4 Replication 属性复制 
 ##  简介
 
 Replication 是**服务器将信息 / 数据传递给客户端**的行为。
@@ -669,7 +669,9 @@ Replication 是**服务器将信息 / 数据传递给客户端**的行为。
 > [!warning] 
 > 我们不推荐在客户端上更改复制的变量值。该值将始终与服务器端的值不一致，直到服务器下一次侦测到变更并发送更新为止。如果服务器版本的属性不是经常更新，那客户端就需要等待很长时间才能被纠正。
 
-这可以仅限于特定的实体和组。蓝图大多根据受影响 AActor 的设置执行复制。
+**Actor 属性复制是可靠的**。这意味着，Actor 的客户端版本的属性最终将反映服务器上的值，但客户端不必接受服务器上某个属性的每一个单独变更。例如，如果一个整数属性的值快速从100变成200，然后又变成了300，客户端将最终接受一个值为300的变更，但客户端不一定会知道这个值曾经变成过200。
+
+---
 
 **第一个可以复制属性的类是 AActor 类**。虽然您也可以复制 UObject，但它们是通过 AActor 复制的，因此仍然需要某种 AActor 来处理复制。
 UActorComponent 就是一个很好的例子，它支持通过 AActor 复制 UObjects，而不需要我们做太多额外的工作。
@@ -692,7 +694,7 @@ ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)
 }
 ```
 
-- **如果一个 Actor 的 `bReplicates` 设置为 `true`，那么该角色将被生成并复制到所有客户端（如果该角色是由服务器生成的）。而且只有在服务器生成时才会复制。**
+- **如果一个 Actor 的 `bReplicates` 设置为 `true`，那么该Actor将被生成并复制到所有客户端（如果该角色是由服务器生成的）。而且只有在服务器生成时才会复制。**
 - **如果客户端生成了这个 Actor，该 Actor 将只存在于这个客户端上。**
 
 ##  复制属性
@@ -702,8 +704,6 @@ ATestCharacter::ATestCharacter(const FObjectInitializer& ObjectInitializer)
 启用复制后，我们可以在 Actor 内部复制变量。有多种方法可以做到这一点。我们将从最基本的方法开始：
 
 **将 "复制" 下拉菜单设置为 "`Replicated`"，将确保此变量被复制到此 Actor 的所有复制实例中。**
-变量可以在某些条件下复制。下面我们将进一步讨论。
-
 ![[Pasted image 20231001230029.png|298]]
 >Replicated 变量用两个白圈标出。
 
@@ -714,8 +714,7 @@ UPROPERTY(Replicated)
 float Health;
 ```
 
-.cpp 文件将获得 `GetLifetimeReplicatedProps` 函数。在将变量标记为复制时，UE 已经为我们创建了该函数的头声明。
-
+.cpp 文件需要实现 **`GetLifetimeReplicatedProps` 函数**。在将变量标记为 `Replicated` 时，UE 已经为我们创建了该函数的头声明。
 **在此函数中，您可以定义复制变量的规则。**
 
 ```c++ file:TestPlayerCharacter.cpp
@@ -727,29 +726,52 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(ATestPlayerCharacter, Health);
 }
 ```
+## 条件属性复制
+默认情况下，每个复制属性都有一个内置条件：如果不发生变化就不会进行复制。
 
-您也可以在这里进行**有条件复制**（对应蓝图中的复制条件）：
+为了加强对属性复制的控制，您可以使用一个 **`DOREPLIFETIME_CONDITION` 宏**来添加附加条件。
 
 ```c++
-// 仅向该Object/Class的所有者复制变量 
-DOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
+void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    // 仅向该Object/Class的所有者复制变量 
+    DOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
+}
 ```
 
 | Condition 条件                          |说明|
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| COND_InitialOnly                        |该属性只会尝试在初始束（initial bunch）上发送|
-| COND_OwnerOnly COND_OwnnerOnly          | 该属性只会发送给演员的所有者（owner）|
-| COND_SkipOwner                          |此属性会发送给所有连接，但 owner 除外 |
-| COND_SimulatedOnly                      |此属性只会发送到模拟的（simulated） Actor|
-| COND_AutonomousOnly                     |该属性只会发送给自主行为autonomous Actor|
+| COND_InitialOnly                        |该属性仅在初始数据组尝试发送 |
+|COND_OwnerOnly| 该属性只会发送给Actor的所有者（owner）|
+|COND_SkipOwner|此属性会发送至除 Owner 之外的所有连接|
+| COND_SimulatedOnly                      |此属性只会发送到模拟Actor（Simulated Actor） |
+| COND_AutonomousOnly                     |该属性只会发送给自治Actor(autonomous Actor)|
 |COND_SimulatedOrPhysics |该属性将发送到simulated 或 bRepPhysics Actor。|
-|COND_InitialOrOwner| 该属性将在初始束上发送，或发送给 Actor 的所有者|
-| COND_Custom                             | 该属性没有特定条件，但希望能够通过 SetCustomIsActiveOverride 切换开关|
+|COND_InitialOrOwner| 该属性将发送初始数据组，或发送给 Actor 的所有者|
+| COND_Custom                             | 该属性没有特定条件，但需要通过 SetCustomIsActiveOverride|
 
-**重要的是要明白，整个复制过程只能<mark style="background: #FF5582A6;">从服务器到客户端</mark>，而不能反过来！**
+优点：
+1. 节省带宽
+2. 对于不接收该属性的客户端而言，服务器无需干涉这个客户端的本地副本。
 
-我们稍后将学习如何让服务器复制客户端希望与他人共享的内容（例如他们的 PlayerName）。
+---
 
+如果这样的控制力还不够，那该怎么办？关于这个话题，还有一件事需要讨论。有一个名叫 `DOREPLIFETIME_ACTIVE_OVERRIDE` 的宏可以让您进行全面控制，利用您想要的任何定制条件来决定何时复制/不复制某个属性。**需要注意的是，这种控制需针对每个 actor（而不是每条连接）逐一进行**。换句话说，如果在定制条件中使用一个可根据连接而发生变化的状态，会存在一定的安全风险。具体示例如下。
+```c++
+void AActor::PreReplication( IRepChangedPropertyTracker & ChangedPropertyTracker )
+{
+    DOREPLIFETIME_ACTIVE_OVERRIDE( AActor, ReplicatedMovement, bReplicateMovement );
+}
+```
+现在 ReplicatedMovement 属性只会在 bReplicateMovement 为 true 时复制。
+
+为何不一直使用这个宏？主要有两个原因：
+- 如果定制条件的值变化太大，这种做法会降低执行速度。
+- 您不能使用根据连接而变化的条件（此时不检查 RemoteRole）。
+
+属性复制条件可以很好的实现控制力与性能之间的平衡。它们可以使引擎以更快的速度针对多条连接检查并发送属性，同时让程序员对复制属性的方式和时机进行精细控制。
 ### RepNotify—ReplicatedUsing
 
 复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
