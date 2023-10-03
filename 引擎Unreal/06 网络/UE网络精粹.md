@@ -652,7 +652,7 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 **由于监听服务器在客户端上运行，其他人需要连接的 IP 就是客户端的 IP。与专用服务器相比，这往往会带来玩家没有静态 IP 的问题。**
 
-不过，使用 OnlineSubsystem（稍后解释）可以解决更改 IP 的问题。
+不过，使用 OnlineSubsystem（详情[[会话管理#2 联机子系统概述]]）可以解决更改 IP 的问题。
 # 4 Replication 复制 
 ##  简介
 
@@ -961,7 +961,7 @@ void MulticastRPCFunction();
 
 **验证的原理**：如果 RPC 的验证函数检测到任何参数有问题，就会通知系统**断开**发起 RPC 调用的客户端 / 服务器。
 
-现在，每个 `ServerRPCFunction` 都需要验证。`UFUNCTION` 宏中的 `WithValidation` 关键字就是用于此目的。
+现在，**每个 ServerRPCFunction 都需要验证**。`UFUNCTION` 宏中的 `WithValidation` 关键字就是用于此目的。
 
 ```c++
 UFUNCTION(Server, unreliable, WithValidation)

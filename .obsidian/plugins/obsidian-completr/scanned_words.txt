@@ -56639,6 +56639,7 @@ Unowned
 UnrealNetwork
 Unlocking
 UpdateSession
+UChannel
 api
 ac
 app
@@ -81514,6 +81515,7 @@ SendSessionInviteToFriend
 SendSessionInviteToFriends
 Scheduling
 Scrum
+SendBunch
 Programs
 POP
 PC
@@ -91425,6 +91427,7 @@ CancelMatchmaking
 Conversation
 CppSessions
 CSSessionSubsystem
+Connections
 ImTip
 IMAP
 ID
@@ -167150,6 +167153,7 @@ BbOBGkn
 BLk
 Beacons
 Blogpost
+Bunch
 Fraktur
 Frame
 Foo
@@ -199077,6 +199081,7 @@ GeyVGdZi
 GccknxNvL
 GYAVJZWAT
 GetLifetimeReplicatedProps
+Garden
 NULL
 Native
 NormalMap
