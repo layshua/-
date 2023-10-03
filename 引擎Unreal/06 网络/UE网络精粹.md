@@ -632,6 +632,10 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
 
 
 # 3 专用服务器与监听服务器
+![[Pasted image 20231003203817.png]]
+- Playe Standalone：独立的客户端，无服务器
+- Play As Listen Server：本机作为监听服务器，小窗口为客户端
+- Play As Client：全部为客户端，服务器为专用服务器
 ## Dedicated Server 专用服务器
 
 专用服务器是**不需要玩家托管的独立服务器。**
