@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Obsidian/发布方案.md",
+                "file": "引擎Unreal/06 网络/UE网络精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Obsidian/发布方案.md"
+                "file": "引擎Unreal/06 网络/UE网络精粹.md"
               }
             }
           },
@@ -73,7 +73,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Tools/Obsidian/发布方案.md"
+                "file": "引擎Unreal/06 网络/UE网络精粹.md"
               }
             }
           }
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Obsidian/发布方案.md",
+                "file": "引擎Unreal/06 网络/UE网络精粹.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Obsidian/发布方案.md",
+                "file": "引擎Unreal/06 网络/UE网络精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -201,6 +201,9 @@
   },
   "active": "6aeb534331a1cf3b",
   "lastOpenFiles": [
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/03 Gameplay/宝藏.md",
+    "Tools/Obsidian/发布方案.md",
     "引擎Unreal/06 网络/UE网络精粹.md",
     "引擎Unreal/06 网络/会话管理.md",
     "zip/images/Pasted image 20231003120609.jpg",
@@ -235,8 +238,6 @@
     "技术美术/PBR/由浅入深学习 PBR 的原理和实现/由浅入深学习 PBR 的原理和实现.md",
     "技术美术/雪地渲染/8 雪地渲染.md",
     "技术美术/体积渲染/体积雾.md",
-    "技术美术/百人计划/A美术向/美术工作者如何点亮 TA 的技术（Technical ）技能树？.md",
-    "图形学/GAMES系列/104现代游戏引擎：从入门到实践/1 导论/01 游戏引擎导论.md",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",

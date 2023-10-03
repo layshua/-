@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "发布方案",
-      "path": "Tools/Obsidian/发布方案.md"
-    },
-    {
       "basename": "UE网络精粹",
       "path": "引擎Unreal/06 网络/UE网络精粹.md"
+    },
+    {
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+    },
+    {
+      "basename": "宝藏",
+      "path": "引擎Unreal/03 Gameplay/宝藏.md"
+    },
+    {
+      "basename": "发布方案",
+      "path": "Tools/Obsidian/发布方案.md"
     },
     {
       "basename": "会话管理",
@@ -165,10 +173,6 @@
       "path": "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md"
     },
     {
-      "basename": "GAS精粹",
-      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
-    },
-    {
       "basename": "UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程",
       "path": "引擎Unreal/01 指南/UE5_2 源码版获取安装，编译，新建项目，Android 打包全流程.md"
     },
@@ -191,10 +195,6 @@
     {
       "basename": "AI系统",
       "path": "引擎Unreal/03 Gameplay/AI/AI系统.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "引擎Unreal/03 Gameplay/宝藏.md"
     },
     {
       "basename": "README",
