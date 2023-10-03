@@ -941,7 +941,9 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 
 因此，与其在 Actor 上启用输入并在那里调用 ServerRPC，不如**在 PlayerController 中创建 ServerRPC，让服务器调用 Actor 上的接口函数（例如 "Interact"）。**  
 
-## Actors 和他们的拥有关系
+## Actors 和他们的拥有连接
+Owning Connections（拥有连接）
+
 Gameplay 架构+网络 章节中提到，PlayerController 是客户端真正 "拥有 (owns) "的第一个类。这意味着什么呢？
 
 每个 "Connection（连接）"都有一个专门为该 Connection创建的 PlayerController。**这个 PlayerController 归该 "Connection "所有。**
@@ -949,25 +951,36 @@ Gameplay 架构+网络 章节中提到，PlayerController 是客户端真正 "�
 **因此，当我们想确定某个 Actor 是否被某个人拥有时，我们会向上查询（递归），直到查询到最外层的所有者，如果是一个 PlayerController，那么拥有该 PlayerController 的 Connection 也拥有该 Actor。**
 ```mermaid
 flowchart LR
-	Actor———>PlayerController--->Connecion
+	Actor-->PlayerController-->Connection
+	Actor-->Connection
 ```
 
 
+Pawn/Character。它们被 PlayerController possess，在此期间，PlayerController 是 possessed Pawn 的所有者。**这意味着拥有该 PlayerController 的 Connection 也拥有该 Pawn。** 这只是在玩家控制器 possess Pawn 时的情况。**un-possess 将导致客户端不再拥有该 Pawn。**
+在确定关联连接方面，Component 有一些特殊之处。这时，我们要首先确定 Component 的所有者，方法是遍历组件的"外链"，直到找出所属的 actor，然后确定这个 actor 的关联连接，像上面那样继续下去。
 
-Pawn/Character。它们被 PlayerController possess，在此期间，PlayerController 是 possessed Pawn 的所有者。**这意味着拥有该玩家控制器的 Connection 也拥有该 Pawn。** 这只是在玩家控制器 possess 棋子时的情况。**un-possess 将导致客户端不再拥有该棋子。**
-
-> [!question]  为什么这很重要，我需要它做什么？
+> [!question]  所有权是以下情形中的重要因素：
 >
 > - RPC 需要确定哪个客户端将执行 Run-On-Client RPC（运行于客户端的 RPC）
 > - Actor 复制（replication）和 Connection 相关性（relevancy）
 > - 涉及所有者时的 Actor 属性复制条件
+
+连接所有权对于 RPC 这样的机制至关重要，因为当您在 actor 上调用 RPC 函数时，**除非 RPC 被标记为多播，否则就需要知道要在哪个客户端上执行该 RPC。它可以查找关联连接来确定将 RPC 发送到哪条连接。**
+
+连接所有权会在 actor 复制期间使用，用于确定各个 actor 上有哪些连接获得了更新。对于那些将 `bOnlyRelevantToOwner` 设置为 `true` 的 actor，只有拥有此 actor 的连接才会接收这个 actor 的属性更新。默认情况下，所有 PlayerController 都设置了此标志，正因如此，客户端才只会收到它们拥有的 PlayerController 的更新。这样做是出于多种原因，其中最主要的是防止玩家作弊和提高效率。
+
+对于那些要用到所有者的 [需要复制属性的情形](https://docs.unrealengine.com/5.2/zh-CN/conditional-property-replication-in-unreal-engine)来说，连接所有权具有重要意义。例如，当使用 `COND_OnlyOwner` 时，只有此 actor 的所有者才会收到这些属性更新。
+
+最后，关联连接对那些作为自治代理的 actor（Role 为 `ROLE_AutonomousProxy`）来说也很重要。这些 actor 的 Role 会降级为 `ROLE_SimulatedProxy`，其属性则被复制到不拥有这些 actor 的连接中。 
+
+---
 
 你已经了解到，RPC 在被客户端或服务器调用时，会根据其所属的 Connection 做出不同的反应。
 
 您还了解到条件复制，即变量只在特定条件下复制。
 
 下文将介绍列表的相关性部分。
-# 7 Actor 的相关性和优先权
+# 7 Actor 的相关性和优先级
 
 ## Relevancy 相关性
 
@@ -977,37 +990,38 @@ Pawn/Character。它们被 PlayerController possess，在此期间，PlayerContr
 
 想象一下，游戏中的 Levels/Maps 大到足以让玩家认为其他玩家 "unimportant"。如果玩家 "A "和玩家 "B "相隔万里，为什么还需要从玩家 "B "那里获取网络更新？
 
-为了提高带宽，虚幻引擎的网络代码**允许服务器只告诉客户端在该客户端相关集合中的角色。**
+为了提高带宽，虚幻引擎的网络代码**允许服务器只告诉客户端在其相关集合中的角色。**
 
 > [!quote] 带宽
 > 在计算机网络中，带宽是指在单位时间内传输数据的能力或速率。它通常以每秒传输的比特数（bps）或字节（Bps）来衡量。带宽决定了网络连接的数据传输速度，即能够在特定时间内传输多少数据量。
 
-虚幻应用以下规则（**按顺序**）来确定与玩家相关的 Actors 集合。这些测试在虚函数 `AActor::IsNetRelevantFor()` 中实现。
+虚幻应用以下规则（**按顺序**）来**确定与玩家相关的 Actors 集合（Set）**。这些测试在虚函数 `AActor::IsNetRelevantFor()` 中实现。
 ![[Pasted image 20231002112835.png|350]]
-1. 如果 Actor 被标记为 "`bAlwaysRelevant`"（始终相关），被 Pawn 或 PlayerController 所拥有，是 Pawn，或者 Pawn 是某些行为（如 noise 或 damage）的 Instigator（发起者），那么它就是相关的。
-2. 如果 Actor 被标记为 "`bNetUserOwnerRelevancy(使用拥有者相关性)` "，有拥有者则使用**拥有者**的相关性。
-3.  如果Actor被标记为 "`bOnlyRelevantToOwner`"，并且没有通过第一项检查，那么它就是不相关的
-4. 如果该 Actor Attach 到另一个 Actor 的骨骼上，则其相关性由另一个 Actor的相关性决定。
-5. 如果 Actor 是隐藏的（`bHidden == true`），并且根组件没有发生碰撞，则 Actor 与此无关。
+1. 如果 Actor 被标记为 "`bAlwaysRelevant`"（始终相关）、被 Pawn 或 PlayerController 所拥有、本身为 Pawn，或者 Pawn 是某些行为（如 noise 或 damage）的 Instigator（发起者），则其具有相关性。
+2. 如果 Actor 被标记为 "`bNetUserOwnerRelevancy(使用所有者相关性)` "且有一个所有者，则使用**所有者**的相关性。
+3.  如果 Actor 被标记为 "`bOnlyRelevantToOwner`"，并且没有通过第一轮检查，则不具有相关性。
+4. 如果该 Actor Attach 到另一个 Actor 的骨骼上，则其相关性由另一个 Actor 的相关性决定。
+5. 如果 Actor 是隐藏的（`bHidden == true`），并且根组件没有发生碰撞，那么不具有相关性。
     - 如果没有根组件，"`AActor::IsNetRelevantFor()` "将记录警告并询问是否应将 Actor 设置为 "`bAlwaysRelevant = true`"
-6. 如果 "`AGameNetworkManager` "设置为使用基于距离的相关性，则如果角色比 net cull distance  更近，则该 Actor是相关的
+6. 如果 "`AGameNetworkManager` "设置为使用基于距离的相关性，则如果角色比 net cull distance  更近，则被视为具有相关性。
 
 > [!info]
->Pawn 和 PlayerController 重载了 "`AActor::IsNetRelevantFor()`"，因此具有不同的相关性条件。
+>Pawn 和 PlayerController 重载了 `AActor::IsNetRelevantFor()`，因此具有不同的相关性条件。
+
+请注意，`bStatic Actor`（保留在客户端上）也是可以复制的。
 
 ## Prioritization 优先次序
 ![[Pasted image 20231002113159.png|400]]
 >优先级更高则意味着其复制的可能性更高
 
-
-虚幻采用了一种负载均衡（load-balancing）技术，该技术会优先处理所有 Actors，并根据每个 Actors 对游戏的重要性为其提供合理的带宽份额。
+虚幻采用了负载平衡（load-balancing）技术，该技术会优先处理所有 Actors，并根据每个 Actors 对游戏的重要性为其提供合理的带宽份额。
 
 Actor 有一个名为 `NetPriority`（网络优先级）的浮点变量。这个数字越大，该 Actor 相对于其他 Actor 获得的带宽就越多。  
 NetPriority 为 2.0 的 Actor 的更新频率是 NetPriority 为 1.0 的 Actor 的两倍。
 >优先级只决定分配带宽的比例，显然无法通过提高所有优先级来提高虚幻的网络性能。
 
-- 角色的当前优先级通过虚函数 `AActor::GetNetPriority()` 计算。  
-- 为避免饥饿（starvation），`AActor::GetNetPriority()` 会将 `NetPriority` 与 Actor 自上次复制以来的时间相乘。
+- Actor 的当前优先级通过虚函数 `AActor::GetNetPriority()` 计算。   
+- 为避免饥饿（starvation），`AActor::GetNetPriority()` 使用 Actor 上次复制后经过的时间 去乘以 `NetPriority`
 -  `GetNetPriority` 函数还考虑了 "Actor "与 "观察者 "之间的相对位置和距离。
 
 这些设置大多可以在蓝图的 "类默认值 "中找到，也可以在每个角色子代的 C++ 类中设置。
@@ -1024,42 +1038,42 @@ NetPriority = 1.f;
 ```
 # 8 Actor Role / RemoteRole
 
-我们还有两个重要的 Actor 复制属性 Actor Role 和 RemoteRole
+在 Actor 的复制过程中，有两个属性扮演了重要角色，分别是 **Role** 和 **RemoteRole**。
 
-**这两个属性告诉你**
-
+有了这两个属性，您可以知道：
 - 谁有权管理 Actor
-- 是否复制 Actor
+- Actor 是否被复制 
 - 复制模式
 
 我们首先要确定的是谁有权管理特定的 Actor。
-
-要确定当前运行的引擎实例是否具有权限，请检查角色属性（role property）是否为 `ROLE_Authority`。  
-如果是，那么这个引擎实例就负责这个 Actor（无论 Actor 是否复制！）。
+要确定当前运行的引擎实例是否具有权限，请检查 Role 属性（role property）是否为 `ROLE_Authority`。  
+如果是，那么这个引擎实例就负责掌管这个 Actor（**决定其是否被复制**）。
 
 > [!info] 这与所有权（Ownership）不同！
 
-## Role/RemoteRole Reversal
-角色/远程角色互换
 
-Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
+> [!NOTE] 
+> 就目前而言，**只有服务器能够向已连接的客户端同步 Actor （客户端永远都不能向服务器同步）**。始终记住这一点， **只有服务器才能看到** `Role == ROLE_Authority` 和 `RemoteRole == ROLE_SimulatedProxy` 或者 `ROLE_AutonomousProxy`。
+
+## Role/RemoteRole Reversal 对调
+
+对于不同的数值观察者，它们的 Role 和 RemoteRole 值可能发生对调。
 
 例如，在服务器上有这样的配置：
 - `Role == Role_Authority`
 - `RemoteRole == ROLE_SimulatedProxy  `
 
-那么客户端看到的会是这样：
+客户端会将其识别为以下形式：
 - `Role == ROLE_SimulatedProxy`
 - `RemoteRole == ROLE_Authority`
 
-这是有道理的，因为**服务器负责 Actor 并将其复制给客户端。**  
-**客户端只是接收更新，并在更新之间模拟 Actor。**
+**这种情况是正常的，因为<mark style="background: #FF5582A6;">服务器</mark>要负责掌管 actor 并将其复制到客户端。而<mark style="background: #FF5582A6;">客户端</mark>只是接收更新，并在更新的间歇模拟 actor。**
 
 ## 复制模式
 
-服务器不会在每次更新时都更新 Actor。这会占用太多的带宽和 CPU 资源。相反，服务器将按照 `AActor:: NetUpdateFrequency（网络更新频率）` 属性指定的频率复制 Actor。
+服务器不会在每次更新时都复制 Actor。这会消耗太多的带宽和 CPU 资源。实际上，服务器将按照 `AActor:: NetUpdateFrequency（网络更新频率）` 属性指定的频率复制 Actor。
 
-这意味着客户端上的 Actor 更新之间会间隔一段时间。这可能会导致 Actor 的动作看起来零星或不连贯。**为了弥补这一点，客户端将在两次更新之间模拟 Actor。**
+因此在 Actor 更新的间歇，会有一些时间数据被传递到客户端。这可能会导致 Actor 的动作看起来不连贯。**为了弥补这一点，客户端将在更新的间歇模拟 Actor。**
 
 **目前有两种模拟方式：**
 - **`ROLE_SimulatedProxy`** 模拟代理
@@ -1067,19 +1081,17 @@ Role 和 RemoteRole 可以互换，这取决于谁在检查这些值。
 
 ###  ROLE_SimulatedProxy
 
-**这是标准的模拟路径，通常是根据最后的已知速度来推断运动。**
+**这是标准的模拟路径，通常是根据上次获得的速率对移动进行推算。**
 
-当服务器发送特定 Actor 的更新时，客户端将调整其位置以适应新的位置，然后在两次更新之间，客户端将根据服务器发送的最新速度继续移动 Actor。
+当服务器为特定 Actor 发送更新时，客户端将向着新的方位调整其位置，然后利用更新的间歇，根据由服务器发送的最近的速率值来继续移动 actor。
 
-使用最后已知速度进行模拟只是一般模拟工作原理的一个例子。
-
-没有什么能阻止你编写**自定义**代码，使用其他信息在服务器更新之间进行推断。
+使用上次获得的速率值进行模拟，只是普通模拟方式中的一种。您完全可以编写自己的自定义代码，在服务器更新的间隔使用其他的一些信息来进行推算。
 
 ###  ROLE_AutonomousProxy
 
 **一般只用于被 PlayerController possess 的 Actor。**
 
-这只是意味着这个 Actor 正在接收来自外部（玩家）的输入，因此当我们进行推断时，我们可以获得更多的信息，并使用实际的外部输入来填补缺失的信息（而不是根据最后已知的速度进行推断）。
+这只是意味着这个 Actor 正在接收来自外部（玩家）的输入，因此当我们进行推算时，我们可以获得更多的信息，并使用实际的外部输入来填补缺失的信息（而不是根据上次获得的速率来进行推算）。
 
 # 9 Travel 关卡切换 
 [虚幻引擎中的关卡切换 | 虚幻引擎5.3文档 (unrealengine.com)](https://docs.unrealengine.com/5.3/zh-CN/travelling-in-multiplayer-in-unreal-engine/)
