@@ -1,3 +1,25 @@
+
+# .gitignore
+ue 默认给个忽略文件
+```c++
+Binaries
+DerivedDataCache
+Intermediate
+Saved
+Build
+.vscode
+.vs
+.idea
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+```
+
 [【UE4】使用Git源码管理_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1nf4y1w77X/?spm_id_from=333.337.search-card.all.click&vd_source=9d1c0e05a6ea12167d6e82752c7bc22a)
 [【UE4】虚幻的版本控制 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/136163257)
 # 所需工具
@@ -62,25 +84,6 @@ git push -u origin "master"
 回退版本
 ![[Pasted image 20230110144613.png]]
 
-# .gitignore
-ue默认给个忽略文件
-```c++
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-.vscode
-.vs
-.idea
-*.VC.db
-*.opensdf
-*.opendb
-*.sdf
-*.sln
-*.suo
-*.xcodeproj
-*.xcworkspace
-```
 
 # github桌面端
 add local repository
