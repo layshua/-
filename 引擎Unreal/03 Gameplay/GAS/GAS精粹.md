@@ -375,9 +375,6 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 如果每个子组件都需要很多`Attribute`且子组件的数量可以是无限的, 或者子组件可以分离被其他玩家使用(比如武器), 或者出于其他原因上述方法不适用于你, 那么我建议就不要使用`Attribute`, 而是在组件中保存普通的浮点数. 参阅[Item Attribute](#concepts-as-design-itemattributes).  
 
-
-
-<a name="concepts-as-design-addremoveruntime"></a>
 #### 4.4.2.2 运行时添加和移除AttributeSet
 
 `AttributeSet`可以在运行时从`ASC`上添加和移除, 然而移除`AttributeSet`是很危险的, 例如, 如果某个`AttributeSet`在客户端上移除早于服务端, 而某个`Attribute`的变化又同步到了客户端, 那么`Attribute`就会因为找不到`AttributeSet`而使游戏崩溃.  
@@ -397,8 +394,6 @@ AbilitySystemComponent->ForceReplication();
 ```
 
 
-
-<a name="concepts-as-design-itemattributes"></a>
 #### 4.4.2.3 Item Attribute(武器弹药)
 
 有几种方法可以实现带有`Attribute`(武器弹药, 盔甲耐久等等)的可装备物品, 所有这些方法都直接在物品中存储数据, 这对于在生命周期中可以被多个玩家装备的物品来说是必须的.  
@@ -408,8 +403,6 @@ AbilitySystemComponent->ForceReplication();
 3. 在物品中使用单独的`ASC`.
 
 
-
-<a name="concepts-as-design-itemattributes-plainfloats"></a>
 ##### 4.4.2.3.1 在物品中使用普通浮点数
 
 在物品类实例中存储普通浮点数而不是`Attribute`, Fortnite和[GASShooter](https://github.com/tranek/GASShooter)就是这样处理枪械子弹的, 对于枪械, 在其实例中存储可同步的浮点数(COND_OwnerOnly), 比如最大弹匣量, 当前弹匣中弹药量, 剩余弹药量等等, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里作为一个`Attribute`(换弹Ability可以使用一个`Cost GE`从剩余弹药量中填充枪械的弹匣弹药量浮点). 因为没有为当前弹匣弹药量使用`Attribute`, 所以需要重写`UGameplayAbility`中的一些函数来检查和应用枪械中浮点数的花销(cost). 当授予Ability时将枪械在[GameplayAbilitySpec](https://github.com/tranek/GASDocumentation#concepts-ga-spec)中转换为`SourceObject`, 这意味着可以在Ability中访问授予Ability的枪械.  
@@ -436,8 +429,6 @@ void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracke
 2. 要求重写UGameplayAbility中的关键函数来检查和应用枪械中浮点数的花销(Cost).
 
 
-
-<a name="concepts-as-design-itemattributes-attributeset"></a>
 ##### 4.4.2.3.2 在物品中使用AttributeSet
 
 在物品中使用单独的`AttributeSet`可以实现[将其添加到玩家的Inventory](#concepts-as-design-addremoveruntime), 但还是有一定的局限性. 较早版本的[GASShooter](https://github.com/tranek/GASShooter)中的武器弹药是使用的这种方法, 武器类在其自身存储诸如最大弹匣量, 当前弹匣弹药量, 剩余弹药量等等到一个`AttributeSet`, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里. 当服务端上某个武器添加到玩家的Inventory后, 该武器会将它的`AttributeSet`添加到玩家的`ASC::SpawnedAttribute`, 之后服务端会将其同步下发到客户端, 如果该武器从Inventory中移除, 它也会将其`AttributeSet`从`ASC::SpawnedAttribute`中移除.  
@@ -466,9 +457,6 @@ void AGSWeapon::BeginPlay()
 2. 和第1条同样的原因(每个`AttributeSet`类一个`AttributeSet`实例), 在玩家的Inventory中每种武器类型只能有一个.
 3. 移除`AttributeSet`是很危险的. 在GASShooter中, 如果玩家因为火箭弹而自杀, 玩家会立即从其Inventory中移除火箭弹发射器(包括其在`ASC`中的`AttributeSet`), 当服务端同步火箭弹发射器的弹药`Attribute`改变时, 由于`AttributeSet`在客户端`ASC`上不复存在而使游戏崩溃.
 
-
-
-<a name="concepts-as-design-itemattributes-asc"></a>
 ##### 4.4.2.3.3 在物品中使用单独的ASC
 
 在每个物品上都创建一个`AbilitySystemComponent`是种很极端的方案. 我还没有亲自做过这种方案, 在其他地方也没见过. 这种方案应该会花费相当的开发成本才能正常使用.  
@@ -490,8 +478,6 @@ void AGSWeapon::BeginPlay()
 2. 甚至方案可行么?
 
 
-
-<a name="concepts-as-attributes"></a>
 ### 4.4.3 定义Attribute
 
 **Attribute只能使用C++在AttributeSet头文件中定义.** 建议把下面这个宏块加到每个`AttributeSet`头文件的顶部, 其会自动为每个`Attribute`生成getter和setter函数.  
@@ -545,8 +531,6 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 如果`Attribute`无需像`Meta Attribute`那样同步, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
 
 
-
-<a name="concepts-as-init"></a>
 ### 4.4.4 初始化Attribute
 
 有多种方法可以初始化`Attribute`(将BaseValue和CurrentValue设置为某初始值). Epic建议使用`即刻(Instant)GameplayEffect`, 这也是样例项目使用的方法.  
@@ -564,9 +548,6 @@ AttributeSet->InitHealth(100.0f);
 
 **Note**: 4.24之前, FAttributeSetInitterDiscreteLevels不能和FGameplayAttributeData协同使用, 它在`Attribute`是原生浮点数时创建, 并且会和FGameplayAttributeData不是Plain Old Data(POD)时冲突. 该问题在4.24中修复([https://issues.unrealengine.com/issue/UE-76557.](https://issues.unrealengine.com/issue/UE-76557)).  
 
-
-
-<a name="concepts-as-preattributechange"></a>
 ### 4.4.5 PreAttributeChange()
 
 `PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)`是`AttributeSet`中的主要函数之一, 其在修改发生前响应`Attribute`的CurrentValue变化, 其是通过引用参数NewValue限制(Clamp)CurrentValue即将进行的修改的理想位置.  
