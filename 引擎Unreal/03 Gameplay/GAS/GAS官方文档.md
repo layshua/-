@@ -341,44 +341,13 @@ MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
     }
     ```
 
-## Gameplay Effects
-Gameplay Effects 是 GAS 更改属性的方法。其中包括：
-- 指示对属性值进行更改，例如，当某个 Actor 受到伤害时，减小其生命值。
-- 临时更改（通常称为"增益"或"减益"BUFF），例如，使移动速度提升几秒。
-- 随时间推移而应用的永久性更改，例如在几秒钟的时间段内（或无限期地）每秒重新生成特定数量的魔法值。
-    
-Gameplay Effects 实现为可与技能系统组件交互且适当时可在它们处于激活状态时在其中存储的**仅数据蓝图**（属于 `UGameplayEffect` 基类）。
-
-GAS 会使用 `Gameplay Effects` 将**更改**应用于 Gameplay Ability 的目标 Actor。这些可以是一次性的效果，例如应用伤害，也可以是持久效果，例如持续的毒素伤害、增益和减益。
-就持久效果而言，`Gameplay Effects` 会将自身附加到目标 Actor，直到去除为止，并且它们可以预设为拥有有限的生命周期，此后将到期并自行清理，撤销对目标 Actor 的 `Gameplay Attributes` 的所有更改。
-
-`Gameplay Effects` 使用 `Gameplay Effect Calculations` 来基于 `Gameplay Attributes` 处理计算。
-虽然你可以直接在蓝图编辑器中创建简单的计算，但你还可以编写逻辑更复杂并且一次可影响多个属性的自定义效果计算。这些能够处理来自 Gameplay 技能的所属 Actor 和目标 Actor 的信息，以便你可以将常用计算集中放到一个可复用的代码片段中。 
-
-### 主要属性
- 
-与大多数 GAS 的其他部分不同，无论在本机还是蓝图代码中，`Gameplay Effects`通常不覆盖基类 `UGameplayEffect`。相反，**游戏性效果被设计成完全通过变量来配置**。以下是部分可以调整的游戏性效果的主要属性：
-
-- **时长Duration**：** 游戏性效果可立即应用（例如，受到攻击时生命值减少），在有限期间内应用（例如，持续时间为几秒的移动速度提升），或无限期地应用（例如，随着时间的推移，某个角色自然地恢复法力值）。另外，具有非瞬间时长的效果也可以按不同的间隔应用自身。这不仅对于更改效果在 Gameplay 方面产生作用的方式非常有用，对于设置重复音频或视觉效果等的时机方面也非常有用。
-    
-- **修饰和执行（Modifiers and Executions）：** 
-    - **Modifiers 会确定游戏性效果与属性交互的方式。其中包括与属性自身的数学上的交互**，例如，"将防御力提升5%"，以及执行效果的游戏性标记要求。
-        - 当需要让某个游戏性效果产生超出修饰符支持范围的影响时，需要用到"执行（Execution）"。
-    - "执行（Execution）"使用 `UGameplayEffectExecutionCalculation` 来定义游戏性效果执行时它具有的**自定义行为**。定义修饰符无法充分覆盖的复杂方程式时，它们特别有用。
-
-- **应用要求（Application Requirements）：** 应用要求包括游戏性效果应用时必须存在（或被禁止）的多组 `Gameplay Tags` 以及游戏性效果不应用的随机概率。
-    - 如果这些要求无法满足游戏的需求，可以从 `UGameplayEffectCustomApplicationRequirement` 基类派生数据对象，在其中你可以编写可任意定义复杂应用规则的本地代码。
- 
-- **授予技能（**Granted Abilities**）：** 应用时，游戏性效果不仅可以授予 `Gameplay Tags`，还可以授予技能。当与"执行（Execution）"配合使用时，可将它们用于设置高度特殊的游戏性组合。例如，某个 Actor 具有指示该 Actor 浸在油中的 ``Gameplay Tags`` 或属性，当它被以火为主题的游戏性效果击中时，它就可以获得"着火"技能，从而被动地烧毁附近的 Actor 并在接下来的十秒钟之内产生具有粒子和动态光照的视觉效果。
-
-- **堆叠（Stacking）：**"堆叠"指的是处理**对已具有增益或减益（或者游戏性效果，在本示例中就是如此）的目标再次应用增益或减益，以及处理所谓的"溢出"情况的策略**，溢出是指在原 Gameplay 效果的影响下已完全饱和的目标被应用了新的游戏性效果（例如，不断累积的毒药计时条只有在溢出后才会产生持续伤害效果）。
-    - 系统支持各种各样的堆叠行为，例如，不断累积直至超出阈值，维护在每次应用后增加直至达到最大限制的"堆叠量"，在限时效果的影响下重置或增补时间，或独立于各个计时器应用该效果的多个实例。
-
--  **Gameplay Cue Display 显示**：`Gameplay Cue` 是可通过 GAS控制的管理装饰效果（例如，粒子或音效）的方法，它可以节约网络资源。游戏性技能和游戏性效果可以触发它们，它们通过四个可在本地或蓝图代码中覆盖的主函数来产生作用：On Active、While Active、Removed 及 Executed（仅由游戏性效果使用）。所有游戏性 Cue 必须与"GameplayCue"开头的游戏性标记相关联，例如"GameplayCue.ElectricalSparks"或"GameplayCue.WaterSplash.Big"。
 
 ## Gameplay Cues
 
 **`Gameplay Cues` 是负责运行视觉和声音效果的 Actor 和 UObject，是在多人游戏中复制美化 (Cosmetic)反馈的首选方法。**
+
+
+-  **Gameplay Cue Display 显示**：`Gameplay Cue` 是可通过 GAS 控制的管理装饰效果（例如，粒子或音效）的方法，它可以节约网络资源。游戏性技能和游戏性效果可以触发它们，它们通过四个可在本地或蓝图代码中覆盖的主函数来产生作用：On Active、While Active、Removed 及 Executed（仅由游戏性效果使用）。**所有 `GameplayCue` 必须与"GameplayCue"开头的游戏性标记相关联，例如"GameplayCue. ElectricalSparks"或"GameplayCue. WaterSplash. Big"。
 
 创建 `Gameplay Cues` 时，你会运行要在事件图表中播放的效果的逻辑。`Gameplay Cues` 可以与一系列 `Gameplay Tags`关联，并且匹配这些标签的 `Gameplay Effects` 将自动应用它们。
 
@@ -386,7 +355,7 @@ GAS 会使用 `Gameplay Effects` 将**更改**应用于 Gameplay Ability 的目�
  
 或者，你也可以触发没有 Gameplay Effects 关联的 Cue 。有关此实现的例子，你可以查看 Lyra 示例游戏的武器发射反馈。
 
-`Gameplay Cues` 不使用可靠的复制，因此有可能一些客户端没有接收到提示或显示其反馈。如果你将 Gameplay 代码绑定到这些 Cue，这可能造成不同步。因此，`Gameplay Cues` 应该仅用于美化反馈。对于需要复制到所有客户端的 Gameplay 相关反馈，你应该转而依赖 Ability Tasks 来处理复制。**播放蒙太奇（Play Montage）** 技能任务就是很好的例子。 
+`Gameplay Cues` **不使用可靠的复制**，因此有可能一些客户端没有接收到提示或显示其反馈。如果你将 Gameplay 代码绑定到这些 Cue，这可能造成不同步。因此，`Gameplay Cues` 应该仅用于美化反馈。对于需要复制到所有客户端的 Gameplay 相关反馈，你应该转而依赖 Ability Tasks 来处理复制。**播放蒙太奇（Play Montage）** 技能任务就是很好的例子。 
 
 # 支持网络多玩家 (鸽)
 
