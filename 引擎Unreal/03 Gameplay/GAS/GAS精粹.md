@@ -250,7 +250,7 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 ![[2ca9b8f5529783c9f32b21ee87e6089f_MD5.png]]  
 
-搜索`GameplayTag`会弹出一个类似Reference Viewer的窗口来显示所有引用该`GameplayTag`的资源, 但这不会显示任何引用该`GameplayTag`的C++类.  
+搜索 `GameplayTag` 会弹出一个类似 Reference Viewer 的窗口来显示所有引用该 `GameplayTag` 的资源, 但这不会显示任何引用该 `GameplayTag` 的 C++类.   
 
 重命名`GameplayTag`会创建重定向, 因此仍引用原来`GameplayTag`的资源会重定向到新的`GameplayTag`. 如果可以的话, 我更倾向于创建新的`GameplayTag`, 手动更新所有引用到新的`GameplayTag`, 之后删除旧的`GameplayTag`以避免创建新的重定向.  
 
@@ -347,7 +347,8 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 ((CurrentValue + Additive) * Multiplicitive) / Division
 ```
 
-**Note**: 如果在PIE中打开多个窗口, 你需要在编辑器首选项中禁用`Run Under One Process`, 否则当自动推导`Attribute`所依赖的`Attribute`更新时, 除了第一个窗口外其不会更新.  
+> [!NOTE]
+> 如果在PIE中打开多个窗口, 你需要在编辑器首选项中禁用`Run Under One Process`, 否则当自动推导`Attribute`所依赖的`Attribute`更新时, 除了第一个窗口外其不会更新.  
 
 在这个例子中, 我们有一个`无限(Infinite)GameplayEffect`, 其从TestAttrB和TestAttrC `Attribute`以`TestAttrA = (TestAttrA + TestAttrB) * ( 2 * TestAttrC)`公式继承得到TestAttrA, 每次TestAttrB和TestAttrC更新时, TestAttrA都会自动重新计算.  
 
@@ -654,7 +655,7 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 > [!NOTE]
 > 周期性的 Effect 不能被[预测](#concepts-p).  
 
-如果`持续(Duration)`和`无限(Infinite)GameplayEffect`的Ongoing Tag Requirements未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开, 关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
+如果`持续(Duration)`和`无限(Infinite)GameplayEffect`的`Ongoing Tag Requirements`未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开, 关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
 
 如果你需要手动重新计算某个 `持续(Duration)` 或 `无限(Infinite)GameplayEffect` 的 `Modifier` (假设有一个使用非 `Attribute` 数据的 `MMC`), 可以使用和
 ```c++
@@ -894,8 +895,6 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 |无|授予的Ability不受从目标移除的授予`GameplayEffect`的影响, 目标将会一直拥有该Ability直到之后被手动移除.|
 
 
-
-
 ### 07 GameplayEffect 标签
 
 `GameplayEffect`可以带有多个[GameplayTagContainer](#concepts-gt), 设计师可以编辑每个类别的`Added`和`Removed`GameplayTagContainer, 结果会在编译后显示在`Combined GameplayTagContainer`中. `Added`标签是该`GameplayEffect`新增的之前其父类没有的标签, `Removed`标签是其父类拥有但该类没有的标签.  
@@ -904,26 +903,23 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 |:-:|:-:|
 |Gameplay Effect Asset Tags|`GameplayEffect`拥有的标签, 它们自身没有任何功能且只用于描述`GameplayEffect`.|
 |Granted Tags|存于`GameplayEffect`中且又用于`GameplayEffect`所应用`ASC`的标签. 当`GameplayEffect`移除时它们也会从`ASC`中移除. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
-|Ongoing Tag Requirements|一旦`GameplayEffect`应用后, 这些标签将决定`GameplayEffect`是开启还是关闭. `GameplayEffect`可以是关闭但仍然是应用的. 如果某个`GameplayEffect`由于不符合`Ongoing Tag Requirements`而关闭, 但是之后又满足需求了, 那么该`GameplayEffect`会重新打开并重新应用它的`Modifier`. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
+|Ongoing Tag Requirements |一旦`GameplayEffect`应用后, 这些标签将决定`GameplayEffect`是开启还是关闭. `GameplayEffect`可以是关闭但仍然是应用的. 如果某个`GameplayEffect`由于不符合`Ongoing Tag Requirements`而关闭, 但是之后又满足需求了, 那么该`GameplayEffect`会重新打开并重新应用它的`Modifier`. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
 |Application Tag Requirements|位于目标上决定某个`GameplayEffect`是否可以应用到该目标的标签, 如果不满足这些需求, 那么`GameplayEffect`就不可应用.|
 |Remove Gameplay Effects with Tags|当`GameplayEffect`成功应用后, 如果位于目标上的该`GameplayEffect`在其`Asset Tags`或`Granted Tags`中有任意一个本标签的话, 其就会自目标上移除.|
 
 
+### 08 免疫 Immunity
 
-<a name="concepts-ge-immunity"></a>
-### 08 免疫
+`GameplayEffect` 可以基于 `GameplayTag` 实现免疫, 有效阻止其他 `GameplayEffect` 应用。
+尽管免疫可以由 `Application Tag Requirements` 等方式有效地实现, 但是使用该系统可以在 `GameplayEffect` 被免疫阻止时提供 `UAbilitySystemComponent::OnImmunityBlockGameplayEffectDelegate` 委托(Delegate).  
 
-`GameplayEffect`可以基于[GameplayTag](#concepts-gt)实现免疫, 有效阻止其他`GameplayEffect`应用. 尽管免疫可以由`Application Tag Requirements`等方式有效地实现, 但是使用该系统可以在`GameplayEffect`被免疫阻止时提供`UAbilitySystemComponent::OnImmunityBlockGameplayEffectDelegate`委托(Delegate).  
-
-`GrantedApplicationImmunityTags`会检查源(Source)`ASC`(包括源Ability的AbilityTag, 如果有的话)是否包含特定的标签, 这是一种基于确定Character或源(Source)的标签对其所有`GameplayEffect`提供免疫的方法.  
+`GrantedApplicationImmunityTags` 会检查源(Source) `ASC` (包括源 Ability 的 AbilityTag, 如果有的话)是否包含特定的 Tag , 这是一种基于确定 Character 或源(Source)的标签对其所有 `GameplayEffect` 提供免疫的方法.  
 
 `Granted Application Immunity Query`会检查传入的`GameplayEffectSpec`是否与其查询条件相匹配, 从而阻止或允许其应用.  
 
 `GameplayEffect`蓝图中的查询条件都有友好的悬浮提示帮助.  
 
 
-
-<a name="concepts-ge-spec"></a>
 ### 09 GameplayEffectSpec
 
 [GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html)可以看作是`GameplayEffect`的实例, 它保存了一个其所代表的`GameplayEffect`类引用, 创建时的等级和创建者, 它在应用之前可以在运行时(Runtime)自由的创建和修改, 不像`GameplayEffect`应该由设计师在运行前创建. 当应用`GameplayEffect`时, `GameplayEffectSpec`会自`GameplayEffect`创建并且会实际应用到目标(Target).  
@@ -944,8 +940,6 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 * `SetByCaller TMaps`.
 
 
-
-<a name="concepts-ge-spec-setbycaller"></a>
 #### SetByCaller
 
 `SetByCaller`允许`GameplayEffectSpec`拥有和`GameplayTag`或`FName`相关联的浮点值, 它们存储在`GameplayEffectSpec`上其各自的`TMaps: TMap<FGameplayTag, float>`和`TMap<FName, float>`中, 可以作为`GameplayEffect`的`Modifier`或者传递浮点值的通用方法使用. 其普遍用法是经由`SetByCaller`传递某个Ability内部生成的数值数据到[GameplayEffectExecutionCalculations](#concepts-ge-ec)或[ModifierMagnitudeCalculations](#concepts-ge-mmc).  
@@ -1006,7 +1000,7 @@ GASShooter使用了一个子结构体`GameplayEffectContext`来添加可以在`G
 <a name="concepts-ge-mmc"></a>
 ### 11 Modifier Magnitude Calculation
 
-[ModifierMagnitudeCalculations](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayModMagnitudeCalculation/index.html)(`ModMagcCalc`或`MMC`)是在`GameplayEffect`中作为[Modifier](#concepts-ge-mods)使用的强有力的类, 它的功能类似[GameplayEffectExecutionCalculation](#concepts-ge-ec)但是要逊色一些, 最重要的是它是可预测的. 它唯一要做的就是自`CalculateBaseMagnitude_Implementation()`返回浮点值, 你可以在C++和蓝图中继承并重写该函数.  
+[ModifierMagnitudeCalculations](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayModMagnitudeCalculation/index.html)(`ModMagcCalc`或`MMC`)是在`GameplayEffect`中作为[Modifier](#concepts-ge-mods)使用的强有力的类, 它的功能类似[GameplayEffectExecutionCalculation](#concepts-ge-ec)但是要逊色一些, **最重要的是它是可预测的**. 它唯一要做的就是自`CalculateBaseMagnitude_Implementation()`返回浮点值, 你可以在C++和蓝图中继承并重写该函数.  
 
 `MMC`可以用于各种持续时间的`GameplayEffect` - `即刻(Instant)`, `持续(Duration)`, `无限(Infinite)`和`周期性(Periodic)`.  
 
@@ -1079,8 +1073,6 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 如果你没有在`MMC`的构造函数中将`FGameplayEffectAttributeCaptureDefinition`添加到`RelevantAttributesToCapture`中并且尝试捕获`Attribute`, 那么将会得到一个关于捕获时缺失Spec的错误. 如果不需要捕获`Attribute`, 那么就不必添加什么到`RelevantAttributesToCapture`.  
 
 
-
-<a name="concepts-ge-ec"></a>
 ### 12 Gameplay Effect Execution Calculation
 
 [GameplayEffectExecutionCalculation](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffectExecutionCalculat-/index.html)(ExecutionCalculation, Execution(你会在插件代码里经常看到这个词)或ExecCalc)是`GameplayEffect`对`ASC`进行修改最强有力的方式. 像[ModifierMagnitudeCalculation](#concepts-ge-mmc)一样, 它也可以捕获`Attribute`并选择性地为其创建Snapshot, 和`MMC`不同的是, 它可以修改多个`Attribute`并且基本上可以处理程序员想要做的任何事. 这种强有力和灵活性的负面就是它是不可[预测](#concepts-p)的且必须在C++中实现.  
@@ -1101,16 +1093,10 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 对于`Local Predicted`, `Server Only`和`Server Initiated`的[GameplayAbility](#concepts-ga), `ExecCalc`只在服务端调用.  
 
 `ExecCalc`最普遍的应用场景是计算一个来自很多`源(Source)`和`目标(Target)`中`Attribute`伤害值的复杂公式. 样例项目中有一个简单的`ExecCalc`用于计算伤害值, 其从`GameplayEffectSpec`的[SetByCaller](#concepts-ge-spec-setbycaller)中读取伤害值, 之后基于从`目标(Target)`捕获的护盾`Attribute`来减少该伤害值. 参阅`GDDamageExecCalculation.cpp/.h`.  
-
-
-
 <a name="concepts-ge-ec-senddata"></a>
 #### 发送数据到Execution Calculation
 
 除了捕获`Attribute`, 还有几种方法可以发送数据到`ExecutionCalculation`.  
-
-
-
 <a name="concepts-ge-ec-senddata-setbycaller"></a>
 #####  SetByCaller
 
@@ -1122,8 +1108,6 @@ float Damage = FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::Requ
 ```
 
 
-
-<a name="concepts-ge-ec-senddata-backingdataattribute"></a>
 ##### Backing数据Attribute计算Modifier
 
 如果你想硬编码值到`GameplayEffect`, 可以使用`CalculationModifier`传递, 其使用捕获的`Attribute`之一作为Backing数据.  
@@ -1139,8 +1123,6 @@ float Damage = 0.0f;
 // Capture optional damage value set on the damage GE as a CalculationModifier under the ExecutionCalculation
 ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().DamageDef, EvaluationParameters, Damage);
 ```
-
-
 
 <a name="concepts-ge-ec-senddata-backingdatatempvariable"></a>
 ##### Backing数据临时变量计算Modifier
@@ -1163,8 +1145,6 @@ ValidTransientAggregatorIdentifiers.AddTag(FGameplayTag::RequestGameplayTag("Dat
 float Damage = 0.0f;
 ExecutionParams.AttemptCalculateTransientAggregatorMagnitude(FGameplayTag::RequestGameplayTag("Data.Damage"), EvaluationParameters, Damage);
 ```
-
-
 
 <a name="concepts-ge-ec-senddata-effectcontext"></a>
 ##### GameplayEffectContext
@@ -1192,9 +1172,6 @@ FGSGameplayEffectContext* ContextHandle = static_cast<FGSGameplayEffectContext*>
 FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 ```
 
-
-
-<a name="concepts-ge-car"></a>
 ### 13 自定义应用需求
 
 [CustomApplicationRequirement(CAR)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffectCustomApplication-/index.html)类为设计师提供对于`GameplayEffect`是否可以应用的高阶控制, 而不是对`GameplayEffect`进行简单的`GameplayTag`检查. 这可以通过在蓝图中重写`CanApplyGameplayEffect()`和在C++中重写`CanApplyGameplayEffect_Implementation()`实现.  
@@ -1206,9 +1183,6 @@ FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 
 `CAR`还有很多高阶功能, 像检查`GameplayEffect`实例是否已经位于目标上, 修改当前实例的[持续时间](#concepts-ge-duration)而不是应用一个新实例(对于`CanApplyGameplayEffect()`返回false).
 
-
-
-<a name="concepts-ge-cost"></a>
 ### 14 花费(Cost)GameplayEffect
 
 [GameplayAbility](#concepts-ga)有一个特别设计用来作为Ability花费(Cost)的可选`GameplayEffect`. 花费(Cost)是指`ASC`激活`GameplayAbility`所必需的`Attribute`量. 如果某个`GA`不能提供`Cost GE`, 那么它就不能被激活. 该`Cost GE`应该是某个带有一个或多个自`Attribute`中减值Modifier的`即刻(Instant)GameplayEffect`. 默认情况下, `Cost GE`是可以被预测的, 建议保留该功能, 也就是不要使用`ExecutionCalculations`, `MMC`对于复杂的花费计算是完美适配并且鼓励使用的.  
@@ -1243,9 +1217,6 @@ FScalableFloat Cost;
 ![[bd2d8af083b380ce4e1045d19675cb04_MD5.png]]
 
 2. **重写`UGameplayAbility::GetCostGameplayEffect()`.** 重写该函数并在[运行时](#concepts-ge-dynamic)创建一个用来读取`GameplayAbility`中花费值的`GameplayEffect`.  
-
-
-
 <a name="concepts-ge-cooldown"></a>
 ### 15 冷却(Cooldown)GameplayEffect
 
@@ -1368,10 +1339,8 @@ float UPGMMC_HeroAbilityCooldown::CalculateBaseMagnitude_Implementation(const FG
 
 ![[5b4d70e70bd3ec3ae4218d8e660ce839_MD5.png]]  
 
-
-
 <a name="concepts-ge-cooldown-tr"></a>
-##### 4.5.15.1 获取Cooldown GameplayEffect的剩余时间
+#### 获取Cooldown GameplayEffect的剩余时间
 
 ```c++
 bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTags, float & TimeRemaining, float & CooldownDuration)
@@ -1412,7 +1381,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 
  <a name="concepts-ge-cooldown-listen"></a>
-##### 4.5.15.2 监听冷却开始和结束
+#### 监听冷却开始和结束
 
 为了监听某个冷却何时开始, 你可以通过绑定`AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf`或者`AbilitySystemComponent->RegisterGameplayTagEvent(CooldownTag, EGameplayTagEventType::NewOrRemoved)`分别在`Cooldown GE`应用和`Cooldown Tag`添加时作出响应. 我建议监听`Cooldown GE`何时应用, 因为这时还可以访问应用它的`GameplayEffectSpec`. 由此你可以确定当前`Cooldown GE`是客户端预测的还是由服务端校正的.  
 
@@ -1424,10 +1393,9 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 ![[e8aa31b6963a4142023590947b5ff46b_MD5.png]]  
 
-
-
+![[Pasted image 20231004203559.png]]
 <a name="concepts-ge-cooldown-prediction"></a>
-##### 4.5.15.3 预测冷却时间
+#### 预测冷却时间
 
 目前冷却时间不是真正可预测的. 我们可以在客户端预测的`Cooldown GE`应用时启动UI的冷却时间计时器, 但是`GameplayAbility`的实际冷却时间是由服务端的冷却时间剩余决定的. 取决于玩家的延迟情况, 可能客户端预测的冷却已经结束, 但是服务端上的`GameplayAbility`仍处于冷却过程, 这会阻止`GameplayAbility`的立刻再激活直到服务端冷却结束.  
 
@@ -1438,8 +1406,6 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 Epic希望在未来的[GAS迭代版本](#concepts-p-future)中实现真正的冷却预测(玩家可以激活一个在客户端冷却完成但服务端仍处于冷却过程的`GameplayAbility`).  
 
 
-
-<a name="concepts-ge-duration"></a>
 ### 16 修改已激活GameplayEffect的持续时间
 
 为了修改`Cooldown GE`或其他任何`持续(Duration)`GameplayEffect的剩余时间, 我们需要修改`GameplayEffectSpec`的持续时间, 更新它的`StartServerWorldTime`, `CachedStartServerWorldTime`, `StartWorldTime`, 并且使用`CheckDuration()`重新检查持续时间. 在服务端上完成这些操作并将`FActiveGameplayEffect`标记为dirty, 其会将这些修改同步到客户端. **Note:** 该操作包含一个`const_cast`, 这可能不是`Epic`希望的修改持续时间的方法, 但是迄今为止它看起来运行得很好.  
@@ -1481,9 +1447,6 @@ bool UPAAbilitySystemComponent::SetGameplayEffectDurationHandle(FActiveGameplayE
 }
 ```
 
-
-
-<a name="concepts-ge-dynamic"></a>
 ### 17 运行时创建动态`GameplayEffect`
 
 在运行时创建动态`GameplayEffect`是一个高阶技术, 你不必经常使用它.  
@@ -1558,8 +1521,6 @@ void UGameplayAbilityRuntimeGE::ActivateAbility(const FGameplayAbilitySpecHandle
 }
 ```
 
-
-
 <a name="concepts-ge-containers"></a>
 ### 18 GameplayEffect Containers
 
@@ -1571,14 +1532,14 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 `GameplayEffectContainer`还包含一个可选的用于[定位(Target)](#concepts-targeting-containers)的高效方法.
 
-## 4.6 Gameplay Abilities
-<a name="concepts-ga-definition"></a>
+## 6 Gameplay Abilities
 #### 4.6.1 GameplayAbility定义
 
-[GameplayAbility(GA)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/UGameplayAbility/index.html)是Actor在游戏中可以触发的一切行为和技能. 多个`GameplayAbility`可以在同一时刻激活, 例如奔跑和射击. 其可由蓝图或C++完成.  
+`GameplayAbility` 是一个蓝图对象，**负责执行技能的所有事件**，包括播放动画，触发效果，从所有者获取属性，以及显示视觉效果。
+
+[GameplayAbility(GA)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/UGameplayAbility/index.html) 是 Actor 在游戏中可以触发的一切行为和技能. 多个 `GameplayAbility` 可以在同一时刻激活, 例如奔跑和射击. 其可由蓝图或 C++完成.  
 
 `GameplayAbility`示例:  
-
 * 跳跃
 * 奔跑
 * 射击
@@ -1589,39 +1550,29 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 * 建造
 
 不应该使用`GameplayAbility`的场景:  
-
 * 基础移动输入
 * 一些与UI的交互 - 不要使用`GameplayAbility`从商店中购买物品
+>这些不是规定, 只是我的建议而已, 你的设计和实现可能是多样的.  
 
-这些不是规定, 只是我的建议而已, 你的设计和实现可能是多样的.  
+`GameplayAbility` 自带有根据等级修改 Attribute 变化量或者 `GameplayAbility` 作用的默认功能。
 
-`GameplayAbility`自带有根据等级修改Attribute变化量或者`GameplayAbility`作用的默认功能.  
+`GameplayAbility` 运行在所属(Owning)客户端还是服务端取决于[网络执行策略(Net Execution Policy)](#concepts-ga-net) 而不是 Simulated Proxy. `网络执行策略(Net Execution Policy)` 决定某个 `GameplayAbility` 是否是客户端可[预测](#concepts-p)的, 其对于[可选的Cost和`Cooldown GameplayEffect`](#concepts-ga-commit) 包含有默认行为. `GameplayAbility` 使用 [AbilityTask](#concepts-at) 用于随时间推移而发生的行为, 例如等待某个事件, 等待某个 Attribute 改变, 等待玩家选择一个目标或者使用 `Root Motion Source` 移动某个 `Character`. **Simulated Client 不会运行 `GameplayAbility`,** 而是当服务端执行 `Ability` 时, 任何需要在 Simulated Proxy 上展现的视觉效果(像动画蒙太奇)将会被同步(Replicate)或者通过 `AbilityTask` 进行 RPC 或者对于像声音和粒子这样的装饰效果使用 [GameplayCue](#concepts-gc).   
 
-`GameplayAbility`运行在所属(Owning)客户端还是服务端取决于[网络执行策略(Net Execution Policy)](#concepts-ga-net)而不是Simulated Proxy. `网络执行策略(Net Execution Policy)`决定某个`GameplayAbility`是否是客户端可[预测](#concepts-p)的, 其对于[可选的Cost和`Cooldown GameplayEffect`](#concepts-ga-commit)包含有默认行为. `GameplayAbility`使用[AbilityTask](#concepts-at)用于随时间推移而发生的行为, 例如等待某个事件, 等待某个Attribute改变, 等待玩家选择一个目标或者使用`Root Motion Source`移动某个`Character`. **Simulated Client不会运行`GameplayAbility`,** 而是当服务端执行`Ability`时, 任何需要在Simulated Proxy上展现的视觉效果(像动画蒙太奇)将会被同步(Replicate)或者通过`AbilityTask`进行RPC或者对于像声音和粒子这样的装饰效果使用[GameplayCue](#concepts-gc).  
-
-所有的`GameplayAbility`都会有它们各自由你的游戏逻辑重写的`ActivateAbility()`函数, 附加的逻辑可以添加到`EndAbility()`, 其会在`GameplayAbility`完成或取消时执行.  
+所有的 `GameplayAbility` 都会有它们各自由你的游戏逻辑重写的 `ActivateAbility()` 函数, 附加的逻辑可以 添加到 `EndAbility()`, 其会在 `GameplayAbility` 完成或取消时执行.  
 
 一个简单的`GameplayAbility`流程图: ![[10a9b92a92f597843a5ecaeb47b13c25_MD5.png]]  
 
 一个更复杂`GameplayAbility`流程图: ![[7c6a74d820c4d0c583493314e655a78d_MD5.png]]  
 
 复杂的Ability可以使用多个相互交互(激活, 取消等等)的`GameplayAbility`实现.  
-
-
-
 <a name="concepts-ga-definition-reppolicy"></a>
 ##### 4.6.1.1 Replication Policy
 
 不要使用该选项. 这个名字会误导你并且你并不需要它. [GameplayAbilitySpec](#concepts-ga-spec)默认会从服务端向所属(Owning)客户端同步, 上文提到过, **`GameplayAbility`不会运行在Simulated Proxy上,** 其使用`AbilityTask`和`GameplayCue`来同步或者RPC视觉变化到Simulated Proxy. Epic的Dave Ratti已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
-
-
-
 <a name="concepts-ga-definition-remotecancel"></a>
 ##### 4.6.1.2 Server Respects Remote Ability Cancellation
 
 这个选项往往会引起麻烦. 它的意思是如果客户端的`GameplayAbility`由于玩家取消或者自然完成时, 就会强制它的服务端版本结束而不管其是否完成. 最重要的是之后的问题, 特别是对于高延迟玩家所使用的客户端预测的`GameplayAbility`. 一般情况下禁用该选项.  
-
-
 
 <a name="concepts-ga-definition-repinputdirectly"></a>
 ##### 4.6.1.3 Replicate Input Directly
@@ -1634,13 +1585,10 @@ Epic的注释:
 /** Direct Input state replication. These will be called if bReplicateInputDirectly is true on the ability and is generally not a good thing to use. (Instead, prefer to use Generic Replicated Events). */
 UAbilitySystemComponent::ServerSetInputPressed()
 ```
-
-
-
 <a name="concepts-ga-input"></a>
 #### 4.6.2 绑定输入到ASC
 
-`ASC`允许你直接绑定输入事件并当你授予`GameplayAbility`时分配这些输入到`GameplayAbility`, 如果`GameplayTag`合乎要求, 当按下按键时, 分配到`GameplayAbility`的输入事件会自动激活各自的`GameplayAbility`. 分配的输入事件要求使用响应输入的内建`AbilityTask`.  
+**`ASC` 允许你直接绑定输入事件并当你授予 `GameplayAbility` 时分配这些输入到 `GameplayAbility`** , 如果 `GameplayTag` 合乎要求, 当按下按键时, 分配到 `GameplayAbility` 的输入事件会自动激活各自的 `GameplayAbility`. 分配的输入事件要求使用响应输入的内建 `AbilityTask`.   
 
 除了分配的输入事件可以激活`GameplayAbility`, `ASC`也接受一般的`Confirm`和`Cancel`输入, 这些特殊输入被`AbilityTask`用来确定像[Target Actor](#concepts-targeting-actors)的对象或取消它们.  
 
@@ -1684,13 +1632,11 @@ AbilitySystemComponent->BindAbilityActivationToInputComponent(PlayerInputCompone
 
 如果你的`ASC`位于`PlayerState`, `SetupPlayerInputComponent()`中有一个潜在的竞争情况就是`PlayerState`还没有同步到客户端, 因此, 我建议尝试在`SetupPlayerInputComponent()`和`OnRep_PlayerState()`中绑定输入, 只有`OnRep_PlayerState()`自身是不充分的, 因为可能有种情况是当`PlayerState`在`PlayerController`告知客户端调用用于创建`InputComponent`的`ClientRestart()`前同步时, Actor的`InputComponent`可能为NULL. 样例项目演示了尝试使用一个布尔值控制流程从而在两个位置绑定, 这样实际上只绑定了一次.  
 
-**Note:** 样例项目枚举中的`Confirm`和`Cancel`没有匹配项目设置中的输入事件名称(`ConfirmTarget`和`CancelTarget`), 但是我们在`BindAbilityActivationToInputComponent()`中提供了它们之间的映射, 这是特殊的, 因为我们提供了映射并且它们无需匹配, 但是它们是可以匹配的. 枚举中的其他输入都必须匹配项目设置中的输入事件名称.  
+> [!NOTE]
+> 样例项目枚举中的`Confirm`和`Cancel`没有匹配项目设置中的输入事件名称(`ConfirmTarget`和`CancelTarget`), 但是我们在`BindAbilityActivationToInputComponent()`中提供了它们之间的映射, 这是特殊的, 因为我们提供了映射并且它们无需匹配, 但是它们是可以匹配的. 枚举中的其他输入都必须匹配项目设置中的输入事件名称.  
 
 对于只能用一次输入激活的`GameplayAbility`(它们总是像MOBA游戏一样存在于相同的"槽"中), 我倾向在`UGameplayAbility`子类中添加一个变量, 这样我就可以定义他们的输入, 之后在授予Ability的时候可以从`ClassDefaultObject`中读取这个值.  
 
-
-
-<a name="concepts-ga-input-noactivate"></a>
 ##### 4.6.2.1 绑定输入时不激活Ability
 
 如果你不想你的`GameplayAbility`在按键按下时自动激活, 但是仍想将它们绑定到输入以与`AbilityTask`一起使用, 你可以在`UGameplayAbility`子类中添加一个新的布尔变量, `bActivateOnInput`, 其默认值为`true`并重写`UAbilitySystemComponent::AbilityLocalInputPressed()`.  
@@ -1749,9 +1695,15 @@ void UGSAbilitySystemComponent::AbilityLocalInputPressed(int32 InputID)
 ```
 
 
-#### 4.6.3 授予Ability
+#### 4.6.3 授予 Ability
+Granting
+**在 Actor 可以使用某项技能之前，必须向其 `Ability System Component` 授予该技能。**
 
 向`ASC`授予`GameplayAbility`会将其添加到`ASC`的`ActivatableAbilities`列表, 从而允许其在满足[`GameplayTag`需求](#concepts-ga-tags)时激活该`GameplayAbility`.  
+
+**技能系统组件的以下函数可以 `授予` 对某项技能的访问：**
+- **`GiveAbility`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。
+- **`GiveAbilityAndActivateOnce`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。技能必须实例化，并且必须能够在服务器上运行。尝试在服务器上运行技能后，将返回 `FGameplayAbilitySpecHandle`。如果技能没有满足所需条件，或者无法执行，返回值将无效，并且技能系统组件将不会被授予该技能。
 
 我们在服务端授予`GameplayAbility`, 之后其会自动同步[GameplayAbilitySpec](#concepts-ga-spec)到所属(Owning)客户端, 其他客户端/Simulated proxy不会接受到`GameplayAbilitySpec`.  
 
@@ -1778,12 +1730,57 @@ void AGDCharacterBase::AddCharacterAbilities()
 
 当授予这些`GameplayAbility`时, 我们就在使用`UGameplayAbility`类, Ability等级, 其绑定的输入和`SourceObject`或将该`GameplayAbility`设置到该`ASC`的源(Source)创建`GameplayAbilitySpec`.  
 
+#### 4.6.5 取消Ability
 
+**以下函数可以利用授予技能后返回的 `FGameplayAbilitySpecHandle`，来 `取消` 对技能系统组件中该技能的访问。**
+- `ClearAbility`: 从技能系统组件中移除指定技能，其会调用 `EndAbility()` 并设置它的 `WasCancelled` 参数为 `true`.  
+- `SetRemoveAbilityOnEnd`：当该技能执行完毕时，将该技能从技能系统组件中移除。如果未执行该技能，将立即移除它。如果正在执行该技能，将立即清除其输入，这样玩家就无法重新激活它或与它互动。
+- `ClearAllAbilities`：从技能系统组件中移除所有技能。此函数是唯一不需要 `FGameplayAbilitySpecHandle` 的函数。
 
-<a name="concepts-ga-activating"></a>
-#### 4.6.4 激活Ability
+为了从内部取消`GameplayAbility`, 可以调用`CancelAbility()`, 
+为了从外部取消`GameplayAbility`, `ASC`提供了一些函数:  
 
-如果某个`GameplayAbility`被分配给了一个输入事件, 那么当输入按键按下并且它的`GameplayTag`需求满足时, 它将会自动激活, 这可能并非总是激活`GameplayAbility`的期望方式. `ASC`提供了另外四种激活`GameplayAbility`的方法: 通过`GameplayTag`, `GameplayAbility`类, `GameplayAbilitySpecHandle`和Event, 通过Event激活`GameplayAbility`允许你[传递一个该事件的数据负载(Payload)](#concepts-ga-data).  
+```c++
+/** Cancels the specified ability CDO. */
+void CancelAbility(UGameplayAbility* Ability);	
+
+/** Cancels the ability indicated by passed in spec handle. If handle is not found among reactivated abilities nothing happens. */
+void CancelAbilityHandle(const FGameplayAbilitySpecHandle& AbilityHandle);
+
+/** Cancel all abilities with the specified tags. Will not cancel the Ignore instance */
+void CancelAbilities(const FGameplayTagContainer* WithTags=nullptr, const FGameplayTagContainer* WithoutTags=nullptr, UGameplayAbility* Ignore=nullptr);
+
+/** Cancels all abilities regardless of tags. Will not cancel the ignore instance */
+void CancelAllAbilities(UGameplayAbility* Ignore=nullptr);
+
+/** Cancels all abilities and kills any remaining instanced abilities */
+virtual void DestroyActiveState();
+```
+
+> [!NOTE]
+> 我发现如果存在一个`非实例(Non-Instanced)GameplayAbility`时, `CancelAllAbilities`似乎不能正常运行, 它似乎会命中这个`非实例(Non-Instanced)GameplayAbility`并放弃继续处理. `CancelAbility`可以更好地处理`非实例(Non-Instanced)GameplayAbility`, 样例项目就是这样使用的(跳跃是一个非实例(Non-Instanced)GameplayAbility), 因人而异.  
+
+#### 基本用法
+
+将 `Gameplay Ability` 授予 Actor 的技能系统组件后，`Gameplay Ability` 的**基本执行生命周期**如下：
+
+1. 即使调用者没有尝试执行某项技能，**`CanActivateAbility` 也可以让调用者知道是否可执行该技能。** 例如，您可以在户界面上将玩家无法使用的图标变成灰色并停用这些图标，或者对角色播放声音或粒子效果来显示某项技能是否可用。
+2. **`CallActivateAbility` 执行技能相关的游戏代码**，但不会检查该技能是否可用（通常在 ` CanActivateAbility` 检查及执行技能之间需要某些逻辑时才会调用该函数）
+    - 用户需要使用技能的定制功能覆盖的主代码要么是名为 `ActivateAbility` 的 C++函数，要么是名为 `Activate Ability` 的蓝图事件。
+    - 与 Actor 和组件不同，**玩法技能不会使用"`tick`"函数完成主要工作，而是在激活过程中启动技能任务，异步完成大部分工作**，然后通过委托（在 C++中）处理这些任务的输出，或者连接节点以输出执行引脚（在蓝图中）。
+    - 如果**从 `Activate` 中调用 `CommitAbility` 函数**，它将应用执行**技能的消耗**，例如从玩法属性中减去资源（例如"魔法值"、"体力值"或游戏系统所用的任何其他资源）和应用冷却。
+    - **`CancelAbility` 提供了取消技能的机制，不过技能的 `CanBeCanceled` 函数可以拒绝请求**。与 `CommitAbility` 不同，该函数可供技能外调用者使用。成功的取消先播放给 `On Gameplay Ability Cancelled`，然后通过标准代码路径结束技能，让技能可运行特殊的清理代码，否则取消时的行为将与自行结束时的行为不同。
+3. **`TryActivateAbility` 是执行技能的典型方式。该函数调用 `CanActivateAbility` 来确定技能是否可以立即运行，如果可以，则继续调用 `CallActivateAbility`。**
+4. **`EndAbility` 会在技能执行完毕后将其关闭**。如果技能被取消，`UGameplayAbility` 类会将其作为取消流程的一部分自动处理，但其他情况下，开发者都必须调用 C++函数或在技能的蓝图图表中添加节点。如果未能正常结束技能，将导致玩法技能系统认为技能仍在运行，从而带来一些影响，例如禁止将来再使用该技能或任何被该技能阻止的技能。例如，如果游戏的"喝生命药剂"玩法技能没有正常结束，那么使用该技能的角色就无法执行任何在喝血量药剂时无法执行的操作（例如喝其他药剂、快跑、爬梯子等）。这种阻碍会一直存在，因为玩法技能系统会认为角色还在喝药剂。
+#### 4.6.4 激活 Ability
+
+如果某个 `GameplayAbility` 被分配给了一个输入事件, 那么当输入按键按下并且它的 `GameplayTag` 需求满足时, 它将会**自动激活**, 这可能并非总是激活 `GameplayAbility` 的期望方式。 
+
+`ASC` 提供了另外四种激活（Activate） `GameplayAbility` 的方法: 
+1. **通过匹配的 `GameplayTag`**。这会使用匹配的技能触发器触发所有技能。这是<mark style="background: #FF5582A6;">触发技能的 Gameplay 效果的首选方法</mark>。典型用例是休眠减益，它触发的技能会播放禁用动画，并禁止其他游戏动作。
+2. 通过 `GameplayAbility` 类
+3. 通过 `GameplayAbilitySpecHandle` 
+4. 通过 `Event`。通过 Event 激活 `GameplayAbility` 允许你[传递一个该事件的数据负载(Payload)](#concepts-ga-data).   
 
 ```c++
 UFUNCTION(BlueprintCallable, Category = "Abilities")
@@ -1803,9 +1800,11 @@ FGameplayAbilitySpecHandle GiveAbilityAndActivateOnce(const FGameplayAbilitySpec
 
 `GameplayAbility Trigger`也允许你在某个`GameplayTag`添加或移除时激活该`GameplayAbility`.  
 
-**Note:** 当从蓝图中的Event激活`GameplayAbility`时, 你必须使用`ActivateAbilityFromEvent`节点, 并且标准的`ActivateAbility`节点不能出现在图表中, 如果`ActivateAbility`节点存在, 它就会一直被调用而不调用`ActivateAbilityFromEvent`节点.  
+> [!NOTE]
+> 当从蓝图中的Event激活`GameplayAbility`时, 你必须使用`ActivateAbilityFromEvent`节点, 并且标准的`ActivateAbility`节点不能出现在图表中, 如果`ActivateAbility`节点存在, 它就会一直被调用而不调用`ActivateAbilityFromEvent`节点.  
 
-**Note:** 不要忘记应该在`GameplayAbility`终止时调用`EndAbility()`, 除非你的`GameplayAbility`是像被动技能那样一直运行的`GameplayAbility`.  
+> [!NOTE]
+> 不要忘记应该在`GameplayAbility`终止时调用`EndAbility()`, 除非你的`GameplayAbility`是像被动技能那样一直运行的`GameplayAbility`.  
 
 对于**客户端预测**`GameplayAbility`的激活序列:  
 
@@ -1829,9 +1828,6 @@ FGameplayAbilitySpecHandle GiveAbilityAndActivateOnce(const FGameplayAbilitySpec
 8. 调用`ActivateAbility()`最终激活Ability
 
 如果服务端在任意时刻激活失败, 就会调用`ClientActivateAbilityFailed()`, 立即终止客户端的`GameplayAbility`并撤销所有预测的修改.  
-
-
-
 <a name="concepts-ga-activating-passive"></a>
 ##### 4.6.4.1 被动Ability
 
@@ -1855,37 +1851,6 @@ void UGDGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo * ActorInfo
 
 Epic描述该函数为初始化被动Ability的正确位置和应该做一些类似`BeginPlay`的事情.  
 
-
-
-<a name="concepts-ga-cancelabilities"></a>
-#### 4.6.5 取消Ability
-
-为了从内部取消`GameplayAbility`, 可以调用`CancelAbility()`, 其会调用`EndAbility()`并设置它的`WasCancelled`参数为`true`.  
-
-为了从外部取消`GameplayAbility`, `ASC`提供了一些函数:  
-
-```c++
-/** Cancels the specified ability CDO. */
-void CancelAbility(UGameplayAbility* Ability);	
-
-/** Cancels the ability indicated by passed in spec handle. If handle is not found among reactivated abilities nothing happens. */
-void CancelAbilityHandle(const FGameplayAbilitySpecHandle& AbilityHandle);
-
-/** Cancel all abilities with the specified tags. Will not cancel the Ignore instance */
-void CancelAbilities(const FGameplayTagContainer* WithTags=nullptr, const FGameplayTagContainer* WithoutTags=nullptr, UGameplayAbility* Ignore=nullptr);
-
-/** Cancels all abilities regardless of tags. Will not cancel the ignore instance */
-void CancelAllAbilities(UGameplayAbility* Ignore=nullptr);
-
-/** Cancels all abilities and kills any remaining instanced abilities */
-virtual void DestroyActiveState();
-```
-
-**Note:** 我发现如果存在一个`非实例(Non-Instanced)GameplayAbility`时, `CancelAllAbilities`似乎不能正常运行, 它似乎会命中这个`非实例(Non-Instanced)GameplayAbility`并放弃继续处理. `CancelAbility`可以更好地处理`非实例(Non-Instanced)GameplayAbility`, 样例项目就是这样使用的(跳跃是一个非实例(Non-Instanced)GameplayAbility), 因人而异.  
-
-
-
-<a name="concepts-ga-definition-activeability"></a>
 #### 4.6.6 获取激活的Ability
 
 初学者经常会问"我怎样才能获取激活的Ability?", 也许是用来设置变量或取消它. 多个`GameplayAbility`可以在同一时刻激活, 因此没有"一个激活的Ability", 相反, 你必须搜索`ASC`的`ActivatableAbility`列表(`ASC`拥有的已授予`GameplayAbility`)并找到一个与你正在寻找的[资源或授予的GameplayTag](#concepts-ga-tags)相匹配的Ability.  
@@ -1901,21 +1866,30 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 一旦你获取到了寻找的`FGameplayAbilitySpec`, 那么就可以调用它的`IsActive()`.  
 
 
-
 <a name="concepts-ga-instancing"></a>
 #### 4.6.7 实例化策略
+在执行玩法技能时，通常会产生一个（技能类型的）新对象，用于跟踪正在进行的技能。**在某些情况下可能会非常频繁地执行技能，会出现因快速创建技能对象而对性能产生负面影响的情况。**
+为了解决这个问题，技能可以选择**三种不同的实例化策略**，以在效率和功能之间达到平衡。支持的三种实例化类型：
 
-`GameplayAbility`的实例化策略决定了当`GameplayAbility`激活时是否和如何实例化.  
+`GameplayAbility`的实例化策略决定了当`GameplayAbility`**激活**时是否和如何实例化.  
 
 |实例化策略|描述|何时使用的例子|
 |:-:|:-:|:-:|
-|按Actor实例化(Instanced Per Actor)|每个`ASC`只能有一个在激活之间复用的`GameplayAbility`实例.|这可能是你使用最频繁的实例化策略. 你可以对任一`Ability`使用并在激活之间提供持久化. 设计者可以在激活之间手动重设任意变量.|
-|按操作实例化(Instanced Per Execution)|每有一个`GameplayAbility`激活, 就有一个新的`GameplayAbility`实例创建.|这些`GameplayAbility`的好处是每次激活时变量都会重置, 其性能要比`Instanced Per Actor`差, 因为每次激活时都会生成新的`GameplayAbility`. 样例项目没有使用该方式.|
+|按Actor实例化(Instanced Per Actor)|每个`ASC`只能有一个在激活之间复用的`GameplayAbility`实例. |这可能是你使用最频繁的实例化策略. 你可以对任一`Ability`使用并在激活之间提供持久化. 设计者可以在激活之间手动重设任意变量.|
+|按执行实例化(Instanced Per Execution)|每有一个`GameplayAbility`激活, 就有一个新的`GameplayAbility`实例创建.|这些`GameplayAbility`的好处是每次激活时变量都会重置, 其性能要比`Instanced Per Actor`差, 因为每次激活时都会生成新的`GameplayAbility`. 样例项目没有使用该方式.|
 |非实例化(Non-Instanced)|`GameplayAbility`操作其`ClassDefaultObject`, 没有实例创建.|它是三种方式中性能最好的, 但是使用它是最受限制的. `非实例化(Non-Instanced)GameplayAbility`不能存储状态, 这意味着没有动态变量和不能绑定到`AbilityTask`委托. 使用它的最佳场景就是需要频繁使用的简单Ability, 像MOBA或RTS游戏中小兵的基础攻击. 样例项目中的跳跃`GameplayAbility`就是`非实例化(Non-Instanced)`的.|
 
+官方文档：
+1. **按执行实例化：（Instanced per Execution:）** 每次技能运行时，都会产生技能对象的副本。
+    - 优点：可以自由使用蓝图图表和成员变量，并且所有内容都将在执行开始时初始化为默认值。这是最简单的实例化策略，
+    - 缺点：开销较大，该策略更适合不会频繁运行的技能。
+2. **按 Actor 实例化：（Instanced per Actor:）** 在技能首次执行时，每个 Actor 会生成该技能的一个实例，该对象会在以后的执行中重复使用。这就要求在两次技能执行之间清理成员变量，同时也使保存多个执行的信息成为可能。按 Actor 是较为理想的复制方法，因为技能具有可处理变量和 RPC 的复制对象，而不是浪费网络带宽和 CPU 时间，在每次运行时产生新对象。**该策略适用于大规模的情况，因为大量使用技能的 Actor（例如在大型战斗中）只会在第一次使用技能时产生对象。**
+3. **非实例化：（Non-Instanced:）** 这是所有类别中**最高效**的实例化策略。在运行时，技能不会生成任何对象，而是使用[类默认对象](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine)（CDO）。
+    - 但是，在高效的同时也伴随着一些限制：
+        - 首先，该策略特别**要求技能完全用 C ++编写**，因为创建蓝图图表需要对象实例。你可以创建非实例化技能的蓝图类，但这只能更改已公开属性的默认值。
+        - 此外，在**执行技能期间**，即使在本机 C ++代码中，技能也**不能更改成员变量，不能绑定代理，也不能复制变量或处理 RPC。**
+    - 该策略**仅适用于不需要内部变量存储**（尽管可以针对技能用户设置属性）**并且不需要复制任何数据的技能**。它尤其适合频繁运行且被许多角色使用的技能，例如大型 RTS 或 MOBA 作品中部队使用的基本攻击。
 
-
-<a name="concepts-ga-net"></a>
 #### 4.6.8 网络执行策略(Net Execution Policy)
 
 `GameplayAbility`的`网络执行策略(Net Execution Policy)`决定了谁该以什么顺序运行该`GameplayAbility`.  
@@ -1926,9 +1900,6 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |Local Predicted|`Local Predicted GameplayAbility`首先在所属(Owning)客户端激活, 之后在服务端激活. 服务端版本会纠正客户端预测的所有不正确的地方. 参见Prediction.|
 |Server Only|`GameplayAbility`只运行在服务端. 被动`GameplayAbility`一般是`Server Only`. 单人游戏应该使用该项.|
 |Server Initiated|`Server Initiated GameplayAbility`首先在服务端激活, 之后在所属(Owning)客户端激活. 我个人使用的不多(如果有的话).|
-
-
-
 <a name="concepts-ga-tags"></a>
 #### 4.6.9 Ability标签
 
