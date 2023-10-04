@@ -52393,6 +52393,7 @@ AAAP
 AmE
 AsxIs
 AppID
+Activate
 URL
 Utools
 Users
@@ -66158,6 +66159,7 @@ RbRbb
 RMgT
 RWqs
 Region
+Revoking
 Microsoft
 Menu
 MicaForEveryone
@@ -91634,6 +91636,7 @@ CMYs
 CMzNy
 CfB
 Click
+Cosmetic
 ImTip
 IMAP
 ID
@@ -199528,6 +199531,7 @@ GsYT
 Gqcikky
 GWdcd
 GameServer
+Granting
 NULL
 Native
 NormalMap
