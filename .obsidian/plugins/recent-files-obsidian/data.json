@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "GAS精粹",
-      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+      "basename": "1 UE指南",
+      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "Unity Git",
@@ -11,6 +11,10 @@
     {
       "basename": "UE4源码管理",
       "path": "Tools/Git/UE4源码管理.md"
+    },
+    {
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
       "basename": "1 UE网络精粹",
@@ -31,10 +35,6 @@
     {
       "basename": "2 类型",
       "path": "引擎Unreal/02 UE++/2 类型.md"
-    },
-    {
-      "basename": "1 UE指南",
-      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档",

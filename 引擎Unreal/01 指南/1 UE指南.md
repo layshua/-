@@ -231,8 +231,7 @@ C:\Users\LiuKe\AppData\Local\UnrealBuildTool\Log.txt
 
 
 # 编辑器偏好设置
-## 新选项卡位置
-资产编辑器打开路径
+## 资产编辑器打开路径
 General->Appearance
 ![[Pasted image 20230112184037.png]]
 ## 编译时保存
