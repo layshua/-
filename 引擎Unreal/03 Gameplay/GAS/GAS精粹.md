@@ -19,6 +19,16 @@ banner_icon: ⚔
 [GASShooter](https://github.com/tranek/GASShooter)是该样例项目的姐妹项目, 其演示了基于多人FPS/TPS的高阶GAS技术.  
 
 # 一、 步入 GameplayAbilitySystem 插件
+GAS 指在处理所有这些用例，方法是**将技能建模为负责自身执行的完全独立的实体**。
+该系统由多个组件构成：
+- 带有 **技能系统组件（`Ability System Component`）** 的所属 Actor，维持该 Actor 拥有的所有技能的列表，并处理激活。
+- **Gameplay 技能（`Gameplay Ability`）蓝图** ，表示各个技能，并协调其游戏内执行。
+    - 由 **Gameplay 技能任务（`Gameplay Ability Tasks`）** 以及其他函数构成。
+- **属性集（`Attribute Set`）** ，附加到 Ability System Component。
+    - 包含 **Gameplay 属性（`Gameplay Attributes`）** ，用于驱动计算或表示资源。
+- **Gameplay 效果（`Gameplay Effects`）** ，处理 Actor 因使用技能而发生的更改。
+    - **Gameplay 效果计算（`Gameplay Effect Calculations`）** ，提供模块化、可复用的方法来计算效果。
+    - **Gameplay 提示（`Gameplay Cues`）** ，与 Gameplay 效果关联，并提供数据驱动的方法来处理视觉效果。
 
 * 执行基于等级的角色能力(Ability)或技能(Skill), 该能力或技能可选花费和冷却时间. ([GameplayAbility](#concepts-ga))
 * 管理属于Actor的数值Attribute. ([Attribute](#concepts-a))
@@ -235,6 +245,9 @@ void AGDHeroCharacter::OnRep_PlayerState()
 如果你遇到了错误消息`LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`, 那么就表明`ASC`没有在客户端中初始化.  
 
 ## 2 Gameplay Tags
+Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能都拥有一组标记，以可影响其行为的方式识别和分类技能，还有玩法标记容器和游戏标记查询，用于支持与其他技能进行交互。
+
+---
 
 `FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级FName, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
 
@@ -356,9 +369,166 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ## 4 AttributeSet
 
+> [!NOTE] 
+> 必须在本地代码中创建属性和属性集——它们不能在蓝图中创建。
+
+GAS 主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中包含 **Gameplay 属性（Gameplay Attributes）** 。这些是可在计算中使用或由 Gameplay 技能修改的浮点值。它们可用于你需要的任意目的，但**常见用例包括追踪角色的生命值或击中点**，以及角色的核心统计数据值（例如力量和智能）。
+
+虽然你可以使用基本变量来表示这些值，但 `Gameplay Attributes` 可带来多项**优势**：
+- 属性集提供了一组一致、可复用的属性，可用于构建系统。
+- Gameplay Ability 可以通过反射访问 Gameplay Attributes，以便可以直接在蓝图编辑器中创建简单的计算和效果。
+- Gameplay Attributes 会**单独**追踪默认值、当前值和最大值，这样就更容易创建临时修改（增益和减益）以及持久效果。
+- Gameplay Attributes 还会将其值复制到所有客户端，适合直观地显示敌方血条等本地 UI。
+
+
+> [!quote] 使用方法
+> - 要创建 `Gameplay Attributes`，你必须首先新建一个属性集（Attribute Set）。然后就可以添加到属性集中。
+> - 要使 Actor 能够使用 `Gameplay Attributes`，你必须将其附加到其 `Ability System Component`。在此之后，`Ability System Component` 可以自动访问你分配给 `Attribute Sets` 的属性。  
+
+
+> [!NOTE]
+> 在某些情况下，游戏属性可以在没有属性集的情况下存在。这通常表明，某个游戏属性被保存在一个 **技能系统组件（Ability System Component）** 上，而这个组件没有一个包含适当类型游戏属性的属性集。这种方法并**不推荐**，因为游戏属性除了作为浮点值保存外，不会与 GAS 的任何部分交互。
+
+
 ###  01 定义 AttributeSet
 
-`AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`**. **这必须在C++中完成.**  
+`AttributeSet` 用于定义, 保存以及管理对 `Attribute` 的修改. 开发者应该继承 [UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在 OwnerActor 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**. **这必须在 C++中完成.**  
+
+首先，设置一个带有一个或多个 GamePlay Attribute 的属性集，然后将其注册到你的 Ability System Component 中。
+
+1. 扩展基本属性集类 `UAttributeSet`，并将游戏玩法属性添加为 `UProperties() FGameplayAttributeData `，以下是一个简单的单个游戏玩法属性的属性集：
+    ```c++
+    UCLASS()
+    class MYPROJECT_API UMyAttributeSet : public UAttributeSet
+    {
+        GENERATED_BODY()
+    
+        public:
+        /** Sample "Health" Attribute, publicly accessible */
+        UPROPERTY(EditAnywhere, BlueprintReadOnly)
+        FGameplayAttributeData Health;
+    };
+    ```
+
+2. **将属性集存储在 Actor 上**，并将使其对虚幻引擎开放。使用 **`const` 关键字** 来确保代码不能直接修改属性集，将其添加到你的 Actor 的类定义中：
+    ```c++
+    /** Sample Attribute Set. */
+    UPROPERTY()
+    const UMyAttributeSet* AttributeSet;
+    ```
+
+3. 把属性集注册到相应的 Ability System Component 中。这会在实例化属性集时**自动进行**，你可以在 Actor 的构造函数中进行，也可以在 `BeginPlay` 时进行，但前提是 Actor 的 `GetAbilitySystemComponent` 函数在实例化时返回一个有效的技能系统组件（**即在 OwnerActor 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**）。
+    - 你也可以编辑 Actor 的蓝图，并将属性集类添加到技能系统组件的默认起始数据中。
+    - 第三种方法是指示技能系统组件实例化属性集，然后属性集会自动注册，以下就是一个案例：
+
+    ```c++
+    // 像这样的代码通常出现在BeginPlay()中，但也可以是
+    // 获取相应的技能系统组件。它可能在另一个Actor上，所以使用GetAbilitySystemComponent并检查结果是否有效。
+    AbilitySystemComponent* ASC = GetAbilitySystemComponent();
+    // 确保AbilitySystemComponent有效。如果失败是不可接受的，用check()语句替换这个if()条件。
+    if (IsValid(ASC))
+    {
+        // 从我们的技能系统组件中获取UMYAttributeSet。如有需要，技能系统组件将创建并注册一个UMYAttributeSet。
+        AttributeSet = ASC->GetSet<UMyAttributeSet>();
+    
+        // 我们现在有了一个指向新的UMyAttributeSet的指向器，以后可以使用该指向器。如果它有初始化函数，这里是调用它的好地方。
+    }
+    ```
+  
+
+> [!warning] 注意
+>- 一个 Ability System Component 可以有多个属性集，但每个属性集必须与所有其它属性集的**类**不同。
+>- 如果使用 `Gameplay Effects`  来修改 Ability System Component **没有的 `Gamplay Attributes`** ，这样做会使技能系统组件为自己创建一个匹配的游戏玩法属性。然而，这个方法并不会创建一个属性集，也不会将游戏玩法属性添加到任何现有的属性集中。
+
+
+4. **Getter Setter 宏**。这是一个可选的步骤，添加一些基本的辅助函数来与游戏玩法属性交互。**最好是将游戏玩法属性本身做成受保护或私有的，而将与之交互的函数公开**。（也可以自定义 Getter Setter 函数，来控制属性访问）
+    
+| 宏（带参数）                                                 | 生成函数的签名                          | 行为/用途                                                  |
+| ------------------------------------------------------------ | --------------------------------------- | ---------------------------------------------------------- |
+| `GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMyAttributeSet, Health)` | `static FGameplayAttribute GetHealth()` | 静态函数从虚幻引擎的反射系统中返回 `FGameplayAttribute` 结构 |
+| `GAMEPLAYATTRIBUTE_VALUE_GETTER(Health)`                     | `float GetHealth() const`               | 返回"生命值"游戏玩法属性的当前值                           |
+| `GAMEPLAYATTRIBUTE_VALUE_SETTER(Health)`                     | `void SetHealth(float NewVal)`          | 将"生命值"游戏玩法属性的值设置为 `NewVal`                   |
+| `GAMEPLAYATTRIBUTE_VALUE_INITTER(Health)`                    | `void InitHealth(float NewVal)`         | 将"生命值"游戏玩法属性的值初始化为 `NewVal`                 |
+
+添加完这些之后，你的属性集类定义应该是如下所示：
+
+```c++
+UCLASS()
+class MYPROJECT_API UMyAttributeSet : public UAttributeSet
+{
+    GENERATED_BODY()
+
+    protected:
+    /** Sample "Health" Attribute */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FGameplayAttributeData Health;
+
+    //~ ... Other Gameplay Attributes here ...
+
+    public:
+    //~ Helper functions for "Health" attributes
+    GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMyAttributeSet, Health);
+    GAMEPLAYATTRIBUTE_VALUE_GETTER(Health);
+    GAMEPLAYATTRIBUTE_VALUE_SETTER(Health);
+    GAMEPLAYATTRIBUTE_VALUE_INITTER(Health);
+
+    //~ ... Helper functions for other Gameplay Attributes here ...
+};
+```
+
+
+### 使用数据表初始化
+
+如果你选择不通过调用有硬编码值的初始化函数来初始化你的属性集和游戏玩法属性，你可以使用一个[数据表](https://docs.unrealengine.com/5.2/zh-CN/data-driven-gameplay-elements-in-unreal-engine)来初始化，使用 `AttributeMetaData` 类。你可以从外部文件导入数据，或者在编辑器中手动填充数据表。
+
+![AttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/AttributeMetaData.jpg)
+
+#### 导入数据表
+
+开发者通常会从. csv 文件中导入数据表，如下所示：
+
+```c++
+---,BaseValue,MinValue,MaxValue,DerivedAttributeInfo,bCanStack
+MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
+```
+
+>"MinValue"和"MaxValue"栏不会在默认的 GAS 插件中执行，这些值不会有任何影响。
+
+![ImportAttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/ImportAttributeMetaData.jpg)
+
+将. csv 文件导入为数据表资产时，请选择"AttributeMetaData"行类型。
+
+#### 手动填充数据表
+
+如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
+
+### 与 Gameplay Effects 互动
+
+对游戏玩法属性的值进行控制的常见方法是处理与之相关的 `Gameplay Effects`
+
+1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
+    
+    ```c++
+    void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
+    ```
+    
+2. 在属性集的源文件中编写函数主体，务必要调用父类的执行。
+    
+    ```c++
+    void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+    {
+        // 记得要调用父类的执行。
+        Super::PostGameplayEffectExecute(Data);
+    
+        // 通过使用属性获取器来查看这个调用是否会影响生命值。
+        if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+        {
+            // 这个游戏玩法效果是改变生命值。应用它，但要先限制数值。
+            // 在这种情况下，生命值的基础值不可是负值。
+            SetHealth(FMath::Max(GetHealth(), 0.0f));
+        }
+    }
+    ```
 
 ### 02 设计 AttributeSet
 
@@ -405,7 +575,6 @@ AbilitySystemComponent->ForceReplication();
 1. 在物品中使用普通的浮点数(推荐).
 2. 在物品中使用单独的`AttributeSet`.
 3. 在物品中使用单独的`ASC`.
-
 
 ##### 在物品中使用普通浮点数
 
@@ -1778,9 +1947,9 @@ virtual void DestroyActiveState();
 
 `ASC` 提供了另外四种激活（Activate） `GameplayAbility` 的方法: 
 1. **通过匹配的 `GameplayTag`**。这会使用匹配的技能触发器触发所有技能。这是<mark style="background: #FF5582A6;">触发技能的 Gameplay 效果的首选方法</mark>。典型用例是休眠减益，它触发的技能会播放禁用动画，并禁止其他游戏动作。
-2. 通过 `GameplayAbility` 类
-3. 通过 `GameplayAbilitySpecHandle` 
-4. 通过 `Event`。通过 Event 激活 `GameplayAbility` 允许你[传递一个该事件的数据负载(Payload)](#concepts-ga-data).   
+2. **通过 `GameplayAbilitySpecHandle`** ：通过蓝图或 C++代码显式激活技能。这在授予技能时由 `Ability System Component` 提供。
+3. **通过触发 `Gameplay Event`**。通过 Event 激活 `GameplayAbility` 允许你[传递一个该事件的数据负载(Payload)](#concepts-ga-data).。这会使用匹配的 `GameplayAbility Trigger` 触发所有技能。如果你需要抽象输入和决策机制，此方法非常适合，因为它提供了最大的灵活度。
+4. 使用 **输入代码（Input Codes）** 。这些会添加到 `Ability System Component`，在调用时会触发匹配的所有技能。其运作方式类似于 Gameplay Events。
 
 ```c++
 UFUNCTION(BlueprintCallable, Category = "Abilities")
@@ -1798,7 +1967,15 @@ FGameplayAbilitySpecHandle GiveAbilityAndActivateOnce(const FGameplayAbilitySpec
 
 想要通过Event激活`GameplayAbility`, `GameplayAbility`必须设置它的`Trigger`, 分配一个`GameplayTag`并为`GameplayEvent`选择一个选项. 想要发送Event, 就得使用`UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(AActor* Actor, FGameplayTag EventTag, FGameplayEventData Payload)`函数. 通过Event激活`GameplayAbility`允许你传递一个数据负载(Payload).  
 
+---
+
 `GameplayAbility Trigger`也允许你在某个`GameplayTag`添加或移除时激活该`GameplayAbility`.  
+
+---
+
+当你 **激活** `Gameplay Ability` 时，系统会将该技能识别为进行中。接着，它会触发 Attach 到激活事件的代码，遍历每个函数和 Gameplay Tasks，直到你调用 `Finish` 函数来表示技能已完成执行。如果你需要执行额外的清理，你可以将更多代码附加到 `On Finished` 事件。你还可以 `Cancel` 技能，使其在执行中途停止。
+
+`Gameplay Ability` 使用 [[#Gameplay Tags]] 来限制执行。所有技能都有在激活时会添加到其所属 Actor 的标签列表，以及阻止激活或自动取消该技能的标签列表。虽然你可以使用自己的代码手动取消、阻止或允许技能的执行，但这里提供了在整个系统内一致的方法。 
 
 > [!NOTE]
 > 当从蓝图中的Event激活`GameplayAbility`时, 你必须使用`ActivateAbilityFromEvent`节点, 并且标准的`ActivateAbility`节点不能出现在图表中, 如果`ActivateAbility`节点存在, 它就会一直被调用而不调用`ActivateAbilityFromEvent`节点.  
@@ -1866,7 +2043,6 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 一旦你获取到了寻找的`FGameplayAbilitySpec`, 那么就可以调用它的`IsActive()`.  
 
 
-<a name="concepts-ga-instancing"></a>
 #### 4.6.7 实例化策略
 在执行玩法技能时，通常会产生一个（技能类型的）新对象，用于跟踪正在进行的技能。**在某些情况下可能会非常频繁地执行技能，会出现因快速创建技能对象而对性能产生负面影响的情况。**
 为了解决这个问题，技能可以选择**三种不同的实例化策略**，以在效率和功能之间达到平衡。支持的三种实例化类型：
@@ -1918,7 +2094,17 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |Target Required Tags|该`GameplayAbility`只有在`Target`拥有所有这些`GameplayTag`时才会激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 |Target Blocked Tags|该`GameplayAbility`在`Target`拥有任意这些标签时不能被激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 
+官方文档：
 
+|玩法标记变量|目的|
+|---|---|
+|Cancel Abilities With Tag |如果任何已在执行的技能带有与执行此技能时提供的列表匹配的标记，则取消那些技能。|
+|Block Abilities With Tag|在执行此技能时，阻止执行具有匹配标记的任何其他技能。|
+|Activation Owned Tags|在执行此技能时，技能的所有者将被给予这组标记。|
+|Activation Required Tags|只有激活的 Actor 或组件具有所有这些标记时，技能才会被激活。|
+|Activation Blocked Tags|只有激活的 Actor 或组件没有任何这些标记时，技能才会被激活|
+|Target Required Tags|只有目标 Actor 或组件具有所有这些标记时，技能才会被激活。|
+|Target Blocked Tags|只有目标 Actor 或组件没有任何这些标记时，技能才会被激活。|
 
 <a name="concepts-ga-spec"></a>
 #### 4.6.10 Gameplay Ability Spec
@@ -1929,9 +2115,6 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 激活`GameplayAbilitySpec`会根据它的`实例化策略(Instancing Policy)`创建一个`GameplayAbility`实例(`Non-Instanced GameplayAbility`除外).  
 
-
-
-<a name="concepts-ga-data"></a>
 #### 4.6.11 传递数据到Ability
 
 `GameplayAbility`的一般范式是`Activate->Generate Data->Apply->End`. 有时你需要调整现有数据, GAS提供了一些选项来获取外部数据到你的`GameplayAbility`.  
@@ -2052,8 +2235,11 @@ GASShooter暴露了一个蓝图节点以允许上文提到的仅客户端调用�
 
 <a name="concepts-at"></a>
 ## 4.7 Ability Tasks
+`Gameplay Ability` 支持各种常见用例，例如技能冷却和分配资源成本，并且有一个预制的 `Gameplay Ability Tasks` 库，**用于处理动画和其他常见的引擎系统。**
 
-<a name="concepts-at-definition"></a>
+虽然标准蓝图函数节点会立即完成执行，但 `Gameplay Ability Tasks` 会追踪它们是处于不活动状态、进行中还是已完成，并且可以编程为在执行期间触发其他事件。它们还可以追踪其父 `Gameplay Ability` 是否已取消并相应清理。
+游戏通过扩展 `Gameplay Ability Tasks` 来实现自定义 Gameplay 逻辑是很常见的做法。
+
 #### 4.7.1 AbilityTask定义
 
 `GameplayAbility`只能在一帧中执行, 这本身并不能提供太多灵活性, 为了实现随时间推移而触发或响应一段时间后触发的委托操作, 我们需要使用`AbilityTask`.  
@@ -2127,18 +2313,40 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 **Note:** `RootMotionSource AbilityTask`预测支持的引擎版本是4.19和4.25+, 该预测在引擎版本4.20-4.24中存在bug, 然而, `AbilityTask`仍然可以使用较小的网络修正在多人游戏中执行功能, 并且在单人游戏中完美运行. 可以将4.25中对预测的修复自定义到4.20~4.24引擎中.  
 
 
+## Gameplay Events
+`Gameplay Ability` 还可以响应 Gameplay Events，它们是通用事件监听器，等待从所属 Actor 接收 Gameplay Tags 和 **事件数据（Event Data）** 结构体。
+
+**玩法事件（Gameplay Events）** 是可以传递的数据结构，能够直接触发玩法技能，无需通过正常通道，即可根据情境发送数据有效负载。
+常用的方法是调用 `Send Gameplay Event To Actor` 并提供实施 `IAbilitySystemInterface` 接口的 Actor 和玩法事件所需的上下文信息。
+但也可以直接在技能系统组件上调用 `Handle Gameplay Event`。因为这不是调用 `Gameplay Ability` 的正常方式，所以技能可能需要的上下文信息将通过 `FGameplayEventData` 数据结构传递。该结构是一种通用结构，不会针对任何特定的玩法事件或技能进行扩展，但应该能够满足任何用例的要求。多态 `ContextHandle` 字段会根据需要提供其他信息。 
+
+> [!NOTE]
+> 当 Gameplay Events 触发 Gameplay Ability 时， Gameplay Ability 不会通过 `Activate Ability` 代码路径运行，而是使用提供附加上下文数据作为参数的 `Activate Ability From Event`）。
+> **如果希望技能响应游戏事件，请务必处理此代码路径**，同时还应注意，一旦在 Gameplay Ability 的蓝图中实施，`Activate Ability From Event`）将取代 `Activate Ability `
 
 <a name="concepts-gc"></a>
 ## 4.8 Gameplay Cues
 
-<a name="concepts-gc-definition"></a>
-#### 4.8.1 GameplayCue定义
 
-`GameplayCue(GC)`执行非游戏逻辑相关的功能, 像音效, 粒子效果, 镜头抖动等等. `GameplayCue`一般是可同步(除非在客户端明确`执行(Executed)`, `添加(Added)`和`移除(Removed)`)和可预测的.  
+#### 4.8.1 GameplayCue定义
+`Gameplay Cues` 是负责运行视觉和声音效果的 Actor 和 UObject，执行非游戏逻辑相关的功能, 像音效, 粒子效果, 镜头抖动等等。
+`GameplayCue` 一般是可同步 (除非在客户端明确 `执行(Executed)`, `添加(Added)` 和 `移除(Removed)`)和可预测的。是在多人游戏中复制美化 (Cosmetic)反馈的首选方法。
+
+**`GamePlay Ability` 和 `GamePlay Effect` 可以触发 Cue**。它们通过四个可在本地或蓝图代码中覆盖的主函数来产生作用：On Active、While Active、Removed 及 Executed（仅由 GamePlay Effect 使用）。
 
 我们可以在`ASC`中通过发送一个**强制带有"GameplayCue"父名**的相应`GameplayTag`和`GameplayCueManager`的事件类型(Execute, Add或Remove)来触发`GameplayCue`. `GameplayCueNotify`对象和其他实现`IGameplayCueInterface`的`Actor`可以基于`GameplayCue`的`GameplayTag(GameplayCueTag)`来订阅(Subscribe)这些事件.  
 
-**Note:** 再次强调, `GameplayCue`的`GameplayTag`需要以`GameplayCue`为开头, 举例来说, 一个有效的`GameplayCue`的`GameplayTag`可能是`GameplayCue.A.B.C`.  
+> [!NOTE]
+> 再次强调, `GameplayCue`的`GameplayTag`需要以`GameplayCue`为开头, 举例来说, 一个有效的`GameplayCue`的`GameplayTag`可能是`GameplayCue.A.B.C`.  
+创建 `Gameplay Cues` 时，你会运行要在事件图表中播放的效果的逻辑。`Gameplay Cues` 可以与一系列 `Gameplay Tags` 关联，并且匹配这些标签的 `Gameplay Effects` 将自动应用它们。
+
+例如，**如果你将标签 Ability. Magic. Fire. Weak 添加到 Gameplay 提 `Gameplay Cues`，拥有 Ability. Magic. Fire. Weak 的 `Gameplay Effects` 将自动生成该 `Gameplay Cues` 并运行它**。这样就可以快速轻松创建视觉效果的通用库，而不必手动从代码触发它们。
+ 
+或者，你也可以触发没有 Gameplay Effects 关联的 Cue 。有关此实现的例子，你可以查看 Lyra 示例游戏的武器发射反馈。
+
+`Gameplay Cues` **不使用可靠的复制**，因此有可能一些客户端没有接收到提示或显示其反馈。如果你将 Gameplay 代码绑定到这些 Cue，这可能造成不同步。因此，`Gameplay Cues` 应该仅用于美化反馈。对于需要复制到所有客户端的 Gameplay 相关反馈，你应该转而依赖 Ability Tasks 来处理复制。**播放蒙太奇（Play Montage）** 技能任务就是很好的例子。 
+
+---
 
 有两个`GameplayCueNotify`类, `Static`和`Actor`. 它们各自响应不同的事件, 并且不同的`GameplayEffect`类型可以触发它们. 根据你的逻辑重写相关的事件.  
 
@@ -2154,9 +2362,6 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 当使用除`Full`之外的`ASC`[同步模式](#concepts-asc-rm)时, `Add`和`Remove`GC事件会在服务端玩家中触发两次(Listen Server) - 一次是应用`GE`, 再一次是从"Minimal"`NetMultiCast`到客户端. 然而, `WhileActive`事件仍会触发一次. 所有的事件在客户端中只触发一次.  
 
 样例项目包含了一个`GameplayCueNotify_Actor`用于眩晕和奔跑效果. 其还含有一个`GameplayCueNotify_Static`用于枪支弹药伤害. 这些`GC`可以通过[客户端触发](#concepts-gc-local)来进行优化, 而不是通过`GE`同步. 我选择了在样例项目中展示使用它们的基本方法.  
-
-
-
 <a name="concepts-gc-trigger"></a>
 #### 4.8.2 触发GameplayCue
 
@@ -2189,8 +2394,6 @@ void RemoveGameplayCue(const FGameplayTag GameplayCueTag);
 /** Removes any GameplayCue added on its own, i.e. not as part of a GameplayEffect. */
 void RemoveAllGameplayCues();
 ```
-
-
 
 <a name="concepts-gc-local"></a>
 #### 4.8.3 客户端GameplayCue
@@ -2237,8 +2440,6 @@ void UPAAbilitySystemComponent::RemoveGameplayCueLocal(const FGameplayTag Gamepl
 如果某个`GameplayCue`是客户端添加的, 那么它也应该自客户端移除. 如果它是通过同步添加的, 那么它也应该通过同步移除.  
 
 
-
-<a name="concepts-gc-parameters"></a>
 #### 4.8.4 GameplayCue参数
 
 `GameplayCue`接受一个包含额外`GameplayCue`信息的`FGameplayCueParameters`结构体作为参数. 如果你在`GameplayAbility`或`ASC`中使用函数手动触发`GameplayCue`, 那么就必须手动填充传递给`GameplayCue`的`GameplayCueParameters`结构体. 如果`GameplayCue`由`GameplayEffect`触发, 那么下列的变量会自动填充到`FGameplayCueParameters`结构体中:  
@@ -2262,7 +2463,6 @@ virtual void InitGameplayCueParameters(FGameplayCueParameters& CueParameters, co
 virtual void InitGameplayCueParameters_GESpec(FGameplayCueParameters& CueParameters, const FGameplayEffectSpec &Spec);
 virtual void InitGameplayCueParameters(FGameplayCueParameters& CueParameters, const FGameplayEffectContextHandle& EffectContext);
 ```
-
 
 
 <a name="concepts-gc-manager"></a>
@@ -2294,24 +2494,16 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 	return false;
 }
 ```
-
-
-
 <a name="concepts-gc-prevention"></a>
 #### 4.8.6 阻止GameplayCue响应
 
 有时我们不想响应`GameplayCue`, 例如我们阻止了一次攻击, 可能就不想播放附加在伤害`GameplayEffect`上的击打效果或者自定义的效果. 我们可以在[GameplayEffectExecutionCalculations](#concepts-ge-ec)中调用`OutExecutionOutput.MarkGameplayCuesHandledManually()`, 之后手动发送我们的`GameplayCue`事件到`Target`或`Source`的`ASC`中.  
 
 如果你想某个特别指定`ASC`中的`GameplayCue`永不触发, 可以设置`AbilitySystemComponent->bSuppressGameplayCues = true;`.  
-
-
-
 <a name="concepts-gc-batching"></a>
 #### 4.8.7 GameplayCue批处理
 
 每次`GameplayCue`触发都是一次不可靠的多播(NetMulticast)RPC. 在同一时刻触发多个`GameplayCue`的情况下, 有一些优化方法来将它们压缩成一个RPC或者通过发送更少的数据来节省带宽.  
-
-
 
 <a name="concepts-gc-batching-manualrpc"></a>
 ##### 4.8.7.1 手动RPC
@@ -3004,83 +3196,3 @@ if (AbilitySystemComponent)
 
 
 <a name="changelog"></a>
-# 12. GAS更新日志
-
-这是从Unreal Engine官方升级日志和我遇到的且未记录的升级中整理的一份值得一看的升级列表, 如果你发现某些没有列在其中, 请提issue或者PR.  
-
-
-
-<a name="changelog-4.26"></a>
-## 4.26
-
-* GAS plugin is no longer flagged as beta.
-* Crash Fix: Fixed a crash when adding a gameplay tag without a valid tag source selection.
-* Crash Fix: Added the path string arg to a message to fix a crash in UGameplayCueManager::VerifyNotifyAssetIsInValidPath.
-* Crash Fix: Fixed an access violation crash in AbilitySystemComponent_Abilities when using a ptr without checking it.
-* Bug Fix: Fixed a bug where stacking GEs that did not reset the duration on additional instances of the effect being applied.
-* Bug Fix: Fixed an issue that caused CancelAllAbilities to only cancel non-instanced abilities.
-* New: Added optional tag parameters to gameplay ability commit functions.
-* New: Added StartTimeSeconds to PlayMontageAndWait ability task and improved comments.
-* New: Added tag container "DynamicAbilityTags" to FGameplayAbilitySpec. These are optional ability tags that are replicated with the spec. They are also captured as source tags by applied gameplay effects.
-* New: GameplayAbility IsLocallyControlled and HasAuthority functions are now callable from Blueprint.
-* New: Visual logger will now only collect and store info about instant GEs if we're currently recording visual logging data.
-* New: Added support for redirectors on gameplay attribute pins in blueprint nodes.
-* New: Added new functionality for when root motion movement related ability tasks end they will return the movement component's movement mode to the movement mode it was in before the task started.
-
-
-
-<a name="changelog-4.25.1"></a>
-## 4.25.1
-
-* Fixed! UE-92787 Crash saving blueprint with a Get Float Attribute node and the attribute pin is set inline
-* Fixed! UE-92810 Crash spawning actor with instance editable gameplay tag property that was changed inline
-
-
-
-<a name="changelog-4.25"></a>
-## 4.25
-
-* Fixed prediction of RootMotionSource AbilityTasks
-* [GAMEPLAYATTRIBUTE_REPNOTIFY()](#concepts-as-attributes) now additionally takes in the old Attribute value. We must supply that as the optional parameter to our OnRep functions. Previously, it was reading the attribute value to try to get the old value. However, if called from a replication function, the old value had already been discarded before reaching SetBaseAttributeValueFromReplication so we'd get the new value instead.
-* Added [NetSecurityPolicy](#concepts-ga-netsecuritypolicy) to UGameplayAbility.
-* Crash Fix: Fixed a crash when adding a gameplay tag without a valid tag source selection.
-* Crash Fix: Removed a few ways for attackers to crash a server through the ability system.
-* Crash Fix: We now make sure we have a GamplayEffect definition before checking tag requirements.
-* Bug Fix: Fixed an issue with gameplay tag categories not applying to function parameters in Blueprints if they were part of a function terminator node.
-* Bug Fix: Fixed an issue with gameplay effects' tags not being replicated with multiple viewports.
-* Bug Fix: Fixed a bug where a gameplay ability spec could be invalidated by the InternalTryActivateAbility function while looping through triggered abilities.
-* Bug Fix: Changed how we handle updating gameplay tags inside of tag count containers. When deferring the update of parent tags while removing gameplay tags, we will now call the change-related delegates after the parent tags have updated. This ensures that the tag table is in a consistent state when the delegates broadcast.
-* Bug Fix: We now make a copy of the spawned target actor array before iterating over it inside when confirming targets because some callbacks may modify the array.
-* Bug Fix: Fixed a bug where stacking GamplayEffects that did not reset the duration on additional instances of the effect being applied and with set by caller durations would only have the duration correctly set for the first instance on the stack. All other GE specs in the stack would have a duration of 1 second. Added automation tests to detect this case.
-* Bug Fix: Fixed a bug that could occur if handling gameplay event delegates modified the list of gameplay event delegates.
-* Bug Fix: Fixed a bug causing GiveAbilityAndActivateOnce to behave inconsistently.
-* Bug Fix: Reordered some operations inside FGameplayEffectSpec::Initialize to deal with a potential ordering dependency.
-* New: UGameplayAbility now has an OnRemoveAbility function. It follows the same pattern as OnGiveAbility and is only called on the primary instance of the ability or the class default object.
-* New: When displaying blocked ability tags, the debug text now includes the total number of blocked tags.
-* New: Renamed UAbilitySystemComponent::InternalServerTryActiveAbility to UAbilitySystemComponent::InternalServerTryActivateAbility.Code that was calling InternalServerTryActiveAbility should now call InternalServerTryActivateAbility.
-* New: Continue to use the filter text for displaying gameplay tags when a tag is added or deleted. The previous behaviour cleared the filter.
-* New: Don't reset the tag source when we add a new tag in the editor.
-* New: Added the ability to query an ability system component for all active gameplay effects that have a specified set of tags. The new function is called GetActiveEffectsWithAllTags and can be accessed through code or blueprints.
-* New: When root motion movement related ability tasks end they now return the movement component's movement mode to the movement mode it was in before the task started.
-* New: Made SpawnedAttributes transient so it won't save data that can become stale and incorrect. Added null checks to prevent any currently saved stale data from propagating. This prevents problems related to bad data getting stored in SpawnedAttributes.
-* API Change: AddDefaultSubobjectSet has been deprecated. AddAttributeSetSubobject should be used instead.
-* New: Gameplay Abilities can now specify the Anim Instance on which to play a montage.
-
-
-
-<a name="changelog-4.24"></a>
-## 4.24
-
-* Fixed blueprint node Attribute variables resetting to None on compile.
-* Need to call [UAbilitySystemGlobals::InitGlobalData()](#concepts-asg-initglobaldata) to use [TargetData](#concepts-targeting-data) otherwise you will get ScriptStructCache errors and clients will be disconnected from the server. My advice is to always call this in every project now whereas before 4.24 it was optional.
-* Fixed crash when copying a GameplayTag setter to a blueprint that didn't have the variable previously defined.
-* UGameplayAbility::MontageStop() function now properly uses the OverrideBlendOutTime parameter.
-* Fixed GameplayTag query variables on components not being modified when edited.
-* Added the ability for GameplayEffectExecutionCalculations to support scoped modifiers against "temporary variables" that aren't required to be backed by an attribute capture.
-	+ Implementation basically enables GameplayTag-identified aggregators to be created as a means for an execution to expose a temporary value to be manipulated with scoped modifiers; you can now build formulas that want manipulatable values that don't need to be captured from a source or target.
-	+ To use, an execution has to add a tag to the new member variable ValidTransientAggregatorIdentifiers; those tags will show up in the calculation modifier array of scoped mods at the bottom, marked as temporary variables—with updated details customizations accordingly to support feature
-* Added restricted tag quality-of-life improvements. Removed the default option for restricted GameplayTag source. We no longer reset the source when adding restricted tags to make it easier to add several in a row.
-* APawn::PossessedBy() now sets the owner of the Pawn to the new Controller. Useful because Mixed Replication Mode expects the owner of the Pawn to be the Controller if the ASC lives on the Pawn.
-* Fixed bug with POD (Plain Old Data) in FAttributeSetInittterDiscreteLevels.
-
-
