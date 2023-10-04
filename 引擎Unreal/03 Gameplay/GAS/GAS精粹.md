@@ -355,12 +355,11 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ## 4 AttributeSet
 
-###  定义AttributeSet
+###  01 定义 AttributeSet
 
 `AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`**. **这必须在C++中完成.**  
 
-
-### 4.4.2 设计AttributeSet
+### 02 设计 AttributeSet
 
 一个`ASC`可能有一个或多个`AttributeSet`
 - 有种方案是设置一个单一且巨大的 `AttributeSet`, 共享于游戏中的所有 Actor, 并且只使用需要的 `Attribute`, 忽略不用的 `Attribute`.  
@@ -369,32 +368,36 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 另外, 继承`AttributeSet`的另一种意义是可以选择一个Actor可以有哪些`Attribute`. `Attribute`在内部被引用为`AttributeSetClassName.AttributeName`, 当你继承`AttributeSet`时, 所有父类的`Attribute`仍将保留父类名作为前缀.  
 
 尽管可以拥有多个`AttributeSet`, 但是不应该在同一`ASC`中拥有多个同一类的`AttributeSet`, 如果在同一`ASC`中有多个同一类的`AttributeSet`, `ASC`就不知道该使用哪个`AttributeSet`而随机选择一个.  
-#### 4.4.2.1 使用单独Attribute的子组件
+#### 使用单独Attribute的子组件
 
-假设你在某个Pawn上有多个可被损害的组件, 像可被独立损害的护甲片, 如果可以明确可被损害组件的最大数量, 我建议把多个生命值`Attribute`放到一个`AttributeSet`中 —— DamageableCompHealth0, DamageableCompHealth1, 等等, 以表示这些可被损害组件在逻辑上的"slot", 在可被损害组件的类实例中, 指定可以被`GameplayAbility`和[Execution](#concepts-ge-ec)读取的带slot编号的`Attribute`来表明该应用伤害值到哪个`Attribute`. 如果Pawn当前拥有0个或少于最大数量的可损害组件也无妨, 因为`AttributeSet`拥有一个`Attribute`, 并不意味着必须要使用它, 未使用的`Attribute`只占用很少的内存.  
+**假设你在某个Pawn上有多个可被损害的组件, 像可被独立损害的护甲片, 如果可以明确可被损害组件的最大数量, 我建议把多个生命值`Attribute`放到一个`AttributeSet`中 —— DamageableCompHealth0, DamageableCompHealth1, 等等**, 以表示这些可被损害组件在逻辑上的"slot", 在可被损害组件的类实例中, 指定可以被`GameplayAbility`和[Execution](#concepts-ge-ec)读取的带slot编号的`Attribute`来表明该应用伤害值到哪个`Attribute`. 如果Pawn当前拥有0个或少于最大数量的可损害组件也无妨, 因为`AttributeSet`拥有一个`Attribute`, 并不意味着必须要使用它, 未使用的`Attribute`只占用很少的内存.  
 
 如果每个子组件都需要很多`Attribute`且子组件的数量可以是无限的, 或者子组件可以分离被其他玩家使用(比如武器), 或者出于其他原因上述方法不适用于你, 那么我建议就不要使用`Attribute`, 而是在组件中保存普通的浮点数. 参阅[Item Attribute](#concepts-as-design-itemattributes).  
 
-#### 4.4.2.2 运行时添加和移除AttributeSet
+#### 运行时添加和移除AttributeSet
 
-`AttributeSet`可以在运行时从`ASC`上添加和移除, 然而移除`AttributeSet`是很危险的, 例如, 如果某个`AttributeSet`在客户端上移除早于服务端, 而某个`Attribute`的变化又同步到了客户端, 那么`Attribute`就会因为找不到`AttributeSet`而使游戏崩溃.  
+`AttributeSet` 可以在运行时从 `ASC` 上添加和移除, 
 
-武器添加到Inventory:  
+> [!danger] 
+> 移除 `AttributeSet` 是很危险的, 例如, 如果某个 `AttributeSet` 在客户端上移除早于服务端, 而某个 `Attribute` 的变化又同步到了客户端, 那么 `Attribute` 就会因为找不到 `AttributeSet` 而使游戏崩溃。 
+
+武器**添加**到 Inventory（库存）:  
 
 ```c++
 AbilitySystemComponent->SpawnedAttribute.AddUnique(WeaponAttributeSetPointer);
+
 AbilitySystemComponent->ForceReplication();
 ```
 
-武器从Inventory移除:  
+武器从Inventory**移除**:  
 
 ```c++
 AbilitySystemComponent->SpawnedAttribute.Remove(WeaponAttributeSetPointer);
+
 AbilitySystemComponent->ForceReplication();
 ```
 
-
-#### 4.4.2.3 Item Attribute(武器弹药)
+#### Item Attribute(武器弹药)
 
 有几种方法可以实现带有`Attribute`(武器弹药, 盔甲耐久等等)的可装备物品, 所有这些方法都直接在物品中存储数据, 这对于在生命周期中可以被多个玩家装备的物品来说是必须的.  
 
@@ -403,7 +406,7 @@ AbilitySystemComponent->ForceReplication();
 3. 在物品中使用单独的`ASC`.
 
 
-##### 4.4.2.3.1 在物品中使用普通浮点数
+##### 在物品中使用普通浮点数
 
 在物品类实例中存储普通浮点数而不是`Attribute`, Fortnite和[GASShooter](https://github.com/tranek/GASShooter)就是这样处理枪械子弹的, 对于枪械, 在其实例中存储可同步的浮点数(COND_OwnerOnly), 比如最大弹匣量, 当前弹匣中弹药量, 剩余弹药量等等, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里作为一个`Attribute`(换弹Ability可以使用一个`Cost GE`从剩余弹药量中填充枪械的弹匣弹药量浮点). 因为没有为当前弹匣弹药量使用`Attribute`, 所以需要重写`UGameplayAbility`中的一些函数来检查和应用枪械中浮点数的花销(cost). 当授予Ability时将枪械在[GameplayAbilitySpec](https://github.com/tranek/GASDocumentation#concepts-ga-spec)中转换为`SourceObject`, 这意味着可以在Ability中访问授予Ability的枪械.  
 
@@ -429,7 +432,7 @@ void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracke
 2. 要求重写UGameplayAbility中的关键函数来检查和应用枪械中浮点数的花销(Cost).
 
 
-##### 4.4.2.3.2 在物品中使用AttributeSet
+##### 在物品中使用AttributeSet
 
 在物品中使用单独的`AttributeSet`可以实现[将其添加到玩家的Inventory](#concepts-as-design-addremoveruntime), 但还是有一定的局限性. 较早版本的[GASShooter](https://github.com/tranek/GASShooter)中的武器弹药是使用的这种方法, 武器类在其自身存储诸如最大弹匣量, 当前弹匣弹药量, 剩余弹药量等等到一个`AttributeSet`, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里. 当服务端上某个武器添加到玩家的Inventory后, 该武器会将它的`AttributeSet`添加到玩家的`ASC::SpawnedAttribute`, 之后服务端会将其同步下发到客户端, 如果该武器从Inventory中移除, 它也会将其`AttributeSet`从`ASC::SpawnedAttribute`中移除.  
 
@@ -457,7 +460,7 @@ void AGSWeapon::BeginPlay()
 2. 和第1条同样的原因(每个`AttributeSet`类一个`AttributeSet`实例), 在玩家的Inventory中每种武器类型只能有一个.
 3. 移除`AttributeSet`是很危险的. 在GASShooter中, 如果玩家因为火箭弹而自杀, 玩家会立即从其Inventory中移除火箭弹发射器(包括其在`ASC`中的`AttributeSet`), 当服务端同步火箭弹发射器的弹药`Attribute`改变时, 由于`AttributeSet`在客户端`ASC`上不复存在而使游戏崩溃.
 
-##### 4.4.2.3.3 在物品中使用单独的ASC
+#####  在物品中使用单独的ASC
 
 在每个物品上都创建一个`AbilitySystemComponent`是种很极端的方案. 我还没有亲自做过这种方案, 在其他地方也没见过. 这种方案应该会花费相当的开发成本才能正常使用.  
 
@@ -478,7 +481,7 @@ void AGSWeapon::BeginPlay()
 2. 甚至方案可行么?
 
 
-### 4.4.3 定义Attribute
+### 03 定义 Attribute
 
 **Attribute只能使用C++在AttributeSet头文件中定义.** 建议把下面这个宏块加到每个`AttributeSet`头文件的顶部, 其会自动为每个`Attribute`生成getter和setter函数.  
 
@@ -496,6 +499,7 @@ void AGSWeapon::BeginPlay()
 ```c++
 UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_Health)
 FGameplayAttributeData Health;
+
 ATTRIBUTE_ACCESSORS(UGDAttributeSetBase, Health)
 ```
 
@@ -531,13 +535,13 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 如果`Attribute`无需像`Meta Attribute`那样同步, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
 
 
-### 4.4.4 初始化Attribute
+### 04 初始化 Attribute
 
-有多种方法可以初始化`Attribute`(将BaseValue和CurrentValue设置为某初始值). Epic建议使用`即刻(Instant)GameplayEffect`, 这也是样例项目使用的方法.  
+有多种方法可以初始化`Attribute`(将BaseValue和CurrentValue设置为某初始值). **Epic建议使用`即刻(Instant)GameplayEffect`**, 这也是样例项目使用的方法.  
 
 查看样例项目的GE_HeroAttribute蓝图来了解如何创建`即刻(Instant)GameplayEffect`以初始化`Attribute`, 该`GameplayEffect`应用是写在C++中的.  
 
-如果在定义`Attribute`时使用了ATTRIBUTE_ACCESSORS宏, 那么在`AttributeSet`中会自动为每个`Attribute`生成一个初始化函数.  
+如果在定义`Attribute`时使用了`ATTRIBUTE_ACCESSORS`宏, 那么在`AttributeSet`中会自动为每个`Attribute`生成一个初始化函数.  
 
 ```c++
 // InitHealth(float InitialValue) is an automatically generated function for an Attribute 'Health' defined with the `ATTRIBUTE_ACCESSORS` macro
@@ -548,9 +552,12 @@ AttributeSet->InitHealth(100.0f);
 
 **Note**: 4.24之前, FAttributeSetInitterDiscreteLevels不能和FGameplayAttributeData协同使用, 它在`Attribute`是原生浮点数时创建, 并且会和FGameplayAttributeData不是Plain Old Data(POD)时冲突. 该问题在4.24中修复([https://issues.unrealengine.com/issue/UE-76557.](https://issues.unrealengine.com/issue/UE-76557)).  
 
-### 4.4.5 PreAttributeChange()
+### 05  `PreAttributeChange()`
 
-`PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)`是`AttributeSet`中的主要函数之一, 其在修改发生前响应`Attribute`的CurrentValue变化, 其是通过引用参数NewValue限制(Clamp)CurrentValue即将进行的修改的理想位置.  
+```c++
+PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
+```
+该函数是 `AttributeSet` 中的主要函数之一, 其**在修改发生前响应 `Attribute` 的 `CurrentValue` 变化**, 其**是通过引用参数 NewValue 限制(Clamp)CurrentValue 即将进行的修改的理想位置.**  
 
 例如像样例项目那样限制移动速度`Modifier`:  
 ```c++
@@ -561,31 +568,31 @@ if (Attribute == GetMoveSpeedAttribute())
 }
 ```
 
-`GetMoveSpeedAttribute()`函数是由我们在`AttributeSet.h`中添加的宏块创建的([定义Attribute](#concepts-as-attributes)).  
+`GetMoveSpeedAttribute()`函数是由我们在`AttributeSet.h`中添加的宏块创建的
 
-`PreAttributeChange()`可以被`Attribute`的任何修改触发, 无论是使用`Attribute`的setter(由`AttributeSet.h`中的宏块定义([定义Attribute](#concepts-as-attributes)))还是使用[GameplayEffect](#concepts-ge).  
+`PreAttributeChange()` 可以被 `Attribute` 的任何修改触发, 无论是使用 `Attribute` 的 setter (由 `AttributeSet.h` 中的宏块定义)还是使用 `GameplayEffect`
 
-**Note**: 在这里做的任何限制都不会永久性地修改`ASC`中的`Modifier`, 只会修改查询`Modifier`的返回值, 这意味着像[GameplayEffectExecutionCalculations](#concepts-ge-ec)和[ModifierMagnitudeCalculations](#concepts-ge-mmc)这种自所有`Modifier`重新计算CurrentValue的函数需要再次执行限制(Clamp)操作.  
+> [!NOTE]
+>在这里做的任何限制都不会永久性地修改`ASC`中的`Modifier`, 只会修改查询`Modifier`的返回值, 这意味着像`GameplayEffectExecutionCalculations`和`ModifierMagnitudeCalculations`这种自所有`Modifier`重新计算CurrentValue的函数需要再次执行限制(Clamp)操作.  
 
-**Note**: Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
-
-
+> [!NOTE]
+> Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
 
 <a name="concepts-as-postgameplayeffectexecute"></a>
-### 4.4.6 PostGameplayEffectExecute()
-
-`PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)`仅在`即刻(Instant)GameplayEffect`对`Attribute`的BaseValue修改之后触发, 当[GameplayEffect](#concepts-ge)对其修改时, 这就是一个处理更多`Attribute`操作的有效位置.  
+### 06  `PostGameplayEffectExecute()`
+```c++
+PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
+```
+**仅在`即刻(Instant)GameplayEffect`对`Attribute`的`BaseValue`修改之后触发**, 当[GameplayEffect](#concepts-ge)对其修改时, 这就是一个处理更多`Attribute`操作的有效位置.  
 
 例如, 在样例项目中, 我们在这里从生命值`Attribute`中减去了最终的伤害值`Meta Attribute`, 如果有护盾值`Attribute`的话, 我们也会在减除生命值之前从护盾值中减除伤害值. 样例项目也在这里应用了被击打反应动画, 显示浮动的伤害数值和为击杀者分配经验值和赏金. 通过设计, 伤害值`Meta Attribute`总是会传递给`即刻(Instant)GameplayEffect`而不是Attribute Setter.  
 
 其他只会由`即刻(Instant)GameplayEffect`修改BaseValue的`Attribute`, 像魔法值和耐力值, 也可以在这里被限制为其相应的最大值`Attribute`.  
 
-**Note**: 当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被同步回客户端, 因此在这里限制值不会造成对客户端的二次同步, 客户端只会接收到限制后的值.  
-
-
-
+> [!NOTE]
+> **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被同步回客户端, 因此在这里限制值不会造成对客户端的二次同步, 客户端只会接收到限制后的值.  
 <a name="concepts-as-onattributeaggregatorcreated"></a>
-### 4.4.7 OnAttributeAggregatorCreated()
+### 07  `OnAttributeAggregatorCreated()`
 
 `OnAttributeAggregatorCreated(const FGameplayAttribute& Attribute, FAggregator* NewAggregator)`会在Aggregator为集合中的某个`Attribute`创建时触发, 它允许[FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html)的自定义设置, `AggregatorEvaluateMetaData`是Aggregator基于所有应用的`Modifier(Modifier)`评估`Attribute`的CurrentValue的. 默认情况下, AggregatorEvaluateMetaData只由Aggregator用于确定哪些[Modifier](#concepts-ge-mods)是满足条件的, 以MostNegativeMod_AllPositiveMods为例, 其允许所有正(Positive)`Modifier`但是限制负(Negative)`Modifier`(仅最负的那一个), 这在Paragon中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度buff时有多少负移动效果. 不满足条件的`Modifier`仍存于`ASC`中, 只是不被总合进最终的CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负`Modifier`过期后, 下一个最负`Modifier`(如果存在的话)就是满足条件的.  
 
@@ -611,14 +618,10 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 ```
 
 你的自定义`AggregatorEvaluateMetaData`应该作为静态变量添加到`FAggregatorEvaluateMetaDataLibrary`.  
-
-
-
 <a name="concepts-ge"></a>
-## 4.5 Gameplay Effects
+## 5 Gameplay Effects
 
-<a name="concepts-ge-definition"></a>
-#### 4.5.1 定义GameplayEffect
+### 01 定义
 
 [GameplayEffect(GE)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffect/index.html)是Ability修改其自身和其他[Attribute](#concepts-a)和[GameplayTag](#concepts-gt)的容器, 其可以立即修改`Attribute`(像伤害或治疗)或应用长期的状态buff/debuff(像移动速度加速或眩晕). UGameplayEffect只是一个定义单一游戏效果的数据类, 不应该在其中添加额外的逻辑. 设计师一般会创建很多UGameplayEffect的子类蓝图.  
 
@@ -652,7 +655,7 @@ UpdateAllAggregatorModMagnitudes(Effect);
 
 
 <a name="concepts-ge-applying"></a>
-#### 4.5.2 应用GameplayEffect
+### 02 应用
 
 `GameplayEffect`可以被[GameplayAbility](#concepts-ga)和`ASC`中的多个函数应用, 其通常是`ApplyGameplayEffectTo`的形式, 不同的函数本质上都是最终在目标上调用`UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()`的方便函数.  
 
@@ -675,7 +678,7 @@ virtual void OnActiveGameplayEffectAddedCallback(UAbilitySystemComponent* Target
 
 
 <a name="concepts-ga-removing"></a>
-#### 4.5.3 移除GameplayEffect
+### 03 移除
 
 `GameplayEffect`可以被[GameplayAbility](#concepts-ga)和`ASC`中的多个函数移除, 其通常是`RemoveActiveGameplayEffect`的形式, 不同的函数本质上都是最终在目标上调用`FActiveGameplayEffectContainer::RemoveActiveEffects()`的方便函数.  
 
@@ -695,10 +698,7 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 
 服务端总是会调用该函数而不管同步模式是什么, `Autonomous Proxy`只会在Full和Mixed同步模式下对于可同步的`GameplayEffect`调用该函数, `Simulated Proxy`只会在Full同步模式下调用该函数.  
 
-
-
-<a name="concepts-ge-mods"></a>
-#### 4.5.4 GameplayEffectModifier
+### 04 GameplayEffectModifier
 
 `Modifier`可以修改`Attribute`并且是唯一可以[预测性](#concepts-p)修改`Attribute`的方法. 一个`GameplayEffect`可以有0个或多个`Modifier`, 每个`Modifier`通过某个指定的操作只能修改一个`Attribute`.  
 
@@ -731,9 +731,7 @@ Override`Modifier`会优先覆盖最后应用的`Modifier`得出的最终值.
 |Set By Caller|`SetByCaller`Modifier是运行时由Ability或`GameplayEffectSpec`的创建者于`GameplayEffect`之外设置的值, 例如, 如果你想让伤害值随玩家蓄力技能的长短而变化, 那么就需要使用`SetByCaller`. `SetByCaller`本质上是存于`GameplayEffectSpec`中的`TMap<FGameplayTag, float>`, `Modifier`只是告知`Aggregator`去寻找与提供的`GameplayTag`相关联的`SetByCaller`值. `Modifier`使用的`SetByCaller`只能使用该概念的`GameplayTag`形式, `FName`形式在此处不适用. 如果`Modifier`被设置为`SetByCaller`, 但是带有正确`GameplayTag`的`SetByCaller`在`GameplayEffectSpec`中不存在, 那么游戏会抛出一个运行时错误并返回0, 这可能在`Divide`操作中造成问题. 参阅[SetByCallers](#concepts-ge-spec-setbycaller)获取更多关于如何使用`SetByCaller`的信息.|
 
 
-
-<a name="concepts-ge-mods-multiplydivide"></a>
-##### 4.5.4.1 Multiply和Divide Modifier
+#### Multiply 和 Divide Modifier
 
 默认情况下, 所有的`Multiply`和`Divide`Modifier在对`Attribute`的BaseValue乘除前都会先加到一起.  
 
@@ -834,7 +832,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-mods-gameplaytags"></a>
-##### 4.5.4.2 Modifier的GameplayTag
+#### Modifier 的 GameplayTag
 
 每个[Modifier](#concepts-ge-mods)都可以设置`SourceTag`和`TargetTag`, 它们的作用就像`GameplayEffect`的[Application Tag requirements](#concepts-ge-tags), 因此只有当Effect应用后才会考虑标签, 对于周期性(Periodic)的`无限(Infinite)`Effect, 这些标签只会在第一次应用Effect时才会被考虑, 而不是在每次周期执行时.  
 
@@ -845,7 +843,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-stacking"></a>
-#### 4.5.5 GameplayEffect堆栈
+### 05 GameplayEffect 堆栈
 
 `GameplayEffect`默认会应用新的`GameplayEffectSpec`实例, 而不明确或不关心之前已经应用过的尚且存在的`GameplayEffectSpec`实例. `GameplayEffect`可以设置到堆栈中, 新的`GameplayEffectSpec`实例不会添加到堆栈中, 而是修改当前已经存在的`GameplayEffectSpec`堆栈数. 堆栈只适用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.  
 
@@ -865,7 +863,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-ga"></a>
-#### 4.5.6 授予Ability
+### 06 授予 Ability
 
 `GameplayEffect`可以授予(Grant)新的[GameplayAbility](#concepts-ga)到`ASC`. 只有`持续(Duration)`和`无限(Infinite)GameplayEffect`可以授予Ability.  
 
@@ -881,8 +879,8 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 
-<a name="concepts-ge-tags"></a>
-#### 4.5.7 GameplayEffect标签
+
+### 07 GameplayEffect 标签
 
 `GameplayEffect`可以带有多个[GameplayTagContainer](#concepts-gt), 设计师可以编辑每个类别的`Added`和`Removed`GameplayTagContainer, 结果会在编译后显示在`Combined GameplayTagContainer`中. `Added`标签是该`GameplayEffect`新增的之前其父类没有的标签, `Removed`标签是其父类拥有但该类没有的标签.  
 
@@ -897,7 +895,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-immunity"></a>
-#### 4.5.8 免疫
+### 08 免疫
 
 `GameplayEffect`可以基于[GameplayTag](#concepts-gt)实现免疫, 有效阻止其他`GameplayEffect`应用. 尽管免疫可以由`Application Tag Requirements`等方式有效地实现, 但是使用该系统可以在`GameplayEffect`被免疫阻止时提供`UAbilitySystemComponent::OnImmunityBlockGameplayEffectDelegate`委托(Delegate).  
 
@@ -910,7 +908,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-spec"></a>
-#### 4.5.9 GameplayEffectSpec
+### 09 GameplayEffectSpec
 
 [GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html)可以看作是`GameplayEffect`的实例, 它保存了一个其所代表的`GameplayEffect`类引用, 创建时的等级和创建者, 它在应用之前可以在运行时(Runtime)自由的创建和修改, 不像`GameplayEffect`应该由设计师在运行前创建. 当应用`GameplayEffect`时, `GameplayEffectSpec`会自`GameplayEffect`创建并且会实际应用到目标(Target).  
 
@@ -932,7 +930,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 
 <a name="concepts-ge-spec-setbycaller"></a>
-##### 4.5.9.1 SetByCaller
+#### SetByCaller
 
 `SetByCaller`允许`GameplayEffectSpec`拥有和`GameplayTag`或`FName`相关联的浮点值, 它们存储在`GameplayEffectSpec`上其各自的`TMaps: TMap<FGameplayTag, float>`和`TMap<FName, float>`中, 可以作为`GameplayEffect`的`Modifier`或者传递浮点值的通用方法使用. 其普遍用法是经由`SetByCaller`传递某个Ability内部生成的数值数据到[GameplayEffectExecutionCalculations](#concepts-ge-ec)或[ModifierMagnitudeCalculations](#concepts-ge-mmc).  
 
@@ -972,7 +970,7 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 
 
 <a name="concepts-ge-context"></a>
-#### 4.5.10 GameplayEffectContext
+### 10 GameplayEffectContext
 
 [GameplayEffectContext](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectContext/index.html)结构体存有关于`GameplayEffectSpec`创建者(Instigator)和[TargetData](#concepts-targeting-data)的信息, 这也是一个很好的可继承结构体以在[ModifierMagnitudeCalculation](#concepts-ge-mmc)/[GameplayEffectExecutionCalculation](#concepts-ge-ec), [AttributeSet](#concepts-as)和[GameplayCue](#concepts-gc)之间传递任意数据.  
 
@@ -990,7 +988,7 @@ GASShooter使用了一个子结构体`GameplayEffectContext`来添加可以在`G
 
 
 <a name="concepts-ge-mmc"></a>
-#### 4.5.11 Modifier Magnitude Calculation
+### 11 Modifier Magnitude Calculation
 
 [ModifierMagnitudeCalculations](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayModMagnitudeCalculation/index.html)(`ModMagcCalc`或`MMC`)是在`GameplayEffect`中作为[Modifier](#concepts-ge-mods)使用的强有力的类, 它的功能类似[GameplayEffectExecutionCalculation](#concepts-ge-ec)但是要逊色一些, 最重要的是它是可预测的. 它唯一要做的就是自`CalculateBaseMagnitude_Implementation()`返回浮点值, 你可以在C++和蓝图中继承并重写该函数.  
 
@@ -1067,7 +1065,7 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 
 
 <a name="concepts-ge-ec"></a>
-#### 4.5.12 Gameplay Effect Execution Calculation
+### 12 Gameplay Effect Execution Calculation
 
 [GameplayEffectExecutionCalculation](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffectExecutionCalculat-/index.html)(ExecutionCalculation, Execution(你会在插件代码里经常看到这个词)或ExecCalc)是`GameplayEffect`对`ASC`进行修改最强有力的方式. 像[ModifierMagnitudeCalculation](#concepts-ge-mmc)一样, 它也可以捕获`Attribute`并选择性地为其创建Snapshot, 和`MMC`不同的是, 它可以修改多个`Attribute`并且基本上可以处理程序员想要做的任何事. 这种强有力和灵活性的负面就是它是不可[预测](#concepts-p)的且必须在C++中实现.  
 
@@ -1091,14 +1089,14 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 
 
 <a name="concepts-ge-ec-senddata"></a>
-##### 4.5.12.1 发送数据到Execution Calculation
+#### 发送数据到Execution Calculation
 
 除了捕获`Attribute`, 还有几种方法可以发送数据到`ExecutionCalculation`.  
 
 
 
 <a name="concepts-ge-ec-senddata-setbycaller"></a>
-###### 4.5.12.1.1 SetByCaller
+#####  SetByCaller
 
 任何[设置在`GameplayEffectSpec`中的`SetByCaller`](#concepts-ge-spec-setbycaller)都可以直接在`ExecutionCalculation`中读取.  
 
@@ -1110,7 +1108,7 @@ float Damage = FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::Requ
 
 
 <a name="concepts-ge-ec-senddata-backingdataattribute"></a>
-###### 4.5.12.1.2 Backing数据Attribute计算Modifier
+##### Backing数据Attribute计算Modifier
 
 如果你想硬编码值到`GameplayEffect`, 可以使用`CalculationModifier`传递, 其使用捕获的`Attribute`之一作为Backing数据.  
 
@@ -1129,7 +1127,7 @@ ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().Damag
 
 
 <a name="concepts-ge-ec-senddata-backingdatatempvariable"></a>
-###### 4.5.12.1.3 Backing数据临时变量计算Modifier
+##### Backing数据临时变量计算Modifier
 
 如果你想硬编码值到`GameplayEffect`, 可以在C++中使用`CalculationModifier`传递, 其使用一个`临时变量`或`暂时聚合器(Transient Aggregator)`, 该`临时变量`与`GameplayTag`相关联.  
 
@@ -1153,7 +1151,7 @@ ExecutionParams.AttemptCalculateTransientAggregatorMagnitude(FGameplayTag::Reque
 
 
 <a name="concepts-ge-ec-senddata-effectcontext"></a>
-###### 4.5.12.1.4 GameplayEffectContext
+##### GameplayEffectContext
 
 你可以通过[`GameplayEffectSpec`中的自定义`GameplayEffectContext`](#concepts-ge-context)发送数据到`ExecutionCalculation`.  
 
@@ -1181,7 +1179,7 @@ FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 
 
 <a name="concepts-ge-car"></a>
-#### 4.5.13 自定义应用需求
+### 13 自定义应用需求
 
 [CustomApplicationRequirement(CAR)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffectCustomApplication-/index.html)类为设计师提供对于`GameplayEffect`是否可以应用的高阶控制, 而不是对`GameplayEffect`进行简单的`GameplayTag`检查. 这可以通过在蓝图中重写`CanApplyGameplayEffect()`和在C++中重写`CanApplyGameplayEffect_Implementation()`实现.  
 
@@ -1195,7 +1193,7 @@ FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 
 
 <a name="concepts-ge-cost"></a>
-#### 4.5.14 花费(Cost)GameplayEffect
+### 14 花费(Cost)GameplayEffect
 
 [GameplayAbility](#concepts-ga)有一个特别设计用来作为Ability花费(Cost)的可选`GameplayEffect`. 花费(Cost)是指`ASC`激活`GameplayAbility`所必需的`Attribute`量. 如果某个`GA`不能提供`Cost GE`, 那么它就不能被激活. 该`Cost GE`应该是某个带有一个或多个自`Attribute`中减值Modifier的`即刻(Instant)GameplayEffect`. 默认情况下, `Cost GE`是可以被预测的, 建议保留该功能, 也就是不要使用`ExecutionCalculations`, `MMC`对于复杂的花费计算是完美适配并且鼓励使用的.  
 
@@ -1233,7 +1231,7 @@ FScalableFloat Cost;
 
 
 <a name="concepts-ge-cooldown"></a>
-#### 4.5.15 冷却(Cooldown)GameplayEffect
+### 15 冷却(Cooldown)GameplayEffect
 
 [GameplayAbility](#concepts-ga)有一个特别设计用来作为Ability冷却(Cooldown)的可选`GameplayEffect`. 冷却时间决定了激活Ability之后多久可以再次激活. 如果某个`GA`在冷却中, 那么它就不能被激活. 该`Cooldown GE`应该是一个不带有`Modifier`的`持续(Duration)GameplayEffect`, 并且在`GameplayEffect`的`GrantedTags`中每个`GameplayAbility`或Ability插槽(Slot)(如果你的游戏有分配到插槽的可交换Ability且共享同一个冷却)都有一个独一无二的`GameplayTag`(`Cooldown Tag`). `GA`实际上会检查`Cooldown Tag`的存在而不是`Cooldown GE`的存在, 默认情况下, `Cooldown GE`是可以被预测的, 建议保留该功能, 也就是不要使用`ExecutionCalculations`, `MMC`对于复杂的冷却计算是完美适配并且鼓励使用的.  
 
@@ -1426,7 +1424,7 @@ Epic希望在未来的[GAS迭代版本](#concepts-p-future)中实现真正的冷
 
 
 <a name="concepts-ge-duration"></a>
-#### 4.5.16 修改已激活GameplayEffect的持续时间
+### 16 修改已激活GameplayEffect的持续时间
 
 为了修改`Cooldown GE`或其他任何`持续(Duration)`GameplayEffect的剩余时间, 我们需要修改`GameplayEffectSpec`的持续时间, 更新它的`StartServerWorldTime`, `CachedStartServerWorldTime`, `StartWorldTime`, 并且使用`CheckDuration()`重新检查持续时间. 在服务端上完成这些操作并将`FActiveGameplayEffect`标记为dirty, 其会将这些修改同步到客户端. **Note:** 该操作包含一个`const_cast`, 这可能不是`Epic`希望的修改持续时间的方法, 但是迄今为止它看起来运行得很好.  
 
@@ -1470,7 +1468,7 @@ bool UPAAbilitySystemComponent::SetGameplayEffectDurationHandle(FActiveGameplayE
 
 
 <a name="concepts-ge-dynamic"></a>
-#### 4.5.17 运行时创建动态`GameplayEffect`
+### 17 运行时创建动态`GameplayEffect`
 
 在运行时创建动态`GameplayEffect`是一个高阶技术, 你不必经常使用它.  
 
@@ -1547,7 +1545,7 @@ void UGameplayAbilityRuntimeGE::ActivateAbility(const FGameplayAbilitySpecHandle
 
 
 <a name="concepts-ge-containers"></a>
-#### 4.5.18 GameplayEffect Containers
+### 18 GameplayEffect Containers
 
 Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-rpg)样例项目实现了一个名为`FGameplayEffectContainer`的结构体, 它不属于原生GAS, 但是对于包含`GameplayEffect`和[TargetData](#concepts-targeting-data)极其好用, 它会使一些过程自动化, 比如从`GameplayEffect`中创建`GameplayEffectSpec`并在其`GameplayEffectContext`中设置默认值. 在`GameplayAbility`中创建`GameplayEffectContainer`并将其传递给已生成的投掷物是非常简单和显而易见的, 然而我没有选择在样例项目中实现`GameplayEffectContainer`, 因为我想向你展示的是没有它的原生GAS, 但是我高度建议你研究一下它并将其纳入到你的项目中.  
 
@@ -1735,8 +1733,6 @@ void UGSAbilitySystemComponent::AbilityLocalInputPressed(int32 InputID)
 ```
 
 
-
-<a name="concepts-ga-granting"></a>
 #### 4.6.3 授予Ability
 
 向`ASC`授予`GameplayAbility`会将其添加到`ASC`的`ActivatableAbilities`列表, 从而允许其在满足[`GameplayTag`需求](#concepts-ga-tags)时激活该`GameplayAbility`.  

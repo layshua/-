@@ -38,8 +38,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2eded4e90953c3f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "969bb262183933b4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -96,7 +123,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -219,7 +247,7 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "abeeb18637aaa720",
+  "active": "969bb262183933b4",
   "lastOpenFiles": [
     "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
