@@ -15,7 +15,6 @@ banner_icon: ⚔
 翻译地址: [BillEliot/GASDocumentation_Chinese](https://github.com/BillEliot/GASDocumentation_Chinese)  
 反馈: **github/PR** or **eliotwjz@gmail.com**
 
-
 样例项目和文档目前基于`Unreal Engine 4.26`. 该文档拥有可用于旧版本Unreal Engine的分支, 但是它们不再受支持, 并且可能存在bug和过时信息.  
 [GASShooter](https://github.com/tranek/GASShooter)是该样例项目的姐妹项目, 其演示了基于多人FPS/TPS的高阶GAS技术.  
 
@@ -111,22 +110,27 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 ## 4.1 Ability System Component
 
-`AbilitySystemComponent(ASC)`是GAS的核心, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), 所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
+`AbilitySystemComponent(ASC)`是**GAS的核心**, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`**. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
 
-`ASC`附加的`Actor`被引用作为该`ASC`的`OwnerActor`, 该`ASC`的物理代表`Actor`被称为`AvatarActor`. `OwnerActor`和`AvatarActor`可以是同一个 `Actor`, 比如MOBA游戏中的一个简单AI小兵; 它们也可以是不同的`Actor`, 比如MOBA游戏中玩家控制的英雄, 其中`OwnerActor`是`PlayerState`, `AvatarActor`是英雄的`Character`类. 绝大多数Actor的`ASC`都附加在其自身, 如果你的Actor会重生并且重生时需要持久化`Attribute`或`GameplayEffect`(比如MOBA中的英雄), 那么`ASC`理想的位置就是`PlayerState`.  
+-  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**, 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**.
+-  `OwnerActor` 和 `AvatarActor` 可以是同一个 `Actor`, 比如 MOBA 游戏中的一个简单 AI 小兵; 
+- 它们也可以是不同的 `Actor`, 比如 MOBA 游戏中玩家控制的英雄, 其中 `OwnerActor` 是 `PlayerState`, `AvatarActor` 是英雄的 `Character` 类。
+- 绝大多数 Actor 的 `ASC` 都附加在其自身, 如果你的 Actor 会重生并且重生时需要持久化 `Attribute` 或 `GameplayEffect` (比如 MOBA 中的英雄), 那么 `ASC` 理想的位置就是 `PlayerState`.  
 
-**Note:** 如果`ASC`位于PlayerState, 那么你需要提高PlayerState的`NetUpdateFrequency`, 其默认是一个很低的值, 因此在客户端上发生`Attribute`和`GameplayTag`改变时会造成延迟或卡顿. 确保启用[Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite就启用了该项.  
+> [!NOTE]
+>如果`ASC`位于PlayerState, 那么你需要提高PlayerState的`NetUpdateFrequency`, 其默认是一个很低的值, 因此在客户端上发生`Attribute`和`GameplayTag`改变时会造成延迟或卡顿. 确保启用[Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite就启用了该项.  
 
-OwnerActor需要继承并实现`IAbilitySystemInterface`, 如果AvatarActor和OwnerActor是不同的Actor, 那么AvatarActor也应该继承并实现`IAbilitySystemInterface`. 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向`ASC`的指针, `ASC`通过寻找该接口函数来和系统内部进行交互.  
+`OwnerActor` 需要继承并实现 `IAbilitySystemInterface`（如果 AvatarActor 和 OwnerActor 是不同的 Actor, 那么 AvatarActor 也应该继承并实现 `IAbilitySystemInterface`）。
+- 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向 `ASC` 的指针, `ASC` 通过寻找该接口函数来和系统内部进行交互.  
 
-`ASC`在`FActiveGameplayEffectContainer ActiveGameplayEffect`中保存其当前活跃的`GameplayEffect`.  
+**ASC 维护两个容器：**
+1.  在 `FActiveGameplayEffectContainer ActiveGameplayEffect` 中**保存其当前活跃的 `GameplayEffect`**
+2.  在 `FGameplayAbilitySpecContainer ActivatableAbility` 中**保存其授予的 `GameplayAbility`**
+    - 当你想遍历 `ActivatableAbility.Items` 时, 确保在循环体之上添加 `ABILITYLIST_SCOPE_LOCK();` 来锁定列表以防其改变(比如移除一个 Ability). 
+        - 每个域中的 `ABILITYLIST_SCOPE_LOCK();` 会增加 `AbilityScopeLockCount`, 之后出域时会减量. 
+        - 不要尝试在 `ABILITYLIST_SCOPE_LOCK();` 域中移除某个 Ability(Ability 删除函数会在内部检查 `AbilityScopeLockCount` 以防在列表锁定时移除 Ability).  
 
-`ASC`在`FGameplayAbilitySpecContainer ActivatableAbility`中保存其授予的`GameplayAbility`. 当你想遍历`ActivatableAbility.Items`时, 确保在循环体之上添加`ABILITYLIST_SCOPE_LOCK();`来锁定列表以防其改变(比如移除一个Ability). 每个域中的`ABILITYLIST_SCOPE_LOCK();`会增加`AbilityScopeLockCount`, 之后出域时会减量. 不要尝试在`ABILITYLIST_SCOPE_LOCK();`域中移除某个Ability(Ability删除函数会在内部检查`AbilityScopeLockCount`以防在列表锁定时移除Ability).  
-
-
-
-
-#### 4.1.1 同步模式
+### 4.1.1 同步模式
 
 `ASC`定义了三种不同的同步模式用于同步`GameplayEffect`, `GameplayTag`和`GameplayCue` - `Full`, `Mixed`和`Minimal`. `Attribute`由其`AttributeSet`同步.  
 
@@ -140,7 +144,7 @@ OwnerActor需要继承并实现`IAbilitySystemInterface`, 如果AvatarActor和Ow
 
 从4.24开始, 需要使用`PossessedBy()`设置新的`Controller`为`Pawn`的Owner.  
 
-#### 4.1.2 设置和初始化
+### 4.1.2 设置和初始化
 
 `ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为Replicated. **这必须在C++中完成.**  
 
@@ -154,7 +158,7 @@ AGDPlayerState::AGDPlayerState()
 }
 ```
 
-`OwnerActor`和`AvatarActor`的`ASC`在服务端和客户端上均需初始化, 你应该在`Pawn`的`Controller`设置之后初始化(Possess之后), 单人游戏只需参考服务端的做法.  
+`OwnerActor` 和 `AvatarActor` 的 `ASC` 在服务端和客户端上均需初始化，你应该在 `Pawn` 的 `Controller` 设置之后初始化(Possess 之后), **单人游戏只需参考服务端的做法.**  
 
 对于玩家控制的Character且`ASC`位于`Pawn`, 我一般在服务端`Pawn`的`PossessedBy()`函数中初始化, 在客户端`PlayerController`的`AcknowledgePossession()`函数中初始化.  
 
@@ -188,7 +192,7 @@ void APAPlayerControllerBase::AcknowledgePossession(APawn* P)
 }
 ```
 
-对于玩家控制的Character且`ASC`位于`PlayerState`, 我一般在服务端`Pawn`的`PossessedBy()`函数中初始化, 在客户端PlayerController的`OnRep_PlayerState()`函数中初始化, 这确保了`PlayerState`存在于客户端上.  
+对于玩家控制的 Character 且 `ASC` 位于 `PlayerState`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 PlayerController 的 `OnRep_PlayerState()` 函数中初始化, 这确保了 `PlayerState` 存在于客户端上.   
 
 ```c++
 void AGDHeroCharacter::PossessedBy(AController * NewController)
@@ -232,15 +236,15 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 ## 4.2 Gameplay Tags
 
-`FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级Name, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
+`FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级FName, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
 
-你会发现自己使用`GameplayTag`替换了过去使用布尔值或枚举值来编程, 并且需要对对象有无特定的`GameplayTag`做布尔逻辑判断.  
+你会发现自己使用 `GameplayTag`**替换了过去使用布尔值或枚举值**来编程, 并且需要对对象有无特定的 `GameplayTag` 做布尔逻辑判断.    
 
-当给某个对象设置标签时, 如果它有`ASC`的话, 我们一般添加标签到`ASC`以与其交互. UAbilitySystemComponent执行`IGameplayTagAssetInterface`接口的函数来访问其拥有的`GameplayTag`.  
+**当给某个对象设置标签时, 如果它有 `ASC` 的话, 我们一般添加标签到 `ASC` 以与其交互。** `UAbilitySystemComponent` 执行 `IGameplayTagAssetInterface` 接口的函数来访问其拥有的 `GameplayTag`.   
 
-多个`GameplayTag`可被保存于一个`FGameplayTagContainer`中, 相比`TArray<FGameplayTag>`, 最好使用`GameplayTagContainer`, 因为`GameplayTagContainer`做了一些很有效率的优化. 因为标签是标准的`FName`, 所以当在项目设置(Project Setting)中启用`Fast Replication`后, 它们可以高效地打包进`FGameplayTagContainer`以用于同步. `Fast Replication`要求服务端和客户端有相同的`GameplayTag`列表, 这通常不是问题, 因此你应该启用该选项. `GameplayTagContainer`也可以返回`TArray<FGameplayTag>`以用于遍历.  
+多个 `GameplayTag` 可被保存于一个 `FGameplayTagContainer` 中, 相比 `TArray<FGameplayTag>`, 最好使用 `GameplayTagContainer`, 因为 `GameplayTagContainer` 做了一些很有效率的优化。因为标签是标准的 `FName`, 所以当在项目设置(Project Setting)中启用 `Fast Replication` 后, 它们可以高效地打包进 `FGameplayTagContainer` 以用于同步。 `Fast Replication` 要求服务端和客户端有相同的 `GameplayTag` 列表, 这通常不是问题, 因此你应该启用该选项。 `GameplayTagContainer` 也可以返回 `TArray<FGameplayTag>` 以用于遍历。
 
-保存于`FGameplayTagCountContainer`中的`GameplayTag`有保存该`GameplayTag`实例数的`TagMap`. FGameplayTagCountContainer可能存有`TagMapCount`为0的`GameplayTag`, 你可能在Debug时遇到这种情况. 任何`HasTag()`或`HasMatchingTag()`或其他相似的函数会检查`TagMapCount`, 如果`GameplayTag`不存在或者其`TagMapCount`为0就会返回false.  
+保存于 `FGameplayTagCountContainer` 中的 `GameplayTag` 有保存该 `GameplayTag` 实例数的 `TagMap`。`FGameplayTagCountContainer` 可能存有 `TagMapCount` 为0的 `GameplayTag`, 你可能在 Debug 时遇到这种情况. 任何 `HasTag()` 或 `HasMatchingTag()` 或其他相似的函数会检查 `TagMapCount`, 如果 `GameplayTag` 不存在或者其 `TagMapCount` 为0就会返回 false.   
 
 `GameplayTag`必须在`DefaultGameplayTag.ini`中提前定义, UE4编辑器在项目设置中提供了一个界面供开发者管理`GameplayTag`而无需手动编辑DefaultGameplayTag.ini, 该`GameplayTag`编辑器可以创建, 重命名, 搜索引用和删除`GameplayTag`.  
 
@@ -273,7 +277,7 @@ FGameplayTag::RequestGameplayTag(FName("Your.GameplayTag.Name"))
 
 
 <a name="concepts-gt-change"></a>
-#### 4.2.1 响应Gameplay Tags的变化
+### 4.2.1 响应Gameplay Tags的变化
 
 `ASC`提供了一个委托(Delegate)用于在`GameplayTag`添加或移除时触发, 其中`EGameplayTagEventType`参数可以明确是该`GameplayTag`添加/移除还是其`TagMapCount`发生变化时触发.  
 
@@ -289,10 +293,10 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 
 
-<a name="concepts-a"></a>
-### 4.3 Attribute
 
-<a name="concepts-a-definition"></a>
+## 4.3 Attribute
+
+
 #### 4.3.1 Attribute定义
 
 `Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. `Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.  
@@ -315,7 +319,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 
 <a name="concepts-a-meta"></a>
-#### 4.3.3 元(Meta)Attribute
+4.3.3 元(Meta)Attribute
 
 一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可同步的.  
 
@@ -326,7 +330,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 
 <a name="concepts-a-changes"></a>
-#### 4.3.4 响应Attribute变化
+4.3.4 响应Attribute变化
 
 为了监听`Attribute`何时变化以便更新UI和其他游戏逻辑, 可以使用`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute `Attribute`)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当`Attribute`变化时需要自动调用的函数. 该委托提供一个`FOnAttributeChangeData`参数, 其中有`NewValue`, `OldValue`和`FGameplayEffectModCallbackData`. **Note**: `FGameplayEffectModCallbackData`只能在服务端上设置.  
 
@@ -363,8 +367,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 
 
-<a name="concepts-as"></a>
-### 4.4 AttributeSet
+## 4.4 AttributeSet
 
 <a name="concepts-as-definition"></a>
 #### 4.4.1 定义AttributeSet
@@ -654,7 +657,7 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 
 
 <a name="concepts-ge"></a>
-### 4.5 Gameplay Effects
+## 4.5 Gameplay Effects
 
 <a name="concepts-ge-definition"></a>
 #### 4.5.1 定义GameplayEffect
@@ -1599,7 +1602,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 
 <a name="concepts-ga"></a>
-### 4.6 Gameplay Abilities
+## 4.6 Gameplay Abilities
 
 <a name="concepts-ga-definition"></a>
 #### 4.6.1 GameplayAbility定义
@@ -2111,7 +2114,7 @@ GASShooter暴露了一个蓝图节点以允许上文提到的仅客户端调用�
 |ServerOnly|服务端控制该Ability的执行和终止, 客户端的任何请求都会被忽略.|
 
 <a name="concepts-at"></a>
-### 4.7 Ability Tasks
+## 4.7 Ability Tasks
 
 <a name="concepts-at-definition"></a>
 #### 4.7.1 AbilityTask定义
@@ -2189,7 +2192,7 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 
 
 <a name="concepts-gc"></a>
-### 4.8 Gameplay Cues
+## 4.8 Gameplay Cues
 
 <a name="concepts-gc-definition"></a>
 #### 4.8.1 GameplayCue定义
@@ -2398,7 +2401,7 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 
 
 <a name="concepts-asg"></a>
-### 4.9 Ability System Globals
+## 4.9 Ability System Globals
 
 [AbilitySystemGlobals](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemGlobals/index.html)类保存有关GAS的全局信息. 大多数变量可以在`DefaultGame.ini`中设置. 一般你不需要和该类互动, 但是应该知道它的存在. 如果你需要继承像[GameplayCueManager](#concepts-gc-manager)或[GameplayEffectContext](#concepts-ge-context)这样的对象, 就必须通过`AbilitySystemGlobals`来做.  
 
@@ -2421,7 +2424,7 @@ AbilitySystemGlobalsClassName="/Script/ParagonAssets.PAAbilitySystemGlobals"
 
 
 <a name="concepts-p"></a>
-### 4.10 预测(Prediction)
+## 4.10 预测(Prediction)
 
 GAS带有开箱即用的客户端预测功能, 然而, 它不能预测所有. GAS中客户端预测的意思是客户端无需等待服务端的许可而激活`GameplayAbility`和应用`GameplayEffect`. 它可以"预测"许可其可以这样做的服务端和其应用`GameplayEffect`的目标. 服务端在客户端激活之后运行`GameplayAbility`(网络延迟)并告知客户端它的预测是否正确, 如果客户端的预测出错, 那么它就会"回滚"其"错误预测"的修改以匹配服务端.  
 
@@ -2546,7 +2549,7 @@ Epic最近发起了一项倡议, 将使用新的网络预测插件替换`Charact
 
 
 <a name="concepts-targeting"></a>
-### 4.11 Targeting
+## 4.11 Targeting
 
 <a name="concepts-targeting-data"></a>
 #### 4.11.1 Target Data
@@ -2682,9 +2685,6 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 为了在眩晕时阻止新的`GameplayAbility`激活, 可以在`GameplayAbility`的[Activation Blocked Tags GameplayTagContainer](#concepts-ga-tags)中添加眩晕`GameplayTag`.  
 
 为了在眩晕时阻止移动, 我们可以在拥有者拥有眩晕`GameplayTag`时重写`CharacterMovementComponent`的`GetMaxSpeed()`函数以返回0.  
-
-
-
 <a name="cae-sprint"></a>
 ### 5.2 奔跑(Sprint)
 
@@ -2693,8 +2693,6 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 更快的移动由`CharacterMovementComponent`通过网络发送flag到服务端预测性地处理. 详见`GDCharacterMovementComponent.h/cpp`.  
 
 `GA`处理响应左Shift输入, 告知`CMC`开始和停止奔跑, 并且在左Shift按下时预测性地消耗耐力. 详见`GA_Sprint_BP`.  
-
-
 
 <a name="cae-ads"></a>
 ### 5.3 瞄准(Aim Down Sight)
