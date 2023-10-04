@@ -196,9 +196,6 @@ GAS主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中包
     ```
   
 
-> [!question] 到底怎么注册？
->     另一处这样写的：创建好属性集之后，必须向技能系统组件注册它。可以将属性集添加为拥有技能系统组件的 Actor 的子对象，或者将它传递给技能系统组件的 `GetOrCreateAttributeSubobject` 函数。
-
 > [!warning] 注意
 >- 一个 Ability System Component 可以有多个属性集，但每个属性集必须与所有其它属性集的**类**不同。
 >- 如果使用 `Gameplay Effects`  来修改 Ability System Component **没有的 `Gamplay Attributes`** ，这样做 会使技能系统组件为自己创建一个匹配的游戏玩法属性。然而，这个方法并不会创建一个属性集，也不会将游戏玩法属性添加到任何现有的属性集中。

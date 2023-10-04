@@ -258,25 +258,21 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 如果`GameplayTag`由`GameplayEffect`添加, 那么其就是可同步的. `ASC`允许你添加不可同步的`LooseGameplayTag`且必须手动管理. 样例项目对`State.Dead`使用了`LooseGameplayTag`, 因此当生命值降为0时, 其所属客户端会立即响应. 重生时需要手动将`TagMapCount`设置回0, 当使用`LooseGameplayTag`时只能手动调整`TagMapCount`, 相比纯手动调整`TagMapCount`, 最好使用`UAbilitySystemComponent::AddLooseGameplayTag()`和`UAbilitySystemComponent::RemoveLooseGameplayTag()`.  
 
-C++中获取`GameplayTag`引用:  
-
+**C++中获取`GameplayTag`引用:**  
 ```c++
 FGameplayTag::RequestGameplayTag(FName("Your.GameplayTag.Name"))
 ```
+对于像获取父或子 `GameplayTag` 的高阶操作, 请查看 `GameplayTagManager` 提供的函数. 
 
-对于像获取父或子`GameplayTag`的高阶操作, 请查看`GameplayTagManager`提供的函数. 为了访问`GameplayTagManager`, 请引用`GameplayTagManager.h`并使用`UGameplayTagManager::Get().FunctionName`调用函数. 相比使用常量字符串进行操作和比较, `GameplayTagManager`实际上使用关系节点(父, 子等等)保存`GameplayTag`以获得更快的处理速度.  
+**为了访问`GameplayTagManager`, 请引用`GameplayTagManager.h`并使用`UGameplayTagManager::Get().FunctionName`调用函数**. 相比使用常量字符串进行操作和比较, `GameplayTagManager`实际上使用关系节点(父, 子等等)保存`GameplayTag`以获得更快的处理速度.  
 
 `GameplayTag`和`GameplayTagContainer`有可选UPROPERTY宏`Meta = (Categories = "GameplayCue")`用于在蓝图中过滤标签而只显示父标签为`GameplayCue`的`GameplayTag`, 当你知道`GameplayTag`或`GameplayTagContainer`变量应该只用于`GameplayCue`时, 这将是非常有用的.  
-
 作为选择, 有一单独的`FGameplayCueTag`结构体可以包裹`FGameplayTag`并且可以在蓝图中自动过滤`GameplayTag`而只显示父标签为`GameplayCue`的标签.  
 
 如果你想过滤函数中的`GameplayTag`参数, 使用UFUNCTION宏`Meta = (GameplayTagFilter = "GameplayCue")`. `GameplayTagContainer`参数不能过滤, 如果你想编辑引擎来允许过滤`GameplayTagContainer`参数, 查看`SGameplayTagGraphPin::ParseDefaultValueData()`是如何从`Engine\Plugins\Editor\GameplayTagEditor\Source\GameplayTagEditor\Private\SGameplayTagGraphPin.cpp`中调用`FilterString = UGameplayTagManager::Get().GetCategoriesMetaFromField(PinStructType);`的, 还有是如何在`SGameplayTagGraphPin::GetListContent()`中将`FilterString`传递给`SGameplayTagWidget`的, `Engine\Plugins\Editor\GameplayTagEditor\Source\GameplayTagEditor\Private\S`GameplayTagContainer`GraphPin.cpp`中这些函数的`GameplayTagContainer`版本并没有检查Meta域属性和传递过滤器.  
 
 样例项目广泛地使用了`GameplayTag`.  
 
-
-
-<a name="concepts-gt-change"></a>
 ### 4.2.1 响应Gameplay Tags的变化
 
 `ASC`提供了一个委托(Delegate)用于在`GameplayTag`添加或移除时触发, 其中`EGameplayTagEventType`参数可以明确是该`GameplayTag`添加/移除还是其`TagMapCount`发生变化时触发.  
@@ -291,48 +287,43 @@ AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTag::RequestGameplayTa
 virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 ```
 
-
-
-
 ## 4.3 Attribute
 
+### 4.3.1 Attribute定义
 
-#### 4.3.1 Attribute定义
-
-`Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. `Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.  
+`Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. **`Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.**  
 
 `Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于同步那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
 
-**Tip**: 如果你不想某个`Attribute`显示在编辑器的`Attribute`列表, 可以使用`Meta = (HideInDetailsView)`属性宏.  
+> [!tip] 
+>  如果你不想某个`Attribute`显示在编辑器的`Attribute`列表, 可以使用`Meta = (HideInDetailsView)`属性宏.  
+> 
 
-
-
-<a name="concepts-a-value"></a>
-#### 4.3.2 BaseValue vs. CurrentValue
+### 4.3.2 BaseValue vs. CurrentValue
 
 一个`Attribute`是由两个值 —— 一个`BaseValue`和一个`CurrentValue`组成的, `BaseValue`是`Attribute`的永久值而`CurrentValue`是`BaseValue`加上`GameplayEffect`给的临时修改值后得到的. 例如, 你的Character可能有一个`BaseValue`为600u/s的移动速度`Attribute`, 因为还没有`GameplayEffect`修改移动速度, 所以`CurrentValue`也是600u/s, 如果Character获得了一个临时50u/s的移动速度加成, 那么`BaseValue`仍然是600u/s而`CurrentValue`是600+50=650u/s, 当该移动速度加成消失后, `CurrentValue`就会变回`BaseValue`的600u/s.  
-
-初识GAS的新手经常将`BaseValue`误认为`Attribute`的最大值并以这样的认识去编程, 这是错误的, 可以修改或引用的Ability/UI中的`Attribute`最大值应该是另外单独的`Attribute`. 对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的`FAttributeMetaData`定义一个DataTable, 但是Epic在该结构体上的注释称之为"work in progress", 详见`AttributeSet.h`. 为了避免这种疑惑, 我建议引用在Ability或UI中的最大值应该单独定义`Attribute`, 只用于限制(Clamp)`Attribute`大小的硬编码最大值和最小值应该在`AttributeSet`中定义为硬编码浮点值. 关于限制(Clamp)`Attribute`值的问题在[PreAttributeChange()](#concepts-as-preattributechange)中讨论了CurrentValue的修改, 在[PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute)中讨论了`GameplayEffect`对`BaseValue`的修改.  
-
-`即刻(Instant)GameplayEffect`可以永久性的修改`BaseValue`, 而`持续(Duration)`和`无限(Infinite)GameplayEffect`可以修改CurrentValue. 周期性(Periodic)`GameplayEffect`被视为`即刻(Instant)GameplayEffect`并且可以修改`BaseValue`.  
+>新版本会添加了对最大值的追踪？
 
 
+初识GAS的新手经常将`BaseValue`误认为`Attribute`的最大值并以这样的认识去编程, 这是错误的, 可以修改或引用的Ability/UI中的`Attribute`最大值应该是另外单独的`Attribute`. 对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的`FAttributeMetaData`定义一个DataTable, 但是Epic在该结构体上的注释称之为"work in progress", 详见`AttributeSet.h`. 为了避免这种疑惑, **我建议引用在Ability或UI中的最大值应该单独定义`Attribute`, 只用于限制(Clamp)`Attribute`大小的硬编码最大值和最小值应该在`AttributeSet`中定义为硬编码浮点值. 关于限制(Clamp)`Attribute`值的问题在[PreAttributeChange()](#concepts-as-preattributechange)中讨论了CurrentValue的修改, 在[PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute)中讨论了`GameplayEffect`对`BaseValue`的修改.**  
 
-<a name="concepts-a-meta"></a>
-4.3.3 元(Meta)Attribute
+瞬间 (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`, 而 持续(Duration) 和 无限(Infinite)`GameplayEffect` 可以修改 `CurrentValue`. 
+周期性(Periodic) `GameplayEffect` 被视为即刻(Instant)`GameplayEffect ` 并且可以修改 ` BaseValue `.  
 
-一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可同步的.  
+### 4.3.3 元(Meta)Attribute
+
+**一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`**. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可同步的.  
 
 `Meta Attribute`对于在"我们应该造成多少伤害?"和"我们该如何处理伤害值?"这种问题之中的伤害值和治疗值做了很好的解构, 这种解构意味着`GameplayEffect`和`ExecutionCalculation`无需了解目标是如何处理伤害值的. 继续看伤害值的例子, `GameplayEffect`确定造成多少伤害, 之后`AttributeSet`决定如何使用该伤害值, 不是所有的Character都有相同的`Attribute`, 特别是使用了`AttributeSet`子类的话, `AttributeSet`基类可能只有一个生命值`Attribute`, 但是它的子类可能增加了一个护盾值`Attribute`, 拥有护盾值`Attribute`的子类`AttributeSet`可能会以不同于`AttributeSet`基类的方式分配收到的伤害.  
 
-尽管`Meta Attribute`是一个很好的设计模式, 但其并不是强制使用的. 如果你只有一个用于所有伤害实例的`Execution Calculation`和一个所有Character共用的`AttributeSet`类, 那么你就可以在`Exeuction Calculation`中分配伤害到生命, 护盾等等, 并直接修改那些`Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
+尽管 `Meta Attribute` 是一个很好的设计模式, 但其并不是强制使用的。 如果你只有一个用于所有伤害实例的 `Execution Calculation` 和一个所有 Character 共用的 `AttributeSet` 类, 那么你就可以在 `Exeuction Calculation` 中分配伤害到生命, 护盾等等, 并直接修改那些 `Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
 
+### 4.3.4 响应Attribute变化
 
+为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute ` Attribute `)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 该委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
 
-<a name="concepts-a-changes"></a>
-4.3.4 响应Attribute变化
-
-为了监听`Attribute`何时变化以便更新UI和其他游戏逻辑, 可以使用`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute `Attribute`)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当`Attribute`变化时需要自动调用的函数. 该委托提供一个`FOnAttributeChangeData`参数, 其中有`NewValue`, `OldValue`和`FGameplayEffectModCallbackData`. **Note**: `FGameplayEffectModCallbackData`只能在服务端上设置.  
+> [!NOTE]
+> `FGameplayEffectModCallbackData `只能在服务端上设置.  
 
 ```c++
 AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthAttribute()).AddUObject(this, &AGDPlayerState::HealthChanged);
@@ -346,10 +337,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[13f95902c3287b753193802f752b5030_MD5.png]] 
 
-
-
-<a name="concepts-a-derived"></a>
-#### 4.3.5 自动推导Attribute
+### 4.3.5 自动推导Attribute
 
 为了使一个`Attribute`的部分或全部值继承自一个或更多`Attribute`, 可以使用基于一个或多个`Attribute`或[MMC](#concepts-ge-mmc) [Modifiers](#concepts-ge-mods)的`无限(Infinite)GameplayEffect`. 当自动推导`Attribute`依赖的某个`Attribute`更新时它也会自动更新.  
 
@@ -365,34 +353,23 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[3202adf154edb7596707dd236e755ad0_MD5.png]]  
 
-
-
 ## 4.4 AttributeSet
 
-<a name="concepts-as-definition"></a>
-#### 4.4.1 定义AttributeSet
+### 4.4.1 定义AttributeSet
 
-`AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). 在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`. **这必须在C++中完成.**  
-
+`AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`**. **这必须在C++中完成.**  
 
 
-<a name="concepts-as-design"></a>
-#### 4.4.2 设计AttributeSet
+### 4.4.2 设计AttributeSet
 
-一个`ASC`可能有一个或多个`AttributeSet`, `AttributeSet`消耗的内存微不足道, 使用多少`AttributeSet`是留给开发人员决定的.  
-
-有种方案是设置一个单一且巨大的`AttributeSet`, 共享于游戏中的所有Actor, 并且只使用需要的`Attribute`, 忽略不用的`Attribute`.  
-
-作为选择, 你可以使用多个`AttributeSet`来表示按需添加到Actor的`Attribute`分组, 例如, 你可以有一个生命相关的`AttributeSet`, 一个魔法相关的`AttributeSet`等等. 在MOBA游戏中, 英雄可能需要魔法, 但是小兵并不需要, 因此英雄就需要魔法`AttributeSet`而小兵则不需要.  
+一个`ASC`可能有一个或多个`AttributeSet`
+- 有种方案是设置一个单一且巨大的 `AttributeSet`, 共享于游戏中的所有 Actor, 并且只使用需要的 `Attribute`, 忽略不用的 `Attribute`.  
+- 你也可以使用多个 `AttributeSet` 来表示按需添加到 Actor 的 `Attribute` 分组, 例如, 你可以有一个生命相关的 `AttributeSet`, 一个魔法相关的 `AttributeSet` 等等. 在 MOBA 游戏中, 英雄可能需要魔法, 但是小兵并不需要, 因此英雄就需要魔法 `AttributeSet` 而小兵则不需要.  
 
 另外, 继承`AttributeSet`的另一种意义是可以选择一个Actor可以有哪些`Attribute`. `Attribute`在内部被引用为`AttributeSetClassName.AttributeName`, 当你继承`AttributeSet`时, 所有父类的`Attribute`仍将保留父类名作为前缀.  
 
 尽管可以拥有多个`AttributeSet`, 但是不应该在同一`ASC`中拥有多个同一类的`AttributeSet`, 如果在同一`ASC`中有多个同一类的`AttributeSet`, `ASC`就不知道该使用哪个`AttributeSet`而随机选择一个.  
-
-
-
-<a name="concepts-as-design-subcomponents"></a>
-##### 4.4.2.1 使用单独Attribute的子组件
+#### 4.4.2.1 使用单独Attribute的子组件
 
 假设你在某个Pawn上有多个可被损害的组件, 像可被独立损害的护甲片, 如果可以明确可被损害组件的最大数量, 我建议把多个生命值`Attribute`放到一个`AttributeSet`中 —— DamageableCompHealth0, DamageableCompHealth1, 等等, 以表示这些可被损害组件在逻辑上的"slot", 在可被损害组件的类实例中, 指定可以被`GameplayAbility`和[Execution](#concepts-ge-ec)读取的带slot编号的`Attribute`来表明该应用伤害值到哪个`Attribute`. 如果Pawn当前拥有0个或少于最大数量的可损害组件也无妨, 因为`AttributeSet`拥有一个`Attribute`, 并不意味着必须要使用它, 未使用的`Attribute`只占用很少的内存.  
 
@@ -401,7 +378,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 
 <a name="concepts-as-design-addremoveruntime"></a>
-##### 4.4.2.2 运行时添加和移除AttributeSet
+#### 4.4.2.2 运行时添加和移除AttributeSet
 
 `AttributeSet`可以在运行时从`ASC`上添加和移除, 然而移除`AttributeSet`是很危险的, 例如, 如果某个`AttributeSet`在客户端上移除早于服务端, 而某个`Attribute`的变化又同步到了客户端, 那么`Attribute`就会因为找不到`AttributeSet`而使游戏崩溃.  
 
@@ -422,7 +399,7 @@ AbilitySystemComponent->ForceReplication();
 
 
 <a name="concepts-as-design-itemattributes"></a>
-##### 4.4.2.3 Item Attribute(武器弹药)
+#### 4.4.2.3 Item Attribute(武器弹药)
 
 有几种方法可以实现带有`Attribute`(武器弹药, 盔甲耐久等等)的可装备物品, 所有这些方法都直接在物品中存储数据, 这对于在生命周期中可以被多个玩家装备的物品来说是必须的.  
 
@@ -433,7 +410,7 @@ AbilitySystemComponent->ForceReplication();
 
 
 <a name="concepts-as-design-itemattributes-plainfloats"></a>
-###### 4.4.2.3.1 在物品中使用普通浮点数
+##### 4.4.2.3.1 在物品中使用普通浮点数
 
 在物品类实例中存储普通浮点数而不是`Attribute`, Fortnite和[GASShooter](https://github.com/tranek/GASShooter)就是这样处理枪械子弹的, 对于枪械, 在其实例中存储可同步的浮点数(COND_OwnerOnly), 比如最大弹匣量, 当前弹匣中弹药量, 剩余弹药量等等, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里作为一个`Attribute`(换弹Ability可以使用一个`Cost GE`从剩余弹药量中填充枪械的弹匣弹药量浮点). 因为没有为当前弹匣弹药量使用`Attribute`, 所以需要重写`UGameplayAbility`中的一些函数来检查和应用枪械中浮点数的花销(cost). 当授予Ability时将枪械在[GameplayAbilitySpec](https://github.com/tranek/GASDocumentation#concepts-ga-spec)中转换为`SourceObject`, 这意味着可以在Ability中访问授予Ability的枪械.  
 
@@ -461,7 +438,7 @@ void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracke
 
 
 <a name="concepts-as-design-itemattributes-attributeset"></a>
-###### 4.4.2.3.2 在物品中使用AttributeSet
+##### 4.4.2.3.2 在物品中使用AttributeSet
 
 在物品中使用单独的`AttributeSet`可以实现[将其添加到玩家的Inventory](#concepts-as-design-addremoveruntime), 但还是有一定的局限性. 较早版本的[GASShooter](https://github.com/tranek/GASShooter)中的武器弹药是使用的这种方法, 武器类在其自身存储诸如最大弹匣量, 当前弹匣弹药量, 剩余弹药量等等到一个`AttributeSet`, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里. 当服务端上某个武器添加到玩家的Inventory后, 该武器会将它的`AttributeSet`添加到玩家的`ASC::SpawnedAttribute`, 之后服务端会将其同步下发到客户端, 如果该武器从Inventory中移除, 它也会将其`AttributeSet`从`ASC::SpawnedAttribute`中移除.  
 
@@ -492,7 +469,7 @@ void AGSWeapon::BeginPlay()
 
 
 <a name="concepts-as-design-itemattributes-asc"></a>
-###### 4.4.2.3.3 在物品中使用单独的ASC
+##### 4.4.2.3.3 在物品中使用单独的ASC
 
 在每个物品上都创建一个`AbilitySystemComponent`是种很极端的方案. 我还没有亲自做过这种方案, 在其他地方也没见过. 这种方案应该会花费相当的开发成本才能正常使用.  
 
@@ -515,7 +492,7 @@ void AGSWeapon::BeginPlay()
 
 
 <a name="concepts-as-attributes"></a>
-#### 4.4.3 定义Attribute
+### 4.4.3 定义Attribute
 
 **Attribute只能使用C++在AttributeSet头文件中定义.** 建议把下面这个宏块加到每个`AttributeSet`头文件的顶部, 其会自动为每个`Attribute`生成getter和setter函数.  
 
@@ -570,7 +547,7 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 
 <a name="concepts-as-init"></a>
-#### 4.4.4 初始化Attribute
+### 4.4.4 初始化Attribute
 
 有多种方法可以初始化`Attribute`(将BaseValue和CurrentValue设置为某初始值). Epic建议使用`即刻(Instant)GameplayEffect`, 这也是样例项目使用的方法.  
 
@@ -590,7 +567,7 @@ AttributeSet->InitHealth(100.0f);
 
 
 <a name="concepts-as-preattributechange"></a>
-#### 4.4.5 PreAttributeChange()
+### 4.4.5 PreAttributeChange()
 
 `PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)`是`AttributeSet`中的主要函数之一, 其在修改发生前响应`Attribute`的CurrentValue变化, 其是通过引用参数NewValue限制(Clamp)CurrentValue即将进行的修改的理想位置.  
 
@@ -614,7 +591,7 @@ if (Attribute == GetMoveSpeedAttribute())
 
 
 <a name="concepts-as-postgameplayeffectexecute"></a>
-#### 4.4.6 PostGameplayEffectExecute()
+### 4.4.6 PostGameplayEffectExecute()
 
 `PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)`仅在`即刻(Instant)GameplayEffect`对`Attribute`的BaseValue修改之后触发, 当[GameplayEffect](#concepts-ge)对其修改时, 这就是一个处理更多`Attribute`操作的有效位置.  
 
@@ -627,7 +604,7 @@ if (Attribute == GetMoveSpeedAttribute())
 
 
 <a name="concepts-as-onattributeaggregatorcreated"></a>
-#### 4.4.7 OnAttributeAggregatorCreated()
+### 4.4.7 OnAttributeAggregatorCreated()
 
 `OnAttributeAggregatorCreated(const FGameplayAttribute& Attribute, FAggregator* NewAggregator)`会在Aggregator为集合中的某个`Attribute`创建时触发, 它允许[FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html)的自定义设置, `AggregatorEvaluateMetaData`是Aggregator基于所有应用的`Modifier(Modifier)`评估`Attribute`的CurrentValue的. 默认情况下, AggregatorEvaluateMetaData只由Aggregator用于确定哪些[Modifier](#concepts-ge-mods)是满足条件的, 以MostNegativeMod_AllPositiveMods为例, 其允许所有正(Positive)`Modifier`但是限制负(Negative)`Modifier`(仅最负的那一个), 这在Paragon中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度buff时有多少负移动效果. 不满足条件的`Modifier`仍存于`ASC`中, 只是不被总合进最终的CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负`Modifier`过期后, 下一个最负`Modifier`(如果存在的话)就是满足条件的.  
 
