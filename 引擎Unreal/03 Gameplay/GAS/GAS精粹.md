@@ -18,7 +18,7 @@ banner_icon: ⚔
 样例项目和文档目前基于`Unreal Engine 4.26`. 该文档拥有可用于旧版本Unreal Engine的分支, 但是它们不再受支持, 并且可能存在bug和过时信息.  
 [GASShooter](https://github.com/tranek/GASShooter)是该样例项目的姐妹项目, 其演示了基于多人FPS/TPS的高阶GAS技术.  
 
-# 1. 步入 GameplayAbilitySystem 插件
+# 一、 步入 GameplayAbilitySystem 插件
 
 * 执行基于等级的角色能力(Ability)或技能(Skill), 该能力或技能可选花费和冷却时间. ([GameplayAbility](#concepts-ga))
 * 管理属于Actor的数值Attribute. ([Attribute](#concepts-a))
@@ -42,7 +42,7 @@ GAS中的现存问题:
 * 不能预测性地移除`GameplayEffect`. 然而我们可以反向预测性地添加`GameplayEffect`, 从而高效的移除它. 但是这不总是合适或者可行的, 因此这仍然是个问题.
 * 缺乏样例模板项目, 多人联机样例和文档. 希望这篇文档会有所帮助.
 
-# 2. 样例项目
+# 二、样例项目
 
 该文档包含一个支持多人联机的第三人称射击游戏模板项目, 该项目提供了一个样例, 其向你展示了如何使用 `GameplayAbilitySystem` 插件建立一个基础的支持多人联机的第三人称射击游戏, 
 **其中`AbilitySystemComponent(ASC)`分别位于`PlayerState`类代表玩家/AI控制的人物和位于`Character`类代表AI控制的小兵.**  
@@ -96,7 +96,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 |GC_|GameplayCue|
 |GE_|GameplayEffect|
 
-# 3. 开启 GAS
+# 三、开启 GAS
 
 使用GAS建立一个项目的基本步骤:  
 1. 在编辑器中启用GameplayAbilitySystem插件.
@@ -106,9 +106,9 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 这就是你启用GAS所需做的全部了. 从这里开始, 添加一个[`ASC`](#concepts-asc)和[`AttributeSet`](#concepts-as)到你的`Character`或`PlayerState`, 并开始着手[`GameplayAbility`](#concepts-ga)和[`GameplayEffect`](#concepts-ge)!
 
-# 4. GAS概念
+# 四、GAS 概念
 
-## 4.1 Ability System Component
+##  1 Ability System Component
 
 `AbilitySystemComponent(ASC)`是**GAS的核心**, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`**. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
 
@@ -130,7 +130,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
         - 每个域中的 `ABILITYLIST_SCOPE_LOCK();` 会增加 `AbilityScopeLockCount`, 之后出域时会减量. 
         - 不要尝试在 `ABILITYLIST_SCOPE_LOCK();` 域中移除某个 Ability(Ability 删除函数会在内部检查 `AbilityScopeLockCount` 以防在列表锁定时移除 Ability).  
 
-### 4.1.1 同步模式
+### 同步模式
 
 `ASC`定义了三种不同的同步模式用于同步`GameplayEffect`, `GameplayTag`和`GameplayCue` - `Full`, `Mixed`和`Minimal`. `Attribute`由其`AttributeSet`同步.  
 
@@ -144,7 +144,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 从4.24开始, 需要使用`PossessedBy()`设置新的`Controller`为`Pawn`的Owner.  
 
-### 4.1.2 设置和初始化
+### 设置和初始化
 
 `ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为Replicated. **这必须在C++中完成.**  
 
@@ -234,7 +234,7 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 如果你遇到了错误消息`LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`, 那么就表明`ASC`没有在客户端中初始化.  
 
-## 4.2 Gameplay Tags
+## 2 Gameplay Tags
 
 `FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级FName, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
 
@@ -273,7 +273,7 @@ FGameplayTag::RequestGameplayTag(FName("Your.GameplayTag.Name"))
 
 样例项目广泛地使用了`GameplayTag`.  
 
-### 4.2.1 响应Gameplay Tags的变化
+### 响应Gameplay Tags的变化
 
 `ASC`提供了一个委托(Delegate)用于在`GameplayTag`添加或移除时触发, 其中`EGameplayTagEventType`参数可以明确是该`GameplayTag`添加/移除还是其`TagMapCount`发生变化时触发.  
 
@@ -287,9 +287,9 @@ AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTag::RequestGameplayTa
 virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 ```
 
-## 4.3 Attribute
+## 3 Attribute
 
-### 4.3.1 Attribute定义
+### 定义
 
 `Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. **`Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.**  
 
@@ -299,7 +299,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 >  如果你不想某个`Attribute`显示在编辑器的`Attribute`列表, 可以使用`Meta = (HideInDetailsView)`属性宏.  
 > 
 
-### 4.3.2 BaseValue vs. CurrentValue
+### BaseValue 与 CurrentValue
 
 一个`Attribute`是由两个值 —— 一个`BaseValue`和一个`CurrentValue`组成的, `BaseValue`是`Attribute`的永久值而`CurrentValue`是`BaseValue`加上`GameplayEffect`给的临时修改值后得到的. 例如, 你的Character可能有一个`BaseValue`为600u/s的移动速度`Attribute`, 因为还没有`GameplayEffect`修改移动速度, 所以`CurrentValue`也是600u/s, 如果Character获得了一个临时50u/s的移动速度加成, 那么`BaseValue`仍然是600u/s而`CurrentValue`是600+50=650u/s, 当该移动速度加成消失后, `CurrentValue`就会变回`BaseValue`的600u/s.  
 >新版本会添加了对最大值的追踪？
@@ -310,7 +310,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 瞬间 (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`, 而 持续(Duration) 和 无限(Infinite)`GameplayEffect` 可以修改 `CurrentValue`. 
 周期性(Periodic) `GameplayEffect` 被视为即刻(Instant)`GameplayEffect ` 并且可以修改 ` BaseValue `.  
 
-### 4.3.3 元(Meta)Attribute
+### Meta Attribute
 
 **一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`**. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可同步的.  
 
@@ -318,7 +318,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 尽管 `Meta Attribute` 是一个很好的设计模式, 但其并不是强制使用的。 如果你只有一个用于所有伤害实例的 `Execution Calculation` 和一个所有 Character 共用的 `AttributeSet` 类, 那么你就可以在 `Exeuction Calculation` 中分配伤害到生命, 护盾等等, 并直接修改那些 `Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
 
-### 4.3.4 响应Attribute变化
+### 响应Attribute变化
 
 为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute ` Attribute `)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 该委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
 
@@ -337,7 +337,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[13f95902c3287b753193802f752b5030_MD5.png]] 
 
-### 4.3.5 自动推导Attribute
+### 自动推导Attribute
 
 为了使一个`Attribute`的部分或全部值继承自一个或更多`Attribute`, 可以使用基于一个或多个`Attribute`或[MMC](#concepts-ge-mmc) [Modifiers](#concepts-ge-mods)的`无限(Infinite)GameplayEffect`. 当自动推导`Attribute`依赖的某个`Attribute`更新时它也会自动更新.  
 
@@ -353,9 +353,9 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[3202adf154edb7596707dd236e755ad0_MD5.png]]  
 
-## 4.4 AttributeSet
+## 4 AttributeSet
 
-### 4.4.1 定义AttributeSet
+###  定义AttributeSet
 
 `AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`**. **这必须在C++中完成.**  
 
@@ -1557,11 +1557,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 `GameplayEffectContainer`还包含一个可选的用于[定位(Target)](#concepts-targeting-containers)的高效方法.
 
-
-
-<a name="concepts-ga"></a>
 ## 4.6 Gameplay Abilities
-
 <a name="concepts-ga-definition"></a>
 #### 4.6.1 GameplayAbility定义
 
@@ -2631,7 +2627,7 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 
 <a name="cae"></a>
-## 5. 常用的Abilty和Effect
+# 5. 常用的Abilty和Effect
 
 <a name="cae-stun"></a>
 ### 5.1 眩晕(Stun)
@@ -2734,7 +2730,7 @@ GASShooter实现了一个按钮交互系统, 玩家可以按下或按住'E'键�
 
 
 <a name="debugging"></a>
-## 6. 调试GAS
+# 6. 调试GAS
 
 通常在调试GAS相关的问题时, 你感兴趣的事情像:  
 
@@ -2832,7 +2828,7 @@ log list
 
 
 <a name="optimizations"></a>
-## 7. 优化
+# 7. 优化
 
 <a name="optimizations-abilitybatching"></a>
 ## 7.1 Ability批处理
