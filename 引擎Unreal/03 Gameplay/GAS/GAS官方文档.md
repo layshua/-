@@ -19,7 +19,7 @@ GAS指在处理所有这些用例，方法是**将技能建模为负责自身执
     - **Gameplay效果计算（`Gameplay Effect Calculations`）** ，提供模块化、可复用的方法来计算效果。
     - **Gameplay提示（`Gameplay Cues`）** ，与Gameplay效果关联，并提供数据驱动的方法来处理视觉效果。
 
-## 追踪所有权
+## Ability System Component
 
 你需要将 `Ability System Component` 附加到 Actor，该 Actor 才能使用 Gameplay 技能。
 - 此组件负责为 Actor 添加和去除技能，追踪 Actor 拥有的技能，以及激活技能。
@@ -34,7 +34,7 @@ GAS指在处理所有这些用例，方法是**将技能建模为负责自身执
 ### 授予和撤销技能
 Granting / Revoking
 
-在 Actor 可以使用某项技能之前，必须向其 `Ability System Component` 授予该技能。
+**在 Actor 可以使用某项技能之前，必须向其 `Ability System Component` 授予该技能。**
 
 **技能系统组件的以下函数可以`授予`对某项技能的访问：**
 - **`GiveAbility`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。

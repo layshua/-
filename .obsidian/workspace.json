@@ -8,15 +8,26 @@
         "type": "tabs",
         "children": [
           {
-            "id": "42edcd0dde9ce2f4",
+            "id": "446898cfcc7f8e6b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "cdf30390f7aad236",
+        "type": "tabs",
+        "children": [
           {
-            "id": "446898cfcc7f8e6b",
+            "id": "abeeb18637aaa720",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -27,43 +38,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "baa3805bccdaeeec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "74eeff8ad61ed6ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/06 网络/多人tps笔记.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "43e2384ea2f0ebd8",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -243,10 +219,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "446898cfcc7f8e6b",
+  "active": "abeeb18637aaa720",
   "lastOpenFiles": [
-    "引擎Unreal/03 Gameplay/GAS/官方文档.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "Tools/Git/Unity Git.md",
+    "Tools/Git/UE4源码管理.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/06 网络/3 会话管理.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
@@ -259,7 +237,6 @@
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/4 局域网.md",
     "zip/images/Pasted image 20231003215202.png",
-    "Tools/Git/UE4源码管理.md",
     "zip/images/Pasted image 20231003213722.png",
     "zip/images/Pasted image 20231003212353.png",
     "引擎Unreal/06 网络/官方文档/网络概述.md",
@@ -283,7 +260,6 @@
     "zip/留学/敏捷开发",
     "zip/留学/租房注意事项.md",
     "zip/留学/清单.md",
-    "图形学/1 图形系统/03 光照模型.md",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",

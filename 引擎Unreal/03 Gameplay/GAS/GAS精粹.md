@@ -15,25 +15,11 @@ banner_icon: ⚔
 翻译地址: [BillEliot/GASDocumentation_Chinese](https://github.com/BillEliot/GASDocumentation_Chinese)  
 反馈: **github/PR** or **eliotwjz@gmail.com**
 
-# GASDocumentation
-
-我使用一个简单的多人游戏模板项目来阐述对Unreal Engine 4中GameplayAbilitySystem(GAS)插件的理解. 这不是官方文档并且这个项目和我自己都不来自Epic Games. 我不能保证该文档的准确性.  
-
-该文档的目的是阐明GAS中的主要概念和相关类, 并结合我的经验提供一些附加说明. 在社区用户中, 已经形成了大量有关GAS的"部落知识", 而我致力于将我了解的全部在这里分享.  
 
 样例项目和文档目前基于`Unreal Engine 4.26`. 该文档拥有可用于旧版本Unreal Engine的分支, 但是它们不再受支持, 并且可能存在bug和过时信息.  
 [GASShooter](https://github.com/tranek/GASShooter)是该样例项目的姐妹项目, 其演示了基于多人FPS/TPS的高阶GAS技术.  
 
-最好的文档永远是该插件的代码.  
-
-## 1. 步入GameplayAbilitySystem插件
-
-摘自[官方文档](https://docs.unrealengine.com/en-US/Gameplay/GameplayAbilitySystem/index.html):  
-> Gameplay技能系统 是一个高度灵活的框架，可用于构建你可能会在RPG或MOBA游戏中看到的技能和属性类型。你可以构建可供游戏中的角色使用的动作或被动技能，使这些动作导致各种属性累积或损耗的状态效果，实现约束这些动作使用的"冷却"计时器或资源消耗，更改技能等级及每个技能等级的技能效果，激活粒子或音效，等等。简单来说，此系统可帮助你在任何现代RPG或MOBA游戏中设计、实现及高效关联各种游戏中的技能，既包括跳跃等简单技能，也包括你喜欢的角色的复杂技能集。
- 
-GameplayAbilitySystem插件由Epic Games开发, 随Unreal Engine 4 (UE4)发布. 它已经由3A商业游戏的严格测试, 例如帕拉贡(Paragon)和堡垒之夜(Fortnite)等等.  
-
-该插件对于单人和多人游戏提供了开箱即用的解决方案:  
+# 1. 步入 GameplayAbilitySystem 插件
 
 * 执行基于等级的角色能力(Ability)或技能(Skill), 该能力或技能可选花费和冷却时间. ([GameplayAbility](#concepts-ga))
 * 管理属于Actor的数值Attribute. ([Attribute](#concepts-a))
@@ -43,7 +29,6 @@ GameplayAbilitySystem插件由Epic Games开发, 随Unreal Engine 4 (UE4)发布. 
 * 为以上提到的所有应用同步(Replication).
 
 在多人游戏中, GAS提供客户端预测([client-side prediction](#concepts-p))支持:  
-
 * 能力激活.
 * 播放蒙太奇.
 * 对`Attribute`的修改.
@@ -51,17 +36,19 @@ GameplayAbilitySystem插件由Epic Games开发, 随Unreal Engine 4 (UE4)发布. 
 * 生成`GameplayCue`.
 * 通过连接于`CharacterMovementComponent`的`RootMotionSource`函数形成的移动.
 
-**GAS必须由C++创建**, 但是`GameplayAbility`和`GameplayEffect`可由设计师在蓝图中创建.  
+**GAS 必须由 C++创建, 但是 `GameplayAbility` 和 `GameplayEffect` 可由设计师在蓝图中创建.**  
 
 GAS中的现存问题:
 * `GameplayEffect`延迟调节(Latency Reconciliation).(不能预测能力冷却时间, 导致高延迟玩家相比低延迟玩家, 对于短冷却时间的能力有更低的激活速率.)
 * 不能预测性地移除`GameplayEffect`. 然而我们可以反向预测性地添加`GameplayEffect`, 从而高效的移除它. 但是这不总是合适或者可行的, 因此这仍然是个问题.
 * 缺乏样例模板项目, 多人联机样例和文档. 希望这篇文档会有所帮助.
-<a name="sp"></a>
-## 2. 样例项目
 
-该文档包含一个支持多人联机的第三人称射击游戏模板项目, 其目标受众为初识`GameplayAbilitySystem`插件, 但并不是Unreal Engine 4新手. 用户应该了解C++, 蓝图, UMG, Replication和其他UE4的中间件. 该项目提供了一个样例, 其向你展示了如何使用`GameplayAbilitySystem`插件建立一个基础的支持多人联机的第三人称射击游戏, 其中`AbilitySystemComponent(ASC)`分别位于`PlayerState`类代表玩家/AI控制的人物和位于`Character`类代表AI控制的小兵.  
-我在保证展现GAS基础和带有完整注释的代码所表示的一些普遍技能的同时, 尽力使这个样例足够简单. 由于该文档专注于初学者, 因此该样例不包含像[Predicting Projectiles](#concepts-p-spawn)这样的高阶技术.  
+# 2. 样例项目
+
+该文档包含一个支持多人联机的第三人称射击游戏模板项目, 该项目提供了一个样例, 其向你展示了如何使用 `GameplayAbilitySystem` 插件建立一个基础的支持多人联机的第三人称射击游戏, 
+**其中`AbilitySystemComponent(ASC)`分别位于`PlayerState`类代表玩家/AI控制的人物和位于`Character`类代表AI控制的小兵.**  
+我在保证展现 GAS 基础和带有完整注释的代码所表示的一些普遍技能的同时, 尽力使这个样例足够简单. 由于该文档专注于初学者, 因此该样例不包含像预测投掷物这样的高阶技术.  
+
 概念说明:  
 * `ASC`位于`PlayerState`还是`Character`.
 * 网络同步的`Attribute`.
@@ -90,9 +77,9 @@ GAS中的现存问题:
 
 |能力|输入绑定|是否可预测|C++/Blueprint|描述|
 |:-:|:-:|:-:|:-:|:-:|
-|跳跃|空格键|Yes|C++|使角色跳跃.|
+|跳跃|空格键|Yes |C++|使角色跳跃.|
 |枪|鼠标左键|No|C++|从角色的枪中发射投掷物, 发射动画是可预测的, 但是投掷物不能预测.|
-|瞄准|鼠标右键|Yes|Blueprint|当按住鼠标右键时, 角色会走的更慢并且摄像机会拉近(zoom in)以获得更高的射击精度.|
+|瞄准|鼠标右键 |Yes|Blueprint|当按住鼠标右键时, 角色会走的更慢并且摄像机会拉近(zoom in)以获得更高的射击精度.|
 |奔跑|左Shift|Yes|Blueprint|当按住左Shift时, 角色在消耗体力的同时跑得更快.|
 |向前猛冲|Q|Yes|Blueprint|角色消耗体力的同时向前猛冲.|
 |被动护盾叠加|被动|No|Blueprint|每过4s角色获得一个最大层数为4的护盾, 每次受到伤害时移除一层护盾.|
@@ -100,7 +87,7 @@ GAS中的现存问题:
 
 `GameplayAbility`无论是由蓝图还是C++创建都没关系. 这里我们使用蓝图和C++混合创建, 意在展示每种方式的使用方法.  
 AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多的生命回复, 蓝方小兵有较多的初始生命.  
-对于`GameplayAbility`的命名, 我使用`_BP`后缀表示由蓝图创建的`GameplayAbility`逻辑, 没有后缀则表示由C++创建.  
+**对于`GameplayAbility`的命名, 我使用`_BP`后缀表示由蓝图创建的`GameplayAbility`逻辑, 没有后缀则表示由C++创建.**  
 
 **蓝图资源命名前缀**  
 
@@ -110,7 +97,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 |GC_|GameplayCue|
 |GE_|GameplayEffect|
 
-## 3. 使用GAS创建一个项目
+# 3. 开启 GAS
 
 使用GAS建立一个项目的基本步骤:  
 1. 在编辑器中启用GameplayAbilitySystem插件.
@@ -120,20 +107,9 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 这就是你启用GAS所需做的全部了. 从这里开始, 添加一个[`ASC`](#concepts-asc)和[`AttributeSet`](#concepts-as)到你的`Character`或`PlayerState`, 并开始着手[`GameplayAbility`](#concepts-ga)和[`GameplayEffect`](#concepts-ge)!
 
-## 4. GAS概念
+# 4. GAS概念
 
-* 4.1 [Ability System Component](#concepts-asc)  
-* 4.2 [Gameplay Tags](#concepts-gt)  
-* 4.3 [Attributes](#concepts-a)  
-* 4.4 [Attribute Set](#concepts-as)  
-* 4.5 [Gameplay Effects](#concepts-ge)  
-* 4.6 [Gameplay Abilities](#concepts-ga)  
-* 4.7 [Ability Tasks](#concepts-at)  
-* 4.8 [Gameplay Cues](#concepts-gc)  
-* 4.9 [Ability System Globals](#concepts-asg)  
-* 4.10 [Prediction](#concepts-p)
-
-### 4.1 Ability System Component
+## 4.1 Ability System Component
 
 `AbilitySystemComponent(ASC)`是GAS的核心, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), 所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
 
@@ -147,9 +123,9 @@ OwnerActor需要继承并实现`IAbilitySystemInterface`, 如果AvatarActor和Ow
 
 `ASC`在`FGameplayAbilitySpecContainer ActivatableAbility`中保存其授予的`GameplayAbility`. 当你想遍历`ActivatableAbility.Items`时, 确保在循环体之上添加`ABILITYLIST_SCOPE_LOCK();`来锁定列表以防其改变(比如移除一个Ability). 每个域中的`ABILITYLIST_SCOPE_LOCK();`会增加`AbilityScopeLockCount`, 之后出域时会减量. 不要尝试在`ABILITYLIST_SCOPE_LOCK();`域中移除某个Ability(Ability删除函数会在内部检查`AbilityScopeLockCount`以防在列表锁定时移除Ability).  
 
-**[⬆ 返回目录](#table-of-contents)**
 
-<a name="concepts-asc-rm"></a>
+
+
 #### 4.1.1 同步模式
 
 `ASC`定义了三种不同的同步模式用于同步`GameplayEffect`, `GameplayTag`和`GameplayCue` - `Full`, `Mixed`和`Minimal`. `Attribute`由其`AttributeSet`同步.  
@@ -254,10 +230,7 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 如果你遇到了错误消息`LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`, 那么就表明`ASC`没有在客户端中初始化.  
 
-**[⬆ 返回目录](#table-of-contents)**
-
-<a name="concepts-gt"></a>
-### 4.2 Gameplay Tags
+## 4.2 Gameplay Tags
 
 `FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级Name, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
 
@@ -297,7 +270,7 @@ FGameplayTag::RequestGameplayTag(FName("Your.GameplayTag.Name"))
 
 样例项目广泛地使用了`GameplayTag`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gt-change"></a>
 #### 4.2.1 响应Gameplay Tags的变化
@@ -314,7 +287,7 @@ AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTag::RequestGameplayTa
 virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-a"></a>
 ### 4.3 Attribute
@@ -328,7 +301,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 **Tip**: 如果你不想某个`Attribute`显示在编辑器的`Attribute`列表, 可以使用`Meta = (HideInDetailsView)`属性宏.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-a-value"></a>
 #### 4.3.2 BaseValue vs. CurrentValue
@@ -339,7 +312,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 `即刻(Instant)GameplayEffect`可以永久性的修改`BaseValue`, 而`持续(Duration)`和`无限(Infinite)GameplayEffect`可以修改CurrentValue. 周期性(Periodic)`GameplayEffect`被视为`即刻(Instant)GameplayEffect`并且可以修改`BaseValue`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-a-meta"></a>
 #### 4.3.3 元(Meta)Attribute
@@ -350,7 +323,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 尽管`Meta Attribute`是一个很好的设计模式, 但其并不是强制使用的. 如果你只有一个用于所有伤害实例的`Execution Calculation`和一个所有Character共用的`AttributeSet`类, 那么你就可以在`Exeuction Calculation`中分配伤害到生命, 护盾等等, 并直接修改那些`Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-a-changes"></a>
 #### 4.3.4 响应Attribute变化
@@ -369,7 +342,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[13f95902c3287b753193802f752b5030_MD5.png]] 
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-a-derived"></a>
 #### 4.3.5 自动推导Attribute
@@ -388,7 +361,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[3202adf154edb7596707dd236e755ad0_MD5.png]]  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as"></a>
 ### 4.4 AttributeSet
@@ -398,7 +371,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 `AttributeSet`用于定义, 保存以及管理对`Attribute`的修改. 开发者应该继承[UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). 在OwnerActor的构造函数中创建`AttributeSet`会自动注册到其`ASC`. **这必须在C++中完成.**  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design"></a>
 #### 4.4.2 设计AttributeSet
@@ -413,7 +386,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 尽管可以拥有多个`AttributeSet`, 但是不应该在同一`ASC`中拥有多个同一类的`AttributeSet`, 如果在同一`ASC`中有多个同一类的`AttributeSet`, `ASC`就不知道该使用哪个`AttributeSet`而随机选择一个.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-subcomponents"></a>
 ##### 4.4.2.1 使用单独Attribute的子组件
@@ -422,7 +395,7 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 如果每个子组件都需要很多`Attribute`且子组件的数量可以是无限的, 或者子组件可以分离被其他玩家使用(比如武器), 或者出于其他原因上述方法不适用于你, 那么我建议就不要使用`Attribute`, 而是在组件中保存普通的浮点数. 参阅[Item Attribute](#concepts-as-design-itemattributes).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-addremoveruntime"></a>
 ##### 4.4.2.2 运行时添加和移除AttributeSet
@@ -443,7 +416,7 @@ AbilitySystemComponent->SpawnedAttribute.Remove(WeaponAttributeSetPointer);
 AbilitySystemComponent->ForceReplication();
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-itemattributes"></a>
 ##### 4.4.2.3 Item Attribute(武器弹药)
@@ -454,7 +427,7 @@ AbilitySystemComponent->ForceReplication();
 2. 在物品中使用单独的`AttributeSet`.
 3. 在物品中使用单独的`ASC`.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-itemattributes-plainfloats"></a>
 ###### 4.4.2.3.1 在物品中使用普通浮点数
@@ -482,7 +455,7 @@ void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracke
 1. 不能使用现有的`GameplayEffect`工作流(弹药使用的Cost GEs等等).
 2. 要求重写UGameplayAbility中的关键函数来检查和应用枪械中浮点数的花销(Cost).
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-itemattributes-attributeset"></a>
 ###### 4.4.2.3.2 在物品中使用AttributeSet
@@ -513,7 +486,7 @@ void AGSWeapon::BeginPlay()
 2. 和第1条同样的原因(每个`AttributeSet`类一个`AttributeSet`实例), 在玩家的Inventory中每种武器类型只能有一个.
 3. 移除`AttributeSet`是很危险的. 在GASShooter中, 如果玩家因为火箭弹而自杀, 玩家会立即从其Inventory中移除火箭弹发射器(包括其在`ASC`中的`AttributeSet`), 当服务端同步火箭弹发射器的弹药`Attribute`改变时, 由于`AttributeSet`在客户端`ASC`上不复存在而使游戏崩溃.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-design-itemattributes-asc"></a>
 ###### 4.4.2.3.3 在物品中使用单独的ASC
@@ -536,7 +509,7 @@ void AGSWeapon::BeginPlay()
 1. 未知的开发成本.
 2. 甚至方案可行么?
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-attributes"></a>
 #### 4.4.3 定义Attribute
@@ -591,7 +564,7 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 如果`Attribute`无需像`Meta Attribute`那样同步, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-init"></a>
 #### 4.4.4 初始化Attribute
@@ -611,7 +584,7 @@ AttributeSet->InitHealth(100.0f);
 
 **Note**: 4.24之前, FAttributeSetInitterDiscreteLevels不能和FGameplayAttributeData协同使用, 它在`Attribute`是原生浮点数时创建, 并且会和FGameplayAttributeData不是Plain Old Data(POD)时冲突. 该问题在4.24中修复([https://issues.unrealengine.com/issue/UE-76557.](https://issues.unrealengine.com/issue/UE-76557)).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-preattributechange"></a>
 #### 4.4.5 PreAttributeChange()
@@ -635,7 +608,7 @@ if (Attribute == GetMoveSpeedAttribute())
 
 **Note**: Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-postgameplayeffectexecute"></a>
 #### 4.4.6 PostGameplayEffectExecute()
@@ -648,7 +621,7 @@ if (Attribute == GetMoveSpeedAttribute())
 
 **Note**: 当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被同步回客户端, 因此在这里限制值不会造成对客户端的二次同步, 客户端只会接收到限制后的值.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-as-onattributeaggregatorcreated"></a>
 #### 4.4.7 OnAttributeAggregatorCreated()
@@ -678,7 +651,7 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 
 你的自定义`AggregatorEvaluateMetaData`应该作为静态变量添加到`FAggregatorEvaluateMetaDataLibrary`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge"></a>
 ### 4.5 Gameplay Effects
@@ -715,7 +688,7 @@ UpdateAllAggregatorModMagnitudes(Effect);
 
 `GameplayEffect`一般是不实例化的, 当Ability或`ASC`想要应用`GameplayEffect`时, 其会从`GameplayEffect`的`ClassDefaultObject`创建一个`GameplayEffectSpec`, 之后成功应用的`GameplayEffectSpec`会被添加到一个名为`FActiveGameplayEffect`的新结构体, 其是`ASC`在名为`ActiveGameplayEffect`的特殊结构体容器中追踪的内容.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-applying"></a>
 #### 4.5.2 应用GameplayEffect
@@ -738,7 +711,7 @@ virtual void OnActiveGameplayEffectAddedCallback(UAbilitySystemComponent* Target
 
 服务端总是会调用该函数而不管同步模式是什么, `Autonomous Proxy`只会在`Full`和`Mixed`同步模式下对于同步的`GameplayEffect`调用该函数, `Simulated Proxy`只会在`Full`同步模式下调用该函数.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-removing"></a>
 #### 4.5.3 移除GameplayEffect
@@ -761,7 +734,7 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 
 服务端总是会调用该函数而不管同步模式是什么, `Autonomous Proxy`只会在Full和Mixed同步模式下对于可同步的`GameplayEffect`调用该函数, `Simulated Proxy`只会在Full同步模式下调用该函数.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-mods"></a>
 #### 4.5.4 GameplayEffectModifier
@@ -796,7 +769,7 @@ Override`Modifier`会优先覆盖最后应用的`Modifier`得出的最终值.
 |Custom Calculation Class|`Custom Calculation Class`为复杂的`Modifier`提供了最大的灵活性, 该`Modifier`使用了[ModifierMagnitudeCalculation](#concepts-ge-mmc)类, 且可以使用系数和Pre与Post系数和来处理浮点值结果.|
 |Set By Caller|`SetByCaller`Modifier是运行时由Ability或`GameplayEffectSpec`的创建者于`GameplayEffect`之外设置的值, 例如, 如果你想让伤害值随玩家蓄力技能的长短而变化, 那么就需要使用`SetByCaller`. `SetByCaller`本质上是存于`GameplayEffectSpec`中的`TMap<FGameplayTag, float>`, `Modifier`只是告知`Aggregator`去寻找与提供的`GameplayTag`相关联的`SetByCaller`值. `Modifier`使用的`SetByCaller`只能使用该概念的`GameplayTag`形式, `FName`形式在此处不适用. 如果`Modifier`被设置为`SetByCaller`, 但是带有正确`GameplayTag`的`SetByCaller`在`GameplayEffectSpec`中不存在, 那么游戏会抛出一个运行时错误并返回0, 这可能在`Divide`操作中造成问题. 参阅[SetByCallers](#concepts-ge-spec-setbycaller)获取更多关于如何使用`SetByCaller`的信息.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-mods-multiplydivide"></a>
 ##### 4.5.4.1 Multiply和Divide Modifier
@@ -897,7 +870,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-mods-gameplaytags"></a>
 ##### 4.5.4.2 Modifier的GameplayTag
@@ -908,7 +881,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 这更详尽的意思是: 源(Source)`ASC`和目标(Target)`ASC`的标签都被`GameplayEffect`所捕获, 当`GameplayEffectSpec`创建时, 源(Source)`ASC`的标签被捕获, 当执行Effect时, 目标(Target)`ASC`的标签被捕获. 当确定`无限(Infinite)`或`持续(Duration)`Effect的`Modifier`是否满足条件可以被应用(也就是聚合器条件(Aggregator Qualify))并且过滤器已经设置时, 被捕获的标签就会和过滤器进行比对.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-stacking"></a>
 #### 4.5.5 GameplayEffect堆栈
@@ -928,7 +901,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 ![[d0b092d7380721504bc8c8851c258512_MD5.png]]
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ga"></a>
 #### 4.5.6 授予Ability
@@ -945,7 +918,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 |结束时移除Ability|允许授予的Ability完成, 之后将其从目标移除.|
 |无|授予的Ability不受从目标移除的授予`GameplayEffect`的影响, 目标将会一直拥有该Ability直到之后被手动移除.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-tags"></a>
 #### 4.5.7 GameplayEffect标签
@@ -960,7 +933,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 |Application Tag Requirements|位于目标上决定某个`GameplayEffect`是否可以应用到该目标的标签, 如果不满足这些需求, 那么`GameplayEffect`就不可应用.|
 |Remove Gameplay Effects with Tags|当`GameplayEffect`成功应用后, 如果位于目标上的该`GameplayEffect`在其`Asset Tags`或`Granted Tags`中有任意一个本标签的话, 其就会自目标上移除.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-immunity"></a>
 #### 4.5.8 免疫
@@ -973,7 +946,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 
 `GameplayEffect`蓝图中的查询条件都有友好的悬浮提示帮助.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-spec"></a>
 #### 4.5.9 GameplayEffectSpec
@@ -995,7 +968,7 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 * 除了`GameplayEffect`拥有的`AssetTags`, `GameplayEffectSpec`还会拥有`DynamicAssetTags`.
 * `SetByCaller TMaps`.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-spec-setbycaller"></a>
 ##### 4.5.9.1 SetByCaller
@@ -1035,7 +1008,7 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 
 我建议使用`GameplayTag`形式而不是`FName`形式, 这可以避免蓝图中的拼写错误, 并且当`GameplayEffectSpec`同步时, `GameplayTag`比`FName`在网络传输中更有效率, 因为`TMap`也会同步.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-context"></a>
 #### 4.5.10 GameplayEffectContext
@@ -1053,7 +1026,7 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 
 GASShooter使用了一个子结构体`GameplayEffectContext`来添加可以在`GameplayCue`中访问的`TargetData`, 特别是对于霰弹枪, 因为它可以击打多个敌人.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-mmc"></a>
 #### 4.5.11 Modifier Magnitude Calculation
@@ -1130,7 +1103,7 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 
 如果你没有在`MMC`的构造函数中将`FGameplayEffectAttributeCaptureDefinition`添加到`RelevantAttributesToCapture`中并且尝试捕获`Attribute`, 那么将会得到一个关于捕获时缺失Spec的错误. 如果不需要捕获`Attribute`, 那么就不必添加什么到`RelevantAttributesToCapture`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec"></a>
 #### 4.5.12 Gameplay Effect Execution Calculation
@@ -1154,14 +1127,14 @@ float UPAMMC_PoisonMana::CalculateBaseMagnitude_Implementation(const FGameplayEf
 
 `ExecCalc`最普遍的应用场景是计算一个来自很多`源(Source)`和`目标(Target)`中`Attribute`伤害值的复杂公式. 样例项目中有一个简单的`ExecCalc`用于计算伤害值, 其从`GameplayEffectSpec`的[SetByCaller](#concepts-ge-spec-setbycaller)中读取伤害值, 之后基于从`目标(Target)`捕获的护盾`Attribute`来减少该伤害值. 参阅`GDDamageExecCalculation.cpp/.h`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec-senddata"></a>
 ##### 4.5.12.1 发送数据到Execution Calculation
 
 除了捕获`Attribute`, 还有几种方法可以发送数据到`ExecutionCalculation`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec-senddata-setbycaller"></a>
 ###### 4.5.12.1.1 SetByCaller
@@ -1173,7 +1146,7 @@ const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
 float Damage = FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(FName("Data.Damage")), false, -1.0f), 0.0f);
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec-senddata-backingdataattribute"></a>
 ###### 4.5.12.1.2 Backing数据Attribute计算Modifier
@@ -1192,7 +1165,7 @@ float Damage = 0.0f;
 ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().DamageDef, EvaluationParameters, Damage);
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec-senddata-backingdatatempvariable"></a>
 ###### 4.5.12.1.3 Backing数据临时变量计算Modifier
@@ -1216,7 +1189,7 @@ float Damage = 0.0f;
 ExecutionParams.AttemptCalculateTransientAggregatorMagnitude(FGameplayTag::RequestGameplayTag("Data.Damage"), EvaluationParameters, Damage);
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-ec-senddata-effectcontext"></a>
 ###### 4.5.12.1.4 GameplayEffectContext
@@ -1244,7 +1217,7 @@ FGSGameplayEffectContext* ContextHandle = static_cast<FGSGameplayEffectContext*>
 FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-car"></a>
 #### 4.5.13 自定义应用需求
@@ -1258,7 +1231,7 @@ FGameplayEffectSpec* GetOwningSpecForPreExecuteMod() const;
 
 `CAR`还有很多高阶功能, 像检查`GameplayEffect`实例是否已经位于目标上, 修改当前实例的[持续时间](#concepts-ge-duration)而不是应用一个新实例(对于`CanApplyGameplayEffect()`返回false).
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-cost"></a>
 #### 4.5.14 花费(Cost)GameplayEffect
@@ -1296,7 +1269,7 @@ FScalableFloat Cost;
 
 2. **重写`UGameplayAbility::GetCostGameplayEffect()`.** 重写该函数并在[运行时](#concepts-ge-dynamic)创建一个用来读取`GameplayAbility`中花费值的`GameplayEffect`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-cooldown"></a>
 #### 4.5.15 冷却(Cooldown)GameplayEffect
@@ -1420,7 +1393,7 @@ float UPGMMC_HeroAbilityCooldown::CalculateBaseMagnitude_Implementation(const FG
 
 ![[5b4d70e70bd3ec3ae4218d8e660ce839_MD5.png]]  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-cooldown-tr"></a>
 ##### 4.5.15.1 获取Cooldown GameplayEffect的剩余时间
@@ -1461,7 +1434,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 **Note:** 在客户端上查询剩余冷却时间要求其可以接收同步的`GameplayEffect`, 这依赖于它们`ASC`的[同步模式](#concepts-asc-rm).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
  <a name="concepts-ge-cooldown-listen"></a>
 ##### 4.5.15.2 监听冷却开始和结束
@@ -1476,7 +1449,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 ![[e8aa31b6963a4142023590947b5ff46b_MD5.png]]  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-cooldown-prediction"></a>
 ##### 4.5.15.3 预测冷却时间
@@ -1489,7 +1462,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 Epic希望在未来的[GAS迭代版本](#concepts-p-future)中实现真正的冷却预测(玩家可以激活一个在客户端冷却完成但服务端仍处于冷却过程的`GameplayAbility`).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-duration"></a>
 #### 4.5.16 修改已激活GameplayEffect的持续时间
@@ -1533,7 +1506,7 @@ bool UPAAbilitySystemComponent::SetGameplayEffectDurationHandle(FActiveGameplayE
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-dynamic"></a>
 #### 4.5.17 运行时创建动态`GameplayEffect`
@@ -1610,7 +1583,7 @@ void UGameplayAbilityRuntimeGE::ActivateAbility(const FGameplayAbilitySpecHandle
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ge-containers"></a>
 #### 4.5.18 GameplayEffect Containers
@@ -1623,7 +1596,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 `GameplayEffectContainer`还包含一个可选的用于[定位(Target)](#concepts-targeting-containers)的高效方法.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga"></a>
 ### 4.6 Gameplay Abilities
@@ -1663,21 +1636,21 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 复杂的Ability可以使用多个相互交互(激活, 取消等等)的`GameplayAbility`实现.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-definition-reppolicy"></a>
 ##### 4.6.1.1 Replication Policy
 
 不要使用该选项. 这个名字会误导你并且你并不需要它. [GameplayAbilitySpec](#concepts-ga-spec)默认会从服务端向所属(Owning)客户端同步, 上文提到过, **`GameplayAbility`不会运行在Simulated Proxy上,** 其使用`AbilityTask`和`GameplayCue`来同步或者RPC视觉变化到Simulated Proxy. Epic的Dave Ratti已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-definition-remotecancel"></a>
 ##### 4.6.1.2 Server Respects Remote Ability Cancellation
 
 这个选项往往会引起麻烦. 它的意思是如果客户端的`GameplayAbility`由于玩家取消或者自然完成时, 就会强制它的服务端版本结束而不管其是否完成. 最重要的是之后的问题, 特别是对于高延迟玩家所使用的客户端预测的`GameplayAbility`. 一般情况下禁用该选项.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-definition-repinputdirectly"></a>
 ##### 4.6.1.3 Replicate Input Directly
@@ -1691,7 +1664,7 @@ Epic的注释:
 UAbilitySystemComponent::ServerSetInputPressed()
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-input"></a>
 #### 4.6.2 绑定输入到ASC
@@ -1744,7 +1717,7 @@ AbilitySystemComponent->BindAbilityActivationToInputComponent(PlayerInputCompone
 
 对于只能用一次输入激活的`GameplayAbility`(它们总是像MOBA游戏一样存在于相同的"槽"中), 我倾向在`UGameplayAbility`子类中添加一个变量, 这样我就可以定义他们的输入, 之后在授予Ability的时候可以从`ClassDefaultObject`中读取这个值.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-input-noactivate"></a>
 ##### 4.6.2.1 绑定输入时不激活Ability
@@ -1804,7 +1777,7 @@ void UGSAbilitySystemComponent::AbilityLocalInputPressed(int32 InputID)
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-granting"></a>
 #### 4.6.3 授予Ability
@@ -1836,7 +1809,7 @@ void AGDCharacterBase::AddCharacterAbilities()
 
 当授予这些`GameplayAbility`时, 我们就在使用`UGameplayAbility`类, Ability等级, 其绑定的输入和`SourceObject`或将该`GameplayAbility`设置到该`ASC`的源(Source)创建`GameplayAbilitySpec`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-activating"></a>
 #### 4.6.4 激活Ability
@@ -1888,7 +1861,7 @@ FGameplayAbilitySpecHandle GiveAbilityAndActivateOnce(const FGameplayAbilitySpec
 
 如果服务端在任意时刻激活失败, 就会调用`ClientActivateAbilityFailed()`, 立即终止客户端的`GameplayAbility`并撤销所有预测的修改.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-activating-passive"></a>
 ##### 4.6.4.1 被动Ability
@@ -1913,7 +1886,7 @@ void UGDGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo * ActorInfo
 
 Epic描述该函数为初始化被动Ability的正确位置和应该做一些类似`BeginPlay`的事情.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-cancelabilities"></a>
 #### 4.6.5 取消Ability
@@ -1941,7 +1914,7 @@ virtual void DestroyActiveState();
 
 **Note:** 我发现如果存在一个`非实例(Non-Instanced)GameplayAbility`时, `CancelAllAbilities`似乎不能正常运行, 它似乎会命中这个`非实例(Non-Instanced)GameplayAbility`并放弃继续处理. `CancelAbility`可以更好地处理`非实例(Non-Instanced)GameplayAbility`, 样例项目就是这样使用的(跳跃是一个非实例(Non-Instanced)GameplayAbility), 因人而异.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-definition-activeability"></a>
 #### 4.6.6 获取激活的Ability
@@ -1958,7 +1931,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 一旦你获取到了寻找的`FGameplayAbilitySpec`, 那么就可以调用它的`IsActive()`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-instancing"></a>
 #### 4.6.7 实例化策略
@@ -1971,7 +1944,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |按操作实例化(Instanced Per Execution)|每有一个`GameplayAbility`激活, 就有一个新的`GameplayAbility`实例创建.|这些`GameplayAbility`的好处是每次激活时变量都会重置, 其性能要比`Instanced Per Actor`差, 因为每次激活时都会生成新的`GameplayAbility`. 样例项目没有使用该方式.|
 |非实例化(Non-Instanced)|`GameplayAbility`操作其`ClassDefaultObject`, 没有实例创建.|它是三种方式中性能最好的, 但是使用它是最受限制的. `非实例化(Non-Instanced)GameplayAbility`不能存储状态, 这意味着没有动态变量和不能绑定到`AbilityTask`委托. 使用它的最佳场景就是需要频繁使用的简单Ability, 像MOBA或RTS游戏中小兵的基础攻击. 样例项目中的跳跃`GameplayAbility`就是`非实例化(Non-Instanced)`的.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-net"></a>
 #### 4.6.8 网络执行策略(Net Execution Policy)
@@ -1985,7 +1958,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |Server Only|`GameplayAbility`只运行在服务端. 被动`GameplayAbility`一般是`Server Only`. 单人游戏应该使用该项.|
 |Server Initiated|`Server Initiated GameplayAbility`首先在服务端激活, 之后在所属(Owning)客户端激活. 我个人使用的不多(如果有的话).|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-tags"></a>
 #### 4.6.9 Ability标签
@@ -2005,7 +1978,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |Target Required Tags|该`GameplayAbility`只有在`Target`拥有所有这些`GameplayTag`时才会激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 |Target Blocked Tags|该`GameplayAbility`在`Target`拥有任意这些标签时不能被激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-spec"></a>
 #### 4.6.10 Gameplay Ability Spec
@@ -2016,7 +1989,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 激活`GameplayAbilitySpec`会根据它的`实例化策略(Instancing Policy)`创建一个`GameplayAbility`实例(`Non-Instanced GameplayAbility`除外).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-data"></a>
 #### 4.6.11 传递数据到Ability
@@ -2030,7 +2003,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |使用`TargetData`|自定义`TargetData`结构体是一种在客户端和服务端之间传递任意数据的好方法.|
 |保存数据在`OwnerActor`或者`AvatarActor`|使用保存于`OwnerActor`, `AvatarActor`或者其他任意你可以获取到引用的对象中的可同步变量. 这种方法最灵活且可以用于由输入绑定激活的`GameplayAbility`, 然而, 它不能保证在使用时数据同步, 你必须提前做好准备 - 这意味着如果你设置了一个可同步的变量, 之后立即激活该`GameplayAbility`, 那么因为存在潜在的丢包情况, 不能保证接收者上发生的顺序.|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-commit"></a>
 #### 4.6.12 Ability花费(Cost)和冷却(Cooldown)
@@ -2043,7 +2016,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 详见[CostGE](#concepts-ge-cost)和[CooldownGE](#concepts-ge-cooldown).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-leveling"></a>
 #### 4.6.13 升级Ability
@@ -2057,14 +2030,14 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 两种方法的主要区别在于你是否想要在升级时取消激活的`GameplayAbility`. 基于你的`GameplayAbility`, 你很可能需要同时使用两种方法. 我建议在`UGameplayAbility`子类中增加一个布尔值以明确使用哪种方法.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-sets"></a>
 #### 4.6.14 Ability集合
 
 `GameplayAbilitySet`是很方便的`UDataAsset`类, 其用于保存输入绑定和初始`GameplayAbility`列表, 该`GameplayAbility`列表用于拥有授予`GameplayAbility`逻辑的Character. 子类也可以包含额外的逻辑和属性. Paragon中的每个英雄都拥有一个`GameplayAbilitySet`以包含其授予的所有`GameplayAbility`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-batching"></a>
 #### 4.6.15 Ability批处理
@@ -2123,7 +2096,7 @@ GASShooter暴露了一个蓝图节点以允许上文提到的仅客户端调用�
 
 ![[789e45f3d6c054bea171333c58322c40_MD5.png]]  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-ga-netsecuritypolicy"></a>
 #### 4.6.16 网络安全策略(Net Security Policy)
@@ -2156,7 +2129,7 @@ GAS自带很多`AbilityTask`:
 
 `UAbilityTask`的构造函数中强制硬编码允许最多1000个同时运行的`AbilityTask`, 当设计那些同时拥有数百个Character的游戏(像RTS)的`GameplayAbility`时要注意这一点.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-at-definition"></a>
 #### 4.7.2 自定义AbilityTask
@@ -2181,7 +2154,7 @@ GAS自带很多`AbilityTask`:
 
 如果你在`AbilityTask`的构造函数中设置了`bTickingTask = true;`并重写了`virtual void TickTask(float DeltaTime);`, `AbilityTask`就可以使用`Tick`, 这在你需要根据帧率平滑线性插值的时候很有用. 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-at-using"></a>
 #### 4.7.3 使用AbilityTask
@@ -2204,7 +2177,7 @@ Task->ReadyForActivation();
 
 如果想要手动取消`AbilityTask`, 只需在蓝图(Async Task Proxy)或C++中对`AbilityTask`对象调用`EndTask()`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-at-rms"></a>
 #### 4.7.4 Root Motion Source Ability Task
@@ -2213,7 +2186,7 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 
 **Note:** `RootMotionSource AbilityTask`预测支持的引擎版本是4.19和4.25+, 该预测在引擎版本4.20-4.24中存在bug, 然而, `AbilityTask`仍然可以使用较小的网络修正在多人游戏中执行功能, 并且在单人游戏中完美运行. 可以将4.25中对预测的修复自定义到4.20~4.24引擎中.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc"></a>
 ### 4.8 Gameplay Cues
@@ -2242,7 +2215,7 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 
 样例项目包含了一个`GameplayCueNotify_Actor`用于眩晕和奔跑效果. 其还含有一个`GameplayCueNotify_Static`用于枪支弹药伤害. 这些`GC`可以通过[客户端触发](#concepts-gc-local)来进行优化, 而不是通过`GE`同步. 我选择了在样例项目中展示使用它们的基本方法.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-trigger"></a>
 #### 4.8.2 触发GameplayCue
@@ -2277,7 +2250,7 @@ void RemoveGameplayCue(const FGameplayTag GameplayCueTag);
 void RemoveAllGameplayCues();
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-local"></a>
 #### 4.8.3 客户端GameplayCue
@@ -2323,7 +2296,7 @@ void UPAAbilitySystemComponent::RemoveGameplayCueLocal(const FGameplayTag Gamepl
 
 如果某个`GameplayCue`是客户端添加的, 那么它也应该自客户端移除. 如果它是通过同步添加的, 那么它也应该通过同步移除.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-parameters"></a>
 #### 4.8.4 GameplayCue参数
@@ -2350,7 +2323,7 @@ virtual void InitGameplayCueParameters_GESpec(FGameplayCueParameters& CueParamet
 virtual void InitGameplayCueParameters(FGameplayCueParameters& CueParameters, const FGameplayEffectContextHandle& EffectContext);
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-manager"></a>
 #### 4.8.5 Gameplay Cue Manager
@@ -2382,7 +2355,7 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-prevention"></a>
 #### 4.8.6 阻止GameplayCue响应
@@ -2391,14 +2364,14 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 
 如果你想某个特别指定`ASC`中的`GameplayCue`永不触发, 可以设置`AbilitySystemComponent->bSuppressGameplayCues = true;`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-batching"></a>
 #### 4.8.7 GameplayCue批处理
 
 每次`GameplayCue`触发都是一次不可靠的多播(NetMulticast)RPC. 在同一时刻触发多个`GameplayCue`的情况下, 有一些优化方法来将它们压缩成一个RPC或者通过发送更少的数据来节省带宽.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-batching-manualrpc"></a>
 ##### 4.8.7.1 手动RPC
@@ -2415,14 +2388,14 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 
 [https://forums.unrealengine.com/development-discussion/c-gameplay-programming/1711546-fscopedgameplaycuesendcontext-gameplaycuemanager](https://forums.unrealengine.com/development-discussion/c-gameplay-programming/1711546-fscopedgameplaycuesendcontext-gameplaycuemanager)  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-gc-batching-gcsonge"></a>
 ##### 4.8.7.2 GameplayEffect中的多个GameplayCue
 
 一个`GameplayEffect`中的所有`GameplayCue`已经由一个RPC发送了. 默认情况下, `UGameplayCueManager::InvokeGameplayCueAddedAndWhileActive_FromSpec()`会在不可靠的多播(NetMulticast)RPC中发送整个`GameplayEffectSpec`(除了转换为`FGameplayEffectSpecForRPC`)而不管`ASC`的同步模式, 取决于`GameplayEffectSpec`的内容, 这可能会使用大量带宽, 我们可以通过设置`AbilitySystem.AlwaysConvertGESpecToGCParams 1`来将其优化, 这会将`GameplayEffectSpec`转换为`FGameplayCueParameter`结构体并且RPC它而不是整个`FGameplayEffectSpecForRPC`, 这会节省带宽但是只有较少的信息, 取决于`GESpec`如何转换为`GameplayCueParameters`和你的`GameplayCue`需要知道什么.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-asg"></a>
 ### 4.9 Ability System Globals
@@ -2436,7 +2409,7 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 AbilitySystemGlobalsClassName="/Script/ParagonAssets.PAAbilitySystemGlobals"
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-asg-initglobaldata"></a>
 #### 4.9.1 InitGlobalData()
@@ -2445,7 +2418,7 @@ AbilitySystemGlobalsClassName="/Script/ParagonAssets.PAAbilitySystemGlobals"
 
 如果你在使用`AbilitySystemGlobals GlobalAttributeSetDefaultsTableNames`时发生崩溃, 可能之后需要像Fortnite一样在`AssetManager`或`GameInstance`中调用`UAbilitySystemGlobals::InitGlobalData()`而不是在`UEngineSubsystem::Initialize()`中. 该崩溃可能是由于`Subsystem`的加载顺序引发的, `GlobalAttributeDefaultsTables`需要加载`EditorSubsystem`来绑定`UAbilitySystemGlobals::InitGlobalData()`中的委托.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p"></a>
 ### 4.10 预测(Prediction)
@@ -2497,7 +2470,7 @@ GAS的预测实现尝试解决的问题:
 
 源自`GameplayPrediction.h`  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p-key"></a>
 #### 4.10.1 Prediction Key
@@ -2517,7 +2490,7 @@ GAS的预测建立在`Prediction Key`的概念上, 其是一个由客户端激�
 
 在源于`Activation Prediction Key`激活的`GameplayAbility`中的一个`instruction "window"`原子(Atomic)组期间, `Prediction Key`是保证有效的, 你可以理解为`Prediction Key`只在一帧期间是有效的. 任何潜在行为`AbilityTask`的回调函数将不再拥有一个有效的`Prediction Key`, 除非该`AbilityTask`有内建的可以生成新[Scoped Prediction Window](#concepts-p-windows)的同步点(Sync Point).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p-windows"></a>
 #### 4.10.2 在Ability中创建新的预测窗口(Prediction Window)
@@ -2534,7 +2507,7 @@ GAS的预测建立在`Prediction Key`的概念上, 其是一个由客户端激�
 
 如果你有一个在所属(Owning)客户端执行两次的预测`GameplayEffect`, 那么你的`Prediction Key`就是陈旧(Stall)的, 并且正在经历"redo"问题. 你通常可以在应用`GameplayEffect`之前将`OnlyServerWait`选项的`WaitNetSync AbilityTask`放到正确的位置以创建新的`Scoped Prediction Key`来解决这个问题.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p-spawn"></a>
 #### 4.10.3 预测性地生成Actor
@@ -2552,7 +2525,7 @@ bool APAReplicatedActorExceptOwner::IsNetRelevantFor(const AActor * RealViewer, 
 
 如果生成的Actor影响了游戏逻辑, 像投掷物就需要预测伤害值, 那么你需要本文档范围之外的高级知识, 在Epic Games的Github上查看UnrealTournament是如何生成投掷物的, 它有一个只在所属(Owning)客户端生成且与服务端同步的投掷物.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p-future"></a>
 #### 4.10.4 GAS中预测的未来
@@ -2563,14 +2536,14 @@ bool APAReplicatedActorExceptOwner::IsNetRelevantFor(const AActor * RealViewer, 
 
 来自Epic之手的新[网络预测插件(Network Prediction plugin)](#concepts-p-npp)期望能与GAS充分交互, 就像在次之前的`CharacterMovementComponent`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-p-npp"></a>
 #### 4.10.5 网络预测插件(Network Prediction plugin)
 
 Epic最近发起了一项倡议, 将使用新的网络预测插件替换`CharacterMovementComponent`, 该插件仍处于起步阶段, 但是在Unreal Engine Github上已经可以访问了, 现在说未来哪个引擎版本将首次搭载其试验版还为时尚早.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-targeting"></a>
 ### 4.11 Targeting
@@ -2584,7 +2557,7 @@ Epic最近发起了一项倡议, 将使用新的网络预测插件替换`Charact
 
 我们一般不直接传递`FGameplayAbilityTargetData`而是使用[FGameplayAbilityTargetDataHandle](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/FGameplayAbilityTargetDataHandle/index.html), 其包含一个`FGameplayAbilityTargetData`指针类型的TArray, 这个中间结构体可以为`TargetData`的多态性提供支持.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-targeting-actors"></a>
 #### 4.11.2 Target Actor
@@ -2620,7 +2593,7 @@ Epic最近发起了一项倡议, 将使用新的网络预测插件替换`Charact
 
 使用默认的`TargetActor`类时, Actor只有直接在射线/Overlap中时才是有效的, 如果它离开射线/Overlap(它移动开或你的视线转向别处), 就不再有效了. 如果你想`TargetActor`记住最后有效的Target, 就需要添加这项功能到一个自定义的`TargetActor`类. 我称之为持久化Target, 因为其会持续存在直到`TargetActor`接收到确认或取消消息, `TargetActor`会在它的射线/Overlap中找到一个新的有效Target, 或者Target不再有效(已销毁). GASShooter对火箭筒二技能的制导火箭定位使用了持久化Target.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-target-data-filters"></a>
 #### 4.11.3 TargetData过滤器
@@ -2649,7 +2622,7 @@ FGameplayTargetDataFilterHandle UGDTargetDataFilterBlueprintLibrary::MakeGDNameF
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-targeting-reticles"></a>
 #### 4.11.4 Gameplay Ability World Reticles
@@ -2687,14 +2660,14 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 `Reticle`只会显示在默认`TargetActor`的当前有效Target上, 例如, 如果你正在使用`AGameplayAbilityTargetActor_SingleLineTrace`对目标执行射线检测, 敌人只有直接处于射线路径上时`Reticle`才会显示, 如果角色视线看向别处, 那么该敌人就不再是一个有效Target, 因此该`Reticle`就会消失. 如果你想`Reticle`保留在最后一个有效Target上, 就需要自定义`TargetActor`来记住最后一个有效Target并使`Reticle`保留在其上. 我称之为持久化Target, 因为其会持续存在直到`TargetActor`接收到确认或取消消息, `TargetActor`会在它的射线/Overlap中找到一个新的有效Target, 或者Target不再有效(已销毁). GASShooter对火箭筒二技能的制导火箭定位使用了持久化Target.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="concepts-targeting-containers"></a>
 #### 4.11.5 Gameplay Effect Containers Targeting
 
 [GameplayEffectContainer](#concepts-ge-containers)提供了一个可选的产生[TargetData](#concepts-targeting-data)的高效方法. 当`EffectContainer`在客户端和服务端上应用时, 该定位会立即进行, 它比[TargetActor](#concepts-targeting-actors)更有效率, 因为它是运行在定位对象的CDO(Class Default Object)上的(没有Actor的生成和销毁), 但是它不支持用户输入, 无需确认即可立即进行, 不能取消, 并且不能从客户端向服务端发送数据(在两者上产生数据), 它对即时射线检测和碰撞Overlap很有用. Epic的[Action RPG Sample Project](https://www.unrealengine.com/marketplace/en-US/slug/action-rpg)包含两种使用Container定位的样例 —— 定位Ability拥有者和从事件拉取`TargetData`, 它还在蓝图中实现了在距玩家某个偏移处(由蓝图子类设置)做球形射线检测(Sphere Trace), 你可以在C++或蓝图中继承`URPGTargetType`以实现自己的定位类型.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae"></a>
 ## 5. 常用的Abilty和Effect
@@ -2710,7 +2683,7 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 为了在眩晕时阻止移动, 我们可以在拥有者拥有眩晕`GameplayTag`时重写`CharacterMovementComponent`的`GetMaxSpeed()`函数以返回0.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-sprint"></a>
 ### 5.2 奔跑(Sprint)
@@ -2721,7 +2694,7 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 `GA`处理响应左Shift输入, 告知`CMC`开始和停止奔跑, 并且在左Shift按下时预测性地消耗耐力. 详见`GA_Sprint_BP`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-ads"></a>
 ### 5.3 瞄准(Aim Down Sight)
@@ -2732,7 +2705,7 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 详见`GA_AimDownSight_BP`是如何处理输入的. 瞄准时是不消耗耐力的.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-ls"></a>
 ### 5.4 生命偷取(Lifesteal)
@@ -2758,7 +2731,7 @@ if (SpecAssetTags.HasTag(FGameplayTag::RequestGameplayTag(FName("Effect.Damage.C
 }
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-random"></a>
 ### 5.5 在客户端和服务端中生成随机数
@@ -2772,7 +2745,7 @@ if (SpecAssetTags.HasTag(FGameplayTag::RequestGameplayTag(FName("Effect.Damage.C
 
 如果你的随机偏差很小, 大多数玩家是不会注意到每次游戏的随机序列都是相同的, 那么使用`Activation Prediction Key`作为随机种子就应该适用于你. 如果你正在做一些更复杂的事, 需要防范破解者, 那么使用`Server Initiated GameplayAbility`会更好, 服务端可以创建`Prediction Key`或者生成随机数种子来通过事件负载(Event Payload)发送.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-crit"></a>
 ### 5.6 暴击(Critical Hits)
@@ -2781,28 +2754,28 @@ if (SpecAssetTags.HasTag(FGameplayTag::RequestGameplayTag(FName("Effect.Damage.C
 
 查看GASShooter是如何处理爆头问题的, 其概念是一样的, 除了不再依赖随机数作为概率而是检测`FHitResult`骨骼名.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-nonstackingge"></a>
 ### 5.7 非堆栈GameplayEffect, 但是只有其最高级(Greatest Magnitude)才能实际影响Target
 
 Paragon中的Slow Effect是非堆栈的. 应用每个实例并且像平常一样跟踪其生命周期, 但是只有最高级(Greatest Magnitude)的Slow Effect才能实际影响`Character`. GAS为这种场景提供了开箱即用的`AggregatorEvaluateMetaData`, 详见[AggregatorEvaluateMetaData()](#concepts-as-onattributeaggregatorcreated)及其实现.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-paused"></a>
 ### 5.8 游戏暂停时生成`TargetData`
 
 如果你需要在等待玩家从`WaitTargetData AbilityTask`生成[TargetData](#concepts-targeting-data)时暂停游戏, 我建议使用`slomo 0`而不是暂停.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="cae-onebuttoninteractionsystem"></a>
 ### 5.9 按钮交互系统(Button Interaction System)
 
 GASShooter实现了一个按钮交互系统, 玩家可以按下或按住'E'键来和可交互对象交互, 像复活玩家, 打开武器箱, 打开或关闭滑动门.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="debugging"></a>
 ## 6. 调试GAS
@@ -2827,7 +2800,7 @@ void MyClass::MyFunction(int32 MyIntParameter)
 PRAGMA_ENABLE_OPTIMIZATION_ACTUAL
 ```
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="debugging-sd"></a>
 ### 6.1 showdebug abilitysystem
@@ -2844,7 +2817,7 @@ PRAGMA_ENABLE_OPTIMIZATION_ACTUAL
 
 **Note:**  为了`showdebug abilitysystem`可以使用, 必须在GameMode中选择一个实际的HUD类, 否则就会找不到该命令并返回"Unknown Command".  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="debugging-gd"></a>
 ### 6.2 Gameplay Debugger
@@ -2853,7 +2826,7 @@ GAS向Gameplay Debugger中添加了功能, 使用``反引号(`)``键以访问Gam
 
 当你想要查看其他Character的`GameplayTag`, `GameplayEffect`和`GameplayAbility`时可以使用Gameplay Debugger, 可惜的是它不能显示Target的`Attribute`中的`CurrentValue`. 它会定位屏幕中央的任何Character, 你可以通过选择编辑器世界大纲(World Outliner)或者看向另一个不同的Character并再次按下``反引号(`)``键来修改Target. 当前监视的Character上方有最大的红色圆.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="debugging-log"></a>
 ### 6.3 GAS日志(Logging)
@@ -2900,7 +2873,7 @@ log list
 
 详情查看[日志Wiki](https://www.ue4community.wiki/Legacy/Logs,_Printing_Messages_To_Yourself_During_Runtime).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="optimizations"></a>
 ## 7. 优化
@@ -2910,21 +2883,21 @@ log list
 
 [GameplayAbility](#concepts-ga)在一帧中的的激活、选择性地向服务器发送`TargetData`、结束可以被[批处理而将2-3个RPC压缩成一个RPC](#concepts-ga-batching). 这种RPC常用于枪支的命中判断.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="optimizations-gameplaycuebatching"></a>
 ## 7.2 GameplayCue批处理
 
 如果你需要同时发送很多[GameplayCue](#concepts-gc), 可以考虑将其[批处理成一个RPC](#concepts-gc-batching), 目标就是减少RPC数量(`GameplayCue`是不可靠的网络多播(NetMulticast))并以尽可能少的数据量发送.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="optimizations-ascreplicationmode"></a>
 ## 7.3 AbilitySystemComponent同步模式(Replication Mode)
 
 默认情况下, [ASC](#concepts-asc)处于[Full Replication](#concepts-asc-rm)模式, 这会同步所有的[GameplayEffect](#concepts-ge)到每个客户端(对单人游戏来说很好). 在多人游戏中, 设置玩家拥有的`ASC`为`Mixed Replication`模式, AI控制的Character为`Minimal Replication`模式, 这会将应用到玩家Character上的`GE`仅同步到该Character的拥有者, 应用到AI控制的Character上的`GE`永远不会同步到客户端. 无论是什么同步模式, [GameplayTag](#concepts-gt)仍会进行同步, [GameplayCue](#concepts-gc)仍会以不可靠的网络多播(NetMulticast)到所有客户端. 当所有客户端都不需要查看这些数据时, 这会减少从`GE`同步的网络数据.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="optimizations-attributeproxyreplication"></a>
 ## 7.4 Attribute代理同步
@@ -2935,14 +2908,14 @@ log list
 
 来自Epic的Dave Ratti回答[社区问题#3](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="optimizations-asclazyloading"></a>
 ## 7.5 ASC懒加载
 
 Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(树木, 建筑物等等), 每个都有一个`ASC`, 这会增加内存消耗, Fortnite通过只在需要时(当其第一次被玩家伤害时)懒加载`ASC`的方式优化该问题, 这会减少整体内存消耗, 因为某些`AActor`在一局比赛中可能永远不会被伤害.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="qol"></a>
 # 8. Quality of Life Suggestions
@@ -2951,7 +2924,7 @@ Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(
 
 [GameplayEffectContainer](#concepts-ge-containers)将[GameplayEffectSpec](#concepts-ge-spec), [TargetData](#concepts-targeting-data), 简单定位和其他相关功能整合进简单易用的结构体, 这对转移`GameplayEffectSpec`到Ability生成的抛射物很有用, 该抛射物之后会在碰撞体上应用`GameplayEffectSpec`.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="qol-asynctasksascdelegates"></a>
 ## 8.2 将蓝图AsyncTask绑定到ASC委托
@@ -2970,7 +2943,7 @@ Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(
 
 ![[d0b092d7380721504bc8c8851c258512_MD5.png]]  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="troubleshooting"></a>
 # 9. 疑难解答
@@ -2980,21 +2953,21 @@ Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(
 
 你需要在[客户端初始化`ASC`](#concepts-asc-setup).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="troubleshooting-scriptstructcache"></a>
 ## 9.2 `ScriptStructCache`错误
 
 你需要调用[UAbilitySystemGlobals::InitGlobalData()](#concepts-asg-initglobaldata).  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="troubleshooting-replicatinganimmontages"></a>
 ## 9.3 动画蒙太奇不能同步到客户端
 
 确保在[GameplayAbility](#concepts-ga)中正在使用的是`PlayMontageAndWait`节点而不是`PlayMontage`, 该[AbilityTask](#concepts-at)可以通过`ASC`自动同步蒙太奇而`PlayMontage`节点不可以.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="troubleshooting-duplicatingblueprintactors"></a>
 ## 9.4 复制的蓝图Actor会将AttributeSet设置为nullptr
@@ -3074,7 +3047,7 @@ if (AbilitySystemComponent)
 |GameplayTag|Tag, GT|
 |ModiferMagnitudeCalculation|ModMagCalc, MMC|
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="resources"></a>
 # 11. 其他资源
@@ -3093,14 +3066,14 @@ if (AbilitySystemComponent)
 
 [SabreDartStudios的YouTube视频](https://www.youtube.com/channel/UCCFUhQ6xQyjXDZ_d6X_H_-A)
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="changelog"></a>
 # 12. GAS更新日志
 
 这是从Unreal Engine官方升级日志和我遇到的且未记录的升级中整理的一份值得一看的升级列表, 如果你发现某些没有列在其中, 请提issue或者PR.  
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="changelog-4.26"></a>
 ## 4.26
@@ -3119,7 +3092,7 @@ if (AbilitySystemComponent)
 * New: Added support for redirectors on gameplay attribute pins in blueprint nodes.
 * New: Added new functionality for when root motion movement related ability tasks end they will return the movement component's movement mode to the movement mode it was in before the task started.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="changelog-4.25.1"></a>
 ## 4.25.1
@@ -3127,7 +3100,7 @@ if (AbilitySystemComponent)
 * Fixed! UE-92787 Crash saving blueprint with a Get Float Attribute node and the attribute pin is set inline
 * Fixed! UE-92810 Crash spawning actor with instance editable gameplay tag property that was changed inline
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="changelog-4.25"></a>
 ## 4.25
@@ -3158,7 +3131,7 @@ if (AbilitySystemComponent)
 * API Change: AddDefaultSubobjectSet has been deprecated. AddAttributeSetSubobject should be used instead.
 * New: Gameplay Abilities can now specify the Anim Instance on which to play a montage.
 
-**[⬆ 返回目录](#table-of-contents)**
+
 
 <a name="changelog-4.24"></a>
 ## 4.24
@@ -3175,4 +3148,4 @@ if (AbilitySystemComponent)
 * APawn::PossessedBy() now sets the owner of the Pawn to the new Controller. Useful because Mixed Replication Mode expects the owner of the Pawn to be the Controller if the ASC lives on the Pawn.
 * Fixed bug with POD (Plain Old Data) in FAttributeSetInittterDiscreteLevels.
 
-**[⬆ 返回目录](#table-of-contents)**
+
