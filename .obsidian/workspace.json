@@ -52,7 +52,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/04 动画/未命名.md",
+                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7c2cc26dcd045676",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/04 动画/未命名.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           },
@@ -113,7 +126,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/04 动画/未命名.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           }
@@ -163,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/04 动画/未命名.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +193,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/04 动画/未命名.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -240,20 +253,22 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "8647f24a76304e3f",
+  "active": "7c2cc26dcd045676",
   "lastOpenFiles": [
+    "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/04 动画/未命名.md",
-    "引擎Unreal/02 UE++/2 类型.md",
+    "zip/images/Pasted image 20231005213302.png",
     "引擎Unreal/02 UE++/5 指针.md",
     "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "zip/images/Pasted image 20231004231526.png",
     "Tools/Git/UE4源码管理.md",
     "Tools/Git/Unity Git.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
     "zip/images/Pasted image 20231004203559.png",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
@@ -271,7 +286,6 @@
     "zip/images/Pasted image 20231003212353.png",
     "引擎Unreal/06 网络/官方文档/网络概述.md",
     "zip/images/Pasted image 20231003211150.png",
-    "zip/images/Pasted image 20231003205642.png",
     "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
@@ -279,7 +293,6 @@
     "引擎Unreal/03 Gameplay/TPS/TPS笔记.md",
     "Steps to use Menu System Plugin.md",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
-    "zip/留学/敏捷开发/入门.md",
     "zip/留学/敏捷开发",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
