@@ -9,6 +9,10 @@
       "path": "引擎Unreal/02 UE++/2 类型.md"
     },
     {
+      "basename": "1 Gameplay架构",
+      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
+    },
+    {
       "basename": "1 UE指南",
       "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
@@ -135,10 +139,6 @@
     {
       "basename": "LearnOpenGL",
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "1 Gameplay架构",
-      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
     },
     {
       "basename": "07 混合和剔除",

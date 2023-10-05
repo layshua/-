@@ -8,32 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6ec1a68a0bfe86e5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9740f82478ed7fbc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "48174a150ec3114f",
             "type": "leaf",
             "state": {
@@ -71,9 +45,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6364fa5b37c71777",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 UE++/2 类型.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bb9406fda47b06fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -256,7 +256,9 @@
   "active": "7c2cc26dcd045676",
   "lastOpenFiles": [
     "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/01 指南/1 UE指南.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/3 容器.md",
@@ -265,7 +267,6 @@
     "引擎Unreal/02 UE++/5 指针.md",
     "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
     "引擎Unreal/02 UE++/4 委托.md",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "zip/images/Pasted image 20231004231526.png",
     "Tools/Git/UE4源码管理.md",
     "Tools/Git/Unity Git.md",
@@ -291,7 +292,6 @@
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/设置专用服务器.md",
     "引擎Unreal/03 Gameplay/TPS/TPS笔记.md",
-    "Steps to use Menu System Plugin.md",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
