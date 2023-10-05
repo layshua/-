@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
               }
             }
           },
@@ -126,7 +126,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
               }
             }
           }
@@ -176,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +193,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -253,12 +253,12 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "7c2cc26dcd045676",
+  "active": "bb9406fda47b06fa",
   "lastOpenFiles": [
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/3 容器.md",

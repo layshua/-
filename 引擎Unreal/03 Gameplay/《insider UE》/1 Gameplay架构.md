@@ -1050,7 +1050,7 @@ void AGameMode::GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& 
 
 ![[2eeb7821615ea2f3fc91b706e01956c1_MD5.png]]
 
-可以看到，其实就是把 MatchState 给往下拉了一层，并把一些多玩家控制的逻辑，合起来就是网络联机游戏的默认逻辑给抽离开了。同样的对于 GameState 也做了处理：  
+可以看到，其实就是把 MatchState 给往下拉了一层，并把一些多人玩家控制的逻辑，合起来就是**网络联机游戏的默认逻辑给抽离开了（如果做单机，只需要使用 GameModeBase）**。同样的对于 GameState 也做了处理：  
 
 ![[e31ff406ddb69178ad7119d6d819cfed_MD5.png]]
 
