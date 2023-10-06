@@ -2,8 +2,10 @@
 # 混合空间八方向
 [【UE5】角色动画蓝图，制作八方向混合空间_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1TG4y1V75k/?spm_id_from=333.337.top_right_bar_window_custom_collection.content.click)
 
-最后要勾选：
-![[Pasted image 20231005213302.png]]
+混合空间设置如图：
+![[Pasted image 20231006093323.png|400]]
+![[Pasted image 20231006093239.png]]
+
 
 # 角度问题
 ## 坐标系旋转角正负
@@ -27,10 +29,9 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 TODO：模拟逆水寒自在模式
 
 [虚幻4人物转向问题{User Controller Rotaion Yaw，User Controller Desired Rotation与Orient Rotaion to Movement}-CSDN博客](https://blog.csdn.net/u012249992/article/details/83186907)
+![[Pasted image 20231006091114.png]]
+![[Pasted image 20231006091124.png]]
 
-User Controller Rotaion Yaw 在人物蓝图 self 里的 pawn 下，User Controller Desired Rotation 与 Orient Rotaion to Movement 在 CharacterMovement 的 RotationSettings 下
-
-                                           
 
 通常我们新建第三人称项目时，默认如上图的设置，这个时候按 s 键人正面是面向镜头的，这在一般的 rpg 或 act 游戏都是如此设置，而在绝地求生这类 STG 里按 s 键是背对镜头的，如何设置人物转向就在上面三个 bool 值决定。
 
