@@ -160,9 +160,9 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 |`Minimal`|多人, AIController控制的Actor|`GameplayEffect`不复制；`GameplayTag`和`GameplayCue`复制到所有客户端.|
 >2023.10.6 根据 GAS 视频教程修正描述
 
--  `Mixed` 复制模式需要 `OwnerActor` 的 `Owner` 是 `Controller`。`PlayerState` 的 `Owner` 默认是 `Controller` 但是 `Character` 不是。
+-  `Mixed` 复制模式需要 `OwnerActor` 的 `Owner` 是 `Controller`。**`PlayerState` 的 `Owner` 默认是 `Controller` 但是 `Character` 不是。**
 - 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 复制模式, 那么需要需要**使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner。**
->`PossessedBy ()`仅服务端可用
+>  `PossessedBy()` ：当该 Pawn 被 possess 时调用。仅在服务器（或单机）上调用。
 
 ### 设置和初始化
 
@@ -178,11 +178,12 @@ AGDPlayerState::AGDPlayerState()
 }
 ```
 
-
+- @ **初始化**
 `OwnerActor` 和 `AvatarActor` 的 `ASC` 在服务端和客户端上均需初始化，你**应该在 `Pawn` 的 `Controller` 设置之后初始化(Possess 之后)进行初始化**,  单人游戏只需参考服务端的做法。
-![[Pasted image 20231006223103.png|400]]
-1. 对于 PlayerController 控制的 Character 且 `ASC` 位于 `Pawn`, 一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 `PlayerController` 的 `AcknowledgePossession()` 函数中初始化.  
+![[Pasted image 20231006224827.png]]
 
+
+1. 对于 PlayerController 控制的 Character 且 `ASC` 位于 `Pawn`, 一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 `PlayerController` 的 `AcknowledgePossession()` 函数中初始化.  
 ```c++
 void APACharacterBase::PossessedBy(AController * NewController)
 {
