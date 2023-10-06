@@ -1,3 +1,5 @@
+[Git checkout 签出或切换分支——迹忆客 (jiyik.com)](https://www.jiyik.com/w/git/git-checkout)
+
 # 基本操作
 查看git版本
 ```c++
