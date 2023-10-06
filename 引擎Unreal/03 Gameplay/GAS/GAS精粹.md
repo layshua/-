@@ -135,7 +135,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 > [!NOTE]
 >如果 `ASC` 位于 PlayerState, 那么你需要提高 PlayerState 的 `NetUpdateFrequency`, 其默认是一个很低的值（在PlayerState构造函数中设为 100.0f 即可）, 因此在客户端上发生 `Attribute` 和 `GameplayTag` 改变时会造成延迟或卡顿. 确保启用 [Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite 就启用了该项.  
 
-`OwnerActor` 需要继承并实现 `IAbilitySystemInterface`（如果 AvatarActor 和 OwnerActor 是不同的 Actor, 那么 AvatarActor 也应该继承并实现 `IAbilitySystemInterface`）。
+`OwnerActor` 需要继承并实现 **`IAbilitySystemInterface`**（如果 AvatarActor 和 OwnerActor 是不同的 Actor, 那么 AvatarActor 也应该继承并实现 `IAbilitySystemInterface`）。
 - 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向 `ASC` 的指针, `ASC` 通过寻找该接口函数来和系统内部进行交互.  
 
 **ASC 维护两个容器：**
@@ -161,7 +161,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 ### 设置和初始化
 
-`ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为Replicated. **这必须在C++中完成.**  
+`ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为`Replicated`. **这必须在C++中完成.**  
 
 ```c++
 AGDPlayerState::AGDPlayerState()
@@ -175,7 +175,7 @@ AGDPlayerState::AGDPlayerState()
 
 `OwnerActor` 和 `AvatarActor` 的 `ASC` 在服务端和客户端上均需初始化，你应该在 `Pawn` 的 `Controller` 设置之后初始化(Possess 之后), **单人游戏只需参考服务端的做法.**  
 
-对于玩家控制的Character且`ASC`位于`Pawn`, 我一般在服务端`Pawn`的`PossessedBy()`函数中初始化, 在客户端`PlayerController`的`AcknowledgePossession()`函数中初始化.  
+1. 对于玩家控制的 Character 且 `ASC` 位于 `Pawn`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 `PlayerController` 的 `AcknowledgePossession()` 函数中初始化.  
 
 ```c++
 void APACharacterBase::PossessedBy(AController * NewController)
@@ -207,7 +207,7 @@ void APAPlayerControllerBase::AcknowledgePossession(APawn* P)
 }
 ```
 
-对于玩家控制的 Character 且 `ASC` 位于 `PlayerState`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 PlayerController 的 `OnRep_PlayerState()` 函数中初始化, 这确保了 `PlayerState` 存在于客户端上.   
+2. 对于玩家控制的 Character 且 `ASC` 位于 `PlayerState`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 PlayerController 的 `OnRep_PlayerState()` 函数中初始化, 这确保了 `PlayerState` 存在于客户端上.   
 
 ```c++
 void AGDHeroCharacter::PossessedBy(AController * NewController)
