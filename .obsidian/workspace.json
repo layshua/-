@@ -60,7 +60,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "78123714e9b458e2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -124,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/Git/git入门.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           },
@@ -134,7 +147,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Tools/Git/git入门.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           }
@@ -184,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/Git/git入门.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -264,6 +277,14 @@
   "active": "bb9406fda47b06fa",
   "lastOpenFiles": [
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+    "zip/images/Pasted image 20231006200833.png",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "zip/images/Pasted image 20231006200535.png",
+    "引擎Unreal/02 UE++/4 委托.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "Tools/Git/git入门.md",
     "zip/images/Pasted image 20231006171255.png",
     "zip/images/Pasted image 20231006170817.png",
     "zip/images/Pasted image 20231006170244.png",
@@ -272,18 +293,11 @@
     "zip/images/Pasted image 20231006093631.png",
     "zip/images/Pasted image 20231006093323.png",
     "zip/images/Pasted image 20231006093239.png",
-    "zip/images/Pasted image 20231006091124.png",
-    "zip/images/Pasted image 20231006091114.png",
-    "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/04 动画/未命名.md",
     "引擎Unreal/02 UE++/5 指针.md",
     "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
-    "引擎Unreal/02 UE++/4 委托.md",
     "Tools/Git/UE4源码管理.md",
     "Tools/Git/Unity Git.md",
     "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
@@ -298,7 +312,6 @@
     "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md",
     "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md",
-    "引擎Unreal/06 网络/官方文档/设置专用服务器.md",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",

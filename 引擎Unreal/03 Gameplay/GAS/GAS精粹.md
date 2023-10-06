@@ -118,9 +118,10 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 # 四、GAS 概念
 
+
 ##  1 Ability System Component
 
-`AbilitySystemComponent(ASC)`是**GAS的核心**, 它是一个处理所有与该系统交互的`UActorComponent`([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用[GameplayAbility](#concepts-ga), 包含[Attribute](#concepts-a), 或者接受[GameplayEffect](#concepts-ge)的Actor都必须附加`ASC`**. 这些对象都存于`ASC`并由其管理和同步(除了由[AttributeSet](#concepts-as)同步的`Attribute`). 开发者最好但不强求继承该组件.  
+`AbilitySystemComponent(ASC)` 是**GAS 的核心**, 它是一个处理所有与该系统交互的 `UActorComponent` ([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用 [GameplayAbility](#concepts-ga), 包含 [Attribute](#concepts-a), 或者接受 [GameplayEffect](#concepts-ge) 的 Actor 都必须附加 `ASC`**. 这些对象都存于 `ASC` 并由其管理和同步(除了由 [AttributeSet](#concepts-as) 同步的 `Attribute`)，开发者最好但不强求继承该组件.  
 
 -  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**, 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**.
 -  `OwnerActor` 和 `AvatarActor` 可以是同一个 `Actor`, 比如 MOBA 游戏中的一个简单 AI 小兵; 
@@ -793,7 +794,7 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 
 ### 01 定义
 
-`GameplayEffect(GE)` 是 Ability 修改 `Attribute` 和 `GameplayTag` 的容器，其可以立即修改 `Attribute` (像伤害或治疗)或应用长期的状态 buff/debuff(像移动速度加速或眩晕)。
+**`GameplayEffect(GE)` 是 `Ability` 修改 `Attribute` 和 `GameplayTag` 的容器**，其可以立即修改 `Attribute` (像伤害或治疗)或应用长期的状态 buff/debuff(像移动速度加速或眩晕)。
 
 与 GAS 的其他部分不同，无论在 C++ 还是蓝图代码中，`Gameplay Effects` 通常不覆盖基类 `UGameplayEffect`。相反，**游戏性效果被设计成完全通过变量来配置**。
 >`UGameplayEffect` 只是一个定义单一游戏效果的**数据类**, 不应该在其中添加额外的逻辑。设计师一般会创建很多 UGameplayEffect 的子类蓝图。
