@@ -4,3 +4,8 @@
 
 最后要勾选：
 ![[Pasted image 20231005213302.png]]
+
+# 人物转向问题
+TODO：模拟逆水寒自在模式
+
+[虚幻4人物转向问题{User Controller Rotaion Yaw，User Controller Desired Rotation与Orient Rotaion to Movement}-CSDN博客](https://blog.csdn.net/u012249992/article/details/83186907)

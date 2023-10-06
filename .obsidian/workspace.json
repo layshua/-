@@ -50,13 +50,8 @@
             "id": "6364fa5b37c71777",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -65,7 +60,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -116,7 +111,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           },
@@ -126,7 +121,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           }
@@ -176,7 +171,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +188,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -255,12 +250,12 @@
   },
   "active": "bb9406fda47b06fa",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/04 动画/未命名.md",
     "zip/images/Pasted image 20231005213302.png",
