@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客",
       "path": "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md"
-    },
-    {
-      "basename": "mermaid流图",
-      "path": "zip/templates/mermaid流图.md"
     }
   ],
   "omittedPaths": [],

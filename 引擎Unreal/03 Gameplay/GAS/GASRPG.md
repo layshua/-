@@ -53,3 +53,20 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 
 开启 Actor 模型的 CustomDepth Pass
 ![[Pasted image 20231006171255.png]]
+
+通过代码设置 CustomDepth Pass
+```c++
+void AMageEnemy::HighlightActor()
+{
+	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_STENCIL_VALUE);
+	WeaponMesh->SetRenderCustomDepth(true);
+	WeaponMesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_STENCIL_VALUE);
+}
+
+void AMageEnemy::UnHighlightActor()
+{
+	GetMesh()->SetRenderCustomDepth(false);
+	WeaponMesh->SetRenderCustomDepth(false);
+}
+```
