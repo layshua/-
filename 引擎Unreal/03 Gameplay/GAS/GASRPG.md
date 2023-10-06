@@ -27,12 +27,11 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 
 需要特别注意的是：因为在BaseGame.ini中，InputPitchScale=-2.5，且PlayerController自带的AddPitchInput接口会将鼠标Pitch输入系数乘以该配置，所以一般**MouseY的轴映射为-1.0**，这样鼠标往上（-Y，Pitch<0）移动时，视角上抬，鼠标往下（+Y，Pitch>0）移动时，视角下移。
 # 人物转向问题
-TODO：模拟逆水寒自在模式
+- [x] 模拟逆水寒自在模式
 
 [虚幻4人物转向问题{User Controller Rotaion Yaw，User Controller Desired Rotation与Orient Rotaion to Movement}-CSDN博客](https://blog.csdn.net/u012249992/article/details/83186907)
 ![[Pasted image 20231006091114.png]]
 ![[Pasted image 20231006091124.png]]
-
 
 通常我们新建第三人称项目时，默认如上图的设置，这个时候按 s 键人正面是面向镜头的，这在一般的 rpg 或 act 游戏都是如此设置，而在绝地求生这类 STG 里按 s 键是背对镜头的，如何设置人物转向就在上面三个 bool 值决定。
 
