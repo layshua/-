@@ -8882,6 +8882,7 @@ OutPackageId
 OutObjectId
 OnHandleRead
 ObjectPtr
+Orient
 codeup
 clash
 ctrl
@@ -52403,6 +52404,7 @@ AsxIs
 AppID
 Activate
 AttributeMetaData
+AddPitchInput
 URL
 Utools
 Users
@@ -66180,6 +66182,8 @@ ResolveObjectHandle
 ReadObject
 ResolveObjectHandleNoRead
 ReadObjectHandlePointerNoCheck
+Rotaion
+RotationSettings
 Microsoft
 Menu
 MicaForEveryone
@@ -71525,6 +71529,7 @@ MacEngine
 MakeObjectRef
 MakePackedObjectRef
 MakeReferenceIds
+MouseY
 Windows
 Win
 World
@@ -81733,6 +81738,7 @@ StaticOnObjectHandleRead
 SetObjectHandleClassResolvedCallback
 SetObjectHandleReferenceResolvedCallback
 SerializeItem
+STG
 Programs
 POP
 PC
@@ -96390,6 +96396,7 @@ IPNetDriver
 Immunity
 IsObjectHandleResolved
 IsResolved
+InputPitchScale
 qq
 qyi
 quad
@@ -154765,6 +154772,7 @@ rgu
 riBy
 rnw
 rebuild
+rpg
 XXXXXX
 XXX
 XML
@@ -167564,6 +167572,7 @@ BUm
 BVZN
 Bzp
 BGF
+BaseGame
 Fraktur
 Frame
 Foo
@@ -189707,6 +189716,7 @@ DefName
 DriverClassName
 DriverClassNameFallBack
 DoCast
+Desired
 LNK
 Log
 Linux
@@ -230638,6 +230648,7 @@ zQl
 zwv
 zoH
 zRnoAF
+zthtfb
 jpg
 just
 juLeSXlIAVEiJIzRbMP
