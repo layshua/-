@@ -128,9 +128,12 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 - 它们也可以是不同的 `Actor`, 比如 MOBA 游戏中玩家控制的英雄, 其中 `OwnerActor` 是 `PlayerState`, `AvatarActor` 是英雄的 `Character` 类。
 - **绝大多数 Actor 的 `ASC` 都附加在其自身, 如果你的 Actor 会重生并且重生时需要持久化 `Attribute` 或 `GameplayEffect` (比如 MOBA 中的英雄), 那么 `ASC` 理想的位置就是 `PlayerState`.**  
 ![[Pasted image 20231006202320.png]]
+
 ![[Pasted image 20231006202726.png]]
 >Pawn 被销毁时，身上的 ASC 和属性集也会被销毁。重生后 ASC 和属性集也是新创建的，为默认值。如果使用 PlayState 则可以保存数据！
 >比如怪物不需要持久化数据，我们可以直接在怪物自身的 Actor 上使用 ASC。而玩家角色需要持久化数据，我们就要使用 PlayState。
+
+![[Pasted image 20231006222111.png]]
 
 > [!NOTE]
 >如果 `ASC` 位于 PlayerState, 那么你需要提高 PlayerState 的 `NetUpdateFrequency`, 其默认是一个很低的值（在PlayerState构造函数中设为 100.0f 即可）, 因此在客户端上发生 `Attribute` 和 `GameplayTag` 改变时会造成延迟或卡顿. 确保启用 [Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite 就启用了该项.  
@@ -158,26 +161,27 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 >2023.10.6 根据 GAS 视频教程修正描述
 
 -  `Mixed` 复制模式需要 `OwnerActor` 的 `Owner` 是 `Controller`。`PlayerState` 的 `Owner` 默认是 `Controller` 但是 `Character` 不是。
-- 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 复制模式, 那么需要在 `OwnerActor` 中调用 `SetOwner()` 设置 `Controller`.  
-- 从4.24开始, 需要使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner.  
+- 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 复制模式, 那么需要需要**使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner。**
+>`PossessedBy ()`仅服务端可用
 
 ### 设置和初始化
 
-`ASC`一般在`OwnerActor`的构建函数中创建并且需要明确标记为`Replicated`. **这必须在C++中完成.**  
+`ASC` 一般在 `OwnerActor` 的构造函数中创建并且需要明确标记为 `Replicated`. **这必须在 C++中完成.**  
 
 ```c++
 AGDPlayerState::AGDPlayerState()
 {
 	// Create Ability system component, and set it to be explicitly replicated
 	AbilitySystemComponent = CreateDefaultSubobject<UGDAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
-	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetIsReplicated(true); //必须设置复制
 	//...
 }
 ```
 
-`OwnerActor` 和 `AvatarActor` 的 `ASC` 在服务端和客户端上均需初始化，你应该在 `Pawn` 的 `Controller` 设置之后初始化(Possess 之后), **单人游戏只需参考服务端的做法.**  
 
-1. 对于玩家控制的 Character 且 `ASC` 位于 `Pawn`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 `PlayerController` 的 `AcknowledgePossession()` 函数中初始化.  
+`OwnerActor` 和 `AvatarActor` 的 `ASC` 在服务端和客户端上均需初始化，你**应该在 `Pawn` 的 `Controller` 设置之后初始化(Possess 之后)进行初始化**,  单人游戏只需参考服务端的做法。
+![[Pasted image 20231006223103.png|400]]
+1. 对于 PlayerController 控制的 Character 且 `ASC` 位于 `Pawn`, 一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 `PlayerController` 的 `AcknowledgePossession()` 函数中初始化.  
 
 ```c++
 void APACharacterBase::PossessedBy(AController * NewController)
@@ -209,7 +213,7 @@ void APAPlayerControllerBase::AcknowledgePossession(APawn* P)
 }
 ```
 
-2. 对于玩家控制的 Character 且 `ASC` 位于 `PlayerState`, 我一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 PlayerController 的 `OnRep_PlayerState()` 函数中初始化, 这确保了 `PlayerState` 存在于客户端上.   
+2. 对于 PlayerController 控制的 Character 且 `ASC` 位于 `PlayerState`, 一般在服务端 `Pawn` 的 `PossessedBy()` 函数中初始化, 在客户端 PlayerController 的 `OnRep_PlayerState()` 函数中初始化, 这将**确保 `PlayerState` 成功从服务器复制到客户端**   
 
 ```c++
 void AGDHeroCharacter::PossessedBy(AController * NewController)
@@ -249,8 +253,9 @@ void AGDHeroCharacter::OnRep_PlayerState()
 }
 ```
 
-如果你遇到了错误消息`LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`, 那么就表明`ASC`没有在客户端中初始化.  
+如果你遇到了错误消息 `LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`， 那么就表明 `ASC` 没有在客户端中初始化.  
 
+3. 对于 AIController 控制的 Character ，只需要在 `BeginPlay()` 中初始化
 ## 2 Gameplay Tags
 Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能都拥有一组标记，以可影响其行为的方式识别和分类技能，还有玩法标记容器和游戏标记查询，用于支持与其他技能进行交互。
 
