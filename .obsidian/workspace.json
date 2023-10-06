@@ -156,7 +156,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -282,11 +283,11 @@
   "active": "bb9406fda47b06fa",
   "lastOpenFiles": [
     "引擎Unreal/06 网络/1 UE网络精粹.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
     "zip/images/Pasted image 20231006211813.png",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "zip/images/Pasted image 20231006204332.png",
     "zip/images/Pasted image 20231006204312.png",
     "zip/images/Pasted image 20231006202726.png",

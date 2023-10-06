@@ -35,7 +35,7 @@ GAS 指在处理所有这些用例，方法是**将技能建模为负责自身�
 * 为Actor应用状态效果. ([GameplayEffect](#concepts-ge))
 * 为Actor应用GameplayTag. ([GameplayTag](#concepts-gt))
 * 生成视觉或声音效果. ([GameplayCue](#concepts-gc))
-* 为以上提到的所有应用同步(Replication).
+* 为以上提到的所有应用复制(Replication).
 
 在多人游戏中, GAS提供客户端预测([client-side prediction](#concepts-p))支持:  
 * 能力激活.
@@ -60,8 +60,8 @@ GAS中的现存问题:
 
 概念说明:  
 * `ASC`位于`PlayerState`还是`Character`.
-* 网络同步的`Attribute`.
-* 网络同步的蒙太奇(Animation Montages).
+* 网络复制的`Attribute`.
+* 网络复制的蒙太奇(Animation Montages).
 * `GameplayTag`.
 * 在`GameplayAbility`内部和外部应用和移除`GameplayEffect`.
 * 应用被护甲防御后的伤害值来修改角色生命值.
@@ -121,7 +121,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 ##  1 Ability System Component
 
-`AbilitySystemComponent(ASC)` 是**GAS 的核心**, 它是一个处理所有与该系统交互的 `UActorComponent` ([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用 [GameplayAbility](#concepts-ga), 包含 [Attribute](#concepts-a), 或者接受 [GameplayEffect](#concepts-ge) 的 Actor 都必须附加 `ASC`**. 这些对象都存于 `ASC` 并由其管理和同步(除了由 [AttributeSet](#concepts-as) 同步的 `Attribute`)，开发者最好但不强求继承该组件.  
+`AbilitySystemComponent(ASC)` 是**GAS 的核心**, 它是一个处理所有与该系统交互的 `UActorComponent` ([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用 [GameplayAbility](#concepts-ga), 包含 [Attribute](#concepts-a), 或者接受 [GameplayEffect](#concepts-ge) 的 Actor 都必须附加 `ASC`**. 这些对象都存于 `ASC` 并由其管理和复制(除了由 [AttributeSet](#concepts-as) 复制的 `Attribute`)，开发者最好但不强求继承该组件.  
 
 -  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**, 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**.
 -  `OwnerActor` 和 `AvatarActor` 可以是同一个 `Actor`, 比如 MOBA 游戏中的一个简单 AI 小兵; 
@@ -145,19 +145,21 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
         - 每个域中的 `ABILITYLIST_SCOPE_LOCK();` 会增加 `AbilityScopeLockCount`, 之后出域时会减量. 
         - 不要尝试在 `ABILITYLIST_SCOPE_LOCK();` 域中移除某个 Ability(Ability 删除函数会在内部检查 `AbilityScopeLockCount` 以防在列表锁定时移除 Ability).  
 
-### 同步模式
+### 复制模式
 
-`ASC`定义了三种不同的同步模式用于同步`GameplayEffect`, `GameplayTag`和`GameplayCue` - `Full`, `Mixed`和`Minimal`. `Attribute`由其`AttributeSet`同步.  
+-  `ASC` 定义了三种不同的复制模式用于复制 `GameplayEffect` 到客户端, `GameplayTag` 和 `GameplayCue` ： `Full`, `Mixed` 和 `Minimal`.
+-  `Attribute` 由其 `AttributeSet` 复制。
 
-|同步模式|何时使用|描述|
+|复制模式|何时使用|描述|
 |:-:|:-:|:-:|
-|`Full`|单人|所有`GameplayEffect`都同步到客户端.|
-|`Mixed`|多人, 玩家控制的Actor|`GameplayEffect`只同步到其所属客户端, 只有`GameplayTag`和`GameplayCue`同步到所有客户端.|
-|`Minimal`|多人, AI控制的Actor|`GameplayEffect`从不同步到任何客户端, 只有`GameplayTag`和`GameplayCue`同步到所有客户端.|
+|`Full`|单人|`GameplayEffect`复制到所有客户端|
+|`Mixed`|多人, PlayerController控制的Actor|`GameplayEffect`只复制到其所属（owning）客户端； `GameplayTag`和`GameplayCue`复制到所有客户端|
+|`Minimal`|多人, AIController控制的Actor|`GameplayEffect`不复制；`GameplayTag`和`GameplayCue`复制到所有客户端.|
+>2023.10.6 根据 GAS 视频教程修正描述
 
-**Note:** `Mixed`同步模式需要`OwnerActor`的`Owner`是`Controller`. `PlayerState`的`Owner`默认是`Controller`但是`Character`不是. 如果`OwnerActor`不是`PlayerState`时使用`Mixed`同步模式, 那么需要在`OwnerActor`中调用`SetOwner()`设置`Controller`.  
-
-从4.24开始, 需要使用`PossessedBy()`设置新的`Controller`为`Pawn`的Owner.  
+-  `Mixed` 复制模式需要 `OwnerActor` 的 `Owner` 是 `Controller`。`PlayerState` 的 `Owner` 默认是 `Controller` 但是 `Character` 不是。
+- 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 复制模式, 那么需要在 `OwnerActor` 中调用 `SetOwner()` 设置 `Controller`.  
+- 从4.24开始, 需要使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner.  
 
 ### 设置和初始化
 
@@ -260,7 +262,7 @@ Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能�
 
 **当给某个对象设置标签时, 如果它有 `ASC` 的话, 我们一般添加标签到 `ASC` 以与其交互。** `UAbilitySystemComponent` 执行 `IGameplayTagAssetInterface` 接口的函数来访问其拥有的 `GameplayTag`.   
 
-多个 `GameplayTag` 可被保存于一个 `FGameplayTagContainer` 中, 相比 `TArray<FGameplayTag>`, 最好使用 `GameplayTagContainer`, 因为 `GameplayTagContainer` 做了一些很有效率的优化。因为标签是标准的 `FName`, 所以当在项目设置(Project Setting)中启用 `Fast Replication` 后, 它们可以高效地打包进 `FGameplayTagContainer` 以用于同步。 `Fast Replication` 要求服务端和客户端有相同的 `GameplayTag` 列表, 这通常不是问题, 因此你应该启用该选项。 `GameplayTagContainer` 也可以返回 `TArray<FGameplayTag>` 以用于遍历。
+多个 `GameplayTag` 可被保存于一个 `FGameplayTagContainer` 中, 相比 `TArray<FGameplayTag>`, 最好使用 `GameplayTagContainer`, 因为 `GameplayTagContainer` 做了一些很有效率的优化。因为标签是标准的 `FName`, 所以当在项目设置(Project Setting)中启用 `Fast Replication` 后, 它们可以高效地打包进 `FGameplayTagContainer` 以用于复制。 `Fast Replication` 要求服务端和客户端有相同的 `GameplayTag` 列表, 这通常不是问题, 因此你应该启用该选项。 `GameplayTagContainer` 也可以返回 `TArray<FGameplayTag>` 以用于遍历。
 
 保存于 `FGameplayTagCountContainer` 中的 `GameplayTag` 有保存该 `GameplayTag` 实例数的 `TagMap`。`FGameplayTagCountContainer` 可能存有 `TagMapCount` 为0的 `GameplayTag`, 你可能在 Debug 时遇到这种情况. 任何 `HasTag()` 或 `HasMatchingTag()` 或其他相似的函数会检查 `TagMapCount`, 如果 `GameplayTag` 不存在或者其 `TagMapCount` 为0就会返回 false.   
 
@@ -272,9 +274,9 @@ Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能�
 
 重命名`GameplayTag`会创建重定向, 因此仍引用原来`GameplayTag`的资源会重定向到新的`GameplayTag`. 如果可以的话, 我更倾向于创建新的`GameplayTag`, 手动更新所有引用到新的`GameplayTag`, 之后删除旧的`GameplayTag`以避免创建新的重定向.  
 
-除了`Fast Replication`, `GameplayTag`编辑器可以选择填充普遍需要同步的`GameplayTag`以对其深度优化.  
+除了`Fast Replication`, `GameplayTag`编辑器可以选择填充普遍需要复制的`GameplayTag`以对其深度优化.  
 
-如果`GameplayTag`由`GameplayEffect`添加, 那么其就是可同步的. `ASC`允许你添加不可同步的`LooseGameplayTag`且必须手动管理. 样例项目对`State.Dead`使用了`LooseGameplayTag`, 因此当生命值降为0时, 其所属客户端会立即响应. 重生时需要手动将`TagMapCount`设置回0, 当使用`LooseGameplayTag`时只能手动调整`TagMapCount`, 相比纯手动调整`TagMapCount`, 最好使用`UAbilitySystemComponent::AddLooseGameplayTag()`和`UAbilitySystemComponent::RemoveLooseGameplayTag()`.  
+如果`GameplayTag`由`GameplayEffect`添加, 那么其就是可复制的. `ASC`允许你添加不可复制的`LooseGameplayTag`且必须手动管理. 样例项目对`State.Dead`使用了`LooseGameplayTag`, 因此当生命值降为0时, 其所属客户端会立即响应. 重生时需要手动将`TagMapCount`设置回0, 当使用`LooseGameplayTag`时只能手动调整`TagMapCount`, 相比纯手动调整`TagMapCount`, 最好使用`UAbilitySystemComponent::AddLooseGameplayTag()`和`UAbilitySystemComponent::RemoveLooseGameplayTag()`.  
 
 **C++中获取`GameplayTag`引用:**  
 ```c++
@@ -311,7 +313,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 `Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. **`Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.**  
 
-`Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于同步那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
+`Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于复制那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
 
 > [!tip] 
 >  如果你不想某个`Attribute`显示在编辑器的`Attribute`列表, 可以使用`Meta = (HideInDetailsView)`属性宏.  
@@ -330,7 +332,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 ### Meta Attribute
 
-**一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`**. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可同步的.  
+**一些`Attribute`被视为占位符, 其是用于预计和`Attribute`交互的临时值, 这些`Attribute`被叫做`Meta Attribute`**. 例如, 我们通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可复制的.  
 
 `Meta Attribute`对于在"我们应该造成多少伤害?"和"我们该如何处理伤害值?"这种问题之中的伤害值和治疗值做了很好的解构, 这种解构意味着`GameplayEffect`和`ExecutionCalculation`无需了解目标是如何处理伤害值的. 继续看伤害值的例子, `GameplayEffect`确定造成多少伤害, 之后`AttributeSet`决定如何使用该伤害值, 不是所有的Character都有相同的`Attribute`, 特别是使用了`AttributeSet`子类的话, `AttributeSet`基类可能只有一个生命值`Attribute`, 但是它的子类可能增加了一个护盾值`Attribute`, 拥有护盾值`Attribute`的子类`AttributeSet`可能会以不同于`AttributeSet`基类的方式分配收到的伤害.  
 
@@ -555,7 +557,7 @@ MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
 `AttributeSet` 可以在运行时从 `ASC` 上添加和移除, 
 
 > [!danger] 
-> 移除 `AttributeSet` 是很危险的, 例如, 如果某个 `AttributeSet` 在客户端上移除早于服务端, 而某个 `Attribute` 的变化又同步到了客户端, 那么 `Attribute` 就会因为找不到 `AttributeSet` 而使游戏崩溃。 
+> 移除 `AttributeSet` 是很危险的, 例如, 如果某个 `AttributeSet` 在客户端上移除早于服务端, 而某个 `Attribute` 的变化又复制到了客户端, 那么 `Attribute` 就会因为找不到 `AttributeSet` 而使游戏崩溃。 
 
 武器**添加**到 Inventory（库存）:  
 
@@ -583,9 +585,9 @@ AbilitySystemComponent->ForceReplication();
 
 ##### 在物品中使用普通浮点数
 
-在物品类实例中存储普通浮点数而不是`Attribute`, Fortnite和[GASShooter](https://github.com/tranek/GASShooter)就是这样处理枪械子弹的, 对于枪械, 在其实例中存储可同步的浮点数(COND_OwnerOnly), 比如最大弹匣量, 当前弹匣中弹药量, 剩余弹药量等等, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里作为一个`Attribute`(换弹Ability可以使用一个`Cost GE`从剩余弹药量中填充枪械的弹匣弹药量浮点). 因为没有为当前弹匣弹药量使用`Attribute`, 所以需要重写`UGameplayAbility`中的一些函数来检查和应用枪械中浮点数的花销(cost). 当授予Ability时将枪械在[GameplayAbilitySpec](https://github.com/tranek/GASDocumentation#concepts-ga-spec)中转换为`SourceObject`, 这意味着可以在Ability中访问授予Ability的枪械.  
+在物品类实例中存储普通浮点数而不是`Attribute`, Fortnite和[GASShooter](https://github.com/tranek/GASShooter)就是这样处理枪械子弹的, 对于枪械, 在其实例中存储可复制的浮点数(COND_OwnerOnly), 比如最大弹匣量, 当前弹匣中弹药量, 剩余弹药量等等, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里作为一个`Attribute`(换弹Ability可以使用一个`Cost GE`从剩余弹药量中填充枪械的弹匣弹药量浮点). 因为没有为当前弹匣弹药量使用`Attribute`, 所以需要重写`UGameplayAbility`中的一些函数来检查和应用枪械中浮点数的花销(cost). 当授予Ability时将枪械在[GameplayAbilitySpec](https://github.com/tranek/GASDocumentation#concepts-ga-spec)中转换为`SourceObject`, 这意味着可以在Ability中访问授予Ability的枪械.  
 
-为了防止在全自动射击过程中枪械会反向同步弹药量并扰乱本地弹药量(译者注: 通俗解释就是因为存在同步延迟且在连续射击这一高同步过程中, 所以客户端的弹药量会来不及和服务端同步, 造成弹药量减少后又突然变多的现象.), 如果玩家拥有`IsFiring`的`GameplayTag`, 就在PreReplication()中禁用同步, 本质上是要在其中做自己的本地预测.  
+为了防止在全自动射击过程中枪械会反向复制弹药量并扰乱本地弹药量(译者注: 通俗解释就是因为存在复制延迟且在连续射击这一高复制过程中, 所以客户端的弹药量会来不及和服务端复制, 造成弹药量减少后又突然变多的现象.), 如果玩家拥有`IsFiring`的`GameplayTag`, 就在PreReplication()中禁用复制, 本质上是要在其中做自己的本地预测.  
 
 ```c++
 void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracker)
@@ -609,7 +611,7 @@ void AGSWeapon::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracke
 
 ##### 在物品中使用AttributeSet
 
-在物品中使用单独的`AttributeSet`可以实现[将其添加到玩家的Inventory](#concepts-as-design-addremoveruntime), 但还是有一定的局限性. 较早版本的[GASShooter](https://github.com/tranek/GASShooter)中的武器弹药是使用的这种方法, 武器类在其自身存储诸如最大弹匣量, 当前弹匣弹药量, 剩余弹药量等等到一个`AttributeSet`, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里. 当服务端上某个武器添加到玩家的Inventory后, 该武器会将它的`AttributeSet`添加到玩家的`ASC::SpawnedAttribute`, 之后服务端会将其同步下发到客户端, 如果该武器从Inventory中移除, 它也会将其`AttributeSet`从`ASC::SpawnedAttribute`中移除.  
+在物品中使用单独的`AttributeSet`可以实现[将其添加到玩家的Inventory](#concepts-as-design-addremoveruntime), 但还是有一定的局限性. 较早版本的[GASShooter](https://github.com/tranek/GASShooter)中的武器弹药是使用的这种方法, 武器类在其自身存储诸如最大弹匣量, 当前弹匣弹药量, 剩余弹药量等等到一个`AttributeSet`, 如果枪械需要共享剩余弹药量, 那么就将剩余弹药量移到Character中共享的弹药`AttributeSet`里. 当服务端上某个武器添加到玩家的Inventory后, 该武器会将它的`AttributeSet`添加到玩家的`ASC::SpawnedAttribute`, 之后服务端会将其复制下发到客户端, 如果该武器从Inventory中移除, 它也会将其`AttributeSet`从`ASC::SpawnedAttribute`中移除.  
 
 当`AttributeSet`存于除了OwnerActor之外的对象上时(对于某个武器来说), 会得到一些关于`AttributeSet`的编译错误, 解决办法是在BeginPlay()中构建`AttributeSet`而不是在构造函数中, 并在武器类中实现`IAbilitySystemInterface`(当你添加武器到玩家Inventory时设置`ASC`的指针).  
 
@@ -633,7 +635,7 @@ void AGSWeapon::BeginPlay()
 局限:  
 1. 必须为每个武器类型创建新的`AttributeSet`类, `ASC`实际上只能有一个该类的`AttributeSet`实例, 因为对`Attribute`的修改会在`ASC`的SpawnedAttribute数组中寻找其第一个`AttributeSet`类实例, 其他相同的`AttributeSet`类实例则会被忽略.  
 2. 和第1条同样的原因(每个`AttributeSet`类一个`AttributeSet`实例), 在玩家的Inventory中每种武器类型只能有一个.
-3. 移除`AttributeSet`是很危险的. 在GASShooter中, 如果玩家因为火箭弹而自杀, 玩家会立即从其Inventory中移除火箭弹发射器(包括其在`ASC`中的`AttributeSet`), 当服务端同步火箭弹发射器的弹药`Attribute`改变时, 由于`AttributeSet`在客户端`ASC`上不复存在而使游戏崩溃.
+3. 移除`AttributeSet`是很危险的. 在GASShooter中, 如果玩家因为火箭弹而自杀, 玩家会立即从其Inventory中移除火箭弹发射器(包括其在`ASC`中的`AttributeSet`), 当服务端复制火箭弹发射器的弹药`Attribute`改变时, 由于`AttributeSet`在客户端`ASC`上不复存在而使游戏崩溃.
 
 #####  在物品中使用单独的ASC
 
@@ -669,7 +671,7 @@ void AGSWeapon::BeginPlay()
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 ```
 
-一个可同步的生命值`Attribute`可能像下面这样定义:  
+一个可复制的生命值`Attribute`可能像下面这样定义:  
 
 ```c++
 UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_Health)
@@ -705,9 +707,9 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 }
 ```
 
-`REPTNOTIFY_Always`用于设置OnRep函数在客户端值已经与服务端同步的值相同的情况下触发(因为有预测), 默认设置下, 客户端值与服务端同步的值相同时, OnRep函数是不会触发的.  
+`REPTNOTIFY_Always`用于设置OnRep函数在客户端值已经与服务端复制的值相同的情况下触发(因为有预测), 默认设置下, 客户端值与服务端复制的值相同时, OnRep函数是不会触发的.  
 
-如果`Attribute`无需像`Meta Attribute`那样同步, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
+如果`Attribute`无需像`Meta Attribute`那样复制, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
 
 
 ### 04 初始化 Attribute
@@ -765,7 +767,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 其他只会由`即刻(Instant)GameplayEffect`修改BaseValue的`Attribute`, 像魔法值和耐力值, 也可以在这里被限制为其相应的最大值`Attribute`.  
 
 > [!NOTE]
-> **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被同步回客户端, 因此在这里限制值不会造成对客户端的二次同步, 客户端只会接收到限制后的值.  
+> **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被复制回客户端, 因此在这里限制值不会造成对客户端的二次复制, 客户端只会接收到限制后的值.  
 <a name="concepts-as-onattributeaggregatorcreated"></a>
 ### 07  `OnAttributeAggregatorCreated()`
 
@@ -870,7 +872,7 @@ AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(thi
 virtual void OnActiveGameplayEffectAddedCallback(UAbilitySystemComponent* Target, const FGameplayEffectSpec& SpecApplied, FActiveGameplayEffectHandle ActiveHandle);
 ```
 
-服务端总是会调用该函数而不管同步模式是什么, `Autonomous Proxy`只会在`Full`和`Mixed`同步模式下对于同步的`GameplayEffect`调用该函数, `Simulated Proxy`只会在`Full`同步模式下调用该函数.  
+服务端总是会调用该函数而不管复制模式是什么, `Autonomous Proxy`只会在`Full`和`Mixed`复制模式下对于复制的`GameplayEffect`调用该函数, `Simulated Proxy`只会在`Full`复制模式下调用该函数.  
 <a name="concepts-ga-removing"></a>
 ### 03 移除 Remove
 
@@ -889,7 +891,7 @@ AbilitySystemComponent->OnAnyGameplayEffectRemovedDelegate().AddUObject(this, &A
 virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectRemoved);
 ```
 
-服务端总是会调用该函数而不管同步模式是什么, `Autonomous Proxy`只会在Full和Mixed同步模式下对于可同步的`GameplayEffect`调用该函数, `Simulated Proxy`只会在Full同步模式下调用该函数.  
+服务端总是会调用该函数而不管复制模式是什么, `Autonomous Proxy`只会在Full和Mixed复制模式下对于可复制的`GameplayEffect`调用该函数, `Simulated Proxy`只会在Full复制模式下调用该函数.  
 
 ### 04 GameplayEffectModifier
 
@@ -1149,7 +1151,7 @@ float GetSetByCallerMagnitude(FName DataName, bool WarnIfNotFound = true, float 
 float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, float DefaultIfNotFound = 0.f) const;
 ```
 
-我建议使用`GameplayTag`形式而不是`FName`形式, 这可以避免蓝图中的拼写错误, 并且当`GameplayEffectSpec`同步时, `GameplayTag`比`FName`在网络传输中更有效率, 因为`TMap`也会同步.  
+我建议使用`GameplayTag`形式而不是`FName`形式, 这可以避免蓝图中的拼写错误, 并且当`GameplayEffectSpec`复制时, `GameplayTag`比`FName`在网络传输中更有效率, 因为`TMap`也会复制.  
 
 
 
@@ -1163,7 +1165,7 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 1. 继承`FGameplayEffectContext`.
 2. 重写`FGameplayEffectContext::GetScriptStruct()`.
 3. 重写`FGameplayEffectContext::Duplicate()`.
-4. 如果新数据需要同步的话, 重写`FGameplayEffectContext::NetSerialize()`.
+4. 如果新数据需要复制的话, 重写`FGameplayEffectContext::NetSerialize()`.
 5. 对子结构体实现`TStructOpsTypeTraits`, 就像父结构体`FGameplayEffectContext`有的那样.
 6. 在[AbilitySystemGlobals](#concepts-asg)类中重写`AllocGameplayEffectContext()`以返回一个新的子结构体对象.
 
@@ -1550,7 +1552,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 }
 ```
 
-**Note:** 在客户端上查询剩余冷却时间要求其可以接收同步的`GameplayEffect`, 这依赖于它们`ASC`的[同步模式](#concepts-asc-rm).  
+**Note:** 在客户端上查询剩余冷却时间要求其可以接收复制的`GameplayEffect`, 这依赖于它们`ASC`的[复制模式](#concepts-asc-rm).  
 
 
 
@@ -1561,7 +1563,7 @@ bool APGPlayerState::GetCooldownRemainingForTag(FGameplayTagContainer CooldownTa
 
 为了监听某个冷却何时结束, 你可以通过绑定`AbilitySystemComponent->OnAnyGameplayEffectRemovedDelegate()`或者`AbilitySystemComponent->RegisterGameplayTagEvent(CooldownTag, EGameplayTagEventType::NewOrRemoved)`分别在`Cooldown GE`移除和`Cooldown Tag`移除时作出响应. 我建议监听`Cooldown Tag`何时移除, 因为当服务端校正的`Cooldown GE`到来时, 会移除客户端预测的`Cooldown GE`, 这会响应`OnAnyGameplayEffectRemovedDelegate()`, 即使仍处于冷却过程中. 预测的`Cooldown GE`在移除时和服务端校正的`Cooldown GE`在应用时`Cooldown Tag`都不会改变.  
 
-**Note:** 在客户端上监听某个`GameplayEffect`添加或移除要求其可以接收同步的`GameplayEffect`, 这依赖于它们`ASC`的[同步模式](#concepts-asc-rm).  
+**Note:** 在客户端上监听某个`GameplayEffect`添加或移除要求其可以接收复制的`GameplayEffect`, 这依赖于它们`ASC`的[复制模式](#concepts-asc-rm).  
 
 样例项目包含一个用于监听冷却开始和结束的自定义蓝图节点, HUD UMG Widget使用它来更新陨石技能的剩余冷却时间, 该`AsyncTask`会一直响应直到手动调用`EndTask()`, 就像在UMG Widget的`Destruct`事件中调用那样. 参阅`AsyncTaskAttributeChanged.h/cpp`.  
 
@@ -1582,7 +1584,7 @@ Epic希望在未来的[GAS迭代版本](#concepts-p-future)中实现真正的冷
 
 ### 16 修改已激活GameplayEffect的持续时间
 
-为了修改`Cooldown GE`或其他任何`持续(Duration)`GameplayEffect的剩余时间, 我们需要修改`GameplayEffectSpec`的持续时间, 更新它的`StartServerWorldTime`, `CachedStartServerWorldTime`, `StartWorldTime`, 并且使用`CheckDuration()`重新检查持续时间. 在服务端上完成这些操作并将`FActiveGameplayEffect`标记为dirty, 其会将这些修改同步到客户端. **Note:** 该操作包含一个`const_cast`, 这可能不是`Epic`希望的修改持续时间的方法, 但是迄今为止它看起来运行得很好.  
+为了修改`Cooldown GE`或其他任何`持续(Duration)`GameplayEffect的剩余时间, 我们需要修改`GameplayEffectSpec`的持续时间, 更新它的`StartServerWorldTime`, `CachedStartServerWorldTime`, `StartWorldTime`, 并且使用`CheckDuration()`重新检查持续时间. 在服务端上完成这些操作并将`FActiveGameplayEffect`标记为dirty, 其会将这些修改复制到客户端. **Note:** 该操作包含一个`const_cast`, 这可能不是`Epic`希望的修改持续时间的方法, 但是迄今为止它看起来运行得很好.  
 
 ```c++
 bool UPAAbilitySystemComponent::SetGameplayEffectDurationHandle(FActiveGameplayEffectHandle Handle, float NewDuration)
@@ -1625,7 +1627,7 @@ bool UPAAbilitySystemComponent::SetGameplayEffectDurationHandle(FActiveGameplayE
 
 在运行时创建动态`GameplayEffect`是一个高阶技术, 你不必经常使用它.  
 
-只有`即刻(Instant)GameplayEffect`可以在运行时由C++创建, `持续(Duration)`和`无限(Infinite)`GameplayEffect不能在运行时动态创建, 因为它们在同步时会寻找并不存在的`GameplayEffect`类定义. 为了实现该功能, 你应该创建一个原型`GameplayEffect`类, 就像平时在编辑器中做的那样, 之后根据运行时所需来定制化`GameplayEffectSpec`.  
+只有`即刻(Instant)GameplayEffect`可以在运行时由C++创建, `持续(Duration)`和`无限(Infinite)`GameplayEffect不能在运行时动态创建, 因为它们在复制时会寻找并不存在的`GameplayEffect`类定义. 为了实现该功能, 你应该创建一个原型`GameplayEffect`类, 就像平时在编辑器中做的那样, 之后根据运行时所需来定制化`GameplayEffectSpec`.  
 
 运行时创建的`即刻(Instant)GameplayEffect`也可以在客户端[预测](#concepts-p)的`GameplayAbility`中调用. 然而, 目前还不明确动态创建是否有副作用.  
 
@@ -1730,7 +1732,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 `GameplayAbility` 自带有根据等级修改 Attribute 变化量或者 `GameplayAbility` 作用的默认功能。
 
-`GameplayAbility` 运行在所属(Owning)客户端还是服务端取决于[网络执行策略(Net Execution Policy)](#concepts-ga-net) 而不是 Simulated Proxy. `网络执行策略(Net Execution Policy)` 决定某个 `GameplayAbility` 是否是客户端可[预测](#concepts-p)的, 其对于[可选的Cost和`Cooldown GameplayEffect`](#concepts-ga-commit) 包含有默认行为. `GameplayAbility` 使用 [AbilityTask](#concepts-at) 用于随时间推移而发生的行为, 例如等待某个事件, 等待某个 Attribute 改变, 等待玩家选择一个目标或者使用 `Root Motion Source` 移动某个 `Character`. **Simulated Client 不会运行 `GameplayAbility`,** 而是当服务端执行 `Ability` 时, 任何需要在 Simulated Proxy 上展现的视觉效果(像动画蒙太奇)将会被同步(Replicate)或者通过 `AbilityTask` 进行 RPC 或者对于像声音和粒子这样的装饰效果使用 [GameplayCue](#concepts-gc).   
+`GameplayAbility` 运行在所属(Owning)客户端还是服务端取决于[网络执行策略(Net Execution Policy)](#concepts-ga-net) 而不是 Simulated Proxy. `网络执行策略(Net Execution Policy)` 决定某个 `GameplayAbility` 是否是客户端可[预测](#concepts-p)的, 其对于[可选的Cost和`Cooldown GameplayEffect`](#concepts-ga-commit) 包含有默认行为. `GameplayAbility` 使用 [AbilityTask](#concepts-at) 用于随时间推移而发生的行为, 例如等待某个事件, 等待某个 Attribute 改变, 等待玩家选择一个目标或者使用 `Root Motion Source` 移动某个 `Character`. **Simulated Client 不会运行 `GameplayAbility`,** 而是当服务端执行 `Ability` 时, 任何需要在 Simulated Proxy 上展现的视觉效果(像动画蒙太奇)将会被复制(Replicate)或者通过 `AbilityTask` 进行 RPC 或者对于像声音和粒子这样的装饰效果使用 [GameplayCue](#concepts-gc).   
 
 所有的 `GameplayAbility` 都会有它们各自由你的游戏逻辑重写的 `ActivateAbility()` 函数, 附加的逻辑可以 添加到 `EndAbility()`, 其会在 `GameplayAbility` 完成或取消时执行.  
 
@@ -1742,7 +1744,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 <a name="concepts-ga-definition-reppolicy"></a>
 ##### 4.6.1.1 Replication Policy
 
-不要使用该选项. 这个名字会误导你并且你并不需要它. [GameplayAbilitySpec](#concepts-ga-spec)默认会从服务端向所属(Owning)客户端同步, 上文提到过, **`GameplayAbility`不会运行在Simulated Proxy上,** 其使用`AbilityTask`和`GameplayCue`来同步或者RPC视觉变化到Simulated Proxy. Epic的Dave Ratti已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
+不要使用该选项. 这个名字会误导你并且你并不需要它. [GameplayAbilitySpec](#concepts-ga-spec)默认会从服务端向所属(Owning)客户端复制, 上文提到过, **`GameplayAbility`不会运行在Simulated Proxy上,** 其使用`AbilityTask`和`GameplayCue`来复制或者RPC视觉变化到Simulated Proxy. Epic的Dave Ratti已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
 <a name="concepts-ga-definition-remotecancel"></a>
 ##### 4.6.1.2 Server Respects Remote Ability Cancellation
 
@@ -1751,7 +1753,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 <a name="concepts-ga-definition-repinputdirectly"></a>
 ##### 4.6.1.3 Replicate Input Directly
 
-设置该选项就会一直向服务端同步输入的按下(Press)和抬起(Release)事件. Epic不建议使用该选项而是依靠创建在已有输入相关的[AbilityTask](#concepts-at)中的`Generic Replicated Event`(如果你的[输入绑定在ASC](#concepts-ga-input)).  
+设置该选项就会一直向服务端复制输入的按下(Press)和抬起(Release)事件. Epic不建议使用该选项而是依靠创建在已有输入相关的[AbilityTask](#concepts-at)中的`Generic Replicated Event`(如果你的[输入绑定在ASC](#concepts-ga-input)).  
 
 Epic的注释:  
 
@@ -1804,7 +1806,7 @@ enum class EGDAbilityInputID : uint8
 AbilitySystemComponent->BindAbilityActivationToInputComponent(PlayerInputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"), FString("CancelTarget"), FString("EGDAbilityInputID"), static_cast<int32>(EGDAbilityInputID::Confirm), static_cast<int32>(EGDAbilityInputID::Cancel)));
 ```
 
-如果你的`ASC`位于`PlayerState`, `SetupPlayerInputComponent()`中有一个潜在的竞争情况就是`PlayerState`还没有同步到客户端, 因此, 我建议尝试在`SetupPlayerInputComponent()`和`OnRep_PlayerState()`中绑定输入, 只有`OnRep_PlayerState()`自身是不充分的, 因为可能有种情况是当`PlayerState`在`PlayerController`告知客户端调用用于创建`InputComponent`的`ClientRestart()`前同步时, Actor的`InputComponent`可能为NULL. 样例项目演示了尝试使用一个布尔值控制流程从而在两个位置绑定, 这样实际上只绑定了一次.  
+如果你的`ASC`位于`PlayerState`, `SetupPlayerInputComponent()`中有一个潜在的竞争情况就是`PlayerState`还没有复制到客户端, 因此, 我建议尝试在`SetupPlayerInputComponent()`和`OnRep_PlayerState()`中绑定输入, 只有`OnRep_PlayerState()`自身是不充分的, 因为可能有种情况是当`PlayerState`在`PlayerController`告知客户端调用用于创建`InputComponent`的`ClientRestart()`前复制时, Actor的`InputComponent`可能为NULL. 样例项目演示了尝试使用一个布尔值控制流程从而在两个位置绑定, 这样实际上只绑定了一次.  
 
 > [!NOTE]
 > 样例项目枚举中的`Confirm`和`Cancel`没有匹配项目设置中的输入事件名称(`ConfirmTarget`和`CancelTarget`), 但是我们在`BindAbilityActivationToInputComponent()`中提供了它们之间的映射, 这是特殊的, 因为我们提供了映射并且它们无需匹配, 但是它们是可以匹配的. 枚举中的其他输入都必须匹配项目设置中的输入事件名称.  
@@ -1879,7 +1881,7 @@ Granting
 - **`GiveAbility`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。
 - **`GiveAbilityAndActivateOnce`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。技能必须实例化，并且必须能够在服务器上运行。尝试在服务器上运行技能后，将返回 `FGameplayAbilitySpecHandle`。如果技能没有满足所需条件，或者无法执行，返回值将无效，并且技能系统组件将不会被授予该技能。
 
-我们在服务端授予`GameplayAbility`, 之后其会自动同步[GameplayAbilitySpec](#concepts-ga-spec)到所属(Owning)客户端, 其他客户端/Simulated proxy不会接受到`GameplayAbilitySpec`.  
+我们在服务端授予`GameplayAbility`, 之后其会自动复制[GameplayAbilitySpec](#concepts-ga-spec)到所属(Owning)客户端, 其他客户端/Simulated proxy不会接受到`GameplayAbilitySpec`.  
 
 样例项目在游戏开始时将`TArray<TSubclassOf<UGDGameplayAbility>>`保存在它读取和授予的`Character`类中.  
 
@@ -2084,7 +2086,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 <a name="concepts-ga-tags"></a>
 #### 4.6.9 Ability标签
 
-`GameplayAbility`自带有内建逻辑的`GameplayTagContainer`. 这些`GameplayTag`都不进行同步.  
+`GameplayAbility`自带有内建逻辑的`GameplayTagContainer`. 这些`GameplayTag`都不进行复制.  
 
 |GameplayTagContainer|描述|
 |:-:|:-:|
@@ -2116,7 +2118,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 `GameplayAbilitySpec`会在`GameplayAbility`授予后存在于`ASC`中并定义可激活`GameplayAbility` - `GameplayAbility`类, 等级, 输入绑定和必须与`GameplayAbility`类分开保存的运行时状态.  
 
-当`GameplayAbility`在服务端授予时, 服务端会同步`GameplayAbilitySpec`到所属(Owning)客户端, 因此可以激活它.  
+当`GameplayAbility`在服务端授予时, 服务端会复制`GameplayAbilitySpec`到所属(Owning)客户端, 因此可以激活它.  
 
 激活`GameplayAbilitySpec`会根据它的`实例化策略(Instancing Policy)`创建一个`GameplayAbility`实例(`Non-Instanced GameplayAbility`除外).  
 
@@ -2126,10 +2128,10 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 |方法|描述|
 |:-:|:-:|
-|通过Event激活`GameplayAbility`|使用含有数据负载(Payload)的Event激活`GameplayAbility`. 对于客户端预测的`GameplayAbility`, Event的负载(Payload)是由客户端同步到服务端的. 对于那些不适合任意现有变量的数据可以使用两个`Optional Object`或[TargetData](#concepts-targeting-data)变量. 该方法的缺点是不能使用输入绑定激活Ability. 为了通过Event激活`GameplayAbility`, 该`GameplayAbility`必须设置其Trigger, 分配一个`GameplayTag`并选择一个`GameplayEvent`选项. 想要发送事件, 就得使用`UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(AActor* Actor, FGameplayTag EventTag, FGameplayEventData Payload)`函数.|
-|使用`WaitGameplayEvent AbilityTask`|在`GameplayAbility`激活后, 使用`WaitGameplayEvent AbilityTask`来告知其监听带有负载(Payload)的事件. Event负载(Payload)及其发送过程与通过Event激活`GameplayAbility`是一样的. 该方法的缺点是Event不能通过`AbilityTask`同步且只能用于`Local Only`和`Server Only`的`GameplayAbility`. 你可以编写自己的`AbilityTask`以支持同步Event负载(Payload).|
+|通过Event激活`GameplayAbility`|使用含有数据负载(Payload)的Event激活`GameplayAbility`. 对于客户端预测的`GameplayAbility`, Event的负载(Payload)是由客户端复制到服务端的. 对于那些不适合任意现有变量的数据可以使用两个`Optional Object`或[TargetData](#concepts-targeting-data)变量. 该方法的缺点是不能使用输入绑定激活Ability. 为了通过Event激活`GameplayAbility`, 该`GameplayAbility`必须设置其Trigger, 分配一个`GameplayTag`并选择一个`GameplayEvent`选项. 想要发送事件, 就得使用`UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(AActor* Actor, FGameplayTag EventTag, FGameplayEventData Payload)`函数.|
+|使用`WaitGameplayEvent AbilityTask`|在`GameplayAbility`激活后, 使用`WaitGameplayEvent AbilityTask`来告知其监听带有负载(Payload)的事件. Event负载(Payload)及其发送过程与通过Event激活`GameplayAbility`是一样的. 该方法的缺点是Event不能通过`AbilityTask`复制且只能用于`Local Only`和`Server Only`的`GameplayAbility`. 你可以编写自己的`AbilityTask`以支持复制Event负载(Payload).|
 |使用`TargetData`|自定义`TargetData`结构体是一种在客户端和服务端之间传递任意数据的好方法.|
-|保存数据在`OwnerActor`或者`AvatarActor`|使用保存于`OwnerActor`, `AvatarActor`或者其他任意你可以获取到引用的对象中的可同步变量. 这种方法最灵活且可以用于由输入绑定激活的`GameplayAbility`, 然而, 它不能保证在使用时数据同步, 你必须提前做好准备 - 这意味着如果你设置了一个可同步的变量, 之后立即激活该`GameplayAbility`, 那么因为存在潜在的丢包情况, 不能保证接收者上发生的顺序.|
+|保存数据在`OwnerActor`或者`AvatarActor`|使用保存于`OwnerActor`, `AvatarActor`或者其他任意你可以获取到引用的对象中的可复制变量. 这种方法最灵活且可以用于由输入绑定激活的`GameplayAbility`, 然而, 它不能保证在使用时数据复制, 你必须提前做好准备 - 这意味着如果你设置了一个可复制的变量, 之后立即激活该`GameplayAbility`, 那么因为存在潜在的丢包情况, 不能保证接收者上发生的顺序.|
 
 
 
@@ -2154,7 +2156,7 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |升级方法|描述|
 |:-:|:-:|
 |升级时取消授予和重新授予|自`ASC`取消授予(移除)`GameplayAbility`, 并在下一等级于服务端上重新授予. 如果此时`GameplayAbility`是激活的, 那么就会终止它.|
-|增加`GameplayAbilitySpec`的等级|在服务端上找到`GameplayAbilitySpec`, 增加它的等级, 并将其标记为Dirty以同步到所属(Owning)客户端. 该方法不会在`GameplayAbility`激活时将其终止.|
+|增加`GameplayAbilitySpec`的等级|在服务端上找到`GameplayAbilitySpec`, 增加它的等级, 并将其标记为Dirty以复制到所属(Owning)客户端. 该方法不会在`GameplayAbility`激活时将其终止.|
 
 两种方法的主要区别在于你是否想要在升级时取消激活的`GameplayAbility`. 基于你的`GameplayAbility`, 你很可能需要同时使用两种方法. 我建议在`UGameplayAbility`子类中增加一个布尔值以明确使用哪种方法.  
 
@@ -2278,7 +2280,7 @@ GAS自带很多`AbilityTask`:
 
 **Note:** `AbilityTask`只能声明一种类型的输出委托, 所有的输出委托都必须是该种类型, 不管它们是否使用参数. 对于未使用的委托参数会传递默认值.  
 
-`AbilityTask`只能运行在那些运行所属`GameplayAbility`的客户端或服务端, 然而, 可以通过设置`bSimulatedTask = true`使`AbilityTask`运行在Simulated Client上, 在`AbilityTask`的构造函数中, 重写`virtual void InitSimulatedTask(UGameplayTasksComponent& InGameplayTasksComponent);`并将所有成员变量设置为同步的, 这只在极少的情况下有用, 比如在移动`AbilityTask`中, 不想同步每次移动变化, 但是又需要模拟整个移动`AbilityTask`, 所有的`RootMotionSource AbilityTask`都是这样做的, 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
+`AbilityTask`只能运行在那些运行所属`GameplayAbility`的客户端或服务端, 然而, 可以通过设置`bSimulatedTask = true`使`AbilityTask`运行在Simulated Client上, 在`AbilityTask`的构造函数中, 重写`virtual void InitSimulatedTask(UGameplayTasksComponent& InGameplayTasksComponent);`并将所有成员变量设置为复制的, 这只在极少的情况下有用, 比如在移动`AbilityTask`中, 不想复制每次移动变化, 但是又需要模拟整个移动`AbilityTask`, 所有的`RootMotionSource AbilityTask`都是这样做的, 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
 
 如果你在`AbilityTask`的构造函数中设置了`bTickingTask = true;`并重写了`virtual void TickTask(float DeltaTime);`, `AbilityTask`就可以使用`Tick`, 这在你需要根据帧率平滑线性插值的时候很有用. 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
 <a name="concepts-at-using"></a>
@@ -2329,7 +2331,7 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 
 #### 4.8.1 GameplayCue定义
 `Gameplay Cues` 是负责运行视觉和声音效果的 Actor 和 UObject，执行非游戏逻辑相关的功能, 像音效, 粒子效果, 镜头抖动等等。
-`GameplayCue` 一般是可同步 (除非在客户端明确 `执行(Executed)`, `添加(Added)` 和 `移除(Removed)`)和可预测的。是在多人游戏中复制美化 (Cosmetic)反馈的首选方法。
+`GameplayCue` 一般是可复制 (除非在客户端明确 `执行(Executed)`, `添加(Added)` 和 `移除(Removed)`)和可预测的。是在多人游戏中复制美化 (Cosmetic)反馈的首选方法。
 
 **`GamePlay Ability` 和 `GamePlay Effect` 可以触发 Cue**。它们通过四个可在本地或蓝图代码中覆盖的主函数来产生作用：On Active、While Active、Removed 及 Executed（仅由 GamePlay Effect 使用）。
 
@@ -2343,7 +2345,7 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
  
 或者，你也可以触发没有 Gameplay Effects 关联的 Cue 。有关此实现的例子，你可以查看 Lyra 示例游戏的武器发射反馈。
 
-`Gameplay Cues` **不使用可靠的复制**，因此有可能一些客户端没有接收到提示或显示其反馈。如果你将 Gameplay 代码绑定到这些 Cue，这可能造成不同步。因此，`Gameplay Cues` 应该仅用于美化反馈。对于需要复制到所有客户端的 Gameplay 相关反馈，你应该转而依赖 Ability Tasks 来处理复制。**播放蒙太奇（Play Montage）** 技能任务就是很好的例子。 
+`Gameplay Cues` **不使用可靠的复制**，因此有可能一些客户端没有接收到提示或显示其反馈。如果你将 Gameplay 代码绑定到这些 Cue，这可能造成不复制。因此，`Gameplay Cues` 应该仅用于美化反馈。对于需要复制到所有客户端的 Gameplay 相关反馈，你应该转而依赖 Ability Tasks 来处理复制。**播放蒙太奇（Play Montage）** 技能任务就是很好的例子。 
 
 ---
 
@@ -2358,9 +2360,9 @@ GAS自带的`AbilityTask`可以使用挂载在`CharacterMovementComponent`中的
 
 **Note:** 当使用`GameplayCueNotify_Actor`时, 要勾选`Auto Destroy on Remove`, 否则之后对`GameplayCueTag`的`添加(Add)`调用将无法进行.  
 
-当使用除`Full`之外的`ASC`[同步模式](#concepts-asc-rm)时, `Add`和`Remove`GC事件会在服务端玩家中触发两次(Listen Server) - 一次是应用`GE`, 再一次是从"Minimal"`NetMultiCast`到客户端. 然而, `WhileActive`事件仍会触发一次. 所有的事件在客户端中只触发一次.  
+当使用除`Full`之外的`ASC`[复制模式](#concepts-asc-rm)时, `Add`和`Remove`GC事件会在服务端玩家中触发两次(Listen Server) - 一次是应用`GE`, 再一次是从"Minimal"`NetMultiCast`到客户端. 然而, `WhileActive`事件仍会触发一次. 所有的事件在客户端中只触发一次.  
 
-样例项目包含了一个`GameplayCueNotify_Actor`用于眩晕和奔跑效果. 其还含有一个`GameplayCueNotify_Static`用于枪支弹药伤害. 这些`GC`可以通过[客户端触发](#concepts-gc-local)来进行优化, 而不是通过`GE`同步. 我选择了在样例项目中展示使用它们的基本方法.  
+样例项目包含了一个`GameplayCueNotify_Actor`用于眩晕和奔跑效果. 其还含有一个`GameplayCueNotify_Static`用于枪支弹药伤害. 这些`GC`可以通过[客户端触发](#concepts-gc-local)来进行优化, 而不是通过`GE`复制. 我选择了在样例项目中展示使用它们的基本方法.  
 <a name="concepts-gc-trigger"></a>
 #### 4.8.2 触发GameplayCue
 
@@ -2397,7 +2399,7 @@ void RemoveAllGameplayCues();
 <a name="concepts-gc-local"></a>
 #### 4.8.3 客户端GameplayCue
 
-从`GameplayAbility`和`ASC`中暴露的用于触发`GameplayCue`的函数默认是可同步的. 每个`GameplayCue`事件都是一个多播(Multicast)RPC. 这会导致大量RPC. GAS也强制在每次网络更新中最多能有两个相同的`GameplayCue`RPC. 我们可以通过使用客户端`GameplayCue`来避免这个问题. 客户端`GameplayCue`只能在单独的客户端上`Execute`, `Add`或`Remove`.  
+从`GameplayAbility`和`ASC`中暴露的用于触发`GameplayCue`的函数默认是可复制的. 每个`GameplayCue`事件都是一个多播(Multicast)RPC. 这会导致大量RPC. GAS也强制在每次网络更新中最多能有两个相同的`GameplayCue`RPC. 我们可以通过使用客户端`GameplayCue`来避免这个问题. 客户端`GameplayCue`只能在单独的客户端上`Execute`, `Add`或`Remove`.  
 
 可以使用客户端`GameplayCue`的场景:  
 
@@ -2436,7 +2438,7 @@ void UPAAbilitySystemComponent::RemoveGameplayCueLocal(const FGameplayTag Gamepl
 }
 ```
 
-如果某个`GameplayCue`是客户端添加的, 那么它也应该自客户端移除. 如果它是通过同步添加的, 那么它也应该通过同步移除.  
+如果某个`GameplayCue`是客户端添加的, 那么它也应该自客户端移除. 如果它是通过复制添加的, 那么它也应该通过复制移除.  
 
 
 #### 4.8.4 GameplayCue参数
@@ -2524,7 +2526,7 @@ virtual bool ShouldAsyncLoadRuntimeObjectLibraries() const override
 <a name="concepts-gc-batching-gcsonge"></a>
 ##### 4.8.7.2 GameplayEffect中的多个GameplayCue
 
-一个`GameplayEffect`中的所有`GameplayCue`已经由一个RPC发送了. 默认情况下, `UGameplayCueManager::InvokeGameplayCueAddedAndWhileActive_FromSpec()`会在不可靠的多播(NetMulticast)RPC中发送整个`GameplayEffectSpec`(除了转换为`FGameplayEffectSpecForRPC`)而不管`ASC`的同步模式, 取决于`GameplayEffectSpec`的内容, 这可能会使用大量带宽, 我们可以通过设置`AbilitySystem.AlwaysConvertGESpecToGCParams 1`来将其优化, 这会将`GameplayEffectSpec`转换为`FGameplayCueParameter`结构体并且RPC它而不是整个`FGameplayEffectSpecForRPC`, 这会节省带宽但是只有较少的信息, 取决于`GESpec`如何转换为`GameplayCueParameters`和你的`GameplayCue`需要知道什么.  
+一个`GameplayEffect`中的所有`GameplayCue`已经由一个RPC发送了. 默认情况下, `UGameplayCueManager::InvokeGameplayCueAddedAndWhileActive_FromSpec()`会在不可靠的多播(NetMulticast)RPC中发送整个`GameplayEffectSpec`(除了转换为`FGameplayEffectSpecForRPC`)而不管`ASC`的复制模式, 取决于`GameplayEffectSpec`的内容, 这可能会使用大量带宽, 我们可以通过设置`AbilitySystem.AlwaysConvertGESpecToGCParams 1`来将其优化, 这会将`GameplayEffectSpec`转换为`FGameplayCueParameter`结构体并且RPC它而不是整个`FGameplayEffectSpecForRPC`, 这会节省带宽但是只有较少的信息, 取决于`GESpec`如何转换为`GameplayCueParameters`和你的`GameplayCue`需要知道什么.  
 
 
 
@@ -2584,7 +2586,7 @@ Epic的理念是只能预测"不受伤害(get away with)"的事情. 例如, Para
 
 尽管我们可以预测`GameplayEffect`的应用, 但是不能预测`GameplayEffect`的移除. 绕过这条限制的一个方法是当想要移除`GameplayEffect`时, 可以预测性地执行相反的效果, 假设我们要降低40%移动速度, 可以通过应用增加40%移动速度的buff来预测性地将其移除, 之后同时移除这两个`GameplayEffect`. 这并不是对每个场景都适用, 因此仍然需要对预测性地移除`GameplayEffect`的支持. 来自Epic的Dave Ratti已经表达过在[GAS的迭代版本中](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)增加它的期望.  
 
-因为我们不能预测`GameplayEffect`的移除, 所以就不能完全预测`GameplayAbility`的冷却时间, 并且也没有相反的`GameplayEffect`这种变通方案可供使用. 服务端同步的`Cooldown GE`将会存于客户端上, 并且任何对其绕过的尝试(例如使用`Minimal`同步模式)都会被服务端拒绝. 这意味着高延迟的客户端会花费较长事件来告知服务端开始冷却和接收到服务端`Cooldown GE`的移除. 这意味着高延迟的玩家会比低延迟的玩家有更低的触发率, 从而劣势于低延迟玩家. Fortnite通过使用自定义Bookkeeping而不是`Cooldown GE`的方法避免了该问题.  
+因为我们不能预测`GameplayEffect`的移除, 所以就不能完全预测`GameplayAbility`的冷却时间, 并且也没有相反的`GameplayEffect`这种变通方案可供使用. 服务端复制的`Cooldown GE`将会存于客户端上, 并且任何对其绕过的尝试(例如使用`Minimal`复制模式)都会被服务端拒绝. 这意味着高延迟的客户端会花费较长事件来告知服务端开始冷却和接收到服务端`Cooldown GE`的移除. 这意味着高延迟的玩家会比低延迟的玩家有更低的触发率, 从而劣势于低延迟玩家. Fortnite通过使用自定义Bookkeeping而不是`Cooldown GE`的方法避免了该问题.  
 
 关于预测伤害值, 我个人不建议使用, 尽管它是大多数刚接触GAS的人最先做的事情之一, 我特别不建议尝试预测死亡, 虽然你可以预测伤害值, 但是这样做很棘手. 如果你错误预测地应用了伤害, 那么玩家将会看到敌人的生命值会跳动, 如果你尝试预测死亡, 那么这将会是特别尴尬和令人沮丧的, 假设你错误预测了某个`Character`的死亡, 那么它就会开启布娃娃模拟, 只有当服务端纠正后才会停止布娃娃模拟并继续向你射击.
 
@@ -2594,10 +2596,10 @@ GAS的预测实现尝试解决的问题:
 
 > 1. "我能这样做吗?"(Can I do this?) 预测的基本协议.
 > 2. "撤销"(Undo) 当预测错误时如何消除其副作用.
-> 3. "重现"(Redo) 如何避免已经在客户端预测但还是从服务端同步的重播副作用.
+> 3. "重现"(Redo) 如何避免已经在客户端预测但还是从服务端复制的重播副作用.
 > 4. "完整"(Completeness) 如何确认我们真的预测了所有副作用.
 > 5. "依赖"(Dependencies) 如何管理依赖预测和预测事件链.
-> 6. "重写"(Override) 如何预测地重写由服务端同步/拥有的状态.
+> 6. "重写"(Override) 如何预测地重写由服务端复制/拥有的状态.
 
 源自`GameplayPrediction.h`  
 
@@ -2614,23 +2616,23 @@ GAS的预测建立在`Prediction Key`的概念上, 其是一个由客户端激�
 * 客户端的`Prediction Key`出域. 之后该`GameplayAbility`中的预测效果(Effect)需要一个新的[Scoped Prediction Window](#concepts-p-windows).
 * 服务端从客户端接收`Prediction Key`.
 * 服务端将`Prediction Key`添加到其应用的所有`GameplayEffect`.
-* 服务端同步该`Prediction Key`回客户端.
-* 客户端使用`Prediction Key`从服务端接收同步的`GameplayEffect`, 该`Prediction Key`用于应用`GameplayEffect`. 如果任何同步的`GameplayEffect`与客户端使用相同`Prediction Key`应用的`GameplayEffect`相匹配, 那么其就是正确预测的. 目标上暂时会有`GameplayEffect`的两份拷贝直到客户端移除它预测的那一个.
-* 客户端从服务端上接收回`Prediction Key`, 这是同步的`Prediction Key`, 该`Prediction Key`现在被标记为陈旧(Stale).
-* 客户端移除所有由同步的陈旧(Stale)`Prediction Key`创建的`GameplayEffect`. 由服务端同步的`GameplayEffect`会持续存在. 任何客户端添加的和没有从服务端接收到一个匹配的同步版本的都被视为错误预测.
+* 服务端复制该`Prediction Key`回客户端.
+* 客户端使用`Prediction Key`从服务端接收复制的`GameplayEffect`, 该`Prediction Key`用于应用`GameplayEffect`. 如果任何复制的`GameplayEffect`与客户端使用相同`Prediction Key`应用的`GameplayEffect`相匹配, 那么其就是正确预测的. 目标上暂时会有`GameplayEffect`的两份拷贝直到客户端移除它预测的那一个.
+* 客户端从服务端上接收回`Prediction Key`, 这是复制的`Prediction Key`, 该`Prediction Key`现在被标记为陈旧(Stale).
+* 客户端移除所有由复制的陈旧(Stale)`Prediction Key`创建的`GameplayEffect`. 由服务端复制的`GameplayEffect`会持续存在. 任何客户端添加的和没有从服务端接收到一个匹配的复制版本的都被视为错误预测.
 
-在源于`Activation Prediction Key`激活的`GameplayAbility`中的一个`instruction "window"`原子(Atomic)组期间, `Prediction Key`是保证有效的, 你可以理解为`Prediction Key`只在一帧期间是有效的. 任何潜在行为`AbilityTask`的回调函数将不再拥有一个有效的`Prediction Key`, 除非该`AbilityTask`有内建的可以生成新[Scoped Prediction Window](#concepts-p-windows)的同步点(Sync Point).  
+在源于`Activation Prediction Key`激活的`GameplayAbility`中的一个`instruction "window"`原子(Atomic)组期间, `Prediction Key`是保证有效的, 你可以理解为`Prediction Key`只在一帧期间是有效的. 任何潜在行为`AbilityTask`的回调函数将不再拥有一个有效的`Prediction Key`, 除非该`AbilityTask`有内建的可以生成新[Scoped Prediction Window](#concepts-p-windows)的复制点(Sync Point).  
 
 
 
 <a name="concepts-p-windows"></a>
 #### 4.10.2 在Ability中创建新的预测窗口(Prediction Window)
 
-为了在`AbilityTask`的回调函数中预测更多的行为, 我们需要使用新的`Scoped Prediction Key`创建`Scoped Prediction Window`, 有时这被视为客户端和服务端间的同步点(Sync Point). 一些`AbilityTask`, 像所有输入相关的`AbilityTask`, 带有创建新`Scoped Prediction Window`的内建功能, 意味着`AbilityTask`回调函数中的原子(Atomic)代码有一个有效的`Scoped Prediction Key`可供使用. 像`WaitDelay`的其他Task没有创建新`Scoped Prediction Window`以用于回调函数的内建代码, 如果你需要在`WaitDelay`这样的`AbilityTask`后预测行为, 就必须使用`OnlyServerWait`选项的`WaitNetSync AbilityTask`手动来做, 当客户端触发`OnlyServerWait`选项的`WaitNetSync`时, 它会生成一个新的基于`GameplayAbility`的`Activation Prediction Key`的`Scoped Prediction Key`, RPC其到服务端, 并将其添加到所有新应用的`GameplayEffect`. 当服务端触发`OnlyServerWait`选项的`WaitNetSync`时, 它会在继续前等待直到接收到客户端新的`Scoped Prediction Key`, 该`Scoped Prediction Key`会执行和`Activation Prediction Key`同样的操作 —— 应用到`GameplayEffect`并同步回客户端标记为陈旧(Stale). `Scoped Prediction Key`直到出域前都有效, 也就表示`Scoped Prediction Window`已经关闭了. 所以只有原子(Atomic)操作, nothing latent, 可以使用新的`Scoped Prediction Key`.  
+为了在`AbilityTask`的回调函数中预测更多的行为, 我们需要使用新的`Scoped Prediction Key`创建`Scoped Prediction Window`, 有时这被视为客户端和服务端间的复制点(Sync Point). 一些`AbilityTask`, 像所有输入相关的`AbilityTask`, 带有创建新`Scoped Prediction Window`的内建功能, 意味着`AbilityTask`回调函数中的原子(Atomic)代码有一个有效的`Scoped Prediction Key`可供使用. 像`WaitDelay`的其他Task没有创建新`Scoped Prediction Window`以用于回调函数的内建代码, 如果你需要在`WaitDelay`这样的`AbilityTask`后预测行为, 就必须使用`OnlyServerWait`选项的`WaitNetSync AbilityTask`手动来做, 当客户端触发`OnlyServerWait`选项的`WaitNetSync`时, 它会生成一个新的基于`GameplayAbility`的`Activation Prediction Key`的`Scoped Prediction Key`, RPC其到服务端, 并将其添加到所有新应用的`GameplayEffect`. 当服务端触发`OnlyServerWait`选项的`WaitNetSync`时, 它会在继续前等待直到接收到客户端新的`Scoped Prediction Key`, 该`Scoped Prediction Key`会执行和`Activation Prediction Key`同样的操作 —— 应用到`GameplayEffect`并复制回客户端标记为陈旧(Stale). `Scoped Prediction Key`直到出域前都有效, 也就表示`Scoped Prediction Window`已经关闭了. 所以只有原子(Atomic)操作, nothing latent, 可以使用新的`Scoped Prediction Key`.  
 
 你可以根据需求创建任意数量的`Scoped Prediction Window`.  
 
-如果你想添加同步点(Sync Point)功能到自己的自定义`AbilityTask`, 请查看那些输入`AbilityTask`是如何从根本上注入`WaitNetSync AbilityTask`代码到自身的.  
+如果你想添加复制点(Sync Point)功能到自己的自定义`AbilityTask`, 请查看那些输入`AbilityTask`是如何从根本上注入`WaitNetSync AbilityTask`代码到自身的.  
 
 **Note:** 当使用`WaitNetSync`时, 会阻塞服务端`GameplayAbility`继续执行直到其接收到客户端的消息. 这可能会被破解游戏的恶意用户滥用以故意延迟发送新的`Scoped Prediction Key`, 尽管Epic很少使用`WaitNetSync`, 但如果你对此担忧的话, 其建议创建一个带有延迟的新`AbilityTask`, 它会自动继续运行而无需等待客户端消息.  
 
@@ -2643,9 +2645,9 @@ GAS的预测建立在`Prediction Key`的概念上, 其是一个由客户端激�
 <a name="concepts-p-spawn"></a>
 #### 4.10.3 预测性地生成Actor
 
-在客户端预测性地生成Actor是一项高级技术. GAS对此没有提供开箱即用的功能(`SpawnActor AbilityTask`只在服务端生成Actor). 其关键是在客户端和服务端都生成同步的Actor.  
+在客户端预测性地生成Actor是一项高级技术. GAS对此没有提供开箱即用的功能(`SpawnActor AbilityTask`只在服务端生成Actor). 其关键是在客户端和服务端都生成复制的Actor.  
 
-如果Actor只是用于场景装饰或者不服务于任何游戏逻辑, 简单的解决方案就是重写Actor的`IsNetRelevantFor()`函数以限制服务端同步到所属(Owning)客户端, 所属(Owning)客户端会拥有其本地生成的版本, 而服务端和其他客户端会拥有服务端同步的版本.  
+如果Actor只是用于场景装饰或者不服务于任何游戏逻辑, 简单的解决方案就是重写Actor的`IsNetRelevantFor()`函数以限制服务端复制到所属(Owning)客户端, 所属(Owning)客户端会拥有其本地生成的版本, 而服务端和其他客户端会拥有服务端复制的版本.  
 
 ```c++
 bool APAReplicatedActorExceptOwner::IsNetRelevantFor(const AActor * RealViewer, const AActor * ViewTarget, const FVector & SrcLocation) const
@@ -2654,7 +2656,7 @@ bool APAReplicatedActorExceptOwner::IsNetRelevantFor(const AActor * RealViewer, 
 }
 ```
 
-如果生成的Actor影响了游戏逻辑, 像投掷物就需要预测伤害值, 那么你需要本文档范围之外的高级知识, 在Epic Games的Github上查看UnrealTournament是如何生成投掷物的, 它有一个只在所属(Owning)客户端生成且与服务端同步的投掷物.  
+如果生成的Actor影响了游戏逻辑, 像投掷物就需要预测伤害值, 那么你需要本文档范围之外的高级知识, 在Epic Games的Github上查看UnrealTournament是如何生成投掷物的, 它有一个只在所属(Owning)客户端生成且与服务端复制的投掷物.  
 
 
 
@@ -2697,7 +2699,7 @@ Epic最近发起了一项倡议, 将使用新的网络预测插件替换`Charact
 
 `TargetActor`是基于`AActor`的, 因此它可以使用任意种类的可视组件来表示其在何处和如何定位的, 例如静态网格物(Static Mesh)和贴花(Decal). 静态网格物(Static Mesh)可以用来可视化角色将要建造的物体, 贴花(Decal)可以用来表现地面上的效果区域. 样例项目使用带有地面贴花的[AGameplayAbilityTargetActor_GroundTrace](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/AGameplayAbilityTargetActor_Grou-/index.html)表示陨石技能的伤害区域效果. 它也可以什么都不显示, 例如, GASShooter中的枪支命中判断, 要对目标的射线检测显示些什么就是没有意义的.  
 
-其使用基本的射线或者Overlap捕获定位信息, 并根据`TargetActor`的实现将`FHitResult`或`AActor`数组转换为`TargetData`. `WaitTargetData AbilityTask`通过`TEnumAsByte<EGameplayTargetingConfirmation::Type> ConfirmationType`参数决定目标何时被确认, 当不使用`TEnumAsByte<EGameplayTargetingConfirmation::Type::Instant`时, `TargetActor`一般就在`Tick()`中执行射线/Overlap, 并根据它的实现来更新位置信息到`FHitResult`. 尽管是在`Tick()`中执行的射线/Overlap, 但是一般不用担心, 因为它是不同步的并且一般没有多个(尽管存在多个)`TargetActor`同时运行, 只是要留意它使用的是`Tick()`, 一些复杂的`TargetActor`可能会在其中做很多事情, 就像GASShooter中火箭筒的二技能. 当`Tick()`中的检测对客户端响应非常频繁时, 如果性能影响很大的话, 你可能就要考虑降低`TargetActor`的Tick频率. 对于`TEnumAsByte<EGameplayTargetingConfirmation::Type::Instant`, `TargetActor`会立即生成, 产生`TargetData`, 然后销毁, 并且从不会调用`Tick()`.  
+其使用基本的射线或者Overlap捕获定位信息, 并根据`TargetActor`的实现将`FHitResult`或`AActor`数组转换为`TargetData`. `WaitTargetData AbilityTask`通过`TEnumAsByte<EGameplayTargetingConfirmation::Type> ConfirmationType`参数决定目标何时被确认, 当不使用`TEnumAsByte<EGameplayTargetingConfirmation::Type::Instant`时, `TargetActor`一般就在`Tick()`中执行射线/Overlap, 并根据它的实现来更新位置信息到`FHitResult`. 尽管是在`Tick()`中执行的射线/Overlap, 但是一般不用担心, 因为它是不复制的并且一般没有多个(尽管存在多个)`TargetActor`同时运行, 只是要留意它使用的是`Tick()`, 一些复杂的`TargetActor`可能会在其中做很多事情, 就像GASShooter中火箭筒的二技能. 当`Tick()`中的检测对客户端响应非常频繁时, 如果性能影响很大的话, 你可能就要考虑降低`TargetActor`的Tick频率. 对于`TEnumAsByte<EGameplayTargetingConfirmation::Type::Instant`, `TargetActor`会立即生成, 产生`TargetData`, 然后销毁, 并且从不会调用`Tick()`.  
 
 |EGameplayTargetingConfirmation::Type|何时确认Target|
 |:-:|:-:|
@@ -2710,7 +2712,7 @@ Epic最近发起了一项倡议, 将使用新的网络预测插件替换`Charact
 
 `WaitTargetData AbilityTask`将一个`AGameplayAbilityTargetActor`类作为参数, 其会在每次`AbilityTask`激活时生成一个实例并且在`AbilityTask`结束时销毁该`TargetActor`. `WaitTargetDataUsingActor AbilityTask`接受一个已经生成的`TargetActor`, 但是在该`AbilityTask`结束时仍会销毁它. 这两种`AbilityTask`都是低效的, 因为它们在每次使用时都要生成或需要一个新生成的`TargetActor`, 它们用于原型开发是很好的, 但是在实际发布版本中, 如果有持续产生`TargetData`的场景, 像全自动开火, 你可能就要探索优化它的办法. GASShooter有一个自定义的[AGameplayAbilityTargetActor](https://github.com/tranek/GASShooter/blob/master/Source/GASShooter/Public/Characters/Abilities/GSGATA_Trace.h)子类和一个完全重写的[WaitTargetDataWithReusableActor AbilityTask](https://github.com/tranek/GASShooter/blob/master/Source/GASShooter/Public/Characters/Abilities/AbilityTasks/GSAT_WaitTargetDataUsingActor.h), 其允许你复用`TargetActor`而无需将其销毁.  
 
-`TargetActor`默认是不可同步的. 然而, 如果在你的游戏中向其他玩家展示本地玩家正在定位的目标是有意义的, 那么它也可以被设计成可同步的, `WaitTargetData AbilityTask`也确实包含其通过RPC和服务端通信的默认功能. 如果`TargetActor`的`ShouldProduceTargetDataOnServer`属性设置为false, 那么客户端就会在确认时通过`UAbilityTask_WaitTargetData::OnTargetDataReadyCallback()`中的`CallServerSetReplicatedTargetData()`RPC它的`TargetData`到服务端. 如果`ShouldProduceTargetDataOnServer`为true, 那么客户端就会发送一个通用确认事件, `EAbilityGenericReplicatedEvent::GenericConfirm`, 在`UAbilityTask_WaitTargetData::OnTargetDataReadyCallback()`中RPC到服务端, 服务端在接收到RPC时就会执行射线或者Overlap检测以生成数据. 如果客户端取消该定位, 它会发送一个通用取消事件, `EAbilityGenericReplicatedEvent::GenericCancel`, 在`UAbilityTask_WaitTargetData::OnTargetDataCancelledCallback`中RPC到服务端. 你可以看到, 在`TargetActor`和`WaitTargetData AbilityTask`中存在大量委托, `TargetActor`响应输入来产生广播`TargetData`的准备, 确认或者取消委托, `WaitTargetData`监听`TargetActor`的`TargetData`的准备, 确认和取消委托, 并将该信息转发回`GameplayAbility`和服务端. 如果是向服务端发送`TargetData`, 为了防止作弊, 可能需要在服务端做校验以保证该`TargetData`是合理的. 直接在服务端上产生`TargetData`可以完全避免这个问题, 但是可能会导致所属(Owning)客户端的错误预测.  
+`TargetActor`默认是不可复制的. 然而, 如果在你的游戏中向其他玩家展示本地玩家正在定位的目标是有意义的, 那么它也可以被设计成可复制的, `WaitTargetData AbilityTask`也确实包含其通过RPC和服务端通信的默认功能. 如果`TargetActor`的`ShouldProduceTargetDataOnServer`属性设置为false, 那么客户端就会在确认时通过`UAbilityTask_WaitTargetData::OnTargetDataReadyCallback()`中的`CallServerSetReplicatedTargetData()`RPC它的`TargetData`到服务端. 如果`ShouldProduceTargetDataOnServer`为true, 那么客户端就会发送一个通用确认事件, `EAbilityGenericReplicatedEvent::GenericConfirm`, 在`UAbilityTask_WaitTargetData::OnTargetDataReadyCallback()`中RPC到服务端, 服务端在接收到RPC时就会执行射线或者Overlap检测以生成数据. 如果客户端取消该定位, 它会发送一个通用取消事件, `EAbilityGenericReplicatedEvent::GenericCancel`, 在`UAbilityTask_WaitTargetData::OnTargetDataCancelledCallback`中RPC到服务端. 你可以看到, 在`TargetActor`和`WaitTargetData AbilityTask`中存在大量委托, `TargetActor`响应输入来产生广播`TargetData`的准备, 确认或者取消委托, `WaitTargetData`监听`TargetActor`的`TargetData`的准备, 确认和取消委托, 并将该信息转发回`GameplayAbility`和服务端. 如果是向服务端发送`TargetData`, 为了防止作弊, 可能需要在服务端做校验以保证该`TargetData`是合理的. 直接在服务端上产生`TargetData`可以完全避免这个问题, 但是可能会导致所属(Owning)客户端的错误预测.  
 
 根据使用的不同`AGameplayAbilityTargetActor`子类, `WaitTargetData AbilityTask`节点会暴露不同的`ExposeOnSpawn`参数, 一些常用的参数包括:  
 
@@ -2787,7 +2789,7 @@ void SetReticleMaterialParamVector(FName ParamName, FVector value);
 
 `Reticle`可以选择使用`TargetActor`提供的[FWorldReticleParameters](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/FWorldReticleParameters/index.html)来配置, 默认结构体只提供一个变量`FVector AOEScale`, 尽管你可以在技术上继承该结构体, 但是`TargetActor`只接受基类结构体, 不允许在默认`TargetActor`中子类化该结构体似乎有些短见, 然而, 如果你创建了自己的自定义`TargetActor`, 就可以提供自定义的`Reticle`参数结构体并在生成`Reticle`时手动传递它到`AGameplayAbilityWorldReticles`子类.  
 
-`Reticle`默认是不可同步的, 但是如果在你的游戏中向其他玩家展示本地玩家正在定位的目标是有意义的, 那么它也可以被设计成可同步的.  
+`Reticle`默认是不可复制的, 但是如果在你的游戏中向其他玩家展示本地玩家正在定位的目标是有意义的, 那么它也可以被设计成可复制的.  
 
 `Reticle`只会显示在默认`TargetActor`的当前有效Target上, 例如, 如果你正在使用`AGameplayAbilityTargetActor_SingleLineTrace`对目标执行射线检测, 敌人只有直接处于射线路径上时`Reticle`才会显示, 如果角色视线看向别处, 那么该敌人就不再是一个有效Target, 因此该`Reticle`就会消失. 如果你想`Reticle`保留在最后一个有效Target上, 就需要自定义`TargetActor`来记住最后一个有效Target并使`Reticle`保留在其上. 我称之为持久化Target, 因为其会持续存在直到`TargetActor`接收到确认或取消消息, `TargetActor`会在它的射线/Overlap中找到一个新的有效Target, 或者Target不再有效(已销毁). GASShooter对火箭筒二技能的制导火箭定位使用了持久化Target.  
 
@@ -2862,12 +2864,12 @@ if (SpecAssetTags.HasTag(FGameplayTag::RequestGameplayTag(FName("Effect.Damage.C
 <a name="cae-random"></a>
 ### 5.5 在客户端和服务端中生成随机数
 
-有时你需要在`GameplayAbility`中生成随机数用于枪支后坐力或者子弹扩散, 客户端和服务端都需要生成相同的随机数, 要做到这一点, 我们必须在`GameplayAbility`激活时设置相同的`随机数种子`, 你需要在每次激活`GameplayAbility`时设置`随机数种子`, 以防客户端错误预测激活或者它的随机数列表与服务端的不同步.  
+有时你需要在`GameplayAbility`中生成随机数用于枪支后坐力或者子弹扩散, 客户端和服务端都需要生成相同的随机数, 要做到这一点, 我们必须在`GameplayAbility`激活时设置相同的`随机数种子`, 你需要在每次激活`GameplayAbility`时设置`随机数种子`, 以防客户端错误预测激活或者它的随机数列表与服务端的不复制.  
 
 |随机种子设置方法|描述|
 |:-:|:-:|
-|使用`Activation Prediction Key`|`GameplayAbility`的`Activation Prediction Key`是一个确保同步并且在客户端和服务端的`Activation()`中都可用的int16类型值. 你可以在客户端和服务端中设置其作为`随机数种子`. 该方法的缺点是每次游戏开始时`Prediction Key`总是从0开始并且会在生成key之后持续增加, 这意味着每场游戏都有着及其相同的随机数序列, 这可能满足或不满足你的随机数需要.|
-|激活`GameplayAbility`时通过事件负载(Event Payload)发送种子|通过事件激活`GameplayAbility`并通过可同步的事件负载(Event Payload)从客户端发送随机生成的种子到服务端, 这允许更高的随机性, 但是客户端也容易被破解而每次只发送相同的种子. 通过事件激活`GameplayAbility`也会阻止其从用户绑定激活.|
+|使用`Activation Prediction Key`|`GameplayAbility`的`Activation Prediction Key`是一个确保复制并且在客户端和服务端的`Activation()`中都可用的int16类型值. 你可以在客户端和服务端中设置其作为`随机数种子`. 该方法的缺点是每次游戏开始时`Prediction Key`总是从0开始并且会在生成key之后持续增加, 这意味着每场游戏都有着及其相同的随机数序列, 这可能满足或不满足你的随机数需要.|
+|激活`GameplayAbility`时通过事件负载(Event Payload)发送种子|通过事件激活`GameplayAbility`并通过可复制的事件负载(Event Payload)从客户端发送随机生成的种子到服务端, 这允许更高的随机性, 但是客户端也容易被破解而每次只发送相同的种子. 通过事件激活`GameplayAbility`也会阻止其从用户绑定激活.|
 
 如果你的随机偏差很小, 大多数玩家是不会注意到每次游戏的随机序列都是相同的, 那么使用`Activation Prediction Key`作为随机种子就应该适用于你. 如果你正在做一些更复杂的事, 需要防范破解者, 那么使用`Server Initiated GameplayAbility`会更好, 服务端可以创建`Prediction Key`或者生成随机数种子来通过事件负载(Event Payload)发送.  
 
@@ -2876,7 +2878,7 @@ if (SpecAssetTags.HasTag(FGameplayTag::RequestGameplayTag(FName("Effect.Damage.C
 <a name="cae-crit"></a>
 ### 5.6 暴击(Critical Hits)
 
-我在伤害[ExecutionCalculation](#concepts-ge-ec)中处理暴击. `GameplayEffect`会有一个像`Effect.CanCrit`样的`GameplayTag`, `ExecutionCalculation`会检查`GameplayEffectSpec`是否有`Effect.CanCrit  GameplayTag`, 如果该`GameplayTag`存在, `ExecutionCalculation`就会生成一个与暴击率相关联的随机数(从Source捕获的`Attribute`), 如果成功的话就会增加暴击伤害(另一个从Source捕获的`Attribute`). 因为我没有预测伤害, 所以不必担心在客户端和服务端上同步随机数生成器的问题(`ExecutionCalculation`只运行在服务端上). 如果你尝试使用`MMC`预测性地执行伤害计算, 就必须从`GameplayEffectSpec->GameplayEffectContext->GameplayAbilityInstance`中获取随机数种子的引用.  
+我在伤害[ExecutionCalculation](#concepts-ge-ec)中处理暴击. `GameplayEffect`会有一个像`Effect.CanCrit`样的`GameplayTag`, `ExecutionCalculation`会检查`GameplayEffectSpec`是否有`Effect.CanCrit  GameplayTag`, 如果该`GameplayTag`存在, `ExecutionCalculation`就会生成一个与暴击率相关联的随机数(从Source捕获的`Attribute`), 如果成功的话就会增加暴击伤害(另一个从Source捕获的`Attribute`). 因为我没有预测伤害, 所以不必担心在客户端和服务端上复制随机数生成器的问题(`ExecutionCalculation`只运行在服务端上). 如果你尝试使用`MMC`预测性地执行伤害计算, 就必须从`GameplayEffectSpec->GameplayEffectContext->GameplayAbilityInstance`中获取随机数种子的引用.  
 
 查看GASShooter是如何处理爆头问题的, 其概念是一样的, 除了不再依赖随机数作为概率而是检测`FHitResult`骨骼名.  
 
@@ -3019,16 +3021,16 @@ log list
 
 
 <a name="optimizations-ascreplicationmode"></a>
-## 7.3 AbilitySystemComponent同步模式(Replication Mode)
+## 7.3 AbilitySystemComponent复制模式(Replication Mode)
 
-默认情况下, [ASC](#concepts-asc)处于[Full Replication](#concepts-asc-rm)模式, 这会同步所有的[GameplayEffect](#concepts-ge)到每个客户端(对单人游戏来说很好). 在多人游戏中, 设置玩家拥有的`ASC`为`Mixed Replication`模式, AI控制的Character为`Minimal Replication`模式, 这会将应用到玩家Character上的`GE`仅同步到该Character的拥有者, 应用到AI控制的Character上的`GE`永远不会同步到客户端. 无论是什么同步模式, [GameplayTag](#concepts-gt)仍会进行同步, [GameplayCue](#concepts-gc)仍会以不可靠的网络多播(NetMulticast)到所有客户端. 当所有客户端都不需要查看这些数据时, 这会减少从`GE`同步的网络数据.  
+默认情况下, [ASC](#concepts-asc)处于[Full Replication](#concepts-asc-rm)模式, 这会复制所有的[GameplayEffect](#concepts-ge)到每个客户端(对单人游戏来说很好). 在多人游戏中, 设置玩家拥有的`ASC`为`Mixed Replication`模式, AI控制的Character为`Minimal Replication`模式, 这会将应用到玩家Character上的`GE`仅复制到该Character的拥有者, 应用到AI控制的Character上的`GE`永远不会复制到客户端. 无论是什么复制模式, [GameplayTag](#concepts-gt)仍会进行复制, [GameplayCue](#concepts-gc)仍会以不可靠的网络多播(NetMulticast)到所有客户端. 当所有客户端都不需要查看这些数据时, 这会减少从`GE`复制的网络数据.  
 
 
 
 <a name="optimizations-attributeproxyreplication"></a>
-## 7.4 Attribute代理同步
+## 7.4 Attribute代理复制
 
-在有很多玩家的大型游戏中, 像Fortnite大逃杀(Fortnite Battle Royale), 有大量存在于常相关`PlayerState`上的[ASC](#concepts-asc), 其会同步大量[Attribute](#concepts-a). 为了优化该瓶颈, Fortnite禁止在`PlayerState::ReplicateSubobjects()`中完全同步`ASC`和它的[AttributeSet](#concepts-as)到模拟玩家控制的代理(Simulated Player-Controlled Proxy)上. Autonomou代理和AI控制的`Pawn`仍然根据其[同步模式](#concepts-asc-rm)来完全同步. Fortnite使用了玩家Pawn上的可同步代理结构体, 而不是同步常相关`PlayerState`上的`ASC`的`Attribute`. 当服务端ASC上的`Attribute`改变时, 其也会在代理结构体中改变, 客户端会从代理结构体接收同步的`Attribute`并将修改返回其本地`ASC`, 这允许`Attribute`同步使用`Pawn`的相关性(Relevancy)和`NetUpdateFrequency`, 该代理结构体也会使用位掩码(Bitmask)同步一个小的`GameplayTag`白名单集合. 该优化减少了网络数据量, 并允许我们利用Pawn相关性(Relevancy). AI控制的`Pawn`的`ASC`位于已经使用其相关性的`Pawn`上, 因此其并不需要该优化.  
+在有很多玩家的大型游戏中, 像Fortnite大逃杀(Fortnite Battle Royale), 有大量存在于常相关`PlayerState`上的[ASC](#concepts-asc), 其会复制大量[Attribute](#concepts-a). 为了优化该瓶颈, Fortnite禁止在`PlayerState::ReplicateSubobjects()`中完全复制`ASC`和它的[AttributeSet](#concepts-as)到模拟玩家控制的代理(Simulated Player-Controlled Proxy)上. Autonomou代理和AI控制的`Pawn`仍然根据其[复制模式](#concepts-asc-rm)来完全复制. Fortnite使用了玩家Pawn上的可复制代理结构体, 而不是复制常相关`PlayerState`上的`ASC`的`Attribute`. 当服务端ASC上的`Attribute`改变时, 其也会在代理结构体中改变, 客户端会从代理结构体接收复制的`Attribute`并将修改返回其本地`ASC`, 这允许`Attribute`复制使用`Pawn`的相关性(Relevancy)和`NetUpdateFrequency`, 该代理结构体也会使用位掩码(Bitmask)复制一个小的`GameplayTag`白名单集合. 该优化减少了网络数据量, 并允许我们利用Pawn相关性(Relevancy). AI控制的`Pawn`的`ASC`位于已经使用其相关性的`Pawn`上, 因此其并不需要该优化.  
 
 > I’m not sure if it is still necessary with other server side optimizations that have been done since then (Replication Graph, etc) and it is not the most maintainable pattern.
 
@@ -3089,9 +3091,9 @@ Fortnite大逃杀(Fortnite Battle Royale)世界中有很多可损坏的`AActor`(
 
 
 <a name="troubleshooting-replicatinganimmontages"></a>
-## 9.3 动画蒙太奇不能同步到客户端
+## 9.3 动画蒙太奇不能复制到客户端
 
-确保在[GameplayAbility](#concepts-ga)中正在使用的是`PlayMontageAndWait`节点而不是`PlayMontage`, 该[AbilityTask](#concepts-at)可以通过`ASC`自动同步蒙太奇而`PlayMontage`节点不可以.  
+确保在[GameplayAbility](#concepts-ga)中正在使用的是`PlayMontageAndWait`节点而不是`PlayMontage`, 该[AbilityTask](#concepts-at)可以通过`ASC`自动复制蒙太奇而`PlayMontage`节点不可以.  
 
 
 

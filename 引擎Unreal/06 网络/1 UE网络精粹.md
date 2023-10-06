@@ -1060,7 +1060,7 @@ bool ATestPlayerCharacter::SomeRPCFunction_Validate(int32 AddHealth)
 
 所有权是非常重要的一点。你已经看到了一个包含 "Client-owned Actor "等条目的表格 [[#从服务器调用的 RPC]]。
 
-服务器或客户端可以 own（拥有） 一个Actor。
+**服务器或客户端可以 own（拥有） 一个Actor。**
 
 例如，本地 player（客户端或监听服务器）拥有 PlayerController。
 另一个例子是场景中生成/放置的门。这主要由服务器所有。
