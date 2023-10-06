@@ -162,8 +162,9 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 |`Minimal`|多人, AIController控制的Actor|`GameplayEffect`不复制；`GameplayTag`和`GameplayCue`复制到所有客户端.|
 >2023.10.6 根据 GAS 视频教程修正描述
 
--  `Mixed` 复制模式需要 `OwnerActor` 的 `Owner` 是 `Controller`。**`PlayerState` 的 `Owner` 默认是 `Controller` 但是 `Character` 不是。**
-- 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 复制模式, 那么需要需要**使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner。**
+-  `Mixed` 模式要求 `OwnerActor` 的 `Owner` 必须是 `Controller`。
+- **`Pawn` 在 `PossessedBy()` 中自动设置，`PlayerState` 的 `Owner` 默认是 `Controller` ，但是 `Character` 不是。**
+- 如果 `OwnerActor` 不是 `PlayerState` 时使用 `Mixed` 模式, 那么需要**使用 `PossessedBy()` 设置新的 `Controller` 为 `Pawn` 的 Owner。**
 >  `PossessedBy()` ：当该 Pawn 被 possess 时调用。仅在服务器（或单机）上调用。
 
 ### 设置和初始化
@@ -223,6 +224,7 @@ void AGDHeroCharacter::PossessedBy(AController * NewController)
 {
 	Super::PossessedBy(NewController);
 
+    //注意这个变量不能命名成PlayerState，会冲突
 	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
 	if (PS)
 	{
@@ -231,7 +233,7 @@ void AGDHeroCharacter::PossessedBy(AController * NewController)
 
 		// AI 没有 PlayerController，因此我们可以在这里再次 init 以确保万无一失。
 		// 对于拥有 PlayerController 的 Character，init两次也无妨。
-		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+        AbilitySystemComponent->InitAbilityActorInfo(PS, this);
 	}
 	
 	//...
@@ -260,7 +262,19 @@ void AGDHeroCharacter::OnRep_PlayerState()
 
 如果你遇到了错误消息 `LogAbilitySystem: Warning: Can't activate LocalOnly or LocalPredicted Ability %s when not local!`， 那么就表明 `ASC` 没有在客户端中初始化.  
 
-3. 对于 AIController 控制的 Character ，只需要在 `BeginPlay()` 中初始化
+3. 对于 AIController 控制的 Character ，只需要在 `BeginPlay()` 中初始化 `
+```c++
+void AGDEnemy::BeginPlay()
+{
+	Super::BeginPlay();
+
+	// 初始化ASC
+	if(AbilitySystemComponent)
+	{
+		AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	}
+}
+```
 ## 2 Gameplay Tags
 Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能都拥有一组标记，以可影响其行为的方式识别和分类技能，还有玩法标记容器和游戏标记查询，用于支持与其他技能进行交互。
 
