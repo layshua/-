@@ -86589,6 +86589,7 @@ PackageName
 PackageId
 PathToObjectId
 PackageBuildDependencyTracker
+PlayState
 ContextMenuManager
 ClashVerge
 Clash

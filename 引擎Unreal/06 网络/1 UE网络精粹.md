@@ -1201,6 +1201,7 @@ NetPriority = 1.f;
 ## 复制模式
 
 服务器不会在每次更新时都复制 Actor。这会消耗太多的带宽和 CPU 资源。实际上，服务器将按照 `AActor:: NetUpdateFrequency（网络更新频率）` 属性指定的频率复制 Actor。
+![[Pasted image 20231006204332.png]]
 
 因此在 Actor 更新的间歇，会有一些时间数据被传递到客户端。这可能会导致 Actor 的动作看起来不连贯。**为了弥补这一点，客户端将在更新的间歇模拟 Actor。**
 

@@ -126,10 +126,14 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 -  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**, 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**.
 -  `OwnerActor` 和 `AvatarActor` 可以是同一个 `Actor`, 比如 MOBA 游戏中的一个简单 AI 小兵; 
 - 它们也可以是不同的 `Actor`, 比如 MOBA 游戏中玩家控制的英雄, 其中 `OwnerActor` 是 `PlayerState`, `AvatarActor` 是英雄的 `Character` 类。
-- 绝大多数 Actor 的 `ASC` 都附加在其自身, 如果你的 Actor 会重生并且重生时需要持久化 `Attribute` 或 `GameplayEffect` (比如 MOBA 中的英雄), 那么 `ASC` 理想的位置就是 `PlayerState`.  
+- **绝大多数 Actor 的 `ASC` 都附加在其自身, 如果你的 Actor 会重生并且重生时需要持久化 `Attribute` 或 `GameplayEffect` (比如 MOBA 中的英雄), 那么 `ASC` 理想的位置就是 `PlayerState`.**  
+![[Pasted image 20231006202320.png]]
+![[Pasted image 20231006202726.png]]
+>Pawn 被销毁时，身上的 ASC 和属性集也会被销毁。重生后 ASC 和属性集也是新创建的，为默认值。如果使用 PlayState 则可以保存数据！
+>比如怪物不需要持久化数据，我们可以直接在怪物自身的 Actor 上使用 ASC。而玩家角色需要持久化数据，我们就要使用 PlayState。
 
 > [!NOTE]
->如果`ASC`位于PlayerState, 那么你需要提高PlayerState的`NetUpdateFrequency`, 其默认是一个很低的值, 因此在客户端上发生`Attribute`和`GameplayTag`改变时会造成延迟或卡顿. 确保启用[Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite就启用了该项.  
+>如果 `ASC` 位于 PlayerState, 那么你需要提高 PlayerState 的 `NetUpdateFrequency`, 其默认是一个很低的值（在PlayerState构造函数中设为 100.0f 即可）, 因此在客户端上发生 `Attribute` 和 `GameplayTag` 改变时会造成延迟或卡顿. 确保启用 [Adaptive Network Update Frequency](https://docs.unrealengine.com/en-US/Gameplay/Networking/Actors/Properties/index.html#adaptivenetworkupdatefrequency), Fortnite 就启用了该项.  
 
 `OwnerActor` 需要继承并实现 `IAbilitySystemInterface`（如果 AvatarActor 和 OwnerActor 是不同的 Actor, 那么 AvatarActor 也应该继承并实现 `IAbilitySystemInterface`）。
 - 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向 `ASC` 的指针, `ASC` 通过寻找该接口函数来和系统内部进行交互.  
@@ -1703,7 +1707,7 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 `GameplayEffectContainer`还包含一个可选的用于[定位(Target)](#concepts-targeting-containers)的高效方法.
 
 ## 6 Gameplay Abilities
-#### 4.6.1 GameplayAbility定义
+#### 6.1 GameplayAbility定义
 
 `GameplayAbility` 是一个蓝图对象，**负责执行技能的所有事件**，包括播放动画，触发效果，从所有者获取属性，以及显示视觉效果。
 
@@ -2243,7 +2247,7 @@ GASShooter暴露了一个蓝图节点以允许上文提到的仅客户端调用�
 
 #### 4.7.1 AbilityTask定义
 
-`GameplayAbility`只能在一帧中执行, 这本身并不能提供太多灵活性, 为了实现随时间推移而触发或响应一段时间后触发的委托操作, 我们需要使用`AbilityTask`.  
+**`GameplayAbility`只能在一帧中执行, 这本身并不能提供太多灵活性, 为了实现随时间推移而触发或响应一段时间后触发的委托操作, 我们需要使用`AbilityTask`.**  
 
 GAS自带很多`AbilityTask`:  
 
@@ -2256,9 +2260,6 @@ GAS自带很多`AbilityTask`:
 
 `UAbilityTask`的构造函数中强制硬编码允许最多1000个同时运行的`AbilityTask`, 当设计那些同时拥有数百个Character的游戏(像RTS)的`GameplayAbility`时要注意这一点.  
 
-
-
-<a name="concepts-at-definition"></a>
 #### 4.7.2 自定义AbilityTask
 
 通常你需要创建自己的自定义`AbilityTask`(C++中). 样例项目带有两个自定义`AbilityTask`:  
@@ -2280,9 +2281,6 @@ GAS自带很多`AbilityTask`:
 `AbilityTask`只能运行在那些运行所属`GameplayAbility`的客户端或服务端, 然而, 可以通过设置`bSimulatedTask = true`使`AbilityTask`运行在Simulated Client上, 在`AbilityTask`的构造函数中, 重写`virtual void InitSimulatedTask(UGameplayTasksComponent& InGameplayTasksComponent);`并将所有成员变量设置为同步的, 这只在极少的情况下有用, 比如在移动`AbilityTask`中, 不想同步每次移动变化, 但是又需要模拟整个移动`AbilityTask`, 所有的`RootMotionSource AbilityTask`都是这样做的, 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
 
 如果你在`AbilityTask`的构造函数中设置了`bTickingTask = true;`并重写了`virtual void TickTask(float DeltaTime);`, `AbilityTask`就可以使用`Tick`, 这在你需要根据帧率平滑线性插值的时候很有用. 查看`AbilityTask_MoveToLocation.h/.cpp`以作为参考范例.  
-
-
-
 <a name="concepts-at-using"></a>
 #### 4.7.3 使用AbilityTask
 
