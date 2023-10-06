@@ -109,7 +109,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 # 三、开启 GAS
 
 使用GAS建立一个项目的基本步骤:  
-1. 在编辑器中启用GameplayAbilitySystem插件.
+1. 在编辑器中启用 GameplayAbilitySystem 插件.。
 2. 编辑`YourProjectName.Build.cs`, 添加`"GameplayAbilities"`, `"GameplayTags"`, `"GameplayTasks"`到你的`PrivateDependencyModuleNames`.
 3. 刷新/重新生成Visual Studio项目文件.
 4. 从4.24开始, 需要强制调用`UAbilitySystemGlobals::InitGlobalData()`来使用[`TargetData`](#concepts-targeting-data), 样例项目在`UEngineSubsystem::Initialize()`中调用该函数. 参阅[`InitGlobalData()`](#concepts-asg-initglobaldata)获取更多信息.

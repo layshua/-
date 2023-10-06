@@ -53,7 +53,7 @@ banner_icon: 🗄
 
 ## 2 GameMode（仅服务器）
 > [!NOTE]
-> 在 4.14 中，AGameMode 类分为 AGameModeBase 和 AGameMode。 GameModeBase 的功能较少，因为某些游戏可能不需要旧 AGameMode 类的完整功能列表。
+> 在 4.14 中，AGameMode 类分为 AGameModeBase 和 AGameMode。 AGameMode 在 AGameModeBase 基础上拓展了对网络的支持。
 > 
 
 AGameMode 类用于定义游戏规则。这包括要生成的其他游戏框架类，例如 APawn、APlayerController、APlayerState 等。
@@ -648,7 +648,9 @@ Widgets**只能在本地使用**。它们**不会复制，也不应包含复制�
  
 ## Listen Server 监听服务器
 
-监听服务器是指同时也是客户端的服务器。（用自己的电脑开服务器，还能同时玩游戏~）
+监听服务器是指同时也是客户端的服务器。（用自己的电脑开服务器，还能同时玩游戏~）。
+
+主机自身是没有延迟的
 
 由于同时也是客户端，Listen-Server 需要 UI，并有一个代表客户端部分的 PlayerController。**在监听服务器上获取 `PlayerController(0)`将返回该客户端的  PlayerController 。**
 
@@ -1202,6 +1204,7 @@ NetPriority = 1.f;
 
 服务器不会在每次更新时都复制 Actor。这会消耗太多的带宽和 CPU 资源。实际上，服务器将按照 `AActor:: NetUpdateFrequency（网络更新频率）` 属性指定的频率复制 Actor。
 ![[Pasted image 20231006204332.png]]
+>100 的意思就是每秒复制到 100 个客户端
 
 因此在 Actor 更新的间歇，会有一些时间数据被传递到客户端。这可能会导致 Actor 的动作看起来不连贯。**为了弥补这一点，客户端将在更新的间歇模拟 Actor。**
 

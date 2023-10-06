@@ -242,7 +242,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 264.5
+    "width": 351.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -294,12 +294,12 @@
   },
   "active": "9fcc43e60cd43bb7",
   "lastOpenFiles": [
-    "zip/images/Pasted image 20231006204332.png",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "zip/images/Pasted image 20231006204332.png",
     "zip/images/Pasted image 20231006204312.png",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "zip/images/Pasted image 20231006202726.png",
     "zip/images/Pasted image 20231006202320.png",
     "zip/images/Pasted image 20231006202101.png",
@@ -313,7 +313,6 @@
     "zip/images/Pasted image 20231006171255.png",
     "zip/images/Pasted image 20231006170817.png",
     "zip/images/Pasted image 20231006170244.png",
-    "zip/images/Pasted image 20231006170208.png",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/04 动画/未命名.md",
     "引擎Unreal/02 UE++/5 指针.md",
