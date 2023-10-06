@@ -37,3 +37,19 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 
 **人物后移不转向（即人物始终跟随镜头转向）：**
 `Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向，区别在于第二个会让转向更加平滑的过度，也可以设置转向的速度，第一个就直接跟鼠标或手柄移动一致转向，如果想让转向更平滑可以设置第二个 bool 值为 true 即可，`Orient Rotaion to Movement` 则在没有 wasd 这种 move 输入的时候不会让人物转向，在人物跑动的时候会有转向效果但是没有往后跑的效果，按 s 键人物正面就会朝着玩家，前两个 bool 值则相反
+
+# 描边
+后处理体积设为全局：
+![[Pasted image 20231006170107.png]]
+
+描边材质需要使用 Custom Stencil
+![[Pasted image 20231006170208.png]]
+
+开启深度/模板缓冲：
+![[Pasted image 20231006170244.png]]
+
+后处理体积设置后处理材质：
+![[Pasted image 20231006170817.png]]
+
+开启 Actor 模型的 CustomDepth Pass
+![[Pasted image 20231006171255.png]]
