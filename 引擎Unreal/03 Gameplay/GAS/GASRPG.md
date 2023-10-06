@@ -6,7 +6,8 @@
 ![[Pasted image 20231006093323.png|400]]
 ![[Pasted image 20231006093239.png]]
 
-
+动画蓝图中计算 Direction 和 Velocity
+![[Pasted image 20231006093631.png]]
 # 角度问题
 ## 坐标系旋转角正负
 
@@ -35,7 +36,4 @@ TODO：模拟逆水寒自在模式
 
 通常我们新建第三人称项目时，默认如上图的设置，这个时候按 s 键人正面是面向镜头的，这在一般的 rpg 或 act 游戏都是如此设置，而在绝地求生这类 STG 里按 s 键是背对镜头的，如何设置人物转向就在上面三个 bool 值决定。
 
-User Controller Rotaion Yaw 与 User Controller Desired Rotation 都将人物与镜头视角绑定，即让人物始终跟随镜头转向，区别在于第二个会让转向更加平滑的过度，也可以设置转向的速度，第一个就直接跟鼠标或手柄移动一致转向，如果想让转向更平滑可以设置第二个 bool 值为 true 即可，Orient Rotaion to Movement 则在没有 wasd 这种 move 输入的时候不会让人物转向，在人物跑动的时候会有转向效果但是没有往后跑的效果，按 s 键人物正面就会朝着玩家，前两个 bool 值则相反
-————————————————
-版权声明：本文为 CSDN 博主「zthtfb」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接： https://blog.csdn.net/u012249992/article/details/83186907
+`Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向，区别在于第二个会让转向更加平滑的过度，也可以设置转向的速度，第一个就直接跟鼠标或手柄移动一致转向，如果想让转向更平滑可以设置第二个 bool 值为 true 即可，`Orient Rotaion to Movement` 则在没有 wasd 这种 move 输入的时候不会让人物转向，在人物跑动的时候会有转向效果但是没有往后跑的效果，按 s 键人物正面就会朝着玩家，前两个 bool 值则相反
