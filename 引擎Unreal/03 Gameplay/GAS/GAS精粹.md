@@ -123,7 +123,9 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 `AbilitySystemComponent(ASC)` 是**GAS 的核心**, 它是一个处理所有与该系统交互的 `UActorComponent` ([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用 [GameplayAbility](#concepts-ga), 包含 [Attribute](#concepts-a), 或者接受 [GameplayEffect](#concepts-ge) 的 Actor 都必须附加 `ASC`**. 这些对象都存于 `ASC` 并由其管理和复制(除了由 [AttributeSet](#concepts-as) 复制的 `Attribute`)，开发者最好但不强求继承该组件.  
 
--  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**, 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**.
+
+-  `ASC` 附加的 `Actor` 被引用作为该 `ASC` 的 **`OwnerActor`**（逻辑上拥有这个 ASC 的 Actor）
+- 该 `ASC` 的物理代表 `Actor` 被称为 **`AvatarActor`**（通常是 Pawn，但也可以是塔楼、建筑、炮塔等）.
 -  `OwnerActor` 和 `AvatarActor` 可以是同一个 `Actor`, 比如 MOBA 游戏中的一个简单 AI 小兵; 
 - 它们也可以是不同的 `Actor`, 比如 MOBA 游戏中玩家控制的英雄, 其中 `OwnerActor` 是 `PlayerState`, `AvatarActor` 是英雄的 `Character` 类。
 - **绝大多数 Actor 的 `ASC` 都附加在其自身, 如果你的 Actor 会重生并且重生时需要持久化 `Attribute` 或 `GameplayEffect` (比如 MOBA 中的英雄), 那么 `ASC` 理想的位置就是 `PlayerState`.**  
@@ -224,10 +226,11 @@ void AGDHeroCharacter::PossessedBy(AController * NewController)
 	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
 	if (PS)
 	{
-		// Set the ASC on the Server. Clients do this in OnRep_PlayerState()
+		// 在服务器上设置 ASC。客户端在 OnRep_PlayerState()中执行此操作
 		AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
-		// AI won't have PlayerControllers so we can init again here just to be sure. No harm in initing twice for heroes that have PlayerControllers.
+		// AI 没有 PlayerController，因此我们可以在这里再次 init 以确保万无一失。
+		// 对于拥有 PlayerController 的 Character，init两次也无妨。
 		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
 	}
 	
@@ -243,10 +246,11 @@ void AGDHeroCharacter::OnRep_PlayerState()
 	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
 	if (PS)
 	{
-		// Set the ASC for clients. Server does this in PossessedBy.
+		//为客户端设置 ASC。服务器在 PossessedBy 中进行设置。
 		AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
-		// Init ASC Actor Info for clients. Server will init its `ASC` when it possesses a new Actor.
+		// 为客户端初始化 ASC Actor Info。
+		// 当服务器 possess 一个新的 Actor 时，它将init自己的 ASC。
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
 	}
 
@@ -405,7 +409,7 @@ GAS 主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中�
 
 ###  01 定义 AttributeSet
 
-`AttributeSet` 用于定义, 保存以及管理对 `Attribute` 的修改. 开发者应该继承 [UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在 OwnerActor 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**. **这必须在 C++中完成.**  
+`AttributeSet` 用于定义, 保存以及管理对 `Attribute` 的修改. 开发者应该继承 [UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在 `OwnerActor` 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**. **这必须在 C++中完成.**  
 
 首先，设置一个带有一个或多个 GamePlay Attribute 的属性集，然后将其注册到你的 Ability System Component 中。
 
