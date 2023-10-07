@@ -224,7 +224,7 @@ void AGDHeroCharacter::PossessedBy(AController * NewController)
 {
 	Super::PossessedBy(NewController);
 
-    //注意这个变量不能命名成PlayerState，会冲突
+    //注意这个变量不能命名成PlayerState，会发生命名冲突
 	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
 	if (PS)
 	{
