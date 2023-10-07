@@ -81,3 +81,11 @@ void AMageEnemy::UnHighlightActor()
 # debug
 调式模式启动，控制台输入：showdebug abilitysystem
 ![[Pasted image 20231007164907.png]]
+
+# UI 架构
+MVC 架构
+![[Pasted image 20231007205904.png]]
+
+![[Pasted image 20231007210219.png]]
+
+WidgetController：从 Model 收集数据并广播到 UserWidget

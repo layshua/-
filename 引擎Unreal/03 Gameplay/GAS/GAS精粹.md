@@ -337,6 +337,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 `Attribute` 是由 [FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html) 结构体定义的**浮点值**, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个 Actor 且游戏相关的, 你就应该考虑使用 `Attribute`。
 
 **`Attribute` 一般应该只能由 `GameplayEffect` 修改, 这样 `ASC` 才能[预测(Predict)](#concepts-p) 其改变.**  [[#与 Gameplay Effects 互动]]
+![[GAS精粹#^nwhtjz]]
 ![[Pasted image 20231007152129.png|600]]
 
 `Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于复制那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
@@ -460,8 +461,6 @@ const UMyAttributeSet* AttributeSet;
     - 第三种方法是指示技能系统组件实例化属性集，然后属性集会自动注册，以下就是一个案例：
 
 ```c++
-// 像这样的代码通常出现在BeginPlay()中，但也可以是
-// 获取相应的技能系统组件。它可能在另一个Actor上，所以使用GetAbilitySystemComponent并检查结果是否有效。
 AbilitySystemComponent* ASC = GetAbilitySystemComponent();
 // 确保AbilitySystemComponent有效。如果失败是不可接受的，用check()语句替换这个if()条件。
 if (IsValid(ASC))
@@ -469,10 +468,24 @@ if (IsValid(ASC))
     // 从我们的技能系统组件中获取UMYAttributeSet。如有需要，技能系统组件将创建并注册一个UMYAttributeSet。
     AttributeSet = ASC->GetSet<UMyAttributeSet>();
 
+    //另一种获取方法
+    AttributeSet = ASC->GetAttributeSet(UMyAttributeSet::StaticClass())
+
     // 我们现在有了一个指向新的UMyAttributeSet的指向器，以后可以使用该指向器。如果它有初始化函数，这里是调用它的好地方。
 }
 ```
   
+> [!NOTE] `GetSet<T> ` 和 `GetAttributeSet(TSubclassOf<UAttributeSet> AttributeSetClass)`
+> >来自 ChatGPT
+> 
+> 这两种获取属性集的方法在功能上是相同的，都是用于获取指定类型的属性集实例。
+>
+`GetSet<T>()`，在编译时会进行类型检查，如果传入的类型不匹配，则编译器报错
+>
+`GetAttributeSet()`函数，在运行时会进行类型检查，确保返回的属性集实例是指定类型的。如果传入的类型不匹配，函数会返回`nullptr`。
+>
+如果你确定属性集的类型是正确的，两种方法都可以使用。如果你不确定属性集的类型或者需要动态判断类型，建议使用第二种方法并进行类型检查。
+
 
 > [!warning] 注意
 >- 一个 Ability System Component 可以有多个属性集，但每个属性集必须与所有其它属性集的**类**不同。
@@ -730,7 +743,23 @@ MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
 如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
 
 ### 05 与 Gameplay Effects 互动
-我们可以直接修改 Attribute ，但**为了实现网络预测，通过与之相关的 `Gameplay Effects` 来修改**。
+
+- ! 我们可以直接修改 Attribute ，方法是使用 `const_cast` 移除 const。但不推荐在 GAS 框架中这样使用 ^nwhtjz
+```c++
+if(IAbilitySystemInterface* ASInterface = Cast<IAbilitySystemInterface>(OtherActor))
+	{
+		
+		if(const UMageAttributeSet* MageAttributeSet = Cast<UMageAttributeSet>(ASInterface->GetAbilitySystemComponent()->GetAttributeSet(UMageAttributeSet::StaticClass())))
+		{
+			//使用const_cast移除 const，进而以一种Hack的方式修改Attribute，危险！
+			UMageAttributeSet* MutableMageAttributeSet = const_cast<UMageAttributeSet*>(MageAttributeSet);
+			MutableMageAttributeSet->SetHealth(MageAttributeSet->GetHealth() + 10.0f);
+			Destroy();
+		}
+	}
+```
+
+**为了实现网络预测，必须通过与之相关的 `Gameplay Effects` 来修改**。
 
 1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
 

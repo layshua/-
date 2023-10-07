@@ -52432,6 +52432,8 @@ ApplyGameplayEffectTo
 ApplyGameplayEffectSpecToSelf
 APACharacterBase
 AttributeBased
+AttributeSetClass
+ASInterface
 URL
 Utools
 Users
@@ -56809,6 +56811,7 @@ UGSWeaponAttributeSet
 UGSAttributeSetBase
 UGameplayEffectExecutionCalculation
 UpdateAllAggregatorModMagnitudes
+UMageAttributeSet
 api
 ac
 app
@@ -71579,6 +71582,8 @@ ModifierMagnitudeCalculations
 MarkItemDirty
 Mods
 MyAcor
+MageAttributeSet
+MutableMageAttributeSet
 Windows
 Win
 World
@@ -199761,6 +199766,7 @@ GameplayEffectUtilities
 GetModifierBiasByModifierOp
 GameplayMessageRouter
 GameFeature
+GetAttributeSet
 NULL
 Native
 NormalMap
