@@ -827,17 +827,17 @@ C++ 复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
 
 C++ 版本需要的更多，但工作原理相同：
 ```c++ file:ATestCharacter.h
-// Create RepNotify Health variable
+// 创建 RepNotify Health 变量
 UPROPERTY(ReplicatedUsing = OnRep_Health)
 float Health;
 
-// Create OnRep function | UFUNCTION() Macro is important! | Doesn't need to be virtual
+// 创建 OnRep 函数 | UFUNCTION() 宏很重要！
 UFUNCTION()
-virtual void OnRep_Health();
+void OnRep_Health(const float& Health);
 ```
 
 ```c++ file:ATestCharacter.cpp
-void ATestCharacter::OnRep_Health()
+void ATestCharacter::OnRep_Health(const float& Health)
 {
     if (Health <= 0.f)
     {
@@ -855,7 +855,20 @@ void ATestCharacter::OnRep_Health()
 > 
 > - **在蓝图中，OnRep 函数将调用客户端和服务器**。
 >     - 这是因为 BP 版本的 OnRep 是 **"属性已更改（Property Changed）" 回调**。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
+### 两种复制方式的区别
+>ChatGPT 生成
 
+在虚幻引擎中，将变量标记为"Replicated"和"ReplicatedUsing"都是用于实现变量在网络中的同步。它们的区别在于同步的方式和实现的灵活性。
+
+1. "`Replicated`":
+    - 当将变量标记为"Replicated"时，引擎会自动处理变量的同步。它会在服务器和客户端之间自动复制变量的值，并确保它们保持同步。
+    - 这种方式适用于简单的同步需求，例如玩家的位置、血量等信息。引擎会自动处理同步细节，无需额外的代码。
+2. "`ReplicatedUsing=FunctionName`":
+    - 当将变量标记为"ReplicatedUsing"时，需要为该变量编写自定义的同步函数。这个函数将负责处理变量的同步逻辑。
+    - 这种方式适用于需要更复杂的同步需求，例如需要在同步时执行特定的逻辑或转换。通过自定义同步函数，可以更灵活地控制变量的同步过程。
+    - 自定义同步函数需要在服务器和客户端上都实现，并使用相同的函数签名。
+
+总结起来，"Replicated"是一种简单的同步方式，由引擎自动处理同步细节；而"ReplicatedUsing"是一种更灵活的同步方式，需要编写自定义的同步函数来控制同步逻辑。选择哪种方式取决于同步需求的复杂性和灵活性。
 # 5 RPC 远程过程调用
 Remote Procedure Calls
 

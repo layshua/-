@@ -718,7 +718,7 @@ UFUNCTION()
 virtual void OnRep_Health(const FGameplayAttributeData& OldHealth);
 ```
 
-`AttributeSet`的.cpp文件应该用预测系统(Prediction System)使用的`GAMEPLAYATTRIBUTE_REPNOTIFY`宏填充OnRep函数:  
+`AttributeSet`的.cpp文件应该用**预测系统(Prediction System)使用的`GAMEPLAYATTRIBUTE_REPNOTIFY`宏**填充OnRep函数:  
 
 ```c++
 void UGDAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth)
