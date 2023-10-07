@@ -731,7 +731,7 @@ MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
 如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
 
 ### 05 与 Gameplay Effects 互动
-我们可以直接修改 Attribute ，但**为了实现网络预测，通过与之相关的 `Gameplay Effects` 来修改**
+我们可以直接修改 Attribute ，但**为了实现网络预测，通过与之相关的 `Gameplay Effects` 来修改**。
 
 1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
 
