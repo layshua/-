@@ -335,7 +335,10 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 ### 定义
 
-`Attribute`是由[FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html)结构体定义的浮点值, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个Actor且游戏相关的, 你就应该考虑使用`Attribute`. **`Attribute`一般应该只能由[GameplayEffect](#concepts-ge)修改, 这样`ASC`才能[预测(Predict)](#concepts-p)其改变.**  
+`Attribute` 是由 [FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html) 结构体定义的**浮点值**, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个 Actor 且游戏相关的, 你就应该考虑使用 `Attribute`。
+
+**`Attribute` 一般应该只能由 `GameplayEffect` 修改, 这样 `ASC` 才能[预测(Predict)](#concepts-p) 其改变.**  
+![[Pasted image 20231007152129.png|600]]
 
 `Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于复制那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
 
@@ -345,14 +348,19 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 ### BaseValue 与 CurrentValue
 
-一个`Attribute`是由两个值 —— 一个`BaseValue`和一个`CurrentValue`组成的, `BaseValue`是`Attribute`的永久值而`CurrentValue`是`BaseValue`加上`GameplayEffect`给的临时修改值后得到的. 例如, 你的Character可能有一个`BaseValue`为600u/s的移动速度`Attribute`, 因为还没有`GameplayEffect`修改移动速度, 所以`CurrentValue`也是600u/s, 如果Character获得了一个临时50u/s的移动速度加成, 那么`BaseValue`仍然是600u/s而`CurrentValue`是600+50=650u/s, 当该移动速度加成消失后, `CurrentValue`就会变回`BaseValue`的600u/s.  
->新版本会添加了对最大值的追踪？
+一个 `Attribute` 是由两个值 —— 一个 `BaseValue` 和一个 `CurrentValue` 组成的。
+-  `BaseValue` 是 `Attribute` 的永久值
+-  `CurrentValue` 是 `BaseValue` 加上 `GameplayEffect` 给的临时修改值后得到的。 
+例如, 你的 Character 可能有一个 `BaseValue` 为600u/s 的移动速度 `Attribute`, 因为还没有 `GameplayEffect` 修改移动速度, 所以 `CurrentValue` 也是600u/s, 如果 Character 获得了一个临时50u/s 的移动速度加成, 那么 `BaseValue` 仍然是600u/s 而 `CurrentValue` 是600+50=650u/s, 当该移动速度加成消失后, `CurrentValue` 就会变回 `BaseValue` 的600u/s。 
 
+不能将 `BaseValue` 作为 `Attribute` 的最大值使用！**可以修改或引用的 Ability/UI 中的 `Attribute` 最大值应该是另外单独的一个 `Attribute`。**
+![[Pasted image 20231007152931.png]]
 
-初识GAS的新手经常将`BaseValue`误认为`Attribute`的最大值并以这样的认识去编程, 这是错误的, 可以修改或引用的Ability/UI中的`Attribute`最大值应该是另外单独的`Attribute`. 对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的`FAttributeMetaData`定义一个DataTable, 但是Epic在该结构体上的注释称之为"work in progress", 详见`AttributeSet.h`. 为了避免这种疑惑, **我建议引用在Ability或UI中的最大值应该单独定义`Attribute`, 只用于限制(Clamp)`Attribute`大小的硬编码最大值和最小值应该在`AttributeSet`中定义为硬编码浮点值. 关于限制(Clamp)`Attribute`值的问题在[PreAttributeChange()](#concepts-as-preattributechange)中讨论了CurrentValue的修改, 在[PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute)中讨论了`GameplayEffect`对`BaseValue`的修改.**  
+对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable, 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值. 关于限制(Clamp) `Attribute` 值的问题在 [PreAttributeChange()](#concepts-as-preattributechange) 中讨论了 CurrentValue 的修改, 在 [PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute) 中讨论了 `GameplayEffect` 对 `BaseValue` 的修改。**
 
-瞬间 (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`, 而 持续(Duration) 和 无限(Infinite)`GameplayEffect` 可以修改 `CurrentValue`. 
-周期性(Periodic) `GameplayEffect` 被视为即刻(Instant)`GameplayEffect ` 并且可以修改 ` BaseValue `.  
+- 即刻 (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`
+- 周期性 (Periodic) `GameplayEffect` 被视为即刻 (Instant) `GameplayEffect` 并且可以修改 ` BaseValue `。
+- 持续(Duration) 和无限(Infinite) `GameplayEffect` 可以修改 `CurrentValue`. 
 
 ### Meta Attribute
 
@@ -428,7 +436,7 @@ GAS 主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中�
 首先，设置一个带有一个或多个 GamePlay Attribute 的属性集，然后将其注册到你的 Ability System Component 中。
 
 1. 扩展基本属性集类 `UAttributeSet`，并将游戏玩法属性添加为 `UProperties() FGameplayAttributeData `，以下是一个简单的单个游戏玩法属性的属性集：
-    ```c++
+```c++
     UCLASS()
     class MYPROJECT_API UMyAttributeSet : public UAttributeSet
     {
@@ -442,29 +450,29 @@ GAS 主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中�
     ```
 
 2. **将属性集存储在 Actor 上**，并将使其对虚幻引擎开放。使用 **`const` 关键字** 来确保代码不能直接修改属性集，将其添加到你的 Actor 的类定义中：
-    ```c++
-    /** Sample Attribute Set. */
-    UPROPERTY()
-    const UMyAttributeSet* AttributeSet;
+```c++
+/** Sample Attribute Set. */
+UPROPERTY()
+const UMyAttributeSet* AttributeSet;
     ```
 
 3. 把属性集注册到相应的 Ability System Component 中。这会在实例化属性集时**自动进行**，你可以在 Actor 的构造函数中进行，也可以在 `BeginPlay` 时进行，但前提是 Actor 的 `GetAbilitySystemComponent` 函数在实例化时返回一个有效的技能系统组件（**即在 OwnerActor 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**）。
     - 你也可以编辑 Actor 的蓝图，并将属性集类添加到技能系统组件的默认起始数据中。
     - 第三种方法是指示技能系统组件实例化属性集，然后属性集会自动注册，以下就是一个案例：
 
-    ```c++
-    // 像这样的代码通常出现在BeginPlay()中，但也可以是
-    // 获取相应的技能系统组件。它可能在另一个Actor上，所以使用GetAbilitySystemComponent并检查结果是否有效。
-    AbilitySystemComponent* ASC = GetAbilitySystemComponent();
-    // 确保AbilitySystemComponent有效。如果失败是不可接受的，用check()语句替换这个if()条件。
-    if (IsValid(ASC))
-    {
-        // 从我们的技能系统组件中获取UMYAttributeSet。如有需要，技能系统组件将创建并注册一个UMYAttributeSet。
-        AttributeSet = ASC->GetSet<UMyAttributeSet>();
-    
-        // 我们现在有了一个指向新的UMyAttributeSet的指向器，以后可以使用该指向器。如果它有初始化函数，这里是调用它的好地方。
-    }
-    ```
+```c++
+// 像这样的代码通常出现在BeginPlay()中，但也可以是
+// 获取相应的技能系统组件。它可能在另一个Actor上，所以使用GetAbilitySystemComponent并检查结果是否有效。
+AbilitySystemComponent* ASC = GetAbilitySystemComponent();
+// 确保AbilitySystemComponent有效。如果失败是不可接受的，用check()语句替换这个if()条件。
+if (IsValid(ASC))
+{
+    // 从我们的技能系统组件中获取UMYAttributeSet。如有需要，技能系统组件将创建并注册一个UMYAttributeSet。
+    AttributeSet = ASC->GetSet<UMyAttributeSet>();
+
+    // 我们现在有了一个指向新的UMyAttributeSet的指向器，以后可以使用该指向器。如果它有初始化函数，这里是调用它的好地方。
+}
+```
   
 
 > [!warning] 注意
@@ -534,36 +542,35 @@ MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
 如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
 
 ### 与 Gameplay Effects 互动
-
-对游戏玩法属性的值进行控制的常见方法是处理与之相关的 `Gameplay Effects`
+我们可以直接修改 Attribute 中的变量，但**更常见的方法是通过与之相关的 `Gameplay Effects`**
 
 1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
-    
-    ```c++
-    void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
-    ```
-    
-2. 在属性集的源文件中编写函数主体，务必要调用父类的执行。
-    
-    ```c++
-    void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+
+```c++
+void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
+```
+
+1. 在属性集的源文件中编写函数主体，务必要调用父类的执行。
+
+```c++
+void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+{
+    // 记得要调用父类的执行。
+    Super::PostGameplayEffectExecute(Data);
+
+    // 通过使用属性获取器来查看这个调用是否会影响生命值。
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute())
     {
-        // 记得要调用父类的执行。
-        Super::PostGameplayEffectExecute(Data);
-    
-        // 通过使用属性获取器来查看这个调用是否会影响生命值。
-        if (Data.EvaluatedData.Attribute == GetHealthAttribute())
-        {
-            // 这个游戏玩法效果是改变生命值。应用它，但要先限制数值。
-            // 在这种情况下，生命值的基础值不可是负值。
-            SetHealth(FMath::Max(GetHealth(), 0.0f));
-        }
+        // 这个游戏玩法效果是改变生命值。应用它，但要先限制数值。
+        // 在这种情况下，生命值的基础值不可是负值。
+        SetHealth(FMath::Max(GetHealth(), 0.0f));
     }
-    ```
+}
+```
 
 ### 02 设计 AttributeSet
 
-一个`ASC`可能有一个或多个`AttributeSet`
+**一个`ASC`可能有一个或多个`AttributeSet**`
 - 有种方案是设置一个单一且巨大的 `AttributeSet`, 共享于游戏中的所有 Actor, 并且只使用需要的 `Attribute`, 忽略不用的 `Attribute`.  
 - 你也可以使用多个 `AttributeSet` 来表示按需添加到 Actor 的 `Attribute` 分组, 例如, 你可以有一个生命相关的 `AttributeSet`, 一个魔法相关的 `AttributeSet` 等等. 在 MOBA 游戏中, 英雄可能需要魔法, 但是小兵并不需要, 因此英雄就需要魔法 `AttributeSet` 而小兵则不需要.  
 
