@@ -34,32 +34,6 @@
             }
           },
           {
-            "id": "1e534b3c0f00509e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "609aa8a8b8036f8b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "49321aad81e7779c",
             "type": "leaf",
             "state": {
@@ -99,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -157,7 +131,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "c860fd12f8384878",
@@ -280,15 +254,25 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "609aa8a8b8036f8b",
+  "active": "49321aad81e7779c",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
+    "README.md",
+    "zBuffer/UE4 游戏客户端开发进阶学习指南.md",
+    "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
+    "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
+    "引擎Unreal/02 UE++/2 类型.md",
+    "zBuffer/学习指南.md",
+    "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
+    "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
+    "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
+    "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md",
+    "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "zip/images/Pasted image 20231007164907.png",
-    "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "zip/images/Pasted image 20231007152931.png",
@@ -307,17 +291,8 @@
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/04 动画/未命名.md",
     "引擎Unreal/02 UE++/5 指针.md",
-    "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
     "Tools/Git/UE4源码管理.md",
-    "Tools/Git/Unity Git.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS官方文档.md",
-    "引擎Unreal/06 网络/3 会话管理.md",
-    "引擎Unreal/06 网络/多人tps笔记.md",
-    "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/未命名",
-    "引擎Unreal/06 网络/4 局域网.md",
-    "引擎Unreal/06 网络/官方文档/网络概述.md",
-    "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",

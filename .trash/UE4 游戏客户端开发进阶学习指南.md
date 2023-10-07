@@ -1,20 +1,17 @@
----
-title: README
-aliases: []
-tags: []
-create_time: 2023-04-28 15:28
-uid: 202304281528
-banner: "[[Pasted image 20230109001000.jpg]]"
----
-# Game Dev Road
+## 前言
+
+两年多前写过一篇[入门指南](https://zhuanlan.zhihu.com/p/358848428)，教大家在短时间内快速入门 UE4 的使用，在知乎被很多人收藏了。如今鸡佬使用 UE 快三年了，是时候更新一下进阶版本的学习指南。本文对于读者的要求：
+
+*   **有一定的 C++ 基础**
+*   **已经入门 UE，能够用蓝图和 C++ 做一些简单的功能**
+
+对于学习资料，首先本文列举的所有学习资料都是鸡佬经过精挑细选的，会综合考虑**文章质量、学习难度、重要性**等各个维度。其中会分为**必修和选修**两个部分。必修是很重要且强烈推荐看的学习资料。选修的话，有些学习难度比较大，有些相对来说不是那么重要。推荐的学习顺序是**先把必修的全部看完，再根据个人需要学习选修部分的资料。**
 
 ## 框架图解
 
 在深入学习 UE 之前，需要对 UE 包含哪些东西有一个大概的了解。正好 UE 官方自己曾出过一个**关于 UE 各个模块的引擎架构图**，是非常好的学习资料。如下图是 Character 模块的部分架构图。全模块完整架构图见 [Gitub 地址](https://github.com/drstreit/unreal_schematics)。
 
 ![](https://pic4.zhimg.com/v2-708d3aea2af9860edcf79c4bfe7350d3_r.jpg)
-
-在这里插入图片描述
 
 ## Programming
 
@@ -56,7 +53,7 @@ banner: "[[Pasted image 20230109001000.jpg]]"
 
 [GAS 预测机制讲解](https://zhuanlan.zhihu.com/p/143637846)
 
-这个模块是玩法相关的学习资料。首先要做的肯定是配合前面的框架图来理解 UE 的 GamePlay 架构。然后就是学习 GAS (Game Ability System) 了，即 UE 的技能系统。虽然 GAS 叫作技能系统，但是可以使用的地方远远不止角色技能。比如一局 pvp 游戏阶段的切换也是可以用 GAS 来做的。可以说满足**需要复制、可以用 Tag 表示状态、有开始和结束时机**的一切事情都可以考虑用 GAS 来实现。
+这个模块是玩法相关的学习资料。首先要做的肯定是配合前面的框架图来理解 UE 的 GamePlay 架构。然后就是学习 GAS(Game Ability System) 了，即 UE 的技能系统。虽然 GAS 叫作技能系统，但是可以使用的地方远远不止角色技能。比如一局 pvp 游戏阶段的切换也是可以用 GAS 来做的。可以说满足**需要复制、可以用 Tag 表示状态、有开始和结束时机**的一切事情都可以考虑用 GAS 来实现。
 
 ## Animation
 
@@ -198,7 +195,7 @@ Editor 方面主要是编辑器扩展了。UE 的编辑器扩展比 Unity 比起
 
 [ControlFlows 插件](https://zhuanlan.zhihu.com/p/599766218)
 
-Lyra 是 UE5 官方做的第三人称多人射击游戏学习项目。包含了基础的 3C (Character, Controller, Camera) 功能，输入 (EnhancedInputSystems)，GAS 技能，动画，消息转发 (GameplayMessageRouter)，多人联网等很多可以学习的内容。即使你是使用 UE4 的开发者也强烈建议学习。GameFeature 和 ControlFlows 都是在 Lyra 里面使用的插件，根据个人需要去看吧。
+Lyra 是 UE5 官方做的第三人称多人射击游戏学习项目。包含了基础的 3C(Character,Controller,Camera) 功能，输入 (EnhancedInputSystems)，GAS 技能，动画，消息转发 (GameplayMessageRouter)，多人联网等很多可以学习的内容。即使你是使用 UE4 的开发者也强烈建议学习。GameFeature 和 ControlFlows 都是在 Lyra 里面使用的插件，根据个人需要去看吧。
 
 ## 优秀个人博客
 
@@ -215,7 +212,7 @@ Lyra 是 UE5 官方做的第三人称多人射击游戏学习项目。包含了�
 
 关于作者:
 
-*   **水曜日鸡**，喜欢 ACG 的游戏程序员。曾参与索尼中国之星项目《硬核机甲》的开发。目前在某大厂做 UE4 项目。
+*   **水曜日鸡**，喜欢 ACG 的游戏程序员。曾参与索尼中国之星项目《硬核机甲》的开发。 目前在某大厂做 UE4 项目。
 
 CSDN 博客：[https://blog.csdn.net/j756915370](https://blog.csdn.net/j756915370)  
 知乎专栏：[https://zhuanlan.zhihu.com/c_1241442143220363264](https://zhuanlan.zhihu.com/c_1241442143220363264)
