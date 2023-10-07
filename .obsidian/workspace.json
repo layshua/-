@@ -73,6 +73,19 @@
             }
           },
           {
+            "id": "eebb14abe486b9e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/02 UE++/4 委托.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "317788aa8cfd0a11",
             "type": "leaf",
             "state": {
@@ -86,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -129,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           },
@@ -139,7 +152,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           }
@@ -189,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -206,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -266,11 +279,11 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "49321aad81e7779c",
+  "active": "eebb14abe486b9e8",
   "lastOpenFiles": [
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "zip/images/Pasted image 20231007164907.png",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
