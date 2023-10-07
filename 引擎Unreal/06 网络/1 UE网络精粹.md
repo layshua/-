@@ -732,10 +732,54 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(ATestPlayerCharacter, Health);
 }
 ```
+### RepNotify—ReplicatedUsing
+
+C++ 复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
+
+在蓝图中，这被称为 `RepNotify`（代表通知）。**它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。**
+![[Pasted image 20231001233317.png]]
+>Set 变为“使用通知设置”
+
+在蓝图中，一旦在 "复制" 下拉菜单中选择 "`RepNotify`"，该功能就会自动创建：
+![[Pasted image 20231001233531.png|373]]
+
+C++ 版本需要的更多，但工作原理相同：
+```c++ file:ATestCharacter.h
+// 创建 RepNotify Health 变量
+UPROPERTY(ReplicatedUsing = OnRep_Health)
+float Health;
+
+// 创建 OnRep 函数 | UFUNCTION() 宏很重要！
+UFUNCTION()
+void OnRep_Health(const float& Health);
+```
+
+```c++ file:ATestCharacter.cpp
+void ATestCharacter::OnRep_Health(const float& Health)
+{
+    if (Health <= 0.f)
+    {
+        PlayDeathAnimation();
+    }
+}
+```
+ 
+**通过 `ReplicatedUsing=函数名`，我们指定了变量复制成功后应调用的函数。该函数必须包含 "`UNFUNCTION ()`" 宏，即使该宏为空！**
+
+RepNotify 也要写 `GetLifetimeReplicatedProps` 函数
+
+
+> [!NOTE] RepNotify 蓝图和 C++之间的区别
+> 值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。
+> - **在 C++ 中，OnRep 函数只调用客户端。**
+>     - 当服务器更改值并要求同时调用 OnRep 函数时，您**需要在调整变量后手动调用该函数**。这是因为 **OnRep 函数的作用是在变量复制到客户端时进行回调。**
+> 
+> - **在蓝图中，OnRep 函数将调用客户端和服务器**。
+>     - 这是因为 BP 版本的 OnRep 是 **"属性已更改（Property Changed）" 回调**。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
 ### 条件属性复制
 默认情况下，每个复制属性都有一个内置条件：如果不发生变化就不会进行复制。
-
-为了加强对属性复制的控制，您可以使用一个 **`DOREPLIFETIME_CONDITION` 宏**来添加附加条件。
+为了加强对属性复制的控制，UE 提供了宏来添加附加条件：
+- @ Replicated 使用 `DOREPLIFETIME_CONDITION` 宏。
 
 ```c++
 void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -746,6 +790,19 @@ void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME_CONDITION(ATestPlayerCharacter, Health, COND_OwnerOnly);
 }
 ```
+
+- @ 对于 `RepNotify`，使用 `DOREPLIFETIME_CONDITION_NOTIFY` 宏
+```c++
+void ATestPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+    //COND_None：此属性没有条件，并将在其发生变化时随时发送（服务器）
+    //REPNOTIFY_Always：属性复制时，客户端总是调用该属性的 RepNotify 函数（客户端）
+    DOREPLIFETIME_CONDITION_NOTIFY (ATestPlayerCharacter, Health, COND_None, REPNOTIFY_Always);
+}
+```
+
 
 | Condition 条件                          |说明|
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -814,47 +871,6 @@ class ENGINE_API AActor : public UObject
 - 采用手动标记（通过 `UActorComponent::SetNetAddressable` 进行）
     - 只有当您知道要手动命名组件以便其在服务器和客户端上具有相同名称时，才应当使用这种方法（最好的例子就是 `AActor` C++ 构造函数中添加的组件）
 
-### RepNotify—ReplicatedUsing
-
-C++ 复制变量的另一种方法是将变量标记为 `ReplicatedUsing`。
-
-在蓝图中，这被称为 `RepNotify`（代表通知）。**它允许指定一个函数，当变量的新值被复制到客户端时，该函数将被调用。**
-![[Pasted image 20231001233317.png]]
->Set 变为“使用通知设置”
-
-在蓝图中，一旦在 "复制" 下拉菜单中选择 "`RepNotify`"，该功能就会自动创建：
-![[Pasted image 20231001233531.png|373]]
-
-C++ 版本需要的更多，但工作原理相同：
-```c++ file:ATestCharacter.h
-// 创建 RepNotify Health 变量
-UPROPERTY(ReplicatedUsing = OnRep_Health)
-float Health;
-
-// 创建 OnRep 函数 | UFUNCTION() 宏很重要！
-UFUNCTION()
-void OnRep_Health(const float& Health);
-```
-
-```c++ file:ATestCharacter.cpp
-void ATestCharacter::OnRep_Health(const float& Health)
-{
-    if (Health <= 0.f)
-    {
-        PlayDeathAnimation();
-    }
-}
-```
- 
-**通过 `ReplicatedUsing=函数名`，我们指定了变量复制成功后应调用的函数。该函数必须包含 "`UNFUNCTION ()`" 宏，即使该宏为空！**
-
-> [!NOTE] RepNotify 蓝图和 C++之间的区别
-> 值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。
-> - **在 C++ 中，OnRep 函数只调用客户端。**
->     - 当服务器更改值并要求同时调用 OnRep 函数时，您**需要在调整变量后手动调用该函数**。这是因为 **OnRep 函数的作用是在变量复制到客户端时进行回调。**
-> 
-> - **在蓝图中，OnRep 函数将调用客户端和服务器**。
->     - 这是因为 BP 版本的 OnRep 是 **"属性已更改（Property Changed）" 回调**。这意味着该函数不仅会调用服务器，而且如果客户端在本地更改了变量，也会调用客户端。
 ### 两种复制方式的区别
 >ChatGPT 生成
 
