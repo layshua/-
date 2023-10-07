@@ -2,18 +2,17 @@
 title: GAS精粹
 create_time: 2023-09-30 15:14
 uid: "202309301514"
-reference: []
+reference:
+  - https://github.com/BillEliot/GASDocumentation
+  - https://github.com/BillEliot/GASDocumentation_Chinese
 banner: "[[1696083211282.png]]"
 banner_header: 
 banner_lock: true
 banner_icon: ⚔
 ---
 
-**更新时间：2021/03/26(完结)**  
-翻译此文时间: 2020.12.21  
 原文地址: [tranek/GASDocumentation](https://github.com/BillEliot/GASDocumentation)  
 翻译地址: [BillEliot/GASDocumentation_Chinese](https://github.com/BillEliot/GASDocumentation_Chinese)  
-反馈: **github/PR** or **eliotwjz@gmail.com**
 
 样例项目和文档目前基于`Unreal Engine 4.26`. 该文档拥有可用于旧版本Unreal Engine的分支, 但是它们不再受支持, 并且可能存在bug和过时信息.  
 [GASShooter](https://github.com/tranek/GASShooter)是该样例项目的姐妹项目, 其演示了基于多人FPS/TPS的高阶GAS技术.  

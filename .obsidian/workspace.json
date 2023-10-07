@@ -99,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -156,7 +156,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "c860fd12f8384878",
@@ -229,7 +230,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -279,20 +280,20 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "49321aad81e7779c",
+  "active": "609aa8a8b8036f8b",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/4 委托.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "zip/images/Pasted image 20231007164907.png",
-    "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "zip/images/Pasted image 20231007152931.png",
     "zip/images/Pasted image 20231007152426.png",
     "zip/images/Pasted image 20231007152129.png",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "编程/6 UML/UML 类图.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "zip/images/Pasted image 20231006224827.png",
