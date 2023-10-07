@@ -766,8 +766,7 @@ void ATestCharacter::OnRep_Health(const float& Health)
  
 **通过 `ReplicatedUsing=函数名`，我们指定了变量复制成功后应调用的函数。该函数必须包含 "`UNFUNCTION ()`" 宏，即使该宏为空！**
 
-RepNotify 也要写 `GetLifetimeReplicatedProps` 函数
-
+**RepNotify 也要实现 `GetLifetimeReplicatedProps` 函数！**
 
 > [!NOTE] RepNotify 蓝图和 C++之间的区别
 > 值得注意的是，C++ 和 Blueprints 对 RepNotify 的处理方式略有不同。

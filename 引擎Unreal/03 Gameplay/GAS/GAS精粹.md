@@ -337,7 +337,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 `Attribute` 是由 [FGameplayAttributeData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayAttributeData/index.html) 结构体定义的**浮点值**, 其可以表示从角色生命值到角色等级再到一瓶药水的剂量的任何事物, 如果某项数值是属于某个 Actor 且游戏相关的, 你就应该考虑使用 `Attribute`。
 
-**`Attribute` 一般应该只能由 `GameplayEffect` 修改, 这样 `ASC` 才能[预测(Predict)](#concepts-p) 其改变.**  
+**`Attribute` 一般应该只能由 `GameplayEffect` 修改, 这样 `ASC` 才能[预测(Predict)](#concepts-p) 其改变.**  [[#与 Gameplay Effects 互动]]
 ![[Pasted image 20231007152129.png|600]]
 
 `Attribute`也可以由`AttributeSet`定义并存于其中. [AttributeSet](#concepts-as)用于复制那些标记为replication的`Attribute`. 参阅[AttributeSet](#concepts-as)部分来了解如何定义`Attribute`.  
@@ -516,58 +516,6 @@ class MYPROJECT_API UMyAttributeSet : public UAttributeSet
 ```
 
 
-### 使用数据表初始化
-
-如果你选择不通过调用有硬编码值的初始化函数来初始化你的属性集和游戏玩法属性，你可以使用一个[数据表](https://docs.unrealengine.com/5.2/zh-CN/data-driven-gameplay-elements-in-unreal-engine)来初始化，使用 `AttributeMetaData` 类。你可以从外部文件导入数据，或者在编辑器中手动填充数据表。
-
-![AttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/AttributeMetaData.jpg)
-
-#### 导入数据表
-
-开发者通常会从. csv 文件中导入数据表，如下所示：
-
-```c++
----,BaseValue,MinValue,MaxValue,DerivedAttributeInfo,bCanStack
-MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
-```
-
->"MinValue"和"MaxValue"栏不会在默认的 GAS 插件中执行，这些值不会有任何影响。
-
-![ImportAttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/ImportAttributeMetaData.jpg)
-
-将. csv 文件导入为数据表资产时，请选择"AttributeMetaData"行类型。
-
-#### 手动填充数据表
-
-如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
-
-### 与 Gameplay Effects 互动
-我们可以直接修改 Attribute 中的变量，但**更常见的方法是通过与之相关的 `Gameplay Effects`**
-
-1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
-
-```c++
-void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
-```
-
-1. 在属性集的源文件中编写函数主体，务必要调用父类的执行。
-
-```c++
-void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
-{
-    // 记得要调用父类的执行。
-    Super::PostGameplayEffectExecute(Data);
-
-    // 通过使用属性获取器来查看这个调用是否会影响生命值。
-    if (Data.EvaluatedData.Attribute == GetHealthAttribute())
-    {
-        // 这个游戏玩法效果是改变生命值。应用它，但要先限制数值。
-        // 在这种情况下，生命值的基础值不可是负值。
-        SetHealth(FMath::Max(GetHealth(), 0.0f));
-    }
-}
-```
-
 ### 02 设计 AttributeSet
 
 **一个`ASC`可能有一个或多个`AttributeSet**`
@@ -688,7 +636,6 @@ void AGSWeapon::BeginPlay()
 1. 未知的开发成本.
 2. 甚至方案可行么?
 
-
 ### 03 定义 Attribute
 
 **Attribute只能使用C++在AttributeSet头文件中定义.** 建议把下面这个宏块加到每个`AttributeSet`头文件的顶部, 其会自动为每个`Attribute`生成getter和setter函数.  
@@ -738,17 +685,17 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 }
 ```
 
-`REPTNOTIFY_Always`用于设置OnRep函数在客户端值已经与服务端复制的值相同的情况下触发(因为有预测), 默认设置下, 客户端值与服务端复制的值相同时, OnRep函数是不会触发的.  
+**`REPTNOTIFY_Always`** 用于设置 OnRep 函数在客户端值已经与服务端复制的值相同的情况下触发(因为有预测), 默认设置下, 客户端值与服务端复制的值相同时, OnRep 函数是不会触发的.  
 
 如果`Attribute`无需像`Meta Attribute`那样复制, 那么`OnRep`和`GetLifetimeReplicatedProps`步骤可以跳过.  
 
 
 ### 04 初始化 Attribute
-
-有多种方法可以初始化`Attribute`(将BaseValue和CurrentValue设置为某初始值). **Epic建议使用`即刻(Instant)GameplayEffect`**, 这也是样例项目使用的方法.  
+#### 通过GameplayEffect
+有多种方法可以初始化 `Attribute` (将 BaseValue 和 CurrentValue 设置为某初始值). **Epic 建议使用 `即刻(Instant)GameplayEffect`**, 这也是样例项目使用的方法。
 
 查看样例项目的GE_HeroAttribute蓝图来了解如何创建`即刻(Instant)GameplayEffect`以初始化`Attribute`, 该`GameplayEffect`应用是写在C++中的.  
-
+#### 通过 ATTRIBUTE_ACCESSORS 宏
 如果在定义`Attribute`时使用了`ATTRIBUTE_ACCESSORS`宏, 那么在`AttributeSet`中会自动为每个`Attribute`生成一个初始化函数.  
 
 ```c++
@@ -758,9 +705,59 @@ AttributeSet->InitHealth(100.0f);
 
 查看`AttributeSet.h`获取更多初始化`Attribute`的方法.  
 
-**Note**: 4.24之前, FAttributeSetInitterDiscreteLevels不能和FGameplayAttributeData协同使用, 它在`Attribute`是原生浮点数时创建, 并且会和FGameplayAttributeData不是Plain Old Data(POD)时冲突. 该问题在4.24中修复([https://issues.unrealengine.com/issue/UE-76557.](https://issues.unrealengine.com/issue/UE-76557)).  
+#### 使用数据表初始化
 
-### 05  `PreAttributeChange()`
+如果你选择不通过调用有硬编码值的初始化函数来初始化你的属性集和游戏玩法属性，你可以使用一个[数据表](https://docs.unrealengine.com/5.2/zh-CN/data-driven-gameplay-elements-in-unreal-engine)来初始化，使用 `AttributeMetaData` 类。你可以从外部文件导入数据，或者在编辑器中手动填充数据表。
+
+![AttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/AttributeMetaData.jpg)
+
+##### 导入数据表
+
+开发者通常会从. csv 文件中导入数据表，如下所示：
+
+```c++
+---,BaseValue,MinValue,MaxValue,DerivedAttributeInfo,bCanStack
+MyAttributeSet.Health,"100.000000","0.000000","150.000000","","False"
+```
+
+>"MinValue"和"MaxValue"栏不会在默认的 GAS 插件中执行，这些值不会有任何影响。
+
+![ImportAttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/ImportAttributeMetaData.jpg)
+
+将. csv 文件导入为数据表资产时，请选择"AttributeMetaData"行类型。
+
+##### 手动填充数据表
+
+如果你喜欢在虚幻编辑器中编辑数值，而不是在外部电子表格或文本编辑程序中编辑数值，你可以创建表格，然后像其它蓝图资产一样打开它来编辑数值。使用窗口顶部的"添加"按键为每个游戏玩法属性添加一行。请记住，命名惯例是"`AttributeSetName.AttributeName`"，也就是"属性集名称. 属性名称"，而且是区分大小写的。
+
+### 05 与 Gameplay Effects 互动
+我们可以直接修改 Attribute ，但**为了实现网络预测，通过与之相关的 `Gameplay Effects` 来修改**
+
+1. 首先在属性集的类定义中覆盖 `PostGameplayEffectExecute` 函数，该函数应该是公共访问级别的。
+
+```c++
+void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
+```
+
+1. 在属性集的源文件中编写函数主体，务必要调用父类的执行。
+
+```c++
+void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+{
+    // 记得要调用父类的执行。
+    Super::PostGameplayEffectExecute(Data);
+
+    // 通过使用属性获取器来查看这个调用是否会影响生命值。
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+    {
+        // 这个游戏玩法效果是改变生命值。应用它，但要先限制数值。
+        // 在这种情况下，生命值的基础值不可是负值。
+        SetHealth(FMath::Max(GetHealth(), 0.0f));
+    }
+}
+```
+
+### 06  `PreAttributeChange()`
 
 ```c++
 PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
@@ -787,7 +784,7 @@ if (Attribute == GetMoveSpeedAttribute())
 > Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
 
 <a name="concepts-as-postgameplayeffectexecute"></a>
-### 06  `PostGameplayEffectExecute()`
+### 07  `PostGameplayEffectExecute()`
 ```c++
 PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 ```
@@ -800,7 +797,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 > [!NOTE]
 > **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被复制回客户端, 因此在这里限制值不会造成对客户端的二次复制, 客户端只会接收到限制后的值.  
 <a name="concepts-as-onattributeaggregatorcreated"></a>
-### 07  `OnAttributeAggregatorCreated()`
+### 08  `OnAttributeAggregatorCreated()`
 
 `OnAttributeAggregatorCreated(const FGameplayAttribute& Attribute, FAggregator* NewAggregator)`会在Aggregator为集合中的某个`Attribute`创建时触发, 它允许[FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html)的自定义设置, `AggregatorEvaluateMetaData`是Aggregator基于所有应用的`Modifier(Modifier)`评估`Attribute`的CurrentValue的. 默认情况下, AggregatorEvaluateMetaData只由Aggregator用于确定哪些[Modifier](#concepts-ge-mods)是满足条件的, 以MostNegativeMod_AllPositiveMods为例, 其允许所有正(Positive)`Modifier`但是限制负(Negative)`Modifier`(仅最负的那一个), 这在Paragon中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度buff时有多少负移动效果. 不满足条件的`Modifier`仍存于`ASC`中, 只是不被总合进最终的CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负`Modifier`过期后, 下一个最负`Modifier`(如果存在的话)就是满足条件的.  
 

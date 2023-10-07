@@ -77,3 +77,7 @@ void AMageEnemy::UnHighlightActor()
 ![[Pasted image 20231006200833.png]]
 
 ![[Pasted image 20231006202101.png]]
+
+# debug
+调式模式启动，控制台输入：showdebug abilitysystem
+![[Pasted image 20231007164907.png]]
