@@ -52434,6 +52434,7 @@ APACharacterBase
 AttributeBased
 AttributeSetClass
 ASInterface
+AABBCC
 URL
 Utools
 Users
@@ -81807,6 +81808,8 @@ ScalableFloat
 Snapshotting
 SumMods
 StaticDefaultObject
+SwizzleInputAxisValues
+Started
 Programs
 POP
 PC
@@ -86663,6 +86666,7 @@ PinStructType
 PROPERTY
 PrimaryClipAmmo
 PropertyName
+Pulse
 ContextMenuManager
 ClashVerge
 Clash
@@ -91765,6 +91769,12 @@ CONDITION
 CalculateModifierMagnitudes
 CustomCalculationClass
 ControlFlows
+CurveExponential
+CurveUser
+CurveFloat
+Canceled
+Chorded
+Combo
 ImTip
 IMAP
 ID
@@ -96484,6 +96494,8 @@ IsFiring
 IRepChangedPropertyTracker
 InlineBaseValue
 InMods
+InputAciton
+IsOneShot
 qq
 qyi
 quad
@@ -127553,6 +127565,11 @@ TryTObjPtr
 TagMap
 TagMapCount
 TagCount
+ToWorldSpace
+TriggerOnStart
+TriggerLimit
+TapReleaseTimeThreshold
+TimeToPressKey
 io
 ipad
 it
@@ -163392,6 +163409,8 @@ HasMatchingTag
 HideInDetailsView
 HealthChanged
 HasMatchingGameplayTag
+HoldTimeThreshold
+HoldAndRelease
 Bbb
 Bear
 Base
@@ -167670,6 +167689,7 @@ BVZN
 Bzp
 BGF
 BaseGame
+BABA
 Fraktur
 Frame
 Foo
@@ -172738,6 +172758,7 @@ FActiveGameplayEffectContainer
 FAggregatorModChannel
 FAggregatorEvaluateParameters
 FAggregatorMod
+FOVScaling
 Element
 Entity
 Enity
@@ -177805,6 +177826,7 @@ EffectRemoved
 EvaluateWithBase
 EvaluatedMagnitude
 EnhancedInputSystems
+EnhancedInputAction
 xmlns
 xyz
 xy
@@ -189843,6 +189865,7 @@ Destruct
 DerivedAttributeInfo
 DOREPLIFETIME
 DefaultObject
+DeadZone
 LNK
 Log
 Linux
