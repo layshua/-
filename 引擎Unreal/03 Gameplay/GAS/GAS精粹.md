@@ -1178,7 +1178,7 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 它在应用之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计师在运行前创建。
 当应用 `GameplayEffect` 时,  `GameplayEffectSpec` 会自 `GameplayEffect` 创建并且会实际应用到目标(Target).  
 
-**`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ：
+**`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄的共享指针 `Data` 引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ： 
 ```c++
 //TSubclassOf<UGameplayEffect> GameplayEffectClass
 //创建FGameplayEffectContextHandle
