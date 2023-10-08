@@ -372,7 +372,9 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 ### 响应Attribute变化
 
-为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute ` Attribute `)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 该委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
+为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute ` Attribute `)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 该
+
+委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
 
 > [!NOTE]
 > `FGameplayEffectModCallbackData `只能在服务端上设置.  
