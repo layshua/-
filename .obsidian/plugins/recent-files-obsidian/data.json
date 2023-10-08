@@ -5,6 +5,10 @@
       "path": "zBuffer/UE5_2 实操 1 - 增强输入.md"
     },
     {
+      "basename": "GASRPG",
+      "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
+    },
+    {
       "basename": "1 GamePlay精粹",
       "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "1 Gameplay架构",
       "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
-    },
-    {
-      "basename": "GASRPG",
-      "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
     {
       "basename": "GAS精粹",
