@@ -116,8 +116,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -242,6 +241,7 @@
   },
   "active": "f4c633484a7866ca",
   "lastOpenFiles": [
+    "zip/images/Pasted image 20231008201140.png",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/02 UE++/2 类型.md",
@@ -277,7 +277,6 @@
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "编程/6 UML/UML 类图.md",
     "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/06 网络/2 在线子系统和服务.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
