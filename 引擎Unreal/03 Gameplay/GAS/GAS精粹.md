@@ -813,7 +813,7 @@ if (Attribute == GetMoveSpeedAttribute())
 > [!NOTE]
 > Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
 
-<a name="concepts-as-postgameplayeffectexecute"></a>
+
 ### 07  `PostGameplayEffectExecute()`
 ```c++
 PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
@@ -826,7 +826,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 
 > [!NOTE]
 > **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被复制回客户端, 因此在这里限制值不会造成对客户端的二次复制, 客户端只会接收到限制后的值.  
-<a name="concepts-as-onattributeaggregatorcreated"></a>
+
 ### 08  `OnAttributeAggregatorCreated()`
 
 `OnAttributeAggregatorCreated(const FGameplayAttribute& Attribute, FAggregator* NewAggregator)`会在Aggregator为集合中的某个`Attribute`创建时触发, 它允许[FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html)的自定义设置, `AggregatorEvaluateMetaData`是Aggregator基于所有应用的`Modifier(Modifier)`评估`Attribute`的CurrentValue的. 默认情况下, AggregatorEvaluateMetaData只由Aggregator用于确定哪些[Modifier](#concepts-ge-mods)是满足条件的, 以MostNegativeMod_AllPositiveMods为例, 其允许所有正(Positive)`Modifier`但是限制负(Negative)`Modifier`(仅最负的那一个), 这在Paragon中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度buff时有多少负移动效果. 不满足条件的`Modifier`仍存于`ASC`中, 只是不被总合进最终的CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负`Modifier`过期后, 下一个最负`Modifier`(如果存在的话)就是满足条件的.  
@@ -858,16 +858,15 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 
 ### 01 定义
 
-**`GameplayEffect(GE)` 是 `Ability` 修改 `Attribute` 和 `GameplayTag` 的容器**，其可以立即修改 `Attribute` (像伤害或治疗)或应用长期的状态 buff/debuff(像移动速度加速或眩晕)。
+**`GameplayEffect(GE)` 可以 `Ability` 修改 `Attribute` 和 `GameplayTag`**，其可以立即修改 `Attribute` (像伤害或治疗)或应用长期的状态 buff/debuff(像移动速度加速或眩晕)。
 
-与 GAS 的其他部分不同，无论在 C++ 还是蓝图代码中，`Gameplay Effects` 通常不覆盖基类 `UGameplayEffect`。相反，**游戏性效果被设计成完全通过变量来配置**。
->`UGameplayEffect` 只是一个定义单一游戏效果的**数据类**, 不应该在其中添加额外的逻辑。设计师一般会创建很多 UGameplayEffect 的子类蓝图。
-
-`GameplayEffect`通过`Modifier`和`Execution(GameplayEffectExecutionCalculation)`修改`Attribute`.  
-- **修饰和执行（Modifiers and Executions）：** 
-    - **Modifiers 会确定游戏性效果与属性交互的方式。其中包括与属性自身的数学上的交互**，例如，"将防御力提升 5%"，以及执行效果的游戏性标记要求。
-        - 当需要让某个游戏性效果产生超出修饰符支持范围的影响时，需要用到"执行（Execution）"。
-    - "**执行（Execution）**"使用 `UGameplayEffectExecutionCalculation` 来定义游戏性效果执行时它具有的**自定义行为**。定义修饰符无法充分覆盖的复杂方程式时，它们特别有用。
+1.  `UGameplayEffect` 只是一个定义单一游戏效果的**数据类**, 不应该在其中添加额外的逻辑。设计师一般会创建很多 UGameplayEffect 的子类蓝图。
+2. `Gameplay Effects` 通常不覆盖基类 `UGameplayEffect`，被设计成完全通过变量来配置
+3.  `GameplayEffect` 通过 `Modifier` 和 `Execution(GameplayEffectExecutionCalculation)` 修改 `Attribute`.  
+    - **修饰和执行（Modifiers and Executions）：** 
+        - **Modifiers 会确定游戏性效果与属性交互的方式。其中包括与属性自身的数学上的交互**，例如，"将防御力提升 5%"，以及执行效果的游戏性标记要求。
+            - 当需要让某个游戏性效果产生超出修饰符支持范围的影响时，需要用到"执行（Execution）"。
+        - "**执行（Execution）**"使用 `UGameplayEffectExecutionCalculation` 来定义游戏性效果执行时它具有的**自定义行为**。定义修饰符无法充分覆盖的复杂方程式时，它们特别有用。
 
 ---
 
@@ -955,7 +954,7 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 
 `Modifier` 可以修改 `Attribute` 并且是**唯一可以[预测性](#concepts-p)修改 `Attribute` 的方法**。
 一个 `GameplayEffect` 可以有0个或多个 `Modifier`, 每个 `Modifier` 通过某个指定的操作只能修改一个 `Attribute`。
-
+ 
 |操作|描述|
 |:-:|:-:|
 |Add|将`Modifier`指定的`Attribute`加上计算结果. 使用负数以实现减法操作.|
