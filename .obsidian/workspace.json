@@ -120,7 +120,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -163,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 UE++/5 指针.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           },
@@ -173,7 +173,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 UE++/5 指针.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           }
@@ -224,7 +224,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 UE++/5 指针.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -241,7 +241,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 UE++/5 指针.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -301,10 +301,10 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "3a2108c62f59454c",
+  "active": "317788aa8cfd0a11",
   "lastOpenFiles": [
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/5 指针.md",
+    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "zBuffer/UE5_2 实操 1 - 增强输入.md",

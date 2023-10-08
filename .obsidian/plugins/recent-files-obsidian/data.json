@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "GASRPG",
+      "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
+    },
+    {
       "basename": "5 指针",
       "path": "引擎Unreal/02 UE++/5 指针.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "UE5_2 实操 1 - 增强输入",
       "path": "zBuffer/UE5_2 实操 1 - 增强输入.md"
-    },
-    {
-      "basename": "GASRPG",
-      "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
     {
       "basename": "UMG",
