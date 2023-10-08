@@ -894,15 +894,22 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 |持续(Duration)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`过期或手动移除时, 应用将要被移除的`GameplayTag`. 持续时间是在UGameplayEffect类/蓝图中明确的.|
 |无限(Infinite)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`移除时, 应用将要被移除的`GameplayTag`. 该类型自身永不过期且必须由某个Ability或`ASC`手动移除.|
 
-`持续(Duration)` 和 `无限(Infinite)GameplayEffect` 可以选择应用周期性的 Effect, 其每过 X 秒(由周期定义)就应用一次 Modifier 和 Execution, 
-当周期性的 Effect 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `即刻(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的持续伤害(damage over time, DOT)很有用。
+![[Pasted image 20231008232717.png]]
+
+`(Duration)` 和 `(Infinite)GameplayEffect` 可以通过设置 Period 转变为周期性 Effect, 其每过 X 秒(由周期定义)就应用一次 Modifier 和 Execution
+- 如果有 Duration 转变为 Periodic，则在持续时间内按周期执行
+- 如果由 Infinite 转变为 Periodic，则一直按周期执行，直到手动移除。
+- 第二项勾选，应用时第 0s 会立刻执行一次。
+![[Pasted image 20231008233014.png]]
+
+当周期性的 Effect 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的持续伤害(damage over time, DOT)很有用。
 
 > [!NOTE]
 > 周期性的 Effect 不能被[预测](#concepts-p).  
 
-如果`持续(Duration)`和`无限(Infinite)GameplayEffect`的`Ongoing Tag Requirements`未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开, 关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
+如果`(Duration)`和`(Infinite)GameplayEffect`的`Ongoing Tag Requirements`未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开, 关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
 
-如果你需要手动重新计算某个 `持续(Duration)` 或 `无限(Infinite)GameplayEffect` 的 `Modifier` (假设有一个使用非 `Attribute` 数据的 `MMC`), 可以使用和
+如果你需要手动重新计算某个 `(Duration)` 或 `(Infinite)GameplayEffect` 的 `Modifier` (假设有一个使用非 `Attribute` 数据的 `MMC`), 可以使用和
 ```c++
 UAbilitySystemComponent:: ActiveGameplayEffect.GetActiveGameplayEffect(ActiveHandle).Spec.GetLevel()
 ```
