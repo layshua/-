@@ -141,6 +141,17 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 `OwnerActor` 需要继承并实现 **`IAbilitySystemInterface`**（如果 AvatarActor 和 OwnerActor 是不同的 Actor, 那么 AvatarActor 也应该继承并实现 `IAbilitySystemInterface`）。
 - 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向 `ASC` 的指针, `ASC` 通过寻找该接口函数来和系统内部进行交互.  
+> `UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(AActor *Actor)` 方法也可以获取实现了该接口函数的 Actor 的 ASC
+```c++
+if (IAbilitySystemInterface* ASInterface = Cast<IAbilitySystemInterface>(TestActor))  
+{  
+    ASInterface->GetAbilitySystemComponent()  
+}
+
+//更方便，若TestActor本身没有实现接口，还会遍历组件
+ UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TestActor); 
+```
+
 
 **ASC 维护两个容器：**
 1.  在 `FActiveGameplayEffectContainer ActiveGameplayEffect` 中**保存其当前活跃的 `GameplayEffect`**
@@ -913,7 +924,7 @@ UpdateAllAggregatorModMagnitudes(Effect);
 ### 02 应用 Apply 
 
 `GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数应用, 其通常是 `ApplyGameplayEffectTo` 的形式。
-不同的函数本质上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 的方便函数.  
+不同的函数本质上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 函数.  
 
 为了在`GameplayAbility`之外应用`GameplayEffect`, 例如对于某个投掷物, 你就需要获取到目标的`ASC`并使用它的函数之一来`ApplyGameplayEffectToSelf`.  
 
@@ -1097,12 +1108,14 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 这更详尽的意思是: 源(Source)`ASC`和目标(Target)`ASC`的标签都被`GameplayEffect`所捕获, 当`GameplayEffectSpec`创建时, 源(Source)`ASC`的标签被捕获, 当执行Effect时, 目标(Target)`ASC`的标签被捕获. 当确定`无限(Infinite)`或`持续(Duration)`Effect的`Modifier`是否满足条件可以被应用(也就是聚合器条件(Aggregator Qualify))并且过滤器已经设置时, 被捕获的标签就会和过滤器进行比对.  
 
 >如果这些要求无法满足游戏的需求，可以从 `UGameplayEffectCustomApplicationRequirement` 基类派生数据对象，在其中你可以编写可任意定义复杂应用规则的本地代码。
-### 05 堆叠 Stacking 
+### 05 堆叠/堆栈 Stacking 
 堆栈处理**对已具有增益或减益（或者游戏性效果，在本示例中就是如此）的目标再次应用增益或减益，以及处理所谓的"溢出"情况的策略**，溢出是指在原 Gameplay 效果的影响下已完全饱和的目标被应用了新的游戏性效果（例如，不断累积的毒药计时条只有在溢出后才会产生持续伤害效果）。
 
-`GameplayEffect`默认会应用新的`GameplayEffectSpec`实例, 而不明确或不关心之前已经应用过的尚且存在的`GameplayEffectSpec`实例. `GameplayEffect`可以设置到堆栈中, 新的`GameplayEffectSpec`实例不会添加到堆栈中, 而是修改当前已经存在的`GameplayEffectSpec`堆栈数. 堆栈只适用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.  
+-  `GameplayEffect` 默认会应用新的 `GameplayEffectSpec` 实例, 而不明确或不关心之前已经应用过的尚且存在的 `GameplayEffectSpec` 实例. **`
+- GameplayEffect ` 可以设置到堆栈中, 新的 ` GameplayEffectSpec ` 实例不会添加到堆栈中, 而是修改当前已经存在的 ` GameplayEffectSpec ` 堆栈数**. 
+- 堆栈只适用于 `持续(Duration)` 和 `无限(Infinite)GameplayEffect`.  
 
-有两种类型的堆栈: Aggregate by Source和Aggregate by Target.  
+**有两种类型的堆栈**: Aggregate（总计） by Source 和 Aggregate by Target.  
 
 |堆栈类型|描述|
 |:-:|:-:|
@@ -1159,8 +1172,9 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 
 ### 09 GameplayEffectSpec
 
-[GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例**, 它保存了一个其所代表的 `GameplayEffect` 类引用, 创建时的等级和创建者, 
-它在应用之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计师在运行前创建。当应用 `GameplayEffect` 时,  `GameplayEffectSpec` 会自 `GameplayEffect` 创建并且会实际应用到目标(Target).  
+[GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例（轻量级版本）**, 它保存了一个其所代表的 `GameplayEffect` 类引用, 创建时的等级和创建者, 
+它在应用之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计师在运行前创建。
+当应用 `GameplayEffect` 时,  `GameplayEffectSpec` 会自 `GameplayEffect` 创建并且会实际应用到目标(Target).  
 
 `GameplayEffectSpec`是由`UAbilitySystemComponent::MakeOutgoingSpec()(BlueprintCallable)`自`GameplayEffect`创建的. `GameplayEffectSpec`不必立即应用. 通常是将`GameplayEffectSpec`传递给创建自Ability的投掷物, 该投掷物可以应用到它之后击中的目标. 当`GameplayEffectSpec`成功应用后, 就会返回一个名为`FActiveGameplayEffect`的新结构体.  
 
