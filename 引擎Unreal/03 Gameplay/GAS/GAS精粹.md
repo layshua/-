@@ -143,13 +143,14 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 - 该接口有一个必须重写的函数, `UAbilitySystemComponent* GetAbilitySystemComponent() const`, 其返回一个指向 `ASC` 的指针, `ASC` 通过寻找该接口函数来和系统内部进行交互.  
 > `UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(AActor *Actor)` 方法也可以获取实现了该接口函数的 Actor 的 ASC
 ```c++
+//获取实现了接口函数的 Actor 的 ASC
 if (IAbilitySystemInterface* ASInterface = Cast<IAbilitySystemInterface>(TestActor))  
 {  
-    ASInterface->GetAbilitySystemComponent()  
+    UAbilitySystemComponent* ASC = ASInterface->GetAbilitySystemComponent()  
 }
 
 //更方便，若TestActor本身没有实现接口，还会遍历组件
- UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TestActor); 
+ UAbilitySystemComponent* ASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TestActor); 
 ```
 
 
@@ -923,8 +924,9 @@ UpdateAllAggregatorModMagnitudes(Effect);
 
 ### 02 应用 Apply 
 
-`GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数应用, 其通常是 `ApplyGameplayEffectTo` 的形式。
-不同的函数本质上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 函数.  
+**`GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数应用, 其通常是 `ApplyGameplayEffectTo` 的形式。**
+![[Pasted image 20231008205512.png]]
+不同的函数**本质**上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 函数.  
 
 为了在`GameplayAbility`之外应用`GameplayEffect`, 例如对于某个投掷物, 你就需要获取到目标的`ASC`并使用它的函数之一来`ApplyGameplayEffectToSelf`.  
 
@@ -1176,19 +1178,32 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 它在应用之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计师在运行前创建。
 当应用 `GameplayEffect` 时,  `GameplayEffectSpec` 会自 `GameplayEffect` 创建并且会实际应用到目标(Target).  
 
-`GameplayEffectSpec`是由`UAbilitySystemComponent::MakeOutgoingSpec()(BlueprintCallable)`自`GameplayEffect`创建的. `GameplayEffectSpec`不必立即应用. 通常是将`GameplayEffectSpec`传递给创建自Ability的投掷物, 该投掷物可以应用到它之后击中的目标. 当`GameplayEffectSpec`成功应用后, 就会返回一个名为`FActiveGameplayEffect`的新结构体.  
+**`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ：
+```c++
+//TSubclassOf<UGameplayEffect> GameplayEffectClass
+//创建FGameplayEffectContextHandle
+FGameplayEffectContextHandle EffectContextHandle = 
+AbilitySystemComponent->MakeEffectContext();  
+...
+
+//创建FGameplayEffectSpecHandle
+FGameplayEffectSpecHandle EffectSpecHandle =  
+AbilitySystemComponent->MakeOutgoingSpec(GameplayEffectClass, 1.0f, EffectContextHandle);
+```
+
+`GameplayEffectSpec` 不必立即应用. 通常是将 `GameplayEffectSpec` 传递给创建自 Ability 的投掷物, 该投掷物可以应用到它之后击中的目标. 当 `GameplayEffectSpec` 成功应用后, 就会返回一个名为 `FActiveGameplayEffect` 的新结构体.  
 
 `GameplayEffectSpec`的重要内容:  
-* 创建该`GameplayEffectSpec`的`GameplayEffect`类.
-* 该`GameplayEffectSpec`的等级. 通常和创建`GameplayEffectSpec`的Ability的等级一样, 但是可以是不同的.
-* `GameplayEffectSpec`的持续时间. 默认是`GameplayEffect`的持续时间, 但是可以是不同的.
-* 对于周期性Effect中`GameplayEffectSpec`的周期, 默认是`GameplayEffect`的周期, 但是可以是不同的.
-* 该`GameplayEffectSpec`的当前堆栈数. 堆栈限制取决于`GameplayEffect`.
-* [GameplayEffectContextHandle](#concepts-ge-context)表明该`GameplayEffectSpec`由谁创建.
-* `Attribute`在`GameplayEffectSpec`创建时由Snapshot捕获.
-* 除了`GameplayEffect`授予的`GameplayTags`, `GameplayEffectSpec`还会授予目标(Target)`DynamicGrantedTags`.
-* 除了`GameplayEffect`拥有的`AssetTags`, `GameplayEffectSpec`还会拥有`DynamicAssetTags`.
-* `SetByCaller TMaps`.
+* 创建该 `GameplayEffectSpec` 的 `GameplayEffect` 类. 
+* 该 `GameplayEffectSpec` 的等级. 通常和创建 `GameplayEffectSpec` 的 Ability 的等级一样, 但是可以是不同的. 
+* `GameplayEffectSpec` 的持续时间. 默认是 `GameplayEffect` 的持续时间, 但是可以是不同的. 
+* 对于周期性 Effect 中 `GameplayEffectSpec` 的周期, 默认是 `GameplayEffect` 的周期, 但是可以是不同的. 
+* 该 `GameplayEffectSpec` 的当前堆栈数. 堆栈限制取决于 `GameplayEffect`.
+* [GameplayEffectContextHandle](#concepts-ge-context) 表明该 `GameplayEffectSpec` 由谁创建. 
+* `Attribute` 在 `GameplayEffectSpec` 创建时由 Snapshot 捕获. 
+* 除了 `GameplayEffect` 授予的 `GameplayTags`, `GameplayEffectSpec` 还 会授予目标(Target) `DynamicGrantedTags`.
+* 除了 `GameplayEffect` 拥有的 `AssetTags`, `GameplayEffectSpec` 还会 拥有 `DynamicAssetTags`.
+* `SetByCaller TMaps`. 
 
 
 #### SetByCaller
@@ -1245,9 +1260,6 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 6. 在[AbilitySystemGlobals](#concepts-asg)类中重写`AllocGameplayEffectContext()`以返回一个新的子结构体对象.
 
 GASShooter使用了一个子结构体`GameplayEffectContext`来添加可以在`GameplayCue`中访问的`TargetData`, 特别是对于霰弹枪, 因为它可以击打多个敌人.  
-
-
-
 <a name="concepts-ge-mmc"></a>
 ### 11 Modifier Magnitude Calculation
 
