@@ -895,7 +895,7 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 |无限(Infinite)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`移除时, 应用将要被移除的`GameplayTag`. 该类型自身永不过期且必须由某个Ability或`ASC`手动移除.|
 
 `持续(Duration)` 和 `无限(Infinite)GameplayEffect` 可以选择应用周期性的 Effect, 其每过 X 秒(由周期定义)就应用一次 Modifier 和 Execution, 
-当周期性的 Effect 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `即刻(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的持续伤害(damage over time, DOT)很有用.
+当周期性的 Effect 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `即刻(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的持续伤害(damage over time, DOT)很有用。
 
 > [!NOTE]
 > 周期性的 Effect 不能被[预测](#concepts-p).  
@@ -926,24 +926,24 @@ UpdateAllAggregatorModMagnitudes(Effect);
 
 **`GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数应用, 其通常是 `ApplyGameplayEffectTo` 的形式。**
 ![[Pasted image 20231008205512.png]]
-不同的函数**本质**上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 函数.  
+不同的函数**本质**上都是最终在目标上调用 `UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf()` 函数。
 
-为了在`GameplayAbility`之外应用`GameplayEffect`, 例如对于某个投掷物, 你就需要获取到目标的`ASC`并使用它的函数之一来`ApplyGameplayEffectToSelf`.  
+为了在 `GameplayAbility` 之外应用 `GameplayEffect`, 例如对于某个投掷物, 你就需要获取到目标的 `ASC` 并使用它的函数之一来 `ApplyGameplayEffectToSelf`。
 
-你可以绑定`持续(Duration)`或`无限(Infinite)GameplayEffect`的委托来监听其应用到`ASC`:  
+你可以绑定 `持续(Duration)` 或 `无限(Infinite)GameplayEffect` 的委托来监听其应用到 `ASC`：
 
 ```c++
 AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(this, &APACharacterBase::OnActiveGameplayEffectAddedCallback);
 ```
 
-回调函数:  
+回调函数：
 
 ```c++
 virtual void OnActiveGameplayEffectAddedCallback(UAbilitySystemComponent* Target, const FGameplayEffectSpec& SpecApplied, FActiveGameplayEffectHandle ActiveHandle);
 ```
 
 服务端总是会调用该函数而不管复制模式是什么, `Autonomous Proxy`只会在`Full`和`Mixed`复制模式下对于复制的`GameplayEffect`调用该函数, `Simulated Proxy`只会在`Full`复制模式下调用该函数.  
-<a name="concepts-ga-removing"></a>
+
 ### 03 移除 Remove
 
 `GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数移除, 其通常是 `RemoveActiveGameplayEffect` 的形式, 不同的函数本质上都是最终在目标上调用 `FActiveGameplayEffectContainer::RemoveActiveEffects() ` 的方便函数.   
@@ -975,19 +975,20 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 |Divide|将`Modifier`指定的`Attribute`除以计算结果.|
 |Override|使用计算结果覆盖`Modifier`指定的`Attribute`.|
 
-**`Attribute` 的 CurrentValue 是其所有 `Modifier` 与其 BaseValue 计算并总合后的结果**, 像下面这样的 `Modifier` 总合公式被定义在 `GameplayEffectAggregator.cpp` 中的 `FAggregatorModChannel::EvaluateWithBase`:  
+**`Attribute` 的 CurrentValue 是其所有 `Modifier` 与其 BaseValue 计算并总合后的结果**, 像下面这样的 `Modifier` 总合公式被定义在 `GameplayEffectAggregator.cpp` 中的 `FAggregatorModChannel::EvaluateWithBase`：
 
 ```c++
 ((InlineBaseValue + Additive) * Multiplicitive) / Division
 ```
 
-Override`Modifier`会优先覆盖最后应用的`Modifier`得出的最终值.  
+Override `Modifier` 会优先覆盖最后应用的 `Modifier` 得出的最终值.  
 
 > [!NOTE]
 > 对于基于百分比的修改, 确保使用`Multiply`操作以使其在加法操作之后  
 
 > [!NOTE]
 >  [预测(Prediction)](#concepts-p)对于百分比修改有些问题.  
+
 #### 分类
 **有四种类型的 `Modifier`**: 
 -  `ScalableFloat`
