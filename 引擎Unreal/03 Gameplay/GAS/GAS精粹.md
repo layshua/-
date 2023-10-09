@@ -1016,14 +1016,14 @@ Override `Modifier` 会优先覆盖最后应用的 `Modifier` 得出的最终值
 >  [预测(Prediction)](#concepts-p)对于百分比修改有些问题.  
 
 #### 分类
-**有四种类型的 `Modifier`**: 
+**有四种类型的 `Magnitude Calculation Type`**: 
 -  `ScalableFloat`
 -  `AttributeBased`
 -  `CustomCalculationClass（MMC）`
  -  `SetByCaller`, 
 它们全都生成一些浮点数, 用于之后基于各自的操作修改指定 `Modifier` 的 `Attribute`.  
 
-|Modifier类型|描述 |
+|Modifier Magnitude Calculation Type|描述 |
 |:-:|:-:|
 |Scalable Float|FScalableFloat结构体可以指向某个横向为变量, 纵向为等级的Data Table, `Scalable Float`会以Ability的当前等级自动读取指定Data Table的某行值(或者在[GameplayEffectSpec](#concepts-ge-spec)中重写的不同等级), 该值还可以进一步被系数处理, 如果没有指定Data Table/Row, 那么就会将其视为1, 因此该系数就可以在所有等级都硬编码为一个值.![[65d76b36c1ed4622e4b31fdd1dfe1c8b_MD5.png]]|
 |Attribute Based|`Attribute Based Modifier`将Source(`GameplayEffectSpec`的创建者)或Target(`GameplayEffectSpec`的接收者)上的CurrentValue或BaseValue视为`Backing Attribute`, 可以使用系数和Pre与Post系数和来修改它. `Snapshotting`意味着当`GameplayEffectSpec`创建时捕获该`Attribute`, 而`No Snapshotting`意味着当`GameplayEffectSpec`应用时捕获该`Attribute`.|
