@@ -12,7 +12,7 @@ banner: "[[Pasted image 20230109001000.jpg]]"
 
 在深入学习 UE 之前，需要对 UE 包含哪些东西有一个大概的了解。正好 UE 官方自己曾出过一个**关于 UE 各个模块的引擎架构图**，是非常好的学习资料。如下图是 Character 模块的部分架构图。全模块完整架构图见 [Gitub 地址](https://github.com/drstreit/unreal_schematics)。
 
-![](https://pic4.zhimg.com/v2-708d3aea2af9860edcf79c4bfe7350d3_r.jpg)
+![[ba1a574e4de79376486d372f7b02c469_MD5.jpg]]
 
 在这里插入图片描述
 

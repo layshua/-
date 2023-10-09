@@ -59,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/5 U++编程规范.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           },
@@ -113,7 +112,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/5 U++编程规范.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           }
@@ -163,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/5 U++编程规范.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/5 U++编程规范.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -240,10 +239,16 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "9bded3da6dd852df",
+  "active": "f4c633484a7866ca",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/2 类型.md",
+    "README.md",
+    "zip/images/ba1a574e4de79376486d372f7b02c469_MD5.jpg",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "zip/icons/boxicons.zip",
+    "zip/icons/rpg-awesome.zip",
+    "zip/images/Pasted image 20231009222739.png",
+    "引擎Unreal/01 指南/5 U++编程规范.md",
+    "引擎Unreal/02 UE++/2 类型.md",
     "编程/1 C++/1 C++ Primer.md",
     "GameplayEffectExecutionCalculation.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
@@ -262,12 +267,9 @@
     "zBuffer/UE5_2 实操 1 - 增强输入.md",
     "zip/images/696599e5b2744eed75358f0502fb2cd6_MD5.jpg",
     "zip/images/e11e83e4e5436a892b1d82ad57f2fb36_MD5.jpg",
-    "zip/images/cbd1edd0b46cd2e696ba290f0d2635b8_MD5.png",
-    "zip/images/09afd22683bad8ed24daa69e52d1f257_MD5.jpg",
     "引擎Unreal/05 UI/UMG.md",
     "引擎Unreal/01 指南/3 BUG.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
-    "README.md",
     "zBuffer/UE4 游戏客户端开发进阶学习指南.md",
     "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
     "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
@@ -276,8 +278,6 @@
     "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
     "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
     "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md",
-    "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
-    "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
@@ -286,8 +286,6 @@
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",
     "技术美术/PBR/PBR白皮书/content/4 法线分布函数",
     "技术美术/PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF",
-    "技术美术/PBR/PBR白皮书/media",
-    "技术美术/PBR/PBR白皮书/content",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",

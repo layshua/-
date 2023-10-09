@@ -284,31 +284,35 @@ void AGDEnemy::BeginPlay()
 }
 ```
 ## 2 Gameplay Tags
+[使用虚幻引擎中的Gameplay标签 | 虚幻引擎5.3文档 (unrealengine.com)](https://docs.unrealengine.com/5.3/zh-CN/using-gameplay-tags-in-unreal-engine/)
 Gameplay Tags 有助于确定玩法技能之间的交互方式。每种技能都拥有一组标记，以可影响其行为的方式识别和分类技能，还有玩法标记容器和游戏标记查询，用于支持与其他技能进行交互。
 
----
+![[Pasted image 20231009222739.png]]
 
-`FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级FName, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
+`FGameplayTag`是由`GameplayTagManager`注册的形似`Parent.Child.Grandchild...`的层级`FName`, 这些标签对于分类和描述对象的状态非常有用, 例如, 如果某个Character处于眩晕状态, 我们可以给一个`State.Debuff.Stun`的`GameplayTag`.  
 
 你会发现自己使用 `GameplayTag`**替换了过去使用布尔值或枚举值**来编程, 并且需要对对象有无特定的 `GameplayTag` 做布尔逻辑判断.    
 
-**当给某个对象设置标签时, 如果它有 `ASC` 的话, 我们一般添加标签到 `ASC` 以与其交互。** `UAbilitySystemComponent` 执行 `IGameplayTagAssetInterface` 接口的函数来访问其拥有的 `GameplayTag`.   
+**当给某个对象设置标签时, 如果它有 `ASC` 的话, 我们一般添加标签到 `ASC` 以与其交互。** `UAbilitySystemComponent` 执行 **`IGameplayTagAssetInterface` 接口**的函数来访问其拥有的 `GameplayTag`.   
 
-多个 `GameplayTag` 可被保存于一个 `FGameplayTagContainer` 中, 相比 `TArray<FGameplayTag>`, 最好使用 `GameplayTagContainer`, 因为 `GameplayTagContainer` 做了一些很有效率的优化。因为标签是标准的 `FName`, 所以当在项目设置(Project Setting)中启用 `Fast Replication` 后, 它们可以高效地打包进 `FGameplayTagContainer` 以用于复制。 `Fast Replication` 要求服务端和客户端有相同的 `GameplayTag` 列表, 这通常不是问题, 因此你应该启用该选项。 `GameplayTagContainer` 也可以返回 `TArray<FGameplayTag>` 以用于遍历。
+**多个 `GameplayTag` 可被保存于一个 `FGameplayTagContainer` 中**, 相比 `TArray<FGameplayTag>`, 最好使用 `GameplayTagContainer`, 因为 `GameplayTagContainer` 做了一些很有效率的优化。
+- 因为标签是标准的 `FName`, 所以当在项目设置(Project Setting)中启用 `Fast Replication` 后, 它们可以高效地打包进 `FGameplayTagContainer` 以用于复制。 `Fast Replication` 要求服务端和客户端有相同的 `GameplayTag` 列表, 这通常不是问题, 因此你应该启用该选项。
+-  `GameplayTagContainer` 也可以返回 `TArray<FGameplayTag>` 以用于遍历。
 
-保存于 `FGameplayTagCountContainer` 中的 `GameplayTag` 有保存该 `GameplayTag` 实例数的 `TagMap`。`FGameplayTagCountContainer` 可能存有 `TagMapCount` 为0的 `GameplayTag`, 你可能在 Debug 时遇到这种情况. 任何 `HasTag()` 或 `HasMatchingTag()` 或其他相似的函数会检查 `TagMapCount`, 如果 `GameplayTag` 不存在或者其 `TagMapCount` 为0就会返回 false.   
+保存于 `FGameplayTagCountContainer` 中的 `GameplayTag` 有**保存该 `GameplayTag` 实例数的 `TagMap`**。`FGameplayTagCountContainer` 可能存有 **`TagMapCount`** 为0的 `GameplayTag`, 你可能在 Debug 时遇到这种情况. 任何 `HasTag()` 或 `HasMatchingTag()` 或其他相似的函数会检查 `TagMapCount`, 如果 `GameplayTag` 不存在或者其 `TagMapCount` 为0就会返回 false.   
 
-`GameplayTag`必须在`DefaultGameplayTag.ini`中提前定义, UE4编辑器在项目设置中提供了一个界面供开发者管理`GameplayTag`而无需手动编辑DefaultGameplayTag.ini, 该`GameplayTag`编辑器可以创建, 重命名, 搜索引用和删除`GameplayTag`.  
+**`GameplayTag`必须在`DefaultGameplayTag.ini`中提前定义**, UE4编辑器在项目设置中提供了一个界面供开发者管理`GameplayTag`而无需手动编辑DefaultGameplayTag.ini, 该`GameplayTag`编辑器可以创建, 重命名, 搜索引用和删除`GameplayTag`.  
 
 ![[2ca9b8f5529783c9f32b21ee87e6089f_MD5.png]]  
 
 搜索 `GameplayTag` 会弹出一个类似 Reference Viewer 的窗口来显示所有引用该 `GameplayTag` 的资源, 但这不会显示任何引用该 `GameplayTag` 的 C++类.   
 
-重命名`GameplayTag`会创建重定向, 因此仍引用原来`GameplayTag`的资源会重定向到新的`GameplayTag`. 如果可以的话, 我更倾向于创建新的`GameplayTag`, 手动更新所有引用到新的`GameplayTag`, 之后删除旧的`GameplayTag`以避免创建新的重定向.  
+>重命名`GameplayTag`会创建重定向, 因此仍引用原来`GameplayTag`的资源会重定向到新的`GameplayTag`. 如果可以的话, 我更倾向于创建新的`GameplayTag`, 手动更新所有引用到新的`GameplayTag`, 之后删除旧的`GameplayTag`以避免创建新的重定向.  
 
 除了`Fast Replication`, `GameplayTag`编辑器可以选择填充普遍需要复制的`GameplayTag`以对其深度优化.  
 
-如果`GameplayTag`由`GameplayEffect`添加, 那么其就是可复制的. `ASC`允许你添加不可复制的`LooseGameplayTag`且必须手动管理. 样例项目对`State.Dead`使用了`LooseGameplayTag`, 因此当生命值降为0时, 其所属客户端会立即响应. 重生时需要手动将`TagMapCount`设置回0, 当使用`LooseGameplayTag`时只能手动调整`TagMapCount`, 相比纯手动调整`TagMapCount`, 最好使用`UAbilitySystemComponent::AddLooseGameplayTag()`和`UAbilitySystemComponent::RemoveLooseGameplayTag()`.  
+**如果 `GameplayTag` 由 `GameplayEffect` 添加, 那么其就是可复制的。** 
+**`ASC` 允许你添加不可复制的 `LooseGameplayTag` 且必须手动管理**. 样例项目对 `State.Dead` 使用了 `LooseGameplayTag`, 因此当生命值降为0时, 其所属客户端会立即响应. 重生时需要手动将 `TagMapCount` 设置回0, 当使用 `LooseGameplayTag` 时只能手动调整 `TagMapCount`, 相比纯手动调整 `TagMapCount`, 最好使用 `UAbilitySystemComponent::AddLooseGameplayTag()` 和 `UAbilitySystemComponent::RemoveLooseGameplayTag()`.  
 
 **C++中获取`GameplayTag`引用:**  
 ```c++
