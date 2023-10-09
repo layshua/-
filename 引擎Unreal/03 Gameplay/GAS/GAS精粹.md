@@ -1214,9 +1214,12 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 `GameplayEffectSpecs` 是使用 `UAbilitySystemComponent::MakeOutgoingSpec()` 从 `GameplayEffects` 创建的
 
 **`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄的共享指针 `Data` 引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ： 
+
 ```c++
 //TSubclassOf<UGameplayEffect> GameplayEffectClass
+
 //创建FGameplayEffectContextHandle
+//FGameplayEffectContextHandle告诉我们该Effect是如何来到这里的（是谁/是什么Apply了该Effect）
 FGameplayEffectContextHandle EffectContextHandle = 
 AbilitySystemComponent->MakeEffectContext();  
 ...
