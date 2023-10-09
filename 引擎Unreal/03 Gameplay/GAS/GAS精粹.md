@@ -976,8 +976,8 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 
 `Modifier` 可以修改 `Attribute` 并且是**唯一可以[预测性](#concepts-p)修改 `Attribute` 的方法**。
 一个 `GameplayEffect` 可以有0个或多个 `Modifier`, 每个 `Modifier` 通过某个指定的操作只能修改一个 `Attribute`。
-#### 操作
-|操作|描述|
+####  操作
+|ModifierOP|描述|
 |:-:|:-:|
 |Add|将`Modifier`指定的`Attribute`加上计算结果. 使用负数以实现减法操作.|
 |Multiply|将`Modifier`指定的`Attribute`乘以计算结果.|
