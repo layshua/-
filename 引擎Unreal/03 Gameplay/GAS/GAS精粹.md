@@ -368,7 +368,7 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 不能将 `BaseValue` 作为 `Attribute` 的最大值使用！**可以修改或引用的 Ability/UI 中的 `Attribute` 最大值应该是另外单独的一个 `Attribute`。**
 ![[Pasted image 20231007152931.png]]
 
-对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable, 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值. 关于限制(Clamp) `Attribute` 值的问题在 [PreAttributeChange()](#concepts-as-preattributechange) 中讨论了 CurrentValue 的修改, 在 [PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute) 中讨论了 `GameplayEffect` 对 `BaseValue` 的修改。**
+**对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable**, 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值. 关于限制(Clamp) `Attribute` 值的问题在 [PreAttributeChange()](#concepts-as-preattributechange) 中讨论了 CurrentValue 的修改, 在 [PostGameplayEffectExecute()](#concepts-as-postgameplayeffectexecute) 中讨论了 `GameplayEffect` 对 `BaseValue` 的修改。**
 
 - 即刻 (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`
 - 周期性 (Periodic) `GameplayEffect` 被视为即刻 (Instant) `GameplayEffect` 并且可以修改 ` BaseValue `。
@@ -804,7 +804,9 @@ void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModC
 ```c++
 PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 ```
-该函数是 `AttributeSet` 中的主要函数之一, 其**在修改发生前响应 `Attribute` 的 `CurrentValue` 变化**, 其**是通过引用参数 NewValue 限制(Clamp)CurrentValue 即将进行的修改的理想位置.**  
+该函数是 `AttributeSet` 中的主要函数之一, **在 `Attribute` 的 `CurrentValue` 发生修改前触发。**
+这里是通过引用参数 NewValue 限制(Clamp)CurrentValue 即将进行的修改的理想位置。
+`PreAttributeChange()` 可以被 `Attribute` 的**任何修改**触发, 无论是使用 `Attribute` 的 setter (由 `AttributeSet.h` 中的宏块定义)还是使用 `gameplayeffect
 
 例如像样例项目那样限制移动速度`Modifier`:  
 ```c++
@@ -815,29 +817,29 @@ if (Attribute == GetMoveSpeedAttribute())
 }
 ```
 
-`GetMoveSpeedAttribute()`函数是由我们在`AttributeSet.h`中添加的宏块创建的
-
-`PreAttributeChange()` 可以被 `Attribute` 的**任何修改**触发, 无论是使用 `Attribute` 的 setter (由 `AttributeSet.h` 中的宏块定义)还是使用 `GameplayEffect`
-
 > [!NOTE]
->在这里做的任何限制都不会永久性地修改`ASC`中的`Modifier`, 只会修改查询`Modifier`的返回值, 这意味着像`GameplayEffectExecutionCalculations`和`ModifierMagnitudeCalculations`这种自所有`Modifier`重新计算CurrentValue的函数需要再次执行限制(Clamp)操作.  
+>在这里做的任何限制都不会永久性地修改 `ASC` 中的 `Modifier`, 只会修改查询 `Modifier` 的返回值。
+>这意味着属性**修改之后**的操作，像 `GameplayEffectExecutionCalculations` 和 `ModifierMagnitudeCalculations` 这种根据所有 `Modifier` 重新计算 CurrentValue 的函数需要再次执行限制(Clamp)操作。
 
-> [!NOTE]
+如果想要保持最终的数值仍然被 Clamp，需要使用 `PostGameplayEffectExecute()`
+
+> [!bug] 
 > Epic 对于 PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做 Clamp 操作. 对于修改 `Attribute` 的游戏逻辑事件的建议位置是 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)` ([响应Attribute变化](#concepts-a-changes)).  
-
 
 ### 07  `PostGameplayEffectExecute()`
 ```c++
 PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 ```
-**仅在`即刻(Instant)GameplayEffect`对`Attribute`的`BaseValue`修改之后触发**, 当[GameplayEffect](#concepts-ge)对其修改时, 这就是一个处理更多`Attribute`操作的有效位置.  
 
-例如, 在样例项目中, 我们在这里从生命值`Attribute`中减去了最终的伤害值`Meta Attribute`, 如果有护盾值`Attribute`的话, 我们也会在减除生命值之前从护盾值中减除伤害值. 样例项目也在这里应用了被击打反应动画, 显示浮动的伤害数值和为击杀者分配经验值和赏金. 通过设计, 伤害值`Meta Attribute`总是会传递给`即刻(Instant)GameplayEffect`而不是Attribute Setter.  
+**仅在 `(Instant)GameplayEffect` 对 `Attribute` 的 `BaseValue` 修改之后触发**, 当 `GameplayEffect` 对其修改时, 这就是一个处理更多 `Attribute` 操作的有效位置。
 
-其他只会由`即刻(Instant)GameplayEffect`修改BaseValue的`Attribute`, 像魔法值和耐力值, 也可以在这里被限制为其相应的最大值`Attribute`.  
+例如, 在样例项目中, 我们在这里**从生命值 `Attribute` 中减去了最终的伤害值 `Meta Attribute`**, 如果有护盾值 `Attribute` 的话, 我们也会在减除生命值之前从护盾值中减除伤害值. 
+样例项目也在这里应用了**被击打反应动画, 显示浮动的伤害数值和为击杀者分配经验值和赏金**。 通过设计, 伤害值 `Meta Attribute` 总是会传递给 `即刻(Instant)GameplayEffect` 而不是 Attribute Setter。    
+
+其他**只会由 `(Instant)GameplayEffect` 修改 BaseValue 的 `Attribute`, 像魔法值和耐力值**, 也可以在这里被限制为其相应的最大值 `Attribute`。 
 
 > [!NOTE]
-> **当PostGameplayEffectExecute()被调用时, 对`Attribute`的修改已经发生, 但是还没有被复制回客户端, 因此在这里限制值不会造成对客户端的二次复制, 客户端只会接收到限制后的值.  
+> 当 `PostGameplayEffectExecute()` 被调用时, 对 `Attribute` 的修改已经发生, 但是还没有被复制回客户端, 因此在这里限制值不会造成对客户端的二次复制, 客户端只会接收到限制后的值。
 
 ### 08  `OnAttributeAggregatorCreated()`
 
