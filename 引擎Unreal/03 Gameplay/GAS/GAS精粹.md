@@ -1211,8 +1211,8 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 [GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例**, 它保存了一个其所代表的 `GameplayEffect` 类引用、创建时的等级和创建者。 
 它在 Apply 之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计者在运行前创建。
 当 Apply `GameplayEffect` 时,  会从 `GameplayEffect` 创建 `GameplayEffectSpec` ，实际 Apply 到目标(Target)的是该 GESpec。
-`GameplayEffectSpecs` 是使用 `UAbilitySystemComponent::MakeOutgoingSpec()` 从 `GameplayEffects` 创建的
 
+`GameplayEffectSpecs` 是使用 `UAbilitySystemComponent::MakeOutgoingSpec()` （BlueprintCallable）从 `GameplayEffects` 创建的。
 **`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄的共享指针 `Data` 引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ： 
 ```c++
 //TSubclassOf<UGameplayEffect> GameplayEffectClass
@@ -1230,7 +1230,7 @@ AbilitySystemComponent->MakeOutgoingSpec(GameplayEffectClass, 1.0f, EffectContex
 EffectSpecHandle.Data.Get()->Def.Get()->DurationPolicy
 ```
 
-`GameplayEffectSpec` 不必立即应用. 通常是将 `GameplayEffectSpec` 传递给创建自 Ability 的投掷物, 该投掷物可以应用到它之后击中的目标. 当 `GameplayEffectSpec` 成功应用后, 就会返回一个名为 `FActiveGameplayEffect` 的新结构体.  
+`GameplayEffectSpec` 不必立即应用. 通常是将 `GameplayEffectSpec` 传递给 Ability 创建的投掷物, 该投掷物可以应用到它之后击中的目标. 当 `GameplayEffectSpec` 成功应用后, 就会返回一个名为 `FActiveGameplayEffect` 的新结构体.  
 
 `GameplayEffectSpec`的重要内容:  
 * 创建该 `GameplayEffectSpec` 的 `GameplayEffect` 类. 
@@ -1284,7 +1284,6 @@ float GetSetByCallerMagnitude(FGameplayTag DataTag, bool WarnIfNotFound = true, 
 
 
 
-<a name="concepts-ge-context"></a>
 ### 10 GameplayEffectContext
 
 [GameplayEffectContext](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectContext/index.html)结构体存有关于`GameplayEffectSpec`创建者(Instigator)和[TargetData](#concepts-targeting-data)的信息, 这也是一个很好的可继承结构体以在[ModifierMagnitudeCalculation](#concepts-ge-mmc)/[GameplayEffectExecutionCalculation](#concepts-ge-ec), [AttributeSet](#concepts-as)和[GameplayCue](#concepts-gc)之间传递任意数据.  
