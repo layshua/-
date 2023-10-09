@@ -21,54 +21,7 @@
             }
           },
           {
-            "id": "0ffda8bb84f6b9f5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e9eb1ea7d5f38436",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1e1fa3b2cb916328",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "1478db1f48f66588",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "10eb57fe352b2495",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -86,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -107,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -150,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           },
@@ -160,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           }
@@ -210,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -227,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -279,21 +232,23 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": true,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-local-images-plus:Local Images Plus  0.15.7\r\nDownload media files": false,
       "omnisearch:Omnisearch": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "pdf-to-markdown-plugin:PDF to Markdown": false
+      "pdf-to-markdown-plugin:PDF to Markdown": false,
+      "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "0ffda8bb84f6b9f5",
+  "active": "317788aa8cfd0a11",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/2 类型.md",
-    "引擎Unreal/02 UE++/3 容器.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "编程/1 C++/1 C++ Primer.md",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "引擎Unreal/02 UE++/2 类型.md",
+    "引擎Unreal/02 UE++/3 容器.md",
     "zip/images/Pasted image 20231009095252.png",
     "zip/images/Pasted image 20231009094743.png",
     "zip/images/Pasted image 20231008233014.png",
@@ -301,7 +256,6 @@
     "引擎Unreal/02 UE++/5 指针.md",
     "zip/images/Pasted image 20231008205512.png",
     "zip/images/Pasted image 20231008201140.png",
-    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "zBuffer/UE5_2 实操 1 - 增强输入.md",
@@ -324,7 +278,6 @@
     "zBuffer/Remote Procedure Calls _ An Unreal Engine Blog by Cedric Neukirchen --- 远程过程调用 _ Cedric Neukirchen 的虚幻引擎博客.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "编程/6 UML/UML 类图.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",

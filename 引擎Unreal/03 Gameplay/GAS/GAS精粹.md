@@ -817,13 +817,13 @@ if (Attribute == GetMoveSpeedAttribute())
 
 `GetMoveSpeedAttribute()`函数是由我们在`AttributeSet.h`中添加的宏块创建的
 
-`PreAttributeChange()` 可以被 `Attribute` 的任何修改触发, 无论是使用 `Attribute` 的 setter (由 `AttributeSet.h` 中的宏块定义)还是使用 `GameplayEffect`
+`PreAttributeChange()` 可以被 `Attribute` 的**任何修改**触发, 无论是使用 `Attribute` 的 setter (由 `AttributeSet.h` 中的宏块定义)还是使用 `GameplayEffect`
 
 > [!NOTE]
 >在这里做的任何限制都不会永久性地修改`ASC`中的`Modifier`, 只会修改查询`Modifier`的返回值, 这意味着像`GameplayEffectExecutionCalculations`和`ModifierMagnitudeCalculations`这种自所有`Modifier`重新计算CurrentValue的函数需要再次执行限制(Clamp)操作.  
 
 > [!NOTE]
-> Epic对于PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做限制操作. 对于修改`Attribute`的游戏逻辑事件的建议位置是`UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)`([响应Attribute变化](#concepts-a-changes)).  
+> Epic 对于 PreAttributeChange()的注释说明不要将该函数用于游戏逻辑事件, 而主要在其中做 Clamp 操作. 对于修改 `Attribute` 的游戏逻辑事件的建议位置是 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute)` ([响应Attribute变化](#concepts-a-changes)).  
 
 
 ### 07  `PostGameplayEffectExecute()`
