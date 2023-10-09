@@ -20,7 +20,8 @@
       "bottom": 0,
       "left": 0
     },
-    "iconInTabsEnabled": true
+    "iconInTabsEnabled": true,
+    "iconsBackgroundCheckEnabled": false
   },
   "Tools": "SiObsidian",
   "编程": "SiVisualstudio",
