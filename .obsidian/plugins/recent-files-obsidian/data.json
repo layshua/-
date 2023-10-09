@@ -5,6 +5,10 @@
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
+      "basename": "GameplayEffectExecutionCalculation",
+      "path": "GameplayEffectExecutionCalculation.md"
+    },
+    {
       "basename": "1 C++ Primer",
       "path": "编程/1 C++/1 C++ Primer.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2. PBR核心理论与渲染光学原理总结",
       "path": "图形学/3 全局光照GI/PBR实战/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
-    },
-    {
-      "basename": "00a9e47a23510e177acd02e925538dc1_MD5 1",
-      "path": "zip/images/00a9e47a23510e177acd02e925538dc1_MD5 1.webp"
     }
   ],
   "omittedPaths": [],

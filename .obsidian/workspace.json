@@ -177,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 314.5
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -229,9 +229,10 @@
   },
   "active": "f4c633484a7866ca",
   "lastOpenFiles": [
+    "GameplayEffectExecutionCalculation.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "编程/1 C++/1 C++ Primer.md",
     "zip/images/Pasted image 20221223234905.png",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/01 指南/1 UE指南.md",

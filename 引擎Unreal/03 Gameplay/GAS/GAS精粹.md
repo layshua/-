@@ -378,23 +378,29 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 ### 03 Meta Attribute
 
 **一些 `Attribute` 被视为占位符, 其是用于预计和 `Attribute` 交互的临时值, 这些 `Attribute` 被叫做 `Meta Attribute`**. 
-例如, 我们**通常定义伤害值为`Meta Attribute`, 使用伤害值`Meta Attribute`作为占位符, 而不是使用`GameplayEffect`直接修改生命值`Attribute`**, 使用这种方法, 伤害值就可以在[GameplayEffectExecutionCalculation](#concepts-ge-ec)中由buff和debuff修改, 并且可以在`AttributeSet`中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 伤害值`Meta Attribute`在`GameplayEffect`之间不是持久化的, 并且可以被任何一方重写. `Meta Attribute`一般是不可复制的.  
+例如, 我们**通常定义伤害值为 `Meta Attribute`, 使用伤害值 `Meta Attribute` 作为占位符, 而不是使用 `GameplayEffect` 直接修改生命值 `Attribute`**, 使用这种方法, 伤害值就可以在 `Execution(GameplayEffectExecutionCalculation)` 中由 buff 和 debuff 修改, 并且可以在 `AttributeSet` 中进一步操作, 例如, 在最终将生命值减去伤害值之前, 要将伤害值减去当前的护盾值. 
+伤害值 `Meta Attribute` 在 `GameplayEffect` 之间不是持久化的, 并且可以被任何一方重写. 
+`Meta Attribute` 一般是**不可复制**的.  
 
-`Meta Attribute`对于在"我们应该造成多少伤害?"和"我们该如何处理伤害值?"这种问题之中的伤害值和治疗值做了很好的解构, 这种解构意味着`GameplayEffect`和`ExecutionCalculation`无需了解目标是如何处理伤害值的. 继续看伤害值的例子, `GameplayEffect`确定造成多少伤害, 之后`AttributeSet`决定如何使用该伤害值, 不是所有的Character都有相同的`Attribute`, 特别是使用了`AttributeSet`子类的话, `AttributeSet`基类可能只有一个生命值`Attribute`, 但是它的子类可能增加了一个护盾值`Attribute`, 拥有护盾值`Attribute`的子类`AttributeSet`可能会以不同于`AttributeSet`基类的方式分配收到的伤害.  
+**`Meta Attribute` 对于在"我们应该造成多少伤害?"和"我们该如何处理伤害值?"这种问题之中的伤害值和治疗值做了很好的解构**, 这种解构意味着 `GameplayEffect` 和 `ExecutionCalculation` 无需了解目标是如何处理伤害值的。
 
-尽管 `Meta Attribute` 是一个很好的设计模式, 但其并不是强制使用的。 如果你只有一个用于所有伤害实例的 `Execution Calculation` 和一个所有 Character 共用的 `AttributeSet` 类, 那么你就可以在 `Exeuction Calculation` 中分配伤害到生命, 护盾等等, 并直接修改那些 `Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
+继续看伤害值的例子, `GameplayEffect` 确定造成多少伤害, 之后 `AttributeSet` 决定如何使用该伤害值, 不是所有的 Character 都有相同的 `Attribute`, 特别是使用了 `AttributeSet` 子类的话, `AttributeSet` 基类可能只有一个生命值 `Attribute`, 但是它的子类可能增加了一个护盾值 `Attribute`, 拥有护盾值 `Attribute` 的子类 `AttributeSet` 可能会以不同于 `AttributeSet` 基类的方式分配收到的伤害.  
+
+**尽管 `Meta Attribute` 是一个很好的设计模式, 但其并不是强制使用的**。 如果你只有一个用于所有伤害实例的 `Execution Calculation` 和一个所有 Character 共用的 `AttributeSet` 类, 那么你就可以在 `Exeuction Calculation` 中分配伤害到生命, 护盾等等, 并直接修改那些 `Attribute`, 这种方式你只会丢失灵活性, 但总体上并无大碍.  
 
 ### 04 响应 Attribute 变化
 
-为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute ` Attribute `)`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 该
+为了监听 `Attribute` 何时变化以便更新 UI 和其他游戏逻辑, 可以使用 `UAbilitySystemComponent::GetGameplayAttributeValueChangeDelegate(FGameplayAttribute Attribute )`, 该函数返回一个委托(Delegate), 你可以将其绑定一个当 `Attribute` 变化时需要自动调用的函数. 
 
-委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
+该委托提供一个 `FOnAttributeChangeData` 参数, 其中有 `NewValue`, `OldValue` 和 `FGameplayEffectModCallbackData`. 
 
 > [!NOTE]
 > `FGameplayEffectModCallbackData `只能在服务端上设置.  
 
 ```c++
-AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthAttribute()).AddUObject(this, &AGDPlayerState::HealthChanged);
+AbilitySystemComponent
+->GetGameplayAttributeValueChangeDelegate
+(AttributeSetBase->GetHealthAttribute()).AddUObject(this, &AGDPlayerState::HealthChanged);
 
 virtual void HealthChanged(const FOnAttributeChangeData& Data);
 ```
@@ -405,11 +411,11 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 
 ![[13f95902c3287b753193802f752b5030_MD5.png]] 
 
-### 05 自动推导 Attribute
+### 05 派生属性 Derived Attribute
 
-为了使一个`Attribute`的部分或全部值继承自一个或更多`Attribute`, 可以使用基于一个或多个`Attribute`或[MMC](#concepts-ge-mmc) [Modifiers](#concepts-ge-mods)的`无限(Infinite)GameplayEffect`. 当自动推导`Attribute`依赖的某个`Attribute`更新时它也会自动更新.  
+**要使 `Attribute` 的部分或全部值派生于（继承）一个或多个其他 `Attribute`, 可以使用基于一个或多个 `Attribute` 或 MMC Modifiers 的 `(Infinite)GameplayEffect`**。当 `Derived Attribute` 依赖的 `Attribute` 更新时它也会自动更新。
 
-在自动推导`Attribute`上的所有`Modifier`形成的最终公式和`Modifier Aggregators`的公式是一样的. 如果你需要计算式要按一定的顺序进行, 在`MMC`中做就是了.  
+在  `Derived Attribute` 上的所有 `Modifier` 形成的最终公式和 `Modifier Aggregators` 的公式是一样的。 如果您需要按特定顺序进行计算，请在 `MMC` 内完成所有操作。
 
 ```c++
 ((CurrentValue + Additive) * Multiplicitive) / Division
@@ -418,9 +424,10 @@ virtual void HealthChanged(const FOnAttributeChangeData& Data);
 > [!NOTE]
 > 如果在PIE中打开多个窗口, 你需要在编辑器首选项中禁用`Run Under One Process`, 否则当自动推导`Attribute`所依赖的`Attribute`更新时, 除了第一个窗口外其不会更新.  
 
-在这个例子中, 我们有一个`无限(Infinite)GameplayEffect`, 其从TestAttrB和TestAttrC `Attribute`以`TestAttrA = (TestAttrA + TestAttrB) * ( 2 * TestAttrC)`公式继承得到TestAttrA, 每次TestAttrB和TestAttrC更新时, TestAttrA都会自动重新计算.  
+在这个例子中, 我们有一个`(Infinite)GameplayEffect`, 其从TestAttrB和TestAttrC `Attribute`以`TestAttrA = (TestAttrA + TestAttrB) * ( 2 * TestAttrC)`公式继承得到TestAttrA, 每次TestAttrB和TestAttrC更新时, TestAttrA都会自动重新计算.  
 
 ![[3202adf154edb7596707dd236e755ad0_MD5.png]]  
+>Backing : 备份的意思
 
 ## 4 AttributeSet
 
@@ -447,7 +454,7 @@ GAS 主要通过 **属性集（Attribute Sets）** 与 Actor 交互，其中�
 
 ###  01 定义 AttributeSet
 
-`AttributeSet` 用于定义, 保存以及管理对 `Attribute` 的修改. 开发者应该继承 [UAttributeSet](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAttributeSet/index.html). **在 `OwnerActor` 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**. **这必须在 C++中完成.**  
+`AttributeSet` 继承自 `UAttributeSet`，用于定义, 保存以及管理对 `Attribute` 的修改。 **在 `OwnerActor` 的构造函数中创建 `AttributeSet` 会自动注册到其 `ASC`**. **这必须在 C++ 中完成.**  
 
 首先，设置一个带有一个或多个 GamePlay Attribute 的属性集，然后将其注册到你的 Ability System Component 中。
 
@@ -504,7 +511,7 @@ if (IsValid(ASC))
 
 
 > [!warning] 注意
->- 一个 Ability System Component 可以有多个属性集，但每个属性集必须与所有其它属性集的**类**不同。
+>- 一个 `Ability System Component` 可以有多个属性集，但每个属性集必须与所有其它属性集的**类**不同。
 >- 如果使用 `Gameplay Effects`  来修改 Ability System Component **没有的 `Gamplay Attributes`** ，这样做会使技能系统组件为自己创建一个匹配的游戏玩法属性。然而，这个方法并不会创建一个属性集，也不会将游戏玩法属性添加到任何现有的属性集中。
 
 
@@ -512,8 +519,8 @@ if (IsValid(ASC))
     
 | 宏（带参数）                                                 | 生成函数的签名                          | 行为/用途                                                  |
 | ------------------------------------------------------------ | --------------------------------------- | ---------------------------------------------------------- |
-| `GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMyAttributeSet, Health)` | `static FGameplayAttribute GetHealth()` | 静态函数从虚幻引擎的反射系统中返回 `FGameplayAttribute` 结构 |
-| `GAMEPLAYATTRIBUTE_VALUE_GETTER(Health)`                     | `float GetHealth() const`               | 返回"生命值"游戏玩法属性的当前值                           |
+| `GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMyAttributeSet, Health)` | `static FGameplayAttribute GetHealth()` |静态函数从虚幻引擎的反射系统中返回 `FGameplayAttribute` 结构|
+| `GAMEPLAYATTRIBUTE_VALUE_GETTER(Health)`                     | `float GetHealth() const`               |返回CurrentValue|
 | `GAMEPLAYATTRIBUTE_VALUE_SETTER(Health)`                     | `void SetHealth(float NewVal)`          | 将"生命值"游戏玩法属性的值设置为 `NewVal`                   |
 | `GAMEPLAYATTRIBUTE_VALUE_INITTER(Health)`                    | `void InitHealth(float NewVal)`         | 将"生命值"游戏玩法属性的值初始化为 `NewVal`                 |
 
@@ -922,7 +929,8 @@ UAbilitySystemComponent:: ActiveGameplayEffect.GetActiveGameplayEffect(ActiveHan
 UAbilitySystemComponent::ActiveGameplayEffect.SetActiveGameplayEffectLevel(FActiveGameplayEffectHandle ActiveHandle, int32 NewLevel)
 ```
 
-当`Backing Attribute`更新时, 基于`Backing Attribute`的`Modifier`会自动更新. `SetActiveGameplayEffectLevel()`更新`Modifier`的关键函数是:  
+当 `Backing Attribute` 更新时, 基于 `Backing Attribute` 的 `Modifier` 会自动更新. `SetActiveGameplayEffectLevel()` 更新 `Modifier` 的关键函数是:  
+
 
 ```c++
 MarkItemDirty(Effect);
