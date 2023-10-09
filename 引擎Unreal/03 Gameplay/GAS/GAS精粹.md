@@ -1204,6 +1204,10 @@ AbilitySystemComponent->MakeEffectContext();
 //创建FGameplayEffectSpecHandle
 FGameplayEffectSpecHandle EffectSpecHandle =  
 AbilitySystemComponent->MakeOutgoingSpec(GameplayEffectClass, 1.0f, EffectContextHandle);
+
+//拓展
+//通过EffectSpecHandle获取GameplayEffect类的信息：
+EffectSpecHandle.Data.Get()->Def.Get()->DurationPolicy
 ```
 
 `GameplayEffectSpec` 不必立即应用. 通常是将 `GameplayEffectSpec` 传递给创建自 Ability 的投掷物, 该投掷物可以应用到它之后击中的目标. 当 `GameplayEffectSpec` 成功应用后, 就会返回一个名为 `FActiveGameplayEffect` 的新结构体.  
