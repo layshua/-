@@ -1187,13 +1187,16 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 
 ### 07 GameplayEffect 标签
 
-`GameplayEffect`可以带有多个[GameplayTagContainer](#concepts-gt), 设计师可以编辑每个类别的`Added`和`Removed`GameplayTagContainer, 结果会在编译后显示在`Combined GameplayTagContainer`中. `Added`标签是该`GameplayEffect`新增的之前其父类没有的标签, `Removed`标签是其父类拥有但该类没有的标签.  
+`GameplayEffect` 可以带有多个 [GameplayTagContainer](#concepts-gt), 设计师可以编辑每个类别的 `Added` 和 `Removed` GameplayTagContainer
+- 结果会在编译后显示在 `Combined GameplayTagContainer` 中. 
+- `Added` 标签是该 `GameplayEffect` 新增的之前其父类没有的标签,
+- `Removed` 标签是其父类拥有但该类没有的标签.  
 
 |分类|描述|
 |:-:|:-:|
 |Gameplay Effect Asset Tags|`GameplayEffect`拥有的标签, 它们自身没有任何功能且只用于描述`GameplayEffect`.|
-|Granted Tags|存于`GameplayEffect`中且又用于`GameplayEffect`所应用`ASC`的标签. 当`GameplayEffect`移除时它们也会从`ASC`中移除. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
-|Ongoing Tag Requirements |一旦`GameplayEffect`应用后, 这些标签将决定`GameplayEffect`是开启还是关闭. `GameplayEffect`可以是关闭但仍然是应用的. 如果某个`GameplayEffect`由于不符合`Ongoing Tag Requirements`而关闭, 但是之后又满足需求了, 那么该`GameplayEffect`会重新打开并重新应用它的`Modifier`. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
+|Granted Tags|存于`GameplayEffect`中且又用于`GameplayEffect`所应用`ASC`的标签. 当`GameplayEffect`移除时它们也会从`ASC`中移除. <br> 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`. |
+|Ongoing Tag Requirements |一旦`GameplayEffect`应用后, 这些标签将决定`GameplayEffect`是开启还是关闭. `GameplayEffect`可以是关闭但仍然是应用的. <br>如果某个`GameplayEffect`由于不符合`Ongoing Tag Requirements`而关闭, 但是之后又满足需求了, 那么该`GameplayEffect`会重新打开并重新应用它的`Modifier`. 该标签只作用于`持续(Duration)`和`无限(Infinite)GameplayEffect`.|
 |Application Tag Requirements|位于目标上决定某个`GameplayEffect`是否可以应用到该目标的标签, 如果不满足这些需求, 那么`GameplayEffect`就不可应用.|
 |Remove Gameplay Effects with Tags|当`GameplayEffect`成功应用后, 如果位于目标上的该`GameplayEffect`在其`Asset Tags`或`Granted Tags`中有任意一个本标签的话, 其就会自目标上移除.|
 
