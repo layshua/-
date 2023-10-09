@@ -80,7 +80,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -123,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           },
@@ -133,7 +134,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           }
@@ -183,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -200,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -260,14 +261,16 @@
       "pdf-to-markdown-plugin:PDF to Markdown": false
     }
   },
-  "active": "f4c633484a7866ca",
+  "active": "317788aa8cfd0a11",
   "lastOpenFiles": [
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "zip/images/Pasted image 20231009095252.png",
+    "zip/images/Pasted image 20231009094743.png",
     "zip/images/Pasted image 20231008233014.png",
     "zip/images/Pasted image 20231008232717.png",
     "引擎Unreal/02 UE++/5 指针.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "编程/1 C++/1 C++ Primer.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "zip/images/Pasted image 20231008205512.png",
     "zip/images/Pasted image 20231008201140.png",
     "引擎Unreal/02 UE++/4 委托.md",
@@ -279,9 +282,6 @@
     "zip/images/e11e83e4e5436a892b1d82ad57f2fb36_MD5.jpg",
     "zip/images/cbd1edd0b46cd2e696ba290f0d2635b8_MD5.png",
     "zip/images/09afd22683bad8ed24daa69e52d1f257_MD5.jpg",
-    "zip/images/9ed3530e4c6e313ab42f419ba953e3de_MD5.jpg",
-    "zip/images/f4944342091e45dbbd8bd5123d4fef11_MD5.jpg",
-    "zip/images/50e3f61d27bf57adacf188275a53eb62_MD5.jpg",
     "引擎Unreal/05 UI/UMG.md",
     "引擎Unreal/01 指南/3 BUG.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",

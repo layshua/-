@@ -1121,16 +1121,23 @@ float FAggregatorModChannel::MultiplyMods(const TArray<FAggregatorMod>& InMods, 
 ### 05 堆叠/堆栈 Stacking 
 堆栈处理**对已具有增益或减益（或者游戏性效果，在本示例中就是如此）的目标再次应用增益或减益，以及处理所谓的"溢出"情况的策略**，溢出是指在原 Gameplay 效果的影响下已完全饱和的目标被应用了新的游戏性效果（例如，不断累积的毒药计时条只有在溢出后才会产生持续伤害效果）。
 
--  `GameplayEffect` 默认会应用新的 `GameplayEffectSpec` 实例, 而不明确或不关心之前已经应用过的尚且存在的 `GameplayEffectSpec` 实例. **`
-- GameplayEffect ` 可以设置到堆栈中, 新的 ` GameplayEffectSpec ` 实例不会添加到堆栈中, 而是修改当前已经存在的 ` GameplayEffectSpec ` 堆栈数**. 
+-  `GameplayEffect` 默认会应用新的 `GameplayEffectSpec` 实例, 而不明确或不关心之前已经应用过的尚且存在的 `GameplayEffectSpec` 实例。**`
+-  `GameplayEffect ` 可以设置到堆栈中, 新的 ` GameplayEffectSpec ` 实例不会添加到堆栈中, 而是修改当前已经存在的 ` GameplayEffectSpec ` 堆栈数. 
 - 堆栈只适用于 `持续(Duration)` 和 `无限(Infinite)GameplayEffect`.  
 
 **有两种类型的堆栈**: Aggregate（总计） by Source 和 Aggregate by Target.  
 
 |堆栈类型|描述|
 |:-:|:-:|
-|Aggregate by Source|目标(Target)上的每个源(Source)`ASC`都有一个单独的堆栈实例, 每个源(Source)可以应用堆栈中的X个`GameplayEffect`.|
-|Aggregate by Target|目标(Target)上只有一个堆栈实例而不管源(Source)如何, 每个源(Source)都可以在共享堆栈限制(Shared Stack Limit)内应用堆栈.|
+|Aggregate by Source |目标(Target)上的每个源(Source)`ASC`都有一个单独的堆栈实例, 每个源(Source)可以应用堆栈中的X个`GameplayEffect`.|
+|Aggregate by Target |目标(Target)上只有一个堆栈实例而不管源(Source)如何, 每个源(Source)都可以在共享堆栈限制(Shared Stack Limit)内应用堆栈.|
+
+Stack Limit  Count 限制 Stack 数量：
+1. 对于 Aggregate by Source：只限制单个 Source 下的堆栈数量，多个 Source 单独计算
+2. 对于 Aggregate by Source，只限制 Target 上的堆栈数量
+
+![[Pasted image 20231009094743.png]]
+![[Pasted image 20231009095252.png]]
 
 堆栈对过期, 持续刷新和周期性刷新也有一些处理策略, 这些在`GameplayEffect`蓝图中都有很友好的悬浮提示帮助.  
 
