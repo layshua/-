@@ -5,16 +5,20 @@
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
+      "basename": "Pasted image 20221223234905",
+      "path": "zip/images/Pasted image 20221223234905.png"
+    },
+    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
     {
       "basename": "4 委托",
       "path": "引擎Unreal/02 UE++/4 委托.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "1 UE指南",
@@ -195,10 +199,6 @@
     {
       "basename": "00a9e47a23510e177acd02e925538dc1_MD5 1",
       "path": "zip/images/00a9e47a23510e177acd02e925538dc1_MD5 1.webp"
-    },
-    {
-      "basename": "Numpy+Matplotlib",
-      "path": "zip/AI/Python/Numpy+Matplotlib.md"
     }
   ],
   "omittedPaths": [],
