@@ -370,10 +370,10 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 **对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable**, 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值。**
 >关于 Clamp `Attribute` 值的问题在 [[#06 `PreAttributeChange()`]] 中讨论了 CurrentValue 的修改, 在 [[#07 `PostGameplayEffectExecute()`]] 中讨论了 `GameplayEffect` 对 `BaseValue` 的修改。**
 
-**Duration 与 Value 的关系：**
+**DurationType 与 Value 的关系：**
 -  (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`
 -  (Periodic) `GameplayEffect` 被视为 (Instant) `GameplayEffect` 并且可以修改 `BaseValue`。
-- (Duration) 和(Infinite) `GameplayEffect` 可以修改 `CurrentValue`. 
+- (Duration) 和(Infinite) `GameplayEffect` 可以修改 `CurrentValue`.  
 
 ### 03 Meta Attribute
 
@@ -515,8 +515,8 @@ if (IsValid(ASC))
 >- 如果使用 `Gameplay Effects`  来修改 Ability System Component **没有的 `Gamplay Attributes`** ，这样做会使技能系统组件为自己创建一个匹配的游戏玩法属性。然而，这个方法并不会创建一个属性集，也不会将游戏玩法属性添加到任何现有的属性集中。
 
 
-4. **Getter Setter 宏**。这是一个可选的步骤，添加一些基本的辅助函数来与游戏玩法属性交互。**最好是将游戏玩法属性本身做成受保护或私有的，而将与之交互的函数公开**。（也可以自定义 Getter Setter 函数，来控制属性访问）
-    
+4. **Getter Setter 宏**。这是一个可选的步骤，添加一些基本的辅助函数来与游戏玩法属性交互。**最好是将游戏玩法属性本身做成受保护或私有的，而将与之交互的函数公开**。（也可以自定义 Getter Setter 函数，来控制属性访问） ^d9moq9
+
 | 宏（带参数）                                                 | 生成函数的签名                          | 行为/用途                                                  |
 | ------------------------------------------------------------ | --------------------------------------- | ---------------------------------------------------------- |
 | `GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMyAttributeSet, Health)` | `static FGameplayAttribute GetHealth()` |静态函数从虚幻引擎的反射系统中返回 `FGameplayAttribute` 结构|
@@ -553,7 +553,7 @@ class MYPROJECT_API UMyAttributeSet : public UAttributeSet
 
 ### 02 设计 AttributeSet
 
-**一个`ASC`可能有一个或多个`AttributeSet**`
+**一个`ASC`可能有一个或多个`AttributeSet`
 - 有种方案是设置一个单一且巨大的 `AttributeSet`, 共享于游戏中的所有 Actor, 并且只使用需要的 `Attribute`, 忽略不用的 `Attribute`.  
 - 你也可以使用多个 `AttributeSet` 来表示按需添加到 Actor 的 `Attribute` 分组, 例如, 你可以有一个生命相关的 `AttributeSet`, 一个魔法相关的 `AttributeSet` 等等. 在 MOBA 游戏中, 英雄可能需要魔法, 但是小兵并不需要, 因此英雄就需要魔法 `AttributeSet` 而小兵则不需要.  
 
@@ -673,7 +673,7 @@ void AGSWeapon::BeginPlay()
 
 ### 03 定义 Attribute
 
-**Attribute只能使用C++在AttributeSet头文件中定义.** 建议把下面这个宏块加到每个`AttributeSet`头文件的顶部, 其会自动为每个`Attribute`生成getter和setter函数.  
+**Attribute 只能使用 C++在 AttributeSet 头文件中定义.** 建议把下面这个宏块加到每个 `AttributeSet` 头文件的顶部, 其会自动为每个 `Attribute` 生成 getter 和 setter 函数.  [[GAS精粹#^d9moq9]]
 
 ```c++
 // Uses macros from AttributeSet.h
@@ -727,9 +727,9 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 ### 04 初始化 Attribute
 #### 通过GameplayEffect
-有多种方法可以初始化 `Attribute` (将 BaseValue 和 CurrentValue 设置为某初始值). **Epic 建议使用 `即刻(Instant)GameplayEffect`**, 这也是样例项目使用的方法。
+有多种方法可以初始化 `Attribute` (将 BaseValue 和 CurrentValue 设置为某初始值). **Epic 建议使用 `(Instant)GameplayEffect`**, 这也是样例项目使用的方法。
 
-查看样例项目的GE_HeroAttribute蓝图来了解如何创建`即刻(Instant)GameplayEffect`以初始化`Attribute`, 该`GameplayEffect`应用是写在C++中的.  
+查看样例项目的GE_HeroAttribute蓝图来了解如何创建`(Instant)GameplayEffect`以初始化`Attribute`, 该`GameplayEffect`应用是写在C++中的.  
 #### 通过 ATTRIBUTE_ACCESSORS 宏
 如果在定义`Attribute`时使用了`ATTRIBUTE_ACCESSORS`宏, 那么在`AttributeSet`中会自动为每个`Attribute`生成一个初始化函数.  
 
@@ -852,7 +852,9 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 
 ### 08  `OnAttributeAggregatorCreated()`
 
-`OnAttributeAggregatorCreated(const FGameplayAttribute& Attribute, FAggregator* NewAggregator)`会在Aggregator为集合中的某个`Attribute`创建时触发, 它允许[FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html)的自定义设置, `AggregatorEvaluateMetaData`是Aggregator基于所有应用的`Modifier(Modifier)`评估`Attribute`的CurrentValue的. 默认情况下, AggregatorEvaluateMetaData只由Aggregator用于确定哪些[Modifier](#concepts-ge-mods)是满足条件的, 以MostNegativeMod_AllPositiveMods为例, 其允许所有正(Positive)`Modifier`但是限制负(Negative)`Modifier`(仅最负的那一个), 这在Paragon中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度buff时有多少负移动效果. 不满足条件的`Modifier`仍存于`ASC`中, 只是不被总合进最终的CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负`Modifier`过期后, 下一个最负`Modifier`(如果存在的话)就是满足条件的.  
+`OnAttributeAggregatorCreated()` 会在 Aggregator 为集合中的某个 `Attribute` 创建时触发, 它允许 [FAggregatorEvaluateMetaData](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FAggregatorEvaluateMetaData/index.html) 的自定义设置, `AggregatorEvaluateMetaData` 是 Aggregator 基于所有应用的 `Modifier(Modifier)` 评估 `Attribute` 的 CurrentValue 的。
+
+默认情况下, AggregatorEvaluateMetaData 只由 Aggregator 用于确定哪些 [Modifier](#concepts-ge-mods) 是满足条件的, 以 MostNegativeMod_AllPositiveMods 为例, 其允许所有正(Positive) `Modifier` 但是限制负(Negative) `Modifier` (仅最负的那一个), 这在 Paragon 中只允许将最负移动速度减速效果应用到玩家, 而不用管应用所有正移动速度 buff 时有多少负移动效果. 不满足条件的 `Modifier` 仍存于 `ASC` 中, 只是不被总合进最终的 CurrentValue, 一旦条件改变, 它们之后就可能满足条件, 就像如果最负 `Modifier` 过期后, 下一个最负 `Modifier` (如果存在的话)就是满足条件的.   
 
 为了在只允许最负`Modifier`和所有正`Modifier`的例子中使用`AggregatorEvaluateMetaData`:  
 
@@ -881,9 +883,9 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
 ![[Pasted image 20231008201140.png]]
 ### 00 定义
 
-**`GameplayEffect(GE)` 可以 `Ability` 修改 `Attribute` 和 `GameplayTag`**，其可以立即修改 `Attribute` (像伤害或治疗)或应用长期的状态 buff/debuff(像移动速度加速或眩晕)。
+**`GameplayEffect(GE)` 是技能改变自己或他人的 `Attribute` 和 `GameplayTag` 的容器**，其可以立即修改 `Attribute` (例如伤害或治疗)或应用长期的状态（buff/debuff）。
 
-1.  `UGameplayEffect` 只是一个定义单一游戏效果的**数据类**, 不应该在其中添加额外的逻辑。设计师一般会创建很多 UGameplayEffect 的子类蓝图。
+1.  `UGameplayEffect` 只是一个定义单一游戏效果的**数据类**, 不应该在其中添加额外的逻辑。
 2. `Gameplay Effects` 通常不覆盖基类 `UGameplayEffect`，被设计成完全通过变量来配置
 3.  `GameplayEffect` 通过 `Modifier` 和 `Execution(GameplayEffectExecutionCalculation)` 修改 `Attribute`.  
     - **修饰和执行（Modifiers and Executions）：** 
@@ -892,18 +894,23 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
         - "**执行（Execution）**"使用 `UGameplayEffectExecutionCalculation` 来定义游戏性效果执行时它具有的**自定义行为**。定义修饰符无法充分覆盖的复杂方程式时，它们特别有用。
 
 ---
-### 01 Duration 类型
-`GameplayEffect` 有三种**持续类型**: `即刻(Instant)`, `持续(Duration)` 和 `无限(Infinite)`.  
+### 01 持续类型
+`GameplayEffect` 有三种**持续类型（Duration Type）**: `即刻(Instant)`, `持续(Duration)` 和 `无限(Infinite)`.  
 
 额外地, `GameplayEffect` 可以添加/执行 `GameplayCue`
--  `即刻(Instant)GameplayEffect` 可以调用 `GameplayCue GameplayTag` 的 Execute 
--  `持续(Duration)` 或 `无限(Infinite)` 可以调用 `GameplayCue GameplayTag` 的 Add 和 Remove.  
+-  `(Instant)GameplayEffect` 可以调用 `GameplayCue GameplayTag` 的 Execute 
+-  `(Duration)` 或 `(Infinite)` 可以调用 `GameplayCue GameplayTag` 的 Add 和 Remove.  
 
 |类型|GameplayCue事件|何时使用|
 |:-:|:-:|:-:|
-|即刻(Instant)|Execute |对`Attribute`中BaseValue立即进行的永久性修改. 其不会应用`GameplayTag`, 哪怕是一帧.|
+|即刻(Instant)|Execute |立即永久性修改BaseValue. 其不会应用`GameplayTag`, 哪怕是一帧.|
 |持续(Duration)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`过期或手动移除时, 应用将要被移除的`GameplayTag`. 持续时间是在UGameplayEffect类/蓝图中明确的.|
 |无限(Infinite)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`移除时, 应用将要被移除的`GameplayTag`. 该类型自身永不过期且必须由某个Ability或`ASC`手动移除.|
+
+**DurationType 与 Value 的关系：**
+-  (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`
+-  (Periodic) `GameplayEffect` 被视为 (Instant) `GameplayEffect` 并且可以修改 `BaseValue`。
+- (Duration) 和 (Infinite) `GameplayEffect` 可以修改 `CurrentValue`.  
 
 ![[Pasted image 20231008232717.png]]
 
