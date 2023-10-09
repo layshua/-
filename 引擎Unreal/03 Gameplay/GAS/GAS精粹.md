@@ -893,39 +893,39 @@ void UGSAttributeSetBase::OnAttributeAggregatorCreated(const FGameplayAttribute&
             - 当需要让某个游戏性效果产生超出修饰符支持范围的影响时，需要用到"执行（Execution）"。
         - "**执行（Execution）**"使用 `UGameplayEffectExecutionCalculation` 来定义游戏性效果执行时它具有的**自定义行为**。定义修饰符无法充分覆盖的复杂方程式时，它们特别有用。
 
----
-### 01 持续类型
+### 01 持续类型 Duration Type
 `GameplayEffect` 有三种**持续类型（Duration Type）**: `即刻(Instant)`, `持续(Duration)` 和 `无限(Infinite)`.  
 
-额外地, `GameplayEffect` 可以添加/执行 `GameplayCue`
+**DurationType 与 Value 的关系：**
+-   `(Instant)GameplayEffect` 可以永久性的修改 `BaseValue`
+-   `(Periodic)GameplayEffect` 被视为 (Instant) `GameplayEffect` 并且可以修改 `BaseValue`。
+- (Duration) 和 (Infinite) `GameplayEffect` 可以修改 `CurrentValue`.  
+
+**`GameplayEffect` 可以添加/执行 `GameplayCue`：**
 -  `(Instant)GameplayEffect` 可以调用 `GameplayCue GameplayTag` 的 Execute 
 -  `(Duration)` 或 `(Infinite)` 可以调用 `GameplayCue GameplayTag` 的 Add 和 Remove.  
 
 |类型|GameplayCue事件|何时使用|
 |:-:|:-:|:-:|
-|即刻(Instant)|Execute |立即永久性修改BaseValue. 其不会应用`GameplayTag`, 哪怕是一帧.|
-|持续(Duration)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`过期或手动移除时, 应用将要被移除的`GameplayTag`. 持续时间是在UGameplayEffect类/蓝图中明确的.|
-|无限(Infinite)|Add & Remove |对`Attribute`中CurrentValue的临时修改和当`GameplayEffect`移除时, 应用将要被移除的`GameplayTag`. 该类型自身永不过期且必须由某个Ability或`ASC`手动移除.|
-
-**DurationType 与 Value 的关系：**
--  (Instant) `GameplayEffect` 可以永久性的修改 `BaseValue`
--  (Periodic) `GameplayEffect` 被视为 (Instant) `GameplayEffect` 并且可以修改 `BaseValue`。
-- (Duration) 和 (Infinite) `GameplayEffect` 可以修改 `CurrentValue`.  
+|即刻(Instant)|Execute |立即永久性修改 BaseValue. <br> `GameplayTag`不会被应用, 哪怕是一帧.|
+|持续(Duration)|Add & Remove |1. 临时修改CurrentValue <br>2. 当 `GameplayEffect`过期或手动移除时, 应用将要被移除的`GameplayTag` <br> 3. 持续时间是在UGameplayEffect类/蓝图中明确的.|
+|无限(Infinite)|Add & Remove |1. 临时修改CurrentValue <br>2.  当`GameplayEffect`移除时, 应用将要被移除的`GameplayTag`.<br>3.  该类型自身永不过期且必须由某个Ability或`ASC`手动移除.|
 
 ![[Pasted image 20231008232717.png]]
 
-`(Duration)` 和 `(Infinite)GameplayEffect` 可以通过设置 Period 转变为周期性 Effect, 其每过 X 秒(由周期定义)就应用一次 Modifier 和 Execution
+`(Duration)` 和 `(Infinite)GameplayEffect` 可以通过设置 Period 转变为 `(Periodic)GameplayEffect` , 其每过 X 秒(由周期定义)就应用一次 Modifier 和 Execution
 - 如果有 Duration 转变为 Periodic，则在持续时间内按周期执行
 - 如果由 Infinite 转变为 Periodic，则一直按周期执行，直到手动移除。
 - 第二项勾选，应用时第 0s 会立刻执行一次。
 ![[Pasted image 20231008233014.png]]
 
-当周期性的 Effect 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的持续伤害(damage over time, DOT)很有用。
+当 `(Periodic)GameplayEffect` 修改 `Attribute` 的 BaseValue 和执行 `GameplayCue` 时就被视为 `(Instant)GameplayEffect`, 这种类型的 Effect 对于像随时间推移的**持续伤害**(damage over time, DOT)很有用。
 
 > [!NOTE]
 > 周期性的 Effect 不能被[预测](#concepts-p).  
 
-如果`(Duration)`和`(Infinite)GameplayEffect`的`Ongoing Tag Requirements`未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开, 关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
+如果 `(Duration)` 和 `(Infinite)GameplayEffect` 的 `Ongoing Tag Requirements` 未满足/满足的话, 那么它们在应用后就可以被暂时的关闭和打开。
+关闭`GameplayEffect`会移除其`Modifier`和已应用`GameplayTag`效果, 但是不会移除该`GameplayEffect`, 重新打开`GameplayEffect`会重新应用其`Modifier`和`GameplayTag`.  
 
 如果你需要手动重新计算某个 `(Duration)` 或 `(Infinite)GameplayEffect` 的 `Modifier` (假设有一个使用非 `Attribute` 数据的 `MMC`), 可以使用和
 ```c++
@@ -956,7 +956,7 @@ UpdateAllAggregatorModMagnitudes(Effect);
 
 为了在 `GameplayAbility` 之外应用 `GameplayEffect`, 例如对于某个投掷物, 你就需要获取到目标的 `ASC` 并使用它的函数之一来 `ApplyGameplayEffectToSelf`。
 
-你可以绑定 `持续(Duration)` 或 `无限(Infinite)GameplayEffect` 的委托来监听其应用到 `ASC`：
+你可以绑定 `(Duration)` 或 `(Infinite)GameplayEffect` 的委托来监听其应用到 `ASC`：
 
 ```c++
 AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(this, &APACharacterBase::OnActiveGameplayEffectAddedCallback);
@@ -1166,7 +1166,7 @@ Stack Limit  Count 限制 Stack 数量：
 
 <a name="concepts-ge-ga"></a>
 ### 06 授予 Ability
-Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授予新的 ` GameplayAbility` 到 `ASC`。只有` 持续 (Duration) `和` 无限 (Infinite) GameplayEffect `可以授予Ability.  
+Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授予新的 ` GameplayAbility` 到 `ASC`。只有`  (Duration) `和`  (Infinite) GameplayEffect `可以授予Ability.  
 >当与"执行（Execution）"配合使用时，可将它们用于设置高度特殊的游戏性组合。例如，某个 Actor 具有指示该 Actor 浸在油中的 ``Gameplay Tags`` 或属性，当它被以火为主题的游戏性效果击中时，它就可以获得"着火"技能，从而被动地烧毁附近的 Actor 并在接下来的十秒钟之内产生具有粒子和动态光照的视觉效果。
 
 
@@ -1208,9 +1208,10 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 
 ### 09 GameplayEffectSpec
 
-[GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例（轻量级版本）**, 它保存了一个其所代表的 `GameplayEffect` 类引用, 创建时的等级和创建者, 
-它在应用之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计师在运行前创建。
-当应用 `GameplayEffect` 时,  `GameplayEffectSpec` 会自 `GameplayEffect` 创建并且会实际应用到目标(Target).  
+[GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例**, 它保存了一个其所代表的 `GameplayEffect` 类引用、创建时的等级和创建者。 
+它在 Apply 之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计者在运行前创建。
+当 Apply `GameplayEffect` 时,  会从 `GameplayEffect` 创建 `GameplayEffectSpec` ，实际 Apply 到目标(Target)的是该 GESpec。
+`GameplayEffectSpecs` 是使用 `UAbilitySystemComponent::MakeOutgoingSpec()` 从 `GameplayEffects` 创建的
 
 **`FGameplayEffectSpecHandle` 允许蓝图生成一个 GameplayEffectSpec，然后通过句柄的共享指针 `Data` 引用它，以便多次应用/应用多个目标。** 创建 `GameplayEffectSpec` 需要先创建 `FGameplayEffectSpecHandle` ： 
 ```c++
