@@ -190247,6 +190247,7 @@ DXf
 DnsM
 DIe
 DLxV
+DurationType
 LNK
 Log
 Linux
@@ -200233,6 +200234,8 @@ Gyp
 GhN
 GhYd
 GURM
+GameplayEffectSpecs
+GameplayEffects
 NULL
 Native
 NormalMap
