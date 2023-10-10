@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -46,8 +46,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md"
+                "file": "编程/1 C++/1 C++ Primer.md"
               }
             }
           },
@@ -100,7 +99,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md"
+                "file": "编程/1 C++/1 C++ Primer.md"
               }
             }
           }
@@ -150,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 UE++/2 类型.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,11 +226,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "51fde37116224cf1",
+  "active": "1478db1f48f66588",
   "lastOpenFiles": [
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/01 指南/5 U++编程规范.md",
+    "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/02 UE++/4 委托.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "zip/images/Pasted image 20231010200931.png",
     "Pasted image 20231010200905.png",
     "引擎Unreal/02 UE++/zip/images/3 容器.md_assets/Pasted image 20231010200638.png",
@@ -253,8 +254,6 @@
     "zip/icons/boxicons.zip",
     "zip/icons/rpg-awesome.zip",
     "zip/images/Pasted image 20231009222739.png",
-    "引擎Unreal/01 指南/5 U++编程规范.md",
-    "引擎Unreal/02 UE++/2 类型.md",
     "GameplayEffectExecutionCalculation.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/01 指南/1 UE指南.md",
