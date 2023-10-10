@@ -14,7 +14,6 @@ banner_icon: ⚔
 原文地址: [tranek/GASDocumentation](https://github.com/BillEliot/GASDocumentation)  
 翻译地址: [BillEliot/GASDocumentation_Chinese](https://github.com/BillEliot/GASDocumentation_Chinese)  
 
-样例项目和文档目前基于`Unreal Engine 4.26`. 该文档拥有可用于旧版本Unreal Engine的分支, 但是它们不再受支持, 并且可能存在bug和过时信息.  
 [GASShooter](https://github.com/tranek/GASShooter) 是该样例项目的姐妹项目, 其演示了基于多人 FPS/TPS 的高阶 GAS 技术。 
 
 # 一、 步入 GameplayAbilitySystem 插件
