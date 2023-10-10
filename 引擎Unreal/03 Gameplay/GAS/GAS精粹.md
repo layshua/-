@@ -116,7 +116,7 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 # 四、GAS 概念
 ##  1 Ability System Component
-一个组件，可轻松连接 AbilitySystem 的 3 个方面：
+一个组件，可轻松交互 AbilitySystem 的 3 个方面：
 - GameAbility
 - GameplayEffect
 - GameplayAttribute
