@@ -974,6 +974,23 @@ virtual void OnActiveGameplayEffectAddedCallback(UAbilitySystemComponent* Target
 
 服务端总是会调用该函数而不管复制模式是什么, `Autonomous Proxy`只会在`Full`和`Mixed`复制模式下对于复制的`GameplayEffect`调用该函数, `Simulated Proxy`只会在`Full`复制模式下调用该函数.  
 
+其他委托：
+```c++
+/** Called on server whenever a GE is applied to self. This includes instant and duration based GEs. */
+	FOnGameplayEffectAppliedDelegate OnGameplayEffectAppliedDelegateToSelf;
+
+	/** Called on server whenever a GE is applied to someone else. This includes instant and duration based GEs. */
+	FOnGameplayEffectAppliedDelegate OnGameplayEffectAppliedDelegateToTarget;
+
+	/** Called on both client and server whenever a duraton based GE is added (E.g., instant GEs do not trigger this). */
+	FOnGameplayEffectAppliedDelegate OnActiveGameplayEffectAddedDelegateToSelf;
+
+	/** Called on server whenever a periodic GE executes on self */
+	FOnGameplayEffectAppliedDelegate OnPeriodicGameplayEffectExecuteDelegateOnSelf;
+
+	/** Called on server whenever a periodic GE executes on target */
+	FOnGameplayEffectAppliedDelegate OnPeriodicGameplayEffectExecuteDelegateOnTarget;
+```
 ### 03 移除 Remove
 
 `GameplayEffect` 可以被 `GameplayAbility` 和 `ASC` 中的多个函数移除, 其通常是 `RemoveActiveGameplayEffect` 的形式, 不同的函数本质上都是最终在目标上调用 `FActiveGameplayEffectContainer::RemoveActiveEffects() ` 的方便函数.   
