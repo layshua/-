@@ -200236,6 +200236,8 @@ GhYd
 GURM
 GameplayEffectSpecs
 GameplayEffects
+GameAbility
+GameplayAttribute
 NULL
 Native
 NormalMap

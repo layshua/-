@@ -1235,8 +1235,9 @@ Apply 时，`GameplayEffect` 不仅可以授予 `Gameplay Tags`，还可以授�
 
 
 ### 09 GameplayEffectSpec
+Specification：规格/格式
 
-[GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 可以看作是 `GameplayEffect` 的**实例**, 它保存了一个其所代表的 `GameplayEffect` 类引用、创建时的等级和创建者。 
+`GameplayEffect` 是 [GameplayEffectSpec(GESpec)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/index.html) 的应用**实例**, `GameplayEffectSpec`保存了一个其所代表的 `GameplayEffect` 类引用、创建时的等级和创建者。 
 它在 Apply 之前可以在运行时自由的创建和修改, 不像 `GameplayEffect` 应该由设计者在运行前创建。
 当 Apply `GameplayEffect` 时,  会从 `GameplayEffect` 创建 `GameplayEffectSpec` ，实际 Apply 到目标(Target)的是该 GESpec。
 `GameplayEffectSpecs` 是使用 `UAbilitySystemComponent::MakeOutgoingSpec()` 从 `GameplayEffects` 创建的
