@@ -1,8 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "GAS精粹",
-      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+      "basename": "2 类型",
+      "path": "引擎Unreal/02 UE++/2 类型.md"
     },
     {
       "basename": "3 容器",
@@ -11,6 +11,10 @@
     {
       "basename": "4 委托",
       "path": "引擎Unreal/02 UE++/4 委托.md"
+    },
+    {
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
       "basename": "1 C++ Primer",
@@ -35,10 +39,6 @@
     {
       "basename": "5 U++编程规范",
       "path": "引擎Unreal/01 指南/5 U++编程规范.md"
-    },
-    {
-      "basename": "2 类型",
-      "path": "引擎Unreal/02 UE++/2 类型.md"
     },
     {
       "basename": "Pasted image 20221223234905",
