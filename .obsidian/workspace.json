@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "Tools/Git/git入门.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -102,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           },
@@ -112,7 +112,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "Tools/Git/git入门.md"
               }
             }
           }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "Tools/Git/git入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "Tools/Git/git入门.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -189,7 +189,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -239,11 +239,15 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "f4c633484a7866ca",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "git_filter_repo.py",
+    "新建 文本文档.txt",
+    "Tools/Git/Unity Git.md",
+    "Tools/Git/UE4源码管理.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "README.md",
     "zip/images/ba1a574e4de79376486d372f7b02c469_MD5.jpg",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "zip/icons/boxicons.zip",
     "zip/icons/rpg-awesome.zip",
     "zip/images/Pasted image 20231009222739.png",
@@ -276,8 +280,6 @@
     "zBuffer/学习指南.md",
     "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
     "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
-    "zBuffer/敏捷开发中如何写好用户故事？ - 敏捷开发 - 禅道开源项目管理软件.md",
-    "zBuffer/UE5 学习笔记 _ 增强输入系统 EnhancedInput_鹿野明的博客 - CSDN 博客.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "zip/留学/敏捷开发",
@@ -285,7 +287,6 @@
     "技术美术/PBR/PBR白皮书/content/5 几何函数",
     "技术美术/PBR/PBR白皮书/content/1 .PBR总览",
     "技术美术/PBR/PBR白皮书/content/4 法线分布函数",
-    "技术美术/PBR/PBR白皮书/content/3 迪士尼原则的BRDF和BSDF",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",

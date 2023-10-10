@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
+    },
+    {
+      "basename": "UE4源码管理",
+      "path": "Tools/Git/UE4源码管理.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
@@ -83,18 +95,6 @@
     {
       "basename": "2 在线子系统和服务",
       "path": "引擎Unreal/06 网络/2 在线子系统和服务.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "UE4源码管理",
-      "path": "Tools/Git/UE4源码管理.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
     },
     {
       "basename": "3 会话管理",
