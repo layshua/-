@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -89,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           },
@@ -99,7 +99,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           }
@@ -149,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -226,8 +226,21 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "1478db1f48f66588",
+  "active": "6ea84489302e84b4",
   "lastOpenFiles": [
+    "引擎Unreal/02 UE++/3 容器.md",
+    "引擎Unreal/02 UE++/4 委托.md",
+    "zip/images/Pasted image 20231010200931.png",
+    "Pasted image 20231010200905.png",
+    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets/Pasted image 20231010200638.png",
+    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets",
+    "引擎Unreal/02 UE++/zip/images/&{filename}_assets/Pasted image 20231010200542.png",
+    "引擎Unreal/02 UE++/zip/images/&{filename}_assets/Pasted image 20231010200438.png",
+    "引擎Unreal/02 UE++/zip/images/&{filename}_assets",
+    "引擎Unreal/02 UE++/zip/images",
+    "引擎Unreal/02 UE++/zip",
+    "zip/images/Pasted image 20231010200405.png",
+    "编程/1 C++/1 C++ Primer.md",
     "Tools/Git/git入门.md",
     "git_filter_repo.py",
     "新建 文本文档.txt",
@@ -241,24 +254,15 @@
     "zip/images/Pasted image 20231009222739.png",
     "引擎Unreal/01 指南/5 U++编程规范.md",
     "引擎Unreal/02 UE++/2 类型.md",
-    "编程/1 C++/1 C++ Primer.md",
     "GameplayEffectExecutionCalculation.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
-    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/02 UE++/3 容器.md",
     "zip/images/Pasted image 20231009095252.png",
     "zip/images/Pasted image 20231009094743.png",
-    "zip/images/Pasted image 20231008233014.png",
-    "zip/images/Pasted image 20231008232717.png",
     "引擎Unreal/02 UE++/5 指针.md",
-    "zip/images/Pasted image 20231008205512.png",
-    "zip/images/Pasted image 20231008201140.png",
     "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "zBuffer/UE5_2 实操 1 - 增强输入.md",
-    "zip/images/696599e5b2744eed75358f0502fb2cd6_MD5.jpg",
-    "zip/images/e11e83e4e5436a892b1d82ad57f2fb36_MD5.jpg",
     "引擎Unreal/05 UI/UMG.md",
     "引擎Unreal/01 指南/3 BUG.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
@@ -267,13 +271,8 @@
     "zBuffer/简析 UE5 的对象指针 FObjectPtr 与 TObjectPtr.md",
     "zBuffer/学习指南.md",
     "zBuffer/【UE· 底层篇】一文搞懂 StaticClass、GetClass 和 ClassDefaultObject.md",
-    "zBuffer/虚幻引擎 Online Subsystem Steam 接口 _ 虚幻引擎 5_2 文档.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
-    "zip/留学/敏捷开发",
-    "技术美术/PBR/PBR白皮书/content/1 .PBR总览/media",
-    "技术美术/PBR/PBR白皮书/content/5 几何函数",
-    "技术美术/PBR/PBR白皮书/content/1 .PBR总览",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
     "zip/templates/未命名.canvas",
     "引擎Unity3D/【Unity精粹】/未命名.canvas",
