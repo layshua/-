@@ -116,6 +116,10 @@ AI控制的小兵没有预先定义的`GameplayAbility`. 红方小兵有较多�
 
 # 四、GAS 概念
 ##  1 Ability System Component
+一个组件，可轻松连接 AbilitySystem 的 3 个方面：
+- GameAbility
+- GameplayEffect
+- GameplayAttribute
 
 `AbilitySystemComponent(ASC)` 是**GAS 的核心**, 它是一个处理所有与该系统交互的 `UActorComponent` ([UAbilitySystemComponent](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UAbilitySystemComponent/index.html)), **所有期望使用 [GameplayAbility](#concepts-ga), 包含 [Attribute](#concepts-a), 或者接受 [GameplayEffect](#concepts-ge) 的 Actor 都必须附加 `ASC`**. 这些对象都存于 `ASC` 并由其管理和复制(除了由 [AttributeSet](#concepts-as) 复制的 `Attribute`)，开发者最好但不强求继承该组件.  
 
@@ -1866,10 +1870,16 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
 
 `GameplayEffectContainer`还包含一个可选的用于[定位(Target)](#concepts-targeting-containers)的高效方法.
 
-## 6 Gameplay Abilities
-### 01 GameplayAbility 定义
+## 6 Gameplay Ability
 
+### 01 GameplayAbility 定义
 `GameplayAbility` 是一个蓝图对象，**负责执行技能的所有事件**，包括播放动画，触发效果，从所有者获取属性，以及显示视觉效果。
+* 提供一种方法来赋予/分配可使用的Ability （例如由玩家或人工智能使用的Ability ）  
+* 提供对实例化Ability的管理（必须有东西来保管它们）  
+* 提供 Replication 功能  
+* Ability state 必须始终复制到 UGameplayAbility 本身，但 UAbilitySystemComponent 对于实际激活的 GameplayAbility 提供了 RPC 复制功能
+
+
 
 [GameplayAbility(GA)](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/Abilities/UGameplayAbility/index.html) 是 Actor 在游戏中可以触发的一切行为和技能. 多个 `GameplayAbility` 可以在同一时刻激活, 例如奔跑和射击. 其可由蓝图或 C++完成.  
 
