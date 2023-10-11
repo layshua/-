@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md",
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -85,7 +85,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md"
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md"
               }
             }
           },
@@ -95,7 +95,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md"
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md"
               }
             }
           }
@@ -145,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md",
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md",
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -224,6 +224,7 @@
   },
   "active": "9bded3da6dd852df",
   "lastOpenFiles": [
+    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "编程/1 C++/Cherno剩余.md",
@@ -231,7 +232,6 @@
     "编程/1 C++/程序运行原理.md",
     "编程/1 C++/1 C++ Primer.md",
     "README.md",
-    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "zip/images/Pasted image 20231010200931.png",
