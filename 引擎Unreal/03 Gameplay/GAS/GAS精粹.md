@@ -1028,7 +1028,7 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 ### 04 修饰符 Modifier
 
 > [!NOTE] 理解
-> Modifier 就是一个数学运算的过程！变量 && 操作符 = 结果
+> Modifier 就是一个数学运算的过程！变量 && 操作符 = Modifier
 
 `Modifier` 可以修改 `Attribute` 并且是**唯一可以[预测性](#concepts-p)修改 `Attribute` 的方法**。
 一个 `GameplayEffect` 可以有0个或多个 `Modifier`, 每个 `Modifier` 通过某个指定的操作只能修改一个 `Attribute`。
@@ -1067,13 +1067,13 @@ FScalableFloat结构体可以指向某个横向为变量, 纵向为等级的Data
 
 - `Attribute Based`（基于已有的属性进行计算）
     -  `Attribute Based Modifier` 将 Source(`GameplayEffectSpec` 的创建者)或 Target(`GameplayEffectSpec` 的接收者)上的 CurrentValue 或 BaseValue 视为 `Backing Attribute` (备份属性), 
-    - 可以使用系数（Coefficient）和 Pre 与 Post 来修改它. 
+    - 可以使用系数（Coefficient）和 Pre 与 Post 来修改它. ![[Pasted image 20231011231811.png]]
     -  `Snapshotting` ：当 `GameplayEffectSpec` 创建时捕获该 `Attribute`
     -  `No Snapshotting`：当 `GameplayEffectSpec` 应用时捕获该 `Attribute`. 
-    - 多个Modifier计算顺序：从上到下 ![[Pasted image 20231011225458.png]]    
+    - 多个Modifier计算顺序：从上到下![[Pasted image 20231011231410.png]]    
 
-- `Custom Calculation Class`
-`Custom Calculation Class` 为复杂的 `Modifier` 提供了最大的灵活性, 该 `Modifier` 使用了 [ModifierMagnitudeCalculation](#concepts-ge-mmc) 类, 且可以使用系数和 Pre 与 Post 系数和来处理浮点值结果.
+- `CustomCalculationClass（MMC）`（自定义复杂运算）
+`Custom Calculation Class` 为复杂的 `Modifier` 提供了最大的灵活性, 该 `Modifier` 使用了 [ModifierMagnitudeCalculation](#concepts-ge-mmc) 类, 且可以使用系数（Coefficient）和 Pre 与 Post 和来处理浮点值结果.
 
 - `Set By Caller`
 `SetByCaller` Modifier 是运行时由 Ability 或 `GameplayEffectSpec` 的创建者于 `GameplayEffect` 之外设置的值, **例如, 如果你想让伤害值随玩家蓄力技能的长短而变化**, 那么就需要使用 `SetByCaller`. <br> `SetByCaller` 本质上是存于 `GameplayEffectSpec` 中的 `TMap<FGameplayTag, float>`, `Modifier` 只是告知 `Aggregator` 去寻找与提供的 `GameplayTag` 相关联的 `SetByCaller` 值. <br> `Modifier` 使用的 `SetByCaller` 只能使用该概念的 `GameplayTag` 形式, `FName` 形式在此处不适用. 如果 `Modifier` 被设置为 `SetByCaller`, 但是带有正确 `GameplayTag` 的 `SetByCaller` 在 `GameplayEffectSpec` 中不存在, 那么游戏会抛出一个运行时错误并返回0, 这可能在 `Divide` 操作中造成问题. 参阅 [SetByCallers](#concepts-ge-spec-setbycaller) 获取更多关于如何使用 `SetByCaller` 的信息. 
