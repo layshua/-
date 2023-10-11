@@ -1059,12 +1059,19 @@ Override `Modifier` 会优先覆盖最后应用的 `Modifier` 得出的最终值
  -  `SetByCaller`, 
 它们全都生成一些浮点数, 用于之后基于各自的操作修改指定 `Modifier` 的 `Attribute`.  
 
-|Modifier Magnitude Calculation Type|描述 |
-|:-:|:-:|
-|Scalable Float|FScalableFloat结构体可以指向某个横向为变量, 纵向为等级的Data Table, `Scalable Float`会以Ability的当前等级自动读取指定Data Table的某行值(或者在[GameplayEffectSpec](#concepts-ge-spec)中重写的不同等级), 该值还可以进一步被系数处理, 如果没有指定Data Table/Row, 那么就会将其视为1, 因此该系数就可以在所有等级都硬编码为一个值.![[65d76b36c1ed4622e4b31fdd1dfe1c8b_MD5.png]]|
-|Attribute Based|`Attribute Based Modifier`将Source(`GameplayEffectSpec`的创建者)或Target(`GameplayEffectSpec`的接收者)上的CurrentValue或BaseValue视为`Backing Attribute`, 可以使用系数和Pre与Post系数和来修改它. `Snapshotting`意味着当`GameplayEffectSpec`创建时捕获该`Attribute`, 而`No Snapshotting`意味着当`GameplayEffectSpec`应用时捕获该`Attribute`.|
-|Custom Calculation Class|`Custom Calculation Class`为复杂的`Modifier`提供了最大的灵活性, 该`Modifier`使用了[ModifierMagnitudeCalculation](#concepts-ge-mmc)类, 且可以使用系数和Pre与Post系数和来处理浮点值结果.|
-|Set By Caller |`SetByCaller`Modifier是运行时由Ability或`GameplayEffectSpec`的创建者于`GameplayEffect`之外设置的值, **例如, 如果你想让伤害值随玩家蓄力技能的长短而变化**, 那么就需要使用`SetByCaller`. <br>`SetByCaller`本质上是存于`GameplayEffectSpec`中的`TMap<FGameplayTag, float>`, `Modifier`只是告知`Aggregator`去寻找与提供的`GameplayTag`相关联的`SetByCaller`值. <br> `Modifier`使用的`SetByCaller`只能使用该概念的`GameplayTag`形式, `FName`形式在此处不适用. 如果`Modifier`被设置为`SetByCaller`, 但是带有正确`GameplayTag`的`SetByCaller`在`GameplayEffectSpec`中不存在, 那么游戏会抛出一个运行时错误并返回0, 这可能在`Divide`操作中造成问题. 参阅[SetByCallers](#concepts-ge-spec-setbycaller)获取更多关于如何使用`SetByCaller`的信息.|
+- `Scalable Float`
+FScalableFloat结构体可以指向某个横向为变量, 纵向为等级的Data Table, `Scalable Float`会以Ability的当前等级自动读取指定Data Table的某行值(或者在[GameplayEffectSpec](#concepts-ge-spec)中重写的不同等级), 该值还可以进一步被系数处理, 如果没有指定Data Table/Row, 那么就会将其视为1, 因此该系数就可以在所有等级都硬编码为一个值.![[65d76b36c1ed4622e4b31fdd1dfe1c8b_MD5.png]]
+
+- `Attribute Based`
+    -  `Attribute Based Modifier` 将 Source(`GameplayEffectSpec` 的创建者)或 Target(`GameplayEffectSpec` 的接收者)上的 CurrentValue 或 BaseValue 视为 `Backing Attribute` (备份属性), 
+    - 可以使用系数和 Pre 与 Post 系数和来修改它. 
+    -  `Snapshotting` 意味着当 `GameplayEffectSpec` 创建时捕获该 `Attribute`, 而 `No Snapshotting` 意味着当 `GameplayEffectSpec` 应用时捕获该 `Attribute`.
+
+- `Custom Calculation Class`
+`Custom Calculation Class` 为复杂的 `Modifier` 提供了最大的灵活性, 该 `Modifier` 使用了 [ModifierMagnitudeCalculation](#concepts-ge-mmc) 类, 且可以使用系数和 Pre 与 Post 系数和来处理浮点值结果.
+
+- `Set By Caller`
+`SetByCaller` Modifier 是运行时由 Ability 或 `GameplayEffectSpec` 的创建者于 `GameplayEffect` 之外设置的值, **例如, 如果你想让伤害值随玩家蓄力技能的长短而变化**, 那么就需要使用 `SetByCaller`. <br> `SetByCaller` 本质上是存于 `GameplayEffectSpec` 中的 `TMap<FGameplayTag, float>`, `Modifier` 只是告知 `Aggregator` 去寻找与提供的 `GameplayTag` 相关联的 `SetByCaller` 值. <br> `Modifier` 使用的 `SetByCaller` 只能使用该概念的 `GameplayTag` 形式, `FName` 形式在此处不适用. 如果 `Modifier` 被设置为 `SetByCaller`, 但是带有正确 `GameplayTag` 的 `SetByCaller` 在 `GameplayEffectSpec` 中不存在, 那么游戏会抛出一个运行时错误并返回0, 这可能在 `Divide` 操作中造成问题. 参阅 [SetByCallers](#concepts-ge-spec-setbycaller) 获取更多关于如何使用 `SetByCaller` 的信息. 
 
 #### Multiply 和 Divide Modifier
 
