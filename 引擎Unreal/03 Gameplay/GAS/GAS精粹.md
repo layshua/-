@@ -374,7 +374,9 @@ virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 > ![[Pasted image 20231007152931.png]]
 > 
 
-**对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable**, 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值。**
+**对于硬编码的最大值和最小值, 有一种方法是使用可以设置最大值和最小值的 `FAttributeMetaData` 定义一个 DataTable** [[#使用数据表初始化(不推荐)]], 但是 Epic 在该结构体上的注释称之为"work in progress", 详见 `AttributeSet.h`. 
+
+为了避免这种疑惑, **我建议引用在 Ability 或 UI 中的最大值应该单独定义 `Attribute`, 只用于限制(Clamp) `Attribute` 大小的硬编码最大值和最小值应该在 `AttributeSet` 中定义为硬编码浮点值。**
 >关于 Clamp `Attribute` 值的问题在 [[#06 `PreAttributeChange()`]] 中讨论了 CurrentValue 的修改, 在 [[#07 `PostGameplayEffectExecute()`]] 中讨论了 `GameplayEffect` 对 `BaseValue` 的修改。**
 
 **DurationType 与 Value 的关系：**
@@ -733,11 +735,11 @@ void UGDAttributeSetBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 
 ### 04 初始化 Attribute
-#### 通过GameplayEffect
+#### 通过 GameplayEffect（推荐）
 有多种方法可以初始化 `Attribute` (将 BaseValue 和 CurrentValue 设置为某初始值). **Epic 建议使用 `(Instant)GameplayEffect`**, 这也是样例项目使用的方法。
 
 查看样例项目的GE_HeroAttribute蓝图来了解如何创建`(Instant)GameplayEffect`以初始化`Attribute`, 该`GameplayEffect`应用是写在C++中的.  
-#### 通过 ATTRIBUTE_ACCESSORS 宏
+#### 通过 ATTRIBUTE_ACCESSORS 宏的 Init 方法
 如果在定义`Attribute`时使用了`ATTRIBUTE_ACCESSORS`宏, 那么在`AttributeSet`中会自动为每个`Attribute`生成一个初始化函数.  
 
 ```c++
@@ -747,12 +749,15 @@ AttributeSet->InitHealth(100.0f);
 
 查看`AttributeSet.h`获取更多初始化`Attribute`的方法.  
 
-#### 使用数据表初始化
+#### 使用数据表初始化(不推荐)
 
 如果你选择不通过调用有硬编码值的初始化函数来初始化你的属性集和游戏玩法属性，你可以使用一个[数据表](https://docs.unrealengine.com/5.2/zh-CN/data-driven-gameplay-elements-in-unreal-engine)来初始化，使用 `AttributeMetaData` 类。你可以从外部文件导入数据，或者在编辑器中手动填充数据表。
 
 ![AttributeMetaData.png](https://docs.unrealengine.com/5.2/Images/making-interactive-experiences/gameplay-ability-system/GameplayAttributesAndAttributeSets/AttributeMetaData.jpg)
+>注意命名，必须是已经在C++定义的属性
 
+![[Pasted image 20231011204857.png]]
+>ASC 组件中查看
 ##### 导入数据表
 
 开发者通常会从. csv 文件中导入数据表，如下所示：
