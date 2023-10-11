@@ -1027,6 +1027,9 @@ virtual void OnRemoveGameplayEffectCallback(const FActiveGameplayEffect& EffectR
 
 ### 04 修饰符 Modifier
 
+> [!NOTE] 理解
+> Modifier 就是一个数学运算的过程！变量 && 操作符 = 结果
+
 `Modifier` 可以修改 `Attribute` 并且是**唯一可以[预测性](#concepts-p)修改 `Attribute` 的方法**。
 一个 `GameplayEffect` 可以有0个或多个 `Modifier`, 每个 `Modifier` 通过某个指定的操作只能修改一个 `Attribute`。
 ####  操作
@@ -1059,13 +1062,15 @@ Override `Modifier` 会优先覆盖最后应用的 `Modifier` 得出的最终值
  -  `SetByCaller`, 
 它们全都生成一些浮点数, 用于之后基于各自的操作修改指定 `Modifier` 的 `Attribute`.  
 
-- `Scalable Float`
+- `Scalable Float`（指定一个 float 直接计算）
 FScalableFloat结构体可以指向某个横向为变量, 纵向为等级的Data Table, `Scalable Float`会以Ability的当前等级自动读取指定Data Table的某行值(或者在[GameplayEffectSpec](#concepts-ge-spec)中重写的不同等级), 该值还可以进一步被系数处理, 如果没有指定Data Table/Row, 那么就会将其视为1, 因此该系数就可以在所有等级都硬编码为一个值.![[65d76b36c1ed4622e4b31fdd1dfe1c8b_MD5.png]]
 
-- `Attribute Based`
+- `Attribute Based`（基于已有的属性进行计算）
     -  `Attribute Based Modifier` 将 Source(`GameplayEffectSpec` 的创建者)或 Target(`GameplayEffectSpec` 的接收者)上的 CurrentValue 或 BaseValue 视为 `Backing Attribute` (备份属性), 
-    - 可以使用系数和 Pre 与 Post 系数和来修改它. 
-    -  `Snapshotting` 意味着当 `GameplayEffectSpec` 创建时捕获该 `Attribute`, 而 `No Snapshotting` 意味着当 `GameplayEffectSpec` 应用时捕获该 `Attribute`.
+    - 可以使用系数（Coefficient）和 Pre 与 Post 来修改它. 
+    -  `Snapshotting` ：当 `GameplayEffectSpec` 创建时捕获该 `Attribute`
+    -  `No Snapshotting`：当 `GameplayEffectSpec` 应用时捕获该 `Attribute`. 
+    - 多个Modifier计算顺序：从上到下 ![[Pasted image 20231011225458.png]]    
 
 - `Custom Calculation Class`
 `Custom Calculation Class` 为复杂的 `Modifier` 提供了最大的灵活性, 该 `Modifier` 使用了 [ModifierMagnitudeCalculation](#concepts-ge-mmc) 类, 且可以使用系数和 Pre 与 Post 系数和来处理浮点值结果.
