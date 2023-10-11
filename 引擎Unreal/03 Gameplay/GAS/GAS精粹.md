@@ -826,10 +826,17 @@ PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 
 例如像样例项目那样限制移动速度`Modifier`:  
 ```c++
-if (Attribute == GetMoveSpeedAttribute())
+void UMageAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 {
-	// Cannot slow less than 150 units/s and cannot boost more than 1000 units/s
-	NewValue = FMath::Clamp<float>(NewValue, 150, 1000);
+	Super::PreAttributeChange(Attribute, NewValue);
+
+	/* 只负责Clamp，不要再这写游戏逻辑 */
+	/* 可以响应 Setter 函数和 GameplayEffect 对 CurrentValue 的修改 */
+	/* 预修改属性获取Clamp后的NewValue值，但这只发生在属性修改前，不会影响最后NewValue值（即NewValue值最终仍没有被Clamp） */
+	if (Attribute == GetHealthAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxHealth());
+	}
 }
 ```
 
@@ -850,7 +857,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data)
 **仅在 `(Instant)GameplayEffect` 对 `Attribute` 的 `BaseValue` 修改之后触发**, 当 `GameplayEffect` 对其修改时, 这就是一个处理更多 `Attribute` 操作的有效位置。
 
 例如, 在样例项目中, 我们在这里**从生命值 `Attribute` 中减去了最终的伤害值 `Meta Attribute`**, 如果有护盾值 `Attribute` 的话, 我们也会在减除生命值之前从护盾值中减除伤害值. 
-样例项目也在这里应用了**被击打反应动画, 显示浮动的伤害数值和为击杀者分配经验值和赏金**。 通过设计, 伤害值 `Meta Attribute` 总是会传递给 `即刻(Instant)GameplayEffect` 而不是 Attribute Setter。    
+样例项目也在这里应用了**被击打反应动画, 显示浮动的伤害数值和为击杀者分配经验值和赏金**。 通过设计, 伤害值 `Meta Attribute` 总是会传递给 `(Instant)GameplayEffect` 而不是 Attribute Setter。    
 
 其他**只会由 `(Instant)GameplayEffect` 修改 BaseValue 的 `Attribute`, 像魔法值和耐力值**, 也可以在这里被限制为其相应的最大值 `Attribute`。 
 
