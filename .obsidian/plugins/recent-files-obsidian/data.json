@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "4 委托",
+      "path": "引擎Unreal/02 UE++/4 委托.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "4 委托",
-      "path": "引擎Unreal/02 UE++/4 委托.md"
     },
     {
       "basename": "2 类型",
