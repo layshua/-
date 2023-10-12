@@ -33,7 +33,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
               }
             }
           },
@@ -126,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -185,10 +186,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b8cdbdccd5168559",
+  "active": "d206f51a1241def8",
   "lastOpenFiles": [
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+    "zip/images/Pasted image 20231012234657.png",
+    "zip/images/Pasted image 20231012234505.png",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "编程/1 C++/3 Effective C++.md",
     "conflict-files-obsidian-git.md",

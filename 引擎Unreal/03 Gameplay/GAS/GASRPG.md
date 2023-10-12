@@ -94,3 +94,9 @@ WidgetController：从 Model 收集数据并广播到 UserWidget
 [各职业属性加点综合讲解（新人篇） - 灵游记秘诀区 - 《灵游记》官方论坛 灵游记|论坛 (ttgames.net)](http://ghostbbs.ttgames.net/showtopic-15269.aspx)
 ![[Pasted image 20231011233729.png]]
 
+# UI 参考
+天刀
+![[Pasted image 20231012234505.png]]
+
+诛仙世界：
+![[Pasted image 20231012234657.png]]
