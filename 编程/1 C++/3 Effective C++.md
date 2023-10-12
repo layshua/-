@@ -16,17 +16,17 @@ banner_lock: true
 
 ```c++ 
 //对象声明式
-	extern int x;
-	
-	//函数声明式
-	std::size_t  NumDigits(int number);
-	
-	//类声明式
-	class Widget;
-	
-	//模板声明式
-	template <typename T>
-	class GraphNode;
+extern int x;
+
+//函数声明式
+std::size_t  NumDigits(int number);
+
+//类声明式
+class Widget;
+
+//模板声明式
+template <typename T>
+class GraphNode;
 ```
 
 注意作者在这里把看基本类型看作对象（Obejct）。  
@@ -44,10 +44,10 @@ void Fun()
 	    
 }
 
-	int Fun() //error:has already been declared with return type 'void'. 
-	{
-	    return 0;
-	}
+int Fun() //error:has already been declared with return type 'void'. 
+{
+    return 0;
+}
 ```
 
 ### 定义式definition
@@ -124,10 +124,6 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 
 4. STL：是个 template 的程序库。
 
-> [!danger] Title
-> Contents
-
-
 > [!NOTE] C++高效编程守则视情况变化，取决于你使用C++的哪一部分
 > - 对于来自 C 的内置数据类型，使用值传递比引用传递高效。
 > - 对于 Object-Oriented C++、Template C++，由于用户自定义的数据类型构造函数和析构函数的存在，使用常引用传递往往更好。
@@ -138,39 +134,39 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 ## 条款02：尽量以const,enum,inline 替换 # define
 
 > [!NOTE] 总结
->1.  对于单纯常量，最好是以 const 对象或者 enums 替换 #define 
->2.  对于形似函数的宏（macros），最好改用 template inline 函数替换 #define
+>1.  对于单纯常量，最好是以 const 对象或者 enums 替换`#define`
+>2.  对于形似函数的宏（macros），最好改用 template inline 函数替换 `#define`
 
-### 以编译器替换预处理器
- **宁可以编译器替换预处理器：**
+### 尽量以编译器替换预处理器
+ 
 ```c++
-//宏定义是预处理器指令，在编译之前执行。记号名称ASPECT_PATIO可能未进入记号表，导致后续难以追踪。
+//宏定义是预处理器指令，在编译之前的预处理阶段就被展开了。记号名称ASPECT_PATIO可能未进入记号表，导致后续难以追踪。
 #define ASPECT_PATIO 1.653   
 
 //解决方法：以常量替换上述的宏，可以被编译器看到，记入记号表内
 const double AspectRatio = 1.653
 ```
 
-**以常量替换#define，有两种特殊情况：**
-1. 定义常量指针  
-    由于常量定义时通常放在头文件内（以便被不同的源码含入），有必要将指针（而不止是所指之物）声明为 const，即int* const形式。  
-    
+**以常量替换`#define`，有两种特殊情况：**
+1. **定义常量指针**  
+    由于常量定义时通常放在头文件内（以便被不同的源码含入），有必要将指针本身声明为 const，即 int* const 形式。  
+
 ```c++
-//定义一个常量的 char* 的字符串，必须 const 两次：
+//若在头文件定义一个常量的 char* 的字符串，必须 const 两次：
 const char*  const authorName = "Scott Meyers";
 
 //string对象通常比char*更合适，所以上述authorName建议定义成这样：
 const std::string authorName("Scott Meyers")
 ```
     
-2. class专属常量：static成员
+2. **class专属常量：static成员**
 为了将常量的作用域限制在 class 内，你得让它成为 class 的一个成员，而**为了确保常量至多只有一份实体。你必须让它成为一个 static 成员。**
     
 ```c++
 class GamePlayer
 {
 public:
-    	static const int NumTurns = 10;  //常量声明式
+    static const int NumTurns = 10;  //常量声明式
 };
  ```
 
