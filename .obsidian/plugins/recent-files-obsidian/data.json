@@ -1,6 +1,7 @@
 {
   "recentFiles": [
     {
+<<<<<<< Updated upstream
       "basename": "3 Effective C++",
       "path": "编程/1 C++/3 Effective C++.md"
     },
@@ -43,30 +44,18 @@
     {
       "basename": "快速入门",
       "path": "zip/AI/深度学习/快速入门.md"
+=======
+      "basename": "conflict-files-obsidian-git",
+      "path": "conflict-files-obsidian-git.md"
+>>>>>>> Stashed changes
     },
     {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
-      "basename": "10 十：UObject (一)",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
-    },
-    {
-      "basename": "1 Gameplay架构",
-      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
-    },
-    {
-      "basename": "5 指针",
-      "path": "引擎Unreal/02 UE++/5 指针.md"
-    },
-    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "3 容器",
@@ -75,6 +64,10 @@
     {
       "basename": "0 蓝图精粹",
       "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
+    },
+    {
+      "basename": "程序运行原理",
+      "path": "编程/1 C++/程序运行原理.md"
     },
     {
       "basename": "4 委托",
@@ -87,6 +80,14 @@
     {
       "basename": "5 U++编程规范",
       "path": "引擎Unreal/01 指南/5 U++编程规范.md"
+    },
+    {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "2 类型",
@@ -111,6 +112,14 @@
     {
       "basename": "1 UE指南",
       "path": "引擎Unreal/01 指南/1 UE指南.md"
+    },
+    {
+      "basename": "5 指针",
+      "path": "引擎Unreal/02 UE++/5 指针.md"
+    },
+    {
+      "basename": "1 Gameplay架构",
+      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
     },
     {
       "basename": "1 GamePlay精粹",
@@ -199,6 +208,45 @@
     {
       "basename": "发布方案",
       "path": "Tools/Obsidian/发布方案.md"
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "basename": "清单",
+      "path": "zip/留学/清单.md"
+    },
+    {
+      "basename": "03 光照模型",
+      "path": "图形学/1 图形系统/03 光照模型.md"
+    },
+    {
+      "basename": "01 渲染管线",
+      "path": "图形学/1 图形系统/01 渲染管线.md"
+    },
+    {
+      "basename": "02 光栅化",
+      "path": "图形学/1 图形系统/02 光栅化.md"
+    },
+    {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
+      "basename": "07 混合和剔除",
+      "path": "图形学/1 图形系统/07 混合和剔除.md"
+    },
+    {
+      "basename": "08 透明",
+      "path": "图形学/1 图形系统/08 透明.md"
+    },
+    {
+      "basename": "09 阴影",
+      "path": "图形学/1 图形系统/09 阴影.md"
+    },
+    {
+      "basename": "10 色彩",
+      "path": "图形学/1 图形系统/10 色彩.md"
+>>>>>>> Stashed changes
     }
   ],
   "omittedPaths": [],
