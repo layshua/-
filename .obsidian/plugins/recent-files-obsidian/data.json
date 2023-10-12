@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
@@ -35,10 +39,6 @@
     {
       "basename": "1 C++ Primer",
       "path": "编程/1 C++/1 C++ Primer.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "2 类型",
