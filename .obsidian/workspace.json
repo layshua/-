@@ -13,19 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7bcc69da68afe60e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "编程/1 C++/程序运行原理.md",
                 "mode": "source",
                 "backlinks": false,
@@ -34,19 +21,33 @@
             }
           },
           {
-            "id": "bbda04f3382d9a14",
+            "id": "9bded3da6dd852df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/1 C++/1 C++ Primer.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "51fde37116224cf1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -74,7 +75,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#define",
+                "query": " ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           },
@@ -99,12 +100,11 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md"
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "c860fd12f8384878",
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
+                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -177,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 341.5
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -217,38 +217,23 @@
     "hiddenItems": {
       "canvas:新建白板": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
+      "command-palette:打开命令面板": true,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false,
       "omnisearch:Omnisearch": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "pdf-to-markdown-plugin:PDF to Markdown": false
+      "pdf-to-markdown-plugin:PDF to Markdown": false,
+      "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "1478db1f48f66588",
+  "active": "9bded3da6dd852df",
   "lastOpenFiles": [
-    "编程/1 C++/程序运行原理.md",
-    "编程/1 C++/1 C++ Primer.md",
-    "编程/1 C++/3 Effective C++.md",
-    "zip/AI/深度学习/《鱼书》.md",
-    "zip/AI/深度学习/动手学pytorch.md",
-    "zip/AI/论文/方向.md",
-    "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md",
-    "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md",
-    "zip/AI/深度学习/PyTorch入门.md",
-    "zip/AI/深度学习/快速入门.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md",
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "引擎Unreal/02 UE++/5 指针.md",
     "zip/images/Pasted image 20231012141541.png",
-    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets/Pasted image 20231010200638.png",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
-    "README.md",
     "zip/images/Pasted image 20231012111224.png",
     "zip/images/Pasted image 20231012110400.png",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "zip/images/Pasted image 20231011233729.png",
     "zip/images/Pasted image 20231011231811.png",
@@ -256,11 +241,16 @@
     "zip/images/Pasted image 20231011225458.png",
     "zip/images/Pasted image 20231011204857.png",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
+    "编程/1 C++/程序运行原理.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "编程/1 C++/Cherno剩余.md",
     "引擎Unreal/01 指南/5 U++编程规范.md",
+    "编程/1 C++/1 C++ Primer.md",
+    "README.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "zip/images/Pasted image 20231010200931.png",
+    "Pasted image 20231010200905.png",
+    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets/Pasted image 20231010200638.png",
     "引擎Unreal/02 UE++/zip/images/3 容器.md_assets",
     "引擎Unreal/02 UE++/zip/images/&{filename}_assets",
     "引擎Unreal/02 UE++/zip/images",
@@ -273,6 +263,16 @@
     "zip/icons/boxicons.zip",
     "zip/icons/rpg-awesome.zip",
     "GameplayEffectExecutionCalculation.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "引擎Unreal/02 UE++/5 指针.md",
+    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "zBuffer/UE5_2 实操 1 - 增强输入.md",
+    "引擎Unreal/05 UI/UMG.md",
+    "引擎Unreal/01 指南/3 BUG.md",
+    "引擎Unreal/06 网络/1 UE网络精粹.md",
+    "zBuffer/UE4 游戏客户端开发进阶学习指南.md",
+    "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
     "引擎Unreal/06 网络/未命名",
     "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
     "引擎Unreal/03 Gameplay/UE画布.canvas",
