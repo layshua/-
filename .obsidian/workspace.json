@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "7efae4cc98de1b29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "51fde37116224cf1",
             "type": "leaf",
             "state": {
@@ -47,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -90,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           },
@@ -100,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           }
@@ -150,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +180,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "conflict-files-obsidian-git.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -227,13 +240,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "9bded3da6dd852df",
+  "active": "7efae4cc98de1b29",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "zip/images/Pasted image 20231012141541.png",
     "zip/images/Pasted image 20231012111224.png",
     "zip/images/Pasted image 20231012110400.png",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "zip/images/Pasted image 20231011233729.png",
     "zip/images/Pasted image 20231011231811.png",
@@ -250,7 +264,6 @@
     "引擎Unreal/02 UE++/2 类型.md",
     "zip/images/Pasted image 20231010200931.png",
     "Pasted image 20231010200905.png",
-    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets/Pasted image 20231010200638.png",
     "引擎Unreal/02 UE++/zip/images/3 容器.md_assets",
     "引擎Unreal/02 UE++/zip/images/&{filename}_assets",
     "引擎Unreal/02 UE++/zip/images",
