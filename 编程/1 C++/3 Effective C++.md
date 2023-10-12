@@ -170,7 +170,7 @@ public:
 };
  ```
 
-但是你所看到的只是常量声明式，而非定义式。**如果它是个 class 专属常量又是 static 且为整数类型（例如 ints，chars，bools），只要不取它们的地址，可以直接声明并使用它们。**
+但是你所看到的只是常量声明式，而非定义式。**如果它是个 class 专属常量又是 static 且为整数类型（例如 ints，chars，bools），只要不取它们的地址，可以直接声明并使用它们 (无需提供定义式)。**
 
 通常情况下 C++ 会要求对你所使用到的任何东西提供一个定义式。
 
@@ -185,8 +185,9 @@ const int GamePlayer::NumTurns;  //正确
 > 对于非const 的static数据成员，类内不提供初始值，只进行声明。在类外提供初始值
 > 对于const的static数据成员，则需要在类内提供初始值。
 
-### enum hack 
-当你再class编译期间需要一个class常量值，而编译器（错误的）不允许static整数型class变量类内提供初始值时（存在于某些旧式编译器中的问题），则可以使用“enum hack”补偿做法
+### enum hack 补偿做法
+
+当你再 class 编译期间需要一个 class 常量值，而编译器（错误的）不允许**static 整数型 class 常量**类内提供初始值时（存在于某些旧式编译器中的问题），则可以使用“enum hack”补偿做法
     
  ```c++
 class GamePlayer
@@ -211,8 +212,9 @@ public:
 enum hack 的行为某方面来说比较像 `#define` 而不是 const，有时候这就是想要的。例如取一个 const 的地址是合法的，而取一个 enum 的地址是非法的，而取一个 `#define` 的地址通常也不合法。
 如果不想别人获得指针或者引用指向某个整形常量，enum 可以实现这个约束。
 
-### template inline函数
- 使用`#define` 实现宏时，规定必须为宏中的所有实参加上小括号，即便如此可读性也不好。
+### template inline 函数代替 define宏
+ 
+使用`#define` 实现宏时，规定必须为宏中的所有实参加上小括号，即便如此可读性也不好。
 ```c++
 #define CALL_WITH_MAX(a,b) f((a) > (b) ? (a) : (b))
 ```
@@ -244,20 +246,16 @@ inline T callWithMax(const T& a,const T& b)
 
 **用法：**
 1. const 指针和引用：[[1 C++ Primer#const限定符]]
-
 2. const_iterator：[[1 C++ Primer#顺序容器迭代器]]
-
 3. const成员函数：[[1 C++ Primer#const成员函数]]
 
-    
-4. 当 const 和 non-const 成员函数有着实质等价的实现时，**令 non-const 版本调用 const 版本可避免代码重复。**
-    
+1. 当 const 和 non-const 成员函数有着实质等价的实现时，**令 non-const 版本调用 const 版本可避免代码重复。**
     可以选择把相同的代码封装成函数，但是你还是重复了一些代码，包括函数的调用，两次 return 语句。  
     一个比较理想的方法是使其中的一个调用另一个的实现。
     
-    而一般的，**我们建议在 non-const 函数调用 const 函数的实现**，为什么？
+而一般的，**我们建议在 non-const 函数调用 const 函数的实现**，为什么？
     
-    如果 const 函数调用 non-const 函数的实现，那是一件糟糕的事情，因为 const 函数承诺不修改其对象的逻辑状态，但如果去调用 non-const 函数，就可能冒着修改对象的风险，这是`坏代码的前兆`。而且，如果这样的代码通过编译，意味着得先将 this 指针的 const 性质先去掉，这存在很大风险。
+如果 const 函数调用 non-const 函数的实现，那是一件糟糕的事情，因为 const 函数承诺不修改其对象的逻辑状态，但如果去调用 non-const 函数，就可能冒着修改对象的风险，这是`坏代码的前兆`。而且，如果这样的代码通过编译，意味着得先将 this 指针的 const 性质先去掉，这存在很大风险。
  
 ```c++
 //   non-const 转 const 测试代码
