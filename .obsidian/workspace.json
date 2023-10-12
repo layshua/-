@@ -4,63 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "9a4fa802336494c7",
+        "id": "d7cd1abb8c8e1151",
         "type": "tabs",
         "children": [
           {
-            "id": "1478db1f48f66588",
+            "id": "b8cdbdccd5168559",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/1 C++/程序运行原理.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9bded3da6dd852df",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7efae4cc98de1b29",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "51fde37116224cf1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -72,14 +32,31 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 37.00396825396825,
+        "dimension": 54.41176470588235,
         "children": [
           {
-            "id": "e519557e79750a6d",
+            "id": "2c1f62ffea7ea3be",
             "type": "leaf",
             "state": {
               "type": "quiet-outline",
               "state": {}
+            }
+          },
+          {
+            "id": "ed5fcf71da89a3f4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "编程/1 C++/3 Effective C++.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
             }
           },
           {
@@ -88,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": " ",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -98,49 +75,41 @@
             }
           },
           {
-            "id": "21a03d7ff7e78358",
+            "id": "14cd0c34760b50ea",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
             }
           },
           {
-            "id": "33ef0e2e73201589",
-            "type": "leaf",
-            "state": {
-              "type": "file-properties",
-              "state": {
-                "file": "conflict-files-obsidian-git.md"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "c860fd12f8384878",
-        "type": "tabs",
-        "dimension": 19.841269841269842,
-        "children": [
-          {
-            "id": "ffd75fe37a90e6ea",
+            "id": "4828ca739727e4dc",
             "type": "leaf",
             "state": {
               "type": "recent-files",
               "state": {}
             }
+          },
+          {
+            "id": "6eb34de23bd70c02",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       },
       {
-        "id": "b49fb9eff2f6ac76",
+        "id": "1a1c14cc2d989318",
         "type": "tabs",
-        "dimension": 43.154761904761905,
+        "dimension": 45.58823529411765,
         "children": [
           {
-            "id": "6ea84489302e84b4",
+            "id": "638af3f7231b161a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -150,66 +119,41 @@
             }
           },
           {
-            "id": "e71deaf0fc9fcfb8",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {}
-            }
-          },
-          {
-            "id": "359f689aa579d2fb",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "ba61e1d5651c49d1",
+            "id": "0eeee6cb746b8d79",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "linksCollapsed": true,
+                "file": "编程/1 C++/3 Effective C++.md",
+                "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
+            }
+          },
+          {
+            "id": "a75214c48f91274b",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 341.5
+    "width": 199
   },
   "right": {
     "id": "bd3717a50a592ecf",
     "type": "split",
     "children": [
       {
-        "id": "513993bb3b1dc291",
+        "id": "2833b19b60406875",
         "type": "tabs",
         "children": [
           {
-            "id": "154da81e10029da9",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {}
-            }
-          },
-          {
-            "id": "bad14b70971c94b6",
+            "id": "a6dd59fb5f17b08b",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -218,85 +162,38 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 295.5,
+    "width": 188.5,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "canvas:新建白板": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": true,
       "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false,
       "omnisearch:Omnisearch": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "7efae4cc98de1b29",
+  "active": "b8cdbdccd5168559",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "zip/images/Pasted image 20231012141541.png",
-    "zip/images/Pasted image 20231012111224.png",
-    "zip/images/Pasted image 20231012110400.png",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
-    "引擎Unreal/02 UE++/3 容器.md",
-    "zip/images/Pasted image 20231011233729.png",
-    "zip/images/Pasted image 20231011231811.png",
-    "zip/images/Pasted image 20231011231410.png",
-    "zip/images/Pasted image 20231011225458.png",
-    "zip/images/Pasted image 20231011204857.png",
-    "引擎Unreal/02 UE++/0 蓝图精粹.md",
-    "编程/1 C++/程序运行原理.md",
-    "引擎Unreal/02 UE++/4 委托.md",
-    "编程/1 C++/Cherno剩余.md",
-    "引擎Unreal/01 指南/5 U++编程规范.md",
-    "编程/1 C++/1 C++ Primer.md",
-    "README.md",
-    "引擎Unreal/02 UE++/2 类型.md",
-    "zip/images/Pasted image 20231010200931.png",
-    "Pasted image 20231010200905.png",
-    "引擎Unreal/02 UE++/zip/images/3 容器.md_assets",
-    "引擎Unreal/02 UE++/zip/images/&{filename}_assets",
-    "引擎Unreal/02 UE++/zip/images",
-    "引擎Unreal/02 UE++/zip",
-    "Tools/Git/git入门.md",
-    "git_filter_repo.py",
-    "新建 文本文档.txt",
-    "Tools/Git/Unity Git.md",
-    "Tools/Git/UE4源码管理.md",
-    "zip/icons/boxicons.zip",
-    "zip/icons/rpg-awesome.zip",
-    "GameplayEffectExecutionCalculation.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
-    "引擎Unreal/02 UE++/5 指针.md",
-    "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md",
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "zBuffer/UE5_2 实操 1 - 增强输入.md",
-    "引擎Unreal/05 UI/UMG.md",
-    "引擎Unreal/01 指南/3 BUG.md",
-    "引擎Unreal/06 网络/1 UE网络精粹.md",
-    "zBuffer/UE4 游戏客户端开发进阶学习指南.md",
-    "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md",
-    "引擎Unreal/06 网络/未命名",
-    "引擎Unreal/06 网络/Steps to use Menu System Plugin.pdf",
-    "引擎Unreal/03 Gameplay/UE画布.canvas",
-    "zip/templates/未命名.canvas",
-    "引擎Unity3D/【Unity精粹】/未命名.canvas",
-    "未命名.canvas",
-    "图形学/2 图形API/DX12/龙书/DX12脑图.canvas",
-    "引擎Unity3D/游戏Demo/坦克大战/未命名.canvas",
-    "图形学/DX12/龙书/DX12初始化.canvas",
-    "testt.canvas",
-    "Tools/Excalidraw/未命名.canvas",
-    "Software/未命名.canvas"
+    "TA/2022minigame.md",
+    "TA/URP/URP渲染管线.md",
+    "TA/URP/DrawCall，Batches，SetPass calls.md",
+    "TA/URP/URP屏幕后处理.md",
+    "TA/URP/URPShader.md",
+    "TA/技术美术101.md",
+    "Unity/Shader入门精要.md",
+    "Unity/常用插件.md",
+    "TA/贾天源技美学习大纲.md",
+    "TA/图形学奇点.md"
   ]
 }
