@@ -249,40 +249,6 @@ inline T callWithMax(const T& a,const T& b)
 2. const_iterator：[[1 C++ Primer#顺序容器迭代器]]
 3. const成员函数：[[1 C++ Primer#const成员函数]]
 
-1. 当 const 和 non-const 成员函数有着实质等价的实现时，**令 non-const 版本调用 const 版本可避免代码重复。**
-    可以选择把相同的代码封装成函数，但是你还是重复了一些代码，包括函数的调用，两次 return 语句。  
-    一个比较理想的方法是使其中的一个调用另一个的实现。
-    
-而一般的，**我们建议在 non-const 函数调用 const 函数的实现**，为什么？
-    
-如果 const 函数调用 non-const 函数的实现，那是一件糟糕的事情，因为 const 函数承诺不修改其对象的逻辑状态，但如果去调用 non-const 函数，就可能冒着修改对象的风险，这是`坏代码的前兆`。而且，如果这样的代码通过编译，意味着得先将 this 指针的 const 性质先去掉，这存在很大风险。
- 
-```c++
-//   non-const 转 const 测试代码
-class TextBlock
-{
-public:
-		const char& operator[](std::size_t position) const
-		{
-			return text [position];
-		}
-		
-		char& operator[](std:size_t position)  //现在只调用const op[]
-		{
-			return
-				const cast<char&>(           //将op[]返回值的const转除
-				static_cast<const TextBlock&>(*this)  //为*this加上const
-				[position]                            //调用const op[]
-				);
-		}
-	}
-
-
-// static_cast 负责将 *this 对象转换成常对象，这样才能调用常函数。  
-// const_cast 负责将常函数返回的常引用转换成普通引用。
-    
- ```
-
 ## 条款 04：确定对象使用前已先被初始化
 
 > [!NOTE] 总结
@@ -291,20 +257,17 @@ public:
 >3.  **为免除 跨编译单元之初始化次序 问题，请以局部静态对象替换非局部静态对象**。
 
 1.  读取未初始化的值会导致不明确的行为。
-    
 2.  c++ 初始化在不同语境表现不同，这些规则很复杂。
-    
 3.  **最佳处理方法**就是：**永远在使用对象之前先将它初始化**。
-- **对于无任何成员的内置类型，必须手动完成初始化。**
-```c++
-int x O;  //对int进行手工初始化
-const char*text ="A C-style string";  //对指针进行手工初始化
+    - **对于无任何成员的内置类型**，必须手动完成初始化。
+    - **对于非内置类型**，初始化职责落在构造函数，那么规则是：确保每一个构造函数都将对象的每一个成员初始化。
 
-double d;
-std:cin >d;  //以读取input stream的方式完成初始化.
-```
-    
-- **对于非内置类型，初始化职责落在构造函数，那么规则是：确保每一个构造函数都将对象的每一个成员初始化。**
+**规则很简单，重要的是别混淆了赋值和初始化：**
+- 构造函数中进行的是**赋值**![[Pasted image 20231012153325.png]]
+>首先执行默认构造函数为变量设置初始值，然后在对他们赋予新值。 
+- C++规定对象的成员函数的**初始化动作发生在进入构造函数本体之前**。
+一个比较好的写法是在构造函数**成员初始化列表**![[Pasted image 20231012153355.png]]
+>只需要调用一次 copy 构造，通常效率更高（对于内置类型，初始化和赋）
 
 如果成员变量是 `const` 或者 `references`类型，它们一定需要初值，不能被赋值。
     
