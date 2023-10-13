@@ -83,12 +83,19 @@ void AMageEnemy::UnHighlightActor()
 ![[Pasted image 20231007164907.png]]
 
 # UI 架构
+## 血条
 MVC 架构
 ![[Pasted image 20231007205904.png]]
 
 ![[Pasted image 20231007210219.png]]
 
 WidgetController：从 Model 收集数据并广播到 UserWidget
+
+## 属性菜单
+同MVC
+![[Pasted image 20231013214339.png]]
+
+![[Pasted image 20231013215510.png]]
 
 # 属性设计参考
 [各职业属性加点综合讲解（新人篇） - 灵游记秘诀区 - 《灵游记》官方论坛 灵游记|论坛 (ttgames.net)](http://ghostbbs.ttgames.net/showtopic-15269.aspx)
