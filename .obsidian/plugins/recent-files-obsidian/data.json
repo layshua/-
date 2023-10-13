@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "宝藏",
       "path": "引擎Unreal/03 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "发布方案",
-      "path": "Tools/Obsidian/发布方案.md"
     }
   ],
   "omittedPaths": [],
