@@ -109,3 +109,14 @@ WidgetController：从 Model 收集数据并广播到 UserWidget
 ![[Pasted image 20231012234657.png]]
 
 ![[Pasted image 20231013173418.png]]
+
+# 设置 AssetManager
+DefaultEngine.ini
+
+```c++
+[/Script/Engine.Engine]
+//...
+
+//添加 = /Script/项目名/资产管理类名
+AssetManagerClassName = /Script/ProjectGASRPG.MageAssetManager
+```

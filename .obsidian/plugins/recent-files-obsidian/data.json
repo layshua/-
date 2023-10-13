@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "《Unity设计模式》",
-      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
+    },
+    {
+      "basename": "7 资源加载",
+      "path": "引擎Unreal/02 UE++/7 资源加载.md"
+    },
+    {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
     },
     {
       "basename": "GAS精粹",
@@ -195,10 +199,6 @@
     {
       "basename": "缴费",
       "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "引擎Unreal/03 Gameplay/宝藏.md"
     }
   ],
   "omittedPaths": [],
