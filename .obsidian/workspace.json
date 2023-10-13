@@ -164,6 +164,23 @@
                 "sortOrder": "frequency"
               }
             }
+          },
+          {
+            "id": "fc3f11f9fc7d3a0a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
           }
         ]
       }
@@ -176,14 +193,14 @@
     "hiddenItems": {
       "oz-clear-unused-images:Clear Unused Images": false,
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false,
-      "omnisearch:Omnisearch": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
       "canvas:新建白板": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "omnisearch:Omnisearch": false
     }
   },
   "active": "d206f51a1241def8",
