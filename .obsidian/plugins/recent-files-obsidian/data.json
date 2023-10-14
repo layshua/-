@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
@@ -55,10 +59,6 @@
     {
       "basename": "6 脚本",
       "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "GAS精粹",

@@ -127894,6 +127894,7 @@ TryActivateAbilitiesByTag
 TryActivateAbilityByClass
 TriggerAbilityFromGameplayEvent
 TickTask
+TBaseStaticDelegateInstance
 io
 ipad
 it
@@ -173161,6 +173162,8 @@ FZfN
 FZTd
 FjGK
 FFFJ
+FunctionPtr
+FAttributeSignature
 Element
 Entity
 Enity

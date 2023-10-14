@@ -145,4 +145,24 @@ TMap<FGameplayTag, TBaseStaticDelegateInstance<FGameplayAttribute(),FDefaultDele
 TagsToAttributes.Add(FMageGameplayTags::Get().Attribute_Vital_Health, GetHealthAttribute);
 ```
 
-核心在于：TBaseStaticDelegateInstance 委托可以绑定一个 C++函数指针。
+**核心在于**：TBaseStaticDelegateInstance 委托可以绑定一个 C++函数指针。
+我们需要 TMap 的值返回 `FGameplayAttribute` 类型，使用 TBaseStaticDelegateInstance 直接绑定 GetHealthAttribute 函数比使用委托获取返回值更优雅。
+```c++
+//这么一大串只需要理解为声明了一个TestFuncPtr的无参函数指针，返回类型为FGameplayAttribute
+TBaseStaticDelegateInstance<FGameplayAttribute(),FDefaultDelegateUserPolicy>::FFuncPtr TestFuncPtr;
+//这是个模板，指定类型后面还可以添加参数！
+```
+
+如果使用原生 C++的函数指针声明方式也是可以的
+```c++
+typedef FGameplayAttribute (*FuncPtr)();
+
+TMap<FGameplayTag, FuncPtr> TagsToAttributes;
+```
+
+当我们用 auto 循环这个 TMap 时，提示：
+![[Pasted image 20231014212321.png]]
+
+直接用提示里的函数指针替换那一大串就 OK 了！更优雅了
+```c++
+```

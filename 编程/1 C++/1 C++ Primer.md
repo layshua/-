@@ -1884,6 +1884,12 @@ int calculate(int a, int b, FuncPtr operation)
      return result;
 }
 
+int calculate(int a, int b, int (*operation)(int, int) )
+{
+    int result;
+    result = operation(a, b); // 运算
+    return result;
+}
 ```
 ### 为什么要首先使用函数指针
 
