@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "2 STL标准库",
       "path": "编程/1 C++/2 STL标准库.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "程序运行原理",

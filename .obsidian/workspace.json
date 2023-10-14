@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "5c06badc7ce3b34b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/1 C++/1 C++ Primer.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "d206f51a1241def8",
             "type": "leaf",
             "state": {
@@ -33,7 +46,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "编程/1 C++/1 C++ Primer.md"
               }
             }
           },
@@ -126,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,7 +216,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "b8cdbdccd5168559",
+  "active": "5c06badc7ce3b34b",
   "lastOpenFiles": [
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/7 资源加载.md",
