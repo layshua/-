@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           },
@@ -81,7 +81,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+                "file": "引擎Unreal/02 UE++/4 委托.md"
               }
             }
           }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
+                "file": "引擎Unreal/02 UE++/4 委托.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,6 +202,7 @@
   },
   "active": "d206f51a1241def8",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/03 深度法线纹理.md",
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/1 渲染雅集/04 溶解.md",
@@ -232,7 +233,6 @@
     "TA/URP/URP屏幕后处理.md",
     "TA/URP/URPShader.md",
     "TA/技术美术101.md",
-    "Unity/Shader入门精要.md",
-    "Unity/常用插件.md"
+    "Unity/Shader入门精要.md"
   ]
 }
