@@ -2315,11 +2315,15 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 <a name="concepts-ga-spec"></a>
 ### 10 Gameplay Ability Spec
 
-`GameplayAbilitySpec` 会在 `GameplayAbility` 授予后存在于 `ASC` 中并定义可激活 `GameplayAbility` - `GameplayAbility` 类, 等级, 输入绑定和必须与 `GameplayAbility` 类分开保存的运行时状态.    
+`GameplayAbilitySpec` 会在 `GameplayAbility` 授予后存在于 `ASC` 中并定义与 `GameplayAbility` 相关的详细信息。包括 `GameplayAbility` 类本身，技能等级，输入绑定和必须与 `GameplayAbility` 类分开保存的运行时状态.    
 
-当 `GameplayAbility` 在服务端授予时, 服务端会复制 `GameplayAbilitySpec` 到所属(Owning)客户端, 因此可以激活它.   
+当 `GameplayAbility` 在**服务端授予**时, 服务端会复制 `GameplayAbilitySpec` 到所属(Owning)客户端, 因此可以激活它。
 
-激活 `GameplayAbilitySpec` 会根据它的 `实例化策略(Instancing Policy)` 创建一个 `GameplayAbility` 实例(`Non-Instanced GameplayAbility` 除外).   
+**激活 `GameplayAbilitySpec` 会根据它的 `实例化策略(Instancing Policy)` 创建一个 `GameplayAbility` 实例 (`Non-Instanced GameplayAbility` 除外).**    
+
+![[Pasted image 20231014230755.png]]
+
+
 
 ### 11 传递数据到Ability
 
