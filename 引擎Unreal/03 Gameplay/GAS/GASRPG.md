@@ -168,14 +168,14 @@ TMap<FGameplayTag, FuncPtr> TagsToAttributes;
 TMap<FGameplayTag, FGameplayAttribute (*)()> TagsToAttributes;
 ```
 
-终极必杀模板：
+终极必杀：模板
 ```c++
 //声明一个可以返回任何类型的无参函数指针
 template<typename T>
-using TStaticFuncPtr = T (*)();
+using TFuncPtr = T (*)();
 
 //更优雅的实现！
-TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute>> TagsToAttributes; 
+TMap<FGameplayTag, TFuncPtr<FGameplayAttribute>> TagsToAttributes; 
 ```
 
 当然我们也可以回去使用 UE 的模板 该模板支持可变参数
@@ -184,3 +184,4 @@ template<typename T>
 using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T,FDefaultDelegateUserPolicy>::FFuncPtr;
 
 ```
+
