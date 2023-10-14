@@ -1884,6 +1884,7 @@ int calculate(int a, int b, FuncPtr operation)
      return result;
 }
 
+//也可以这样写：
 int calculate(int a, int b, int (*operation)(int, int) )
 {
     int result;

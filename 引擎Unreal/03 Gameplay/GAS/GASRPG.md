@@ -165,4 +165,22 @@ TMap<FGameplayTag, FuncPtr> TagsToAttributes;
 
 直接用提示里的函数指针替换那一大串就 OK 了！更优雅了
 ```c++
+TMap<FGameplayTag, FGameplayAttribute (*)()> TagsToAttributes;
+```
+
+终极必杀模板：
+```c++
+//声明一个可以返回任何类型的无参函数指针
+template<typename T>
+using TStaticFuncPtr = T (*)();
+
+//更优雅的实现！
+TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute>> TagsToAttributes; 
+```
+
+当然我们也可以回去使用 UE 的模板 该模板支持可变参数
+```c++
+template<typename T>
+using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T,FDefaultDelegateUserPolicy>::FFuncPtr;
+
 ```
