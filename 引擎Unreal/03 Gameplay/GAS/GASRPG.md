@@ -120,3 +120,29 @@ DefaultEngine.ini
 //添加 = /Script/项目名/资产管理类名
 AssetManagerClassName = /Script/ProjectGASRPG.MageAssetManager
 ```
+
+# 委托绑定函数指针
+
+直接利用 TMap 绑定委托：
+```c++
+/** 用于AttributeMenuWidgetController广播初始值 */
+TMap<FGameplayTag, FAttributeSignature> TagsToAttributes;
+
+
+FAttributeSignature HealthDelegate;
+HealthDelegate.BindStatic(GetHealthAttribute); //绑定委托，每次调用委托都会返回对应的FGameplayAttribute
+TagsToAttributes.Add(FMageGameplayTags::Get().Attribute_Vital_Health, HealthDelegate);
+```
+
+下面三行要对每一个属性进行绑定，重复很多行，很不优雅。
+
+用 TBaseStaticDelegateInstance FunctionPtr 代替 FAttributeSignature 委托
+```c++
+//TBaseStaticDelegateInstance委托可以绑定一个C++函数指针
+TMap<FGameplayTag, TBaseStaticDelegateInstance<FGameplayAttribute(),FDefaultDelegateUserPolicy>::FFuncPtr> TagsToAttributes;
+
+//只需要一行即可
+TagsToAttributes.Add(FMageGameplayTags::Get().Attribute_Vital_Health, GetHealthAttribute);
+```
+
+核心在于：TBaseStaticDelegateInstance 委托可以绑定一个 C++函数指针。
