@@ -2291,18 +2291,16 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 |GameplayTagContainer|描述|
 |:-:|:-:|
-|Ability Tags|`GameplayAbility`拥有的`GameplayTag`, 这只是用来描述`GameplayAbility`的`GameplayTag`. |
-|Cancel Abilities with Tag|当该`GameplayAbility`激活时, 其他`Ability Tags`中拥有这些`GameplayTag`的`GameplayAbility`将会被取消. |
-|Block Abilities with Tag|当该`GameplayAbility`激活时, 其他`Ability Tags`中拥有这些`GameplayTag`的`GameplayAbility`将会阻塞激活.|
-|Activation Owned Tags|当该`GameplayAbility`激活时, 这些`GameplayTag`会交给该`GameplayAbility`的拥有者.|
-|Activation Required Tags|该`GameplayAbility`只有在其拥有者拥有所有这些`GameplayTag`时才会激活.|
-|Activation Blocked Tags|该`GameplayAbility`在其拥有者拥有任意这些标签时不能被激活.|
-|Source Required Tags|该`GameplayAbility`只有在`Source`拥有所有这些`GameplayTag`时才会激活. `Source GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
-|Source Blocked Tags|该`GameplayAbility`在`Source`拥有任意这些标签时不能被激活. `Source GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
-|Target Required Tags|该`GameplayAbility`只有在`Target`拥有所有这些`GameplayTag`时才会激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
-|Target Blocked Tags|该`GameplayAbility`在`Target`拥有任意这些标签时不能被激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
-
-![[Pasted image 20231015000505.png]]
+|Ability Tags|此 Ability 有以下 Tag |
+|Cancel Abilities with Tag|执行此Ability时，带有这些Tag的Ability会被取消 |
+|Block Abilities with Tag|此Ability激活时，带有这些Tag的Ability会被阻止 |
+|Activation Owned Tags|此Ability激活时应用于激活所有者的Tag。|
+|Activation Required Tags|只有当激活的角色/组件拥有所有这些 Tag 时，才能激活此Ability。|
+|Activation Blocked Tags|如果激活的角色/组件具有以下任何一个Tag，此Ability 将被阻止。|
+|Source Required Tags|只有当源角色/组件具有所有这些Tag时才会激活Ability |
+|Source Blocked Tags|源角色/组件具有以下任何一个Tag，此Ability 将被阻止。|
+|Target Required Tags|只有当目标角色/组件具有所有这些Tag时，才能激活此Abilty。 |
+|Target Blocked Tags|目标角色/组件具有以下任何一个Tag，此Ability 将被阻止。 |
 
 ### 10 Gameplay Ability Spec
 
