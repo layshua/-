@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
       "basename": "0 蓝图精粹",
       "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
     },
@@ -11,10 +31,6 @@
     {
       "basename": "5 CommandBuffer",
       "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
-    },
-    {
-      "basename": "2 URP",
-      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
     },
     {
       "basename": "1 ShaderLab",
@@ -183,22 +199,6 @@
     {
       "basename": "4 局域网",
       "path": "引擎Unreal/06 网络/4 局域网.md"
-    },
-    {
-      "basename": "网络概述",
-      "path": "引擎Unreal/06 网络/官方文档/网络概述.md"
-    },
-    {
-      "basename": "多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档",
-      "path": "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
-    },
-    {
-      "basename": "角色移动组件-网络移动",
-      "path": "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md"
-    },
-    {
-      "basename": "在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档",
-      "path": "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md"
     }
   ],
   "omittedPaths": [],

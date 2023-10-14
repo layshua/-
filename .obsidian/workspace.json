@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           },
@@ -81,7 +81,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md"
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md"
               }
             }
           }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
+                "file": "技术美术/1 渲染雅集/03 深度法线纹理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,9 +202,13 @@
   },
   "active": "d206f51a1241def8",
   "lastOpenFiles": [
+    "技术美术/1 渲染雅集/02 顶点动画.md",
+    "技术美术/1 渲染雅集/05 描边.md",
+    "技术美术/1 渲染雅集/04 溶解.md",
+    "引擎Unity3D/3 URP精粹/2 URP.md",
+    "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
     "编程/1 C++/1 C++ Primer.md",
@@ -215,7 +219,6 @@
     "zip/images/Pasted image 20231013214339.png",
     "zip/images/Pasted image 20231013213910.png",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "zip/images/Pasted image 20231013173418.png",
     "zip/images/Pasted image 20231012234657.png",
     "zip/images/Pasted image 20231012234505.png",
@@ -230,8 +233,6 @@
     "TA/URP/URPShader.md",
     "TA/技术美术101.md",
     "Unity/Shader入门精要.md",
-    "Unity/常用插件.md",
-    "TA/贾天源技美学习大纲.md",
-    "TA/图形学奇点.md"
+    "Unity/常用插件.md"
   ]
 }
