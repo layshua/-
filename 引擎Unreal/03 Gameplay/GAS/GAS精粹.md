@@ -2088,8 +2088,8 @@ Granting
 向`ASC`授予`GameplayAbility`会将其添加到`ASC`的`ActivatableAbilities`列表, 从而允许其在满足[`GameplayTag`需求](#concepts-ga-tags)时激活该`GameplayAbility`.  
 
 **技能系统组件的以下函数可以 `授予` 对某项技能的访问：**
-- **`GiveAbility`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。
-- **`GiveAbilityAndActivateOnce`**：使用 `FGameplayAbilitySpec` 指定要添加的技能，并返回 `FGameplayAbilitySpecHandle`。技能必须实例化，并且必须能够在服务器上运行。尝试在服务器上运行技能后，将返回 `FGameplayAbilitySpecHandle`。如果技能没有满足所需条件，或者无法执行，返回值将无效，并且技能系统组件将不会被授予该技能。 
+- **`GiveAbility`**：使用 `FGameplayAbilitySpec` 指定要添加的 Ability，并返回 `FGameplayAbilitySpecHandle`。（不激活 Ability）
+- **`GiveAbilityAndActivateOnce`**：使用 `FGameplayAbilitySpec` 指定要添加的 Ability，立即**激活一次** Ability 并返回 `FGameplayAbilitySpecHandle`。技能必须实例化，并且必须能够**在服务器上运行**。尝试在服务器上运行技能后，将返回 `FGameplayAbilitySpecHandle`。如果技能没有满足所需条件，或者无法执行，返回值将无效，并且技能系统组件将不会被授予该技能。 
 
 我们在服务端授予 `GameplayAbility`, 之后其会自动复制 [GameplayAbilitySpec](#concepts-ga-spec) 到所属(Owning)客户端, 其他客户端/Simulated proxy 不会接受到 `GameplayAbilitySpec`.   
 
@@ -2285,12 +2285,14 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 <a name="concepts-ga-tags"></a>
 ### 09 Ability 标签
 
-`GameplayAbility` 自带有内建逻辑的 `GameplayTagContainer`. 这些 `GameplayTag` 都不进行复制.   
+`GameplayAbility` 自带有内建逻辑的 `GameplayTagContainer`. 
+
+![[Pasted image 20231015000402.png]]
 
 |GameplayTagContainer|描述|
 |:-:|:-:|
-|Ability Tags|`GameplayAbility`拥有的`GameplayTag`, 这只是用来描述`GameplayAbility`的`GameplayTag`.|
-|Cancel Abilities with Tag|当该`GameplayAbility`激活时, 其他`Ability Tags`中拥有这些`GameplayTag`的`GameplayAbility`将会被取消.|
+|Ability Tags|`GameplayAbility`拥有的`GameplayTag`, 这只是用来描述`GameplayAbility`的`GameplayTag`. |
+|Cancel Abilities with Tag|当该`GameplayAbility`激活时, 其他`Ability Tags`中拥有这些`GameplayTag`的`GameplayAbility`将会被取消. |
 |Block Abilities with Tag|当该`GameplayAbility`激活时, 其他`Ability Tags`中拥有这些`GameplayTag`的`GameplayAbility`将会阻塞激活.|
 |Activation Owned Tags|当该`GameplayAbility`激活时, 这些`GameplayTag`会交给该`GameplayAbility`的拥有者.|
 |Activation Required Tags|该`GameplayAbility`只有在其拥有者拥有所有这些`GameplayTag`时才会激活.|
@@ -2300,19 +2302,8 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 |Target Required Tags|该`GameplayAbility`只有在`Target`拥有所有这些`GameplayTag`时才会激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 |Target Blocked Tags|该`GameplayAbility`在`Target`拥有任意这些标签时不能被激活. `Target GameplayTag`只有在该`GameplayAbility`由Event触发时设置.|
 
-官方文档：
+![[Pasted image 20231015000505.png]]
 
-|玩法标记变量|目的|
-|---|---|
-|Cancel Abilities With Tag |如果任何已在执行的技能带有与执行此技能时提供的列表匹配的标记，则取消那些技能。|
-|Block Abilities With Tag|在执行此技能时，阻止执行具有匹配标记的任何其他技能。|
-|Activation Owned Tags|在执行此技能时，技能的所有者将被给予这组标记。|
-|Activation Required Tags|只有激活的 Actor 或组件具有所有这些标记时，技能才会被激活。|
-|Activation Blocked Tags|只有激活的 Actor 或组件没有任何这些标记时，技能才会被激活|
-|Target Required Tags|只有目标 Actor 或组件具有所有这些标记时，技能才会被激活。|
-|Target Blocked Tags|只有目标 Actor 或组件没有任何这些标记时，技能才会被激活。|
-
-<a name="concepts-ga-spec"></a>
 ### 10 Gameplay Ability Spec
 
 `GameplayAbilitySpec` 会在 `GameplayAbility` 授予后存在于 `ASC` 中并定义与 `GameplayAbility` 相关的详细信息。包括 `GameplayAbility` 类本身，技能等级，输入绑定和必须与 `GameplayAbility` 类分开保存的运行时状态.    
