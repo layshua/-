@@ -162,7 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 280.5
+    "width": 304.50418853759766
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -198,9 +198,17 @@
                 "sortOrder": "frequency"
               }
             }
+          },
+          {
+            "id": "6486e6362f956bae",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -224,10 +232,14 @@
   "active": "d206f51a1241def8",
   "lastOpenFiles": [
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "Tools/Obsidian/插件流.md",
+    "zip/images/Pasted image 20231015174800.png",
+    "Tools/工具流.md",
+    "Tools/System/控制面板.md",
+    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "zBuffer/UE5_2 实操 1 - 增强输入.md",
     "引擎Unreal/02 UE++/2 类型.md",
-    "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/丁书凯FPS.md",
     "zip/images/Pasted image 20231015000505.png",
     "zip/images/Pasted image 20231015000402.png",
@@ -251,13 +263,9 @@
     "引擎Unity3D/3 URP精粹/5 CommandBuffer.md",
     "引擎Unity3D/3 URP精粹/1 ShaderLab.md",
     "引擎Unity3D/3 URP精粹/6 脚本.md",
-    "引擎Unreal/02 UE++/7 资源加载.md",
-    "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md",
     "zip/images/Pasted image 20231013215510.png",
     "zip/images/Pasted image 20231013214339.png",
     "zip/images/Pasted image 20231013213910.png",
-    "zip/images/Pasted image 20231013173418.png",
-    "zip/images/Pasted image 20231012234657.png",
-    "编程/1 C++/3 Effective C++.md"
+    "zip/images/Pasted image 20231013173418.png"
   ]
 }

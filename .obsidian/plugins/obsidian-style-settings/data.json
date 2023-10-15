@@ -129,5 +129,6 @@
   "file-tree-alternative-plugin@@oz-fta-folder-pane-file-name-color": "#7D7A7A",
   "minimal-style@@tab-stacked-pane-width": 700,
   "CodeMirror Options@@cm-active-line-background-color@@light": "#353A50",
-  "CodeMirror Options@@cm-wrap-lines": "pre-wrap"
+  "CodeMirror Options@@cm-wrap-lines": "pre-wrap",
+  "minimal-style@@ribbon-style": "ribbon-bottom-left-hover"
 }

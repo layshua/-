@@ -3081,16 +3081,10 @@ Paragon中的Slow Effect是非堆栈的. 应用每个实例并且像平常一样
 
 如果你需要在等待玩家从`WaitTargetData AbilityTask`生成[TargetData](#concepts-targeting-data)时暂停游戏, 我建议使用`slomo 0`而不是暂停.  
 
-
-
-<a name="cae-onebuttoninteractionsystem"></a>
 ### 5.9 按钮交互系统(Button Interaction System)
 
 GASShooter实现了一个按钮交互系统, 玩家可以按下或按住'E'键来和可交互对象交互, 像复活玩家, 打开武器箱, 打开或关闭滑动门.  
 
-
-
-<a name="debugging"></a>
 # 六、调试 GAS
 
 通常在调试GAS相关的问题时, 你感兴趣的事情像:  
@@ -3114,8 +3108,6 @@ PRAGMA_ENABLE_OPTIMIZATION_ACTUAL
 ```
 
 
-
-<a name="debugging-sd"></a>
 ### 6.1 showdebug abilitysystem
 
 - 在游戏中的控制台输入 `showdebug abilitysystem`. 该特性被分为三"页", 三页都会显示当前拥有的 `GameplayTag`, 
