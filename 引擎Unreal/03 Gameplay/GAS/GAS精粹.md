@@ -2261,6 +2261,20 @@ FGameplayAbilitySpecHandle GiveAbilityAndActivateOnce(const FGameplayAbilitySpec
 
 如果服务端在任意时刻激活失败, 就会调用`ClientActivateAbilityFailed()`, 立即终止客户端的`GameplayAbility`并撤销所有预测的修改.  
 <a name="concepts-ga-activating-passive"></a>
+#### 获取激活的 Ability
+
+初学者经常会问"我怎样才能获取激活的 Ability?", 也许是用来设置变量或取消它. 多个 `GameplayAbility` 可以在同一时刻激活, 因此没有"一个激活的 Ability", 相反, 你必须搜索 `ASC` 的 `ActivatableAbility` 列表(`ASC` 拥有的已授予 `GameplayAbility`)并找到一个与你正在寻找的[资源或授予的GameplayTag](#concepts-ga-tags) 相匹配的 Ability.   
+
+`UAbilitySystemComponent::GetActivatableAbilities()` 会返回一个用于遍历的 `TArray<FGameplayAbilitySpec>`.   
+
+`ASC` 还有另一个有用的函数, 它将一个 `GameplayTagContainer` 作为参数来协助搜索, 而无需手动遍历 `GameplayAbilitySpec` 列表. `bOnlyAbilitiesThatSatisfyTagRequirements` 参数只会返回那些 `GameplayTag` 满足需求且可以立刻激活的 `GameplayAbilitySpecs`, 例如, 你可能有两个基本的攻击 `GameplayAbility`, 一个使用武器, 另一个使用拳头, 正确的激活取决于武器是否装备并设置了 `GameplayTag` 需求. 详见 Epic 关于函数的注释.   
+
+```c++
+UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(const FGameplayTagContainer& GameplayTagContainer, TArray < struct FGameplayAbilitySpec* >& MatchingGameplayAbilities, bool bOnlyAbilitiesThatSatisfyTagRequirements = true)
+```
+
+一旦你获取到了寻找的 `FGameplayAbilitySpec`, 那么就可以调用它的 `IsActive()`.     
+
 #### 被动Ability
 
 为了实现自动激活和持续运行的被动`GameplayAbility`, 需要重写`UGameplayAbility::OnAvatarSet()`, 该函数在授予`GameplayAbility`并设置`AvatarActor`且调用`TryActivateAbility()`时自动调用.  
@@ -2282,20 +2296,6 @@ void UGDGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo * ActorInfo
 ```
 
 Epic 描述该函数为初始化被动 Ability 的正确位置和应该做一些类似 `BeginPlay` 的事情.   
-
-### 06 获取激活的 Ability
-
-初学者经常会问"我怎样才能获取激活的 Ability?", 也许是用来设置变量或取消它. 多个 `GameplayAbility` 可以在同一时刻激活, 因此没有"一个激活的 Ability", 相反, 你必须搜索 `ASC` 的 `ActivatableAbility` 列表(`ASC` 拥有的已授予 `GameplayAbility`)并找到一个与你正在寻找的[资源或授予的GameplayTag](#concepts-ga-tags) 相匹配的 Ability.   
-
-`UAbilitySystemComponent::GetActivatableAbilities()` 会返回一个用于遍历的 `TArray<FGameplayAbilitySpec>`.   
-
-`ASC` 还有另一个有用的函数, 它将一个 `GameplayTagContainer` 作为参数来协助搜索, 而无需手动遍历 `GameplayAbilitySpec` 列表. `bOnlyAbilitiesThatSatisfyTagRequirements` 参数只会返回那些 `GameplayTag` 满足需求且可以立刻激活的 `GameplayAbilitySpecs`, 例如, 你可能有两个基本的攻击 `GameplayAbility`, 一个使用武器, 另一个使用拳头, 正确的激活取决于武器是否装备并设置了 `GameplayTag` 需求. 详见 Epic 关于函数的注释.   
-
-```c++
-UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(const FGameplayTagContainer& GameplayTagContainer, TArray < struct FGameplayAbilitySpec* >& MatchingGameplayAbilities, bool bOnlyAbilitiesThatSatisfyTagRequirements = true)
-```
-
-一旦你获取到了寻找的 `FGameplayAbilitySpec`, 那么就可以调用它的 `IsActive()`.     
 
 ### 09 Ability 标签
 
