@@ -27,7 +27,6 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 
 需要特别注意的是：因为在BaseGame.ini中，InputPitchScale=-2.5，且PlayerController自带的AddPitchInput接口会将鼠标Pitch输入系数乘以该配置，所以一般**MouseY的轴映射为-1.0**，这样鼠标往上（-Y，Pitch<0）移动时，视角上抬，鼠标往下（+Y，Pitch>0）移动时，视角下移。
 # 人物转向问题
-- [x] 模拟逆水寒自在模式
 
 [虚幻4人物转向问题{User Controller Rotaion Yaw，User Controller Desired Rotation与Orient Rotaion to Movement}-CSDN博客](https://blog.csdn.net/u012249992/article/details/83186907)
 ![[Pasted image 20231006091114.png]]
@@ -36,7 +35,24 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 通常我们新建第三人称项目时，默认如上图的设置，这个时候按 s 键人正面是面向镜头的，这在一般的 rpg 或 act 游戏都是如此设置，而在绝地求生这类 STG 里按 s 键是背对镜头的，如何设置人物转向就在上面三个 bool 值决定。
 
 **人物后移不转向（即人物始终跟随镜头转向）：**
-`Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向，区别在于第二个会让转向更加平滑的过度，也可以设置转向的速度，第一个就直接跟鼠标或手柄移动一致转向，如果想让转向更平滑可以设置第二个 bool 值为 true 即可，`Orient Rotaion to Movement` 则在没有 wasd 这种 move 输入的时候不会让人物转向，在人物跑动的时候会有转向效果但是没有往后跑的效果，按 s 键人物正面就会朝着玩家，前两个 bool 值则相反
+`Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向。
+区别：
+- `Use Controller Rotaion Yaw` ：强制同步 Controller 偏航角 Yaw，人物始终跟随镜头转向，向后移动时始终面向前向
+- `User Controlle Desired Rotation` ：平滑的同步 Controller 偏航角 Yaw，也可以设置转向的速度。人物人物始终跟随镜头转向，向后移动时始终面向前向（Desired：期望）
+- `Orient Rotaion to Movement` ：重载 `User Controlle Desired Rotation`，使人物朝向加速方向，人物向后移动时面向后方。
+
+经典第三人称模式（）：
+![[Pasted image 20231015205432.png]]
+![[Pasted image 20231015205440.png]]
+![[Pasted image 20231015205929.png]]
+>SpringArm 上的设置：默认不用动
+
+
+动作模式
+
+需要镜头
+
+
 
 # 描边
 后处理体积设为全局：
@@ -185,3 +201,9 @@ using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T,FDefaultDelegateUs
 
 ```
 
+# 点击移动
+
+生成一条路径来绕过障碍物
+![[Pasted image 20231015203438.png]]
+解决方案：使用**样条线**生成平滑曲线
+![[Pasted image 20231015203516.png|300]]
