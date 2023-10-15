@@ -1952,16 +1952,18 @@ Epic的[Action RPG](https://www.unrealengine.com/marketplace/en-US/slug/action-r
     - **`CancelAbility` 提供了取消技能的机制，不过技能的 `CanBeCanceled` 函数可以拒绝请求**。与 `CommitAbility` 不同，该函数可供技能外调用者使用。成功的取消先播放给 `On Gameplay Ability Cancelled`，然后通过标准代码路径结束技能，让技能可运行特殊的清理代码，否则取消时的行为将与自行结束时的行为不同。
 3. **`TryActivateAbility` 是执行技能的典型方式。该函数调用 `CanActivateAbility` 来确定技能是否可以立即运行，如果可以，则继续调用 `CallActivateAbility`。**
 4. **`EndAbility` 会在技能执行完毕后将其关闭**。如果技能被取消，`UGameplayAbility` 类会将其作为取消流程的一部分自动处理，但其他情况下，开发者都必须调用 C++函数或在技能的蓝图图表中添加节点。如果未能正常结束技能，将导致玩法技能系统认为技能仍在运行，从而带来一些影响，例如禁止将来再使用该技能或任何被该技能阻止的技能。例如，如果游戏的"喝生命药剂"玩法技能没有正常结束，那么使用该技能的角色就无法执行任何在喝血量药剂时无法执行的操作（例如喝其他药剂、快跑、爬梯子等）。这种阻碍会一直存在，因为玩法技能系统会认为角色还在喝药剂。 
-#### Replication Policy
 
-不要使用该选项. 这个名字会误导你并且你并不需要它. [GameplayAbilitySpec](#concepts-ga-spec)默认会从服务端向所属(Owning)客户端复制, 上文提到过, **`GameplayAbility`不会运行在Simulated Proxy上,** 其使用`AbilityTask`和`GameplayCue`来复制或者RPC视觉变化到Simulated Proxy. Epic的Dave Ratti已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
-<a name="concepts-ga-definition-remotecancel"></a>
-#### Server Respects Remote Ability Cancellation
+#### 高级选项
+##### ❌Replication Policy
+
+**不要使用该选项**. 这个名字会误导你并且你并不需要它. [**GameplayAbilitySpec](#concepts-ga-spec) 默认会从服务端向所属(Owning)客户端复制**, 上文提到过, `GameplayAbility` 不会运行在 Simulated Proxy 上, 其使用 `AbilityTask` 和 `GameplayCue` 来复制或者 RPC 视觉变化到 Simulated Proxy. Epic 的 Dave Ratti 已经表明要在未来[移除该选项](https://epicgames.ent.box.com/s/m1egifkxv3he3u3xezb9hzbgroxyhx89)的意愿.  
+
+##### ❌Server Respects Remote Ability Cancellation
 
 这个选项往往会引起麻烦. 它的意思是如果客户端的`GameplayAbility`由于玩家取消或者自然完成时, 就会强制它的服务端版本结束而不管其是否完成. 最重要的是之后的问题, 特别是对于高延迟玩家所使用的客户端预测的`GameplayAbility`. 一般情况下禁用该选项.  
 
 <a name="concepts-ga-definition-repinputdirectly"></a>
-#### Replicate Input Directly
+##### ❌Replicate Input Directly
 
 设置该选项就会一直向服务端复制输入的按下(Press)和抬起(Release)事件. Epic不建议使用该选项而是依靠创建在已有输入相关的[AbilityTask](#concepts-at)中的`Generic Replicated Event`(如果你的[输入绑定在ASC](#concepts-ga-input)).  
 
@@ -1969,18 +1971,65 @@ Epic的注释:
 
 ```c++
 /** Direct Input state replication. These will be called if bReplicateInputDirectly is true on the ability and is generally not a good thing to use. (Instead, prefer to use Generic Replicated Events). */
+//直接输入状态复制。如果 ability 上的 bReplicateInputDirectly 为 true，就会调用这些功能，而且一般不适合使用。(相反，最好使用通用复制事件）。
 UAbilitySystemComponent::ServerSetInputPressed()
 ```
-<a name="concepts-ga-input"></a>
+
+
+##### 网络执行策略 (Net Execution Policy)
+
+网络执行策略 (Net Execution Policy)决定了 `GameplayAbility` 在网络上如何执行
+
+|网络执行策略 (Net Execution Policy)|描述|
+|:-:|:-:|
+|Local Only| `GameplayAbility` 只运行在所属 (Owning)客户端. 这对那些只需做本地视觉变化的 Ability 很有用. 单人游戏应该使用 `Server Only`.|
+|Local Predicted| `Local Predicted GameplayAbility` 首先在所属 (Owning)客户端激活, 之后在服务端激活. 服务端版本会纠正客户端预测的所有不正确的地方. 参见 Prediction.|
+|Server Only| `GameplayAbility` 只运行在服务端. 被动 `GameplayAbility` 一般是 `Server Only`. 单人游戏应该使用该项.|
+|Server Initiated| `Server Initiated GameplayAbility` 首先在服务端激活, 之后在所属 (Owning)客户端激活. 我个人使用的不多 (如果有的话).|
+
+
+##### 网络安全策略 (Net Security Policy)
+
+`GameplayAbility` 的网络安全策略决定了 Ability 应该在网络的何处执行. 它为尝试执行限制 Ability 的客户端提供了保护.  
+
+|网络安全策略|描述|
+|:-:|:-:|
+|ClientOrServer|没有安全需求. 客户端或服务端可以自由地触发该 Ability 的执行和终止.|
+|ServerOnlyExecution|客户端对该 Ability 请求的执行会被服务端忽略, 但客户端仍可以请求服务端取消或结束该 Ability.|
+|ServerOnlyTermination|客户端对该 Ability 请求的取消或结束会被服务端忽略, 但客户端仍可以请求执行该 Ability.|
+|ServerOnly|服务端控制该 Ability 的执行和终止, 客户端的任何请求都会被忽略.|
+
+##### 实例化策略 (Instanced Policy)
+在执行玩法技能时，通常会产生一个（技能类型的）新对象，用于跟踪正在进行的技能。**在某些情况下可能会非常频繁地执行技能，会出现因快速创建技能对象而对性能产生负面影响的情况。**
+为了解决这个问题，技能可以选择**三种不同的实例化策略**，以在效率和功能之间达到平衡。支持的三种实例化类型： 
+
+`GameplayAbility` 的实例化策略决定了当 `GameplayAbility`**激活**时是否和如何实例化.   
+
+|实例化策略|描述|何时使用的例子|
+|:-:|:-:|:-:|
+|按 Actor 实例化 (Instanced Per Actor)|每个 `ASC` 只能有一个在激活之间复用的 `GameplayAbility` 实例. |这可能是你使用最频繁的实例化策略. 你可以对任一 `Ability` 使用并在激活之间提供持久化. 设计者可以在激活之间手动重设任意变量.|
+|按执行实例化 (Instanced Per Execution)|每有一个 `GameplayAbility` 激活, 就有一个新的 `GameplayAbility` 实例创建.|这些 `GameplayAbility` 的好处是每次激活时变量都会重置, 其性能要比 `Instanced Per Actor` 差, 因为每次激活时都会生成新的 `GameplayAbility`. 样例项目没有使用该方式.|
+|非实例化 (Non-Instanced)| `GameplayAbility` 操作其 `ClassDefaultObject`, 没有实例创建.|它是三种方式中性能最好的, 但是使用它是最受限制的. `非实例化(Non-Instanced)GameplayAbility` 不能存储状态, 这意味着没有动态变量和不能绑定到 `AbilityTask` 委托. 使用它的最佳场景就是需要频繁使用的简单 Ability, 像 MOBA 或 RTS 游戏中小兵的基础攻击. 样例项目中的跳跃 `GameplayAbility` 就是 `非实例化(Non-Instanced)` 的. |
+
+官方文档：
+1. **按执行实例化：（Instanced per Execution:）** 每次技能运行时，都会产生技能对象的副本。
+    - 优点：可以自由使用蓝图图表和成员变量，并且所有内容都将在执行开始时初始化为默认值。这是最简单的实例化策略，
+    - 缺点：开销较大，该策略更适合不会频繁运行的技能。
+2. **按 Actor 实例化：（Instanced per Actor:）** 在技能首次执行时，每个 Actor 会生成该技能的一个实例，该对象会在以后的执行中重复使用。这就要求在两次技能执行之间清理成员变量，同时也使保存多个执行的信息成为可能。按 Actor 是较为理想的复制方法，因为技能具有可处理变量和 RPC 的复制对象，而不是浪费网络带宽和 CPU 时间，在每次运行时产生新对象。**该策略适用于大规模的情况，因为大量使用技能的 Actor（例如在大型战斗中）只会在第一次使用技能时产生对象。**
+3. **非实例化：（Non-Instanced:）** 这是所有类别中**最高效**的实例化策略。在运行时，技能不会生成任何对象，而是使用[类默认对象](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine)（CDO）。
+    - 但是，在高效的同时也伴随着一些限制：
+        - 首先，该策略特别**要求技能完全用 C ++编写**，因为创建蓝图图表需要对象实例。你可以创建非实例化技能的蓝图类，但这只能更改已公开属性的默认值。
+        - 此外，在**执行技能期间**，即使在本机 C ++代码中，技能也**不能更改成员变量，不能绑定代理，也不能复制变量或处理 RPC。**
+    - 该策略**仅适用于不需要内部变量存储**（尽管可以针对技能用户设置属性）**并且不需要复制任何数据的技能**。它尤其适合频繁运行且被许多角色使用的技能，例如大型 RTS 或 MOBA 作品中部队使用的基本攻击。
 ### 02 绑定输入到 ASC
 
-**`ASC` 允许你直接绑定输入事件并当你授予 `GameplayAbility` 时分配这些输入到 `GameplayAbility`** , 如果 `GameplayTag` 合乎要求, 当按下按键时, 分配到 `GameplayAbility` 的输入事件会自动激活各自的 `GameplayAbility`. 分配的输入事件要求使用响应输入的内建 `AbilityTask`.   
+**`ASC` 允许你直接绑定输入事件并当你授予 `GameplayAbility` 时分配这些输入到 `GameplayAbility`** , 如果 `GameplayTag` 合乎要求, 当按下按键时, 分配到 `GameplayAbility` 的**输入事件**会自动激活各自的 `GameplayAbility`. **分配的输入事件要求使用响应输入的内建 `AbilityTask`.**    
 
-除了分配的输入事件可以激活`GameplayAbility`, `ASC`也接受一般的`Confirm`和`Cancel`输入, 这些特殊输入被`AbilityTask`用来确定像[Target Actor](#concepts-targeting-actors)的对象或取消它们.  
+除了分配的输入事件可以激活 `GameplayAbility`, `ASC` 也接受一般的 `Confirm` 和 `Cancel` 输入, 这些特殊输入被 `AbilityTask` 用来确定像 [Target Actor](#concepts-targeting-actors) 的对象或取消它们.   
 
-为了绑定输入到`ASC`, 你必须首先创建一个枚举来将输入事件名称转换为byte, 枚举名必须准确匹配项目设置中用于输入事件的名称, `DisplayName`就无所谓了.  
+为了绑定输入到 `ASC`, 你必须首先创建一个枚举来将输入事件名称转换为 byte, 枚举名必须准确匹配项目设置中用于输入事件的名称, `DisplayName` 就无所谓了.   
 
-样例项目中:  
+样例项目中:   
 
 ```c++
 UENUM(BlueprintType)
@@ -2016,7 +2065,7 @@ enum class EGDAbilityInputID : uint8
 AbilitySystemComponent->BindAbilityActivationToInputComponent(PlayerInputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"), FString("CancelTarget"), FString("EGDAbilityInputID"), static_cast<int32>(EGDAbilityInputID::Confirm), static_cast<int32>(EGDAbilityInputID::Cancel)));
 ```
 
-**如果你的 `ASC` 位于 `PlayerState`, `SetupPlayerInputComponent()` 中有一个潜在的竞争情况就是 `PlayerState` 还没有复制到客户端, 因此, 我建议尝试在 `SetupPlayerInputComponent()` 和 `OnRep_PlayerState()` 中绑定输入**, 只有 `OnRep_PlayerState()` 自身是不充分的, 因为可能有种情况是当 `PlayerState` 在 `PlayerController` 告知客户端调用用于创建 `InputComponent` 的 `ClientRestart()` 前复制时, Actor 的 `InputComponent` 可能为 NULL. 样例项目演示了尝试使用一个布尔值控制流程从而在两个位置绑定, 这样实际上只绑定了一次.   
+**如果你的 `ASC` 位于 `PlayerState`, `SetupPlayerInputComponent()` 中有一个潜在的竞争情况就是 `PlayerState` 还没有复制到客户端, 因此, 我建议尝试在 `SetupPlayerInputComponent()` 和 `OnRep_PlayerState()` 中绑定输入**, 只有 `OnRep_PlayerState()` 自身是不充分的, 因为可能有种情况是当 `PlayerState` 在 `PlayerController` 告知客户端调用用于创建 `InputComponent` 的 `ClientRestart()` 前复制时, Actor 的 `InputComponent` 可能为 NULL. 样例项目演示了尝试使用一个布尔值控制流程从而在两个位置绑定, 这样实际上只绑定了一次.    
 
 > [!NOTE]
 > 样例项目枚举中的`Confirm`和`Cancel`没有匹配项目设置中的输入事件名称(`ConfirmTarget`和`CancelTarget`), 但是我们在`BindAbilityActivationToInputComponent()`中提供了它们之间的映射, 这是特殊的, 因为我们提供了映射并且它们无需匹配, 但是它们是可以匹配的. 枚举中的其他输入都必须匹配项目设置中的输入事件名称.  
@@ -2248,41 +2297,6 @@ UAbilitySystemComponent::GetActivatableGameplayAbilitySpecsByAllMatchingTags(con
 
 一旦你获取到了寻找的 `FGameplayAbilitySpec`, 那么就可以调用它的 `IsActive()`.     
 
-
-### 07 实例化策略
-在执行玩法技能时，通常会产生一个（技能类型的）新对象，用于跟踪正在进行的技能。**在某些情况下可能会非常频繁地执行技能，会出现因快速创建技能对象而对性能产生负面影响的情况。**
-为了解决这个问题，技能可以选择**三种不同的实例化策略**，以在效率和功能之间达到平衡。支持的三种实例化类型： 
-
-`GameplayAbility` 的实例化策略决定了当 `GameplayAbility`**激活**时是否和如何实例化.   
-
-|实例化策略|描述|何时使用的例子|
-|:-:|:-:|:-:|
-|按Actor实例化(Instanced Per Actor)|每个`ASC`只能有一个在激活之间复用的`GameplayAbility`实例. |这可能是你使用最频繁的实例化策略. 你可以对任一`Ability`使用并在激活之间提供持久化. 设计者可以在激活之间手动重设任意变量.|
-|按执行实例化(Instanced Per Execution)|每有一个`GameplayAbility`激活, 就有一个新的`GameplayAbility`实例创建.|这些`GameplayAbility`的好处是每次激活时变量都会重置, 其性能要比`Instanced Per Actor`差, 因为每次激活时都会生成新的`GameplayAbility`. 样例项目没有使用该方式.|
-|非实例化(Non-Instanced)|`GameplayAbility`操作其`ClassDefaultObject`, 没有实例创建.|它是三种方式中性能最好的, 但是使用它是最受限制的. `非实例化(Non-Instanced)GameplayAbility`不能存储状态, 这意味着没有动态变量和不能绑定到`AbilityTask`委托. 使用它的最佳场景就是需要频繁使用的简单Ability, 像MOBA或RTS游戏中小兵的基础攻击. 样例项目中的跳跃`GameplayAbility`就是`非实例化(Non-Instanced)`的. |
-
-官方文档：
-1. **按执行实例化：（Instanced per Execution:）** 每次技能运行时，都会产生技能对象的副本。
-    - 优点：可以自由使用蓝图图表和成员变量，并且所有内容都将在执行开始时初始化为默认值。这是最简单的实例化策略，
-    - 缺点：开销较大，该策略更适合不会频繁运行的技能。
-2. **按 Actor 实例化：（Instanced per Actor:）** 在技能首次执行时，每个 Actor 会生成该技能的一个实例，该对象会在以后的执行中重复使用。这就要求在两次技能执行之间清理成员变量，同时也使保存多个执行的信息成为可能。按 Actor 是较为理想的复制方法，因为技能具有可处理变量和 RPC 的复制对象，而不是浪费网络带宽和 CPU 时间，在每次运行时产生新对象。**该策略适用于大规模的情况，因为大量使用技能的 Actor（例如在大型战斗中）只会在第一次使用技能时产生对象。**
-3. **非实例化：（Non-Instanced:）** 这是所有类别中**最高效**的实例化策略。在运行时，技能不会生成任何对象，而是使用[类默认对象](https://docs.unrealengine.com/5.2/zh-CN/objects-in-unreal-engine)（CDO）。
-    - 但是，在高效的同时也伴随着一些限制：
-        - 首先，该策略特别**要求技能完全用 C ++编写**，因为创建蓝图图表需要对象实例。你可以创建非实例化技能的蓝图类，但这只能更改已公开属性的默认值。
-        - 此外，在**执行技能期间**，即使在本机 C ++代码中，技能也**不能更改成员变量，不能绑定代理，也不能复制变量或处理 RPC。**
-    - 该策略**仅适用于不需要内部变量存储**（尽管可以针对技能用户设置属性）**并且不需要复制任何数据的技能**。它尤其适合频繁运行且被许多角色使用的技能，例如大型 RTS 或 MOBA 作品中部队使用的基本攻击。
-
-### 08 网络执行策略(Net Execution Policy)
-
-网络执行策略(Net Execution Policy)决定了 `GameplayAbility` 在网络上如何执行
-
-|网络执行策略(Net Execution Policy)|描述|
-|:-:|:-:|
-|Local Only|`GameplayAbility`只运行在所属(Owning)客户端. 这对那些只需做本地视觉变化的Ability很有用. 单人游戏应该使用`Server Only`.|
-|Local Predicted|`Local Predicted GameplayAbility`首先在所属(Owning)客户端激活, 之后在服务端激活. 服务端版本会纠正客户端预测的所有不正确的地方. 参见Prediction.|
-|Server Only|`GameplayAbility`只运行在服务端. 被动`GameplayAbility`一般是`Server Only`. 单人游戏应该使用该项.|
-|Server Initiated|`Server Initiated GameplayAbility`首先在服务端激活, 之后在所属(Owning)客户端激活. 我个人使用的不多(如果有的话).|
-<a name="concepts-ga-tags"></a>
 ### 09 Ability 标签
 
 `GameplayAbility` 自带有内建逻辑的 `GameplayTagContainer`. 
@@ -2409,19 +2423,6 @@ GASShooter暴露了一个蓝图节点以允许上文提到的仅客户端调用�
 
 ![[789e45f3d6c054bea171333c58322c40_MD5.png]]  
 
-
-
-<a name="concepts-ga-netsecuritypolicy"></a>
-#### 16 网络安全策略(Net Security Policy)
-
-`GameplayAbility`的网络安全策略决定了Ability应该在网络的何处执行. 它为尝试执行限制Ability的客户端提供了保护.  
-
-|网络安全策略|描述|
-|:-:|:-:|
-|ClientOrServer|没有安全需求. 客户端或服务端可以自由地触发该Ability的执行和终止.|
-|ServerOnlyExecution|客户端对该Ability请求的执行会被服务端忽略, 但客户端仍可以请求服务端取消或结束该Ability.|
-|ServerOnlyTermination|客户端对该Ability请求的取消或结束会被服务端忽略, 但客户端仍可以请求执行该Ability.|
-|ServerOnly|服务端控制该Ability的执行和终止, 客户端的任何请求都会被忽略.|
 
 <a name="concepts-at"></a>
 ## 7 Ability Tasks
