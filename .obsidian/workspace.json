@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -24,13 +24,8 @@
             "id": "901fa56220ac355b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -61,7 +56,7 @@
         "dimension": 37.4384236453202,
         "children": [
           {
-            "id": "2c1f62ffea7ea3be",
+            "id": "ad5c747923ad025b",
             "type": "leaf",
             "state": {
               "type": "quiet-outline",
@@ -89,7 +84,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           },
@@ -107,7 +102,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           }
@@ -149,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/01 指南/1 UE指南.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -226,8 +221,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "638af3f7231b161a",
+  "active": "d206f51a1241def8",
   "lastOpenFiles": [
+    "引擎Unreal/01 指南/1 UE指南.md",
+    "zBuffer/UE5_2 实操 1 - 增强输入.md",
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/丁书凯FPS.md",
@@ -260,9 +257,7 @@
     "zip/images/Pasted image 20231013213910.png",
     "zip/images/Pasted image 20231013173418.png",
     "zip/images/Pasted image 20231012234657.png",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "编程/1 C++/3 Effective C++.md",
-    "conflict-files-obsidian-git.md",
-    "编程/1 C++/2 STL标准库.md"
+    "conflict-files-obsidian-git.md"
   ]
 }
