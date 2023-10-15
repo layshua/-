@@ -39,20 +39,24 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 区别：
 - `Use Controller Rotaion Yaw` ：强制同步 Controller 偏航角 Yaw，人物始终跟随镜头转向，向后移动时始终面向前向
 - `User Controlle Desired Rotation` ：平滑的同步 Controller 偏航角 Yaw，也可以设置转向的速度。人物人物始终跟随镜头转向，向后移动时始终面向前向（Desired：期望）
+
+**人物后移转向：**
 - `Orient Rotaion to Movement` ：重载 `User Controlle Desired Rotation`，使人物朝向加速方向，人物向后移动时面向后方。
 
-经典第三人称模式（）：
+**经典MMO模式：**
 ![[Pasted image 20231015205432.png]]
 ![[Pasted image 20231015205440.png]]
 ![[Pasted image 20231015205929.png]]
->SpringArm 上的设置：默认不用动
+>SpringArm 和Camera上的设置：默认不用动
 
 
-动作模式
+**动作模式**
+仅需要修改这里，然后 InputAction 要弄一个根据鼠标位置移动旋转视角的回调，然后隐藏鼠标即可。
+![[Pasted image 20231015210910.png]]
 
-需要镜头
-
-
+**锁敌思路**：
+仅需要修改这里，然后弄一个根据敌人位置旋转视角的回调。
+![[Pasted image 20231015210910.png]]
 
 # 描边
 后处理体积设为全局：
