@@ -78,8 +78,6 @@ const char* p = greeting;          // 指针可修改，数据不可修改
 char const* p = greeting;          // 指针可修改，数据不可修改
 char* const p = greeting;          // 指针不可修改，数据可修改
 const char* const p = greeting;    // 指针不可修改，数据不可修改
-
-
 ```
 
 对于 STL 迭代器，分清使用`const`还是`const_iterator`：
@@ -87,8 +85,6 @@ const char* const p = greeting;    // 指针不可修改，数据不可修改
 ```
 const std::vector<int>::iterator iter = vec.begin();    // 迭代器不可修改，数据可修改
 std::vector<int>::const_iterator iter = vec.begin();    // 迭代器可修改，数据不可修改
-
-
 ```
 
 面对函数声明时，如果你不想让一个函数的结果被无意义地当作左值，请使用 const 返回值：

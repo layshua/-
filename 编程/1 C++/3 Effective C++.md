@@ -133,6 +133,7 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 >1.  对于单纯常量，最好是以 const 对象或者 enums 替换`#define`
 >2.  对于形似函数的宏（macros），最好改用 template inline 函数替换 `#define`
 
+]]
 ### 尽量以编译器替换预处理器
  
 ```c++
@@ -141,6 +142,13 @@ C++没有接口，**本书中的接口指的是一般性的设计概念**，如�
 
 //解决方法：以常量替换上述的宏，可以被编译器看到，记入记号表内
 const double AspectRatio = 1.653
+```
+
+在原书写成时 C++11 中的 `constexpr` 还未诞生，现在一般认为应当用 **`constexpr`** 定义编译期常量来替代大部分的 `#define` 宏常量定义：
+[[1 C++ Primer#【C++11】constexpr 变量]]
+
+```c++
+constexpr auto aspect_ratio = 1.653;
 ```
 
 **以常量替换`#define`，有两种特殊情况：**
@@ -163,6 +171,7 @@ class GamePlayer
 {
 public:
     static const int NumTurns = 10;  //常量声明式
+    static constexpr auto numTurns = 5; //C++11建议这样写
 };
  ```
 
@@ -183,7 +192,7 @@ const int GamePlayer::NumTurns;  //正确
 
 ### enum hack 补偿做法
 
-当你再 class 编译期间需要一个 class 常量值，而编译器（错误的）不允许**static 整数型 class 常量**类内提供初始值时（存在于某些旧式编译器中的问题），则可以使用“enum hack”补偿做法
+当你在 class 编译期间需要一个 class 常量值，而编译器（错误的）不允许**static 整数型 class 常量**类内提供初始值时（存在于某些旧式编译器中的问题），则可以使用“enum hack”补偿做法
     
  ```c++
 class GamePlayer
@@ -203,7 +212,7 @@ public:
 };
  ```
     
-其**理论基础是：一个属于枚举类型的数值可以充当ints被使用**。
+其**理论基础是：一个属于 enum 类型的数值可以充当 int 被使用**。
 
 enum hack 的行为某方面来说比较像 `#define` 而不是 const，有时候这就是想要的。例如取一个 const 的地址是合法的，而取一个 enum 的地址是非法的，而取一个 `#define` 的地址通常也不合法。
 如果不想别人获得指针或者引用指向某个整形常量，enum 可以实现这个约束。
@@ -228,9 +237,11 @@ CALL WITH MAX (++a, b+10);  //a被累加一次
 template <typename T>
 inline T callWithMax(const T& a,const T& b) 
 {
-    	f(a > b ? a : b)
+    f(a > b ? a : b)
 }
 ```
+
+需要注意的是，宏和函数的行为本身并不完全一致，宏只是简单的替换，并不涉及传参和复制。
 
 有了 const，enum，inline，我们对于预处理器（特别是 `#define`）的需求降低了，但并非完全消除。#include 仍然是必需品，而 `#ifdef`，`#ifndef` 也继续扮演着控制编译的重要角色。目前还没到预处理器全面退出的时候，但你应该明确地慎用它。
 
@@ -238,7 +249,6 @@ inline T callWithMax(const T& a,const T& b)
 
 > [!NOTE] 
 > 只要某值保持不变是事实，就声明为const，编译器确保强制执行约束。
-
 
 **用法：**
 1. const 指针和引用：[[1 C++ Primer#const限定符]]

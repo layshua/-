@@ -21,14 +21,6 @@
             }
           },
           {
-            "id": "901fa56220ac355b",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "7ca3b9b668161cc2",
             "type": "leaf",
             "state": {
@@ -252,6 +244,7 @@
   "lastOpenFiles": [
     "编程/1 C++/3 Effective C++.md",
     "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+    "编程/1 C++/1 C++ Primer.md",
     "编程/1 C++/4 现代C++语法.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
@@ -277,7 +270,6 @@
     "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
     "引擎Unreal/06 网络/3 会话管理.md",
-    "编程/1 C++/1 C++ Primer.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
