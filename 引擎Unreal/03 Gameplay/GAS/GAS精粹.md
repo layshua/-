@@ -2316,8 +2316,12 @@ Epic 描述该函数为初始化被动 Ability 的正确位置和应该做一些
 |Target Blocked Tags|目标角色/组件具有以下任何一个Tag，此Ability 将被阻止。 |
 
 ### 10 Gameplay Ability Spec
+`GameplayAbilitySpec` 会在 `GameplayAbility` 授予后存在于 `ASC` 中并定义与 `GameplayAbility` 相关的详细信息。
 
-`GameplayAbilitySpec` 会在 `GameplayAbility` 授予后存在于 `ASC` 中并定义与 `GameplayAbility` 相关的详细信息。包括 `GameplayAbility` 类本身，技能等级，输入绑定和必须与 `GameplayAbility` 类分开保存的运行时状态.    
+一个可激活的 ability spec ，托管在 ASC 上。  
+*  作用：  
+    - 定义了 ability 是什么（class、level、输入绑定等)  
+    - 保存了运行时状态，这些状态必须保留在被实例化/激活的 ability 之外。
 
 当 `GameplayAbility` 在**服务端授予**时, 服务端会复制 `GameplayAbilitySpec` 到所属(Owning)客户端, 因此可以激活它。
 

@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "1 UE指南",
-      "path": "引擎Unreal/01 指南/1 UE指南.md"
-    },
-    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
-    },
-    {
       "basename": "1 GamePlay精粹",
       "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+    },
+    {
+      "basename": "0 蓝图精粹",
+      "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
+    },
+    {
+      "basename": "1 UE指南",
+      "path": "引擎Unreal/01 指南/1 UE指南.md"
+    },
+    {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "3 Effective C++",
@@ -75,10 +79,6 @@
     {
       "basename": "3 容器",
       "path": "引擎Unreal/02 UE++/3 容器.md"
-    },
-    {
-      "basename": "0 蓝图精粹",
-      "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
     },
     {
       "basename": "03 深度法线纹理",
