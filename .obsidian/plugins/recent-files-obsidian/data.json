@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "conflict-files-obsidian-git",
+      "path": "conflict-files-obsidian-git.md"
+    },
+    {
       "basename": "1 GamePlay精粹",
       "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "UMG",
       "path": "引擎Unreal/05 UI/UMG.md"
-    },
-    {
-      "basename": "3 BUG",
-      "path": "引擎Unreal/01 指南/3 BUG.md"
     }
   ],
   "omittedPaths": [],
