@@ -109,6 +109,16 @@ if(World)
     World->SpawnActor<ATreasure>(TreasureClasses, Location, GetActorRotation());
 }
 ```
+
+
+`SpawnActorDeferred` 是虚幻引擎中的一个函数，用于在游戏世界中异步生成一个 Actor（角色）。
+生成给定的类并返回类 T 指针，强制设置世界变换（注意这也允许缩放）。不会运行蓝图的构造脚本
+- 让调用者有机会事先设置参数。调用者负责调用构造脚本
+- 手动调用 `UGameplayStatics::FinishSpawningActor` 才完成 Spawn
+
+使用SpawnActorDeferred函数可以在游戏世界中异步生成Actor，这意味着生成操作将在稍后的时间点执行，而不会立即生效。**这对于需要在生成之前进行一些额外处理或者需要控制生成的时机非常有用。**
+
+需要注意的是，生成的Actor在生成之后需要手动调用FinishSpawning函数来完成构造过程，否则Actor将处于未完成状态。
 ### 销毁 Actor
 
 ```c++
