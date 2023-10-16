@@ -11,8 +11,13 @@
             "id": "d206f51a1241def8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           },
           {
@@ -30,6 +35,25 @@
               "type": "markdown",
               "state": {
                 "file": "编程/1 C++/1 C++ Primer.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "01d2b0b34299b965",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd03f66591303360",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/1 C++/3 Effective C++.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -79,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md"
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
               }
             }
           },
@@ -97,7 +121,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md"
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
               }
             }
           }
@@ -139,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md",
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -173,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/06 网络/1 UE网络精粹.md",
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -226,12 +250,14 @@
   },
   "active": "d206f51a1241def8",
   "lastOpenFiles": [
+    "编程/1 C++/3 Effective C++.md",
+    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
     "编程/1 C++/4 现代C++语法.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "zip/images/Pasted image 20231016101917.png",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
     "引擎Unreal/03 Gameplay/ARPG/ARPG笔记.md",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG.md",
     "zip/images/Pasted image 20231015210910.png",
     "zip/images/Pasted image 20231015205929.png",
     "zip/images/Pasted image 20231015205440.png",
@@ -259,8 +285,6 @@
     "技术美术/1 渲染雅集/02 顶点动画.md",
     "技术美术/1 渲染雅集/05 描边.md",
     "技术美术/1 渲染雅集/04 溶解.md",
-    "引擎Unity3D/3 URP精粹/2 URP.md",
-    "引擎Unity3D/3 URP精粹/3 Renderer Feature.md",
-    "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    "引擎Unity3D/3 URP精粹/2 URP.md"
   ]
 }
