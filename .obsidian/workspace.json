@@ -39,14 +39,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 UE++/0 蓝图精粹.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -89,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           },
@@ -107,7 +108,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
               }
             }
           }
@@ -149,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/02 UE++/1 GamePlay精粹.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -234,12 +235,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d206f51a1241def8",
+  "active": "a7f9e6ea53f8a959",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "引擎Unreal/02 UE++/0 蓝图精粹.md",
-    "引擎Unreal/01 指南/1 UE指南.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/02 UE++/0 蓝图精粹.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "引擎Unreal/01 指南/1 UE指南.md",
     "编程/1 C++/1 C++ Primer.md",
     "编程/1 C++/3 Effective C++.md",
     "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
