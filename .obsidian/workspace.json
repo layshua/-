@@ -36,7 +36,7 @@
         ]
       },
       {
-        "id": "01d2b0b34299b965",
+        "id": "ed5a91f891daa5b1",
         "type": "tabs",
         "children": [
           {
@@ -95,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
             }
           },
@@ -113,7 +113,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
             }
           }
@@ -155,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -173,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 304.50418853759766
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -189,7 +189,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -240,10 +240,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d206f51a1241def8",
+  "active": "fd03f66591303360",
   "lastOpenFiles": [
-    "编程/1 C++/3 Effective C++.md",
     "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+    "编程/1 C++/3 Effective C++.md",
     "编程/1 C++/1 C++ Primer.md",
     "编程/1 C++/4 现代C++语法.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG.md",

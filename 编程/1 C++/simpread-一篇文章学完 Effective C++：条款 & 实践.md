@@ -71,7 +71,7 @@ inline void CallWithMax(const T& a, const T& b) {
 
 若你想让一个常量只读，那你应该明确说出它是 const 常量，对于指针来说，更是如此：
 
-```
+```c++
 char greeting[] = "Hello";
 char* p = greeting;                // 指针可修改，数据可修改
 const char* p = greeting;          // 指针可修改，数据不可修改
@@ -82,24 +82,22 @@ const char* const p = greeting;    // 指针不可修改，数据不可修改
 
 对于 STL 迭代器，分清使用`const`还是`const_iterator`：
 
-```
+```c++
 const std::vector<int>::iterator iter = vec.begin();    // 迭代器不可修改，数据可修改
 std::vector<int>::const_iterator iter = vec.begin();    // 迭代器可修改，数据不可修改
 ```
 
 面对函数声明时，如果你不想让一个函数的结果被无意义地当作左值，请使用 const 返回值：
 
-```
+```c++
 const Rational operator*(const Rational& lhs, const Rational& rhs);
-
-
 ```
 
 **const 成员函数：**
 
 const 成员函数允许我们操控 const 对象，这在传递常引用时显得尤为重要：
 
-```
+```c++
 class TextBlock {
 public:
     const char& operator[](std::size_t position) const {    // const对象使用的重载
@@ -113,18 +111,14 @@ public:
 private:
     std::string text;
 };
-
-
 ```
 
 这样，const 和 non-const 对象都有其各自的重载版本：
 
-```
+```c++
 void Print(const Textblock& ctb) {
     std::cout << ctb[0];            // 调用 const TextBlock::operator[]
 }
-
-
 ```
 
 编译器对待 const 对象的态度通常是 bitwise constness，而我们在编写程序时通常采用 logical constness，这就意味着，在确保客户端不会察觉的情况下，我们认为 const 对象中的某些成员变量应当是允许被改变的，使用关键字`mutable`来标记这些成员变量：
@@ -186,8 +180,6 @@ const char* text = "A C-style string";
 
 double d;
 std::cin >> d;
-
-
 ```
 
 对于类中的成员变量而言，我们有两种建议的方法完成初始化工作，一种是直接在定义处赋初值（since C++11）：
@@ -248,8 +240,6 @@ public:
 };
 
 Directory tempDir;
-
-
 ```
 
 在上面这个例子中，你无法确保位于不同编译单元内的`tfs`一定在`tempDir`之前初始化完成。
