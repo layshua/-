@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "conflict-files-obsidian-git",
-      "path": "conflict-files-obsidian-git.md"
+      "basename": "GAS精粹",
+      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+    },
+    {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "1 GamePlay精粹",
       "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+    },
+    {
+      "basename": "3 Effective C++",
+      "path": "编程/1 C++/3 Effective C++.md"
+    },
+    {
+      "basename": "simpread-一篇文章学完 Effective C++：条款 & 实践",
+      "path": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
     },
     {
       "basename": "2 STL标准库",
@@ -19,10 +31,6 @@
     {
       "basename": "4 现代C++语法",
       "path": "编程/1 C++/4 现代C++语法.md"
-    },
-    {
-      "basename": "GAS精粹",
-      "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
       "basename": "ARPG笔记",
@@ -59,10 +67,6 @@
     {
       "basename": "3 会话管理",
       "path": "引擎Unreal/06 网络/3 会话管理.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
     },
     {
       "basename": "4 委托",
@@ -119,10 +123,6 @@
     {
       "basename": "《Unity设计模式》",
       "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
-    },
-    {
-      "basename": "3 Effective C++",
-      "path": "编程/1 C++/3 Effective C++.md"
     },
     {
       "basename": "程序运行原理",
@@ -195,10 +195,6 @@
     {
       "basename": "Pasted image 20221223234905",
       "path": "zip/images/Pasted image 20221223234905.png"
-    },
-    {
-      "basename": "UMG",
-      "path": "引擎Unreal/05 UI/UMG.md"
     }
   ],
   "omittedPaths": [],
