@@ -4726,7 +4726,8 @@ Sales data&Sales data::operator=(const Sales data&)=default; //类外定义=defa
 
 ### 7.6 阻止拷贝
 有些类不需要拷贝构造函数和拷贝赋值运算符，比如iostream类阻止了拷贝，以避免多个对象写入或读取相同的IO缓冲。
-#### 【C++11】 =delete删除函数
+#### 【C++11】 =delete 删除函数
+#delete
 ```c++
 struct NoCopy
 {

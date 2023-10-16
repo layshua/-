@@ -326,8 +326,6 @@ public:
     Uncopyable(const Uncopyable&) = delete;
     Uncopyable& operator=(const Uncopyable&) = delete;
 };
-
-
 ```
 
 ### 条款 7：为多态基类声明虚析构函数
@@ -340,13 +338,9 @@ public:
     Base();
     virtual ~Base();
 };
-
-
 ```
 
 如果你不想让一个类成为基类，那么在类中声明虚函数是是一个坏主意，因为额外存储的虚表指针会使类的体积变大。
-
-> 只要基类的析构函数是虚函数，那么派生类的析构函数不论是否用 virtual 关键字声明，都自动成为虚析构函数。
 
 虚析构函数的运作方式是，最深层派生的那个类的析构函数最先被调用，然后是其上的基类的析构函数被依次调用。
 
