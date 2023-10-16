@@ -3915,6 +3915,8 @@ oxT
 oXPi
 ovF
 oHC
+oKyhhhH
+oMMM
 OneDrive
 Obsidian
 Office
@@ -13886,6 +13888,9 @@ cLNCv
 cxqb
 cUvk
 cFj
+cJRzz
+ceqrr
+cssclasses
 github
 grey
 green
@@ -17986,6 +17991,7 @@ gMMM
 gCn
 gAl
 gFSTz
+gCCC
 typora
 todo
 tooltip
@@ -22360,6 +22366,9 @@ tWa
 tyle
 tjvH
 tuVB
+tppP
+tuuamm
+tztn
 markdown
 matter
 mod
@@ -27045,6 +27054,7 @@ mUOEm
 mZDqV
 mPw
 maXc
+mvS
 windows
 win
 width
@@ -31051,6 +31061,7 @@ wrs
 wOT
 wCQz
 wwix
+wbkk
 utools
 url
 unresolved
@@ -39679,6 +39690,10 @@ ees
 eJFO
 eSu
 etcOb
+eJRw
+emVPEEE
+eVPP
+eeeX
 VPN
 Verge
 VS
@@ -47612,6 +47627,7 @@ vor
 vMOB
 vUHO
 vHr
+vAYH
 AA
 AppData
 AIRDyuVH
@@ -52530,6 +52546,8 @@ ActivatableAbility
 AbilityActivated
 Ahl
 ADIE
+AuU
+AGzz
 URL
 Utools
 Users
@@ -71732,6 +71750,8 @@ MJZtlW
 MnGU
 MkEH
 MMJ
+Maa
+MBDD
 Windows
 Win
 World
@@ -81988,6 +82008,11 @@ ServerRPCBatching
 SPS
 SAd
 SOuf
+SJuj
+Slll
+SSSDFF
+Sbmm
+SBSS
 Programs
 POP
 PC
@@ -92000,6 +92025,8 @@ CpuB
 CPBraT
 CxqF
 CfCb
+Coefficient
+CCCDFF
 ImTip
 IMAP
 ID
@@ -96739,6 +96766,8 @@ IGameplayCueInterface
 ITJ
 IeYU
 IjP
+IENe
+IUtqq
 qq
 qyi
 quad
@@ -105787,6 +105816,11 @@ pRNU
 paramliteral
 pKmZVGH
 pZh
+pIMMSr
+pwwWy
+puuEzz
+pwwGJJ
+pPYYYoQ
 nodesCatch
 nobr
 navy
@@ -109901,6 +109935,7 @@ nhjR
 nJkxh
 nvQ
 ngkHd
+nsmn
 bf
 bc
 black
@@ -114122,6 +114157,7 @@ bSimulatedTask
 bTickingTask
 byAOER
 bHySj
+bbbPQQ
 fe
 front
 fill
@@ -118292,6 +118328,8 @@ folders
 ftz
 fHH
 fjGg
+fbu
+formattedString
 dd
 dcc
 data
@@ -127856,6 +127894,7 @@ TryActivateAbilitiesByTag
 TryActivateAbilityByClass
 TriggerAbilityFromGameplayEvent
 TickTask
+TBaseStaticDelegateInstance
 io
 ipad
 it
@@ -132794,6 +132833,8 @@ iTC
 ikeU
 ipconfig
 iGt
+irsuVf
+iXXX
 shift
 svg
 sf
@@ -142249,6 +142290,9 @@ lifetime
 lnN
 lHjoM
 lyY
+lquu
+lZfI
+lllj
 YAML
 You
 YEBAYGhURFRofHx
@@ -146307,6 +146351,8 @@ YJBwp
 YJlv
 YqGK
 YRl
+YOIR
+YJJJ
 header
 hidden
 height
@@ -155189,6 +155235,10 @@ reactivated
 rDyni
 rtSxS
 rSr
+rwwW
+roZW
+rvvVKD
+ruhr
 XXXXXX
 XXX
 XML
@@ -159114,6 +159164,8 @@ XkF
 XbN
 XXq
 XxDl
+Xnnn
+XYYit
 HTML
 HasPtr
 Hello
@@ -163725,6 +163777,11 @@ HoldAndRelease
 HeroAbilityCost
 HeroAbilityCooldown
 HasAuthorityOrPredictionKey
+HMSFJjQ
+HOOWhhh
+HLLDdd
+HJJBrr
+HHHHHHHHHHHHH
 Bbb
 Bear
 Base
@@ -173104,6 +173161,9 @@ FEw
 FZfN
 FZTd
 FjGK
+FFFJ
+FunctionPtr
+FAttributeSignature
 Element
 Entity
 Enity
@@ -178190,6 +178250,8 @@ ExternalEndAbility
 EventReceived
 Emqs
 ElvVA
+EffectAssetTags
+EBb
 xmlns
 xyz
 xy
@@ -185713,6 +185775,8 @@ yQCs
 yoSw
 yLV
 yqb
+ynr
+yJEDD
 Debug
 DEBUG
 Dd
@@ -190247,6 +190311,7 @@ DXf
 DnsM
 DIe
 DLxV
+DurationType
 LNK
 Log
 Linux
@@ -194884,6 +194949,7 @@ LdMW
 LnH
 LmbtP
 LmG
+LRSS
 Getx
 GetX
 GetName
@@ -200233,6 +200299,10 @@ Gyp
 GhN
 GhYd
 GURM
+GameplayEffectSpecs
+GameplayEffects
+GameAbility
+GameplayAttribute
 NULL
 Native
 NormalMap
@@ -204665,6 +204735,8 @@ NnOe
 NZSN
 Ngva
 Nfzi
+NhXz
+Nhh
 ZooAnima
 ZooAnimal
 ZTest
@@ -214054,6 +214126,7 @@ Qualifies
 QhPs
 QkO
 QDv
+QDee
 Java
 JPEG
 JlAGTAAAAAAf
@@ -218414,6 +218487,7 @@ JGDOn
 JcOdN
 JFgm
 JSui
+JHHRw
 Ke
 KjpKWmp
 KYW
@@ -222701,6 +222775,7 @@ KJa
 Kfz
 KWF
 KqAK
+Kpqqip
 key
 kSC
 keaXj
@@ -235812,6 +235887,7 @@ jlyE
 jJEE
 jkzn
 jrLKi
+jXo
 ÄjZU
 ÄJ
 Ät

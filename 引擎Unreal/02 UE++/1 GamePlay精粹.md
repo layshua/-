@@ -1541,3 +1541,22 @@ if (bIsHit)
 - `BlueprintSuggestProjectileVelocity`：根据目标点，反算初速度
 - `SuggestProjectileVelocity_CustomArc`：根据目标点，反算初速度
 
+# 计算距离
+1.  Actor 类可调用：`GetDistanceTo` 系列函数计算到另一个 Actor 的距离
+![[Pasted image 20231016101917.png]]
+2. FVector 函数
+```c++
+FVector::Dist( V1, V2)
+FVector::Distance( V1, V2)
+```
+
+3. 直接计算
+
+```c++
+float Direction = V1 - V2;
+
+Direction.Size()
+Direction.SizeSquared(); //很多计算距离的函数都有Squared版本，少一次开方减少计算量。在单纯比较距离大小时可以直接用平方比，结果一样
+Direction.Length();
+
+```

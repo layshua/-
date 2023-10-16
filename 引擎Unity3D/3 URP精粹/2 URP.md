@@ -1,11 +1,10 @@
-
 ---
 title: URP
-aliases: []
-tags: []
+aliases: 
+tags: 
 create_time: 2023-06-27 12:20
 uid: 202306271220
-banner: "![[Pasted image 20230627122009.png]]"
+banner: "[[Pasted image 20230627122009.png]]"
 ---
 
 # 规范

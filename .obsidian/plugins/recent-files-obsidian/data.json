@@ -1,28 +1,40 @@
 {
   "recentFiles": [
     {
+      "basename": "1 UE网络精粹",
+      "path": "引擎Unreal/06 网络/1 UE网络精粹.md"
+    },
+    {
+      "basename": "4 现代C++语法",
+      "path": "编程/1 C++/4 现代C++语法.md"
+    },
+    {
+      "basename": "1 GamePlay精粹",
+      "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
     {
-      "basename": "GameplayEffectExecutionCalculation",
-      "path": "GameplayEffectExecutionCalculation.md"
-    },
-    {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
-    },
-    {
-      "basename": "Pasted image 20221223234905",
-      "path": "zip/images/Pasted image 20221223234905.png"
+      "basename": "ARPG笔记",
+      "path": "引擎Unreal/03 Gameplay/ARPG/ARPG笔记.md"
     },
     {
       "basename": "GASRPG",
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG.md"
     },
     {
-      "basename": "4 委托",
-      "path": "引擎Unreal/02 UE++/4 委托.md"
+      "basename": "插件流",
+      "path": "Tools/Obsidian/插件流.md"
+    },
+    {
+      "basename": "工具流",
+      "path": "Tools/工具流.md"
+    },
+    {
+      "basename": "控制面板",
+      "path": "Tools/System/控制面板.md"
     },
     {
       "basename": "1 UE指南",
@@ -33,24 +45,152 @@
       "path": "引擎Unreal/02 UE++/2 类型.md"
     },
     {
+      "basename": "2 在线子系统和服务",
+      "path": "引擎Unreal/06 网络/2 在线子系统和服务.md"
+    },
+    {
+      "basename": "3 会话管理",
+      "path": "引擎Unreal/06 网络/3 会话管理.md"
+    },
+    {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
+      "basename": "4 委托",
+      "path": "引擎Unreal/02 UE++/4 委托.md"
+    },
+    {
       "basename": "3 容器",
       "path": "引擎Unreal/02 UE++/3 容器.md"
     },
     {
-      "basename": "5 指针",
-      "path": "引擎Unreal/02 UE++/5 指针.md"
+      "basename": "0 蓝图精粹",
+      "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
+    },
+    {
+      "basename": "03 深度法线纹理",
+      "path": "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    },
+    {
+      "basename": "02 顶点动画",
+      "path": "技术美术/1 渲染雅集/02 顶点动画.md"
+    },
+    {
+      "basename": "05 描边",
+      "path": "技术美术/1 渲染雅集/05 描边.md"
+    },
+    {
+      "basename": "04 溶解",
+      "path": "技术美术/1 渲染雅集/04 溶解.md"
+    },
+    {
+      "basename": "2 URP",
+      "path": "引擎Unity3D/3 URP精粹/2 URP.md"
+    },
+    {
+      "basename": "3 Renderer Feature",
+      "path": "引擎Unity3D/3 URP精粹/3 Renderer Feature.md"
+    },
+    {
+      "basename": "5 CommandBuffer",
+      "path": "引擎Unity3D/3 URP精粹/5 CommandBuffer.md"
+    },
+    {
+      "basename": "1 ShaderLab",
+      "path": "引擎Unity3D/3 URP精粹/1 ShaderLab.md"
+    },
+    {
+      "basename": "6 脚本",
+      "path": "引擎Unity3D/3 URP精粹/6 脚本.md"
+    },
+    {
+      "basename": "7 资源加载",
+      "path": "引擎Unreal/02 UE++/7 资源加载.md"
+    },
+    {
+      "basename": "《Unity设计模式》",
+      "path": "引擎Unity3D/1 Unity精粹/《Unity设计模式》.md"
+    },
+    {
+      "basename": "3 Effective C++",
+      "path": "编程/1 C++/3 Effective C++.md"
+    },
+    {
+      "basename": "2 STL标准库",
+      "path": "编程/1 C++/2 STL标准库.md"
+    },
+    {
+      "basename": "程序运行原理",
+      "path": "编程/1 C++/程序运行原理.md"
+    },
+    {
+      "basename": "《鱼书》",
+      "path": "zip/AI/深度学习/《鱼书》.md"
+    },
+    {
+      "basename": "动手学pytorch",
+      "path": "zip/AI/深度学习/动手学pytorch.md"
+    },
+    {
+      "basename": "方向",
+      "path": "zip/AI/论文/方向.md"
+    },
+    {
+      "basename": "Nerf将场景表示为用于视图合成的神经辐射场",
+      "path": "zip/AI/论文/Nerf/Nerf将场景表示为用于视图合成的神经辐射场.md"
+    },
+    {
+      "basename": "可微渲染、NeRF 相关技术概念急速入门",
+      "path": "zip/AI/论文/Nerf/可微渲染、NeRF 相关技术概念急速入门.md"
+    },
+    {
+      "basename": "PyTorch入门",
+      "path": "zip/AI/深度学习/PyTorch入门.md"
+    },
+    {
+      "basename": "快速入门",
+      "path": "zip/AI/深度学习/快速入门.md"
+    },
+    {
+      "basename": "10 十：UObject (一)",
+      "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
     },
     {
       "basename": "1 Gameplay架构",
       "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
     },
     {
-      "basename": "1 GamePlay精粹",
-      "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+      "basename": "5 指针",
+      "path": "引擎Unreal/02 UE++/5 指针.md"
     },
     {
-      "basename": "UE5_2 实操 1 - 增强输入",
-      "path": "zBuffer/UE5_2 实操 1 - 增强输入.md"
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/1 C++/Cherno剩余.md"
+    },
+    {
+      "basename": "5 U++编程规范",
+      "path": "引擎Unreal/01 指南/5 U++编程规范.md"
+    },
+    {
+      "basename": "git入门",
+      "path": "Tools/Git/git入门.md"
+    },
+    {
+      "basename": "Unity Git",
+      "path": "Tools/Git/Unity Git.md"
+    },
+    {
+      "basename": "UE4源码管理",
+      "path": "Tools/Git/UE4源码管理.md"
+    },
+    {
+      "basename": "Pasted image 20221223234905",
+      "path": "zip/images/Pasted image 20221223234905.png"
     },
     {
       "basename": "UMG",
@@ -59,146 +199,6 @@
     {
       "basename": "3 BUG",
       "path": "引擎Unreal/01 指南/3 BUG.md"
-    },
-    {
-      "basename": "1 UE网络精粹",
-      "path": "引擎Unreal/06 网络/1 UE网络精粹.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客",
-      "path": "zBuffer/IDEA 的 LeetCode 力扣插件设置与使用（超详细）_idea leetcode 插件_准程序员的博客 - CSDN 博客.md"
-    },
-    {
-      "basename": "0 蓝图精粹",
-      "path": "引擎Unreal/02 UE++/0 蓝图精粹.md"
-    },
-    {
-      "basename": "UML 类图",
-      "path": "编程/6 UML/UML 类图.md"
-    },
-    {
-      "basename": "2 在线子系统和服务",
-      "path": "引擎Unreal/06 网络/2 在线子系统和服务.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "UE4源码管理",
-      "path": "Tools/Git/UE4源码管理.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
-    },
-    {
-      "basename": "3 会话管理",
-      "path": "引擎Unreal/06 网络/3 会话管理.md"
-    },
-    {
-      "basename": "多人tps笔记",
-      "path": "引擎Unreal/06 网络/多人tps笔记.md"
-    },
-    {
-      "basename": "4 局域网",
-      "path": "引擎Unreal/06 网络/4 局域网.md"
-    },
-    {
-      "basename": "网络概述",
-      "path": "引擎Unreal/06 网络/官方文档/网络概述.md"
-    },
-    {
-      "basename": "多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档",
-      "path": "引擎Unreal/06 网络/官方文档/多人游戏编程快速入门指南 _ 虚幻引擎 5_2 文档.md"
-    },
-    {
-      "basename": "角色移动组件-网络移动",
-      "path": "引擎Unreal/06 网络/官方文档/角色移动组件-网络移动.md"
-    },
-    {
-      "basename": "在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档",
-      "path": "引擎Unreal/06 网络/官方文档/在虚幻引擎中设置专用服务器 _ 虚幻引擎 5_2 文档.md"
-    },
-    {
-      "basename": "设置专用服务器",
-      "path": "引擎Unreal/06 网络/官方文档/设置专用服务器.md"
-    },
-    {
-      "basename": "TPS笔记",
-      "path": "引擎Unreal/03 Gameplay/TPS/TPS笔记.md"
-    },
-    {
-      "basename": "入门",
-      "path": "zip/留学/敏捷开发/入门.md"
-    },
-    {
-      "basename": "作业",
-      "path": "zip/留学/敏捷开发/作业.md"
-    },
-    {
-      "basename": "缴费",
-      "path": "zip/留学/缴费.md"
-    },
-    {
-      "basename": "宝藏",
-      "path": "引擎Unreal/03 Gameplay/宝藏.md"
-    },
-    {
-      "basename": "发布方案",
-      "path": "Tools/Obsidian/发布方案.md"
-    },
-    {
-      "basename": "清单",
-      "path": "zip/留学/清单.md"
-    },
-    {
-      "basename": "03 光照模型",
-      "path": "图形学/1 图形系统/03 光照模型.md"
-    },
-    {
-      "basename": "01 渲染管线",
-      "path": "图形学/1 图形系统/01 渲染管线.md"
-    },
-    {
-      "basename": "02 光栅化",
-      "path": "图形学/1 图形系统/02 光栅化.md"
-    },
-    {
-      "basename": "LearnOpenGL",
-      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
-    },
-    {
-      "basename": "07 混合和剔除",
-      "path": "图形学/1 图形系统/07 混合和剔除.md"
-    },
-    {
-      "basename": "08 透明",
-      "path": "图形学/1 图形系统/08 透明.md"
-    },
-    {
-      "basename": "09 阴影",
-      "path": "图形学/1 图形系统/09 阴影.md"
-    },
-    {
-      "basename": "10 色彩",
-      "path": "图形学/1 图形系统/10 色彩.md"
-    },
-    {
-      "basename": "11 曲线曲面几何",
-      "path": "图形学/1 图形系统/11 曲线曲面几何.md"
-    },
-    {
-      "basename": "04 纹理",
-      "path": "图形学/1 图形系统/04 纹理.md"
-    },
-    {
-      "basename": "2. PBR核心理论与渲染光学原理总结",
-      "path": "图形学/3 全局光照GI/PBR实战/PBR白皮书/2. PBR核心理论与渲染光学原理总结.md"
     }
   ],
   "omittedPaths": [],

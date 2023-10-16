@@ -330,9 +330,9 @@ extern int a = 1; //如果包含了显示初始化，那么声明就会变成定
 #### extern 关键字
 
 在 `a.cpp` 文件中使用在 `b.cpp` 中定义的变量/函数。
-非 const 变量默认为 extern。
+**非 const 变量默认为 extern。**
 
-默认情况下，const 对象被设定为尽在文件内有效，多个文件中出现了同名的 const 变量时，等同于在不同文件中分别定义了独立的变量。
+默认情况下，const 对象被设定为仅在文件内有效，多个文件中出现了同名的 const 变量时，等同于在不同文件中分别定义了独立的变量。
 **有些情况下我们想要只在一个文件中定义 const，而在其他多个文件中声明并使用它，要使 const 变量能够在其他的文件中访问，必须地指定它为 extern。
 ## 3 类型
 ###  指针
@@ -1884,6 +1884,13 @@ int calculate(int a, int b, FuncPtr operation)
      return result;
 }
 
+//也可以这样写：
+int calculate(int a, int b, int (*operation)(int, int) )
+{
+    int result;
+    result = operation(a, b); // 运算
+    return result;
+}
 ```
 ### 为什么要首先使用函数指针
 

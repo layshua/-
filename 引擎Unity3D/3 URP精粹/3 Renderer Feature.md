@@ -1,12 +1,10 @@
-
-
 ---
 title: 3 Renderer Feature
 aliases: []
 tags: []
 create_time: 2023-07-02 14:00
 uid: 202307021400
-banner: "![[Pasted image 20230702140512.png]]"
+banner: "[[Pasted image 20230702140512.png]]"
 ---
 
 > [!NOTE] 简称

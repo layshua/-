@@ -1,6 +1,3 @@
-
-
-
 ---
 title: NeRF:Representing Scenes as Neural Radiance Fields for View Synthesis
 title translation: NeRF:将场景表示为用于视图合成的神经辐射场
@@ -8,11 +5,14 @@ grade: ECCV 2020
 author: Mildenhall等
 date: 2020-08-03
 DOI: 10.48550/arXiv.2003.08934
-url: http://arxiv.org/abs/2003.08934
+url:
+  - http://arxiv.org/abs/2003.08934
 create_time: 2023-05-06 21:54
 uid: 202305062154
-cssclass: academia, academia-rounded
-banner: "![[ca177eecd11fb6fd36c5538ca5534611_MD5.png]]"
+cssclasses:
+  - academia
+  - academia-rounded
+banner: "[[ca177eecd11fb6fd36c5538ca5534611_MD5.png]]"
 banner_y: 0.5
 ---
 

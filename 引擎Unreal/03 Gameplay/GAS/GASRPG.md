@@ -27,7 +27,6 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 
 需要特别注意的是：因为在BaseGame.ini中，InputPitchScale=-2.5，且PlayerController自带的AddPitchInput接口会将鼠标Pitch输入系数乘以该配置，所以一般**MouseY的轴映射为-1.0**，这样鼠标往上（-Y，Pitch<0）移动时，视角上抬，鼠标往下（+Y，Pitch>0）移动时，视角下移。
 # 人物转向问题
-- [x] 模拟逆水寒自在模式
 
 [虚幻4人物转向问题{User Controller Rotaion Yaw，User Controller Desired Rotation与Orient Rotaion to Movement}-CSDN博客](https://blog.csdn.net/u012249992/article/details/83186907)
 ![[Pasted image 20231006091114.png]]
@@ -36,7 +35,28 @@ UE4中**鼠标的 XY 轴**遵循左手定则，从+Z 看向原点时，+X 指向
 通常我们新建第三人称项目时，默认如上图的设置，这个时候按 s 键人正面是面向镜头的，这在一般的 rpg 或 act 游戏都是如此设置，而在绝地求生这类 STG 里按 s 键是背对镜头的，如何设置人物转向就在上面三个 bool 值决定。
 
 **人物后移不转向（即人物始终跟随镜头转向）：**
-`Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向，区别在于第二个会让转向更加平滑的过度，也可以设置转向的速度，第一个就直接跟鼠标或手柄移动一致转向，如果想让转向更平滑可以设置第二个 bool 值为 true 即可，`Orient Rotaion to Movement` 则在没有 wasd 这种 move 输入的时候不会让人物转向，在人物跑动的时候会有转向效果但是没有往后跑的效果，按 s 键人物正面就会朝着玩家，前两个 bool 值则相反
+`Use Controller Rotaion Yaw` 与 `User Controlle Desired Rotation` 都将人物与镜头视角绑定，即让人物始终跟随镜头转向。
+区别：
+- `Use Controller Rotaion Yaw` ：强制同步 Controller 偏航角 Yaw，人物始终跟随镜头转向，向后移动时始终面向前向
+- `User Controlle Desired Rotation` ：平滑的同步 Controller 偏航角 Yaw，也可以设置转向的速度。人物人物始终跟随镜头转向，向后移动时始终面向前向（Desired：期望）
+
+**人物后移转向：**
+- `Orient Rotaion to Movement` ：重载 `User Controlle Desired Rotation`，使人物朝向加速方向，人物向后移动时面向后方。
+
+**经典MMO模式：**
+![[Pasted image 20231015205432.png]]
+![[Pasted image 20231015205440.png]]
+![[Pasted image 20231015205929.png]]
+>SpringArm 和Camera上的设置：默认不用动
+
+
+**动作模式**
+仅需要修改这里，然后 InputAction 要弄一个根据鼠标位置移动旋转视角的回调，然后隐藏鼠标即可。
+![[Pasted image 20231015210910.png]]
+
+**锁敌思路**：
+仅需要修改这里，然后弄一个根据敌人位置旋转视角的回调。
+![[Pasted image 20231015210910.png]]
 
 # 描边
 后处理体积设为全局：
@@ -83,9 +103,111 @@ void AMageEnemy::UnHighlightActor()
 ![[Pasted image 20231007164907.png]]
 
 # UI 架构
+## 血条
 MVC 架构
 ![[Pasted image 20231007205904.png]]
 
 ![[Pasted image 20231007210219.png]]
 
 WidgetController：从 Model 收集数据并广播到 UserWidget
+
+## 属性菜单
+同MVC
+![[Pasted image 20231013214339.png]]
+
+![[Pasted image 20231013215510.png]]
+
+# 属性设计参考
+[各职业属性加点综合讲解（新人篇） - 灵游记秘诀区 - 《灵游记》官方论坛 灵游记|论坛 (ttgames.net)](http://ghostbbs.ttgames.net/showtopic-15269.aspx)
+![[Pasted image 20231011233729.png]]
+
+# UI 参考
+天刀
+![[Pasted image 20231012234505.png]]
+
+诛仙世界：
+![[Pasted image 20231012234657.png]]
+
+![[Pasted image 20231013173418.png]]
+
+# 设置 AssetManager
+DefaultEngine.ini
+
+```c++
+[/Script/Engine.Engine]
+//...
+
+//添加 = /Script/项目名/资产管理类名
+AssetManagerClassName = /Script/ProjectGASRPG.MageAssetManager
+```
+
+# 委托绑定函数指针
+
+直接利用 TMap 绑定委托：
+```c++
+/** 用于AttributeMenuWidgetController广播初始值 */
+TMap<FGameplayTag, FAttributeSignature> TagsToAttributes;
+
+
+FAttributeSignature HealthDelegate;
+HealthDelegate.BindStatic(GetHealthAttribute); //绑定委托，每次调用委托都会返回对应的FGameplayAttribute
+TagsToAttributes.Add(FMageGameplayTags::Get().Attribute_Vital_Health, HealthDelegate);
+```
+
+下面三行要对每一个属性进行绑定，重复很多行，很不优雅。
+
+用 TBaseStaticDelegateInstance FunctionPtr 代替 FAttributeSignature 委托
+```c++
+//TBaseStaticDelegateInstance委托可以绑定一个C++函数指针
+TMap<FGameplayTag, TBaseStaticDelegateInstance<FGameplayAttribute(),FDefaultDelegateUserPolicy>::FFuncPtr> TagsToAttributes;
+
+//只需要一行即可
+TagsToAttributes.Add(FMageGameplayTags::Get().Attribute_Vital_Health, GetHealthAttribute);
+```
+
+**核心在于**：TBaseStaticDelegateInstance 委托可以绑定一个 C++函数指针。
+我们需要 TMap 的值返回 `FGameplayAttribute` 类型，使用 TBaseStaticDelegateInstance 直接绑定 GetHealthAttribute 函数比使用委托获取返回值更优雅。
+```c++
+//这么一大串只需要理解为声明了一个TestFuncPtr的无参函数指针，返回类型为FGameplayAttribute
+TBaseStaticDelegateInstance<FGameplayAttribute(),FDefaultDelegateUserPolicy>::FFuncPtr TestFuncPtr;
+//这是个模板，指定类型后面还可以添加参数！
+```
+
+如果使用原生 C++的函数指针声明方式也是可以的
+```c++
+typedef FGameplayAttribute (*FuncPtr)();
+
+TMap<FGameplayTag, FuncPtr> TagsToAttributes;
+```
+
+当我们用 auto 循环这个 TMap 时，提示：
+![[Pasted image 20231014212321.png]]
+
+直接用提示里的函数指针替换那一大串就 OK 了！更优雅了
+```c++
+TMap<FGameplayTag, FGameplayAttribute (*)()> TagsToAttributes;
+```
+
+终极必杀：模板
+```c++
+//声明一个可以返回任何类型的无参函数指针
+template<typename T>
+using TFuncPtr = T (*)();
+
+//更优雅的实现！
+TMap<FGameplayTag, TFuncPtr<FGameplayAttribute>> TagsToAttributes; 
+```
+
+当然我们也可以回去使用 UE 的模板 该模板支持可变参数
+```c++
+template<typename T>
+using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T,FDefaultDelegateUserPolicy>::FFuncPtr;
+
+```
+
+# 点击移动
+
+生成一条路径来绕过障碍物
+![[Pasted image 20231015203438.png]]
+解决方案：使用**样条线**生成平滑曲线
+![[Pasted image 20231015203516.png|300]]
