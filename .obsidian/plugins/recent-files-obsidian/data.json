@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1 UE指南",
+      "path": "引擎Unreal/01 指南/1 UE指南.md"
+    },
+    {
       "basename": "GAS精粹",
       "path": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
     },
@@ -51,10 +55,6 @@
     {
       "basename": "控制面板",
       "path": "Tools/System/控制面板.md"
-    },
-    {
-      "basename": "1 UE指南",
-      "path": "引擎Unreal/01 指南/1 UE指南.md"
     },
     {
       "basename": "2 类型",
