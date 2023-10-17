@@ -26,15 +26,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
+                "file": "README.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -77,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md"
+                "file": "编程/1 C++/1 C++ Primer.md"
               }
             }
           },
@@ -95,7 +94,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md"
+                "file": "编程/1 C++/1 C++ Primer.md"
               }
             }
           }
@@ -137,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/1 C++/3 Effective C++.md",
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,15 +216,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
       "canvas:新建白板": false,
-      "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "omnisearch:Omnisearch": false
+      "omnisearch:Omnisearch": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "8988bf38997bb5a2",
+  "active": "7ca3b9b668161cc2",
   "lastOpenFiles": [
-    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+    "README.md",
+    "编程/6 UML/UML 类图.md",
     "编程/1 C++/3 Effective C++.md",
+    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
     "编程/1 C++/1 C++ Primer.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
@@ -257,7 +258,6 @@
     "引擎Unreal/03 Gameplay/丁书凯FPS.md",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
-    "引擎Unreal/02 UE++/3 容器.md",
-    "技术美术/1 渲染雅集/03 深度法线纹理.md"
+    "引擎Unreal/02 UE++/3 容器.md"
   ]
 }
