@@ -47636,6 +47636,7 @@ vMOB
 vUHO
 vHr
 vAYH
+vptr
 AA
 AppData
 AIRDyuVH

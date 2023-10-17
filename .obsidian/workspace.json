@@ -8,19 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d206f51a1241def8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "7ca3b9b668161cc2",
             "type": "leaf",
             "state": {
@@ -34,19 +21,33 @@
             }
           },
           {
-            "id": "a7f9e6ea53f8a959",
+            "id": "b0d308f2ff1a2700",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/02 UE++/4 委托.md",
+                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8988bf38997bb5a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/1 C++/3 Effective C++.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -89,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
             }
           },
@@ -107,7 +108,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
             }
           }
@@ -149,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +168,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 304.50418853759766
+    "width": 200
   },
   "right": {
     "id": "bd3717a50a592ecf",
@@ -183,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -234,24 +235,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d206f51a1241def8",
+  "active": "8988bf38997bb5a2",
   "lastOpenFiles": [
+    "编程/1 C++/1 C++ Primer.md",
+    "编程/1 C++/3 Effective C++.md",
+    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+    "引擎Unreal/02 UE++/4 委托.md",
+    "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
     "zip/images/Pasted image 20231017110353.png",
     "引擎Unreal/02 UE++/1 GamePlay精粹.md",
-    "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md",
     "zip/images/Pasted image 20231017102723.png",
     "技术美术/1 渲染雅集/01 Trick！.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
-    "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/06 网络/3 会话管理.md",
     "zip/images/1b2e4c3368c12a1bdbf1b082d9c9dc05_MD5.png",
     "zip/images/Pasted image 20231017091940.png",
     "编程/1 C++/2 STL标准库.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "引擎Unreal/01 指南/1 UE指南.md",
-    "编程/1 C++/1 C++ Primer.md",
-    "编程/1 C++/3 Effective C++.md",
-    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
     "conflict-files-obsidian-git.md",
     "编程/1 C++/4 现代C++语法.md",
     "zip/images/Pasted image 20231016101917.png",
@@ -261,7 +262,6 @@
     "zip/images/Pasted image 20231015205440.png",
     "zip/images/Pasted image 20231015205432.png",
     "zip/images/Pasted image 20231015203516.png",
-    "zip/images/Pasted image 20231015203438.png",
     "Tools/Obsidian/插件流.md",
     "Tools/工具流.md",
     "Tools/System/控制面板.md",
