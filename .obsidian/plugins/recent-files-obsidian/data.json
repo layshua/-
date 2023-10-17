@@ -5,6 +5,10 @@
       "path": "引擎Unreal/03 Gameplay/GAS/GASRPG 笔记.md"
     },
     {
+      "basename": "1 GamePlay精粹",
+      "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
+    },
+    {
       "basename": "01 Trick！",
       "path": "技术美术/1 渲染雅集/01 Trick！.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "3 会话管理",
       "path": "引擎Unreal/06 网络/3 会话管理.md"
-    },
-    {
-      "basename": "1 GamePlay精粹",
-      "path": "引擎Unreal/02 UE++/1 GamePlay精粹.md"
     },
     {
       "basename": "0 蓝图精粹",

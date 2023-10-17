@@ -231,7 +231,23 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FMouseTargetDataSignature ValidData;
+	
+private:
+	virtual void Activate() override;
 };
 ```
 
 只需要在需要的地方广播委托，拉线相当于绑定委托。
+```c++
+void UTargetDataUnderMouse::Activate()
+{
+	if(const APlayerController* PlayerController = Ability->GetCurrentActorInfo()->PlayerController.Get())
+	{
+		FHitResult CursorHit;
+		PlayerController->GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
+		ValidData.Broadcast(CursorHit.ImpactPoint); //广播
+	}
+}
+```
+![[Pasted image 20231017110353.png]]
+当执行到该函数时，就会调用 `Activate ()` 函数
