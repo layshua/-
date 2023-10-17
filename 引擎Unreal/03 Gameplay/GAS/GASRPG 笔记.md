@@ -211,3 +211,27 @@ using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T,FDefaultDelegateUs
 ![[Pasted image 20231015203438.png]]
 解决方案：使用**样条线**生成平滑曲线
 ![[Pasted image 20231015203516.png|300]]
+
+# 自定义蓝图 latent 节点
+![[Pasted image 20231017102723.png]]
+
+```c++
+/** 节点的多个输出引脚都是由委托实现的 */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMouseTargetDataSignature, const FVector&, Data);
+
+UCLASS()
+class PROJECTGASRPG_API UTargetDataUnderMouse : public UAbilityTask
+{
+	GENERATED_BODY()
+
+public:
+//自定义蓝图 latent 函数节点
+	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks",meta = (DisplayName = "TargetDataUnderMouse", HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "TRUE"))
+	static UTargetDataUnderMouse* CreateTargetDataUnderMouse(UGameplayAbility* OwningAbility);
+
+	UPROPERTY(BlueprintAssignable)
+	FMouseTargetDataSignature ValidData;
+};
+```
+
+只需要在需要的地方广播委托，拉线相当于绑定委托。
