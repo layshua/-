@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "b0d308f2ff1a2700",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "8988bf38997bb5a2",
             "type": "leaf",
             "state": {
@@ -47,7 +34,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -234,6 +221,44 @@
       "command-palette:打开命令面板": false,
       "omnisearch:Omnisearch": false
     }
+  },
+  "floating": {
+    "id": "68d39def45878c05",
+    "type": "floating",
+    "children": [
+      {
+        "id": "bb75996b9ae4c57a",
+        "type": "window",
+        "children": [
+          {
+            "id": "22141f5b0e36c69a",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "b0d308f2ff1a2700",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                    "mode": "source",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 1040,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
   },
   "active": "8988bf38997bb5a2",
   "lastOpenFiles": [
