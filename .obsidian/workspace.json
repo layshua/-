@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/06 网络/3 会话管理.md"
               }
             }
           },
@@ -108,7 +108,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md"
+                "file": "引擎Unreal/06 网络/3 会话管理.md"
               }
             }
           }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -184,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+                "file": "引擎Unreal/06 网络/3 会话管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -237,15 +237,18 @@
   },
   "active": "a7f9e6ea53f8a959",
   "lastOpenFiles": [
-    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
+    "zip/images/1b2e4c3368c12a1bdbf1b082d9c9dc05_MD5.png",
+    "zip/images/Pasted image 20231017091940.png",
+    "编程/1 C++/2 STL标准库.md",
+    "引擎Unreal/06 网络/3 会话管理.md",
     "引擎Unreal/03 Gameplay/GAS/GAS精粹.md",
+    "引擎Unreal/02 UE++/1 GamePlay精粹.md",
     "引擎Unreal/02 UE++/0 蓝图精粹.md",
     "引擎Unreal/01 指南/1 UE指南.md",
     "编程/1 C++/1 C++ Primer.md",
     "编程/1 C++/3 Effective C++.md",
     "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
     "conflict-files-obsidian-git.md",
-    "编程/1 C++/2 STL标准库.md",
     "编程/1 C++/4 现代C++语法.md",
     "zip/images/Pasted image 20231016101917.png",
     "引擎Unreal/03 Gameplay/ARPG/ARPG笔记.md",
@@ -264,14 +267,11 @@
     "引擎Unreal/02 UE++/2 类型.md",
     "引擎Unreal/03 Gameplay/丁书凯FPS.md",
     "zip/images/Pasted image 20231015000505.png",
-    "zip/images/Pasted image 20231015000402.png",
     "引擎Unreal/06 网络/1 UE网络精粹.md",
     "引擎Unreal/06 网络/2 在线子系统和服务.md",
-    "引擎Unreal/06 网络/3 会话管理.md",
     "引擎Unreal/02 UE++/4 委托.md",
     "引擎Unreal/02 UE++/3 容器.md",
     "技术美术/1 渲染雅集/03 深度法线纹理.md",
-    "技术美术/1 渲染雅集/02 顶点动画.md",
-    "技术美术/1 渲染雅集/05 描边.md"
+    "技术美术/1 渲染雅集/02 顶点动画.md"
   ]
 }
