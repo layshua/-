@@ -531,7 +531,6 @@ Widget& operator+=(const Widget& rhs) {
     return *this;
 }
 
-
 ```
 
 但若`rhs`和`*this`指向的是相同的对象，就会导致访问到已删除的数据。

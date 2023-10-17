@@ -552,15 +552,15 @@ private:
 
 ### 条款 10：令 operator = 返回一个 reference to *this
 
-简单来说：这样做可以让你的赋值操作符实现 “连等” 的效果：
+简单来说：这样做可以让你的赋值操作符实现连锁赋值：
 
-```
+```c++
 x = y = z = 10;
 ```
 
 如：
 
-```
+```c++
 class Widget
 {
 public:
@@ -574,9 +574,9 @@ public:
 }
 ```
 
-这个协议不仅适用千以上的标准赋值形式，也适用千所有**赋值**相关运算，例如：
+这个协议不仅适用于以上的标准赋值形式，也适用于所有**赋值**相关运算，例如：
 
-```
+```c++
 class Widget
 {
 public:
@@ -598,7 +598,7 @@ public:
 
 注意 **bool 操作符**重载的**返回值**有所不同，请留心，以免无限调用自身。
 
-```
+```c++
 struct Vector2
 {
     ....
@@ -614,12 +614,11 @@ struct Vector2
 };
 ```
 
+注意，这只是个协议，并无强制性。如果不遵循它，代码一样可通过编译。然而这份协议被所有内置类型和标准程序库提供的类型如 string,. vector, complex, trl:: shared ptr 或即将提供的类型（见条款 54）共同遵守。因此除非你有一个标新立异的好理由，不然还是随众吧。
+
 在设计接口时一个重要的原则是，**让自己的接口和内置类型相同功能的接口尽可能相似**，所以如果没有特殊情况，就请让你的赋值操作符的返回类型为`ObjectClass&`类型并在代码中返回`*this`吧。
 
 ### 条款 11：在 operator = 中处理 “自我赋值”
-
-*   确保当对象自我赋值时 operator = 有良好行为。其中技术包括比较 “来源对象” 和“目标对象”的地址、精心周到的语句顺序、以及 copy-and-swap。
-*   确定任何函数如果操作一个以上的对象，而其中多个对象是同一个对象时，其行为仍然正确。
 
 自我赋值指的是将自己赋给自己。这是一种看似愚蠢无用但却在代码中出现次数比任何人想象的多得多的操作，这种操作常常需要假借指针来实现：
 
@@ -628,53 +627,100 @@ struct Vector2
 arr[i] = arr[j];        //i和j相等，便是自我赋值
 ```
 
-那么对于管理一定资源的对象重载的 operator = 中，一定要对是不是自我赋值格外小心并且增加预判，因为无论是深拷贝还是资源所有权的转移，原先的内存或所有权一定会被清空才能被赋值，如果不加处理，这套逻辑被用在自我赋值上会发生——先把自己的资源给释放掉了，然后又把以释放掉的资源赋给了自己——出错了。
-
-第一种做法是在赋值前增加预判，但是这种做法没有异常安全性，试想如果在删除掉原指针指向的内存后，在赋值之前任何一处跑出了异常，那么原指针就指向了一块已经被删除的内存。
+自我赋值是合法的操作，但在一些情况下可能会导致意外的错误，例如在复制堆上的资源时：
 
 ```
-//假设你建立一个class 用来保存一个指针指向一块动态分配的位图(DataBlock) :
-class DataBlock{...};
-SomeClass& SomeClass::operator=(const SomeClass& rhs) {
-  if (this == &rhs) return *this;
+Widget& operator+=(const Widget& rhs) {
+    delete pRes;                          // 删除当前持有的资源
+    pRes = new Resource(*rhs.pRes);       // 复制传入的资源
+    return *this;
+}
 
-  delete ptr;   
-  ptr = new DataBlock(*rhs.ptr);                //如果此处抛出异常，ptr将指向一块已经被删除的内存。
-  return *this;
+```
+
+但若 `rhs` 和 `*this` 指向的是相同的对象，就会导致访问到已删除的数据。
+
+最简单的解决方法是在执行后续语句前先进行**证同测试（Identity test）**：
+
+```
+Widget& operator=(const Widget& rhs) {
+    if (this == &rhs) return *this;        // 若是自我赋值，则不做任何事
+
+    delete pRes;
+    pRes = new Resource(*rhs.pRes);
+    return *this;
+}
+
+
+```
+
+另一个常见的做法是只关注异常安全性，而不关注是否自我赋值：
+
+```
+Widget& operator=(const Widget& rhs) {
+    Resource* pOrigin = pRes;             // 先记住原来的pRes指针
+    pRes = new Resource(*rhs.pRes);       // 复制传入的资源
+    delete pOrigin;                       // 删除原来的资源
+    return *this;
 }
 ```
 
-如果我们把异常安全性也考虑在内，那么我们就会得到如下方法，令人欣慰的是这个方法也解决了自我赋值的问题。
+仅仅是适当安排语句的顺序，就可以做到使整个过程具有异常安全性。
+
+还有一种取巧的做法是使用 copy and swap 技术，这种技术聪明地利用了栈空间会自动释放的特性，这样就可以通过析构函数来实现资源的释放：
 
 ```
-SomeClass& SomeClass::operator=(const SomeClass& rhs) {
-  DataBlock* pOrg = ptr;
-  ptr = new DataBlock(*rhs.ptr);                //如果此处抛出异常，ptr仍然指向之前的内存。
-  delete pOrg;
-  return *this;
+Widget& operator=(const Widget& rhs) {
+    Widget temp(rhs);
+    std::swap(*this, temp);
+    return *this;
 }
 ```
 
-另一个使用 copy and swap 技术的替代方案将在条款 29 中作出详细解释。
+上述做法还可以写得更加巧妙，就是利用按值传参，自动调用构造函数：
+
+```
+Widget& operator=(Widget rhs) {
+    std::swap(*this, rhs);
+    return *this;
+}
+```
+
 
 ### 条款 12：复制对象时勿忘其每一个成分
 
 所谓 “每一个成分”，作者在这里其实想要提醒大家两点：
-
 *   当你给类多加了成员变量时，请不要忘记在拷贝构造函数和赋值操作符中对新加的成员变量进行处理。如果你忘记处理，编译器也不会报错。  
-    
 *   如果你的类有继承，那么在你为子类编写拷贝构造函数时一定要格外小心复制基类的每一个成分，这些成分往往是 private 的，所以你无法访问它们，你应该让子类使用子类的拷贝构造函数去调用相应基类的拷贝构造函数：
 
-```
-//在成员初始化列表显示调用基类的拷贝构造函数
-ChildClass::ChildClass(const ChildClass& rhs) : BaseClass(rhs) {		
-  	// ...
+```c++
+class PriorityCustomer : public Customer {
+public:
+    PriorityCustomer(const PriorityCustomer& rhs);
+    PriorityCustomer& operator=(const PriorityCustomer& rhs);
+    ...
+
+private:
+    int priority;
+}
+
+PriorityCustomer::PriorityCustomer(const PriorityCustomer& rhs)
+    : Customer(rhs),                // 调用基类的拷贝构造函数
+      priority(rhs.priority) {
+    ...
+}
+
+PriorityCustomer::PriorityCustomer& operator=(const PriorityCustomer& rhs) {
+    Customer::operator=(rhs);       // 调用基类的拷贝赋值运算符
+    priority = rhs.priority;
+    return *this;
 }
 ```
 
-除此之外，拷贝构造函数和拷贝赋值操作符，他们两个中任意一个不要去调用另一个，这虽然看上去是一个避免代码重复好方法，但是是荒谬的。其根本原因在于拷贝构造函数在构造一个对象——这个对象在调用之前并不存在；而赋值操作符在改变一个对象——这个对象是已经构造好了的。因此前者调用后者是在给一个还未构造好的对象赋值；而后者调用前者就像是在构造一个已经存在了的对象。不要这么做！
+除此之外，**拷贝构造函数和拷贝赋值操作符，他们两个中任意一个不要去调用另一个**，这虽然看上去是一个避免代码重复好方法，但是是荒谬的。其根本原因在于拷贝构造函数在构造一个对象——这个对象在调用之前并不存在；而赋值操作符在改变一个对象——这个对象是已经构造好了的。因此前者调用后者是在给一个还未构造好的对象赋值；而后者调用前者就像是在构造一个已经存在了的对象。不要这么做！
 
 # 三、资源管理
+**所谓资源就是，一旦用了它，将来必须还给系统**。如果不这样，糟糕的事情就会发生。C++程序中最常使用的资源就是动态分配内存（如果你分配内存却从来不曾归还它，会导致内存泄漏)，但内存只是你必须管理的众多资源之一。其他常见的资源还包括文件描述器 (file descriptors)、互斥锁 (mutex locks)、图形界面中的字型和笔刷、数据库连接、以及网络 sockets。 不论哪一种资源，重要的是，当你不再使用它时，必须将它还给系统。
 
 ### 条款 13：以对象管理资源
 
