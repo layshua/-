@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "LearnOpenGL",
+      "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+    },
+    {
+      "basename": "状态机",
+      "path": "引擎Unreal/04 动画/状态机.md"
+    },
+    {
+      "basename": "02 Bloom",
+      "path": "技术美术/3 后处理/02 Bloom.md"
+    },
+    {
       "basename": "1 C++ Primer",
       "path": "编程/1 C++/1 C++ Primer.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "5 U++编程规范",
       "path": "引擎Unreal/01 指南/5 U++编程规范.md"
-    },
-    {
-      "basename": "git入门",
-      "path": "Tools/Git/git入门.md"
-    },
-    {
-      "basename": "Unity Git",
-      "path": "Tools/Git/Unity Git.md"
-    },
-    {
-      "basename": "UE4源码管理",
-      "path": "Tools/Git/UE4源码管理.md"
     }
   ],
   "omittedPaths": [],

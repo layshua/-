@@ -11,8 +11,13 @@
             "id": "b8cdbdccd5168559",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ]
@@ -43,6 +48,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -73,7 +79,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
+              }
             }
           },
           {
@@ -116,6 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "图形学/2 图形API/OpenGL/LearnOpenGL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,8 +183,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8ec62a486c3cf93c",
+  "active": "b8cdbdccd5168559",
   "lastOpenFiles": [
+    "引擎Unreal/04 动画/状态机.md",
+    "技术美术/3 后处理/02 Bloom.md",
     "TA/2022minigame.md",
     "TA/URP/URP渲染管线.md",
     "TA/URP/DrawCall，Batches，SetPass calls.md",
