@@ -12,7 +12,7 @@ banner_lock: true
 下面来说 `# pargma once`
 
 pragma 本质上是一个被发送到编译器或预处理器的预处理指令。
-**pargma once 阻止我们单个头文件多次被 include 在同一个 cpp 文件里。** 
+**pragma once 阻止我们单个头文件多次被 include 在同一个 cpp 文件里。** 
 
 ```c++
 //新方法

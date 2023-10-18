@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "3 Effective C++",
+      "path": "编程/1 C++/3 Effective C++.md"
+    },
+    {
+      "basename": "simpread-一篇文章学完 Effective C++：条款 & 实践",
+      "path": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
+    },
+    {
+      "basename": "1 C++ Primer",
+      "path": "编程/1 C++/1 C++ Primer.md"
+    },
+    {
+      "basename": "Cherno剩余",
+      "path": "编程/1 C++/Cherno剩余.md"
+    },
+    {
+      "basename": "Effective C++中文版（第三版）",
+      "path": "编程/1 C++/Effective C++中文版（第三版）.pdf"
+    },
+    {
+      "basename": "数据结构",
+      "path": "编程/2 算法/数据结构.md"
+    },
+    {
       "basename": "跳转到主库",
       "path": "zip/templates/跳转到主库.md"
     },
@@ -21,24 +45,12 @@
       "path": "技术美术/3 后处理/02 Bloom.md"
     },
     {
-      "basename": "1 C++ Primer",
-      "path": "编程/1 C++/1 C++ Primer.md"
-    },
-    {
       "basename": "README",
       "path": "README.md"
     },
     {
       "basename": "UML 类图",
       "path": "编程/6 UML/UML 类图.md"
-    },
-    {
-      "basename": "3 Effective C++",
-      "path": "编程/1 C++/3 Effective C++.md"
-    },
-    {
-      "basename": "simpread-一篇文章学完 Effective C++：条款 & 实践",
-      "path": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md"
     },
     {
       "basename": "4 委托",
@@ -187,18 +199,6 @@
     {
       "basename": "快速入门",
       "path": "zip/AI/深度学习/快速入门.md"
-    },
-    {
-      "basename": "10 十：UObject (一)",
-      "path": "引擎Unreal/03 Gameplay/《大象无形》/10 十：UObject (一).md"
-    },
-    {
-      "basename": "1 Gameplay架构",
-      "path": "引擎Unreal/03 Gameplay/《insider UE》/1 Gameplay架构.md"
-    },
-    {
-      "basename": "5 指针",
-      "path": "引擎Unreal/02 UE++/5 指针.md"
     }
   ],
   "omittedPaths": [],

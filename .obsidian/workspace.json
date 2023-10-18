@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zip/templates/跳转到主库.md",
+                "file": "编程/1 C++/3 Effective C++.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c593521550e589a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/1 C++/1 C++ Primer.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -32,7 +45,7 @@
       {
         "id": "253c969ce5fb6548",
         "type": "tabs",
-        "dimension": 54.41176470588235,
+        "dimension": 48.84615384615385,
         "children": [
           {
             "id": "2c1f62ffea7ea3be",
@@ -48,7 +61,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zip/templates/跳转到主库.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -80,16 +93,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zip/templates/跳转到主库.md"
+                "file": "编程/1 C++/3 Effective C++.md"
               }
-            }
-          },
-          {
-            "id": "8ec62a486c3cf93c",
-            "type": "leaf",
-            "state": {
-              "type": "recent-files",
-              "state": {}
             }
           },
           {
@@ -100,13 +105,27 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 4
+        ]
+      },
+      {
+        "id": "94c661e581975ba3",
+        "type": "tabs",
+        "dimension": 21.923076923076923,
+        "children": [
+          {
+            "id": "8ec62a486c3cf93c",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
       },
       {
         "id": "1a1c14cc2d989318",
         "type": "tabs",
-        "dimension": 45.58823529411765,
+        "dimension": 29.230769230769234,
         "children": [
           {
             "id": "638af3f7231b161a",
@@ -124,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zip/templates/跳转到主库.md",
+                "file": "编程/1 C++/3 Effective C++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,6 +190,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "canvas:新建白板": false,
+      "command-palette:打开命令面板": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "obsidian-local-images-plus:Local Images Plus  0.15.8\r\nLocalize attachments (plugin folder)": false,
       "omnisearch:Omnisearch": false,
@@ -178,15 +199,57 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "pdf-to-markdown-plugin:PDF to Markdown": false,
-      "templater-obsidian:Templater": false,
-      "canvas:新建白板": false,
-      "command-palette:打开命令面板": false
+      "templater-obsidian:Templater": false
     }
+  },
+  "floating": {
+    "id": "70e3ddef34b3c871",
+    "type": "floating",
+    "children": [
+      {
+        "id": "bb227f1f91ba1d4a",
+        "type": "window",
+        "children": [
+          {
+            "id": "eae978ee1e691f55",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "b220e4c03cdf4656",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+                    "mode": "source",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 1040,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
   },
   "active": "b8cdbdccd5168559",
   "lastOpenFiles": [
-    "zip/templates/跳转到子库.md",
+    "编程/1 C++/simpread-一篇文章学完 Effective C++：条款 & 实践.md",
+    "编程/1 C++/3 Effective C++.md",
+    "编程/1 C++/1 C++ Primer.md",
+    "编程/2 算法/数据结构.md",
+    "编程/1 C++/Cherno剩余.md",
+    "编程/1 C++/Effective C++中文版（第三版）.pdf",
     "zip/templates/跳转到主库.md",
+    "zip/templates/跳转到子库.md",
     "图形学/2 图形API/OpenGL/LearnOpenGL.md",
     "引擎Unreal/04 动画/状态机.md",
     "技术美术/3 后处理/02 Bloom.md",
