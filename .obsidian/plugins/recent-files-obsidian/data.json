@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "跳转到主库",
+      "path": "zip/templates/跳转到主库.md"
+    },
+    {
+      "basename": "跳转到子库",
+      "path": "zip/templates/跳转到子库.md"
+    },
+    {
       "basename": "LearnOpenGL",
       "path": "图形学/2 图形API/OpenGL/LearnOpenGL.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "5 指针",
       "path": "引擎Unreal/02 UE++/5 指针.md"
-    },
-    {
-      "basename": "Cherno剩余",
-      "path": "编程/1 C++/Cherno剩余.md"
-    },
-    {
-      "basename": "5 U++编程规范",
-      "path": "引擎Unreal/01 指南/5 U++编程规范.md"
     }
   ],
   "omittedPaths": [],
